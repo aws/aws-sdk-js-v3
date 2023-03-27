@@ -42,7 +42,7 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // DeleteConnectorRequest
  *   ConnectorId: "STRING_VALUE", // required
  * };
  * const command = new DeleteConnectorCommand(input);

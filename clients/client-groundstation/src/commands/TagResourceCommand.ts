@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { GroundStationClient, TagResourceCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, TagResourceCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

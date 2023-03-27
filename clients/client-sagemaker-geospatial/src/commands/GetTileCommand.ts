@@ -49,11 +49,11 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  * import { SageMakerGeospatialClient, GetTileCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, GetTileCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // GetTileInput
  *   x: Number("int"), // required
  *   y: Number("int"), // required
  *   z: Number("int"), // required
- *   ImageAssets: [ // required
+ *   ImageAssets: [ // StringListInput // required
  *     "STRING_VALUE",
  *   ],
  *   Target: "STRING_VALUE", // required

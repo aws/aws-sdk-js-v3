@@ -43,20 +43,20 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * import { IvschatClient, CreateLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, CreateLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
- * const input = {
+ * const input = { // CreateLoggingConfigurationRequest
  *   name: "STRING_VALUE",
- *   destinationConfiguration: { // Union: only one key present
- *     s3: {
+ *   destinationConfiguration: { // DestinationConfiguration Union: only one key present
+ *     s3: { // S3DestinationConfiguration
  *       bucketName: "STRING_VALUE", // required
  *     },
- *     cloudWatchLogs: {
+ *     cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
  *       logGroupName: "STRING_VALUE", // required
  *     },
- *     firehose: {
+ *     firehose: { // FirehoseDestinationConfiguration
  *       deliveryStreamName: "STRING_VALUE", // required
  *     },
  *   },
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -79,58 +79,58 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  * import { SageMakerClient, CreateLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateLabelingJobRequest
  *   LabelingJobName: "STRING_VALUE", // required
  *   LabelAttributeName: "STRING_VALUE", // required
- *   InputConfig: {
- *     DataSource: {
- *       S3DataSource: {
+ *   InputConfig: { // LabelingJobInputConfig
+ *     DataSource: { // LabelingJobDataSource
+ *       S3DataSource: { // LabelingJobS3DataSource
  *         ManifestS3Uri: "STRING_VALUE", // required
  *       },
- *       SnsDataSource: {
+ *       SnsDataSource: { // LabelingJobSnsDataSource
  *         SnsTopicArn: "STRING_VALUE", // required
  *       },
  *     },
- *     DataAttributes: {
- *       ContentClassifiers: [
+ *     DataAttributes: { // LabelingJobDataAttributes
+ *       ContentClassifiers: [ // ContentClassifiers
  *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
  *       ],
  *     },
  *   },
- *   OutputConfig: {
+ *   OutputConfig: { // LabelingJobOutputConfig
  *     S3OutputPath: "STRING_VALUE", // required
  *     KmsKeyId: "STRING_VALUE",
  *     SnsTopicArn: "STRING_VALUE",
  *   },
  *   RoleArn: "STRING_VALUE", // required
  *   LabelCategoryConfigS3Uri: "STRING_VALUE",
- *   StoppingConditions: {
+ *   StoppingConditions: { // LabelingJobStoppingConditions
  *     MaxHumanLabeledObjectCount: Number("int"),
  *     MaxPercentageOfInputDatasetLabeled: Number("int"),
  *   },
- *   LabelingJobAlgorithmsConfig: {
+ *   LabelingJobAlgorithmsConfig: { // LabelingJobAlgorithmsConfig
  *     LabelingJobAlgorithmSpecificationArn: "STRING_VALUE", // required
  *     InitialActiveLearningModelArn: "STRING_VALUE",
- *     LabelingJobResourceConfig: {
+ *     LabelingJobResourceConfig: { // LabelingJobResourceConfig
  *       VolumeKmsKeyId: "STRING_VALUE",
- *       VpcConfig: {
- *         SecurityGroupIds: [ // required
+ *       VpcConfig: { // VpcConfig
+ *         SecurityGroupIds: [ // VpcSecurityGroupIds // required
  *           "STRING_VALUE",
  *         ],
- *         Subnets: [ // required
+ *         Subnets: [ // Subnets // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
  *   },
- *   HumanTaskConfig: {
+ *   HumanTaskConfig: { // HumanTaskConfig
  *     WorkteamArn: "STRING_VALUE", // required
- *     UiConfig: {
+ *     UiConfig: { // UiConfig
  *       UiTemplateS3Uri: "STRING_VALUE",
  *       HumanTaskUiArn: "STRING_VALUE",
  *     },
  *     PreHumanTaskLambdaArn: "STRING_VALUE", // required
- *     TaskKeywords: [
+ *     TaskKeywords: [ // TaskKeywords
  *       "STRING_VALUE",
  *     ],
  *     TaskTitle: "STRING_VALUE", // required
@@ -139,19 +139,19 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  *     TaskTimeLimitInSeconds: Number("int"), // required
  *     TaskAvailabilityLifetimeInSeconds: Number("int"),
  *     MaxConcurrentTaskCount: Number("int"),
- *     AnnotationConsolidationConfig: {
+ *     AnnotationConsolidationConfig: { // AnnotationConsolidationConfig
  *       AnnotationConsolidationLambdaArn: "STRING_VALUE", // required
  *     },
- *     PublicWorkforceTaskPrice: {
- *       AmountInUsd: {
+ *     PublicWorkforceTaskPrice: { // PublicWorkforceTaskPrice
+ *       AmountInUsd: { // USD
  *         Dollars: Number("int"),
  *         Cents: Number("int"),
  *         TenthFractionsOfACent: Number("int"),
  *       },
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DeleteUsageLimitMessage
  *   UsageLimitId: "STRING_VALUE", // required
  * };
  * const command = new DeleteUsageLimitCommand(input);

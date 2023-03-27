@@ -48,7 +48,7 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * import { EC2Client, AssociateTrunkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateTrunkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AssociateTrunkInterfaceRequest
  *   BranchInterfaceId: "STRING_VALUE", // required
  *   TrunkInterfaceId: "STRING_VALUE", // required
  *   VlanId: Number("int"),

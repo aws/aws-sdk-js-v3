@@ -46,7 +46,7 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * import { SESv2Client, ListDeliverabilityTestReportsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListDeliverabilityTestReportsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // ListDeliverabilityTestReportsRequest
  *   NextToken: "STRING_VALUE",
  *   PageSize: Number("int"),
  * };

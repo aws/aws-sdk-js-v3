@@ -47,7 +47,7 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  * import { ManagedBlockchainClient, ListProposalsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListProposalsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // ListProposalsInput
  *   NetworkId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

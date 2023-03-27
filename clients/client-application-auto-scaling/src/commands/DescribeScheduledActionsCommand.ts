@@ -50,8 +50,8 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  * import { ApplicationAutoScalingClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
- * const input = {
- *   ScheduledActionNames: [
+ * const input = { // DescribeScheduledActionsRequest
+ *   ScheduledActionNames: [ // ResourceIdsMaxLen1600
  *     "STRING_VALUE",
  *   ],
  *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required

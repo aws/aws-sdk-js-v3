@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { AppRunnerClient, UntagResourceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, UntagResourceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

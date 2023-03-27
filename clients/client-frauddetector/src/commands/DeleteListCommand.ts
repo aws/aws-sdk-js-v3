@@ -45,7 +45,7 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * import { FraudDetectorClient, DeleteListCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteListCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // DeleteListRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeleteListCommand(input);

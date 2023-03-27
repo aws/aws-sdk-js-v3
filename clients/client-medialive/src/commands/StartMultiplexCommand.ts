@@ -42,7 +42,7 @@ export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __M
  * import { MediaLiveClient, StartMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StartMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // StartMultiplexRequest
  *   MultiplexId: "STRING_VALUE", // required
  * };
  * const command = new StartMultiplexCommand(input);

@@ -42,7 +42,7 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  * import { SageMakerClient, ListCodeRepositoriesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListCodeRepositoriesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListCodeRepositoriesInput
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   LastModifiedTimeAfter: new Date("TIMESTAMP"),

@@ -46,7 +46,7 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * import { SimSpaceWeaverClient, DeleteSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, DeleteSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
- * const input = {
+ * const input = { // DeleteSimulationInput
  *   Simulation: "STRING_VALUE", // required
  * };
  * const command = new DeleteSimulationCommand(input);

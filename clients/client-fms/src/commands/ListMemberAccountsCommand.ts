@@ -45,7 +45,7 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * import { FMSClient, ListMemberAccountsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListMemberAccountsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // ListMemberAccountsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

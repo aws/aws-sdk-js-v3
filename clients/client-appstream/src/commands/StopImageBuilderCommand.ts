@@ -42,7 +42,7 @@ export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, _
  * import { AppStreamClient, StopImageBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, StopImageBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // StopImageBuilderRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new StopImageBuilderCommand(input);

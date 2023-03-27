@@ -65,7 +65,7 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * import { CloudWatchEventsClient, CreatePartnerEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreatePartnerEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // CreatePartnerEventSourceRequest
  *   Name: "STRING_VALUE", // required
  *   Account: "STRING_VALUE", // required
  * };

@@ -48,7 +48,7 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * import { CloudWatchClient, ListManagedInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListManagedInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // ListManagedInsightRulesInput
  *   ResourceARN: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

@@ -59,10 +59,10 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  * import { ConfigServiceClient, PutRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // PutRemediationExceptionsRequest
  *   ConfigRuleName: "STRING_VALUE", // required
- *   ResourceKeys: [ // required
- *     {
+ *   ResourceKeys: [ // RemediationExceptionResourceKeys // required
+ *     { // RemediationExceptionResourceKey
  *       ResourceType: "STRING_VALUE",
  *       ResourceId: "STRING_VALUE",
  *     },

@@ -43,7 +43,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * import { EMRClient, ModifyClusterCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyClusterCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // ModifyClusterInput
  *   ClusterId: "STRING_VALUE", // required
  *   StepConcurrencyLevel: Number("int"),
  * };

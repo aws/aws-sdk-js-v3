@@ -39,9 +39,9 @@ export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __Met
  * import { EC2Client, DeleteFlowLogsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteFlowLogsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteFlowLogsRequest
  *   DryRun: true || false,
- *   FlowLogIds: [ // required
+ *   FlowLogIds: [ // FlowLogIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

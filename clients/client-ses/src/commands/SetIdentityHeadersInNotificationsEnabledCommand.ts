@@ -53,7 +53,7 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * import { SESClient, SetIdentityHeadersInNotificationsEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityHeadersInNotificationsEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // SetIdentityHeadersInNotificationsEnabledRequest
  *   Identity: "STRING_VALUE", // required
  *   NotificationType: "STRING_VALUE", // required
  *   Enabled: true || false, // required

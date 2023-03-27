@@ -46,20 +46,20 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { TransferClient, UpdateUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // UpdateUserRequest
  *   HomeDirectory: "STRING_VALUE",
  *   HomeDirectoryType: "PATH" || "LOGICAL",
- *   HomeDirectoryMappings: [
- *     {
+ *   HomeDirectoryMappings: [ // HomeDirectoryMappings
+ *     { // HomeDirectoryMapEntry
  *       Entry: "STRING_VALUE", // required
  *       Target: "STRING_VALUE", // required
  *     },
  *   ],
  *   Policy: "STRING_VALUE",
- *   PosixProfile: {
+ *   PosixProfile: { // PosixProfile
  *     Uid: Number("long"), // required
  *     Gid: Number("long"), // required
- *     SecondaryGids: [
+ *     SecondaryGids: [ // SecondaryGids
  *       Number("long"),
  *     ],
  *   },

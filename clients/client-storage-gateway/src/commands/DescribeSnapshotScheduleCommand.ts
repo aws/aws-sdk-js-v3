@@ -45,7 +45,7 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * import { StorageGatewayClient, DescribeSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DescribeSnapshotScheduleInput
  *   VolumeARN: "STRING_VALUE", // required
  * };
  * const command = new DescribeSnapshotScheduleCommand(input);

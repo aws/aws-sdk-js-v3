@@ -46,11 +46,11 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  * import { ForecastClient, ListForecastsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListForecastsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // ListForecastsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *       Condition: "IS" || "IS_NOT", // required

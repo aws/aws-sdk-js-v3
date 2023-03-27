@@ -49,7 +49,7 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * import { PinpointEmailClient, GetConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // GetConfigurationSetRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  * };
  * const command = new GetConfigurationSetCommand(input);

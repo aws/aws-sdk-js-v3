@@ -42,7 +42,7 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteNetworkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteNetworkInterfaceRequest
  *   DryRun: true || false,
  *   NetworkInterfaceId: "STRING_VALUE", // required
  * };

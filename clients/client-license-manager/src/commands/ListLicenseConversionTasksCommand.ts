@@ -42,13 +42,13 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * import { LicenseManagerClient, ListLicenseConversionTasksCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicenseConversionTasksCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // ListLicenseConversionTasksRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

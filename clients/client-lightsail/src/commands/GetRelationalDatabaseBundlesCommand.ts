@@ -47,7 +47,7 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  * import { LightsailClient, GetRelationalDatabaseBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetRelationalDatabaseBundlesRequest
  *   pageToken: "STRING_VALUE",
  *   includeInactive: true || false,
  * };

@@ -51,7 +51,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  * import { KinesisVideoClient, UpdateStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // UpdateStreamInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  *   CurrentVersion: "STRING_VALUE", // required

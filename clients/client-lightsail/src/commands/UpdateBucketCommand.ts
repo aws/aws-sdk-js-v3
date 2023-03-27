@@ -44,17 +44,17 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  * import { LightsailClient, UpdateBucketCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateBucketCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // UpdateBucketRequest
  *   bucketName: "STRING_VALUE", // required
- *   accessRules: {
+ *   accessRules: { // AccessRules
  *     getObject: "public" || "private",
  *     allowPublicOverrides: true || false,
  *   },
  *   versioning: "STRING_VALUE",
- *   readonlyAccessAccounts: [
+ *   readonlyAccessAccounts: [ // PartnerIdList
  *     "STRING_VALUE",
  *   ],
- *   accessLogConfig: {
+ *   accessLogConfig: { // BucketAccessLogConfig
  *     enabled: true || false, // required
  *     destination: "STRING_VALUE",
  *     prefix: "STRING_VALUE",

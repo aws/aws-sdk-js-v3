@@ -42,7 +42,7 @@ export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __M
  * import { PinpointClient, GetSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetSmsTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  *   Version: "STRING_VALUE",
  * };

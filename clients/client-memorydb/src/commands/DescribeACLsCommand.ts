@@ -42,7 +42,7 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * import { MemoryDBClient, DescribeACLsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeACLsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // DescribeACLsRequest
  *   ACLName: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

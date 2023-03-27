@@ -53,7 +53,7 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * import { RDSClient, StartDBInstanceAutomatedBackupsReplicationCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartDBInstanceAutomatedBackupsReplicationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // StartDBInstanceAutomatedBackupsReplicationMessage
  *   SourceDBInstanceArn: "STRING_VALUE", // required
  *   BackupRetentionPeriod: Number("int"),
  *   KmsKeyId: "STRING_VALUE",

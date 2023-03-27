@@ -44,7 +44,7 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * import { ARCZonalShiftClient, GetManagedResourceCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, GetManagedResourceCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
- * const input = {
+ * const input = { // GetManagedResourceRequest
  *   resourceIdentifier: "STRING_VALUE", // required
  * };
  * const command = new GetManagedResourceCommand(input);

@@ -61,7 +61,7 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * import { CloudFormationClient, TestTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, TestTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // TestTypeInput
  *   Arn: "STRING_VALUE",
  *   Type: "RESOURCE" || "MODULE" || "HOOK",
  *   TypeName: "STRING_VALUE",

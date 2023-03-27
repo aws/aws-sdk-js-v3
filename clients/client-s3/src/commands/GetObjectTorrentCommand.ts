@@ -67,7 +67,7 @@ export interface GetObjectTorrentCommandOutput
  * import { S3Client, GetObjectTorrentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectTorrentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetObjectTorrentRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
  *   RequestPayer: "requester",

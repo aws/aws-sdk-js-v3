@@ -43,7 +43,7 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * import { IvsClient, DeleteStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, DeleteStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
- * const input = {
+ * const input = { // DeleteStreamKeyRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new DeleteStreamKeyCommand(input);

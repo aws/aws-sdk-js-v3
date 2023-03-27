@@ -44,10 +44,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { TransferClient, TagResourceCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, TagResourceCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   Arn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // Tags // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

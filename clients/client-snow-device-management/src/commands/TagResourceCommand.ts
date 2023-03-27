@@ -46,9 +46,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { SnowDeviceManagementClient, TagResourceCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, TagResourceCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

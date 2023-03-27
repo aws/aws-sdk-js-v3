@@ -46,7 +46,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * import { CloudFrontClient, ListDistributionsByWebACLIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByWebACLIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListDistributionsByWebACLIdRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  *   WebACLId: "STRING_VALUE", // required

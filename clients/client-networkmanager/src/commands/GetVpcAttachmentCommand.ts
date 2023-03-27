@@ -42,7 +42,7 @@ export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse,
  * import { NetworkManagerClient, GetVpcAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetVpcAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetVpcAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
  * };
  * const command = new GetVpcAttachmentCommand(input);

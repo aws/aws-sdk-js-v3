@@ -43,9 +43,9 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  * import { XRayClient, GetSamplingTargetsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetSamplingTargetsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
- *   SamplingStatisticsDocuments: [ // required
- *     {
+ * const input = { // GetSamplingTargetsRequest
+ *   SamplingStatisticsDocuments: [ // SamplingStatisticsDocumentList // required
+ *     { // SamplingStatisticsDocument
  *       RuleName: "STRING_VALUE", // required
  *       ClientID: "STRING_VALUE", // required
  *       Timestamp: new Date("TIMESTAMP"), // required

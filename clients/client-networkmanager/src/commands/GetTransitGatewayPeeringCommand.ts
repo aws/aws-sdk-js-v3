@@ -42,7 +42,7 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  * import { NetworkManagerClient, GetTransitGatewayPeeringCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetTransitGatewayPeeringCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetTransitGatewayPeeringRequest
  *   PeeringId: "STRING_VALUE", // required
  * };
  * const command = new GetTransitGatewayPeeringCommand(input);

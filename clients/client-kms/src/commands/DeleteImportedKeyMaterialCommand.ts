@@ -70,7 +70,7 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * import { KMSClient, DeleteImportedKeyMaterialCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DeleteImportedKeyMaterialCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // DeleteImportedKeyMaterialRequest
  *   KeyId: "STRING_VALUE", // required
  * };
  * const command = new DeleteImportedKeyMaterialCommand(input);

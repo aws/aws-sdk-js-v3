@@ -48,7 +48,7 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * import { EFSClient, DescribeMountTargetsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeMountTargetsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // DescribeMountTargetsRequest
  *   MaxItems: Number("int"),
  *   Marker: "STRING_VALUE",
  *   FileSystemId: "STRING_VALUE",

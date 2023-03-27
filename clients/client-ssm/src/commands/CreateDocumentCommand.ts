@@ -45,20 +45,20 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * import { SSMClient, CreateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // CreateDocumentRequest
  *   Content: "STRING_VALUE", // required
- *   Requires: [
- *     {
+ *   Requires: [ // DocumentRequiresList
+ *     { // DocumentRequires
  *       Name: "STRING_VALUE", // required
  *       Version: "STRING_VALUE",
  *       RequireType: "STRING_VALUE",
  *       VersionName: "STRING_VALUE",
  *     },
  *   ],
- *   Attachments: [
- *     {
+ *   Attachments: [ // AttachmentsSourceList
+ *     { // AttachmentsSource
  *       Key: "SourceUrl" || "S3FileUrl" || "AttachmentReference",
- *       Values: [
+ *       Values: [ // AttachmentsSourceValues
  *         "STRING_VALUE",
  *       ],
  *       Name: "STRING_VALUE",
@@ -70,8 +70,8 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  *   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
  *   DocumentFormat: "YAML" || "JSON" || "TEXT",
  *   TargetType: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

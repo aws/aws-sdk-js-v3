@@ -48,11 +48,11 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * import { ChimeClient, PutVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // PutVoiceConnectorOriginationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
- *   Origination: {
- *     Routes: [
- *       {
+ *   Origination: { // Origination
+ *     Routes: [ // OriginationRouteList
+ *       { // OriginationRoute
  *         Host: "STRING_VALUE",
  *         Port: Number("int"),
  *         Protocol: "STRING_VALUE",

@@ -45,22 +45,22 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * import { EC2Client, DescribeImagesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeImagesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   ExecutableUsers: [
+ * const input = { // DescribeImagesRequest
+ *   ExecutableUsers: [ // ExecutableByStringList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   ImageIds: [
+ *   ImageIds: [ // ImageIdStringList
  *     "STRING_VALUE",
  *   ],
- *   Owners: [
+ *   Owners: [ // OwnerStringList
  *     "STRING_VALUE",
  *   ],
  *   IncludeDeprecated: true || false,

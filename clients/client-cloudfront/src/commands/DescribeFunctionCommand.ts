@@ -46,7 +46,7 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * import { CloudFrontClient, DescribeFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DescribeFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // DescribeFunctionRequest
  *   Name: "STRING_VALUE", // required
  *   Stage: "DEVELOPMENT" || "LIVE",
  * };

@@ -44,7 +44,7 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
  * import { ServiceQuotasClient, GetRequestedServiceQuotaChangeCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetRequestedServiceQuotaChangeCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // GetRequestedServiceQuotaChangeRequest
  *   RequestId: "STRING_VALUE", // required
  * };
  * const command = new GetRequestedServiceQuotaChangeCommand(input);

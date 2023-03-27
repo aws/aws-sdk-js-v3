@@ -42,14 +42,14 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  * import { EC2Client, DescribeFastLaunchImagesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFastLaunchImagesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   ImageIds: [
+ * const input = { // DescribeFastLaunchImagesRequest
+ *   ImageIds: [ // FastLaunchImageIdList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

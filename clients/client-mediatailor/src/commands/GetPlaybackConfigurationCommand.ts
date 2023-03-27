@@ -42,7 +42,7 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * import { MediaTailorClient, GetPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, GetPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // GetPlaybackConfigurationRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new GetPlaybackConfigurationCommand(input);

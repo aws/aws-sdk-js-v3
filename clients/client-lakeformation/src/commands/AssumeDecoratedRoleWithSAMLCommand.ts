@@ -49,7 +49,7 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * import { LakeFormationClient, AssumeDecoratedRoleWithSAMLCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, AssumeDecoratedRoleWithSAMLCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // AssumeDecoratedRoleWithSAMLRequest
  *   SAMLAssertion: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
  *   PrincipalArn: "STRING_VALUE", // required

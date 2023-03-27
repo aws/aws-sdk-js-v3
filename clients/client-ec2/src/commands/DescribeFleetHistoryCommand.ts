@@ -47,7 +47,7 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * import { EC2Client, DescribeFleetHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFleetHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeFleetHistoryRequest
  *   DryRun: true || false,
  *   EventType: "instance-change" || "fleet-change" || "service-error",
  *   MaxResults: Number("int"),

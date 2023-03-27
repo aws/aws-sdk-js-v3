@@ -63,7 +63,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * import { DirectoryServiceClient, ResetUserPasswordCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ResetUserPasswordCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // ResetUserPasswordRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   UserName: "STRING_VALUE", // required
  *   NewPassword: "STRING_VALUE", // required

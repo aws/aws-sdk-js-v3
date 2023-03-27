@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { AmplifyClient, UntagResourceCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UntagResourceCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -45,31 +45,31 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  * import { EC2Client, ModifyVpcEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVpcEndpointRequest
  *   DryRun: true || false,
  *   VpcEndpointId: "STRING_VALUE", // required
  *   ResetPolicy: true || false,
  *   PolicyDocument: "STRING_VALUE",
- *   AddRouteTableIds: [
+ *   AddRouteTableIds: [ // VpcEndpointRouteTableIdList
  *     "STRING_VALUE",
  *   ],
  *   RemoveRouteTableIds: [
  *     "STRING_VALUE",
  *   ],
- *   AddSubnetIds: [
+ *   AddSubnetIds: [ // VpcEndpointSubnetIdList
  *     "STRING_VALUE",
  *   ],
  *   RemoveSubnetIds: [
  *     "STRING_VALUE",
  *   ],
- *   AddSecurityGroupIds: [
+ *   AddSecurityGroupIds: [ // VpcEndpointSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   RemoveSecurityGroupIds: [
  *     "STRING_VALUE",
  *   ],
  *   IpAddressType: "ipv4" || "dualstack" || "ipv6",
- *   DnsOptions: {
+ *   DnsOptions: { // DnsOptionsSpecification
  *     DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
  *     PrivateDnsOnlyForInboundResolverEndpoint: true || false,
  *   },

@@ -65,7 +65,7 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  * import { WAFClient, DeleteGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // DeleteGeoMatchSetRequest
  *   GeoMatchSetId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

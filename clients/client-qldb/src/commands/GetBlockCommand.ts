@@ -56,9 +56,9 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * import { QLDBClient, GetBlockCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetBlockCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
- * const input = {
+ * const input = { // GetBlockRequest
  *   Name: "STRING_VALUE", // required
- *   BlockAddress: {
+ *   BlockAddress: { // ValueHolder
  *     IonText: "STRING_VALUE",
  *   },
  *   DigestTipAddress: {

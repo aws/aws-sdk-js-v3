@@ -43,7 +43,7 @@ export interface SearchVocabulariesCommandOutput extends SearchVocabulariesRespo
  * import { ConnectClient, SearchVocabulariesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchVocabulariesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // SearchVocabulariesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

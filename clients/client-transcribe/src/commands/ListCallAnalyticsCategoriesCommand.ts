@@ -46,7 +46,7 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  * import { TranscribeClient, ListCallAnalyticsCategoriesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListCallAnalyticsCategoriesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // ListCallAnalyticsCategoriesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

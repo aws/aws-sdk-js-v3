@@ -42,15 +42,15 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * import { GlueClient, CreateTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateTriggerRequest
  *   Name: "STRING_VALUE", // required
  *   WorkflowName: "STRING_VALUE",
  *   Type: "SCHEDULED" || "CONDITIONAL" || "ON_DEMAND" || "EVENT", // required
  *   Schedule: "STRING_VALUE",
- *   Predicate: {
+ *   Predicate: { // Predicate
  *     Logical: "AND" || "ANY",
- *     Conditions: [
- *       {
+ *     Conditions: [ // ConditionList
+ *       { // Condition
  *         LogicalOperator: "EQUALS",
  *         JobName: "STRING_VALUE",
  *         State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
@@ -59,15 +59,15 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  *       },
  *     ],
  *   },
- *   Actions: [ // required
- *     {
+ *   Actions: [ // ActionList // required
+ *     { // Action
  *       JobName: "STRING_VALUE",
- *       Arguments: {
+ *       Arguments: { // GenericMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *       Timeout: Number("int"),
  *       SecurityConfiguration: "STRING_VALUE",
- *       NotificationProperty: {
+ *       NotificationProperty: { // NotificationProperty
  *         NotifyDelayAfter: Number("int"),
  *       },
  *       CrawlerName: "STRING_VALUE",
@@ -75,10 +75,10 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  *   ],
  *   Description: "STRING_VALUE",
  *   StartOnCreation: true || false,
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   EventBatchingCondition: {
+ *   EventBatchingCondition: { // EventBatchingCondition
  *     BatchSize: Number("int"), // required
  *     BatchWindow: Number("int"),
  *   },

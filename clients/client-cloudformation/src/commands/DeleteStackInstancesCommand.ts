@@ -42,25 +42,25 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  * import { CloudFormationClient, DeleteStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DeleteStackInstancesInput
  *   StackSetName: "STRING_VALUE", // required
- *   Accounts: [
+ *   Accounts: [ // AccountList
  *     "STRING_VALUE",
  *   ],
- *   DeploymentTargets: {
+ *   DeploymentTargets: { // DeploymentTargets
  *     Accounts: [
  *       "STRING_VALUE",
  *     ],
  *     AccountsUrl: "STRING_VALUE",
- *     OrganizationalUnitIds: [
+ *     OrganizationalUnitIds: [ // OrganizationalUnitIdList
  *       "STRING_VALUE",
  *     ],
  *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
  *   },
- *   Regions: [ // required
+ *   Regions: [ // RegionList // required
  *     "STRING_VALUE",
  *   ],
- *   OperationPreferences: {
+ *   OperationPreferences: { // StackSetOperationPreferences
  *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
  *     RegionOrder: [
  *       "STRING_VALUE",

@@ -44,10 +44,10 @@ export interface UpdateResourceProfileDetectionsCommandOutput
  * import { Macie2Client, UpdateResourceProfileDetectionsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateResourceProfileDetectionsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // UpdateResourceProfileDetectionsRequest
  *   resourceArn: "STRING_VALUE", // required
- *   suppressDataIdentifiers: [
- *     {
+ *   suppressDataIdentifiers: [ // __listOfSuppressDataIdentifier
+ *     { // SuppressDataIdentifier
  *       id: "STRING_VALUE",
  *       type: "CUSTOM" || "MANAGED",
  *     },

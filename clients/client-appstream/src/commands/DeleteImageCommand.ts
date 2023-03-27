@@ -43,7 +43,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  * import { AppStreamClient, DeleteImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // DeleteImageRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteImageCommand(input);

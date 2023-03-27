@@ -46,13 +46,13 @@ export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDat
  * import { EvidentlyClient, UpdateProjectDataDeliveryCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateProjectDataDeliveryCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // UpdateProjectDataDeliveryRequest
  *   project: "STRING_VALUE", // required
- *   s3Destination: {
+ *   s3Destination: { // S3DestinationConfig
  *     bucket: "STRING_VALUE",
  *     prefix: "STRING_VALUE",
  *   },
- *   cloudWatchLogs: {
+ *   cloudWatchLogs: { // CloudWatchLogsDestinationConfig
  *     logGroup: "STRING_VALUE",
  *   },
  * };

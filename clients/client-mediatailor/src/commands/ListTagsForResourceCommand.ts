@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { MediaTailorClient, ListTagsForResourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

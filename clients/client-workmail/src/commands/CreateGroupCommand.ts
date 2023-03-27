@@ -42,7 +42,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * import { WorkMailClient, CreateGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // CreateGroupRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  * };

@@ -44,7 +44,7 @@ export interface ListModelQualityJobDefinitionsCommandOutput
  * import { SageMakerClient, ListModelQualityJobDefinitionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelQualityJobDefinitionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListModelQualityJobDefinitionsRequest
  *   EndpointName: "STRING_VALUE",
  *   SortBy: "Name" || "CreationTime",
  *   SortOrder: "Ascending" || "Descending",

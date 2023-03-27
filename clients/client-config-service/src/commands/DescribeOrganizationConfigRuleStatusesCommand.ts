@@ -55,8 +55,8 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * import { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   OrganizationConfigRuleNames: [
+ * const input = { // DescribeOrganizationConfigRuleStatusesRequest
+ *   OrganizationConfigRuleNames: [ // OrganizationConfigRuleNames
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

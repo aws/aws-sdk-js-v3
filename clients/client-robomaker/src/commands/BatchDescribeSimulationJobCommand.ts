@@ -42,8 +42,8 @@ export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSi
  * import { RoboMakerClient, BatchDescribeSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, BatchDescribeSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
- *   jobs: [ // required
+ * const input = { // BatchDescribeSimulationJobRequest
+ *   jobs: [ // Arns // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -52,10 +52,10 @@ export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkRes
  * import { PrivateNetworksClient, StartNetworkResourceUpdateCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, StartNetworkResourceUpdateCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // StartNetworkResourceUpdateRequest
  *   networkResourceArn: "STRING_VALUE", // required
  *   updateType: "STRING_VALUE", // required
- *   shippingAddress: {
+ *   shippingAddress: { // Address
  *     city: "STRING_VALUE", // required
  *     company: "STRING_VALUE",
  *     country: "STRING_VALUE", // required

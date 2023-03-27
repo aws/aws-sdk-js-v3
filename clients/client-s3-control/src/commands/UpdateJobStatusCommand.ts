@@ -68,7 +68,7 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * import { S3ControlClient, UpdateJobStatusCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, UpdateJobStatusCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // UpdateJobStatusRequest
  *   AccountId: "STRING_VALUE",
  *   JobId: "STRING_VALUE", // required
  *   RequestedJobStatus: "Cancelled" || "Ready", // required

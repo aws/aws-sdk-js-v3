@@ -45,15 +45,15 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { LookoutEquipmentClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = {
+ * const input = { // CreateDatasetRequest
  *   DatasetName: "STRING_VALUE", // required
- *   DatasetSchema: {
+ *   DatasetSchema: { // DatasetSchema
  *     InlineDataSchema: "STRING_VALUE",
  *   },
  *   ServerSideKmsKeyId: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

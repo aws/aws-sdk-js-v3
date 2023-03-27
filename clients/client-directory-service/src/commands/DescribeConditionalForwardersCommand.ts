@@ -46,9 +46,9 @@ export interface DescribeConditionalForwardersCommandOutput
  * import { DirectoryServiceClient, DescribeConditionalForwardersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeConditionalForwardersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DescribeConditionalForwardersRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   RemoteDomainNames: [
+ *   RemoteDomainNames: [ // RemoteDomainNames
  *     "STRING_VALUE",
  *   ],
  * };

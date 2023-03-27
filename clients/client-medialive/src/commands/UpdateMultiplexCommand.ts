@@ -42,9 +42,9 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  * import { MediaLiveClient, UpdateMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // UpdateMultiplexRequest
  *   MultiplexId: "STRING_VALUE", // required
- *   MultiplexSettings: {
+ *   MultiplexSettings: { // MultiplexSettings
  *     MaximumVideoBufferDelayMilliseconds: Number("int"),
  *     TransportStreamBitrate: Number("int"), // required
  *     TransportStreamId: Number("int"), // required

@@ -42,7 +42,7 @@ export interface ListFraudstersCommandOutput extends ListFraudstersResponse, __M
  * import { VoiceIDClient, ListFraudstersCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, ListFraudstersCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // ListFraudstersRequest
  *   DomainId: "STRING_VALUE", // required
  *   WatchlistId: "STRING_VALUE",
  *   MaxResults: Number("int"),

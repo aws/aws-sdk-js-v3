@@ -51,19 +51,19 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  * import { MigrationHubOrchestratorClient, CreateWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, CreateWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // CreateMigrationWorkflowRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   templateId: "STRING_VALUE", // required
  *   applicationConfigurationId: "STRING_VALUE", // required
- *   inputParameters: { // required
- *     "<keys>": { // Union: only one key present
+ *   inputParameters: { // StepInputParameters // required
+ *     "<keys>": { // StepInput Union: only one key present
  *       integerValue: Number("int"),
  *       stringValue: "STRING_VALUE",
- *       listOfStringsValue: [
+ *       listOfStringsValue: [ // StringList
  *         "STRING_VALUE",
  *       ],
- *       mapOfStringValue: {
+ *       mapOfStringValue: { // StringMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

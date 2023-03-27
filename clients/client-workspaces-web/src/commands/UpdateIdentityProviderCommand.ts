@@ -47,11 +47,11 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * import { WorkSpacesWebClient, UpdateIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // UpdateIdentityProviderRequest
  *   identityProviderArn: "STRING_VALUE", // required
  *   identityProviderName: "STRING_VALUE",
  *   identityProviderType: "STRING_VALUE",
- *   identityProviderDetails: {
+ *   identityProviderDetails: { // IdentityProviderDetails
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

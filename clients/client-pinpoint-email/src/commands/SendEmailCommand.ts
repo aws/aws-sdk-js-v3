@@ -59,10 +59,10 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * import { PinpointEmailClient, SendEmailCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, SendEmailCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // SendEmailRequest
  *   FromEmailAddress: "STRING_VALUE",
- *   Destination: {
- *     ToAddresses: [
+ *   Destination: { // Destination
+ *     ToAddresses: [ // EmailAddressList
  *       "STRING_VALUE",
  *     ],
  *     CcAddresses: [
@@ -76,13 +76,13 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *     "STRING_VALUE",
  *   ],
  *   FeedbackForwardingEmailAddress: "STRING_VALUE",
- *   Content: {
- *     Simple: {
- *       Subject: {
+ *   Content: { // EmailContent
+ *     Simple: { // Message
+ *       Subject: { // Content
  *         Data: "STRING_VALUE", // required
  *         Charset: "STRING_VALUE",
  *       },
- *       Body: {
+ *       Body: { // Body
  *         Text: {
  *           Data: "STRING_VALUE", // required
  *           Charset: "STRING_VALUE",
@@ -93,16 +93,16 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *         },
  *       },
  *     },
- *     Raw: {
+ *     Raw: { // RawMessage
  *       Data: "BLOB_VALUE", // required
  *     },
- *     Template: {
+ *     Template: { // Template
  *       TemplateArn: "STRING_VALUE",
  *       TemplateData: "STRING_VALUE",
  *     },
  *   },
- *   EmailTags: [
- *     {
+ *   EmailTags: [ // MessageTagList
+ *     { // MessageTag
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

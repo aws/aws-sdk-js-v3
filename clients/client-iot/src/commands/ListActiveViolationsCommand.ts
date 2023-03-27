@@ -43,7 +43,7 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * import { IoTClient, ListActiveViolationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListActiveViolationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListActiveViolationsRequest
  *   thingName: "STRING_VALUE",
  *   securityProfileName: "STRING_VALUE",
  *   behaviorCriteriaType: "STATIC" || "STATISTICAL" || "MACHINE_LEARNING",

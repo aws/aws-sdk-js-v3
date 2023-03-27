@@ -50,12 +50,12 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * import { PinpointSMSVoiceV2Client, ListPoolOriginationIdentitiesCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, ListPoolOriginationIdentitiesCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // ListPoolOriginationIdentitiesRequest
  *   PoolId: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // PoolOriginationIdentitiesFilterList
+ *     { // PoolOriginationIdentitiesFilter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -45,9 +45,9 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * import { InspectorClient, CreateResourceGroupCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, CreateResourceGroupCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
- *   resourceGroupTags: [ // required
- *     {
+ * const input = { // CreateResourceGroupRequest
+ *   resourceGroupTags: [ // ResourceGroupTags // required
+ *     { // ResourceGroupTag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },

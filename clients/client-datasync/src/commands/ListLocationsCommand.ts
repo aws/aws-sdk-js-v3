@@ -45,13 +45,13 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * import { DataSyncClient, ListLocationsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListLocationsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // ListLocationsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // LocationFilters
+ *     { // LocationFilter
  *       Name: "LocationUri" || "LocationType" || "CreationTime", // required
- *       Values: [ // required
+ *       Values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       Operator: "Equals" || "NotEquals" || "In" || "LessThanOrEqual" || "LessThan" || "GreaterThanOrEqual" || "GreaterThan" || "Contains" || "NotContains" || "BeginsWith", // required

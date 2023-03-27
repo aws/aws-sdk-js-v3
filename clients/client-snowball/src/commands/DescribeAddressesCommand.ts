@@ -44,7 +44,7 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * import { SnowballClient, DescribeAddressesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeAddressesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
+ * const input = { // DescribeAddressesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

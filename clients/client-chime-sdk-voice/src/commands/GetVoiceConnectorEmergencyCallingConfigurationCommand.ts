@@ -49,7 +49,7 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * import { ChimeSDKVoiceClient, GetVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // GetVoiceConnectorEmergencyCallingConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  * };
  * const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(input);

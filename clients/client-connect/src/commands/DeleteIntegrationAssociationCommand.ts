@@ -43,7 +43,7 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  * import { ConnectClient, DeleteIntegrationAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteIntegrationAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DeleteIntegrationAssociationRequest
  *   InstanceId: "STRING_VALUE", // required
  *   IntegrationAssociationId: "STRING_VALUE", // required
  * };

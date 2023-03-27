@@ -42,7 +42,7 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * import { Inspector2Client, GetMemberCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, GetMemberCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
+ * const input = { // GetMemberRequest
  *   accountId: "STRING_VALUE", // required
  * };
  * const command = new GetMemberCommand(input);

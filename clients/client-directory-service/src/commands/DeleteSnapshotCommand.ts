@@ -42,7 +42,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * import { DirectoryServiceClient, DeleteSnapshotCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteSnapshotCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DeleteSnapshotRequest
  *   SnapshotId: "STRING_VALUE", // required
  * };
  * const command = new DeleteSnapshotCommand(input);

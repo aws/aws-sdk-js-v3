@@ -42,7 +42,7 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationResult,
  * import { ApiGatewayV2Client, CreateIntegrationCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateIntegrationCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // CreateIntegrationRequest
  *   ApiId: "STRING_VALUE", // required
  *   ConnectionId: "STRING_VALUE",
  *   ConnectionType: "STRING_VALUE",
@@ -55,20 +55,20 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationResult,
  *   IntegrationUri: "STRING_VALUE",
  *   PassthroughBehavior: "STRING_VALUE",
  *   PayloadFormatVersion: "STRING_VALUE",
- *   RequestParameters: {
+ *   RequestParameters: { // IntegrationParameters
  *     "<keys>": "STRING_VALUE",
  *   },
- *   RequestTemplates: {
+ *   RequestTemplates: { // TemplateMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ResponseParameters: {
+ *   ResponseParameters: { // ResponseParameters
  *     "<keys>": {
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
  *   TemplateSelectionExpression: "STRING_VALUE",
  *   TimeoutInMillis: Number("int"),
- *   TlsConfig: {
+ *   TlsConfig: { // TlsConfigInput
  *     ServerNameToVerify: "STRING_VALUE",
  *   },
  * };

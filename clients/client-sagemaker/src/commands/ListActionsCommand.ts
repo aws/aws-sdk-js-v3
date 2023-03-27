@@ -42,7 +42,7 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * import { SageMakerClient, ListActionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListActionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListActionsRequest
  *   SourceUri: "STRING_VALUE",
  *   ActionType: "STRING_VALUE",
  *   CreatedAfter: new Date("TIMESTAMP"),

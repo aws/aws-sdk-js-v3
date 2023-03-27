@@ -42,10 +42,10 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * import { QuickSightClient, SearchFoldersCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchFoldersCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // SearchFoldersRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Filters: [ // required
- *     {
+ *   Filters: [ // FolderSearchFilterList // required
+ *     { // FolderSearchFilter
  *       Operator: "StringEquals" || "StringLike",
  *       Name: "PARENT_FOLDER_ARN" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "QUICKSIGHT_OWNER" || "QUICKSIGHT_VIEWER_OR_OWNER" || "FOLDER_NAME",
  *       Value: "STRING_VALUE",

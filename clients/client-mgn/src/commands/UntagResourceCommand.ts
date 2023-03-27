@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { MgnClient, UntagResourceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UntagResourceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

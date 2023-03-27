@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { OutpostsClient, TagResourceCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, TagResourceCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

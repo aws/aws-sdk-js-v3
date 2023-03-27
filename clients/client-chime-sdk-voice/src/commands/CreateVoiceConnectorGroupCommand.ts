@@ -47,10 +47,10 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  * import { ChimeSDKVoiceClient, CreateVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreateVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // CreateVoiceConnectorGroupRequest
  *   Name: "STRING_VALUE", // required
- *   VoiceConnectorItems: [
- *     {
+ *   VoiceConnectorItems: [ // VoiceConnectorItemList
+ *     { // VoiceConnectorItem
  *       VoiceConnectorId: "STRING_VALUE", // required
  *       Priority: Number("int"), // required
  *     },

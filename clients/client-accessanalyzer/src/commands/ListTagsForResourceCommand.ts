@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { AccessAnalyzerClient, ListTagsForResourceCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

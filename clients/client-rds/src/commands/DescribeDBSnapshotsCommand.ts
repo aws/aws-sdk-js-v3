@@ -42,14 +42,14 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * import { RDSClient, DescribeDBSnapshotsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBSnapshotsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DescribeDBSnapshotsMessage
  *   DBInstanceIdentifier: "STRING_VALUE",
  *   DBSnapshotIdentifier: "STRING_VALUE",
  *   SnapshotType: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

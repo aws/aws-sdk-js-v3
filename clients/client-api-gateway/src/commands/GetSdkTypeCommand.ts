@@ -42,7 +42,7 @@ export interface GetSdkTypeCommandOutput extends SdkType, __MetadataBearer {}
  * import { APIGatewayClient, GetSdkTypeCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetSdkTypeCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetSdkTypeRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetSdkTypeCommand(input);

@@ -42,7 +42,7 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * import { KeyspacesClient, DeleteKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, DeleteKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = {
+ * const input = { // DeleteKeyspaceRequest
  *   keyspaceName: "STRING_VALUE", // required
  * };
  * const command = new DeleteKeyspaceCommand(input);

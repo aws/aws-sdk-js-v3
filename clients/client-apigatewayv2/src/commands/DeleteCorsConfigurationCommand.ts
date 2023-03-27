@@ -42,7 +42,7 @@ export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {
  * import { ApiGatewayV2Client, DeleteCorsConfigurationCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteCorsConfigurationCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // DeleteCorsConfigurationRequest
  *   ApiId: "STRING_VALUE", // required
  * };
  * const command = new DeleteCorsConfigurationCommand(input);

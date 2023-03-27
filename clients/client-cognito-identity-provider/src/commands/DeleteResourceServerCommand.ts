@@ -47,7 +47,7 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, DeleteResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // DeleteResourceServerRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Identifier: "STRING_VALUE", // required
  * };

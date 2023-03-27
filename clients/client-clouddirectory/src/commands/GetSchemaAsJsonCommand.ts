@@ -42,7 +42,7 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  * import { CloudDirectoryClient, GetSchemaAsJsonCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetSchemaAsJsonCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // GetSchemaAsJsonRequest
  *   SchemaArn: "STRING_VALUE", // required
  * };
  * const command = new GetSchemaAsJsonCommand(input);

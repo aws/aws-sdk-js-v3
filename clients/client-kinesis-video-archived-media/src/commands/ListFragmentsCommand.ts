@@ -82,14 +82,14 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * import { KinesisVideoArchivedMediaClient, ListFragmentsCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, ListFragmentsCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
- * const input = {
+ * const input = { // ListFragmentsInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  *   MaxResults: Number("long"),
  *   NextToken: "STRING_VALUE",
- *   FragmentSelector: {
+ *   FragmentSelector: { // FragmentSelector
  *     FragmentSelectorType: "STRING_VALUE", // required
- *     TimestampRange: {
+ *     TimestampRange: { // TimestampRange
  *       StartTimestamp: new Date("TIMESTAMP"), // required
  *       EndTimestamp: new Date("TIMESTAMP"), // required
  *     },

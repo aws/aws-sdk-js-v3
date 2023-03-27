@@ -45,7 +45,7 @@ export interface GetSolFunctionPackageContentCommandOutput
  * import { TnbClient, GetSolFunctionPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolFunctionPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // GetSolFunctionPackageContentInput
  *   vnfPkgId: "STRING_VALUE", // required
  *   accept: "application/zip", // required
  * };

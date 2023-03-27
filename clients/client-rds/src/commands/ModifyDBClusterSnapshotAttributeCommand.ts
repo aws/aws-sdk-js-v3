@@ -62,10 +62,10 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * import { RDSClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyDBClusterSnapshotAttributeMessage
  *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
  *   AttributeName: "STRING_VALUE", // required
- *   ValuesToAdd: [
+ *   ValuesToAdd: [ // AttributeValueList
  *     "STRING_VALUE",
  *   ],
  *   ValuesToRemove: [

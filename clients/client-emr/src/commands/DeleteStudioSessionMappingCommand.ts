@@ -42,7 +42,7 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
  * import { EMRClient, DeleteStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DeleteStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // DeleteStudioSessionMappingInput
  *   StudioId: "STRING_VALUE", // required
  *   IdentityId: "STRING_VALUE",
  *   IdentityName: "STRING_VALUE",

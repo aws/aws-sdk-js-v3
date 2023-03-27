@@ -47,30 +47,30 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * import { AthenaClient, StartQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StartQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // StartQueryExecutionInput
  *   QueryString: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   QueryExecutionContext: {
+ *   QueryExecutionContext: { // QueryExecutionContext
  *     Database: "STRING_VALUE",
  *     Catalog: "STRING_VALUE",
  *   },
- *   ResultConfiguration: {
+ *   ResultConfiguration: { // ResultConfiguration
  *     OutputLocation: "STRING_VALUE",
- *     EncryptionConfiguration: {
+ *     EncryptionConfiguration: { // EncryptionConfiguration
  *       EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
  *       KmsKey: "STRING_VALUE",
  *     },
  *     ExpectedBucketOwner: "STRING_VALUE",
- *     AclConfiguration: {
+ *     AclConfiguration: { // AclConfiguration
  *       S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
  *     },
  *   },
  *   WorkGroup: "STRING_VALUE",
- *   ExecutionParameters: [
+ *   ExecutionParameters: [ // ExecutionParameters
  *     "STRING_VALUE",
  *   ],
- *   ResultReuseConfiguration: {
- *     ResultReuseByAgeConfiguration: {
+ *   ResultReuseConfiguration: { // ResultReuseConfiguration
+ *     ResultReuseByAgeConfiguration: { // ResultReuseByAgeConfiguration
  *       Enabled: true || false, // required
  *       MaxAgeInMinutes: Number("int"),
  *     },

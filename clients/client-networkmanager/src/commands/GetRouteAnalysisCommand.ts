@@ -42,7 +42,7 @@ export interface GetRouteAnalysisCommandOutput extends GetRouteAnalysisResponse,
  * import { NetworkManagerClient, GetRouteAnalysisCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetRouteAnalysisCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetRouteAnalysisRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   RouteAnalysisId: "STRING_VALUE", // required
  * };

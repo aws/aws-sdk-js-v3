@@ -47,9 +47,9 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * import { ResourceExplorer2Client, ListIndexesCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, ListIndexesCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
- * const input = {
+ * const input = { // ListIndexesInput
  *   Type: "STRING_VALUE",
- *   Regions: [
+ *   Regions: [ // RegionList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

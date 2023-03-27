@@ -85,10 +85,10 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, CreateStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, CreateStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
+ * const input = { // CreateStreamInput
  *   StreamName: "STRING_VALUE", // required
  *   ShardCount: Number("int"),
- *   StreamModeDetails: {
+ *   StreamModeDetails: { // StreamModeDetails
  *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
  *   },
  * };

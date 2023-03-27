@@ -44,7 +44,7 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOu
  * import { RestXmlProtocolClient, HttpPayloadTraitsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadTraitsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // HttpPayloadTraitsInputOutput
  *   foo: "STRING_VALUE",
  *   blob: "BLOB_VALUE",
  * };

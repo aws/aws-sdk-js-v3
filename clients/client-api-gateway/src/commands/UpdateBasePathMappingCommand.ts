@@ -42,11 +42,11 @@ export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __M
  * import { APIGatewayClient, UpdateBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // UpdateBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
  *   basePath: "STRING_VALUE", // required
- *   patchOperations: [
- *     {
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
  *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
  *       path: "STRING_VALUE",
  *       value: "STRING_VALUE",

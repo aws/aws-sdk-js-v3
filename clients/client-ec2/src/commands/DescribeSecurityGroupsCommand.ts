@@ -51,19 +51,19 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * import { EC2Client, DescribeSecurityGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSecurityGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeSecurityGroupsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   GroupIds: [
+ *   GroupIds: [ // GroupIdStringList
  *     "STRING_VALUE",
  *   ],
- *   GroupNames: [
+ *   GroupNames: [ // GroupNameStringList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

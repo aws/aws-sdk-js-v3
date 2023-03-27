@@ -42,8 +42,8 @@ export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __Met
  * import { ComprehendClient, ListFlywheelsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListFlywheelsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
- *   Filter: {
+ * const input = { // ListFlywheelsRequest
+ *   Filter: { // FlywheelFilter
  *     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED",
  *     CreationTimeAfter: new Date("TIMESTAMP"),
  *     CreationTimeBefore: new Date("TIMESTAMP"),

@@ -46,7 +46,7 @@ export interface DescribeRescoreExecutionPlanCommandOutput
  * import { KendraRankingClient, DescribeRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, DescribeRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
- * const input = {
+ * const input = { // DescribeRescoreExecutionPlanRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DescribeRescoreExecutionPlanCommand(input);

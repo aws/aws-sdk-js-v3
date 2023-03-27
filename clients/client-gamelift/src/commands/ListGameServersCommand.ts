@@ -55,7 +55,7 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  * import { GameLiftClient, ListGameServersCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListGameServersCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // ListGameServersInput
  *   GameServerGroupName: "STRING_VALUE", // required
  *   SortOrder: "ASCENDING" || "DESCENDING",
  *   Limit: Number("int"),

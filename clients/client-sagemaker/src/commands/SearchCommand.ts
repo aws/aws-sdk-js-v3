@@ -49,18 +49,18 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * import { SageMakerClient, SearchCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, SearchCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // SearchRequest
  *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "Project" || "FeatureMetadata" || "HyperParameterTuningJob" || "ModelCard" || "Model", // required
- *   SearchExpression: {
- *     Filters: [
- *       {
+ *   SearchExpression: { // SearchExpression
+ *     Filters: [ // FilterList
+ *       { // Filter
  *         Name: "STRING_VALUE", // required
  *         Operator: "Equals" || "NotEquals" || "GreaterThan" || "GreaterThanOrEqualTo" || "LessThan" || "LessThanOrEqualTo" || "Contains" || "Exists" || "NotExists" || "In",
  *         Value: "STRING_VALUE",
  *       },
  *     ],
- *     NestedFilters: [
- *       {
+ *     NestedFilters: [ // NestedFiltersList
+ *       { // NestedFilters
  *         NestedPropertyName: "STRING_VALUE", // required
  *         Filters: [ // required
  *           {
@@ -71,7 +71,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *         ],
  *       },
  *     ],
- *     SubExpressions: [
+ *     SubExpressions: [ // SearchExpressionList
  *       {
  *         Filters: [
  *           {
@@ -83,23 +83,16 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *         NestedFilters: [
  *           {
  *             NestedPropertyName: "STRING_VALUE", // required
- *             Filters: [ // required
- *               "<FilterList>",
- *             ],
+ *             Filters: "<FilterList>", // required
  *           },
  *         ],
  *         SubExpressions: [
- *           {
- *             Filters: "<SearchExpression>",
- *             NestedFilters: "<SearchExpression>",
- *             SubExpressions: "<SearchExpression>",
- *             Operator: "And" || "Or",
- *           },
+ *           "<SearchExpression>",
  *         ],
  *         Operator: "And" || "Or",
  *       },
  *     ],
- *     Operator: "<SearchExpression>",
+ *     Operator: "And" || "Or",
  *   },
  *   SortBy: "STRING_VALUE",
  *   SortOrder: "Ascending" || "Descending",

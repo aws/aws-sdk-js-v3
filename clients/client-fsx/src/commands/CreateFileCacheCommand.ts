@@ -65,43 +65,43 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * import { FSxClient, CreateFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // CreateFileCacheRequest
  *   ClientRequestToken: "STRING_VALUE",
  *   FileCacheType: "LUSTRE", // required
  *   FileCacheTypeVersion: "STRING_VALUE", // required
  *   StorageCapacity: Number("int"), // required
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // SubnetIds // required
  *     "STRING_VALUE",
  *   ],
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIds
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   CopyTagsToDataRepositoryAssociations: true || false,
  *   KmsKeyId: "STRING_VALUE",
- *   LustreConfiguration: {
+ *   LustreConfiguration: { // CreateFileCacheLustreConfiguration
  *     PerUnitStorageThroughput: Number("int"), // required
  *     DeploymentType: "CACHE_1", // required
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
- *     MetadataConfiguration: {
+ *     MetadataConfiguration: { // FileCacheLustreMetadataConfiguration
  *       StorageCapacity: Number("int"), // required
  *     },
  *   },
- *   DataRepositoryAssociations: [
- *     {
+ *   DataRepositoryAssociations: [ // CreateFileCacheDataRepositoryAssociations
+ *     { // FileCacheDataRepositoryAssociation
  *       FileCachePath: "STRING_VALUE", // required
  *       DataRepositoryPath: "STRING_VALUE", // required
- *       DataRepositorySubdirectories: [
+ *       DataRepositorySubdirectories: [ // SubDirectoriesPaths
  *         "STRING_VALUE",
  *       ],
- *       NFS: {
+ *       NFS: { // FileCacheNFSConfiguration
  *         Version: "NFS3", // required
- *         DnsIps: [
+ *         DnsIps: [ // RepositoryDnsIps
  *           "STRING_VALUE",
  *         ],
  *       },

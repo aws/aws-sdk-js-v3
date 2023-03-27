@@ -44,7 +44,7 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * import { SSMClient, DeleteActivationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteActivationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DeleteActivationRequest
  *   ActivationId: "STRING_VALUE", // required
  * };
  * const command = new DeleteActivationCommand(input);

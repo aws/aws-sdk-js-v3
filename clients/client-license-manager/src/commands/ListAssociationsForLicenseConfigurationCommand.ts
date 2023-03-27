@@ -51,7 +51,7 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  * import { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // ListAssociationsForLicenseConfigurationRequest
  *   LicenseConfigurationArn: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

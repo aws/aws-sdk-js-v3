@@ -44,7 +44,7 @@ export interface ListAppComponentCompliancesCommandOutput
  * import { ResiliencehubClient, ListAppComponentCompliancesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppComponentCompliancesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // ListAppComponentCompliancesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   assessmentArn: "STRING_VALUE", // required

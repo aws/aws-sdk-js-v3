@@ -44,7 +44,7 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * import { LookoutEquipmentClient, CreateLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = {
+ * const input = { // CreateLabelRequest
  *   LabelGroupName: "STRING_VALUE", // required
  *   StartTime: new Date("TIMESTAMP"), // required
  *   EndTime: new Date("TIMESTAMP"), // required

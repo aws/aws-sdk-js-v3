@@ -43,7 +43,7 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * import { OpenSearchClient, DescribeDryRunProgressCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDryRunProgressCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // DescribeDryRunProgressRequest
  *   DomainName: "STRING_VALUE", // required
  *   DryRunId: "STRING_VALUE",
  *   LoadDryRunConfig: true || false,

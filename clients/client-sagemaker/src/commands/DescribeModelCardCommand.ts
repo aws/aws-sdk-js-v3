@@ -46,7 +46,7 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  * import { SageMakerClient, DescribeModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeModelCardRequest
  *   ModelCardName: "STRING_VALUE", // required
  *   ModelCardVersion: Number("int"),
  * };

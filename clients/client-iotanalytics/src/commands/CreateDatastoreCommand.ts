@@ -42,38 +42,38 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * import { IoTAnalyticsClient, CreateDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreateDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // CreateDatastoreRequest
  *   datastoreName: "STRING_VALUE", // required
- *   datastoreStorage: { // Union: only one key present
+ *   datastoreStorage: { // DatastoreStorage Union: only one key present
  *     serviceManagedS3: {},
- *     customerManagedS3: {
+ *     customerManagedS3: { // CustomerManagedDatastoreS3Storage
  *       bucket: "STRING_VALUE", // required
  *       keyPrefix: "STRING_VALUE",
  *       roleArn: "STRING_VALUE", // required
  *     },
- *     iotSiteWiseMultiLayerStorage: {
- *       customerManagedS3Storage: {
+ *     iotSiteWiseMultiLayerStorage: { // DatastoreIotSiteWiseMultiLayerStorage
+ *       customerManagedS3Storage: { // IotSiteWiseCustomerManagedDatastoreS3Storage
  *         bucket: "STRING_VALUE", // required
  *         keyPrefix: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   retentionPeriod: {
+ *   retentionPeriod: { // RetentionPeriod
  *     unlimited: true || false,
  *     numberOfDays: Number("int"),
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
- *   fileFormatConfiguration: {
+ *   fileFormatConfiguration: { // FileFormatConfiguration
  *     jsonConfiguration: {},
- *     parquetConfiguration: {
- *       schemaDefinition: {
- *         columns: [
- *           {
+ *     parquetConfiguration: { // ParquetConfiguration
+ *       schemaDefinition: { // SchemaDefinition
+ *         columns: [ // Columns
+ *           { // Column
  *             name: "STRING_VALUE", // required
  *             type: "STRING_VALUE", // required
  *           },
@@ -81,13 +81,13 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *       },
  *     },
  *   },
- *   datastorePartitions: {
- *     partitions: [
- *       {
- *         attributePartition: {
+ *   datastorePartitions: { // DatastorePartitions
+ *     partitions: [ // Partitions
+ *       { // DatastorePartition
+ *         attributePartition: { // Partition
  *           attributeName: "STRING_VALUE", // required
  *         },
- *         timestampPartition: {
+ *         timestampPartition: { // TimestampPartition
  *           attributeName: "STRING_VALUE", // required
  *           timestampFormat: "STRING_VALUE",
  *         },

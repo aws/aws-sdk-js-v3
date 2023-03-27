@@ -43,7 +43,7 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * import { OAMClient, GetSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, GetSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
- * const input = {
+ * const input = { // GetSinkInput
  *   Identifier: "STRING_VALUE", // required
  * };
  * const command = new GetSinkCommand(input);

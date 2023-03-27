@@ -46,7 +46,7 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * import { ElasticsearchServiceClient, DescribeDomainAutoTunesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeDomainAutoTunesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // DescribeDomainAutoTunesRequest
  *   DomainName: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

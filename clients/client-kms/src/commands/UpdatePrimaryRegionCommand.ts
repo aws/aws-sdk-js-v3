@@ -106,7 +106,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * import { KMSClient, UpdatePrimaryRegionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdatePrimaryRegionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // UpdatePrimaryRegionRequest
  *   KeyId: "STRING_VALUE", // required
  *   PrimaryRegion: "STRING_VALUE", // required
  * };

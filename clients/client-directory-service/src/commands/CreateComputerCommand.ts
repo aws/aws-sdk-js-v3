@@ -46,13 +46,13 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * import { DirectoryServiceClient, CreateComputerCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateComputerCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // CreateComputerRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   ComputerName: "STRING_VALUE", // required
  *   Password: "STRING_VALUE", // required
  *   OrganizationalUnitDistinguishedName: "STRING_VALUE",
- *   ComputerAttributes: [
- *     {
+ *   ComputerAttributes: [ // Attributes
+ *     { // Attribute
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

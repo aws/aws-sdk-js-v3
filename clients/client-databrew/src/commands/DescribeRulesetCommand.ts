@@ -42,7 +42,7 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  * import { DataBrewClient, DescribeRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // DescribeRulesetRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeRulesetCommand(input);

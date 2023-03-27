@@ -44,7 +44,7 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * import { RedshiftClient, AuthorizeDataShareCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AuthorizeDataShareCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // AuthorizeDataShareMessage
  *   DataShareArn: "STRING_VALUE", // required
  *   ConsumerIdentifier: "STRING_VALUE", // required
  * };

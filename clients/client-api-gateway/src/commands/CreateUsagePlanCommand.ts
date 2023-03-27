@@ -42,15 +42,15 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * import { APIGatewayClient, CreateUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // CreateUsagePlanRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   apiStages: [
- *     {
+ *   apiStages: [ // ListOfApiStage
+ *     { // ApiStage
  *       apiId: "STRING_VALUE",
  *       stage: "STRING_VALUE",
- *       throttle: {
- *         "<keys>": {
+ *       throttle: { // MapOfApiStageThrottleSettings
+ *         "<keys>": { // ThrottleSettings
  *           burstLimit: Number("int"),
  *           rateLimit: Number("double"),
  *         },
@@ -61,12 +61,12 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  *     burstLimit: Number("int"),
  *     rateLimit: Number("double"),
  *   },
- *   quota: {
+ *   quota: { // QuotaSettings
  *     limit: Number("int"),
  *     offset: Number("int"),
  *     period: "DAY" || "WEEK" || "MONTH",
  *   },
- *   tags: {
+ *   tags: { // MapOfStringToString
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

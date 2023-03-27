@@ -42,7 +42,7 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * import { SSMClient, DeleteMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DeleteMaintenanceWindowRequest
  *   WindowId: "STRING_VALUE", // required
  * };
  * const command = new DeleteMaintenanceWindowCommand(input);

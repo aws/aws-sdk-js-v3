@@ -45,12 +45,12 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * import { NeptuneClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // DescribeEventSubscriptionsMessage
  *   SubscriptionName: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

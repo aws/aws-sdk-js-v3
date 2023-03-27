@@ -50,9 +50,9 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  * import { EKSClient, DisassociateIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DisassociateIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = {
+ * const input = { // DisassociateIdentityProviderConfigRequest
  *   clusterName: "STRING_VALUE", // required
- *   identityProviderConfig: {
+ *   identityProviderConfig: { // IdentityProviderConfig
  *     type: "STRING_VALUE", // required
  *     name: "STRING_VALUE", // required
  *   },

@@ -42,8 +42,8 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * import { WorkSpacesClient, DescribeIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
- *   GroupIds: [
+ * const input = { // DescribeIpGroupsRequest
+ *   GroupIds: [ // IpGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

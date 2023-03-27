@@ -49,11 +49,11 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * import { EC2Client, ModifySnapshotAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifySnapshotAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifySnapshotAttributeRequest
  *   Attribute: "productCodes" || "createVolumePermission",
- *   CreateVolumePermission: {
- *     Add: [
- *       {
+ *   CreateVolumePermission: { // CreateVolumePermissionModifications
+ *     Add: [ // CreateVolumePermissionList
+ *       { // CreateVolumePermission
  *         Group: "all",
  *         UserId: "STRING_VALUE",
  *       },
@@ -65,12 +65,12 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  *       },
  *     ],
  *   },
- *   GroupNames: [
+ *   GroupNames: [ // GroupNameStringList
  *     "STRING_VALUE",
  *   ],
  *   OperationType: "add" || "remove",
  *   SnapshotId: "STRING_VALUE", // required
- *   UserIds: [
+ *   UserIds: [ // UserIdStringList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

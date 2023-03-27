@@ -46,7 +46,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * import { LookoutEquipmentClient, DeleteDatasetCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteDatasetCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = {
+ * const input = { // DeleteDatasetRequest
  *   DatasetName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDatasetCommand(input);

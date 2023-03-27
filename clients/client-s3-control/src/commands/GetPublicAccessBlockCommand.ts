@@ -58,7 +58,7 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * import { S3ControlClient, GetPublicAccessBlockCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetPublicAccessBlockCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // GetPublicAccessBlockRequest
  *   AccountId: "STRING_VALUE",
  * };
  * const command = new GetPublicAccessBlockCommand(input);

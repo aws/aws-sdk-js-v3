@@ -45,7 +45,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * import { RedshiftClient, DescribeEventsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEventsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeEventsMessage
  *   SourceIdentifier: "STRING_VALUE",
  *   SourceType: "cluster" || "cluster-parameter-group" || "cluster-security-group" || "cluster-snapshot" || "scheduled-action",
  *   StartTime: new Date("TIMESTAMP"),

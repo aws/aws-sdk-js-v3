@@ -42,7 +42,7 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * import { AutoScalingClient, DeleteNotificationConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteNotificationConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // DeleteNotificationConfigurationType
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   TopicARN: "STRING_VALUE", // required
  * };

@@ -48,7 +48,7 @@ export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DetachPrincipalPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DetachPrincipalPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DetachPrincipalPolicyRequest
  *   policyName: "STRING_VALUE", // required
  *   principal: "STRING_VALUE", // required
  * };

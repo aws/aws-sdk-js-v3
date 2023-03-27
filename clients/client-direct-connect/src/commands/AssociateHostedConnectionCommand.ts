@@ -49,7 +49,7 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  * import { DirectConnectClient, AssociateHostedConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateHostedConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // AssociateHostedConnectionRequest
  *   connectionId: "STRING_VALUE", // required
  *   parentConnectionId: "STRING_VALUE", // required
  * };

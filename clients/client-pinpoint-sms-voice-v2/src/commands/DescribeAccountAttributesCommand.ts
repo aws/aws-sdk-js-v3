@@ -52,7 +52,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * import { PinpointSMSVoiceV2Client, DescribeAccountAttributesCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeAccountAttributesCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // DescribeAccountAttributesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

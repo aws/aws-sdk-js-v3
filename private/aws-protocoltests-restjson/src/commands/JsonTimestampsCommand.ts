@@ -43,7 +43,7 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  * import { RestJsonProtocolClient, JsonTimestampsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonTimestampsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
+ * const input = { // JsonTimestampsInputOutput
  *   normal: new Date("TIMESTAMP"),
  *   dateTime: new Date("TIMESTAMP"),
  *   dateTimeOnTarget: new Date("TIMESTAMP"),

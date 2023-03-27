@@ -46,9 +46,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { IoT1ClickProjectsClient, UntagResourceCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, UntagResourceCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

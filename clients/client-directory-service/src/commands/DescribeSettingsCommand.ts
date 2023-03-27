@@ -42,7 +42,7 @@ export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, _
  * import { DirectoryServiceClient, DescribeSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DescribeSettingsRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   Status: "Requested" || "Updating" || "Updated" || "Failed" || "Default",
  *   NextToken: "STRING_VALUE",

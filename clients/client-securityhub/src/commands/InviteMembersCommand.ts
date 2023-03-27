@@ -48,8 +48,8 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * import { SecurityHubClient, InviteMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, InviteMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   AccountIds: [ // required
+ * const input = { // InviteMembersRequest
+ *   AccountIds: [ // AccountIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -45,12 +45,12 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * import { DocDBClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // DescribePendingMaintenanceActionsMessage
  *   ResourceIdentifier: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

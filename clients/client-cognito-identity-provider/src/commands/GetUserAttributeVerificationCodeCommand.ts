@@ -72,10 +72,10 @@ export interface GetUserAttributeVerificationCodeCommandOutput
  * import { CognitoIdentityProviderClient, GetUserAttributeVerificationCodeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetUserAttributeVerificationCodeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // GetUserAttributeVerificationCodeRequest
  *   AccessToken: "STRING_VALUE", // required
  *   AttributeName: "STRING_VALUE", // required
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

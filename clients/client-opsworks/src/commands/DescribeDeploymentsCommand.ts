@@ -50,10 +50,10 @@ export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsRes
  * import { OpsWorksClient, DescribeDeploymentsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeDeploymentsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DescribeDeploymentsRequest
  *   StackId: "STRING_VALUE",
  *   AppId: "STRING_VALUE",
- *   DeploymentIds: [
+ *   DeploymentIds: [ // Strings
  *     "STRING_VALUE",
  *   ],
  * };

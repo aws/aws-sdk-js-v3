@@ -42,7 +42,7 @@ export interface GetLicenseConfigurationCommandOutput extends GetLicenseConfigur
  * import { LicenseManagerClient, GetLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, GetLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // GetLicenseConfigurationRequest
  *   LicenseConfigurationArn: "STRING_VALUE", // required
  * };
  * const command = new GetLicenseConfigurationCommand(input);

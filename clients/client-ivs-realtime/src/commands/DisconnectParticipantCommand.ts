@@ -42,7 +42,7 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * import { IVSRealTimeClient, DisconnectParticipantCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, DisconnectParticipantCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
- * const input = {
+ * const input = { // DisconnectParticipantRequest
  *   stageArn: "STRING_VALUE", // required
  *   participantId: "STRING_VALUE", // required
  *   reason: "STRING_VALUE",

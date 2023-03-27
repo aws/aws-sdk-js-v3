@@ -42,17 +42,17 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * import { EC2Client, DescribeInternetGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInternetGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeInternetGatewaysRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   DryRun: true || false,
- *   InternetGatewayIds: [
+ *   InternetGatewayIds: [ // InternetGatewayIdList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

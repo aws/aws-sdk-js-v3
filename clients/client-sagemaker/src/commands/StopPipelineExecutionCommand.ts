@@ -64,7 +64,7 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * import { SageMakerClient, StopPipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopPipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // StopPipelineExecutionRequest
  *   PipelineExecutionArn: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE", // required
  * };

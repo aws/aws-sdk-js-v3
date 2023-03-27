@@ -42,13 +42,13 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  * import { AppMeshClient, UpdateMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // UpdateMeshInput
  *   meshName: "STRING_VALUE", // required
- *   spec: {
- *     egressFilter: {
+ *   spec: { // MeshSpec
+ *     egressFilter: { // EgressFilter
  *       type: "STRING_VALUE", // required
  *     },
- *     serviceDiscovery: {
+ *     serviceDiscovery: { // MeshServiceDiscovery
  *       ipPreference: "STRING_VALUE",
  *     },
  *   },

@@ -51,7 +51,7 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * import { DeviceFarmClient, GetTestGridSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetTestGridSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // GetTestGridSessionRequest
  *   projectArn: "STRING_VALUE",
  *   sessionId: "STRING_VALUE",
  *   sessionArn: "STRING_VALUE",

@@ -45,9 +45,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * import { HoneycodeClient, UntagResourceCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, UntagResourceCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeysList // required
  *     "STRING_VALUE",
  *   ],
  * };

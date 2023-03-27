@@ -44,9 +44,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { AppConfigClient, TagResourceCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, TagResourceCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

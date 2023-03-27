@@ -42,7 +42,7 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  * import { ACMPCAClient, ListCertificateAuthoritiesCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, ListCertificateAuthoritiesCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
+ * const input = { // ListCertificateAuthoritiesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   ResourceOwner: "SELF" || "OTHER_ACCOUNTS",

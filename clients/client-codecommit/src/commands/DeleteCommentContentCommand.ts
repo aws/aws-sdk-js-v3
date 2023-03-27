@@ -42,7 +42,7 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  * import { CodeCommitClient, DeleteCommentContentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteCommentContentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // DeleteCommentContentInput
  *   commentId: "STRING_VALUE", // required
  * };
  * const command = new DeleteCommentContentCommand(input);

@@ -51,7 +51,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { WAFClient, ListTagsForResourceCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListTagsForResourceCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   NextMarker: "STRING_VALUE",
  *   Limit: Number("int"),
  *   ResourceARN: "STRING_VALUE", // required

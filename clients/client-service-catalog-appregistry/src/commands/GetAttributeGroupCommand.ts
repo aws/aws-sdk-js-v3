@@ -51,7 +51,7 @@ export interface GetAttributeGroupCommandOutput extends GetAttributeGroupRespons
  * import { ServiceCatalogAppRegistryClient, GetAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, GetAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
- * const input = {
+ * const input = { // GetAttributeGroupRequest
  *   attributeGroup: "STRING_VALUE", // required
  * };
  * const command = new GetAttributeGroupCommand(input);

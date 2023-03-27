@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { OmicsClient, UntagResourceCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UntagResourceCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

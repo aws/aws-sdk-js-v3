@@ -49,9 +49,9 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * import { ChimeClient, InviteUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, InviteUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // InviteUsersRequest
  *   AccountId: "STRING_VALUE", // required
- *   UserEmailList: [ // required
+ *   UserEmailList: [ // UserEmailList // required
  *     "STRING_VALUE",
  *   ],
  *   UserType: "STRING_VALUE",

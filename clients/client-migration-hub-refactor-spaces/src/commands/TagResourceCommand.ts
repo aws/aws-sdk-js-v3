@@ -52,9 +52,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { MigrationHubRefactorSpacesClient, TagResourceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, TagResourceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

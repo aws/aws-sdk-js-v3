@@ -46,7 +46,7 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * import { AthenaClient, TerminateSessionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, TerminateSessionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // TerminateSessionRequest
  *   SessionId: "STRING_VALUE", // required
  * };
  * const command = new TerminateSessionCommand(input);

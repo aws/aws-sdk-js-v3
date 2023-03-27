@@ -43,17 +43,17 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  * import { KendraClient, CreateFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // CreateFaqRequest
  *   IndexId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   S3Path: {
+ *   S3Path: { // S3Path
  *     Bucket: "STRING_VALUE", // required
  *     Key: "STRING_VALUE", // required
  *   },
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

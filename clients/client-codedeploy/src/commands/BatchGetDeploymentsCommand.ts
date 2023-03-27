@@ -43,8 +43,8 @@ export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOut
  * import { CodeDeployClient, BatchGetDeploymentsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetDeploymentsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
- *   deploymentIds: [ // required
+ * const input = { // BatchGetDeploymentsInput
+ *   deploymentIds: [ // DeploymentsList // required
  *     "STRING_VALUE",
  *   ],
  * };

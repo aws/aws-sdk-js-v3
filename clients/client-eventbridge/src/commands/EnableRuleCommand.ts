@@ -44,7 +44,7 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  * import { EventBridgeClient, EnableRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, EnableRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // EnableRuleRequest
  *   Name: "STRING_VALUE", // required
  *   EventBusName: "STRING_VALUE",
  * };

@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { IoTEventsClient, UntagResourceCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, UntagResourceCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

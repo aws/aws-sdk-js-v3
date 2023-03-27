@@ -42,7 +42,7 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  * import { AlexaForBusinessClient, DeleteSkillAuthorizationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteSkillAuthorizationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DeleteSkillAuthorizationRequest
  *   SkillId: "STRING_VALUE", // required
  *   RoomArn: "STRING_VALUE",
  * };

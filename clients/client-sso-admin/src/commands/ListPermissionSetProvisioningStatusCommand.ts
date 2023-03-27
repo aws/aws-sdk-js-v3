@@ -48,11 +48,11 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * import { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // ListPermissionSetProvisioningStatusRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filter: {
+ *   Filter: { // OperationStatusFilter
  *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
  *   },
  * };

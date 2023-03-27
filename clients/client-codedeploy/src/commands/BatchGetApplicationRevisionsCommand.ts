@@ -45,27 +45,27 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * import { CodeDeployClient, BatchGetApplicationRevisionsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetApplicationRevisionsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // BatchGetApplicationRevisionsInput
  *   applicationName: "STRING_VALUE", // required
- *   revisions: [ // required
- *     {
+ *   revisions: [ // RevisionLocationList // required
+ *     { // RevisionLocation
  *       revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
- *       s3Location: {
+ *       s3Location: { // S3Location
  *         bucket: "STRING_VALUE",
  *         key: "STRING_VALUE",
  *         bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
  *         version: "STRING_VALUE",
  *         eTag: "STRING_VALUE",
  *       },
- *       gitHubLocation: {
+ *       gitHubLocation: { // GitHubLocation
  *         repository: "STRING_VALUE",
  *         commitId: "STRING_VALUE",
  *       },
- *       string: {
+ *       string: { // RawString
  *         content: "STRING_VALUE",
  *         sha256: "STRING_VALUE",
  *       },
- *       appSpecContent: {
+ *       appSpecContent: { // AppSpecContent
  *         content: "STRING_VALUE",
  *         sha256: "STRING_VALUE",
  *       },

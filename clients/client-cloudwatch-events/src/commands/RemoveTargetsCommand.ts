@@ -50,10 +50,10 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * import { CloudWatchEventsClient, RemoveTargetsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, RemoveTargetsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // RemoveTargetsRequest
  *   Rule: "STRING_VALUE", // required
  *   EventBusName: "STRING_VALUE",
- *   Ids: [ // required
+ *   Ids: [ // TargetIdList // required
  *     "STRING_VALUE",
  *   ],
  *   Force: true || false,

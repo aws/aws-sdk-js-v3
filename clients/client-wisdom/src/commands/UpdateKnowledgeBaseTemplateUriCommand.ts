@@ -49,7 +49,7 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
  * import { WisdomClient, UpdateKnowledgeBaseTemplateUriCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, UpdateKnowledgeBaseTemplateUriCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // UpdateKnowledgeBaseTemplateUriRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
  *   templateUri: "STRING_VALUE", // required
  * };

@@ -44,7 +44,7 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  * import { AppStreamClient, CreateImageBuilderStreamingURLCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateImageBuilderStreamingURLCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // CreateImageBuilderStreamingURLRequest
  *   Name: "STRING_VALUE", // required
  *   Validity: Number("long"),
  * };

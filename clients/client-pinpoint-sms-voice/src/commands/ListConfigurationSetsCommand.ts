@@ -42,7 +42,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * import { PinpointSMSVoiceClient, ListConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
- * const input = {
+ * const input = { // ListConfigurationSetsRequest
  *   NextToken: "STRING_VALUE",
  *   PageSize: "STRING_VALUE",
  * };

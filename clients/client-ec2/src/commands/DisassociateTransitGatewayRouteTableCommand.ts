@@ -47,7 +47,7 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
  * import { EC2Client, DisassociateTransitGatewayRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateTransitGatewayRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisassociateTransitGatewayRouteTableRequest
  *   TransitGatewayRouteTableId: "STRING_VALUE", // required
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required
  *   DryRun: true || false,

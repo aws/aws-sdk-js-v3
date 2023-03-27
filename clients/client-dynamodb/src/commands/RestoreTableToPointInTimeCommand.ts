@@ -91,36 +91,36 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * import { DynamoDBClient, RestoreTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, RestoreTableToPointInTimeCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // RestoreTableToPointInTimeInput
  *   SourceTableArn: "STRING_VALUE",
  *   SourceTableName: "STRING_VALUE",
  *   TargetTableName: "STRING_VALUE", // required
  *   UseLatestRestorableTime: true || false,
  *   RestoreDateTime: new Date("TIMESTAMP"),
  *   BillingModeOverride: "PROVISIONED" || "PAY_PER_REQUEST",
- *   GlobalSecondaryIndexOverride: [
- *     {
+ *   GlobalSecondaryIndexOverride: [ // GlobalSecondaryIndexList
+ *     { // GlobalSecondaryIndex
  *       IndexName: "STRING_VALUE", // required
- *       KeySchema: [ // required
- *         {
+ *       KeySchema: [ // KeySchema // required
+ *         { // KeySchemaElement
  *           AttributeName: "STRING_VALUE", // required
  *           KeyType: "HASH" || "RANGE", // required
  *         },
  *       ],
- *       Projection: {
+ *       Projection: { // Projection
  *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
- *         NonKeyAttributes: [
+ *         NonKeyAttributes: [ // NonKeyAttributeNameList
  *           "STRING_VALUE",
  *         ],
  *       },
- *       ProvisionedThroughput: {
+ *       ProvisionedThroughput: { // ProvisionedThroughput
  *         ReadCapacityUnits: Number("long"), // required
  *         WriteCapacityUnits: Number("long"), // required
  *       },
  *     },
  *   ],
- *   LocalSecondaryIndexOverride: [
- *     {
+ *   LocalSecondaryIndexOverride: [ // LocalSecondaryIndexList
+ *     { // LocalSecondaryIndex
  *       IndexName: "STRING_VALUE", // required
  *       KeySchema: [ // required
  *         {
@@ -140,7 +140,7 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *     ReadCapacityUnits: Number("long"), // required
  *     WriteCapacityUnits: Number("long"), // required
  *   },
- *   SSESpecificationOverride: {
+ *   SSESpecificationOverride: { // SSESpecification
  *     Enabled: true || false,
  *     SSEType: "AES256" || "KMS",
  *     KMSMasterKeyId: "STRING_VALUE",

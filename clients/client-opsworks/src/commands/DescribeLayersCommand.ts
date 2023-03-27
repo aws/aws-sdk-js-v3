@@ -50,9 +50,9 @@ export interface DescribeLayersCommandOutput extends DescribeLayersResult, __Met
  * import { OpsWorksClient, DescribeLayersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeLayersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DescribeLayersRequest
  *   StackId: "STRING_VALUE",
- *   LayerIds: [
+ *   LayerIds: [ // Strings
  *     "STRING_VALUE",
  *   ],
  * };

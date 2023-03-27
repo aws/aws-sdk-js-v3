@@ -45,20 +45,20 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * import { TranslateClient, CreateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, CreateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
- * const input = {
+ * const input = { // CreateParallelDataRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   ParallelDataConfig: {
+ *   ParallelDataConfig: { // ParallelDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     Format: "TSV" || "CSV" || "TMX", // required
  *   },
- *   EncryptionKey: {
+ *   EncryptionKey: { // EncryptionKey
  *     Type: "KMS", // required
  *     Id: "STRING_VALUE", // required
  *   },
  *   ClientToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

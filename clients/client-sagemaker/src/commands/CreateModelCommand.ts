@@ -61,29 +61,29 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  * import { SageMakerClient, CreateModelCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateModelInput
  *   ModelName: "STRING_VALUE", // required
- *   PrimaryContainer: {
+ *   PrimaryContainer: { // ContainerDefinition
  *     ContainerHostname: "STRING_VALUE",
  *     Image: "STRING_VALUE",
- *     ImageConfig: {
+ *     ImageConfig: { // ImageConfig
  *       RepositoryAccessMode: "Platform" || "Vpc", // required
- *       RepositoryAuthConfig: {
+ *       RepositoryAuthConfig: { // RepositoryAuthConfig
  *         RepositoryCredentialsProviderArn: "STRING_VALUE", // required
  *       },
  *     },
  *     Mode: "SingleModel" || "MultiModel",
  *     ModelDataUrl: "STRING_VALUE",
- *     Environment: {
+ *     Environment: { // EnvironmentMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     ModelPackageName: "STRING_VALUE",
  *     InferenceSpecificationName: "STRING_VALUE",
- *     MultiModelConfig: {
+ *     MultiModelConfig: { // MultiModelConfig
  *       ModelCacheSetting: "Enabled" || "Disabled",
  *     },
  *   },
- *   Containers: [
+ *   Containers: [ // ContainerDefinitionList
  *     {
  *       ContainerHostname: "STRING_VALUE",
  *       Image: "STRING_VALUE",
@@ -105,21 +105,21 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *       },
  *     },
  *   ],
- *   InferenceExecutionConfig: {
+ *   InferenceExecutionConfig: { // InferenceExecutionConfig
  *     Mode: "Serial" || "Direct", // required
  *   },
  *   ExecutionRoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   VpcConfig: {
- *     SecurityGroupIds: [ // required
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // VpcSecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
- *     Subnets: [ // required
+ *     Subnets: [ // Subnets // required
  *       "STRING_VALUE",
  *     ],
  *   },

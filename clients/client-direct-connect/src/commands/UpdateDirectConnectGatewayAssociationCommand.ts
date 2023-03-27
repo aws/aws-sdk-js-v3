@@ -49,10 +49,10 @@ export interface UpdateDirectConnectGatewayAssociationCommandOutput
  * import { DirectConnectClient, UpdateDirectConnectGatewayAssociationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateDirectConnectGatewayAssociationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // UpdateDirectConnectGatewayAssociationRequest
  *   associationId: "STRING_VALUE",
- *   addAllowedPrefixesToDirectConnectGateway: [
- *     {
+ *   addAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ *     { // RouteFilterPrefix
  *       cidr: "STRING_VALUE",
  *     },
  *   ],

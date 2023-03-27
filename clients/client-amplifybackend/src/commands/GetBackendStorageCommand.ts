@@ -42,7 +42,7 @@ export interface GetBackendStorageCommandOutput extends GetBackendStorageRespons
  * import { AmplifyBackendClient, GetBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
- * const input = {
+ * const input = { // GetBackendStorageRequest
  *   AppId: "STRING_VALUE", // required
  *   BackendEnvironmentName: "STRING_VALUE", // required
  *   ResourceName: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * import { WisdomClient, ListKnowledgeBasesCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListKnowledgeBasesCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // ListKnowledgeBasesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

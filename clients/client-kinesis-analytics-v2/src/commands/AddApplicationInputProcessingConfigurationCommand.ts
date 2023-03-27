@@ -54,12 +54,12 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * import { KinesisAnalyticsV2Client, AddApplicationInputProcessingConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationInputProcessingConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // AddApplicationInputProcessingConfigurationRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   CurrentApplicationVersionId: Number("long"), // required
  *   InputId: "STRING_VALUE", // required
- *   InputProcessingConfiguration: {
- *     InputLambdaProcessor: {
+ *   InputProcessingConfiguration: { // InputProcessingConfiguration
+ *     InputLambdaProcessor: { // InputLambdaProcessor
  *       ResourceARN: "STRING_VALUE", // required
  *     },
  *   },

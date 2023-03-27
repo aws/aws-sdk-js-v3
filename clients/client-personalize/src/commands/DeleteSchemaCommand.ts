@@ -44,7 +44,7 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DeleteSchemaRequest
  *   schemaArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteSchemaCommand(input);

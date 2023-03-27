@@ -42,7 +42,7 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * import { EC2Client, DescribeVpcAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeVpcAttributeRequest
  *   Attribute: "enableDnsSupport" || "enableDnsHostnames" || "enableNetworkAddressUsageMetrics", // required
  *   VpcId: "STRING_VALUE", // required
  *   DryRun: true || false,

@@ -42,7 +42,7 @@ export interface ListLaunchProfileMembersCommandOutput extends ListLaunchProfile
  * import { NimbleClient, ListLaunchProfileMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListLaunchProfileMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // ListLaunchProfileMembersRequest
  *   launchProfileId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

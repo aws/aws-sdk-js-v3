@@ -42,7 +42,7 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  * import { PinpointClient, GetUserEndpointsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetUserEndpointsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetUserEndpointsRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  * };

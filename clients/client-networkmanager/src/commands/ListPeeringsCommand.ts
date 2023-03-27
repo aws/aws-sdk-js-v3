@@ -42,7 +42,7 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * import { NetworkManagerClient, ListPeeringsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListPeeringsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // ListPeeringsRequest
  *   CoreNetworkId: "STRING_VALUE",
  *   PeeringType: "TRANSIT_GATEWAY",
  *   EdgeLocation: "STRING_VALUE",

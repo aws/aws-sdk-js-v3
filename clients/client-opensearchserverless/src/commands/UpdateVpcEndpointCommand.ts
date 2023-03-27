@@ -47,15 +47,15 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * import { OpenSearchServerlessClient, UpdateVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // UpdateVpcEndpointRequest
  *   id: "STRING_VALUE", // required
- *   addSubnetIds: [
+ *   addSubnetIds: [ // SubnetIds
  *     "STRING_VALUE",
  *   ],
  *   removeSubnetIds: [
  *     "STRING_VALUE",
  *   ],
- *   addSecurityGroupIds: [
+ *   addSecurityGroupIds: [ // SecurityGroupIds
  *     "STRING_VALUE",
  *   ],
  *   removeSecurityGroupIds: [

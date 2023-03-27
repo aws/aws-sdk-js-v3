@@ -45,7 +45,7 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  * import { EC2Client, AllocateIpamPoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AllocateIpamPoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AllocateIpamPoolCidrRequest
  *   DryRun: true || false,
  *   IpamPoolId: "STRING_VALUE", // required
  *   Cidr: "STRING_VALUE",
@@ -53,7 +53,7 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  *   ClientToken: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   PreviewNextCidr: true || false,
- *   DisallowedCidrs: [
+ *   DisallowedCidrs: [ // IpamPoolAllocationDisallowedCidrs
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,17 +42,17 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  * import { CloudDirectoryClient, GetObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // GetObjectAttributesRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   ObjectReference: {
+ *   ObjectReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
- *   SchemaFacet: {
+ *   SchemaFacet: { // SchemaFacet
  *     SchemaArn: "STRING_VALUE",
  *     FacetName: "STRING_VALUE",
  *   },
- *   AttributeNames: [ // required
+ *   AttributeNames: [ // AttributeNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

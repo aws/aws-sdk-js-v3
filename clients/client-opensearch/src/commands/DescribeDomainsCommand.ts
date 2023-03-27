@@ -43,8 +43,8 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * import { OpenSearchClient, DescribeDomainsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDomainsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
- *   DomainNames: [ // required
+ * const input = { // DescribeDomainsRequest
+ *   DomainNames: [ // DomainNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

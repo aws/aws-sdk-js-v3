@@ -43,7 +43,7 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * import { MemoryDBClient, DeleteParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DeleteParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // DeleteParameterGroupRequest
  *   ParameterGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteParameterGroupCommand(input);

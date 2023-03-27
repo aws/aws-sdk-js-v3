@@ -43,11 +43,11 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * import { ConnectClient, ListAgentStatusesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListAgentStatusesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // ListAgentStatusRequest
  *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   AgentStatusTypes: [
+ *   AgentStatusTypes: [ // AgentStatusTypes
  *     "ROUTABLE" || "CUSTOM" || "OFFLINE",
  *   ],
  * };

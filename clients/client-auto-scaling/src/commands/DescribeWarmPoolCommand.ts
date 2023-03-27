@@ -44,7 +44,7 @@ export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, _
  * import { AutoScalingClient, DescribeWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // DescribeWarmPoolType
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   MaxRecords: Number("int"),
  *   NextToken: "STRING_VALUE",

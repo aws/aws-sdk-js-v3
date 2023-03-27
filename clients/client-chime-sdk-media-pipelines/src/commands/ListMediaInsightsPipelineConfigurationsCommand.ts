@@ -53,7 +53,7 @@ export interface ListMediaInsightsPipelineConfigurationsCommandOutput
  * import { ChimeSDKMediaPipelinesClient, ListMediaInsightsPipelineConfigurationsCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, ListMediaInsightsPipelineConfigurationsCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
+ * const input = { // ListMediaInsightsPipelineConfigurationsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

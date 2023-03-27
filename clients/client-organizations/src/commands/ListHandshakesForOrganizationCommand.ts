@@ -65,8 +65,8 @@ export interface ListHandshakesForOrganizationCommandOutput
  * import { OrganizationsClient, ListHandshakesForOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListHandshakesForOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
- *   Filter: {
+ * const input = { // ListHandshakesForOrganizationRequest
+ *   Filter: { // HandshakeFilter
  *     ActionType: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
  *     ParentHandshakeId: "STRING_VALUE",
  *   },

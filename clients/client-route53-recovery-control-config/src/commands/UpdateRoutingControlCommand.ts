@@ -46,7 +46,7 @@ export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlR
  * import { Route53RecoveryControlConfigClient, UpdateRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, UpdateRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
+ * const input = { // UpdateRoutingControlRequest
  *   RoutingControlArn: "STRING_VALUE", // required
  *   RoutingControlName: "STRING_VALUE", // required
  * };

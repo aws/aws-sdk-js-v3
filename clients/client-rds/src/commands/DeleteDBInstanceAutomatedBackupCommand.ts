@@ -44,7 +44,7 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * import { RDSClient, DeleteDBInstanceAutomatedBackupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBInstanceAutomatedBackupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeleteDBInstanceAutomatedBackupMessage
  *   DbiResourceId: "STRING_VALUE",
  *   DBInstanceAutomatedBackupsArn: "STRING_VALUE",
  * };

@@ -44,7 +44,7 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * import { CodePipelineClient, GetPipelineExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // GetPipelineExecutionInput
  *   pipelineName: "STRING_VALUE", // required
  *   pipelineExecutionId: "STRING_VALUE", // required
  * };

@@ -44,9 +44,9 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  * import { IoTThingsGraphClient, UpdateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UpdateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
+ * const input = { // UpdateSystemTemplateRequest
  *   id: "STRING_VALUE", // required
- *   definition: {
+ *   definition: { // DefinitionDocument
  *     language: "STRING_VALUE", // required
  *     text: "STRING_VALUE", // required
  *   },

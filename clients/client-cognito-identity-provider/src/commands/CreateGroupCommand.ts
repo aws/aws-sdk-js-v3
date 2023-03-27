@@ -48,7 +48,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * import { CognitoIdentityProviderClient, CreateGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // CreateGroupRequest
  *   GroupName: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

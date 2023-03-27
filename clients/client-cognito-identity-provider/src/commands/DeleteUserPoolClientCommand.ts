@@ -47,7 +47,7 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, DeleteUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // DeleteUserPoolClientRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE", // required
  * };

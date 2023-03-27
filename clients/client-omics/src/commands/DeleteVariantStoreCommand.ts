@@ -42,7 +42,7 @@ export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreRespo
  * import { OmicsClient, DeleteVariantStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteVariantStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // DeleteVariantStoreRequest
  *   name: "STRING_VALUE", // required
  *   force: true || false,
  * };

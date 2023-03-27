@@ -49,12 +49,12 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * import { DocDBClient, DescribeEngineDefaultClusterParametersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeEngineDefaultClusterParametersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // DescribeEngineDefaultClusterParametersMessage
  *   DBParameterGroupFamily: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

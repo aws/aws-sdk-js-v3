@@ -80,10 +80,10 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * import { CognitoIdentityProviderClient, AdminResetUserPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminResetUserPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminResetUserPasswordRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE", // required
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

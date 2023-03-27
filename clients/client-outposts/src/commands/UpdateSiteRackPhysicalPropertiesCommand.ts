@@ -49,7 +49,7 @@ export interface UpdateSiteRackPhysicalPropertiesCommandOutput
  * import { OutpostsClient, UpdateSiteRackPhysicalPropertiesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateSiteRackPhysicalPropertiesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // UpdateSiteRackPhysicalPropertiesInput
  *   SiteId: "STRING_VALUE", // required
  *   PowerDrawKva: "POWER_5_KVA" || "POWER_10_KVA" || "POWER_15_KVA" || "POWER_30_KVA",
  *   PowerPhase: "SINGLE_PHASE" || "THREE_PHASE",

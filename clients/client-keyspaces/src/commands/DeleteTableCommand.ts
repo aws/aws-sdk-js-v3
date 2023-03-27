@@ -46,7 +46,7 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * import { KeyspacesClient, DeleteTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, DeleteTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = {
+ * const input = { // DeleteTableRequest
  *   keyspaceName: "STRING_VALUE", // required
  *   tableName: "STRING_VALUE", // required
  * };

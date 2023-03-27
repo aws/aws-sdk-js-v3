@@ -89,15 +89,15 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * import { PersonalizeClient, CreateDatasetImportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateDatasetImportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // CreateDatasetImportJobRequest
  *   jobName: "STRING_VALUE", // required
  *   datasetArn: "STRING_VALUE", // required
- *   dataSource: {
+ *   dataSource: { // DataSource
  *     dataLocation: "STRING_VALUE",
  *   },
  *   roleArn: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       tagKey: "STRING_VALUE", // required
  *       tagValue: "STRING_VALUE", // required
  *     },

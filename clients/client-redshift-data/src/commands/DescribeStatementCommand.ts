@@ -47,7 +47,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * import { RedshiftDataClient, DescribeStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, DescribeStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
- * const input = {
+ * const input = { // DescribeStatementRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DescribeStatementCommand(input);

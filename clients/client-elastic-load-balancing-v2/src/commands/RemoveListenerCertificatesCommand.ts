@@ -47,10 +47,10 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * import { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // RemoveListenerCertificatesInput
  *   ListenerArn: "STRING_VALUE", // required
- *   Certificates: [ // required
- *     {
+ *   Certificates: [ // CertificateList // required
+ *     { // Certificate
  *       CertificateArn: "STRING_VALUE",
  *       IsDefault: true || false,
  *     },

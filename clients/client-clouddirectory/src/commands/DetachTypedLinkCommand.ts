@@ -42,23 +42,23 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * import { CloudDirectoryClient, DetachTypedLinkCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DetachTypedLinkCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // DetachTypedLinkRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   TypedLinkSpecifier: {
- *     TypedLinkFacet: {
+ *   TypedLinkSpecifier: { // TypedLinkSpecifier
+ *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
  *       SchemaArn: "STRING_VALUE", // required
  *       TypedLinkName: "STRING_VALUE", // required
  *     },
- *     SourceObjectReference: {
+ *     SourceObjectReference: { // ObjectReference
  *       Selector: "STRING_VALUE",
  *     },
  *     TargetObjectReference: {
  *       Selector: "STRING_VALUE",
  *     },
- *     IdentityAttributeValues: [ // required
- *       {
+ *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *       { // AttributeNameAndValue
  *         AttributeName: "STRING_VALUE", // required
- *         Value: { // Union: only one key present
+ *         Value: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,

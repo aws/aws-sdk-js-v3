@@ -42,7 +42,7 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * import { RedshiftClient, DescribeClusterDbRevisionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterDbRevisionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeClusterDbRevisionsMessage
  *   ClusterIdentifier: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",

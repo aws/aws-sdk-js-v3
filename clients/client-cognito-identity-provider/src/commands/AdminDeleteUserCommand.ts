@@ -48,7 +48,7 @@ export interface AdminDeleteUserCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, AdminDeleteUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminDeleteUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminDeleteUserRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE", // required
  * };

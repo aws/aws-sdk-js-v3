@@ -46,7 +46,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { WorkSpacesWebClient, ListTagsForResourceCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListTagsForResourceCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

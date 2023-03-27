@@ -46,40 +46,40 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * import { GroundStationClient, CreateDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
- *   endpointDetails: [ // required
- *     {
- *       securityDetails: {
- *         subnetIds: [ // required
+ * const input = { // CreateDataflowEndpointGroupRequest
+ *   endpointDetails: [ // EndpointDetailsList // required
+ *     { // EndpointDetails
+ *       securityDetails: { // SecurityDetails
+ *         subnetIds: [ // SubnetList // required
  *           "STRING_VALUE",
  *         ],
- *         securityGroupIds: [ // required
+ *         securityGroupIds: [ // SecurityGroupIdList // required
  *           "STRING_VALUE",
  *         ],
  *         roleArn: "STRING_VALUE", // required
  *       },
- *       endpoint: {
+ *       endpoint: { // DataflowEndpoint
  *         name: "STRING_VALUE",
- *         address: {
+ *         address: { // SocketAddress
  *           name: "STRING_VALUE", // required
  *           port: Number("int"), // required
  *         },
  *         status: "STRING_VALUE",
  *         mtu: Number("int"),
  *       },
- *       awsGroundStationAgentEndpoint: {
+ *       awsGroundStationAgentEndpoint: { // AwsGroundStationAgentEndpoint
  *         name: "STRING_VALUE", // required
- *         egressAddress: {
+ *         egressAddress: { // ConnectionDetails
  *           socketAddress: {
  *             name: "STRING_VALUE", // required
  *             port: Number("int"), // required
  *           },
  *           mtu: Number("int"),
  *         },
- *         ingressAddress: {
- *           socketAddress: {
+ *         ingressAddress: { // RangedConnectionDetails
+ *           socketAddress: { // RangedSocketAddress
  *             name: "STRING_VALUE", // required
- *             portRange: {
+ *             portRange: { // IntegerRange
  *               minimum: Number("int"), // required
  *               maximum: Number("int"), // required
  *             },
@@ -91,7 +91,7 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *       },
  *     },
  *   ],
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   contactPrePassDurationSeconds: Number("int"),

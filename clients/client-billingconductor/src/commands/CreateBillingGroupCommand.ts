@@ -48,20 +48,20 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * import { BillingconductorClient, CreateBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreateBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // CreateBillingGroupInput
  *   ClientToken: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
- *   AccountGrouping: {
- *     LinkedAccountIds: [ // required
+ *   AccountGrouping: { // AccountGrouping
+ *     LinkedAccountIds: [ // AccountIdList // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   ComputationPreference: {
+ *   ComputationPreference: { // ComputationPreference
  *     PricingPlanArn: "STRING_VALUE", // required
  *   },
  *   PrimaryAccountId: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

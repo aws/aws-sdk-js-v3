@@ -42,10 +42,10 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * import { FraudDetectorClient, TagResourceCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, TagResourceCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceARN: "STRING_VALUE", // required
- *   tags: [ // required
- *     {
+ *   tags: [ // tagList // required
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

@@ -49,7 +49,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * import { NeptuneClient, DescribeValidDBInstanceModificationsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeValidDBInstanceModificationsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // DescribeValidDBInstanceModificationsMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DescribeValidDBInstanceModificationsCommand(input);

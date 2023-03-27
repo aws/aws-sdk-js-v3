@@ -44,7 +44,7 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  * import { SnowballClient, ListClusterJobsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListClusterJobsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
+ * const input = { // ListClusterJobsRequest
  *   ClusterId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

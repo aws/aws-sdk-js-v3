@@ -42,18 +42,18 @@ export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProg
  * import { MediaLiveClient, UpdateMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // UpdateMultiplexProgramRequest
  *   MultiplexId: "STRING_VALUE", // required
- *   MultiplexProgramSettings: {
+ *   MultiplexProgramSettings: { // MultiplexProgramSettings
  *     PreferredChannelPipeline: "CURRENTLY_ACTIVE" || "PIPELINE_0" || "PIPELINE_1",
  *     ProgramNumber: Number("int"), // required
- *     ServiceDescriptor: {
+ *     ServiceDescriptor: { // MultiplexProgramServiceDescriptor
  *       ProviderName: "STRING_VALUE", // required
  *       ServiceName: "STRING_VALUE", // required
  *     },
- *     VideoSettings: {
+ *     VideoSettings: { // MultiplexVideoSettings
  *       ConstantBitrate: Number("int"),
- *       StatmuxSettings: {
+ *       StatmuxSettings: { // MultiplexStatmuxVideoSettings
  *         MaximumBitrate: Number("int"),
  *         MinimumBitrate: Number("int"),
  *         Priority: Number("int"),

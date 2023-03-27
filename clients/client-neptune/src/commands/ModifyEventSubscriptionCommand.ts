@@ -46,11 +46,11 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * import { NeptuneClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ModifyEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SnsTopicArn: "STRING_VALUE",
  *   SourceType: "STRING_VALUE",
- *   EventCategories: [
+ *   EventCategories: [ // EventCategoriesList
  *     "STRING_VALUE",
  *   ],
  *   Enabled: true || false,

@@ -42,13 +42,13 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * import { CodeGuruProfilerClient, AddNotificationChannelsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, AddNotificationChannelsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // AddNotificationChannelsRequest
  *   profilingGroupName: "STRING_VALUE", // required
- *   channels: [ // required
- *     {
+ *   channels: [ // Channels // required
+ *     { // Channel
  *       id: "STRING_VALUE",
  *       uri: "STRING_VALUE", // required
- *       eventPublishers: [ // required
+ *       eventPublishers: [ // EventPublishers // required
  *         "STRING_VALUE",
  *       ],
  *     },

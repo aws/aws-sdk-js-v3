@@ -57,13 +57,13 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * import { DirectConnectClient, CreateInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // CreateInterconnectRequest
  *   interconnectName: "STRING_VALUE", // required
  *   bandwidth: "STRING_VALUE", // required
  *   location: "STRING_VALUE", // required
  *   lagId: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },

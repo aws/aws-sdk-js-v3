@@ -65,14 +65,14 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  * import { FSxClient, DescribeDataRepositoryAssociationsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeDataRepositoryAssociationsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
- *   AssociationIds: [
+ * const input = { // DescribeDataRepositoryAssociationsRequest
+ *   AssociationIds: [ // DataRepositoryAssociationIds
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Name: "file-system-id" || "backup-type" || "file-system-type" || "volume-id" || "data-repository-type" || "file-cache-id" || "file-cache-type",
- *       Values: [
+ *       Values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

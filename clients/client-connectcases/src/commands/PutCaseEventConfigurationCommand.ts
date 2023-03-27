@@ -42,19 +42,19 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * import { ConnectCasesClient, PutCaseEventConfigurationCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, PutCaseEventConfigurationCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = {
+ * const input = { // PutCaseEventConfigurationRequest
  *   domainId: "STRING_VALUE", // required
- *   eventBridge: {
+ *   eventBridge: { // EventBridgeConfiguration
  *     enabled: true || false, // required
- *     includedData: {
- *       caseData: {
- *         fields: [ // required
- *           {
+ *     includedData: { // EventIncludedData
+ *       caseData: { // CaseEventIncludedData
+ *         fields: [ // FieldIdentifierList // required
+ *           { // FieldIdentifier
  *             id: "STRING_VALUE", // required
  *           },
  *         ],
  *       },
- *       relatedItemData: {
+ *       relatedItemData: { // RelatedItemEventIncludedData
  *         includeContent: true || false, // required
  *       },
  *     },

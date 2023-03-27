@@ -42,7 +42,7 @@ export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, DeleteRoomMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteRoomMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DeleteRoomMembershipRequest
  *   AccountId: "STRING_VALUE", // required
  *   RoomId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE", // required

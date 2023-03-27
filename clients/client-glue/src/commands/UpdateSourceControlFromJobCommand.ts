@@ -43,7 +43,7 @@ export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceCon
  * import { GlueClient, UpdateSourceControlFromJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateSourceControlFromJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // UpdateSourceControlFromJobRequest
  *   JobName: "STRING_VALUE",
  *   Provider: "GITHUB" || "AWS_CODE_COMMIT",
  *   RepositoryName: "STRING_VALUE",

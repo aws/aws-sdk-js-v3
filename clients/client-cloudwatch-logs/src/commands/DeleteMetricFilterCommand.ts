@@ -42,7 +42,7 @@ export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DeleteMetricFilterRequest
  *   logGroupName: "STRING_VALUE", // required
  *   filterName: "STRING_VALUE", // required
  * };

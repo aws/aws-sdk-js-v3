@@ -50,7 +50,7 @@ export interface AssignVolumeCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, AssignVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, AssignVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // AssignVolumeRequest
  *   VolumeId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE",
  * };

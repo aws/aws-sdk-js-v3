@@ -42,28 +42,28 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  * import { IoTTwinMakerClient, BatchPutPropertyValuesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, BatchPutPropertyValuesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // BatchPutPropertyValuesRequest
  *   workspaceId: "STRING_VALUE", // required
- *   entries: [ // required
- *     {
- *       entityPropertyReference: {
+ *   entries: [ // Entries // required
+ *     { // PropertyValueEntry
+ *       entityPropertyReference: { // EntityPropertyReference
  *         componentName: "STRING_VALUE",
- *         externalIdProperty: {
+ *         externalIdProperty: { // ExternalIdProperty
  *           "<keys>": "STRING_VALUE",
  *         },
  *         entityId: "STRING_VALUE",
  *         propertyName: "STRING_VALUE", // required
  *       },
- *       propertyValues: [
- *         {
+ *       propertyValues: [ // PropertyValues
+ *         { // PropertyValue
  *           timestamp: new Date("TIMESTAMP"),
- *           value: {
+ *           value: { // DataValue
  *             booleanValue: true || false,
  *             doubleValue: Number("double"),
  *             integerValue: Number("int"),
  *             longValue: Number("long"),
  *             stringValue: "STRING_VALUE",
- *             listValue: [
+ *             listValue: [ // DataValueList
  *               {
  *                 booleanValue: true || false,
  *                 doubleValue: Number("double"),
@@ -71,56 +71,26 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  *                 longValue: Number("long"),
  *                 stringValue: "STRING_VALUE",
  *                 listValue: [
- *                   {
- *                     booleanValue: "<DataValue>",
- *                     doubleValue: "<DataValue>",
- *                     integerValue: "<DataValue>",
- *                     longValue: "<DataValue>",
- *                     stringValue: "<DataValue>",
- *                     listValue: "<DataValue>",
- *                     mapValue: {
- *                       "<keys>": {
- *                         booleanValue: "<DataValue>",
- *                         doubleValue: "<DataValue>",
- *                         integerValue: "<DataValue>",
- *                         longValue: "<DataValue>",
- *                         stringValue: "<DataValue>",
- *                         listValue: "<DataValue>",
- *                         mapValue: {
- *                           "<keys>": {
- *                             booleanValue: "<DataValue>",
- *                             doubleValue: "<DataValue>",
- *                             integerValue: "<DataValue>",
- *                             longValue: "<DataValue>",
- *                             stringValue: "<DataValue>",
- *                             listValue: "<DataValue>",
- *                             mapValue: "<DataValue>",
- *                             relationshipValue: {
- *                               targetEntityId: "STRING_VALUE",
- *                               targetComponentName: "STRING_VALUE",
- *                             },
- *                             expression: "STRING_VALUE",
- *                           },
- *                         },
- *                         relationshipValue: {
- *                           targetEntityId: "STRING_VALUE",
- *                           targetComponentName: "STRING_VALUE",
- *                         },
- *                         expression: "STRING_VALUE",
- *                       },
- *                     },
- *                     relationshipValue: "<DataValue>",
- *                     expression: "<DataValue>",
- *                   },
+ *                   "<DataValue>",
  *                 ],
- *                 mapValue: "<DataValue>",
- *                 relationshipValue: "<DataValue>",
- *                 expression: "<DataValue>",
+ *                 mapValue: { // DataValueMap
+ *                   "<keys>": "<DataValue>",
+ *                 },
+ *                 relationshipValue: { // RelationshipValue
+ *                   targetEntityId: "STRING_VALUE",
+ *                   targetComponentName: "STRING_VALUE",
+ *                 },
+ *                 expression: "STRING_VALUE",
  *               },
  *             ],
- *             mapValue: "<DataValue>",
- *             relationshipValue: "<DataValue>",
- *             expression: "<DataValue>",
+ *             mapValue: {
+ *               "<keys>": "<DataValue>",
+ *             },
+ *             relationshipValue: {
+ *               targetEntityId: "STRING_VALUE",
+ *               targetComponentName: "STRING_VALUE",
+ *             },
+ *             expression: "STRING_VALUE",
  *           },
  *           time: "STRING_VALUE",
  *         },

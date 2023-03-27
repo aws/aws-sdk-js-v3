@@ -42,10 +42,10 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * import { MediaTailorClient, CreatePrefetchScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreatePrefetchScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
- *   Consumption: {
- *     AvailMatchingCriteria: [
- *       {
+ * const input = { // CreatePrefetchScheduleRequest
+ *   Consumption: { // PrefetchConsumption
+ *     AvailMatchingCriteria: [ // __listOfAvailMatchingCriteria
+ *       { // AvailMatchingCriteria
  *         DynamicVariable: "STRING_VALUE", // required
  *         Operator: "EQUALS", // required
  *       },
@@ -55,8 +55,8 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  *   },
  *   Name: "STRING_VALUE", // required
  *   PlaybackConfigurationName: "STRING_VALUE", // required
- *   Retrieval: {
- *     DynamicVariables: {
+ *   Retrieval: { // PrefetchRetrieval
+ *     DynamicVariables: { // __mapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *     EndTime: new Date("TIMESTAMP"), // required

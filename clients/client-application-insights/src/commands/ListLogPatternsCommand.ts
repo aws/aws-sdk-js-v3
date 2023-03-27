@@ -46,7 +46,7 @@ export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, _
  * import { ApplicationInsightsClient, ListLogPatternsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListLogPatternsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // ListLogPatternsRequest
  *   ResourceGroupName: "STRING_VALUE", // required
  *   PatternSetName: "STRING_VALUE",
  *   MaxResults: Number("int"),

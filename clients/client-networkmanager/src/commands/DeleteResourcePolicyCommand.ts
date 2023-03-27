@@ -42,7 +42,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * import { NetworkManagerClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // DeleteResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteResourcePolicyCommand(input);

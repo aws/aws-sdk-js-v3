@@ -42,7 +42,7 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * import { DirectoryServiceClient, DisableLDAPSCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableLDAPSCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DisableLDAPSRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   Type: "Client", // required
  * };

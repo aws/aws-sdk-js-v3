@@ -44,7 +44,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  * import { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // RequestServiceQuotaIncreaseRequest
  *   ServiceCode: "STRING_VALUE", // required
  *   QuotaCode: "STRING_VALUE", // required
  *   DesiredValue: Number("double"), // required

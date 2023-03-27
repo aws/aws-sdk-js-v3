@@ -48,17 +48,17 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
  * import { EC2Client, DescribeNetworkInsightsAccessScopeAnalysesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInsightsAccessScopeAnalysesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   NetworkInsightsAccessScopeAnalysisIds: [
+ * const input = { // DescribeNetworkInsightsAccessScopeAnalysesRequest
+ *   NetworkInsightsAccessScopeAnalysisIds: [ // NetworkInsightsAccessScopeAnalysisIdList
  *     "STRING_VALUE",
  *   ],
  *   NetworkInsightsAccessScopeId: "STRING_VALUE",
  *   AnalysisStartTimeBegin: new Date("TIMESTAMP"),
  *   AnalysisStartTimeEnd: new Date("TIMESTAMP"),
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

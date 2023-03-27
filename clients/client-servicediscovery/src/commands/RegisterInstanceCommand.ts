@@ -85,11 +85,11 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * import { ServiceDiscoveryClient, RegisterInstanceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, RegisterInstanceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // RegisterInstanceRequest
  *   ServiceId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  *   CreatorRequestId: "STRING_VALUE",
- *   Attributes: { // required
+ *   Attributes: { // Attributes // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

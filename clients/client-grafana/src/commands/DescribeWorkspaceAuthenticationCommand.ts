@@ -45,7 +45,7 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  * import { GrafanaClient, DescribeWorkspaceAuthenticationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DescribeWorkspaceAuthenticationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const input = {
+ * const input = { // DescribeWorkspaceAuthenticationRequest
  *   workspaceId: "STRING_VALUE", // required
  * };
  * const command = new DescribeWorkspaceAuthenticationCommand(input);

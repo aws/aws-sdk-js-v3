@@ -50,14 +50,14 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * import { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DescribeTableStatisticsMessage
  *   ReplicationTaskArn: "STRING_VALUE", // required
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

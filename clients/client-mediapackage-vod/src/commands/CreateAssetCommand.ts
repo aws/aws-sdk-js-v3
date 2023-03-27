@@ -42,13 +42,13 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * import { MediaPackageVodClient, CreateAssetCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, CreateAssetCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // CreateAssetRequest
  *   Id: "STRING_VALUE", // required
  *   PackagingGroupId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE",
  *   SourceArn: "STRING_VALUE", // required
  *   SourceRoleArn: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

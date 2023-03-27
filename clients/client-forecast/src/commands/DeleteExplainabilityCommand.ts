@@ -44,7 +44,7 @@ export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteExplainabilityCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteExplainabilityCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DeleteExplainabilityRequest
  *   ExplainabilityArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteExplainabilityCommand(input);

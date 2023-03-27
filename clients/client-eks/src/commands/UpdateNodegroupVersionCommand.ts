@@ -62,12 +62,12 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  * import { EKSClient, UpdateNodegroupVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateNodegroupVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = {
+ * const input = { // UpdateNodegroupVersionRequest
  *   clusterName: "STRING_VALUE", // required
  *   nodegroupName: "STRING_VALUE", // required
  *   version: "STRING_VALUE",
  *   releaseVersion: "STRING_VALUE",
- *   launchTemplate: {
+ *   launchTemplate: { // LaunchTemplateSpecification
  *     name: "STRING_VALUE",
  *     version: "STRING_VALUE",
  *     id: "STRING_VALUE",

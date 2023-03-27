@@ -42,7 +42,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * import { CodeStarClient, UpdateProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, UpdateProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
- * const input = {
+ * const input = { // UpdateProjectRequest
  *   id: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",

@@ -46,7 +46,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * import { SnowDeviceManagementClient, ListExecutionsCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, ListExecutionsCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
- * const input = {
+ * const input = { // ListExecutionsInput
  *   taskId: "STRING_VALUE", // required
  *   state: "STRING_VALUE",
  *   maxResults: Number("int"),

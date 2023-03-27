@@ -47,7 +47,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * import { PinpointEmailClient, DeleteConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, DeleteConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // DeleteConfigurationSetRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  * };
  * const command = new DeleteConfigurationSetCommand(input);

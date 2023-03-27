@@ -45,20 +45,20 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * import { RUMClient, PutRumEventsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, PutRumEventsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // PutRumEventsRequest
  *   Id: "STRING_VALUE", // required
  *   BatchId: "STRING_VALUE", // required
- *   AppMonitorDetails: {
+ *   AppMonitorDetails: { // AppMonitorDetails
  *     name: "STRING_VALUE",
  *     id: "STRING_VALUE",
  *     version: "STRING_VALUE",
  *   },
- *   UserDetails: {
+ *   UserDetails: { // UserDetails
  *     userId: "STRING_VALUE",
  *     sessionId: "STRING_VALUE",
  *   },
- *   RumEvents: [ // required
- *     {
+ *   RumEvents: [ // RumEventList // required
+ *     { // RumEvent
  *       id: "STRING_VALUE", // required
  *       timestamp: new Date("TIMESTAMP"), // required
  *       type: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * import { MediaPackageVodClient, DeleteAssetCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DeleteAssetCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // DeleteAssetRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DeleteAssetCommand(input);

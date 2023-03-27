@@ -42,7 +42,7 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  * import { CodeCommitClient, DeleteApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // DeleteApprovalRuleTemplateInput
  *   approvalRuleTemplateName: "STRING_VALUE", // required
  * };
  * const command = new DeleteApprovalRuleTemplateCommand(input);

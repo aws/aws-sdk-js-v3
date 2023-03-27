@@ -45,13 +45,13 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * import { InternetMonitorClient, CreateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, CreateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
- * const input = {
+ * const input = { // CreateMonitorInput
  *   MonitorName: "STRING_VALUE", // required
- *   Resources: [
+ *   Resources: [ // SetOfARNs
  *     "STRING_VALUE",
  *   ],
  *   ClientToken: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   MaxCityNetworksToMonitor: Number("int"), // required

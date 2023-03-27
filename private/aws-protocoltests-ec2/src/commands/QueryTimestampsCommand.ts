@@ -42,7 +42,7 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * import { EC2ProtocolClient, QueryTimestampsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, QueryTimestampsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
- * const input = {
+ * const input = { // QueryTimestampsInput
  *   normalFormat: new Date("TIMESTAMP"),
  *   epochMember: new Date("TIMESTAMP"),
  *   epochTarget: new Date("TIMESTAMP"),

@@ -50,15 +50,15 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * import { EventBridgeClient, StartReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, StartReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // StartReplayRequest
  *   ReplayName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   EventSourceArn: "STRING_VALUE", // required
  *   EventStartTime: new Date("TIMESTAMP"), // required
  *   EventEndTime: new Date("TIMESTAMP"), // required
- *   Destination: {
+ *   Destination: { // ReplayDestination
  *     Arn: "STRING_VALUE", // required
- *     FilterArns: [
+ *     FilterArns: [ // ReplayDestinationFilters
  *       "STRING_VALUE",
  *     ],
  *   },

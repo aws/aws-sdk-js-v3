@@ -48,9 +48,9 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * import { ElasticLoadBalancingV2Client, SetRulePrioritiesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetRulePrioritiesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
- *   RulePriorities: [ // required
- *     {
+ * const input = { // SetRulePrioritiesInput
+ *   RulePriorities: [ // RulePriorityList // required
+ *     { // RulePriorityPair
  *       RuleArn: "STRING_VALUE",
  *       Priority: Number("int"),
  *     },

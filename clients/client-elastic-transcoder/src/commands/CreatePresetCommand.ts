@@ -59,13 +59,13 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * import { ElasticTranscoderClient, CreatePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreatePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // CreatePresetRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Container: "STRING_VALUE", // required
- *   Video: {
+ *   Video: { // VideoParameters
  *     Codec: "STRING_VALUE",
- *     CodecOptions: {
+ *     CodecOptions: { // CodecOptions
  *       "<keys>": "STRING_VALUE",
  *     },
  *     KeyframesMaxDist: "STRING_VALUE",
@@ -80,8 +80,8 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *     DisplayAspectRatio: "STRING_VALUE",
  *     SizingPolicy: "STRING_VALUE",
  *     PaddingPolicy: "STRING_VALUE",
- *     Watermarks: [
- *       {
+ *     Watermarks: [ // PresetWatermarks
+ *       { // PresetWatermark
  *         Id: "STRING_VALUE",
  *         MaxWidth: "STRING_VALUE",
  *         MaxHeight: "STRING_VALUE",
@@ -95,20 +95,20 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *       },
  *     ],
  *   },
- *   Audio: {
+ *   Audio: { // AudioParameters
  *     Codec: "STRING_VALUE",
  *     SampleRate: "STRING_VALUE",
  *     BitRate: "STRING_VALUE",
  *     Channels: "STRING_VALUE",
  *     AudioPackingMode: "STRING_VALUE",
- *     CodecOptions: {
+ *     CodecOptions: { // AudioCodecOptions
  *       Profile: "STRING_VALUE",
  *       BitDepth: "STRING_VALUE",
  *       BitOrder: "STRING_VALUE",
  *       Signed: "STRING_VALUE",
  *     },
  *   },
- *   Thumbnails: {
+ *   Thumbnails: { // Thumbnails
  *     Format: "STRING_VALUE",
  *     Interval: "STRING_VALUE",
  *     Resolution: "STRING_VALUE",

@@ -47,24 +47,24 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * import { IoTSiteWiseClient, CreateBulkImportJobCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateBulkImportJobCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // CreateBulkImportJobRequest
  *   jobName: "STRING_VALUE", // required
  *   jobRoleArn: "STRING_VALUE", // required
- *   files: [ // required
- *     {
+ *   files: [ // Files // required
+ *     { // File
  *       bucket: "STRING_VALUE", // required
  *       key: "STRING_VALUE", // required
  *       versionId: "STRING_VALUE",
  *     },
  *   ],
- *   errorReportLocation: {
+ *   errorReportLocation: { // ErrorReportLocation
  *     bucket: "STRING_VALUE", // required
  *     prefix: "STRING_VALUE", // required
  *   },
- *   jobConfiguration: {
- *     fileFormat: {
- *       csv: {
- *         columnNames: [
+ *   jobConfiguration: { // JobConfiguration
+ *     fileFormat: { // FileFormat
+ *       csv: { // Csv
+ *         columnNames: [ // ColumnNames
  *           "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
  *         ],
  *       },

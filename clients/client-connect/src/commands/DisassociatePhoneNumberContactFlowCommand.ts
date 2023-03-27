@@ -52,7 +52,7 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * import { ConnectClient, DisassociatePhoneNumberContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociatePhoneNumberContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DisassociatePhoneNumberContactFlowRequest
  *   PhoneNumberId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  * };

@@ -51,7 +51,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * import { AutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // PutScalingPolicyType
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  *   PolicyType: "STRING_VALUE",
@@ -61,36 +61,36 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *   ScalingAdjustment: Number("int"),
  *   Cooldown: Number("int"),
  *   MetricAggregationType: "STRING_VALUE",
- *   StepAdjustments: [
- *     {
+ *   StepAdjustments: [ // StepAdjustments
+ *     { // StepAdjustment
  *       MetricIntervalLowerBound: Number("double"),
  *       MetricIntervalUpperBound: Number("double"),
  *       ScalingAdjustment: Number("int"), // required
  *     },
  *   ],
  *   EstimatedInstanceWarmup: Number("int"),
- *   TargetTrackingConfiguration: {
- *     PredefinedMetricSpecification: {
+ *   TargetTrackingConfiguration: { // TargetTrackingConfiguration
+ *     PredefinedMetricSpecification: { // PredefinedMetricSpecification
  *       PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
  *       ResourceLabel: "STRING_VALUE",
  *     },
- *     CustomizedMetricSpecification: {
+ *     CustomizedMetricSpecification: { // CustomizedMetricSpecification
  *       MetricName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
- *       Dimensions: [
- *         {
+ *       Dimensions: [ // MetricDimensions
+ *         { // MetricDimension
  *           Name: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
  *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
  *       Unit: "STRING_VALUE",
- *       Metrics: [
- *         {
+ *       Metrics: [ // TargetTrackingMetricDataQueries
+ *         { // TargetTrackingMetricDataQuery
  *           Id: "STRING_VALUE", // required
  *           Expression: "STRING_VALUE",
- *           MetricStat: {
- *             Metric: {
+ *           MetricStat: { // TargetTrackingMetricStat
+ *             Metric: { // Metric
  *               Namespace: "STRING_VALUE", // required
  *               MetricName: "STRING_VALUE", // required
  *               Dimensions: [
@@ -112,34 +112,32 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *     DisableScaleIn: true || false,
  *   },
  *   Enabled: true || false,
- *   PredictiveScalingConfiguration: {
- *     MetricSpecifications: [ // required
- *       {
+ *   PredictiveScalingConfiguration: { // PredictiveScalingConfiguration
+ *     MetricSpecifications: [ // PredictiveScalingMetricSpecifications // required
+ *       { // PredictiveScalingMetricSpecification
  *         TargetValue: Number("double"), // required
- *         PredefinedMetricPairSpecification: {
+ *         PredefinedMetricPairSpecification: { // PredictiveScalingPredefinedMetricPair
  *           PredefinedMetricType: "ASGCPUUtilization" || "ASGNetworkIn" || "ASGNetworkOut" || "ALBRequestCount", // required
  *           ResourceLabel: "STRING_VALUE",
  *         },
- *         PredefinedScalingMetricSpecification: {
+ *         PredefinedScalingMetricSpecification: { // PredictiveScalingPredefinedScalingMetric
  *           PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
  *           ResourceLabel: "STRING_VALUE",
  *         },
- *         PredefinedLoadMetricSpecification: {
+ *         PredefinedLoadMetricSpecification: { // PredictiveScalingPredefinedLoadMetric
  *           PredefinedMetricType: "ASGTotalCPUUtilization" || "ASGTotalNetworkIn" || "ASGTotalNetworkOut" || "ALBTargetGroupRequestCount", // required
  *           ResourceLabel: "STRING_VALUE",
  *         },
- *         CustomizedScalingMetricSpecification: {
- *           MetricDataQueries: [ // required
- *             {
+ *         CustomizedScalingMetricSpecification: { // PredictiveScalingCustomizedScalingMetric
+ *           MetricDataQueries: [ // MetricDataQueries // required
+ *             { // MetricDataQuery
  *               Id: "STRING_VALUE", // required
  *               Expression: "STRING_VALUE",
- *               MetricStat: {
+ *               MetricStat: { // MetricStat
  *                 Metric: {
  *                   Namespace: "STRING_VALUE", // required
  *                   MetricName: "STRING_VALUE", // required
- *                   Dimensions: [
- *                     "<MetricDimensions>",
- *                   ],
+ *                   Dimensions: "<MetricDimensions>",
  *                 },
  *                 Stat: "STRING_VALUE", // required
  *                 Unit: "STRING_VALUE",
@@ -149,7 +147,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *             },
  *           ],
  *         },
- *         CustomizedLoadMetricSpecification: {
+ *         CustomizedLoadMetricSpecification: { // PredictiveScalingCustomizedLoadMetric
  *           MetricDataQueries: [ // required
  *             {
  *               Id: "STRING_VALUE", // required
@@ -158,9 +156,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *                 Metric: {
  *                   Namespace: "STRING_VALUE", // required
  *                   MetricName: "STRING_VALUE", // required
- *                   Dimensions: [
- *                     "<MetricDimensions>",
- *                   ],
+ *                   Dimensions: "<MetricDimensions>",
  *                 },
  *                 Stat: "STRING_VALUE", // required
  *                 Unit: "STRING_VALUE",
@@ -170,7 +166,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *             },
  *           ],
  *         },
- *         CustomizedCapacityMetricSpecification: {
+ *         CustomizedCapacityMetricSpecification: { // PredictiveScalingCustomizedCapacityMetric
  *           MetricDataQueries: [ // required
  *             {
  *               Id: "STRING_VALUE", // required
@@ -179,9 +175,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *                 Metric: {
  *                   Namespace: "STRING_VALUE", // required
  *                   MetricName: "STRING_VALUE", // required
- *                   Dimensions: [
- *                     "<MetricDimensions>",
- *                   ],
+ *                   Dimensions: "<MetricDimensions>",
  *                 },
  *                 Stat: "STRING_VALUE", // required
  *                 Unit: "STRING_VALUE",

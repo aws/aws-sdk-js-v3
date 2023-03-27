@@ -44,14 +44,14 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  * import { ElasticInferenceClient, DescribeAcceleratorsCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
  * // const { ElasticInferenceClient, DescribeAcceleratorsCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
  * const client = new ElasticInferenceClient(config);
- * const input = {
- *   acceleratorIds: [
+ * const input = { // DescribeAcceleratorsRequest
+ *   acceleratorIds: [ // AcceleratorIdList
  *     "STRING_VALUE",
  *   ],
- *   filters: [
- *     {
+ *   filters: [ // FilterList
+ *     { // Filter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

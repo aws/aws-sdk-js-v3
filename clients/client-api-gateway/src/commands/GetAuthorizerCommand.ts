@@ -42,7 +42,7 @@ export interface GetAuthorizerCommandOutput extends Authorizer, __MetadataBearer
  * import { APIGatewayClient, GetAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetAuthorizerRequest
  *   restApiId: "STRING_VALUE", // required
  *   authorizerId: "STRING_VALUE", // required
  * };

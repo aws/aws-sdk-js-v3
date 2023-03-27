@@ -42,7 +42,7 @@ export interface GetVariantImportJobCommandOutput extends GetVariantImportRespon
  * import { OmicsClient, GetVariantImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetVariantImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // GetVariantImportRequest
  *   jobId: "STRING_VALUE", // required
  * };
  * const command = new GetVariantImportJobCommand(input);

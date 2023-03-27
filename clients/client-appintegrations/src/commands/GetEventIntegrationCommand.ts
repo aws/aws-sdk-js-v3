@@ -42,7 +42,7 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  * import { AppIntegrationsClient, GetEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, GetEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
- * const input = {
+ * const input = { // GetEventIntegrationRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new GetEventIntegrationCommand(input);

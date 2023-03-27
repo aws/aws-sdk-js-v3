@@ -42,7 +42,7 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  * import { ResiliencehubClient, DeleteResiliencyPolicyCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteResiliencyPolicyCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // DeleteResiliencyPolicyRequest
  *   policyArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

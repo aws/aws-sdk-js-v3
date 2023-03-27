@@ -44,10 +44,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { ProtonClient, TagResourceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, TagResourceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tags: [ // required
- *     {
+ *   tags: [ // TagList // required
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

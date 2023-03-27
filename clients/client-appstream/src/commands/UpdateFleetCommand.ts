@@ -63,19 +63,19 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * import { AppStreamClient, UpdateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // UpdateFleetRequest
  *   ImageName: "STRING_VALUE",
  *   ImageArn: "STRING_VALUE",
  *   Name: "STRING_VALUE",
  *   InstanceType: "STRING_VALUE",
- *   ComputeCapacity: {
+ *   ComputeCapacity: { // ComputeCapacity
  *     DesiredInstances: Number("int"), // required
  *   },
- *   VpcConfig: {
- *     SubnetIds: [
+ *   VpcConfig: { // VpcConfig
+ *     SubnetIds: [ // SubnetIdList
  *       "STRING_VALUE",
  *     ],
- *     SecurityGroupIds: [
+ *     SecurityGroupIds: [ // SecurityGroupIdList
  *       "STRING_VALUE",
  *     ],
  *   },
@@ -85,22 +85,22 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  *   Description: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE",
  *   EnableDefaultInternetAccess: true || false,
- *   DomainJoinInfo: {
+ *   DomainJoinInfo: { // DomainJoinInfo
  *     DirectoryName: "STRING_VALUE",
  *     OrganizationalUnitDistinguishedName: "STRING_VALUE",
  *   },
  *   IdleDisconnectTimeoutInSeconds: Number("int"),
- *   AttributesToDelete: [
+ *   AttributesToDelete: [ // FleetAttributes
  *     "VPC_CONFIGURATION" || "VPC_CONFIGURATION_SECURITY_GROUP_IDS" || "DOMAIN_JOIN_INFO" || "IAM_ROLE_ARN" || "USB_DEVICE_FILTER_STRINGS" || "SESSION_SCRIPT_S3_LOCATION",
  *   ],
  *   IamRoleArn: "STRING_VALUE",
  *   StreamView: "APP" || "DESKTOP",
  *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
  *   MaxConcurrentSessions: Number("int"),
- *   UsbDeviceFilterStrings: [
+ *   UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  *     "STRING_VALUE",
  *   ],
- *   SessionScriptS3Location: {
+ *   SessionScriptS3Location: { // S3Location
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE", // required
  *   },

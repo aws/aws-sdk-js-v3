@@ -42,7 +42,7 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  * import { WisdomClient, GetContentSummaryCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetContentSummaryCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // GetContentSummaryRequest
  *   contentId: "STRING_VALUE", // required
  *   knowledgeBaseId: "STRING_VALUE", // required
  * };

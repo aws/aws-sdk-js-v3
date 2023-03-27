@@ -47,7 +47,7 @@ export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunct
  * import { LambdaClient, ListVersionsByFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListVersionsByFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // ListVersionsByFunctionRequest
  *   FunctionName: "STRING_VALUE", // required
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),

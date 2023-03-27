@@ -52,7 +52,7 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * import { CloudWatchClient, PutDashboardCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutDashboardCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // PutDashboardInput
  *   DashboardName: "STRING_VALUE", // required
  *   DashboardBody: "STRING_VALUE", // required
  * };

@@ -50,7 +50,7 @@ export interface ListFraudsterRegistrationJobsCommandOutput
  * import { VoiceIDClient, ListFraudsterRegistrationJobsCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, ListFraudsterRegistrationJobsCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // ListFraudsterRegistrationJobsRequest
  *   DomainId: "STRING_VALUE", // required
  *   JobStatus: "STRING_VALUE",
  *   MaxResults: Number("int"),

@@ -45,9 +45,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { LookoutVisionClient, UntagResourceCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, UntagResourceCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

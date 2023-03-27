@@ -47,7 +47,7 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * import { ManagedBlockchainClient, ListAccessorsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListAccessorsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // ListAccessorsInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

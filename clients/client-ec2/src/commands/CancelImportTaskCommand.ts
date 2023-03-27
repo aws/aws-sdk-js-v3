@@ -42,7 +42,7 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, _
  * import { EC2Client, CancelImportTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelImportTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CancelImportTaskRequest
  *   CancelReason: "STRING_VALUE",
  *   DryRun: true || false,
  *   ImportTaskId: "STRING_VALUE",

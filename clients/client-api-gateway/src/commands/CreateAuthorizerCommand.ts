@@ -42,11 +42,11 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * import { APIGatewayClient, CreateAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // CreateAuthorizerRequest
  *   restApiId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS", // required
- *   providerARNs: [
+ *   providerARNs: [ // ListOfARNs
  *     "STRING_VALUE",
  *   ],
  *   authType: "STRING_VALUE",

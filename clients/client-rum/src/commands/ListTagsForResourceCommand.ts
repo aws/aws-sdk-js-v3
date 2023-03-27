@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { RUMClient, ListTagsForResourceCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

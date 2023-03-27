@@ -69,14 +69,14 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * import { WorkSpacesClient, ImportClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ImportClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // ImportClientBrandingRequest
  *   ResourceId: "STRING_VALUE", // required
- *   DeviceTypeWindows: {
+ *   DeviceTypeWindows: { // DefaultImportClientBrandingAttributes
  *     Logo: "BLOB_VALUE",
  *     SupportEmail: "STRING_VALUE",
  *     SupportLink: "STRING_VALUE",
  *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: {
+ *     LoginMessage: { // LoginMessage
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
@@ -98,7 +98,7 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   DeviceTypeIos: {
+ *   DeviceTypeIos: { // IosImportClientBrandingAttributes
  *     Logo: "BLOB_VALUE",
  *     Logo2x: "BLOB_VALUE",
  *     Logo3x: "BLOB_VALUE",
@@ -123,9 +123,7 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *     SupportEmail: "STRING_VALUE",
  *     SupportLink: "STRING_VALUE",
  *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
- *     },
+ *     LoginMessage: "<LoginMessage>",
  *   },
  * };
  * const command = new ImportClientBrandingCommand(input);

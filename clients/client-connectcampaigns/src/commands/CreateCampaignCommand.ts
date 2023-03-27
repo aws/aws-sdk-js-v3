@@ -42,26 +42,26 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * import { ConnectCampaignsClient, CreateCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, CreateCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
- * const input = {
+ * const input = { // CreateCampaignRequest
  *   name: "STRING_VALUE", // required
  *   connectInstanceId: "STRING_VALUE", // required
- *   dialerConfig: { // Union: only one key present
- *     progressiveDialerConfig: {
+ *   dialerConfig: { // DialerConfig Union: only one key present
+ *     progressiveDialerConfig: { // ProgressiveDialerConfig
  *       bandwidthAllocation: Number("double"), // required
  *     },
- *     predictiveDialerConfig: {
+ *     predictiveDialerConfig: { // PredictiveDialerConfig
  *       bandwidthAllocation: Number("double"), // required
  *     },
  *   },
- *   outboundCallConfig: {
+ *   outboundCallConfig: { // OutboundCallConfig
  *     connectContactFlowId: "STRING_VALUE", // required
  *     connectSourcePhoneNumber: "STRING_VALUE",
  *     connectQueueId: "STRING_VALUE", // required
- *     answerMachineDetectionConfig: {
+ *     answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  *       enableAnswerMachineDetection: true || false, // required
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

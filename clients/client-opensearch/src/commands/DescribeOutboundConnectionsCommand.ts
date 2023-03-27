@@ -46,11 +46,11 @@ export interface DescribeOutboundConnectionsCommandOutput
  * import { OpenSearchClient, DescribeOutboundConnectionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeOutboundConnectionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeOutboundConnectionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

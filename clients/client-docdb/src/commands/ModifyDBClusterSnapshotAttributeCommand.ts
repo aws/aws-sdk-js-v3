@@ -45,10 +45,10 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * import { DocDBClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // ModifyDBClusterSnapshotAttributeMessage
  *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
  *   AttributeName: "STRING_VALUE", // required
- *   ValuesToAdd: [
+ *   ValuesToAdd: [ // AttributeValueList
  *     "STRING_VALUE",
  *   ],
  *   ValuesToRemove: [

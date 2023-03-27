@@ -53,10 +53,10 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  * import { CognitoIdentityProviderClient, AdminConfirmSignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminConfirmSignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminConfirmSignUpRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE", // required
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

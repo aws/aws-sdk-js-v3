@@ -60,7 +60,7 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * import { PersonalizeClient, DescribeRecipeCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeRecipeCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeRecipeRequest
  *   recipeArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeRecipeCommand(input);

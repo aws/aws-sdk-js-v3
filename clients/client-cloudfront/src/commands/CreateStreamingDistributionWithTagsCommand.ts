@@ -49,39 +49,39 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
  * import { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   StreamingDistributionConfigWithTags: {
- *     StreamingDistributionConfig: {
+ * const input = { // CreateStreamingDistributionWithTagsRequest
+ *   StreamingDistributionConfigWithTags: { // StreamingDistributionConfigWithTags
+ *     StreamingDistributionConfig: { // StreamingDistributionConfig
  *       CallerReference: "STRING_VALUE", // required
- *       S3Origin: {
+ *       S3Origin: { // S3Origin
  *         DomainName: "STRING_VALUE", // required
  *         OriginAccessIdentity: "STRING_VALUE", // required
  *       },
- *       Aliases: {
+ *       Aliases: { // Aliases
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // AliasList
  *           "STRING_VALUE",
  *         ],
  *       },
  *       Comment: "STRING_VALUE", // required
- *       Logging: {
+ *       Logging: { // StreamingLoggingConfig
  *         Enabled: true || false, // required
  *         Bucket: "STRING_VALUE", // required
  *         Prefix: "STRING_VALUE", // required
  *       },
- *       TrustedSigners: {
+ *       TrustedSigners: { // TrustedSigners
  *         Enabled: true || false, // required
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // AwsAccountNumberList
  *           "STRING_VALUE",
  *         ],
  *       },
  *       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
  *       Enabled: true || false, // required
  *     },
- *     Tags: {
- *       Items: [
- *         {
+ *     Tags: { // Tags
+ *       Items: [ // TagList
+ *         { // Tag
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE",
  *         },

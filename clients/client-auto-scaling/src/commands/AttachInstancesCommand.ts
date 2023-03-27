@@ -51,8 +51,8 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, AttachInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, AttachInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
- *   InstanceIds: [
+ * const input = { // AttachInstancesQuery
+ *   InstanceIds: [ // InstanceIds
  *     "STRING_VALUE",
  *   ],
  *   AutoScalingGroupName: "STRING_VALUE", // required

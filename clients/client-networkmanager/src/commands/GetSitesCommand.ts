@@ -42,9 +42,9 @@ export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBeare
  * import { NetworkManagerClient, GetSitesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetSitesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetSitesRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
- *   SiteIds: [
+ *   SiteIds: [ // SiteIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

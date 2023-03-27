@@ -39,7 +39,7 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  * import { EC2Client, DeleteCoipPoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteCoipPoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteCoipPoolRequest
  *   CoipPoolId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

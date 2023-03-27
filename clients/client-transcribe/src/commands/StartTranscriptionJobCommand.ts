@@ -76,22 +76,22 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  * import { TranscribeClient, StartTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, StartTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // StartTranscriptionJobRequest
  *   TranscriptionJobName: "STRING_VALUE", // required
  *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
  *   MediaSampleRateHertz: Number("int"),
  *   MediaFormat: "mp3" || "mp4" || "wav" || "flac" || "ogg" || "amr" || "webm",
- *   Media: {
+ *   Media: { // Media
  *     MediaFileUri: "STRING_VALUE",
  *     RedactedMediaFileUri: "STRING_VALUE",
  *   },
  *   OutputBucketName: "STRING_VALUE",
  *   OutputKey: "STRING_VALUE",
  *   OutputEncryptionKMSKeyId: "STRING_VALUE",
- *   KMSEncryptionContext: {
+ *   KMSEncryptionContext: { // KMSEncryptionContextMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Settings: {
+ *   Settings: { // Settings
  *     VocabularyName: "STRING_VALUE",
  *     ShowSpeakerLabels: true || false,
  *     MaxSpeakerLabels: Number("int"),
@@ -101,39 +101,39 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  *     VocabularyFilterName: "STRING_VALUE",
  *     VocabularyFilterMethod: "remove" || "mask" || "tag",
  *   },
- *   ModelSettings: {
+ *   ModelSettings: { // ModelSettings
  *     LanguageModelName: "STRING_VALUE",
  *   },
- *   JobExecutionSettings: {
+ *   JobExecutionSettings: { // JobExecutionSettings
  *     AllowDeferredExecution: true || false,
  *     DataAccessRoleArn: "STRING_VALUE",
  *   },
- *   ContentRedaction: {
+ *   ContentRedaction: { // ContentRedaction
  *     RedactionType: "PII", // required
  *     RedactionOutput: "redacted" || "redacted_and_unredacted", // required
- *     PiiEntityTypes: [
+ *     PiiEntityTypes: [ // PiiEntityTypes
  *       "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "ALL",
  *     ],
  *   },
  *   IdentifyLanguage: true || false,
  *   IdentifyMultipleLanguages: true || false,
- *   LanguageOptions: [
+ *   LanguageOptions: [ // LanguageOptions
  *     "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
  *   ],
- *   Subtitles: {
- *     Formats: [
+ *   Subtitles: { // Subtitles
+ *     Formats: [ // SubtitleFormats
  *       "vtt" || "srt",
  *     ],
  *     OutputStartIndex: Number("int"),
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   LanguageIdSettings: {
- *     "<keys>": {
+ *   LanguageIdSettings: { // LanguageIdSettingsMap
+ *     "<keys>": { // LanguageIdSettings
  *       VocabularyName: "STRING_VALUE",
  *       VocabularyFilterName: "STRING_VALUE",
  *       LanguageModelName: "STRING_VALUE",

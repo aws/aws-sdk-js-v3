@@ -42,7 +42,7 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * import { BackupStorageClient, StartObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, StartObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
- * const input = {
+ * const input = { // StartObjectInput
  *   BackupJobId: "STRING_VALUE", // required
  *   ObjectName: "STRING_VALUE", // required
  *   ThrowOnDuplicate: true || false,

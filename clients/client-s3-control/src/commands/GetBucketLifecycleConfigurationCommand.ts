@@ -92,7 +92,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * import { S3ControlClient, GetBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // GetBucketLifecycleConfigurationRequest
  *   AccountId: "STRING_VALUE",
  *   Bucket: "STRING_VALUE", // required
  * };

@@ -47,7 +47,7 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * import { FraudDetectorClient, GetDetectorsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetDetectorsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // GetDetectorsRequest
  *   detectorId: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

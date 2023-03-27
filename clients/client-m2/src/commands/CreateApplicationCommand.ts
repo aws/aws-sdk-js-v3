@@ -43,15 +43,15 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { M2Client, CreateApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // CreateApplicationRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   engineType: "STRING_VALUE", // required
- *   definition: { // Union: only one key present
+ *   definition: { // Definition Union: only one key present
  *     s3Location: "STRING_VALUE",
  *     content: "STRING_VALUE",
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

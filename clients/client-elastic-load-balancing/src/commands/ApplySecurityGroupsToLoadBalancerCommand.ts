@@ -50,9 +50,9 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * import { ElasticLoadBalancingClient, ApplySecurityGroupsToLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, ApplySecurityGroupsToLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // ApplySecurityGroupsToLoadBalancerInput
  *   LoadBalancerName: "STRING_VALUE", // required
- *   SecurityGroups: [ // required
+ *   SecurityGroups: [ // SecurityGroups // required
  *     "STRING_VALUE",
  *   ],
  * };

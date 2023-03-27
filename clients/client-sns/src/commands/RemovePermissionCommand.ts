@@ -47,7 +47,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * import { SNSClient, RemovePermissionCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, RemovePermissionCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // RemovePermissionInput
  *   TopicArn: "STRING_VALUE", // required
  *   Label: "STRING_VALUE", // required
  * };

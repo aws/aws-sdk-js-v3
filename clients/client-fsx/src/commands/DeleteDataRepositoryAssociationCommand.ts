@@ -50,7 +50,7 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  * import { FSxClient, DeleteDataRepositoryAssociationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteDataRepositoryAssociationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // DeleteDataRepositoryAssociationRequest
  *   AssociationId: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
  *   DeleteDataInFileSystem: true || false,

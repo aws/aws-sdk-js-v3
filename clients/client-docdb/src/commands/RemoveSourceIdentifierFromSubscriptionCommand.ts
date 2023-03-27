@@ -49,7 +49,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * import { DocDBClient, RemoveSourceIdentifierFromSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RemoveSourceIdentifierFromSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // RemoveSourceIdentifierFromSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SourceIdentifier: "STRING_VALUE", // required
  * };

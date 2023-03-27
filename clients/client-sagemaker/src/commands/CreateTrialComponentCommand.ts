@@ -51,23 +51,23 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * import { SageMakerClient, CreateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateTrialComponentRequest
  *   TrialComponentName: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
- *   Status: {
+ *   Status: { // TrialComponentStatus
  *     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
  *     Message: "STRING_VALUE",
  *   },
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),
- *   Parameters: {
- *     "<keys>": { // Union: only one key present
+ *   Parameters: { // TrialComponentParameters
+ *     "<keys>": { // TrialComponentParameterValue Union: only one key present
  *       StringValue: "STRING_VALUE",
  *       NumberValue: Number("double"),
  *     },
  *   },
- *   InputArtifacts: {
- *     "<keys>": {
+ *   InputArtifacts: { // TrialComponentArtifacts
+ *     "<keys>": { // TrialComponentArtifact
  *       MediaType: "STRING_VALUE",
  *       Value: "STRING_VALUE", // required
  *     },
@@ -78,14 +78,14 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  *       Value: "STRING_VALUE", // required
  *     },
  *   },
- *   MetadataProperties: {
+ *   MetadataProperties: { // MetadataProperties
  *     CommitId: "STRING_VALUE",
  *     Repository: "STRING_VALUE",
  *     GeneratedBy: "STRING_VALUE",
  *     ProjectId: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

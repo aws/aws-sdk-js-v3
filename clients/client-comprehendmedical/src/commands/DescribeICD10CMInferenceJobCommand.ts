@@ -49,7 +49,7 @@ export interface DescribeICD10CMInferenceJobCommandOutput
  * import { ComprehendMedicalClient, DescribeICD10CMInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribeICD10CMInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
+ * const input = { // DescribeICD10CMInferenceJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeICD10CMInferenceJobCommand(input);

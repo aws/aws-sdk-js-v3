@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { DetectiveClient, ListTagsForResourceCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListTagsForResourceCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

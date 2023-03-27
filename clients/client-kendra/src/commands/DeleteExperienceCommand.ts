@@ -44,7 +44,7 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  * import { KendraClient, DeleteExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // DeleteExperienceRequest
  *   Id: "STRING_VALUE", // required
  *   IndexId: "STRING_VALUE", // required
  * };

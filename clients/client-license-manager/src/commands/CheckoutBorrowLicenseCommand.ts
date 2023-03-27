@@ -42,10 +42,10 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * import { LicenseManagerClient, CheckoutBorrowLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CheckoutBorrowLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // CheckoutBorrowLicenseRequest
  *   LicenseArn: "STRING_VALUE", // required
- *   Entitlements: [ // required
- *     {
+ *   Entitlements: [ // EntitlementDataList // required
+ *     { // EntitlementData
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *       Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
@@ -53,8 +53,8 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  *   ],
  *   DigitalSignatureMethod: "JWT_PS384", // required
  *   NodeId: "STRING_VALUE",
- *   CheckoutMetadata: [
- *     {
+ *   CheckoutMetadata: [ // MetadataList
+ *     { // Metadata
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

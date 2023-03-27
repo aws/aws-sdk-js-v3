@@ -42,7 +42,7 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  * import { SSMClient, DescribeInventoryDeletionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInventoryDeletionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeInventoryDeletionsRequest
  *   DeletionId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

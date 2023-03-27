@@ -50,8 +50,8 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * import { ConfigServiceClient, GetComplianceSummaryByResourceTypeCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetComplianceSummaryByResourceTypeCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   ResourceTypes: [
+ * const input = { // GetComplianceSummaryByResourceTypeRequest
+ *   ResourceTypes: [ // ResourceTypes
  *     "STRING_VALUE",
  *   ],
  * };

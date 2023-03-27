@@ -44,7 +44,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * import { ComprehendClient, DeleteEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DeleteEndpointRequest
  *   EndpointArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteEndpointCommand(input);

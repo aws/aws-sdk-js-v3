@@ -49,7 +49,7 @@ export interface GetClusterSessionCredentialsCommandOutput
  * import { EMRClient, GetClusterSessionCredentialsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetClusterSessionCredentialsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // GetClusterSessionCredentialsInput
  *   ClusterId: "STRING_VALUE", // required
  *   ExecutionRoleArn: "STRING_VALUE", // required
  * };

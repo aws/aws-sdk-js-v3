@@ -42,7 +42,7 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * import { ElasticBeanstalkClient, CheckDNSAvailabilityCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CheckDNSAvailabilityCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // CheckDNSAvailabilityMessage
  *   CNAMEPrefix: "STRING_VALUE", // required
  * };
  * const command = new CheckDNSAvailabilityCommand(input);

@@ -46,7 +46,7 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  * import { SageMakerClient, AddAssociationCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, AddAssociationCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // AddAssociationRequest
  *   SourceArn: "STRING_VALUE", // required
  *   DestinationArn: "STRING_VALUE", // required
  *   AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",

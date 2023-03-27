@@ -42,8 +42,8 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * import { IoTSiteWiseClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
- *   loggingOptions: {
+ * const input = { // PutLoggingOptionsRequest
+ *   loggingOptions: { // LoggingOptions
  *     level: "ERROR" || "INFO" || "OFF", // required
  *   },
  * };

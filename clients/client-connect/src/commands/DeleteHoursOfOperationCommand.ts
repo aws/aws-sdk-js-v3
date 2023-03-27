@@ -43,7 +43,7 @@ export interface DeleteHoursOfOperationCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DeleteHoursOfOperationRequest
  *   InstanceId: "STRING_VALUE", // required
  *   HoursOfOperationId: "STRING_VALUE", // required
  * };

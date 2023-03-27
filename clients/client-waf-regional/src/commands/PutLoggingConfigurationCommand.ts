@@ -67,14 +67,14 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * import { WAFRegionalClient, PutLoggingConfigurationCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, PutLoggingConfigurationCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
- *   LoggingConfiguration: {
+ * const input = { // PutLoggingConfigurationRequest
+ *   LoggingConfiguration: { // LoggingConfiguration
  *     ResourceArn: "STRING_VALUE", // required
- *     LogDestinationConfigs: [ // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
  *       "STRING_VALUE",
  *     ],
- *     RedactedFields: [
- *       {
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
  *         Type: "STRING_VALUE", // required
  *         Data: "STRING_VALUE",
  *       },

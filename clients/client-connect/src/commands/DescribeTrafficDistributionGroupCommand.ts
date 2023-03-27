@@ -44,7 +44,7 @@ export interface DescribeTrafficDistributionGroupCommandOutput
  * import { ConnectClient, DescribeTrafficDistributionGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeTrafficDistributionGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DescribeTrafficDistributionGroupRequest
  *   TrafficDistributionGroupId: "STRING_VALUE", // required
  * };
  * const command = new DescribeTrafficDistributionGroupCommand(input);

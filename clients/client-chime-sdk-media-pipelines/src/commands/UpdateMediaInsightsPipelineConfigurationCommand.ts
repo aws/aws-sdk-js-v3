@@ -54,36 +54,36 @@ export interface UpdateMediaInsightsPipelineConfigurationCommandOutput
  * import { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineConfigurationCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineConfigurationCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
+ * const input = { // UpdateMediaInsightsPipelineConfigurationRequest
  *   Identifier: "STRING_VALUE", // required
  *   ResourceAccessRoleArn: "STRING_VALUE", // required
- *   RealTimeAlertConfiguration: {
+ *   RealTimeAlertConfiguration: { // RealTimeAlertConfiguration
  *     Disabled: true || false,
- *     Rules: [
- *       {
+ *     Rules: [ // RealTimeAlertRuleList
+ *       { // RealTimeAlertRule
  *         Type: "KeywordMatch" || "Sentiment" || "IssueDetection", // required
- *         KeywordMatchConfiguration: {
+ *         KeywordMatchConfiguration: { // KeywordMatchConfiguration
  *           RuleName: "STRING_VALUE", // required
- *           Keywords: [ // required
+ *           Keywords: [ // KeywordMatchWordList // required
  *             "STRING_VALUE",
  *           ],
  *           Negate: true || false,
  *         },
- *         SentimentConfiguration: {
+ *         SentimentConfiguration: { // SentimentConfiguration
  *           RuleName: "STRING_VALUE", // required
  *           SentimentType: "NEGATIVE", // required
  *           TimePeriod: Number("int"), // required
  *         },
- *         IssueDetectionConfiguration: {
+ *         IssueDetectionConfiguration: { // IssueDetectionConfiguration
  *           RuleName: "STRING_VALUE", // required
  *         },
  *       },
  *     ],
  *   },
- *   Elements: [ // required
- *     {
+ *   Elements: [ // MediaInsightsPipelineConfigurationElements // required
+ *     { // MediaInsightsPipelineConfigurationElement
  *       Type: "AmazonTranscribeCallAnalyticsProcessor" || "VoiceAnalyticsProcessor" || "AmazonTranscribeProcessor" || "KinesisDataStreamSink" || "LambdaFunctionSink" || "SqsQueueSink" || "SnsTopicSink" || "S3RecordingSink", // required
- *       AmazonTranscribeCallAnalyticsProcessorConfiguration: {
+ *       AmazonTranscribeCallAnalyticsProcessorConfiguration: { // AmazonTranscribeCallAnalyticsProcessorConfiguration
  *         LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
  *         VocabularyName: "STRING_VALUE",
  *         VocabularyFilterName: "STRING_VALUE",
@@ -95,17 +95,17 @@ export interface UpdateMediaInsightsPipelineConfigurationCommandOutput
  *         ContentRedactionType: "PII",
  *         PiiEntityTypes: "STRING_VALUE",
  *         FilterPartialResults: true || false,
- *         PostCallAnalyticsSettings: {
+ *         PostCallAnalyticsSettings: { // PostCallAnalyticsSettings
  *           OutputLocation: "STRING_VALUE", // required
  *           DataAccessRoleArn: "STRING_VALUE", // required
  *           ContentRedactionOutput: "redacted" || "redacted_and_unredacted",
  *           OutputEncryptionKMSKeyId: "STRING_VALUE",
  *         },
- *         CallAnalyticsStreamCategories: [
+ *         CallAnalyticsStreamCategories: [ // CategoryNameList
  *           "STRING_VALUE",
  *         ],
  *       },
- *       AmazonTranscribeProcessorConfiguration: {
+ *       AmazonTranscribeProcessorConfiguration: { // AmazonTranscribeProcessorConfiguration
  *         LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
  *         VocabularyName: "STRING_VALUE",
  *         VocabularyFilterName: "STRING_VALUE",
@@ -119,23 +119,23 @@ export interface UpdateMediaInsightsPipelineConfigurationCommandOutput
  *         LanguageModelName: "STRING_VALUE",
  *         FilterPartialResults: true || false,
  *       },
- *       KinesisDataStreamSinkConfiguration: {
+ *       KinesisDataStreamSinkConfiguration: { // KinesisDataStreamSinkConfiguration
  *         InsightsTarget: "STRING_VALUE",
  *       },
- *       S3RecordingSinkConfiguration: {
+ *       S3RecordingSinkConfiguration: { // S3RecordingSinkConfiguration
  *         Destination: "STRING_VALUE",
  *       },
- *       VoiceAnalyticsProcessorConfiguration: {
+ *       VoiceAnalyticsProcessorConfiguration: { // VoiceAnalyticsProcessorConfiguration
  *         SpeakerSearchStatus: "Enabled" || "Disabled",
  *         VoiceToneAnalysisStatus: "Enabled" || "Disabled",
  *       },
- *       LambdaFunctionSinkConfiguration: {
+ *       LambdaFunctionSinkConfiguration: { // LambdaFunctionSinkConfiguration
  *         InsightsTarget: "STRING_VALUE",
  *       },
- *       SqsQueueSinkConfiguration: {
+ *       SqsQueueSinkConfiguration: { // SqsQueueSinkConfiguration
  *         InsightsTarget: "STRING_VALUE",
  *       },
- *       SnsTopicSinkConfiguration: {
+ *       SnsTopicSinkConfiguration: { // SnsTopicSinkConfiguration
  *         InsightsTarget: "STRING_VALUE",
  *       },
  *     },

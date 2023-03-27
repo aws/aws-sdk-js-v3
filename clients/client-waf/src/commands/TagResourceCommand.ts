@@ -51,10 +51,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { WAFClient, TagResourceCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, TagResourceCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

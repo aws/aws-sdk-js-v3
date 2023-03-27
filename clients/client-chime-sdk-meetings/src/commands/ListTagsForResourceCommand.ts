@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { ChimeSDKMeetingsClient, ListTagsForResourceCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

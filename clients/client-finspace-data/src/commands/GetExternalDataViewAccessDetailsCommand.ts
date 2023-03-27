@@ -56,7 +56,7 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  * import { FinspaceDataClient, GetExternalDataViewAccessDetailsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetExternalDataViewAccessDetailsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // GetExternalDataViewAccessDetailsRequest
  *   dataViewId: "STRING_VALUE", // required
  *   datasetId: "STRING_VALUE", // required
  * };

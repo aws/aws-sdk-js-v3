@@ -51,7 +51,7 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  * import { SNSClient, DeleteSMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, DeleteSMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // DeleteSMSSandboxPhoneNumberInput
  *   PhoneNumber: "STRING_VALUE", // required
  * };
  * const command = new DeleteSMSSandboxPhoneNumberCommand(input);

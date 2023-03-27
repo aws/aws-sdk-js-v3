@@ -42,7 +42,7 @@ export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeReposit
  * import { SageMakerClient, DescribeCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeCodeRepositoryInput
  *   CodeRepositoryName: "STRING_VALUE", // required
  * };
  * const command = new DescribeCodeRepositoryCommand(input);

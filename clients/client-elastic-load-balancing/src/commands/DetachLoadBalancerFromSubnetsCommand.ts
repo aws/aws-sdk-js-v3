@@ -51,9 +51,9 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * import { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // DetachLoadBalancerFromSubnetsInput
  *   LoadBalancerName: "STRING_VALUE", // required
- *   Subnets: [ // required
+ *   Subnets: [ // Subnets // required
  *     "STRING_VALUE",
  *   ],
  * };

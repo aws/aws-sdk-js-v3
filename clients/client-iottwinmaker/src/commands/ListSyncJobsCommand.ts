@@ -42,7 +42,7 @@ export interface ListSyncJobsCommandOutput extends ListSyncJobsResponse, __Metad
  * import { IoTTwinMakerClient, ListSyncJobsCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListSyncJobsCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // ListSyncJobsRequest
  *   workspaceId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

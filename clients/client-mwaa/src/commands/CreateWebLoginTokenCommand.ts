@@ -46,7 +46,7 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * import { MWAAClient, CreateWebLoginTokenCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateWebLoginTokenCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
- * const input = {
+ * const input = { // CreateWebLoginTokenRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new CreateWebLoginTokenCommand(input);

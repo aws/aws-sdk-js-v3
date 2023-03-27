@@ -42,7 +42,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * import { IoTSiteWiseClient, ListPortalsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListPortalsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // ListPortalsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

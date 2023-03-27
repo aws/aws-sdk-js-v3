@@ -42,7 +42,7 @@ export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __M
  * import { WorkMailClient, DeleteResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // DeleteResourceRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  * };

@@ -43,7 +43,7 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
  * import { ServiceCatalogClient, DescribePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DescribePortfolioInput
  *   AcceptLanguage: "STRING_VALUE",
  *   Id: "STRING_VALUE", // required
  * };

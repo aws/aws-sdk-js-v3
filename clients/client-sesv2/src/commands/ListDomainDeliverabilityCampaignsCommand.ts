@@ -49,7 +49,7 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  * import { SESv2Client, ListDomainDeliverabilityCampaignsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListDomainDeliverabilityCampaignsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // ListDomainDeliverabilityCampaignsRequest
  *   StartDate: new Date("TIMESTAMP"), // required
  *   EndDate: new Date("TIMESTAMP"), // required
  *   SubscribedDomain: "STRING_VALUE", // required

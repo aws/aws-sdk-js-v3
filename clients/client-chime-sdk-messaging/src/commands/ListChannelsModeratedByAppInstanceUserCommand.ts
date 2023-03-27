@@ -59,7 +59,7 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput
  * import { ChimeSDKMessagingClient, ListChannelsModeratedByAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelsModeratedByAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // ListChannelsModeratedByAppInstanceUserRequest
  *   AppInstanceUserArn: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

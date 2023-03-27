@@ -42,7 +42,7 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
  * import { IoTWirelessClient, ListDeviceProfilesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListDeviceProfilesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // ListDeviceProfilesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   DeviceProfileType: "Sidewalk" || "LoRaWAN",

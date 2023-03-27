@@ -44,7 +44,7 @@ export interface ListDocumentClassifierSummariesCommandOutput
  * import { ComprehendClient, ListDocumentClassifierSummariesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDocumentClassifierSummariesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // ListDocumentClassifierSummariesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

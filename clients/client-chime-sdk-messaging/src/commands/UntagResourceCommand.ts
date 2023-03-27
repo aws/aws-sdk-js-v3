@@ -46,9 +46,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMessagingClient, UntagResourceCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, UntagResourceCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

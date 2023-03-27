@@ -42,7 +42,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * import { GreengrassClient, ListGroupsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListGroupsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // ListGroupsRequest
  *   MaxResults: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  * };

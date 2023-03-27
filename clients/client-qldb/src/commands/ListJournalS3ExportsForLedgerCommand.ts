@@ -49,7 +49,7 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  * import { QLDBClient, ListJournalS3ExportsForLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListJournalS3ExportsForLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
- * const input = {
+ * const input = { // ListJournalS3ExportsForLedgerRequest
  *   Name: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

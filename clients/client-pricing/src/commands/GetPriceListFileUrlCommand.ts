@@ -50,7 +50,7 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * import { PricingClient, GetPriceListFileUrlCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetPriceListFileUrlCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
- * const input = {
+ * const input = { // GetPriceListFileUrlRequest
  *   PriceListArn: "STRING_VALUE", // required
  *   FileFormat: "STRING_VALUE", // required
  * };

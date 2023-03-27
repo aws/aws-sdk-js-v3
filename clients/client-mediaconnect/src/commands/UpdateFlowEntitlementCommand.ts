@@ -42,9 +42,9 @@ export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlemen
  * import { MediaConnectClient, UpdateFlowEntitlementCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowEntitlementCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // UpdateFlowEntitlementRequest
  *   Description: "STRING_VALUE",
- *   Encryption: {
+ *   Encryption: { // UpdateEncryption
  *     Algorithm: "aes128" || "aes192" || "aes256",
  *     ConstantInitializationVector: "STRING_VALUE",
  *     DeviceId: "STRING_VALUE",
@@ -58,7 +58,7 @@ export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlemen
  *   EntitlementArn: "STRING_VALUE", // required
  *   EntitlementStatus: "ENABLED" || "DISABLED",
  *   FlowArn: "STRING_VALUE", // required
- *   Subscribers: [
+ *   Subscribers: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  * };

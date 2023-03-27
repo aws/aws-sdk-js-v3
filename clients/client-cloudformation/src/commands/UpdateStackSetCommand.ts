@@ -47,32 +47,32 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  * import { CloudFormationClient, UpdateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // UpdateStackSetInput
  *   StackSetName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   TemplateBody: "STRING_VALUE",
  *   TemplateURL: "STRING_VALUE",
  *   UsePreviousTemplate: true || false,
- *   Parameters: [
- *     {
+ *   Parameters: [ // Parameters
+ *     { // Parameter
  *       ParameterKey: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       UsePreviousValue: true || false,
  *       ResolvedValue: "STRING_VALUE",
  *     },
  *   ],
- *   Capabilities: [
+ *   Capabilities: [ // Capabilities
  *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   OperationPreferences: {
+ *   OperationPreferences: { // StackSetOperationPreferences
  *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
- *     RegionOrder: [
+ *     RegionOrder: [ // RegionList
  *       "STRING_VALUE",
  *     ],
  *     FailureToleranceCount: Number("int"),
@@ -82,18 +82,18 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *   },
  *   AdministrationRoleARN: "STRING_VALUE",
  *   ExecutionRoleName: "STRING_VALUE",
- *   DeploymentTargets: {
- *     Accounts: [
+ *   DeploymentTargets: { // DeploymentTargets
+ *     Accounts: [ // AccountList
  *       "STRING_VALUE",
  *     ],
  *     AccountsUrl: "STRING_VALUE",
- *     OrganizationalUnitIds: [
+ *     OrganizationalUnitIds: [ // OrganizationalUnitIdList
  *       "STRING_VALUE",
  *     ],
  *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
  *   },
  *   PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
- *   AutoDeployment: {
+ *   AutoDeployment: { // AutoDeployment
  *     Enabled: true || false,
  *     RetainStacksOnAccountRemoval: true || false,
  *   },
@@ -105,7 +105,7 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *     "STRING_VALUE",
  *   ],
  *   CallAs: "SELF" || "DELEGATED_ADMIN",
- *   ManagedExecution: {
+ *   ManagedExecution: { // ManagedExecution
  *     Active: true || false,
  *   },
  * };

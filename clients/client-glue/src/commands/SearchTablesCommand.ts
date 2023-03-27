@@ -43,19 +43,19 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * import { GlueClient, SearchTablesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, SearchTablesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // SearchTablesRequest
  *   CatalogId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // SearchPropertyPredicates
+ *     { // PropertyPredicate
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       Comparator: "EQUALS" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_EQUALS" || "LESS_THAN_EQUALS",
  *     },
  *   ],
  *   SearchText: "STRING_VALUE",
- *   SortCriteria: [
- *     {
+ *   SortCriteria: [ // SortCriteria
+ *     { // SortCriterion
  *       FieldName: "STRING_VALUE",
  *       Sort: "ASC" || "DESC",
  *     },

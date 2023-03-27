@@ -39,11 +39,11 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * import { Inspector2Client, EnableCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, EnableCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
- *   accountIds: [
+ * const input = { // EnableRequest
+ *   accountIds: [ // AccountIdSet
  *     "STRING_VALUE",
  *   ],
- *   resourceTypes: [ // required
+ *   resourceTypes: [ // EnableResourceTypeList // required
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",

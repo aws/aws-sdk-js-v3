@@ -42,7 +42,7 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
  * import { AppSyncClient, UpdateApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // UpdateApiCacheRequest
  *   apiId: "STRING_VALUE", // required
  *   ttl: Number("long"), // required
  *   apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING", // required

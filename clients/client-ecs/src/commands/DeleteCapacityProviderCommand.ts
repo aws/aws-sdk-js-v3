@@ -56,7 +56,7 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * import { ECSClient, DeleteCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // DeleteCapacityProviderRequest
  *   capacityProvider: "STRING_VALUE", // required
  * };
  * const command = new DeleteCapacityProviderCommand(input);

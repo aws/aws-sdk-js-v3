@@ -43,7 +43,7 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * import { IoTClient, DescribeIndexCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeIndexCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DescribeIndexRequest
  *   indexName: "STRING_VALUE", // required
  * };
  * const command = new DescribeIndexCommand(input);

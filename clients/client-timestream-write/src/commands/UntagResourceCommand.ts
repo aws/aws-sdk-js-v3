@@ -43,9 +43,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { TimestreamWriteClient, UntagResourceCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, UntagResourceCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

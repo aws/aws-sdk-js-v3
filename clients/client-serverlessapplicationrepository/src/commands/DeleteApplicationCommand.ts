@@ -46,7 +46,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * import { ServerlessApplicationRepositoryClient, DeleteApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, DeleteApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
- * const input = {
+ * const input = { // DeleteApplicationRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new DeleteApplicationCommand(input);

@@ -57,8 +57,8 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * import { OrganizationsClient, ListCreateAccountStatusCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListCreateAccountStatusCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
- *   States: [
+ * const input = { // ListCreateAccountStatusRequest
+ *   States: [ // CreateAccountStates
  *     "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
  *   ],
  *   NextToken: "STRING_VALUE",

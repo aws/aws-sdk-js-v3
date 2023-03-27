@@ -43,27 +43,27 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * import { IoTFleetWiseClient, CreateSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // CreateSignalCatalogRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   nodes: [
- *     { // Union: only one key present
- *       branch: {
+ *   nodes: [ // Nodes
+ *     { // Node Union: only one key present
+ *       branch: { // Branch
  *         fullyQualifiedName: "STRING_VALUE", // required
  *         description: "STRING_VALUE",
  *       },
- *       sensor: {
+ *       sensor: { // Sensor
  *         fullyQualifiedName: "STRING_VALUE", // required
  *         dataType: "STRING_VALUE", // required
  *         description: "STRING_VALUE",
  *         unit: "STRING_VALUE",
- *         allowedValues: [
+ *         allowedValues: [ // listOfStrings
  *           "STRING_VALUE",
  *         ],
  *         min: Number("double"),
  *         max: Number("double"),
  *       },
- *       actuator: {
+ *       actuator: { // Actuator
  *         fullyQualifiedName: "STRING_VALUE", // required
  *         dataType: "STRING_VALUE", // required
  *         description: "STRING_VALUE",
@@ -75,7 +75,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         max: Number("double"),
  *         assignedValue: "STRING_VALUE",
  *       },
- *       attribute: {
+ *       attribute: { // Attribute
  *         fullyQualifiedName: "STRING_VALUE", // required
  *         dataType: "STRING_VALUE", // required
  *         description: "STRING_VALUE",
@@ -90,8 +90,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *       },
  *     },
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

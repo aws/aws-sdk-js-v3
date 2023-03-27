@@ -45,7 +45,7 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, DeleteConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeleteConformancePackRequest
  *   ConformancePackName: "STRING_VALUE", // required
  * };
  * const command = new DeleteConformancePackCommand(input);

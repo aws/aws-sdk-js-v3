@@ -42,17 +42,17 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, UpdateFeatureMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateFeatureMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateFeatureMetadataRequest
  *   FeatureGroupName: "STRING_VALUE", // required
  *   FeatureName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   ParameterAdditions: [
- *     {
+ *   ParameterAdditions: [ // FeatureParameterAdditions
+ *     { // FeatureParameter
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   ParameterRemovals: [
+ *   ParameterRemovals: [ // FeatureParameterRemovals
  *     "STRING_VALUE",
  *   ],
  * };

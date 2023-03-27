@@ -43,7 +43,7 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  * import { AlexaForBusinessClient, ListGatewayGroupsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListGatewayGroupsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // ListGatewayGroupsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

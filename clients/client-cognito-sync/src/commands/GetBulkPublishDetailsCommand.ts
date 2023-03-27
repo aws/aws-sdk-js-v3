@@ -42,7 +42,7 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  * import { CognitoSyncClient, GetBulkPublishDetailsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, GetBulkPublishDetailsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
- * const input = {
+ * const input = { // GetBulkPublishDetailsRequest
  *   IdentityPoolId: "STRING_VALUE", // required
  * };
  * const command = new GetBulkPublishDetailsCommand(input);

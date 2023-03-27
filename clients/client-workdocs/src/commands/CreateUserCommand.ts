@@ -48,7 +48,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { WorkDocsClient, CreateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // CreateUserRequest
  *   OrganizationId: "STRING_VALUE",
  *   Username: "STRING_VALUE", // required
  *   EmailAddress: "STRING_VALUE",
@@ -56,7 +56,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   Surname: "STRING_VALUE", // required
  *   Password: "STRING_VALUE", // required
  *   TimeZoneId: "STRING_VALUE",
- *   StorageRule: {
+ *   StorageRule: { // StorageRuleType
  *     StorageAllocatedInBytes: Number("long"),
  *     StorageType: "UNLIMITED" || "QUOTA",
  *   },

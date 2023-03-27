@@ -105,7 +105,7 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * import { KMSClient, ImportKeyMaterialCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ImportKeyMaterialCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // ImportKeyMaterialRequest
  *   KeyId: "STRING_VALUE", // required
  *   ImportToken: "BLOB_VALUE", // required
  *   EncryptedKeyMaterial: "BLOB_VALUE", // required

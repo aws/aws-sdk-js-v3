@@ -42,7 +42,7 @@ export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {
  * import { APIGatewayClient, DeleteDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // DeleteDocumentationPartRequest
  *   restApiId: "STRING_VALUE", // required
  *   documentationPartId: "STRING_VALUE", // required
  * };

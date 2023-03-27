@@ -43,7 +43,7 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, UpdateDocumentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, UpdateDocumentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // UpdateDocumentRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   DocumentId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",

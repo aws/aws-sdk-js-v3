@@ -42,7 +42,7 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
  * import { AppIntegrationsClient, UpdateEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, UpdateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
- * const input = {
+ * const input = { // UpdateEventIntegrationRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  * };

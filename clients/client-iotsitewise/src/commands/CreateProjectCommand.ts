@@ -46,12 +46,12 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * import { IoTSiteWiseClient, CreateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // CreateProjectRequest
  *   portalId: "STRING_VALUE", // required
  *   projectName: "STRING_VALUE", // required
  *   projectDescription: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

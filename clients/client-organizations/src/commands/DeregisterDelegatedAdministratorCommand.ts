@@ -55,7 +55,7 @@ export interface DeregisterDelegatedAdministratorCommandOutput extends __Metadat
  * import { OrganizationsClient, DeregisterDelegatedAdministratorCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeregisterDelegatedAdministratorCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // DeregisterDelegatedAdministratorRequest
  *   AccountId: "STRING_VALUE", // required
  *   ServicePrincipal: "STRING_VALUE", // required
  * };

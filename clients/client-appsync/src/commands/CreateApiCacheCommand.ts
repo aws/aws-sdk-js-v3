@@ -42,7 +42,7 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
  * import { AppSyncClient, CreateApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // CreateApiCacheRequest
  *   apiId: "STRING_VALUE", // required
  *   ttl: Number("long"), // required
  *   transitEncryptionEnabled: true || false,

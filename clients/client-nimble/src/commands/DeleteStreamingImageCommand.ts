@@ -46,7 +46,7 @@ export interface DeleteStreamingImageCommandOutput extends DeleteStreamingImageR
  * import { NimbleClient, DeleteStreamingImageCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteStreamingImageCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // DeleteStreamingImageRequest
  *   clientToken: "STRING_VALUE",
  *   streamingImageId: "STRING_VALUE", // required
  *   studioId: "STRING_VALUE", // required

@@ -42,8 +42,8 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  * import { NimbleClient, ListEulasCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListEulasCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
- *   eulaIds: [
+ * const input = { // ListEulasRequest
+ *   eulaIds: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",

@@ -42,24 +42,24 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * import { ConnectClient, GetCurrentUserDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetCurrentUserDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // GetCurrentUserDataRequest
  *   InstanceId: "STRING_VALUE", // required
- *   Filters: {
- *     Queues: [
+ *   Filters: { // UserDataFilters
+ *     Queues: [ // Queues
  *       "STRING_VALUE",
  *     ],
- *     ContactFilter: {
- *       ContactStates: [
+ *     ContactFilter: { // ContactFilter
+ *       ContactStates: [ // ContactStates
  *         "INCOMING" || "PENDING" || "CONNECTING" || "CONNECTED" || "CONNECTED_ONHOLD" || "MISSED" || "ERROR" || "ENDED" || "REJECTED",
  *       ],
  *     },
- *     RoutingProfiles: [
+ *     RoutingProfiles: [ // RoutingProfiles
  *       "STRING_VALUE",
  *     ],
- *     Agents: [
+ *     Agents: [ // AgentsMinOneMaxHundred
  *       "STRING_VALUE",
  *     ],
- *     UserHierarchyGroups: [
+ *     UserHierarchyGroups: [ // UserDataHierarchyGroups
  *       "STRING_VALUE",
  *     ],
  *   },

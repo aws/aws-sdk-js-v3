@@ -42,8 +42,8 @@ export interface ListEventsDetectionJobsCommandOutput extends ListEventsDetectio
  * import { ComprehendClient, ListEventsDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEventsDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
- *   Filter: {
+ * const input = { // ListEventsDetectionJobsRequest
+ *   Filter: { // EventsDetectionJobFilter
  *     JobName: "STRING_VALUE",
  *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
  *     SubmitTimeBefore: new Date("TIMESTAMP"),

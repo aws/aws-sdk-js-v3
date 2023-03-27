@@ -49,15 +49,15 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * import { ChimeSDKVoiceClient, PutVoiceConnectorTerminationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, PutVoiceConnectorTerminationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // PutVoiceConnectorTerminationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
- *   Termination: {
+ *   Termination: { // Termination
  *     CpsLimit: Number("int"),
  *     DefaultPhoneNumber: "STRING_VALUE",
- *     CallingRegions: [
+ *     CallingRegions: [ // CallingRegionList
  *       "STRING_VALUE",
  *     ],
- *     CidrAllowedList: [
+ *     CidrAllowedList: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     Disabled: true || false,

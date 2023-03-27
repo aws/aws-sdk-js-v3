@@ -45,7 +45,7 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * import { DataSyncClient, DeleteAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DeleteAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // DeleteAgentRequest
  *   AgentArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteAgentCommand(input);

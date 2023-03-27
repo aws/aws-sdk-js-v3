@@ -42,7 +42,7 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, DeletePublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeletePublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // DeletePublicKeyRequest
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
  * };

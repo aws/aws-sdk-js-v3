@@ -45,7 +45,7 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  * import { DynamoDBClient, DisableKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DisableKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // KinesisStreamingDestinationInput
  *   TableName: "STRING_VALUE", // required
  *   StreamArn: "STRING_VALUE", // required
  * };

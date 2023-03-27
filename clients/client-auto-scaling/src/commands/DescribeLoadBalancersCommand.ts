@@ -64,7 +64,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * import { AutoScalingClient, DescribeLoadBalancersCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLoadBalancersCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // DescribeLoadBalancersRequest
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxRecords: Number("int"),

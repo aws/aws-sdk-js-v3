@@ -48,7 +48,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * import { CodeDeployClient, GetDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // GetDeploymentInput
  *   deploymentId: "STRING_VALUE", // required
  * };
  * const command = new GetDeploymentCommand(input);

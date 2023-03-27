@@ -47,7 +47,7 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  * import { IoTClient, DescribeAuditFindingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeAuditFindingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DescribeAuditFindingRequest
  *   findingId: "STRING_VALUE", // required
  * };
  * const command = new DescribeAuditFindingCommand(input);

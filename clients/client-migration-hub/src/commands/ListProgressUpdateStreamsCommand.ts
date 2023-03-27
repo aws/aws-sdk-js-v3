@@ -42,7 +42,7 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * import { MigrationHubClient, ListProgressUpdateStreamsCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListProgressUpdateStreamsCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
- * const input = {
+ * const input = { // ListProgressUpdateStreamsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

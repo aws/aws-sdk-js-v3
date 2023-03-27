@@ -43,7 +43,7 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * import { DataSyncClient, DescribeLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // DescribeLocationFsxWindowsRequest
  *   LocationArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeLocationFsxWindowsCommand(input);

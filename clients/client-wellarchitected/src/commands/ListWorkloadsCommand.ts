@@ -42,7 +42,7 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * import { WellArchitectedClient, ListWorkloadsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListWorkloadsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // ListWorkloadsInput
  *   WorkloadNamePrefix: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

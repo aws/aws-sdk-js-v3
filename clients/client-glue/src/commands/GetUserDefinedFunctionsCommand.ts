@@ -42,7 +42,7 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
  * import { GlueClient, GetUserDefinedFunctionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUserDefinedFunctionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetUserDefinedFunctionsRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE",
  *   Pattern: "STRING_VALUE", // required

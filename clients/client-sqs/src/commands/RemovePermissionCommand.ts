@@ -57,7 +57,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * import { SQSClient, RemovePermissionCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, RemovePermissionCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // RemovePermissionRequest
  *   QueueUrl: "STRING_VALUE", // required
  *   Label: "STRING_VALUE", // required
  * };

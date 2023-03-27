@@ -48,7 +48,7 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * import { Macie2Client, GetSensitiveDataOccurrencesAvailabilityCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetSensitiveDataOccurrencesAvailabilityCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // GetSensitiveDataOccurrencesAvailabilityRequest
  *   findingId: "STRING_VALUE", // required
  * };
  * const command = new GetSensitiveDataOccurrencesAvailabilityCommand(input);

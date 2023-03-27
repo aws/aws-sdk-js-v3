@@ -42,7 +42,7 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * import { ImagebuilderClient, GetImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // GetImagePipelineRequest
  *   imagePipelineArn: "STRING_VALUE", // required
  * };
  * const command = new GetImagePipelineCommand(input);

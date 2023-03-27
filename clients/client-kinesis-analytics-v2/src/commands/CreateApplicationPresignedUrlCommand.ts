@@ -60,7 +60,7 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * import { KinesisAnalyticsV2Client, CreateApplicationPresignedUrlCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, CreateApplicationPresignedUrlCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // CreateApplicationPresignedUrlRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   UrlType: "FLINK_DASHBOARD_URL" || "ZEPPELIN_UI_URL", // required
  *   SessionExpirationDurationInSeconds: Number("long"),

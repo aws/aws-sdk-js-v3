@@ -51,7 +51,7 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  * import { SNSClient, ListSMSSandboxPhoneNumbersCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListSMSSandboxPhoneNumbersCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // ListSMSSandboxPhoneNumbersInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

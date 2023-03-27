@@ -43,7 +43,7 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * import { RedshiftClient, DescribeDataSharesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDataSharesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeDataSharesMessage
  *   DataShareArn: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",

@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { MediaTailorClient, UntagResourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UntagResourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
  * };

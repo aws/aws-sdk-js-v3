@@ -43,7 +43,7 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * import { SFNClient, StopExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, StopExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // StopExecutionInput
  *   executionArn: "STRING_VALUE", // required
  *   error: "STRING_VALUE",
  *   cause: "STRING_VALUE",

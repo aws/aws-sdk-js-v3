@@ -48,10 +48,10 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  * import { ChimeSDKMeetingsClient, StartMeetingTranscriptionCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, StartMeetingTranscriptionCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
- * const input = {
+ * const input = { // StartMeetingTranscriptionRequest
  *   MeetingId: "STRING_VALUE", // required
- *   TranscriptionConfiguration: {
- *     EngineTranscribeSettings: {
+ *   TranscriptionConfiguration: { // TranscriptionConfiguration
+ *     EngineTranscribeSettings: { // EngineTranscribeSettings
  *       LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
  *       VocabularyFilterMethod: "remove" || "mask" || "tag",
  *       VocabularyFilterName: "STRING_VALUE",
@@ -67,7 +67,7 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  *       LanguageOptions: "STRING_VALUE",
  *       PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
  *     },
- *     EngineTranscribeMedicalSettings: {
+ *     EngineTranscribeMedicalSettings: { // EngineTranscribeMedicalSettings
  *       LanguageCode: "en-US", // required
  *       Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY", // required
  *       Type: "CONVERSATION" || "DICTATION", // required

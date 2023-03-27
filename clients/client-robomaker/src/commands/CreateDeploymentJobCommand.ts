@@ -54,12 +54,12 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  * import { RoboMakerClient, CreateDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
- *   deploymentConfig: {
+ * const input = { // CreateDeploymentJobRequest
+ *   deploymentConfig: { // DeploymentConfig
  *     concurrentDeploymentPercentage: Number("int"),
  *     failureThresholdPercentage: Number("int"),
  *     robotDeploymentTimeoutInSeconds: Number("long"),
- *     downloadConditionFile: {
+ *     downloadConditionFile: { // S3Object
  *       bucket: "STRING_VALUE", // required
  *       key: "STRING_VALUE", // required
  *       etag: "STRING_VALUE",
@@ -67,22 +67,22 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  *   },
  *   clientRequestToken: "STRING_VALUE", // required
  *   fleet: "STRING_VALUE", // required
- *   deploymentApplicationConfigs: [ // required
- *     {
+ *   deploymentApplicationConfigs: [ // DeploymentApplicationConfigs // required
+ *     { // DeploymentApplicationConfig
  *       application: "STRING_VALUE", // required
  *       applicationVersion: "STRING_VALUE", // required
- *       launchConfig: {
+ *       launchConfig: { // DeploymentLaunchConfig
  *         packageName: "STRING_VALUE", // required
  *         preLaunchFile: "STRING_VALUE",
  *         launchFile: "STRING_VALUE", // required
  *         postLaunchFile: "STRING_VALUE",
- *         environmentVariables: {
+ *         environmentVariables: { // EnvironmentVariableMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     },
  *   ],
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

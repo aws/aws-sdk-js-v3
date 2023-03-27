@@ -42,7 +42,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * import { MemoryDBClient, DeleteUserCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DeleteUserCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // DeleteUserRequest
  *   UserName: "STRING_VALUE", // required
  * };
  * const command = new DeleteUserCommand(input);

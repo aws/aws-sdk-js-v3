@@ -42,13 +42,13 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * import { BatchClient, UpdateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // UpdateJobQueueRequest
  *   jobQueue: "STRING_VALUE", // required
  *   state: "ENABLED" || "DISABLED",
  *   schedulingPolicyArn: "STRING_VALUE",
  *   priority: Number("int"),
- *   computeEnvironmentOrder: [
- *     {
+ *   computeEnvironmentOrder: [ // ComputeEnvironmentOrders
+ *     { // ComputeEnvironmentOrder
  *       order: Number("int"), // required
  *       computeEnvironment: "STRING_VALUE", // required
  *     },

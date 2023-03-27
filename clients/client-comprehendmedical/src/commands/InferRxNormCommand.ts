@@ -48,7 +48,7 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * import { ComprehendMedicalClient, InferRxNormCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, InferRxNormCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
+ * const input = { // InferRxNormRequest
  *   Text: "STRING_VALUE", // required
  * };
  * const command = new InferRxNormCommand(input);

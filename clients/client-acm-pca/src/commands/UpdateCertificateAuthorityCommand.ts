@@ -52,17 +52,17 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * import { ACMPCAClient, UpdateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, UpdateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
+ * const input = { // UpdateCertificateAuthorityRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   RevocationConfiguration: {
- *     CrlConfiguration: {
+ *   RevocationConfiguration: { // RevocationConfiguration
+ *     CrlConfiguration: { // CrlConfiguration
  *       Enabled: true || false, // required
  *       ExpirationInDays: Number("int"),
  *       CustomCname: "STRING_VALUE",
  *       S3BucketName: "STRING_VALUE",
  *       S3ObjectAcl: "PUBLIC_READ" || "BUCKET_OWNER_FULL_CONTROL",
  *     },
- *     OcspConfiguration: {
+ *     OcspConfiguration: { // OcspConfiguration
  *       Enabled: true || false, // required
  *       OcspCustomCname: "STRING_VALUE",
  *     },

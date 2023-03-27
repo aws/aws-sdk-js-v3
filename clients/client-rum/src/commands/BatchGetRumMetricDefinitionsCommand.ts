@@ -44,7 +44,7 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
  * import { RUMClient, BatchGetRumMetricDefinitionsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, BatchGetRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // BatchGetRumMetricDefinitionsRequest
  *   AppMonitorName: "STRING_VALUE", // required
  *   Destination: "STRING_VALUE", // required
  *   DestinationArn: "STRING_VALUE",

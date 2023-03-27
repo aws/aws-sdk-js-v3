@@ -42,7 +42,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * import { DataSyncClient, DescribeTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // DescribeTaskRequest
  *   TaskArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeTaskCommand(input);

@@ -46,25 +46,25 @@ export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrich
  * import { SageMakerGeospatialClient, StartVectorEnrichmentJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, StartVectorEnrichmentJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // StartVectorEnrichmentJobInput
  *   Name: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  *   KmsKeyId: "STRING_VALUE",
- *   InputConfig: {
+ *   InputConfig: { // VectorEnrichmentJobInputConfig
  *     DocumentType: "STRING_VALUE", // required
- *     DataSourceConfig: { // Union: only one key present
- *       S3Data: {
+ *     DataSourceConfig: { // VectorEnrichmentJobDataSourceConfigInput Union: only one key present
+ *       S3Data: { // VectorEnrichmentJobS3Data
  *         S3Uri: "STRING_VALUE", // required
  *         KmsKeyId: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   JobConfig: { // Union: only one key present
- *     ReverseGeocodingConfig: {
+ *   JobConfig: { // VectorEnrichmentJobConfig Union: only one key present
+ *     ReverseGeocodingConfig: { // ReverseGeocodingConfig
  *       YAttributeName: "STRING_VALUE", // required
  *       XAttributeName: "STRING_VALUE", // required
  *     },
- *     MapMatchingConfig: {
+ *     MapMatchingConfig: { // MapMatchingConfig
  *       IdAttributeName: "STRING_VALUE", // required
  *       YAttributeName: "STRING_VALUE", // required
  *       XAttributeName: "STRING_VALUE", // required
@@ -72,7 +72,7 @@ export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrich
  *     },
  *   },
  *   ExecutionRoleArn: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

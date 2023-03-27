@@ -46,8 +46,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * import { DocDBClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
- *   AvailabilityZones: [
+ * const input = { // RestoreDBClusterFromSnapshotMessage
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
  *   DBClusterIdentifier: "STRING_VALUE", // required
@@ -56,17 +56,17 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   EngineVersion: "STRING_VALUE",
  *   Port: Number("int"),
  *   DBSubnetGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   KmsKeyId: "STRING_VALUE",
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,

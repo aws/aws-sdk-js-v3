@@ -47,9 +47,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { AppStreamClient, TagResourceCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, TagResourceCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // Tags // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

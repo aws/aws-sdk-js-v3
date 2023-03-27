@@ -44,7 +44,7 @@ export interface ListRescoreExecutionPlansCommandOutput extends ListRescoreExecu
  * import { KendraRankingClient, ListRescoreExecutionPlansCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, ListRescoreExecutionPlansCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
- * const input = {
+ * const input = { // ListRescoreExecutionPlansRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

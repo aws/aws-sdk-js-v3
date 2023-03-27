@@ -42,47 +42,47 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * import { AppSyncClient, CreateDataSourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // CreateDataSourceRequest
  *   apiId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   type: "AWS_LAMBDA" || "AMAZON_DYNAMODB" || "AMAZON_ELASTICSEARCH" || "NONE" || "HTTP" || "RELATIONAL_DATABASE" || "AMAZON_OPENSEARCH_SERVICE" || "AMAZON_EVENTBRIDGE", // required
  *   serviceRoleArn: "STRING_VALUE",
- *   dynamodbConfig: {
+ *   dynamodbConfig: { // DynamodbDataSourceConfig
  *     tableName: "STRING_VALUE", // required
  *     awsRegion: "STRING_VALUE", // required
  *     useCallerCredentials: true || false,
- *     deltaSyncConfig: {
+ *     deltaSyncConfig: { // DeltaSyncConfig
  *       baseTableTTL: Number("long"),
  *       deltaSyncTableName: "STRING_VALUE",
  *       deltaSyncTableTTL: Number("long"),
  *     },
  *     versioned: true || false,
  *   },
- *   lambdaConfig: {
+ *   lambdaConfig: { // LambdaDataSourceConfig
  *     lambdaFunctionArn: "STRING_VALUE", // required
  *   },
- *   elasticsearchConfig: {
+ *   elasticsearchConfig: { // ElasticsearchDataSourceConfig
  *     endpoint: "STRING_VALUE", // required
  *     awsRegion: "STRING_VALUE", // required
  *   },
- *   openSearchServiceConfig: {
+ *   openSearchServiceConfig: { // OpenSearchServiceDataSourceConfig
  *     endpoint: "STRING_VALUE", // required
  *     awsRegion: "STRING_VALUE", // required
  *   },
- *   httpConfig: {
+ *   httpConfig: { // HttpDataSourceConfig
  *     endpoint: "STRING_VALUE",
- *     authorizationConfig: {
+ *     authorizationConfig: { // AuthorizationConfig
  *       authorizationType: "AWS_IAM", // required
- *       awsIamConfig: {
+ *       awsIamConfig: { // AwsIamConfig
  *         signingRegion: "STRING_VALUE",
  *         signingServiceName: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   relationalDatabaseConfig: {
+ *   relationalDatabaseConfig: { // RelationalDatabaseDataSourceConfig
  *     relationalDatabaseSourceType: "RDS_HTTP_ENDPOINT",
- *     rdsHttpEndpointConfig: {
+ *     rdsHttpEndpointConfig: { // RdsHttpEndpointConfig
  *       awsRegion: "STRING_VALUE",
  *       dbClusterIdentifier: "STRING_VALUE",
  *       databaseName: "STRING_VALUE",
@@ -90,7 +90,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       awsSecretStoreArn: "STRING_VALUE",
  *     },
  *   },
- *   eventBridgeConfig: {
+ *   eventBridgeConfig: { // EventBridgeDataSourceConfig
  *     eventBusArn: "STRING_VALUE", // required
  *   },
  * };

@@ -46,7 +46,7 @@ export interface ListStandardsControlAssociationsCommandOutput
  * import { SecurityHubClient, ListStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // ListStandardsControlAssociationsRequest
  *   SecurityControlId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

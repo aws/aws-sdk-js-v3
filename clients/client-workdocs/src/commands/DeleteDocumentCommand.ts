@@ -42,7 +42,7 @@ export interface DeleteDocumentCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeleteDocumentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteDocumentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DeleteDocumentRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   DocumentId: "STRING_VALUE", // required
  * };

@@ -50,10 +50,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { PinpointEmailClient, TagResourceCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, TagResourceCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * import { DataBrewClient, CreateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // CreateProfileJobRequest
  *   DatasetName: "STRING_VALUE", // required
  *   EncryptionKeyArn: "STRING_VALUE",
  *   EncryptionMode: "SSE-KMS" || "SSE-S3",
@@ -50,33 +50,33 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  *   LogSubscription: "ENABLE" || "DISABLE",
  *   MaxCapacity: Number("int"),
  *   MaxRetries: Number("int"),
- *   OutputLocation: {
+ *   OutputLocation: { // S3Location
  *     Bucket: "STRING_VALUE", // required
  *     Key: "STRING_VALUE",
  *     BucketOwner: "STRING_VALUE",
  *   },
- *   Configuration: {
- *     DatasetStatisticsConfiguration: {
- *       IncludedStatistics: [
+ *   Configuration: { // ProfileConfiguration
+ *     DatasetStatisticsConfiguration: { // StatisticsConfiguration
+ *       IncludedStatistics: [ // StatisticList
  *         "STRING_VALUE",
  *       ],
- *       Overrides: [
- *         {
+ *       Overrides: [ // StatisticOverrideList
+ *         { // StatisticOverride
  *           Statistic: "STRING_VALUE", // required
- *           Parameters: { // required
+ *           Parameters: { // ParameterMap // required
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
  *       ],
  *     },
- *     ProfileColumns: [
- *       {
+ *     ProfileColumns: [ // ColumnSelectorList
+ *       { // ColumnSelector
  *         Regex: "STRING_VALUE",
  *         Name: "STRING_VALUE",
  *       },
  *     ],
- *     ColumnStatisticsConfigurations: [
- *       {
+ *     ColumnStatisticsConfigurations: [ // ColumnStatisticsConfigurationList
+ *       { // ColumnStatisticsConfiguration
  *         Selectors: [
  *           {
  *             Regex: "STRING_VALUE",
@@ -98,12 +98,12 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  *         },
  *       },
  *     ],
- *     EntityDetectorConfiguration: {
- *       EntityTypes: [ // required
+ *     EntityDetectorConfiguration: { // EntityDetectorConfiguration
+ *       EntityTypes: [ // EntityTypeList // required
  *         "STRING_VALUE",
  *       ],
- *       AllowedStatistics: [
- *         {
+ *       AllowedStatistics: [ // AllowedStatisticList
+ *         { // AllowedStatistics
  *           Statistics: [ // required
  *             "STRING_VALUE",
  *           ],
@@ -111,18 +111,18 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  *       ],
  *     },
  *   },
- *   ValidationConfigurations: [
- *     {
+ *   ValidationConfigurations: [ // ValidationConfigurationList
+ *     { // ValidationConfiguration
  *       RulesetArn: "STRING_VALUE", // required
  *       ValidationMode: "CHECK_ALL",
  *     },
  *   ],
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Timeout: Number("int"),
- *   JobSample: {
+ *   JobSample: { // JobSample
  *     Mode: "FULL_DATASET" || "CUSTOM_ROWS",
  *     Size: Number("long"),
  *   },

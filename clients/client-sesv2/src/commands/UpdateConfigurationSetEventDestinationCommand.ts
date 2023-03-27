@@ -54,31 +54,31 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * import { SESv2Client, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // UpdateConfigurationSetEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   EventDestinationName: "STRING_VALUE", // required
- *   EventDestination: {
+ *   EventDestination: { // EventDestinationDefinition
  *     Enabled: true || false,
- *     MatchingEventTypes: [
+ *     MatchingEventTypes: [ // EventTypes
  *       "SEND" || "REJECT" || "BOUNCE" || "COMPLAINT" || "DELIVERY" || "OPEN" || "CLICK" || "RENDERING_FAILURE" || "DELIVERY_DELAY" || "SUBSCRIPTION",
  *     ],
- *     KinesisFirehoseDestination: {
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
  *       IamRoleArn: "STRING_VALUE", // required
  *       DeliveryStreamArn: "STRING_VALUE", // required
  *     },
- *     CloudWatchDestination: {
- *       DimensionConfigurations: [ // required
- *         {
+ *     CloudWatchDestination: { // CloudWatchDestination
+ *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ *         { // CloudWatchDimensionConfiguration
  *           DimensionName: "STRING_VALUE", // required
  *           DimensionValueSource: "MESSAGE_TAG" || "EMAIL_HEADER" || "LINK_TAG", // required
  *           DefaultDimensionValue: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     SnsDestination: {
+ *     SnsDestination: { // SnsDestination
  *       TopicArn: "STRING_VALUE", // required
  *     },
- *     PinpointDestination: {
+ *     PinpointDestination: { // PinpointDestination
  *       ApplicationArn: "STRING_VALUE",
  *     },
  *   },

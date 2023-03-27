@@ -47,7 +47,7 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * import { OpenSearchServerlessClient, UpdateAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // UpdateAccessPolicyRequest
  *   type: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   policyVersion: "STRING_VALUE", // required

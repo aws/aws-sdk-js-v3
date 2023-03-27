@@ -49,8 +49,8 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  * import { EMRClient, TerminateJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, TerminateJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
- *   JobFlowIds: [ // required
+ * const input = { // TerminateJobFlowsInput
+ *   JobFlowIds: [ // XmlStringList // required
  *     "STRING_VALUE",
  *   ],
  * };

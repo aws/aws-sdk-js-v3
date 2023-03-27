@@ -45,8 +45,8 @@ export interface DescribeNotificationConfigurationsCommandOutput
  * import { AutoScalingClient, DescribeNotificationConfigurationsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeNotificationConfigurationsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
- *   AutoScalingGroupNames: [
+ * const input = { // DescribeNotificationConfigurationsType
+ *   AutoScalingGroupNames: [ // AutoScalingGroupNames
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

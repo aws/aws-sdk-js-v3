@@ -42,7 +42,7 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * import { GroundStationClient, UpdateEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UpdateEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // UpdateEphemerisRequest
  *   ephemerisId: "STRING_VALUE", // required
  *   enabled: true || false, // required
  *   name: "STRING_VALUE",

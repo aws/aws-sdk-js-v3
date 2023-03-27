@@ -55,9 +55,9 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  * import { GameLiftClient, DeleteFleetLocationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteFleetLocationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DeleteFleetLocationsInput
  *   FleetId: "STRING_VALUE", // required
- *   Locations: [ // required
+ *   Locations: [ // LocationList // required
  *     "STRING_VALUE",
  *   ],
  * };

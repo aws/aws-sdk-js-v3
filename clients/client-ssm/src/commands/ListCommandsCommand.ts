@@ -42,13 +42,13 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
  * import { SSMClient, ListCommandsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListCommandsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // ListCommandsRequest
  *   CommandId: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // CommandFilterList
+ *     { // CommandFilter
  *       key: "InvokedAfter" || "InvokedBefore" || "Status" || "ExecutionStage" || "DocumentName", // required
  *       value: "STRING_VALUE", // required
  *     },

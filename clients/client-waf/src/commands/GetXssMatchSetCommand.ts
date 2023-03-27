@@ -50,7 +50,7 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * import { WAFClient, GetXssMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetXssMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // GetXssMatchSetRequest
  *   XssMatchSetId: "STRING_VALUE", // required
  * };
  * const command = new GetXssMatchSetCommand(input);

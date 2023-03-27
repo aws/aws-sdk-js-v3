@@ -44,7 +44,7 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  * import { BudgetsClient, ExecuteBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, ExecuteBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
- * const input = {
+ * const input = { // ExecuteBudgetActionRequest
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
  *   ActionId: "STRING_VALUE", // required

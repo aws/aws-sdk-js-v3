@@ -47,11 +47,11 @@ export interface ListReceivedLicensesForOrganizationCommandOutput
  * import { LicenseManagerClient, ListReceivedLicensesForOrganizationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListReceivedLicensesForOrganizationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // ListReceivedLicensesForOrganizationRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

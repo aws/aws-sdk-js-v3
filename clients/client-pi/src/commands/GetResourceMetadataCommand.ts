@@ -44,7 +44,7 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * import { PIClient, GetResourceMetadataCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetResourceMetadataCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
- * const input = {
+ * const input = { // GetResourceMetadataRequest
  *   ServiceType: "RDS" || "DOCDB", // required
  *   Identifier: "STRING_VALUE", // required
  * };

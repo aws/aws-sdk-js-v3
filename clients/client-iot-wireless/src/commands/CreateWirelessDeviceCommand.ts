@@ -42,29 +42,29 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  * import { IoTWirelessClient, CreateWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CreateWirelessDeviceRequest
  *   Type: "Sidewalk" || "LoRaWAN", // required
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   DestinationName: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   LoRaWAN: {
+ *   LoRaWAN: { // LoRaWANDevice
  *     DevEui: "STRING_VALUE",
  *     DeviceProfileId: "STRING_VALUE",
  *     ServiceProfileId: "STRING_VALUE",
- *     OtaaV1_1: {
+ *     OtaaV1_1: { // OtaaV1_1
  *       AppKey: "STRING_VALUE",
  *       NwkKey: "STRING_VALUE",
  *       JoinEui: "STRING_VALUE",
  *     },
- *     OtaaV1_0_x: {
+ *     OtaaV1_0_x: { // OtaaV1_0_x
  *       AppKey: "STRING_VALUE",
  *       AppEui: "STRING_VALUE",
  *       GenAppKey: "STRING_VALUE",
  *     },
- *     AbpV1_1: {
+ *     AbpV1_1: { // AbpV1_1
  *       DevAddr: "STRING_VALUE",
- *       SessionKeys: {
+ *       SessionKeys: { // SessionKeysAbpV1_1
  *         FNwkSIntKey: "STRING_VALUE",
  *         SNwkSIntKey: "STRING_VALUE",
  *         NwkSEncKey: "STRING_VALUE",
@@ -72,25 +72,25 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  *       },
  *       FCntStart: Number("int"),
  *     },
- *     AbpV1_0_x: {
+ *     AbpV1_0_x: { // AbpV1_0_x
  *       DevAddr: "STRING_VALUE",
- *       SessionKeys: {
+ *       SessionKeys: { // SessionKeysAbpV1_0_x
  *         NwkSKey: "STRING_VALUE",
  *         AppSKey: "STRING_VALUE",
  *       },
  *       FCntStart: Number("int"),
  *     },
- *     FPorts: {
+ *     FPorts: { // FPorts
  *       Fuota: Number("int"),
  *       Multicast: Number("int"),
  *       ClockSync: Number("int"),
- *       Positioning: {
+ *       Positioning: { // Positioning
  *         ClockSync: Number("int"),
  *         Stream: Number("int"),
  *         Gnss: Number("int"),
  *       },
- *       Applications: [
- *         {
+ *       Applications: [ // Applications
+ *         { // ApplicationConfig
  *           FPort: Number("int"),
  *           Type: "SemtechGeolocation",
  *           DestinationName: "STRING_VALUE",
@@ -98,14 +98,14 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  *       ],
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   Positioning: "Enabled" || "Disabled",
- *   Sidewalk: {
+ *   Sidewalk: { // SidewalkCreateWirelessDevice
  *     DeviceProfileId: "STRING_VALUE",
  *   },
  * };

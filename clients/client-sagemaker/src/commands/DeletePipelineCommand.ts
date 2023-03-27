@@ -45,7 +45,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * import { SageMakerClient, DeletePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeletePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeletePipelineRequest
  *   PipelineName: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE", // required
  * };

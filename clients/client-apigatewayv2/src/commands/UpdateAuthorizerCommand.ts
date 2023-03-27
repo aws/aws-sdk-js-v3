@@ -42,7 +42,7 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * import { ApiGatewayV2Client, UpdateAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // UpdateAuthorizerRequest
  *   ApiId: "STRING_VALUE", // required
  *   AuthorizerCredentialsArn: "STRING_VALUE",
  *   AuthorizerId: "STRING_VALUE", // required
@@ -51,12 +51,12 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  *   AuthorizerType: "STRING_VALUE",
  *   AuthorizerUri: "STRING_VALUE",
  *   EnableSimpleResponses: true || false,
- *   IdentitySource: [
+ *   IdentitySource: [ // IdentitySourceList
  *     "STRING_VALUE",
  *   ],
  *   IdentityValidationExpression: "STRING_VALUE",
- *   JwtConfiguration: {
- *     Audience: [
+ *   JwtConfiguration: { // JWTConfiguration
+ *     Audience: [ // __listOf__string
  *       "STRING_VALUE",
  *     ],
  *     Issuer: "STRING_VALUE",

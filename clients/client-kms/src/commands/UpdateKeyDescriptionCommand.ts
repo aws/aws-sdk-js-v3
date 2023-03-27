@@ -63,7 +63,7 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * import { KMSClient, UpdateKeyDescriptionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdateKeyDescriptionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // UpdateKeyDescriptionRequest
  *   KeyId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
  * };

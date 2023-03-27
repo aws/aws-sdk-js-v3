@@ -42,7 +42,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * import { MgnClient, DeleteJobCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteJobCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // DeleteJobRequest
  *   jobID: "STRING_VALUE", // required
  * };
  * const command = new DeleteJobCommand(input);

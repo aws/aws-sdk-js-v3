@@ -49,8 +49,8 @@ export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentR
  * import { ComprehendClient, BatchDetectSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
- *   TextList: [ // required
+ * const input = { // BatchDetectSentimentRequest
+ *   TextList: [ // CustomerInputStringList // required
  *     "STRING_VALUE",
  *   ],
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required

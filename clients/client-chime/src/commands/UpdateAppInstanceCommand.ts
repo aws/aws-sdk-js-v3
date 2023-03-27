@@ -46,7 +46,7 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
  * import { ChimeClient, UpdateAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // UpdateAppInstanceRequest
  *   AppInstanceArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Metadata: "STRING_VALUE",

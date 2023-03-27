@@ -43,20 +43,20 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * import { ConnectClient, CreateSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // CreateSecurityProfileRequest
  *   SecurityProfileName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Permissions: [
+ *   Permissions: [ // PermissionsList
  *     "STRING_VALUE",
  *   ],
  *   InstanceId: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AllowedAccessControlTags: {
+ *   AllowedAccessControlTags: { // AllowedAccessControlTags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   TagRestrictedResources: [
+ *   TagRestrictedResources: [ // TagRestrictedResourceList
  *     "STRING_VALUE",
  *   ],
  * };

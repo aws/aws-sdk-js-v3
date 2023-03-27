@@ -57,7 +57,7 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  * import { EC2Client, ModifyDefaultCreditSpecificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyDefaultCreditSpecificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyDefaultCreditSpecificationRequest
  *   DryRun: true || false,
  *   InstanceFamily: "t2" || "t3" || "t3a" || "t4g", // required
  *   CpuCredits: "STRING_VALUE", // required

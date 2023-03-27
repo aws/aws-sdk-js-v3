@@ -42,7 +42,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * import { MediaConvertClient, GetJobTemplateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetJobTemplateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // GetJobTemplateRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new GetJobTemplateCommand(input);

@@ -65,9 +65,9 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  * import { CognitoIdentityProviderClient, AdminLinkProviderForUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminLinkProviderForUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminLinkProviderForUserRequest
  *   UserPoolId: "STRING_VALUE", // required
- *   DestinationUser: {
+ *   DestinationUser: { // ProviderUserIdentifierType
  *     ProviderName: "STRING_VALUE",
  *     ProviderAttributeName: "STRING_VALUE",
  *     ProviderAttributeValue: "STRING_VALUE",

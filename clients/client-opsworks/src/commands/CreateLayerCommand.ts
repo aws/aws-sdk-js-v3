@@ -55,18 +55,18 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * import { OpsWorksClient, CreateLayerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateLayerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // CreateLayerRequest
  *   StackId: "STRING_VALUE", // required
  *   Type: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Shortname: "STRING_VALUE", // required
- *   Attributes: {
+ *   Attributes: { // LayerAttributes
  *     "<keys>": "STRING_VALUE",
  *   },
- *   CloudWatchLogsConfiguration: {
+ *   CloudWatchLogsConfiguration: { // CloudWatchLogsConfiguration
  *     Enabled: true || false,
- *     LogStreams: [
- *       {
+ *     LogStreams: [ // CloudWatchLogsLogStreams
+ *       { // CloudWatchLogsLogStream
  *         LogGroupName: "STRING_VALUE",
  *         DatetimeFormat: "STRING_VALUE",
  *         TimeZone: "STRING_VALUE",
@@ -83,14 +83,14 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  *   },
  *   CustomInstanceProfileArn: "STRING_VALUE",
  *   CustomJson: "STRING_VALUE",
- *   CustomSecurityGroupIds: [
+ *   CustomSecurityGroupIds: [ // Strings
  *     "STRING_VALUE",
  *   ],
  *   Packages: [
  *     "STRING_VALUE",
  *   ],
- *   VolumeConfigurations: [
- *     {
+ *   VolumeConfigurations: [ // VolumeConfigurations
+ *     { // VolumeConfiguration
  *       MountPoint: "STRING_VALUE", // required
  *       RaidLevel: Number("int"),
  *       NumberOfDisks: Number("int"), // required
@@ -103,7 +103,7 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  *   EnableAutoHealing: true || false,
  *   AutoAssignElasticIps: true || false,
  *   AutoAssignPublicIps: true || false,
- *   CustomRecipes: {
+ *   CustomRecipes: { // Recipes
  *     Setup: [
  *       "STRING_VALUE",
  *     ],
@@ -113,17 +113,13 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  *     Deploy: [
  *       "STRING_VALUE",
  *     ],
- *     Undeploy: [
- *       "STRING_VALUE",
- *     ],
- *     Shutdown: [
- *       "STRING_VALUE",
- *     ],
+ *     Undeploy: "<Strings>",
+ *     Shutdown: "<Strings>",
  *   },
  *   InstallUpdatesOnBoot: true || false,
  *   UseEbsOptimizedInstances: true || false,
- *   LifecycleEventConfiguration: {
- *     Shutdown: {
+ *   LifecycleEventConfiguration: { // LifecycleEventConfiguration
+ *     Shutdown: { // ShutdownEventConfiguration
  *       ExecutionTimeout: Number("int"),
  *       DelayUntilElbConnectionsDrained: true || false,
  *     },

@@ -43,14 +43,14 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  * import { ServiceDiscoveryClient, UpdatePublicDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdatePublicDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // UpdatePublicDnsNamespaceRequest
  *   Id: "STRING_VALUE", // required
  *   UpdaterRequestId: "STRING_VALUE",
- *   Namespace: {
+ *   Namespace: { // PublicDnsNamespaceChange
  *     Description: "STRING_VALUE",
- *     Properties: {
- *       DnsProperties: {
- *         SOA: {
+ *     Properties: { // PublicDnsNamespacePropertiesChange
+ *       DnsProperties: { // PublicDnsPropertiesMutableChange
+ *         SOA: { // SOAChange
  *           TTL: Number("long"), // required
  *         },
  *       },

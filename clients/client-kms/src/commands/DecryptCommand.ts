@@ -126,12 +126,12 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * import { KMSClient, DecryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DecryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // DecryptRequest
  *   CiphertextBlob: "BLOB_VALUE", // required
- *   EncryptionContext: {
+ *   EncryptionContext: { // EncryptionContextType
  *     "<keys>": "STRING_VALUE",
  *   },
- *   GrantTokens: [
+ *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
  *   KeyId: "STRING_VALUE",

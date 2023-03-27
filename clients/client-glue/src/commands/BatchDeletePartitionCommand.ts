@@ -42,13 +42,13 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * import { GlueClient, BatchDeletePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeletePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // BatchDeletePartitionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   PartitionsToDelete: [ // required
- *     {
- *       Values: [ // required
+ *   PartitionsToDelete: [ // BatchDeletePartitionValueList // required
+ *     { // PartitionValueList
+ *       Values: [ // ValueStringList // required
  *         "STRING_VALUE",
  *       ],
  *     },

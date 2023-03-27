@@ -42,7 +42,7 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * import { SageMakerClient, ListMonitoringAlertHistoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListMonitoringAlertHistoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListMonitoringAlertHistoryRequest
  *   MonitoringScheduleName: "STRING_VALUE",
  *   MonitoringAlertName: "STRING_VALUE",
  *   SortBy: "CreationTime" || "Status",

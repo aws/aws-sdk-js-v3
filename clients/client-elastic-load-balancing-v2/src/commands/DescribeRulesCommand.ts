@@ -47,9 +47,9 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * import { ElasticLoadBalancingV2Client, DescribeRulesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeRulesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // DescribeRulesInput
  *   ListenerArn: "STRING_VALUE",
- *   RuleArns: [
+ *   RuleArns: [ // RuleArns
  *     "STRING_VALUE",
  *   ],
  *   Marker: "STRING_VALUE",

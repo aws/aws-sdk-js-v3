@@ -43,8 +43,8 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * import { EC2Client, AssociateIamInstanceProfileCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateIamInstanceProfileCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   IamInstanceProfile: {
+ * const input = { // AssociateIamInstanceProfileRequest
+ *   IamInstanceProfile: { // IamInstanceProfileSpecification
  *     Arn: "STRING_VALUE",
  *     Name: "STRING_VALUE",
  *   },

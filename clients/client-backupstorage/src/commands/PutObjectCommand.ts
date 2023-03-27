@@ -51,7 +51,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * import { BackupStorageClient, PutObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, PutObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
- * const input = {
+ * const input = { // PutObjectInput
  *   BackupJobId: "STRING_VALUE", // required
  *   ObjectName: "STRING_VALUE", // required
  *   MetadataString: "STRING_VALUE",

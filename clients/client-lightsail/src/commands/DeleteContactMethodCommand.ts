@@ -46,7 +46,7 @@ export interface DeleteContactMethodCommandOutput extends DeleteContactMethodRes
  * import { LightsailClient, DeleteContactMethodCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteContactMethodCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DeleteContactMethodRequest
  *   protocol: "Email" || "SMS", // required
  * };
  * const command = new DeleteContactMethodCommand(input);

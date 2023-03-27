@@ -47,7 +47,7 @@ export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKms
  * import { EC2Client, ResetEbsDefaultKmsKeyIdCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetEbsDefaultKmsKeyIdCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ResetEbsDefaultKmsKeyIdRequest
  *   DryRun: true || false,
  * };
  * const command = new ResetEbsDefaultKmsKeyIdCommand(input);

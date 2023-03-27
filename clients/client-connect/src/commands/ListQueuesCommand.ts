@@ -48,9 +48,9 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * import { ConnectClient, ListQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // ListQueuesRequest
  *   InstanceId: "STRING_VALUE", // required
- *   QueueTypes: [
+ *   QueueTypes: [ // QueueTypes
  *     "STANDARD" || "AGENT",
  *   ],
  *   NextToken: "STRING_VALUE",

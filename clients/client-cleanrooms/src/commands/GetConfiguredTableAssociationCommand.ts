@@ -44,7 +44,7 @@ export interface GetConfiguredTableAssociationCommandOutput
  * import { CleanRoomsClient, GetConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // GetConfiguredTableAssociationInput
  *   configuredTableAssociationIdentifier: "STRING_VALUE", // required
  *   membershipIdentifier: "STRING_VALUE", // required
  * };

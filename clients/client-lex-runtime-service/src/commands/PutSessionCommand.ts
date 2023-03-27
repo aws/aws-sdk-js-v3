@@ -60,14 +60,14 @@ export interface PutSessionCommandOutput
  * import { LexRuntimeServiceClient, PutSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PutSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
- * const input = {
+ * const input = { // PutSessionRequest
  *   botName: "STRING_VALUE", // required
  *   botAlias: "STRING_VALUE", // required
  *   userId: "STRING_VALUE", // required
- *   sessionAttributes: {
+ *   sessionAttributes: { // StringMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   dialogAction: {
+ *   dialogAction: { // DialogAction
  *     type: "STRING_VALUE", // required
  *     intentName: "STRING_VALUE",
  *     slots: {
@@ -78,13 +78,11 @@ export interface PutSessionCommandOutput
  *     message: "STRING_VALUE",
  *     messageFormat: "STRING_VALUE",
  *   },
- *   recentIntentSummaryView: [
- *     {
+ *   recentIntentSummaryView: [ // IntentSummaryList
+ *     { // IntentSummary
  *       intentName: "STRING_VALUE",
  *       checkpointLabel: "STRING_VALUE",
- *       slots: {
- *         "<keys>": "<String>",
- *       },
+ *       slots: "<StringMap>",
  *       confirmationStatus: "STRING_VALUE",
  *       dialogActionType: "STRING_VALUE", // required
  *       fulfillmentState: "STRING_VALUE",
@@ -92,14 +90,14 @@ export interface PutSessionCommandOutput
  *     },
  *   ],
  *   accept: "STRING_VALUE",
- *   activeContexts: [
- *     {
+ *   activeContexts: [ // ActiveContextsList
+ *     { // ActiveContext
  *       name: "STRING_VALUE", // required
- *       timeToLive: {
+ *       timeToLive: { // ActiveContextTimeToLive
  *         timeToLiveInSeconds: Number("int"),
  *         turnsToLive: Number("int"),
  *       },
- *       parameters: { // required
+ *       parameters: { // ActiveContextParametersMap // required
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

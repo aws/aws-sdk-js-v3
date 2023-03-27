@@ -43,22 +43,22 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * import { AthenaClient, UpdateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // UpdateWorkGroupInput
  *   WorkGroup: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   ConfigurationUpdates: {
+ *   ConfigurationUpdates: { // WorkGroupConfigurationUpdates
  *     EnforceWorkGroupConfiguration: true || false,
- *     ResultConfigurationUpdates: {
+ *     ResultConfigurationUpdates: { // ResultConfigurationUpdates
  *       OutputLocation: "STRING_VALUE",
  *       RemoveOutputLocation: true || false,
- *       EncryptionConfiguration: {
+ *       EncryptionConfiguration: { // EncryptionConfiguration
  *         EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
  *         KmsKey: "STRING_VALUE",
  *       },
  *       RemoveEncryptionConfiguration: true || false,
  *       ExpectedBucketOwner: "STRING_VALUE",
  *       RemoveExpectedBucketOwner: true || false,
- *       AclConfiguration: {
+ *       AclConfiguration: { // AclConfiguration
  *         S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
  *       },
  *       RemoveAclConfiguration: true || false,
@@ -67,14 +67,14 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  *     BytesScannedCutoffPerQuery: Number("long"),
  *     RemoveBytesScannedCutoffPerQuery: true || false,
  *     RequesterPaysEnabled: true || false,
- *     EngineVersion: {
+ *     EngineVersion: { // EngineVersion
  *       SelectedEngineVersion: "STRING_VALUE",
  *       EffectiveEngineVersion: "STRING_VALUE",
  *     },
  *     RemoveCustomerContentEncryptionConfiguration: true || false,
  *     AdditionalConfiguration: "STRING_VALUE",
  *     ExecutionRole: "STRING_VALUE",
- *     CustomerContentEncryptionConfiguration: {
+ *     CustomerContentEncryptionConfiguration: { // CustomerContentEncryptionConfiguration
  *       KmsKey: "STRING_VALUE", // required
  *     },
  *     EnableMinimumEncryptionConfiguration: true || false,

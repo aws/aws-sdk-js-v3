@@ -48,7 +48,7 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * import { IoTSecureTunnelingClient, ListTunnelsCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, ListTunnelsCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
- * const input = {
+ * const input = { // ListTunnelsRequest
  *   thingName: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

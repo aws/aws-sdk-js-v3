@@ -44,14 +44,14 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * import { IoTClient, CreateTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateTopicRuleRequest
  *   ruleName: "STRING_VALUE", // required
- *   topicRulePayload: {
+ *   topicRulePayload: { // TopicRulePayload
  *     sql: "STRING_VALUE", // required
  *     description: "STRING_VALUE",
- *     actions: [ // required
- *       {
- *         dynamoDB: {
+ *     actions: [ // ActionList // required
+ *       { // Action
+ *         dynamoDB: { // DynamoDBAction
  *           tableName: "STRING_VALUE", // required
  *           roleArn: "STRING_VALUE", // required
  *           operation: "STRING_VALUE",
@@ -63,61 +63,61 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *           rangeKeyType: "STRING" || "NUMBER",
  *           payloadField: "STRING_VALUE",
  *         },
- *         dynamoDBv2: {
+ *         dynamoDBv2: { // DynamoDBv2Action
  *           roleArn: "STRING_VALUE", // required
- *           putItem: {
+ *           putItem: { // PutItemInput
  *             tableName: "STRING_VALUE", // required
  *           },
  *         },
- *         lambda: {
+ *         lambda: { // LambdaAction
  *           functionArn: "STRING_VALUE", // required
  *         },
- *         sns: {
+ *         sns: { // SnsAction
  *           targetArn: "STRING_VALUE", // required
  *           roleArn: "STRING_VALUE", // required
  *           messageFormat: "RAW" || "JSON",
  *         },
- *         sqs: {
+ *         sqs: { // SqsAction
  *           roleArn: "STRING_VALUE", // required
  *           queueUrl: "STRING_VALUE", // required
  *           useBase64: true || false,
  *         },
- *         kinesis: {
+ *         kinesis: { // KinesisAction
  *           roleArn: "STRING_VALUE", // required
  *           streamName: "STRING_VALUE", // required
  *           partitionKey: "STRING_VALUE",
  *         },
- *         republish: {
+ *         republish: { // RepublishAction
  *           roleArn: "STRING_VALUE", // required
  *           topic: "STRING_VALUE", // required
  *           qos: Number("int"),
- *           headers: {
+ *           headers: { // MqttHeaders
  *             payloadFormatIndicator: "STRING_VALUE",
  *             contentType: "STRING_VALUE",
  *             responseTopic: "STRING_VALUE",
  *             correlationData: "STRING_VALUE",
  *             messageExpiry: "STRING_VALUE",
- *             userProperties: [
- *               {
+ *             userProperties: [ // UserProperties
+ *               { // UserProperty
  *                 key: "STRING_VALUE", // required
  *                 value: "STRING_VALUE", // required
  *               },
  *             ],
  *           },
  *         },
- *         s3: {
+ *         s3: { // S3Action
  *           roleArn: "STRING_VALUE", // required
  *           bucketName: "STRING_VALUE", // required
  *           key: "STRING_VALUE", // required
  *           cannedAcl: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "log-delivery-write",
  *         },
- *         firehose: {
+ *         firehose: { // FirehoseAction
  *           roleArn: "STRING_VALUE", // required
  *           deliveryStreamName: "STRING_VALUE", // required
  *           separator: "STRING_VALUE",
  *           batchMode: true || false,
  *         },
- *         cloudwatchMetric: {
+ *         cloudwatchMetric: { // CloudwatchMetricAction
  *           roleArn: "STRING_VALUE", // required
  *           metricNamespace: "STRING_VALUE", // required
  *           metricName: "STRING_VALUE", // required
@@ -125,56 +125,56 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *           metricUnit: "STRING_VALUE", // required
  *           metricTimestamp: "STRING_VALUE",
  *         },
- *         cloudwatchAlarm: {
+ *         cloudwatchAlarm: { // CloudwatchAlarmAction
  *           roleArn: "STRING_VALUE", // required
  *           alarmName: "STRING_VALUE", // required
  *           stateReason: "STRING_VALUE", // required
  *           stateValue: "STRING_VALUE", // required
  *         },
- *         cloudwatchLogs: {
+ *         cloudwatchLogs: { // CloudwatchLogsAction
  *           roleArn: "STRING_VALUE", // required
  *           logGroupName: "STRING_VALUE", // required
  *           batchMode: true || false,
  *         },
- *         elasticsearch: {
+ *         elasticsearch: { // ElasticsearchAction
  *           roleArn: "STRING_VALUE", // required
  *           endpoint: "STRING_VALUE", // required
  *           index: "STRING_VALUE", // required
  *           type: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
  *         },
- *         salesforce: {
+ *         salesforce: { // SalesforceAction
  *           token: "STRING_VALUE", // required
  *           url: "STRING_VALUE", // required
  *         },
- *         iotAnalytics: {
+ *         iotAnalytics: { // IotAnalyticsAction
  *           channelArn: "STRING_VALUE",
  *           channelName: "STRING_VALUE",
  *           batchMode: true || false,
  *           roleArn: "STRING_VALUE",
  *         },
- *         iotEvents: {
+ *         iotEvents: { // IotEventsAction
  *           inputName: "STRING_VALUE", // required
  *           messageId: "STRING_VALUE",
  *           batchMode: true || false,
  *           roleArn: "STRING_VALUE", // required
  *         },
- *         iotSiteWise: {
- *           putAssetPropertyValueEntries: [ // required
- *             {
+ *         iotSiteWise: { // IotSiteWiseAction
+ *           putAssetPropertyValueEntries: [ // PutAssetPropertyValueEntryList // required
+ *             { // PutAssetPropertyValueEntry
  *               entryId: "STRING_VALUE",
  *               assetId: "STRING_VALUE",
  *               propertyId: "STRING_VALUE",
  *               propertyAlias: "STRING_VALUE",
- *               propertyValues: [ // required
- *                 {
- *                   value: { // Union: only one key present
+ *               propertyValues: [ // AssetPropertyValueList // required
+ *                 { // AssetPropertyValue
+ *                   value: { // AssetPropertyVariant Union: only one key present
  *                     stringValue: "STRING_VALUE",
  *                     integerValue: "STRING_VALUE",
  *                     doubleValue: "STRING_VALUE",
  *                     booleanValue: "STRING_VALUE",
  *                   },
- *                   timestamp: {
+ *                   timestamp: { // AssetPropertyTimestamp
  *                     timeInSeconds: "STRING_VALUE", // required
  *                     offsetInNanos: "STRING_VALUE",
  *                   },
@@ -185,64 +185,64 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *           ],
  *           roleArn: "STRING_VALUE", // required
  *         },
- *         stepFunctions: {
+ *         stepFunctions: { // StepFunctionsAction
  *           executionNamePrefix: "STRING_VALUE",
  *           stateMachineName: "STRING_VALUE", // required
  *           roleArn: "STRING_VALUE", // required
  *         },
- *         timestream: {
+ *         timestream: { // TimestreamAction
  *           roleArn: "STRING_VALUE", // required
  *           databaseName: "STRING_VALUE", // required
  *           tableName: "STRING_VALUE", // required
- *           dimensions: [ // required
- *             {
+ *           dimensions: [ // TimestreamDimensionList // required
+ *             { // TimestreamDimension
  *               name: "STRING_VALUE", // required
  *               value: "STRING_VALUE", // required
  *             },
  *           ],
- *           timestamp: {
+ *           timestamp: { // TimestreamTimestamp
  *             value: "STRING_VALUE", // required
  *             unit: "STRING_VALUE", // required
  *           },
  *         },
- *         http: {
+ *         http: { // HttpAction
  *           url: "STRING_VALUE", // required
  *           confirmationUrl: "STRING_VALUE",
- *           headers: [
- *             {
+ *           headers: [ // HeaderList
+ *             { // HttpActionHeader
  *               key: "STRING_VALUE", // required
  *               value: "STRING_VALUE", // required
  *             },
  *           ],
- *           auth: {
- *             sigv4: {
+ *           auth: { // HttpAuthorization
+ *             sigv4: { // SigV4Authorization
  *               signingRegion: "STRING_VALUE", // required
  *               serviceName: "STRING_VALUE", // required
  *               roleArn: "STRING_VALUE", // required
  *             },
  *           },
  *         },
- *         kafka: {
+ *         kafka: { // KafkaAction
  *           destinationArn: "STRING_VALUE", // required
  *           topic: "STRING_VALUE", // required
  *           key: "STRING_VALUE",
  *           partition: "STRING_VALUE",
- *           clientProperties: { // required
+ *           clientProperties: { // ClientProperties // required
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
- *         openSearch: {
+ *         openSearch: { // OpenSearchAction
  *           roleArn: "STRING_VALUE", // required
  *           endpoint: "STRING_VALUE", // required
  *           index: "STRING_VALUE", // required
  *           type: "STRING_VALUE", // required
  *           id: "STRING_VALUE", // required
  *         },
- *         location: {
+ *         location: { // LocationAction
  *           roleArn: "STRING_VALUE", // required
  *           trackerName: "STRING_VALUE", // required
  *           deviceId: "STRING_VALUE", // required
- *           timestamp: {
+ *           timestamp: { // LocationTimestamp
  *             value: "STRING_VALUE", // required
  *             unit: "STRING_VALUE",
  *           },
@@ -371,7 +371,7 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *             propertyAlias: "STRING_VALUE",
  *             propertyValues: [ // required
  *               {
- *                 value: { // Union: only one key present
+ *                 value: {//  Union: only one key present
  *                   stringValue: "STRING_VALUE",
  *                   integerValue: "STRING_VALUE",
  *                   doubleValue: "STRING_VALUE",

@@ -43,7 +43,7 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * import { WAFV2Client, DeletePermissionPolicyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeletePermissionPolicyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // DeletePermissionPolicyRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DeletePermissionPolicyCommand(input);

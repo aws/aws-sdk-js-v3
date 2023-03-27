@@ -48,7 +48,7 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  * import { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DeregisterTargetFromMaintenanceWindowRequest
  *   WindowId: "STRING_VALUE", // required
  *   WindowTargetId: "STRING_VALUE", // required
  *   Safe: true || false,

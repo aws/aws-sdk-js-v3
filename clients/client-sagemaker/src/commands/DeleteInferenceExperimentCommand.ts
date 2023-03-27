@@ -48,7 +48,7 @@ export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceE
  * import { SageMakerClient, DeleteInferenceExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteInferenceExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteInferenceExperimentRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteInferenceExperimentCommand(input);

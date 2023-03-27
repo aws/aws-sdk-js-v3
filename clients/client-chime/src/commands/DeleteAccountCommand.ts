@@ -55,7 +55,7 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * import { ChimeClient, DeleteAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DeleteAccountRequest
  *   AccountId: "STRING_VALUE", // required
  * };
  * const command = new DeleteAccountCommand(input);

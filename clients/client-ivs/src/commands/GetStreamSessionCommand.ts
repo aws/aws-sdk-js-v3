@@ -42,7 +42,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * import { IvsClient, GetStreamSessionCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetStreamSessionCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
- * const input = {
+ * const input = { // GetStreamSessionRequest
  *   channelArn: "STRING_VALUE", // required
  *   streamId: "STRING_VALUE",
  * };

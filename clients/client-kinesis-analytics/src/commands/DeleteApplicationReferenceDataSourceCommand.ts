@@ -55,7 +55,7 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  * import { KinesisAnalyticsClient, DeleteApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DeleteApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
- * const input = {
+ * const input = { // DeleteApplicationReferenceDataSourceRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   CurrentApplicationVersionId: Number("long"), // required
  *   ReferenceId: "STRING_VALUE", // required

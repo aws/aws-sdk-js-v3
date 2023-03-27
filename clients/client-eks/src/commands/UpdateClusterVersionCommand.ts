@@ -51,7 +51,7 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  * import { EKSClient, UpdateClusterVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateClusterVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = {
+ * const input = { // UpdateClusterVersionRequest
  *   name: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",

@@ -46,7 +46,7 @@ export interface ListSecurityControlDefinitionsCommandOutput
  * import { SecurityHubClient, ListSecurityControlDefinitionsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListSecurityControlDefinitionsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // ListSecurityControlDefinitionsRequest
  *   StandardsArn: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

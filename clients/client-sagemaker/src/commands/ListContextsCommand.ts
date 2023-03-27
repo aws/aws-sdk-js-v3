@@ -42,7 +42,7 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * import { SageMakerClient, ListContextsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListContextsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListContextsRequest
  *   SourceUri: "STRING_VALUE",
  *   ContextType: "STRING_VALUE",
  *   CreatedAfter: new Date("TIMESTAMP"),

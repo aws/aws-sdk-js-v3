@@ -66,7 +66,7 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  * import { RDSClient, ModifyCertificatesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyCertificatesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyCertificatesMessage
  *   CertificateIdentifier: "STRING_VALUE",
  *   RemoveCustomerOverride: true || false,
  * };

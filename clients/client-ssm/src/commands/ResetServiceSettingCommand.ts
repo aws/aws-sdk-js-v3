@@ -56,7 +56,7 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * import { SSMClient, ResetServiceSettingCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ResetServiceSettingCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // ResetServiceSettingRequest
  *   SettingId: "STRING_VALUE", // required
  * };
  * const command = new ResetServiceSettingCommand(input);

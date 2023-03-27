@@ -42,7 +42,7 @@ export interface ListNotificationsCommandOutput extends ListNotificationsOutput,
  * import { WellArchitectedClient, ListNotificationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListNotificationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // ListNotificationsInput
  *   WorkloadId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

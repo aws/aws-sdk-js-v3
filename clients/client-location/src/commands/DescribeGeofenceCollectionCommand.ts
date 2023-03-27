@@ -42,7 +42,7 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  * import { LocationClient, DescribeGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // DescribeGeofenceCollectionRequest
  *   CollectionName: "STRING_VALUE", // required
  * };
  * const command = new DescribeGeofenceCollectionCommand(input);

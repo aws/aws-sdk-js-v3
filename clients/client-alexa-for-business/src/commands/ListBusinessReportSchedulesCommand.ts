@@ -44,7 +44,7 @@ export interface ListBusinessReportSchedulesCommandOutput
  * import { AlexaForBusinessClient, ListBusinessReportSchedulesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListBusinessReportSchedulesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // ListBusinessReportSchedulesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

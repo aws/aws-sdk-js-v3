@@ -59,8 +59,8 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * import { RDSClient, RestoreDBClusterFromS3Command } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBClusterFromS3Command } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
- *   AvailabilityZones: [
+ * const input = { // RestoreDBClusterFromS3Message
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
  *   BackupRetentionPeriod: Number("int"),
@@ -68,7 +68,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *   DatabaseName: "STRING_VALUE",
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   DBClusterParameterGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   DBSubnetGroupName: "STRING_VALUE",
@@ -80,8 +80,8 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *   OptionGroupName: "STRING_VALUE",
  *   PreferredBackupWindow: "STRING_VALUE",
  *   PreferredMaintenanceWindow: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -95,14 +95,14 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *   S3Prefix: "STRING_VALUE",
  *   S3IngestionRoleArn: "STRING_VALUE", // required
  *   BacktrackWindow: Number("long"),
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,
  *   CopyTagsToSnapshot: true || false,
  *   Domain: "STRING_VALUE",
  *   DomainIAMRoleName: "STRING_VALUE",
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

@@ -42,7 +42,7 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, DeleteRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // DeleteRegistryRequest
  *   RegistryName: "STRING_VALUE", // required
  * };
  * const command = new DeleteRegistryCommand(input);

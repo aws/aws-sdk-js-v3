@@ -48,7 +48,7 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
  * import { ServiceCatalogClient, ListServiceActionsForProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListServiceActionsForProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListServiceActionsForProvisioningArtifactInput
  *   ProductId: "STRING_VALUE", // required
  *   ProvisioningArtifactId: "STRING_VALUE", // required
  *   PageSize: Number("int"),

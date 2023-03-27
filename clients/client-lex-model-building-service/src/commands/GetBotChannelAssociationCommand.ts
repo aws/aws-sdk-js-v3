@@ -53,7 +53,7 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * import { LexModelBuildingServiceClient, GetBotChannelAssociationCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotChannelAssociationCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // GetBotChannelAssociationRequest
  *   name: "STRING_VALUE", // required
  *   botName: "STRING_VALUE", // required
  *   botAlias: "STRING_VALUE", // required

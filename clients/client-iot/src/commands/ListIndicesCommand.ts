@@ -43,7 +43,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * import { IoTClient, ListIndicesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListIndicesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListIndicesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

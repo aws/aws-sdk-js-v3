@@ -43,7 +43,7 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, CancelExportTaskCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CancelExportTaskCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // CancelExportTaskRequest
  *   taskId: "STRING_VALUE", // required
  * };
  * const command = new CancelExportTaskCommand(input);

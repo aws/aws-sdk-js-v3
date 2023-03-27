@@ -42,18 +42,18 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * import { MqClient, UpdateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, UpdateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = {
+ * const input = { // UpdateBrokerRequest
  *   AuthenticationStrategy: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false,
  *   BrokerId: "STRING_VALUE", // required
- *   Configuration: {
+ *   Configuration: { // ConfigurationId
  *     Id: "STRING_VALUE", // required
  *     Revision: Number("int"),
  *   },
  *   EngineVersion: "STRING_VALUE",
  *   HostInstanceType: "STRING_VALUE",
- *   LdapServerMetadata: {
- *     Hosts: [ // required
+ *   LdapServerMetadata: { // LdapServerMetadataInput
+ *     Hosts: [ // __listOf__string // required
  *       "STRING_VALUE",
  *     ],
  *     RoleBase: "STRING_VALUE", // required
@@ -67,11 +67,11 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  *     UserSearchMatching: "STRING_VALUE", // required
  *     UserSearchSubtree: true || false,
  *   },
- *   Logs: {
+ *   Logs: { // Logs
  *     Audit: true || false,
  *     General: true || false,
  *   },
- *   MaintenanceWindowStartTime: {
+ *   MaintenanceWindowStartTime: { // WeeklyStartTime
  *     DayOfWeek: "STRING_VALUE", // required
  *     TimeOfDay: "STRING_VALUE", // required
  *     TimeZone: "STRING_VALUE",

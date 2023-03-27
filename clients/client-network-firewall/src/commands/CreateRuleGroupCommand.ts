@@ -45,47 +45,47 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * import { NetworkFirewallClient, CreateRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // CreateRuleGroupRequest
  *   RuleGroupName: "STRING_VALUE", // required
- *   RuleGroup: {
- *     RuleVariables: {
- *       IPSets: {
- *         "<keys>": {
- *           Definition: [ // required
+ *   RuleGroup: { // RuleGroup
+ *     RuleVariables: { // RuleVariables
+ *       IPSets: { // IPSets
+ *         "<keys>": { // IPSet
+ *           Definition: [ // VariableDefinitionList // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *       },
- *       PortSets: {
- *         "<keys>": {
+ *       PortSets: { // PortSets
+ *         "<keys>": { // PortSet
  *           Definition: [
  *             "STRING_VALUE",
  *           ],
  *         },
  *       },
  *     },
- *     ReferenceSets: {
- *       IPSetReferences: {
- *         "<keys>": {
+ *     ReferenceSets: { // ReferenceSets
+ *       IPSetReferences: { // IPSetReferenceMap
+ *         "<keys>": { // IPSetReference
  *           ReferenceArn: "STRING_VALUE",
  *         },
  *       },
  *     },
- *     RulesSource: {
+ *     RulesSource: { // RulesSource
  *       RulesString: "STRING_VALUE",
- *       RulesSourceList: {
- *         Targets: [ // required
+ *       RulesSourceList: { // RulesSourceList
+ *         Targets: [ // RuleTargets // required
  *           "STRING_VALUE",
  *         ],
- *         TargetTypes: [ // required
+ *         TargetTypes: [ // TargetTypes // required
  *           "TLS_SNI" || "HTTP_HOST",
  *         ],
  *         GeneratedRulesType: "ALLOWLIST" || "DENYLIST", // required
  *       },
- *       StatefulRules: [
- *         {
+ *       StatefulRules: [ // StatefulRules
+ *         { // StatefulRule
  *           Action: "PASS" || "DROP" || "ALERT" || "REJECT", // required
- *           Header: {
+ *           Header: { // Header
  *             Protocol: "IP" || "TCP" || "UDP" || "ICMP" || "HTTP" || "FTP" || "TLS" || "SMB" || "DNS" || "DCERPC" || "SSH" || "SMTP" || "IMAP" || "MSN" || "KRB5" || "IKEV2" || "TFTP" || "NTP" || "DHCP", // required
  *             Source: "STRING_VALUE", // required
  *             SourcePort: "STRING_VALUE", // required
@@ -93,23 +93,23 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *             Destination: "STRING_VALUE", // required
  *             DestinationPort: "STRING_VALUE", // required
  *           },
- *           RuleOptions: [ // required
- *             {
+ *           RuleOptions: [ // RuleOptions // required
+ *             { // RuleOption
  *               Keyword: "STRING_VALUE", // required
- *               Settings: [
+ *               Settings: [ // Settings
  *                 "STRING_VALUE",
  *               ],
  *             },
  *           ],
  *         },
  *       ],
- *       StatelessRulesAndCustomActions: {
- *         StatelessRules: [ // required
- *           {
- *             RuleDefinition: {
- *               MatchAttributes: {
- *                 Sources: [
- *                   {
+ *       StatelessRulesAndCustomActions: { // StatelessRulesAndCustomActions
+ *         StatelessRules: [ // StatelessRules // required
+ *           { // StatelessRule
+ *             RuleDefinition: { // RuleDefinition
+ *               MatchAttributes: { // MatchAttributes
+ *                 Sources: [ // Addresses
+ *                   { // Address
  *                     AddressDefinition: "STRING_VALUE", // required
  *                   },
  *                 ],
@@ -118,8 +118,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                     AddressDefinition: "STRING_VALUE", // required
  *                   },
  *                 ],
- *                 SourcePorts: [
- *                   {
+ *                 SourcePorts: [ // PortRanges
+ *                   { // PortRange
  *                     FromPort: Number("int"), // required
  *                     ToPort: Number("int"), // required
  *                   },
@@ -130,12 +130,12 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                     ToPort: Number("int"), // required
  *                   },
  *                 ],
- *                 Protocols: [
+ *                 Protocols: [ // ProtocolNumbers
  *                   Number("int"),
  *                 ],
- *                 TCPFlags: [
- *                   {
- *                     Flags: [ // required
+ *                 TCPFlags: [ // TCPFlags
+ *                   { // TCPFlagField
+ *                     Flags: [ // Flags // required
  *                       "FIN" || "SYN" || "RST" || "PSH" || "ACK" || "URG" || "ECE" || "CWR",
  *                     ],
  *                     Masks: [
@@ -144,20 +144,20 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *                   },
  *                 ],
  *               },
- *               Actions: [ // required
+ *               Actions: [ // StatelessActions // required
  *                 "STRING_VALUE",
  *               ],
  *             },
  *             Priority: Number("int"), // required
  *           },
  *         ],
- *         CustomActions: [
- *           {
+ *         CustomActions: [ // CustomActions
+ *           { // CustomAction
  *             ActionName: "STRING_VALUE", // required
- *             ActionDefinition: {
- *               PublishMetricAction: {
- *                 Dimensions: [ // required
- *                   {
+ *             ActionDefinition: { // ActionDefinition
+ *               PublishMetricAction: { // PublishMetricAction
+ *                 Dimensions: [ // Dimensions // required
+ *                   { // Dimension
  *                     Value: "STRING_VALUE", // required
  *                   },
  *                 ],
@@ -167,7 +167,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *         ],
  *       },
  *     },
- *     StatefulRuleOptions: {
+ *     StatefulRuleOptions: { // StatefulRuleOptions
  *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
  *     },
  *   },
@@ -175,18 +175,18 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *   Type: "STATELESS" || "STATEFUL", // required
  *   Description: "STRING_VALUE",
  *   Capacity: Number("int"), // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   DryRun: true || false,
- *   EncryptionConfiguration: {
+ *   EncryptionConfiguration: { // EncryptionConfiguration
  *     KeyId: "STRING_VALUE",
  *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  *   },
- *   SourceMetadata: {
+ *   SourceMetadata: { // SourceMetadata
  *     SourceArn: "STRING_VALUE",
  *     SourceUpdateToken: "STRING_VALUE",
  *   },

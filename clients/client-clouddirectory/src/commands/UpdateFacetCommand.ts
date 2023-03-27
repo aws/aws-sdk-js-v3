@@ -53,16 +53,16 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  * import { CloudDirectoryClient, UpdateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // UpdateFacetRequest
  *   SchemaArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   AttributeUpdates: [
- *     {
- *       Attribute: {
+ *   AttributeUpdates: [ // FacetAttributeUpdateList
+ *     { // FacetAttributeUpdate
+ *       Attribute: { // FacetAttribute
  *         Name: "STRING_VALUE", // required
- *         AttributeDefinition: {
+ *         AttributeDefinition: { // FacetAttributeDefinition
  *           Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
- *           DefaultValue: { // Union: only one key present
+ *           DefaultValue: { // TypedAttributeValue Union: only one key present
  *             StringValue: "STRING_VALUE",
  *             BinaryValue: "BLOB_VALUE",
  *             BooleanValue: true || false,
@@ -70,16 +70,16 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  *             DatetimeValue: new Date("TIMESTAMP"),
  *           },
  *           IsImmutable: true || false,
- *           Rules: {
- *             "<keys>": {
+ *           Rules: { // RuleMap
+ *             "<keys>": { // Rule
  *               Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
- *               Parameters: {
+ *               Parameters: { // RuleParameterMap
  *                 "<keys>": "STRING_VALUE",
  *               },
  *             },
  *           },
  *         },
- *         AttributeReference: {
+ *         AttributeReference: { // FacetAttributeReference
  *           TargetFacetName: "STRING_VALUE", // required
  *           TargetAttributeName: "STRING_VALUE", // required
  *         },

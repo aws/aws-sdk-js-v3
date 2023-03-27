@@ -46,7 +46,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  * import { CodeartifactClient, ListPackagesCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListPackagesCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const input = {
+ * const input = { // ListPackagesRequest
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required

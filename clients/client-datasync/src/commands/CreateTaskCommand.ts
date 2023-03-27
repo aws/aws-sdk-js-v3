@@ -46,12 +46,12 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * import { DataSyncClient, CreateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // CreateTaskRequest
  *   SourceLocationArn: "STRING_VALUE", // required
  *   DestinationLocationArn: "STRING_VALUE", // required
  *   CloudWatchLogGroupArn: "STRING_VALUE",
  *   Name: "STRING_VALUE",
- *   Options: {
+ *   Options: { // Options
  *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
  *     OverwriteMode: "ALWAYS" || "NEVER",
  *     Atime: "NONE" || "BEST_EFFORT",
@@ -68,17 +68,17 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
  *     ObjectTags: "PRESERVE" || "NONE",
  *   },
- *   Excludes: [
- *     {
+ *   Excludes: [ // FilterList
+ *     { // FilterRule
  *       FilterType: "SIMPLE_PATTERN",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   Schedule: {
+ *   Schedule: { // TaskSchedule
  *     ScheduleExpression: "STRING_VALUE", // required
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

@@ -48,13 +48,13 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { WorkDocsClient, UpdateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, UpdateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // UpdateUserRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   UserId: "STRING_VALUE", // required
  *   GivenName: "STRING_VALUE",
  *   Surname: "STRING_VALUE",
  *   Type: "USER" || "ADMIN" || "POWERUSER" || "MINIMALUSER" || "WORKSPACESUSER",
- *   StorageRule: {
+ *   StorageRule: { // StorageRuleType
  *     StorageAllocatedInBytes: Number("long"),
  *     StorageType: "UNLIMITED" || "QUOTA",
  *   },

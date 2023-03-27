@@ -42,7 +42,7 @@ export interface ListSchedulingPoliciesCommandOutput extends ListSchedulingPolic
  * import { BatchClient, ListSchedulingPoliciesCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, ListSchedulingPoliciesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // ListSchedulingPoliciesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

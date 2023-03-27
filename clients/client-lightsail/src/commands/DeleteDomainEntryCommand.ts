@@ -45,15 +45,15 @@ export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult,
  * import { LightsailClient, DeleteDomainEntryCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteDomainEntryCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DeleteDomainEntryRequest
  *   domainName: "STRING_VALUE", // required
- *   domainEntry: {
+ *   domainEntry: { // DomainEntry
  *     id: "STRING_VALUE",
  *     name: "STRING_VALUE",
  *     target: "STRING_VALUE",
  *     isAlias: true || false,
  *     type: "STRING_VALUE",
- *     options: {
+ *     options: { // DomainEntryOptions
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

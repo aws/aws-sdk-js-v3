@@ -42,7 +42,7 @@ export interface ListVirtualGatewaysCommandOutput extends ListVirtualGatewaysOut
  * import { AppMeshClient, ListVirtualGatewaysCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListVirtualGatewaysCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // ListVirtualGatewaysInput
  *   meshName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),

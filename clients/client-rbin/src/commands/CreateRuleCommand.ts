@@ -43,27 +43,27 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * import { RbinClient, CreateRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, CreateRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
- * const input = {
- *   RetentionPeriod: {
+ * const input = { // CreateRuleRequest
+ *   RetentionPeriod: { // RetentionPeriod
  *     RetentionPeriodValue: Number("int"), // required
  *     RetentionPeriodUnit: "DAYS", // required
  *   },
  *   Description: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE", // required
- *   ResourceTags: [
- *     {
+ *   ResourceTags: [ // ResourceTags
+ *     { // ResourceTag
  *       ResourceTagKey: "STRING_VALUE", // required
  *       ResourceTagValue: "STRING_VALUE",
  *     },
  *   ],
- *   LockConfiguration: {
- *     UnlockDelay: {
+ *   LockConfiguration: { // LockConfiguration
+ *     UnlockDelay: { // UnlockDelay
  *       UnlockDelayValue: Number("int"), // required
  *       UnlockDelayUnit: "DAYS", // required
  *     },

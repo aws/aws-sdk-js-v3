@@ -49,12 +49,12 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * import { BillingconductorClient, ListAccountAssociationsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListAccountAssociationsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // ListAccountAssociationsInput
  *   BillingPeriod: "STRING_VALUE",
- *   Filters: {
+ *   Filters: { // ListAccountAssociationsFilter
  *     Association: "STRING_VALUE",
  *     AccountId: "STRING_VALUE",
- *     AccountIds: [
+ *     AccountIds: [ // AccountIdFilterList
  *       "STRING_VALUE",
  *     ],
  *   },

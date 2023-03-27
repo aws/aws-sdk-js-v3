@@ -42,7 +42,7 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * import { WellArchitectedClient, ListShareInvitationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListShareInvitationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // ListShareInvitationsInput
  *   WorkloadNamePrefix: "STRING_VALUE",
  *   LensNamePrefix: "STRING_VALUE",
  *   ShareResourceType: "WORKLOAD" || "LENS",

@@ -62,7 +62,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * import { ProtonClient, CreateEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // CreateEnvironmentInput
  *   name: "STRING_VALUE", // required
  *   templateName: "STRING_VALUE", // required
  *   templateMajorVersion: "STRING_VALUE", // required
@@ -71,13 +71,13 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   spec: "STRING_VALUE", // required
  *   protonServiceRoleArn: "STRING_VALUE",
  *   environmentAccountConnectionId: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
- *   provisioningRepository: {
+ *   provisioningRepository: { // RepositoryBranchInput
  *     provider: "STRING_VALUE", // required
  *     name: "STRING_VALUE", // required
  *     branch: "STRING_VALUE", // required

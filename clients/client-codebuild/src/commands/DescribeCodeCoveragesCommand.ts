@@ -42,7 +42,7 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  * import { CodeBuildClient, DescribeCodeCoveragesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DescribeCodeCoveragesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // DescribeCodeCoveragesInput
  *   reportArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

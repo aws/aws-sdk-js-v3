@@ -45,7 +45,7 @@ export interface DescribePiiEntitiesDetectionJobCommandOutput
  * import { ComprehendClient, DescribePiiEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribePiiEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DescribePiiEntitiesDetectionJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribePiiEntitiesDetectionJobCommand(input);

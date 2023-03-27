@@ -44,9 +44,9 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * import { CognitoIdentityProviderClient, ListUsersCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListUsersCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // ListUsersRequest
  *   UserPoolId: "STRING_VALUE", // required
- *   AttributesToGet: [
+ *   AttributesToGet: [ // SearchedAttributeNamesListType
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

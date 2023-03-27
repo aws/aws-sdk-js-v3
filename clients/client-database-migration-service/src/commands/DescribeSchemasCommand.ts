@@ -47,7 +47,7 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * import { DatabaseMigrationServiceClient, DescribeSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DescribeSchemasMessage
  *   EndpointArn: "STRING_VALUE", // required
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",

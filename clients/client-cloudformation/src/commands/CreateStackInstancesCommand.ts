@@ -45,33 +45,33 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  * import { CloudFormationClient, CreateStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // CreateStackInstancesInput
  *   StackSetName: "STRING_VALUE", // required
- *   Accounts: [
+ *   Accounts: [ // AccountList
  *     "STRING_VALUE",
  *   ],
- *   DeploymentTargets: {
+ *   DeploymentTargets: { // DeploymentTargets
  *     Accounts: [
  *       "STRING_VALUE",
  *     ],
  *     AccountsUrl: "STRING_VALUE",
- *     OrganizationalUnitIds: [
+ *     OrganizationalUnitIds: [ // OrganizationalUnitIdList
  *       "STRING_VALUE",
  *     ],
  *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
  *   },
- *   Regions: [ // required
+ *   Regions: [ // RegionList // required
  *     "STRING_VALUE",
  *   ],
- *   ParameterOverrides: [
- *     {
+ *   ParameterOverrides: [ // Parameters
+ *     { // Parameter
  *       ParameterKey: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       UsePreviousValue: true || false,
  *       ResolvedValue: "STRING_VALUE",
  *     },
  *   ],
- *   OperationPreferences: {
+ *   OperationPreferences: { // StackSetOperationPreferences
  *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
  *     RegionOrder: [
  *       "STRING_VALUE",

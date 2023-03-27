@@ -42,7 +42,7 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * import { AmpClient, CreateLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, CreateLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
- * const input = {
+ * const input = { // CreateLoggingConfigurationRequest
  *   workspaceId: "STRING_VALUE", // required
  *   logGroupArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",

@@ -45,7 +45,7 @@ export interface DeleteRumMetricsDestinationCommandOutput
  * import { RUMClient, DeleteRumMetricsDestinationCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, DeleteRumMetricsDestinationCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // DeleteRumMetricsDestinationRequest
  *   AppMonitorName: "STRING_VALUE", // required
  *   Destination: "STRING_VALUE", // required
  *   DestinationArn: "STRING_VALUE",

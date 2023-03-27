@@ -48,21 +48,21 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * import { IoTSecureTunnelingClient, OpenTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, OpenTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
- * const input = {
+ * const input = { // OpenTunnelRequest
  *   description: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
- *   destinationConfig: {
+ *   destinationConfig: { // DestinationConfig
  *     thingName: "STRING_VALUE",
- *     services: [ // required
+ *     services: [ // ServiceList // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   timeoutConfig: {
+ *   timeoutConfig: { // TimeoutConfig
  *     maxLifetimeTimeoutMinutes: Number("int"),
  *   },
  * };

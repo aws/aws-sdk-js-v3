@@ -56,15 +56,15 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { ChimeClient, CreateChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateChannelRequest
  *   AppInstanceArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Mode: "STRING_VALUE",
  *   Privacy: "STRING_VALUE",
  *   Metadata: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

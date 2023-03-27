@@ -39,11 +39,11 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  * import { FraudDetectorClient, PutLabelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutLabelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // PutLabelRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // tagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

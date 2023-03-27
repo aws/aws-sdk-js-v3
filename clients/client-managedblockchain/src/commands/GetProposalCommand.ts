@@ -47,7 +47,7 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  * import { ManagedBlockchainClient, GetProposalCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetProposalCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // GetProposalInput
  *   NetworkId: "STRING_VALUE", // required
  *   ProposalId: "STRING_VALUE", // required
  * };

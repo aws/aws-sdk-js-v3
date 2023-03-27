@@ -47,9 +47,9 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
  * import { ConfigServiceClient, GetComplianceDetailsByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetComplianceDetailsByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // GetComplianceDetailsByConfigRuleRequest
  *   ConfigRuleName: "STRING_VALUE", // required
- *   ComplianceTypes: [
+ *   ComplianceTypes: [ // ComplianceTypes
  *     "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
  *   ],
  *   Limit: Number("int"),

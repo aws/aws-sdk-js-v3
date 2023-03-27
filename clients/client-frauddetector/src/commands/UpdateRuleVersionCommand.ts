@@ -46,8 +46,8 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  * import { FraudDetectorClient, UpdateRuleVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateRuleVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
- *   rule: {
+ * const input = { // UpdateRuleVersionRequest
+ *   rule: { // Rule
  *     detectorId: "STRING_VALUE", // required
  *     ruleId: "STRING_VALUE", // required
  *     ruleVersion: "STRING_VALUE", // required
@@ -55,11 +55,11 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  *   description: "STRING_VALUE",
  *   expression: "STRING_VALUE", // required
  *   language: "DETECTORPL", // required
- *   outcomes: [ // required
+ *   outcomes: [ // NonEmptyListOfStrings // required
  *     "STRING_VALUE",
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // tagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

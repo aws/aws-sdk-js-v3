@@ -42,13 +42,13 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  * import { PinpointClient, CreateVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // CreateVoiceTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
- *   VoiceTemplateRequest: {
+ *   VoiceTemplateRequest: { // VoiceTemplateRequest
  *     Body: "STRING_VALUE",
  *     DefaultSubstitutions: "STRING_VALUE",
  *     LanguageCode: "STRING_VALUE",
- *     tags: {
+ *     tags: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *     TemplateDescription: "STRING_VALUE",

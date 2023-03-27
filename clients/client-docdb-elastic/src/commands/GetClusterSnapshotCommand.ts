@@ -42,7 +42,7 @@ export interface GetClusterSnapshotCommandOutput extends GetClusterSnapshotOutpu
  * import { DocDBElasticClient, GetClusterSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, GetClusterSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
- * const input = {
+ * const input = { // GetClusterSnapshotInput
  *   snapshotArn: "STRING_VALUE", // required
  * };
  * const command = new GetClusterSnapshotCommand(input);

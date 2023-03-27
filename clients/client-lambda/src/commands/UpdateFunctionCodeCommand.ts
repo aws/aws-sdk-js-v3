@@ -62,7 +62,7 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  * import { LambdaClient, UpdateFunctionCodeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateFunctionCodeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // UpdateFunctionCodeRequest
  *   FunctionName: "STRING_VALUE", // required
  *   ZipFile: "BLOB_VALUE",
  *   S3Bucket: "STRING_VALUE",
@@ -72,7 +72,7 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  *   Publish: true || false,
  *   DryRun: true || false,
  *   RevisionId: "STRING_VALUE",
- *   Architectures: [
+ *   Architectures: [ // ArchitecturesList
  *     "x86_64" || "arm64",
  *   ],
  * };

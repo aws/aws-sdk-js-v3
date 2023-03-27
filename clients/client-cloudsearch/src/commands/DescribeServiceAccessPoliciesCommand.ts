@@ -45,7 +45,7 @@ export interface DescribeServiceAccessPoliciesCommandOutput
  * import { CloudSearchClient, DescribeServiceAccessPoliciesCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeServiceAccessPoliciesCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DescribeServiceAccessPoliciesRequest
  *   DomainName: "STRING_VALUE", // required
  *   Deployed: true || false,
  * };

@@ -48,10 +48,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { CostExplorerClient, TagResourceCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, TagResourceCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   ResourceTags: [ // required
- *     {
+ *   ResourceTags: [ // ResourceTagList // required
+ *     { // ResourceTag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

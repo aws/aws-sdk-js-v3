@@ -42,7 +42,7 @@ export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityType
  * import { GlueClient, ListCustomEntityTypesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListCustomEntityTypesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListCustomEntityTypesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

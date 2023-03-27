@@ -42,11 +42,11 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * import { NeptuneClient, CreateDBClusterSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // CreateDBClusterSnapshotMessage
  *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
  *   DBClusterIdentifier: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

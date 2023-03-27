@@ -42,7 +42,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * import { MemoryDBClient, DeleteSnapshotCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DeleteSnapshotCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // DeleteSnapshotRequest
  *   SnapshotName: "STRING_VALUE", // required
  * };
  * const command = new DeleteSnapshotCommand(input);

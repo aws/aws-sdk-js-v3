@@ -42,7 +42,7 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * import { MemoryDBClient, DescribeParameterGroupsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeParameterGroupsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // DescribeParameterGroupsRequest
  *   ParameterGroupName: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

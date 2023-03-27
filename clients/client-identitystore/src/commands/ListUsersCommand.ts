@@ -45,12 +45,12 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * import { IdentitystoreClient, ListUsersCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, ListUsersCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
- * const input = {
+ * const input = { // ListUsersRequest
  *   IdentityStoreId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       AttributePath: "STRING_VALUE", // required
  *       AttributeValue: "STRING_VALUE", // required
  *     },

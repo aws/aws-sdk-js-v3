@@ -51,15 +51,15 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  * import { LexModelBuildingServiceClient, PutBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // PutBotAliasRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   botVersion: "STRING_VALUE", // required
  *   botName: "STRING_VALUE", // required
  *   checksum: "STRING_VALUE",
- *   conversationLogs: {
- *     logSettings: [ // required
- *       {
+ *   conversationLogs: { // ConversationLogsRequest
+ *     logSettings: [ // LogSettingsRequestList // required
+ *       { // LogSettingsRequest
  *         logType: "STRING_VALUE", // required
  *         destination: "STRING_VALUE", // required
  *         kmsKeyArn: "STRING_VALUE",
@@ -68,8 +68,8 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  *     ],
  *     iamRoleArn: "STRING_VALUE", // required
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

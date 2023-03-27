@@ -42,8 +42,8 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  * import { ConfigServiceClient, DescribeConformancePacksCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConformancePacksCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   ConformancePackNames: [
+ * const input = { // DescribeConformancePacksRequest
+ *   ConformancePackNames: [ // ConformancePackNamesList
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

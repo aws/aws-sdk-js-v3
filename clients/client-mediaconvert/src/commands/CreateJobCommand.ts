@@ -42,14 +42,14 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { MediaConvertClient, CreateJobCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CreateJobCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
- *   AccelerationSettings: {
+ * const input = { // CreateJobRequest
+ *   AccelerationSettings: { // AccelerationSettings
  *     Mode: "DISABLED" || "ENABLED" || "PREFERRED", // required
  *   },
  *   BillingTagsSource: "QUEUE" || "PRESET" || "JOB_TEMPLATE" || "JOB",
  *   ClientRequestToken: "STRING_VALUE",
- *   HopDestinations: [
- *     {
+ *   HopDestinations: [ // __listOfHopDestination
+ *     { // HopDestination
  *       Priority: Number("int"),
  *       Queue: "STRING_VALUE",
  *       WaitMinutes: Number("int"),
@@ -59,58 +59,58 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   Priority: Number("int"),
  *   Queue: "STRING_VALUE",
  *   Role: "STRING_VALUE", // required
- *   Settings: {
+ *   Settings: { // JobSettings
  *     AdAvailOffset: Number("int"),
- *     AvailBlanking: {
+ *     AvailBlanking: { // AvailBlanking
  *       AvailBlankingImage: "STRING_VALUE",
  *     },
- *     Esam: {
- *       ManifestConfirmConditionNotification: {
+ *     Esam: { // EsamSettings
+ *       ManifestConfirmConditionNotification: { // EsamManifestConfirmConditionNotification
  *         MccXml: "STRING_VALUE",
  *       },
  *       ResponseSignalPreroll: Number("int"),
- *       SignalProcessingNotification: {
+ *       SignalProcessingNotification: { // EsamSignalProcessingNotification
  *         SccXml: "STRING_VALUE",
  *       },
  *     },
- *     ExtendedDataServices: {
+ *     ExtendedDataServices: { // ExtendedDataServices
  *       CopyProtectionAction: "PASSTHROUGH" || "STRIP",
  *       VchipAction: "PASSTHROUGH" || "STRIP",
  *     },
- *     Inputs: [
- *       {
- *         AudioSelectorGroups: {
- *           "<keys>": {
- *             AudioSelectorNames: [
+ *     Inputs: [ // __listOfInput
+ *       { // Input
+ *         AudioSelectorGroups: { // __mapOfAudioSelectorGroup
+ *           "<keys>": { // AudioSelectorGroup
+ *             AudioSelectorNames: [ // __listOf__stringMin1
  *               "STRING_VALUE",
  *             ],
  *           },
  *         },
- *         AudioSelectors: {
- *           "<keys>": {
+ *         AudioSelectors: { // __mapOfAudioSelector
+ *           "<keys>": { // AudioSelector
  *             AudioDurationCorrection: "DISABLED" || "AUTO" || "TRACK" || "FRAME",
  *             CustomLanguageCode: "STRING_VALUE",
  *             DefaultSelection: "DEFAULT" || "NOT_DEFAULT",
  *             ExternalAudioFileInput: "STRING_VALUE",
- *             HlsRenditionGroupSettings: {
+ *             HlsRenditionGroupSettings: { // HlsRenditionGroupSettings
  *               RenditionGroupId: "STRING_VALUE",
  *               RenditionLanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
  *               RenditionName: "STRING_VALUE",
  *             },
  *             LanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
  *             Offset: Number("int"),
- *             Pids: [
+ *             Pids: [ // __listOf__integerMin1Max2147483647
  *               Number("int"),
  *             ],
  *             ProgramSelection: Number("int"),
- *             RemixSettings: {
- *               ChannelMapping: {
- *                 OutputChannels: [
- *                   {
- *                     InputChannels: [
+ *             RemixSettings: { // RemixSettings
+ *               ChannelMapping: { // ChannelMapping
+ *                 OutputChannels: [ // __listOfOutputChannelMapping
+ *                   { // OutputChannelMapping
+ *                     InputChannels: [ // __listOf__integerMinNegative60Max6
  *                       Number("int"),
  *                     ],
- *                     InputChannelsFineTune: [
+ *                     InputChannelsFineTune: [ // __listOf__doubleMinNegative60Max6
  *                       Number("double"),
  *                     ],
  *                   },
@@ -125,28 +125,28 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             ],
  *           },
  *         },
- *         CaptionSelectors: {
- *           "<keys>": {
+ *         CaptionSelectors: { // __mapOfCaptionSelector
+ *           "<keys>": { // CaptionSelector
  *             CustomLanguageCode: "STRING_VALUE",
  *             LanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
- *             SourceSettings: {
- *               AncillarySourceSettings: {
+ *             SourceSettings: { // CaptionSourceSettings
+ *               AncillarySourceSettings: { // AncillarySourceSettings
  *                 Convert608To708: "UPCONVERT" || "DISABLED",
  *                 SourceAncillaryChannelNumber: Number("int"),
  *                 TerminateCaptions: "END_OF_INPUT" || "DISABLED",
  *               },
- *               DvbSubSourceSettings: {
+ *               DvbSubSourceSettings: { // DvbSubSourceSettings
  *                 Pid: Number("int"),
  *               },
- *               EmbeddedSourceSettings: {
+ *               EmbeddedSourceSettings: { // EmbeddedSourceSettings
  *                 Convert608To708: "UPCONVERT" || "DISABLED",
  *                 Source608ChannelNumber: Number("int"),
  *                 Source608TrackNumber: Number("int"),
  *                 TerminateCaptions: "END_OF_INPUT" || "DISABLED",
  *               },
- *               FileSourceSettings: {
+ *               FileSourceSettings: { // FileSourceSettings
  *                 Convert608To708: "UPCONVERT" || "DISABLED",
- *                 Framerate: {
+ *                 Framerate: { // CaptionSourceFramerate
  *                   FramerateDenominator: Number("int"),
  *                   FramerateNumerator: Number("int"),
  *                 },
@@ -155,13 +155,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 TimeDeltaUnits: "SECONDS" || "MILLISECONDS",
  *               },
  *               SourceType: "ANCILLARY" || "DVB_SUB" || "EMBEDDED" || "SCTE20" || "SCC" || "TTML" || "STL" || "SRT" || "SMI" || "SMPTE_TT" || "TELETEXT" || "NULL_SOURCE" || "IMSC" || "WEBVTT",
- *               TeletextSourceSettings: {
+ *               TeletextSourceSettings: { // TeletextSourceSettings
  *                 PageNumber: "STRING_VALUE",
  *               },
- *               TrackSourceSettings: {
+ *               TrackSourceSettings: { // TrackSourceSettings
  *                 TrackNumber: Number("int"),
  *               },
- *               WebvttHlsSourceSettings: {
+ *               WebvttHlsSourceSettings: { // WebvttHlsSourceSettings
  *                 RenditionGroupId: "STRING_VALUE",
  *                 RenditionLanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
  *                 RenditionName: "STRING_VALUE",
@@ -169,14 +169,14 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             },
  *           },
  *         },
- *         Crop: {
+ *         Crop: { // Rectangle
  *           Height: Number("int"),
  *           Width: Number("int"),
  *           X: Number("int"),
  *           Y: Number("int"),
  *         },
  *         DeblockFilter: "ENABLED" || "DISABLED",
- *         DecryptionSettings: {
+ *         DecryptionSettings: { // InputDecryptionSettings
  *           DecryptionMode: "AES_CTR" || "AES_CBC" || "AES_GCM",
  *           EncryptedDecryptionKey: "STRING_VALUE",
  *           InitializationVector: "STRING_VALUE",
@@ -187,9 +187,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         FileInput: "STRING_VALUE",
  *         FilterEnable: "AUTO" || "DISABLE" || "FORCE",
  *         FilterStrength: Number("int"),
- *         ImageInserter: {
- *           InsertableImages: [
- *             {
+ *         ImageInserter: { // ImageInserter
+ *           InsertableImages: [ // __listOfInsertableImage
+ *             { // InsertableImage
  *               Duration: Number("int"),
  *               FadeIn: Number("int"),
  *               FadeOut: Number("int"),
@@ -205,8 +205,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           ],
  *           SdrReferenceWhiteLevel: Number("int"),
  *         },
- *         InputClippings: [
- *           {
+ *         InputClippings: [ // __listOfInputClipping
+ *           { // InputClipping
  *             EndTimecode: "STRING_VALUE",
  *             StartTimecode: "STRING_VALUE",
  *           },
@@ -220,20 +220,20 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         },
  *         ProgramNumber: Number("int"),
  *         PsiControl: "IGNORE_PSI" || "USE_PSI",
- *         SupplementalImps: [
+ *         SupplementalImps: [ // __listOf__stringPatternS3ASSETMAPXml
  *           "STRING_VALUE",
  *         ],
  *         TimecodeSource: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
  *         TimecodeStart: "STRING_VALUE",
- *         VideoGenerator: {
+ *         VideoGenerator: { // InputVideoGenerator
  *           Duration: Number("int"),
  *         },
- *         VideoSelector: {
+ *         VideoSelector: { // VideoSelector
  *           AlphaBehavior: "DISCARD" || "REMAP_TO_LUMA",
  *           ColorSpace: "FOLLOW" || "REC_601" || "REC_709" || "HDR10" || "HLG_2020" || "P3DCI" || "P3D65_SDR" || "P3D65_HDR",
  *           ColorSpaceUsage: "FORCE" || "FALLBACK",
  *           EmbeddedTimecodeOverride: "NONE" || "USE_MDPM",
- *           Hdr10Metadata: {
+ *           Hdr10Metadata: { // Hdr10Metadata
  *             BluePrimaryX: Number("int"),
  *             BluePrimaryY: Number("int"),
  *             GreenPrimaryX: Number("int"),
@@ -255,7 +255,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         },
  *       },
  *     ],
- *     KantarWatermark: {
+ *     KantarWatermark: { // KantarWatermarkSettings
  *       ChannelName: "STRING_VALUE",
  *       ContentReference: "STRING_VALUE",
  *       CredentialsSecretName: "STRING_VALUE",
@@ -270,25 +270,25 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       Metadata7: "STRING_VALUE",
  *       Metadata8: "STRING_VALUE",
  *     },
- *     MotionImageInserter: {
- *       Framerate: {
+ *     MotionImageInserter: { // MotionImageInserter
+ *       Framerate: { // MotionImageInsertionFramerate
  *         FramerateDenominator: Number("int"),
  *         FramerateNumerator: Number("int"),
  *       },
  *       Input: "STRING_VALUE",
  *       InsertionMode: "MOV" || "PNG",
- *       Offset: {
+ *       Offset: { // MotionImageInsertionOffset
  *         ImageX: Number("int"),
  *         ImageY: Number("int"),
  *       },
  *       Playback: "ONCE" || "REPEAT",
  *       StartTime: "STRING_VALUE",
  *     },
- *     NielsenConfiguration: {
+ *     NielsenConfiguration: { // NielsenConfiguration
  *       BreakoutCode: Number("int"),
  *       DistributorId: "STRING_VALUE",
  *     },
- *     NielsenNonLinearWatermark: {
+ *     NielsenNonLinearWatermark: { // NielsenNonLinearWatermarkSettings
  *       ActiveWatermarkProcess: "NAES2_AND_NW" || "CBET" || "NAES2_AND_NW_AND_CBET",
  *       AdiFilename: "STRING_VALUE",
  *       AssetId: "STRING_VALUE",
@@ -301,33 +301,33 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       TicServerUrl: "STRING_VALUE",
  *       UniqueTicPerAudioTrack: "RESERVE_UNIQUE_TICS_PER_TRACK" || "SAME_TICS_PER_TRACK",
  *     },
- *     OutputGroups: [
- *       {
- *         AutomatedEncodingSettings: {
- *           AbrSettings: {
+ *     OutputGroups: [ // __listOfOutputGroup
+ *       { // OutputGroup
+ *         AutomatedEncodingSettings: { // AutomatedEncodingSettings
+ *           AbrSettings: { // AutomatedAbrSettings
  *             MaxAbrBitrate: Number("int"),
  *             MaxRenditions: Number("int"),
  *             MinAbrBitrate: Number("int"),
- *             Rules: [
- *               {
- *                 AllowedRenditions: [
- *                   {
+ *             Rules: [ // __listOfAutomatedAbrRule
+ *               { // AutomatedAbrRule
+ *                 AllowedRenditions: [ // __listOfAllowedRenditionSize
+ *                   { // AllowedRenditionSize
  *                     Height: Number("int"),
  *                     Required: "ENABLED" || "DISABLED",
  *                     Width: Number("int"),
  *                   },
  *                 ],
- *                 ForceIncludeRenditions: [
- *                   {
+ *                 ForceIncludeRenditions: [ // __listOfForceIncludeRenditionSize
+ *                   { // ForceIncludeRenditionSize
  *                     Height: Number("int"),
  *                     Width: Number("int"),
  *                   },
  *                 ],
- *                 MinBottomRenditionSize: {
+ *                 MinBottomRenditionSize: { // MinBottomRenditionSize
  *                   Height: Number("int"),
  *                   Width: Number("int"),
  *                 },
- *                 MinTopRenditionSize: {
+ *                 MinTopRenditionSize: { // MinTopRenditionSize
  *                   Height: Number("int"),
  *                   Width: Number("int"),
  *                 },
@@ -338,10 +338,10 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         },
  *         CustomName: "STRING_VALUE",
  *         Name: "STRING_VALUE",
- *         OutputGroupSettings: {
- *           CmafGroupSettings: {
- *             AdditionalManifests: [
- *               {
+ *         OutputGroupSettings: { // OutputGroupSettings
+ *           CmafGroupSettings: { // CmafGroupSettings
+ *             AdditionalManifests: [ // __listOfCmafAdditionalManifest
+ *               { // CmafAdditionalManifest
  *                 ManifestNameModifier: "STRING_VALUE",
  *                 SelectedOutputs: [
  *                   "STRING_VALUE",
@@ -353,25 +353,25 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             CodecSpecification: "RFC_6381" || "RFC_4281",
  *             DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  *             Destination: "STRING_VALUE",
- *             DestinationSettings: {
- *               S3Settings: {
- *                 AccessControl: {
+ *             DestinationSettings: { // DestinationSettings
+ *               S3Settings: { // S3DestinationSettings
+ *                 AccessControl: { // S3DestinationAccessControl
  *                   CannedAcl: "PUBLIC_READ" || "AUTHENTICATED_READ" || "BUCKET_OWNER_READ" || "BUCKET_OWNER_FULL_CONTROL",
  *                 },
- *                 Encryption: {
+ *                 Encryption: { // S3EncryptionSettings
  *                   EncryptionType: "SERVER_SIDE_ENCRYPTION_S3" || "SERVER_SIDE_ENCRYPTION_KMS",
  *                   KmsEncryptionContext: "STRING_VALUE",
  *                   KmsKeyArn: "STRING_VALUE",
  *                 },
  *               },
  *             },
- *             Encryption: {
+ *             Encryption: { // CmafEncryptionSettings
  *               ConstantInitializationVector: "STRING_VALUE",
  *               EncryptionMethod: "SAMPLE_AES" || "AES_CTR",
  *               InitializationVectorInManifest: "INCLUDE" || "EXCLUDE",
- *               SpekeKeyProvider: {
+ *               SpekeKeyProvider: { // SpekeKeyProviderCmaf
  *                 CertificateArn: "STRING_VALUE",
- *                 DashSignaledSystemIds: [
+ *                 DashSignaledSystemIds: [ // __listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12
  *                   "STRING_VALUE",
  *                 ],
  *                 HlsSignaledSystemIds: [
@@ -380,7 +380,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 ResourceId: "STRING_VALUE",
  *                 Url: "STRING_VALUE",
  *               },
- *               StaticKeyProvider: {
+ *               StaticKeyProvider: { // StaticKeyProvider
  *                 KeyFormat: "STRING_VALUE",
  *                 KeyFormatVersions: "STRING_VALUE",
  *                 StaticKeyValue: "STRING_VALUE",
@@ -390,7 +390,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             },
  *             FragmentLength: Number("int"),
  *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
- *             ImageBasedTrickPlaySettings: {
+ *             ImageBasedTrickPlaySettings: { // CmafImageBasedTrickPlaySettings
  *               IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM",
  *               ThumbnailHeight: Number("int"),
  *               ThumbnailInterval: Number("double"),
@@ -415,9 +415,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             WriteHlsManifest: "DISABLED" || "ENABLED",
  *             WriteSegmentTimelineInRepresentation: "ENABLED" || "DISABLED",
  *           },
- *           DashIsoGroupSettings: {
- *             AdditionalManifests: [
- *               {
+ *           DashIsoGroupSettings: { // DashIsoGroupSettings
+ *             AdditionalManifests: [ // __listOfDashAdditionalManifest
+ *               { // DashAdditionalManifest
  *                 ManifestNameModifier: "STRING_VALUE",
  *                 SelectedOutputs: [
  *                   "STRING_VALUE",
@@ -440,12 +440,12 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 },
  *               },
  *             },
- *             Encryption: {
+ *             Encryption: { // DashIsoEncryptionSettings
  *               PlaybackDeviceCompatibility: "CENC_V1" || "UNENCRYPTED_SEI",
- *               SpekeKeyProvider: {
+ *               SpekeKeyProvider: { // SpekeKeyProvider
  *                 CertificateArn: "STRING_VALUE",
  *                 ResourceId: "STRING_VALUE",
- *                 SystemIds: [
+ *                 SystemIds: [ // __listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12
  *                   "STRING_VALUE",
  *                 ],
  *                 Url: "STRING_VALUE",
@@ -454,7 +454,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             FragmentLength: Number("int"),
  *             HbbtvCompliance: "HBBTV_1_5" || "NONE",
  *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
- *             ImageBasedTrickPlaySettings: {
+ *             ImageBasedTrickPlaySettings: { // DashIsoImageBasedTrickPlaySettings
  *               IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM",
  *               ThumbnailHeight: Number("int"),
  *               ThumbnailInterval: Number("double"),
@@ -473,7 +473,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             VideoCompositionOffsets: "SIGNED" || "UNSIGNED",
  *             WriteSegmentTimelineInRepresentation: "ENABLED" || "DISABLED",
  *           },
- *           FileGroupSettings: {
+ *           FileGroupSettings: { // FileGroupSettings
  *             Destination: "STRING_VALUE",
  *             DestinationSettings: {
  *               S3Settings: {
@@ -488,12 +488,12 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               },
  *             },
  *           },
- *           HlsGroupSettings: {
- *             AdMarkers: [
+ *           HlsGroupSettings: { // HlsGroupSettings
+ *             AdMarkers: [ // __listOfHlsAdMarkers
  *               "ELEMENTAL" || "ELEMENTAL_SCTE35",
  *             ],
- *             AdditionalManifests: [
- *               {
+ *             AdditionalManifests: [ // __listOfHlsAdditionalManifest
+ *               { // HlsAdditionalManifest
  *                 ManifestNameModifier: "STRING_VALUE",
  *                 SelectedOutputs: [
  *                   "STRING_VALUE",
@@ -502,8 +502,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             ],
  *             AudioOnlyHeader: "INCLUDE" || "EXCLUDE",
  *             BaseUrl: "STRING_VALUE",
- *             CaptionLanguageMappings: [
- *               {
+ *             CaptionLanguageMappings: [ // __listOfHlsCaptionLanguageMapping
+ *               { // HlsCaptionLanguageMapping
  *                 CaptionChannel: Number("int"),
  *                 CustomLanguageCode: "STRING_VALUE",
  *                 LanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
@@ -528,7 +528,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               },
  *             },
  *             DirectoryStructure: "SINGLE_DIRECTORY" || "SUBDIRECTORY_PER_STREAM",
- *             Encryption: {
+ *             Encryption: { // HlsEncryptionSettings
  *               ConstantInitializationVector: "STRING_VALUE",
  *               EncryptionMethod: "AES128" || "SAMPLE_AES",
  *               InitializationVectorInManifest: "INCLUDE" || "EXCLUDE",
@@ -550,7 +550,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               Type: "SPEKE" || "STATIC_KEY",
  *             },
  *             ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
- *             ImageBasedTrickPlaySettings: {
+ *             ImageBasedTrickPlaySettings: { // HlsImageBasedTrickPlaySettings
  *               IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM",
  *               ThumbnailHeight: Number("int"),
  *               ThumbnailInterval: Number("double"),
@@ -575,9 +575,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             TimedMetadataId3Period: Number("int"),
  *             TimestampDeltaMilliseconds: Number("int"),
  *           },
- *           MsSmoothGroupSettings: {
- *             AdditionalManifests: [
- *               {
+ *           MsSmoothGroupSettings: { // MsSmoothGroupSettings
+ *             AdditionalManifests: [ // __listOfMsSmoothAdditionalManifest
+ *               { // MsSmoothAdditionalManifest
  *                 ManifestNameModifier: "STRING_VALUE",
  *                 SelectedOutputs: [
  *                   "STRING_VALUE",
@@ -598,7 +598,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 },
  *               },
  *             },
- *             Encryption: {
+ *             Encryption: { // MsSmoothEncryptionSettings
  *               SpekeKeyProvider: {
  *                 CertificateArn: "STRING_VALUE",
  *                 ResourceId: "STRING_VALUE",
@@ -614,14 +614,14 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           },
  *           Type: "HLS_GROUP_SETTINGS" || "DASH_ISO_GROUP_SETTINGS" || "FILE_GROUP_SETTINGS" || "MS_SMOOTH_GROUP_SETTINGS" || "CMAF_GROUP_SETTINGS",
  *         },
- *         Outputs: [
- *           {
- *             AudioDescriptions: [
- *               {
- *                 AudioChannelTaggingSettings: {
+ *         Outputs: [ // __listOfOutput
+ *           { // Output
+ *             AudioDescriptions: [ // __listOfAudioDescription
+ *               { // AudioDescription
+ *                 AudioChannelTaggingSettings: { // AudioChannelTaggingSettings
  *                   ChannelTag: "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR",
  *                 },
- *                 AudioNormalizationSettings: {
+ *                 AudioNormalizationSettings: { // AudioNormalizationSettings
  *                   Algorithm: "ITU_BS_1770_1" || "ITU_BS_1770_2" || "ITU_BS_1770_3" || "ITU_BS_1770_4",
  *                   AlgorithmControl: "CORRECT_AUDIO" || "MEASURE_ONLY",
  *                   CorrectionGateLevel: Number("int"),
@@ -633,8 +633,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 AudioSourceName: "STRING_VALUE",
  *                 AudioType: Number("int"),
  *                 AudioTypeControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
- *                 CodecSettings: {
- *                   AacSettings: {
+ *                 CodecSettings: { // AudioCodecSettings
+ *                   AacSettings: { // AacSettings
  *                     AudioDescriptionBroadcasterMix: "BROADCASTER_MIXED_AD" || "NORMAL",
  *                     Bitrate: Number("int"),
  *                     CodecProfile: "LC" || "HEV1" || "HEV2",
@@ -645,7 +645,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                     Specification: "MPEG2" || "MPEG4",
  *                     VbrQuality: "LOW" || "MEDIUM_LOW" || "MEDIUM_HIGH" || "HIGH",
  *                   },
- *                   Ac3Settings: {
+ *                   Ac3Settings: { // Ac3Settings
  *                     Bitrate: Number("int"),
  *                     BitstreamMode: "COMPLETE_MAIN" || "COMMENTARY" || "DIALOGUE" || "EMERGENCY" || "HEARING_IMPAIRED" || "MUSIC_AND_EFFECTS" || "VISUALLY_IMPAIRED" || "VOICE_OVER",
  *                     CodingMode: "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_3_2_LFE",
@@ -657,13 +657,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                     MetadataControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
  *                     SampleRate: Number("int"),
  *                   },
- *                   AiffSettings: {
+ *                   AiffSettings: { // AiffSettings
  *                     BitDepth: Number("int"),
  *                     Channels: Number("int"),
  *                     SampleRate: Number("int"),
  *                   },
  *                   Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH",
- *                   Eac3AtmosSettings: {
+ *                   Eac3AtmosSettings: { // Eac3AtmosSettings
  *                     Bitrate: Number("int"),
  *                     BitstreamMode: "COMPLETE_MAIN",
  *                     CodingMode: "CODING_MODE_AUTO" || "CODING_MODE_5_1_4" || "CODING_MODE_7_1_4" || "CODING_MODE_9_1_6",
@@ -682,7 +682,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                     StereoDownmix: "NOT_INDICATED" || "STEREO" || "SURROUND" || "DPL2",
  *                     SurroundExMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
  *                   },
- *                   Eac3Settings: {
+ *                   Eac3Settings: { // Eac3Settings
  *                     AttenuationControl: "ATTENUATE_3_DB" || "NONE",
  *                     Bitrate: Number("int"),
  *                     BitstreamMode: "COMPLETE_MAIN" || "COMMENTARY" || "EMERGENCY" || "HEARING_IMPAIRED" || "VISUALLY_IMPAIRED",
@@ -705,29 +705,29 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                     SurroundExMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
  *                     SurroundMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
  *                   },
- *                   Mp2Settings: {
+ *                   Mp2Settings: { // Mp2Settings
  *                     Bitrate: Number("int"),
  *                     Channels: Number("int"),
  *                     SampleRate: Number("int"),
  *                   },
- *                   Mp3Settings: {
+ *                   Mp3Settings: { // Mp3Settings
  *                     Bitrate: Number("int"),
  *                     Channels: Number("int"),
  *                     RateControlMode: "CBR" || "VBR",
  *                     SampleRate: Number("int"),
  *                     VbrQuality: Number("int"),
  *                   },
- *                   OpusSettings: {
+ *                   OpusSettings: { // OpusSettings
  *                     Bitrate: Number("int"),
  *                     Channels: Number("int"),
  *                     SampleRate: Number("int"),
  *                   },
- *                   VorbisSettings: {
+ *                   VorbisSettings: { // VorbisSettings
  *                     Channels: Number("int"),
  *                     SampleRate: Number("int"),
  *                     VbrQuality: Number("int"),
  *                   },
- *                   WavSettings: {
+ *                   WavSettings: { // WavSettings
  *                     BitDepth: Number("int"),
  *                     Channels: Number("int"),
  *                     Format: "RIFF" || "RF64",
@@ -756,12 +756,12 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 StreamName: "STRING_VALUE",
  *               },
  *             ],
- *             CaptionDescriptions: [
- *               {
+ *             CaptionDescriptions: [ // __listOfCaptionDescription
+ *               { // CaptionDescription
  *                 CaptionSelectorName: "STRING_VALUE",
  *                 CustomLanguageCode: "STRING_VALUE",
- *                 DestinationSettings: {
- *                   BurninDestinationSettings: {
+ *                 DestinationSettings: { // CaptionDestinationSettings
+ *                   BurninDestinationSettings: { // BurninDestinationSettings
  *                     Alignment: "CENTERED" || "LEFT" || "AUTO",
  *                     ApplyFontColor: "WHITE_TEXT_ONLY" || "ALL_TEXT",
  *                     BackgroundColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
@@ -785,7 +785,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                     YPosition: Number("int"),
  *                   },
  *                   DestinationType: "BURN_IN" || "DVB_SUB" || "EMBEDDED" || "EMBEDDED_PLUS_SCTE20" || "IMSC" || "SCTE20_PLUS_EMBEDDED" || "SCC" || "SRT" || "SMI" || "TELETEXT" || "TTML" || "WEBVTT",
- *                   DvbSubDestinationSettings: {
+ *                   DvbSubDestinationSettings: { // DvbSubDestinationSettings
  *                     Alignment: "CENTERED" || "LEFT" || "AUTO",
  *                     ApplyFontColor: "WHITE_TEXT_ONLY" || "ALL_TEXT",
  *                     BackgroundColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
@@ -814,30 +814,30 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                     XPosition: Number("int"),
  *                     YPosition: Number("int"),
  *                   },
- *                   EmbeddedDestinationSettings: {
+ *                   EmbeddedDestinationSettings: { // EmbeddedDestinationSettings
  *                     Destination608ChannelNumber: Number("int"),
  *                     Destination708ServiceNumber: Number("int"),
  *                   },
- *                   ImscDestinationSettings: {
+ *                   ImscDestinationSettings: { // ImscDestinationSettings
  *                     Accessibility: "DISABLED" || "ENABLED",
  *                     StylePassthrough: "ENABLED" || "DISABLED",
  *                   },
- *                   SccDestinationSettings: {
+ *                   SccDestinationSettings: { // SccDestinationSettings
  *                     Framerate: "FRAMERATE_23_97" || "FRAMERATE_24" || "FRAMERATE_25" || "FRAMERATE_29_97_DROPFRAME" || "FRAMERATE_29_97_NON_DROPFRAME",
  *                   },
- *                   SrtDestinationSettings: {
+ *                   SrtDestinationSettings: { // SrtDestinationSettings
  *                     StylePassthrough: "ENABLED" || "DISABLED",
  *                   },
- *                   TeletextDestinationSettings: {
+ *                   TeletextDestinationSettings: { // TeletextDestinationSettings
  *                     PageNumber: "STRING_VALUE",
- *                     PageTypes: [
+ *                     PageTypes: [ // __listOfTeletextPageType
  *                       "PAGE_TYPE_INITIAL" || "PAGE_TYPE_SUBTITLE" || "PAGE_TYPE_ADDL_INFO" || "PAGE_TYPE_PROGRAM_SCHEDULE" || "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE",
  *                     ],
  *                   },
- *                   TtmlDestinationSettings: {
+ *                   TtmlDestinationSettings: { // TtmlDestinationSettings
  *                     StylePassthrough: "ENABLED" || "DISABLED",
  *                   },
- *                   WebvttDestinationSettings: {
+ *                   WebvttDestinationSettings: { // WebvttDestinationSettings
  *                     Accessibility: "DISABLED" || "ENABLED",
  *                     StylePassthrough: "ENABLED" || "DISABLED" || "STRICT",
  *                   },
@@ -846,8 +846,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 LanguageDescription: "STRING_VALUE",
  *               },
  *             ],
- *             ContainerSettings: {
- *               CmfcSettings: {
+ *             ContainerSettings: { // ContainerSettings
+ *               CmfcSettings: { // CmfcSettings
  *                 AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  *                 AudioGroupId: "STRING_VALUE",
  *                 AudioRenditionSets: "STRING_VALUE",
@@ -864,25 +864,25 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 TimedMetadataValue: "STRING_VALUE",
  *               },
  *               Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW",
- *               F4vSettings: {
+ *               F4vSettings: { // F4vSettings
  *                 MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  *               },
- *               M2tsSettings: {
+ *               M2tsSettings: { // M2tsSettings
  *                 AudioBufferModel: "DVB" || "ATSC",
  *                 AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  *                 AudioFramesPerPes: Number("int"),
- *                 AudioPids: [
+ *                 AudioPids: [ // __listOf__integerMin32Max8182
  *                   Number("int"),
  *                 ],
  *                 Bitrate: Number("int"),
  *                 BufferModel: "MULTIPLEX" || "NONE",
  *                 DataPTSControl: "AUTO" || "ALIGN_TO_VIDEO",
- *                 DvbNitSettings: {
+ *                 DvbNitSettings: { // DvbNitSettings
  *                   NetworkId: Number("int"),
  *                   NetworkName: "STRING_VALUE",
  *                   NitInterval: Number("int"),
  *                 },
- *                 DvbSdtSettings: {
+ *                 DvbSdtSettings: { // DvbSdtSettings
  *                   OutputSdt: "SDT_FOLLOW" || "SDT_FOLLOW_IF_PRESENT" || "SDT_MANUAL" || "SDT_NONE",
  *                   SdtInterval: Number("int"),
  *                   ServiceName: "STRING_VALUE",
@@ -891,7 +891,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 DvbSubPids: [
  *                   Number("int"),
  *                 ],
- *                 DvbTdtSettings: {
+ *                 DvbTdtSettings: { // DvbTdtSettings
  *                   TdtInterval: Number("int"),
  *                 },
  *                 DvbTeletextPid: Number("int"),
@@ -913,7 +913,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 PrivateMetadataPid: Number("int"),
  *                 ProgramNumber: Number("int"),
  *                 RateMode: "VBR" || "CBR",
- *                 Scte35Esam: {
+ *                 Scte35Esam: { // M2tsScte35Esam
  *                   Scte35EsamPid: Number("int"),
  *                 },
  *                 Scte35Pid: Number("int"),
@@ -925,7 +925,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 TransportStreamId: Number("int"),
  *                 VideoPid: Number("int"),
  *               },
- *               M3u8Settings: {
+ *               M3u8Settings: { // M3u8Settings
  *                 AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  *                 AudioFramesPerPes: Number("int"),
  *                 AudioPids: [
@@ -948,14 +948,14 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 TransportStreamId: Number("int"),
  *                 VideoPid: Number("int"),
  *               },
- *               MovSettings: {
+ *               MovSettings: { // MovSettings
  *                 ClapAtom: "INCLUDE" || "EXCLUDE",
  *                 CslgAtom: "INCLUDE" || "EXCLUDE",
  *                 Mpeg2FourCCControl: "XDCAM" || "MPEG",
  *                 PaddingControl: "OMNEON" || "NONE",
  *                 Reference: "SELF_CONTAINED" || "EXTERNAL",
  *               },
- *               Mp4Settings: {
+ *               Mp4Settings: { // Mp4Settings
  *                 AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  *                 CslgAtom: "INCLUDE" || "EXCLUDE",
  *                 CttsVersion: Number("int"),
@@ -963,7 +963,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  *                 Mp4MajorBrand: "STRING_VALUE",
  *               },
- *               MpdSettings: {
+ *               MpdSettings: { // MpdSettings
  *                 AccessibilityCaptionHints: "INCLUDE" || "EXCLUDE",
  *                 AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  *                 CaptionContainerType: "RAW" || "FRAGMENTED_MP4",
@@ -976,10 +976,10 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 TimedMetadataSchemeIdUri: "STRING_VALUE",
  *                 TimedMetadataValue: "STRING_VALUE",
  *               },
- *               MxfSettings: {
+ *               MxfSettings: { // MxfSettings
  *                 AfdSignaling: "NO_COPY" || "COPY_FROM_VIDEO",
  *                 Profile: "D_10" || "XDCAM" || "OP1A" || "XAVC",
- *                 XavcProfileSettings: {
+ *                 XavcProfileSettings: { // MxfXavcProfileSettings
  *                   DurationMode: "ALLOW_ANY_DURATION" || "DROP_FRAMES_FOR_COMPLIANCE",
  *                   MaxAncDataSize: Number("int"),
  *                 },
@@ -987,8 +987,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             },
  *             Extension: "STRING_VALUE",
  *             NameModifier: "STRING_VALUE",
- *             OutputSettings: {
- *               HlsSettings: {
+ *             OutputSettings: { // OutputSettings
+ *               HlsSettings: { // HlsSettings
  *                 AudioGroupId: "STRING_VALUE",
  *                 AudioOnlyContainer: "AUTOMATIC" || "M2TS",
  *                 AudioRenditionSets: "STRING_VALUE",
@@ -999,11 +999,11 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               },
  *             },
  *             Preset: "STRING_VALUE",
- *             VideoDescription: {
+ *             VideoDescription: { // VideoDescription
  *               AfdSignaling: "NONE" || "AUTO" || "FIXED",
  *               AntiAlias: "DISABLED" || "ENABLED",
- *               CodecSettings: {
- *                 Av1Settings: {
+ *               CodecSettings: { // VideoCodecSettings
+ *                 Av1Settings: { // Av1Settings
  *                   AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  *                   BitDepth: "BIT_8" || "BIT_10",
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -1013,7 +1013,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   GopSize: Number("double"),
  *                   MaxBitrate: Number("int"),
  *                   NumberBFramesBetweenReferenceFrames: Number("int"),
- *                   QvbrSettings: {
+ *                   QvbrSettings: { // Av1QvbrSettings
  *                     QvbrQualityLevel: Number("int"),
  *                     QvbrQualityLevelFineTune: Number("double"),
  *                   },
@@ -1021,9 +1021,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   Slices: Number("int"),
  *                   SpatialAdaptiveQuantization: "DISABLED" || "ENABLED",
  *                 },
- *                 AvcIntraSettings: {
+ *                 AvcIntraSettings: { // AvcIntraSettings
  *                   AvcIntraClass: "CLASS_50" || "CLASS_100" || "CLASS_200" || "CLASS_4K_2K",
- *                   AvcIntraUhdSettings: {
+ *                   AvcIntraUhdSettings: { // AvcIntraUhdSettings
  *                     QualityTuningLevel: "SINGLE_PASS" || "MULTI_PASS",
  *                   },
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -1036,15 +1036,15 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   Telecine: "NONE" || "HARD",
  *                 },
  *                 Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
- *                 FrameCaptureSettings: {
+ *                 FrameCaptureSettings: { // FrameCaptureSettings
  *                   FramerateDenominator: Number("int"),
  *                   FramerateNumerator: Number("int"),
  *                   MaxCaptures: Number("int"),
  *                   Quality: Number("int"),
  *                 },
- *                 H264Settings: {
+ *                 H264Settings: { // H264Settings
  *                   AdaptiveQuantization: "OFF" || "AUTO" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
- *                   BandwidthReductionFilter: {
+ *                   BandwidthReductionFilter: { // BandwidthReductionFilter
  *                     Sharpening: "LOW" || "MEDIUM" || "HIGH" || "OFF",
  *                     Strength: "LOW" || "MEDIUM" || "HIGH" || "AUTO" || "OFF",
  *                   },
@@ -1075,7 +1075,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   ParDenominator: Number("int"),
  *                   ParNumerator: Number("int"),
  *                   QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
- *                   QvbrSettings: {
+ *                   QvbrSettings: { // H264QvbrSettings
  *                     MaxAverageBitrate: Number("int"),
  *                     QvbrQualityLevel: Number("int"),
  *                     QvbrQualityLevelFineTune: Number("double"),
@@ -1093,7 +1093,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  *                   UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
  *                 },
- *                 H265Settings: {
+ *                 H265Settings: { // H265Settings
  *                   AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX" || "AUTO",
  *                   AlternateTransferFunctionSei: "DISABLED" || "ENABLED",
  *                   Bitrate: Number("int"),
@@ -1121,7 +1121,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   ParDenominator: Number("int"),
  *                   ParNumerator: Number("int"),
  *                   QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
- *                   QvbrSettings: {
+ *                   QvbrSettings: { // H265QvbrSettings
  *                     MaxAverageBitrate: Number("int"),
  *                     QvbrQualityLevel: Number("int"),
  *                     QvbrQualityLevelFineTune: Number("double"),
@@ -1140,7 +1140,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
  *                   WriteMp4PackagingType: "HVC1" || "HEV1",
  *                 },
- *                 Mpeg2Settings: {
+ *                 Mpeg2Settings: { // Mpeg2Settings
  *                   AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH",
  *                   Bitrate: Number("int"),
  *                   CodecLevel: "AUTO" || "LOW" || "MAIN" || "HIGH1440" || "HIGH",
@@ -1175,7 +1175,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   Telecine: "NONE" || "SOFT" || "HARD",
  *                   TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  *                 },
- *                 ProresSettings: {
+ *                 ProresSettings: { // ProresSettings
  *                   ChromaSampling: "PRESERVE_444_SAMPLING" || "SUBSAMPLE_TO_422",
  *                   CodecProfile: "APPLE_PRORES_422" || "APPLE_PRORES_422_HQ" || "APPLE_PRORES_422_LT" || "APPLE_PRORES_422_PROXY" || "APPLE_PRORES_4444" || "APPLE_PRORES_4444_XQ",
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -1190,7 +1190,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   SlowPal: "DISABLED" || "ENABLED",
  *                   Telecine: "NONE" || "HARD",
  *                 },
- *                 Vc3Settings: {
+ *                 Vc3Settings: { // Vc3Settings
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *                   FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
  *                   FramerateDenominator: Number("int"),
@@ -1201,7 +1201,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   Telecine: "NONE" || "HARD",
  *                   Vc3Class: "CLASS_145_8BIT" || "CLASS_220_8BIT" || "CLASS_220_10BIT",
  *                 },
- *                 Vp8Settings: {
+ *                 Vp8Settings: { // Vp8Settings
  *                   Bitrate: Number("int"),
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *                   FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
@@ -1216,7 +1216,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   QualityTuningLevel: "MULTI_PASS" || "MULTI_PASS_HQ",
  *                   RateControlMode: "VBR",
  *                 },
- *                 Vp9Settings: {
+ *                 Vp9Settings: { // Vp9Settings
  *                   Bitrate: Number("int"),
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *                   FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
@@ -1231,7 +1231,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   QualityTuningLevel: "MULTI_PASS" || "MULTI_PASS_HQ",
  *                   RateControlMode: "VBR",
  *                 },
- *                 XavcSettings: {
+ *                 XavcSettings: { // XavcSettings
  *                   AdaptiveQuantization: "OFF" || "AUTO" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  *                   EntropyEncoding: "AUTO" || "CABAC" || "CAVLC",
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
@@ -1243,13 +1243,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   Softness: Number("int"),
  *                   SpatialAdaptiveQuantization: "DISABLED" || "ENABLED",
  *                   TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
- *                   Xavc4kIntraCbgProfileSettings: {
+ *                   Xavc4kIntraCbgProfileSettings: { // Xavc4kIntraCbgProfileSettings
  *                     XavcClass: "CLASS_100" || "CLASS_300" || "CLASS_480",
  *                   },
- *                   Xavc4kIntraVbrProfileSettings: {
+ *                   Xavc4kIntraVbrProfileSettings: { // Xavc4kIntraVbrProfileSettings
  *                     XavcClass: "CLASS_100" || "CLASS_300" || "CLASS_480",
  *                   },
- *                   Xavc4kProfileSettings: {
+ *                   Xavc4kProfileSettings: { // Xavc4kProfileSettings
  *                     BitrateClass: "BITRATE_CLASS_100" || "BITRATE_CLASS_140" || "BITRATE_CLASS_200",
  *                     CodecProfile: "HIGH" || "HIGH_422",
  *                     FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
@@ -1259,10 +1259,10 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                     QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  *                     Slices: Number("int"),
  *                   },
- *                   XavcHdIntraCbgProfileSettings: {
+ *                   XavcHdIntraCbgProfileSettings: { // XavcHdIntraCbgProfileSettings
  *                     XavcClass: "CLASS_50" || "CLASS_100" || "CLASS_200",
  *                   },
- *                   XavcHdProfileSettings: {
+ *                   XavcHdProfileSettings: { // XavcHdProfileSettings
  *                     BitrateClass: "BITRATE_CLASS_25" || "BITRATE_CLASS_35" || "BITRATE_CLASS_50",
  *                     FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
  *                     GopBReference: "DISABLED" || "ENABLED",
@@ -1295,10 +1295,10 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *               ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT",
  *               Sharpness: Number("int"),
  *               TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
- *               VideoPreprocessors: {
- *                 ColorCorrector: {
+ *               VideoPreprocessors: { // VideoPreprocessor
+ *                 ColorCorrector: { // ColorCorrector
  *                   Brightness: Number("int"),
- *                   ClipLimits: {
+ *                   ClipLimits: { // ClipLimits
  *                     MaximumRGBTolerance: Number("int"),
  *                     MaximumYUV: Number("int"),
  *                     MinimumRGBTolerance: Number("int"),
@@ -1326,13 +1326,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   Saturation: Number("int"),
  *                   SdrReferenceWhiteLevel: Number("int"),
  *                 },
- *                 Deinterlacer: {
+ *                 Deinterlacer: { // Deinterlacer
  *                   Algorithm: "INTERPOLATE" || "INTERPOLATE_TICKER" || "BLEND" || "BLEND_TICKER",
  *                   Control: "FORCE_ALL_FRAMES" || "NORMAL",
  *                   Mode: "DEINTERLACE" || "INVERSE_TELECINE" || "ADAPTIVE",
  *                 },
- *                 DolbyVision: {
- *                   L6Metadata: {
+ *                 DolbyVision: { // DolbyVision
+ *                   L6Metadata: { // DolbyVisionLevel6Metadata
  *                     MaxCll: Number("int"),
  *                     MaxFall: Number("int"),
  *                   },
@@ -1340,7 +1340,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   Mapping: "HDR10_NOMAP" || "HDR10_1000",
  *                   Profile: "PROFILE_5" || "PROFILE_8_1",
  *                 },
- *                 Hdr10Plus: {
+ *                 Hdr10Plus: { // Hdr10Plus
  *                   MasteringMonitorNits: Number("int"),
  *                   TargetMonitorNits: Number("int"),
  *                 },
@@ -1362,17 +1362,17 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                   ],
  *                   SdrReferenceWhiteLevel: Number("int"),
  *                 },
- *                 NoiseReducer: {
+ *                 NoiseReducer: { // NoiseReducer
  *                   Filter: "BILATERAL" || "MEAN" || "GAUSSIAN" || "LANCZOS" || "SHARPEN" || "CONSERVE" || "SPATIAL" || "TEMPORAL",
- *                   FilterSettings: {
+ *                   FilterSettings: { // NoiseReducerFilterSettings
  *                     Strength: Number("int"),
  *                   },
- *                   SpatialFilterSettings: {
+ *                   SpatialFilterSettings: { // NoiseReducerSpatialFilterSettings
  *                     PostFilterSharpenStrength: Number("int"),
  *                     Speed: Number("int"),
  *                     Strength: Number("int"),
  *                   },
- *                   TemporalFilterSettings: {
+ *                   TemporalFilterSettings: { // NoiseReducerTemporalFilterSettings
  *                     AggressiveMode: Number("int"),
  *                     PostTemporalSharpening: "DISABLED" || "ENABLED" || "AUTO",
  *                     PostTemporalSharpeningStrength: "LOW" || "MEDIUM" || "HIGH",
@@ -1380,15 +1380,15 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                     Strength: Number("int"),
  *                   },
  *                 },
- *                 PartnerWatermarking: {
- *                   NexguardFileMarkerSettings: {
+ *                 PartnerWatermarking: { // PartnerWatermarking
+ *                   NexguardFileMarkerSettings: { // NexGuardFileMarkerSettings
  *                     License: "STRING_VALUE",
  *                     Payload: Number("int"),
  *                     Preset: "STRING_VALUE",
  *                     Strength: "LIGHTEST" || "LIGHTER" || "DEFAULT" || "STRONGER" || "STRONGEST",
  *                   },
  *                 },
- *                 TimecodeBurnin: {
+ *                 TimecodeBurnin: { // TimecodeBurnin
  *                   FontSize: Number("int"),
  *                   Position: "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT" || "MIDDLE_LEFT" || "MIDDLE_CENTER" || "MIDDLE_RIGHT" || "BOTTOM_LEFT" || "BOTTOM_CENTER" || "BOTTOM_RIGHT",
  *                   Prefix: "STRING_VALUE",
@@ -1400,15 +1400,15 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         ],
  *       },
  *     ],
- *     TimecodeConfig: {
+ *     TimecodeConfig: { // TimecodeConfig
  *       Anchor: "STRING_VALUE",
  *       Source: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
  *       Start: "STRING_VALUE",
  *       TimestampOffset: "STRING_VALUE",
  *     },
- *     TimedMetadataInsertion: {
- *       Id3Insertions: [
- *         {
+ *     TimedMetadataInsertion: { // TimedMetadataInsertion
+ *       Id3Insertions: [ // __listOfId3Insertion
+ *         { // Id3Insertion
  *           Id3: "STRING_VALUE",
  *           Timecode: "STRING_VALUE",
  *         },
@@ -1417,7 +1417,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   },
  *   SimulateReservedQueue: "DISABLED" || "ENABLED",
  *   StatusUpdateInterval: "SECONDS_10" || "SECONDS_12" || "SECONDS_15" || "SECONDS_20" || "SECONDS_30" || "SECONDS_60" || "SECONDS_120" || "SECONDS_180" || "SECONDS_240" || "SECONDS_300" || "SECONDS_360" || "SECONDS_420" || "SECONDS_480" || "SECONDS_540" || "SECONDS_600",
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  *   UserMetadata: {

@@ -47,8 +47,8 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  * import { CloudFrontClient, UpdateCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   CloudFrontOriginAccessIdentityConfig: {
+ * const input = { // UpdateCloudFrontOriginAccessIdentityRequest
+ *   CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
  *     CallerReference: "STRING_VALUE", // required
  *     Comment: "STRING_VALUE", // required
  *   },

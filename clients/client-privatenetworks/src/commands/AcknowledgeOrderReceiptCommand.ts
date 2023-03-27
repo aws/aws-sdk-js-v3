@@ -46,7 +46,7 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  * import { PrivateNetworksClient, AcknowledgeOrderReceiptCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, AcknowledgeOrderReceiptCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // AcknowledgeOrderReceiptRequest
  *   orderArn: "STRING_VALUE", // required
  * };
  * const command = new AcknowledgeOrderReceiptCommand(input);

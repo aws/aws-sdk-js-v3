@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { DetectiveClient, TagResourceCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, TagResourceCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

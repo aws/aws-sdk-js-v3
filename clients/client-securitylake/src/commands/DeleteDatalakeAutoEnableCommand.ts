@@ -47,11 +47,11 @@ export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAut
  * import { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {
- *   removeFromConfigurationForNewAccounts: [ // required
- *     {
+ * const input = { // DeleteDatalakeAutoEnableRequest
+ *   removeFromConfigurationForNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
+ *     { // AutoEnableNewRegionConfiguration
  *       region: "STRING_VALUE", // required
- *       sources: [ // required
+ *       sources: [ // AwsSourceTypeList // required
  *         "STRING_VALUE",
  *       ],
  *     },

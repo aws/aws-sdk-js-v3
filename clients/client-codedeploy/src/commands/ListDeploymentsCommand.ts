@@ -43,14 +43,14 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * import { CodeDeployClient, ListDeploymentsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // ListDeploymentsInput
  *   applicationName: "STRING_VALUE",
  *   deploymentGroupName: "STRING_VALUE",
  *   externalId: "STRING_VALUE",
- *   includeOnlyStatuses: [
+ *   includeOnlyStatuses: [ // DeploymentStatusList
  *     "Created" || "Queued" || "InProgress" || "Baking" || "Succeeded" || "Failed" || "Stopped" || "Ready",
  *   ],
- *   createTimeRange: {
+ *   createTimeRange: { // TimeRange
  *     start: new Date("TIMESTAMP"),
  *     end: new Date("TIMESTAMP"),
  *   },

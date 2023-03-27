@@ -42,7 +42,7 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * import { GuardDutyClient, GetIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // GetIPSetRequest
  *   DetectorId: "STRING_VALUE", // required
  *   IpSetId: "STRING_VALUE", // required
  * };

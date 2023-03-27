@@ -45,7 +45,7 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * import { CodeCommitClient, GetPullRequestApprovalStatesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetPullRequestApprovalStatesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetPullRequestApprovalStatesInput
  *   pullRequestId: "STRING_VALUE", // required
  *   revisionId: "STRING_VALUE", // required
  * };

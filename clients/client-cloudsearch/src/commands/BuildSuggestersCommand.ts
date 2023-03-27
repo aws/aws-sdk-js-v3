@@ -42,7 +42,7 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * import { CloudSearchClient, BuildSuggestersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, BuildSuggestersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // BuildSuggestersRequest
  *   DomainName: "STRING_VALUE", // required
  * };
  * const command = new BuildSuggestersCommand(input);

@@ -84,32 +84,32 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * import { CloudTrailClient, PutEventSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, PutEventSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // PutEventSelectorsRequest
  *   TrailName: "STRING_VALUE", // required
- *   EventSelectors: [
- *     {
+ *   EventSelectors: [ // EventSelectors
+ *     { // EventSelector
  *       ReadWriteType: "ReadOnly" || "WriteOnly" || "All",
  *       IncludeManagementEvents: true || false,
- *       DataResources: [
- *         {
+ *       DataResources: [ // DataResources
+ *         { // DataResource
  *           Type: "STRING_VALUE",
- *           Values: [
+ *           Values: [ // DataResourceValues
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
- *       ExcludeManagementEventSources: [
+ *       ExcludeManagementEventSources: [ // ExcludeManagementEventSources
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   AdvancedEventSelectors: [
- *     {
+ *   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *     { // AdvancedEventSelector
  *       Name: "STRING_VALUE",
- *       FieldSelectors: [ // required
- *         {
+ *       FieldSelectors: [ // AdvancedFieldSelectors // required
+ *         { // AdvancedFieldSelector
  *           Field: "STRING_VALUE", // required
- *           Equals: [
+ *           Equals: [ // Operator
  *             "STRING_VALUE",
  *           ],
  *           StartsWith: [
@@ -124,9 +124,7 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  *           NotStartsWith: [
  *             "STRING_VALUE",
  *           ],
- *           NotEndsWith: [
- *             "STRING_VALUE",
- *           ],
+ *           NotEndsWith: "<Operator>",
  *         },
  *       ],
  *     },

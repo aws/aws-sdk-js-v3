@@ -43,7 +43,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * import { DevOpsGuruClient, ListRecommendationsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListRecommendationsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
+ * const input = { // ListRecommendationsRequest
  *   InsightId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   Locale: "DE_DE" || "EN_US" || "EN_GB" || "ES_ES" || "FR_FR" || "IT_IT" || "JA_JP" || "KO_KR" || "PT_BR" || "ZH_CN" || "ZH_TW",

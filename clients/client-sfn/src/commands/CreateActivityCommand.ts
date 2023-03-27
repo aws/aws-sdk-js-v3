@@ -58,10 +58,10 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * import { SFNClient, CreateActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, CreateActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // CreateActivityInput
  *   name: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

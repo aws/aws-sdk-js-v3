@@ -143,14 +143,14 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * import { LambdaClient, CreateEventSourceMappingCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateEventSourceMappingCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // CreateEventSourceMappingRequest
  *   EventSourceArn: "STRING_VALUE",
  *   FunctionName: "STRING_VALUE", // required
  *   Enabled: true || false,
  *   BatchSize: Number("int"),
- *   FilterCriteria: {
- *     Filters: [
- *       {
+ *   FilterCriteria: { // FilterCriteria
+ *     Filters: [ // FilterList
+ *       { // Filter
  *         Pattern: "STRING_VALUE",
  *       },
  *     ],
@@ -159,11 +159,11 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *   ParallelizationFactor: Number("int"),
  *   StartingPosition: "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP",
  *   StartingPositionTimestamp: new Date("TIMESTAMP"),
- *   DestinationConfig: {
- *     OnSuccess: {
+ *   DestinationConfig: { // DestinationConfig
+ *     OnSuccess: { // OnSuccess
  *       Destination: "STRING_VALUE",
  *     },
- *     OnFailure: {
+ *     OnFailure: { // OnFailure
  *       Destination: "STRING_VALUE",
  *     },
  *   },
@@ -171,38 +171,38 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *   BisectBatchOnFunctionError: true || false,
  *   MaximumRetryAttempts: Number("int"),
  *   TumblingWindowInSeconds: Number("int"),
- *   Topics: [
+ *   Topics: [ // Topics
  *     "STRING_VALUE",
  *   ],
- *   Queues: [
+ *   Queues: [ // Queues
  *     "STRING_VALUE",
  *   ],
- *   SourceAccessConfigurations: [
- *     {
+ *   SourceAccessConfigurations: [ // SourceAccessConfigurations
+ *     { // SourceAccessConfiguration
  *       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
  *       URI: "STRING_VALUE",
  *     },
  *   ],
- *   SelfManagedEventSource: {
- *     Endpoints: {
- *       "<keys>": [
+ *   SelfManagedEventSource: { // SelfManagedEventSource
+ *     Endpoints: { // Endpoints
+ *       "<keys>": [ // EndpointLists
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
- *   FunctionResponseTypes: [
+ *   FunctionResponseTypes: [ // FunctionResponseTypeList
  *     "ReportBatchItemFailures",
  *   ],
- *   AmazonManagedKafkaEventSourceConfig: {
+ *   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  *     ConsumerGroupId: "STRING_VALUE",
  *   },
- *   SelfManagedKafkaEventSourceConfig: {
+ *   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  *     ConsumerGroupId: "STRING_VALUE",
  *   },
- *   ScalingConfig: {
+ *   ScalingConfig: { // ScalingConfig
  *     MaximumConcurrency: Number("int"),
  *   },
- *   DocumentDBEventSourceConfig: {
+ *   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  *     DatabaseName: "STRING_VALUE",
  *     CollectionName: "STRING_VALUE",
  *     FullDocument: "UpdateLookup" || "Default",

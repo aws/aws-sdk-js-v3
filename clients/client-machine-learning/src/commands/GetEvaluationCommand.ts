@@ -42,7 +42,7 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  * import { MachineLearningClient, GetEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, GetEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // GetEvaluationInput
  *   EvaluationId: "STRING_VALUE", // required
  * };
  * const command = new GetEvaluationCommand(input);

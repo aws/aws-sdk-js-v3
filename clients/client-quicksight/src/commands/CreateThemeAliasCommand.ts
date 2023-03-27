@@ -42,7 +42,7 @@ export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse,
  * import { QuickSightClient, CreateThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // CreateThemeAliasRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   ThemeId: "STRING_VALUE", // required
  *   AliasName: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { IVSRealTimeClient, ListTagsForResourceCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

@@ -42,10 +42,10 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * import { RDSClient, DeregisterDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeregisterDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeregisterDBProxyTargetsRequest
  *   DBProxyName: "STRING_VALUE", // required
  *   TargetGroupName: "STRING_VALUE",
- *   DBInstanceIdentifiers: [
+ *   DBInstanceIdentifiers: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   DBClusterIdentifiers: [

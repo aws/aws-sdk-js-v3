@@ -42,31 +42,31 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  * import { KafkaClient, UpdateMonitoringCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateMonitoringCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // UpdateMonitoringRequest
  *   ClusterArn: "STRING_VALUE", // required
  *   CurrentVersion: "STRING_VALUE", // required
  *   EnhancedMonitoring: "DEFAULT" || "PER_BROKER" || "PER_TOPIC_PER_BROKER" || "PER_TOPIC_PER_PARTITION",
- *   OpenMonitoring: {
- *     Prometheus: {
- *       JmxExporter: {
+ *   OpenMonitoring: { // OpenMonitoringInfo
+ *     Prometheus: { // PrometheusInfo
+ *       JmxExporter: { // JmxExporterInfo
  *         EnabledInBroker: true || false, // required
  *       },
- *       NodeExporter: {
+ *       NodeExporter: { // NodeExporterInfo
  *         EnabledInBroker: true || false, // required
  *       },
  *     },
  *   },
- *   LoggingInfo: {
- *     BrokerLogs: {
- *       CloudWatchLogs: {
+ *   LoggingInfo: { // LoggingInfo
+ *     BrokerLogs: { // BrokerLogs
+ *       CloudWatchLogs: { // CloudWatchLogs
  *         Enabled: true || false, // required
  *         LogGroup: "STRING_VALUE",
  *       },
- *       Firehose: {
+ *       Firehose: { // Firehose
  *         DeliveryStream: "STRING_VALUE",
  *         Enabled: true || false, // required
  *       },
- *       S3: {
+ *       S3: { // S3
  *         Bucket: "STRING_VALUE",
  *         Enabled: true || false, // required
  *         Prefix: "STRING_VALUE",

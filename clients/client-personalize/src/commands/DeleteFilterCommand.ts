@@ -42,7 +42,7 @@ export interface DeleteFilterCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DeleteFilterRequest
  *   filterArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteFilterCommand(input);

@@ -42,7 +42,7 @@ export interface DeleteUserEndpointsCommandOutput extends DeleteUserEndpointsRes
  * import { PinpointClient, DeleteUserEndpointsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteUserEndpointsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // DeleteUserEndpointsRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  * };

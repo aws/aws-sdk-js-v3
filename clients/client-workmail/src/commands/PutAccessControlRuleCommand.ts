@@ -45,30 +45,30 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  * import { WorkMailClient, PutAccessControlRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutAccessControlRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // PutAccessControlRuleRequest
  *   Name: "STRING_VALUE", // required
  *   Effect: "ALLOW" || "DENY", // required
  *   Description: "STRING_VALUE", // required
- *   IpRanges: [
+ *   IpRanges: [ // IpRangeList
  *     "STRING_VALUE",
  *   ],
  *   NotIpRanges: [
  *     "STRING_VALUE",
  *   ],
- *   Actions: [
+ *   Actions: [ // ActionsList
  *     "STRING_VALUE",
  *   ],
  *   NotActions: [
  *     "STRING_VALUE",
  *   ],
- *   UserIds: [
+ *   UserIds: [ // UserIdList
  *     "STRING_VALUE",
  *   ],
  *   NotUserIds: [
  *     "STRING_VALUE",
  *   ],
  *   OrganizationId: "STRING_VALUE", // required
- *   ImpersonationRoleIds: [
+ *   ImpersonationRoleIds: [ // ImpersonationRoleIdList
  *     "STRING_VALUE",
  *   ],
  *   NotImpersonationRoleIds: [

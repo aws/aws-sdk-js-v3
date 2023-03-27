@@ -47,14 +47,14 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  * import { ComprehendClient, ImportModelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ImportModelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // ImportModelRequest
  *   SourceModelArn: "STRING_VALUE", // required
  *   ModelName: "STRING_VALUE",
  *   VersionName: "STRING_VALUE",
  *   ModelKmsKeyId: "STRING_VALUE",
  *   DataAccessRoleArn: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

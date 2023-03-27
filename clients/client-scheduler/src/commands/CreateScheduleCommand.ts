@@ -42,7 +42,7 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * import { SchedulerClient, CreateScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, CreateScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
- * const input = {
+ * const input = { // CreateScheduleInput
  *   Name: "STRING_VALUE", // required
  *   GroupName: "STRING_VALUE",
  *   ScheduleExpression: "STRING_VALUE", // required
@@ -52,27 +52,27 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  *   ScheduleExpressionTimezone: "STRING_VALUE",
  *   State: "STRING_VALUE",
  *   KmsKeyArn: "STRING_VALUE",
- *   Target: {
+ *   Target: { // Target
  *     Arn: "STRING_VALUE", // required
  *     RoleArn: "STRING_VALUE", // required
- *     DeadLetterConfig: {
+ *     DeadLetterConfig: { // DeadLetterConfig
  *       Arn: "STRING_VALUE",
  *     },
- *     RetryPolicy: {
+ *     RetryPolicy: { // RetryPolicy
  *       MaximumEventAgeInSeconds: Number("int"),
  *       MaximumRetryAttempts: Number("int"),
  *     },
  *     Input: "STRING_VALUE",
- *     EcsParameters: {
+ *     EcsParameters: { // EcsParameters
  *       TaskDefinitionArn: "STRING_VALUE", // required
  *       TaskCount: Number("int"),
  *       LaunchType: "STRING_VALUE",
- *       NetworkConfiguration: {
- *         awsvpcConfiguration: {
- *           Subnets: [ // required
+ *       NetworkConfiguration: { // NetworkConfiguration
+ *         awsvpcConfiguration: { // AwsVpcConfiguration
+ *           Subnets: [ // Subnets // required
  *             "STRING_VALUE",
  *           ],
- *           SecurityGroups: [
+ *           SecurityGroups: [ // SecurityGroups
  *             "STRING_VALUE",
  *           ],
  *           AssignPublicIp: "STRING_VALUE",
@@ -80,8 +80,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  *       },
  *       PlatformVersion: "STRING_VALUE",
  *       Group: "STRING_VALUE",
- *       CapacityProviderStrategy: [
- *         {
+ *       CapacityProviderStrategy: [ // CapacityProviderStrategy
+ *         { // CapacityProviderStrategyItem
  *           capacityProvider: "STRING_VALUE", // required
  *           weight: Number("int"),
  *           base: Number("int"),
@@ -89,46 +89,46 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  *       ],
  *       EnableECSManagedTags: true || false,
  *       EnableExecuteCommand: true || false,
- *       PlacementConstraints: [
- *         {
+ *       PlacementConstraints: [ // PlacementConstraints
+ *         { // PlacementConstraint
  *           type: "STRING_VALUE",
  *           expression: "STRING_VALUE",
  *         },
  *       ],
- *       PlacementStrategy: [
- *         {
+ *       PlacementStrategy: [ // PlacementStrategies
+ *         { // PlacementStrategy
  *           type: "STRING_VALUE",
  *           field: "STRING_VALUE",
  *         },
  *       ],
  *       PropagateTags: "STRING_VALUE",
  *       ReferenceId: "STRING_VALUE",
- *       Tags: [
- *         {
+ *       Tags: [ // Tags
+ *         { // TagMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       ],
  *     },
- *     EventBridgeParameters: {
+ *     EventBridgeParameters: { // EventBridgeParameters
  *       DetailType: "STRING_VALUE", // required
  *       Source: "STRING_VALUE", // required
  *     },
- *     KinesisParameters: {
+ *     KinesisParameters: { // KinesisParameters
  *       PartitionKey: "STRING_VALUE", // required
  *     },
- *     SageMakerPipelineParameters: {
- *       PipelineParameterList: [
- *         {
+ *     SageMakerPipelineParameters: { // SageMakerPipelineParameters
+ *       PipelineParameterList: [ // SageMakerPipelineParameterList
+ *         { // SageMakerPipelineParameter
  *           Name: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     SqsParameters: {
+ *     SqsParameters: { // SqsParameters
  *       MessageGroupId: "STRING_VALUE",
  *     },
  *   },
- *   FlexibleTimeWindow: {
+ *   FlexibleTimeWindow: { // FlexibleTimeWindow
  *     Mode: "STRING_VALUE", // required
  *     MaximumWindowInMinutes: Number("int"),
  *   },

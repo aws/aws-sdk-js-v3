@@ -63,7 +63,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * import { SageMakerClient, ListTrainingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrainingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListTrainingJobsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CreationTimeAfter: new Date("TIMESTAMP"),

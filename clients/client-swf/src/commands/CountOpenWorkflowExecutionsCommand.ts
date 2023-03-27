@@ -88,20 +88,20 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * import { SWFClient, CountOpenWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountOpenWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // CountOpenWorkflowExecutionsInput
  *   domain: "STRING_VALUE", // required
- *   startTimeFilter: {
+ *   startTimeFilter: { // ExecutionTimeFilter
  *     oldestDate: new Date("TIMESTAMP"), // required
  *     latestDate: new Date("TIMESTAMP"),
  *   },
- *   typeFilter: {
+ *   typeFilter: { // WorkflowTypeFilter
  *     name: "STRING_VALUE", // required
  *     version: "STRING_VALUE",
  *   },
- *   tagFilter: {
+ *   tagFilter: { // TagFilter
  *     tag: "STRING_VALUE", // required
  *   },
- *   executionFilter: {
+ *   executionFilter: { // WorkflowExecutionFilter
  *     workflowId: "STRING_VALUE", // required
  *   },
  * };

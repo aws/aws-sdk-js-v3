@@ -42,7 +42,7 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  * import { SchemasClient, PutCodeBindingCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, PutCodeBindingCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // PutCodeBindingRequest
  *   Language: "STRING_VALUE", // required
  *   RegistryName: "STRING_VALUE", // required
  *   SchemaName: "STRING_VALUE", // required

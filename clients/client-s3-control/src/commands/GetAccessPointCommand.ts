@@ -63,7 +63,7 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResult, __Met
  * import { S3ControlClient, GetAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // GetAccessPointRequest
  *   AccountId: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  * };

@@ -76,24 +76,24 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * import { ConfigServiceClient, PutOrganizationConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutOrganizationConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // PutOrganizationConfigRuleRequest
  *   OrganizationConfigRuleName: "STRING_VALUE", // required
- *   OrganizationManagedRuleMetadata: {
+ *   OrganizationManagedRuleMetadata: { // OrganizationManagedRuleMetadata
  *     Description: "STRING_VALUE",
  *     RuleIdentifier: "STRING_VALUE", // required
  *     InputParameters: "STRING_VALUE",
  *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
- *     ResourceTypesScope: [
+ *     ResourceTypesScope: [ // ResourceTypesScope
  *       "STRING_VALUE",
  *     ],
  *     ResourceIdScope: "STRING_VALUE",
  *     TagKeyScope: "STRING_VALUE",
  *     TagValueScope: "STRING_VALUE",
  *   },
- *   OrganizationCustomRuleMetadata: {
+ *   OrganizationCustomRuleMetadata: { // OrganizationCustomRuleMetadata
  *     Description: "STRING_VALUE",
  *     LambdaFunctionArn: "STRING_VALUE", // required
- *     OrganizationConfigRuleTriggerTypes: [ // required
+ *     OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypes // required
  *       "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification" || "ScheduledNotification",
  *     ],
  *     InputParameters: "STRING_VALUE",
@@ -105,12 +105,12 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *     TagKeyScope: "STRING_VALUE",
  *     TagValueScope: "STRING_VALUE",
  *   },
- *   ExcludedAccounts: [
+ *   ExcludedAccounts: [ // ExcludedAccounts
  *     "STRING_VALUE",
  *   ],
- *   OrganizationCustomPolicyRuleMetadata: {
+ *   OrganizationCustomPolicyRuleMetadata: { // OrganizationCustomPolicyRuleMetadata
  *     Description: "STRING_VALUE",
- *     OrganizationConfigRuleTriggerTypes: [
+ *     OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypeNoSNs
  *       "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification",
  *     ],
  *     InputParameters: "STRING_VALUE",
@@ -123,7 +123,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *     TagValueScope: "STRING_VALUE",
  *     PolicyRuntime: "STRING_VALUE", // required
  *     PolicyText: "STRING_VALUE", // required
- *     DebugLogDeliveryAccounts: [
+ *     DebugLogDeliveryAccounts: [ // DebugLogDeliveryAccounts
  *       "STRING_VALUE",
  *     ],
  *   },

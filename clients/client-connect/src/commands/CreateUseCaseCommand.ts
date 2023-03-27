@@ -42,11 +42,11 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * import { ConnectClient, CreateUseCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateUseCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // CreateUseCaseRequest
  *   InstanceId: "STRING_VALUE", // required
  *   IntegrationAssociationId: "STRING_VALUE", // required
  *   UseCaseType: "RULES_EVALUATION" || "CONNECT_CAMPAIGNS", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

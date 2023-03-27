@@ -48,7 +48,7 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  * import { Route53RecoveryReadinessClient, DeleteCrossAccountAuthorizationCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, DeleteCrossAccountAuthorizationCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // DeleteCrossAccountAuthorizationRequest
  *   CrossAccountAuthorization: "STRING_VALUE", // required
  * };
  * const command = new DeleteCrossAccountAuthorizationCommand(input);

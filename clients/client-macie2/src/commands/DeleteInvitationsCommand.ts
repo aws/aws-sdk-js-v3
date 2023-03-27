@@ -42,8 +42,8 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * import { Macie2Client, DeleteInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DeleteInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
- *   accountIds: [ // required
+ * const input = { // DeleteInvitationsRequest
+ *   accountIds: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
  * };

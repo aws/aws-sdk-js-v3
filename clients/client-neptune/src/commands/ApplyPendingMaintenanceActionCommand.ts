@@ -44,7 +44,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * import { NeptuneClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ApplyPendingMaintenanceActionMessage
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ApplyAction: "STRING_VALUE", // required
  *   OptInType: "STRING_VALUE", // required

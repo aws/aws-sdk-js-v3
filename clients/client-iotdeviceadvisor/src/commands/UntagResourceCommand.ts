@@ -43,9 +43,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { IotDeviceAdvisorClient, UntagResourceCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, UntagResourceCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

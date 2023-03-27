@@ -43,7 +43,7 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * import { SNSClient, GetDataProtectionPolicyCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetDataProtectionPolicyCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // GetDataProtectionPolicyInput
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new GetDataProtectionPolicyCommand(input);

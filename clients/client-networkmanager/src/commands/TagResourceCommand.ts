@@ -42,10 +42,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { NetworkManagerClient, TagResourceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, TagResourceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

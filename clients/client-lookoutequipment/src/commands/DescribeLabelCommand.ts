@@ -44,7 +44,7 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  * import { LookoutEquipmentClient, DescribeLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = {
+ * const input = { // DescribeLabelRequest
  *   LabelGroupName: "STRING_VALUE", // required
  *   LabelId: "STRING_VALUE", // required
  * };

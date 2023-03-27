@@ -44,7 +44,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * import { WAFV2Client, ListResourcesForWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListResourcesForWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // ListResourcesForWebACLRequest
  *   WebACLArn: "STRING_VALUE", // required
  *   ResourceType: "APPLICATION_LOAD_BALANCER" || "API_GATEWAY" || "APPSYNC" || "COGNITO_USER_POOL" || "APP_RUNNER_SERVICE",
  * };

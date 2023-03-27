@@ -55,30 +55,30 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const input = {
+ * const input = { // CreateBatchLoadTaskRequest
  *   ClientToken: "STRING_VALUE",
- *   DataModelConfiguration: {
- *     DataModel: {
+ *   DataModelConfiguration: { // DataModelConfiguration
+ *     DataModel: { // DataModel
  *       TimeColumn: "STRING_VALUE",
  *       TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
- *       DimensionMappings: [ // required
- *         {
+ *       DimensionMappings: [ // DimensionMappings // required
+ *         { // DimensionMapping
  *           SourceColumn: "STRING_VALUE",
  *           DestinationColumn: "STRING_VALUE",
  *         },
  *       ],
- *       MultiMeasureMappings: {
+ *       MultiMeasureMappings: { // MultiMeasureMappings
  *         TargetMultiMeasureName: "STRING_VALUE",
- *         MultiMeasureAttributeMappings: [ // required
- *           {
+ *         MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappingList // required
+ *           { // MultiMeasureAttributeMapping
  *             SourceColumn: "STRING_VALUE", // required
  *             TargetMultiMeasureAttributeName: "STRING_VALUE",
  *             MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
  *           },
  *         ],
  *       },
- *       MixedMeasureMappings: [
- *         {
+ *       MixedMeasureMappings: [ // MixedMeasureMappingList
+ *         { // MixedMeasureMapping
  *           MeasureName: "STRING_VALUE",
  *           SourceColumn: "STRING_VALUE",
  *           TargetMeasureName: "STRING_VALUE",
@@ -94,17 +94,17 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  *       ],
  *       MeasureNameColumn: "STRING_VALUE",
  *     },
- *     DataModelS3Configuration: {
+ *     DataModelS3Configuration: { // DataModelS3Configuration
  *       BucketName: "STRING_VALUE",
  *       ObjectKey: "STRING_VALUE",
  *     },
  *   },
- *   DataSourceConfiguration: {
- *     DataSourceS3Configuration: {
+ *   DataSourceConfiguration: { // DataSourceConfiguration
+ *     DataSourceS3Configuration: { // DataSourceS3Configuration
  *       BucketName: "STRING_VALUE", // required
  *       ObjectKeyPrefix: "STRING_VALUE",
  *     },
- *     CsvConfiguration: {
+ *     CsvConfiguration: { // CsvConfiguration
  *       ColumnSeparator: "STRING_VALUE",
  *       EscapeChar: "STRING_VALUE",
  *       QuoteChar: "STRING_VALUE",
@@ -113,8 +113,8 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  *     },
  *     DataFormat: "CSV", // required
  *   },
- *   ReportConfiguration: {
- *     ReportS3Configuration: {
+ *   ReportConfiguration: { // ReportConfiguration
+ *     ReportS3Configuration: { // ReportS3Configuration
  *       BucketName: "STRING_VALUE", // required
  *       ObjectKeyPrefix: "STRING_VALUE",
  *       EncryptionOption: "SSE_S3" || "SSE_KMS",

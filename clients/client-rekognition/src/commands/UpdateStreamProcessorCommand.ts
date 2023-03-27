@@ -44,36 +44,36 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * import { RekognitionClient, UpdateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, UpdateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // UpdateStreamProcessorRequest
  *   Name: "STRING_VALUE", // required
- *   SettingsForUpdate: {
- *     ConnectedHomeForUpdate: {
- *       Labels: [
+ *   SettingsForUpdate: { // StreamProcessorSettingsForUpdate
+ *     ConnectedHomeForUpdate: { // ConnectedHomeSettingsForUpdate
+ *       Labels: [ // ConnectedHomeLabels
  *         "STRING_VALUE",
  *       ],
  *       MinConfidence: Number("float"),
  *     },
  *   },
- *   RegionsOfInterestForUpdate: [
- *     {
- *       BoundingBox: {
+ *   RegionsOfInterestForUpdate: [ // RegionsOfInterest
+ *     { // RegionOfInterest
+ *       BoundingBox: { // BoundingBox
  *         Width: Number("float"),
  *         Height: Number("float"),
  *         Left: Number("float"),
  *         Top: Number("float"),
  *       },
- *       Polygon: [
- *         {
+ *       Polygon: [ // Polygon
+ *         { // Point
  *           X: Number("float"),
  *           Y: Number("float"),
  *         },
  *       ],
  *     },
  *   ],
- *   DataSharingPreferenceForUpdate: {
+ *   DataSharingPreferenceForUpdate: { // StreamProcessorDataSharingPreference
  *     OptIn: true || false, // required
  *   },
- *   ParametersToDelete: [
+ *   ParametersToDelete: [ // StreamProcessorParametersToDelete
  *     "ConnectedHomeMinConfidence" || "RegionsOfInterest",
  *   ],
  * };

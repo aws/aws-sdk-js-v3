@@ -47,25 +47,25 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  * import { VoiceIDClient, StartSpeakerEnrollmentJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, StartSpeakerEnrollmentJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // StartSpeakerEnrollmentJobRequest
  *   ClientToken: "STRING_VALUE",
  *   JobName: "STRING_VALUE",
  *   DomainId: "STRING_VALUE", // required
  *   DataAccessRoleArn: "STRING_VALUE", // required
- *   EnrollmentConfig: {
+ *   EnrollmentConfig: { // EnrollmentConfig
  *     ExistingEnrollmentAction: "STRING_VALUE",
- *     FraudDetectionConfig: {
+ *     FraudDetectionConfig: { // EnrollmentJobFraudDetectionConfig
  *       FraudDetectionAction: "STRING_VALUE",
  *       RiskThreshold: Number("int"),
- *       WatchlistIds: [
+ *       WatchlistIds: [ // EnrollmentJobFraudDetectionConfigWatchlistIds
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
- *   InputDataConfig: {
+ *   InputDataConfig: { // InputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // OutputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     KmsKeyId: "STRING_VALUE",
  *   },

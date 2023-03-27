@@ -51,7 +51,7 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * import { IoTSiteWiseClient, ListAssociatedAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssociatedAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // ListAssociatedAssetsRequest
  *   assetId: "STRING_VALUE", // required
  *   hierarchyId: "STRING_VALUE",
  *   traversalDirection: "PARENT" || "CHILD",

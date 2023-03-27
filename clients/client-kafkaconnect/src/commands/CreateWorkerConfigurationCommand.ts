@@ -46,7 +46,7 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  * import { KafkaConnectClient, CreateWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, CreateWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = {
+ * const input = { // CreateWorkerConfigurationRequest
  *   description: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   propertiesFileContent: "STRING_VALUE", // required

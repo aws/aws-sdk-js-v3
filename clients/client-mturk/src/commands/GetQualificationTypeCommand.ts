@@ -44,7 +44,7 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  * import { MTurkClient, GetQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // GetQualificationTypeRequest
  *   QualificationTypeId: "STRING_VALUE", // required
  * };
  * const command = new GetQualificationTypeCommand(input);

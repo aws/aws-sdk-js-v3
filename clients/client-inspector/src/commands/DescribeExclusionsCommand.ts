@@ -42,8 +42,8 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * import { InspectorClient, DescribeExclusionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeExclusionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
- *   exclusionArns: [ // required
+ * const input = { // DescribeExclusionsRequest
+ *   exclusionArns: [ // BatchDescribeExclusionsArnList // required
  *     "STRING_VALUE",
  *   ],
  *   locale: "STRING_VALUE",

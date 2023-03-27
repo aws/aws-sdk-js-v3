@@ -42,7 +42,7 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  * import { ServiceCatalogClient, ListResourcesForTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListResourcesForTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListResourcesForTagOptionInput
  *   TagOptionId: "STRING_VALUE", // required
  *   ResourceType: "STRING_VALUE",
  *   PageSize: Number("int"),

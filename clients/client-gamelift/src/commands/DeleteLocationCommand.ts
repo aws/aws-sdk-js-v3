@@ -44,7 +44,7 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * import { GameLiftClient, DeleteLocationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteLocationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DeleteLocationInput
  *   LocationName: "STRING_VALUE", // required
  * };
  * const command = new DeleteLocationCommand(input);

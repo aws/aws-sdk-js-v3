@@ -44,8 +44,8 @@ export interface UpdateTemplateActiveVersionCommandOutput
  * import { PinpointClient, UpdateTemplateActiveVersionCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateTemplateActiveVersionCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
- *   TemplateActiveVersionRequest: {
+ * const input = { // UpdateTemplateActiveVersionRequest
+ *   TemplateActiveVersionRequest: { // TemplateActiveVersionRequest
  *     Version: "STRING_VALUE",
  *   },
  *   TemplateName: "STRING_VALUE", // required

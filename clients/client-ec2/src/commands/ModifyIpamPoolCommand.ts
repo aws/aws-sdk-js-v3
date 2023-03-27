@@ -41,7 +41,7 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  * import { EC2Client, ModifyIpamPoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamPoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyIpamPoolRequest
  *   DryRun: true || false,
  *   IpamPoolId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
@@ -50,8 +50,8 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  *   AllocationMaxNetmaskLength: Number("int"),
  *   AllocationDefaultNetmaskLength: Number("int"),
  *   ClearAllocationDefaultNetmaskLength: true || false,
- *   AddAllocationResourceTags: [
- *     {
+ *   AddAllocationResourceTags: [ // RequestIpamResourceTagList
+ *     { // RequestIpamResourceTag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

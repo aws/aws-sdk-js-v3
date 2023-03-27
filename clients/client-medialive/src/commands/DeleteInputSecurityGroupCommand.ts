@@ -42,7 +42,7 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  * import { MediaLiveClient, DeleteInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // DeleteInputSecurityGroupRequest
  *   InputSecurityGroupId: "STRING_VALUE", // required
  * };
  * const command = new DeleteInputSecurityGroupCommand(input);

@@ -44,7 +44,7 @@ export interface GetRelationalDatabaseSnapshotCommandOutput
  * import { LightsailClient, GetRelationalDatabaseSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetRelationalDatabaseSnapshotRequest
  *   relationalDatabaseSnapshotName: "STRING_VALUE", // required
  * };
  * const command = new GetRelationalDatabaseSnapshotCommand(input);

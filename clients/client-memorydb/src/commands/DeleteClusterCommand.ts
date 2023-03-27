@@ -42,7 +42,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * import { MemoryDBClient, DeleteClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DeleteClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // DeleteClusterRequest
  *   ClusterName: "STRING_VALUE", // required
  *   FinalSnapshotName: "STRING_VALUE",
  * };

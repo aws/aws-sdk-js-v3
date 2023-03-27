@@ -43,7 +43,7 @@ export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelRespo
  * import { IoTEventsClient, DescribeAlarmModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeAlarmModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
- * const input = {
+ * const input = { // DescribeAlarmModelRequest
  *   alarmModelName: "STRING_VALUE", // required
  *   alarmModelVersion: "STRING_VALUE",
  * };

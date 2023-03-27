@@ -46,9 +46,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { RoboMakerClient, UntagResourceCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, UntagResourceCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

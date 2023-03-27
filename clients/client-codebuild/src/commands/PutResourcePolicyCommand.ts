@@ -43,7 +43,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * import { CodeBuildClient, PutResourcePolicyCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, PutResourcePolicyCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyInput
  *   policy: "STRING_VALUE", // required
  *   resourceArn: "STRING_VALUE", // required
  * };

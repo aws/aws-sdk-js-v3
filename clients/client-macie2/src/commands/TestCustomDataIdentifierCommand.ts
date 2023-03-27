@@ -42,8 +42,8 @@ export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIde
  * import { Macie2Client, TestCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, TestCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
- *   ignoreWords: [
+ * const input = { // TestCustomDataIdentifierRequest
+ *   ignoreWords: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  *   keywords: [

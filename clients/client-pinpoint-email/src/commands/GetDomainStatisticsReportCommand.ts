@@ -43,7 +43,7 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * import { PinpointEmailClient, GetDomainStatisticsReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetDomainStatisticsReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // GetDomainStatisticsReportRequest
  *   Domain: "STRING_VALUE", // required
  *   StartDate: new Date("TIMESTAMP"), // required
  *   EndDate: new Date("TIMESTAMP"), // required

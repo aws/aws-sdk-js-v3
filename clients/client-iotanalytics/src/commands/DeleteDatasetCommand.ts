@@ -44,7 +44,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, DeleteDatasetCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DeleteDatasetCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // DeleteDatasetRequest
  *   datasetName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDatasetCommand(input);

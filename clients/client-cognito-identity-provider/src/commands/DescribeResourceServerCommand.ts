@@ -47,7 +47,7 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  * import { CognitoIdentityProviderClient, DescribeResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DescribeResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // DescribeResourceServerRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Identifier: "STRING_VALUE", // required
  * };

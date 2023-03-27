@@ -44,12 +44,12 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  * import { DevOpsGuruClient, UpdateServiceIntegrationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, UpdateServiceIntegrationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
- *   ServiceIntegration: {
- *     OpsCenter: {
+ * const input = { // UpdateServiceIntegrationRequest
+ *   ServiceIntegration: { // UpdateServiceIntegrationConfig
+ *     OpsCenter: { // OpsCenterIntegrationConfig
  *       OptInStatus: "ENABLED" || "DISABLED",
  *     },
- *     LogsAnomalyDetection: {
+ *     LogsAnomalyDetection: { // LogsAnomalyDetectionIntegrationConfig
  *       OptInStatus: "ENABLED" || "DISABLED",
  *     },
  *   },

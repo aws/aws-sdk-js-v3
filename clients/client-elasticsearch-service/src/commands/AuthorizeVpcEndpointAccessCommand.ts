@@ -46,7 +46,7 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * import { ElasticsearchServiceClient, AuthorizeVpcEndpointAccessCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, AuthorizeVpcEndpointAccessCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // AuthorizeVpcEndpointAccessRequest
  *   DomainName: "STRING_VALUE", // required
  *   Account: "STRING_VALUE", // required
  * };

@@ -49,7 +49,7 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput
  * import { Route53DomainsClient, DisassociateDelegationSignerFromDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, DisassociateDelegationSignerFromDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // DisassociateDelegationSignerFromDomainRequest
  *   DomainName: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
  * };

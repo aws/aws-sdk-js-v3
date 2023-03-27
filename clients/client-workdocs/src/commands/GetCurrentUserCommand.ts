@@ -53,7 +53,7 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  * import { WorkDocsClient, GetCurrentUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetCurrentUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // GetCurrentUserRequest
  *   AuthenticationToken: "STRING_VALUE", // required
  * };
  * const command = new GetCurrentUserCommand(input);

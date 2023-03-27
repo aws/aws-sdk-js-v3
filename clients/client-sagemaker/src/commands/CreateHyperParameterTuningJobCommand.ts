@@ -58,64 +58,64 @@ export interface CreateHyperParameterTuningJobCommandOutput
  * import { SageMakerClient, CreateHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateHyperParameterTuningJobRequest
  *   HyperParameterTuningJobName: "STRING_VALUE", // required
- *   HyperParameterTuningJobConfig: {
+ *   HyperParameterTuningJobConfig: { // HyperParameterTuningJobConfig
  *     Strategy: "Bayesian" || "Random" || "Hyperband" || "Grid", // required
- *     StrategyConfig: {
- *       HyperbandStrategyConfig: {
+ *     StrategyConfig: { // HyperParameterTuningJobStrategyConfig
+ *       HyperbandStrategyConfig: { // HyperbandStrategyConfig
  *         MinResource: Number("int"),
  *         MaxResource: Number("int"),
  *       },
  *     },
- *     HyperParameterTuningJobObjective: {
+ *     HyperParameterTuningJobObjective: { // HyperParameterTuningJobObjective
  *       Type: "Maximize" || "Minimize", // required
  *       MetricName: "STRING_VALUE", // required
  *     },
- *     ResourceLimits: {
+ *     ResourceLimits: { // ResourceLimits
  *       MaxNumberOfTrainingJobs: Number("int"),
  *       MaxParallelTrainingJobs: Number("int"), // required
  *       MaxRuntimeInSeconds: Number("int"),
  *     },
- *     ParameterRanges: {
- *       IntegerParameterRanges: [
- *         {
+ *     ParameterRanges: { // ParameterRanges
+ *       IntegerParameterRanges: [ // IntegerParameterRanges
+ *         { // IntegerParameterRange
  *           Name: "STRING_VALUE", // required
  *           MinValue: "STRING_VALUE", // required
  *           MaxValue: "STRING_VALUE", // required
  *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
  *         },
  *       ],
- *       ContinuousParameterRanges: [
- *         {
+ *       ContinuousParameterRanges: [ // ContinuousParameterRanges
+ *         { // ContinuousParameterRange
  *           Name: "STRING_VALUE", // required
  *           MinValue: "STRING_VALUE", // required
  *           MaxValue: "STRING_VALUE", // required
  *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
  *         },
  *       ],
- *       CategoricalParameterRanges: [
- *         {
+ *       CategoricalParameterRanges: [ // CategoricalParameterRanges
+ *         { // CategoricalParameterRange
  *           Name: "STRING_VALUE", // required
- *           Values: [ // required
+ *           Values: [ // ParameterValues // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
  *     },
  *     TrainingJobEarlyStoppingType: "Off" || "Auto",
- *     TuningJobCompletionCriteria: {
+ *     TuningJobCompletionCriteria: { // TuningJobCompletionCriteria
  *       TargetObjectiveMetricValue: Number("float"),
- *       BestObjectiveNotImproving: {
+ *       BestObjectiveNotImproving: { // BestObjectiveNotImproving
  *         MaxNumberOfTrainingJobsNotImproving: Number("int"),
  *       },
- *       ConvergenceDetected: {
+ *       ConvergenceDetected: { // ConvergenceDetected
  *         CompleteOnConvergence: "Disabled" || "Enabled",
  *       },
  *     },
  *     RandomSeed: Number("int"),
  *   },
- *   TrainingJobDefinition: {
+ *   TrainingJobDefinition: { // HyperParameterTrainingJobDefinition
  *     DefinitionName: "STRING_VALUE",
  *     TuningObjective: {
  *       Type: "Maximize" || "Minimize", // required
@@ -147,37 +147,37 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *         },
  *       ],
  *     },
- *     StaticHyperParameters: {
+ *     StaticHyperParameters: { // HyperParameters
  *       "<keys>": "STRING_VALUE",
  *     },
- *     AlgorithmSpecification: {
+ *     AlgorithmSpecification: { // HyperParameterAlgorithmSpecification
  *       TrainingImage: "STRING_VALUE",
  *       TrainingInputMode: "Pipe" || "File" || "FastFile", // required
  *       AlgorithmName: "STRING_VALUE",
- *       MetricDefinitions: [
- *         {
+ *       MetricDefinitions: [ // MetricDefinitionList
+ *         { // MetricDefinition
  *           Name: "STRING_VALUE", // required
  *           Regex: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
  *     RoleArn: "STRING_VALUE", // required
- *     InputDataConfig: [
- *       {
+ *     InputDataConfig: [ // InputDataConfig
+ *       { // Channel
  *         ChannelName: "STRING_VALUE", // required
- *         DataSource: {
- *           S3DataSource: {
+ *         DataSource: { // DataSource
+ *           S3DataSource: { // S3DataSource
  *             S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
  *             S3Uri: "STRING_VALUE", // required
  *             S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
- *             AttributeNames: [
+ *             AttributeNames: [ // AttributeNames
  *               "STRING_VALUE",
  *             ],
- *             InstanceGroupNames: [
+ *             InstanceGroupNames: [ // InstanceGroupNames
  *               "STRING_VALUE",
  *             ],
  *           },
- *           FileSystemDataSource: {
+ *           FileSystemDataSource: { // FileSystemDataSource
  *             FileSystemId: "STRING_VALUE", // required
  *             FileSystemAccessMode: "rw" || "ro", // required
  *             FileSystemType: "EFS" || "FSxLustre", // required
@@ -188,30 +188,30 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *         CompressionType: "None" || "Gzip",
  *         RecordWrapperType: "None" || "RecordIO",
  *         InputMode: "Pipe" || "File" || "FastFile",
- *         ShuffleConfig: {
+ *         ShuffleConfig: { // ShuffleConfig
  *           Seed: Number("long"), // required
  *         },
  *       },
  *     ],
- *     VpcConfig: {
- *       SecurityGroupIds: [ // required
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // VpcSecurityGroupIds // required
  *         "STRING_VALUE",
  *       ],
- *       Subnets: [ // required
+ *       Subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
  *     },
- *     OutputDataConfig: {
+ *     OutputDataConfig: { // OutputDataConfig
  *       KmsKeyId: "STRING_VALUE",
  *       S3OutputPath: "STRING_VALUE", // required
  *     },
- *     ResourceConfig: {
+ *     ResourceConfig: { // ResourceConfig
  *       InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
  *       InstanceCount: Number("int"),
  *       VolumeSizeInGB: Number("int"), // required
  *       VolumeKmsKeyId: "STRING_VALUE",
- *       InstanceGroups: [
- *         {
+ *       InstanceGroups: [ // InstanceGroups
+ *         { // InstanceGroup
  *           InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
  *           InstanceCount: Number("int"), // required
  *           InstanceGroupName: "STRING_VALUE", // required
@@ -219,39 +219,39 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *       ],
  *       KeepAlivePeriodInSeconds: Number("int"),
  *     },
- *     StoppingCondition: {
+ *     StoppingCondition: { // StoppingCondition
  *       MaxRuntimeInSeconds: Number("int"),
  *       MaxWaitTimeInSeconds: Number("int"),
  *     },
  *     EnableNetworkIsolation: true || false,
  *     EnableInterContainerTrafficEncryption: true || false,
  *     EnableManagedSpotTraining: true || false,
- *     CheckpointConfig: {
+ *     CheckpointConfig: { // CheckpointConfig
  *       S3Uri: "STRING_VALUE", // required
  *       LocalPath: "STRING_VALUE",
  *     },
- *     RetryStrategy: {
+ *     RetryStrategy: { // RetryStrategy
  *       MaximumRetryAttempts: Number("int"), // required
  *     },
- *     HyperParameterTuningResourceConfig: {
+ *     HyperParameterTuningResourceConfig: { // HyperParameterTuningResourceConfig
  *       InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
  *       InstanceCount: Number("int"),
  *       VolumeSizeInGB: Number("int"),
  *       VolumeKmsKeyId: "STRING_VALUE",
  *       AllocationStrategy: "Prioritized",
- *       InstanceConfigs: [
- *         {
+ *       InstanceConfigs: [ // HyperParameterTuningInstanceConfigs
+ *         { // HyperParameterTuningInstanceConfig
  *           InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
  *           InstanceCount: Number("int"), // required
  *           VolumeSizeInGB: Number("int"), // required
  *         },
  *       ],
  *     },
- *     Environment: {
+ *     Environment: { // HyperParameterTrainingJobEnvironmentMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   TrainingJobDefinitions: [
+ *   TrainingJobDefinitions: [ // HyperParameterTrainingJobDefinitions
  *     {
  *       DefinitionName: "STRING_VALUE",
  *       TuningObjective: {
@@ -389,16 +389,16 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *       },
  *     },
  *   ],
- *   WarmStartConfig: {
- *     ParentHyperParameterTuningJobs: [ // required
- *       {
+ *   WarmStartConfig: { // HyperParameterTuningJobWarmStartConfig
+ *     ParentHyperParameterTuningJobs: [ // ParentHyperParameterTuningJobs // required
+ *       { // ParentHyperParameterTuningJob
  *         HyperParameterTuningJobName: "STRING_VALUE",
  *       },
  *     ],
  *     WarmStartType: "IdenticalDataAndAlgorithm" || "TransferLearning", // required
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

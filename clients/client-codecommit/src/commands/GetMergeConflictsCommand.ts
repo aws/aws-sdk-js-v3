@@ -42,7 +42,7 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
  * import { CodeCommitClient, GetMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetMergeConflictsInput
  *   repositoryName: "STRING_VALUE", // required
  *   destinationCommitSpecifier: "STRING_VALUE", // required
  *   sourceCommitSpecifier: "STRING_VALUE", // required

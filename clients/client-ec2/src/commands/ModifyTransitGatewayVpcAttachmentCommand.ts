@@ -44,15 +44,15 @@ export interface ModifyTransitGatewayVpcAttachmentCommandOutput
  * import { EC2Client, ModifyTransitGatewayVpcAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTransitGatewayVpcAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyTransitGatewayVpcAttachmentRequest
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required
- *   AddSubnetIds: [
+ *   AddSubnetIds: [ // TransitGatewaySubnetIdList
  *     "STRING_VALUE",
  *   ],
  *   RemoveSubnetIds: [
  *     "STRING_VALUE",
  *   ],
- *   Options: {
+ *   Options: { // ModifyTransitGatewayVpcAttachmentRequestOptions
  *     DnsSupport: "enable" || "disable",
  *     Ipv6Support: "enable" || "disable",
  *     ApplianceModeSupport: "enable" || "disable",

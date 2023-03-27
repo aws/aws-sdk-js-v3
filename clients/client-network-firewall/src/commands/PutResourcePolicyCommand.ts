@@ -56,7 +56,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { NetworkFirewallClient, PutResourcePolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, PutResourcePolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required
  *   Policy: "STRING_VALUE", // required
  * };

@@ -48,7 +48,7 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * import { DirectConnectClient, UpdateVirtualInterfaceAttributesCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateVirtualInterfaceAttributesCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // UpdateVirtualInterfaceAttributesRequest
  *   virtualInterfaceId: "STRING_VALUE", // required
  *   mtu: Number("int"),
  *   enableSiteLink: true || false,

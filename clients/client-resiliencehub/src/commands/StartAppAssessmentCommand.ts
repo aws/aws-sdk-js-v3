@@ -47,12 +47,12 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * import { ResiliencehubClient, StartAppAssessmentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, StartAppAssessmentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // StartAppAssessmentRequest
  *   appArn: "STRING_VALUE", // required
  *   appVersion: "STRING_VALUE", // required
  *   assessmentName: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

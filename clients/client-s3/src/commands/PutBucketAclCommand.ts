@@ -231,12 +231,12 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketAclRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
- *   AccessControlPolicy: {
- *     Grants: [
- *       {
- *         Grantee: {
+ *   AccessControlPolicy: { // AccessControlPolicy
+ *     Grants: [ // Grants
+ *       { // Grant
+ *         Grantee: { // Grantee
  *           DisplayName: "STRING_VALUE",
  *           EmailAddress: "STRING_VALUE",
  *           ID: "STRING_VALUE",
@@ -246,7 +246,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
  *       },
  *     ],
- *     Owner: {
+ *     Owner: { // Owner
  *       DisplayName: "STRING_VALUE",
  *       ID: "STRING_VALUE",
  *     },

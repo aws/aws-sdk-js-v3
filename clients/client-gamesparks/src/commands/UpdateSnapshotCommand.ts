@@ -42,7 +42,7 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResult, __Met
  * import { GameSparksClient, UpdateSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, UpdateSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // UpdateSnapshotRequest
  *   GameName: "STRING_VALUE", // required
  *   SnapshotId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

@@ -43,7 +43,7 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * import { ElastiCacheClient, DescribeReservedCacheNodesCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeReservedCacheNodesCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DescribeReservedCacheNodesMessage
  *   ReservedCacheNodeId: "STRING_VALUE",
  *   ReservedCacheNodesOfferingId: "STRING_VALUE",
  *   CacheNodeType: "STRING_VALUE",

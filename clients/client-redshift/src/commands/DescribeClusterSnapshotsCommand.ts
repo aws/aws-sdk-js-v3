@@ -54,7 +54,7 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
  * import { RedshiftClient, DescribeClusterSnapshotsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterSnapshotsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeClusterSnapshotsMessage
  *   ClusterIdentifier: "STRING_VALUE",
  *   SnapshotIdentifier: "STRING_VALUE",
  *   SnapshotArn: "STRING_VALUE",
@@ -64,15 +64,15 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",
  *   OwnerAccount: "STRING_VALUE",
- *   TagKeys: [
+ *   TagKeys: [ // TagKeyList
  *     "STRING_VALUE",
  *   ],
- *   TagValues: [
+ *   TagValues: [ // TagValueList
  *     "STRING_VALUE",
  *   ],
  *   ClusterExists: true || false,
- *   SortingEntities: [
- *     {
+ *   SortingEntities: [ // SnapshotSortingEntityList
+ *     { // SnapshotSortingEntity
  *       Attribute: "SOURCE_TYPE" || "TOTAL_SIZE" || "CREATE_TIME", // required
  *       SortOrder: "ASC" || "DESC",
  *     },

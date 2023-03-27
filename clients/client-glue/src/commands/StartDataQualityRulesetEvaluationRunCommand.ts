@@ -47,14 +47,14 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  * import { GlueClient, StartDataQualityRulesetEvaluationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartDataQualityRulesetEvaluationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   DataSource: {
- *     GlueTable: {
+ * const input = { // StartDataQualityRulesetEvaluationRunRequest
+ *   DataSource: { // DataSource
+ *     GlueTable: { // GlueTable
  *       DatabaseName: "STRING_VALUE", // required
  *       TableName: "STRING_VALUE", // required
  *       CatalogId: "STRING_VALUE",
  *       ConnectionName: "STRING_VALUE",
- *       AdditionalOptions: {
+ *       AdditionalOptions: { // GlueTableAdditionalOptions
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
@@ -63,11 +63,11 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  *   NumberOfWorkers: Number("int"),
  *   Timeout: Number("int"),
  *   ClientToken: "STRING_VALUE",
- *   AdditionalRunOptions: {
+ *   AdditionalRunOptions: { // DataQualityEvaluationRunAdditionalRunOptions
  *     CloudWatchMetricsEnabled: true || false,
  *     ResultsS3Prefix: "STRING_VALUE",
  *   },
- *   RulesetNames: [ // required
+ *   RulesetNames: [ // RulesetNames // required
  *     "STRING_VALUE",
  *   ],
  * };

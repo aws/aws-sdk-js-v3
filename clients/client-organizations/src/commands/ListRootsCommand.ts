@@ -56,7 +56,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * import { OrganizationsClient, ListRootsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListRootsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // ListRootsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

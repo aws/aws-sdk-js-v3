@@ -43,7 +43,7 @@ export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKVoiceClient, DeleteProxySessionCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, DeleteProxySessionCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // DeleteProxySessionRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   ProxySessionId: "STRING_VALUE", // required
  * };

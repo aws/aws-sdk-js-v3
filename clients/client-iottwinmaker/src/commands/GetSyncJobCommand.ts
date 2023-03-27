@@ -42,7 +42,7 @@ export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataB
  * import { IoTTwinMakerClient, GetSyncJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetSyncJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // GetSyncJobRequest
  *   syncSource: "STRING_VALUE", // required
  *   workspaceId: "STRING_VALUE",
  * };

@@ -48,11 +48,11 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * import { OpenSearchServerlessClient, CreateSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // CreateSecurityConfigRequest
  *   type: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   samlOptions: {
+ *   samlOptions: { // SamlConfigOptions
  *     metadata: "STRING_VALUE", // required
  *     userAttribute: "STRING_VALUE",
  *     groupAttribute: "STRING_VALUE",

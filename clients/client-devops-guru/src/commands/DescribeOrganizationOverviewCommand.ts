@@ -45,13 +45,13 @@ export interface DescribeOrganizationOverviewCommandOutput
  * import { DevOpsGuruClient, DescribeOrganizationOverviewCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeOrganizationOverviewCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
+ * const input = { // DescribeOrganizationOverviewRequest
  *   FromTime: new Date("TIMESTAMP"), // required
  *   ToTime: new Date("TIMESTAMP"),
- *   AccountIds: [
+ *   AccountIds: [ // AccountIdList
  *     "STRING_VALUE",
  *   ],
- *   OrganizationalUnitIds: [
+ *   OrganizationalUnitIds: [ // OrganizationalUnitIdList
  *     "STRING_VALUE",
  *   ],
  * };

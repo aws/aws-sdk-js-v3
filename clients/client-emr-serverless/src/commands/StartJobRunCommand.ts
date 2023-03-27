@@ -42,29 +42,29 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * import { EMRServerlessClient, StartJobRunCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, StartJobRunCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
- * const input = {
+ * const input = { // StartJobRunRequest
  *   applicationId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE", // required
  *   executionRoleArn: "STRING_VALUE", // required
- *   jobDriver: { // Union: only one key present
- *     sparkSubmit: {
+ *   jobDriver: { // JobDriver Union: only one key present
+ *     sparkSubmit: { // SparkSubmit
  *       entryPoint: "STRING_VALUE", // required
- *       entryPointArguments: [
+ *       entryPointArguments: [ // EntryPointArguments
  *         "STRING_VALUE",
  *       ],
  *       sparkSubmitParameters: "STRING_VALUE",
  *     },
- *     hive: {
+ *     hive: { // Hive
  *       query: "STRING_VALUE", // required
  *       initQueryFile: "STRING_VALUE",
  *       parameters: "STRING_VALUE",
  *     },
  *   },
- *   configurationOverrides: {
- *     applicationConfiguration: [
- *       {
+ *   configurationOverrides: { // ConfigurationOverrides
+ *     applicationConfiguration: [ // ConfigurationList
+ *       { // Configuration
  *         classification: "STRING_VALUE", // required
- *         properties: {
+ *         properties: { // SensitivePropertiesMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         configurations: [
@@ -73,25 +73,23 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *             properties: {
  *               "<keys>": "STRING_VALUE",
  *             },
- *             configurations: [
- *               "<ConfigurationList>",
- *             ],
+ *             configurations: "<ConfigurationList>",
  *           },
  *         ],
  *       },
  *     ],
- *     monitoringConfiguration: {
- *       s3MonitoringConfiguration: {
+ *     monitoringConfiguration: { // MonitoringConfiguration
+ *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
  *         logUri: "STRING_VALUE",
  *         encryptionKeyArn: "STRING_VALUE",
  *       },
- *       managedPersistenceMonitoringConfiguration: {
+ *       managedPersistenceMonitoringConfiguration: { // ManagedPersistenceMonitoringConfiguration
  *         enabled: true || false,
  *         encryptionKeyArn: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   executionTimeoutMinutes: Number("long"),

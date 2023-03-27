@@ -44,31 +44,31 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
  * import { WorkMailClient, CreateMobileDeviceAccessRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateMobileDeviceAccessRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // CreateMobileDeviceAccessRuleRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Effect: "ALLOW" || "DENY", // required
- *   DeviceTypes: [
+ *   DeviceTypes: [ // DeviceTypeList
  *     "STRING_VALUE",
  *   ],
  *   NotDeviceTypes: [
  *     "STRING_VALUE",
  *   ],
- *   DeviceModels: [
+ *   DeviceModels: [ // DeviceModelList
  *     "STRING_VALUE",
  *   ],
  *   NotDeviceModels: [
  *     "STRING_VALUE",
  *   ],
- *   DeviceOperatingSystems: [
+ *   DeviceOperatingSystems: [ // DeviceOperatingSystemList
  *     "STRING_VALUE",
  *   ],
  *   NotDeviceOperatingSystems: [
  *     "STRING_VALUE",
  *   ],
- *   DeviceUserAgents: [
+ *   DeviceUserAgents: [ // DeviceUserAgentList
  *     "STRING_VALUE",
  *   ],
  *   NotDeviceUserAgents: [

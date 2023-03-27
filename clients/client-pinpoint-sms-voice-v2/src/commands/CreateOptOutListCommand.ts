@@ -54,10 +54,10 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  * import { PinpointSMSVoiceV2Client, CreateOptOutListCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, CreateOptOutListCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // CreateOptOutListRequest
  *   OptOutListName: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

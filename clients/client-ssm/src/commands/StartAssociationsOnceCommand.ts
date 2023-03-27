@@ -43,8 +43,8 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * import { SSMClient, StartAssociationsOnceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartAssociationsOnceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   AssociationIds: [ // required
+ * const input = { // StartAssociationsOnceRequest
+ *   AssociationIds: [ // AssociationIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

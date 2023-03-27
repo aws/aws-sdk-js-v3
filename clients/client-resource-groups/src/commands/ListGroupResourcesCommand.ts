@@ -69,13 +69,13 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  * import { ResourceGroupsClient, ListGroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, ListGroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = {
+ * const input = { // ListGroupResourcesInput
  *   GroupName: "STRING_VALUE",
  *   Group: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // ResourceFilterList
+ *     { // ResourceFilter
  *       Name: "resource-type", // required
- *       Values: [ // required
+ *       Values: [ // ResourceFilterValues // required
  *         "STRING_VALUE",
  *       ],
  *     },

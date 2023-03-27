@@ -46,12 +46,12 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  * import { ElasticBeanstalkClient, ListPlatformVersionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListPlatformVersionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // ListPlatformVersionsRequest
+ *   Filters: [ // PlatformFilters
+ *     { // PlatformFilter
  *       Type: "STRING_VALUE",
  *       Operator: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // PlatformFilterValueList
  *         "STRING_VALUE",
  *       ],
  *     },

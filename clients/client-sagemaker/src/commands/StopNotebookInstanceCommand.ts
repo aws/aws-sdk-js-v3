@@ -50,7 +50,7 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // StopNotebookInstanceInput
  *   NotebookInstanceName: "STRING_VALUE", // required
  * };
  * const command = new StopNotebookInstanceCommand(input);

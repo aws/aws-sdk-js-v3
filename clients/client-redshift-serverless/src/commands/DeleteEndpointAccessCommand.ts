@@ -46,7 +46,7 @@ export interface DeleteEndpointAccessCommandOutput extends DeleteEndpointAccessR
  * import { RedshiftServerlessClient, DeleteEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // DeleteEndpointAccessRequest
  *   endpointName: "STRING_VALUE", // required
  * };
  * const command = new DeleteEndpointAccessCommand(input);

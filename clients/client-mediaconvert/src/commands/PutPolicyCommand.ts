@@ -42,8 +42,8 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * import { MediaConvertClient, PutPolicyCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, PutPolicyCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
- *   Policy: {
+ * const input = { // PutPolicyRequest
+ *   Policy: { // Policy
  *     HttpInputs: "ALLOWED" || "DISALLOWED",
  *     HttpsInputs: "ALLOWED" || "DISALLOWED",
  *     S3Inputs: "ALLOWED" || "DISALLOWED",

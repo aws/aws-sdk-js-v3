@@ -42,7 +42,7 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * import { MachineLearningClient, DescribeDataSourcesCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeDataSourcesCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // DescribeDataSourcesInput
  *   FilterVariable: "STRING_VALUE",
  *   EQ: "STRING_VALUE",
  *   GT: "STRING_VALUE",

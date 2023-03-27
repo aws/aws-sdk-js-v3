@@ -46,7 +46,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * import { RDSClient, DeleteDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeleteDBSnapshotMessage
  *   DBSnapshotIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteDBSnapshotCommand(input);

@@ -46,7 +46,7 @@ export interface ListWatchlistsCommandOutput extends ListWatchlistsResponse, __M
  * import { VoiceIDClient, ListWatchlistsCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, ListWatchlistsCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // ListWatchlistsRequest
  *   DomainId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

@@ -42,13 +42,13 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  * import { PinpointClient, UpdateSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateSmsTemplateRequest
  *   CreateNewVersion: true || false,
- *   SMSTemplateRequest: {
+ *   SMSTemplateRequest: { // SMSTemplateRequest
  *     Body: "STRING_VALUE",
  *     DefaultSubstitutions: "STRING_VALUE",
  *     RecommenderId: "STRING_VALUE",
- *     tags: {
+ *     tags: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *     TemplateDescription: "STRING_VALUE",

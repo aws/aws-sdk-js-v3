@@ -46,7 +46,7 @@ export interface DeleteAlarmCommandOutput extends DeleteAlarmResult, __MetadataB
  * import { LightsailClient, DeleteAlarmCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteAlarmCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DeleteAlarmRequest
  *   alarmName: "STRING_VALUE", // required
  * };
  * const command = new DeleteAlarmCommand(input);

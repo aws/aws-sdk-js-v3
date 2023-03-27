@@ -42,7 +42,7 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * import { AppSyncClient, ListTypesCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListTypesCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // ListTypesRequest
  *   apiId: "STRING_VALUE", // required
  *   format: "SDL" || "JSON", // required
  *   nextToken: "STRING_VALUE",

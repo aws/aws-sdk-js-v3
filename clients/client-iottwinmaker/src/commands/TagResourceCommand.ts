@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { IoTTwinMakerClient, TagResourceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, TagResourceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceARN: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

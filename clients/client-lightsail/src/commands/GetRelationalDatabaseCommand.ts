@@ -42,7 +42,7 @@ export interface GetRelationalDatabaseCommandOutput extends GetRelationalDatabas
  * import { LightsailClient, GetRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetRelationalDatabaseRequest
  *   relationalDatabaseName: "STRING_VALUE", // required
  * };
  * const command = new GetRelationalDatabaseCommand(input);

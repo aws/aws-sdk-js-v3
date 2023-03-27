@@ -47,9 +47,9 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * import { CloudHSMV2Client, DescribeClustersCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, DescribeClustersCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
- * const input = {
- *   Filters: {
- *     "<keys>": [
+ * const input = { // DescribeClustersRequest
+ *   Filters: { // Filters
+ *     "<keys>": [ // Strings
  *       "STRING_VALUE",
  *     ],
  *   },

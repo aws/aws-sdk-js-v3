@@ -42,7 +42,7 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  * import { WorkMailClient, ListMailDomainsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMailDomainsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // ListMailDomainsRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

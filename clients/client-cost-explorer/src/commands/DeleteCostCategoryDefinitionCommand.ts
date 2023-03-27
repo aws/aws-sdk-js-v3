@@ -45,7 +45,7 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * import { CostExplorerClient, DeleteCostCategoryDefinitionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DeleteCostCategoryDefinitionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const input = {
+ * const input = { // DeleteCostCategoryDefinitionRequest
  *   CostCategoryArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteCostCategoryDefinitionCommand(input);

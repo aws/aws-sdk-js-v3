@@ -46,7 +46,7 @@ export interface CreateContactMethodCommandOutput extends CreateContactMethodRes
  * import { LightsailClient, CreateContactMethodCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateContactMethodCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // CreateContactMethodRequest
  *   protocol: "Email" || "SMS", // required
  *   contactEndpoint: "STRING_VALUE", // required
  * };

@@ -66,35 +66,35 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * import { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // GenerateEmbedUrlForAnonymousUserRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   SessionLifetimeInMinutes: Number("long"),
  *   Namespace: "STRING_VALUE", // required
- *   SessionTags: [
- *     {
+ *   SessionTags: [ // SessionTagList
+ *     { // SessionTag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   AuthorizedResourceArns: [ // required
+ *   AuthorizedResourceArns: [ // ArnList // required
  *     "STRING_VALUE",
  *   ],
- *   ExperienceConfiguration: {
- *     Dashboard: {
+ *   ExperienceConfiguration: { // AnonymousUserEmbeddingExperienceConfiguration
+ *     Dashboard: { // AnonymousUserDashboardEmbeddingConfiguration
  *       InitialDashboardId: "STRING_VALUE", // required
  *     },
- *     DashboardVisual: {
- *       InitialDashboardVisualId: {
+ *     DashboardVisual: { // AnonymousUserDashboardVisualEmbeddingConfiguration
+ *       InitialDashboardVisualId: { // DashboardVisualId
  *         DashboardId: "STRING_VALUE", // required
  *         SheetId: "STRING_VALUE", // required
  *         VisualId: "STRING_VALUE", // required
  *       },
  *     },
- *     QSearchBar: {
+ *     QSearchBar: { // AnonymousUserQSearchBarEmbeddingConfiguration
  *       InitialTopicId: "STRING_VALUE", // required
  *     },
  *   },
- *   AllowedDomains: [
+ *   AllowedDomains: [ // StringList
  *     "STRING_VALUE",
  *   ],
  * };

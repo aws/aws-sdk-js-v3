@@ -116,9 +116,9 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  * import { SecurityHubClient, BatchImportFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchImportFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   Findings: [ // required
- *     {
+ * const input = { // BatchImportFindingsRequest
+ *   Findings: [ // BatchImportFindingsRequestFindingList // required
+ *     { // AwsSecurityFinding
  *       SchemaVersion: "STRING_VALUE", // required
  *       Id: "STRING_VALUE", // required
  *       ProductArn: "STRING_VALUE", // required
@@ -127,14 +127,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *       Region: "STRING_VALUE",
  *       GeneratorId: "STRING_VALUE", // required
  *       AwsAccountId: "STRING_VALUE", // required
- *       Types: [
+ *       Types: [ // TypeList
  *         "STRING_VALUE",
  *       ],
  *       FirstObservedAt: "STRING_VALUE",
  *       LastObservedAt: "STRING_VALUE",
  *       CreatedAt: "STRING_VALUE", // required
  *       UpdatedAt: "STRING_VALUE", // required
- *       Severity: {
+ *       Severity: { // Severity
  *         Product: Number("double"),
  *         Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
  *         Normalized: Number("int"),
@@ -144,31 +144,31 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *       Criticality: Number("int"),
  *       Title: "STRING_VALUE", // required
  *       Description: "STRING_VALUE", // required
- *       Remediation: {
- *         Recommendation: {
+ *       Remediation: { // Remediation
+ *         Recommendation: { // Recommendation
  *           Text: "STRING_VALUE",
  *           Url: "STRING_VALUE",
  *         },
  *       },
  *       SourceUrl: "STRING_VALUE",
- *       ProductFields: {
+ *       ProductFields: { // FieldMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *       UserDefinedFields: {
  *         "<keys>": "STRING_VALUE",
  *       },
- *       Malware: [
- *         {
+ *       Malware: [ // MalwareList
+ *         { // Malware
  *           Name: "STRING_VALUE", // required
  *           Type: "ADWARE" || "BLENDED_THREAT" || "BOTNET_AGENT" || "COIN_MINER" || "EXPLOIT_KIT" || "KEYLOGGER" || "MACRO" || "POTENTIALLY_UNWANTED" || "SPYWARE" || "RANSOMWARE" || "REMOTE_ACCESS" || "ROOTKIT" || "TROJAN" || "VIRUS" || "WORM",
  *           Path: "STRING_VALUE",
  *           State: "OBSERVED" || "REMOVAL_FAILED" || "REMOVED",
  *         },
  *       ],
- *       Network: {
+ *       Network: { // Network
  *         Direction: "IN" || "OUT",
  *         Protocol: "STRING_VALUE",
- *         OpenPortRange: {
+ *         OpenPortRange: { // PortRange
  *           Begin: Number("int"),
  *           End: Number("int"),
  *         },
@@ -182,17 +182,17 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *         DestinationPort: Number("int"),
  *         DestinationDomain: "STRING_VALUE",
  *       },
- *       NetworkPath: [
- *         {
+ *       NetworkPath: [ // NetworkPathList
+ *         { // NetworkPathComponent
  *           ComponentId: "STRING_VALUE",
  *           ComponentType: "STRING_VALUE",
- *           Egress: {
+ *           Egress: { // NetworkHeader
  *             Protocol: "STRING_VALUE",
- *             Destination: {
- *               Address: [
+ *             Destination: { // NetworkPathComponentDetails
+ *               Address: [ // StringList
  *                 "STRING_VALUE",
  *               ],
- *               PortRanges: [
+ *               PortRanges: [ // PortRangeList
  *                 {
  *                   Begin: Number("int"),
  *                   End: Number("int"),
@@ -238,7 +238,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           },
  *         },
  *       ],
- *       Process: {
+ *       Process: { // ProcessDetails
  *         Name: "STRING_VALUE",
  *         Path: "STRING_VALUE",
  *         Pid: Number("int"),
@@ -246,13 +246,13 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *         LaunchedAt: "STRING_VALUE",
  *         TerminatedAt: "STRING_VALUE",
  *       },
- *       Threats: [
- *         {
+ *       Threats: [ // ThreatList
+ *         { // Threat
  *           Name: "STRING_VALUE",
  *           Severity: "STRING_VALUE",
  *           ItemCount: Number("int"),
- *           FilePaths: [
- *             {
+ *           FilePaths: [ // FilePathList
+ *             { // FilePaths
  *               FilePath: "STRING_VALUE",
  *               FileName: "STRING_VALUE",
  *               ResourceId: "STRING_VALUE",
@@ -261,8 +261,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           ],
  *         },
  *       ],
- *       ThreatIntelIndicators: [
- *         {
+ *       ThreatIntelIndicators: [ // ThreatIntelIndicatorList
+ *         { // ThreatIntelIndicator
  *           Type: "DOMAIN" || "EMAIL_ADDRESS" || "HASH_MD5" || "HASH_SHA1" || "HASH_SHA256" || "HASH_SHA512" || "IPV4_ADDRESS" || "IPV6_ADDRESS" || "MUTEX" || "PROCESS" || "URL",
  *           Value: "STRING_VALUE",
  *           Category: "BACKDOOR" || "CARD_STEALER" || "COMMAND_AND_CONTROL" || "DROP_SITE" || "EXPLOIT_SITE" || "KEYLOGGER",
@@ -271,8 +271,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           SourceUrl: "STRING_VALUE",
  *         },
  *       ],
- *       Resources: [ // required
- *         {
+ *       Resources: [ // ResourceList // required
+ *         { // Resource
  *           Type: "STRING_VALUE", // required
  *           Id: "STRING_VALUE", // required
  *           Partition: "aws" || "aws-cn" || "aws-us-gov",
@@ -281,26 +281,26 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           Tags: {
  *             "<keys>": "STRING_VALUE",
  *           },
- *           DataClassification: {
+ *           DataClassification: { // DataClassificationDetails
  *             DetailedResultsLocation: "STRING_VALUE",
- *             Result: {
+ *             Result: { // ClassificationResult
  *               MimeType: "STRING_VALUE",
  *               SizeClassified: Number("long"),
  *               AdditionalOccurrences: true || false,
- *               Status: {
+ *               Status: { // ClassificationStatus
  *                 Code: "STRING_VALUE",
  *                 Reason: "STRING_VALUE",
  *               },
- *               SensitiveData: [
- *                 {
+ *               SensitiveData: [ // SensitiveDataResultList
+ *                 { // SensitiveDataResult
  *                   Category: "STRING_VALUE",
- *                   Detections: [
- *                     {
+ *                   Detections: [ // SensitiveDataDetectionsList
+ *                     { // SensitiveDataDetections
  *                       Count: Number("long"),
  *                       Type: "STRING_VALUE",
- *                       Occurrences: {
- *                         LineRanges: [
- *                           {
+ *                       Occurrences: { // Occurrences
+ *                         LineRanges: [ // Ranges
+ *                           { // Range
  *                             Start: Number("long"),
  *                             End: Number("long"),
  *                             StartColumn: Number("long"),
@@ -313,8 +313,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                             StartColumn: Number("long"),
  *                           },
  *                         ],
- *                         Pages: [
- *                           {
+ *                         Pages: [ // Pages
+ *                           { // Page
  *                             PageNumber: Number("long"),
  *                             LineRange: {
  *                               Start: Number("long"),
@@ -328,14 +328,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                             },
  *                           },
  *                         ],
- *                         Records: [
- *                           {
+ *                         Records: [ // Records
+ *                           { // Record
  *                             JsonPath: "STRING_VALUE",
  *                             RecordIndex: Number("long"),
  *                           },
  *                         ],
- *                         Cells: [
- *                           {
+ *                         Cells: [ // Cells
+ *                           { // Cell
  *                             Column: Number("long"),
  *                             Row: Number("long"),
  *                             ColumnName: "STRING_VALUE",
@@ -348,40 +348,24 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   TotalCount: Number("long"),
  *                 },
  *               ],
- *               CustomDataIdentifiers: {
- *                 Detections: [
- *                   {
+ *               CustomDataIdentifiers: { // CustomDataIdentifiersResult
+ *                 Detections: [ // CustomDataIdentifiersDetectionsList
+ *                   { // CustomDataIdentifiersDetections
  *                     Count: Number("long"),
  *                     Arn: "STRING_VALUE",
  *                     Name: "STRING_VALUE",
  *                     Occurrences: {
  *                       LineRanges: [
- *                         {
- *                           Start: "<Range>",
- *                           End: "<Range>",
- *                           StartColumn: "<Range>",
- *                         },
+ *                         "<Range>",
  *                       ],
  *                       OffsetRanges: [
- *                         {
- *                           Start: "<Range>",
- *                           End: "<Range>",
- *                           StartColumn: "<Range>",
- *                         },
+ *                         "<Range>",
  *                       ],
  *                       Pages: [
  *                         {
  *                           PageNumber: Number("long"),
- *                           LineRange: {
- *                             Start: "<Range>",
- *                             End: "<Range>",
- *                             StartColumn: "<Range>",
- *                           },
- *                           OffsetRange: {
- *                             Start: "<Range>",
- *                             End: "<Range>",
- *                             StartColumn: "<Range>",
- *                           },
+ *                           LineRange: "<Range>",
+ *                           OffsetRange: "<Range>",
  *                         },
  *                       ],
  *                       Records: [
@@ -405,8 +389,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               },
  *             },
  *           },
- *           Details: {
- *             AwsAutoScalingAutoScalingGroup: {
+ *           Details: { // ResourceDetails
+ *             AwsAutoScalingAutoScalingGroup: { // AwsAutoScalingAutoScalingGroupDetails
  *               LaunchConfigurationName: "STRING_VALUE",
  *               LoadBalancerNames: [
  *                 "STRING_VALUE",
@@ -414,8 +398,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               HealthCheckType: "STRING_VALUE",
  *               HealthCheckGracePeriod: Number("int"),
  *               CreatedTime: "STRING_VALUE",
- *               MixedInstancesPolicy: {
- *                 InstancesDistribution: {
+ *               MixedInstancesPolicy: { // AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
+ *                 InstancesDistribution: { // AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
  *                   OnDemandAllocationStrategy: "STRING_VALUE",
  *                   OnDemandBaseCapacity: Number("int"),
  *                   OnDemandPercentageAboveBaseCapacity: Number("int"),
@@ -423,36 +407,36 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   SpotInstancePools: Number("int"),
  *                   SpotMaxPrice: "STRING_VALUE",
  *                 },
- *                 LaunchTemplate: {
- *                   LaunchTemplateSpecification: {
+ *                 LaunchTemplate: { // AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
+ *                   LaunchTemplateSpecification: { // AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
  *                     LaunchTemplateId: "STRING_VALUE",
  *                     LaunchTemplateName: "STRING_VALUE",
  *                     Version: "STRING_VALUE",
  *                   },
- *                   Overrides: [
- *                     {
+ *                   Overrides: [ // AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList
+ *                     { // AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
  *                       InstanceType: "STRING_VALUE",
  *                       WeightedCapacity: "STRING_VALUE",
  *                     },
  *                   ],
  *                 },
  *               },
- *               AvailabilityZones: [
- *                 {
+ *               AvailabilityZones: [ // AwsAutoScalingAutoScalingGroupAvailabilityZonesList
+ *                 { // AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
  *                   Value: "STRING_VALUE",
  *                 },
  *               ],
- *               LaunchTemplate: {
+ *               LaunchTemplate: { // AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
  *                 LaunchTemplateId: "STRING_VALUE",
  *                 LaunchTemplateName: "STRING_VALUE",
  *                 Version: "STRING_VALUE",
  *               },
  *               CapacityRebalance: true || false,
  *             },
- *             AwsCodeBuildProject: {
+ *             AwsCodeBuildProject: { // AwsCodeBuildProjectDetails
  *               EncryptionKey: "STRING_VALUE",
- *               Artifacts: [
- *                 {
+ *               Artifacts: [ // AwsCodeBuildProjectArtifactsList
+ *                 { // AwsCodeBuildProjectArtifactsDetails
  *                   ArtifactIdentifier: "STRING_VALUE",
  *                   EncryptionDisabled: true || false,
  *                   Location: "STRING_VALUE",
@@ -464,10 +448,10 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   Type: "STRING_VALUE",
  *                 },
  *               ],
- *               Environment: {
+ *               Environment: { // AwsCodeBuildProjectEnvironment
  *                 Certificate: "STRING_VALUE",
- *                 EnvironmentVariables: [
- *                   {
+ *                 EnvironmentVariables: [ // AwsCodeBuildProjectEnvironmentEnvironmentVariablesList
+ *                   { // AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
  *                     Name: "STRING_VALUE",
  *                     Type: "STRING_VALUE",
  *                     Value: "STRING_VALUE",
@@ -475,35 +459,35 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 ],
  *                 PrivilegedMode: true || false,
  *                 ImagePullCredentialsType: "STRING_VALUE",
- *                 RegistryCredential: {
+ *                 RegistryCredential: { // AwsCodeBuildProjectEnvironmentRegistryCredential
  *                   Credential: "STRING_VALUE",
  *                   CredentialProvider: "STRING_VALUE",
  *                 },
  *                 Type: "STRING_VALUE",
  *               },
  *               Name: "STRING_VALUE",
- *               Source: {
+ *               Source: { // AwsCodeBuildProjectSource
  *                 Type: "STRING_VALUE",
  *                 Location: "STRING_VALUE",
  *                 GitCloneDepth: Number("int"),
  *                 InsecureSsl: true || false,
  *               },
  *               ServiceRole: "STRING_VALUE",
- *               LogsConfig: {
- *                 CloudWatchLogs: {
+ *               LogsConfig: { // AwsCodeBuildProjectLogsConfigDetails
+ *                 CloudWatchLogs: { // AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
  *                   GroupName: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                   StreamName: "STRING_VALUE",
  *                 },
- *                 S3Logs: {
+ *                 S3Logs: { // AwsCodeBuildProjectLogsConfigS3LogsDetails
  *                   EncryptionDisabled: true || false,
  *                   Location: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                 },
  *               },
- *               VpcConfig: {
+ *               VpcConfig: { // AwsCodeBuildProjectVpcConfig
  *                 VpcId: "STRING_VALUE",
- *                 Subnets: [
+ *                 Subnets: [ // NonEmptyStringList
  *                   "STRING_VALUE",
  *                 ],
  *                 SecurityGroupIds: [
@@ -524,43 +508,43 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *             },
- *             AwsCloudFrontDistribution: {
- *               CacheBehaviors: {
- *                 Items: [
- *                   {
+ *             AwsCloudFrontDistribution: { // AwsCloudFrontDistributionDetails
+ *               CacheBehaviors: { // AwsCloudFrontDistributionCacheBehaviors
+ *                 Items: [ // AwsCloudFrontDistributionCacheBehaviorsItemList
+ *                   { // AwsCloudFrontDistributionCacheBehavior
  *                     ViewerProtocolPolicy: "STRING_VALUE",
  *                   },
  *                 ],
  *               },
- *               DefaultCacheBehavior: {
+ *               DefaultCacheBehavior: { // AwsCloudFrontDistributionDefaultCacheBehavior
  *                 ViewerProtocolPolicy: "STRING_VALUE",
  *               },
  *               DefaultRootObject: "STRING_VALUE",
  *               DomainName: "STRING_VALUE",
  *               ETag: "STRING_VALUE",
  *               LastModifiedTime: "STRING_VALUE",
- *               Logging: {
+ *               Logging: { // AwsCloudFrontDistributionLogging
  *                 Bucket: "STRING_VALUE",
  *                 Enabled: true || false,
  *                 IncludeCookies: true || false,
  *                 Prefix: "STRING_VALUE",
  *               },
- *               Origins: {
- *                 Items: [
- *                   {
+ *               Origins: { // AwsCloudFrontDistributionOrigins
+ *                 Items: [ // AwsCloudFrontDistributionOriginItemList
+ *                   { // AwsCloudFrontDistributionOriginItem
  *                     DomainName: "STRING_VALUE",
  *                     Id: "STRING_VALUE",
  *                     OriginPath: "STRING_VALUE",
- *                     S3OriginConfig: {
+ *                     S3OriginConfig: { // AwsCloudFrontDistributionOriginS3OriginConfig
  *                       OriginAccessIdentity: "STRING_VALUE",
  *                     },
- *                     CustomOriginConfig: {
+ *                     CustomOriginConfig: { // AwsCloudFrontDistributionOriginCustomOriginConfig
  *                       HttpPort: Number("int"),
  *                       HttpsPort: Number("int"),
  *                       OriginKeepaliveTimeout: Number("int"),
  *                       OriginProtocolPolicy: "STRING_VALUE",
  *                       OriginReadTimeout: Number("int"),
- *                       OriginSslProtocols: {
+ *                       OriginSslProtocols: { // AwsCloudFrontDistributionOriginSslProtocols
  *                         Items: [
  *                           "STRING_VALUE",
  *                         ],
@@ -570,12 +554,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   },
  *                 ],
  *               },
- *               OriginGroups: {
- *                 Items: [
- *                   {
- *                     FailoverCriteria: {
- *                       StatusCodes: {
- *                         Items: [
+ *               OriginGroups: { // AwsCloudFrontDistributionOriginGroups
+ *                 Items: [ // AwsCloudFrontDistributionOriginGroupsItemList
+ *                   { // AwsCloudFrontDistributionOriginGroup
+ *                     FailoverCriteria: { // AwsCloudFrontDistributionOriginGroupFailover
+ *                       StatusCodes: { // AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
+ *                         Items: [ // AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList
  *                           Number("int"),
  *                         ],
  *                         Quantity: Number("int"),
@@ -584,7 +568,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   },
  *                 ],
  *               },
- *               ViewerCertificate: {
+ *               ViewerCertificate: { // AwsCloudFrontDistributionViewerCertificate
  *                 AcmCertificateArn: "STRING_VALUE",
  *                 Certificate: "STRING_VALUE",
  *                 CertificateSource: "STRING_VALUE",
@@ -596,39 +580,35 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Status: "STRING_VALUE",
  *               WebAclId: "STRING_VALUE",
  *             },
- *             AwsEc2Instance: {
+ *             AwsEc2Instance: { // AwsEc2InstanceDetails
  *               Type: "STRING_VALUE",
  *               ImageId: "STRING_VALUE",
- *               IpV4Addresses: [
- *                 "STRING_VALUE",
- *               ],
- *               IpV6Addresses: [
- *                 "STRING_VALUE",
- *               ],
+ *               IpV4Addresses: "<StringList>",
+ *               IpV6Addresses: "<StringList>",
  *               KeyName: "STRING_VALUE",
  *               IamInstanceProfileArn: "STRING_VALUE",
  *               VpcId: "STRING_VALUE",
  *               SubnetId: "STRING_VALUE",
  *               LaunchedAt: "STRING_VALUE",
- *               NetworkInterfaces: [
- *                 {
+ *               NetworkInterfaces: [ // AwsEc2InstanceNetworkInterfacesList
+ *                 { // AwsEc2InstanceNetworkInterfacesDetails
  *                   NetworkInterfaceId: "STRING_VALUE",
  *                 },
  *               ],
  *               VirtualizationType: "STRING_VALUE",
- *               MetadataOptions: {
+ *               MetadataOptions: { // AwsEc2InstanceMetadataOptions
  *                 HttpEndpoint: "STRING_VALUE",
  *                 HttpProtocolIpv6: "STRING_VALUE",
  *                 HttpPutResponseHopLimit: Number("int"),
  *                 HttpTokens: "STRING_VALUE",
  *                 InstanceMetadataTags: "STRING_VALUE",
  *               },
- *               Monitoring: {
+ *               Monitoring: { // AwsEc2InstanceMonitoringDetails
  *                 State: "STRING_VALUE",
  *               },
  *             },
- *             AwsEc2NetworkInterface: {
- *               Attachment: {
+ *             AwsEc2NetworkInterface: { // AwsEc2NetworkInterfaceDetails
+ *               Attachment: { // AwsEc2NetworkInterfaceAttachment
  *                 AttachTime: "STRING_VALUE",
  *                 AttachmentId: "STRING_VALUE",
  *                 DeleteOnTermination: true || false,
@@ -638,20 +618,20 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 Status: "STRING_VALUE",
  *               },
  *               NetworkInterfaceId: "STRING_VALUE",
- *               SecurityGroups: [
- *                 {
+ *               SecurityGroups: [ // AwsEc2NetworkInterfaceSecurityGroupList
+ *                 { // AwsEc2NetworkInterfaceSecurityGroup
  *                   GroupName: "STRING_VALUE",
  *                   GroupId: "STRING_VALUE",
  *                 },
  *               ],
  *               SourceDestCheck: true || false,
- *               IpV6Addresses: [
- *                 {
+ *               IpV6Addresses: [ // AwsEc2NetworkInterfaceIpV6AddressList
+ *                 { // AwsEc2NetworkInterfaceIpV6AddressDetail
  *                   IpV6Address: "STRING_VALUE",
  *                 },
  *               ],
- *               PrivateIpAddresses: [
- *                 {
+ *               PrivateIpAddresses: [ // AwsEc2NetworkInterfacePrivateIpAddressList
+ *                 { // AwsEc2NetworkInterfacePrivateIpAddressDetail
  *                   PrivateIpAddress: "STRING_VALUE",
  *                   PrivateDnsName: "STRING_VALUE",
  *                 },
@@ -659,18 +639,18 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               PublicDnsName: "STRING_VALUE",
  *               PublicIp: "STRING_VALUE",
  *             },
- *             AwsEc2SecurityGroup: {
+ *             AwsEc2SecurityGroup: { // AwsEc2SecurityGroupDetails
  *               GroupName: "STRING_VALUE",
  *               GroupId: "STRING_VALUE",
  *               OwnerId: "STRING_VALUE",
  *               VpcId: "STRING_VALUE",
- *               IpPermissions: [
- *                 {
+ *               IpPermissions: [ // AwsEc2SecurityGroupIpPermissionList
+ *                 { // AwsEc2SecurityGroupIpPermission
  *                   IpProtocol: "STRING_VALUE",
  *                   FromPort: Number("int"),
  *                   ToPort: Number("int"),
- *                   UserIdGroupPairs: [
- *                     {
+ *                   UserIdGroupPairs: [ // AwsEc2SecurityGroupUserIdGroupPairList
+ *                     { // AwsEc2SecurityGroupUserIdGroupPair
  *                       GroupId: "STRING_VALUE",
  *                       GroupName: "STRING_VALUE",
  *                       PeeringStatus: "STRING_VALUE",
@@ -679,18 +659,18 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                       VpcPeeringConnectionId: "STRING_VALUE",
  *                     },
  *                   ],
- *                   IpRanges: [
- *                     {
+ *                   IpRanges: [ // AwsEc2SecurityGroupIpRangeList
+ *                     { // AwsEc2SecurityGroupIpRange
  *                       CidrIp: "STRING_VALUE",
  *                     },
  *                   ],
- *                   Ipv6Ranges: [
- *                     {
+ *                   Ipv6Ranges: [ // AwsEc2SecurityGroupIpv6RangeList
+ *                     { // AwsEc2SecurityGroupIpv6Range
  *                       CidrIpv6: "STRING_VALUE",
  *                     },
  *                   ],
- *                   PrefixListIds: [
- *                     {
+ *                   PrefixListIds: [ // AwsEc2SecurityGroupPrefixListIdList
+ *                     { // AwsEc2SecurityGroupPrefixListId
  *                       PrefixListId: "STRING_VALUE",
  *                     },
  *                   ],
@@ -729,7 +709,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *             },
- *             AwsEc2Volume: {
+ *             AwsEc2Volume: { // AwsEc2VolumeDetails
  *               CreateTime: "STRING_VALUE",
  *               DeviceName: "STRING_VALUE",
  *               Encrypted: true || false,
@@ -737,8 +717,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               SnapshotId: "STRING_VALUE",
  *               Status: "STRING_VALUE",
  *               KmsKeyId: "STRING_VALUE",
- *               Attachments: [
- *                 {
+ *               Attachments: [ // AwsEc2VolumeAttachmentList
+ *                 { // AwsEc2VolumeAttachment
  *                   AttachTime: "STRING_VALUE",
  *                   DeleteOnTermination: true || false,
  *                   InstanceId: "STRING_VALUE",
@@ -749,16 +729,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               VolumeType: "STRING_VALUE",
  *               VolumeScanStatus: "STRING_VALUE",
  *             },
- *             AwsEc2Vpc: {
- *               CidrBlockAssociationSet: [
- *                 {
+ *             AwsEc2Vpc: { // AwsEc2VpcDetails
+ *               CidrBlockAssociationSet: [ // CidrBlockAssociationList
+ *                 { // CidrBlockAssociation
  *                   AssociationId: "STRING_VALUE",
  *                   CidrBlock: "STRING_VALUE",
  *                   CidrBlockState: "STRING_VALUE",
  *                 },
  *               ],
- *               Ipv6CidrBlockAssociationSet: [
- *                 {
+ *               Ipv6CidrBlockAssociationSet: [ // Ipv6CidrBlockAssociationList
+ *                 { // Ipv6CidrBlockAssociation
  *                   AssociationId: "STRING_VALUE",
  *                   Ipv6CidrBlock: "STRING_VALUE",
  *                   CidrBlockState: "STRING_VALUE",
@@ -767,7 +747,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               DhcpOptionsId: "STRING_VALUE",
  *               State: "STRING_VALUE",
  *             },
- *             AwsEc2Eip: {
+ *             AwsEc2Eip: { // AwsEc2EipDetails
  *               InstanceId: "STRING_VALUE",
  *               PublicIp: "STRING_VALUE",
  *               AllocationId: "STRING_VALUE",
@@ -779,7 +759,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               NetworkInterfaceOwnerId: "STRING_VALUE",
  *               PrivateIpAddress: "STRING_VALUE",
  *             },
- *             AwsEc2Subnet: {
+ *             AwsEc2Subnet: { // AwsEc2SubnetDetails
  *               AssignIpv6AddressOnCreation: true || false,
  *               AvailabilityZone: "STRING_VALUE",
  *               AvailabilityZoneId: "STRING_VALUE",
@@ -800,28 +780,28 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *             },
- *             AwsEc2NetworkAcl: {
+ *             AwsEc2NetworkAcl: { // AwsEc2NetworkAclDetails
  *               IsDefault: true || false,
  *               NetworkAclId: "STRING_VALUE",
  *               OwnerId: "STRING_VALUE",
  *               VpcId: "STRING_VALUE",
- *               Associations: [
- *                 {
+ *               Associations: [ // AwsEc2NetworkAclAssociationList
+ *                 { // AwsEc2NetworkAclAssociation
  *                   NetworkAclAssociationId: "STRING_VALUE",
  *                   NetworkAclId: "STRING_VALUE",
  *                   SubnetId: "STRING_VALUE",
  *                 },
  *               ],
- *               Entries: [
- *                 {
+ *               Entries: [ // AwsEc2NetworkAclEntryList
+ *                 { // AwsEc2NetworkAclEntry
  *                   CidrBlock: "STRING_VALUE",
  *                   Egress: true || false,
- *                   IcmpTypeCode: {
+ *                   IcmpTypeCode: { // IcmpTypeCode
  *                     Code: Number("int"),
  *                     Type: Number("int"),
  *                   },
  *                   Ipv6CidrBlock: "STRING_VALUE",
- *                   PortRange: {
+ *                   PortRange: { // PortRangeFromTo
  *                     From: Number("int"),
  *                     To: Number("int"),
  *                   },
@@ -831,9 +811,9 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *             },
- *             AwsElbv2LoadBalancer: {
- *               AvailabilityZones: [
- *                 {
+ *             AwsElbv2LoadBalancer: { // AwsElbv2LoadBalancerDetails
+ *               AvailabilityZones: [ // AvailabilityZones
+ *                 { // AvailabilityZone
  *                   ZoneName: "STRING_VALUE",
  *                   SubnetId: "STRING_VALUE",
  *                 },
@@ -843,23 +823,23 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               DNSName: "STRING_VALUE",
  *               IpAddressType: "STRING_VALUE",
  *               Scheme: "STRING_VALUE",
- *               SecurityGroups: [
+ *               SecurityGroups: [ // SecurityGroups
  *                 "STRING_VALUE",
  *               ],
- *               State: {
+ *               State: { // LoadBalancerState
  *                 Code: "STRING_VALUE",
  *                 Reason: "STRING_VALUE",
  *               },
  *               Type: "STRING_VALUE",
  *               VpcId: "STRING_VALUE",
- *               LoadBalancerAttributes: [
- *                 {
+ *               LoadBalancerAttributes: [ // AwsElbv2LoadBalancerAttributes
+ *                 { // AwsElbv2LoadBalancerAttribute
  *                   Key: "STRING_VALUE",
  *                   Value: "STRING_VALUE",
  *                 },
  *               ],
  *             },
- *             AwsElasticBeanstalkEnvironment: {
+ *             AwsElasticBeanstalkEnvironment: { // AwsElasticBeanstalkEnvironmentDetails
  *               ApplicationName: "STRING_VALUE",
  *               Cname: "STRING_VALUE",
  *               DateCreated: "STRING_VALUE",
@@ -868,15 +848,15 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               EndpointUrl: "STRING_VALUE",
  *               EnvironmentArn: "STRING_VALUE",
  *               EnvironmentId: "STRING_VALUE",
- *               EnvironmentLinks: [
- *                 {
+ *               EnvironmentLinks: [ // AwsElasticBeanstalkEnvironmentEnvironmentLinks
+ *                 { // AwsElasticBeanstalkEnvironmentEnvironmentLink
  *                   EnvironmentName: "STRING_VALUE",
  *                   LinkName: "STRING_VALUE",
  *                 },
  *               ],
  *               EnvironmentName: "STRING_VALUE",
- *               OptionSettings: [
- *                 {
+ *               OptionSettings: [ // AwsElasticBeanstalkEnvironmentOptionSettings
+ *                 { // AwsElasticBeanstalkEnvironmentOptionSetting
  *                   Namespace: "STRING_VALUE",
  *                   OptionName: "STRING_VALUE",
  *                   ResourceName: "STRING_VALUE",
@@ -886,43 +866,41 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               PlatformArn: "STRING_VALUE",
  *               SolutionStackName: "STRING_VALUE",
  *               Status: "STRING_VALUE",
- *               Tier: {
+ *               Tier: { // AwsElasticBeanstalkEnvironmentTier
  *                 Name: "STRING_VALUE",
  *                 Type: "STRING_VALUE",
  *                 Version: "STRING_VALUE",
  *               },
  *               VersionLabel: "STRING_VALUE",
  *             },
- *             AwsElasticsearchDomain: {
+ *             AwsElasticsearchDomain: { // AwsElasticsearchDomainDetails
  *               AccessPolicies: "STRING_VALUE",
- *               DomainEndpointOptions: {
+ *               DomainEndpointOptions: { // AwsElasticsearchDomainDomainEndpointOptions
  *                 EnforceHTTPS: true || false,
  *                 TLSSecurityPolicy: "STRING_VALUE",
  *               },
  *               DomainId: "STRING_VALUE",
  *               DomainName: "STRING_VALUE",
  *               Endpoint: "STRING_VALUE",
- *               Endpoints: {
- *                 "<keys>": "<NonEmptyString>",
- *               },
+ *               Endpoints: "<FieldMap>",
  *               ElasticsearchVersion: "STRING_VALUE",
- *               ElasticsearchClusterConfig: {
+ *               ElasticsearchClusterConfig: { // AwsElasticsearchDomainElasticsearchClusterConfigDetails
  *                 DedicatedMasterCount: Number("int"),
  *                 DedicatedMasterEnabled: true || false,
  *                 DedicatedMasterType: "STRING_VALUE",
  *                 InstanceCount: Number("int"),
  *                 InstanceType: "STRING_VALUE",
- *                 ZoneAwarenessConfig: {
+ *                 ZoneAwarenessConfig: { // AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
  *                   AvailabilityZoneCount: Number("int"),
  *                 },
  *                 ZoneAwarenessEnabled: true || false,
  *               },
- *               EncryptionAtRestOptions: {
+ *               EncryptionAtRestOptions: { // AwsElasticsearchDomainEncryptionAtRestOptions
  *                 Enabled: true || false,
  *                 KmsKeyId: "STRING_VALUE",
  *               },
- *               LogPublishingOptions: {
- *                 IndexSlowLogs: {
+ *               LogPublishingOptions: { // AwsElasticsearchDomainLogPublishingOptions
+ *                 IndexSlowLogs: { // AwsElasticsearchDomainLogPublishingOptionsLogConfig
  *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
  *                   Enabled: true || false,
  *                 },
@@ -935,10 +913,10 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   Enabled: true || false,
  *                 },
  *               },
- *               NodeToNodeEncryptionOptions: {
+ *               NodeToNodeEncryptionOptions: { // AwsElasticsearchDomainNodeToNodeEncryptionOptions
  *                 Enabled: true || false,
  *               },
- *               ServiceSoftwareOptions: {
+ *               ServiceSoftwareOptions: { // AwsElasticsearchDomainServiceSoftwareOptions
  *                 AutomatedUpdateDate: "STRING_VALUE",
  *                 Cancellable: true || false,
  *                 CurrentVersion: "STRING_VALUE",
@@ -947,49 +925,47 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 UpdateAvailable: true || false,
  *                 UpdateStatus: "STRING_VALUE",
  *               },
- *               VPCOptions: {
+ *               VPCOptions: { // AwsElasticsearchDomainVPCOptions
  *                 AvailabilityZones: [
  *                   "STRING_VALUE",
  *                 ],
  *                 SecurityGroupIds: [
  *                   "STRING_VALUE",
  *                 ],
- *                 SubnetIds: [
- *                   "STRING_VALUE",
- *                 ],
+ *                 SubnetIds: "<NonEmptyStringList>",
  *                 VPCId: "STRING_VALUE",
  *               },
  *             },
- *             AwsS3Bucket: {
+ *             AwsS3Bucket: { // AwsS3BucketDetails
  *               OwnerId: "STRING_VALUE",
  *               OwnerName: "STRING_VALUE",
  *               OwnerAccountId: "STRING_VALUE",
  *               CreatedAt: "STRING_VALUE",
- *               ServerSideEncryptionConfiguration: {
- *                 Rules: [
- *                   {
- *                     ApplyServerSideEncryptionByDefault: {
+ *               ServerSideEncryptionConfiguration: { // AwsS3BucketServerSideEncryptionConfiguration
+ *                 Rules: [ // AwsS3BucketServerSideEncryptionRules
+ *                   { // AwsS3BucketServerSideEncryptionRule
+ *                     ApplyServerSideEncryptionByDefault: { // AwsS3BucketServerSideEncryptionByDefault
  *                       SSEAlgorithm: "STRING_VALUE",
  *                       KMSMasterKeyID: "STRING_VALUE",
  *                     },
  *                   },
  *                 ],
  *               },
- *               BucketLifecycleConfiguration: {
- *                 Rules: [
- *                   {
- *                     AbortIncompleteMultipartUpload: {
+ *               BucketLifecycleConfiguration: { // AwsS3BucketBucketLifecycleConfigurationDetails
+ *                 Rules: [ // AwsS3BucketBucketLifecycleConfigurationRulesList
+ *                   { // AwsS3BucketBucketLifecycleConfigurationRulesDetails
+ *                     AbortIncompleteMultipartUpload: { // AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
  *                       DaysAfterInitiation: Number("int"),
  *                     },
  *                     ExpirationDate: "STRING_VALUE",
  *                     ExpirationInDays: Number("int"),
  *                     ExpiredObjectDeleteMarker: true || false,
- *                     Filter: {
- *                       Predicate: {
- *                         Operands: [
- *                           {
+ *                     Filter: { // AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
+ *                       Predicate: { // AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
+ *                         Operands: [ // AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList
+ *                           { // AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
  *                             Prefix: "STRING_VALUE",
- *                             Tag: {
+ *                             Tag: { // AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
  *                               Key: "STRING_VALUE",
  *                               Value: "STRING_VALUE",
  *                             },
@@ -997,7 +973,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                           },
  *                         ],
  *                         Prefix: "STRING_VALUE",
- *                         Tag: {
+ *                         Tag: { // AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
  *                           Key: "STRING_VALUE",
  *                           Value: "STRING_VALUE",
  *                         },
@@ -1006,16 +982,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                     },
  *                     ID: "STRING_VALUE",
  *                     NoncurrentVersionExpirationInDays: Number("int"),
- *                     NoncurrentVersionTransitions: [
- *                       {
+ *                     NoncurrentVersionTransitions: [ // AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList
+ *                       { // AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
  *                         Days: Number("int"),
  *                         StorageClass: "STRING_VALUE",
  *                       },
  *                     ],
  *                     Prefix: "STRING_VALUE",
  *                     Status: "STRING_VALUE",
- *                     Transitions: [
- *                       {
+ *                     Transitions: [ // AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList
+ *                       { // AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
  *                         Date: "STRING_VALUE",
  *                         Days: Number("int"),
  *                         StorageClass: "STRING_VALUE",
@@ -1024,31 +1000,31 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   },
  *                 ],
  *               },
- *               PublicAccessBlockConfiguration: {
+ *               PublicAccessBlockConfiguration: { // AwsS3AccountPublicAccessBlockDetails
  *                 BlockPublicAcls: true || false,
  *                 BlockPublicPolicy: true || false,
  *                 IgnorePublicAcls: true || false,
  *                 RestrictPublicBuckets: true || false,
  *               },
  *               AccessControlList: "STRING_VALUE",
- *               BucketLoggingConfiguration: {
+ *               BucketLoggingConfiguration: { // AwsS3BucketLoggingConfiguration
  *                 DestinationBucketName: "STRING_VALUE",
  *                 LogFilePrefix: "STRING_VALUE",
  *               },
- *               BucketWebsiteConfiguration: {
+ *               BucketWebsiteConfiguration: { // AwsS3BucketWebsiteConfiguration
  *                 ErrorDocument: "STRING_VALUE",
  *                 IndexDocumentSuffix: "STRING_VALUE",
- *                 RedirectAllRequestsTo: {
+ *                 RedirectAllRequestsTo: { // AwsS3BucketWebsiteConfigurationRedirectTo
  *                   Hostname: "STRING_VALUE",
  *                   Protocol: "STRING_VALUE",
  *                 },
- *                 RoutingRules: [
- *                   {
- *                     Condition: {
+ *                 RoutingRules: [ // AwsS3BucketWebsiteConfigurationRoutingRules
+ *                   { // AwsS3BucketWebsiteConfigurationRoutingRule
+ *                     Condition: { // AwsS3BucketWebsiteConfigurationRoutingRuleCondition
  *                       HttpErrorCodeReturnedEquals: "STRING_VALUE",
  *                       KeyPrefixEquals: "STRING_VALUE",
  *                     },
- *                     Redirect: {
+ *                     Redirect: { // AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
  *                       Hostname: "STRING_VALUE",
  *                       HttpRedirectCode: "STRING_VALUE",
  *                       Protocol: "STRING_VALUE",
@@ -1058,16 +1034,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   },
  *                 ],
  *               },
- *               BucketNotificationConfiguration: {
- *                 Configurations: [
- *                   {
- *                     Events: [
+ *               BucketNotificationConfiguration: { // AwsS3BucketNotificationConfiguration
+ *                 Configurations: [ // AwsS3BucketNotificationConfigurationDetails
+ *                   { // AwsS3BucketNotificationConfigurationDetail
+ *                     Events: [ // AwsS3BucketNotificationConfigurationEvents
  *                       "STRING_VALUE",
  *                     ],
- *                     Filter: {
- *                       S3KeyFilter: {
- *                         FilterRules: [
- *                           {
+ *                     Filter: { // AwsS3BucketNotificationConfigurationFilter
+ *                       S3KeyFilter: { // AwsS3BucketNotificationConfigurationS3KeyFilter
+ *                         FilterRules: [ // AwsS3BucketNotificationConfigurationS3KeyFilterRules
+ *                           { // AwsS3BucketNotificationConfigurationS3KeyFilterRule
  *                             Name: "Prefix" || "Suffix",
  *                             Value: "STRING_VALUE",
  *                           },
@@ -1079,14 +1055,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   },
  *                 ],
  *               },
- *               BucketVersioningConfiguration: {
+ *               BucketVersioningConfiguration: { // AwsS3BucketBucketVersioningConfiguration
  *                 IsMfaDeleteEnabled: true || false,
  *                 Status: "STRING_VALUE",
  *               },
- *               ObjectLockConfiguration: {
+ *               ObjectLockConfiguration: { // AwsS3BucketObjectLockConfiguration
  *                 ObjectLockEnabled: "STRING_VALUE",
- *                 Rule: {
- *                   DefaultRetention: {
+ *                 Rule: { // AwsS3BucketObjectLockConfigurationRuleDetails
+ *                   DefaultRetention: { // AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails
  *                     Days: Number("int"),
  *                     Mode: "STRING_VALUE",
  *                     Years: Number("int"),
@@ -1100,7 +1076,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               IgnorePublicAcls: true || false,
  *               RestrictPublicBuckets: true || false,
  *             },
- *             AwsS3Object: {
+ *             AwsS3Object: { // AwsS3ObjectDetails
  *               LastModified: "STRING_VALUE",
  *               ETag: "STRING_VALUE",
  *               VersionId: "STRING_VALUE",
@@ -1108,8 +1084,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ServerSideEncryption: "STRING_VALUE",
  *               SSEKMSKeyId: "STRING_VALUE",
  *             },
- *             AwsSecretsManagerSecret: {
- *               RotationRules: {
+ *             AwsSecretsManagerSecret: { // AwsSecretsManagerSecretDetails
+ *               RotationRules: { // AwsSecretsManagerSecretRotationRules
  *                 AutomaticallyAfterDays: Number("int"),
  *               },
  *               RotationOccurredWithinFrequency: true || false,
@@ -1120,7 +1096,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Name: "STRING_VALUE",
  *               Description: "STRING_VALUE",
  *             },
- *             AwsIamAccessKey: {
+ *             AwsIamAccessKey: { // AwsIamAccessKeyDetails
  *               UserName: "STRING_VALUE",
  *               Status: "Active" || "Inactive",
  *               CreatedAt: "STRING_VALUE",
@@ -1129,12 +1105,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               PrincipalName: "STRING_VALUE",
  *               AccountId: "STRING_VALUE",
  *               AccessKeyId: "STRING_VALUE",
- *               SessionContext: {
- *                 Attributes: {
+ *               SessionContext: { // AwsIamAccessKeySessionContext
+ *                 Attributes: { // AwsIamAccessKeySessionContextAttributes
  *                   MfaAuthenticated: true || false,
  *                   CreationDate: "STRING_VALUE",
  *                 },
- *                 SessionIssuer: {
+ *                 SessionIssuer: { // AwsIamAccessKeySessionContextSessionIssuer
  *                   Type: "STRING_VALUE",
  *                   PrincipalId: "STRING_VALUE",
  *                   Arn: "STRING_VALUE",
@@ -1143,31 +1119,29 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               },
  *             },
- *             AwsIamUser: {
- *               AttachedManagedPolicies: [
- *                 {
+ *             AwsIamUser: { // AwsIamUserDetails
+ *               AttachedManagedPolicies: [ // AwsIamAttachedManagedPolicyList
+ *                 { // AwsIamAttachedManagedPolicy
  *                   PolicyName: "STRING_VALUE",
  *                   PolicyArn: "STRING_VALUE",
  *                 },
  *               ],
  *               CreateDate: "STRING_VALUE",
- *               GroupList: [
- *                 "STRING_VALUE",
- *               ],
+ *               GroupList: "<StringList>",
  *               Path: "STRING_VALUE",
- *               PermissionsBoundary: {
+ *               PermissionsBoundary: { // AwsIamPermissionsBoundary
  *                 PermissionsBoundaryArn: "STRING_VALUE",
  *                 PermissionsBoundaryType: "STRING_VALUE",
  *               },
  *               UserId: "STRING_VALUE",
  *               UserName: "STRING_VALUE",
- *               UserPolicyList: [
- *                 {
+ *               UserPolicyList: [ // AwsIamUserPolicyList
+ *                 { // AwsIamUserPolicy
  *                   PolicyName: "STRING_VALUE",
  *                 },
  *               ],
  *             },
- *             AwsIamPolicy: {
+ *             AwsIamPolicy: { // AwsIamPolicyDetails
  *               AttachmentCount: Number("int"),
  *               CreateDate: "STRING_VALUE",
  *               DefaultVersionId: "STRING_VALUE",
@@ -1177,8 +1151,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               PermissionsBoundaryUsageCount: Number("int"),
  *               PolicyId: "STRING_VALUE",
  *               PolicyName: "STRING_VALUE",
- *               PolicyVersionList: [
- *                 {
+ *               PolicyVersionList: [ // AwsIamPolicyVersionList
+ *                 { // AwsIamPolicyVersion
  *                   VersionId: "STRING_VALUE",
  *                   IsDefaultVersion: true || false,
  *                   CreateDate: "STRING_VALUE",
@@ -1186,11 +1160,11 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               UpdateDate: "STRING_VALUE",
  *             },
- *             AwsApiGatewayV2Stage: {
+ *             AwsApiGatewayV2Stage: { // AwsApiGatewayV2StageDetails
  *               ClientCertificateId: "STRING_VALUE",
  *               CreatedDate: "STRING_VALUE",
  *               Description: "STRING_VALUE",
- *               DefaultRouteSettings: {
+ *               DefaultRouteSettings: { // AwsApiGatewayV2RouteSettings
  *                 DetailedMetricsEnabled: true || false,
  *                 LoggingLevel: "STRING_VALUE",
  *                 DataTraceEnabled: true || false,
@@ -1207,10 +1181,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 ThrottlingRateLimit: Number("double"),
  *               },
  *               StageName: "STRING_VALUE",
- *               StageVariables: {
- *                 "<keys>": "<NonEmptyString>",
- *               },
- *               AccessLogSettings: {
+ *               StageVariables: "<FieldMap>",
+ *               AccessLogSettings: { // AwsApiGatewayAccessLogSettings
  *                 Format: "STRING_VALUE",
  *                 DestinationArn: "STRING_VALUE",
  *               },
@@ -1218,7 +1190,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               LastDeploymentStatusMessage: "STRING_VALUE",
  *               ApiGatewayManaged: true || false,
  *             },
- *             AwsApiGatewayV2Api: {
+ *             AwsApiGatewayV2Api: { // AwsApiGatewayV2ApiDetails
  *               ApiEndpoint: "STRING_VALUE",
  *               ApiId: "STRING_VALUE",
  *               ApiKeySelectionExpression: "STRING_VALUE",
@@ -1228,56 +1200,46 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Name: "STRING_VALUE",
  *               ProtocolType: "STRING_VALUE",
  *               RouteSelectionExpression: "STRING_VALUE",
- *               CorsConfiguration: {
- *                 AllowOrigins: [
- *                   "STRING_VALUE",
- *                 ],
+ *               CorsConfiguration: { // AwsCorsConfiguration
+ *                 AllowOrigins: "<NonEmptyStringList>",
  *                 AllowCredentials: true || false,
- *                 ExposeHeaders: [
- *                   "STRING_VALUE",
- *                 ],
+ *                 ExposeHeaders: "<NonEmptyStringList>",
  *                 MaxAge: Number("int"),
- *                 AllowMethods: [
- *                   "STRING_VALUE",
- *                 ],
- *                 AllowHeaders: [
- *                   "STRING_VALUE",
- *                 ],
+ *                 AllowMethods: "<NonEmptyStringList>",
+ *                 AllowHeaders: "<NonEmptyStringList>",
  *               },
  *             },
- *             AwsDynamoDbTable: {
- *               AttributeDefinitions: [
- *                 {
+ *             AwsDynamoDbTable: { // AwsDynamoDbTableDetails
+ *               AttributeDefinitions: [ // AwsDynamoDbTableAttributeDefinitionList
+ *                 { // AwsDynamoDbTableAttributeDefinition
  *                   AttributeName: "STRING_VALUE",
  *                   AttributeType: "STRING_VALUE",
  *                 },
  *               ],
- *               BillingModeSummary: {
+ *               BillingModeSummary: { // AwsDynamoDbTableBillingModeSummary
  *                 BillingMode: "STRING_VALUE",
  *                 LastUpdateToPayPerRequestDateTime: "STRING_VALUE",
  *               },
  *               CreationDateTime: "STRING_VALUE",
- *               GlobalSecondaryIndexes: [
- *                 {
+ *               GlobalSecondaryIndexes: [ // AwsDynamoDbTableGlobalSecondaryIndexList
+ *                 { // AwsDynamoDbTableGlobalSecondaryIndex
  *                   Backfilling: true || false,
  *                   IndexArn: "STRING_VALUE",
  *                   IndexName: "STRING_VALUE",
  *                   IndexSizeBytes: Number("long"),
  *                   IndexStatus: "STRING_VALUE",
  *                   ItemCount: Number("int"),
- *                   KeySchema: [
- *                     {
+ *                   KeySchema: [ // AwsDynamoDbTableKeySchemaList
+ *                     { // AwsDynamoDbTableKeySchema
  *                       AttributeName: "STRING_VALUE",
  *                       KeyType: "STRING_VALUE",
  *                     },
  *                   ],
- *                   Projection: {
- *                     NonKeyAttributes: [
- *                       "STRING_VALUE",
- *                     ],
+ *                   Projection: { // AwsDynamoDbTableProjection
+ *                     NonKeyAttributes: "<StringList>",
  *                     ProjectionType: "STRING_VALUE",
  *                   },
- *                   ProvisionedThroughput: {
+ *                   ProvisionedThroughput: { // AwsDynamoDbTableProvisionedThroughput
  *                     LastDecreaseDateTime: "STRING_VALUE",
  *                     LastIncreaseDateTime: "STRING_VALUE",
  *                     NumberOfDecreasesToday: Number("int"),
@@ -1296,8 +1258,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               LatestStreamArn: "STRING_VALUE",
  *               LatestStreamLabel: "STRING_VALUE",
- *               LocalSecondaryIndexes: [
- *                 {
+ *               LocalSecondaryIndexes: [ // AwsDynamoDbTableLocalSecondaryIndexList
+ *                 { // AwsDynamoDbTableLocalSecondaryIndex
  *                   IndexArn: "STRING_VALUE",
  *                   IndexName: "STRING_VALUE",
  *                   KeySchema: [
@@ -1307,9 +1269,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                     },
  *                   ],
  *                   Projection: {
- *                     NonKeyAttributes: [
- *                       "STRING_VALUE",
- *                     ],
+ *                     NonKeyAttributes: "<StringList>",
  *                     ProjectionType: "STRING_VALUE",
  *                   },
  *                 },
@@ -1321,12 +1281,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 ReadCapacityUnits: Number("int"),
  *                 WriteCapacityUnits: Number("int"),
  *               },
- *               Replicas: [
- *                 {
- *                   GlobalSecondaryIndexes: [
- *                     {
+ *               Replicas: [ // AwsDynamoDbTableReplicaList
+ *                 { // AwsDynamoDbTableReplica
+ *                   GlobalSecondaryIndexes: [ // AwsDynamoDbTableReplicaGlobalSecondaryIndexList
+ *                     { // AwsDynamoDbTableReplicaGlobalSecondaryIndex
  *                       IndexName: "STRING_VALUE",
- *                       ProvisionedThroughputOverride: {
+ *                       ProvisionedThroughputOverride: { // AwsDynamoDbTableProvisionedThroughputOverride
  *                         ReadCapacityUnits: Number("int"),
  *                       },
  *                     },
@@ -1340,19 +1300,19 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   ReplicaStatusDescription: "STRING_VALUE",
  *                 },
  *               ],
- *               RestoreSummary: {
+ *               RestoreSummary: { // AwsDynamoDbTableRestoreSummary
  *                 SourceBackupArn: "STRING_VALUE",
  *                 SourceTableArn: "STRING_VALUE",
  *                 RestoreDateTime: "STRING_VALUE",
  *                 RestoreInProgress: true || false,
  *               },
- *               SseDescription: {
+ *               SseDescription: { // AwsDynamoDbTableSseDescription
  *                 InaccessibleEncryptionDateTime: "STRING_VALUE",
  *                 Status: "STRING_VALUE",
  *                 SseType: "STRING_VALUE",
  *                 KmsMasterKeyArn: "STRING_VALUE",
  *               },
- *               StreamSpecification: {
+ *               StreamSpecification: { // AwsDynamoDbTableStreamSpecification
  *                 StreamEnabled: true || false,
  *                 StreamViewType: "STRING_VALUE",
  *               },
@@ -1361,7 +1321,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               TableSizeBytes: Number("long"),
  *               TableStatus: "STRING_VALUE",
  *             },
- *             AwsApiGatewayStage: {
+ *             AwsApiGatewayStage: { // AwsApiGatewayStageDetails
  *               DeploymentId: "STRING_VALUE",
  *               ClientCertificateId: "STRING_VALUE",
  *               StageName: "STRING_VALUE",
@@ -1369,8 +1329,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               CacheClusterEnabled: true || false,
  *               CacheClusterSize: "STRING_VALUE",
  *               CacheClusterStatus: "STRING_VALUE",
- *               MethodSettings: [
- *                 {
+ *               MethodSettings: [ // AwsApiGatewayMethodSettingsList
+ *                 { // AwsApiGatewayMethodSettings
  *                   MetricsEnabled: true || false,
  *                   LoggingLevel: "STRING_VALUE",
  *                   DataTraceEnabled: true || false,
@@ -1385,20 +1345,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   ResourcePath: "STRING_VALUE",
  *                 },
  *               ],
- *               Variables: {
- *                 "<keys>": "<NonEmptyString>",
- *               },
+ *               Variables: "<FieldMap>",
  *               DocumentationVersion: "STRING_VALUE",
  *               AccessLogSettings: {
  *                 Format: "STRING_VALUE",
  *                 DestinationArn: "STRING_VALUE",
  *               },
- *               CanarySettings: {
+ *               CanarySettings: { // AwsApiGatewayCanarySettings
  *                 PercentTraffic: Number("double"),
  *                 DeploymentId: "STRING_VALUE",
- *                 StageVariableOverrides: {
- *                   "<keys>": "<NonEmptyString>",
- *                 },
+ *                 StageVariableOverrides: "<FieldMap>",
  *                 UseStageCache: true || false,
  *               },
  *               TracingEnabled: true || false,
@@ -1406,24 +1362,20 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               LastUpdatedDate: "STRING_VALUE",
  *               WebAclArn: "STRING_VALUE",
  *             },
- *             AwsApiGatewayRestApi: {
+ *             AwsApiGatewayRestApi: { // AwsApiGatewayRestApiDetails
  *               Id: "STRING_VALUE",
  *               Name: "STRING_VALUE",
  *               Description: "STRING_VALUE",
  *               CreatedDate: "STRING_VALUE",
  *               Version: "STRING_VALUE",
- *               BinaryMediaTypes: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               BinaryMediaTypes: "<NonEmptyStringList>",
  *               MinimumCompressionSize: Number("int"),
  *               ApiKeySource: "STRING_VALUE",
- *               EndpointConfiguration: {
- *                 Types: [
- *                   "<NonEmptyStringList>",
- *                 ],
+ *               EndpointConfiguration: { // AwsApiGatewayEndpointConfiguration
+ *                 Types: "<NonEmptyStringList>",
  *               },
  *             },
- *             AwsCloudTrailTrail: {
+ *             AwsCloudTrailTrail: { // AwsCloudTrailTrailDetails
  *               CloudWatchLogsLogGroupArn: "STRING_VALUE",
  *               CloudWatchLogsRoleArn: "STRING_VALUE",
  *               HasCustomEventSelectors: true || false,
@@ -1440,9 +1392,9 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               SnsTopicName: "STRING_VALUE",
  *               TrailArn: "STRING_VALUE",
  *             },
- *             AwsSsmPatchCompliance: {
- *               Patch: {
- *                 ComplianceSummary: {
+ *             AwsSsmPatchCompliance: { // AwsSsmPatchComplianceDetails
+ *               Patch: { // AwsSsmPatch
+ *                 ComplianceSummary: { // AwsSsmComplianceSummary
  *                   Status: "STRING_VALUE",
  *                   CompliantCriticalCount: Number("int"),
  *                   CompliantHighCount: Number("int"),
@@ -1464,52 +1416,48 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               },
  *             },
- *             AwsCertificateManagerCertificate: {
+ *             AwsCertificateManagerCertificate: { // AwsCertificateManagerCertificateDetails
  *               CertificateAuthorityArn: "STRING_VALUE",
  *               CreatedAt: "STRING_VALUE",
  *               DomainName: "STRING_VALUE",
- *               DomainValidationOptions: [
- *                 {
+ *               DomainValidationOptions: [ // AwsCertificateManagerCertificateDomainValidationOptions
+ *                 { // AwsCertificateManagerCertificateDomainValidationOption
  *                   DomainName: "STRING_VALUE",
- *                   ResourceRecord: {
+ *                   ResourceRecord: { // AwsCertificateManagerCertificateResourceRecord
  *                     Name: "STRING_VALUE",
  *                     Type: "STRING_VALUE",
  *                     Value: "STRING_VALUE",
  *                   },
  *                   ValidationDomain: "STRING_VALUE",
- *                   ValidationEmails: [
- *                     "<StringList>",
- *                   ],
+ *                   ValidationEmails: "<StringList>",
  *                   ValidationMethod: "STRING_VALUE",
  *                   ValidationStatus: "STRING_VALUE",
  *                 },
  *               ],
- *               ExtendedKeyUsages: [
- *                 {
+ *               ExtendedKeyUsages: [ // AwsCertificateManagerCertificateExtendedKeyUsages
+ *                 { // AwsCertificateManagerCertificateExtendedKeyUsage
  *                   Name: "STRING_VALUE",
  *                   OId: "STRING_VALUE",
  *                 },
  *               ],
  *               FailureReason: "STRING_VALUE",
  *               ImportedAt: "STRING_VALUE",
- *               InUseBy: [
- *                 "<StringList>",
- *               ],
+ *               InUseBy: "<StringList>",
  *               IssuedAt: "STRING_VALUE",
  *               Issuer: "STRING_VALUE",
  *               KeyAlgorithm: "STRING_VALUE",
- *               KeyUsages: [
- *                 {
+ *               KeyUsages: [ // AwsCertificateManagerCertificateKeyUsages
+ *                 { // AwsCertificateManagerCertificateKeyUsage
  *                   Name: "STRING_VALUE",
  *                 },
  *               ],
  *               NotAfter: "STRING_VALUE",
  *               NotBefore: "STRING_VALUE",
- *               Options: {
+ *               Options: { // AwsCertificateManagerCertificateOptions
  *                 CertificateTransparencyLoggingPreference: "STRING_VALUE",
  *               },
  *               RenewalEligibility: "STRING_VALUE",
- *               RenewalSummary: {
+ *               RenewalSummary: { // AwsCertificateManagerCertificateRenewalSummary
  *                 DomainValidationOptions: [
  *                   {
  *                     DomainName: "STRING_VALUE",
@@ -1519,9 +1467,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                       Value: "STRING_VALUE",
  *                     },
  *                     ValidationDomain: "STRING_VALUE",
- *                     ValidationEmails: [
- *                       "<StringList>",
- *                     ],
+ *                     ValidationEmails: "<StringList>",
  *                     ValidationMethod: "STRING_VALUE",
  *                     ValidationStatus: "STRING_VALUE",
  *                   },
@@ -1534,29 +1480,27 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               SignatureAlgorithm: "STRING_VALUE",
  *               Status: "STRING_VALUE",
  *               Subject: "STRING_VALUE",
- *               SubjectAlternativeNames: [
- *                 "<StringList>",
- *               ],
+ *               SubjectAlternativeNames: "<StringList>",
  *               Type: "STRING_VALUE",
  *             },
- *             AwsRedshiftCluster: {
+ *             AwsRedshiftCluster: { // AwsRedshiftClusterDetails
  *               AllowVersionUpgrade: true || false,
  *               AutomatedSnapshotRetentionPeriod: Number("int"),
  *               AvailabilityZone: "STRING_VALUE",
  *               ClusterAvailabilityStatus: "STRING_VALUE",
  *               ClusterCreateTime: "STRING_VALUE",
  *               ClusterIdentifier: "STRING_VALUE",
- *               ClusterNodes: [
- *                 {
+ *               ClusterNodes: [ // AwsRedshiftClusterClusterNodes
+ *                 { // AwsRedshiftClusterClusterNode
  *                   NodeRole: "STRING_VALUE",
  *                   PrivateIpAddress: "STRING_VALUE",
  *                   PublicIpAddress: "STRING_VALUE",
  *                 },
  *               ],
- *               ClusterParameterGroups: [
- *                 {
- *                   ClusterParameterStatusList: [
- *                     {
+ *               ClusterParameterGroups: [ // AwsRedshiftClusterClusterParameterGroups
+ *                 { // AwsRedshiftClusterClusterParameterGroup
+ *                   ClusterParameterStatusList: [ // AwsRedshiftClusterClusterParameterStatusList
+ *                     { // AwsRedshiftClusterClusterParameterStatus
  *                       ParameterName: "STRING_VALUE",
  *                       ParameterApplyStatus: "STRING_VALUE",
  *                       ParameterApplyErrorDescription: "STRING_VALUE",
@@ -1568,13 +1512,13 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               ClusterPublicKey: "STRING_VALUE",
  *               ClusterRevisionNumber: "STRING_VALUE",
- *               ClusterSecurityGroups: [
- *                 {
+ *               ClusterSecurityGroups: [ // AwsRedshiftClusterClusterSecurityGroups
+ *                 { // AwsRedshiftClusterClusterSecurityGroup
  *                   ClusterSecurityGroupName: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                 },
  *               ],
- *               ClusterSnapshotCopyStatus: {
+ *               ClusterSnapshotCopyStatus: { // AwsRedshiftClusterClusterSnapshotCopyStatus
  *                 DestinationRegion: "STRING_VALUE",
  *                 ManualSnapshotRetentionPeriod: Number("int"),
  *                 RetentionPeriod: Number("int"),
@@ -1584,33 +1528,33 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ClusterSubnetGroupName: "STRING_VALUE",
  *               ClusterVersion: "STRING_VALUE",
  *               DBName: "STRING_VALUE",
- *               DeferredMaintenanceWindows: [
- *                 {
+ *               DeferredMaintenanceWindows: [ // AwsRedshiftClusterDeferredMaintenanceWindows
+ *                 { // AwsRedshiftClusterDeferredMaintenanceWindow
  *                   DeferMaintenanceEndTime: "STRING_VALUE",
  *                   DeferMaintenanceIdentifier: "STRING_VALUE",
  *                   DeferMaintenanceStartTime: "STRING_VALUE",
  *                 },
  *               ],
- *               ElasticIpStatus: {
+ *               ElasticIpStatus: { // AwsRedshiftClusterElasticIpStatus
  *                 ElasticIp: "STRING_VALUE",
  *                 Status: "STRING_VALUE",
  *               },
  *               ElasticResizeNumberOfNodeOptions: "STRING_VALUE",
  *               Encrypted: true || false,
- *               Endpoint: {
+ *               Endpoint: { // AwsRedshiftClusterEndpoint
  *                 Address: "STRING_VALUE",
  *                 Port: Number("int"),
  *               },
  *               EnhancedVpcRouting: true || false,
  *               ExpectedNextSnapshotScheduleTime: "STRING_VALUE",
  *               ExpectedNextSnapshotScheduleTimeStatus: "STRING_VALUE",
- *               HsmStatus: {
+ *               HsmStatus: { // AwsRedshiftClusterHsmStatus
  *                 HsmClientCertificateIdentifier: "STRING_VALUE",
  *                 HsmConfigurationIdentifier: "STRING_VALUE",
  *                 Status: "STRING_VALUE",
  *               },
- *               IamRoles: [
- *                 {
+ *               IamRoles: [ // AwsRedshiftClusterIamRoles
+ *                 { // AwsRedshiftClusterIamRole
  *                   ApplyStatus: "STRING_VALUE",
  *                   IamRoleArn: "STRING_VALUE",
  *                 },
@@ -1622,10 +1566,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               NextMaintenanceWindowStartTime: "STRING_VALUE",
  *               NodeType: "STRING_VALUE",
  *               NumberOfNodes: Number("int"),
- *               PendingActions: [
- *                 "<StringList>",
- *               ],
- *               PendingModifiedValues: {
+ *               PendingActions: "<StringList>",
+ *               PendingModifiedValues: { // AwsRedshiftClusterPendingModifiedValues
  *                 AutomatedSnapshotRetentionPeriod: Number("int"),
  *                 ClusterIdentifier: "STRING_VALUE",
  *                 ClusterType: "STRING_VALUE",
@@ -1640,11 +1582,11 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               },
  *               PreferredMaintenanceWindow: "STRING_VALUE",
  *               PubliclyAccessible: true || false,
- *               ResizeInfo: {
+ *               ResizeInfo: { // AwsRedshiftClusterResizeInfo
  *                 AllowCancelResize: true || false,
  *                 ResizeType: "STRING_VALUE",
  *               },
- *               RestoreStatus: {
+ *               RestoreStatus: { // AwsRedshiftClusterRestoreStatus
  *                 CurrentRestoreRateInMegaBytesPerSecond: Number("double"),
  *                 ElapsedTimeInSeconds: Number("long"),
  *                 EstimatedTimeToCompletionInSeconds: Number("long"),
@@ -1655,13 +1597,13 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               SnapshotScheduleIdentifier: "STRING_VALUE",
  *               SnapshotScheduleState: "STRING_VALUE",
  *               VpcId: "STRING_VALUE",
- *               VpcSecurityGroups: [
- *                 {
+ *               VpcSecurityGroups: [ // AwsRedshiftClusterVpcSecurityGroups
+ *                 { // AwsRedshiftClusterVpcSecurityGroup
  *                   Status: "STRING_VALUE",
  *                   VpcSecurityGroupId: "STRING_VALUE",
  *                 },
  *               ],
- *               LoggingStatus: {
+ *               LoggingStatus: { // AwsRedshiftClusterLoggingStatus
  *                 BucketName: "STRING_VALUE",
  *                 LastFailureMessage: "STRING_VALUE",
  *                 LastFailureTime: "STRING_VALUE",
@@ -1670,104 +1612,92 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 S3KeyPrefix: "STRING_VALUE",
  *               },
  *             },
- *             AwsElbLoadBalancer: {
- *               AvailabilityZones: [
- *                 "<StringList>",
- *               ],
- *               BackendServerDescriptions: [
- *                 {
+ *             AwsElbLoadBalancer: { // AwsElbLoadBalancerDetails
+ *               AvailabilityZones: "<StringList>",
+ *               BackendServerDescriptions: [ // AwsElbLoadBalancerBackendServerDescriptions
+ *                 { // AwsElbLoadBalancerBackendServerDescription
  *                   InstancePort: Number("int"),
- *                   PolicyNames: [
- *                     "<StringList>",
- *                   ],
+ *                   PolicyNames: "<StringList>",
  *                 },
  *               ],
  *               CanonicalHostedZoneName: "STRING_VALUE",
  *               CanonicalHostedZoneNameID: "STRING_VALUE",
  *               CreatedTime: "STRING_VALUE",
  *               DnsName: "STRING_VALUE",
- *               HealthCheck: {
+ *               HealthCheck: { // AwsElbLoadBalancerHealthCheck
  *                 HealthyThreshold: Number("int"),
  *                 Interval: Number("int"),
  *                 Target: "STRING_VALUE",
  *                 Timeout: Number("int"),
  *                 UnhealthyThreshold: Number("int"),
  *               },
- *               Instances: [
- *                 {
+ *               Instances: [ // AwsElbLoadBalancerInstances
+ *                 { // AwsElbLoadBalancerInstance
  *                   InstanceId: "STRING_VALUE",
  *                 },
  *               ],
- *               ListenerDescriptions: [
- *                 {
- *                   Listener: {
+ *               ListenerDescriptions: [ // AwsElbLoadBalancerListenerDescriptions
+ *                 { // AwsElbLoadBalancerListenerDescription
+ *                   Listener: { // AwsElbLoadBalancerListener
  *                     InstancePort: Number("int"),
  *                     InstanceProtocol: "STRING_VALUE",
  *                     LoadBalancerPort: Number("int"),
  *                     Protocol: "STRING_VALUE",
  *                     SslCertificateId: "STRING_VALUE",
  *                   },
- *                   PolicyNames: [
- *                     "<StringList>",
- *                   ],
+ *                   PolicyNames: "<StringList>",
  *                 },
  *               ],
- *               LoadBalancerAttributes: {
- *                 AccessLog: {
+ *               LoadBalancerAttributes: { // AwsElbLoadBalancerAttributes
+ *                 AccessLog: { // AwsElbLoadBalancerAccessLog
  *                   EmitInterval: Number("int"),
  *                   Enabled: true || false,
  *                   S3BucketName: "STRING_VALUE",
  *                   S3BucketPrefix: "STRING_VALUE",
  *                 },
- *                 ConnectionDraining: {
+ *                 ConnectionDraining: { // AwsElbLoadBalancerConnectionDraining
  *                   Enabled: true || false,
  *                   Timeout: Number("int"),
  *                 },
- *                 ConnectionSettings: {
+ *                 ConnectionSettings: { // AwsElbLoadBalancerConnectionSettings
  *                   IdleTimeout: Number("int"),
  *                 },
- *                 CrossZoneLoadBalancing: {
+ *                 CrossZoneLoadBalancing: { // AwsElbLoadBalancerCrossZoneLoadBalancing
  *                   Enabled: true || false,
  *                 },
- *                 AdditionalAttributes: [
- *                   {
+ *                 AdditionalAttributes: [ // AwsElbLoadBalancerAdditionalAttributeList
+ *                   { // AwsElbLoadBalancerAdditionalAttribute
  *                     Key: "STRING_VALUE",
  *                     Value: "STRING_VALUE",
  *                   },
  *                 ],
  *               },
  *               LoadBalancerName: "STRING_VALUE",
- *               Policies: {
- *                 AppCookieStickinessPolicies: [
- *                   {
+ *               Policies: { // AwsElbLoadBalancerPolicies
+ *                 AppCookieStickinessPolicies: [ // AwsElbAppCookieStickinessPolicies
+ *                   { // AwsElbAppCookieStickinessPolicy
  *                     CookieName: "STRING_VALUE",
  *                     PolicyName: "STRING_VALUE",
  *                   },
  *                 ],
- *                 LbCookieStickinessPolicies: [
- *                   {
+ *                 LbCookieStickinessPolicies: [ // AwsElbLbCookieStickinessPolicies
+ *                   { // AwsElbLbCookieStickinessPolicy
  *                     CookieExpirationPeriod: Number("long"),
  *                     PolicyName: "STRING_VALUE",
  *                   },
  *                 ],
- *                 OtherPolicies: [
- *                   "<StringList>",
- *                 ],
+ *                 OtherPolicies: "<StringList>",
  *               },
  *               Scheme: "STRING_VALUE",
- *               SecurityGroups: [
- *                 "<StringList>",
- *               ],
- *               SourceSecurityGroup: {
+ *               SecurityGroups: "<StringList>",
+ *               SourceSecurityGroup: { // AwsElbLoadBalancerSourceSecurityGroup
  *                 GroupName: "STRING_VALUE",
  *                 OwnerAlias: "STRING_VALUE",
  *               },
- *               Subnets: [
- *                 "<StringList>",
- *               ],
+ *               Subnets: "<StringList>",
  *               VpcId: "STRING_VALUE",
  *             },
- *             AwsIamGroup: {
+ *             AwsIamGroup: { // AwsIamGroupDetails
  *               AttachedManagedPolicies: [
  *                 {
  *                   PolicyName: "STRING_VALUE",
@@ -1777,14 +1707,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               CreateDate: "STRING_VALUE",
  *               GroupId: "STRING_VALUE",
  *               GroupName: "STRING_VALUE",
- *               GroupPolicyList: [
- *                 {
+ *               GroupPolicyList: [ // AwsIamGroupPolicyList
+ *                 { // AwsIamGroupPolicy
  *                   PolicyName: "STRING_VALUE",
  *                 },
  *               ],
  *               Path: "STRING_VALUE",
  *             },
- *             AwsIamRole: {
+ *             AwsIamRole: { // AwsIamRoleDetails
  *               AssumeRolePolicyDocument: "STRING_VALUE",
  *               AttachedManagedPolicies: [
  *                 {
@@ -1793,15 +1723,15 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *               CreateDate: "STRING_VALUE",
- *               InstanceProfileList: [
- *                 {
+ *               InstanceProfileList: [ // AwsIamInstanceProfileList
+ *                 { // AwsIamInstanceProfile
  *                   Arn: "STRING_VALUE",
  *                   CreateDate: "STRING_VALUE",
  *                   InstanceProfileId: "STRING_VALUE",
  *                   InstanceProfileName: "STRING_VALUE",
  *                   Path: "STRING_VALUE",
- *                   Roles: [
- *                     {
+ *                   Roles: [ // AwsIamInstanceProfileRoles
+ *                     { // AwsIamInstanceProfileRole
  *                       Arn: "STRING_VALUE",
  *                       AssumeRolePolicyDocument: "STRING_VALUE",
  *                       CreateDate: "STRING_VALUE",
@@ -1818,15 +1748,15 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               },
  *               RoleId: "STRING_VALUE",
  *               RoleName: "STRING_VALUE",
- *               RolePolicyList: [
- *                 {
+ *               RolePolicyList: [ // AwsIamRolePolicyList
+ *                 { // AwsIamRolePolicy
  *                   PolicyName: "STRING_VALUE",
  *                 },
  *               ],
  *               MaxSessionDuration: Number("int"),
  *               Path: "STRING_VALUE",
  *             },
- *             AwsKmsKey: {
+ *             AwsKmsKey: { // AwsKmsKeyDetails
  *               AWSAccountId: "STRING_VALUE",
  *               CreationDate: Number("double"),
  *               KeyId: "STRING_VALUE",
@@ -1836,22 +1766,20 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Description: "STRING_VALUE",
  *               KeyRotationStatus: true || false,
  *             },
- *             AwsLambdaFunction: {
- *               Code: {
+ *             AwsLambdaFunction: { // AwsLambdaFunctionDetails
+ *               Code: { // AwsLambdaFunctionCode
  *                 S3Bucket: "STRING_VALUE",
  *                 S3Key: "STRING_VALUE",
  *                 S3ObjectVersion: "STRING_VALUE",
  *                 ZipFile: "STRING_VALUE",
  *               },
  *               CodeSha256: "STRING_VALUE",
- *               DeadLetterConfig: {
+ *               DeadLetterConfig: { // AwsLambdaFunctionDeadLetterConfig
  *                 TargetArn: "STRING_VALUE",
  *               },
- *               Environment: {
- *                 Variables: {
- *                   "<keys>": "<NonEmptyString>",
- *                 },
- *                 Error: {
+ *               Environment: { // AwsLambdaFunctionEnvironment
+ *                 Variables: "<FieldMap>",
+ *                 Error: { // AwsLambdaFunctionEnvironmentError
  *                   ErrorCode: "STRING_VALUE",
  *                   Message: "STRING_VALUE",
  *                 },
@@ -1860,8 +1788,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Handler: "STRING_VALUE",
  *               KmsKeyArn: "STRING_VALUE",
  *               LastModified: "STRING_VALUE",
- *               Layers: [
- *                 {
+ *               Layers: [ // AwsLambdaFunctionLayerList
+ *                 { // AwsLambdaFunctionLayer
  *                   Arn: "STRING_VALUE",
  *                   CodeSize: Number("int"),
  *                 },
@@ -1872,34 +1800,26 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Role: "STRING_VALUE",
  *               Runtime: "STRING_VALUE",
  *               Timeout: Number("int"),
- *               TracingConfig: {
+ *               TracingConfig: { // AwsLambdaFunctionTracingConfig
  *                 Mode: "STRING_VALUE",
  *               },
- *               VpcConfig: {
- *                 SecurityGroupIds: [
- *                   "<NonEmptyStringList>",
- *                 ],
- *                 SubnetIds: [
- *                   "<NonEmptyStringList>",
- *                 ],
+ *               VpcConfig: { // AwsLambdaFunctionVpcConfig
+ *                 SecurityGroupIds: "<NonEmptyStringList>",
+ *                 SubnetIds: "<NonEmptyStringList>",
  *                 VpcId: "STRING_VALUE",
  *               },
  *               Version: "STRING_VALUE",
- *               Architectures: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               Architectures: "<NonEmptyStringList>",
  *               PackageType: "STRING_VALUE",
  *             },
- *             AwsLambdaLayerVersion: {
+ *             AwsLambdaLayerVersion: { // AwsLambdaLayerVersionDetails
  *               Version: Number("long"),
- *               CompatibleRuntimes: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               CompatibleRuntimes: "<NonEmptyStringList>",
  *               CreatedDate: "STRING_VALUE",
  *             },
- *             AwsRdsDbInstance: {
- *               AssociatedRoles: [
- *                 {
+ *             AwsRdsDbInstance: { // AwsRdsDbInstanceDetails
+ *               AssociatedRoles: [ // AwsRdsDbInstanceAssociatedRoles
+ *                 { // AwsRdsDbInstanceAssociatedRole
  *                   RoleArn: "STRING_VALUE",
  *                   FeatureName: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
@@ -1913,7 +1833,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               DbiResourceId: "STRING_VALUE",
  *               DBName: "STRING_VALUE",
  *               DeletionProtection: true || false,
- *               Endpoint: {
+ *               Endpoint: { // AwsRdsDbInstanceEndpoint
  *                 Address: "STRING_VALUE",
  *                 Port: Number("int"),
  *                 HostedZoneId: "STRING_VALUE",
@@ -1926,8 +1846,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               PubliclyAccessible: true || false,
  *               StorageEncrypted: true || false,
  *               TdeCredentialArn: "STRING_VALUE",
- *               VpcSecurityGroups: [
- *                 {
+ *               VpcSecurityGroups: [ // AwsRdsDbInstanceVpcSecurityGroups
+ *                 { // AwsRdsDbInstanceVpcSecurityGroup
  *                   VpcSecurityGroupId: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                 },
@@ -1939,25 +1859,23 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               AllocatedStorage: Number("int"),
  *               PreferredBackupWindow: "STRING_VALUE",
  *               BackupRetentionPeriod: Number("int"),
- *               DbSecurityGroups: [
- *                 "<StringList>",
- *               ],
- *               DbParameterGroups: [
- *                 {
+ *               DbSecurityGroups: "<StringList>",
+ *               DbParameterGroups: [ // AwsRdsDbParameterGroups
+ *                 { // AwsRdsDbParameterGroup
  *                   DbParameterGroupName: "STRING_VALUE",
  *                   ParameterApplyStatus: "STRING_VALUE",
  *                 },
  *               ],
  *               AvailabilityZone: "STRING_VALUE",
- *               DbSubnetGroup: {
+ *               DbSubnetGroup: { // AwsRdsDbSubnetGroup
  *                 DbSubnetGroupName: "STRING_VALUE",
  *                 DbSubnetGroupDescription: "STRING_VALUE",
  *                 VpcId: "STRING_VALUE",
  *                 SubnetGroupStatus: "STRING_VALUE",
- *                 Subnets: [
- *                   {
+ *                 Subnets: [ // AwsRdsDbSubnetGroupSubnets
+ *                   { // AwsRdsDbSubnetGroupSubnet
  *                     SubnetIdentifier: "STRING_VALUE",
- *                     SubnetAvailabilityZone: {
+ *                     SubnetAvailabilityZone: { // AwsRdsDbSubnetGroupSubnetAvailabilityZone
  *                       Name: "STRING_VALUE",
  *                     },
  *                     SubnetStatus: "STRING_VALUE",
@@ -1966,7 +1884,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 DbSubnetGroupArn: "STRING_VALUE",
  *               },
  *               PreferredMaintenanceWindow: "STRING_VALUE",
- *               PendingModifiedValues: {
+ *               PendingModifiedValues: { // AwsRdsDbPendingModifiedValues
  *                 DbInstanceClass: "STRING_VALUE",
  *                 AllocatedStorage: Number("int"),
  *                 MasterUserPassword: "STRING_VALUE",
@@ -1980,16 +1898,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 StorageType: "STRING_VALUE",
  *                 CaCertificateIdentifier: "STRING_VALUE",
  *                 DbSubnetGroupName: "STRING_VALUE",
- *                 PendingCloudWatchLogsExports: {
- *                   LogTypesToEnable: [
- *                     "<StringList>",
- *                   ],
- *                   LogTypesToDisable: [
- *                     "<StringList>",
- *                   ],
+ *                 PendingCloudWatchLogsExports: { // AwsRdsPendingCloudWatchLogsExports
+ *                   LogTypesToEnable: "<StringList>",
+ *                   LogTypesToDisable: "<StringList>",
  *                 },
- *                 ProcessorFeatures: [
- *                   {
+ *                 ProcessorFeatures: [ // AwsRdsDbProcessorFeatures
+ *                   { // AwsRdsDbProcessorFeature
  *                     Name: "STRING_VALUE",
  *                     Value: "STRING_VALUE",
  *                   },
@@ -1998,24 +1912,20 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               LatestRestorableTime: "STRING_VALUE",
  *               AutoMinorVersionUpgrade: true || false,
  *               ReadReplicaSourceDBInstanceIdentifier: "STRING_VALUE",
- *               ReadReplicaDBInstanceIdentifiers: [
- *                 "<StringList>",
- *               ],
- *               ReadReplicaDBClusterIdentifiers: [
- *                 "<StringList>",
- *               ],
+ *               ReadReplicaDBInstanceIdentifiers: "<StringList>",
+ *               ReadReplicaDBClusterIdentifiers: "<StringList>",
  *               LicenseModel: "STRING_VALUE",
  *               Iops: Number("int"),
- *               OptionGroupMemberships: [
- *                 {
+ *               OptionGroupMemberships: [ // AwsRdsDbOptionGroupMemberships
+ *                 { // AwsRdsDbOptionGroupMembership
  *                   OptionGroupName: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                 },
  *               ],
  *               CharacterSetName: "STRING_VALUE",
  *               SecondaryAvailabilityZone: "STRING_VALUE",
- *               StatusInfos: [
- *                 {
+ *               StatusInfos: [ // AwsRdsDbStatusInfos
+ *                 { // AwsRdsDbStatusInfo
  *                   StatusType: "STRING_VALUE",
  *                   Normal: true || false,
  *                   Status: "STRING_VALUE",
@@ -2023,8 +1933,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *               StorageType: "STRING_VALUE",
- *               DomainMemberships: [
- *                 {
+ *               DomainMemberships: [ // AwsRdsDbDomainMemberships
+ *                 { // AwsRdsDbDomainMembership
  *                   Domain: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                   Fqdn: "STRING_VALUE",
@@ -2039,9 +1949,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               PerformanceInsightsEnabled: true || false,
  *               PerformanceInsightsKmsKeyId: "STRING_VALUE",
  *               PerformanceInsightsRetentionPeriod: Number("int"),
- *               EnabledCloudWatchLogsExports: [
- *                 "<StringList>",
- *               ],
+ *               EnabledCloudWatchLogsExports: "<StringList>",
  *               ProcessorFeatures: [
  *                 {
  *                   Name: "STRING_VALUE",
@@ -2055,10 +1963,10 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               },
  *               MaxAllocatedStorage: Number("int"),
  *             },
- *             AwsSnsTopic: {
+ *             AwsSnsTopic: { // AwsSnsTopicDetails
  *               KmsMasterKeyId: "STRING_VALUE",
- *               Subscription: [
- *                 {
+ *               Subscription: [ // AwsSnsTopicSubscriptionList
+ *                 { // AwsSnsTopicSubscription
  *                   Endpoint: "STRING_VALUE",
  *                   Protocol: "STRING_VALUE",
  *                 },
@@ -2073,26 +1981,26 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               HttpSuccessFeedbackRoleArn: "STRING_VALUE",
  *               HttpFailureFeedbackRoleArn: "STRING_VALUE",
  *             },
- *             AwsSqsQueue: {
+ *             AwsSqsQueue: { // AwsSqsQueueDetails
  *               KmsDataKeyReusePeriodSeconds: Number("int"),
  *               KmsMasterKeyId: "STRING_VALUE",
  *               QueueName: "STRING_VALUE",
  *               DeadLetterTargetArn: "STRING_VALUE",
  *             },
- *             AwsWafWebAcl: {
+ *             AwsWafWebAcl: { // AwsWafWebAclDetails
  *               Name: "STRING_VALUE",
  *               DefaultAction: "STRING_VALUE",
- *               Rules: [
- *                 {
- *                   Action: {
+ *               Rules: [ // AwsWafWebAclRuleList
+ *                 { // AwsWafWebAclRule
+ *                   Action: { // WafAction
  *                     Type: "STRING_VALUE",
  *                   },
- *                   ExcludedRules: [
- *                     {
+ *                   ExcludedRules: [ // WafExcludedRuleList
+ *                     { // WafExcludedRule
  *                       RuleId: "STRING_VALUE",
  *                     },
  *                   ],
- *                   OverrideAction: {
+ *                   OverrideAction: { // WafOverrideAction
  *                     Type: "STRING_VALUE",
  *                   },
  *                   Priority: Number("int"),
@@ -2102,7 +2010,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               WebAclId: "STRING_VALUE",
  *             },
- *             AwsRdsDbSnapshot: {
+ *             AwsRdsDbSnapshot: { // AwsRdsDbSnapshotDetails
  *               DbSnapshotIdentifier: "STRING_VALUE",
  *               DbInstanceIdentifier: "STRING_VALUE",
  *               SnapshotCreateTime: "STRING_VALUE",
@@ -2136,10 +2044,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               DbiResourceId: "STRING_VALUE",
  *             },
- *             AwsRdsDbClusterSnapshot: {
- *               AvailabilityZones: [
- *                 "<StringList>",
- *               ],
+ *             AwsRdsDbClusterSnapshot: { // AwsRdsDbClusterSnapshotDetails
+ *               AvailabilityZones: "<StringList>",
  *               SnapshotCreateTime: "STRING_VALUE",
  *               Engine: "STRING_VALUE",
  *               AllocatedStorage: Number("int"),
@@ -2158,19 +2064,15 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               DbClusterSnapshotIdentifier: "STRING_VALUE",
  *               IamDatabaseAuthenticationEnabled: true || false,
  *             },
- *             AwsRdsDbCluster: {
+ *             AwsRdsDbCluster: { // AwsRdsDbClusterDetails
  *               AllocatedStorage: Number("int"),
- *               AvailabilityZones: [
- *                 "<StringList>",
- *               ],
+ *               AvailabilityZones: "<StringList>",
  *               BackupRetentionPeriod: Number("int"),
  *               DatabaseName: "STRING_VALUE",
  *               Status: "STRING_VALUE",
  *               Endpoint: "STRING_VALUE",
  *               ReaderEndpoint: "STRING_VALUE",
- *               CustomEndpoints: [
- *                 "<StringList>",
- *               ],
+ *               CustomEndpoints: "<StringList>",
  *               MultiAz: true || false,
  *               Engine: "STRING_VALUE",
  *               EngineVersion: "STRING_VALUE",
@@ -2178,9 +2080,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               MasterUsername: "STRING_VALUE",
  *               PreferredBackupWindow: "STRING_VALUE",
  *               PreferredMaintenanceWindow: "STRING_VALUE",
- *               ReadReplicaIdentifiers: [
- *                 "<StringList>",
- *               ],
+ *               ReadReplicaIdentifiers: "<StringList>",
  *               VpcSecurityGroups: [
  *                 {
  *                   VpcSecurityGroupId: "STRING_VALUE",
@@ -2191,16 +2091,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               StorageEncrypted: true || false,
  *               KmsKeyId: "STRING_VALUE",
  *               DbClusterResourceId: "STRING_VALUE",
- *               AssociatedRoles: [
- *                 {
+ *               AssociatedRoles: [ // AwsRdsDbClusterAssociatedRoles
+ *                 { // AwsRdsDbClusterAssociatedRole
  *                   RoleArn: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                 },
  *               ],
  *               ClusterCreateTime: "STRING_VALUE",
- *               EnabledCloudWatchLogsExports: [
- *                 "<StringList>",
- *               ],
+ *               EnabledCloudWatchLogsExports: "<StringList>",
  *               EngineMode: "STRING_VALUE",
  *               DeletionProtection: true || false,
  *               HttpEndpointEnabled: true || false,
@@ -2217,15 +2115,15 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               DbClusterParameterGroup: "STRING_VALUE",
  *               DbSubnetGroup: "STRING_VALUE",
- *               DbClusterOptionGroupMemberships: [
- *                 {
+ *               DbClusterOptionGroupMemberships: [ // AwsRdsDbClusterOptionGroupMemberships
+ *                 { // AwsRdsDbClusterOptionGroupMembership
  *                   DbClusterOptionGroupName: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                 },
  *               ],
  *               DbClusterIdentifier: "STRING_VALUE",
- *               DbClusterMembers: [
- *                 {
+ *               DbClusterMembers: [ // AwsRdsDbClusterMembers
+ *                 { // AwsRdsDbClusterMember
  *                   IsClusterWriter: true || false,
  *                   PromotionTier: Number("int"),
  *                   DbInstanceIdentifier: "STRING_VALUE",
@@ -2234,22 +2132,20 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               IamDatabaseAuthenticationEnabled: true || false,
  *             },
- *             AwsEcsCluster: {
+ *             AwsEcsCluster: { // AwsEcsClusterDetails
  *               ClusterArn: "STRING_VALUE",
  *               ActiveServicesCount: Number("int"),
- *               CapacityProviders: [
- *                 "<NonEmptyStringList>",
- *               ],
- *               ClusterSettings: [
- *                 {
+ *               CapacityProviders: "<NonEmptyStringList>",
+ *               ClusterSettings: [ // AwsEcsClusterClusterSettingsList
+ *                 { // AwsEcsClusterClusterSettingsDetails
  *                   Name: "STRING_VALUE",
  *                   Value: "STRING_VALUE",
  *                 },
  *               ],
- *               Configuration: {
- *                 ExecuteCommandConfiguration: {
+ *               Configuration: { // AwsEcsClusterConfigurationDetails
+ *                 ExecuteCommandConfiguration: { // AwsEcsClusterConfigurationExecuteCommandConfigurationDetails
  *                   KmsKeyId: "STRING_VALUE",
- *                   LogConfiguration: {
+ *                   LogConfiguration: { // AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
  *                     CloudWatchEncryptionEnabled: true || false,
  *                     CloudWatchLogGroupName: "STRING_VALUE",
  *                     S3BucketName: "STRING_VALUE",
@@ -2259,8 +2155,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   Logging: "STRING_VALUE",
  *                 },
  *               },
- *               DefaultCapacityProviderStrategy: [
- *                 {
+ *               DefaultCapacityProviderStrategy: [ // AwsEcsClusterDefaultCapacityProviderStrategyList
+ *                 { // AwsEcsClusterDefaultCapacityProviderStrategyDetails
  *                   Base: Number("int"),
  *                   CapacityProvider: "STRING_VALUE",
  *                   Weight: Number("int"),
@@ -2271,75 +2167,59 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               RunningTasksCount: Number("int"),
  *               Status: "STRING_VALUE",
  *             },
- *             AwsEcsContainer: {
+ *             AwsEcsContainer: { // AwsEcsContainerDetails
  *               Name: "STRING_VALUE",
  *               Image: "STRING_VALUE",
- *               MountPoints: [
- *                 {
+ *               MountPoints: [ // AwsMountPointList
+ *                 { // AwsMountPoint
  *                   SourceVolume: "STRING_VALUE",
  *                   ContainerPath: "STRING_VALUE",
  *                 },
  *               ],
  *               Privileged: true || false,
  *             },
- *             AwsEcsTaskDefinition: {
- *               ContainerDefinitions: [
- *                 {
- *                   Command: [
- *                     "<NonEmptyStringList>",
- *                   ],
+ *             AwsEcsTaskDefinition: { // AwsEcsTaskDefinitionDetails
+ *               ContainerDefinitions: [ // AwsEcsTaskDefinitionContainerDefinitionsList
+ *                 { // AwsEcsTaskDefinitionContainerDefinitionsDetails
+ *                   Command: "<NonEmptyStringList>",
  *                   Cpu: Number("int"),
- *                   DependsOn: [
- *                     {
+ *                   DependsOn: [ // AwsEcsTaskDefinitionContainerDefinitionsDependsOnList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
  *                       Condition: "STRING_VALUE",
  *                       ContainerName: "STRING_VALUE",
  *                     },
  *                   ],
  *                   DisableNetworking: true || false,
- *                   DnsSearchDomains: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   DnsServers: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   DockerLabels: {
- *                     "<keys>": "<NonEmptyString>",
- *                   },
- *                   DockerSecurityOptions: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   EntryPoint: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   Environment: [
- *                     {
+ *                   DnsSearchDomains: "<NonEmptyStringList>",
+ *                   DnsServers: "<NonEmptyStringList>",
+ *                   DockerLabels: "<FieldMap>",
+ *                   DockerSecurityOptions: "<NonEmptyStringList>",
+ *                   EntryPoint: "<NonEmptyStringList>",
+ *                   Environment: [ // AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails
  *                       Name: "STRING_VALUE",
  *                       Value: "STRING_VALUE",
  *                     },
  *                   ],
- *                   EnvironmentFiles: [
- *                     {
+ *                   EnvironmentFiles: [ // AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
  *                       Type: "STRING_VALUE",
  *                       Value: "STRING_VALUE",
  *                     },
  *                   ],
  *                   Essential: true || false,
- *                   ExtraHosts: [
- *                     {
+ *                   ExtraHosts: [ // AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
  *                       Hostname: "STRING_VALUE",
  *                       IpAddress: "STRING_VALUE",
  *                     },
  *                   ],
- *                   FirelensConfiguration: {
- *                     Options: {
- *                       "<keys>": "<NonEmptyString>",
- *                     },
+ *                   FirelensConfiguration: { // AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
+ *                     Options: "<FieldMap>",
  *                     Type: "STRING_VALUE",
  *                   },
- *                   HealthCheck: {
- *                     Command: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *                   HealthCheck: { // AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
+ *                     Command: "<NonEmptyStringList>",
  *                     Interval: Number("int"),
  *                     Retries: Number("int"),
  *                     StartPeriod: Number("int"),
@@ -2348,48 +2228,36 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   Hostname: "STRING_VALUE",
  *                   Image: "STRING_VALUE",
  *                   Interactive: true || false,
- *                   Links: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   LinuxParameters: {
- *                     Capabilities: {
- *                       Add: [
- *                         "<NonEmptyStringList>",
- *                       ],
- *                       Drop: [
- *                         "<NonEmptyStringList>",
- *                       ],
+ *                   Links: "<NonEmptyStringList>",
+ *                   LinuxParameters: { // AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ *                     Capabilities: { // AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+ *                       Add: "<NonEmptyStringList>",
+ *                       Drop: "<NonEmptyStringList>",
  *                     },
- *                     Devices: [
- *                       {
+ *                     Devices: [ // AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList
+ *                       { // AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
  *                         ContainerPath: "STRING_VALUE",
  *                         HostPath: "STRING_VALUE",
- *                         Permissions: [
- *                           "<NonEmptyStringList>",
- *                         ],
+ *                         Permissions: "<NonEmptyStringList>",
  *                       },
  *                     ],
  *                     InitProcessEnabled: true || false,
  *                     MaxSwap: Number("int"),
  *                     SharedMemorySize: Number("int"),
  *                     Swappiness: Number("int"),
- *                     Tmpfs: [
- *                       {
+ *                     Tmpfs: [ // AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList
+ *                       { // AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
  *                         ContainerPath: "STRING_VALUE",
- *                         MountOptions: [
- *                           "<NonEmptyStringList>",
- *                         ],
+ *                         MountOptions: "<NonEmptyStringList>",
  *                         Size: Number("int"),
  *                       },
  *                     ],
  *                   },
- *                   LogConfiguration: {
+ *                   LogConfiguration: { // AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
  *                     LogDriver: "STRING_VALUE",
- *                     Options: {
- *                       "<keys>": "<NonEmptyString>",
- *                     },
- *                     SecretOptions: [
- *                       {
+ *                     Options: "<FieldMap>",
+ *                     SecretOptions: [ // AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList
+ *                       { // AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
  *                         Name: "STRING_VALUE",
  *                         ValueFrom: "STRING_VALUE",
  *                       },
@@ -2397,16 +2265,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   },
  *                   Memory: Number("int"),
  *                   MemoryReservation: Number("int"),
- *                   MountPoints: [
- *                     {
+ *                   MountPoints: [ // AwsEcsTaskDefinitionContainerDefinitionsMountPointsList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
  *                       ContainerPath: "STRING_VALUE",
  *                       ReadOnly: true || false,
  *                       SourceVolume: "STRING_VALUE",
  *                     },
  *                   ],
  *                   Name: "STRING_VALUE",
- *                   PortMappings: [
- *                     {
+ *                   PortMappings: [ // AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
  *                       ContainerPort: Number("int"),
  *                       HostPort: Number("int"),
  *                       Protocol: "STRING_VALUE",
@@ -2415,39 +2283,39 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   Privileged: true || false,
  *                   PseudoTerminal: true || false,
  *                   ReadonlyRootFilesystem: true || false,
- *                   RepositoryCredentials: {
+ *                   RepositoryCredentials: { // AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
  *                     CredentialsParameter: "STRING_VALUE",
  *                   },
- *                   ResourceRequirements: [
- *                     {
+ *                   ResourceRequirements: [ // AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
  *                       Type: "STRING_VALUE",
  *                       Value: "STRING_VALUE",
  *                     },
  *                   ],
- *                   Secrets: [
- *                     {
+ *                   Secrets: [ // AwsEcsTaskDefinitionContainerDefinitionsSecretsList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails
  *                       Name: "STRING_VALUE",
  *                       ValueFrom: "STRING_VALUE",
  *                     },
  *                   ],
  *                   StartTimeout: Number("int"),
  *                   StopTimeout: Number("int"),
- *                   SystemControls: [
- *                     {
+ *                   SystemControls: [ // AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails
  *                       Namespace: "STRING_VALUE",
  *                       Value: "STRING_VALUE",
  *                     },
  *                   ],
- *                   Ulimits: [
- *                     {
+ *                   Ulimits: [ // AwsEcsTaskDefinitionContainerDefinitionsUlimitsList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
  *                       HardLimit: Number("int"),
  *                       Name: "STRING_VALUE",
  *                       SoftLimit: Number("int"),
  *                     },
  *                   ],
  *                   User: "STRING_VALUE",
- *                   VolumesFrom: [
- *                     {
+ *                   VolumesFrom: [ // AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList
+ *                     { // AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
  *                       ReadOnly: true || false,
  *                       SourceContainer: "STRING_VALUE",
  *                     },
@@ -2458,8 +2326,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Cpu: "STRING_VALUE",
  *               ExecutionRoleArn: "STRING_VALUE",
  *               Family: "STRING_VALUE",
- *               InferenceAccelerators: [
- *                 {
+ *               InferenceAccelerators: [ // AwsEcsTaskDefinitionInferenceAcceleratorsList
+ *                 { // AwsEcsTaskDefinitionInferenceAcceleratorsDetails
  *                   DeviceName: "STRING_VALUE",
  *                   DeviceType: "STRING_VALUE",
  *                 },
@@ -2468,41 +2336,35 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Memory: "STRING_VALUE",
  *               NetworkMode: "STRING_VALUE",
  *               PidMode: "STRING_VALUE",
- *               PlacementConstraints: [
- *                 {
+ *               PlacementConstraints: [ // AwsEcsTaskDefinitionPlacementConstraintsList
+ *                 { // AwsEcsTaskDefinitionPlacementConstraintsDetails
  *                   Expression: "STRING_VALUE",
  *                   Type: "STRING_VALUE",
  *                 },
  *               ],
- *               ProxyConfiguration: {
+ *               ProxyConfiguration: { // AwsEcsTaskDefinitionProxyConfigurationDetails
  *                 ContainerName: "STRING_VALUE",
- *                 ProxyConfigurationProperties: [
- *                   {
+ *                 ProxyConfigurationProperties: [ // AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList
+ *                   { // AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
  *                     Name: "STRING_VALUE",
  *                     Value: "STRING_VALUE",
  *                   },
  *                 ],
  *                 Type: "STRING_VALUE",
  *               },
- *               RequiresCompatibilities: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               RequiresCompatibilities: "<NonEmptyStringList>",
  *               TaskRoleArn: "STRING_VALUE",
- *               Volumes: [
- *                 {
- *                   DockerVolumeConfiguration: {
+ *               Volumes: [ // AwsEcsTaskDefinitionVolumesList
+ *                 { // AwsEcsTaskDefinitionVolumesDetails
+ *                   DockerVolumeConfiguration: { // AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
  *                     Autoprovision: true || false,
  *                     Driver: "STRING_VALUE",
- *                     DriverOpts: {
- *                       "<keys>": "<NonEmptyString>",
- *                     },
- *                     Labels: {
- *                       "<keys>": "<NonEmptyString>",
- *                     },
+ *                     DriverOpts: "<FieldMap>",
+ *                     Labels: "<FieldMap>",
  *                     Scope: "STRING_VALUE",
  *                   },
- *                   EfsVolumeConfiguration: {
- *                     AuthorizationConfig: {
+ *                   EfsVolumeConfiguration: { // AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
+ *                     AuthorizationConfig: { // AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
  *                       AccessPointId: "STRING_VALUE",
  *                       Iam: "STRING_VALUE",
  *                     },
@@ -2511,64 +2373,58 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                     TransitEncryption: "STRING_VALUE",
  *                     TransitEncryptionPort: Number("int"),
  *                   },
- *                   Host: {
+ *                   Host: { // AwsEcsTaskDefinitionVolumesHostDetails
  *                     SourcePath: "STRING_VALUE",
  *                   },
  *                   Name: "STRING_VALUE",
  *                 },
  *               ],
  *             },
- *             Container: {
+ *             Container: { // ContainerDetails
  *               ContainerRuntime: "STRING_VALUE",
  *               Name: "STRING_VALUE",
  *               ImageId: "STRING_VALUE",
  *               ImageName: "STRING_VALUE",
  *               LaunchedAt: "STRING_VALUE",
- *               VolumeMounts: [
- *                 {
+ *               VolumeMounts: [ // VolumeMountList
+ *                 { // VolumeMount
  *                   Name: "STRING_VALUE",
  *                   MountPath: "STRING_VALUE",
  *                 },
  *               ],
  *               Privileged: true || false,
  *             },
- *             Other: {
- *               "<keys>": "<NonEmptyString>",
- *             },
- *             AwsRdsEventSubscription: {
+ *             Other: "<FieldMap>",
+ *             AwsRdsEventSubscription: { // AwsRdsEventSubscriptionDetails
  *               CustSubscriptionId: "STRING_VALUE",
  *               CustomerAwsId: "STRING_VALUE",
  *               Enabled: true || false,
- *               EventCategoriesList: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               EventCategoriesList: "<NonEmptyStringList>",
  *               EventSubscriptionArn: "STRING_VALUE",
  *               SnsTopicArn: "STRING_VALUE",
- *               SourceIdsList: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               SourceIdsList: "<NonEmptyStringList>",
  *               SourceType: "STRING_VALUE",
  *               Status: "STRING_VALUE",
  *               SubscriptionCreationTime: "STRING_VALUE",
  *             },
- *             AwsEcsService: {
- *               CapacityProviderStrategy: [
- *                 {
+ *             AwsEcsService: { // AwsEcsServiceDetails
+ *               CapacityProviderStrategy: [ // AwsEcsServiceCapacityProviderStrategyList
+ *                 { // AwsEcsServiceCapacityProviderStrategyDetails
  *                   Base: Number("int"),
  *                   CapacityProvider: "STRING_VALUE",
  *                   Weight: Number("int"),
  *                 },
  *               ],
  *               Cluster: "STRING_VALUE",
- *               DeploymentConfiguration: {
- *                 DeploymentCircuitBreaker: {
+ *               DeploymentConfiguration: { // AwsEcsServiceDeploymentConfigurationDetails
+ *                 DeploymentCircuitBreaker: { // AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
  *                   Enable: true || false,
  *                   Rollback: true || false,
  *                 },
  *                 MaximumPercent: Number("int"),
  *                 MinimumHealthyPercent: Number("int"),
  *               },
- *               DeploymentController: {
+ *               DeploymentController: { // AwsEcsServiceDeploymentControllerDetails
  *                 Type: "STRING_VALUE",
  *               },
  *               DesiredCount: Number("int"),
@@ -2576,8 +2432,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               EnableExecuteCommand: true || false,
  *               HealthCheckGracePeriodSeconds: Number("int"),
  *               LaunchType: "STRING_VALUE",
- *               LoadBalancers: [
- *                 {
+ *               LoadBalancers: [ // AwsEcsServiceLoadBalancersList
+ *                 { // AwsEcsServiceLoadBalancersDetails
  *                   ContainerName: "STRING_VALUE",
  *                   ContainerPort: Number("int"),
  *                   LoadBalancerName: "STRING_VALUE",
@@ -2585,25 +2441,21 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *               Name: "STRING_VALUE",
- *               NetworkConfiguration: {
- *                 AwsVpcConfiguration: {
+ *               NetworkConfiguration: { // AwsEcsServiceNetworkConfigurationDetails
+ *                 AwsVpcConfiguration: { // AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
  *                   AssignPublicIp: "STRING_VALUE",
- *                   SecurityGroups: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   Subnets: [
- *                     "<NonEmptyStringList>",
- *                   ],
+ *                   SecurityGroups: "<NonEmptyStringList>",
+ *                   Subnets: "<NonEmptyStringList>",
  *                 },
  *               },
- *               PlacementConstraints: [
- *                 {
+ *               PlacementConstraints: [ // AwsEcsServicePlacementConstraintsList
+ *                 { // AwsEcsServicePlacementConstraintsDetails
  *                   Expression: "STRING_VALUE",
  *                   Type: "STRING_VALUE",
  *                 },
  *               ],
- *               PlacementStrategies: [
- *                 {
+ *               PlacementStrategies: [ // AwsEcsServicePlacementStrategiesList
+ *                 { // AwsEcsServicePlacementStrategiesDetails
  *                   Field: "STRING_VALUE",
  *                   Type: "STRING_VALUE",
  *                 },
@@ -2614,8 +2466,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               SchedulingStrategy: "STRING_VALUE",
  *               ServiceArn: "STRING_VALUE",
  *               ServiceName: "STRING_VALUE",
- *               ServiceRegistries: [
- *                 {
+ *               ServiceRegistries: [ // AwsEcsServiceServiceRegistriesList
+ *                 { // AwsEcsServiceServiceRegistriesDetails
  *                   ContainerName: "STRING_VALUE",
  *                   ContainerPort: Number("int"),
  *                   Port: Number("int"),
@@ -2624,12 +2476,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               TaskDefinition: "STRING_VALUE",
  *             },
- *             AwsAutoScalingLaunchConfiguration: {
+ *             AwsAutoScalingLaunchConfiguration: { // AwsAutoScalingLaunchConfigurationDetails
  *               AssociatePublicIpAddress: true || false,
- *               BlockDeviceMappings: [
- *                 {
+ *               BlockDeviceMappings: [ // AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList
+ *                 { // AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
  *                   DeviceName: "STRING_VALUE",
- *                   Ebs: {
+ *                   Ebs: { // AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
  *                     DeleteOnTermination: true || false,
  *                     Encrypted: true || false,
  *                     Iops: Number("int"),
@@ -2642,14 +2494,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *               ClassicLinkVpcId: "STRING_VALUE",
- *               ClassicLinkVpcSecurityGroups: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               ClassicLinkVpcSecurityGroups: "<NonEmptyStringList>",
  *               CreatedTime: "STRING_VALUE",
  *               EbsOptimized: true || false,
  *               IamInstanceProfile: "STRING_VALUE",
  *               ImageId: "STRING_VALUE",
- *               InstanceMonitoring: {
+ *               InstanceMonitoring: { // AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
  *                 Enabled: true || false,
  *               },
  *               InstanceType: "STRING_VALUE",
@@ -2658,18 +2508,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               LaunchConfigurationName: "STRING_VALUE",
  *               PlacementTenancy: "STRING_VALUE",
  *               RamdiskId: "STRING_VALUE",
- *               SecurityGroups: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               SecurityGroups: "<NonEmptyStringList>",
  *               SpotPrice: "STRING_VALUE",
  *               UserData: "STRING_VALUE",
- *               MetadataOptions: {
+ *               MetadataOptions: { // AwsAutoScalingLaunchConfigurationMetadataOptions
  *                 HttpEndpoint: "STRING_VALUE",
  *                 HttpPutResponseHopLimit: Number("int"),
  *                 HttpTokens: "STRING_VALUE",
  *               },
  *             },
- *             AwsEc2VpnConnection: {
+ *             AwsEc2VpnConnection: { // AwsEc2VpnConnectionDetails
  *               VpnConnectionId: "STRING_VALUE",
  *               State: "STRING_VALUE",
  *               CustomerGatewayId: "STRING_VALUE",
@@ -2677,8 +2525,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Type: "STRING_VALUE",
  *               VpnGatewayId: "STRING_VALUE",
  *               Category: "STRING_VALUE",
- *               VgwTelemetry: [
- *                 {
+ *               VgwTelemetry: [ // AwsEc2VpnConnectionVgwTelemetryList
+ *                 { // AwsEc2VpnConnectionVgwTelemetryDetails
  *                   AcceptedRouteCount: Number("int"),
  *                   CertificateArn: "STRING_VALUE",
  *                   LastStatusChange: "STRING_VALUE",
@@ -2687,34 +2535,24 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   StatusMessage: "STRING_VALUE",
  *                 },
  *               ],
- *               Options: {
+ *               Options: { // AwsEc2VpnConnectionOptionsDetails
  *                 StaticRoutesOnly: true || false,
- *                 TunnelOptions: [
- *                   {
+ *                 TunnelOptions: [ // AwsEc2VpnConnectionOptionsTunnelOptionsList
+ *                   { // AwsEc2VpnConnectionOptionsTunnelOptionsDetails
  *                     DpdTimeoutSeconds: Number("int"),
- *                     IkeVersions: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *                     IkeVersions: "<NonEmptyStringList>",
  *                     OutsideIpAddress: "STRING_VALUE",
- *                     Phase1DhGroupNumbers: [
+ *                     Phase1DhGroupNumbers: [ // IntegerList
  *                       Number("int"),
  *                     ],
- *                     Phase1EncryptionAlgorithms: [
- *                       "<NonEmptyStringList>",
- *                     ],
- *                     Phase1IntegrityAlgorithms: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *                     Phase1EncryptionAlgorithms: "<NonEmptyStringList>",
+ *                     Phase1IntegrityAlgorithms: "<NonEmptyStringList>",
  *                     Phase1LifetimeSeconds: Number("int"),
  *                     Phase2DhGroupNumbers: [
  *                       Number("int"),
  *                     ],
- *                     Phase2EncryptionAlgorithms: [
- *                       "<NonEmptyStringList>",
- *                     ],
- *                     Phase2IntegrityAlgorithms: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *                     Phase2EncryptionAlgorithms: "<NonEmptyStringList>",
+ *                     Phase2IntegrityAlgorithms: "<NonEmptyStringList>",
  *                     Phase2LifetimeSeconds: Number("int"),
  *                     PreSharedKey: "STRING_VALUE",
  *                     RekeyFuzzPercentage: Number("int"),
@@ -2724,39 +2562,37 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   },
  *                 ],
  *               },
- *               Routes: [
- *                 {
+ *               Routes: [ // AwsEc2VpnConnectionRoutesList
+ *                 { // AwsEc2VpnConnectionRoutesDetails
  *                   DestinationCidrBlock: "STRING_VALUE",
  *                   State: "STRING_VALUE",
  *                 },
  *               ],
  *               TransitGatewayId: "STRING_VALUE",
  *             },
- *             AwsEcrContainerImage: {
+ *             AwsEcrContainerImage: { // AwsEcrContainerImageDetails
  *               RegistryId: "STRING_VALUE",
  *               RepositoryName: "STRING_VALUE",
  *               Architecture: "STRING_VALUE",
  *               ImageDigest: "STRING_VALUE",
- *               ImageTags: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               ImageTags: "<NonEmptyStringList>",
  *               ImagePublishedAt: "STRING_VALUE",
  *             },
- *             AwsOpenSearchServiceDomain: {
+ *             AwsOpenSearchServiceDomain: { // AwsOpenSearchServiceDomainDetails
  *               Arn: "STRING_VALUE",
  *               AccessPolicies: "STRING_VALUE",
  *               DomainName: "STRING_VALUE",
  *               Id: "STRING_VALUE",
  *               DomainEndpoint: "STRING_VALUE",
  *               EngineVersion: "STRING_VALUE",
- *               EncryptionAtRestOptions: {
+ *               EncryptionAtRestOptions: { // AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
  *                 Enabled: true || false,
  *                 KmsKeyId: "STRING_VALUE",
  *               },
- *               NodeToNodeEncryptionOptions: {
+ *               NodeToNodeEncryptionOptions: { // AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails
  *                 Enabled: true || false,
  *               },
- *               ServiceSoftwareOptions: {
+ *               ServiceSoftwareOptions: { // AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
  *                 AutomatedUpdateDate: "STRING_VALUE",
  *                 Cancellable: true || false,
  *                 CurrentVersion: "STRING_VALUE",
@@ -2766,12 +2602,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 UpdateStatus: "STRING_VALUE",
  *                 OptionalDeployment: true || false,
  *               },
- *               ClusterConfig: {
+ *               ClusterConfig: { // AwsOpenSearchServiceDomainClusterConfigDetails
  *                 InstanceCount: Number("int"),
  *                 WarmEnabled: true || false,
  *                 WarmCount: Number("int"),
  *                 DedicatedMasterEnabled: true || false,
- *                 ZoneAwarenessConfig: {
+ *                 ZoneAwarenessConfig: { // AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
  *                   AvailabilityZoneCount: Number("int"),
  *                 },
  *                 DedicatedMasterCount: Number("int"),
@@ -2780,23 +2616,19 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 ZoneAwarenessEnabled: true || false,
  *                 DedicatedMasterType: "STRING_VALUE",
  *               },
- *               DomainEndpointOptions: {
+ *               DomainEndpointOptions: { // AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
  *                 CustomEndpointCertificateArn: "STRING_VALUE",
  *                 CustomEndpointEnabled: true || false,
  *                 EnforceHTTPS: true || false,
  *                 CustomEndpoint: "STRING_VALUE",
  *                 TLSSecurityPolicy: "STRING_VALUE",
  *               },
- *               VpcOptions: {
- *                 SecurityGroupIds: [
- *                   "<NonEmptyStringList>",
- *                 ],
- *                 SubnetIds: [
- *                   "<NonEmptyStringList>",
- *                 ],
+ *               VpcOptions: { // AwsOpenSearchServiceDomainVpcOptionsDetails
+ *                 SecurityGroupIds: "<NonEmptyStringList>",
+ *                 SubnetIds: "<NonEmptyStringList>",
  *               },
- *               LogPublishingOptions: {
- *                 IndexSlowLogs: {
+ *               LogPublishingOptions: { // AwsOpenSearchServiceDomainLogPublishingOptionsDetails
+ *                 IndexSlowLogs: { // AwsOpenSearchServiceDomainLogPublishingOption
  *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
  *                   Enabled: true || false,
  *                 },
@@ -2809,131 +2641,115 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   Enabled: true || false,
  *                 },
  *               },
- *               DomainEndpoints: {
- *                 "<keys>": "<NonEmptyString>",
- *               },
- *               AdvancedSecurityOptions: {
+ *               DomainEndpoints: "<FieldMap>",
+ *               AdvancedSecurityOptions: { // AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
  *                 Enabled: true || false,
  *                 InternalUserDatabaseEnabled: true || false,
- *                 MasterUserOptions: {
+ *                 MasterUserOptions: { // AwsOpenSearchServiceDomainMasterUserOptionsDetails
  *                   MasterUserArn: "STRING_VALUE",
  *                   MasterUserName: "STRING_VALUE",
  *                   MasterUserPassword: "STRING_VALUE",
  *                 },
  *               },
  *             },
- *             AwsEc2VpcEndpointService: {
+ *             AwsEc2VpcEndpointService: { // AwsEc2VpcEndpointServiceDetails
  *               AcceptanceRequired: true || false,
- *               AvailabilityZones: [
- *                 "<NonEmptyStringList>",
- *               ],
- *               BaseEndpointDnsNames: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               AvailabilityZones: "<NonEmptyStringList>",
+ *               BaseEndpointDnsNames: "<NonEmptyStringList>",
  *               ManagesVpcEndpoints: true || false,
- *               GatewayLoadBalancerArns: [
- *                 "<NonEmptyStringList>",
- *               ],
- *               NetworkLoadBalancerArns: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               GatewayLoadBalancerArns: "<NonEmptyStringList>",
+ *               NetworkLoadBalancerArns: "<NonEmptyStringList>",
  *               PrivateDnsName: "STRING_VALUE",
  *               ServiceId: "STRING_VALUE",
  *               ServiceName: "STRING_VALUE",
  *               ServiceState: "STRING_VALUE",
- *               ServiceType: [
- *                 {
+ *               ServiceType: [ // AwsEc2VpcEndpointServiceServiceTypeList
+ *                 { // AwsEc2VpcEndpointServiceServiceTypeDetails
  *                   ServiceType: "STRING_VALUE",
  *                 },
  *               ],
  *             },
- *             AwsXrayEncryptionConfig: {
+ *             AwsXrayEncryptionConfig: { // AwsXrayEncryptionConfigDetails
  *               KeyId: "STRING_VALUE",
  *               Status: "STRING_VALUE",
  *               Type: "STRING_VALUE",
  *             },
- *             AwsWafRateBasedRule: {
+ *             AwsWafRateBasedRule: { // AwsWafRateBasedRuleDetails
  *               MetricName: "STRING_VALUE",
  *               Name: "STRING_VALUE",
  *               RateKey: "STRING_VALUE",
  *               RateLimit: Number("long"),
  *               RuleId: "STRING_VALUE",
- *               MatchPredicates: [
- *                 {
+ *               MatchPredicates: [ // AwsWafRateBasedRuleMatchPredicateList
+ *                 { // AwsWafRateBasedRuleMatchPredicate
  *                   DataId: "STRING_VALUE",
  *                   Negated: true || false,
  *                   Type: "STRING_VALUE",
  *                 },
  *               ],
  *             },
- *             AwsWafRegionalRateBasedRule: {
+ *             AwsWafRegionalRateBasedRule: { // AwsWafRegionalRateBasedRuleDetails
  *               MetricName: "STRING_VALUE",
  *               Name: "STRING_VALUE",
  *               RateKey: "STRING_VALUE",
  *               RateLimit: Number("long"),
  *               RuleId: "STRING_VALUE",
- *               MatchPredicates: [
- *                 {
+ *               MatchPredicates: [ // AwsWafRegionalRateBasedRuleMatchPredicateList
+ *                 { // AwsWafRegionalRateBasedRuleMatchPredicate
  *                   DataId: "STRING_VALUE",
  *                   Negated: true || false,
  *                   Type: "STRING_VALUE",
  *                 },
  *               ],
  *             },
- *             AwsEcrRepository: {
+ *             AwsEcrRepository: { // AwsEcrRepositoryDetails
  *               Arn: "STRING_VALUE",
- *               ImageScanningConfiguration: {
+ *               ImageScanningConfiguration: { // AwsEcrRepositoryImageScanningConfigurationDetails
  *                 ScanOnPush: true || false,
  *               },
  *               ImageTagMutability: "STRING_VALUE",
- *               LifecyclePolicy: {
+ *               LifecyclePolicy: { // AwsEcrRepositoryLifecyclePolicyDetails
  *                 LifecyclePolicyText: "STRING_VALUE",
  *                 RegistryId: "STRING_VALUE",
  *               },
  *               RepositoryName: "STRING_VALUE",
  *               RepositoryPolicyText: "STRING_VALUE",
  *             },
- *             AwsEksCluster: {
+ *             AwsEksCluster: { // AwsEksClusterDetails
  *               Arn: "STRING_VALUE",
  *               CertificateAuthorityData: "STRING_VALUE",
  *               ClusterStatus: "STRING_VALUE",
  *               Endpoint: "STRING_VALUE",
  *               Name: "STRING_VALUE",
- *               ResourcesVpcConfig: {
- *                 SecurityGroupIds: [
- *                   "<NonEmptyStringList>",
- *                 ],
- *                 SubnetIds: [
- *                   "<NonEmptyStringList>",
- *                 ],
+ *               ResourcesVpcConfig: { // AwsEksClusterResourcesVpcConfigDetails
+ *                 SecurityGroupIds: "<NonEmptyStringList>",
+ *                 SubnetIds: "<NonEmptyStringList>",
  *                 EndpointPublicAccess: true || false,
  *               },
  *               RoleArn: "STRING_VALUE",
  *               Version: "STRING_VALUE",
- *               Logging: {
- *                 ClusterLogging: [
- *                   {
+ *               Logging: { // AwsEksClusterLoggingDetails
+ *                 ClusterLogging: [ // AwsEksClusterLoggingClusterLoggingList
+ *                   { // AwsEksClusterLoggingClusterLoggingDetails
  *                     Enabled: true || false,
- *                     Types: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *                     Types: "<NonEmptyStringList>",
  *                   },
  *                 ],
  *               },
  *             },
- *             AwsNetworkFirewallFirewallPolicy: {
- *               FirewallPolicy: {
- *                 StatefulRuleGroupReferences: [
- *                   {
+ *             AwsNetworkFirewallFirewallPolicy: { // AwsNetworkFirewallFirewallPolicyDetails
+ *               FirewallPolicy: { // FirewallPolicyDetails
+ *                 StatefulRuleGroupReferences: [ // FirewallPolicyStatefulRuleGroupReferencesList
+ *                   { // FirewallPolicyStatefulRuleGroupReferencesDetails
  *                     ResourceArn: "STRING_VALUE",
  *                   },
  *                 ],
- *                 StatelessCustomActions: [
- *                   {
- *                     ActionDefinition: {
- *                       PublishMetricAction: {
- *                         Dimensions: [
- *                           {
+ *                 StatelessCustomActions: [ // FirewallPolicyStatelessCustomActionsList
+ *                   { // FirewallPolicyStatelessCustomActionsDetails
+ *                     ActionDefinition: { // StatelessCustomActionDefinition
+ *                       PublishMetricAction: { // StatelessCustomPublishMetricAction
+ *                         Dimensions: [ // StatelessCustomPublishMetricActionDimensionsList
+ *                           { // StatelessCustomPublishMetricActionDimension
  *                             Value: "STRING_VALUE",
  *                           },
  *                         ],
@@ -2942,14 +2758,10 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                     ActionName: "STRING_VALUE",
  *                   },
  *                 ],
- *                 StatelessDefaultActions: [
- *                   "<NonEmptyStringList>",
- *                 ],
- *                 StatelessFragmentDefaultActions: [
- *                   "<NonEmptyStringList>",
- *                 ],
- *                 StatelessRuleGroupReferences: [
- *                   {
+ *                 StatelessDefaultActions: "<NonEmptyStringList>",
+ *                 StatelessFragmentDefaultActions: "<NonEmptyStringList>",
+ *                 StatelessRuleGroupReferences: [ // FirewallPolicyStatelessRuleGroupReferencesList
+ *                   { // FirewallPolicyStatelessRuleGroupReferencesDetails
  *                     Priority: Number("int"),
  *                     ResourceArn: "STRING_VALUE",
  *                   },
@@ -2960,7 +2772,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               FirewallPolicyName: "STRING_VALUE",
  *               Description: "STRING_VALUE",
  *             },
- *             AwsNetworkFirewallFirewall: {
+ *             AwsNetworkFirewallFirewall: { // AwsNetworkFirewallFirewallDetails
  *               DeleteProtection: true || false,
  *               Description: "STRING_VALUE",
  *               FirewallArn: "STRING_VALUE",
@@ -2969,44 +2781,36 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               FirewallPolicyArn: "STRING_VALUE",
  *               FirewallPolicyChangeProtection: true || false,
  *               SubnetChangeProtection: true || false,
- *               SubnetMappings: [
- *                 {
+ *               SubnetMappings: [ // AwsNetworkFirewallFirewallSubnetMappingsList
+ *                 { // AwsNetworkFirewallFirewallSubnetMappingsDetails
  *                   SubnetId: "STRING_VALUE",
  *                 },
  *               ],
  *               VpcId: "STRING_VALUE",
  *             },
- *             AwsNetworkFirewallRuleGroup: {
+ *             AwsNetworkFirewallRuleGroup: { // AwsNetworkFirewallRuleGroupDetails
  *               Capacity: Number("int"),
  *               Description: "STRING_VALUE",
- *               RuleGroup: {
- *                 RuleVariables: {
- *                   IpSets: {
- *                     Definition: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *               RuleGroup: { // RuleGroupDetails
+ *                 RuleVariables: { // RuleGroupVariables
+ *                   IpSets: { // RuleGroupVariablesIpSetsDetails
+ *                     Definition: "<NonEmptyStringList>",
  *                   },
- *                   PortSets: {
- *                     Definition: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *                   PortSets: { // RuleGroupVariablesPortSetsDetails
+ *                     Definition: "<NonEmptyStringList>",
  *                   },
  *                 },
- *                 RulesSource: {
- *                   RulesSourceList: {
+ *                 RulesSource: { // RuleGroupSource
+ *                   RulesSourceList: { // RuleGroupSourceListDetails
  *                     GeneratedRulesType: "STRING_VALUE",
- *                     TargetTypes: [
- *                       "<NonEmptyStringList>",
- *                     ],
- *                     Targets: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *                     TargetTypes: "<NonEmptyStringList>",
+ *                     Targets: "<NonEmptyStringList>",
  *                   },
  *                   RulesString: "STRING_VALUE",
- *                   StatefulRules: [
- *                     {
+ *                   StatefulRules: [ // RuleGroupSourceStatefulRulesList
+ *                     { // RuleGroupSourceStatefulRulesDetails
  *                       Action: "STRING_VALUE",
- *                       Header: {
+ *                       Header: { // RuleGroupSourceStatefulRulesHeaderDetails
  *                         Destination: "STRING_VALUE",
  *                         DestinationPort: "STRING_VALUE",
  *                         Direction: "STRING_VALUE",
@@ -3014,19 +2818,19 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                         Source: "STRING_VALUE",
  *                         SourcePort: "STRING_VALUE",
  *                       },
- *                       RuleOptions: [
- *                         {
+ *                       RuleOptions: [ // RuleGroupSourceStatefulRulesOptionsList
+ *                         { // RuleGroupSourceStatefulRulesOptionsDetails
  *                           Keyword: "STRING_VALUE",
- *                           Settings: [
+ *                           Settings: [ // RuleGroupSourceStatefulRulesRuleOptionsSettingsList
  *                             "STRING_VALUE",
  *                           ],
  *                         },
  *                       ],
  *                     },
  *                   ],
- *                   StatelessRulesAndCustomActions: {
- *                     CustomActions: [
- *                       {
+ *                   StatelessRulesAndCustomActions: { // RuleGroupSourceStatelessRulesAndCustomActionsDetails
+ *                     CustomActions: [ // RuleGroupSourceCustomActionsList
+ *                       { // RuleGroupSourceCustomActionsDetails
  *                         ActionDefinition: {
  *                           PublishMetricAction: {
  *                             Dimensions: [
@@ -3039,47 +2843,41 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                         ActionName: "STRING_VALUE",
  *                       },
  *                     ],
- *                     StatelessRules: [
- *                       {
+ *                     StatelessRules: [ // RuleGroupSourceStatelessRulesList
+ *                       { // RuleGroupSourceStatelessRulesDetails
  *                         Priority: Number("int"),
- *                         RuleDefinition: {
- *                           Actions: [
- *                             "<NonEmptyStringList>",
- *                           ],
- *                           MatchAttributes: {
- *                             DestinationPorts: [
- *                               {
+ *                         RuleDefinition: { // RuleGroupSourceStatelessRuleDefinition
+ *                           Actions: "<NonEmptyStringList>",
+ *                           MatchAttributes: { // RuleGroupSourceStatelessRuleMatchAttributes
+ *                             DestinationPorts: [ // RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList
+ *                               { // RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
  *                                 FromPort: Number("int"),
  *                                 ToPort: Number("int"),
  *                               },
  *                             ],
- *                             Destinations: [
- *                               {
+ *                             Destinations: [ // RuleGroupSourceStatelessRuleMatchAttributesDestinationsList
+ *                               { // RuleGroupSourceStatelessRuleMatchAttributesDestinations
  *                                 AddressDefinition: "STRING_VALUE",
  *                               },
  *                             ],
- *                             Protocols: [
+ *                             Protocols: [ // RuleGroupSourceStatelessRuleMatchAttributesProtocolsList
  *                               Number("int"),
  *                             ],
- *                             SourcePorts: [
- *                               {
+ *                             SourcePorts: [ // RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList
+ *                               { // RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
  *                                 FromPort: Number("int"),
  *                                 ToPort: Number("int"),
  *                               },
  *                             ],
- *                             Sources: [
- *                               {
+ *                             Sources: [ // RuleGroupSourceStatelessRuleMatchAttributesSourcesList
+ *                               { // RuleGroupSourceStatelessRuleMatchAttributesSources
  *                                 AddressDefinition: "STRING_VALUE",
  *                               },
  *                             ],
- *                             TcpFlags: [
- *                               {
- *                                 Flags: [
- *                                   "<NonEmptyStringList>",
- *                                 ],
- *                                 Masks: [
- *                                   "<NonEmptyStringList>",
- *                                 ],
+ *                             TcpFlags: [ // RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList
+ *                               { // RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
+ *                                 Flags: "<NonEmptyStringList>",
+ *                                 Masks: "<NonEmptyStringList>",
  *                               },
  *                             ],
  *                           },
@@ -3094,20 +2892,20 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               RuleGroupName: "STRING_VALUE",
  *               Type: "STRING_VALUE",
  *             },
- *             AwsRdsDbSecurityGroup: {
+ *             AwsRdsDbSecurityGroup: { // AwsRdsDbSecurityGroupDetails
  *               DbSecurityGroupArn: "STRING_VALUE",
  *               DbSecurityGroupDescription: "STRING_VALUE",
  *               DbSecurityGroupName: "STRING_VALUE",
- *               Ec2SecurityGroups: [
- *                 {
+ *               Ec2SecurityGroups: [ // AwsRdsDbSecurityGroupEc2SecurityGroups
+ *                 { // AwsRdsDbSecurityGroupEc2SecurityGroup
  *                   Ec2SecurityGroupId: "STRING_VALUE",
  *                   Ec2SecurityGroupName: "STRING_VALUE",
  *                   Ec2SecurityGroupOwnerId: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                 },
  *               ],
- *               IpRanges: [
- *                 {
+ *               IpRanges: [ // AwsRdsDbSecurityGroupIpRanges
+ *                 { // AwsRdsDbSecurityGroupIpRange
  *                   CidrIp: "STRING_VALUE",
  *                   Status: "STRING_VALUE",
  *                 },
@@ -3115,25 +2913,23 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               OwnerId: "STRING_VALUE",
  *               VpcId: "STRING_VALUE",
  *             },
- *             AwsKinesisStream: {
+ *             AwsKinesisStream: { // AwsKinesisStreamDetails
  *               Name: "STRING_VALUE",
  *               Arn: "STRING_VALUE",
- *               StreamEncryption: {
+ *               StreamEncryption: { // AwsKinesisStreamStreamEncryptionDetails
  *                 EncryptionType: "STRING_VALUE",
  *                 KeyId: "STRING_VALUE",
  *               },
  *               ShardCount: Number("int"),
  *               RetentionPeriodHours: Number("int"),
  *             },
- *             AwsEc2TransitGateway: {
+ *             AwsEc2TransitGateway: { // AwsEc2TransitGatewayDetails
  *               Id: "STRING_VALUE",
  *               Description: "STRING_VALUE",
  *               DefaultRouteTablePropagation: "STRING_VALUE",
  *               AutoAcceptSharedAttachments: "STRING_VALUE",
  *               DefaultRouteTableAssociation: "STRING_VALUE",
- *               TransitGatewayCidrBlocks: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               TransitGatewayCidrBlocks: "<NonEmptyStringList>",
  *               AssociationDefaultRouteTableId: "STRING_VALUE",
  *               PropagationDefaultRouteTableId: "STRING_VALUE",
  *               VpnEcmpSupport: "STRING_VALUE",
@@ -3141,20 +2937,18 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               MulticastSupport: "STRING_VALUE",
  *               AmazonSideAsn: Number("int"),
  *             },
- *             AwsEfsAccessPoint: {
+ *             AwsEfsAccessPoint: { // AwsEfsAccessPointDetails
  *               AccessPointId: "STRING_VALUE",
  *               Arn: "STRING_VALUE",
  *               ClientToken: "STRING_VALUE",
  *               FileSystemId: "STRING_VALUE",
- *               PosixUser: {
+ *               PosixUser: { // AwsEfsAccessPointPosixUserDetails
  *                 Gid: "STRING_VALUE",
- *                 SecondaryGids: [
- *                   "<NonEmptyStringList>",
- *                 ],
+ *                 SecondaryGids: "<NonEmptyStringList>",
  *                 Uid: "STRING_VALUE",
  *               },
- *               RootDirectory: {
- *                 CreationInfo: {
+ *               RootDirectory: { // AwsEfsAccessPointRootDirectoryDetails
+ *                 CreationInfo: { // AwsEfsAccessPointRootDirectoryCreationInfoDetails
  *                   OwnerGid: "STRING_VALUE",
  *                   OwnerUid: "STRING_VALUE",
  *                   Permissions: "STRING_VALUE",
@@ -3162,23 +2956,19 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 Path: "STRING_VALUE",
  *               },
  *             },
- *             AwsCloudFormationStack: {
- *               Capabilities: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *             AwsCloudFormationStack: { // AwsCloudFormationStackDetails
+ *               Capabilities: "<NonEmptyStringList>",
  *               CreationTime: "STRING_VALUE",
  *               Description: "STRING_VALUE",
  *               DisableRollback: true || false,
- *               DriftInformation: {
+ *               DriftInformation: { // AwsCloudFormationStackDriftInformationDetails
  *                 StackDriftStatus: "STRING_VALUE",
  *               },
  *               EnableTerminationProtection: true || false,
  *               LastUpdatedTime: "STRING_VALUE",
- *               NotificationArns: [
- *                 "<NonEmptyStringList>",
- *               ],
- *               Outputs: [
- *                 {
+ *               NotificationArns: "<NonEmptyStringList>",
+ *               Outputs: [ // AwsCloudFormationStackOutputsList
+ *                 { // AwsCloudFormationStackOutputsDetails
  *                   Description: "STRING_VALUE",
  *                   OutputKey: "STRING_VALUE",
  *                   OutputValue: "STRING_VALUE",
@@ -3191,19 +2981,17 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               StackStatusReason: "STRING_VALUE",
  *               TimeoutInMinutes: Number("int"),
  *             },
- *             AwsCloudWatchAlarm: {
+ *             AwsCloudWatchAlarm: { // AwsCloudWatchAlarmDetails
  *               ActionsEnabled: true || false,
- *               AlarmActions: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               AlarmActions: "<NonEmptyStringList>",
  *               AlarmArn: "STRING_VALUE",
  *               AlarmConfigurationUpdatedTimestamp: "STRING_VALUE",
  *               AlarmDescription: "STRING_VALUE",
  *               AlarmName: "STRING_VALUE",
  *               ComparisonOperator: "STRING_VALUE",
  *               DatapointsToAlarm: Number("int"),
- *               Dimensions: [
- *                 {
+ *               Dimensions: [ // AwsCloudWatchAlarmDimensionsList
+ *                 { // AwsCloudWatchAlarmDimensionsDetails
  *                   Name: "STRING_VALUE",
  *                   Value: "STRING_VALUE",
  *                 },
@@ -3211,14 +2999,10 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               EvaluateLowSampleCountPercentile: "STRING_VALUE",
  *               EvaluationPeriods: Number("int"),
  *               ExtendedStatistic: "STRING_VALUE",
- *               InsufficientDataActions: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               InsufficientDataActions: "<NonEmptyStringList>",
  *               MetricName: "STRING_VALUE",
  *               Namespace: "STRING_VALUE",
- *               OkActions: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               OkActions: "<NonEmptyStringList>",
  *               Period: Number("int"),
  *               Statistic: "STRING_VALUE",
  *               Threshold: Number("double"),
@@ -3226,21 +3010,21 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               TreatMissingData: "STRING_VALUE",
  *               Unit: "STRING_VALUE",
  *             },
- *             AwsEc2VpcPeeringConnection: {
- *               AccepterVpcInfo: {
+ *             AwsEc2VpcPeeringConnection: { // AwsEc2VpcPeeringConnectionDetails
+ *               AccepterVpcInfo: { // AwsEc2VpcPeeringConnectionVpcInfoDetails
  *                 CidrBlock: "STRING_VALUE",
- *                 CidrBlockSet: [
- *                   {
+ *                 CidrBlockSet: [ // VpcInfoCidrBlockSetList
+ *                   { // VpcInfoCidrBlockSetDetails
  *                     CidrBlock: "STRING_VALUE",
  *                   },
  *                 ],
- *                 Ipv6CidrBlockSet: [
- *                   {
+ *                 Ipv6CidrBlockSet: [ // VpcInfoIpv6CidrBlockSetList
+ *                   { // VpcInfoIpv6CidrBlockSetDetails
  *                     Ipv6CidrBlock: "STRING_VALUE",
  *                   },
  *                 ],
  *                 OwnerId: "STRING_VALUE",
- *                 PeeringOptions: {
+ *                 PeeringOptions: { // VpcInfoPeeringOptionsDetails
  *                   AllowDnsResolutionFromRemoteVpc: true || false,
  *                   AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
  *                   AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
@@ -3270,19 +3054,19 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 Region: "STRING_VALUE",
  *                 VpcId: "STRING_VALUE",
  *               },
- *               Status: {
+ *               Status: { // AwsEc2VpcPeeringConnectionStatusDetails
  *                 Code: "STRING_VALUE",
  *                 Message: "STRING_VALUE",
  *               },
  *               VpcPeeringConnectionId: "STRING_VALUE",
  *             },
- *             AwsWafRegionalRuleGroup: {
+ *             AwsWafRegionalRuleGroup: { // AwsWafRegionalRuleGroupDetails
  *               MetricName: "STRING_VALUE",
  *               Name: "STRING_VALUE",
  *               RuleGroupId: "STRING_VALUE",
- *               Rules: [
- *                 {
- *                   Action: {
+ *               Rules: [ // AwsWafRegionalRuleGroupRulesList
+ *                 { // AwsWafRegionalRuleGroupRulesDetails
+ *                   Action: { // AwsWafRegionalRuleGroupRulesActionDetails
  *                     Type: "STRING_VALUE",
  *                   },
  *                   Priority: Number("int"),
@@ -3291,11 +3075,11 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *             },
- *             AwsWafRegionalRule: {
+ *             AwsWafRegionalRule: { // AwsWafRegionalRuleDetails
  *               MetricName: "STRING_VALUE",
  *               Name: "STRING_VALUE",
- *               PredicateList: [
- *                 {
+ *               PredicateList: [ // AwsWafRegionalRulePredicateList
+ *                 { // AwsWafRegionalRulePredicateListDetails
  *                   DataId: "STRING_VALUE",
  *                   Negated: true || false,
  *                   Type: "STRING_VALUE",
@@ -3303,16 +3087,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               RuleId: "STRING_VALUE",
  *             },
- *             AwsWafRegionalWebAcl: {
+ *             AwsWafRegionalWebAcl: { // AwsWafRegionalWebAclDetails
  *               DefaultAction: "STRING_VALUE",
  *               MetricName: "STRING_VALUE",
  *               Name: "STRING_VALUE",
- *               RulesList: [
- *                 {
- *                   Action: {
+ *               RulesList: [ // AwsWafRegionalWebAclRulesList
+ *                 { // AwsWafRegionalWebAclRulesListDetails
+ *                   Action: { // AwsWafRegionalWebAclRulesListActionDetails
  *                     Type: "STRING_VALUE",
  *                   },
- *                   OverrideAction: {
+ *                   OverrideAction: { // AwsWafRegionalWebAclRulesListOverrideActionDetails
  *                     Type: "STRING_VALUE",
  *                   },
  *                   Priority: Number("int"),
@@ -3322,11 +3106,11 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               WebAclId: "STRING_VALUE",
  *             },
- *             AwsWafRule: {
+ *             AwsWafRule: { // AwsWafRuleDetails
  *               MetricName: "STRING_VALUE",
  *               Name: "STRING_VALUE",
- *               PredicateList: [
- *                 {
+ *               PredicateList: [ // AwsWafRulePredicateList
+ *                 { // AwsWafRulePredicateListDetails
  *                   DataId: "STRING_VALUE",
  *                   Negated: true || false,
  *                   Type: "STRING_VALUE",
@@ -3334,13 +3118,13 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ],
  *               RuleId: "STRING_VALUE",
  *             },
- *             AwsWafRuleGroup: {
+ *             AwsWafRuleGroup: { // AwsWafRuleGroupDetails
  *               MetricName: "STRING_VALUE",
  *               Name: "STRING_VALUE",
  *               RuleGroupId: "STRING_VALUE",
- *               Rules: [
- *                 {
- *                   Action: {
+ *               Rules: [ // AwsWafRuleGroupRulesList
+ *                 { // AwsWafRuleGroupRulesDetails
+ *                   Action: { // AwsWafRuleGroupRulesActionDetails
  *                     Type: "STRING_VALUE",
  *                   },
  *                   Priority: Number("int"),
@@ -3349,7 +3133,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *             },
- *             AwsEcsTask: {
+ *             AwsEcsTask: { // AwsEcsTaskDetails
  *               ClusterArn: "STRING_VALUE",
  *               TaskDefinitionArn: "STRING_VALUE",
  *               Version: "STRING_VALUE",
@@ -3357,15 +3141,15 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               StartedAt: "STRING_VALUE",
  *               StartedBy: "STRING_VALUE",
  *               Group: "STRING_VALUE",
- *               Volumes: [
- *                 {
+ *               Volumes: [ // AwsEcsTaskVolumeDetailsList
+ *                 { // AwsEcsTaskVolumeDetails
  *                   Name: "STRING_VALUE",
- *                   Host: {
+ *                   Host: { // AwsEcsTaskVolumeHostDetails
  *                     SourcePath: "STRING_VALUE",
  *                   },
  *                 },
  *               ],
- *               Containers: [
+ *               Containers: [ // AwsEcsContainerDetailsList
  *                 {
  *                   Name: "STRING_VALUE",
  *                   Image: "STRING_VALUE",
@@ -3379,31 +3163,27 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *             },
- *             AwsBackupBackupVault: {
+ *             AwsBackupBackupVault: { // AwsBackupBackupVaultDetails
  *               BackupVaultArn: "STRING_VALUE",
  *               BackupVaultName: "STRING_VALUE",
  *               EncryptionKeyArn: "STRING_VALUE",
- *               Notifications: {
- *                 BackupVaultEvents: [
- *                   "<NonEmptyStringList>",
- *                 ],
+ *               Notifications: { // AwsBackupBackupVaultNotificationsDetails
+ *                 BackupVaultEvents: "<NonEmptyStringList>",
  *                 SnsTopicArn: "STRING_VALUE",
  *               },
  *               AccessPolicy: "STRING_VALUE",
  *             },
- *             AwsBackupBackupPlan: {
- *               BackupPlan: {
+ *             AwsBackupBackupPlan: { // AwsBackupBackupPlanDetails
+ *               BackupPlan: { // AwsBackupBackupPlanBackupPlanDetails
  *                 BackupPlanName: "STRING_VALUE",
- *                 AdvancedBackupSettings: [
- *                   {
- *                     BackupOptions: {
- *                       "<keys>": "<NonEmptyString>",
- *                     },
+ *                 AdvancedBackupSettings: [ // AwsBackupBackupPlanAdvancedBackupSettingsList
+ *                   { // AwsBackupBackupPlanAdvancedBackupSettingsDetails
+ *                     BackupOptions: "<FieldMap>",
  *                     ResourceType: "STRING_VALUE",
  *                   },
  *                 ],
- *                 BackupPlanRule: [
- *                   {
+ *                 BackupPlanRule: [ // AwsBackupBackupPlanRuleList
+ *                   { // AwsBackupBackupPlanRuleDetails
  *                     TargetBackupVault: "STRING_VALUE",
  *                     StartWindowMinutes: Number("long"),
  *                     ScheduleExpression: "STRING_VALUE",
@@ -3411,10 +3191,10 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                     RuleId: "STRING_VALUE",
  *                     EnableContinuousBackup: true || false,
  *                     CompletionWindowMinutes: Number("long"),
- *                     CopyActions: [
- *                       {
+ *                     CopyActions: [ // AwsBackupBackupPlanRuleCopyActionsList
+ *                       { // AwsBackupBackupPlanRuleCopyActionsDetails
  *                         DestinationBackupVaultArn: "STRING_VALUE",
- *                         Lifecycle: {
+ *                         Lifecycle: { // AwsBackupBackupPlanLifecycleDetails
  *                           DeleteAfterDays: Number("long"),
  *                           MoveToColdStorageAfterDays: Number("long"),
  *                         },
@@ -3431,16 +3211,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               BackupPlanId: "STRING_VALUE",
  *               VersionId: "STRING_VALUE",
  *             },
- *             AwsBackupRecoveryPoint: {
+ *             AwsBackupRecoveryPoint: { // AwsBackupRecoveryPointDetails
  *               BackupSizeInBytes: Number("long"),
  *               BackupVaultArn: "STRING_VALUE",
  *               BackupVaultName: "STRING_VALUE",
- *               CalculatedLifecycle: {
+ *               CalculatedLifecycle: { // AwsBackupRecoveryPointCalculatedLifecycleDetails
  *                 DeleteAt: "STRING_VALUE",
  *                 MoveToColdStorageAt: "STRING_VALUE",
  *               },
  *               CompletionDate: "STRING_VALUE",
- *               CreatedBy: {
+ *               CreatedBy: { // AwsBackupRecoveryPointCreatedByDetails
  *                 BackupPlanArn: "STRING_VALUE",
  *                 BackupPlanId: "STRING_VALUE",
  *                 BackupPlanVersion: "STRING_VALUE",
@@ -3451,7 +3231,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               IamRoleArn: "STRING_VALUE",
  *               IsEncrypted: true || false,
  *               LastRestoreTime: "STRING_VALUE",
- *               Lifecycle: {
+ *               Lifecycle: { // AwsBackupRecoveryPointLifecycleDetails
  *                 DeleteAfterDays: Number("long"),
  *                 MoveToColdStorageAfterDays: Number("long"),
  *               },
@@ -3463,14 +3243,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               StatusMessage: "STRING_VALUE",
  *               StorageClass: "STRING_VALUE",
  *             },
- *             AwsEc2LaunchTemplate: {
+ *             AwsEc2LaunchTemplate: { // AwsEc2LaunchTemplateDetails
  *               LaunchTemplateName: "STRING_VALUE",
  *               Id: "STRING_VALUE",
- *               LaunchTemplateData: {
- *                 BlockDeviceMappingSet: [
- *                   {
+ *               LaunchTemplateData: { // AwsEc2LaunchTemplateDataDetails
+ *                 BlockDeviceMappingSet: [ // AwsEc2LaunchTemplateDataBlockDeviceMappingSetList
+ *                   { // AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails
  *                     DeviceName: "STRING_VALUE",
- *                     Ebs: {
+ *                     Ebs: { // AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails
  *                       DeleteOnTermination: true || false,
  *                       Encrypted: true || false,
  *                       Iops: Number("int"),
@@ -3484,49 +3264,49 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                     VirtualName: "STRING_VALUE",
  *                   },
  *                 ],
- *                 CapacityReservationSpecification: {
+ *                 CapacityReservationSpecification: { // AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
  *                   CapacityReservationPreference: "STRING_VALUE",
- *                   CapacityReservationTarget: {
+ *                   CapacityReservationTarget: { // AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails
  *                     CapacityReservationId: "STRING_VALUE",
  *                     CapacityReservationResourceGroupArn: "STRING_VALUE",
  *                   },
  *                 },
- *                 CpuOptions: {
+ *                 CpuOptions: { // AwsEc2LaunchTemplateDataCpuOptionsDetails
  *                   CoreCount: Number("int"),
  *                   ThreadsPerCore: Number("int"),
  *                 },
- *                 CreditSpecification: {
+ *                 CreditSpecification: { // AwsEc2LaunchTemplateDataCreditSpecificationDetails
  *                   CpuCredits: "STRING_VALUE",
  *                 },
  *                 DisableApiStop: true || false,
  *                 DisableApiTermination: true || false,
  *                 EbsOptimized: true || false,
- *                 ElasticGpuSpecificationSet: [
- *                   {
+ *                 ElasticGpuSpecificationSet: [ // AwsEc2LaunchTemplateDataElasticGpuSpecificationSetList
+ *                   { // AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails
  *                     Type: "STRING_VALUE",
  *                   },
  *                 ],
- *                 ElasticInferenceAcceleratorSet: [
- *                   {
+ *                 ElasticInferenceAcceleratorSet: [ // AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetList
+ *                   { // AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails
  *                     Count: Number("int"),
  *                     Type: "STRING_VALUE",
  *                   },
  *                 ],
- *                 EnclaveOptions: {
+ *                 EnclaveOptions: { // AwsEc2LaunchTemplateDataEnclaveOptionsDetails
  *                   Enabled: true || false,
  *                 },
- *                 HibernationOptions: {
+ *                 HibernationOptions: { // AwsEc2LaunchTemplateDataHibernationOptionsDetails
  *                   Configured: true || false,
  *                 },
- *                 IamInstanceProfile: {
+ *                 IamInstanceProfile: { // AwsEc2LaunchTemplateDataIamInstanceProfileDetails
  *                   Arn: "STRING_VALUE",
  *                   Name: "STRING_VALUE",
  *                 },
  *                 ImageId: "STRING_VALUE",
  *                 InstanceInitiatedShutdownBehavior: "STRING_VALUE",
- *                 InstanceMarketOptions: {
+ *                 InstanceMarketOptions: { // AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails
  *                   MarketType: "STRING_VALUE",
- *                   SpotOptions: {
+ *                   SpotOptions: { // AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
  *                     BlockDurationMinutes: Number("int"),
  *                     InstanceInterruptionBehavior: "STRING_VALUE",
  *                     MaxPrice: "STRING_VALUE",
@@ -3534,63 +3314,49 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                     ValidUntil: "STRING_VALUE",
  *                   },
  *                 },
- *                 InstanceRequirements: {
- *                   AcceleratorCount: {
+ *                 InstanceRequirements: { // AwsEc2LaunchTemplateDataInstanceRequirementsDetails
+ *                   AcceleratorCount: { // AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails
  *                     Max: Number("int"),
  *                     Min: Number("int"),
  *                   },
- *                   AcceleratorManufacturers: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   AcceleratorNames: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   AcceleratorTotalMemoryMiB: {
+ *                   AcceleratorManufacturers: "<NonEmptyStringList>",
+ *                   AcceleratorNames: "<NonEmptyStringList>",
+ *                   AcceleratorTotalMemoryMiB: { // AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails
  *                     Max: Number("int"),
  *                     Min: Number("int"),
  *                   },
- *                   AcceleratorTypes: [
- *                     "<NonEmptyStringList>",
- *                   ],
+ *                   AcceleratorTypes: "<NonEmptyStringList>",
  *                   BareMetal: "STRING_VALUE",
- *                   BaselineEbsBandwidthMbps: {
+ *                   BaselineEbsBandwidthMbps: { // AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails
  *                     Max: Number("int"),
  *                     Min: Number("int"),
  *                   },
  *                   BurstablePerformance: "STRING_VALUE",
- *                   CpuManufacturers: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   ExcludedInstanceTypes: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   InstanceGenerations: [
- *                     "<NonEmptyStringList>",
- *                   ],
+ *                   CpuManufacturers: "<NonEmptyStringList>",
+ *                   ExcludedInstanceTypes: "<NonEmptyStringList>",
+ *                   InstanceGenerations: "<NonEmptyStringList>",
  *                   LocalStorage: "STRING_VALUE",
- *                   LocalStorageTypes: [
- *                     "<NonEmptyStringList>",
- *                   ],
- *                   MemoryGiBPerVCpu: {
+ *                   LocalStorageTypes: "<NonEmptyStringList>",
+ *                   MemoryGiBPerVCpu: { // AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails
  *                     Max: Number("double"),
  *                     Min: Number("double"),
  *                   },
- *                   MemoryMiB: {
+ *                   MemoryMiB: { // AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails
  *                     Max: Number("int"),
  *                     Min: Number("int"),
  *                   },
- *                   NetworkInterfaceCount: {
+ *                   NetworkInterfaceCount: { // AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails
  *                     Max: Number("int"),
  *                     Min: Number("int"),
  *                   },
  *                   OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
  *                   RequireHibernateSupport: true || false,
  *                   SpotMaxPricePercentageOverLowestPrice: Number("int"),
- *                   TotalLocalStorageGB: {
+ *                   TotalLocalStorageGB: { // AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails
  *                     Max: Number("double"),
  *                     Min: Number("double"),
  *                   },
- *                   VCpuCount: {
+ *                   VCpuCount: { // AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails
  *                     Max: Number("int"),
  *                     Min: Number("int"),
  *                   },
@@ -3598,58 +3364,56 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 InstanceType: "STRING_VALUE",
  *                 KernelId: "STRING_VALUE",
  *                 KeyName: "STRING_VALUE",
- *                 LicenseSet: [
- *                   {
+ *                 LicenseSet: [ // AwsEc2LaunchTemplateDataLicenseSetList
+ *                   { // AwsEc2LaunchTemplateDataLicenseSetDetails
  *                     LicenseConfigurationArn: "STRING_VALUE",
  *                   },
  *                 ],
- *                 MaintenanceOptions: {
+ *                 MaintenanceOptions: { // AwsEc2LaunchTemplateDataMaintenanceOptionsDetails
  *                   AutoRecovery: "STRING_VALUE",
  *                 },
- *                 MetadataOptions: {
+ *                 MetadataOptions: { // AwsEc2LaunchTemplateDataMetadataOptionsDetails
  *                   HttpEndpoint: "STRING_VALUE",
  *                   HttpProtocolIpv6: "STRING_VALUE",
  *                   HttpTokens: "STRING_VALUE",
  *                   HttpPutResponseHopLimit: Number("int"),
  *                   InstanceMetadataTags: "STRING_VALUE",
  *                 },
- *                 Monitoring: {
+ *                 Monitoring: { // AwsEc2LaunchTemplateDataMonitoringDetails
  *                   Enabled: true || false,
  *                 },
- *                 NetworkInterfaceSet: [
- *                   {
+ *                 NetworkInterfaceSet: [ // AwsEc2LaunchTemplateDataNetworkInterfaceSetList
+ *                   { // AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails
  *                     AssociateCarrierIpAddress: true || false,
  *                     AssociatePublicIpAddress: true || false,
  *                     DeleteOnTermination: true || false,
  *                     Description: "STRING_VALUE",
  *                     DeviceIndex: Number("int"),
- *                     Groups: [
- *                       "<NonEmptyStringList>",
- *                     ],
+ *                     Groups: "<NonEmptyStringList>",
  *                     InterfaceType: "STRING_VALUE",
  *                     Ipv4PrefixCount: Number("int"),
- *                     Ipv4Prefixes: [
- *                       {
+ *                     Ipv4Prefixes: [ // AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesList
+ *                       { // AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails
  *                         Ipv4Prefix: "STRING_VALUE",
  *                       },
  *                     ],
  *                     Ipv6AddressCount: Number("int"),
- *                     Ipv6Addresses: [
- *                       {
+ *                     Ipv6Addresses: [ // AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesList
+ *                       { // AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
  *                         Ipv6Address: "STRING_VALUE",
  *                       },
  *                     ],
  *                     Ipv6PrefixCount: Number("int"),
- *                     Ipv6Prefixes: [
- *                       {
+ *                     Ipv6Prefixes: [ // AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesList
+ *                       { // AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails
  *                         Ipv6Prefix: "STRING_VALUE",
  *                       },
  *                     ],
  *                     NetworkCardIndex: Number("int"),
  *                     NetworkInterfaceId: "STRING_VALUE",
  *                     PrivateIpAddress: "STRING_VALUE",
- *                     PrivateIpAddresses: [
- *                       {
+ *                     PrivateIpAddresses: [ // AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesList
+ *                       { // AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails
  *                         Primary: true || false,
  *                         PrivateIpAddress: "STRING_VALUE",
  *                       },
@@ -3658,7 +3422,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                     SubnetId: "STRING_VALUE",
  *                   },
  *                 ],
- *                 Placement: {
+ *                 Placement: { // AwsEc2LaunchTemplateDataPlacementDetails
  *                   Affinity: "STRING_VALUE",
  *                   AvailabilityZone: "STRING_VALUE",
  *                   GroupName: "STRING_VALUE",
@@ -3668,34 +3432,26 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   SpreadDomain: "STRING_VALUE",
  *                   Tenancy: "STRING_VALUE",
  *                 },
- *                 PrivateDnsNameOptions: {
+ *                 PrivateDnsNameOptions: { // AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails
  *                   EnableResourceNameDnsAAAARecord: true || false,
  *                   EnableResourceNameDnsARecord: true || false,
  *                   HostnameType: "STRING_VALUE",
  *                 },
  *                 RamDiskId: "STRING_VALUE",
- *                 SecurityGroupIdSet: [
- *                   "<NonEmptyStringList>",
- *                 ],
- *                 SecurityGroupSet: [
- *                   "<NonEmptyStringList>",
- *                 ],
+ *                 SecurityGroupIdSet: "<NonEmptyStringList>",
+ *                 SecurityGroupSet: "<NonEmptyStringList>",
  *                 UserData: "STRING_VALUE",
  *               },
  *               DefaultVersionNumber: Number("long"),
  *               LatestVersionNumber: Number("long"),
  *             },
- *             AwsSageMakerNotebookInstance: {
- *               AcceleratorTypes: [
- *                 "<NonEmptyStringList>",
- *               ],
- *               AdditionalCodeRepositories: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *             AwsSageMakerNotebookInstance: { // AwsSageMakerNotebookInstanceDetails
+ *               AcceleratorTypes: "<NonEmptyStringList>",
+ *               AdditionalCodeRepositories: "<NonEmptyStringList>",
  *               DefaultCodeRepository: "STRING_VALUE",
  *               DirectInternetAccess: "STRING_VALUE",
  *               FailureReason: "STRING_VALUE",
- *               InstanceMetadataServiceConfiguration: {
+ *               InstanceMetadataServiceConfiguration: { // AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
  *                 MinimumInstanceMetadataServiceVersion: "STRING_VALUE",
  *               },
  *               InstanceType: "STRING_VALUE",
@@ -3708,37 +3464,35 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               PlatformIdentifier: "STRING_VALUE",
  *               RoleArn: "STRING_VALUE",
  *               RootAccess: "STRING_VALUE",
- *               SecurityGroups: [
- *                 "<NonEmptyStringList>",
- *               ],
+ *               SecurityGroups: "<NonEmptyStringList>",
  *               SubnetId: "STRING_VALUE",
  *               Url: "STRING_VALUE",
  *               VolumeSizeInGB: Number("int"),
  *             },
- *             AwsWafv2WebAcl: {
+ *             AwsWafv2WebAcl: { // AwsWafv2WebAclDetails
  *               Name: "STRING_VALUE",
  *               Arn: "STRING_VALUE",
  *               ManagedbyFirewallManager: true || false,
  *               Id: "STRING_VALUE",
  *               Capacity: Number("long"),
- *               CaptchaConfig: {
- *                 ImmunityTimeProperty: {
+ *               CaptchaConfig: { // AwsWafv2WebAclCaptchaConfigDetails
+ *                 ImmunityTimeProperty: { // AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails
  *                   ImmunityTime: Number("long"),
  *                 },
  *               },
- *               DefaultAction: {
- *                 Allow: {
- *                   CustomRequestHandling: {
- *                     InsertHeaders: [
- *                       {
+ *               DefaultAction: { // AwsWafv2WebAclActionDetails
+ *                 Allow: { // AwsWafv2ActionAllowDetails
+ *                   CustomRequestHandling: { // AwsWafv2CustomRequestHandlingDetails
+ *                     InsertHeaders: [ // AwsWafv2InsertHeadersList
+ *                       { // AwsWafv2CustomHttpHeader
  *                         Name: "STRING_VALUE",
  *                         Value: "STRING_VALUE",
  *                       },
  *                     ],
  *                   },
  *                 },
- *                 Block: {
- *                   CustomResponse: {
+ *                 Block: { // AwsWafv2ActionBlockDetails
+ *                   CustomResponse: { // AwsWafv2CustomResponseDetails
  *                     CustomResponseBodyKey: "STRING_VALUE",
  *                     ResponseCode: Number("int"),
  *                     ResponseHeaders: [
@@ -3751,9 +3505,9 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               },
  *               Description: "STRING_VALUE",
- *               Rules: [
- *                 {
- *                   Action: {
+ *               Rules: [ // AwsWafv2RulesList
+ *                 { // AwsWafv2RulesDetails
+ *                   Action: { // AwsWafv2RulesActionDetails
  *                     Allow: {
  *                       CustomRequestHandling: {
  *                         InsertHeaders: [
@@ -3776,7 +3530,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                         ],
  *                       },
  *                     },
- *                     Captcha: {
+ *                     Captcha: { // AwsWafv2RulesActionCaptchaDetails
  *                       CustomRequestHandling: {
  *                         InsertHeaders: [
  *                           {
@@ -3786,21 +3540,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                         ],
  *                       },
  *                     },
- *                     Count: {
+ *                     Count: { // AwsWafv2RulesActionCountDetails
  *                       CustomRequestHandling: {
- *                         InsertHeaders: [
- *                           {
- *                             Name: "STRING_VALUE",
- *                             Value: "STRING_VALUE",
- *                           },
- *                         ],
+ *                         InsertHeaders: "<AwsWafv2InsertHeadersList>",
  *                       },
  *                     },
  *                   },
  *                   Name: "STRING_VALUE",
  *                   OverrideAction: "STRING_VALUE",
  *                   Priority: Number("int"),
- *                   VisibilityConfig: {
+ *                   VisibilityConfig: { // AwsWafv2VisibilityConfigDetails
  *                     CloudWatchMetricsEnabled: true || false,
  *                     MetricName: "STRING_VALUE",
  *                     SampledRequestsEnabled: true || false,
@@ -3813,7 +3562,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 SampledRequestsEnabled: true || false,
  *               },
  *             },
- *             AwsWafv2RuleGroup: {
+ *             AwsWafv2RuleGroup: { // AwsWafv2RuleGroupDetails
  *               Capacity: Number("long"),
  *               Description: "STRING_VALUE",
  *               Id: "STRING_VALUE",
@@ -3824,45 +3573,21 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   Action: {
  *                     Allow: {
  *                       CustomRequestHandling: {
- *                         InsertHeaders: [
- *                           {
- *                             Name: "STRING_VALUE",
- *                             Value: "STRING_VALUE",
- *                           },
- *                         ],
+ *                         InsertHeaders: "<AwsWafv2InsertHeadersList>",
  *                       },
  *                     },
  *                     Block: {
  *                       CustomResponse: {
  *                         CustomResponseBodyKey: "STRING_VALUE",
  *                         ResponseCode: Number("int"),
- *                         ResponseHeaders: [
- *                           {
- *                             Name: "STRING_VALUE",
- *                             Value: "STRING_VALUE",
- *                           },
- *                         ],
+ *                         ResponseHeaders: "<AwsWafv2InsertHeadersList>",
  *                       },
  *                     },
  *                     Captcha: {
- *                       CustomRequestHandling: {
- *                         InsertHeaders: [
- *                           {
- *                             Name: "STRING_VALUE",
- *                             Value: "STRING_VALUE",
- *                           },
- *                         ],
- *                       },
+ *                       CustomRequestHandling: "<AwsWafv2CustomRequestHandlingDetails>",
  *                     },
  *                     Count: {
- *                       CustomRequestHandling: {
- *                         InsertHeaders: [
- *                           {
- *                             Name: "STRING_VALUE",
- *                             Value: "STRING_VALUE",
- *                           },
- *                         ],
- *                       },
+ *                       CustomRequestHandling: "<AwsWafv2CustomRequestHandlingDetails>",
  *                     },
  *                   },
  *                   Name: "STRING_VALUE",
@@ -3882,10 +3607,10 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 SampledRequestsEnabled: true || false,
  *               },
  *             },
- *             AwsEc2RouteTable: {
- *               AssociationSet: [
- *                 {
- *                   AssociationState: {
+ *             AwsEc2RouteTable: { // AwsEc2RouteTableDetails
+ *               AssociationSet: [ // AssociationSetList
+ *                 { // AssociationSetDetails
+ *                   AssociationState: { // AssociationStateDetails
  *                     State: "STRING_VALUE",
  *                     StatusMessage: "STRING_VALUE",
  *                   },
@@ -3897,14 +3622,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *               OwnerId: "STRING_VALUE",
- *               PropagatingVgwSet: [
- *                 {
+ *               PropagatingVgwSet: [ // PropagatingVgwSetList
+ *                 { // PropagatingVgwSetDetails
  *                   GatewayId: "STRING_VALUE",
  *                 },
  *               ],
  *               RouteTableId: "STRING_VALUE",
- *               RouteSet: [
- *                 {
+ *               RouteSet: [ // RouteSetList
+ *                 { // RouteSetDetails
  *                   CarrierGatewayId: "STRING_VALUE",
  *                   CoreNetworkArn: "STRING_VALUE",
  *                   DestinationCidrBlock: "STRING_VALUE",
@@ -3928,46 +3653,46 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           },
  *         },
  *       ],
- *       Compliance: {
+ *       Compliance: { // Compliance
  *         Status: "PASSED" || "WARNING" || "FAILED" || "NOT_AVAILABLE",
- *         RelatedRequirements: [
+ *         RelatedRequirements: [ // RelatedRequirementsList
  *           "STRING_VALUE",
  *         ],
- *         StatusReasons: [
- *           {
+ *         StatusReasons: [ // StatusReasonsList
+ *           { // StatusReason
  *             ReasonCode: "STRING_VALUE", // required
  *             Description: "STRING_VALUE",
  *           },
  *         ],
  *         SecurityControlId: "STRING_VALUE",
- *         AssociatedStandards: [
- *           {
+ *         AssociatedStandards: [ // AssociatedStandardsList
+ *           { // AssociatedStandard
  *             StandardsId: "STRING_VALUE",
  *           },
  *         ],
  *       },
  *       VerificationState: "UNKNOWN" || "TRUE_POSITIVE" || "FALSE_POSITIVE" || "BENIGN_POSITIVE",
  *       WorkflowState: "NEW" || "ASSIGNED" || "IN_PROGRESS" || "DEFERRED" || "RESOLVED",
- *       Workflow: {
+ *       Workflow: { // Workflow
  *         Status: "NEW" || "NOTIFIED" || "RESOLVED" || "SUPPRESSED",
  *       },
  *       RecordState: "ACTIVE" || "ARCHIVED",
- *       RelatedFindings: [
- *         {
+ *       RelatedFindings: [ // RelatedFindingList
+ *         { // RelatedFinding
  *           ProductArn: "STRING_VALUE", // required
  *           Id: "STRING_VALUE", // required
  *         },
  *       ],
- *       Note: {
+ *       Note: { // Note
  *         Text: "STRING_VALUE", // required
  *         UpdatedBy: "STRING_VALUE", // required
  *         UpdatedAt: "STRING_VALUE", // required
  *       },
- *       Vulnerabilities: [
- *         {
+ *       Vulnerabilities: [ // VulnerabilityList
+ *         { // Vulnerability
  *           Id: "STRING_VALUE", // required
- *           VulnerablePackages: [
- *             {
+ *           VulnerablePackages: [ // SoftwarePackageList
+ *             { // SoftwarePackage
  *               Name: "STRING_VALUE",
  *               Version: "STRING_VALUE",
  *               Epoch: "STRING_VALUE",
@@ -3981,37 +3706,33 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               SourceLayerArn: "STRING_VALUE",
  *             },
  *           ],
- *           Cvss: [
- *             {
+ *           Cvss: [ // CvssList
+ *             { // Cvss
  *               Version: "STRING_VALUE",
  *               BaseScore: Number("double"),
  *               BaseVector: "STRING_VALUE",
  *               Source: "STRING_VALUE",
- *               Adjustments: [
- *                 {
+ *               Adjustments: [ // AdjustmentList
+ *                 { // Adjustment
  *                   Metric: "STRING_VALUE",
  *                   Reason: "STRING_VALUE",
  *                 },
  *               ],
  *             },
  *           ],
- *           RelatedVulnerabilities: [
- *             "<StringList>",
- *           ],
- *           Vendor: {
+ *           RelatedVulnerabilities: "<StringList>",
+ *           Vendor: { // VulnerabilityVendor
  *             Name: "STRING_VALUE", // required
  *             Url: "STRING_VALUE",
  *             VendorSeverity: "STRING_VALUE",
  *             VendorCreatedAt: "STRING_VALUE",
  *             VendorUpdatedAt: "STRING_VALUE",
  *           },
- *           ReferenceUrls: [
- *             "<StringList>",
- *           ],
+ *           ReferenceUrls: "<StringList>",
  *           FixAvailable: "YES" || "NO" || "PARTIAL",
  *         },
  *       ],
- *       PatchSummary: {
+ *       PatchSummary: { // PatchSummary
  *         Id: "STRING_VALUE", // required
  *         InstalledCount: Number("int"),
  *         MissingCount: Number("int"),
@@ -4024,42 +3745,42 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *         RebootOption: "STRING_VALUE",
  *         Operation: "STRING_VALUE",
  *       },
- *       Action: {
+ *       Action: { // Action
  *         ActionType: "STRING_VALUE",
- *         NetworkConnectionAction: {
+ *         NetworkConnectionAction: { // NetworkConnectionAction
  *           ConnectionDirection: "STRING_VALUE",
- *           RemoteIpDetails: {
+ *           RemoteIpDetails: { // ActionRemoteIpDetails
  *             IpAddressV4: "STRING_VALUE",
- *             Organization: {
+ *             Organization: { // IpOrganizationDetails
  *               Asn: Number("int"),
  *               AsnOrg: "STRING_VALUE",
  *               Isp: "STRING_VALUE",
  *               Org: "STRING_VALUE",
  *             },
- *             Country: {
+ *             Country: { // Country
  *               CountryCode: "STRING_VALUE",
  *               CountryName: "STRING_VALUE",
  *             },
- *             City: {
+ *             City: { // City
  *               CityName: "STRING_VALUE",
  *             },
- *             GeoLocation: {
+ *             GeoLocation: { // GeoLocation
  *               Lon: Number("double"),
  *               Lat: Number("double"),
  *             },
  *           },
- *           RemotePortDetails: {
+ *           RemotePortDetails: { // ActionRemotePortDetails
  *             Port: Number("int"),
  *             PortName: "STRING_VALUE",
  *           },
- *           LocalPortDetails: {
+ *           LocalPortDetails: { // ActionLocalPortDetails
  *             Port: Number("int"),
  *             PortName: "STRING_VALUE",
  *           },
  *           Protocol: "STRING_VALUE",
  *           Blocked: true || false,
  *         },
- *         AwsApiCallAction: {
+ *         AwsApiCallAction: { // AwsApiCallAction
  *           Api: "STRING_VALUE",
  *           ServiceName: "STRING_VALUE",
  *           CallerType: "STRING_VALUE",
@@ -4083,28 +3804,26 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               Lat: Number("double"),
  *             },
  *           },
- *           DomainDetails: {
+ *           DomainDetails: { // AwsApiCallActionDomainDetails
  *             Domain: "STRING_VALUE",
  *           },
- *           AffectedResources: {
- *             "<keys>": "<NonEmptyString>",
- *           },
+ *           AffectedResources: "<FieldMap>",
  *           FirstSeen: "STRING_VALUE",
  *           LastSeen: "STRING_VALUE",
  *         },
- *         DnsRequestAction: {
+ *         DnsRequestAction: { // DnsRequestAction
  *           Domain: "STRING_VALUE",
  *           Protocol: "STRING_VALUE",
  *           Blocked: true || false,
  *         },
- *         PortProbeAction: {
- *           PortProbeDetails: [
- *             {
+ *         PortProbeAction: { // PortProbeAction
+ *           PortProbeDetails: [ // PortProbeDetailList
+ *             { // PortProbeDetail
  *               LocalPortDetails: {
  *                 Port: Number("int"),
  *                 PortName: "STRING_VALUE",
  *               },
- *               LocalIpDetails: {
+ *               LocalIpDetails: { // ActionLocalIpDetails
  *                 IpAddressV4: "STRING_VALUE",
  *               },
  *               RemoteIpDetails: {
@@ -4132,7 +3851,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           Blocked: true || false,
  *         },
  *       },
- *       FindingProviderFields: {
+ *       FindingProviderFields: { // FindingProviderFields
  *         Confidence: Number("int"),
  *         Criticality: Number("int"),
  *         RelatedFindings: [
@@ -4141,7 +3860,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *             Id: "STRING_VALUE", // required
  *           },
  *         ],
- *         Severity: {
+ *         Severity: { // FindingProviderSeverity
  *           Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
  *           Original: "STRING_VALUE",
  *         },

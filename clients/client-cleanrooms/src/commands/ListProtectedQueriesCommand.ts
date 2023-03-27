@@ -42,7 +42,7 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * import { CleanRoomsClient, ListProtectedQueriesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListProtectedQueriesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // ListProtectedQueriesInput
  *   membershipIdentifier: "STRING_VALUE", // required
  *   status: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

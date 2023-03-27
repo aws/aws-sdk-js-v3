@@ -42,7 +42,7 @@ export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsO
  * import { GameLiftClient, ListGameServerGroupsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListGameServerGroupsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // ListGameServerGroupsInput
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

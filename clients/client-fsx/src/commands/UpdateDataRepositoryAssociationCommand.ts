@@ -46,17 +46,17 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  * import { FSxClient, UpdateDataRepositoryAssociationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateDataRepositoryAssociationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // UpdateDataRepositoryAssociationRequest
  *   AssociationId: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
  *   ImportedFileChunkSize: Number("int"),
- *   S3: {
- *     AutoImportPolicy: {
- *       Events: [
+ *   S3: { // S3DataRepositoryConfiguration
+ *     AutoImportPolicy: { // AutoImportPolicy
+ *       Events: [ // EventTypes
  *         "NEW" || "CHANGED" || "DELETED",
  *       ],
  *     },
- *     AutoExportPolicy: {
+ *     AutoExportPolicy: { // AutoExportPolicy
  *       Events: [
  *         "NEW" || "CHANGED" || "DELETED",
  *       ],

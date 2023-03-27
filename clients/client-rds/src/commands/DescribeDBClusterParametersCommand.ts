@@ -48,13 +48,13 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * import { RDSClient, DescribeDBClusterParametersCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBClusterParametersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DescribeDBClusterParametersMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required
  *   Source: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

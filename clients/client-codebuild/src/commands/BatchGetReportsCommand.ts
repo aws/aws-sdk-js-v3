@@ -44,8 +44,8 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * import { CodeBuildClient, BatchGetReportsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetReportsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
- *   reportArns: [ // required
+ * const input = { // BatchGetReportsInput
+ *   reportArns: [ // ReportArns // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -46,12 +46,12 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * import { LicenseManagerClient, CheckoutLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CheckoutLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // CheckoutLicenseRequest
  *   ProductSKU: "STRING_VALUE", // required
  *   CheckoutType: "PROVISIONAL" || "PERPETUAL", // required
  *   KeyFingerprint: "STRING_VALUE", // required
- *   Entitlements: [ // required
- *     {
+ *   Entitlements: [ // EntitlementDataList // required
+ *     { // EntitlementData
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *       Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required

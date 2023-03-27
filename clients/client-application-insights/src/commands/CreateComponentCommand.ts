@@ -46,10 +46,10 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * import { ApplicationInsightsClient, CreateComponentCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, CreateComponentCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // CreateComponentRequest
  *   ResourceGroupName: "STRING_VALUE", // required
  *   ComponentName: "STRING_VALUE", // required
- *   ResourceList: [ // required
+ *   ResourceList: [ // ResourceList // required
  *     "STRING_VALUE",
  *   ],
  * };

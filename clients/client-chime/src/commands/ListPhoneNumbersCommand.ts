@@ -46,7 +46,7 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * import { ChimeClient, ListPhoneNumbersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListPhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListPhoneNumbersRequest
  *   Status: "STRING_VALUE",
  *   ProductType: "STRING_VALUE",
  *   FilterName: "STRING_VALUE",

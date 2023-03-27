@@ -42,11 +42,11 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * import { Macie2Client, GetFindingStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetFindingStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
- *   findingCriteria: {
- *     criterion: {
- *       "<keys>": {
- *         eq: [
+ * const input = { // GetFindingStatisticsRequest
+ *   findingCriteria: { // FindingCriteria
+ *     criterion: { // Criterion
+ *       "<keys>": { // CriterionAdditionalProperties
+ *         eq: [ // __listOf__string
  *           "STRING_VALUE",
  *         ],
  *         eqExactMatch: [
@@ -64,7 +64,7 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  *   },
  *   groupBy: "resourcesAffected.s3Bucket.name" || "type" || "classificationDetails.jobId" || "severity.description", // required
  *   size: Number("int"),
- *   sortCriteria: {
+ *   sortCriteria: { // FindingStatisticsSortCriteria
  *     attributeName: "groupKey" || "count",
  *     orderBy: "ASC" || "DESC",
  *   },

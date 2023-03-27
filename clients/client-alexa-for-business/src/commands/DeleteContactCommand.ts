@@ -42,7 +42,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * import { AlexaForBusinessClient, DeleteContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DeleteContactRequest
  *   ContactArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteContactCommand(input);

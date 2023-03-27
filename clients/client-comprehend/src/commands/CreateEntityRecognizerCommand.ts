@@ -44,40 +44,40 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * import { ComprehendClient, CreateEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // CreateEntityRecognizerRequest
  *   RecognizerName: "STRING_VALUE", // required
  *   VersionName: "STRING_VALUE",
  *   DataAccessRoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   InputDataConfig: {
+ *   InputDataConfig: { // EntityRecognizerInputDataConfig
  *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
- *     EntityTypes: [ // required
- *       {
+ *     EntityTypes: [ // EntityTypesList // required
+ *       { // EntityTypesListItem
  *         Type: "STRING_VALUE", // required
  *       },
  *     ],
- *     Documents: {
+ *     Documents: { // EntityRecognizerDocuments
  *       S3Uri: "STRING_VALUE", // required
  *       TestS3Uri: "STRING_VALUE",
  *       InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
  *     },
- *     Annotations: {
+ *     Annotations: { // EntityRecognizerAnnotations
  *       S3Uri: "STRING_VALUE", // required
  *       TestS3Uri: "STRING_VALUE",
  *     },
- *     EntityList: {
+ *     EntityList: { // EntityRecognizerEntityList
  *       S3Uri: "STRING_VALUE", // required
  *     },
- *     AugmentedManifests: [
- *       {
+ *     AugmentedManifests: [ // EntityRecognizerAugmentedManifestsList
+ *       { // AugmentedManifestsListItem
  *         S3Uri: "STRING_VALUE", // required
  *         Split: "TRAIN" || "TEST",
- *         AttributeNames: [ // required
+ *         AttributeNames: [ // AttributeNamesList // required
  *           "STRING_VALUE",
  *         ],
  *         AnnotationDataS3Uri: "STRING_VALUE",
@@ -89,11 +89,11 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  *   ClientRequestToken: "STRING_VALUE",
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
  *   VolumeKmsKeyId: "STRING_VALUE",
- *   VpcConfig: {
- *     SecurityGroupIds: [ // required
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
- *     Subnets: [ // required
+ *     Subnets: [ // Subnets // required
  *       "STRING_VALUE",
  *     ],
  *   },

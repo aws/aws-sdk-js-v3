@@ -48,7 +48,7 @@ export interface ListJournalS3ExportsCommandOutput extends ListJournalS3ExportsR
  * import { QLDBClient, ListJournalS3ExportsCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListJournalS3ExportsCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
- * const input = {
+ * const input = { // ListJournalS3ExportsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

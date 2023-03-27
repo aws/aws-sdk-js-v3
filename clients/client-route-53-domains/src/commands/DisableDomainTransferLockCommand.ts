@@ -47,7 +47,7 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
  * import { Route53DomainsClient, DisableDomainTransferLockCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, DisableDomainTransferLockCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // DisableDomainTransferLockRequest
  *   DomainName: "STRING_VALUE", // required
  * };
  * const command = new DisableDomainTransferLockCommand(input);

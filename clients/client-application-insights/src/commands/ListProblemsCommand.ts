@@ -46,7 +46,7 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * import { ApplicationInsightsClient, ListProblemsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListProblemsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // ListProblemsRequest
  *   ResourceGroupName: "STRING_VALUE",
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),

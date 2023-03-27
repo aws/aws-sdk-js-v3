@@ -42,12 +42,12 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  * import { KendraClient, ListDataSourceSyncJobsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListDataSourceSyncJobsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // ListDataSourceSyncJobsRequest
  *   Id: "STRING_VALUE", // required
  *   IndexId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   StartTimeFilter: {
+ *   StartTimeFilter: { // TimeRange
  *     StartTime: new Date("TIMESTAMP"),
  *     EndTime: new Date("TIMESTAMP"),
  *   },

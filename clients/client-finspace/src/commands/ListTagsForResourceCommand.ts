@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { FinspaceClient, ListTagsForResourceCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

@@ -45,7 +45,7 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * import { AlexaForBusinessClient, AssociateSkillGroupWithRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateSkillGroupWithRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // AssociateSkillGroupWithRoomRequest
  *   SkillGroupArn: "STRING_VALUE",
  *   RoomArn: "STRING_VALUE",
  * };

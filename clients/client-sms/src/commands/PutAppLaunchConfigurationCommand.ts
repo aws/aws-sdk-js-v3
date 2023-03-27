@@ -42,21 +42,21 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  * import { SMSClient, PutAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // PutAppLaunchConfigurationRequest
  *   appId: "STRING_VALUE",
  *   roleName: "STRING_VALUE",
  *   autoLaunch: true || false,
- *   serverGroupLaunchConfigurations: [
- *     {
+ *   serverGroupLaunchConfigurations: [ // ServerGroupLaunchConfigurations
+ *     { // ServerGroupLaunchConfiguration
  *       serverGroupId: "STRING_VALUE",
  *       launchOrder: Number("int"),
- *       serverLaunchConfigurations: [
- *         {
- *           server: {
+ *       serverLaunchConfigurations: [ // ServerLaunchConfigurations
+ *         { // ServerLaunchConfiguration
+ *           server: { // Server
  *             serverId: "STRING_VALUE",
  *             serverType: "STRING_VALUE",
- *             vmServer: {
- *               vmServerAddress: {
+ *             vmServer: { // VmServer
+ *               vmServerAddress: { // VmServerAddress
  *                 vmManagerId: "STRING_VALUE",
  *                 vmId: "STRING_VALUE",
  *               },
@@ -73,8 +73,8 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  *           subnet: "STRING_VALUE",
  *           securityGroup: "STRING_VALUE",
  *           ec2KeyName: "STRING_VALUE",
- *           userData: {
- *             s3Location: {
+ *           userData: { // UserData
+ *             s3Location: { // S3Location
  *               bucket: "STRING_VALUE",
  *               key: "STRING_VALUE",
  *             },

@@ -46,7 +46,7 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeactivateMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeactivateMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // DeactivateMFADeviceRequest
  *   UserName: "STRING_VALUE", // required
  *   SerialNumber: "STRING_VALUE", // required
  * };

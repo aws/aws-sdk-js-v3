@@ -48,7 +48,7 @@ export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {
  * import { ChimeClient, DeleteChannelMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteChannelMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DeleteChannelMembershipRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   MemberArn: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE",

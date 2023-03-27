@@ -54,7 +54,7 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * import { Route53ResolverClient, DeleteResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // DeleteResolverEndpointRequest
  *   ResolverEndpointId: "STRING_VALUE", // required
  * };
  * const command = new DeleteResolverEndpointCommand(input);

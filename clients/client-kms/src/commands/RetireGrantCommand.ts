@@ -87,7 +87,7 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * import { KMSClient, RetireGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, RetireGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // RetireGrantRequest
  *   GrantToken: "STRING_VALUE",
  *   KeyId: "STRING_VALUE",
  *   GrantId: "STRING_VALUE",

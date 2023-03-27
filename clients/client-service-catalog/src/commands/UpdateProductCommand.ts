@@ -42,7 +42,7 @@ export interface UpdateProductCommandOutput extends UpdateProductOutput, __Metad
  * import { ServiceCatalogClient, UpdateProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // UpdateProductInput
  *   AcceptLanguage: "STRING_VALUE",
  *   Id: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
@@ -52,19 +52,19 @@ export interface UpdateProductCommandOutput extends UpdateProductOutput, __Metad
  *   SupportDescription: "STRING_VALUE",
  *   SupportEmail: "STRING_VALUE",
  *   SupportUrl: "STRING_VALUE",
- *   AddTags: [
- *     {
+ *   AddTags: [ // AddTags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   RemoveTags: [
+ *   RemoveTags: [ // TagKeys
  *     "STRING_VALUE",
  *   ],
- *   SourceConnection: {
+ *   SourceConnection: { // SourceConnection
  *     Type: "CODESTAR",
- *     ConnectionParameters: {
- *       CodeStar: {
+ *     ConnectionParameters: { // SourceConnectionParameters
+ *       CodeStar: { // CodeStarParameters
  *         ConnectionArn: "STRING_VALUE", // required
  *         Repository: "STRING_VALUE", // required
  *         Branch: "STRING_VALUE", // required

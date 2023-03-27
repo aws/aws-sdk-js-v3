@@ -43,7 +43,7 @@ export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {
  * import { ConnectClient, DisassociateSecurityKeyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateSecurityKeyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DisassociateSecurityKeyRequest
  *   InstanceId: "STRING_VALUE", // required
  *   AssociationId: "STRING_VALUE", // required
  * };

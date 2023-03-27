@@ -49,7 +49,7 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * import { StorageGatewayClient, UpdateSMBSecurityStrategyCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSMBSecurityStrategyCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // UpdateSMBSecurityStrategyInput
  *   GatewayARN: "STRING_VALUE", // required
  *   SMBSecurityStrategy: "STRING_VALUE", // required
  * };

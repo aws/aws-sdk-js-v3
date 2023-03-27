@@ -49,7 +49,7 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * import { CloudFrontClient, ListContinuousDeploymentPoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListContinuousDeploymentPoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListContinuousDeploymentPoliciesRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };

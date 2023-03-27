@@ -45,7 +45,7 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * import { LightsailClient, GetDistributionLatestCacheResetCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDistributionLatestCacheResetCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetDistributionLatestCacheResetRequest
  *   distributionName: "STRING_VALUE",
  * };
  * const command = new GetDistributionLatestCacheResetCommand(input);

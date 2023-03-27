@@ -42,7 +42,7 @@ export interface GetNetworkCommandOutput extends GetNetworkResponse, __MetadataB
  * import { PrivateNetworksClient, GetNetworkCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetNetworkCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // GetNetworkRequest
  *   networkArn: "STRING_VALUE", // required
  * };
  * const command = new GetNetworkCommand(input);

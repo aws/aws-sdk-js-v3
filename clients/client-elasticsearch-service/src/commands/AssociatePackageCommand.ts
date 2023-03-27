@@ -46,7 +46,7 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * import { ElasticsearchServiceClient, AssociatePackageCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, AssociatePackageCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // AssociatePackageRequest
  *   PackageID: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  * };

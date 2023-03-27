@@ -44,7 +44,7 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  * import { KinesisVideoClient, DescribeSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // DescribeSignalingChannelInput
  *   ChannelName: "STRING_VALUE",
  *   ChannelARN: "STRING_VALUE",
  * };

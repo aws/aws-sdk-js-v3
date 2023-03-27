@@ -57,10 +57,10 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * import { CloudWatchLogsClient, FilterLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, FilterLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // FilterLogEventsRequest
  *   logGroupName: "STRING_VALUE",
  *   logGroupIdentifier: "STRING_VALUE",
- *   logStreamNames: [
+ *   logStreamNames: [ // InputLogStreamNames
  *     "STRING_VALUE",
  *   ],
  *   logStreamNamePrefix: "STRING_VALUE",

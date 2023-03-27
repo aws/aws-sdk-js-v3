@@ -48,7 +48,7 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  * import { ChimeSDKMeetingsClient, StopMeetingTranscriptionCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, StopMeetingTranscriptionCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
- * const input = {
+ * const input = { // StopMeetingTranscriptionRequest
  *   MeetingId: "STRING_VALUE", // required
  * };
  * const command = new StopMeetingTranscriptionCommand(input);

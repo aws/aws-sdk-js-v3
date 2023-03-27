@@ -47,7 +47,7 @@ export interface CreateProvisioningClaimCommandOutput extends CreateProvisioning
  * import { IoTClient, CreateProvisioningClaimCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateProvisioningClaimCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateProvisioningClaimRequest
  *   templateName: "STRING_VALUE", // required
  * };
  * const command = new CreateProvisioningClaimCommand(input);

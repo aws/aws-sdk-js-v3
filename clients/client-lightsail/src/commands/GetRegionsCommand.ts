@@ -44,7 +44,7 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  * import { LightsailClient, GetRegionsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRegionsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetRegionsRequest
  *   includeAvailabilityZones: true || false,
  *   includeRelationalDatabaseAvailabilityZones: true || false,
  * };

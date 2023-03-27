@@ -63,12 +63,12 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * import { WorkSpacesClient, CreateUpdatedWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateUpdatedWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // CreateUpdatedWorkspaceImageRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
  *   SourceImageId: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

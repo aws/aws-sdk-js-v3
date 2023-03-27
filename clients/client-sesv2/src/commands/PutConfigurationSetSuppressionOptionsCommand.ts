@@ -48,9 +48,9 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
  * import { SESv2Client, PutConfigurationSetSuppressionOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetSuppressionOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // PutConfigurationSetSuppressionOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
- *   SuppressedReasons: [
+ *   SuppressedReasons: [ // SuppressionListReasons
  *     "BOUNCE" || "COMPLAINT",
  *   ],
  * };

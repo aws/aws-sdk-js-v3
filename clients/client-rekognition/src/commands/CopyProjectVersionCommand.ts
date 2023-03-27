@@ -60,16 +60,16 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * import { RekognitionClient, CopyProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CopyProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // CopyProjectVersionRequest
  *   SourceProjectArn: "STRING_VALUE", // required
  *   SourceProjectVersionArn: "STRING_VALUE", // required
  *   DestinationProjectArn: "STRING_VALUE", // required
  *   VersionName: "STRING_VALUE", // required
- *   OutputConfig: {
+ *   OutputConfig: { // OutputConfig
  *     S3Bucket: "STRING_VALUE",
  *     S3KeyPrefix: "STRING_VALUE",
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   KmsKeyId: "STRING_VALUE",

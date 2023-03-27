@@ -75,10 +75,10 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // TagMFADeviceRequest
  *   SerialNumber: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // tagListType // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -46,7 +46,7 @@ export interface DeletePullRequestApprovalRuleCommandOutput
  * import { CodeCommitClient, DeletePullRequestApprovalRuleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeletePullRequestApprovalRuleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // DeletePullRequestApprovalRuleInput
  *   pullRequestId: "STRING_VALUE", // required
  *   approvalRuleName: "STRING_VALUE", // required
  * };

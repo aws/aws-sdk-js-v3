@@ -46,7 +46,7 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * import { AppConfigClient, GetConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // GetConfigurationProfileRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   ConfigurationProfileId: "STRING_VALUE", // required
  * };

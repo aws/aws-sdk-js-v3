@@ -45,7 +45,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * import { DetectiveClient, ListOrganizationAdminAccountsCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListOrganizationAdminAccountsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
- * const input = {
+ * const input = { // ListOrganizationAdminAccountsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

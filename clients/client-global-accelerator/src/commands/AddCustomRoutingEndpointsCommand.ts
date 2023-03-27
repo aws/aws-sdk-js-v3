@@ -56,9 +56,9 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * import { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
- *   EndpointConfigurations: [ // required
- *     {
+ * const input = { // AddCustomRoutingEndpointsRequest
+ *   EndpointConfigurations: [ // CustomRoutingEndpointConfigurations // required
+ *     { // CustomRoutingEndpointConfiguration
  *       EndpointId: "STRING_VALUE",
  *     },
  *   ],

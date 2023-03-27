@@ -52,38 +52,38 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * import { GrafanaClient, UpdateWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const input = {
+ * const input = { // UpdateWorkspaceRequest
  *   accountAccessType: "STRING_VALUE",
  *   organizationRoleName: "STRING_VALUE",
  *   permissionType: "STRING_VALUE",
  *   stackSetName: "STRING_VALUE",
- *   workspaceDataSources: [
+ *   workspaceDataSources: [ // DataSourceTypesList
  *     "STRING_VALUE",
  *   ],
  *   workspaceDescription: "STRING_VALUE",
  *   workspaceId: "STRING_VALUE", // required
  *   workspaceName: "STRING_VALUE",
- *   workspaceNotificationDestinations: [
+ *   workspaceNotificationDestinations: [ // NotificationDestinationsList
  *     "STRING_VALUE",
  *   ],
- *   workspaceOrganizationalUnits: [
+ *   workspaceOrganizationalUnits: [ // OrganizationalUnitList
  *     "STRING_VALUE",
  *   ],
  *   workspaceRoleArn: "STRING_VALUE",
- *   vpcConfiguration: {
- *     securityGroupIds: [ // required
+ *   vpcConfiguration: { // VpcConfiguration
+ *     securityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
- *     subnetIds: [ // required
+ *     subnetIds: [ // SubnetIds // required
  *       "STRING_VALUE",
  *     ],
  *   },
  *   removeVpcConfiguration: true || false,
- *   networkAccessControl: {
- *     prefixListIds: [ // required
+ *   networkAccessControl: { // NetworkAccessConfiguration
+ *     prefixListIds: [ // PrefixListIds // required
  *       "STRING_VALUE",
  *     ],
- *     vpceIds: [ // required
+ *     vpceIds: [ // VpceIds // required
  *       "STRING_VALUE",
  *     ],
  *   },

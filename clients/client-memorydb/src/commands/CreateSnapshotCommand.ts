@@ -42,12 +42,12 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * import { MemoryDBClient, CreateSnapshotCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateSnapshotCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // CreateSnapshotRequest
  *   ClusterName: "STRING_VALUE", // required
  *   SnapshotName: "STRING_VALUE", // required
  *   KmsKeyId: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

@@ -42,7 +42,7 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * import { CloudWatchClient, GetMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // GetMetricStreamInput
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new GetMetricStreamCommand(input);

@@ -45,7 +45,7 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * import { MigrationHubClient, NotifyApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, NotifyApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
- * const input = {
+ * const input = { // NotifyApplicationStateRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   Status: "STRING_VALUE", // required
  *   UpdateDateTime: new Date("TIMESTAMP"),

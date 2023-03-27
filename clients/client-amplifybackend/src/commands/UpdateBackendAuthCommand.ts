@@ -42,49 +42,49 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  * import { AmplifyBackendClient, UpdateBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
- * const input = {
+ * const input = { // UpdateBackendAuthRequest
  *   AppId: "STRING_VALUE", // required
  *   BackendEnvironmentName: "STRING_VALUE", // required
- *   ResourceConfig: {
+ *   ResourceConfig: { // UpdateBackendAuthResourceConfig
  *     AuthResources: "USER_POOL_ONLY" || "IDENTITY_POOL_AND_USER_POOL", // required
- *     IdentityPoolConfigs: {
+ *     IdentityPoolConfigs: { // UpdateBackendAuthIdentityPoolConfig
  *       UnauthenticatedLogin: true || false,
  *     },
  *     Service: "COGNITO", // required
- *     UserPoolConfigs: {
- *       ForgotPassword: {
+ *     UserPoolConfigs: { // UpdateBackendAuthUserPoolConfig
+ *       ForgotPassword: { // UpdateBackendAuthForgotPasswordConfig
  *         DeliveryMethod: "EMAIL" || "SMS",
- *         EmailSettings: {
+ *         EmailSettings: { // EmailSettings
  *           EmailMessage: "STRING_VALUE",
  *           EmailSubject: "STRING_VALUE",
  *         },
- *         SmsSettings: {
+ *         SmsSettings: { // SmsSettings
  *           SmsMessage: "STRING_VALUE",
  *         },
  *       },
- *       Mfa: {
+ *       Mfa: { // UpdateBackendAuthMFAConfig
  *         MFAMode: "ON" || "OFF" || "OPTIONAL",
- *         Settings: {
- *           MfaTypes: [
+ *         Settings: { // Settings
+ *           MfaTypes: [ // ListOfMfaTypesElement
  *             "SMS" || "TOTP",
  *           ],
  *           SmsMessage: "STRING_VALUE",
  *         },
  *       },
- *       OAuth: {
+ *       OAuth: { // UpdateBackendAuthOAuthConfig
  *         DomainPrefix: "STRING_VALUE",
  *         OAuthGrantType: "CODE" || "IMPLICIT",
- *         OAuthScopes: [
+ *         OAuthScopes: [ // ListOfOAuthScopesElement
  *           "PHONE" || "EMAIL" || "OPENID" || "PROFILE" || "AWS_COGNITO_SIGNIN_USER_ADMIN",
  *         ],
- *         RedirectSignInURIs: [
+ *         RedirectSignInURIs: [ // ListOf__string
  *           "STRING_VALUE",
  *         ],
  *         RedirectSignOutURIs: [
  *           "STRING_VALUE",
  *         ],
- *         SocialProviderSettings: {
- *           Facebook: {
+ *         SocialProviderSettings: { // SocialProviderSettings
+ *           Facebook: { // BackendAuthSocialProviderConfig
  *             ClientId: "STRING_VALUE",
  *             ClientSecret: "STRING_VALUE",
  *           },
@@ -96,7 +96,7 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  *             ClientId: "STRING_VALUE",
  *             ClientSecret: "STRING_VALUE",
  *           },
- *           SignInWithApple: {
+ *           SignInWithApple: { // BackendAuthAppleProviderConfig
  *             ClientId: "STRING_VALUE",
  *             KeyId: "STRING_VALUE",
  *             PrivateKey: "STRING_VALUE",
@@ -104,13 +104,13 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  *           },
  *         },
  *       },
- *       PasswordPolicy: {
- *         AdditionalConstraints: [
+ *       PasswordPolicy: { // UpdateBackendAuthPasswordPolicyConfig
+ *         AdditionalConstraints: [ // ListOfAdditionalConstraintsElement
  *           "REQUIRE_DIGIT" || "REQUIRE_LOWERCASE" || "REQUIRE_SYMBOL" || "REQUIRE_UPPERCASE",
  *         ],
  *         MinimumLength: Number("double"),
  *       },
- *       VerificationMessage: {
+ *       VerificationMessage: { // UpdateBackendAuthVerificationMessageConfig
  *         DeliveryMethod: "EMAIL" || "SMS", // required
  *         EmailSettings: {
  *           EmailMessage: "STRING_VALUE",

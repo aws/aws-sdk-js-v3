@@ -42,7 +42,7 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKVoiceClient, StopSpeakerSearchTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, StopSpeakerSearchTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // StopSpeakerSearchTaskRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   SpeakerSearchTaskId: "STRING_VALUE", // required
  * };

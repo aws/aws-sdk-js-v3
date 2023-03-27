@@ -42,11 +42,11 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * import { ConnectCasesClient, GetCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = {
+ * const input = { // GetCaseRequest
  *   caseId: "STRING_VALUE", // required
  *   domainId: "STRING_VALUE", // required
- *   fields: [ // required
- *     {
+ *   fields: [ // FieldIdentifierList // required
+ *     { // FieldIdentifier
  *       id: "STRING_VALUE", // required
  *     },
  *   ],

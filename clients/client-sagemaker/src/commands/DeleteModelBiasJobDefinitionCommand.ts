@@ -42,7 +42,7 @@ export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBea
  * import { SageMakerClient, DeleteModelBiasJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelBiasJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteModelBiasJobDefinitionRequest
  *   JobDefinitionName: "STRING_VALUE", // required
  * };
  * const command = new DeleteModelBiasJobDefinitionCommand(input);

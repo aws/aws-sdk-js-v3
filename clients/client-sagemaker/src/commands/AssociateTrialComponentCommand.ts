@@ -43,7 +43,7 @@ export interface AssociateTrialComponentCommandOutput extends AssociateTrialComp
  * import { SageMakerClient, AssociateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, AssociateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // AssociateTrialComponentRequest
  *   TrialComponentName: "STRING_VALUE", // required
  *   TrialName: "STRING_VALUE", // required
  * };

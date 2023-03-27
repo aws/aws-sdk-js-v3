@@ -53,7 +53,7 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * import { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // PromoteResourceShareCreatedFromPolicyRequest
  *   resourceShareArn: "STRING_VALUE", // required
  * };
  * const command = new PromoteResourceShareCreatedFromPolicyCommand(input);

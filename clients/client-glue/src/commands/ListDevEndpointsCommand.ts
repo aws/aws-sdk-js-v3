@@ -47,10 +47,10 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * import { GlueClient, ListDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListDevEndpointsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,7 +42,7 @@ export interface GetReplicationJobsCommandOutput extends GetReplicationJobsRespo
  * import { SMSClient, GetReplicationJobsCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetReplicationJobsCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // GetReplicationJobsRequest
  *   replicationJobId: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

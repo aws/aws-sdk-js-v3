@@ -49,22 +49,22 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * import { EvidentlyClient, GetExperimentResultsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetExperimentResultsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // GetExperimentResultsRequest
  *   project: "STRING_VALUE", // required
  *   experiment: "STRING_VALUE", // required
  *   startTime: new Date("TIMESTAMP"),
  *   endTime: new Date("TIMESTAMP"),
- *   metricNames: [ // required
+ *   metricNames: [ // MetricNameList // required
  *     "STRING_VALUE",
  *   ],
- *   treatmentNames: [ // required
+ *   treatmentNames: [ // TreatmentNameList // required
  *     "STRING_VALUE",
  *   ],
  *   baseStat: "STRING_VALUE",
- *   resultStats: [
+ *   resultStats: [ // ExperimentResultRequestTypeList
  *     "STRING_VALUE",
  *   ],
- *   reportNames: [
+ *   reportNames: [ // ExperimentReportNameList
  *     "STRING_VALUE",
  *   ],
  *   period: Number("long"),

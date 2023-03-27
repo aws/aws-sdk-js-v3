@@ -51,7 +51,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * import { OpsWorksCMClient, DescribeEventsCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DescribeEventsCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // DescribeEventsRequest
  *   ServerName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

@@ -42,12 +42,12 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  * import { MediaConnectClient, GrantFlowEntitlementsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, GrantFlowEntitlementsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
- *   Entitlements: [ // required
- *     {
+ * const input = { // GrantFlowEntitlementsRequest
+ *   Entitlements: [ // __listOfGrantEntitlementRequest // required
+ *     { // GrantEntitlementRequest
  *       DataTransferSubscriberFeePercent: Number("int"),
  *       Description: "STRING_VALUE",
- *       Encryption: {
+ *       Encryption: { // Encryption
  *         Algorithm: "aes128" || "aes192" || "aes256",
  *         ConstantInitializationVector: "STRING_VALUE",
  *         DeviceId: "STRING_VALUE",
@@ -60,7 +60,7 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  *       },
  *       EntitlementStatus: "ENABLED" || "DISABLED",
  *       Name: "STRING_VALUE",
- *       Subscribers: [ // required
+ *       Subscribers: [ // __listOf__string // required
  *         "STRING_VALUE",
  *       ],
  *     },

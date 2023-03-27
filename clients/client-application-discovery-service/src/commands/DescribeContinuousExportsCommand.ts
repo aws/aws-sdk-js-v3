@@ -48,8 +48,8 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  * import { ApplicationDiscoveryServiceClient, DescribeContinuousExportsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeContinuousExportsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
- *   exportIds: [
+ * const input = { // DescribeContinuousExportsRequest
+ *   exportIds: [ // ContinuousExportIds
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

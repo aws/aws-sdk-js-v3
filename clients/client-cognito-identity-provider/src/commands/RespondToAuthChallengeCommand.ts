@@ -69,21 +69,21 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * import { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // RespondToAuthChallengeRequest
  *   ClientId: "STRING_VALUE", // required
  *   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED", // required
  *   Session: "STRING_VALUE",
- *   ChallengeResponses: {
+ *   ChallengeResponses: { // ChallengeResponsesType
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AnalyticsMetadata: {
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
  *     AnalyticsEndpointId: "STRING_VALUE",
  *   },
- *   UserContextData: {
+ *   UserContextData: { // UserContextDataType
  *     IpAddress: "STRING_VALUE",
  *     EncodedData: "STRING_VALUE",
  *   },
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

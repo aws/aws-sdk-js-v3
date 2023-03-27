@@ -42,7 +42,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * import { CloudWatchEventsClient, UpdateArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UpdateArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // UpdateArchiveRequest
  *   ArchiveName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   EventPattern: "STRING_VALUE",

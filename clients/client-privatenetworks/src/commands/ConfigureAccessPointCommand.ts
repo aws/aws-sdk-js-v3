@@ -54,9 +54,9 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
  * import { PrivateNetworksClient, ConfigureAccessPointCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ConfigureAccessPointCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // ConfigureAccessPointRequest
  *   accessPointArn: "STRING_VALUE", // required
- *   position: {
+ *   position: { // Position
  *     latitude: Number("double"),
  *     longitude: Number("double"),
  *     elevation: Number("double"),

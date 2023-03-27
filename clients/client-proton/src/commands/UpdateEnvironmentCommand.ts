@@ -95,7 +95,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * import { ProtonClient, UpdateEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // UpdateEnvironmentInput
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   spec: "STRING_VALUE",
@@ -104,7 +104,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *   protonServiceRoleArn: "STRING_VALUE",
  *   deploymentType: "STRING_VALUE", // required
  *   environmentAccountConnectionId: "STRING_VALUE",
- *   provisioningRepository: {
+ *   provisioningRepository: { // RepositoryBranchInput
  *     provider: "STRING_VALUE", // required
  *     name: "STRING_VALUE", // required
  *     branch: "STRING_VALUE", // required

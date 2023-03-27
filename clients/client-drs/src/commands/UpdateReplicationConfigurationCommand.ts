@@ -47,19 +47,19 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * import { DrsClient, UpdateReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UpdateReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // UpdateReplicationConfigurationRequest
  *   sourceServerID: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   stagingAreaSubnetId: "STRING_VALUE",
  *   associateDefaultSecurityGroup: true || false,
- *   replicationServersSecurityGroupsIDs: [
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
  *     "STRING_VALUE",
  *   ],
  *   replicationServerInstanceType: "STRING_VALUE",
  *   useDedicatedReplicationServer: true || false,
  *   defaultLargeStagingDiskType: "STRING_VALUE",
- *   replicatedDisks: [
- *     {
+ *   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
+ *     { // ReplicationConfigurationReplicatedDisk
  *       deviceName: "STRING_VALUE",
  *       isBootDisk: true || false,
  *       stagingDiskType: "STRING_VALUE",
@@ -73,11 +73,11 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  *   bandwidthThrottling: Number("long"),
  *   dataPlaneRouting: "STRING_VALUE",
  *   createPublicIP: true || false,
- *   stagingAreaTags: {
+ *   stagingAreaTags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   pitPolicy: [
- *     {
+ *   pitPolicy: [ // PITPolicy
+ *     { // PITPolicyRule
  *       ruleID: Number("long"),
  *       units: "STRING_VALUE", // required
  *       interval: Number("int"), // required

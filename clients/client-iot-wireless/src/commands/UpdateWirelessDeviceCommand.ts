@@ -42,28 +42,28 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  * import { IoTWirelessClient, UpdateWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // UpdateWirelessDeviceRequest
  *   Id: "STRING_VALUE", // required
  *   DestinationName: "STRING_VALUE",
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   LoRaWAN: {
+ *   LoRaWAN: { // LoRaWANUpdateDevice
  *     DeviceProfileId: "STRING_VALUE",
  *     ServiceProfileId: "STRING_VALUE",
- *     AbpV1_1: {
+ *     AbpV1_1: { // UpdateAbpV1_1
  *       FCntStart: Number("int"),
  *     },
- *     AbpV1_0_x: {
+ *     AbpV1_0_x: { // UpdateAbpV1_0_x
  *       FCntStart: Number("int"),
  *     },
- *     FPorts: {
- *       Positioning: {
+ *     FPorts: { // UpdateFPorts
+ *       Positioning: { // Positioning
  *         ClockSync: Number("int"),
  *         Stream: Number("int"),
  *         Gnss: Number("int"),
  *       },
- *       Applications: [
- *         {
+ *       Applications: [ // Applications
+ *         { // ApplicationConfig
  *           FPort: Number("int"),
  *           Type: "SemtechGeolocation",
  *           DestinationName: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __M
  * import { MediaTailorClient, ListVodSourcesCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListVodSourcesCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // ListVodSourcesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   SourceLocationName: "STRING_VALUE", // required

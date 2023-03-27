@@ -45,9 +45,9 @@ export interface ModifySelfservicePermissionsCommandOutput
  * import { WorkSpacesClient, ModifySelfservicePermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifySelfservicePermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // ModifySelfservicePermissionsRequest
  *   ResourceId: "STRING_VALUE", // required
- *   SelfservicePermissions: {
+ *   SelfservicePermissions: { // SelfservicePermissions
  *     RestartWorkspace: "ENABLED" || "DISABLED",
  *     IncreaseVolumeSize: "ENABLED" || "DISABLED",
  *     ChangeComputeType: "ENABLED" || "DISABLED",

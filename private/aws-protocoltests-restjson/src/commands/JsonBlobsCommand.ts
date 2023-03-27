@@ -41,7 +41,7 @@ export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __Metadata
  * import { RestJsonProtocolClient, JsonBlobsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonBlobsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
+ * const input = { // JsonBlobsInputOutput
  *   data: "BLOB_VALUE",
  * };
  * const command = new JsonBlobsCommand(input);

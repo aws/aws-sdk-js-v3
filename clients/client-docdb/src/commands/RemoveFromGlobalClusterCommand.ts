@@ -45,7 +45,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * import { DocDBClient, RemoveFromGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RemoveFromGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // RemoveFromGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   DbClusterIdentifier: "STRING_VALUE", // required
  * };

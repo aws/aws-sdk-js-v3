@@ -51,40 +51,40 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  * import { TimestreamQueryClient, CreateScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, CreateScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
- * const input = {
+ * const input = { // CreateScheduledQueryRequest
  *   Name: "STRING_VALUE", // required
  *   QueryString: "STRING_VALUE", // required
- *   ScheduleConfiguration: {
+ *   ScheduleConfiguration: { // ScheduleConfiguration
  *     ScheduleExpression: "STRING_VALUE", // required
  *   },
- *   NotificationConfiguration: {
- *     SnsConfiguration: {
+ *   NotificationConfiguration: { // NotificationConfiguration
+ *     SnsConfiguration: { // SnsConfiguration
  *       TopicArn: "STRING_VALUE", // required
  *     },
  *   },
- *   TargetConfiguration: {
- *     TimestreamConfiguration: {
+ *   TargetConfiguration: { // TargetConfiguration
+ *     TimestreamConfiguration: { // TimestreamConfiguration
  *       DatabaseName: "STRING_VALUE", // required
  *       TableName: "STRING_VALUE", // required
  *       TimeColumn: "STRING_VALUE", // required
- *       DimensionMappings: [ // required
- *         {
+ *       DimensionMappings: [ // DimensionMappingList // required
+ *         { // DimensionMapping
  *           Name: "STRING_VALUE", // required
  *           DimensionValueType: "STRING_VALUE", // required
  *         },
  *       ],
- *       MultiMeasureMappings: {
+ *       MultiMeasureMappings: { // MultiMeasureMappings
  *         TargetMultiMeasureName: "STRING_VALUE",
- *         MultiMeasureAttributeMappings: [ // required
- *           {
+ *         MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappingList // required
+ *           { // MultiMeasureAttributeMapping
  *             SourceColumn: "STRING_VALUE", // required
  *             TargetMultiMeasureAttributeName: "STRING_VALUE",
  *             MeasureValueType: "STRING_VALUE", // required
  *           },
  *         ],
  *       },
- *       MixedMeasureMappings: [
- *         {
+ *       MixedMeasureMappings: [ // MixedMeasureMappingList
+ *         { // MixedMeasureMapping
  *           MeasureName: "STRING_VALUE",
  *           SourceColumn: "STRING_VALUE",
  *           TargetMeasureName: "STRING_VALUE",
@@ -103,15 +103,15 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *   },
  *   ClientToken: "STRING_VALUE",
  *   ScheduledQueryExecutionRoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   KmsKeyId: "STRING_VALUE",
- *   ErrorReportConfiguration: {
- *     S3Configuration: {
+ *   ErrorReportConfiguration: { // ErrorReportConfiguration
+ *     S3Configuration: { // S3Configuration
  *       BucketName: "STRING_VALUE", // required
  *       ObjectKeyPrefix: "STRING_VALUE",
  *       EncryptionOption: "STRING_VALUE",

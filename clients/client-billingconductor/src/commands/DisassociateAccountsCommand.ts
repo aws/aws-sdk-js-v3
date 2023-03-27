@@ -42,9 +42,9 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  * import { BillingconductorClient, DisassociateAccountsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DisassociateAccountsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // DisassociateAccountsInput
  *   Arn: "STRING_VALUE", // required
- *   AccountIds: [ // required
+ *   AccountIds: [ // AccountIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

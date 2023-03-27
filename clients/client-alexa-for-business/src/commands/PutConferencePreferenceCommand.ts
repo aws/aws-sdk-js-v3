@@ -43,8 +43,8 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  * import { AlexaForBusinessClient, PutConferencePreferenceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, PutConferencePreferenceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
- *   ConferencePreference: {
+ * const input = { // PutConferencePreferenceRequest
+ *   ConferencePreference: { // ConferencePreference
  *     DefaultConferenceProviderArn: "STRING_VALUE",
  *   },
  * };

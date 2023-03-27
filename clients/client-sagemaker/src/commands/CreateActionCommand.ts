@@ -46,9 +46,9 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  * import { SageMakerClient, CreateActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateActionRequest
  *   ActionName: "STRING_VALUE", // required
- *   Source: {
+ *   Source: { // ActionSource
  *     SourceUri: "STRING_VALUE", // required
  *     SourceType: "STRING_VALUE",
  *     SourceId: "STRING_VALUE",
@@ -56,17 +56,17 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  *   ActionType: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *   Properties: {
+ *   Properties: { // LineageEntityParameters
  *     "<keys>": "STRING_VALUE",
  *   },
- *   MetadataProperties: {
+ *   MetadataProperties: { // MetadataProperties
  *     CommitId: "STRING_VALUE",
  *     Repository: "STRING_VALUE",
  *     GeneratedBy: "STRING_VALUE",
  *     ProjectId: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

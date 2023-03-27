@@ -42,7 +42,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * import { FMSClient, ListPoliciesCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListPoliciesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // ListPoliciesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

@@ -42,13 +42,13 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * import { IoTSiteWiseClient, CreateDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // CreateDashboardRequest
  *   projectId: "STRING_VALUE", // required
  *   dashboardName: "STRING_VALUE", // required
  *   dashboardDescription: "STRING_VALUE",
  *   dashboardDefinition: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

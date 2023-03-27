@@ -42,24 +42,24 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  * import { MediaTailorClient, CreateProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
- *   AdBreaks: [
- *     {
+ * const input = { // CreateProgramRequest
+ *   AdBreaks: [ // __listOfAdBreak
+ *     { // AdBreak
  *       MessageType: "SPLICE_INSERT" || "TIME_SIGNAL",
  *       OffsetMillis: Number("long"),
- *       Slate: {
+ *       Slate: { // SlateSource
  *         SourceLocationName: "STRING_VALUE",
  *         VodSourceName: "STRING_VALUE",
  *       },
- *       SpliceInsertMessage: {
+ *       SpliceInsertMessage: { // SpliceInsertMessage
  *         AvailNum: Number("int"),
  *         AvailsExpected: Number("int"),
  *         SpliceEventId: Number("int"),
  *         UniqueProgramId: Number("int"),
  *       },
- *       TimeSignalMessage: {
- *         SegmentationDescriptors: [
- *           {
+ *       TimeSignalMessage: { // TimeSignalMessage
+ *         SegmentationDescriptors: [ // SegmentationDescriptorList
+ *           { // SegmentationDescriptor
  *             SegmentationEventId: Number("int"),
  *             SegmentationUpidType: Number("int"),
  *             SegmentationUpid: "STRING_VALUE",
@@ -76,15 +76,15 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  *   ChannelName: "STRING_VALUE", // required
  *   LiveSourceName: "STRING_VALUE",
  *   ProgramName: "STRING_VALUE", // required
- *   ScheduleConfiguration: {
- *     Transition: {
+ *   ScheduleConfiguration: { // ScheduleConfiguration
+ *     Transition: { // Transition
  *       DurationMillis: Number("long"),
  *       RelativePosition: "BEFORE_PROGRAM" || "AFTER_PROGRAM", // required
  *       RelativeProgram: "STRING_VALUE",
  *       ScheduledStartTimeMillis: Number("long"),
  *       Type: "STRING_VALUE", // required
  *     },
- *     ClipRange: {
+ *     ClipRange: { // ClipRange
  *       EndOffsetMillis: Number("long"), // required
  *     },
  *   },

@@ -47,12 +47,12 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { ChimeClient, UpdateUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // UpdateUserRequest
  *   AccountId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  *   LicenseType: "STRING_VALUE",
  *   UserType: "STRING_VALUE",
- *   AlexaForBusinessMetadata: {
+ *   AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
  *     IsAlexaForBusinessEnabled: true || false,
  *     AlexaForBusinessRoomArn: "STRING_VALUE",
  *   },

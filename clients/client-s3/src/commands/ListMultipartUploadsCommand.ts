@@ -87,7 +87,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * import { S3Client, ListMultipartUploadsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListMultipartUploadsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // ListMultipartUploadsRequest
  *   Bucket: "STRING_VALUE", // required
  *   Delimiter: "STRING_VALUE",
  *   EncodingType: "url",

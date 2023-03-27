@@ -44,7 +44,7 @@ export interface DeleteTransitGatewayVpcAttachmentCommandOutput
  * import { EC2Client, DeleteTransitGatewayVpcAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTransitGatewayVpcAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteTransitGatewayVpcAttachmentRequest
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

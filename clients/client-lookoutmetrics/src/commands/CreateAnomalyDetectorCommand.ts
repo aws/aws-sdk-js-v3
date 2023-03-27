@@ -42,14 +42,14 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  * import { LookoutMetricsClient, CreateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
+ * const input = { // CreateAnomalyDetectorRequest
  *   AnomalyDetectorName: "STRING_VALUE", // required
  *   AnomalyDetectorDescription: "STRING_VALUE",
- *   AnomalyDetectorConfig: {
+ *   AnomalyDetectorConfig: { // AnomalyDetectorConfig
  *     AnomalyDetectorFrequency: "STRING_VALUE",
  *   },
  *   KmsKeyArn: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

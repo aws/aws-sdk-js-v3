@@ -42,7 +42,7 @@ export interface RemoveFlowOutputCommandOutput extends RemoveFlowOutputResponse,
  * import { MediaConnectClient, RemoveFlowOutputCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RemoveFlowOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // RemoveFlowOutputRequest
  *   FlowArn: "STRING_VALUE", // required
  *   OutputArn: "STRING_VALUE", // required
  * };

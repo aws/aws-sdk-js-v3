@@ -42,7 +42,7 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * import { CodeDeployClient, StopDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, StopDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // StopDeploymentInput
  *   deploymentId: "STRING_VALUE", // required
  *   autoRollbackEnabled: true || false,
  * };

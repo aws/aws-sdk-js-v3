@@ -44,7 +44,7 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
  * import { EC2Client, DeleteEgressOnlyInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteEgressOnlyInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteEgressOnlyInternetGatewayRequest
  *   DryRun: true || false,
  *   EgressOnlyInternetGatewayId: "STRING_VALUE", // required
  * };

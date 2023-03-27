@@ -46,49 +46,49 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * import { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
- *   prioritizeBusinessGoals: {
- *     businessGoals: {
+ * const input = { // PutPortfolioPreferencesRequest
+ *   prioritizeBusinessGoals: { // PrioritizeBusinessGoals
+ *     businessGoals: { // BusinessGoals
  *       speedOfMigration: Number("int"),
  *       reduceOperationalOverheadWithManagedServices: Number("int"),
  *       modernizeInfrastructureWithCloudNativeTechnologies: Number("int"),
  *       licenseCostReduction: Number("int"),
  *     },
  *   },
- *   applicationPreferences: {
- *     managementPreference: { // Union: only one key present
- *       awsManagedResources: {
- *         targetDestination: [ // required
+ *   applicationPreferences: { // ApplicationPreferences
+ *     managementPreference: { // ManagementPreference Union: only one key present
+ *       awsManagedResources: { // AwsManagedResources
+ *         targetDestination: [ // AwsManagedTargetDestinations // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       selfManageResources: {
- *         targetDestination: [ // required
+ *       selfManageResources: { // SelfManageResources
+ *         targetDestination: [ // SelfManageTargetDestinations // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       noPreference: {
- *         targetDestination: [ // required
+ *       noPreference: { // NoManagementPreference
+ *         targetDestination: [ // NoPreferenceTargetDestinations // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
  *   },
- *   databasePreferences: {
+ *   databasePreferences: { // DatabasePreferences
  *     databaseManagementPreference: "STRING_VALUE",
- *     databaseMigrationPreference: { // Union: only one key present
- *       heterogeneous: {
- *         targetDatabaseEngine: [ // required
+ *     databaseMigrationPreference: { // DatabaseMigrationPreference Union: only one key present
+ *       heterogeneous: { // Heterogeneous
+ *         targetDatabaseEngine: [ // HeterogeneousTargetDatabaseEngines // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       homogeneous: {
- *         targetDatabaseEngine: [
+ *       homogeneous: { // Homogeneous
+ *         targetDatabaseEngine: [ // HomogeneousTargetDatabaseEngines
  *           "STRING_VALUE",
  *         ],
  *       },
- *       noPreference: {
- *         targetDatabaseEngine: [ // required
+ *       noPreference: { // NoDatabaseMigrationPreference
+ *         targetDatabaseEngine: [ // TargetDatabaseEngines // required
  *           "STRING_VALUE",
  *         ],
  *       },

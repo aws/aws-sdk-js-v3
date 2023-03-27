@@ -50,8 +50,8 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * import { SESClient, GetIdentityMailFromDomainAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityMailFromDomainAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
- *   Identities: [ // required
+ * const input = { // GetIdentityMailFromDomainAttributesRequest
+ *   Identities: [ // IdentityList // required
  *     "STRING_VALUE",
  *   ],
  * };

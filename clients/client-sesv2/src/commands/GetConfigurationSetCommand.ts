@@ -49,7 +49,7 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * import { SESv2Client, GetConfigurationSetCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetConfigurationSetCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // GetConfigurationSetRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  * };
  * const command = new GetConfigurationSetCommand(input);

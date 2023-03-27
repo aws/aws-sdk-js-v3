@@ -55,34 +55,34 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  * import { EC2Client, RevokeSecurityGroupEgressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RevokeSecurityGroupEgressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // RevokeSecurityGroupEgressRequest
  *   DryRun: true || false,
  *   GroupId: "STRING_VALUE", // required
- *   IpPermissions: [
- *     {
+ *   IpPermissions: [ // IpPermissionList
+ *     { // IpPermission
  *       FromPort: Number("int"),
  *       IpProtocol: "STRING_VALUE",
- *       IpRanges: [
- *         {
+ *       IpRanges: [ // IpRangeList
+ *         { // IpRange
  *           CidrIp: "STRING_VALUE",
  *           Description: "STRING_VALUE",
  *         },
  *       ],
- *       Ipv6Ranges: [
- *         {
+ *       Ipv6Ranges: [ // Ipv6RangeList
+ *         { // Ipv6Range
  *           CidrIpv6: "STRING_VALUE",
  *           Description: "STRING_VALUE",
  *         },
  *       ],
- *       PrefixListIds: [
- *         {
+ *       PrefixListIds: [ // PrefixListIdList
+ *         { // PrefixListId
  *           Description: "STRING_VALUE",
  *           PrefixListId: "STRING_VALUE",
  *         },
  *       ],
  *       ToPort: Number("int"),
- *       UserIdGroupPairs: [
- *         {
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
  *           Description: "STRING_VALUE",
  *           GroupId: "STRING_VALUE",
  *           GroupName: "STRING_VALUE",
@@ -94,7 +94,7 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  *       ],
  *     },
  *   ],
- *   SecurityGroupRuleIds: [
+ *   SecurityGroupRuleIds: [ // SecurityGroupRuleIdList
  *     "STRING_VALUE",
  *   ],
  *   CidrIp: "STRING_VALUE",

@@ -43,7 +43,7 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  * import { ConnectClient, UpdateQueueHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateQueueHoursOfOperationRequest
  *   InstanceId: "STRING_VALUE", // required
  *   QueueId: "STRING_VALUE", // required
  *   HoursOfOperationId: "STRING_VALUE", // required

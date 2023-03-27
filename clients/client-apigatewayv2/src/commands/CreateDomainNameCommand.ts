@@ -42,10 +42,10 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * import { ApiGatewayV2Client, CreateDomainNameCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateDomainNameCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // CreateDomainNameRequest
  *   DomainName: "STRING_VALUE", // required
- *   DomainNameConfigurations: [
- *     {
+ *   DomainNameConfigurations: [ // DomainNameConfigurations
+ *     { // DomainNameConfiguration
  *       ApiGatewayDomainName: "STRING_VALUE",
  *       CertificateArn: "STRING_VALUE",
  *       CertificateName: "STRING_VALUE",
@@ -58,11 +58,11 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  *       OwnershipVerificationCertificateArn: "STRING_VALUE",
  *     },
  *   ],
- *   MutualTlsAuthentication: {
+ *   MutualTlsAuthentication: { // MutualTlsAuthenticationInput
  *     TruststoreUri: "STRING_VALUE",
  *     TruststoreVersion: "STRING_VALUE",
  *   },
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

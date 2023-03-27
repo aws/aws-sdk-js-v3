@@ -51,15 +51,15 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * import { EC2Client, RunScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RunScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // RunScheduledInstancesRequest
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
  *   InstanceCount: Number("int"),
- *   LaunchSpecification: {
- *     BlockDeviceMappings: [
- *       {
+ *   LaunchSpecification: { // ScheduledInstancesLaunchSpecification
+ *     BlockDeviceMappings: [ // ScheduledInstancesBlockDeviceMappingSet
+ *       { // ScheduledInstancesBlockDeviceMapping
  *         DeviceName: "STRING_VALUE",
- *         Ebs: {
+ *         Ebs: { // ScheduledInstancesEbs
  *           DeleteOnTermination: true || false,
  *           Encrypted: true || false,
  *           Iops: Number("int"),
@@ -72,7 +72,7 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  *       },
  *     ],
  *     EbsOptimized: true || false,
- *     IamInstanceProfile: {
+ *     IamInstanceProfile: { // ScheduledInstancesIamInstanceProfile
  *       Arn: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *     },
@@ -80,28 +80,28 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  *     InstanceType: "STRING_VALUE",
  *     KernelId: "STRING_VALUE",
  *     KeyName: "STRING_VALUE",
- *     Monitoring: {
+ *     Monitoring: { // ScheduledInstancesMonitoring
  *       Enabled: true || false,
  *     },
- *     NetworkInterfaces: [
- *       {
+ *     NetworkInterfaces: [ // ScheduledInstancesNetworkInterfaceSet
+ *       { // ScheduledInstancesNetworkInterface
  *         AssociatePublicIpAddress: true || false,
  *         DeleteOnTermination: true || false,
  *         Description: "STRING_VALUE",
  *         DeviceIndex: Number("int"),
- *         Groups: [
+ *         Groups: [ // ScheduledInstancesSecurityGroupIdSet
  *           "STRING_VALUE",
  *         ],
  *         Ipv6AddressCount: Number("int"),
- *         Ipv6Addresses: [
- *           {
+ *         Ipv6Addresses: [ // ScheduledInstancesIpv6AddressList
+ *           { // ScheduledInstancesIpv6Address
  *             Ipv6Address: "STRING_VALUE",
  *           },
  *         ],
  *         NetworkInterfaceId: "STRING_VALUE",
  *         PrivateIpAddress: "STRING_VALUE",
- *         PrivateIpAddressConfigs: [
- *           {
+ *         PrivateIpAddressConfigs: [ // PrivateIpAddressConfigSet
+ *           { // ScheduledInstancesPrivateIpAddressConfig
  *             Primary: true || false,
  *             PrivateIpAddress: "STRING_VALUE",
  *           },
@@ -110,7 +110,7 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  *         SubnetId: "STRING_VALUE",
  *       },
  *     ],
- *     Placement: {
+ *     Placement: { // ScheduledInstancesPlacement
  *       AvailabilityZone: "STRING_VALUE",
  *       GroupName: "STRING_VALUE",
  *     },

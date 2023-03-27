@@ -42,7 +42,7 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeleteFolderContentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteFolderContentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DeleteFolderContentsRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   FolderId: "STRING_VALUE", // required
  * };

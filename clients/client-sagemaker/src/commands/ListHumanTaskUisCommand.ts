@@ -42,7 +42,7 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  * import { SageMakerClient, ListHumanTaskUisCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHumanTaskUisCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListHumanTaskUisRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   SortOrder: "Ascending" || "Descending",

@@ -44,7 +44,7 @@ export interface GetMaintenanceWindowExecutionCommandOutput
  * import { SSMClient, GetMaintenanceWindowExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetMaintenanceWindowExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // GetMaintenanceWindowExecutionRequest
  *   WindowExecutionId: "STRING_VALUE", // required
  * };
  * const command = new GetMaintenanceWindowExecutionCommand(input);

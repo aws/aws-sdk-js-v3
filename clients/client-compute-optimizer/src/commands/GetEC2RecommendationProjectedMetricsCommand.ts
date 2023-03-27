@@ -54,14 +54,14 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  * import { ComputeOptimizerClient, GetEC2RecommendationProjectedMetricsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEC2RecommendationProjectedMetricsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const input = {
+ * const input = { // GetEC2RecommendationProjectedMetricsRequest
  *   instanceArn: "STRING_VALUE", // required
  *   stat: "Maximum" || "Average", // required
  *   period: Number("int"), // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
- *   recommendationPreferences: {
- *     cpuVendorArchitectures: [
+ *   recommendationPreferences: { // RecommendationPreferences
+ *     cpuVendorArchitectures: [ // CpuVendorArchitectures
  *       "AWS_ARM64" || "CURRENT",
  *     ],
  *   },

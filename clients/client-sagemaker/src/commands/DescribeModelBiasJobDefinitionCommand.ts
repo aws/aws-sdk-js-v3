@@ -44,7 +44,7 @@ export interface DescribeModelBiasJobDefinitionCommandOutput
  * import { SageMakerClient, DescribeModelBiasJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelBiasJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeModelBiasJobDefinitionRequest
  *   JobDefinitionName: "STRING_VALUE", // required
  * };
  * const command = new DescribeModelBiasJobDefinitionCommand(input);

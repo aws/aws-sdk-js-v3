@@ -42,10 +42,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { ServiceDiscoveryClient, TagResourceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, TagResourceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

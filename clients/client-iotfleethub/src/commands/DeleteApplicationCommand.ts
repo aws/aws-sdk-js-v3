@@ -45,7 +45,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * import { IoTFleetHubClient, DeleteApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, DeleteApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
  * const client = new IoTFleetHubClient(config);
- * const input = {
+ * const input = { // DeleteApplicationRequest
  *   applicationId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

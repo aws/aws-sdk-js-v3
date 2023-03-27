@@ -42,11 +42,11 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  * import { NimbleClient, PutStudioMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, PutStudioMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // PutStudioMembersRequest
  *   clientToken: "STRING_VALUE",
  *   identityStoreId: "STRING_VALUE", // required
- *   members: [ // required
- *     {
+ *   members: [ // NewStudioMemberList // required
+ *     { // NewStudioMember
  *       persona: "ADMINISTRATOR", // required
  *       principalId: "STRING_VALUE", // required
  *     },

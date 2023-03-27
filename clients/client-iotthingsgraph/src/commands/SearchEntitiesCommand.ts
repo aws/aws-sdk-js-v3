@@ -44,14 +44,14 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * import { IoTThingsGraphClient, SearchEntitiesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchEntitiesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
- *   entityTypes: [ // required
+ * const input = { // SearchEntitiesRequest
+ *   entityTypes: [ // EntityTypes // required
  *     "STRING_VALUE",
  *   ],
- *   filters: [
- *     {
+ *   filters: [ // EntityFilters
+ *     { // EntityFilter
  *       name: "STRING_VALUE",
- *       value: [
+ *       value: [ // EntityFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

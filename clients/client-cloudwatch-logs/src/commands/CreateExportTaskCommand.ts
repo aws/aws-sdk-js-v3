@@ -61,7 +61,7 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  * import { CloudWatchLogsClient, CreateExportTaskCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateExportTaskCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // CreateExportTaskRequest
  *   taskName: "STRING_VALUE",
  *   logGroupName: "STRING_VALUE", // required
  *   logStreamNamePrefix: "STRING_VALUE",

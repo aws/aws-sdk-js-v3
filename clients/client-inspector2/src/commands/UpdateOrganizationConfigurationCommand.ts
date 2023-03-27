@@ -44,8 +44,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * import { Inspector2Client, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
- *   autoEnable: {
+ * const input = { // UpdateOrganizationConfigurationRequest
+ *   autoEnable: { // AutoEnable
  *     ec2: true || false, // required
  *     ecr: true || false, // required
  *     lambda: true || false,

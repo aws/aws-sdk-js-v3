@@ -46,10 +46,10 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * import { ChimeSDKVoiceClient, UpdateProxySessionCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, UpdateProxySessionCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // UpdateProxySessionRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   ProxySessionId: "STRING_VALUE", // required
- *   Capabilities: [ // required
+ *   Capabilities: [ // CapabilityList // required
  *     "Voice" || "SMS",
  *   ],
  *   ExpiryMinutes: Number("int"),

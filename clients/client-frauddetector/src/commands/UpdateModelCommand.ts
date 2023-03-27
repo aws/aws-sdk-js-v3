@@ -42,7 +42,7 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  * import { FraudDetectorClient, UpdateModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // UpdateModelRequest
  *   modelId: "STRING_VALUE", // required
  *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
  *   description: "STRING_VALUE",

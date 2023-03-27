@@ -46,12 +46,12 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * import { MigrationHubStrategyClient, ListServersCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListServersCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // ListServersRequest
  *   serverCriteria: "STRING_VALUE",
  *   filterValue: "STRING_VALUE",
  *   sort: "STRING_VALUE",
- *   groupIdFilter: [
- *     {
+ *   groupIdFilter: [ // GroupIds
+ *     { // Group
  *       name: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

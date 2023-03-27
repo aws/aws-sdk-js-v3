@@ -45,13 +45,13 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * import { ECSClient, DescribeTaskSetsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTaskSetsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // DescribeTaskSetsRequest
  *   cluster: "STRING_VALUE", // required
  *   service: "STRING_VALUE", // required
- *   taskSets: [
+ *   taskSets: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   include: [
+ *   include: [ // TaskSetFieldList
  *     "TAGS",
  *   ],
  * };

@@ -42,7 +42,7 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * import { IoTSiteWiseClient, DescribeDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DescribeDashboardRequest
  *   dashboardId: "STRING_VALUE", // required
  * };
  * const command = new DescribeDashboardCommand(input);

@@ -43,11 +43,11 @@ export interface StartReadSetActivationJobCommandOutput extends StartReadSetActi
  * import { OmicsClient, StartReadSetActivationJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReadSetActivationJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // StartReadSetActivationJobRequest
  *   sequenceStoreId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   sources: [ // required
- *     {
+ *   sources: [ // StartReadSetActivationJobSourceList // required
+ *     { // StartReadSetActivationJobSourceItem
  *       readSetId: "STRING_VALUE", // required
  *     },
  *   ],

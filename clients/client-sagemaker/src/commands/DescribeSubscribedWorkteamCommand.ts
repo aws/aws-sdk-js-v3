@@ -43,7 +43,7 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  * import { SageMakerClient, DescribeSubscribedWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeSubscribedWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeSubscribedWorkteamRequest
  *   WorkteamArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeSubscribedWorkteamCommand(input);

@@ -56,9 +56,9 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  * import { ResourceGroupsClient, UngroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UngroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = {
+ * const input = { // UngroupResourcesInput
  *   Group: "STRING_VALUE", // required
- *   ResourceArns: [ // required
+ *   ResourceArns: [ // ResourceArnList // required
  *     "STRING_VALUE",
  *   ],
  * };

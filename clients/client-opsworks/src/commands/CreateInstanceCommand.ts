@@ -48,9 +48,9 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * import { OpsWorksClient, CreateInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // CreateInstanceRequest
  *   StackId: "STRING_VALUE", // required
- *   LayerIds: [ // required
+ *   LayerIds: [ // Strings // required
  *     "STRING_VALUE",
  *   ],
  *   InstanceType: "STRING_VALUE", // required
@@ -64,12 +64,12 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  *   SubnetId: "STRING_VALUE",
  *   Architecture: "STRING_VALUE",
  *   RootDeviceType: "STRING_VALUE",
- *   BlockDeviceMappings: [
- *     {
+ *   BlockDeviceMappings: [ // BlockDeviceMappings
+ *     { // BlockDeviceMapping
  *       DeviceName: "STRING_VALUE",
  *       NoDevice: "STRING_VALUE",
  *       VirtualName: "STRING_VALUE",
- *       Ebs: {
+ *       Ebs: { // EbsBlockDevice
  *         SnapshotId: "STRING_VALUE",
  *         Iops: Number("int"),
  *         VolumeSize: Number("int"),

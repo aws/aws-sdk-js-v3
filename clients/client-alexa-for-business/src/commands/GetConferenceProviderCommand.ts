@@ -42,7 +42,7 @@ export interface GetConferenceProviderCommandOutput extends GetConferenceProvide
  * import { AlexaForBusinessClient, GetConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // GetConferenceProviderRequest
  *   ConferenceProviderArn: "STRING_VALUE", // required
  * };
  * const command = new GetConferenceProviderCommand(input);

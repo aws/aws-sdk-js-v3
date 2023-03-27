@@ -42,7 +42,7 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * import { RUMClient, GetAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, GetAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // GetAppMonitorRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new GetAppMonitorCommand(input);

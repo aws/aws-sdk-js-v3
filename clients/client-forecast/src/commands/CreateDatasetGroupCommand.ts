@@ -55,14 +55,14 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * import { ForecastClient, CreateDatasetGroupCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateDatasetGroupCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // CreateDatasetGroupRequest
  *   DatasetGroupName: "STRING_VALUE", // required
  *   Domain: "RETAIL" || "CUSTOM" || "INVENTORY_PLANNING" || "EC2_CAPACITY" || "WORK_FORCE" || "WEB_TRAFFIC" || "METRICS", // required
- *   DatasetArns: [
+ *   DatasetArns: [ // ArnList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

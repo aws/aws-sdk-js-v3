@@ -74,13 +74,13 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * import { KMSClient, VerifyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, VerifyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // VerifyRequest
  *   KeyId: "STRING_VALUE", // required
  *   Message: "BLOB_VALUE", // required
  *   MessageType: "RAW" || "DIGEST",
  *   Signature: "BLOB_VALUE", // required
  *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA", // required
- *   GrantTokens: [
+ *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
  * };

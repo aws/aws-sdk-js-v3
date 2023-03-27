@@ -49,11 +49,11 @@ export interface DescribeReservedInstancesListingsCommandOutput
  * import { EC2Client, DescribeReservedInstancesListingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeReservedInstancesListingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeReservedInstancesListingsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

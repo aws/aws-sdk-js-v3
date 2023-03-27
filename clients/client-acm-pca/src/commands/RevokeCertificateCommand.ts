@@ -61,7 +61,7 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * import { ACMPCAClient, RevokeCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, RevokeCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
+ * const input = { // RevokeCertificateRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required
  *   CertificateSerial: "STRING_VALUE", // required
  *   RevocationReason: "UNSPECIFIED" || "KEY_COMPROMISE" || "CERTIFICATE_AUTHORITY_COMPROMISE" || "AFFILIATION_CHANGED" || "SUPERSEDED" || "CESSATION_OF_OPERATION" || "PRIVILEGE_WITHDRAWN" || "A_A_COMPROMISE", // required

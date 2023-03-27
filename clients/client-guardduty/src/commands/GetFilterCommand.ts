@@ -42,7 +42,7 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  * import { GuardDutyClient, GetFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // GetFilterRequest
  *   DetectorId: "STRING_VALUE", // required
  *   FilterName: "STRING_VALUE", // required
  * };

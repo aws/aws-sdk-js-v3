@@ -48,7 +48,7 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * import { CodestarNotificationsClient, UnsubscribeCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, UnsubscribeCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
- * const input = {
+ * const input = { // UnsubscribeRequest
  *   Arn: "STRING_VALUE", // required
  *   TargetAddress: "STRING_VALUE", // required
  * };

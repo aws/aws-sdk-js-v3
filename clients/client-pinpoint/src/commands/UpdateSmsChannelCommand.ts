@@ -42,9 +42,9 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
  * import { PinpointClient, UpdateSmsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateSmsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateSmsChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   SMSChannelRequest: {
+ *   SMSChannelRequest: { // SMSChannelRequest
  *     Enabled: true || false,
  *     SenderId: "STRING_VALUE",
  *     ShortCode: "STRING_VALUE",

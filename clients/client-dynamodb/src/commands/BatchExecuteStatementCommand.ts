@@ -54,26 +54,26 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * import { DynamoDBClient, BatchExecuteStatementCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
- *   Statements: [ // required
- *     {
+ * const input = { // BatchExecuteStatementInput
+ *   Statements: [ // PartiQLBatchRequest // required
+ *     { // BatchStatementRequest
  *       Statement: "STRING_VALUE", // required
- *       Parameters: [
- *         { // Union: only one key present
+ *       Parameters: [ // PreparedStatementParameters
+ *         { // AttributeValue Union: only one key present
  *           S: "STRING_VALUE",
  *           N: "STRING_VALUE",
  *           B: "BLOB_VALUE",
- *           SS: [
+ *           SS: [ // StringSetAttributeValue
  *             "STRING_VALUE",
  *           ],
- *           NS: [
+ *           NS: [ // NumberSetAttributeValue
  *             "STRING_VALUE",
  *           ],
- *           BS: [
+ *           BS: [ // BinarySetAttributeValue
  *             "BLOB_VALUE",
  *           ],
- *           M: {
- *             "<keys>": { // Union: only one key present
+ *           M: { // MapAttributeValue
+ *             "<keys>": {//  Union: only one key present
  *               S: "STRING_VALUE",
  *               N: "STRING_VALUE",
  *               B: "BLOB_VALUE",
@@ -87,53 +87,20 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *                 "BLOB_VALUE",
  *               ],
  *               M: {
- *                 "<keys>": { // Union: only one key present
- *                   S: "<AttributeValue>",
- *                   N: "<AttributeValue>",
- *                   B: "<AttributeValue>",
- *                   SS: "<AttributeValue>",
- *                   NS: "<AttributeValue>",
- *                   BS: "<AttributeValue>",
- *                   M: "<AttributeValue>",
- *                   L: [
- *                     { // Union: only one key present
- *                       S: "<AttributeValue>",
- *                       N: "<AttributeValue>",
- *                       B: "<AttributeValue>",
- *                       SS: "<AttributeValue>",
- *                       NS: "<AttributeValue>",
- *                       BS: "<AttributeValue>",
- *                       M: "<AttributeValue>",
- *                       L: [
- *                         { // Union: only one key present
- *                           S: "<AttributeValue>",
- *                           N: "<AttributeValue>",
- *                           B: "<AttributeValue>",
- *                           SS: "<AttributeValue>",
- *                           NS: "<AttributeValue>",
- *                           BS: "<AttributeValue>",
- *                           M: "<AttributeValue>",
- *                           L: "<AttributeValue>",
- *                           NULL: true || false,
- *                           BOOL: true || false,
- *                         },
- *                       ],
- *                       NULL: true || false,
- *                       BOOL: true || false,
- *                     },
- *                   ],
- *                   NULL: "<AttributeValue>",
- *                   BOOL: "<AttributeValue>",
- *                 },
+ *                 "<keys>": "<AttributeValue>",
  *               },
- *               L: "<AttributeValue>",
- *               NULL: "<AttributeValue>",
- *               BOOL: "<AttributeValue>",
+ *               L: [ // ListAttributeValue
+ *                 "<AttributeValue>",
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
  *             },
  *           },
- *           L: "<AttributeValue>",
- *           NULL: "<AttributeValue>",
- *           BOOL: "<AttributeValue>",
+ *           L: [
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
  *         },
  *       ],
  *       ConsistentRead: true || false,

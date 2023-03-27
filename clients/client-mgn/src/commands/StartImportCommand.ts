@@ -42,9 +42,9 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * import { MgnClient, StartImportCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartImportCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // StartImportRequest
  *   clientToken: "STRING_VALUE",
- *   s3BucketSource: {
+ *   s3BucketSource: { // S3BucketSource
  *     s3Bucket: "STRING_VALUE", // required
  *     s3Key: "STRING_VALUE", // required
  *     s3BucketOwner: "STRING_VALUE",

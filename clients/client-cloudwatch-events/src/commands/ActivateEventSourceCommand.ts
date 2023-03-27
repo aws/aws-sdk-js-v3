@@ -43,7 +43,7 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * import { CloudWatchEventsClient, ActivateEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ActivateEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // ActivateEventSourceRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new ActivateEventSourceCommand(input);

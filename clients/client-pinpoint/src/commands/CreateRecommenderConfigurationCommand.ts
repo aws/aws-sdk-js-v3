@@ -44,9 +44,9 @@ export interface CreateRecommenderConfigurationCommandOutput
  * import { PinpointClient, CreateRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
- *   CreateRecommenderConfiguration: {
- *     Attributes: {
+ * const input = { // CreateRecommenderConfigurationRequest
+ *   CreateRecommenderConfiguration: { // CreateRecommenderConfigurationShape
+ *     Attributes: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *     Description: "STRING_VALUE",

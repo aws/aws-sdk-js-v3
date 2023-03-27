@@ -58,9 +58,9 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { OAMClient, TagResourceCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, TagResourceCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMapInput // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

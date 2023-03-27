@@ -42,12 +42,12 @@ export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewa
  * import { EC2Client, SearchLocalGatewayRoutesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, SearchLocalGatewayRoutesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // SearchLocalGatewayRoutesRequest
  *   LocalGatewayRouteTableId: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

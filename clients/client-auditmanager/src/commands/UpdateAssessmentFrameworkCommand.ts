@@ -42,17 +42,17 @@ export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessment
  * import { AuditManagerClient, UpdateAssessmentFrameworkCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, UpdateAssessmentFrameworkCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // UpdateAssessmentFrameworkRequest
  *   frameworkId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   complianceType: "STRING_VALUE",
- *   controlSets: [ // required
- *     {
+ *   controlSets: [ // UpdateAssessmentFrameworkControlSets // required
+ *     { // UpdateAssessmentFrameworkControlSet
  *       id: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
- *       controls: [ // required
- *         {
+ *       controls: [ // CreateAssessmentFrameworkControls // required
+ *         { // CreateAssessmentFrameworkControl
  *           id: "STRING_VALUE", // required
  *         },
  *       ],

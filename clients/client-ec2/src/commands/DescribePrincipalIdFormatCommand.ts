@@ -59,9 +59,9 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * import { EC2Client, DescribePrincipalIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribePrincipalIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribePrincipalIdFormatRequest
  *   DryRun: true || false,
- *   Resources: [
+ *   Resources: [ // ResourceList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

@@ -43,7 +43,7 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * import { PinpointEmailClient, DeleteEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, DeleteEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // DeleteEmailIdentityRequest
  *   EmailIdentity: "STRING_VALUE", // required
  * };
  * const command = new DeleteEmailIdentityCommand(input);

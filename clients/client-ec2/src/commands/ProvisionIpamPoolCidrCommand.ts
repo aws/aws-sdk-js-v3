@@ -44,11 +44,11 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  * import { EC2Client, ProvisionIpamPoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ProvisionIpamPoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ProvisionIpamPoolCidrRequest
  *   DryRun: true || false,
  *   IpamPoolId: "STRING_VALUE", // required
  *   Cidr: "STRING_VALUE",
- *   CidrAuthorizationContext: {
+ *   CidrAuthorizationContext: { // IpamCidrAuthorizationContext
  *     Message: "STRING_VALUE",
  *     Signature: "STRING_VALUE",
  *   },

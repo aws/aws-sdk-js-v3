@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { DLMClient, ListTagsForResourceCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
  * const client = new DLMClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

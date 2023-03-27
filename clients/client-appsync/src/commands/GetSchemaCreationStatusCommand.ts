@@ -42,7 +42,7 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * import { AppSyncClient, GetSchemaCreationStatusCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetSchemaCreationStatusCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // GetSchemaCreationStatusRequest
  *   apiId: "STRING_VALUE", // required
  * };
  * const command = new GetSchemaCreationStatusCommand(input);

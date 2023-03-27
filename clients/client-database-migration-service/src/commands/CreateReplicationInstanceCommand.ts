@@ -51,11 +51,11 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * import { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // CreateReplicationInstanceMessage
  *   ReplicationInstanceIdentifier: "STRING_VALUE", // required
  *   AllocatedStorage: Number("int"),
  *   ReplicationInstanceClass: "STRING_VALUE", // required
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   AvailabilityZone: "STRING_VALUE",
@@ -64,8 +64,8 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  *   MultiAZ: true || false,
  *   EngineVersion: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       ResourceArn: "STRING_VALUE",

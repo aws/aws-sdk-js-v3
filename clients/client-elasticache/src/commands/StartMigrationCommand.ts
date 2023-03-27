@@ -42,10 +42,10 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * import { ElastiCacheClient, StartMigrationCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, StartMigrationCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // StartMigrationMessage
  *   ReplicationGroupId: "STRING_VALUE", // required
- *   CustomerNodeEndpointList: [ // required
- *     {
+ *   CustomerNodeEndpointList: [ // CustomerNodeEndpointList // required
+ *     { // CustomerNodeEndpoint
  *       Address: "STRING_VALUE",
  *       Port: Number("int"),
  *     },

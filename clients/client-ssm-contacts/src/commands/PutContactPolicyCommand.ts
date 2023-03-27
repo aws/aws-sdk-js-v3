@@ -44,7 +44,7 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * import { SSMContactsClient, PutContactPolicyCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, PutContactPolicyCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = {
+ * const input = { // PutContactPolicyRequest
  *   ContactArn: "STRING_VALUE", // required
  *   Policy: "STRING_VALUE", // required
  * };

@@ -54,8 +54,8 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * import { IoTThingsGraphClient, UploadEntityDefinitionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UploadEntityDefinitionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
- *   document: {
+ * const input = { // UploadEntityDefinitionsRequest
+ *   document: { // DefinitionDocument
  *     language: "STRING_VALUE", // required
  *     text: "STRING_VALUE", // required
  *   },

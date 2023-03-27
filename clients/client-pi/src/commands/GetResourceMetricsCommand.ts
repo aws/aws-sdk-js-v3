@@ -48,20 +48,20 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  * import { PIClient, GetResourceMetricsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetResourceMetricsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
- * const input = {
+ * const input = { // GetResourceMetricsRequest
  *   ServiceType: "RDS" || "DOCDB", // required
  *   Identifier: "STRING_VALUE", // required
- *   MetricQueries: [ // required
- *     {
+ *   MetricQueries: [ // MetricQueryList // required
+ *     { // MetricQuery
  *       Metric: "STRING_VALUE", // required
- *       GroupBy: {
+ *       GroupBy: { // DimensionGroup
  *         Group: "STRING_VALUE", // required
- *         Dimensions: [
+ *         Dimensions: [ // RequestStringList
  *           "STRING_VALUE",
  *         ],
  *         Limit: Number("int"),
  *       },
- *       Filter: {
+ *       Filter: { // MetricQueryFilterMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

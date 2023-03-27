@@ -42,7 +42,7 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * import { AlexaForBusinessClient, DeleteGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DeleteGatewayGroupRequest
  *   GatewayGroupArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteGatewayGroupCommand(input);

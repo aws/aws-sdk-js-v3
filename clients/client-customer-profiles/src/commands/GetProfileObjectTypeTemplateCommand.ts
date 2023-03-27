@@ -48,7 +48,7 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * import { CustomerProfilesClient, GetProfileObjectTypeTemplateCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetProfileObjectTypeTemplateCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // GetProfileObjectTypeTemplateRequest
  *   TemplateId: "STRING_VALUE", // required
  * };
  * const command = new GetProfileObjectTypeTemplateCommand(input);

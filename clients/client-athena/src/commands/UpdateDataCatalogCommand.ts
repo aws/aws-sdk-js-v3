@@ -42,11 +42,11 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * import { AthenaClient, UpdateDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // UpdateDataCatalogInput
  *   Name: "STRING_VALUE", // required
  *   Type: "LAMBDA" || "GLUE" || "HIVE", // required
  *   Description: "STRING_VALUE",
- *   Parameters: {
+ *   Parameters: { // ParametersMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -46,7 +46,7 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  * import { RedshiftServerlessClient, ListEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // ListEndpointAccessRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   workgroupName: "STRING_VALUE",

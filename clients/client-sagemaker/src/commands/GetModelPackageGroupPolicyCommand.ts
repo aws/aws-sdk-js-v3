@@ -45,7 +45,7 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * import { SageMakerClient, GetModelPackageGroupPolicyCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetModelPackageGroupPolicyCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // GetModelPackageGroupPolicyInput
  *   ModelPackageGroupName: "STRING_VALUE", // required
  * };
  * const command = new GetModelPackageGroupPolicyCommand(input);

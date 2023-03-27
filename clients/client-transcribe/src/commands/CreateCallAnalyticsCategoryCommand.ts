@@ -59,19 +59,19 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  * import { TranscribeClient, CreateCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // CreateCallAnalyticsCategoryRequest
  *   CategoryName: "STRING_VALUE", // required
- *   Rules: [ // required
- *     { // Union: only one key present
- *       NonTalkTimeFilter: {
+ *   Rules: [ // RuleList // required
+ *     { // Rule Union: only one key present
+ *       NonTalkTimeFilter: { // NonTalkTimeFilter
  *         Threshold: Number("long"),
- *         AbsoluteTimeRange: {
+ *         AbsoluteTimeRange: { // AbsoluteTimeRange
  *           StartTime: Number("long"),
  *           EndTime: Number("long"),
  *           First: Number("long"),
  *           Last: Number("long"),
  *         },
- *         RelativeTimeRange: {
+ *         RelativeTimeRange: { // RelativeTimeRange
  *           StartPercentage: Number("int"),
  *           EndPercentage: Number("int"),
  *           First: Number("int"),
@@ -79,7 +79,7 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  *         },
  *         Negate: true || false,
  *       },
- *       InterruptionFilter: {
+ *       InterruptionFilter: { // InterruptionFilter
  *         Threshold: Number("long"),
  *         ParticipantRole: "AGENT" || "CUSTOMER",
  *         AbsoluteTimeRange: {
@@ -96,7 +96,7 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  *         },
  *         Negate: true || false,
  *       },
- *       TranscriptFilter: {
+ *       TranscriptFilter: { // TranscriptFilter
  *         TranscriptFilterType: "EXACT", // required
  *         AbsoluteTimeRange: {
  *           StartTime: Number("long"),
@@ -112,12 +112,12 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  *         },
  *         ParticipantRole: "AGENT" || "CUSTOMER",
  *         Negate: true || false,
- *         Targets: [ // required
+ *         Targets: [ // StringTargetList // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       SentimentFilter: {
- *         Sentiments: [ // required
+ *       SentimentFilter: { // SentimentFilter
+ *         Sentiments: [ // SentimentValueList // required
  *           "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
  *         ],
  *         AbsoluteTimeRange: {

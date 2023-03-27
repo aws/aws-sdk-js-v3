@@ -50,7 +50,7 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * import { RDSClient, DeleteDBSecurityGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBSecurityGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeleteDBSecurityGroupMessage
  *   DBSecurityGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDBSecurityGroupCommand(input);

@@ -44,7 +44,7 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * import { SageMakerClient, ListAppImageConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAppImageConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListAppImageConfigsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   NameContains: "STRING_VALUE",

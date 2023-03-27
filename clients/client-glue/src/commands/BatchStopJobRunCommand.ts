@@ -42,9 +42,9 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * import { GlueClient, BatchStopJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchStopJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // BatchStopJobRunRequest
  *   JobName: "STRING_VALUE", // required
- *   JobRunIds: [ // required
+ *   JobRunIds: [ // BatchStopJobRunJobRunIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

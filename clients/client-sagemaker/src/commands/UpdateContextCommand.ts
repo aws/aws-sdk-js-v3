@@ -42,13 +42,13 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  * import { SageMakerClient, UpdateContextCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateContextCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateContextRequest
  *   ContextName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Properties: {
+ *   Properties: { // LineageEntityParameters
  *     "<keys>": "STRING_VALUE",
  *   },
- *   PropertiesToRemove: [
+ *   PropertiesToRemove: [ // ListLineageEntityParameterKey
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,7 +42,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * import { MediaConvertClient, ListJobsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListJobsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // ListJobsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   Order: "ASCENDING" || "DESCENDING",

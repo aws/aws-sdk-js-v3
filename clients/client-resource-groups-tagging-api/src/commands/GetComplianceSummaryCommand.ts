@@ -58,20 +58,20 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * import { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
- * const input = {
- *   TargetIdFilters: [
+ * const input = { // GetComplianceSummaryInput
+ *   TargetIdFilters: [ // TargetIdFilterList
  *     "STRING_VALUE",
  *   ],
- *   RegionFilters: [
+ *   RegionFilters: [ // RegionFilterList
  *     "STRING_VALUE",
  *   ],
- *   ResourceTypeFilters: [
+ *   ResourceTypeFilters: [ // ResourceTypeFilterList
  *     "STRING_VALUE",
  *   ],
- *   TagKeyFilters: [
+ *   TagKeyFilters: [ // TagKeyFilterList
  *     "STRING_VALUE",
  *   ],
- *   GroupBy: [
+ *   GroupBy: [ // GroupBy
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

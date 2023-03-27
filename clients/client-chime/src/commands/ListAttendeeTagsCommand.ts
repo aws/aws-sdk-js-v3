@@ -46,7 +46,7 @@ export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse,
  * import { ChimeClient, ListAttendeeTagsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListAttendeeTagsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListAttendeeTagsRequest
  *   MeetingId: "STRING_VALUE", // required
  *   AttendeeId: "STRING_VALUE", // required
  * };

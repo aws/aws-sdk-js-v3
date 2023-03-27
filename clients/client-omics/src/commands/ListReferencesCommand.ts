@@ -42,11 +42,11 @@ export interface ListReferencesCommandOutput extends ListReferencesResponse, __M
  * import { OmicsClient, ListReferencesCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReferencesCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // ListReferencesRequest
  *   referenceStoreId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filter: {
+ *   filter: { // ReferenceFilter
  *     name: "STRING_VALUE",
  *     md5: "STRING_VALUE",
  *     createdAfter: new Date("TIMESTAMP"),

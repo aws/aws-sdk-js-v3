@@ -42,7 +42,7 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * import { CloudWatchEventsClient, DescribeApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribeApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // DescribeApiDestinationRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeApiDestinationCommand(input);

@@ -42,9 +42,9 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
  * import { KafkaClient, UpdateClusterConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateClusterConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // UpdateClusterConfigurationRequest
  *   ClusterArn: "STRING_VALUE", // required
- *   ConfigurationInfo: {
+ *   ConfigurationInfo: { // ConfigurationInfo
  *     Arn: "STRING_VALUE", // required
  *     Revision: Number("long"), // required
  *   },

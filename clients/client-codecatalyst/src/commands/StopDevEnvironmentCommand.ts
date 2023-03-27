@@ -42,7 +42,7 @@ export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentRespo
  * import { CodeCatalystClient, StopDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, StopDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // StopDevEnvironmentRequest
  *   spaceName: "STRING_VALUE", // required
  *   projectName: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required

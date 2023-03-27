@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { BraketClient, TagResourceCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, TagResourceCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

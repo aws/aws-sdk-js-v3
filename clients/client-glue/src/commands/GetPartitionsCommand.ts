@@ -42,13 +42,13 @@ export interface GetPartitionsCommandOutput extends GetPartitionsResponse, __Met
  * import { GlueClient, GetPartitionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPartitionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetPartitionsRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
  *   Expression: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
- *   Segment: {
+ *   Segment: { // Segment
  *     SegmentNumber: Number("int"), // required
  *     TotalSegments: Number("int"), // required
  *   },

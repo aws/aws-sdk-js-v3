@@ -57,7 +57,7 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * import { SESClient, DeleteConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // DeleteConfigurationSetTrackingOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  * };
  * const command = new DeleteConfigurationSetTrackingOptionsCommand(input);

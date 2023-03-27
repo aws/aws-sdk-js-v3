@@ -48,7 +48,7 @@ export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBe
  * import { IAMClient, DeleteRolePermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteRolePermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // DeleteRolePermissionsBoundaryRequest
  *   RoleName: "STRING_VALUE", // required
  * };
  * const command = new DeleteRolePermissionsBoundaryCommand(input);

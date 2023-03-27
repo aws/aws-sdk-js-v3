@@ -55,7 +55,7 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
  * import { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // AttachManagedPolicyToPermissionSetRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   PermissionSetArn: "STRING_VALUE", // required
  *   ManagedPolicyArn: "STRING_VALUE", // required

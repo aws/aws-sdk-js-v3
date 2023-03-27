@@ -52,7 +52,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * import { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // ListApplicationVersionsRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",

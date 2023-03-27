@@ -73,7 +73,7 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * import { WAFRegionalClient, CreateSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // CreateSizeConstraintSetRequest
  *   Name: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

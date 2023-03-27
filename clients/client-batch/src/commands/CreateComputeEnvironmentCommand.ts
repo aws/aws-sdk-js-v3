@@ -120,18 +120,18 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * import { BatchClient, CreateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CreateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // CreateComputeEnvironmentRequest
  *   computeEnvironmentName: "STRING_VALUE", // required
  *   type: "MANAGED" || "UNMANAGED", // required
  *   state: "ENABLED" || "DISABLED",
  *   unmanagedvCpus: Number("int"),
- *   computeResources: {
+ *   computeResources: { // ComputeResource
  *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
  *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
  *     minvCpus: Number("int"),
  *     maxvCpus: Number("int"), // required
  *     desiredvCpus: Number("int"),
- *     instanceTypes: [
+ *     instanceTypes: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     imageId: "STRING_VALUE",
@@ -143,19 +143,19 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *     ],
  *     ec2KeyPair: "STRING_VALUE",
  *     instanceRole: "STRING_VALUE",
- *     tags: {
+ *     tags: { // TagsMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     placementGroup: "STRING_VALUE",
  *     bidPercentage: Number("int"),
  *     spotIamFleetRole: "STRING_VALUE",
- *     launchTemplate: {
+ *     launchTemplate: { // LaunchTemplateSpecification
  *       launchTemplateId: "STRING_VALUE",
  *       launchTemplateName: "STRING_VALUE",
  *       version: "STRING_VALUE",
  *     },
- *     ec2Configuration: [
- *       {
+ *     ec2Configuration: [ // Ec2ConfigurationList
+ *       { // Ec2Configuration
  *         imageType: "STRING_VALUE", // required
  *         imageIdOverride: "STRING_VALUE",
  *         imageKubernetesVersion: "STRING_VALUE",
@@ -163,10 +163,10 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *     ],
  *   },
  *   serviceRole: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagrisTagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   eksConfiguration: {
+ *   eksConfiguration: { // EksConfiguration
  *     eksClusterArn: "STRING_VALUE", // required
  *     kubernetesNamespace: "STRING_VALUE", // required
  *   },

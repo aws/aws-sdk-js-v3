@@ -42,10 +42,10 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * import { AmpClient, CreateWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, CreateWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
- * const input = {
+ * const input = { // CreateWorkspaceRequest
  *   alias: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

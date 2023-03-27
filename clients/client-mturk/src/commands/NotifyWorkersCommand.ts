@@ -51,10 +51,10 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * import { MTurkClient, NotifyWorkersCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, NotifyWorkersCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // NotifyWorkersRequest
  *   Subject: "STRING_VALUE", // required
  *   MessageText: "STRING_VALUE", // required
- *   WorkerIds: [ // required
+ *   WorkerIds: [ // CustomerIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

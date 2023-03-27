@@ -47,12 +47,12 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * import { EC2Client, ModifyTrafficMirrorFilterRuleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTrafficMirrorFilterRuleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyTrafficMirrorFilterRuleRequest
  *   TrafficMirrorFilterRuleId: "STRING_VALUE", // required
  *   TrafficDirection: "ingress" || "egress",
  *   RuleNumber: Number("int"),
  *   RuleAction: "accept" || "reject",
- *   DestinationPortRange: {
+ *   DestinationPortRange: { // TrafficMirrorPortRangeRequest
  *     FromPort: Number("int"),
  *     ToPort: Number("int"),
  *   },
@@ -64,7 +64,7 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  *   DestinationCidrBlock: "STRING_VALUE",
  *   SourceCidrBlock: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   RemoveFields: [
+ *   RemoveFields: [ // TrafficMirrorFilterRuleFieldList
  *     "destination-port-range" || "source-port-range" || "protocol" || "description",
  *   ],
  *   DryRun: true || false,

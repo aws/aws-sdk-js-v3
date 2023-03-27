@@ -45,7 +45,7 @@ export interface GetWirelessDeviceImportTaskCommandOutput
  * import { IoTWirelessClient, GetWirelessDeviceImportTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessDeviceImportTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // GetWirelessDeviceImportTaskRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetWirelessDeviceImportTaskCommand(input);

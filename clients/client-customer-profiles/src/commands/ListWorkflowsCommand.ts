@@ -42,7 +42,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * import { CustomerProfilesClient, ListWorkflowsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListWorkflowsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // ListWorkflowsRequest
  *   DomainName: "STRING_VALUE", // required
  *   WorkflowType: "APPFLOW_INTEGRATION",
  *   Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "SPLIT" || "RETRY" || "CANCELLED",

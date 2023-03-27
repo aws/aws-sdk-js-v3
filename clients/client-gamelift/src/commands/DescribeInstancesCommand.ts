@@ -78,7 +78,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput,
  * import { GameLiftClient, DescribeInstancesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeInstancesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DescribeInstancesInput
  *   FleetId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE",
  *   Limit: Number("int"),

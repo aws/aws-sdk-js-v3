@@ -43,7 +43,7 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, ExecutePolicyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, ExecutePolicyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // ExecutePolicyType
  *   AutoScalingGroupName: "STRING_VALUE",
  *   PolicyName: "STRING_VALUE", // required
  *   HonorCooldown: true || false,

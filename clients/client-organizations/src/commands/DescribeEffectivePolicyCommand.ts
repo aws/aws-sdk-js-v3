@@ -51,7 +51,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * import { OrganizationsClient, DescribeEffectivePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeEffectivePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // DescribeEffectivePolicyRequest
  *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
  *   TargetId: "STRING_VALUE",
  * };

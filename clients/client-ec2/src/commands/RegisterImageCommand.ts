@@ -87,14 +87,14 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * import { EC2Client, RegisterImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RegisterImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // RegisterImageRequest
  *   ImageLocation: "STRING_VALUE",
  *   Architecture: "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
- *   BlockDeviceMappings: [
- *     {
+ *   BlockDeviceMappings: [ // BlockDeviceMappingRequestList
+ *     { // BlockDeviceMapping
  *       DeviceName: "STRING_VALUE",
  *       VirtualName: "STRING_VALUE",
- *       Ebs: {
+ *       Ebs: { // EbsBlockDevice
  *         DeleteOnTermination: true || false,
  *         Iops: Number("int"),
  *         SnapshotId: "STRING_VALUE",
@@ -113,7 +113,7 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *   EnaSupport: true || false,
  *   KernelId: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
- *   BillingProducts: [
+ *   BillingProducts: [ // BillingProductList
  *     "STRING_VALUE",
  *   ],
  *   RamdiskId: "STRING_VALUE",

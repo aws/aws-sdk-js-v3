@@ -42,15 +42,15 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * import { FSxClient, UpdateVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // UpdateVolumeRequest
  *   ClientRequestToken: "STRING_VALUE",
  *   VolumeId: "STRING_VALUE", // required
- *   OntapConfiguration: {
+ *   OntapConfiguration: { // UpdateOntapVolumeConfiguration
  *     JunctionPath: "STRING_VALUE",
  *     SecurityStyle: "UNIX" || "NTFS" || "MIXED",
  *     SizeInMegabytes: Number("int"),
  *     StorageEfficiencyEnabled: true || false,
- *     TieringPolicy: {
+ *     TieringPolicy: { // TieringPolicy
  *       CoolingPeriod: Number("int"),
  *       Name: "SNAPSHOT_ONLY" || "AUTO" || "ALL" || "NONE",
  *     },
@@ -58,25 +58,25 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  *     CopyTagsToBackups: true || false,
  *   },
  *   Name: "STRING_VALUE",
- *   OpenZFSConfiguration: {
+ *   OpenZFSConfiguration: { // UpdateOpenZFSVolumeConfiguration
  *     StorageCapacityReservationGiB: Number("int"),
  *     StorageCapacityQuotaGiB: Number("int"),
  *     RecordSizeKiB: Number("int"),
  *     DataCompressionType: "NONE" || "ZSTD" || "LZ4",
- *     NfsExports: [
- *       {
- *         ClientConfigurations: [ // required
- *           {
+ *     NfsExports: [ // OpenZFSNfsExports
+ *       { // OpenZFSNfsExport
+ *         ClientConfigurations: [ // OpenZFSClientConfigurations // required
+ *           { // OpenZFSClientConfiguration
  *             Clients: "STRING_VALUE", // required
- *             Options: [ // required
+ *             Options: [ // OpenZFSNfsExportOptions // required
  *               "STRING_VALUE",
  *             ],
  *           },
  *         ],
  *       },
  *     ],
- *     UserAndGroupQuotas: [
- *       {
+ *     UserAndGroupQuotas: [ // OpenZFSUserAndGroupQuotas
+ *       { // OpenZFSUserOrGroupQuota
  *         Type: "USER" || "GROUP", // required
  *         Id: Number("int"), // required
  *         StorageCapacityQuotaGiB: Number("int"), // required

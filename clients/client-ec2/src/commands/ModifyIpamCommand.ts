@@ -40,17 +40,17 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * import { EC2Client, ModifyIpamCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyIpamRequest
  *   DryRun: true || false,
  *   IpamId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   AddOperatingRegions: [
- *     {
+ *   AddOperatingRegions: [ // AddIpamOperatingRegionSet
+ *     { // AddIpamOperatingRegion
  *       RegionName: "STRING_VALUE",
  *     },
  *   ],
- *   RemoveOperatingRegions: [
- *     {
+ *   RemoveOperatingRegions: [ // RemoveIpamOperatingRegionSet
+ *     { // RemoveIpamOperatingRegion
  *       RegionName: "STRING_VALUE",
  *     },
  *   ],

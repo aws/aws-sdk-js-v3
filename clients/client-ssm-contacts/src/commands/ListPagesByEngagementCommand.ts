@@ -42,7 +42,7 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  * import { SSMContactsClient, ListPagesByEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListPagesByEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = {
+ * const input = { // ListPagesByEngagementRequest
  *   EngagementId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

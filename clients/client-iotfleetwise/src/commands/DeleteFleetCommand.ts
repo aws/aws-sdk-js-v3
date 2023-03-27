@@ -48,7 +48,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * import { IoTFleetWiseClient, DeleteFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // DeleteFleetRequest
  *   fleetId: "STRING_VALUE", // required
  * };
  * const command = new DeleteFleetCommand(input);

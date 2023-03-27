@@ -42,13 +42,13 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * import { EMRServerlessClient, ListJobRunsCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, ListJobRunsCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
- * const input = {
+ * const input = { // ListJobRunsRequest
  *   applicationId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   createdAtAfter: new Date("TIMESTAMP"),
  *   createdAtBefore: new Date("TIMESTAMP"),
- *   states: [
+ *   states: [ // JobRunStateSet
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { ConnectCasesClient, UntagResourceCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UntagResourceCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   arn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

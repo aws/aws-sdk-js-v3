@@ -52,12 +52,12 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  * import { KendraClient, UpdateQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // UpdateQuerySuggestionsBlockListRequest
  *   IndexId: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   SourceS3Path: {
+ *   SourceS3Path: { // S3Path
  *     Bucket: "STRING_VALUE", // required
  *     Key: "STRING_VALUE", // required
  *   },

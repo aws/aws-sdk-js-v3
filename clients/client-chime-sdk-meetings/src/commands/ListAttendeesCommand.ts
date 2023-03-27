@@ -50,7 +50,7 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * import { ChimeSDKMeetingsClient, ListAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, ListAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
- * const input = {
+ * const input = { // ListAttendeesRequest
  *   MeetingId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

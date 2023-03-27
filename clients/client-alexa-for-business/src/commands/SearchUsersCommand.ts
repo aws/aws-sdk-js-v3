@@ -43,19 +43,19 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * import { AlexaForBusinessClient, SearchUsersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchUsersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // SearchUsersRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Key: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   SortCriteria: [
- *     {
+ *   SortCriteria: [ // SortList
+ *     { // Sort
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -49,34 +49,34 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * import { RestXmlProtocolClient, XmlListsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
- *   stringList: [
+ * const input = { // XmlListsInputOutput
+ *   stringList: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   stringSet: [
+ *   stringSet: [ // StringSet
  *     "STRING_VALUE",
  *   ],
- *   integerList: [
+ *   integerList: [ // IntegerList
  *     Number("int"),
  *   ],
- *   booleanList: [
+ *   booleanList: [ // BooleanList
  *     true || false,
  *   ],
- *   timestampList: [
+ *   timestampList: [ // TimestampList
  *     new Date("TIMESTAMP"),
  *   ],
- *   enumList: [
+ *   enumList: [ // FooEnumList
  *     "Foo" || "Baz" || "Bar" || "1" || "0",
  *   ],
- *   intEnumList: [
+ *   intEnumList: [ // IntegerEnumList
  *     1 || 2 || 3,
  *   ],
- *   nestedStringList: [
+ *   nestedStringList: [ // NestedStringList
  *     [
  *       "STRING_VALUE",
  *     ],
  *   ],
- *   renamedListMembers: [
+ *   renamedListMembers: [ // RenamedListMembers
  *     "STRING_VALUE",
  *   ],
  *   flattenedList: [
@@ -85,14 +85,14 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  *   flattenedList2: [
  *     "STRING_VALUE",
  *   ],
- *   flattenedListWithMemberNamespace: [
+ *   flattenedListWithMemberNamespace: [ // ListWithMemberNamespace
  *     "STRING_VALUE",
  *   ],
- *   flattenedListWithNamespace: [
+ *   flattenedListWithNamespace: [ // ListWithNamespace
  *     "STRING_VALUE",
  *   ],
- *   structureList: [
- *     {
+ *   structureList: [ // StructureList
+ *     { // StructureListMember
  *       a: "STRING_VALUE",
  *       b: "STRING_VALUE",
  *     },

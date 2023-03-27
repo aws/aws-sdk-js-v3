@@ -45,7 +45,7 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * import { IoTThingsGraphClient, AssociateEntityToThingCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, AssociateEntityToThingCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
+ * const input = { // AssociateEntityToThingRequest
  *   thingName: "STRING_VALUE", // required
  *   entityId: "STRING_VALUE", // required
  *   namespaceVersion: Number("long"),

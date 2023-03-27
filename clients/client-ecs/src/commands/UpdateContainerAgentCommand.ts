@@ -60,7 +60,7 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * import { ECSClient, UpdateContainerAgentCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateContainerAgentCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // UpdateContainerAgentRequest
  *   cluster: "STRING_VALUE",
  *   containerInstance: "STRING_VALUE", // required
  * };

@@ -75,10 +75,10 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * import { CloudWatchClient, PutMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // PutMetricStreamInput
  *   Name: "STRING_VALUE", // required
- *   IncludeFilters: [
- *     {
+ *   IncludeFilters: [ // MetricStreamFilters
+ *     { // MetricStreamFilter
  *       Namespace: "STRING_VALUE",
  *     },
  *   ],
@@ -90,21 +90,21 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  *   FirehoseArn: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
  *   OutputFormat: "json" || "opentelemetry0.7", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   StatisticsConfigurations: [
- *     {
- *       IncludeMetrics: [ // required
- *         {
+ *   StatisticsConfigurations: [ // MetricStreamStatisticsConfigurations
+ *     { // MetricStreamStatisticsConfiguration
+ *       IncludeMetrics: [ // MetricStreamStatisticsIncludeMetrics // required
+ *         { // MetricStreamStatisticsMetric
  *           Namespace: "STRING_VALUE", // required
  *           MetricName: "STRING_VALUE", // required
  *         },
  *       ],
- *       AdditionalStatistics: [ // required
+ *       AdditionalStatistics: [ // MetricStreamStatisticsAdditionalStatistics // required
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -44,7 +44,7 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * import { EC2Client, ConfirmProductInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ConfirmProductInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ConfirmProductInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ProductCode: "STRING_VALUE", // required
  *   DryRun: true || false,

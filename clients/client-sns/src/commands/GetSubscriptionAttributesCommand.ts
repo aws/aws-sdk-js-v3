@@ -42,7 +42,7 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * import { SNSClient, GetSubscriptionAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetSubscriptionAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // GetSubscriptionAttributesInput
  *   SubscriptionArn: "STRING_VALUE", // required
  * };
  * const command = new GetSubscriptionAttributesCommand(input);

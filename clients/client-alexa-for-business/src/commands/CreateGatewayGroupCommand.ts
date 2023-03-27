@@ -42,12 +42,12 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  * import { AlexaForBusinessClient, CreateGatewayGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateGatewayGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // CreateGatewayGroupRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

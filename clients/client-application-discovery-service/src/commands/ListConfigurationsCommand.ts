@@ -48,12 +48,12 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * import { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
+ * const input = { // ListConfigurationsRequest
  *   configurationType: "SERVER" || "PROCESS" || "CONNECTION" || "APPLICATION", // required
- *   filters: [
- *     {
+ *   filters: [ // Filters
+ *     { // Filter
  *       name: "STRING_VALUE", // required
- *       values: [ // required
+ *       values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       condition: "STRING_VALUE", // required
@@ -61,8 +61,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  *   ],
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   orderBy: [
- *     {
+ *   orderBy: [ // OrderByList
+ *     { // OrderByElement
  *       fieldName: "STRING_VALUE", // required
  *       sortOrder: "ASC" || "DESC",
  *     },

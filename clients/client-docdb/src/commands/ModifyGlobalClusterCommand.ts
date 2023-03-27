@@ -45,7 +45,7 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * import { DocDBClient, ModifyGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // ModifyGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   NewGlobalClusterIdentifier: "STRING_VALUE",
  *   DeletionProtection: true || false,

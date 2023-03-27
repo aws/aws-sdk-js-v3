@@ -43,7 +43,7 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  * import { MacieClient, AssociateMemberAccountCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, AssociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
- * const input = {
+ * const input = { // AssociateMemberAccountRequest
  *   memberAccountId: "STRING_VALUE", // required
  * };
  * const command = new AssociateMemberAccountCommand(input);

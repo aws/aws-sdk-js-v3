@@ -42,7 +42,7 @@ export interface ListThemeVersionsCommandOutput extends ListThemeVersionsRespons
  * import { QuickSightClient, ListThemeVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListThemeVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // ListThemeVersionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   ThemeId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

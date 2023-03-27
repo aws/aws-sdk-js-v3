@@ -42,12 +42,12 @@ export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __Met
  * import { RedshiftClient, CreateEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // CreateEndpointAccessMessage
  *   ClusterIdentifier: "STRING_VALUE",
  *   ResourceOwner: "STRING_VALUE",
  *   EndpointName: "STRING_VALUE", // required
  *   SubnetGroupName: "STRING_VALUE", // required
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  * };

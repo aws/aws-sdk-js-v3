@@ -43,7 +43,7 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * import { IoTClient, GetJobDocumentCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetJobDocumentCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // GetJobDocumentRequest
  *   jobId: "STRING_VALUE", // required
  * };
  * const command = new GetJobDocumentCommand(input);

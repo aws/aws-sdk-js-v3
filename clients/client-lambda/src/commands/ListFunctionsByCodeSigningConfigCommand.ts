@@ -45,7 +45,7 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  * import { LambdaClient, ListFunctionsByCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListFunctionsByCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // ListFunctionsByCodeSigningConfigRequest
  *   CodeSigningConfigArn: "STRING_VALUE", // required
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),

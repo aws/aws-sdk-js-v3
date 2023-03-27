@@ -44,38 +44,38 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * import { ConnectClient, UpdateTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateTaskTemplateRequest
  *   TaskTemplateId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   ContactFlowId: "STRING_VALUE",
- *   Constraints: {
- *     RequiredFields: [
- *       {
+ *   Constraints: { // TaskTemplateConstraints
+ *     RequiredFields: [ // RequiredTaskTemplateFields
+ *       { // RequiredFieldInfo
+ *         Id: { // TaskTemplateFieldIdentifier
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     ReadOnlyFields: [ // ReadOnlyTaskTemplateFields
+ *       { // ReadOnlyFieldInfo
  *         Id: {
  *           Name: "STRING_VALUE",
  *         },
  *       },
  *     ],
- *     ReadOnlyFields: [
- *       {
- *         Id: {
- *           Name: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     InvisibleFields: [
- *       {
+ *     InvisibleFields: [ // InvisibleTaskTemplateFields
+ *       { // InvisibleFieldInfo
  *         Id: {
  *           Name: "STRING_VALUE",
  *         },
  *       },
  *     ],
  *   },
- *   Defaults: {
- *     DefaultFieldValues: [
- *       {
+ *   Defaults: { // TaskTemplateDefaults
+ *     DefaultFieldValues: [ // TaskTemplateDefaultFieldValueList
+ *       { // TaskTemplateDefaultFieldValue
  *         Id: {
  *           Name: "STRING_VALUE",
  *         },
@@ -84,14 +84,14 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  *     ],
  *   },
  *   Status: "ACTIVE" || "INACTIVE",
- *   Fields: [
- *     {
+ *   Fields: [ // TaskTemplateFields
+ *     { // TaskTemplateField
  *       Id: {
  *         Name: "STRING_VALUE",
  *       },
  *       Description: "STRING_VALUE",
  *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
- *       SingleSelectOptions: [
+ *       SingleSelectOptions: [ // SingleSelectOptions
  *         "STRING_VALUE",
  *       ],
  *     },

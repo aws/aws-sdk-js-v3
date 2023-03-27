@@ -47,7 +47,7 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  * import { LocationClient, GetMapTileCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetMapTileCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // GetMapTileRequest
  *   MapName: "STRING_VALUE", // required
  *   Z: "STRING_VALUE", // required
  *   X: "STRING_VALUE", // required

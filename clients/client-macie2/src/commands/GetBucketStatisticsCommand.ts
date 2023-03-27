@@ -42,7 +42,7 @@ export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsRes
  * import { Macie2Client, GetBucketStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetBucketStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // GetBucketStatisticsRequest
  *   accountId: "STRING_VALUE",
  * };
  * const command = new GetBucketStatisticsCommand(input);

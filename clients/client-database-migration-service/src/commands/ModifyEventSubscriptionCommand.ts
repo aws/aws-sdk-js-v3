@@ -46,11 +46,11 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * import { DatabaseMigrationServiceClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // ModifyEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SnsTopicArn: "STRING_VALUE",
  *   SourceType: "STRING_VALUE",
- *   EventCategories: [
+ *   EventCategories: [ // EventCategoriesList
  *     "STRING_VALUE",
  *   ],
  *   Enabled: true || false,

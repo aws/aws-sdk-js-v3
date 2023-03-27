@@ -42,27 +42,27 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * import { LookoutMetricsClient, GetSampleDataCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, GetSampleDataCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
- *   S3SourceConfig: {
+ * const input = { // GetSampleDataRequest
+ *   S3SourceConfig: { // SampleDataS3SourceConfig
  *     RoleArn: "STRING_VALUE", // required
- *     TemplatedPathList: [
+ *     TemplatedPathList: [ // TemplatedPathList
  *       "STRING_VALUE",
  *     ],
- *     HistoricalDataPathList: [
+ *     HistoricalDataPathList: [ // HistoricalDataPathList
  *       "STRING_VALUE",
  *     ],
- *     FileFormatDescriptor: {
- *       CsvFormatDescriptor: {
+ *     FileFormatDescriptor: { // FileFormatDescriptor
+ *       CsvFormatDescriptor: { // CsvFormatDescriptor
  *         FileCompression: "STRING_VALUE",
  *         Charset: "STRING_VALUE",
  *         ContainsHeader: true || false,
  *         Delimiter: "STRING_VALUE",
- *         HeaderList: [
+ *         HeaderList: [ // HeaderList
  *           "STRING_VALUE",
  *         ],
  *         QuoteSymbol: "STRING_VALUE",
  *       },
- *       JsonFormatDescriptor: {
+ *       JsonFormatDescriptor: { // JsonFormatDescriptor
  *         FileCompression: "STRING_VALUE",
  *         Charset: "STRING_VALUE",
  *       },

@@ -54,7 +54,7 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * import { ConnectParticipantClient, StartAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, StartAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
- * const input = {
+ * const input = { // StartAttachmentUploadRequest
  *   ContentType: "STRING_VALUE", // required
  *   AttachmentSizeInBytes: Number("long"), // required
  *   AttachmentName: "STRING_VALUE", // required

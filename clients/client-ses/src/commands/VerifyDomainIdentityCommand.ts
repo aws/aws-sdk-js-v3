@@ -48,7 +48,7 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * import { SESClient, VerifyDomainIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, VerifyDomainIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // VerifyDomainIdentityRequest
  *   Domain: "STRING_VALUE", // required
  * };
  * const command = new VerifyDomainIdentityCommand(input);

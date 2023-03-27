@@ -43,7 +43,7 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  * import { IoTClient, ListScheduledAuditsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListScheduledAuditsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListScheduledAuditsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

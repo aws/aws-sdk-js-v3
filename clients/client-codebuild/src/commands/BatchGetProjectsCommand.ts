@@ -42,8 +42,8 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * import { CodeBuildClient, BatchGetProjectsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
- *   names: [ // required
+ * const input = { // BatchGetProjectsInput
+ *   names: [ // ProjectNames // required
  *     "STRING_VALUE",
  *   ],
  * };

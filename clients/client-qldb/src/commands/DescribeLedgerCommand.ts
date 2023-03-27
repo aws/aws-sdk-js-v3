@@ -43,7 +43,7 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * import { QLDBClient, DescribeLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
- * const input = {
+ * const input = { // DescribeLedgerRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeLedgerCommand(input);

@@ -44,7 +44,7 @@ export interface StopStackCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, StopStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, StopStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // StopStackRequest
  *   StackId: "STRING_VALUE", // required
  * };
  * const command = new StopStackCommand(input);

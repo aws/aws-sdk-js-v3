@@ -42,7 +42,7 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  * import { ServiceCatalogClient, DescribeProductAsAdminCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProductAsAdminCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DescribeProductAsAdminInput
  *   AcceptLanguage: "STRING_VALUE",
  *   Id: "STRING_VALUE",
  *   Name: "STRING_VALUE",

@@ -48,16 +48,16 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * import { DataSyncClient, UpdateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // UpdateLocationSmbRequest
  *   LocationArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
  *   User: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
  *   Password: "STRING_VALUE",
- *   AgentArns: [
+ *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
- *   MountOptions: {
+ *   MountOptions: { // SmbMountOptions
  *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
  *   },
  * };

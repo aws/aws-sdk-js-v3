@@ -42,10 +42,10 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * import { MediaConvertClient, UpdateQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, UpdateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // UpdateQueueRequest
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
- *   ReservationPlanSettings: {
+ *   ReservationPlanSettings: { // ReservationPlanSettings
  *     Commitment: "ONE_YEAR", // required
  *     RenewalType: "AUTO_RENEW" || "EXPIRE", // required
  *     ReservedSlots: Number("int"), // required

@@ -42,7 +42,7 @@ export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // DeleteAuthorizerRequest
  *   ApiId: "STRING_VALUE", // required
  *   AuthorizerId: "STRING_VALUE", // required
  * };

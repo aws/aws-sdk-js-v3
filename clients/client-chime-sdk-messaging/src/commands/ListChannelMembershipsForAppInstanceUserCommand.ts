@@ -60,7 +60,7 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  * import { ChimeSDKMessagingClient, ListChannelMembershipsForAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelMembershipsForAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // ListChannelMembershipsForAppInstanceUserRequest
  *   AppInstanceUserArn: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

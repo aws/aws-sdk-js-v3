@@ -49,7 +49,7 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * import { ChimeClient, ListAppInstanceUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListAppInstanceUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListAppInstanceUsersRequest
  *   AppInstanceArn: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

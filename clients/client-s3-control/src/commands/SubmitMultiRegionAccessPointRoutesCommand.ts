@@ -93,11 +93,11 @@ export interface SubmitMultiRegionAccessPointRoutesCommandOutput
  * import { S3ControlClient, SubmitMultiRegionAccessPointRoutesCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, SubmitMultiRegionAccessPointRoutesCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // SubmitMultiRegionAccessPointRoutesRequest
  *   AccountId: "STRING_VALUE",
  *   Mrap: "STRING_VALUE", // required
- *   RouteUpdates: [ // required
- *     {
+ *   RouteUpdates: [ // RouteList // required
+ *     { // MultiRegionAccessPointRoute
  *       Bucket: "STRING_VALUE",
  *       Region: "STRING_VALUE",
  *       TrafficDialPercentage: Number("int"), // required

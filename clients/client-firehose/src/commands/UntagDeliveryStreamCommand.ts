@@ -45,9 +45,9 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * import { FirehoseClient, UntagDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, UntagDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
- * const input = {
+ * const input = { // UntagDeliveryStreamInput
  *   DeliveryStreamName: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

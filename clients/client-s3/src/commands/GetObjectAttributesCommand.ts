@@ -196,7 +196,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * import { S3Client, GetObjectAttributesCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectAttributesCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetObjectAttributesRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE",
@@ -207,7 +207,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *   SSECustomerKeyMD5: "STRING_VALUE",
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
- *   ObjectAttributes: [ // required
+ *   ObjectAttributes: [ // ObjectAttributesList // required
  *     "ETag" || "Checksum" || "ObjectParts" || "StorageClass" || "ObjectSize",
  *   ],
  * };

@@ -42,13 +42,13 @@ export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
  * import { KendraClient, UpdateThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // UpdateThesaurusRequest
  *   Id: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   IndexId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
- *   SourceS3Path: {
+ *   SourceS3Path: { // S3Path
  *     Bucket: "STRING_VALUE", // required
  *     Key: "STRING_VALUE", // required
  *   },

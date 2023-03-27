@@ -53,7 +53,7 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  * import { CloudHSMClient, DescribeHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DescribeHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
- * const input = {
+ * const input = { // DescribeHsmRequest
  *   HsmArn: "STRING_VALUE",
  *   HsmSerialNumber: "STRING_VALUE",
  * };

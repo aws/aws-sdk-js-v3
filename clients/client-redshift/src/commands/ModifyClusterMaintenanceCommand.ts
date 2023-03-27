@@ -42,7 +42,7 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  * import { RedshiftClient, ModifyClusterMaintenanceCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterMaintenanceCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // ModifyClusterMaintenanceMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   DeferMaintenance: true || false,
  *   DeferMaintenanceIdentifier: "STRING_VALUE",

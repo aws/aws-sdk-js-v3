@@ -63,12 +63,12 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * import { SageMakerClient, CreateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
- *   CognitoConfig: {
+ * const input = { // CreateWorkforceRequest
+ *   CognitoConfig: { // CognitoConfig
  *     UserPool: "STRING_VALUE", // required
  *     ClientId: "STRING_VALUE", // required
  *   },
- *   OidcConfig: {
+ *   OidcConfig: { // OidcConfig
  *     ClientId: "STRING_VALUE", // required
  *     ClientSecret: "STRING_VALUE", // required
  *     Issuer: "STRING_VALUE", // required
@@ -78,24 +78,24 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  *     LogoutEndpoint: "STRING_VALUE", // required
  *     JwksUri: "STRING_VALUE", // required
  *   },
- *   SourceIpConfig: {
- *     Cidrs: [ // required
+ *   SourceIpConfig: { // SourceIpConfig
+ *     Cidrs: [ // Cidrs // required
  *       "STRING_VALUE",
  *     ],
  *   },
  *   WorkforceName: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   WorkforceVpcConfig: {
+ *   WorkforceVpcConfig: { // WorkforceVpcConfigRequest
  *     VpcId: "STRING_VALUE",
- *     SecurityGroupIds: [
+ *     SecurityGroupIds: [ // WorkforceSecurityGroupIds
  *       "STRING_VALUE",
  *     ],
- *     Subnets: [
+ *     Subnets: [ // WorkforceSubnets
  *       "STRING_VALUE",
  *     ],
  *   },

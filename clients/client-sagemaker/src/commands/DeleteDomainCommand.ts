@@ -46,9 +46,9 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteDomainCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteDomainRequest
  *   DomainId: "STRING_VALUE", // required
- *   RetentionPolicy: {
+ *   RetentionPolicy: { // RetentionPolicy
  *     HomeEfsFileSystem: "Retain" || "Delete",
  *   },
  * };

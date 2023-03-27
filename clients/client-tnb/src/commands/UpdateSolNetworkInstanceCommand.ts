@@ -48,14 +48,14 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * import { TnbClient, UpdateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, UpdateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // UpdateSolNetworkInstanceInput
  *   nsInstanceId: "STRING_VALUE", // required
  *   updateType: "MODIFY_VNF_INFORMATION", // required
- *   modifyVnfInfoData: {
+ *   modifyVnfInfoData: { // UpdateSolNetworkModify
  *     vnfInstanceId: "STRING_VALUE", // required
  *     vnfConfigurableProperties: "DOCUMENT_VALUE", // required
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,7 +42,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * import { CodeBuildClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // DeleteResourcePolicyInput
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteResourcePolicyCommand(input);

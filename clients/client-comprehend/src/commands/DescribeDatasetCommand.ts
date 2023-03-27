@@ -44,7 +44,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * import { ComprehendClient, DescribeDatasetCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeDatasetCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DescribeDatasetRequest
  *   DatasetArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeDatasetCommand(input);

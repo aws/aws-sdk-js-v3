@@ -44,9 +44,9 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  * import { IoTClient, UpdateDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateDomainConfigurationRequest
  *   domainConfigurationName: "STRING_VALUE", // required
- *   authorizerConfig: {
+ *   authorizerConfig: { // AuthorizerConfig
  *     defaultAuthorizerName: "STRING_VALUE",
  *     allowAuthorizerOverride: true || false,
  *   },

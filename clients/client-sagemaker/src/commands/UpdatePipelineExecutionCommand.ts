@@ -42,11 +42,11 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  * import { SageMakerClient, UpdatePipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdatePipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdatePipelineExecutionRequest
  *   PipelineExecutionArn: "STRING_VALUE", // required
  *   PipelineExecutionDescription: "STRING_VALUE",
  *   PipelineExecutionDisplayName: "STRING_VALUE",
- *   ParallelismConfiguration: {
+ *   ParallelismConfiguration: { // ParallelismConfiguration
  *     MaxParallelExecutionSteps: Number("int"), // required
  *   },
  * };

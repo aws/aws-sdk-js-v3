@@ -44,7 +44,7 @@ export interface DisassociateBudgetFromResourceCommandOutput
  * import { ServiceCatalogClient, DisassociateBudgetFromResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateBudgetFromResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DisassociateBudgetFromResourceInput
  *   BudgetName: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  * };

@@ -42,7 +42,7 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  * import { KafkaClient, GetBootstrapBrokersCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, GetBootstrapBrokersCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // GetBootstrapBrokersRequest
  *   ClusterArn: "STRING_VALUE", // required
  * };
  * const command = new GetBootstrapBrokersCommand(input);

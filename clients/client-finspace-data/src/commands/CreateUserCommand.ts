@@ -42,7 +42,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { FinspaceDataClient, CreateUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // CreateUserRequest
  *   emailAddress: "STRING_VALUE", // required
  *   type: "STRING_VALUE", // required
  *   firstName: "STRING_VALUE",

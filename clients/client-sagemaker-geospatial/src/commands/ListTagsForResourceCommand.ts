@@ -46,7 +46,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { SageMakerGeospatialClient, ListTagsForResourceCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ListTagsForResourceCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

@@ -46,16 +46,16 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * import { MWAAClient, CreateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
- * const input = {
+ * const input = { // CreateEnvironmentInput
  *   Name: "STRING_VALUE", // required
  *   ExecutionRoleArn: "STRING_VALUE", // required
  *   SourceBucketArn: "STRING_VALUE", // required
  *   DagS3Path: "STRING_VALUE", // required
- *   NetworkConfiguration: {
- *     SubnetIds: [
+ *   NetworkConfiguration: { // NetworkConfiguration
+ *     SubnetIds: [ // SubnetList
  *       "STRING_VALUE",
  *     ],
- *     SecurityGroupIds: [
+ *     SecurityGroupIds: [ // SecurityGroupList
  *       "STRING_VALUE",
  *     ],
  *   },
@@ -63,15 +63,15 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   PluginsS3ObjectVersion: "STRING_VALUE",
  *   RequirementsS3Path: "STRING_VALUE",
  *   RequirementsS3ObjectVersion: "STRING_VALUE",
- *   AirflowConfigurationOptions: {
+ *   AirflowConfigurationOptions: { // AirflowConfigurationOptions
  *     "<keys>": "STRING_VALUE",
  *   },
  *   EnvironmentClass: "STRING_VALUE",
  *   MaxWorkers: Number("int"),
  *   KmsKey: "STRING_VALUE",
  *   AirflowVersion: "STRING_VALUE",
- *   LoggingConfiguration: {
- *     DagProcessingLogs: {
+ *   LoggingConfiguration: { // LoggingConfigurationInput
+ *     DagProcessingLogs: { // ModuleLoggingConfigurationInput
  *       Enabled: true || false, // required
  *       LogLevel: "STRING_VALUE", // required
  *     },
@@ -93,7 +93,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *     },
  *   },
  *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   WebserverAccessMode: "STRING_VALUE",

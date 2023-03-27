@@ -58,13 +58,13 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * import { CloudWatchClient, PutManagedInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutManagedInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
- *   ManagedRules: [ // required
- *     {
+ * const input = { // PutManagedInsightRulesInput
+ *   ManagedRules: [ // ManagedRules // required
+ *     { // ManagedRule
  *       TemplateName: "STRING_VALUE", // required
  *       ResourceARN: "STRING_VALUE", // required
- *       Tags: [
- *         {
+ *       Tags: [ // TagList
+ *         { // Tag
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },

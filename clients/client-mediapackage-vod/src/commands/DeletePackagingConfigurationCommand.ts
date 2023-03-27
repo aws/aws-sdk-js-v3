@@ -44,7 +44,7 @@ export interface DeletePackagingConfigurationCommandOutput
  * import { MediaPackageVodClient, DeletePackagingConfigurationCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DeletePackagingConfigurationCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // DeletePackagingConfigurationRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DeletePackagingConfigurationCommand(input);

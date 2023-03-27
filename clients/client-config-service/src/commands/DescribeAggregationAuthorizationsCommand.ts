@@ -48,7 +48,7 @@ export interface DescribeAggregationAuthorizationsCommandOutput
  * import { ConfigServiceClient, DescribeAggregationAuthorizationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeAggregationAuthorizationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DescribeAggregationAuthorizationsRequest
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

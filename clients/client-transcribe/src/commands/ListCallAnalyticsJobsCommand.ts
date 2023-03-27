@@ -44,7 +44,7 @@ export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJob
  * import { TranscribeClient, ListCallAnalyticsJobsCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListCallAnalyticsJobsCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // ListCallAnalyticsJobsRequest
  *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
  *   JobNameContains: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

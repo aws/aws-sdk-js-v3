@@ -42,7 +42,7 @@ export interface GetIntegrationResponseCommandOutput extends IntegrationResponse
  * import { APIGatewayClient, GetIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetIntegrationResponseRequest
  *   restApiId: "STRING_VALUE", // required
  *   resourceId: "STRING_VALUE", // required
  *   httpMethod: "STRING_VALUE", // required

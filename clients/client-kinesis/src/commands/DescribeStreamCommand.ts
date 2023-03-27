@@ -65,7 +65,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * import { KinesisClient, DescribeStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
+ * const input = { // DescribeStreamInput
  *   StreamName: "STRING_VALUE",
  *   Limit: Number("int"),
  *   ExclusiveStartShardId: "STRING_VALUE",

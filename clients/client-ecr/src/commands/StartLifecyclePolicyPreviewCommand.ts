@@ -45,7 +45,7 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * import { ECRClient, StartLifecyclePolicyPreviewCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, StartLifecyclePolicyPreviewCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // StartLifecyclePolicyPreviewRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
  *   lifecyclePolicyText: "STRING_VALUE",

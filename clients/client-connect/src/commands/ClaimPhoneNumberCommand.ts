@@ -52,11 +52,11 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * import { ConnectClient, ClaimPhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ClaimPhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // ClaimPhoneNumberRequest
  *   TargetArn: "STRING_VALUE", // required
  *   PhoneNumber: "STRING_VALUE", // required
  *   PhoneNumberDescription: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ClientToken: "STRING_VALUE",

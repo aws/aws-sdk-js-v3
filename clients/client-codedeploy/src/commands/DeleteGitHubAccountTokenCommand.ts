@@ -42,7 +42,7 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * import { CodeDeployClient, DeleteGitHubAccountTokenCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteGitHubAccountTokenCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // DeleteGitHubAccountTokenInput
  *   tokenName: "STRING_VALUE",
  * };
  * const command = new DeleteGitHubAccountTokenCommand(input);

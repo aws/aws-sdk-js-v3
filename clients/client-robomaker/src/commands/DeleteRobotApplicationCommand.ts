@@ -42,7 +42,7 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  * import { RoboMakerClient, DeleteRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // DeleteRobotApplicationRequest
  *   application: "STRING_VALUE", // required
  *   applicationVersion: "STRING_VALUE",
  * };

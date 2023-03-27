@@ -42,7 +42,7 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  * import { TranslateClient, ListTerminologiesCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListTerminologiesCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
- * const input = {
+ * const input = { // ListTerminologiesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

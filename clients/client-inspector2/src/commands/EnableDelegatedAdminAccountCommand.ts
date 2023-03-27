@@ -44,7 +44,7 @@ export interface EnableDelegatedAdminAccountCommandOutput
  * import { Inspector2Client, EnableDelegatedAdminAccountCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, EnableDelegatedAdminAccountCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
+ * const input = { // EnableDelegatedAdminAccountRequest
  *   delegatedAdminAccountId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { LambdaClient, UntagResourceCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UntagResourceCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   Resource: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

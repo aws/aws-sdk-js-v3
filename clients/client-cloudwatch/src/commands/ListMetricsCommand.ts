@@ -51,11 +51,11 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * import { CloudWatchClient, ListMetricsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListMetricsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // ListMetricsInput
  *   Namespace: "STRING_VALUE",
  *   MetricName: "STRING_VALUE",
- *   Dimensions: [
- *     {
+ *   Dimensions: [ // DimensionFilters
+ *     { // DimensionFilter
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

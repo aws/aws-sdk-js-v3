@@ -46,20 +46,20 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * import { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchGetAssetPropertyAggregatesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
- *   entries: [ // required
- *     {
+ * const input = { // BatchGetAssetPropertyAggregatesRequest
+ *   entries: [ // BatchGetAssetPropertyAggregatesEntries // required
+ *     { // BatchGetAssetPropertyAggregatesEntry
  *       entryId: "STRING_VALUE", // required
  *       assetId: "STRING_VALUE",
  *       propertyId: "STRING_VALUE",
  *       propertyAlias: "STRING_VALUE",
- *       aggregateTypes: [ // required
+ *       aggregateTypes: [ // AggregateTypes // required
  *         "AVERAGE" || "COUNT" || "MAXIMUM" || "MINIMUM" || "SUM" || "STANDARD_DEVIATION",
  *       ],
  *       resolution: "STRING_VALUE", // required
  *       startDate: new Date("TIMESTAMP"), // required
  *       endDate: new Date("TIMESTAMP"), // required
- *       qualities: [
+ *       qualities: [ // Qualities
  *         "GOOD" || "BAD" || "UNCERTAIN",
  *       ],
  *       timeOrdering: "ASCENDING" || "DESCENDING",

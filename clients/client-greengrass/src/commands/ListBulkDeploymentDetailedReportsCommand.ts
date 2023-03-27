@@ -47,7 +47,7 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  * import { GreengrassClient, ListBulkDeploymentDetailedReportsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListBulkDeploymentDetailedReportsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // ListBulkDeploymentDetailedReportsRequest
  *   BulkDeploymentId: "STRING_VALUE", // required
  *   MaxResults: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

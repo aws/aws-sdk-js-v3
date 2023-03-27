@@ -42,7 +42,7 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * import { DataSyncClient, DescribeLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // DescribeLocationNfsRequest
  *   LocationArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeLocationNfsCommand(input);

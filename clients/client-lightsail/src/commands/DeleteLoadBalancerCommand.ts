@@ -47,7 +47,7 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerResul
  * import { LightsailClient, DeleteLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DeleteLoadBalancerRequest
  *   loadBalancerName: "STRING_VALUE", // required
  * };
  * const command = new DeleteLoadBalancerCommand(input);

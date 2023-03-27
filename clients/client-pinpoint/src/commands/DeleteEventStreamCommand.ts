@@ -42,7 +42,7 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * import { PinpointClient, DeleteEventStreamCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteEventStreamCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // DeleteEventStreamRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventStreamCommand(input);

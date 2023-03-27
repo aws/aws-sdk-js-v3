@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ResourceTags, __Metada
  * import { AppConfigClient, ListTagsForResourceCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListTagsForResourceCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

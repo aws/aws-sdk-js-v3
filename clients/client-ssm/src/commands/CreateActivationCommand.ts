@@ -51,20 +51,20 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * import { SSMClient, CreateActivationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateActivationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // CreateActivationRequest
  *   Description: "STRING_VALUE",
  *   DefaultInstanceName: "STRING_VALUE",
  *   IamRole: "STRING_VALUE", // required
  *   RegistrationLimit: Number("int"),
  *   ExpirationDate: new Date("TIMESTAMP"),
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   RegistrationMetadata: [
- *     {
+ *   RegistrationMetadata: [ // RegistrationMetadataList
+ *     { // RegistrationMetadataItem
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

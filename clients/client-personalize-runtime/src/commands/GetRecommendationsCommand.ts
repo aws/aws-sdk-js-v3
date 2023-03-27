@@ -67,21 +67,21 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
  * // const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
  * const client = new PersonalizeRuntimeClient(config);
- * const input = {
+ * const input = { // GetRecommendationsRequest
  *   campaignArn: "STRING_VALUE",
  *   itemId: "STRING_VALUE",
  *   userId: "STRING_VALUE",
  *   numResults: Number("int"),
- *   context: {
+ *   context: { // Context
  *     "<keys>": "STRING_VALUE",
  *   },
  *   filterArn: "STRING_VALUE",
- *   filterValues: {
+ *   filterValues: { // FilterValues
  *     "<keys>": "STRING_VALUE",
  *   },
  *   recommenderArn: "STRING_VALUE",
- *   promotions: [
- *     {
+ *   promotions: [ // PromotionList
+ *     { // Promotion
  *       name: "STRING_VALUE",
  *       percentPromotedItems: Number("int"),
  *       filterArn: "STRING_VALUE",

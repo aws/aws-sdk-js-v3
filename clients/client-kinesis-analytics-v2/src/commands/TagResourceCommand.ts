@@ -48,10 +48,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { KinesisAnalyticsV2Client, TagResourceCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, TagResourceCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // Tags // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

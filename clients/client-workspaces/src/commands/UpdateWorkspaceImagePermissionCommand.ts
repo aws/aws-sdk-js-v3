@@ -66,7 +66,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * import { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // UpdateWorkspaceImagePermissionRequest
  *   ImageId: "STRING_VALUE", // required
  *   AllowCopyImage: true || false, // required
  *   SharedAccountId: "STRING_VALUE", // required

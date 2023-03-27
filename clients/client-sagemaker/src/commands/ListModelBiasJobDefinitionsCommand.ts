@@ -44,7 +44,7 @@ export interface ListModelBiasJobDefinitionsCommandOutput
  * import { SageMakerClient, ListModelBiasJobDefinitionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelBiasJobDefinitionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListModelBiasJobDefinitionsRequest
  *   EndpointName: "STRING_VALUE",
  *   SortBy: "Name" || "CreationTime",
  *   SortOrder: "Ascending" || "Descending",

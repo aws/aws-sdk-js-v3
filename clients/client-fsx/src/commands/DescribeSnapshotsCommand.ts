@@ -68,14 +68,14 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * import { FSxClient, DescribeSnapshotsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
- *   SnapshotIds: [
+ * const input = { // DescribeSnapshotsRequest
+ *   SnapshotIds: [ // SnapshotIds
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // SnapshotFilters
+ *     { // SnapshotFilter
  *       Name: "file-system-id" || "volume-id",
- *       Values: [
+ *       Values: [ // SnapshotFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

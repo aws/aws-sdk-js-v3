@@ -42,16 +42,16 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * import { EC2Client, DescribeClientVpnEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeClientVpnEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   ClientVpnEndpointIds: [
+ * const input = { // DescribeClientVpnEndpointsRequest
+ *   ClientVpnEndpointIds: [ // ClientVpnEndpointIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

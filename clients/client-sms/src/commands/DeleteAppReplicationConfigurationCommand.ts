@@ -47,7 +47,7 @@ export interface DeleteAppReplicationConfigurationCommandOutput
  * import { SMSClient, DeleteAppReplicationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // DeleteAppReplicationConfigurationRequest
  *   appId: "STRING_VALUE",
  * };
  * const command = new DeleteAppReplicationConfigurationCommand(input);

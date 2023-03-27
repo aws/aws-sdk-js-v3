@@ -44,7 +44,7 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
  * import { ElastiCacheClient, DescribeGlobalReplicationGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeGlobalReplicationGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DescribeGlobalReplicationGroupsMessage
  *   GlobalReplicationGroupId: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",

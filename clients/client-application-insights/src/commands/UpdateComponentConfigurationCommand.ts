@@ -50,7 +50,7 @@ export interface UpdateComponentConfigurationCommandOutput
  * import { ApplicationInsightsClient, UpdateComponentConfigurationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UpdateComponentConfigurationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // UpdateComponentConfigurationRequest
  *   ResourceGroupName: "STRING_VALUE", // required
  *   ComponentName: "STRING_VALUE", // required
  *   Monitor: true || false,

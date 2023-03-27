@@ -47,30 +47,30 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  * import { SSMClient, CreateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // CreateOpsItemRequest
  *   Description: "STRING_VALUE", // required
  *   OpsItemType: "STRING_VALUE",
- *   OperationalData: {
- *     "<keys>": {
+ *   OperationalData: { // OpsItemOperationalData
+ *     "<keys>": { // OpsItemDataValue
  *       Value: "STRING_VALUE",
  *       Type: "SearchableString" || "String",
  *     },
  *   },
- *   Notifications: [
- *     {
+ *   Notifications: [ // OpsItemNotifications
+ *     { // OpsItemNotification
  *       Arn: "STRING_VALUE",
  *     },
  *   ],
  *   Priority: Number("int"),
- *   RelatedOpsItems: [
- *     {
+ *   RelatedOpsItems: [ // RelatedOpsItems
+ *     { // RelatedOpsItem
  *       OpsItemId: "STRING_VALUE", // required
  *     },
  *   ],
  *   Source: "STRING_VALUE", // required
  *   Title: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

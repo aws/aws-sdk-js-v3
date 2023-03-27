@@ -45,13 +45,13 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * import { GlueClient, UpdateSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   SchemaId: {
+ * const input = { // UpdateSchemaInput
+ *   SchemaId: { // SchemaId
  *     SchemaArn: "STRING_VALUE",
  *     SchemaName: "STRING_VALUE",
  *     RegistryName: "STRING_VALUE",
  *   },
- *   SchemaVersionNumber: {
+ *   SchemaVersionNumber: { // SchemaVersionNumber
  *     LatestVersion: true || false,
  *     VersionNumber: Number("long"),
  *   },

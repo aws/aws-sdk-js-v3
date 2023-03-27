@@ -46,7 +46,7 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  * import { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
+ * const input = { // DeleteRoutingControlRequest
  *   RoutingControlArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteRoutingControlCommand(input);

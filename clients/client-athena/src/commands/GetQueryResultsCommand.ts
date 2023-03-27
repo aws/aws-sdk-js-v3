@@ -57,7 +57,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * import { AthenaClient, GetQueryResultsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetQueryResultsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // GetQueryResultsInput
  *   QueryExecutionId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

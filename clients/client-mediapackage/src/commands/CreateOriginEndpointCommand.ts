@@ -42,35 +42,35 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * import { MediaPackageClient, CreateOriginEndpointCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, CreateOriginEndpointCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
- * const input = {
- *   Authorization: {
+ * const input = { // CreateOriginEndpointRequest
+ *   Authorization: { // Authorization
  *     CdnIdentifierSecret: "STRING_VALUE", // required
  *     SecretsRoleArn: "STRING_VALUE", // required
  *   },
  *   ChannelId: "STRING_VALUE", // required
- *   CmafPackage: {
- *     Encryption: {
+ *   CmafPackage: { // CmafPackageCreateOrUpdateParameters
+ *     Encryption: { // CmafEncryption
  *       ConstantInitializationVector: "STRING_VALUE",
  *       EncryptionMethod: "SAMPLE_AES" || "AES_CTR",
  *       KeyRotationIntervalSeconds: Number("int"),
- *       SpekeKeyProvider: {
+ *       SpekeKeyProvider: { // SpekeKeyProvider
  *         CertificateArn: "STRING_VALUE",
- *         EncryptionContractConfiguration: {
+ *         EncryptionContractConfiguration: { // EncryptionContractConfiguration
  *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
  *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
  *         },
  *         ResourceId: "STRING_VALUE", // required
  *         RoleArn: "STRING_VALUE", // required
- *         SystemIds: [ // required
+ *         SystemIds: [ // __listOf__string // required
  *           "STRING_VALUE",
  *         ],
  *         Url: "STRING_VALUE", // required
  *       },
  *     },
- *     HlsManifests: [
- *       {
+ *     HlsManifests: [ // __listOfHlsManifestCreateOrUpdateParameters
+ *       { // HlsManifestCreateOrUpdateParameters
  *         AdMarkers: "NONE" || "SCTE35_ENHANCED" || "PASSTHROUGH" || "DATERANGE",
- *         AdTriggers: [
+ *         AdTriggers: [ // AdTriggers
  *           "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
  *         ],
  *         AdsOnDeliveryRestrictions: "NONE" || "RESTRICTED" || "UNRESTRICTED" || "BOTH",
@@ -84,18 +84,18 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *     ],
  *     SegmentDurationSeconds: Number("int"),
  *     SegmentPrefix: "STRING_VALUE",
- *     StreamSelection: {
+ *     StreamSelection: { // StreamSelection
  *       MaxVideoBitsPerSecond: Number("int"),
  *       MinVideoBitsPerSecond: Number("int"),
  *       StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
  *     },
  *   },
- *   DashPackage: {
+ *   DashPackage: { // DashPackage
  *     AdTriggers: [
  *       "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
  *     ],
  *     AdsOnDeliveryRestrictions: "NONE" || "RESTRICTED" || "UNRESTRICTED" || "BOTH",
- *     Encryption: {
+ *     Encryption: { // DashEncryption
  *       KeyRotationIntervalSeconds: Number("int"),
  *       SpekeKeyProvider: {
  *         CertificateArn: "STRING_VALUE",
@@ -116,7 +116,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *     ManifestWindowSeconds: Number("int"),
  *     MinBufferTimeSeconds: Number("int"),
  *     MinUpdatePeriodSeconds: Number("int"),
- *     PeriodTriggers: [
+ *     PeriodTriggers: [ // __listOf__PeriodTriggersElement
  *       "ADS",
  *     ],
  *     Profile: "NONE" || "HBBTV_1_5" || "HYBRIDCAST" || "DVB_DASH_2014",
@@ -132,13 +132,13 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *     UtcTimingUri: "STRING_VALUE",
  *   },
  *   Description: "STRING_VALUE",
- *   HlsPackage: {
+ *   HlsPackage: { // HlsPackage
  *     AdMarkers: "NONE" || "SCTE35_ENHANCED" || "PASSTHROUGH" || "DATERANGE",
  *     AdTriggers: [
  *       "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
  *     ],
  *     AdsOnDeliveryRestrictions: "NONE" || "RESTRICTED" || "UNRESTRICTED" || "BOTH",
- *     Encryption: {
+ *     Encryption: { // HlsEncryption
  *       ConstantInitializationVector: "STRING_VALUE",
  *       EncryptionMethod: "AES_128" || "SAMPLE_AES",
  *       KeyRotationIntervalSeconds: Number("int"),
@@ -172,8 +172,8 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *   },
  *   Id: "STRING_VALUE", // required
  *   ManifestName: "STRING_VALUE",
- *   MssPackage: {
- *     Encryption: {
+ *   MssPackage: { // MssPackage
+ *     Encryption: { // MssEncryption
  *       SpekeKeyProvider: {
  *         CertificateArn: "STRING_VALUE",
  *         EncryptionContractConfiguration: {
@@ -198,7 +198,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *   },
  *   Origination: "ALLOW" || "DENY",
  *   StartoverWindowSeconds: Number("int"),
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  *   TimeDelaySeconds: Number("int"),

@@ -42,7 +42,7 @@ export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __Metad
  * import { AppMeshClient, DescribeRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // DescribeRouteInput
  *   routeName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
  *   meshOwner: "STRING_VALUE",

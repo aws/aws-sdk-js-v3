@@ -42,10 +42,10 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  * import { KafkaClient, UpdateConnectivityCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateConnectivityCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // UpdateConnectivityRequest
  *   ClusterArn: "STRING_VALUE", // required
- *   ConnectivityInfo: {
- *     PublicAccess: {
+ *   ConnectivityInfo: { // ConnectivityInfo
+ *     PublicAccess: { // PublicAccess
  *       Type: "STRING_VALUE",
  *     },
  *   },

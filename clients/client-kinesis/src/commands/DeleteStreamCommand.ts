@@ -64,7 +64,7 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, DeleteStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DeleteStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
+ * const input = { // DeleteStreamInput
  *   StreamName: "STRING_VALUE",
  *   EnforceConsumerDeletion: true || false,
  *   StreamARN: "STRING_VALUE",

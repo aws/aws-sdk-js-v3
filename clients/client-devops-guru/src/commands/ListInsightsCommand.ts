@@ -44,21 +44,21 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * import { DevOpsGuruClient, ListInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
- *   StatusFilter: {
- *     Ongoing: {
+ * const input = { // ListInsightsRequest
+ *   StatusFilter: { // ListInsightsStatusFilter
+ *     Ongoing: { // ListInsightsOngoingStatusFilter
  *       Type: "REACTIVE" || "PROACTIVE", // required
  *     },
- *     Closed: {
+ *     Closed: { // ListInsightsClosedStatusFilter
  *       Type: "REACTIVE" || "PROACTIVE", // required
- *       EndTimeRange: {
+ *       EndTimeRange: { // EndTimeRange
  *         FromTime: new Date("TIMESTAMP"),
  *         ToTime: new Date("TIMESTAMP"),
  *       },
  *     },
- *     Any: {
+ *     Any: { // ListInsightsAnyStatusFilter
  *       Type: "REACTIVE" || "PROACTIVE", // required
- *       StartTimeRange: {
+ *       StartTimeRange: { // StartTimeRange
  *         FromTime: new Date("TIMESTAMP"),
  *         ToTime: new Date("TIMESTAMP"),
  *       },

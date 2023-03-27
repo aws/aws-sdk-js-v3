@@ -43,7 +43,7 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  * import { SNSClient, SetSubscriptionAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetSubscriptionAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // SetSubscriptionAttributesInput
  *   SubscriptionArn: "STRING_VALUE", // required
  *   AttributeName: "STRING_VALUE", // required
  *   AttributeValue: "STRING_VALUE",

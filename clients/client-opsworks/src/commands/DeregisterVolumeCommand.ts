@@ -49,7 +49,7 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeregisterVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DeregisterVolumeRequest
  *   VolumeId: "STRING_VALUE", // required
  * };
  * const command = new DeregisterVolumeCommand(input);

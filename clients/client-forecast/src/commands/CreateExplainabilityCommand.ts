@@ -164,23 +164,23 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * import { ForecastClient, CreateExplainabilityCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateExplainabilityCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // CreateExplainabilityRequest
  *   ExplainabilityName: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
- *   ExplainabilityConfig: {
+ *   ExplainabilityConfig: { // ExplainabilityConfig
  *     TimeSeriesGranularity: "ALL" || "SPECIFIC", // required
  *     TimePointGranularity: "ALL" || "SPECIFIC", // required
  *   },
- *   DataSource: {
- *     S3Config: {
+ *   DataSource: { // DataSource
+ *     S3Config: { // S3Config
  *       Path: "STRING_VALUE", // required
  *       RoleArn: "STRING_VALUE", // required
  *       KMSKeyArn: "STRING_VALUE",
  *     },
  *   },
- *   Schema: {
- *     Attributes: [
- *       {
+ *   Schema: { // Schema
+ *     Attributes: [ // SchemaAttributes
+ *       { // SchemaAttribute
  *         AttributeName: "STRING_VALUE",
  *         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
  *       },
@@ -189,8 +189,8 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  *   EnableVisualization: true || false,
  *   StartDateTime: "STRING_VALUE",
  *   EndDateTime: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

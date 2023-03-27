@@ -43,7 +43,7 @@ export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse,
  * import { IoTEventsClient, DeleteAlarmModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DeleteAlarmModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
- * const input = {
+ * const input = { // DeleteAlarmModelRequest
  *   alarmModelName: "STRING_VALUE", // required
  * };
  * const command = new DeleteAlarmModelCommand(input);

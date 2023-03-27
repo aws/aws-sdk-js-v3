@@ -55,13 +55,13 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  * import { IoTSiteWiseClient, GetAssetPropertyValueHistoryCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, GetAssetPropertyValueHistoryCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // GetAssetPropertyValueHistoryRequest
  *   assetId: "STRING_VALUE",
  *   propertyId: "STRING_VALUE",
  *   propertyAlias: "STRING_VALUE",
  *   startDate: new Date("TIMESTAMP"),
  *   endDate: new Date("TIMESTAMP"),
- *   qualities: [
+ *   qualities: [ // Qualities
  *     "GOOD" || "BAD" || "UNCERTAIN",
  *   ],
  *   timeOrdering: "ASCENDING" || "DESCENDING",

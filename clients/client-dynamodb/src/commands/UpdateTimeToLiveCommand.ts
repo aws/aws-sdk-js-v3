@@ -66,9 +66,9 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * import { DynamoDBClient, UpdateTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // UpdateTimeToLiveInput
  *   TableName: "STRING_VALUE", // required
- *   TimeToLiveSpecification: {
+ *   TimeToLiveSpecification: { // TimeToLiveSpecification
  *     Enabled: true || false, // required
  *     AttributeName: "STRING_VALUE", // required
  *   },

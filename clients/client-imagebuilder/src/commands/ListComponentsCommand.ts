@@ -53,12 +53,12 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * import { ImagebuilderClient, ListComponentsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListComponentsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // ListComponentsRequest
  *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
- *   filters: [
- *     {
+ *   filters: [ // FilterList
+ *     { // Filter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

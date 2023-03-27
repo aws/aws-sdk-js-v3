@@ -42,7 +42,7 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * import { KafkaClient, DeleteConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DeleteConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // DeleteConfigurationRequest
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new DeleteConfigurationCommand(input);

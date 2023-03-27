@@ -48,7 +48,7 @@ export interface DeleteMessagingStreamingConfigurationsCommandOutput extends __M
  * import { ChimeSDKMessagingClient, DeleteMessagingStreamingConfigurationsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DeleteMessagingStreamingConfigurationsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // DeleteMessagingStreamingConfigurationsRequest
  *   AppInstanceArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteMessagingStreamingConfigurationsCommand(input);

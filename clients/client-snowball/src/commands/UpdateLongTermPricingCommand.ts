@@ -42,7 +42,7 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  * import { SnowballClient, UpdateLongTermPricingCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateLongTermPricingCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
+ * const input = { // UpdateLongTermPricingRequest
  *   LongTermPricingId: "STRING_VALUE", // required
  *   ReplacementJob: "STRING_VALUE",
  *   IsLongTermPricingAutoRenew: true || false,

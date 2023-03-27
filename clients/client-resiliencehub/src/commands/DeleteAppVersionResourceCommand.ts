@@ -55,10 +55,10 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  * import { ResiliencehubClient, DeleteAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // DeleteAppVersionResourceRequest
  *   appArn: "STRING_VALUE", // required
  *   resourceName: "STRING_VALUE",
- *   logicalResourceId: {
+ *   logicalResourceId: { // LogicalResourceId
  *     identifier: "STRING_VALUE", // required
  *     logicalStackName: "STRING_VALUE",
  *     resourceGroupName: "STRING_VALUE",

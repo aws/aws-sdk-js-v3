@@ -42,7 +42,7 @@ export interface DeleteStudioCommandOutput extends __MetadataBearer {}
  * import { EMRClient, DeleteStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DeleteStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // DeleteStudioInput
  *   StudioId: "STRING_VALUE", // required
  * };
  * const command = new DeleteStudioCommand(input);

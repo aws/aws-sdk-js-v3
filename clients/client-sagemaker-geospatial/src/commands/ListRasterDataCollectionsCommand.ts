@@ -51,7 +51,7 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  * import { SageMakerGeospatialClient, ListRasterDataCollectionsCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ListRasterDataCollectionsCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // ListRasterDataCollectionsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

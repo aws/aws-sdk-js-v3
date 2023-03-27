@@ -46,7 +46,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { RedshiftServerlessClient, ListTagsForResourceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListTagsForResourceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

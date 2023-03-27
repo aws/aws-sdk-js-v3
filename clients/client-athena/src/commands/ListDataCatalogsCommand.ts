@@ -46,7 +46,7 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * import { AthenaClient, ListDataCatalogsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListDataCatalogsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // ListDataCatalogsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

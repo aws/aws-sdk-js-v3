@@ -42,7 +42,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * import { AppStreamClient, DeleteUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // DeleteUserRequest
  *   UserName: "STRING_VALUE", // required
  *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
  * };

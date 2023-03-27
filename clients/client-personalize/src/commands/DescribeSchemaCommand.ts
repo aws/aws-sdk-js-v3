@@ -43,7 +43,7 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * import { PersonalizeClient, DescribeSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeSchemaRequest
  *   schemaArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeSchemaCommand(input);

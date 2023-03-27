@@ -44,9 +44,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { PrivateNetworksClient, TagResourceCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, TagResourceCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

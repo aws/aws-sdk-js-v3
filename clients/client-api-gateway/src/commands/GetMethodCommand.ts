@@ -42,7 +42,7 @@ export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
  * import { APIGatewayClient, GetMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetMethodRequest
  *   restApiId: "STRING_VALUE", // required
  *   resourceId: "STRING_VALUE", // required
  *   httpMethod: "STRING_VALUE", // required

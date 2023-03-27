@@ -42,7 +42,7 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * import { QuickSightClient, ListNamespacesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListNamespacesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // ListNamespacesRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

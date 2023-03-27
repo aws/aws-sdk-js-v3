@@ -210,7 +210,7 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetObjectRequest
  *   Bucket: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
  *   IfModifiedSince: new Date("TIMESTAMP"),

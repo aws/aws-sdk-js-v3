@@ -48,7 +48,7 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * import { OpenSearchServerlessClient, GetSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // GetSecurityConfigRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetSecurityConfigCommand(input);

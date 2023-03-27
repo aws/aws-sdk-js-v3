@@ -48,7 +48,7 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeRefreshSchemasStatusCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeRefreshSchemasStatusCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DescribeRefreshSchemasStatusMessage
  *   EndpointArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeRefreshSchemasStatusCommand(input);

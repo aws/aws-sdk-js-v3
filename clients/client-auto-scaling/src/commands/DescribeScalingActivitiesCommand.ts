@@ -50,8 +50,8 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * import { AutoScalingClient, DescribeScalingActivitiesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeScalingActivitiesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
- *   ActivityIds: [
+ * const input = { // DescribeScalingActivitiesType
+ *   ActivityIds: [ // ActivityIds
  *     "STRING_VALUE",
  *   ],
  *   AutoScalingGroupName: "STRING_VALUE",

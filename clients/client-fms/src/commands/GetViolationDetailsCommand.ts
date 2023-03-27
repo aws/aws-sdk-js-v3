@@ -42,7 +42,7 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * import { FMSClient, GetViolationDetailsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetViolationDetailsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // GetViolationDetailsRequest
  *   PolicyId: "STRING_VALUE", // required
  *   MemberAccount: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  * import { IoTFleetWiseClient, GetDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // GetDecoderManifestRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new GetDecoderManifestCommand(input);

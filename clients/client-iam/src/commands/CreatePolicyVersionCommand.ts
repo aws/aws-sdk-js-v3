@@ -49,7 +49,7 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * import { IAMClient, CreatePolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreatePolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // CreatePolicyVersionRequest
  *   PolicyArn: "STRING_VALUE", // required
  *   PolicyDocument: "STRING_VALUE", // required
  *   SetAsDefault: true || false,

@@ -49,7 +49,7 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * import { CodeStarConnectionsClient, DeleteHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, DeleteHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
- * const input = {
+ * const input = { // DeleteHostInput
  *   HostArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteHostCommand(input);

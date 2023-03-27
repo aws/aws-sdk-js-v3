@@ -45,9 +45,9 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * import { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetTransitGatewayRegistrationsRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
- *   TransitGatewayArns: [
+ *   TransitGatewayArns: [ // TransitGatewayArnList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

@@ -43,13 +43,13 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * import { GlueClient, GetSchemaVersionsDiffCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSchemaVersionsDiffCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   SchemaId: {
+ * const input = { // GetSchemaVersionsDiffInput
+ *   SchemaId: { // SchemaId
  *     SchemaArn: "STRING_VALUE",
  *     SchemaName: "STRING_VALUE",
  *     RegistryName: "STRING_VALUE",
  *   },
- *   FirstSchemaVersionNumber: {
+ *   FirstSchemaVersionNumber: { // SchemaVersionNumber
  *     LatestVersion: true || false,
  *     VersionNumber: Number("long"),
  *   },

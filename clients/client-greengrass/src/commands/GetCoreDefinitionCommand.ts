@@ -42,7 +42,7 @@ export interface GetCoreDefinitionCommandOutput extends GetCoreDefinitionRespons
  * import { GreengrassClient, GetCoreDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetCoreDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // GetCoreDefinitionRequest
  *   CoreDefinitionId: "STRING_VALUE", // required
  * };
  * const command = new GetCoreDefinitionCommand(input);

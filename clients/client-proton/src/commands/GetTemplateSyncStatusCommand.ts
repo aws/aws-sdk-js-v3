@@ -42,7 +42,7 @@ export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatu
  * import { ProtonClient, GetTemplateSyncStatusCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetTemplateSyncStatusCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // GetTemplateSyncStatusInput
  *   templateName: "STRING_VALUE", // required
  *   templateType: "STRING_VALUE", // required
  *   templateVersion: "STRING_VALUE", // required

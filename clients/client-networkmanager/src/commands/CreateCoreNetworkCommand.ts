@@ -42,11 +42,11 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * import { NetworkManagerClient, CreateCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // CreateCoreNetworkRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

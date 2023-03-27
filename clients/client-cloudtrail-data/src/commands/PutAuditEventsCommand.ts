@@ -46,9 +46,9 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * import { CloudTrailDataClient, PutAuditEventsCommand } from "@aws-sdk/client-cloudtrail-data"; // ES Modules import
  * // const { CloudTrailDataClient, PutAuditEventsCommand } = require("@aws-sdk/client-cloudtrail-data"); // CommonJS import
  * const client = new CloudTrailDataClient(config);
- * const input = {
- *   auditEvents: [ // required
- *     {
+ * const input = { // PutAuditEventsRequest
+ *   auditEvents: [ // AuditEvents // required
+ *     { // AuditEvent
  *       id: "STRING_VALUE", // required
  *       eventData: "STRING_VALUE", // required
  *       eventDataChecksum: "STRING_VALUE",

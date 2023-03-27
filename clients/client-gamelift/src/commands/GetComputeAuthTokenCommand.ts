@@ -45,7 +45,7 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  * import { GameLiftClient, GetComputeAuthTokenCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, GetComputeAuthTokenCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // GetComputeAuthTokenInput
  *   FleetId: "STRING_VALUE", // required
  *   ComputeName: "STRING_VALUE", // required
  * };

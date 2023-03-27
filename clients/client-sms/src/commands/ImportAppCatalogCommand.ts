@@ -42,7 +42,7 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
  * import { SMSClient, ImportAppCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, ImportAppCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // ImportAppCatalogRequest
  *   roleName: "STRING_VALUE",
  * };
  * const command = new ImportAppCatalogCommand(input);

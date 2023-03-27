@@ -43,7 +43,7 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  * import { MachineLearningClient, GetBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, GetBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // GetBatchPredictionInput
  *   BatchPredictionId: "STRING_VALUE", // required
  * };
  * const command = new GetBatchPredictionCommand(input);

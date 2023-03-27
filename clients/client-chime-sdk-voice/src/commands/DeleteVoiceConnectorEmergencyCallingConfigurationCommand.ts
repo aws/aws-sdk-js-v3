@@ -44,7 +44,7 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput 
  * import { ChimeSDKVoiceClient, DeleteVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // DeleteVoiceConnectorEmergencyCallingConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  * };
  * const command = new DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input);

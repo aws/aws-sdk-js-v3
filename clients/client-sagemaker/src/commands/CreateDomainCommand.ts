@@ -86,44 +86,44 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * import { SageMakerClient, CreateDomainCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateDomainRequest
  *   DomainName: "STRING_VALUE", // required
  *   AuthMode: "SSO" || "IAM", // required
- *   DefaultUserSettings: {
+ *   DefaultUserSettings: { // UserSettings
  *     ExecutionRole: "STRING_VALUE",
- *     SecurityGroups: [
+ *     SecurityGroups: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
- *     SharingSettings: {
+ *     SharingSettings: { // SharingSettings
  *       NotebookOutputOption: "Allowed" || "Disabled",
  *       S3OutputPath: "STRING_VALUE",
  *       S3KmsKeyId: "STRING_VALUE",
  *     },
- *     JupyterServerAppSettings: {
- *       DefaultResourceSpec: {
+ *     JupyterServerAppSettings: { // JupyterServerAppSettings
+ *       DefaultResourceSpec: { // ResourceSpec
  *         SageMakerImageArn: "STRING_VALUE",
  *         SageMakerImageVersionArn: "STRING_VALUE",
  *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive",
  *         LifecycleConfigArn: "STRING_VALUE",
  *       },
- *       LifecycleConfigArns: [
+ *       LifecycleConfigArns: [ // LifecycleConfigArns
  *         "STRING_VALUE",
  *       ],
- *       CodeRepositories: [
- *         {
+ *       CodeRepositories: [ // CodeRepositories
+ *         { // CodeRepository
  *           RepositoryUrl: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     KernelGatewayAppSettings: {
+ *     KernelGatewayAppSettings: { // KernelGatewayAppSettings
  *       DefaultResourceSpec: {
  *         SageMakerImageArn: "STRING_VALUE",
  *         SageMakerImageVersionArn: "STRING_VALUE",
  *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive",
  *         LifecycleConfigArn: "STRING_VALUE",
  *       },
- *       CustomImages: [
- *         {
+ *       CustomImages: [ // CustomImages
+ *         { // CustomImage
  *           ImageName: "STRING_VALUE", // required
  *           ImageVersionNumber: Number("int"),
  *           AppImageConfigName: "STRING_VALUE", // required
@@ -133,7 +133,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         "STRING_VALUE",
  *       ],
  *     },
- *     TensorBoardAppSettings: {
+ *     TensorBoardAppSettings: { // TensorBoardAppSettings
  *       DefaultResourceSpec: {
  *         SageMakerImageArn: "STRING_VALUE",
  *         SageMakerImageVersionArn: "STRING_VALUE",
@@ -141,11 +141,11 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         LifecycleConfigArn: "STRING_VALUE",
  *       },
  *     },
- *     RStudioServerProAppSettings: {
+ *     RStudioServerProAppSettings: { // RStudioServerProAppSettings
  *       AccessStatus: "ENABLED" || "DISABLED",
  *       UserGroup: "R_STUDIO_ADMIN" || "R_STUDIO_USER",
  *     },
- *     RSessionAppSettings: {
+ *     RSessionAppSettings: { // RSessionAppSettings
  *       DefaultResourceSpec: {
  *         SageMakerImageArn: "STRING_VALUE",
  *         SageMakerImageVersionArn: "STRING_VALUE",
@@ -160,19 +160,19 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         },
  *       ],
  *     },
- *     CanvasAppSettings: {
- *       TimeSeriesForecastingSettings: {
+ *     CanvasAppSettings: { // CanvasAppSettings
+ *       TimeSeriesForecastingSettings: { // TimeSeriesForecastingSettings
  *         Status: "ENABLED" || "DISABLED",
  *         AmazonForecastRoleArn: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // Subnets // required
  *     "STRING_VALUE",
  *   ],
  *   VpcId: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
@@ -181,11 +181,11 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *   HomeEfsFileSystemKmsKeyId: "STRING_VALUE",
  *   KmsKeyId: "STRING_VALUE",
  *   AppSecurityGroupManagement: "Service" || "Customer",
- *   DomainSettings: {
- *     SecurityGroupIds: [
+ *   DomainSettings: { // DomainSettings
+ *     SecurityGroupIds: [ // DomainSecurityGroupIds
  *       "STRING_VALUE",
  *     ],
- *     RStudioServerProDomainSettings: {
+ *     RStudioServerProDomainSettings: { // RStudioServerProDomainSettings
  *       DomainExecutionRoleArn: "STRING_VALUE", // required
  *       RStudioConnectUrl: "STRING_VALUE",
  *       RStudioPackageManagerUrl: "STRING_VALUE",
@@ -198,18 +198,13 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     },
  *     ExecutionRoleIdentityConfig: "USER_PROFILE_NAME" || "DISABLED",
  *   },
- *   DefaultSpaceSettings: {
+ *   DefaultSpaceSettings: { // DefaultSpaceSettings
  *     ExecutionRole: "STRING_VALUE",
  *     SecurityGroups: [
  *       "STRING_VALUE",
  *     ],
  *     JupyterServerAppSettings: {
- *       DefaultResourceSpec: {
- *         SageMakerImageArn: "STRING_VALUE",
- *         SageMakerImageVersionArn: "STRING_VALUE",
- *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive",
- *         LifecycleConfigArn: "STRING_VALUE",
- *       },
+ *       DefaultResourceSpec: "<ResourceSpec>",
  *       LifecycleConfigArns: [
  *         "STRING_VALUE",
  *       ],
@@ -220,12 +215,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       ],
  *     },
  *     KernelGatewayAppSettings: {
- *       DefaultResourceSpec: {
- *         SageMakerImageArn: "STRING_VALUE",
- *         SageMakerImageVersionArn: "STRING_VALUE",
- *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive",
- *         LifecycleConfigArn: "STRING_VALUE",
- *       },
+ *       DefaultResourceSpec: "<ResourceSpec>",
  *       CustomImages: [
  *         {
  *           ImageName: "STRING_VALUE", // required

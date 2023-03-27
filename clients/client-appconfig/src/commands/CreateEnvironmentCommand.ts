@@ -49,17 +49,17 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * import { AppConfigClient, CreateEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // CreateEnvironmentRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Monitors: [
- *     {
+ *   Monitors: [ // MonitorList
+ *     { // Monitor
  *       AlarmArn: "STRING_VALUE", // required
  *       AlarmRoleArn: "STRING_VALUE",
  *     },
  *   ],
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

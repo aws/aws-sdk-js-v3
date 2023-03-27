@@ -42,7 +42,7 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * import { BackupStorageClient, DeleteObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, DeleteObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
- * const input = {
+ * const input = { // DeleteObjectInput
  *   BackupJobId: "STRING_VALUE", // required
  *   ObjectName: "STRING_VALUE", // required
  * };

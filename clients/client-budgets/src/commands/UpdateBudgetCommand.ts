@@ -45,26 +45,26 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * import { BudgetsClient, UpdateBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, UpdateBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
- * const input = {
+ * const input = { // UpdateBudgetRequest
  *   AccountId: "STRING_VALUE", // required
- *   NewBudget: {
+ *   NewBudget: { // Budget
  *     BudgetName: "STRING_VALUE", // required
- *     BudgetLimit: {
+ *     BudgetLimit: { // Spend
  *       Amount: "STRING_VALUE", // required
  *       Unit: "STRING_VALUE", // required
  *     },
- *     PlannedBudgetLimits: {
+ *     PlannedBudgetLimits: { // PlannedBudgetLimits
  *       "<keys>": {
  *         Amount: "STRING_VALUE", // required
  *         Unit: "STRING_VALUE", // required
  *       },
  *     },
- *     CostFilters: {
- *       "<keys>": [
+ *     CostFilters: { // CostFilters
+ *       "<keys>": [ // DimensionValues
  *         "STRING_VALUE",
  *       ],
  *     },
- *     CostTypes: {
+ *     CostTypes: { // CostTypes
  *       IncludeTax: true || false,
  *       IncludeSubscription: true || false,
  *       UseBlended: true || false,
@@ -78,11 +78,11 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  *       UseAmortized: true || false,
  *     },
  *     TimeUnit: "STRING_VALUE", // required
- *     TimePeriod: {
+ *     TimePeriod: { // TimePeriod
  *       Start: new Date("TIMESTAMP"),
  *       End: new Date("TIMESTAMP"),
  *     },
- *     CalculatedSpend: {
+ *     CalculatedSpend: { // CalculatedSpend
  *       ActualSpend: {
  *         Amount: "STRING_VALUE", // required
  *         Unit: "STRING_VALUE", // required
@@ -94,9 +94,9 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  *     },
  *     BudgetType: "STRING_VALUE", // required
  *     LastUpdatedTime: new Date("TIMESTAMP"),
- *     AutoAdjustData: {
+ *     AutoAdjustData: { // AutoAdjustData
  *       AutoAdjustType: "STRING_VALUE", // required
- *       HistoricalOptions: {
+ *       HistoricalOptions: { // HistoricalOptions
  *         BudgetAdjustmentPeriod: Number("int"), // required
  *         LookBackAvailablePeriods: Number("int"),
  *       },

@@ -42,13 +42,13 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  * import { ElasticBeanstalkClient, DescribeEnvironmentsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DescribeEnvironmentsMessage
  *   ApplicationName: "STRING_VALUE",
  *   VersionLabel: "STRING_VALUE",
- *   EnvironmentIds: [
+ *   EnvironmentIds: [ // EnvironmentIdList
  *     "STRING_VALUE",
  *   ],
- *   EnvironmentNames: [
+ *   EnvironmentNames: [ // EnvironmentNamesList
  *     "STRING_VALUE",
  *   ],
  *   IncludeDeleted: true || false,

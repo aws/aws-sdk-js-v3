@@ -45,16 +45,16 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * import { RbinClient, UpdateRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, UpdateRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
- * const input = {
+ * const input = { // UpdateRuleRequest
  *   Identifier: "STRING_VALUE", // required
- *   RetentionPeriod: {
+ *   RetentionPeriod: { // RetentionPeriod
  *     RetentionPeriodValue: Number("int"), // required
  *     RetentionPeriodUnit: "DAYS", // required
  *   },
  *   Description: "STRING_VALUE",
  *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
- *   ResourceTags: [
- *     {
+ *   ResourceTags: [ // ResourceTags
+ *     { // ResourceTag
  *       ResourceTagKey: "STRING_VALUE", // required
  *       ResourceTagValue: "STRING_VALUE",
  *     },

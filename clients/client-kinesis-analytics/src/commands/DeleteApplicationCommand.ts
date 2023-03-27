@@ -47,7 +47,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * import { KinesisAnalyticsClient, DeleteApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DeleteApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
- * const input = {
+ * const input = { // DeleteApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   CreateTimestamp: new Date("TIMESTAMP"), // required
  * };

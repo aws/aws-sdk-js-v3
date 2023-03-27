@@ -43,7 +43,7 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, DeleteAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DeleteAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
+ * const input = { // DeleteAssessmentTargetRequest
  *   assessmentTargetArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteAssessmentTargetCommand(input);

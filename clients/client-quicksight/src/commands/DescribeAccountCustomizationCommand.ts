@@ -100,7 +100,7 @@ export interface DescribeAccountCustomizationCommandOutput
  * import { QuickSightClient, DescribeAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeAccountCustomizationRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE",
  *   Resolved: true || false,

@@ -42,7 +42,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * import { KafkaClient, ListConfigurationsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListConfigurationsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // ListConfigurationsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

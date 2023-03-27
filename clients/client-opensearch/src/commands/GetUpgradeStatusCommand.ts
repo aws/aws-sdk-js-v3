@@ -43,7 +43,7 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * import { OpenSearchClient, GetUpgradeStatusCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, GetUpgradeStatusCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // GetUpgradeStatusRequest
  *   DomainName: "STRING_VALUE", // required
  * };
  * const command = new GetUpgradeStatusCommand(input);

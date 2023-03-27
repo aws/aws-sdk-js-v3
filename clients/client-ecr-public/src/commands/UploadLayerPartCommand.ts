@@ -48,7 +48,7 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * import { ECRPUBLICClient, UploadLayerPartCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, UploadLayerPartCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
- * const input = {
+ * const input = { // UploadLayerPartRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
  *   uploadId: "STRING_VALUE", // required

@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, TagResourceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, TagResourceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // Tags // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,11 +42,11 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
  * import { PinpointClient, RemoveAttributesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, RemoveAttributesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // RemoveAttributesRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   AttributeType: "STRING_VALUE", // required
- *   UpdateAttributesRequest: {
- *     Blacklist: [
+ *   UpdateAttributesRequest: { // UpdateAttributesRequest
+ *     Blacklist: [ // ListOf__string
  *       "STRING_VALUE",
  *     ],
  *   },

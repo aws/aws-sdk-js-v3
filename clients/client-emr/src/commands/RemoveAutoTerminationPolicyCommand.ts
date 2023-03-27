@@ -42,7 +42,7 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * import { EMRClient, RemoveAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // RemoveAutoTerminationPolicyInput
  *   ClusterId: "STRING_VALUE", // required
  * };
  * const command = new RemoveAutoTerminationPolicyCommand(input);

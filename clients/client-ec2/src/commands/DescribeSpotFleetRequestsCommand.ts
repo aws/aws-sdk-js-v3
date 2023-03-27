@@ -48,11 +48,11 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * import { EC2Client, DescribeSpotFleetRequestsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotFleetRequestsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeSpotFleetRequestsRequest
  *   DryRun: true || false,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   SpotFleetRequestIds: [
+ *   SpotFleetRequestIds: [ // SpotFleetRequestIdList
  *     "STRING_VALUE",
  *   ],
  * };

@@ -44,9 +44,9 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * import { GuardDutyClient, InviteMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, InviteMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // InviteMembersRequest
  *   DetectorId: "STRING_VALUE", // required
- *   AccountIds: [ // required
+ *   AccountIds: [ // AccountIds // required
  *     "STRING_VALUE",
  *   ],
  *   DisableEmailNotification: true || false,

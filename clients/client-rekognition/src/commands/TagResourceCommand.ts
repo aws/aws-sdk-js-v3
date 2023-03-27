@@ -46,9 +46,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { RekognitionClient, TagResourceCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, TagResourceCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

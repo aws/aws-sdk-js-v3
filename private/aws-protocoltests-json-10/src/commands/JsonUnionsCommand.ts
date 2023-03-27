@@ -41,8 +41,8 @@ export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBea
  * import { JSONRPC10Client, JsonUnionsCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
  * // const { JSONRPC10Client, JsonUnionsCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
  * const client = new JSONRPC10Client(config);
- * const input = {
- *   contents: { // Union: only one key present
+ * const input = { // JsonUnionsInput
+ *   contents: { // MyUnion Union: only one key present
  *     stringValue: "STRING_VALUE",
  *     booleanValue: true || false,
  *     numberValue: Number("int"),
@@ -50,13 +50,13 @@ export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBea
  *     timestampValue: new Date("TIMESTAMP"),
  *     enumValue: "Foo" || "Baz" || "Bar" || "1" || "0",
  *     intEnumValue: 1 || 2 || 3,
- *     listValue: [
+ *     listValue: [ // StringList
  *       "STRING_VALUE",
  *     ],
- *     mapValue: {
+ *     mapValue: { // StringMap
  *       "<keys>": "STRING_VALUE",
  *     },
- *     structureValue: {
+ *     structureValue: { // GreetingStruct
  *       hi: "STRING_VALUE",
  *     },
  *   },

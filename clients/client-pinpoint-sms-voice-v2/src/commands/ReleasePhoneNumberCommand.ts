@@ -49,7 +49,7 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * import { PinpointSMSVoiceV2Client, ReleasePhoneNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, ReleasePhoneNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // ReleasePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required
  * };
  * const command = new ReleasePhoneNumberCommand(input);

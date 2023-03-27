@@ -48,7 +48,7 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * import { SignerClient, ListSigningJobsCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListSigningJobsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
- * const input = {
+ * const input = { // ListSigningJobsRequest
  *   status: "STRING_VALUE",
  *   platformId: "STRING_VALUE",
  *   requestedBy: "STRING_VALUE",

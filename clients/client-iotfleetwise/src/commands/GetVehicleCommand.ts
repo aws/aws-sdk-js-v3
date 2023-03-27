@@ -42,7 +42,7 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * import { IoTFleetWiseClient, GetVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // GetVehicleRequest
  *   vehicleName: "STRING_VALUE", // required
  * };
  * const command = new GetVehicleCommand(input);

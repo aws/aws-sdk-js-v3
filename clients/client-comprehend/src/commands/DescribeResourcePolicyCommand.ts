@@ -43,7 +43,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * import { ComprehendClient, DescribeResourcePolicyCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeResourcePolicyCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DescribeResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeResourcePolicyCommand(input);

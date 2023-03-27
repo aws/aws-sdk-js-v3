@@ -42,10 +42,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { FMSClient, TagResourceCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, TagResourceCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagList: [ // required
- *     {
+ *   TagList: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

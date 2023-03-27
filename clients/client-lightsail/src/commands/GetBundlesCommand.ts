@@ -50,7 +50,7 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * import { LightsailClient, GetBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetBundlesRequest
  *   includeInactive: true || false,
  *   pageToken: "STRING_VALUE",
  *   appCategory: "LfR",

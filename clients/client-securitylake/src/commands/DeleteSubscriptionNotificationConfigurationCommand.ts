@@ -49,7 +49,7 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  * import { SecurityLakeClient, DeleteSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {
+ * const input = { // DeleteSubscriptionNotificationConfigurationRequest
  *   subscriptionId: "STRING_VALUE", // required
  * };
  * const command = new DeleteSubscriptionNotificationConfigurationCommand(input);

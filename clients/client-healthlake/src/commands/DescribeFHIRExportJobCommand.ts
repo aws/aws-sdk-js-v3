@@ -42,7 +42,7 @@ export interface DescribeFHIRExportJobCommandOutput extends DescribeFHIRExportJo
  * import { HealthLakeClient, DescribeFHIRExportJobCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, DescribeFHIRExportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
- * const input = {
+ * const input = { // DescribeFHIRExportJobRequest
  *   DatastoreId: "STRING_VALUE", // required
  *   JobId: "STRING_VALUE", // required
  * };

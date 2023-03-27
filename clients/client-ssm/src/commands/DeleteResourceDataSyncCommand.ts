@@ -44,7 +44,7 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  * import { SSMClient, DeleteResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DeleteResourceDataSyncRequest
  *   SyncName: "STRING_VALUE", // required
  *   SyncType: "STRING_VALUE",
  * };

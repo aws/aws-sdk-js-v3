@@ -53,7 +53,7 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * import { PinpointSMSVoiceV2Client, PutKeywordCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, PutKeywordCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // PutKeywordRequest
  *   OriginationIdentity: "STRING_VALUE", // required
  *   Keyword: "STRING_VALUE", // required
  *   KeywordMessage: "STRING_VALUE", // required

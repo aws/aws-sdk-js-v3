@@ -44,14 +44,14 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * import { FSxClient, DescribeStorageVirtualMachinesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeStorageVirtualMachinesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
- *   StorageVirtualMachineIds: [
+ * const input = { // DescribeStorageVirtualMachinesRequest
+ *   StorageVirtualMachineIds: [ // StorageVirtualMachineIds
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // StorageVirtualMachineFilters
+ *     { // StorageVirtualMachineFilter
  *       Name: "file-system-id",
- *       Values: [
+ *       Values: [ // StorageVirtualMachineFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

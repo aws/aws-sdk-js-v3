@@ -42,8 +42,8 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * import { IoTFleetWiseClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
- *   cloudWatchLogDelivery: {
+ * const input = { // PutLoggingOptionsRequest
+ *   cloudWatchLogDelivery: { // CloudWatchLogDeliveryOptions
  *     logType: "STRING_VALUE", // required
  *     logGroupName: "STRING_VALUE",
  *   },

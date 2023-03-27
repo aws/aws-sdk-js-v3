@@ -42,22 +42,22 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * import { GlueClient, ListDataQualityRulesetsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityRulesetsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListDataQualityRulesetsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filter: {
+ *   Filter: { // DataQualityRulesetFilterCriteria
  *     Name: "STRING_VALUE",
  *     Description: "STRING_VALUE",
  *     CreatedBefore: new Date("TIMESTAMP"),
  *     CreatedAfter: new Date("TIMESTAMP"),
  *     LastModifiedBefore: new Date("TIMESTAMP"),
  *     LastModifiedAfter: new Date("TIMESTAMP"),
- *     TargetTable: {
+ *     TargetTable: { // DataQualityTargetTable
  *       TableName: "STRING_VALUE", // required
  *       DatabaseName: "STRING_VALUE", // required
  *     },
  *   },
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

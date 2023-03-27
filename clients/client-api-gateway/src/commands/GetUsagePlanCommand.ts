@@ -42,7 +42,7 @@ export interface GetUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {
  * import { APIGatewayClient, GetUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetUsagePlanRequest
  *   usagePlanId: "STRING_VALUE", // required
  * };
  * const command = new GetUsagePlanCommand(input);

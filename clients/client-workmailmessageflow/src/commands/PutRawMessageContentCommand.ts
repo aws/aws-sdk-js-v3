@@ -59,10 +59,10 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * import { WorkMailMessageFlowClient, PutRawMessageContentCommand } from "@aws-sdk/client-workmailmessageflow"; // ES Modules import
  * // const { WorkMailMessageFlowClient, PutRawMessageContentCommand } = require("@aws-sdk/client-workmailmessageflow"); // CommonJS import
  * const client = new WorkMailMessageFlowClient(config);
- * const input = {
+ * const input = { // PutRawMessageContentRequest
  *   messageId: "STRING_VALUE", // required
- *   content: {
- *     s3Reference: {
+ *   content: { // RawMessageContent
+ *     s3Reference: { // S3Reference
  *       bucket: "STRING_VALUE", // required
  *       key: "STRING_VALUE", // required
  *       objectVersion: "STRING_VALUE",

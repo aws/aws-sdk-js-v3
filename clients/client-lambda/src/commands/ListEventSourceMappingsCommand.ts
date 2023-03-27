@@ -43,7 +43,7 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * import { LambdaClient, ListEventSourceMappingsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListEventSourceMappingsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // ListEventSourceMappingsRequest
  *   EventSourceArn: "STRING_VALUE",
  *   FunctionName: "STRING_VALUE",
  *   Marker: "STRING_VALUE",

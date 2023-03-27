@@ -42,7 +42,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { AppRunnerClient, ListServicesCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListServicesCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // ListServicesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

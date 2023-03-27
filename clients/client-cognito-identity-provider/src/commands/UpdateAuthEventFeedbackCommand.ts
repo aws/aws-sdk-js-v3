@@ -53,7 +53,7 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * import { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // UpdateAuthEventFeedbackRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE", // required
  *   EventId: "STRING_VALUE", // required

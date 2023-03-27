@@ -68,45 +68,45 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { KinesisAnalyticsClient, CreateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, CreateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
- * const input = {
+ * const input = { // CreateApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   ApplicationDescription: "STRING_VALUE",
- *   Inputs: [
- *     {
+ *   Inputs: [ // Inputs
+ *     { // Input
  *       NamePrefix: "STRING_VALUE", // required
- *       InputProcessingConfiguration: {
- *         InputLambdaProcessor: {
+ *       InputProcessingConfiguration: { // InputProcessingConfiguration
+ *         InputLambdaProcessor: { // InputLambdaProcessor
  *           ResourceARN: "STRING_VALUE", // required
  *           RoleARN: "STRING_VALUE", // required
  *         },
  *       },
- *       KinesisStreamsInput: {
+ *       KinesisStreamsInput: { // KinesisStreamsInput
  *         ResourceARN: "STRING_VALUE", // required
  *         RoleARN: "STRING_VALUE", // required
  *       },
- *       KinesisFirehoseInput: {
+ *       KinesisFirehoseInput: { // KinesisFirehoseInput
  *         ResourceARN: "STRING_VALUE", // required
  *         RoleARN: "STRING_VALUE", // required
  *       },
- *       InputParallelism: {
+ *       InputParallelism: { // InputParallelism
  *         Count: Number("int"),
  *       },
- *       InputSchema: {
- *         RecordFormat: {
+ *       InputSchema: { // SourceSchema
+ *         RecordFormat: { // RecordFormat
  *           RecordFormatType: "STRING_VALUE", // required
- *           MappingParameters: {
- *             JSONMappingParameters: {
+ *           MappingParameters: { // MappingParameters
+ *             JSONMappingParameters: { // JSONMappingParameters
  *               RecordRowPath: "STRING_VALUE", // required
  *             },
- *             CSVMappingParameters: {
+ *             CSVMappingParameters: { // CSVMappingParameters
  *               RecordRowDelimiter: "STRING_VALUE", // required
  *               RecordColumnDelimiter: "STRING_VALUE", // required
  *             },
  *           },
  *         },
  *         RecordEncoding: "STRING_VALUE",
- *         RecordColumns: [ // required
- *           {
+ *         RecordColumns: [ // RecordColumns // required
+ *           { // RecordColumn
  *             Name: "STRING_VALUE", // required
  *             Mapping: "STRING_VALUE",
  *             SqlType: "STRING_VALUE", // required
@@ -115,35 +115,35 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       },
  *     },
  *   ],
- *   Outputs: [
- *     {
+ *   Outputs: [ // Outputs
+ *     { // Output
  *       Name: "STRING_VALUE", // required
- *       KinesisStreamsOutput: {
+ *       KinesisStreamsOutput: { // KinesisStreamsOutput
  *         ResourceARN: "STRING_VALUE", // required
  *         RoleARN: "STRING_VALUE", // required
  *       },
- *       KinesisFirehoseOutput: {
+ *       KinesisFirehoseOutput: { // KinesisFirehoseOutput
  *         ResourceARN: "STRING_VALUE", // required
  *         RoleARN: "STRING_VALUE", // required
  *       },
- *       LambdaOutput: {
+ *       LambdaOutput: { // LambdaOutput
  *         ResourceARN: "STRING_VALUE", // required
  *         RoleARN: "STRING_VALUE", // required
  *       },
- *       DestinationSchema: {
+ *       DestinationSchema: { // DestinationSchema
  *         RecordFormatType: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
- *   CloudWatchLoggingOptions: [
- *     {
+ *   CloudWatchLoggingOptions: [ // CloudWatchLoggingOptions
+ *     { // CloudWatchLoggingOption
  *       LogStreamARN: "STRING_VALUE", // required
  *       RoleARN: "STRING_VALUE", // required
  *     },
  *   ],
  *   ApplicationCode: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

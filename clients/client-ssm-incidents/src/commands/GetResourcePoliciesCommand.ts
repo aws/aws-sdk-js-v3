@@ -42,7 +42,7 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  * import { SSMIncidentsClient, GetResourcePoliciesCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // GetResourcePoliciesInput
  *   resourceArn: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

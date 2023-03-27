@@ -40,7 +40,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * import { CloudSearchClient, DeleteDomainCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteDomainCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DeleteDomainRequest
  *   DomainName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDomainCommand(input);

@@ -42,7 +42,7 @@ export interface UpgradeLensReviewCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, UpgradeLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpgradeLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // UpgradeLensReviewInput
  *   WorkloadId: "STRING_VALUE", // required
  *   LensAlias: "STRING_VALUE", // required
  *   MilestoneName: "STRING_VALUE", // required

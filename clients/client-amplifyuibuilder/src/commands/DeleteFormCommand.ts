@@ -42,7 +42,7 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  * import { AmplifyUIBuilderClient, DeleteFormCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, DeleteFormCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
- * const input = {
+ * const input = { // DeleteFormRequest
  *   appId: "STRING_VALUE", // required
  *   environmentName: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required

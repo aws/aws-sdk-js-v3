@@ -47,11 +47,11 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
  * import { MgnClient, TerminateTargetInstancesCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, TerminateTargetInstancesCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
- *   sourceServerIDs: [ // required
+ * const input = { // TerminateTargetInstancesRequest
+ *   sourceServerIDs: [ // TerminateTargetInstancesRequestSourceServerIDs // required
  *     "STRING_VALUE",
  *   ],
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,11 +42,11 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * import { SSMClient, DescribeAvailablePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAvailablePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeAvailablePatchesRequest
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // PatchOrchestratorFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

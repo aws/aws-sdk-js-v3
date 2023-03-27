@@ -50,8 +50,8 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
  * import { ComprehendClient, BatchDetectEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
- *   TextList: [ // required
+ * const input = { // BatchDetectEntitiesRequest
+ *   TextList: [ // CustomerInputStringList // required
  *     "STRING_VALUE",
  *   ],
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required

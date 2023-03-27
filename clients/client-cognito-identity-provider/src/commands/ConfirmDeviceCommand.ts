@@ -52,10 +52,10 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * import { CognitoIdentityProviderClient, ConfirmDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ConfirmDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // ConfirmDeviceRequest
  *   AccessToken: "STRING_VALUE", // required
  *   DeviceKey: "STRING_VALUE", // required
- *   DeviceSecretVerifierConfig: {
+ *   DeviceSecretVerifierConfig: { // DeviceSecretVerifierConfigType
  *     PasswordVerifier: "STRING_VALUE",
  *     Salt: "STRING_VALUE",
  *   },

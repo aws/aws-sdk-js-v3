@@ -48,7 +48,7 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * import { CodePipelineClient, GetPipelineStateCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetPipelineStateCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // GetPipelineStateInput
  *   name: "STRING_VALUE", // required
  * };
  * const command = new GetPipelineStateCommand(input);

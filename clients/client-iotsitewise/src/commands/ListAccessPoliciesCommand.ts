@@ -43,7 +43,7 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * import { IoTSiteWiseClient, ListAccessPoliciesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // ListAccessPoliciesRequest
  *   identityType: "USER" || "GROUP" || "IAM",
  *   identityId: "STRING_VALUE",
  *   resourceType: "PORTAL" || "PROJECT",

@@ -48,9 +48,9 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * import { ChimeClient, CreatePhoneNumberOrderCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreatePhoneNumberOrderCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreatePhoneNumberOrderRequest
  *   ProductType: "STRING_VALUE", // required
- *   E164PhoneNumbers: [ // required
+ *   E164PhoneNumbers: [ // E164PhoneNumberList // required
  *     "STRING_VALUE",
  *   ],
  * };

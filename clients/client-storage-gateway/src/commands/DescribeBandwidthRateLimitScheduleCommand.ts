@@ -60,7 +60,7 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  * import { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DescribeBandwidthRateLimitScheduleInput
  *   GatewayARN: "STRING_VALUE", // required
  * };
  * const command = new DescribeBandwidthRateLimitScheduleCommand(input);

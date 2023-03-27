@@ -79,9 +79,9 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * import { FirehoseClient, StartDeliveryStreamEncryptionCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, StartDeliveryStreamEncryptionCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
- * const input = {
+ * const input = { // StartDeliveryStreamEncryptionInput
  *   DeliveryStreamName: "STRING_VALUE", // required
- *   DeliveryStreamEncryptionConfigurationInput: {
+ *   DeliveryStreamEncryptionConfigurationInput: { // DeliveryStreamEncryptionConfigurationInput
  *     KeyARN: "STRING_VALUE",
  *     KeyType: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK", // required
  *   },

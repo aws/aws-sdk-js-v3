@@ -44,7 +44,7 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  * import { ElastiCacheClient, DescribeCacheParameterGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheParameterGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DescribeCacheParameterGroupsMessage
  *   CacheParameterGroupName: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",

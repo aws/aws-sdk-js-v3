@@ -62,11 +62,11 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * import { ACMPCAClient, CreateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, CreateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
- *   CertificateAuthorityConfiguration: {
+ * const input = { // CreateCertificateAuthorityRequest
+ *   CertificateAuthorityConfiguration: { // CertificateAuthorityConfiguration
  *     KeyAlgorithm: "RSA_2048" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1", // required
  *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
- *     Subject: {
+ *     Subject: { // ASN1Subject
  *       Country: "STRING_VALUE",
  *       Organization: "STRING_VALUE",
  *       OrganizationalUnit: "STRING_VALUE",
@@ -81,15 +81,15 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *       Initials: "STRING_VALUE",
  *       Pseudonym: "STRING_VALUE",
  *       GenerationQualifier: "STRING_VALUE",
- *       CustomAttributes: [
- *         {
+ *       CustomAttributes: [ // CustomAttributeList
+ *         { // CustomAttribute
  *           ObjectIdentifier: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     CsrExtensions: {
- *       KeyUsage: {
+ *     CsrExtensions: { // CsrExtensions
+ *       KeyUsage: { // KeyUsage
  *         DigitalSignature: true || false,
  *         NonRepudiation: true || false,
  *         KeyEncipherment: true || false,
@@ -100,14 +100,14 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *         EncipherOnly: true || false,
  *         DecipherOnly: true || false,
  *       },
- *       SubjectInformationAccess: [
- *         {
- *           AccessMethod: {
+ *       SubjectInformationAccess: [ // AccessDescriptionList
+ *         { // AccessDescription
+ *           AccessMethod: { // AccessMethod
  *             CustomObjectIdentifier: "STRING_VALUE",
  *             AccessMethodType: "CA_REPOSITORY" || "RESOURCE_PKI_MANIFEST" || "RESOURCE_PKI_NOTIFY",
  *           },
- *           AccessLocation: {
- *             OtherName: {
+ *           AccessLocation: { // GeneralName
+ *             OtherName: { // OtherName
  *               TypeId: "STRING_VALUE", // required
  *               Value: "STRING_VALUE", // required
  *             },
@@ -135,7 +135,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *                 },
  *               ],
  *             },
- *             EdiPartyName: {
+ *             EdiPartyName: { // EdiPartyName
  *               PartyName: "STRING_VALUE", // required
  *               NameAssigner: "STRING_VALUE",
  *             },
@@ -147,15 +147,15 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *       ],
  *     },
  *   },
- *   RevocationConfiguration: {
- *     CrlConfiguration: {
+ *   RevocationConfiguration: { // RevocationConfiguration
+ *     CrlConfiguration: { // CrlConfiguration
  *       Enabled: true || false, // required
  *       ExpirationInDays: Number("int"),
  *       CustomCname: "STRING_VALUE",
  *       S3BucketName: "STRING_VALUE",
  *       S3ObjectAcl: "PUBLIC_READ" || "BUCKET_OWNER_FULL_CONTROL",
  *     },
- *     OcspConfiguration: {
+ *     OcspConfiguration: { // OcspConfiguration
  *       Enabled: true || false, // required
  *       OcspCustomCname: "STRING_VALUE",
  *     },
@@ -163,8 +163,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *   CertificateAuthorityType: "ROOT" || "SUBORDINATE", // required
  *   IdempotencyToken: "STRING_VALUE",
  *   KeyStorageSecurityStandard: "FIPS_140_2_LEVEL_2_OR_HIGHER" || "FIPS_140_2_LEVEL_3_OR_HIGHER",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

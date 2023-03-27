@@ -59,11 +59,11 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * import { RDSClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ResetDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required
  *   ResetAllParameters: true || false,
- *   Parameters: [
- *     {
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
  *       ParameterName: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       Description: "STRING_VALUE",
@@ -74,7 +74,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *       IsModifiable: true || false,
  *       MinimumEngineVersion: "STRING_VALUE",
  *       ApplyMethod: "immediate" || "pending-reboot",
- *       SupportedEngineModes: [
+ *       SupportedEngineModes: [ // EngineModeList
  *         "STRING_VALUE",
  *       ],
  *     },

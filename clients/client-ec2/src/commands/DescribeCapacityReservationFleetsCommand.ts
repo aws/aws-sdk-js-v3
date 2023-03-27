@@ -44,16 +44,16 @@ export interface DescribeCapacityReservationFleetsCommandOutput
  * import { EC2Client, DescribeCapacityReservationFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeCapacityReservationFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   CapacityReservationFleetIds: [
+ * const input = { // DescribeCapacityReservationFleetsRequest
+ *   CapacityReservationFleetIds: [ // CapacityReservationFleetIdSet
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

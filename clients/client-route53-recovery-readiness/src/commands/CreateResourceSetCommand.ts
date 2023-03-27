@@ -46,34 +46,34 @@ export interface CreateResourceSetCommandOutput extends CreateResourceSetRespons
  * import { Route53RecoveryReadinessClient, CreateResourceSetCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateResourceSetCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // CreateResourceSetRequest
  *   ResourceSetName: "STRING_VALUE", // required
  *   ResourceSetType: "STRING_VALUE", // required
- *   Resources: [ // required
- *     {
+ *   Resources: [ // __listOfResource // required
+ *     { // Resource
  *       ComponentId: "STRING_VALUE",
- *       DnsTargetResource: {
+ *       DnsTargetResource: { // DNSTargetResource
  *         DomainName: "STRING_VALUE",
  *         HostedZoneArn: "STRING_VALUE",
  *         RecordSetId: "STRING_VALUE",
  *         RecordType: "STRING_VALUE",
- *         TargetResource: {
- *           NLBResource: {
+ *         TargetResource: { // TargetResource
+ *           NLBResource: { // NLBResource
  *             Arn: "STRING_VALUE",
  *           },
- *           R53Resource: {
+ *           R53Resource: { // R53ResourceRecord
  *             DomainName: "STRING_VALUE",
  *             RecordSetId: "STRING_VALUE",
  *           },
  *         },
  *       },
- *       ReadinessScopes: [
+ *       ReadinessScopes: [ // __listOf__string
  *         "STRING_VALUE",
  *       ],
  *       ResourceArn: "STRING_VALUE",
  *     },
  *   ],
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

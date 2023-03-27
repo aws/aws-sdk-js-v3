@@ -39,7 +39,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * import { SageMakerClient, ListAppsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAppsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListAppsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   SortOrder: "Ascending" || "Descending",

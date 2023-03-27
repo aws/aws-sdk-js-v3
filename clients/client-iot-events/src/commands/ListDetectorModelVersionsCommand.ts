@@ -43,7 +43,7 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * import { IoTEventsClient, ListDetectorModelVersionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListDetectorModelVersionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
- * const input = {
+ * const input = { // ListDetectorModelVersionsRequest
  *   detectorModelName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

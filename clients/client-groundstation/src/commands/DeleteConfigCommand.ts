@@ -42,7 +42,7 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * import { GroundStationClient, DeleteConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DeleteConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // DeleteConfigRequest
  *   configId: "STRING_VALUE", // required
  *   configType: "STRING_VALUE", // required
  * };

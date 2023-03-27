@@ -55,7 +55,7 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
  * import { Route53DomainsClient, CancelDomainTransferToAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, CancelDomainTransferToAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // CancelDomainTransferToAnotherAwsAccountRequest
  *   DomainName: "STRING_VALUE", // required
  * };
  * const command = new CancelDomainTransferToAnotherAwsAccountCommand(input);

@@ -42,9 +42,9 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * import { FMSClient, BatchAssociateResourceCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, BatchAssociateResourceCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // BatchAssociateResourceRequest
  *   ResourceSetIdentifier: "STRING_VALUE", // required
- *   Items: [ // required
+ *   Items: [ // IdentifierList // required
  *     "STRING_VALUE",
  *   ],
  * };

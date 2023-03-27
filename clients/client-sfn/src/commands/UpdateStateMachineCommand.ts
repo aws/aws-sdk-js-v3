@@ -61,22 +61,22 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * import { SFNClient, UpdateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, UpdateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // UpdateStateMachineInput
  *   stateMachineArn: "STRING_VALUE", // required
  *   definition: "STRING_VALUE",
  *   roleArn: "STRING_VALUE",
- *   loggingConfiguration: {
+ *   loggingConfiguration: { // LoggingConfiguration
  *     level: "ALL" || "ERROR" || "FATAL" || "OFF",
  *     includeExecutionData: true || false,
- *     destinations: [
- *       {
- *         cloudWatchLogsLogGroup: {
+ *     destinations: [ // LogDestinationList
+ *       { // LogDestination
+ *         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
  *           logGroupArn: "STRING_VALUE",
  *         },
  *       },
  *     ],
  *   },
- *   tracingConfiguration: {
+ *   tracingConfiguration: { // TracingConfiguration
  *     enabled: true || false,
  *   },
  * };

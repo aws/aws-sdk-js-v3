@@ -45,16 +45,16 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  * import { CodeGuruReviewerClient, CreateCodeReviewCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, CreateCodeReviewCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
+ * const input = { // CreateCodeReviewRequest
  *   Name: "STRING_VALUE", // required
  *   RepositoryAssociationArn: "STRING_VALUE", // required
- *   Type: {
- *     RepositoryAnalysis: {
- *       RepositoryHead: {
+ *   Type: { // CodeReviewType
+ *     RepositoryAnalysis: { // RepositoryAnalysis
+ *       RepositoryHead: { // RepositoryHeadSourceCodeType
  *         BranchName: "STRING_VALUE", // required
  *       },
- *       SourceCodeType: {
- *         CommitDiff: {
+ *       SourceCodeType: { // SourceCodeType
+ *         CommitDiff: { // CommitDiffSourceCodeType
  *           SourceCommit: "STRING_VALUE",
  *           DestinationCommit: "STRING_VALUE",
  *           MergeBaseCommit: "STRING_VALUE",
@@ -62,24 +62,24 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  *         RepositoryHead: {
  *           BranchName: "STRING_VALUE", // required
  *         },
- *         BranchDiff: {
+ *         BranchDiff: { // BranchDiffSourceCodeType
  *           SourceBranchName: "STRING_VALUE", // required
  *           DestinationBranchName: "STRING_VALUE", // required
  *         },
- *         S3BucketRepository: {
+ *         S3BucketRepository: { // S3BucketRepository
  *           Name: "STRING_VALUE", // required
- *           Details: {
+ *           Details: { // S3RepositoryDetails
  *             BucketName: "STRING_VALUE",
- *             CodeArtifacts: {
+ *             CodeArtifacts: { // CodeArtifacts
  *               SourceCodeArtifactsObjectKey: "STRING_VALUE", // required
  *               BuildArtifactsObjectKey: "STRING_VALUE",
  *             },
  *           },
  *         },
- *         RequestMetadata: {
+ *         RequestMetadata: { // RequestMetadata
  *           RequestId: "STRING_VALUE",
  *           Requester: "STRING_VALUE",
- *           EventInfo: {
+ *           EventInfo: { // EventInfo
  *             Name: "STRING_VALUE",
  *             State: "STRING_VALUE",
  *           },
@@ -87,7 +87,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  *         },
  *       },
  *     },
- *     AnalysisTypes: [
+ *     AnalysisTypes: [ // AnalysisTypes
  *       "Security" || "CodeQuality",
  *     ],
  *   },

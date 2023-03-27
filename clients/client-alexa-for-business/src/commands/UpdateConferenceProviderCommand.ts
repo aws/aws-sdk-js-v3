@@ -42,20 +42,20 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * import { AlexaForBusinessClient, UpdateConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // UpdateConferenceProviderRequest
  *   ConferenceProviderArn: "STRING_VALUE", // required
  *   ConferenceProviderType: "STRING_VALUE", // required
- *   IPDialIn: {
+ *   IPDialIn: { // IPDialIn
  *     Endpoint: "STRING_VALUE", // required
  *     CommsProtocol: "STRING_VALUE", // required
  *   },
- *   PSTNDialIn: {
+ *   PSTNDialIn: { // PSTNDialIn
  *     CountryCode: "STRING_VALUE", // required
  *     PhoneNumber: "STRING_VALUE", // required
  *     OneClickIdDelay: "STRING_VALUE", // required
  *     OneClickPinDelay: "STRING_VALUE", // required
  *   },
- *   MeetingSetting: {
+ *   MeetingSetting: { // MeetingSetting
  *     RequirePin: "STRING_VALUE", // required
  *   },
  * };

@@ -46,9 +46,9 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  * import { WorkSpacesClient, ModifyWorkspaceAccessPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspaceAccessPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // ModifyWorkspaceAccessPropertiesRequest
  *   ResourceId: "STRING_VALUE", // required
- *   WorkspaceAccessProperties: {
+ *   WorkspaceAccessProperties: { // WorkspaceAccessProperties
  *     DeviceTypeWindows: "ALLOW" || "DENY",
  *     DeviceTypeOsx: "ALLOW" || "DENY",
  *     DeviceTypeWeb: "ALLOW" || "DENY",

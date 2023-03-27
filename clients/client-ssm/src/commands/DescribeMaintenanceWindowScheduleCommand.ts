@@ -44,21 +44,21 @@ export interface DescribeMaintenanceWindowScheduleCommandOutput
  * import { SSMClient, DescribeMaintenanceWindowScheduleCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowScheduleCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeMaintenanceWindowScheduleRequest
  *   WindowId: "STRING_VALUE",
- *   Targets: [
- *     {
+ *   Targets: [ // Targets
+ *     { // Target
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // TargetValues
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   ResourceType: "INSTANCE" || "RESOURCE_GROUP",
- *   Filters: [
- *     {
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // PatchOrchestratorFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -79,7 +79,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutBucketPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutBucketPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // PutBucketPolicyRequest
  *   AccountId: "STRING_VALUE",
  *   Bucket: "STRING_VALUE", // required
  *   ConfirmRemoveSelfBucketAccess: true || false,

@@ -47,14 +47,14 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * import { SSOAdminClient, CreatePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreatePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // CreatePermissionSetRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   InstanceArn: "STRING_VALUE", // required
  *   SessionDuration: "STRING_VALUE",
  *   RelayState: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

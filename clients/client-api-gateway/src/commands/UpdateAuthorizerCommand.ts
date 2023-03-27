@@ -42,11 +42,11 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * import { APIGatewayClient, UpdateAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // UpdateAuthorizerRequest
  *   restApiId: "STRING_VALUE", // required
  *   authorizerId: "STRING_VALUE", // required
- *   patchOperations: [
- *     {
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
  *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
  *       path: "STRING_VALUE",
  *       value: "STRING_VALUE",

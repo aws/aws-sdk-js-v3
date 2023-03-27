@@ -46,7 +46,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * import { ElasticTranscoderClient, ListPipelinesCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ListPipelinesCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // ListPipelinesRequest
  *   Ascending: "STRING_VALUE",
  *   PageToken: "STRING_VALUE",
  * };

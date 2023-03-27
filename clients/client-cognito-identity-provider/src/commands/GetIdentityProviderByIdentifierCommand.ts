@@ -49,7 +49,7 @@ export interface GetIdentityProviderByIdentifierCommandOutput
  * import { CognitoIdentityProviderClient, GetIdentityProviderByIdentifierCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetIdentityProviderByIdentifierCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // GetIdentityProviderByIdentifierRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   IdpIdentifier: "STRING_VALUE", // required
  * };

@@ -42,7 +42,7 @@ export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceRespo
  * import { MediaTailorClient, DescribeLiveSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeLiveSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // DescribeLiveSourceRequest
  *   LiveSourceName: "STRING_VALUE", // required
  *   SourceLocationName: "STRING_VALUE", // required
  * };

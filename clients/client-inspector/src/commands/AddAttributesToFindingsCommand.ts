@@ -43,12 +43,12 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * import { InspectorClient, AddAttributesToFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, AddAttributesToFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
- *   findingArns: [ // required
+ * const input = { // AddAttributesToFindingsRequest
+ *   findingArns: [ // AddRemoveAttributesFindingArnList // required
  *     "STRING_VALUE",
  *   ],
- *   attributes: [ // required
- *     {
+ *   attributes: [ // UserAttributeList // required
+ *     { // Attribute
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },

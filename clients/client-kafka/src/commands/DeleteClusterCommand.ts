@@ -42,7 +42,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * import { KafkaClient, DeleteClusterCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DeleteClusterCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // DeleteClusterRequest
  *   ClusterArn: "STRING_VALUE", // required
  *   CurrentVersion: "STRING_VALUE",
  * };

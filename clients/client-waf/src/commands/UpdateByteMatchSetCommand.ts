@@ -88,14 +88,14 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * import { WAFClient, UpdateByteMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateByteMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // UpdateByteMatchSetRequest
  *   ByteMatchSetId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
- *   Updates: [ // required
- *     {
+ *   Updates: [ // ByteMatchSetUpdates // required
+ *     { // ByteMatchSetUpdate
  *       Action: "STRING_VALUE", // required
- *       ByteMatchTuple: {
- *         FieldToMatch: {
+ *       ByteMatchTuple: { // ByteMatchTuple
+ *         FieldToMatch: { // FieldToMatch
  *           Type: "STRING_VALUE", // required
  *           Data: "STRING_VALUE",
  *         },

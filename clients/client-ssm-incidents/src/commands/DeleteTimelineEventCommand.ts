@@ -42,7 +42,7 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  * import { SSMIncidentsClient, DeleteTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, DeleteTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // DeleteTimelineEventInput
  *   incidentRecordArn: "STRING_VALUE", // required
  *   eventId: "STRING_VALUE", // required
  * };

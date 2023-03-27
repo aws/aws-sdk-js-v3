@@ -46,7 +46,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * import { ApplicationInsightsClient, DescribeApplicationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // DescribeApplicationRequest
  *   ResourceGroupName: "STRING_VALUE", // required
  * };
  * const command = new DescribeApplicationCommand(input);

@@ -43,8 +43,8 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput
  * import { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
- *   myMap: {
+ * const input = { // FlattenedXmlMapWithXmlNameInputOutput
+ *   myMap: { // FlattenedXmlMapWithXmlNameInputOutputMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

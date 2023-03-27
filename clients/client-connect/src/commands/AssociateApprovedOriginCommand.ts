@@ -43,7 +43,7 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  * import { ConnectClient, AssociateApprovedOriginCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateApprovedOriginCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // AssociateApprovedOriginRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Origin: "STRING_VALUE", // required
  * };

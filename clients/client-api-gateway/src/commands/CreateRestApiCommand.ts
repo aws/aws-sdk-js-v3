@@ -42,18 +42,18 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * import { APIGatewayClient, CreateRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // CreateRestApiRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   version: "STRING_VALUE",
  *   cloneFrom: "STRING_VALUE",
- *   binaryMediaTypes: [
+ *   binaryMediaTypes: [ // ListOfString
  *     "STRING_VALUE",
  *   ],
  *   minimumCompressionSize: Number("int"),
  *   apiKeySource: "HEADER" || "AUTHORIZER",
- *   endpointConfiguration: {
- *     types: [
+ *   endpointConfiguration: { // EndpointConfiguration
+ *     types: [ // ListOfEndpointType
  *       "REGIONAL" || "EDGE" || "PRIVATE",
  *     ],
  *     vpcEndpointIds: [
@@ -61,7 +61,7 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  *     ],
  *   },
  *   policy: "STRING_VALUE",
- *   tags: {
+ *   tags: { // MapOfStringToString
  *     "<keys>": "STRING_VALUE",
  *   },
  *   disableExecuteApiEndpoint: true || false,

@@ -46,7 +46,7 @@ export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolA
  * import { EC2Client, ReleaseIpamPoolAllocationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReleaseIpamPoolAllocationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ReleaseIpamPoolAllocationRequest
  *   DryRun: true || false,
  *   IpamPoolId: "STRING_VALUE", // required
  *   Cidr: "STRING_VALUE", // required

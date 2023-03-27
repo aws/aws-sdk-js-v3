@@ -53,19 +53,19 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * import { SsmSapClient, RegisterApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, RegisterApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = {
+ * const input = { // RegisterApplicationInput
  *   ApplicationId: "STRING_VALUE", // required
  *   ApplicationType: "STRING_VALUE", // required
- *   Instances: [ // required
+ *   Instances: [ // InstanceList // required
  *     "STRING_VALUE",
  *   ],
  *   SapInstanceNumber: "STRING_VALUE",
  *   Sid: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Credentials: [ // required
- *     {
+ *   Credentials: [ // ApplicationCredentialList // required
+ *     { // ApplicationCredential
  *       DatabaseName: "STRING_VALUE", // required
  *       CredentialType: "STRING_VALUE", // required
  *       SecretId: "STRING_VALUE", // required

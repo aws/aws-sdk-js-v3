@@ -44,7 +44,7 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * import { CloudWatchLogsClient, DescribeMetricFiltersCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeMetricFiltersCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DescribeMetricFiltersRequest
  *   logGroupName: "STRING_VALUE",
  *   filterNamePrefix: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

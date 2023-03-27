@@ -43,33 +43,33 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * import { IoTClient, CreateOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateOTAUpdateRequest
  *   otaUpdateId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   targets: [ // required
+ *   targets: [ // Targets // required
  *     "STRING_VALUE",
  *   ],
- *   protocols: [
+ *   protocols: [ // Protocols
  *     "MQTT" || "HTTP",
  *   ],
  *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
- *   awsJobExecutionsRolloutConfig: {
+ *   awsJobExecutionsRolloutConfig: { // AwsJobExecutionsRolloutConfig
  *     maximumPerMinute: Number("int"),
- *     exponentialRate: {
+ *     exponentialRate: { // AwsJobExponentialRolloutRate
  *       baseRatePerMinute: Number("int"), // required
  *       incrementFactor: Number("double"), // required
- *       rateIncreaseCriteria: {
+ *       rateIncreaseCriteria: { // AwsJobRateIncreaseCriteria
  *         numberOfNotifiedThings: Number("int"),
  *         numberOfSucceededThings: Number("int"),
  *       },
  *     },
  *   },
- *   awsJobPresignedUrlConfig: {
+ *   awsJobPresignedUrlConfig: { // AwsJobPresignedUrlConfig
  *     expiresInSec: Number("long"),
  *   },
- *   awsJobAbortConfig: {
- *     abortCriteriaList: [ // required
- *       {
+ *   awsJobAbortConfig: { // AwsJobAbortConfig
+ *     abortCriteriaList: [ // AwsJobAbortCriteriaList // required
+ *       { // AwsJobAbortCriteria
  *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
  *         action: "CANCEL", // required
  *         thresholdPercentage: Number("double"), // required
@@ -77,46 +77,46 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  *       },
  *     ],
  *   },
- *   awsJobTimeoutConfig: {
+ *   awsJobTimeoutConfig: { // AwsJobTimeoutConfig
  *     inProgressTimeoutInMinutes: Number("long"),
  *   },
- *   files: [ // required
- *     {
+ *   files: [ // OTAUpdateFiles // required
+ *     { // OTAUpdateFile
  *       fileName: "STRING_VALUE",
  *       fileType: Number("int"),
  *       fileVersion: "STRING_VALUE",
- *       fileLocation: {
- *         stream: {
+ *       fileLocation: { // FileLocation
+ *         stream: { // Stream
  *           streamId: "STRING_VALUE",
  *           fileId: Number("int"),
  *         },
- *         s3Location: {
+ *         s3Location: { // S3Location
  *           bucket: "STRING_VALUE",
  *           key: "STRING_VALUE",
  *           version: "STRING_VALUE",
  *         },
  *       },
- *       codeSigning: {
+ *       codeSigning: { // CodeSigning
  *         awsSignerJobId: "STRING_VALUE",
- *         startSigningJobParameter: {
- *           signingProfileParameter: {
+ *         startSigningJobParameter: { // StartSigningJobParameter
+ *           signingProfileParameter: { // SigningProfileParameter
  *             certificateArn: "STRING_VALUE",
  *             platform: "STRING_VALUE",
  *             certificatePathOnDevice: "STRING_VALUE",
  *           },
  *           signingProfileName: "STRING_VALUE",
- *           destination: {
- *             s3Destination: {
+ *           destination: { // Destination
+ *             s3Destination: { // S3Destination
  *               bucket: "STRING_VALUE",
  *               prefix: "STRING_VALUE",
  *             },
  *           },
  *         },
- *         customCodeSigning: {
- *           signature: {
+ *         customCodeSigning: { // CustomCodeSigning
+ *           signature: { // CodeSigningSignature
  *             inlineDocument: "BLOB_VALUE",
  *           },
- *           certificateChain: {
+ *           certificateChain: { // CodeSigningCertificateChain
  *             certificateName: "STRING_VALUE",
  *             inlineDocument: "STRING_VALUE",
  *           },
@@ -124,17 +124,17 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  *           signatureAlgorithm: "STRING_VALUE",
  *         },
  *       },
- *       attributes: {
+ *       attributes: { // AttributesMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
  *   ],
  *   roleArn: "STRING_VALUE", // required
- *   additionalParameters: {
+ *   additionalParameters: { // AdditionalParameterMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

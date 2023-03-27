@@ -44,7 +44,7 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * import { CodeCommitClient, DeleteFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // DeleteFileInput
  *   repositoryName: "STRING_VALUE", // required
  *   branchName: "STRING_VALUE", // required
  *   filePath: "STRING_VALUE", // required

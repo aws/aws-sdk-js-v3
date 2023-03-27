@@ -42,15 +42,15 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * import { AmplifyBackendClient, UpdateBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
- * const input = {
+ * const input = { // UpdateBackendStorageRequest
  *   AppId: "STRING_VALUE", // required
  *   BackendEnvironmentName: "STRING_VALUE", // required
- *   ResourceConfig: {
- *     Permissions: {
- *       Authenticated: [ // required
+ *   ResourceConfig: { // UpdateBackendStorageResourceConfig
+ *     Permissions: { // BackendStoragePermissions
+ *       Authenticated: [ // ListOfAuthenticatedElement // required
  *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
  *       ],
- *       UnAuthenticated: [
+ *       UnAuthenticated: [ // ListOfUnAuthenticatedElement
  *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
  *       ],
  *     },

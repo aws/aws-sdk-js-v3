@@ -45,7 +45,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * import { IoTFleetHubClient, ListApplicationsCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, ListApplicationsCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
  * const client = new IoTFleetHubClient(config);
- * const input = {
+ * const input = { // ListApplicationsRequest
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListApplicationsCommand(input);

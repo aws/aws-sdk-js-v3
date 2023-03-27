@@ -48,11 +48,11 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * import { EC2Client, ModifyInstanceCreditSpecificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceCreditSpecificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyInstanceCreditSpecificationRequest
  *   DryRun: true || false,
  *   ClientToken: "STRING_VALUE",
- *   InstanceCreditSpecifications: [ // required
- *     {
+ *   InstanceCreditSpecifications: [ // InstanceCreditSpecificationListRequest // required
+ *     { // InstanceCreditSpecificationRequest
  *       InstanceId: "STRING_VALUE", // required
  *       CpuCredits: "STRING_VALUE",
  *     },

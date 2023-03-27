@@ -42,7 +42,7 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  * import { AccessAnalyzerClient, CancelPolicyGenerationCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, CancelPolicyGenerationCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // CancelPolicyGenerationRequest
  *   jobId: "STRING_VALUE", // required
  * };
  * const command = new CancelPolicyGenerationCommand(input);

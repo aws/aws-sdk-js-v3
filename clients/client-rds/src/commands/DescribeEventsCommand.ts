@@ -49,19 +49,19 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * import { RDSClient, DescribeEventsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeEventsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DescribeEventsMessage
  *   SourceIdentifier: "STRING_VALUE",
  *   SourceType: "db-instance" || "db-parameter-group" || "db-security-group" || "db-snapshot" || "db-cluster" || "db-cluster-snapshot" || "custom-engine-version" || "db-proxy" || "blue-green-deployment",
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),
  *   Duration: Number("int"),
- *   EventCategories: [
+ *   EventCategories: [ // EventCategoriesList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

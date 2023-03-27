@@ -46,7 +46,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * import { MigrationHubRefactorSpacesClient, DeleteServiceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, DeleteServiceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
- * const input = {
+ * const input = { // DeleteServiceRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required
  *   ApplicationIdentifier: "STRING_VALUE", // required
  *   ServiceIdentifier: "STRING_VALUE", // required

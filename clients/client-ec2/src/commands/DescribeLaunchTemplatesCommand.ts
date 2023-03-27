@@ -42,18 +42,18 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * import { EC2Client, DescribeLaunchTemplatesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLaunchTemplatesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeLaunchTemplatesRequest
  *   DryRun: true || false,
- *   LaunchTemplateIds: [
+ *   LaunchTemplateIds: [ // LaunchTemplateIdStringList
  *     "STRING_VALUE",
  *   ],
- *   LaunchTemplateNames: [
+ *   LaunchTemplateNames: [ // LaunchTemplateNameStringList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

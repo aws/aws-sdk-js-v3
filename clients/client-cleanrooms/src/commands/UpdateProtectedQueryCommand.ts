@@ -46,7 +46,7 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * import { CleanRoomsClient, UpdateProtectedQueryCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateProtectedQueryCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // UpdateProtectedQueryInput
  *   membershipIdentifier: "STRING_VALUE", // required
  *   protectedQueryIdentifier: "STRING_VALUE", // required
  *   targetStatus: "STRING_VALUE", // required

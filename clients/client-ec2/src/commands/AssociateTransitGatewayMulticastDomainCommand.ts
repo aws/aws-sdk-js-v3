@@ -50,10 +50,10 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
  * import { EC2Client, AssociateTransitGatewayMulticastDomainCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateTransitGatewayMulticastDomainCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AssociateTransitGatewayMulticastDomainRequest
  *   TransitGatewayMulticastDomainId: "STRING_VALUE", // required
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // TransitGatewaySubnetIdList // required
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

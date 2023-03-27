@@ -53,7 +53,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * import { PinpointEmailClient, GetConfigurationSetEventDestinationsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetConfigurationSetEventDestinationsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // GetConfigurationSetEventDestinationsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  * };
  * const command = new GetConfigurationSetEventDestinationsCommand(input);

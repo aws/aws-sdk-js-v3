@@ -43,12 +43,12 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * import { CloudWatchEventsClient, PutPartnerEventsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutPartnerEventsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
- *   Entries: [ // required
- *     {
+ * const input = { // PutPartnerEventsRequest
+ *   Entries: [ // PutPartnerEventsRequestEntryList // required
+ *     { // PutPartnerEventsRequestEntry
  *       Time: new Date("TIMESTAMP"),
  *       Source: "STRING_VALUE",
- *       Resources: [
+ *       Resources: [ // EventResourceList
  *         "STRING_VALUE",
  *       ],
  *       DetailType: "STRING_VALUE",

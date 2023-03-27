@@ -47,7 +47,7 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
  * import { CloudFrontClient, GetCachePolicyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetCachePolicyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // GetCachePolicyConfigRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetCachePolicyConfigCommand(input);

@@ -43,9 +43,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { CostExplorerClient, UntagResourceCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, UntagResourceCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   ResourceTagKeys: [ // required
+ *   ResourceTagKeys: [ // ResourceTagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

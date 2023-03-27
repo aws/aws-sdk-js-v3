@@ -48,7 +48,7 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  * import { BudgetsClient, DescribeBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
- * const input = {
+ * const input = { // DescribeBudgetActionRequest
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
  *   ActionId: "STRING_VALUE", // required

@@ -48,11 +48,11 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * import { BillingconductorClient, UpdateBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UpdateBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // UpdateBillingGroupInput
  *   Arn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Status: "STRING_VALUE",
- *   ComputationPreference: {
+ *   ComputationPreference: { // ComputationPreference
  *     PricingPlanArn: "STRING_VALUE", // required
  *   },
  *   Description: "STRING_VALUE",

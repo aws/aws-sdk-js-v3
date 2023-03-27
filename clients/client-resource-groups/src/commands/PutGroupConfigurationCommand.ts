@@ -55,15 +55,15 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * import { ResourceGroupsClient, PutGroupConfigurationCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, PutGroupConfigurationCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = {
+ * const input = { // PutGroupConfigurationInput
  *   Group: "STRING_VALUE",
- *   Configuration: [
- *     {
+ *   Configuration: [ // GroupConfigurationList
+ *     { // GroupConfigurationItem
  *       Type: "STRING_VALUE", // required
- *       Parameters: [
- *         {
+ *       Parameters: [ // GroupParameterList
+ *         { // GroupConfigurationParameter
  *           Name: "STRING_VALUE", // required
- *           Values: [
+ *           Values: [ // GroupConfigurationParameterValueList
  *             "STRING_VALUE",
  *           ],
  *         },

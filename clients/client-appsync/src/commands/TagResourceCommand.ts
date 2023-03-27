@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { AppSyncClient, TagResourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, TagResourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

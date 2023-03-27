@@ -43,7 +43,7 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * import { BackupClient, ListRestoreJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRestoreJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // ListRestoreJobsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   ByAccountId: "STRING_VALUE",

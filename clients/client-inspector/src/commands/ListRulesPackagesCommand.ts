@@ -42,7 +42,7 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * import { InspectorClient, ListRulesPackagesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListRulesPackagesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
+ * const input = { // ListRulesPackagesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

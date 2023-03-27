@@ -48,7 +48,7 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
  * import { EC2Client, DeleteNetworkInsightsAccessScopeAnalysisCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInsightsAccessScopeAnalysisCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteNetworkInsightsAccessScopeAnalysisRequest
  *   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

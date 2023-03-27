@@ -46,7 +46,7 @@ export interface GetStudioComponentCommandOutput extends GetStudioComponentRespo
  * import { NimbleClient, GetStudioComponentCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStudioComponentCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // GetStudioComponentRequest
  *   studioComponentId: "STRING_VALUE", // required
  *   studioId: "STRING_VALUE", // required
  * };

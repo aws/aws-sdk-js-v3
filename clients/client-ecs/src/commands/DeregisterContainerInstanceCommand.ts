@@ -57,7 +57,7 @@ export interface DeregisterContainerInstanceCommandOutput
  * import { ECSClient, DeregisterContainerInstanceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeregisterContainerInstanceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // DeregisterContainerInstanceRequest
  *   cluster: "STRING_VALUE",
  *   containerInstance: "STRING_VALUE", // required
  *   force: true || false,

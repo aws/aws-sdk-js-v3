@@ -43,7 +43,7 @@ export interface GetPreparedStatementCommandOutput extends GetPreparedStatementO
  * import { AthenaClient, GetPreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetPreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // GetPreparedStatementInput
  *   StatementName: "STRING_VALUE", // required
  *   WorkGroup: "STRING_VALUE", // required
  * };

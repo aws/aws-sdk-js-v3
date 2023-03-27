@@ -52,8 +52,8 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  * import { GameLiftClient, DescribeGameSessionQueuesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameSessionQueuesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
- *   Names: [
+ * const input = { // DescribeGameSessionQueuesInput
+ *   Names: [ // GameSessionQueueNameOrArnList
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

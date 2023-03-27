@@ -42,7 +42,7 @@ export interface GetApiMappingCommandOutput extends GetApiMappingResponse, __Met
  * import { ApiGatewayV2Client, GetApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // GetApiMappingRequest
  *   ApiMappingId: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  * };

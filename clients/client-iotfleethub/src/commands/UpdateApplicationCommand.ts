@@ -45,7 +45,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { IoTFleetHubClient, UpdateApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, UpdateApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
  * const client = new IoTFleetHubClient(config);
- * const input = {
+ * const input = { // UpdateApplicationRequest
  *   applicationId: "STRING_VALUE", // required
  *   applicationName: "STRING_VALUE",
  *   applicationDescription: "STRING_VALUE",

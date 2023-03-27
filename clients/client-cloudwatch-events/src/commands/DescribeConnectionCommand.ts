@@ -42,7 +42,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * import { CloudWatchEventsClient, DescribeConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribeConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // DescribeConnectionRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeConnectionCommand(input);

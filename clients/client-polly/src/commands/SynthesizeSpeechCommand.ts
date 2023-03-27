@@ -55,15 +55,15 @@ export interface SynthesizeSpeechCommandOutput
  * import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, SynthesizeSpeechCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
- * const input = {
+ * const input = { // SynthesizeSpeechInput
  *   Engine: "standard" || "neural",
  *   LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI",
- *   LexiconNames: [
+ *   LexiconNames: [ // LexiconNameList
  *     "STRING_VALUE",
  *   ],
  *   OutputFormat: "json" || "mp3" || "ogg_vorbis" || "pcm", // required
  *   SampleRate: "STRING_VALUE",
- *   SpeechMarkTypes: [
+ *   SpeechMarkTypes: [ // SpeechMarkTypeList
  *     "sentence" || "ssml" || "viseme" || "word",
  *   ],
  *   Text: "STRING_VALUE", // required

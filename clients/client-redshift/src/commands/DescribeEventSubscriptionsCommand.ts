@@ -52,14 +52,14 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * import { RedshiftClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeEventSubscriptionsMessage
  *   SubscriptionName: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",
- *   TagKeys: [
+ *   TagKeys: [ // TagKeyList
  *     "STRING_VALUE",
  *   ],
- *   TagValues: [
+ *   TagValues: [ // TagValueList
  *     "STRING_VALUE",
  *   ],
  * };

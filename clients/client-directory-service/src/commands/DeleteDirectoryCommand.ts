@@ -46,7 +46,7 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * import { DirectoryServiceClient, DeleteDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DeleteDirectoryRequest
  *   DirectoryId: "STRING_VALUE", // required
  * };
  * const command = new DeleteDirectoryCommand(input);

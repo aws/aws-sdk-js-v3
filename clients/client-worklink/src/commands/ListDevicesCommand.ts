@@ -44,7 +44,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * import { WorkLinkClient, ListDevicesCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListDevicesCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // ListDevicesRequest
  *   FleetArn: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

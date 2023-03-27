@@ -43,38 +43,38 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  * import { RoboMakerClient, StartSimulationJobBatchCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, StartSimulationJobBatchCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // StartSimulationJobBatchRequest
  *   clientRequestToken: "STRING_VALUE",
- *   batchPolicy: {
+ *   batchPolicy: { // BatchPolicy
  *     timeoutInSeconds: Number("long"),
  *     maxConcurrency: Number("int"),
  *   },
- *   createSimulationJobRequests: [ // required
- *     {
- *       outputLocation: {
+ *   createSimulationJobRequests: [ // CreateSimulationJobRequests // required
+ *     { // SimulationJobRequest
+ *       outputLocation: { // OutputLocation
  *         s3Bucket: "STRING_VALUE",
  *         s3Prefix: "STRING_VALUE",
  *       },
- *       loggingConfig: {
+ *       loggingConfig: { // LoggingConfig
  *         recordAllRosTopics: true || false,
  *       },
  *       maxJobDurationInSeconds: Number("long"), // required
  *       iamRole: "STRING_VALUE",
  *       failureBehavior: "STRING_VALUE",
  *       useDefaultApplications: true || false,
- *       robotApplications: [
- *         {
+ *       robotApplications: [ // RobotApplicationConfigs
+ *         { // RobotApplicationConfig
  *           application: "STRING_VALUE", // required
  *           applicationVersion: "STRING_VALUE",
- *           launchConfig: {
+ *           launchConfig: { // LaunchConfig
  *             packageName: "STRING_VALUE",
  *             launchFile: "STRING_VALUE",
- *             environmentVariables: {
+ *             environmentVariables: { // EnvironmentVariableMap
  *               "<keys>": "STRING_VALUE",
  *             },
- *             portForwardingConfig: {
- *               portMappings: [
- *                 {
+ *             portForwardingConfig: { // PortForwardingConfig
+ *               portMappings: [ // PortMappingList
+ *                 { // PortMapping
  *                   jobPort: Number("int"), // required
  *                   applicationPort: Number("int"), // required
  *                   enableOnPublicIp: true || false,
@@ -82,20 +82,20 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  *               ],
  *             },
  *             streamUI: true || false,
- *             command: [
+ *             command: [ // CommandList
  *               "STRING_VALUE",
  *             ],
  *           },
- *           uploadConfigurations: [
- *             {
+ *           uploadConfigurations: [ // UploadConfigurations
+ *             { // UploadConfiguration
  *               name: "STRING_VALUE", // required
  *               path: "STRING_VALUE", // required
  *               uploadBehavior: "STRING_VALUE", // required
  *             },
  *           ],
  *           useDefaultUploadConfigurations: true || false,
- *           tools: [
- *             {
+ *           tools: [ // Tools
+ *             { // Tool
  *               streamUI: true || false,
  *               name: "STRING_VALUE", // required
  *               command: "STRING_VALUE", // required
@@ -106,8 +106,8 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  *           useDefaultTools: true || false,
  *         },
  *       ],
- *       simulationApplications: [
- *         {
+ *       simulationApplications: [ // SimulationApplicationConfigs
+ *         { // SimulationApplicationConfig
  *           application: "STRING_VALUE", // required
  *           applicationVersion: "STRING_VALUE",
  *           launchConfig: {
@@ -137,8 +137,8 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  *               uploadBehavior: "STRING_VALUE", // required
  *             },
  *           ],
- *           worldConfigs: [
- *             {
+ *           worldConfigs: [ // WorldConfigs
+ *             { // WorldConfig
  *               world: "STRING_VALUE",
  *             },
  *           ],
@@ -155,32 +155,32 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  *           useDefaultTools: true || false,
  *         },
  *       ],
- *       dataSources: [
- *         {
+ *       dataSources: [ // DataSourceConfigs
+ *         { // DataSourceConfig
  *           name: "STRING_VALUE", // required
  *           s3Bucket: "STRING_VALUE", // required
- *           s3Keys: [ // required
+ *           s3Keys: [ // S3KeysOrPrefixes // required
  *             "STRING_VALUE",
  *           ],
  *           type: "STRING_VALUE",
  *           destination: "STRING_VALUE",
  *         },
  *       ],
- *       vpcConfig: {
- *         subnets: [ // required
+ *       vpcConfig: { // VPCConfig
+ *         subnets: [ // Subnets // required
  *           "STRING_VALUE",
  *         ],
- *         securityGroups: [
+ *         securityGroups: [ // SecurityGroups
  *           "STRING_VALUE",
  *         ],
  *         assignPublicIp: true || false,
  *       },
- *       compute: {
+ *       compute: { // Compute
  *         simulationUnitLimit: Number("int"),
  *         computeType: "STRING_VALUE",
  *         gpuUnitLimit: Number("int"),
  *       },
- *       tags: {
+ *       tags: { // TagMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

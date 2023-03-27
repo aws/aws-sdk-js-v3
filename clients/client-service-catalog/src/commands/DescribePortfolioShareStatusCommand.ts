@@ -45,7 +45,7 @@ export interface DescribePortfolioShareStatusCommandOutput
  * import { ServiceCatalogClient, DescribePortfolioShareStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribePortfolioShareStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DescribePortfolioShareStatusInput
  *   PortfolioShareToken: "STRING_VALUE", // required
  * };
  * const command = new DescribePortfolioShareStatusCommand(input);

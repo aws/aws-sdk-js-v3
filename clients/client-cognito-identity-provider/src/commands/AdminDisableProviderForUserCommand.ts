@@ -76,9 +76,9 @@ export interface AdminDisableProviderForUserCommandOutput
  * import { CognitoIdentityProviderClient, AdminDisableProviderForUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminDisableProviderForUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminDisableProviderForUserRequest
  *   UserPoolId: "STRING_VALUE", // required
- *   User: {
+ *   User: { // ProviderUserIdentifierType
  *     ProviderName: "STRING_VALUE",
  *     ProviderAttributeName: "STRING_VALUE",
  *     ProviderAttributeValue: "STRING_VALUE",

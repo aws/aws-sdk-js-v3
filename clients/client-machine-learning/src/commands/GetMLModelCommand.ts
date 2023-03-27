@@ -44,7 +44,7 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  * import { MachineLearningClient, GetMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, GetMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // GetMLModelInput
  *   MLModelId: "STRING_VALUE", // required
  *   Verbose: true || false,
  * };

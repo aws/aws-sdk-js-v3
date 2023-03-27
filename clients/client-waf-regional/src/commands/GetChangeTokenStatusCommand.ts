@@ -66,7 +66,7 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * import { WAFRegionalClient, GetChangeTokenStatusCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetChangeTokenStatusCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // GetChangeTokenStatusRequest
  *   ChangeToken: "STRING_VALUE", // required
  * };
  * const command = new GetChangeTokenStatusCommand(input);

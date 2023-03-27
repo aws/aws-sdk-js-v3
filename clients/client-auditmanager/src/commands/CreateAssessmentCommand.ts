@@ -42,35 +42,35 @@ export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse,
  * import { AuditManagerClient, CreateAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, CreateAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // CreateAssessmentRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   assessmentReportsDestination: {
+ *   assessmentReportsDestination: { // AssessmentReportsDestination
  *     destinationType: "S3",
  *     destination: "STRING_VALUE",
  *   },
- *   scope: {
- *     awsAccounts: [
- *       {
+ *   scope: { // Scope
+ *     awsAccounts: [ // AWSAccounts
+ *       { // AWSAccount
  *         id: "STRING_VALUE",
  *         emailAddress: "STRING_VALUE",
  *         name: "STRING_VALUE",
  *       },
  *     ],
- *     awsServices: [
- *       {
+ *     awsServices: [ // AWSServices
+ *       { // AWSService
  *         serviceName: "STRING_VALUE",
  *       },
  *     ],
  *   },
- *   roles: [ // required
- *     {
+ *   roles: [ // Roles // required
+ *     { // Role
  *       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER", // required
  *       roleArn: "STRING_VALUE", // required
  *     },
  *   ],
  *   frameworkId: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

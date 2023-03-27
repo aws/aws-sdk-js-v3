@@ -88,11 +88,11 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * import { SSMClient, AddTagsToResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, AddTagsToResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // AddTagsToResourceRequest
  *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required
  *   ResourceId: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

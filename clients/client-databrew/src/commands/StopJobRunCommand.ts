@@ -42,7 +42,7 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * import { DataBrewClient, StopJobRunCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, StopJobRunCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // StopJobRunRequest
  *   Name: "STRING_VALUE", // required
  *   RunId: "STRING_VALUE", // required
  * };

@@ -43,7 +43,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { LexModelsV2Client, ListTagsForResourceCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListTagsForResourceCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceARN: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

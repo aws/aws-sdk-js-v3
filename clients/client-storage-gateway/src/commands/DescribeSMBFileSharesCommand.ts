@@ -43,8 +43,8 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  * import { StorageGatewayClient, DescribeSMBFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeSMBFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
- *   FileShareARNList: [ // required
+ * const input = { // DescribeSMBFileSharesInput
+ *   FileShareARNList: [ // FileShareARNList // required
  *     "STRING_VALUE",
  *   ],
  * };

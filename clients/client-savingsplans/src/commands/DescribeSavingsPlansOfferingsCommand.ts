@@ -44,39 +44,39 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * import { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlansOfferingsCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
- * const input = {
- *   offeringIds: [
+ * const input = { // DescribeSavingsPlansOfferingsRequest
+ *   offeringIds: [ // UUIDs
  *     "STRING_VALUE",
  *   ],
- *   paymentOptions: [
+ *   paymentOptions: [ // SavingsPlanPaymentOptionList
  *     "STRING_VALUE",
  *   ],
  *   productType: "STRING_VALUE",
- *   planTypes: [
+ *   planTypes: [ // SavingsPlanTypeList
  *     "STRING_VALUE",
  *   ],
- *   durations: [
+ *   durations: [ // DurationsList
  *     Number("long"),
  *   ],
- *   currencies: [
+ *   currencies: [ // CurrencyList
  *     "STRING_VALUE",
  *   ],
- *   descriptions: [
+ *   descriptions: [ // SavingsPlanDescriptionsList
  *     "STRING_VALUE",
  *   ],
- *   serviceCodes: [
+ *   serviceCodes: [ // SavingsPlanServiceCodeList
  *     "STRING_VALUE",
  *   ],
- *   usageTypes: [
+ *   usageTypes: [ // SavingsPlanUsageTypeList
  *     "STRING_VALUE",
  *   ],
- *   operations: [
+ *   operations: [ // SavingsPlanOperationList
  *     "STRING_VALUE",
  *   ],
- *   filters: [
- *     {
+ *   filters: [ // SavingsPlanOfferingFiltersList
+ *     { // SavingsPlanOfferingFilterElement
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // FilterValuesList
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -42,21 +42,21 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * import { HealthLakeClient, CreateFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, CreateFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
- * const input = {
+ * const input = { // CreateFHIRDatastoreRequest
  *   DatastoreName: "STRING_VALUE",
  *   DatastoreTypeVersion: "STRING_VALUE", // required
- *   SseConfiguration: {
- *     KmsEncryptionConfig: {
+ *   SseConfiguration: { // SseConfiguration
+ *     KmsEncryptionConfig: { // KmsEncryptionConfig
  *       CmkType: "STRING_VALUE", // required
  *       KmsKeyId: "STRING_VALUE",
  *     },
  *   },
- *   PreloadDataConfig: {
+ *   PreloadDataConfig: { // PreloadDataConfig
  *     PreloadDataType: "STRING_VALUE", // required
  *   },
  *   ClientToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

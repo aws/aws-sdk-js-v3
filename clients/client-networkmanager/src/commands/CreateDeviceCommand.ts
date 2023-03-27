@@ -48,9 +48,9 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * import { NetworkManagerClient, CreateDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // CreateDeviceRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
- *   AWSLocation: {
+ *   AWSLocation: { // AWSLocation
  *     Zone: "STRING_VALUE",
  *     SubnetArn: "STRING_VALUE",
  *   },
@@ -59,14 +59,14 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  *   Vendor: "STRING_VALUE",
  *   Model: "STRING_VALUE",
  *   SerialNumber: "STRING_VALUE",
- *   Location: {
+ *   Location: { // Location
  *     Address: "STRING_VALUE",
  *     Latitude: "STRING_VALUE",
  *     Longitude: "STRING_VALUE",
  *   },
  *   SiteId: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

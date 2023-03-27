@@ -52,7 +52,7 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
  * import { LightsailClient, AttachLoadBalancerTlsCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachLoadBalancerTlsCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // AttachLoadBalancerTlsCertificateRequest
  *   loadBalancerName: "STRING_VALUE", // required
  *   certificateName: "STRING_VALUE", // required
  * };

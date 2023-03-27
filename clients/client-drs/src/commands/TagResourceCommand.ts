@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { DrsClient, TagResourceCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, TagResourceCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

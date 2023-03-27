@@ -42,7 +42,7 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * import { ConnectClient, DescribeQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DescribeQuickConnectRequest
  *   InstanceId: "STRING_VALUE", // required
  *   QuickConnectId: "STRING_VALUE", // required
  * };

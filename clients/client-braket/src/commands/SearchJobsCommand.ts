@@ -42,13 +42,13 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * import { BraketClient, SearchJobsCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, SearchJobsCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
- * const input = {
+ * const input = { // SearchJobsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filters: [ // required
- *     {
+ *   filters: [ // SearchJobsFilterList // required
+ *     { // SearchJobsFilter
  *       name: "STRING_VALUE", // required
- *       values: [ // required
+ *       values: [ // String256List // required
  *         "STRING_VALUE",
  *       ],
  *       operator: "STRING_VALUE", // required

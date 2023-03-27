@@ -44,7 +44,7 @@ export interface GetPortalServiceProviderMetadataCommandOutput
  * import { WorkSpacesWebClient, GetPortalServiceProviderMetadataCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetPortalServiceProviderMetadataCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // GetPortalServiceProviderMetadataRequest
  *   portalArn: "STRING_VALUE", // required
  * };
  * const command = new GetPortalServiceProviderMetadataCommand(input);

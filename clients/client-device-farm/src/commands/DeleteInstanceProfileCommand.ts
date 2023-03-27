@@ -42,7 +42,7 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  * import { DeviceFarmClient, DeleteInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // DeleteInstanceProfileRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new DeleteInstanceProfileCommand(input);

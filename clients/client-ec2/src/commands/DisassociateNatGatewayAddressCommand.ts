@@ -50,9 +50,9 @@ export interface DisassociateNatGatewayAddressCommandOutput
  * import { EC2Client, DisassociateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisassociateNatGatewayAddressRequest
  *   NatGatewayId: "STRING_VALUE", // required
- *   AssociationIds: [ // required
+ *   AssociationIds: [ // EipAssociationIdList // required
  *     "STRING_VALUE",
  *   ],
  *   MaxDrainDurationSeconds: Number("int"),

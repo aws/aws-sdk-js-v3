@@ -49,7 +49,7 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * import { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // AssociateApprovalRuleTemplateWithRepositoryInput
  *   approvalRuleTemplateName: "STRING_VALUE", // required
  *   repositoryName: "STRING_VALUE", // required
  * };

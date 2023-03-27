@@ -44,9 +44,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { HealthLakeClient, UntagResourceCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, UntagResourceCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

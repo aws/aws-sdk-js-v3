@@ -46,7 +46,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * import { MWAAClient, UpdateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
- * const input = {
+ * const input = { // UpdateEnvironmentInput
  *   Name: "STRING_VALUE", // required
  *   ExecutionRoleArn: "STRING_VALUE",
  *   AirflowVersion: "STRING_VALUE",
@@ -56,18 +56,18 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *   PluginsS3ObjectVersion: "STRING_VALUE",
  *   RequirementsS3Path: "STRING_VALUE",
  *   RequirementsS3ObjectVersion: "STRING_VALUE",
- *   AirflowConfigurationOptions: {
+ *   AirflowConfigurationOptions: { // AirflowConfigurationOptions
  *     "<keys>": "STRING_VALUE",
  *   },
  *   EnvironmentClass: "STRING_VALUE",
  *   MaxWorkers: Number("int"),
- *   NetworkConfiguration: {
- *     SecurityGroupIds: [ // required
+ *   NetworkConfiguration: { // UpdateNetworkConfigurationInput
+ *     SecurityGroupIds: [ // SecurityGroupList // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   LoggingConfiguration: {
- *     DagProcessingLogs: {
+ *   LoggingConfiguration: { // LoggingConfigurationInput
+ *     DagProcessingLogs: { // ModuleLoggingConfigurationInput
  *       Enabled: true || false, // required
  *       LogLevel: "STRING_VALUE", // required
  *     },

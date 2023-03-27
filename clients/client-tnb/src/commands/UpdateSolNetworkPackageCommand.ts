@@ -44,7 +44,7 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * import { TnbClient, UpdateSolNetworkPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, UpdateSolNetworkPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // UpdateSolNetworkPackageInput
  *   nsdInfoId: "STRING_VALUE", // required
  *   nsdOperationalState: "ENABLED" || "DISABLED", // required
  * };

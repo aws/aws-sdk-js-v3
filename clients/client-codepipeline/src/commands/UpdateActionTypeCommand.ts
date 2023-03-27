@@ -45,19 +45,19 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, UpdateActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, UpdateActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
- *   actionType: {
+ * const input = { // UpdateActionTypeInput
+ *   actionType: { // ActionTypeDeclaration
  *     description: "STRING_VALUE",
- *     executor: {
- *       configuration: {
- *         lambdaExecutorConfiguration: {
+ *     executor: { // ActionTypeExecutor
+ *       configuration: { // ExecutorConfiguration
+ *         lambdaExecutorConfiguration: { // LambdaExecutorConfiguration
  *           lambdaFunctionArn: "STRING_VALUE", // required
  *         },
- *         jobWorkerExecutorConfiguration: {
- *           pollingAccounts: [
+ *         jobWorkerExecutorConfiguration: { // JobWorkerExecutorConfiguration
+ *           pollingAccounts: [ // PollingAccountList
  *             "STRING_VALUE",
  *           ],
- *           pollingServicePrincipals: [
+ *           pollingServicePrincipals: [ // PollingServicePrincipalList
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -66,13 +66,13 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *       policyStatementsTemplate: "STRING_VALUE",
  *       jobTimeout: Number("int"),
  *     },
- *     id: {
+ *     id: { // ActionTypeIdentifier
  *       category: "STRING_VALUE", // required
  *       owner: "STRING_VALUE", // required
  *       provider: "STRING_VALUE", // required
  *       version: "STRING_VALUE", // required
  *     },
- *     inputArtifactDetails: {
+ *     inputArtifactDetails: { // ActionTypeArtifactDetails
  *       minimumCount: Number("int"), // required
  *       maximumCount: Number("int"), // required
  *     },
@@ -80,13 +80,13 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *       minimumCount: Number("int"), // required
  *       maximumCount: Number("int"), // required
  *     },
- *     permissions: {
- *       allowedAccounts: [ // required
+ *     permissions: { // ActionTypePermissions
+ *       allowedAccounts: [ // AllowedAccounts // required
  *         "STRING_VALUE",
  *       ],
  *     },
- *     properties: [
- *       {
+ *     properties: [ // ActionTypeProperties
+ *       { // ActionTypeProperty
  *         name: "STRING_VALUE", // required
  *         optional: true || false, // required
  *         key: true || false, // required
@@ -95,7 +95,7 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *         description: "STRING_VALUE",
  *       },
  *     ],
- *     urls: {
+ *     urls: { // ActionTypeUrls
  *       configurationUrl: "STRING_VALUE",
  *       entityUrlTemplate: "STRING_VALUE",
  *       executionUrlTemplate: "STRING_VALUE",

@@ -46,7 +46,7 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  * import { ChimeClient, GetRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // GetRetentionSettingsRequest
  *   AccountId: "STRING_VALUE", // required
  * };
  * const command = new GetRetentionSettingsCommand(input);

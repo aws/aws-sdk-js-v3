@@ -42,10 +42,10 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * import { ECSClient, UpdateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // UpdateCapacityProviderRequest
  *   name: "STRING_VALUE", // required
- *   autoScalingGroupProvider: {
- *     managedScaling: {
+ *   autoScalingGroupProvider: { // AutoScalingGroupProviderUpdate
+ *     managedScaling: { // ManagedScaling
  *       status: "ENABLED" || "DISABLED",
  *       targetCapacity: Number("int"),
  *       minimumScalingStepSize: Number("int"),

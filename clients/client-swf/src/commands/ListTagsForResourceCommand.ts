@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { SWFClient, ListTagsForResourceCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListTagsForResourceCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceInput
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

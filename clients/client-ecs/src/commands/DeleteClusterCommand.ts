@@ -47,7 +47,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * import { ECSClient, DeleteClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // DeleteClusterRequest
  *   cluster: "STRING_VALUE", // required
  * };
  * const command = new DeleteClusterCommand(input);

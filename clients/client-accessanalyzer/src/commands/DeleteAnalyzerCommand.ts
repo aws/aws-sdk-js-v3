@@ -44,7 +44,7 @@ export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, DeleteAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, DeleteAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // DeleteAnalyzerRequest
  *   analyzerName: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

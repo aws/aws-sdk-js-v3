@@ -48,9 +48,9 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  * import { ChimeSDKVoiceClient, PutSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, PutSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // PutSipMediaApplicationLoggingConfigurationRequest
  *   SipMediaApplicationId: "STRING_VALUE", // required
- *   SipMediaApplicationLoggingConfiguration: {
+ *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
  *     EnableSipMediaApplicationMessageLogs: true || false,
  *   },
  * };

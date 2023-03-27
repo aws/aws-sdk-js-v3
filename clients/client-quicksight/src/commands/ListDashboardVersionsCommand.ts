@@ -42,7 +42,7 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
  * import { QuickSightClient, ListDashboardVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListDashboardVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // ListDashboardVersionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DashboardId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

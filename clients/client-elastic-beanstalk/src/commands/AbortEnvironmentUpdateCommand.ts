@@ -43,7 +43,7 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, AbortEnvironmentUpdateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, AbortEnvironmentUpdateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // AbortEnvironmentUpdateMessage
  *   EnvironmentId: "STRING_VALUE",
  *   EnvironmentName: "STRING_VALUE",
  * };

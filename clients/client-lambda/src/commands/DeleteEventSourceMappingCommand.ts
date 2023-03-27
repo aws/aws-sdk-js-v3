@@ -45,7 +45,7 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * import { LambdaClient, DeleteEventSourceMappingCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteEventSourceMappingCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // DeleteEventSourceMappingRequest
  *   UUID: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventSourceMappingCommand(input);

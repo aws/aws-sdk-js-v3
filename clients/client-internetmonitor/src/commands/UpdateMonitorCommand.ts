@@ -43,9 +43,9 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * import { InternetMonitorClient, UpdateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, UpdateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
- * const input = {
+ * const input = { // UpdateMonitorInput
  *   MonitorName: "STRING_VALUE", // required
- *   ResourcesToAdd: [
+ *   ResourcesToAdd: [ // SetOfARNs
  *     "STRING_VALUE",
  *   ],
  *   ResourcesToRemove: [

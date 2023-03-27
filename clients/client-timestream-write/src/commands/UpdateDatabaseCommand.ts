@@ -47,7 +47,7 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * import { TimestreamWriteClient, UpdateDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, UpdateDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const input = {
+ * const input = { // UpdateDatabaseRequest
  *   DatabaseName: "STRING_VALUE", // required
  *   KmsKeyId: "STRING_VALUE", // required
  * };

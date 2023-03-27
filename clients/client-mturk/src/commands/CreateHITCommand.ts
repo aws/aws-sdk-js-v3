@@ -55,7 +55,7 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * import { MTurkClient, CreateHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // CreateHITRequest
  *   MaxAssignments: Number("int"),
  *   AutoApprovalDelayInSeconds: Number("long"),
  *   LifetimeInSeconds: Number("long"), // required
@@ -66,15 +66,15 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  *   Description: "STRING_VALUE", // required
  *   Question: "STRING_VALUE",
  *   RequesterAnnotation: "STRING_VALUE",
- *   QualificationRequirements: [
- *     {
+ *   QualificationRequirements: [ // QualificationRequirementList
+ *     { // QualificationRequirement
  *       QualificationTypeId: "STRING_VALUE", // required
  *       Comparator: "STRING_VALUE", // required
- *       IntegerValues: [
+ *       IntegerValues: [ // IntegerList
  *         Number("int"),
  *       ],
- *       LocaleValues: [
- *         {
+ *       LocaleValues: [ // LocaleList
+ *         { // Locale
  *           Country: "STRING_VALUE", // required
  *           Subdivision: "STRING_VALUE",
  *         },
@@ -84,16 +84,16 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  *     },
  *   ],
  *   UniqueRequestToken: "STRING_VALUE",
- *   AssignmentReviewPolicy: {
+ *   AssignmentReviewPolicy: { // ReviewPolicy
  *     PolicyName: "STRING_VALUE", // required
- *     Parameters: [
- *       {
+ *     Parameters: [ // PolicyParameterList
+ *       { // PolicyParameter
  *         Key: "STRING_VALUE",
- *         Values: [
+ *         Values: [ // StringList
  *           "STRING_VALUE",
  *         ],
- *         MapEntries: [
- *           {
+ *         MapEntries: [ // ParameterMapEntryList
+ *           { // ParameterMapEntry
  *             Key: "STRING_VALUE",
  *             Values: [
  *               "STRING_VALUE",
@@ -123,8 +123,8 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  *     ],
  *   },
  *   HITLayoutId: "STRING_VALUE",
- *   HITLayoutParameters: [
- *     {
+ *   HITLayoutParameters: [ // HITLayoutParameterList
+ *     { // HITLayoutParameter
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

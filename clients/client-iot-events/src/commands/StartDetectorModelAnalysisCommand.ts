@@ -44,62 +44,62 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  * import { IoTEventsClient, StartDetectorModelAnalysisCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, StartDetectorModelAnalysisCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
- * const input = {
- *   detectorModelDefinition: {
- *     states: [ // required
- *       {
+ * const input = { // StartDetectorModelAnalysisRequest
+ *   detectorModelDefinition: { // DetectorModelDefinition
+ *     states: [ // States // required
+ *       { // State
  *         stateName: "STRING_VALUE", // required
- *         onInput: {
- *           events: [
- *             {
+ *         onInput: { // OnInputLifecycle
+ *           events: [ // Events
+ *             { // Event
  *               eventName: "STRING_VALUE", // required
  *               condition: "STRING_VALUE",
- *               actions: [
- *                 {
- *                   setVariable: {
+ *               actions: [ // Actions
+ *                 { // Action
+ *                   setVariable: { // SetVariableAction
  *                     variableName: "STRING_VALUE", // required
  *                     value: "STRING_VALUE", // required
  *                   },
- *                   sns: {
+ *                   sns: { // SNSTopicPublishAction
  *                     targetArn: "STRING_VALUE", // required
- *                     payload: {
+ *                     payload: { // Payload
  *                       contentExpression: "STRING_VALUE", // required
  *                       type: "STRING_VALUE", // required
  *                     },
  *                   },
- *                   iotTopicPublish: {
+ *                   iotTopicPublish: { // IotTopicPublishAction
  *                     mqttTopic: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
  *                       type: "STRING_VALUE", // required
  *                     },
  *                   },
- *                   setTimer: {
+ *                   setTimer: { // SetTimerAction
  *                     timerName: "STRING_VALUE", // required
  *                     seconds: Number("int"),
  *                     durationExpression: "STRING_VALUE",
  *                   },
- *                   clearTimer: {
+ *                   clearTimer: { // ClearTimerAction
  *                     timerName: "STRING_VALUE", // required
  *                   },
- *                   resetTimer: {
+ *                   resetTimer: { // ResetTimerAction
  *                     timerName: "STRING_VALUE", // required
  *                   },
- *                   lambda: {
+ *                   lambda: { // LambdaAction
  *                     functionArn: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
  *                       type: "STRING_VALUE", // required
  *                     },
  *                   },
- *                   iotEvents: {
+ *                   iotEvents: { // IotEventsAction
  *                     inputName: "STRING_VALUE", // required
  *                     payload: {
  *                       contentExpression: "STRING_VALUE", // required
  *                       type: "STRING_VALUE", // required
  *                     },
  *                   },
- *                   sqs: {
+ *                   sqs: { // SqsAction
  *                     queueUrl: "STRING_VALUE", // required
  *                     useBase64: true || false,
  *                     payload: {
@@ -107,15 +107,12 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                       type: "STRING_VALUE", // required
  *                     },
  *                   },
- *                   firehose: {
+ *                   firehose: { // FirehoseAction
  *                     deliveryStreamName: "STRING_VALUE", // required
  *                     separator: "STRING_VALUE",
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
- *                   dynamoDB: {
+ *                   dynamoDB: { // DynamoDBAction
  *                     hashKeyType: "STRING_VALUE",
  *                     hashKeyField: "STRING_VALUE", // required
  *                     hashKeyValue: "STRING_VALUE", // required
@@ -125,31 +122,25 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                     operation: "STRING_VALUE",
  *                     payloadField: "STRING_VALUE",
  *                     tableName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
- *                   dynamoDBv2: {
+ *                   dynamoDBv2: { // DynamoDBv2Action
  *                     tableName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
- *                   iotSiteWise: {
+ *                   iotSiteWise: { // IotSiteWiseAction
  *                     entryId: "STRING_VALUE",
  *                     assetId: "STRING_VALUE",
  *                     propertyId: "STRING_VALUE",
  *                     propertyAlias: "STRING_VALUE",
- *                     propertyValue: {
- *                       value: {
+ *                     propertyValue: { // AssetPropertyValue
+ *                       value: { // AssetPropertyVariant
  *                         stringValue: "STRING_VALUE",
  *                         integerValue: "STRING_VALUE",
  *                         doubleValue: "STRING_VALUE",
  *                         booleanValue: "STRING_VALUE",
  *                       },
- *                       timestamp: {
+ *                       timestamp: { // AssetPropertyTimestamp
  *                         timeInSeconds: "STRING_VALUE", // required
  *                         offsetInNanos: "STRING_VALUE",
  *                       },
@@ -160,8 +151,8 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *               ],
  *             },
  *           ],
- *           transitionEvents: [
- *             {
+ *           transitionEvents: [ // TransitionEvents
+ *             { // TransitionEvent
  *               eventName: "STRING_VALUE", // required
  *               condition: "STRING_VALUE", // required
  *               actions: [
@@ -172,17 +163,11 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                   },
  *                   sns: {
  *                     targetArn: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotTopicPublish: {
  *                     mqttTopic: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   setTimer: {
  *                     timerName: "STRING_VALUE", // required
@@ -197,33 +182,21 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                   },
  *                   lambda: {
  *                     functionArn: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotEvents: {
  *                     inputName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   sqs: {
  *                     queueUrl: "STRING_VALUE", // required
  *                     useBase64: true || false,
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   firehose: {
  *                     deliveryStreamName: "STRING_VALUE", // required
  *                     separator: "STRING_VALUE",
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   dynamoDB: {
  *                     hashKeyType: "STRING_VALUE",
@@ -235,17 +208,11 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                     operation: "STRING_VALUE",
  *                     payloadField: "STRING_VALUE",
  *                     tableName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   dynamoDBv2: {
  *                     tableName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotSiteWise: {
  *                     entryId: "STRING_VALUE",
@@ -272,7 +239,7 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *             },
  *           ],
  *         },
- *         onEnter: {
+ *         onEnter: { // OnEnterLifecycle
  *           events: [
  *             {
  *               eventName: "STRING_VALUE", // required
@@ -285,17 +252,11 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                   },
  *                   sns: {
  *                     targetArn: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotTopicPublish: {
  *                     mqttTopic: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   setTimer: {
  *                     timerName: "STRING_VALUE", // required
@@ -310,33 +271,21 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                   },
  *                   lambda: {
  *                     functionArn: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotEvents: {
  *                     inputName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   sqs: {
  *                     queueUrl: "STRING_VALUE", // required
  *                     useBase64: true || false,
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   firehose: {
  *                     deliveryStreamName: "STRING_VALUE", // required
  *                     separator: "STRING_VALUE",
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   dynamoDB: {
  *                     hashKeyType: "STRING_VALUE",
@@ -348,17 +297,11 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                     operation: "STRING_VALUE",
  *                     payloadField: "STRING_VALUE",
  *                     tableName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   dynamoDBv2: {
  *                     tableName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotSiteWise: {
  *                     entryId: "STRING_VALUE",
@@ -384,7 +327,7 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *             },
  *           ],
  *         },
- *         onExit: {
+ *         onExit: { // OnExitLifecycle
  *           events: [
  *             {
  *               eventName: "STRING_VALUE", // required
@@ -397,17 +340,11 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                   },
  *                   sns: {
  *                     targetArn: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotTopicPublish: {
  *                     mqttTopic: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   setTimer: {
  *                     timerName: "STRING_VALUE", // required
@@ -422,33 +359,21 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                   },
  *                   lambda: {
  *                     functionArn: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotEvents: {
  *                     inputName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   sqs: {
  *                     queueUrl: "STRING_VALUE", // required
  *                     useBase64: true || false,
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   firehose: {
  *                     deliveryStreamName: "STRING_VALUE", // required
  *                     separator: "STRING_VALUE",
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   dynamoDB: {
  *                     hashKeyType: "STRING_VALUE",
@@ -460,17 +385,11 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *                     operation: "STRING_VALUE",
  *                     payloadField: "STRING_VALUE",
  *                     tableName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   dynamoDBv2: {
  *                     tableName: "STRING_VALUE", // required
- *                     payload: {
- *                       contentExpression: "STRING_VALUE", // required
- *                       type: "STRING_VALUE", // required
- *                     },
+ *                     payload: "<Payload>",
  *                   },
  *                   iotSiteWise: {
  *                     entryId: "STRING_VALUE",

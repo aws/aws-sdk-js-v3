@@ -55,10 +55,10 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * import { ACMClient, AddTagsToCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, AddTagsToCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
- * const input = {
+ * const input = { // AddTagsToCertificateRequest
  *   CertificateArn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

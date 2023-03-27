@@ -50,7 +50,7 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * import { NetworkManagerClient, AssociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // AssociateCustomerGatewayRequest
  *   CustomerGatewayArn: "STRING_VALUE", // required
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   DeviceId: "STRING_VALUE", // required

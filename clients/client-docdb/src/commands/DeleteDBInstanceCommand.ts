@@ -42,7 +42,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * import { DocDBClient, DeleteDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // DeleteDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteDBInstanceCommand(input);

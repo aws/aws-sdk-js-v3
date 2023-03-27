@@ -43,9 +43,9 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { InternetMonitorClient, TagResourceCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, TagResourceCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

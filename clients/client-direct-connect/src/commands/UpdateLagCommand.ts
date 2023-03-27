@@ -61,7 +61,7 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  * import { DirectConnectClient, UpdateLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // UpdateLagRequest
  *   lagId: "STRING_VALUE", // required
  *   lagName: "STRING_VALUE",
  *   minimumLinks: Number("int"),

@@ -44,7 +44,7 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  * import { SecurityHubClient, DeleteActionTargetCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteActionTargetCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // DeleteActionTargetRequest
  *   ActionTargetArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteActionTargetCommand(input);

@@ -52,9 +52,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { LocationClient, TagResourceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, TagResourceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -49,7 +49,7 @@ export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult,
  * import { OpsWorksClient, RegisterElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // RegisterElasticIpRequest
  *   ElasticIp: "STRING_VALUE", // required
  *   StackId: "STRING_VALUE", // required
  * };

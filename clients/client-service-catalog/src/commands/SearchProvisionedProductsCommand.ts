@@ -42,14 +42,14 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  * import { ServiceCatalogClient, SearchProvisionedProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProvisionedProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // SearchProvisionedProductsInput
  *   AcceptLanguage: "STRING_VALUE",
- *   AccessLevelFilter: {
+ *   AccessLevelFilter: { // AccessLevelFilter
  *     Key: "Account" || "Role" || "User",
  *     Value: "STRING_VALUE",
  *   },
- *   Filters: {
- *     "<keys>": [
+ *   Filters: { // ProvisionedProductFilters
+ *     "<keys>": [ // ProvisionedProductViewFilterValues
  *       "STRING_VALUE",
  *     ],
  *   },

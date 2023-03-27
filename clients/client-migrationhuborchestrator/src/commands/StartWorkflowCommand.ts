@@ -46,7 +46,7 @@ export interface StartWorkflowCommandOutput extends StartMigrationWorkflowRespon
  * import { MigrationHubOrchestratorClient, StartWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, StartWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // StartMigrationWorkflowRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new StartWorkflowCommand(input);

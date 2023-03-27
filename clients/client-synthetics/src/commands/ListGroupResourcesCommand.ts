@@ -42,7 +42,7 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * import { SyntheticsClient, ListGroupResourcesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, ListGroupResourcesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const input = {
+ * const input = { // ListGroupResourcesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   GroupIdentifier: "STRING_VALUE", // required

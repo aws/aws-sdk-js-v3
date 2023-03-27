@@ -42,7 +42,7 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * import { NetworkManagerClient, GetCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetCoreNetworkRequest
  *   CoreNetworkId: "STRING_VALUE", // required
  * };
  * const command = new GetCoreNetworkCommand(input);

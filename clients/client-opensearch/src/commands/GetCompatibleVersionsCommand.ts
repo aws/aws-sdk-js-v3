@@ -43,7 +43,7 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  * import { OpenSearchClient, GetCompatibleVersionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, GetCompatibleVersionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // GetCompatibleVersionsRequest
  *   DomainName: "STRING_VALUE",
  * };
  * const command = new GetCompatibleVersionsCommand(input);

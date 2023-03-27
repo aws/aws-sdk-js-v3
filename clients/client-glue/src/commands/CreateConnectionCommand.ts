@@ -42,27 +42,27 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * import { GlueClient, CreateConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateConnectionRequest
  *   CatalogId: "STRING_VALUE",
- *   ConnectionInput: {
+ *   ConnectionInput: { // ConnectionInput
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
  *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM", // required
- *     MatchCriteria: [
+ *     MatchCriteria: [ // MatchCriteria
  *       "STRING_VALUE",
  *     ],
- *     ConnectionProperties: { // required
+ *     ConnectionProperties: { // ConnectionProperties // required
  *       "<keys>": "STRING_VALUE",
  *     },
- *     PhysicalConnectionRequirements: {
+ *     PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
  *       SubnetId: "STRING_VALUE",
- *       SecurityGroupIdList: [
+ *       SecurityGroupIdList: [ // SecurityGroupIdList
  *         "STRING_VALUE",
  *       ],
  *       AvailabilityZone: "STRING_VALUE",
  *     },
  *   },
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

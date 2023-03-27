@@ -111,17 +111,17 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * import { PersonalizeClient, CreateCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // CreateCampaignRequest
  *   name: "STRING_VALUE", // required
  *   solutionVersionArn: "STRING_VALUE", // required
  *   minProvisionedTPS: Number("int"),
- *   campaignConfig: {
- *     itemExplorationConfig: {
+ *   campaignConfig: { // CampaignConfig
+ *     itemExplorationConfig: { // HyperParameters
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       tagKey: "STRING_VALUE", // required
  *       tagValue: "STRING_VALUE", // required
  *     },

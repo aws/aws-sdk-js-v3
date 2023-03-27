@@ -42,11 +42,11 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * import { GlueClient, CreateBlueprintCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateBlueprintCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateBlueprintRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   BlueprintLocation: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

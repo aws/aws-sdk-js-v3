@@ -42,13 +42,13 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * import { OmicsClient, ListAnnotationImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListAnnotationImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // ListAnnotationImportJobsRequest
  *   maxResults: Number("int"),
- *   ids: [
+ *   ids: [ // IdList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",
- *   filter: {
+ *   filter: { // ListAnnotationImportJobsFilter
  *     status: "STRING_VALUE",
  *     storeName: "STRING_VALUE",
  *   },

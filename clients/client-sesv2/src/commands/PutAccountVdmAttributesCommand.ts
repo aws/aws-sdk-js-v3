@@ -43,13 +43,13 @@ export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttri
  * import { SESv2Client, PutAccountVdmAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountVdmAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
- *   VdmAttributes: {
+ * const input = { // PutAccountVdmAttributesRequest
+ *   VdmAttributes: { // VdmAttributes
  *     VdmEnabled: "ENABLED" || "DISABLED", // required
- *     DashboardAttributes: {
+ *     DashboardAttributes: { // DashboardAttributes
  *       EngagementMetrics: "ENABLED" || "DISABLED",
  *     },
- *     GuardianAttributes: {
+ *     GuardianAttributes: { // GuardianAttributes
  *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
  *     },
  *   },

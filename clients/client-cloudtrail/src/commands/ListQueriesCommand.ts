@@ -48,7 +48,7 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * import { CloudTrailClient, ListQueriesCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListQueriesCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // ListQueriesRequest
  *   EventDataStore: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

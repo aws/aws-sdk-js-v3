@@ -42,7 +42,7 @@ export interface DescribeExportCommandOutput extends DescribeExportOutput, __Met
  * import { DynamoDBClient, DescribeExportCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeExportCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // DescribeExportInput
  *   ExportArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeExportCommand(input);

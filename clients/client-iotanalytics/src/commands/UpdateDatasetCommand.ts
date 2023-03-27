@@ -42,38 +42,38 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdateDatasetCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdateDatasetCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // UpdateDatasetRequest
  *   datasetName: "STRING_VALUE", // required
- *   actions: [ // required
- *     {
+ *   actions: [ // DatasetActions // required
+ *     { // DatasetAction
  *       actionName: "STRING_VALUE",
- *       queryAction: {
+ *       queryAction: { // SqlQueryDatasetAction
  *         sqlQuery: "STRING_VALUE", // required
- *         filters: [
- *           {
- *             deltaTime: {
+ *         filters: [ // QueryFilters
+ *           { // QueryFilter
+ *             deltaTime: { // DeltaTime
  *               offsetSeconds: Number("int"), // required
  *               timeExpression: "STRING_VALUE", // required
  *             },
  *           },
  *         ],
  *       },
- *       containerAction: {
+ *       containerAction: { // ContainerDatasetAction
  *         image: "STRING_VALUE", // required
  *         executionRoleArn: "STRING_VALUE", // required
- *         resourceConfiguration: {
+ *         resourceConfiguration: { // ResourceConfiguration
  *           computeType: "STRING_VALUE", // required
  *           volumeSizeInGB: Number("int"), // required
  *         },
- *         variables: [
- *           {
+ *         variables: [ // Variables
+ *           { // Variable
  *             name: "STRING_VALUE", // required
  *             stringValue: "STRING_VALUE",
  *             doubleValue: Number("double"),
- *             datasetContentVersionValue: {
+ *             datasetContentVersionValue: { // DatasetContentVersionValue
  *               datasetName: "STRING_VALUE", // required
  *             },
- *             outputFileUriValue: {
+ *             outputFileUriValue: { // OutputFileUriValue
  *               fileName: "STRING_VALUE", // required
  *             },
  *           },
@@ -81,28 +81,28 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  *       },
  *     },
  *   ],
- *   triggers: [
- *     {
- *       schedule: {
+ *   triggers: [ // DatasetTriggers
+ *     { // DatasetTrigger
+ *       schedule: { // Schedule
  *         expression: "STRING_VALUE",
  *       },
- *       dataset: {
+ *       dataset: { // TriggeringDataset
  *         name: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
- *   contentDeliveryRules: [
- *     {
+ *   contentDeliveryRules: [ // DatasetContentDeliveryRules
+ *     { // DatasetContentDeliveryRule
  *       entryName: "STRING_VALUE",
- *       destination: {
- *         iotEventsDestinationConfiguration: {
+ *       destination: { // DatasetContentDeliveryDestination
+ *         iotEventsDestinationConfiguration: { // IotEventsDestinationConfiguration
  *           inputName: "STRING_VALUE", // required
  *           roleArn: "STRING_VALUE", // required
  *         },
- *         s3DestinationConfiguration: {
+ *         s3DestinationConfiguration: { // S3DestinationConfiguration
  *           bucket: "STRING_VALUE", // required
  *           key: "STRING_VALUE", // required
- *           glueConfiguration: {
+ *           glueConfiguration: { // GlueConfiguration
  *             tableName: "STRING_VALUE", // required
  *             databaseName: "STRING_VALUE", // required
  *           },
@@ -111,19 +111,19 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  *       },
  *     },
  *   ],
- *   retentionPeriod: {
+ *   retentionPeriod: { // RetentionPeriod
  *     unlimited: true || false,
  *     numberOfDays: Number("int"),
  *   },
- *   versioningConfiguration: {
+ *   versioningConfiguration: { // VersioningConfiguration
  *     unlimited: true || false,
  *     maxVersions: Number("int"),
  *   },
- *   lateDataRules: [
- *     {
+ *   lateDataRules: [ // LateDataRules
+ *     { // LateDataRule
  *       ruleName: "STRING_VALUE",
- *       ruleConfiguration: {
- *         deltaTimeSessionWindowConfiguration: {
+ *       ruleConfiguration: { // LateDataRuleConfiguration
+ *         deltaTimeSessionWindowConfiguration: { // DeltaTimeSessionWindowConfiguration
  *           timeoutInMinutes: Number("int"), // required
  *         },
  *       },

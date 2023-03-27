@@ -42,13 +42,13 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * import { KafkaClient, UpdateBrokerStorageCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateBrokerStorageCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // UpdateBrokerStorageRequest
  *   ClusterArn: "STRING_VALUE", // required
  *   CurrentVersion: "STRING_VALUE", // required
- *   TargetBrokerEBSVolumeInfo: [ // required
- *     {
+ *   TargetBrokerEBSVolumeInfo: [ // __listOfBrokerEBSVolumeInfo // required
+ *     { // BrokerEBSVolumeInfo
  *       KafkaBrokerNodeId: "STRING_VALUE", // required
- *       ProvisionedThroughput: {
+ *       ProvisionedThroughput: { // ProvisionedThroughput
  *         Enabled: true || false,
  *         VolumeThroughput: Number("int"),
  *       },

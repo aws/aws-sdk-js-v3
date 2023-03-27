@@ -43,16 +43,16 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * import { FraudDetectorClient, CreateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // CreateModelVersionRequest
  *   modelId: "STRING_VALUE", // required
  *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
  *   trainingDataSource: "EXTERNAL_EVENTS" || "INGESTED_EVENTS", // required
- *   trainingDataSchema: {
- *     modelVariables: [ // required
+ *   trainingDataSchema: { // TrainingDataSchema
+ *     modelVariables: [ // ListOfStrings // required
  *       "STRING_VALUE",
  *     ],
- *     labelSchema: {
- *       labelMapper: {
+ *     labelSchema: { // LabelSchema
+ *       labelMapper: { // labelMapper
  *         "<keys>": [
  *           "STRING_VALUE",
  *         ],
@@ -60,18 +60,18 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  *       unlabeledEventsTreatment: "IGNORE" || "FRAUD" || "LEGIT" || "AUTO",
  *     },
  *   },
- *   externalEventsDetail: {
+ *   externalEventsDetail: { // ExternalEventsDetail
  *     dataLocation: "STRING_VALUE", // required
  *     dataAccessRoleArn: "STRING_VALUE", // required
  *   },
- *   ingestedEventsDetail: {
- *     ingestedEventsTimeWindow: {
+ *   ingestedEventsDetail: { // IngestedEventsDetail
+ *     ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
  *       startTime: "STRING_VALUE", // required
  *       endTime: "STRING_VALUE", // required
  *     },
  *   },
- *   tags: [
- *     {
+ *   tags: [ // tagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

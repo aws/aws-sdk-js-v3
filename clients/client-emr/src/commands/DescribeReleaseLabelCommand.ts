@@ -44,7 +44,7 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * import { EMRClient, DescribeReleaseLabelCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeReleaseLabelCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // DescribeReleaseLabelInput
  *   ReleaseLabel: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

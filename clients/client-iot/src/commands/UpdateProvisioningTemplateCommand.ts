@@ -43,13 +43,13 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * import { IoTClient, UpdateProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateProvisioningTemplateRequest
  *   templateName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   enabled: true || false,
  *   defaultVersionId: Number("int"),
  *   provisioningRoleArn: "STRING_VALUE",
- *   preProvisioningHook: {
+ *   preProvisioningHook: { // ProvisioningHook
  *     payloadVersion: "STRING_VALUE",
  *     targetArn: "STRING_VALUE", // required
  *   },

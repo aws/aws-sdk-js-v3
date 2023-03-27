@@ -42,28 +42,28 @@ export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateRes
  * import { PinpointClient, CreateInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
- *   InAppTemplateRequest: {
- *     Content: [
- *       {
+ * const input = { // CreateInAppTemplateRequest
+ *   InAppTemplateRequest: { // InAppTemplateRequest
+ *     Content: [ // ListOfInAppMessageContent
+ *       { // InAppMessageContent
  *         BackgroundColor: "STRING_VALUE",
- *         BodyConfig: {
+ *         BodyConfig: { // InAppMessageBodyConfig
  *           Alignment: "STRING_VALUE", // required
  *           Body: "STRING_VALUE", // required
  *           TextColor: "STRING_VALUE", // required
  *         },
- *         HeaderConfig: {
+ *         HeaderConfig: { // InAppMessageHeaderConfig
  *           Alignment: "STRING_VALUE", // required
  *           Header: "STRING_VALUE", // required
  *           TextColor: "STRING_VALUE", // required
  *         },
  *         ImageUrl: "STRING_VALUE",
- *         PrimaryBtn: {
- *           Android: {
+ *         PrimaryBtn: { // InAppMessageButton
+ *           Android: { // OverrideButtonConfiguration
  *             ButtonAction: "STRING_VALUE", // required
  *             Link: "STRING_VALUE",
  *           },
- *           DefaultConfig: {
+ *           DefaultConfig: { // DefaultButtonConfiguration
  *             BackgroundColor: "STRING_VALUE",
  *             BorderRadius: Number("int"),
  *             ButtonAction: "STRING_VALUE", // required
@@ -97,14 +97,11 @@ export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateRes
  *             ButtonAction: "STRING_VALUE", // required
  *             Link: "STRING_VALUE",
  *           },
- *           Web: {
- *             ButtonAction: "STRING_VALUE", // required
- *             Link: "STRING_VALUE",
- *           },
+ *           Web: "<OverrideButtonConfiguration>",
  *         },
  *       },
  *     ],
- *     CustomConfig: {
+ *     CustomConfig: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *     Layout: "STRING_VALUE",

@@ -64,10 +64,19 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * import { FSxClient, DeleteFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // DeleteFileSystemRequest
  *   FileSystemId: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   WindowsConfiguration: {
+ *   WindowsConfiguration: { // DeleteFileSystemWindowsConfiguration
+ *     SkipFinalBackup: true || false,
+ *     FinalBackupTags: [ // Tags
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   LustreConfiguration: { // DeleteFileSystemLustreConfiguration
  *     SkipFinalBackup: true || false,
  *     FinalBackupTags: [
  *       {
@@ -76,7 +85,7 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *       },
  *     ],
  *   },
- *   LustreConfiguration: {
+ *   OpenZFSConfiguration: { // DeleteFileSystemOpenZFSConfiguration
  *     SkipFinalBackup: true || false,
  *     FinalBackupTags: [
  *       {
@@ -84,16 +93,7 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
- *   },
- *   OpenZFSConfiguration: {
- *     SkipFinalBackup: true || false,
- *     FinalBackupTags: [
- *       {
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *     Options: [
+ *     Options: [ // DeleteFileSystemOpenZFSOptions
  *       "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
  *     ],
  *   },

@@ -54,13 +54,13 @@ export interface CreatePoolCommandOutput extends CreatePoolResult, __MetadataBea
  * import { PinpointSMSVoiceV2Client, CreatePoolCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, CreatePoolCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // CreatePoolRequest
  *   OriginationIdentity: "STRING_VALUE", // required
  *   IsoCountryCode: "STRING_VALUE", // required
  *   MessageType: "STRING_VALUE", // required
  *   DeletionProtectionEnabled: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

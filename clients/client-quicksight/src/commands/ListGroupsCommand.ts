@@ -42,7 +42,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * import { QuickSightClient, ListGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // ListGroupsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

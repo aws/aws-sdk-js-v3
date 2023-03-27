@@ -53,7 +53,7 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  * import { CognitoIdentityProviderClient, GlobalSignOutCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GlobalSignOutCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // GlobalSignOutRequest
  *   AccessToken: "STRING_VALUE", // required
  * };
  * const command = new GlobalSignOutCommand(input);

@@ -48,22 +48,22 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * import { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
- * const input = {
+ * const input = { // CreateConfigurationSetEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
- *   EventDestination: {
- *     CloudWatchLogsDestination: {
+ *   EventDestination: { // EventDestinationDefinition
+ *     CloudWatchLogsDestination: { // CloudWatchLogsDestination
  *       IamRoleArn: "STRING_VALUE",
  *       LogGroupArn: "STRING_VALUE",
  *     },
  *     Enabled: true || false,
- *     KinesisFirehoseDestination: {
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
  *       DeliveryStreamArn: "STRING_VALUE",
  *       IamRoleArn: "STRING_VALUE",
  *     },
- *     MatchingEventTypes: [
+ *     MatchingEventTypes: [ // EventTypes
  *       "STRING_VALUE",
  *     ],
- *     SnsDestination: {
+ *     SnsDestination: { // SnsDestination
  *       TopicArn: "STRING_VALUE",
  *     },
  *   },

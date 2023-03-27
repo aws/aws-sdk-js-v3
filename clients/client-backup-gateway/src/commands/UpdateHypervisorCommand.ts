@@ -48,7 +48,7 @@ export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, _
  * import { BackupGatewayClient, UpdateHypervisorCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, UpdateHypervisorCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
- * const input = {
+ * const input = { // UpdateHypervisorInput
  *   HypervisorArn: "STRING_VALUE", // required
  *   Host: "STRING_VALUE",
  *   Username: "STRING_VALUE",

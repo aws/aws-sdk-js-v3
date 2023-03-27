@@ -42,7 +42,7 @@ export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __Met
  * import { QuickSightClient, DescribeThemeCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeThemeCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeThemeRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   ThemeId: "STRING_VALUE", // required
  *   VersionNumber: Number("long"),

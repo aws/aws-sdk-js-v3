@@ -42,18 +42,18 @@ export interface CreateAllowListCommandOutput extends CreateAllowListResponse, _
  * import { Macie2Client, CreateAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // CreateAllowListRequest
  *   clientToken: "STRING_VALUE", // required
- *   criteria: {
+ *   criteria: { // AllowListCriteria
  *     regex: "STRING_VALUE",
- *     s3WordsList: {
+ *     s3WordsList: { // S3WordsList
  *       bucketName: "STRING_VALUE", // required
  *       objectKey: "STRING_VALUE", // required
  *     },
  *   },
  *   description: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

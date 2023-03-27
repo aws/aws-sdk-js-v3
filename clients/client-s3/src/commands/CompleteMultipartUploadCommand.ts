@@ -159,12 +159,12 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * import { S3Client, CompleteMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CompleteMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // CompleteMultipartUploadRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
- *   MultipartUpload: {
- *     Parts: [
- *       {
+ *   MultipartUpload: { // CompletedMultipartUpload
+ *     Parts: [ // CompletedPartList
+ *       { // CompletedPart
  *         ETag: "STRING_VALUE",
  *         ChecksumCRC32: "STRING_VALUE",
  *         ChecksumCRC32C: "STRING_VALUE",

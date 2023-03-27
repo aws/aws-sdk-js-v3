@@ -43,7 +43,7 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  * import { LexModelsV2Client, DescribeIntentCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeIntentCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // DescribeIntentRequest
  *   intentId: "STRING_VALUE", // required
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required

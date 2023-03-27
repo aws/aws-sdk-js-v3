@@ -42,7 +42,7 @@ export interface DescribePackageCommandOutput extends DescribePackageResponse, _
  * import { PanoramaClient, DescribePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // DescribePackageRequest
  *   PackageId: "STRING_VALUE", // required
  * };
  * const command = new DescribePackageCommand(input);

@@ -50,29 +50,29 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { ElasticTranscoderClient, CreateJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreateJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // CreateJobRequest
  *   PipelineId: "STRING_VALUE", // required
- *   Input: {
+ *   Input: { // JobInput
  *     Key: "STRING_VALUE",
  *     FrameRate: "STRING_VALUE",
  *     Resolution: "STRING_VALUE",
  *     AspectRatio: "STRING_VALUE",
  *     Interlaced: "STRING_VALUE",
  *     Container: "STRING_VALUE",
- *     Encryption: {
+ *     Encryption: { // Encryption
  *       Mode: "STRING_VALUE",
  *       Key: "STRING_VALUE",
  *       KeyMd5: "STRING_VALUE",
  *       InitializationVector: "STRING_VALUE",
  *     },
- *     TimeSpan: {
+ *     TimeSpan: { // TimeSpan
  *       StartTime: "STRING_VALUE",
  *       Duration: "STRING_VALUE",
  *     },
- *     InputCaptions: {
+ *     InputCaptions: { // InputCaptions
  *       MergePolicy: "STRING_VALUE",
- *       CaptionSources: [
- *         {
+ *       CaptionSources: [ // CaptionSources
+ *         { // CaptionSource
  *           Key: "STRING_VALUE",
  *           Language: "STRING_VALUE",
  *           TimeOffset: "STRING_VALUE",
@@ -86,7 +86,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         },
  *       ],
  *     },
- *     DetectedProperties: {
+ *     DetectedProperties: { // DetectedProperties
  *       Width: Number("int"),
  *       Height: Number("int"),
  *       FrameRate: "STRING_VALUE",
@@ -94,7 +94,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       DurationMillis: Number("long"),
  *     },
  *   },
- *   Inputs: [
+ *   Inputs: [ // JobInputs
  *     {
  *       Key: "STRING_VALUE",
  *       FrameRate: "STRING_VALUE",
@@ -102,12 +102,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       AspectRatio: "STRING_VALUE",
  *       Interlaced: "STRING_VALUE",
  *       Container: "STRING_VALUE",
- *       Encryption: {
- *         Mode: "<Encryption>",
- *         Key: "<Encryption>",
- *         KeyMd5: "<Encryption>",
- *         InitializationVector: "<Encryption>",
- *       },
+ *       Encryption: "<Encryption>",
  *       TimeSpan: {
  *         StartTime: "STRING_VALUE",
  *         Duration: "STRING_VALUE",
@@ -120,12 +115,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             Language: "STRING_VALUE",
  *             TimeOffset: "STRING_VALUE",
  *             Label: "STRING_VALUE",
- *             Encryption: {
- *               Mode: "<Encryption>",
- *               Key: "<Encryption>",
- *               KeyMd5: "<Encryption>",
- *               InitializationVector: "<Encryption>",
- *             },
+ *             Encryption: "<Encryption>",
  *           },
  *         ],
  *       },
@@ -138,58 +128,40 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       },
  *     },
  *   ],
- *   Output: {
+ *   Output: { // CreateJobOutput
  *     Key: "STRING_VALUE",
  *     ThumbnailPattern: "STRING_VALUE",
- *     ThumbnailEncryption: {
- *       Mode: "<Encryption>",
- *       Key: "<Encryption>",
- *       KeyMd5: "<Encryption>",
- *       InitializationVector: "<Encryption>",
- *     },
+ *     ThumbnailEncryption: "<Encryption>",
  *     Rotate: "STRING_VALUE",
  *     PresetId: "STRING_VALUE",
  *     SegmentDuration: "STRING_VALUE",
- *     Watermarks: [
- *       {
+ *     Watermarks: [ // JobWatermarks
+ *       { // JobWatermark
  *         PresetWatermarkId: "STRING_VALUE",
  *         InputKey: "STRING_VALUE",
- *         Encryption: {
- *           Mode: "<Encryption>",
- *           Key: "<Encryption>",
- *           KeyMd5: "<Encryption>",
- *           InitializationVector: "<Encryption>",
- *         },
+ *         Encryption: "<Encryption>",
  *       },
  *     ],
- *     AlbumArt: {
+ *     AlbumArt: { // JobAlbumArt
  *       MergePolicy: "STRING_VALUE",
- *       Artwork: [
- *         {
+ *       Artwork: [ // Artworks
+ *         { // Artwork
  *           InputKey: "STRING_VALUE",
  *           MaxWidth: "STRING_VALUE",
  *           MaxHeight: "STRING_VALUE",
  *           SizingPolicy: "STRING_VALUE",
  *           PaddingPolicy: "STRING_VALUE",
  *           AlbumArtFormat: "STRING_VALUE",
- *           Encryption: {
- *             Mode: "<Encryption>",
- *             Key: "<Encryption>",
- *             KeyMd5: "<Encryption>",
- *             InitializationVector: "<Encryption>",
- *           },
+ *           Encryption: "<Encryption>",
  *         },
  *       ],
  *     },
- *     Composition: [
- *       {
- *         TimeSpan: {
- *           StartTime: "<TimeSpan>",
- *           Duration: "<TimeSpan>",
- *         },
+ *     Composition: [ // Composition
+ *       { // Clip
+ *         TimeSpan: "<TimeSpan>",
  *       },
  *     ],
- *     Captions: {
+ *     Captions: { // Captions
  *       MergePolicy: "STRING_VALUE",
  *       CaptionSources: [
  *         {
@@ -197,44 +169,24 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           Language: "STRING_VALUE",
  *           TimeOffset: "STRING_VALUE",
  *           Label: "STRING_VALUE",
- *           Encryption: {
- *             Mode: "<Encryption>",
- *             Key: "<Encryption>",
- *             KeyMd5: "<Encryption>",
- *             InitializationVector: "<Encryption>",
- *           },
+ *           Encryption: "<Encryption>",
  *         },
  *       ],
- *       CaptionFormats: [
- *         {
+ *       CaptionFormats: [ // CaptionFormats
+ *         { // CaptionFormat
  *           Format: "STRING_VALUE",
  *           Pattern: "STRING_VALUE",
- *           Encryption: {
- *             Mode: "<Encryption>",
- *             Key: "<Encryption>",
- *             KeyMd5: "<Encryption>",
- *             InitializationVector: "<Encryption>",
- *           },
+ *           Encryption: "<Encryption>",
  *         },
  *       ],
  *     },
- *     Encryption: {
- *       Mode: "<Encryption>",
- *       Key: "<Encryption>",
- *       KeyMd5: "<Encryption>",
- *       InitializationVector: "<Encryption>",
- *     },
+ *     Encryption: "<Encryption>",
  *   },
- *   Outputs: [
+ *   Outputs: [ // CreateJobOutputs
  *     {
  *       Key: "STRING_VALUE",
  *       ThumbnailPattern: "STRING_VALUE",
- *       ThumbnailEncryption: {
- *         Mode: "<Encryption>",
- *         Key: "<Encryption>",
- *         KeyMd5: "<Encryption>",
- *         InitializationVector: "<Encryption>",
- *       },
+ *       ThumbnailEncryption: "<Encryption>",
  *       Rotate: "STRING_VALUE",
  *       PresetId: "STRING_VALUE",
  *       SegmentDuration: "STRING_VALUE",
@@ -242,12 +194,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         {
  *           PresetWatermarkId: "STRING_VALUE",
  *           InputKey: "STRING_VALUE",
- *           Encryption: {
- *             Mode: "<Encryption>",
- *             Key: "<Encryption>",
- *             KeyMd5: "<Encryption>",
- *             InitializationVector: "<Encryption>",
- *           },
+ *           Encryption: "<Encryption>",
  *         },
  *       ],
  *       AlbumArt: {
@@ -260,21 +207,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             SizingPolicy: "STRING_VALUE",
  *             PaddingPolicy: "STRING_VALUE",
  *             AlbumArtFormat: "STRING_VALUE",
- *             Encryption: {
- *               Mode: "<Encryption>",
- *               Key: "<Encryption>",
- *               KeyMd5: "<Encryption>",
- *               InitializationVector: "<Encryption>",
- *             },
+ *             Encryption: "<Encryption>",
  *           },
  *         ],
  *       },
  *       Composition: [
  *         {
- *           TimeSpan: {
- *             StartTime: "<TimeSpan>",
- *             Duration: "<TimeSpan>",
- *           },
+ *           TimeSpan: "<TimeSpan>",
  *         },
  *       ],
  *       Captions: {
@@ -285,44 +224,29 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             Language: "STRING_VALUE",
  *             TimeOffset: "STRING_VALUE",
  *             Label: "STRING_VALUE",
- *             Encryption: {
- *               Mode: "<Encryption>",
- *               Key: "<Encryption>",
- *               KeyMd5: "<Encryption>",
- *               InitializationVector: "<Encryption>",
- *             },
+ *             Encryption: "<Encryption>",
  *           },
  *         ],
  *         CaptionFormats: [
  *           {
  *             Format: "STRING_VALUE",
  *             Pattern: "STRING_VALUE",
- *             Encryption: {
- *               Mode: "<Encryption>",
- *               Key: "<Encryption>",
- *               KeyMd5: "<Encryption>",
- *               InitializationVector: "<Encryption>",
- *             },
+ *             Encryption: "<Encryption>",
  *           },
  *         ],
  *       },
- *       Encryption: {
- *         Mode: "<Encryption>",
- *         Key: "<Encryption>",
- *         KeyMd5: "<Encryption>",
- *         InitializationVector: "<Encryption>",
- *       },
+ *       Encryption: "<Encryption>",
  *     },
  *   ],
  *   OutputKeyPrefix: "STRING_VALUE",
- *   Playlists: [
- *     {
+ *   Playlists: [ // CreateJobPlaylists
+ *     { // CreateJobPlaylist
  *       Name: "STRING_VALUE",
  *       Format: "STRING_VALUE",
- *       OutputKeys: [
+ *       OutputKeys: [ // OutputKeys
  *         "STRING_VALUE",
  *       ],
- *       HlsContentProtection: {
+ *       HlsContentProtection: { // HlsContentProtection
  *         Method: "STRING_VALUE",
  *         Key: "STRING_VALUE",
  *         KeyMd5: "STRING_VALUE",
@@ -330,7 +254,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         LicenseAcquisitionUrl: "STRING_VALUE",
  *         KeyStoragePolicy: "STRING_VALUE",
  *       },
- *       PlayReadyDrm: {
+ *       PlayReadyDrm: { // PlayReadyDrm
  *         Format: "STRING_VALUE",
  *         Key: "STRING_VALUE",
  *         KeyMd5: "STRING_VALUE",
@@ -340,7 +264,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       },
  *     },
  *   ],
- *   UserMetadata: {
+ *   UserMetadata: { // UserMetadata
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

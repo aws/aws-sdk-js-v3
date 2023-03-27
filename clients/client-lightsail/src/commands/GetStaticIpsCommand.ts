@@ -42,7 +42,7 @@ export interface GetStaticIpsCommandOutput extends GetStaticIpsResult, __Metadat
  * import { LightsailClient, GetStaticIpsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetStaticIpsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetStaticIpsRequest
  *   pageToken: "STRING_VALUE",
  * };
  * const command = new GetStaticIpsCommand(input);

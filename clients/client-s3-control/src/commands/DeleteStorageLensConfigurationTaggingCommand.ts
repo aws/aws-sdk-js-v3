@@ -58,7 +58,7 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
  * import { S3ControlClient, DeleteStorageLensConfigurationTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteStorageLensConfigurationTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // DeleteStorageLensConfigurationTaggingRequest
  *   ConfigId: "STRING_VALUE", // required
  *   AccountId: "STRING_VALUE",
  * };

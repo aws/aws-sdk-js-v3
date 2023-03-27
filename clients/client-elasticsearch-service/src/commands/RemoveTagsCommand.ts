@@ -46,9 +46,9 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  * import { ElasticsearchServiceClient, RemoveTagsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, RemoveTagsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // RemoveTagsRequest
  *   ARN: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  * };

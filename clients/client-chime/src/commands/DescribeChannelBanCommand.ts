@@ -53,7 +53,7 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
  * import { ChimeClient, DescribeChannelBanCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeChannelBanCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DescribeChannelBanRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   MemberArn: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE",

@@ -46,8 +46,8 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  * import { AppSyncClient, EvaluateCodeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, EvaluateCodeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
- *   runtime: {
+ * const input = { // EvaluateCodeRequest
+ *   runtime: { // AppSyncRuntime
  *     name: "APPSYNC_JS", // required
  *     runtimeVersion: "STRING_VALUE", // required
  *   },

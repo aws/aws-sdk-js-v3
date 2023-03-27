@@ -48,7 +48,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * import { EC2Client, GetNetworkInsightsAccessScopeAnalysisFindingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetNetworkInsightsAccessScopeAnalysisFindingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // GetNetworkInsightsAccessScopeAnalysisFindingsRequest
  *   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

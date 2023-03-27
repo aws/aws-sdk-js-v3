@@ -42,7 +42,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * import { PanoramaClient, ListPackagesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListPackagesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // ListPackagesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

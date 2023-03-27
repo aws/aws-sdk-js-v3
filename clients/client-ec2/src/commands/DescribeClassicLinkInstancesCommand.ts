@@ -49,17 +49,17 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * import { EC2Client, DescribeClassicLinkInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeClassicLinkInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeClassicLinkInstancesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   DryRun: true || false,
- *   InstanceIds: [
+ *   InstanceIds: [ // InstanceIdStringList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

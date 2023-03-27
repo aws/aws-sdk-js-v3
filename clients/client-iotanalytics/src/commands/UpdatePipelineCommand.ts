@@ -44,65 +44,65 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdatePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdatePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // UpdatePipelineRequest
  *   pipelineName: "STRING_VALUE", // required
- *   pipelineActivities: [ // required
- *     {
- *       channel: {
+ *   pipelineActivities: [ // PipelineActivities // required
+ *     { // PipelineActivity
+ *       channel: { // ChannelActivity
  *         name: "STRING_VALUE", // required
  *         channelName: "STRING_VALUE", // required
  *         next: "STRING_VALUE",
  *       },
- *       lambda: {
+ *       lambda: { // LambdaActivity
  *         name: "STRING_VALUE", // required
  *         lambdaName: "STRING_VALUE", // required
  *         batchSize: Number("int"), // required
  *         next: "STRING_VALUE",
  *       },
- *       datastore: {
+ *       datastore: { // DatastoreActivity
  *         name: "STRING_VALUE", // required
  *         datastoreName: "STRING_VALUE", // required
  *       },
- *       addAttributes: {
+ *       addAttributes: { // AddAttributesActivity
  *         name: "STRING_VALUE", // required
- *         attributes: { // required
+ *         attributes: { // AttributeNameMapping // required
  *           "<keys>": "STRING_VALUE",
  *         },
  *         next: "STRING_VALUE",
  *       },
- *       removeAttributes: {
+ *       removeAttributes: { // RemoveAttributesActivity
+ *         name: "STRING_VALUE", // required
+ *         attributes: [ // AttributeNames // required
+ *           "STRING_VALUE",
+ *         ],
+ *         next: "STRING_VALUE",
+ *       },
+ *       selectAttributes: { // SelectAttributesActivity
  *         name: "STRING_VALUE", // required
  *         attributes: [ // required
  *           "STRING_VALUE",
  *         ],
  *         next: "STRING_VALUE",
  *       },
- *       selectAttributes: {
- *         name: "STRING_VALUE", // required
- *         attributes: [ // required
- *           "STRING_VALUE",
- *         ],
- *         next: "STRING_VALUE",
- *       },
- *       filter: {
+ *       filter: { // FilterActivity
  *         name: "STRING_VALUE", // required
  *         filter: "STRING_VALUE", // required
  *         next: "STRING_VALUE",
  *       },
- *       math: {
+ *       math: { // MathActivity
  *         name: "STRING_VALUE", // required
  *         attribute: "STRING_VALUE", // required
  *         math: "STRING_VALUE", // required
  *         next: "STRING_VALUE",
  *       },
- *       deviceRegistryEnrich: {
+ *       deviceRegistryEnrich: { // DeviceRegistryEnrichActivity
  *         name: "STRING_VALUE", // required
  *         attribute: "STRING_VALUE", // required
  *         thingName: "STRING_VALUE", // required
  *         roleArn: "STRING_VALUE", // required
  *         next: "STRING_VALUE",
  *       },
- *       deviceShadowEnrich: {
+ *       deviceShadowEnrich: { // DeviceShadowEnrichActivity
  *         name: "STRING_VALUE", // required
  *         attribute: "STRING_VALUE", // required
  *         thingName: "STRING_VALUE", // required

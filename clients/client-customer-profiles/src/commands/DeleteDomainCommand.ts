@@ -43,7 +43,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * import { CustomerProfilesClient, DeleteDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // DeleteDomainRequest
  *   DomainName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDomainCommand(input);

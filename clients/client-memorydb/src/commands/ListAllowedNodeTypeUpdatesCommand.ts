@@ -44,7 +44,7 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * import { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // ListAllowedNodeTypeUpdatesRequest
  *   ClusterName: "STRING_VALUE", // required
  * };
  * const command = new ListAllowedNodeTypeUpdatesCommand(input);

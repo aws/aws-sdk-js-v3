@@ -42,21 +42,21 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
  * import { AuditManagerClient, CreateAssessmentFrameworkCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, CreateAssessmentFrameworkCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // CreateAssessmentFrameworkRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   complianceType: "STRING_VALUE",
- *   controlSets: [ // required
- *     {
+ *   controlSets: [ // CreateAssessmentFrameworkControlSets // required
+ *     { // CreateAssessmentFrameworkControlSet
  *       name: "STRING_VALUE", // required
- *       controls: [
- *         {
+ *       controls: [ // CreateAssessmentFrameworkControls
+ *         { // CreateAssessmentFrameworkControl
  *           id: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
  *   ],
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

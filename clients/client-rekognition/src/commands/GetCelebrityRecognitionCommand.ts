@@ -80,7 +80,7 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  * import { RekognitionClient, GetCelebrityRecognitionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetCelebrityRecognitionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // GetCelebrityRecognitionRequest
  *   JobId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

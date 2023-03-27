@@ -53,10 +53,10 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
  * import { EC2Client, RegisterTransitGatewayMulticastGroupSourcesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RegisterTransitGatewayMulticastGroupSourcesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // RegisterTransitGatewayMulticastGroupSourcesRequest
  *   TransitGatewayMulticastDomainId: "STRING_VALUE", // required
  *   GroupIpAddress: "STRING_VALUE",
- *   NetworkInterfaceIds: [ // required
+ *   NetworkInterfaceIds: [ // TransitGatewayNetworkInterfaceIdList // required
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

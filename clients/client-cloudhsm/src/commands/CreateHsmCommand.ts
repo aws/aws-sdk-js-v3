@@ -58,7 +58,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * import { CloudHSMClient, CreateHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, CreateHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
- * const input = {
+ * const input = { // CreateHsmRequest
  *   SubnetId: "STRING_VALUE", // required
  *   SshKey: "STRING_VALUE", // required
  *   EniIp: "STRING_VALUE",

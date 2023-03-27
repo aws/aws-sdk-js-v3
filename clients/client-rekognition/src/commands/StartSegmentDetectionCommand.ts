@@ -55,33 +55,33 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * import { RekognitionClient, StartSegmentDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartSegmentDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   Video: {
- *     S3Object: {
+ * const input = { // StartSegmentDetectionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
  *     },
  *   },
  *   ClientRequestToken: "STRING_VALUE",
- *   NotificationChannel: {
+ *   NotificationChannel: { // NotificationChannel
  *     SNSTopicArn: "STRING_VALUE", // required
  *     RoleArn: "STRING_VALUE", // required
  *   },
  *   JobTag: "STRING_VALUE",
- *   Filters: {
- *     TechnicalCueFilter: {
+ *   Filters: { // StartSegmentDetectionFilters
+ *     TechnicalCueFilter: { // StartTechnicalCueDetectionFilter
  *       MinSegmentConfidence: Number("float"),
- *       BlackFrame: {
+ *       BlackFrame: { // BlackFrame
  *         MaxPixelThreshold: Number("float"),
  *         MinCoveragePercentage: Number("float"),
  *       },
  *     },
- *     ShotFilter: {
+ *     ShotFilter: { // StartShotDetectionFilter
  *       MinSegmentConfidence: Number("float"),
  *     },
  *   },
- *   SegmentTypes: [ // required
+ *   SegmentTypes: [ // SegmentTypes // required
  *     "TECHNICAL_CUE" || "SHOT",
  *   ],
  * };

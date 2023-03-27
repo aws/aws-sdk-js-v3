@@ -42,7 +42,7 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * import { AccountClient, DisableRegionCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, DisableRegionCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
- * const input = {
+ * const input = { // DisableRegionRequest
  *   AccountId: "STRING_VALUE",
  *   RegionName: "STRING_VALUE", // required
  * };

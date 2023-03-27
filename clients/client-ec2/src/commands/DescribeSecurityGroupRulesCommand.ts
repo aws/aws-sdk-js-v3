@@ -42,16 +42,16 @@ export interface DescribeSecurityGroupRulesCommandOutput extends DescribeSecurit
  * import { EC2Client, DescribeSecurityGroupRulesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSecurityGroupRulesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeSecurityGroupRulesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   SecurityGroupRuleIds: [
+ *   SecurityGroupRuleIds: [ // SecurityGroupRuleIdList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

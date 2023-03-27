@@ -43,7 +43,7 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * import { LookoutMetricsClient, DeleteAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DeleteAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
+ * const input = { // DeleteAnomalyDetectorRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteAnomalyDetectorCommand(input);

@@ -42,7 +42,7 @@ export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __M
  * import { ApiGatewayV2Client, GetAuthorizersCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetAuthorizersCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // GetAuthorizersRequest
  *   ApiId: "STRING_VALUE", // required
  *   MaxResults: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

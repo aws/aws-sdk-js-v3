@@ -46,7 +46,7 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  * import { SageMakerGeospatialClient, StopVectorEnrichmentJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, StopVectorEnrichmentJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // StopVectorEnrichmentJobInput
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new StopVectorEnrichmentJobCommand(input);

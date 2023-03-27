@@ -42,7 +42,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * import { DataBrewClient, ListProjectsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListProjectsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // ListProjectsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

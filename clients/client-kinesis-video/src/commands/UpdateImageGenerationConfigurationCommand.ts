@@ -44,19 +44,19 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * import { KinesisVideoClient, UpdateImageGenerationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateImageGenerationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // UpdateImageGenerationConfigurationInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
- *   ImageGenerationConfiguration: {
+ *   ImageGenerationConfiguration: { // ImageGenerationConfiguration
  *     Status: "ENABLED" || "DISABLED", // required
  *     ImageSelectorType: "SERVER_TIMESTAMP" || "PRODUCER_TIMESTAMP", // required
- *     DestinationConfig: {
+ *     DestinationConfig: { // ImageGenerationDestinationConfig
  *       Uri: "STRING_VALUE", // required
  *       DestinationRegion: "STRING_VALUE", // required
  *     },
  *     SamplingInterval: Number("int"), // required
  *     Format: "JPEG" || "PNG", // required
- *     FormatConfig: {
+ *     FormatConfig: { // FormatConfig
  *       "<keys>": "STRING_VALUE",
  *     },
  *     WidthPixels: Number("int"),

@@ -42,7 +42,7 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  * import { MediaPackageClient, ListHarvestJobsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, ListHarvestJobsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
- * const input = {
+ * const input = { // ListHarvestJobsRequest
  *   IncludeChannelId: "STRING_VALUE",
  *   IncludeStatus: "STRING_VALUE",
  *   MaxResults: Number("int"),

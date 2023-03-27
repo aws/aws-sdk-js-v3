@@ -69,7 +69,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketPolicyCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketPolicyCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketPolicyRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
  *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",

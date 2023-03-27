@@ -54,21 +54,21 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  * import { PinpointSMSVoiceV2Client, CreateEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, CreateEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // CreateEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   EventDestinationName: "STRING_VALUE", // required
- *   MatchingEventTypes: [ // required
+ *   MatchingEventTypes: [ // EventTypeList // required
  *     "STRING_VALUE",
  *   ],
- *   CloudWatchLogsDestination: {
+ *   CloudWatchLogsDestination: { // CloudWatchLogsDestination
  *     IamRoleArn: "STRING_VALUE", // required
  *     LogGroupArn: "STRING_VALUE", // required
  *   },
- *   KinesisFirehoseDestination: {
+ *   KinesisFirehoseDestination: { // KinesisFirehoseDestination
  *     IamRoleArn: "STRING_VALUE", // required
  *     DeliveryStreamArn: "STRING_VALUE", // required
  *   },
- *   SnsDestination: {
+ *   SnsDestination: { // SnsDestination
  *     TopicArn: "STRING_VALUE", // required
  *   },
  *   ClientToken: "STRING_VALUE",

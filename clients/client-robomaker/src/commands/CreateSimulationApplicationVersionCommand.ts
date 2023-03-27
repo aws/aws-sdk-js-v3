@@ -47,10 +47,10 @@ export interface CreateSimulationApplicationVersionCommandOutput
  * import { RoboMakerClient, CreateSimulationApplicationVersionCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateSimulationApplicationVersionCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CreateSimulationApplicationVersionRequest
  *   application: "STRING_VALUE", // required
  *   currentRevisionId: "STRING_VALUE",
- *   s3Etags: [
+ *   s3Etags: [ // S3Etags
  *     "STRING_VALUE",
  *   ],
  *   imageDigest: "STRING_VALUE",

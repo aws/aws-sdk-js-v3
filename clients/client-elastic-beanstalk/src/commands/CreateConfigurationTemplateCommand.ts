@@ -65,27 +65,27 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * import { ElasticBeanstalkClient, CreateConfigurationTemplateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateConfigurationTemplateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // CreateConfigurationTemplateMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   TemplateName: "STRING_VALUE", // required
  *   SolutionStackName: "STRING_VALUE",
  *   PlatformArn: "STRING_VALUE",
- *   SourceConfiguration: {
+ *   SourceConfiguration: { // SourceConfiguration
  *     ApplicationName: "STRING_VALUE",
  *     TemplateName: "STRING_VALUE",
  *   },
  *   EnvironmentId: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   OptionSettings: [
- *     {
+ *   OptionSettings: [ // ConfigurationOptionSettingsList
+ *     { // ConfigurationOptionSetting
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

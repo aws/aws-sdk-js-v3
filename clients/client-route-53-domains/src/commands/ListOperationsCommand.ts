@@ -44,14 +44,14 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * import { Route53DomainsClient, ListOperationsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListOperationsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // ListOperationsRequest
  *   SubmittedSince: new Date("TIMESTAMP"),
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
- *   Status: [
+ *   Status: [ // OperationStatusList
  *     "SUBMITTED" || "IN_PROGRESS" || "ERROR" || "SUCCESSFUL" || "FAILED",
  *   ],
- *   Type: [
+ *   Type: [ // OperationTypeList
  *     "REGISTER_DOMAIN" || "DELETE_DOMAIN" || "TRANSFER_IN_DOMAIN" || "UPDATE_DOMAIN_CONTACT" || "UPDATE_NAMESERVER" || "CHANGE_PRIVACY_PROTECTION" || "DOMAIN_LOCK" || "ENABLE_AUTORENEW" || "DISABLE_AUTORENEW" || "ADD_DNSSEC" || "REMOVE_DNSSEC" || "EXPIRE_DOMAIN" || "TRANSFER_OUT_DOMAIN" || "CHANGE_DOMAIN_OWNER" || "RENEW_DOMAIN" || "PUSH_DOMAIN" || "INTERNAL_TRANSFER_OUT_DOMAIN" || "INTERNAL_TRANSFER_IN_DOMAIN",
  *   ],
  *   SortBy: "SubmittedDate",

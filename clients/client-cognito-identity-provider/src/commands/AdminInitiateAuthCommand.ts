@@ -72,25 +72,25 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * import { CognitoIdentityProviderClient, AdminInitiateAuthCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminInitiateAuthCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminInitiateAuthRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE", // required
  *   AuthFlow: "USER_SRP_AUTH" || "REFRESH_TOKEN_AUTH" || "REFRESH_TOKEN" || "CUSTOM_AUTH" || "ADMIN_NO_SRP_AUTH" || "USER_PASSWORD_AUTH" || "ADMIN_USER_PASSWORD_AUTH", // required
- *   AuthParameters: {
+ *   AuthParameters: { // AuthParametersType
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AnalyticsMetadata: {
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
  *     AnalyticsEndpointId: "STRING_VALUE",
  *   },
- *   ContextData: {
+ *   ContextData: { // ContextDataType
  *     IpAddress: "STRING_VALUE", // required
  *     ServerName: "STRING_VALUE", // required
  *     ServerPath: "STRING_VALUE", // required
- *     HttpHeaders: [ // required
- *       {
+ *     HttpHeaders: [ // HttpHeaderList // required
+ *       { // HttpHeader
  *         headerName: "STRING_VALUE",
  *         headerValue: "STRING_VALUE",
  *       },

@@ -54,31 +54,31 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * import { PinpointEmailClient, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // CreateConfigurationSetEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   EventDestinationName: "STRING_VALUE", // required
- *   EventDestination: {
+ *   EventDestination: { // EventDestinationDefinition
  *     Enabled: true || false,
- *     MatchingEventTypes: [
+ *     MatchingEventTypes: [ // EventTypes
  *       "STRING_VALUE",
  *     ],
- *     KinesisFirehoseDestination: {
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
  *       IamRoleArn: "STRING_VALUE", // required
  *       DeliveryStreamArn: "STRING_VALUE", // required
  *     },
- *     CloudWatchDestination: {
- *       DimensionConfigurations: [ // required
- *         {
+ *     CloudWatchDestination: { // CloudWatchDestination
+ *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ *         { // CloudWatchDimensionConfiguration
  *           DimensionName: "STRING_VALUE", // required
  *           DimensionValueSource: "STRING_VALUE", // required
  *           DefaultDimensionValue: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     SnsDestination: {
+ *     SnsDestination: { // SnsDestination
  *       TopicArn: "STRING_VALUE", // required
  *     },
- *     PinpointDestination: {
+ *     PinpointDestination: { // PinpointDestination
  *       ApplicationArn: "STRING_VALUE",
  *     },
  *   },

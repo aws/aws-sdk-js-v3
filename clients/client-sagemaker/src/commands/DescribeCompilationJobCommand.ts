@@ -44,7 +44,7 @@ export interface DescribeCompilationJobCommandOutput extends DescribeCompilation
  * import { SageMakerClient, DescribeCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeCompilationJobRequest
  *   CompilationJobName: "STRING_VALUE", // required
  * };
  * const command = new DescribeCompilationJobCommand(input);

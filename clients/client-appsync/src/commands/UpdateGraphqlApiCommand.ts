@@ -42,29 +42,29 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  * import { AppSyncClient, UpdateGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // UpdateGraphqlApiRequest
  *   apiId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   logConfig: {
+ *   logConfig: { // LogConfig
  *     fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
  *     cloudWatchLogsRoleArn: "STRING_VALUE", // required
  *     excludeVerboseContent: true || false,
  *   },
  *   authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
- *   userPoolConfig: {
+ *   userPoolConfig: { // UserPoolConfig
  *     userPoolId: "STRING_VALUE", // required
  *     awsRegion: "STRING_VALUE", // required
  *     defaultAction: "ALLOW" || "DENY", // required
  *     appIdClientRegex: "STRING_VALUE",
  *   },
- *   openIDConnectConfig: {
+ *   openIDConnectConfig: { // OpenIDConnectConfig
  *     issuer: "STRING_VALUE", // required
  *     clientId: "STRING_VALUE",
  *     iatTTL: Number("long"),
  *     authTTL: Number("long"),
  *   },
- *   additionalAuthenticationProviders: [
- *     {
+ *   additionalAuthenticationProviders: [ // AdditionalAuthenticationProviders
+ *     { // AdditionalAuthenticationProvider
  *       authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
  *       openIDConnectConfig: {
  *         issuer: "STRING_VALUE", // required
@@ -72,12 +72,12 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  *         iatTTL: Number("long"),
  *         authTTL: Number("long"),
  *       },
- *       userPoolConfig: {
+ *       userPoolConfig: { // CognitoUserPoolConfig
  *         userPoolId: "STRING_VALUE", // required
  *         awsRegion: "STRING_VALUE", // required
  *         appIdClientRegex: "STRING_VALUE",
  *       },
- *       lambdaAuthorizerConfig: {
+ *       lambdaAuthorizerConfig: { // LambdaAuthorizerConfig
  *         authorizerResultTtlInSeconds: Number("int"),
  *         authorizerUri: "STRING_VALUE", // required
  *         identityValidationExpression: "STRING_VALUE",

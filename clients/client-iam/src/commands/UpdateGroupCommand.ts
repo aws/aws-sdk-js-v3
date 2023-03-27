@@ -53,7 +53,7 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UpdateGroupRequest
  *   GroupName: "STRING_VALUE", // required
  *   NewPath: "STRING_VALUE",
  *   NewGroupName: "STRING_VALUE",

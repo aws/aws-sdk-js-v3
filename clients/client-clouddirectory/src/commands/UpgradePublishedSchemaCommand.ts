@@ -42,7 +42,7 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  * import { CloudDirectoryClient, UpgradePublishedSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpgradePublishedSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // UpgradePublishedSchemaRequest
  *   DevelopmentSchemaArn: "STRING_VALUE", // required
  *   PublishedSchemaArn: "STRING_VALUE", // required
  *   MinorVersion: "STRING_VALUE", // required

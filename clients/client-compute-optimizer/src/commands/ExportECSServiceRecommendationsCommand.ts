@@ -51,22 +51,22 @@ export interface ExportECSServiceRecommendationsCommandOutput
  * import { ComputeOptimizerClient, ExportECSServiceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportECSServiceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const input = {
- *   accountIds: [
+ * const input = { // ExportECSServiceRecommendationsRequest
+ *   accountIds: [ // AccountIds
  *     "STRING_VALUE",
  *   ],
- *   filters: [
- *     {
+ *   filters: [ // ECSServiceRecommendationFilters
+ *     { // ECSServiceRecommendationFilter
  *       name: "Finding" || "FindingReasonCode",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   fieldsToExport: [
+ *   fieldsToExport: [ // ExportableECSServiceFields
  *     "AccountId" || "ServiceArn" || "LookbackPeriodInDays" || "LastRefreshTimestamp" || "LaunchType" || "CurrentPerformanceRisk" || "CurrentServiceConfigurationMemory" || "CurrentServiceConfigurationCpu" || "CurrentServiceConfigurationTaskDefinitionArn" || "CurrentServiceConfigurationAutoScalingConfiguration" || "CurrentServiceContainerConfigurations" || "UtilizationMetricsCpuMaximum" || "UtilizationMetricsMemoryMaximum" || "Finding" || "FindingReasonCodes" || "RecommendationOptionsMemory" || "RecommendationOptionsCpu" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "RecommendationOptionsContainerRecommendations" || "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum" || "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
  *   ],
- *   s3DestinationConfig: {
+ *   s3DestinationConfig: { // S3DestinationConfig
  *     bucket: "STRING_VALUE",
  *     keyPrefix: "STRING_VALUE",
  *   },

@@ -46,7 +46,7 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * import { Route53RecoveryControlConfigClient, DescribeSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DescribeSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
+ * const input = { // DescribeSafetyRuleRequest
  *   SafetyRuleArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeSafetyRuleCommand(input);

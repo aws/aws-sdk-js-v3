@@ -62,30 +62,30 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * import { SSMClient, CreateResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // CreateResourceDataSyncRequest
  *   SyncName: "STRING_VALUE", // required
- *   S3Destination: {
+ *   S3Destination: { // ResourceDataSyncS3Destination
  *     BucketName: "STRING_VALUE", // required
  *     Prefix: "STRING_VALUE",
  *     SyncFormat: "JsonSerDe", // required
  *     Region: "STRING_VALUE", // required
  *     AWSKMSKeyARN: "STRING_VALUE",
- *     DestinationDataSharing: {
+ *     DestinationDataSharing: { // ResourceDataSyncDestinationDataSharing
  *       DestinationDataSharingType: "STRING_VALUE",
  *     },
  *   },
  *   SyncType: "STRING_VALUE",
- *   SyncSource: {
+ *   SyncSource: { // ResourceDataSyncSource
  *     SourceType: "STRING_VALUE", // required
- *     AwsOrganizationsSource: {
+ *     AwsOrganizationsSource: { // ResourceDataSyncAwsOrganizationsSource
  *       OrganizationSourceType: "STRING_VALUE", // required
- *       OrganizationalUnits: [
- *         {
+ *       OrganizationalUnits: [ // ResourceDataSyncOrganizationalUnitList
+ *         { // ResourceDataSyncOrganizationalUnit
  *           OrganizationalUnitId: "STRING_VALUE",
  *         },
  *       ],
  *     },
- *     SourceRegions: [ // required
+ *     SourceRegions: [ // ResourceDataSyncSourceRegionList // required
  *       "STRING_VALUE",
  *     ],
  *     IncludeFutureRegions: true || false,

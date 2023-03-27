@@ -42,8 +42,8 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  * import { CloudFrontClient, CreatePublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreatePublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   PublicKeyConfig: {
+ * const input = { // CreatePublicKeyRequest
+ *   PublicKeyConfig: { // PublicKeyConfig
  *     CallerReference: "STRING_VALUE", // required
  *     Name: "STRING_VALUE", // required
  *     EncodedKey: "STRING_VALUE", // required

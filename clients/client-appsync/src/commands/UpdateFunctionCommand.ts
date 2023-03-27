@@ -42,7 +42,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  * import { AppSyncClient, UpdateFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // UpdateFunctionRequest
  *   apiId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
@@ -51,15 +51,15 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  *   requestMappingTemplate: "STRING_VALUE",
  *   responseMappingTemplate: "STRING_VALUE",
  *   functionVersion: "STRING_VALUE",
- *   syncConfig: {
+ *   syncConfig: { // SyncConfig
  *     conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
  *     conflictDetection: "VERSION" || "NONE",
- *     lambdaConflictHandlerConfig: {
+ *     lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
  *       lambdaConflictHandlerArn: "STRING_VALUE",
  *     },
  *   },
  *   maxBatchSize: Number("int"),
- *   runtime: {
+ *   runtime: { // AppSyncRuntime
  *     name: "APPSYNC_JS", // required
  *     runtimeVersion: "STRING_VALUE", // required
  *   },

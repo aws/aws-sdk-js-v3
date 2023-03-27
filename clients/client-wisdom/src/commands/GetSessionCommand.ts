@@ -42,7 +42,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { WisdomClient, GetSessionCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetSessionCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // GetSessionRequest
  *   assistantId: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
  * };

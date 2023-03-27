@@ -42,7 +42,7 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, DeleteScheduledActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteScheduledActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // DeleteScheduledActionType
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   ScheduledActionName: "STRING_VALUE", // required
  * };

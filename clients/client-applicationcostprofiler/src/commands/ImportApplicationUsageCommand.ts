@@ -49,8 +49,8 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * import { ApplicationCostProfilerClient, ImportApplicationUsageCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, ImportApplicationUsageCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
- * const input = {
- *   sourceS3Location: {
+ * const input = { // ImportApplicationUsageRequest
+ *   sourceS3Location: { // SourceS3Location
  *     bucket: "STRING_VALUE", // required
  *     key: "STRING_VALUE", // required
  *     region: "STRING_VALUE",

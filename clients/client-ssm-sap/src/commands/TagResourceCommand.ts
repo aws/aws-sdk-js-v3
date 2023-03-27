@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { SsmSapClient, TagResourceCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, TagResourceCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -52,7 +52,7 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * import { EFSClient, DescribeLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // DescribeLifecycleConfigurationRequest
  *   FileSystemId: "STRING_VALUE", // required
  * };
  * const command = new DescribeLifecycleConfigurationCommand(input);

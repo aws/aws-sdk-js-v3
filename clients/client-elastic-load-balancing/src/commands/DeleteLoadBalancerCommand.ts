@@ -49,7 +49,7 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * import { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // DeleteAccessPointInput
  *   LoadBalancerName: "STRING_VALUE", // required
  * };
  * const command = new DeleteLoadBalancerCommand(input);

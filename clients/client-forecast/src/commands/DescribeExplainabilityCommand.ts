@@ -42,7 +42,7 @@ export interface DescribeExplainabilityCommandOutput extends DescribeExplainabil
  * import { ForecastClient, DescribeExplainabilityCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeExplainabilityCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DescribeExplainabilityRequest
  *   ExplainabilityArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeExplainabilityCommand(input);

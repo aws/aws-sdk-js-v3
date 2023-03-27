@@ -44,9 +44,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { BillingconductorClient, UntagResourceCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UntagResourceCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

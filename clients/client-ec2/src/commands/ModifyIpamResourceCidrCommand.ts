@@ -43,7 +43,7 @@ export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceC
  * import { EC2Client, ModifyIpamResourceCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamResourceCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyIpamResourceCidrRequest
  *   DryRun: true || false,
  *   ResourceId: "STRING_VALUE", // required
  *   ResourceCidr: "STRING_VALUE", // required

@@ -42,21 +42,21 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
  * import { RoboMakerClient, UpdateRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, UpdateRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // UpdateRobotApplicationRequest
  *   application: "STRING_VALUE", // required
- *   sources: [
- *     {
+ *   sources: [ // SourceConfigs
+ *     { // SourceConfig
  *       s3Bucket: "STRING_VALUE",
  *       s3Key: "STRING_VALUE",
  *       architecture: "STRING_VALUE",
  *     },
  *   ],
- *   robotSoftwareSuite: {
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
  *     name: "STRING_VALUE",
  *     version: "STRING_VALUE",
  *   },
  *   currentRevisionId: "STRING_VALUE",
- *   environment: {
+ *   environment: { // Environment
  *     uri: "STRING_VALUE",
  *   },
  * };

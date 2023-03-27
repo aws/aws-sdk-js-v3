@@ -56,17 +56,17 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * import { BatchClient, ListJobsCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, ListJobsCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // ListJobsRequest
  *   jobQueue: "STRING_VALUE",
  *   arrayJobId: "STRING_VALUE",
  *   multiNodeJobId: "STRING_VALUE",
  *   jobStatus: "SUBMITTED" || "PENDING" || "RUNNABLE" || "STARTING" || "RUNNING" || "SUCCEEDED" || "FAILED",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filters: [
- *     {
+ *   filters: [ // ListJobsFilterList
+ *     { // KeyValuesPair
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // StringList
  *         "STRING_VALUE",
  *       ],
  *     },

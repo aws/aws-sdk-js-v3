@@ -139,14 +139,14 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * import { KMSClient, GenerateDataKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // GenerateDataKeyRequest
  *   KeyId: "STRING_VALUE", // required
- *   EncryptionContext: {
+ *   EncryptionContext: { // EncryptionContextType
  *     "<keys>": "STRING_VALUE",
  *   },
  *   NumberOfBytes: Number("int"),
  *   KeySpec: "AES_256" || "AES_128",
- *   GrantTokens: [
+ *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
  * };

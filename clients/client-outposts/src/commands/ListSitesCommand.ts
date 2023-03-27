@@ -46,16 +46,16 @@ export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBeare
  * import { OutpostsClient, ListSitesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListSitesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // ListSitesInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   OperatingAddressCountryCodeFilter: [
+ *   OperatingAddressCountryCodeFilter: [ // CountryCodeList
  *     "STRING_VALUE",
  *   ],
- *   OperatingAddressStateOrRegionFilter: [
+ *   OperatingAddressStateOrRegionFilter: [ // StateOrRegionList
  *     "STRING_VALUE",
  *   ],
- *   OperatingAddressCityFilter: [
+ *   OperatingAddressCityFilter: [ // CityList
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,7 +42,7 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  * import { CognitoSyncClient, GetCognitoEventsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, GetCognitoEventsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
- * const input = {
+ * const input = { // GetCognitoEventsRequest
  *   IdentityPoolId: "STRING_VALUE", // required
  * };
  * const command = new GetCognitoEventsCommand(input);

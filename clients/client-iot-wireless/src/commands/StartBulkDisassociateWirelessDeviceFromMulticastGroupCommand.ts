@@ -48,11 +48,11 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  * import { IoTWirelessClient, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest
  *   Id: "STRING_VALUE", // required
  *   QueryString: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

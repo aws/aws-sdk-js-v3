@@ -46,20 +46,20 @@ export interface DisassociateInstanceEventWindowCommandOutput
  * import { EC2Client, DisassociateInstanceEventWindowCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateInstanceEventWindowCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisassociateInstanceEventWindowRequest
  *   DryRun: true || false,
  *   InstanceEventWindowId: "STRING_VALUE", // required
- *   AssociationTarget: {
- *     InstanceIds: [
+ *   AssociationTarget: { // InstanceEventWindowDisassociationRequest
+ *     InstanceIds: [ // InstanceIdList
  *       "STRING_VALUE",
  *     ],
- *     InstanceTags: [
- *       {
+ *     InstanceTags: [ // TagList
+ *       { // Tag
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
  *       },
  *     ],
- *     DedicatedHostIds: [
+ *     DedicatedHostIds: [ // DedicatedHostIdList
  *       "STRING_VALUE",
  *     ],
  *   },

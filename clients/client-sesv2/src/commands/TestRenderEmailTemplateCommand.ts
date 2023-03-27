@@ -44,7 +44,7 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  * import { SESv2Client, TestRenderEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, TestRenderEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // TestRenderEmailTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  *   TemplateData: "STRING_VALUE", // required
  * };

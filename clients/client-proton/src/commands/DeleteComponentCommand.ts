@@ -49,7 +49,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  * import { ProtonClient, DeleteComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // DeleteComponentInput
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeleteComponentCommand(input);

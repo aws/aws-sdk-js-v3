@@ -57,9 +57,9 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  * import { IAMClient, GetContextKeysForPrincipalPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetContextKeysForPrincipalPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // GetContextKeysForPrincipalPolicyRequest
  *   PolicySourceArn: "STRING_VALUE", // required
- *   PolicyInputList: [
+ *   PolicyInputList: [ // SimulationPolicyListType
  *     "STRING_VALUE",
  *   ],
  * };

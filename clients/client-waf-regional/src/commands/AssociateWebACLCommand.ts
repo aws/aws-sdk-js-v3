@@ -50,7 +50,7 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * import { WAFRegionalClient, AssociateWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, AssociateWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // AssociateWebACLRequest
  *   WebACLId: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
  * };

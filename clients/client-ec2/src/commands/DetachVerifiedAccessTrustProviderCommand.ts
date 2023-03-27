@@ -44,7 +44,7 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * import { EC2Client, DetachVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DetachVerifiedAccessTrustProviderRequest
  *   VerifiedAccessInstanceId: "STRING_VALUE", // required
  *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",

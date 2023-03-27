@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { FinspaceClient, TagResourceCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, TagResourceCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

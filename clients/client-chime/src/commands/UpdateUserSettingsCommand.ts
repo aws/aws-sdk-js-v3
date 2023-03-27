@@ -42,11 +42,11 @@ export interface UpdateUserSettingsCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, UpdateUserSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateUserSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // UpdateUserSettingsRequest
  *   AccountId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
- *   UserSettings: {
- *     Telephony: {
+ *   UserSettings: { // UserSettings
+ *     Telephony: { // TelephonySettings
  *       InboundCalling: true || false, // required
  *       OutboundCalling: true || false, // required
  *       SMS: true || false, // required

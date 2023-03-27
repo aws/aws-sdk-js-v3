@@ -44,7 +44,7 @@ export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DeleteEventTrackerRequest
  *   eventTrackerArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventTrackerCommand(input);

@@ -56,7 +56,7 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * import { KMSClient, DisableKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DisableKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // DisableKeyRequest
  *   KeyId: "STRING_VALUE", // required
  * };
  * const command = new DisableKeyCommand(input);

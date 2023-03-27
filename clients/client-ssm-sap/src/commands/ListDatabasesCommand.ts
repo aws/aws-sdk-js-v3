@@ -43,7 +43,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * import { SsmSapClient, ListDatabasesCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListDatabasesCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = {
+ * const input = { // ListDatabasesInput
  *   ApplicationId: "STRING_VALUE",
  *   ComponentId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

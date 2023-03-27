@@ -42,7 +42,7 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * import { SchemasClient, StopDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, StopDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // StopDiscovererRequest
  *   DiscovererId: "STRING_VALUE", // required
  * };
  * const command = new StopDiscovererCommand(input);

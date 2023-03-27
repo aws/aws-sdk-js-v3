@@ -45,7 +45,7 @@ export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteHubContentRequest
  *   HubName: "STRING_VALUE", // required
  *   HubContentType: "Model" || "Notebook", // required
  *   HubContentName: "STRING_VALUE", // required

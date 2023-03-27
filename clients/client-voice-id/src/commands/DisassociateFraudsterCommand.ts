@@ -49,7 +49,7 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  * import { VoiceIDClient, DisassociateFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DisassociateFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // DisassociateFraudsterRequest
  *   DomainId: "STRING_VALUE", // required
  *   WatchlistId: "STRING_VALUE", // required
  *   FraudsterId: "STRING_VALUE", // required

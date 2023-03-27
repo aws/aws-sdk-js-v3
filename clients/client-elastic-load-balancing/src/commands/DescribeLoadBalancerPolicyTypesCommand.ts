@@ -55,8 +55,8 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * import { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
- *   PolicyTypeNames: [
+ * const input = { // DescribeLoadBalancerPolicyTypesInput
+ *   PolicyTypeNames: [ // PolicyTypeNames
  *     "STRING_VALUE",
  *   ],
  * };

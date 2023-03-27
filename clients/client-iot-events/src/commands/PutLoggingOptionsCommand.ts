@@ -46,13 +46,13 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * import { IoTEventsClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
- * const input = {
- *   loggingOptions: {
+ * const input = { // PutLoggingOptionsRequest
+ *   loggingOptions: { // LoggingOptions
  *     roleArn: "STRING_VALUE", // required
  *     level: "STRING_VALUE", // required
  *     enabled: true || false, // required
- *     detectorDebugOptions: [
- *       {
+ *     detectorDebugOptions: [ // DetectorDebugOptions
+ *       { // DetectorDebugOption
  *         detectorModelName: "STRING_VALUE", // required
  *         keyValue: "STRING_VALUE",
  *       },

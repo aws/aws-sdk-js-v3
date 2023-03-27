@@ -42,18 +42,18 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * import { SageMakerClient, UpdatePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdatePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdatePipelineRequest
  *   PipelineName: "STRING_VALUE", // required
  *   PipelineDisplayName: "STRING_VALUE",
  *   PipelineDefinition: "STRING_VALUE",
- *   PipelineDefinitionS3Location: {
+ *   PipelineDefinitionS3Location: { // PipelineDefinitionS3Location
  *     Bucket: "STRING_VALUE", // required
  *     ObjectKey: "STRING_VALUE", // required
  *     VersionId: "STRING_VALUE",
  *   },
  *   PipelineDescription: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
- *   ParallelismConfiguration: {
+ *   ParallelismConfiguration: { // ParallelismConfiguration
  *     MaxParallelExecutionSteps: Number("int"), // required
  *   },
  * };

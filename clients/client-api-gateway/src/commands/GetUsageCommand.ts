@@ -42,7 +42,7 @@ export interface GetUsageCommandOutput extends Usage, __MetadataBearer {}
  * import { APIGatewayClient, GetUsageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetUsageRequest
  *   usagePlanId: "STRING_VALUE", // required
  *   keyId: "STRING_VALUE",
  *   startDate: "STRING_VALUE", // required

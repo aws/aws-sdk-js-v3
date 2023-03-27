@@ -46,9 +46,9 @@ export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessR
  * import { RedshiftServerlessClient, UpdateEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, UpdateEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // UpdateEndpointAccessRequest
  *   endpointName: "STRING_VALUE", // required
- *   vpcSecurityGroupIds: [
+ *   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  * };

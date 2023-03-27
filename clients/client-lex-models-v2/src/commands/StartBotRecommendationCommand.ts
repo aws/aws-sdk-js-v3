@@ -48,22 +48,22 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  * import { LexModelsV2Client, StartBotRecommendationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, StartBotRecommendationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // StartBotRecommendationRequest
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE", // required
- *   transcriptSourceSetting: {
- *     s3BucketTranscriptSource: {
+ *   transcriptSourceSetting: { // TranscriptSourceSetting
+ *     s3BucketTranscriptSource: { // S3BucketTranscriptSource
  *       s3BucketName: "STRING_VALUE", // required
- *       pathFormat: {
- *         objectPrefixes: [
+ *       pathFormat: { // PathFormat
+ *         objectPrefixes: [ // ObjectPrefixes
  *           "STRING_VALUE",
  *         ],
  *       },
  *       transcriptFormat: "Lex", // required
- *       transcriptFilter: {
- *         lexTranscriptFilter: {
- *           dateRangeFilter: {
+ *       transcriptFilter: { // TranscriptFilter
+ *         lexTranscriptFilter: { // LexTranscriptFilter
+ *           dateRangeFilter: { // DateRangeFilter
  *             startDateTime: new Date("TIMESTAMP"), // required
  *             endDateTime: new Date("TIMESTAMP"), // required
  *           },
@@ -72,7 +72,7 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  *       kmsKeyArn: "STRING_VALUE",
  *     },
  *   },
- *   encryptionSetting: {
+ *   encryptionSetting: { // EncryptionSetting
  *     kmsKeyArn: "STRING_VALUE",
  *     botLocaleExportPassword: "STRING_VALUE",
  *     associatedTranscriptsPassword: "STRING_VALUE",

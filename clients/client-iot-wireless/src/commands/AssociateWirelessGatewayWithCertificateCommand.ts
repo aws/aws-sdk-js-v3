@@ -48,7 +48,7 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
  * import { IoTWirelessClient, AssociateWirelessGatewayWithCertificateCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateWirelessGatewayWithCertificateCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // AssociateWirelessGatewayWithCertificateRequest
  *   Id: "STRING_VALUE", // required
  *   IotCertificateId: "STRING_VALUE", // required
  * };

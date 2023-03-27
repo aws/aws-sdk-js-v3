@@ -46,7 +46,7 @@ export interface GetUsageLimitCommandOutput extends GetUsageLimitResponse, __Met
  * import { RedshiftServerlessClient, GetUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // GetUsageLimitRequest
  *   usageLimitId: "STRING_VALUE", // required
  * };
  * const command = new GetUsageLimitCommand(input);

@@ -42,9 +42,9 @@ export interface AssociateSourceServersCommandOutput extends AssociateSourceServ
  * import { MgnClient, AssociateSourceServersCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, AssociateSourceServersCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // AssociateSourceServersRequest
  *   applicationID: "STRING_VALUE", // required
- *   sourceServerIDs: [ // required
+ *   sourceServerIDs: [ // AssociateSourceServersRequestSourceServerIDs // required
  *     "STRING_VALUE",
  *   ],
  * };

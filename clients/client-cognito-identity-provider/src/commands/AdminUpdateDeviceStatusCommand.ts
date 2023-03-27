@@ -52,7 +52,7 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * import { CognitoIdentityProviderClient, AdminUpdateDeviceStatusCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminUpdateDeviceStatusCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminUpdateDeviceStatusRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE", // required
  *   DeviceKey: "STRING_VALUE", // required

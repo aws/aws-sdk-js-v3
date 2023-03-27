@@ -43,11 +43,11 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  * import { IotDeviceAdvisorClient, CreateSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, CreateSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
- * const input = {
- *   suiteDefinitionConfiguration: {
+ * const input = { // CreateSuiteDefinitionRequest
+ *   suiteDefinitionConfiguration: { // SuiteDefinitionConfiguration
  *     suiteDefinitionName: "STRING_VALUE", // required
- *     devices: [
- *       {
+ *     devices: [ // DeviceUnderTestList
+ *       { // DeviceUnderTest
  *         thingArn: "STRING_VALUE",
  *         certificateArn: "STRING_VALUE",
  *       },
@@ -58,7 +58,7 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  *     devicePermissionRoleArn: "STRING_VALUE", // required
  *     protocol: "MqttV3_1_1" || "MqttV5",
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

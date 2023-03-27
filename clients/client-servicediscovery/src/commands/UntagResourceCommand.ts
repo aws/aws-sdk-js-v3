@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { ServiceDiscoveryClient, UntagResourceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UntagResourceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

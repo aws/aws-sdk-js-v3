@@ -42,7 +42,7 @@ export interface DescribeClassificationJobCommandOutput extends DescribeClassifi
  * import { Macie2Client, DescribeClassificationJobCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DescribeClassificationJobCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // DescribeClassificationJobRequest
  *   jobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeClassificationJobCommand(input);

@@ -44,7 +44,7 @@ export interface DescribeRecommendationFeedbackCommandOutput
  * import { CodeGuruReviewerClient, DescribeRecommendationFeedbackCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DescribeRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
+ * const input = { // DescribeRecommendationFeedbackRequest
  *   CodeReviewArn: "STRING_VALUE", // required
  *   RecommendationId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE",

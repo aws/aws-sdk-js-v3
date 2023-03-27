@@ -64,19 +64,19 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * import { LocationClient, BatchUpdateDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchUpdateDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // BatchUpdateDevicePositionRequest
  *   TrackerName: "STRING_VALUE", // required
- *   Updates: [ // required
- *     {
+ *   Updates: [ // DevicePositionUpdateList // required
+ *     { // DevicePositionUpdate
  *       DeviceId: "STRING_VALUE", // required
  *       SampleTime: new Date("TIMESTAMP"), // required
- *       Position: [ // required
+ *       Position: [ // Position // required
  *         Number("double"),
  *       ],
- *       Accuracy: {
+ *       Accuracy: { // PositionalAccuracy
  *         Horizontal: Number("double"), // required
  *       },
- *       PositionProperties: {
+ *       PositionProperties: { // PropertyMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

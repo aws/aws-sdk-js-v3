@@ -45,8 +45,8 @@ export interface DescribeFileSystemAssociationsCommandOutput
  * import { StorageGatewayClient, DescribeFileSystemAssociationsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeFileSystemAssociationsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
- *   FileSystemAssociationARNList: [ // required
+ * const input = { // DescribeFileSystemAssociationsInput
+ *   FileSystemAssociationARNList: [ // FileSystemAssociationARNList // required
  *     "STRING_VALUE",
  *   ],
  * };

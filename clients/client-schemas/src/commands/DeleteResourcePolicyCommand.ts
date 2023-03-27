@@ -42,7 +42,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // DeleteResourcePolicyRequest
  *   RegistryName: "STRING_VALUE",
  * };
  * const command = new DeleteResourcePolicyCommand(input);

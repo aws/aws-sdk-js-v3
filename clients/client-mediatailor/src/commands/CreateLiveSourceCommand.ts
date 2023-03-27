@@ -42,9 +42,9 @@ export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse,
  * import { MediaTailorClient, CreateLiveSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateLiveSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
- *   HttpPackageConfigurations: [ // required
- *     {
+ * const input = { // CreateLiveSourceRequest
+ *   HttpPackageConfigurations: [ // HttpPackageConfigurations // required
+ *     { // HttpPackageConfiguration
  *       Path: "STRING_VALUE", // required
  *       SourceGroup: "STRING_VALUE", // required
  *       Type: "DASH" || "HLS", // required
@@ -52,7 +52,7 @@ export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse,
  *   ],
  *   LiveSourceName: "STRING_VALUE", // required
  *   SourceLocationName: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

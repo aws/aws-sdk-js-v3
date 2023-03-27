@@ -42,7 +42,7 @@ export interface ListSegmentReferencesCommandOutput extends ListSegmentReference
  * import { EvidentlyClient, ListSegmentReferencesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListSegmentReferencesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // ListSegmentReferencesRequest
  *   segment: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

@@ -42,8 +42,8 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * import { Macie2Client, DeclineInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DeclineInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
- *   accountIds: [ // required
+ * const input = { // DeclineInvitationsRequest
+ *   accountIds: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
  * };

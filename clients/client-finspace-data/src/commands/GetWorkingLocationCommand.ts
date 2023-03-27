@@ -43,7 +43,7 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * import { FinspaceDataClient, GetWorkingLocationCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetWorkingLocationCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // GetWorkingLocationRequest
  *   locationType: "STRING_VALUE",
  * };
  * const command = new GetWorkingLocationCommand(input);

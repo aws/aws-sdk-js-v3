@@ -51,27 +51,27 @@ export interface CreateProvisionedProductPlanCommandOutput
  * import { ServiceCatalogClient, CreateProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // CreateProvisionedProductPlanInput
  *   AcceptLanguage: "STRING_VALUE",
  *   PlanName: "STRING_VALUE", // required
  *   PlanType: "CLOUDFORMATION", // required
- *   NotificationArns: [
+ *   NotificationArns: [ // NotificationArns
  *     "STRING_VALUE",
  *   ],
  *   PathId: "STRING_VALUE",
  *   ProductId: "STRING_VALUE", // required
  *   ProvisionedProductName: "STRING_VALUE", // required
  *   ProvisioningArtifactId: "STRING_VALUE", // required
- *   ProvisioningParameters: [
- *     {
+ *   ProvisioningParameters: [ // UpdateProvisioningParameters
+ *     { // UpdateProvisioningParameter
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       UsePreviousValue: true || false,
  *     },
  *   ],
  *   IdempotencyToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

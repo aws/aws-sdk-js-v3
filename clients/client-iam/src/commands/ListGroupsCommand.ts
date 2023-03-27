@@ -41,7 +41,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * import { IAMClient, ListGroupsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListGroupsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // ListGroupsRequest
  *   PathPrefix: "STRING_VALUE",
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),

@@ -42,7 +42,7 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * import { DataBrewClient, DescribeScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // DescribeScheduleRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeScheduleCommand(input);

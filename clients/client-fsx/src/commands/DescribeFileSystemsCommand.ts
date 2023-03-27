@@ -69,8 +69,8 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * import { FSxClient, DescribeFileSystemsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeFileSystemsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
- *   FileSystemIds: [
+ * const input = { // DescribeFileSystemsRequest
+ *   FileSystemIds: [ // FileSystemIds
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

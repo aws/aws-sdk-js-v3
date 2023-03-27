@@ -46,38 +46,38 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * import { SESv2Client, CreateConfigurationSetCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateConfigurationSetCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // CreateConfigurationSetRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
- *   TrackingOptions: {
+ *   TrackingOptions: { // TrackingOptions
  *     CustomRedirectDomain: "STRING_VALUE", // required
  *   },
- *   DeliveryOptions: {
+ *   DeliveryOptions: { // DeliveryOptions
  *     TlsPolicy: "REQUIRE" || "OPTIONAL",
  *     SendingPoolName: "STRING_VALUE",
  *   },
- *   ReputationOptions: {
+ *   ReputationOptions: { // ReputationOptions
  *     ReputationMetricsEnabled: true || false,
  *     LastFreshStart: new Date("TIMESTAMP"),
  *   },
- *   SendingOptions: {
+ *   SendingOptions: { // SendingOptions
  *     SendingEnabled: true || false,
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   SuppressionOptions: {
- *     SuppressedReasons: [
+ *   SuppressionOptions: { // SuppressionOptions
+ *     SuppressedReasons: [ // SuppressionListReasons
  *       "BOUNCE" || "COMPLAINT",
  *     ],
  *   },
- *   VdmOptions: {
- *     DashboardOptions: {
+ *   VdmOptions: { // VdmOptions
+ *     DashboardOptions: { // DashboardOptions
  *       EngagementMetrics: "ENABLED" || "DISABLED",
  *     },
- *     GuardianOptions: {
+ *     GuardianOptions: { // GuardianOptions
  *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
  *     },
  *   },

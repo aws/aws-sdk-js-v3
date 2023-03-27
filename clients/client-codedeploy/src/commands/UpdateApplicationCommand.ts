@@ -42,7 +42,7 @@ export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
  * import { CodeDeployClient, UpdateApplicationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, UpdateApplicationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // UpdateApplicationInput
  *   applicationName: "STRING_VALUE",
  *   newApplicationName: "STRING_VALUE",
  * };

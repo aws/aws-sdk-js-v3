@@ -42,12 +42,12 @@ export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse,
  * import { ConnectCasesClient, ListFieldOptionsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListFieldOptionsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = {
+ * const input = { // ListFieldOptionsRequest
  *   domainId: "STRING_VALUE", // required
  *   fieldId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   values: [
+ *   values: [ // ValuesList
  *     "STRING_VALUE",
  *   ],
  * };

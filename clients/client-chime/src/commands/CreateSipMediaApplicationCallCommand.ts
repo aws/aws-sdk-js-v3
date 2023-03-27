@@ -49,11 +49,11 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * import { ChimeClient, CreateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateSipMediaApplicationCallRequest
  *   FromPhoneNumber: "STRING_VALUE", // required
  *   ToPhoneNumber: "STRING_VALUE", // required
  *   SipMediaApplicationId: "STRING_VALUE", // required
- *   SipHeaders: {
+ *   SipHeaders: { // SipHeadersMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

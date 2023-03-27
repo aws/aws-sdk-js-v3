@@ -42,7 +42,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * import { DataExchangeClient, UpdateDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, UpdateDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // UpdateDataSetRequest
  *   DataSetId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE",

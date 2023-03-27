@@ -44,16 +44,16 @@ export interface StartWirelessDeviceImportTaskCommandOutput
  * import { IoTWirelessClient, StartWirelessDeviceImportTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, StartWirelessDeviceImportTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // StartWirelessDeviceImportTaskRequest
  *   DestinationName: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   Sidewalk: {
+ *   Sidewalk: { // SidewalkStartImportInfo
  *     DeviceCreationFile: "STRING_VALUE",
  *     Role: "STRING_VALUE",
  *   },

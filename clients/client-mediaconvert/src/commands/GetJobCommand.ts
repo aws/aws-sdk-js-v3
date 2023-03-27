@@ -40,7 +40,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * import { MediaConvertClient, GetJobCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetJobCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // GetJobRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetJobCommand(input);

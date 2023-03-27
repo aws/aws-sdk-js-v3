@@ -42,7 +42,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * import { AthenaClient, ListDatabasesCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListDatabasesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // ListDatabasesInput
  *   CatalogName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

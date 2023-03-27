@@ -52,14 +52,14 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * import { PinpointSMSVoiceV2Client, DescribeConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
- *   ConfigurationSetNames: [
+ * const input = { // DescribeConfigurationSetsRequest
+ *   ConfigurationSetNames: [ // ConfigurationSetNameList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // ConfigurationSetFilterList
+ *     { // ConfigurationSetFilter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

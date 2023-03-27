@@ -43,7 +43,7 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * import { BackupGatewayClient, AssociateGatewayToServerCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, AssociateGatewayToServerCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
- * const input = {
+ * const input = { // AssociateGatewayToServerInput
  *   GatewayArn: "STRING_VALUE", // required
  *   ServerArn: "STRING_VALUE", // required
  * };

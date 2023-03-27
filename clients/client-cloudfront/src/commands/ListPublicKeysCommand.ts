@@ -42,7 +42,7 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  * import { CloudFrontClient, ListPublicKeysCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListPublicKeysCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListPublicKeysRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };

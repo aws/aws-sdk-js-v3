@@ -42,14 +42,14 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * import { RoboMakerClient, CreateWorldGenerationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateWorldGenerationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CreateWorldGenerationJobRequest
  *   clientRequestToken: "STRING_VALUE",
  *   template: "STRING_VALUE", // required
- *   worldCount: {
+ *   worldCount: { // WorldCount
  *     floorplanCount: Number("int"),
  *     interiorCountPerFloorplan: Number("int"),
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   worldTags: {

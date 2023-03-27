@@ -44,7 +44,7 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * import { SESClient, DeleteIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // DeleteIdentityRequest
  *   Identity: "STRING_VALUE", // required
  * };
  * const command = new DeleteIdentityCommand(input);

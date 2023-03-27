@@ -43,7 +43,7 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  * import { SNSClient, GetTopicAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetTopicAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // GetTopicAttributesInput
  *   TopicArn: "STRING_VALUE", // required
  * };
  * const command = new GetTopicAttributesCommand(input);

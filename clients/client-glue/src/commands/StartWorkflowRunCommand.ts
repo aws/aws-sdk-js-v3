@@ -42,9 +42,9 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * import { GlueClient, StartWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // StartWorkflowRunRequest
  *   Name: "STRING_VALUE", // required
- *   RunProperties: {
+ *   RunProperties: { // WorkflowRunProperties
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

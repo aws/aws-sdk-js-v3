@@ -48,7 +48,7 @@ export interface DescribeCustomRoutingListenerCommandOutput
  * import { GlobalAcceleratorClient, DescribeCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
+ * const input = { // DescribeCustomRoutingListenerRequest
  *   ListenerArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeCustomRoutingListenerCommand(input);

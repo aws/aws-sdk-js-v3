@@ -45,27 +45,27 @@ export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __M
  * import { LexModelsV2Client, CreateSlotTypeCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateSlotTypeCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // CreateSlotTypeRequest
  *   slotTypeName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   slotTypeValues: [
- *     {
- *       sampleValue: {
+ *   slotTypeValues: [ // SlotTypeValues
+ *     { // SlotTypeValue
+ *       sampleValue: { // SampleValue
  *         value: "STRING_VALUE", // required
  *       },
- *       synonyms: [
+ *       synonyms: [ // SynonymList
  *         {
  *           value: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
  *   ],
- *   valueSelectionSetting: {
+ *   valueSelectionSetting: { // SlotValueSelectionSetting
  *     resolutionStrategy: "OriginalValue" || "TopResolution" || "Concatenation", // required
- *     regexFilter: {
+ *     regexFilter: { // SlotValueRegexFilter
  *       pattern: "STRING_VALUE", // required
  *     },
- *     advancedRecognitionSetting: {
+ *     advancedRecognitionSetting: { // AdvancedRecognitionSetting
  *       audioRecognitionStrategy: "UseSlotValuesAsCustomVocabulary",
  *     },
  *   },
@@ -73,18 +73,18 @@ export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __M
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE", // required
- *   externalSourceSetting: {
- *     grammarSlotTypeSetting: {
- *       source: {
+ *   externalSourceSetting: { // ExternalSourceSetting
+ *     grammarSlotTypeSetting: { // GrammarSlotTypeSetting
+ *       source: { // GrammarSlotTypeSource
  *         s3BucketName: "STRING_VALUE", // required
  *         s3ObjectKey: "STRING_VALUE", // required
  *         kmsKeyArn: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   compositeSlotTypeSetting: {
- *     subSlots: [
- *       {
+ *   compositeSlotTypeSetting: { // CompositeSlotTypeSetting
+ *     subSlots: [ // SubSlotTypeList
+ *       { // SubSlotTypeComposition
  *         name: "STRING_VALUE", // required
  *         slotTypeId: "STRING_VALUE", // required
  *       },

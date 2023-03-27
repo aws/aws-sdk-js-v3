@@ -49,7 +49,7 @@ export interface StopTrainingDocumentClassifierCommandOutput
  * import { ComprehendClient, StopTrainingDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopTrainingDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // StopTrainingDocumentClassifierRequest
  *   DocumentClassifierArn: "STRING_VALUE", // required
  * };
  * const command = new StopTrainingDocumentClassifierCommand(input);

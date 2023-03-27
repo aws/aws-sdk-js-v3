@@ -42,10 +42,10 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * import { RDSClient, ModifyDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyDBSubnetGroupMessage
  *   DBSubnetGroupName: "STRING_VALUE", // required
  *   DBSubnetGroupDescription: "STRING_VALUE",
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
  *     "STRING_VALUE",
  *   ],
  * };

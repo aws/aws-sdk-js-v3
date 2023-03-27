@@ -47,7 +47,7 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * import { ApplicationCostProfilerClient, ListReportDefinitionsCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, ListReportDefinitionsCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
- * const input = {
+ * const input = { // ListReportDefinitionsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

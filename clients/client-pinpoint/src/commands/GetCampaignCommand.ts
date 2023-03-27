@@ -42,7 +42,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * import { PinpointClient, GetCampaignCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetCampaignRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   CampaignId: "STRING_VALUE", // required
  * };

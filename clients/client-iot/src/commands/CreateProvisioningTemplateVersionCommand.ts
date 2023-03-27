@@ -48,7 +48,7 @@ export interface CreateProvisioningTemplateVersionCommandOutput
  * import { IoTClient, CreateProvisioningTemplateVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateProvisioningTemplateVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateProvisioningTemplateVersionRequest
  *   templateName: "STRING_VALUE", // required
  *   templateBody: "STRING_VALUE", // required
  *   setAsDefault: true || false,

@@ -42,11 +42,11 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  * import { ElastiCacheClient, BatchStopUpdateActionCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, BatchStopUpdateActionCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
- *   ReplicationGroupIds: [
+ * const input = { // BatchStopUpdateActionMessage
+ *   ReplicationGroupIds: [ // ReplicationGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   CacheClusterIds: [
+ *   CacheClusterIds: [ // CacheClusterIdList
  *     "STRING_VALUE",
  *   ],
  *   ServiceUpdateName: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * import { LakeFormationClient, DescribeTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DescribeTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // DescribeTransactionRequest
  *   TransactionId: "STRING_VALUE", // required
  * };
  * const command = new DescribeTransactionCommand(input);

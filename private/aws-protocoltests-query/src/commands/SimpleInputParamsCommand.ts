@@ -41,7 +41,7 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * import { QueryProtocolClient, SimpleInputParamsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, SimpleInputParamsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
- * const input = {
+ * const input = { // SimpleInputParamsInput
  *   Foo: "STRING_VALUE",
  *   Bar: "STRING_VALUE",
  *   Baz: true || false,

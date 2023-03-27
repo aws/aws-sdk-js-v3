@@ -66,7 +66,7 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeApplicableIndividualAssessmentsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeApplicableIndividualAssessmentsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DescribeApplicableIndividualAssessmentsMessage
  *   ReplicationTaskArn: "STRING_VALUE",
  *   ReplicationInstanceArn: "STRING_VALUE",
  *   SourceEngineName: "STRING_VALUE",

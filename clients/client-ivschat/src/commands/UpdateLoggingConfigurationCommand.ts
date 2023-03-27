@@ -42,17 +42,17 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * import { IvschatClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
- * const input = {
+ * const input = { // UpdateLoggingConfigurationRequest
  *   identifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
- *   destinationConfiguration: { // Union: only one key present
- *     s3: {
+ *   destinationConfiguration: { // DestinationConfiguration Union: only one key present
+ *     s3: { // S3DestinationConfiguration
  *       bucketName: "STRING_VALUE", // required
  *     },
- *     cloudWatchLogs: {
+ *     cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
  *       logGroupName: "STRING_VALUE", // required
  *     },
- *     firehose: {
+ *     firehose: { // FirehoseDestinationConfiguration
  *       deliveryStreamName: "STRING_VALUE", // required
  *     },
  *   },

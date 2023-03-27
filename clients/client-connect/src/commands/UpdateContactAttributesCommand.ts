@@ -55,10 +55,10 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  * import { ConnectClient, UpdateContactAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateContactAttributesRequest
  *   InitialContactId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
- *   Attributes: { // required
+ *   Attributes: { // Attributes // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

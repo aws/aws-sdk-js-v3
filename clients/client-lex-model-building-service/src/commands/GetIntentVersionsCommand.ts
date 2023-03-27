@@ -56,7 +56,7 @@ export interface GetIntentVersionsCommandOutput extends GetIntentVersionsRespons
  * import { LexModelBuildingServiceClient, GetIntentVersionsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetIntentVersionsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // GetIntentVersionsRequest
  *   name: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

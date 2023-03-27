@@ -77,7 +77,7 @@ export interface GetBucketMetricsConfigurationCommandOutput
  * import { S3Client, GetBucketMetricsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetBucketMetricsConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
  *   ExpectedBucketOwner: "STRING_VALUE",

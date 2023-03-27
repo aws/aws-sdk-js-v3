@@ -47,14 +47,14 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * import { BillingconductorClient, CreatePricingPlanCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreatePricingPlanCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // CreatePricingPlanInput
  *   ClientToken: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   PricingRuleArns: [
+ *   PricingRuleArns: [ // PricingRuleArnsInput
  *     "STRING_VALUE",
  *   ],
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

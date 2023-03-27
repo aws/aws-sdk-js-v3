@@ -50,7 +50,7 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * import { StorageGatewayClient, CreateTapeWithBarcodeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateTapeWithBarcodeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // CreateTapeWithBarcodeInput
  *   GatewayARN: "STRING_VALUE", // required
  *   TapeSizeInBytes: Number("long"), // required
  *   TapeBarcode: "STRING_VALUE", // required
@@ -58,8 +58,8 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  *   KMSKey: "STRING_VALUE",
  *   PoolId: "STRING_VALUE",
  *   Worm: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

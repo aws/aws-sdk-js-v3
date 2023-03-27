@@ -48,10 +48,10 @@ export interface DescribeSubscribersForNotificationCommandOutput
  * import { BudgetsClient, DescribeSubscribersForNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeSubscribersForNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
- * const input = {
+ * const input = { // DescribeSubscribersForNotificationRequest
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
- *   Notification: {
+ *   Notification: { // Notification
  *     NotificationType: "STRING_VALUE", // required
  *     ComparisonOperator: "STRING_VALUE", // required
  *     Threshold: Number("double"), // required

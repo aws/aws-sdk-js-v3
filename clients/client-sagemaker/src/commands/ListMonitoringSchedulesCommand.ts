@@ -42,7 +42,7 @@ export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSche
  * import { SageMakerClient, ListMonitoringSchedulesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListMonitoringSchedulesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListMonitoringSchedulesRequest
  *   EndpointName: "STRING_VALUE",
  *   SortBy: "Name" || "CreationTime" || "Status",
  *   SortOrder: "Ascending" || "Descending",

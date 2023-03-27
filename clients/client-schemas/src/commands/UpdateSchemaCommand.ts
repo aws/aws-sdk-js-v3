@@ -42,7 +42,7 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * import { SchemasClient, UpdateSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, UpdateSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // UpdateSchemaRequest
  *   ClientTokenId: "STRING_VALUE",
  *   Content: "STRING_VALUE",
  *   Description: "STRING_VALUE",

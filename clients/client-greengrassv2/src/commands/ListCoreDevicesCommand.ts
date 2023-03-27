@@ -69,7 +69,7 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * import { GreengrassV2Client, ListCoreDevicesCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListCoreDevicesCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // ListCoreDevicesRequest
  *   thingGroupArn: "STRING_VALUE",
  *   status: "HEALTHY" || "UNHEALTHY",
  *   maxResults: Number("int"),

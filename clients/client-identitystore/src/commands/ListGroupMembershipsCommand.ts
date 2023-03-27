@@ -42,7 +42,7 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * import { IdentitystoreClient, ListGroupMembershipsCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, ListGroupMembershipsCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
- * const input = {
+ * const input = { // ListGroupMembershipsRequest
  *   IdentityStoreId: "STRING_VALUE", // required
  *   GroupId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),

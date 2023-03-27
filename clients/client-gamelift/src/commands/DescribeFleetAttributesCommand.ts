@@ -69,8 +69,8 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * import { GameLiftClient, DescribeFleetAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
- *   FleetIds: [
+ * const input = { // DescribeFleetAttributesInput
+ *   FleetIds: [ // FleetIdOrArnList
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

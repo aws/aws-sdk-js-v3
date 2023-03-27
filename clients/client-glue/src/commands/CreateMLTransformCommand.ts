@@ -52,23 +52,23 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * import { GlueClient, CreateMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateMLTransformRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   InputRecordTables: [ // required
- *     {
+ *   InputRecordTables: [ // GlueTables // required
+ *     { // GlueTable
  *       DatabaseName: "STRING_VALUE", // required
  *       TableName: "STRING_VALUE", // required
  *       CatalogId: "STRING_VALUE",
  *       ConnectionName: "STRING_VALUE",
- *       AdditionalOptions: {
+ *       AdditionalOptions: { // GlueTableAdditionalOptions
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
  *   ],
- *   Parameters: {
+ *   Parameters: { // TransformParameters
  *     TransformType: "FIND_MATCHES", // required
- *     FindMatchesParameters: {
+ *     FindMatchesParameters: { // FindMatchesParameters
  *       PrimaryKeyColumnName: "STRING_VALUE",
  *       PrecisionRecallTradeoff: Number("double"),
  *       AccuracyCostTradeoff: Number("double"),
@@ -82,11 +82,11 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  *   NumberOfWorkers: Number("int"),
  *   Timeout: Number("int"),
  *   MaxRetries: Number("int"),
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   TransformEncryption: {
- *     MlUserDataEncryption: {
+ *   TransformEncryption: { // TransformEncryption
+ *     MlUserDataEncryption: { // MLUserDataEncryption
  *       MlUserDataEncryptionMode: "DISABLED" || "SSE-KMS", // required
  *       KmsKeyId: "STRING_VALUE",
  *     },

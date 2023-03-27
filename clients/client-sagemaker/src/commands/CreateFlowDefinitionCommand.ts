@@ -42,17 +42,17 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  * import { SageMakerClient, CreateFlowDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateFlowDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateFlowDefinitionRequest
  *   FlowDefinitionName: "STRING_VALUE", // required
- *   HumanLoopRequestSource: {
+ *   HumanLoopRequestSource: { // HumanLoopRequestSource
  *     AwsManagedHumanLoopRequestSource: "AWS/Rekognition/DetectModerationLabels/Image/V3" || "AWS/Textract/AnalyzeDocument/Forms/V1", // required
  *   },
- *   HumanLoopActivationConfig: {
- *     HumanLoopActivationConditionsConfig: {
+ *   HumanLoopActivationConfig: { // HumanLoopActivationConfig
+ *     HumanLoopActivationConditionsConfig: { // HumanLoopActivationConditionsConfig
  *       HumanLoopActivationConditions: "STRING_VALUE", // required
  *     },
  *   },
- *   HumanLoopConfig: {
+ *   HumanLoopConfig: { // HumanLoopConfig
  *     WorkteamArn: "STRING_VALUE", // required
  *     HumanTaskUiArn: "STRING_VALUE", // required
  *     TaskTitle: "STRING_VALUE", // required
@@ -60,24 +60,24 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  *     TaskCount: Number("int"), // required
  *     TaskAvailabilityLifetimeInSeconds: Number("int"),
  *     TaskTimeLimitInSeconds: Number("int"),
- *     TaskKeywords: [
+ *     TaskKeywords: [ // FlowDefinitionTaskKeywords
  *       "STRING_VALUE",
  *     ],
- *     PublicWorkforceTaskPrice: {
- *       AmountInUsd: {
+ *     PublicWorkforceTaskPrice: { // PublicWorkforceTaskPrice
+ *       AmountInUsd: { // USD
  *         Dollars: Number("int"),
  *         Cents: Number("int"),
  *         TenthFractionsOfACent: Number("int"),
  *       },
  *     },
  *   },
- *   OutputConfig: {
+ *   OutputConfig: { // FlowDefinitionOutputConfig
  *     S3OutputPath: "STRING_VALUE", // required
  *     KmsKeyId: "STRING_VALUE",
  *   },
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

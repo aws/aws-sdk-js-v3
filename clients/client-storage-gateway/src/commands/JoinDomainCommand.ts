@@ -43,11 +43,11 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * import { StorageGatewayClient, JoinDomainCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, JoinDomainCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // JoinDomainInput
  *   GatewayARN: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  *   OrganizationalUnit: "STRING_VALUE",
- *   DomainControllers: [
+ *   DomainControllers: [ // Hosts
  *     "STRING_VALUE",
  *   ],
  *   TimeoutInSeconds: Number("int"),

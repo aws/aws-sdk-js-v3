@@ -51,7 +51,7 @@ export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse,
  * import { ChimeSDKMessagingClient, ListChannelFlowsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelFlowsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // ListChannelFlowsRequest
  *   AppInstanceArn: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

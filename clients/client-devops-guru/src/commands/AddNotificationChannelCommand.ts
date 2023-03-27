@@ -51,16 +51,16 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  * import { DevOpsGuruClient, AddNotificationChannelCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, AddNotificationChannelCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
- *   Config: {
- *     Sns: {
+ * const input = { // AddNotificationChannelRequest
+ *   Config: { // NotificationChannelConfig
+ *     Sns: { // SnsChannelConfig
  *       TopicArn: "STRING_VALUE",
  *     },
- *     Filters: {
- *       Severities: [
+ *     Filters: { // NotificationFilterConfig
+ *       Severities: [ // InsightSeverities
  *         "LOW" || "MEDIUM" || "HIGH",
  *       ],
- *       MessageTypes: [
+ *       MessageTypes: [ // NotificationMessageTypes
  *         "NEW_INSIGHT" || "CLOSED_INSIGHT" || "NEW_ASSOCIATION" || "SEVERITY_UPGRADED" || "NEW_RECOMMENDATION",
  *       ],
  *     },

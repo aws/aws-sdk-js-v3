@@ -73,12 +73,12 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * import { RDSClient, CreateDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // CreateDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required
  *   DBParameterGroupFamily: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

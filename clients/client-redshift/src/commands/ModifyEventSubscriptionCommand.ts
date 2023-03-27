@@ -42,14 +42,14 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * import { RedshiftClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // ModifyEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SnsTopicArn: "STRING_VALUE",
  *   SourceType: "STRING_VALUE",
- *   SourceIds: [
+ *   SourceIds: [ // SourceIdsList
  *     "STRING_VALUE",
  *   ],
- *   EventCategories: [
+ *   EventCategories: [ // EventCategoriesList
  *     "STRING_VALUE",
  *   ],
  *   Severity: "STRING_VALUE",

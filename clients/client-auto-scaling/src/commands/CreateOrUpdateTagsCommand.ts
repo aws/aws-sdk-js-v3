@@ -46,9 +46,9 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, CreateOrUpdateTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CreateOrUpdateTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
- *   Tags: [ // required
- *     {
+ * const input = { // CreateOrUpdateTagsType
+ *   Tags: [ // Tags // required
+ *     { // Tag
  *       ResourceId: "STRING_VALUE",
  *       ResourceType: "STRING_VALUE",
  *       Key: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  * import { EMRClient, StopNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, StopNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // StopNotebookExecutionInput
  *   NotebookExecutionId: "STRING_VALUE", // required
  * };
  * const command = new StopNotebookExecutionCommand(input);

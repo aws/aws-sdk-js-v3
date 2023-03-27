@@ -45,10 +45,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { AppMeshClient, TagResourceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, TagResourceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tags: [ // required
- *     {
+ *   tags: [ // TagList // required
+ *     { // TagRef
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

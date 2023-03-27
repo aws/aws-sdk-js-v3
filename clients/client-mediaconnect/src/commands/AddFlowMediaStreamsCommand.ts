@@ -42,12 +42,12 @@ export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsRes
  * import { MediaConnectClient, AddFlowMediaStreamsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowMediaStreamsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // AddFlowMediaStreamsRequest
  *   FlowArn: "STRING_VALUE", // required
- *   MediaStreams: [ // required
- *     {
- *       Attributes: {
- *         Fmtp: {
+ *   MediaStreams: [ // __listOfAddMediaStreamRequest // required
+ *     { // AddMediaStreamRequest
+ *       Attributes: { // MediaStreamAttributesRequest
+ *         Fmtp: { // FmtpRequest
  *           ChannelOrder: "STRING_VALUE",
  *           Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
  *           ExactFramerate: "STRING_VALUE",

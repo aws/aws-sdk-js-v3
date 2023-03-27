@@ -42,10 +42,10 @@ export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigur
  * import { GameSparksClient, UpdateGameConfigurationCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, UpdateGameConfigurationCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // UpdateGameConfigurationRequest
  *   GameName: "STRING_VALUE", // required
- *   Modifications: [ // required
- *     {
+ *   Modifications: [ // SectionModificationList // required
+ *     { // SectionModification
  *       Section: "STRING_VALUE", // required
  *       Path: "STRING_VALUE", // required
  *       Operation: "STRING_VALUE", // required

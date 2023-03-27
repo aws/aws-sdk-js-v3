@@ -47,7 +47,7 @@ export interface DeleteInlinePolicyFromPermissionSetCommandOutput
  * import { SSOAdminClient, DeleteInlinePolicyFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeleteInlinePolicyFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // DeleteInlinePolicyFromPermissionSetRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   PermissionSetArn: "STRING_VALUE", // required
  * };

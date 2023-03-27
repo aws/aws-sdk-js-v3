@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { PanoramaClient, UntagResourceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, UntagResourceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

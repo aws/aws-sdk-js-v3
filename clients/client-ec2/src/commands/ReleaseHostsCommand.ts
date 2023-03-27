@@ -47,8 +47,8 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * import { EC2Client, ReleaseHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReleaseHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   HostIds: [ // required
+ * const input = { // ReleaseHostsRequest
+ *   HostIds: [ // RequestHostIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

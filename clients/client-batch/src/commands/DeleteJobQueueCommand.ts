@@ -45,7 +45,7 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * import { BatchClient, DeleteJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeleteJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // DeleteJobQueueRequest
  *   jobQueue: "STRING_VALUE", // required
  * };
  * const command = new DeleteJobQueueCommand(input);

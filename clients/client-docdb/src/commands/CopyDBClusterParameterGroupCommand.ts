@@ -42,12 +42,12 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * import { DocDBClient, CopyDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CopyDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // CopyDBClusterParameterGroupMessage
  *   SourceDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
  *   TargetDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
  *   TargetDBClusterParameterGroupDescription: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

@@ -46,7 +46,7 @@ export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer 
  * import { ElasticTranscoderClient, ReadJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ReadJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // ReadJobRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new ReadJobCommand(input);

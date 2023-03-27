@@ -53,7 +53,7 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  * import { ConnectClient, DescribePhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribePhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DescribePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required
  * };
  * const command = new DescribePhoneNumberCommand(input);

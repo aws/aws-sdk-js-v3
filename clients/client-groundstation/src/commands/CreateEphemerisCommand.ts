@@ -42,32 +42,32 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * import { GroundStationClient, CreateEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // CreateEphemerisRequest
  *   satelliteId: "STRING_VALUE", // required
  *   enabled: true || false,
  *   priority: Number("int"),
  *   expirationTime: new Date("TIMESTAMP"),
  *   name: "STRING_VALUE", // required
  *   kmsKeyArn: "STRING_VALUE",
- *   ephemeris: { // Union: only one key present
- *     tle: {
- *       s3Object: {
+ *   ephemeris: { // EphemerisData Union: only one key present
+ *     tle: { // TLEEphemeris
+ *       s3Object: { // S3Object
  *         bucket: "STRING_VALUE",
  *         key: "STRING_VALUE",
  *         version: "STRING_VALUE",
  *       },
- *       tleData: [
- *         {
+ *       tleData: [ // TLEDataList
+ *         { // TLEData
  *           tleLine1: "STRING_VALUE", // required
  *           tleLine2: "STRING_VALUE", // required
- *           validTimeRange: {
+ *           validTimeRange: { // TimeRange
  *             startTime: new Date("TIMESTAMP"), // required
  *             endTime: new Date("TIMESTAMP"), // required
  *           },
  *         },
  *       ],
  *     },
- *     oem: {
+ *     oem: { // OEMEphemeris
  *       s3Object: {
  *         bucket: "STRING_VALUE",
  *         key: "STRING_VALUE",
@@ -76,7 +76,7 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  *       oemData: "STRING_VALUE",
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

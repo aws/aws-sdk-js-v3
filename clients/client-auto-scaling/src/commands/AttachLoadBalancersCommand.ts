@@ -53,9 +53,9 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * import { AutoScalingClient, AttachLoadBalancersCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, AttachLoadBalancersCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // AttachLoadBalancersType
  *   AutoScalingGroupName: "STRING_VALUE", // required
- *   LoadBalancerNames: [ // required
+ *   LoadBalancerNames: [ // LoadBalancerNames // required
  *     "STRING_VALUE",
  *   ],
  * };

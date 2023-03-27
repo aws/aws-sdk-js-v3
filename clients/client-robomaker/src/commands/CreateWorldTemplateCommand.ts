@@ -42,15 +42,15 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  * import { RoboMakerClient, CreateWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CreateWorldTemplateRequest
  *   clientRequestToken: "STRING_VALUE",
  *   name: "STRING_VALUE",
  *   templateBody: "STRING_VALUE",
- *   templateLocation: {
+ *   templateLocation: { // TemplateLocation
  *     s3Bucket: "STRING_VALUE", // required
  *     s3Key: "STRING_VALUE", // required
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

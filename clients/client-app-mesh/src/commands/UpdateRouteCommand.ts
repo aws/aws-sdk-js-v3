@@ -42,37 +42,37 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  * import { AppMeshClient, UpdateRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // UpdateRouteInput
  *   routeName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
  *   virtualRouterName: "STRING_VALUE", // required
- *   spec: {
+ *   spec: { // RouteSpec
  *     priority: Number("int"),
- *     httpRoute: {
- *       match: {
+ *     httpRoute: { // HttpRoute
+ *       match: { // HttpRouteMatch
  *         prefix: "STRING_VALUE",
- *         path: {
+ *         path: { // HttpPathMatch
  *           exact: "STRING_VALUE",
  *           regex: "STRING_VALUE",
  *         },
- *         queryParameters: [
- *           {
+ *         queryParameters: [ // HttpQueryParameters
+ *           { // HttpQueryParameter
  *             name: "STRING_VALUE", // required
- *             match: {
+ *             match: { // QueryParameterMatch
  *               exact: "STRING_VALUE",
  *             },
  *           },
  *         ],
  *         method: "STRING_VALUE",
  *         scheme: "STRING_VALUE",
- *         headers: [
- *           {
+ *         headers: [ // HttpRouteHeaders
+ *           { // HttpRouteHeader
  *             name: "STRING_VALUE", // required
  *             invert: true || false,
- *             match: { // Union: only one key present
+ *             match: { // HeaderMatchMethod Union: only one key present
  *               exact: "STRING_VALUE",
  *               regex: "STRING_VALUE",
- *               range: {
+ *               range: { // MatchRange
  *                 start: Number("long"), // required
  *                 end: Number("long"), // required
  *               },
@@ -83,29 +83,29 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *         ],
  *         port: Number("int"),
  *       },
- *       action: {
- *         weightedTargets: [ // required
- *           {
+ *       action: { // HttpRouteAction
+ *         weightedTargets: [ // WeightedTargets // required
+ *           { // WeightedTarget
  *             virtualNode: "STRING_VALUE", // required
  *             weight: Number("int"), // required
  *             port: Number("int"),
  *           },
  *         ],
  *       },
- *       retryPolicy: {
- *         perRetryTimeout: {
+ *       retryPolicy: { // HttpRetryPolicy
+ *         perRetryTimeout: { // Duration
  *           value: Number("long"),
  *           unit: "STRING_VALUE",
  *         },
  *         maxRetries: Number("long"), // required
- *         httpRetryEvents: [
+ *         httpRetryEvents: [ // HttpRetryPolicyEvents
  *           "STRING_VALUE",
  *         ],
- *         tcpRetryEvents: [
+ *         tcpRetryEvents: [ // TcpRetryPolicyEvents
  *           "STRING_VALUE",
  *         ],
  *       },
- *       timeout: {
+ *       timeout: { // HttpTimeout
  *         perRequest: {
  *           value: Number("long"),
  *           unit: "STRING_VALUE",
@@ -116,8 +116,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *         },
  *       },
  *     },
- *     tcpRoute: {
- *       action: {
+ *     tcpRoute: { // TcpRoute
+ *       action: { // TcpRouteAction
  *         weightedTargets: [ // required
  *           {
  *             virtualNode: "STRING_VALUE", // required
@@ -126,13 +126,13 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *           },
  *         ],
  *       },
- *       timeout: {
+ *       timeout: { // TcpTimeout
  *         idle: {
  *           value: Number("long"),
  *           unit: "STRING_VALUE",
  *         },
  *       },
- *       match: {
+ *       match: { // TcpRouteMatch
  *         port: Number("int"),
  *       },
  *     },
@@ -157,7 +157,7 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *           {
  *             name: "STRING_VALUE", // required
  *             invert: true || false,
- *             match: { // Union: only one key present
+ *             match: {//  Union: only one key present
  *               exact: "STRING_VALUE",
  *               regex: "STRING_VALUE",
  *               range: {
@@ -194,18 +194,12 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *         ],
  *       },
  *       timeout: {
- *         perRequest: {
- *           value: Number("long"),
- *           unit: "STRING_VALUE",
- *         },
- *         idle: {
- *           value: Number("long"),
- *           unit: "STRING_VALUE",
- *         },
+ *         perRequest: "<Duration>",
+ *         idle: "<Duration>",
  *       },
  *     },
- *     grpcRoute: {
- *       action: {
+ *     grpcRoute: { // GrpcRoute
+ *       action: { // GrpcRouteAction
  *         weightedTargets: [ // required
  *           {
  *             virtualNode: "STRING_VALUE", // required
@@ -214,14 +208,14 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *           },
  *         ],
  *       },
- *       match: {
+ *       match: { // GrpcRouteMatch
  *         serviceName: "STRING_VALUE",
  *         methodName: "STRING_VALUE",
- *         metadata: [
- *           {
+ *         metadata: [ // GrpcRouteMetadataList
+ *           { // GrpcRouteMetadata
  *             name: "STRING_VALUE", // required
  *             invert: true || false,
- *             match: { // Union: only one key present
+ *             match: { // GrpcRouteMetadataMatchMethod Union: only one key present
  *               exact: "STRING_VALUE",
  *               regex: "STRING_VALUE",
  *               range: {
@@ -235,11 +229,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *         ],
  *         port: Number("int"),
  *       },
- *       retryPolicy: {
- *         perRetryTimeout: {
- *           value: Number("long"),
- *           unit: "STRING_VALUE",
- *         },
+ *       retryPolicy: { // GrpcRetryPolicy
+ *         perRetryTimeout: "<Duration>", // required
  *         maxRetries: Number("long"), // required
  *         httpRetryEvents: [
  *           "STRING_VALUE",
@@ -247,19 +238,13 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  *         tcpRetryEvents: [
  *           "STRING_VALUE",
  *         ],
- *         grpcRetryEvents: [
+ *         grpcRetryEvents: [ // GrpcRetryPolicyEvents
  *           "STRING_VALUE",
  *         ],
  *       },
- *       timeout: {
- *         perRequest: {
- *           value: Number("long"),
- *           unit: "STRING_VALUE",
- *         },
- *         idle: {
- *           value: Number("long"),
- *           unit: "STRING_VALUE",
- *         },
+ *       timeout: { // GrpcTimeout
+ *         perRequest: "<Duration>",
+ *         idle: "<Duration>",
  *       },
  *     },
  *   },

@@ -47,7 +47,7 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  * import { ManagedBlockchainClient, DeleteNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, DeleteNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // DeleteNodeInput
  *   NetworkId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE",
  *   NodeId: "STRING_VALUE", // required

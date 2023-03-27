@@ -42,11 +42,11 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  * import { IoTWirelessClient, UpdateMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // UpdateMulticastGroupRequest
  *   Id: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   LoRaWAN: {
+ *   LoRaWAN: { // LoRaWANMulticast
  *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
  *     DlClass: "ClassB" || "ClassC",
  *   },

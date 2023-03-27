@@ -70,9 +70,9 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * import { GameLiftClient, AcceptMatchCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, AcceptMatchCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // AcceptMatchInput
  *   TicketId: "STRING_VALUE", // required
- *   PlayerIds: [ // required
+ *   PlayerIds: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  *   AcceptanceType: "ACCEPT" || "REJECT", // required

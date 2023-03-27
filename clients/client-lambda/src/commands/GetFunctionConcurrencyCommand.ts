@@ -43,7 +43,7 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
  * import { LambdaClient, GetFunctionConcurrencyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionConcurrencyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // GetFunctionConcurrencyRequest
  *   FunctionName: "STRING_VALUE", // required
  * };
  * const command = new GetFunctionConcurrencyCommand(input);

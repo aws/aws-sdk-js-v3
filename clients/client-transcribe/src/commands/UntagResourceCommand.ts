@@ -44,9 +44,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { TranscribeClient, UntagResourceCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, UntagResourceCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

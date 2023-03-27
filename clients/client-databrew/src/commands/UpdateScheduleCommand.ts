@@ -42,8 +42,8 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __M
  * import { DataBrewClient, UpdateScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
- *   JobNames: [
+ * const input = { // UpdateScheduleRequest
+ *   JobNames: [ // JobNameList
  *     "STRING_VALUE",
  *   ],
  *   CronExpression: "STRING_VALUE", // required

@@ -42,14 +42,14 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
  * import { OutpostsClient, CreateSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // CreateSiteInput
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Notes: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   OperatingAddress: {
+ *   OperatingAddress: { // Address
  *     ContactName: "STRING_VALUE",
  *     ContactPhoneNumber: "STRING_VALUE",
  *     AddressLine1: "STRING_VALUE", // required
@@ -75,7 +75,7 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
  *     CountryCode: "STRING_VALUE", // required
  *     Municipality: "STRING_VALUE",
  *   },
- *   RackPhysicalProperties: {
+ *   RackPhysicalProperties: { // RackPhysicalProperties
  *     PowerDrawKva: "POWER_5_KVA" || "POWER_10_KVA" || "POWER_15_KVA" || "POWER_30_KVA",
  *     PowerPhase: "SINGLE_PHASE" || "THREE_PHASE",
  *     PowerConnector: "L6_30P" || "IEC309" || "AH530P7W" || "AH532P6W",

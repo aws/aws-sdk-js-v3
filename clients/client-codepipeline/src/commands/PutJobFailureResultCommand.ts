@@ -43,9 +43,9 @@ export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, PutJobFailureResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutJobFailureResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // PutJobFailureResultInput
  *   jobId: "STRING_VALUE", // required
- *   failureDetails: {
+ *   failureDetails: { // FailureDetails
  *     type: "STRING_VALUE", // required
  *     message: "STRING_VALUE", // required
  *     externalExecutionId: "STRING_VALUE",

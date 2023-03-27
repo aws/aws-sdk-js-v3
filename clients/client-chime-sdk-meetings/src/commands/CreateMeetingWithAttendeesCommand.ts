@@ -53,25 +53,25 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * import { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
- * const input = {
+ * const input = { // CreateMeetingWithAttendeesRequest
  *   ClientRequestToken: "STRING_VALUE", // required
  *   MediaRegion: "STRING_VALUE", // required
  *   MeetingHostId: "STRING_VALUE",
  *   ExternalMeetingId: "STRING_VALUE", // required
- *   MeetingFeatures: {
- *     Audio: {
+ *   MeetingFeatures: { // MeetingFeaturesConfiguration
+ *     Audio: { // AudioFeatures
  *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
  *     },
  *   },
- *   NotificationsConfiguration: {
+ *   NotificationsConfiguration: { // NotificationsConfiguration
  *     LambdaFunctionArn: "STRING_VALUE",
  *     SnsTopicArn: "STRING_VALUE",
  *     SqsQueueArn: "STRING_VALUE",
  *   },
- *   Attendees: [ // required
- *     {
+ *   Attendees: [ // CreateMeetingWithAttendeesRequestItemList // required
+ *     { // CreateAttendeeRequestItem
  *       ExternalUserId: "STRING_VALUE", // required
- *       Capabilities: {
+ *       Capabilities: { // AttendeeCapabilities
  *         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
  *         Video: "SendReceive" || "Send" || "Receive" || "None", // required
  *         Content: "SendReceive" || "Send" || "Receive" || "None", // required
@@ -79,11 +79,11 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  *     },
  *   ],
  *   PrimaryMeetingId: "STRING_VALUE",
- *   TenantIds: [
+ *   TenantIds: [ // TenantIdList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteAppImageConfigRequest
  *   AppImageConfigName: "STRING_VALUE", // required
  * };
  * const command = new DeleteAppImageConfigCommand(input);

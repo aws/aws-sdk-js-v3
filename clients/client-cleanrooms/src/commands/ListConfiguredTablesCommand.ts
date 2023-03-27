@@ -42,7 +42,7 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * import { CleanRoomsClient, ListConfiguredTablesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListConfiguredTablesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // ListConfiguredTablesInput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

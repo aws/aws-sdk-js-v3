@@ -44,30 +44,30 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * import { EC2Client, CreateClientVpnEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateClientVpnEndpointRequest
  *   ClientCidrBlock: "STRING_VALUE", // required
  *   ServerCertificateArn: "STRING_VALUE", // required
- *   AuthenticationOptions: [ // required
- *     {
+ *   AuthenticationOptions: [ // ClientVpnAuthenticationRequestList // required
+ *     { // ClientVpnAuthenticationRequest
  *       Type: "certificate-authentication" || "directory-service-authentication" || "federated-authentication",
- *       ActiveDirectory: {
+ *       ActiveDirectory: { // DirectoryServiceAuthenticationRequest
  *         DirectoryId: "STRING_VALUE",
  *       },
- *       MutualAuthentication: {
+ *       MutualAuthentication: { // CertificateAuthenticationRequest
  *         ClientRootCertificateChainArn: "STRING_VALUE",
  *       },
- *       FederatedAuthentication: {
+ *       FederatedAuthentication: { // FederatedAuthenticationRequest
  *         SAMLProviderArn: "STRING_VALUE",
  *         SelfServiceSAMLProviderArn: "STRING_VALUE",
  *       },
  *     },
  *   ],
- *   ConnectionLogOptions: {
+ *   ConnectionLogOptions: { // ConnectionLogOptions
  *     Enabled: true || false,
  *     CloudwatchLogGroup: "STRING_VALUE",
  *     CloudwatchLogStream: "STRING_VALUE",
  *   },
- *   DnsServers: [
+ *   DnsServers: [ // ValueStringList
  *     "STRING_VALUE",
  *   ],
  *   TransportProtocol: "tcp" || "udp",
@@ -76,28 +76,28 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  *   SplitTunnel: true || false,
  *   DryRun: true || false,
  *   ClientToken: "STRING_VALUE",
- *   TagSpecifications: [
- *     {
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
  *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
- *       Tags: [
- *         {
+ *       Tags: [ // TagList
+ *         { // Tag
  *           Key: "STRING_VALUE",
  *           Value: "STRING_VALUE",
  *         },
  *       ],
  *     },
  *   ],
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // ClientVpnSecurityGroupIdSet
  *     "STRING_VALUE",
  *   ],
  *   VpcId: "STRING_VALUE",
  *   SelfServicePortal: "enabled" || "disabled",
- *   ClientConnectOptions: {
+ *   ClientConnectOptions: { // ClientConnectOptions
  *     Enabled: true || false,
  *     LambdaFunctionArn: "STRING_VALUE",
  *   },
  *   SessionTimeoutHours: Number("int"),
- *   ClientLoginBannerOptions: {
+ *   ClientLoginBannerOptions: { // ClientLoginBannerOptions
  *     Enabled: true || false,
  *     BannerText: "STRING_VALUE",
  *   },

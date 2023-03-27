@@ -50,7 +50,7 @@ export interface GetWorkflowCommandOutput extends GetMigrationWorkflowResponse, 
  * import { MigrationHubOrchestratorClient, GetWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // GetMigrationWorkflowRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetWorkflowCommand(input);

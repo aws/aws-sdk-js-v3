@@ -46,7 +46,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * import { SNSClient, DeleteEndpointCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, DeleteEndpointCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // DeleteEndpointInput
  *   EndpointArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteEndpointCommand(input);

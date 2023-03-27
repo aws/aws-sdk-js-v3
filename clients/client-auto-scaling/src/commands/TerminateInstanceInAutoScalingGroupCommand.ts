@@ -53,7 +53,7 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * import { AutoScalingClient, TerminateInstanceInAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, TerminateInstanceInAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // TerminateInstanceInAutoScalingGroupType
  *   InstanceId: "STRING_VALUE", // required
  *   ShouldDecrementDesiredCapacity: true || false, // required
  * };

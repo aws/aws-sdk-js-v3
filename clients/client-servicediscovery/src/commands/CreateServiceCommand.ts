@@ -83,31 +83,31 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { ServiceDiscoveryClient, CreateServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreateServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // CreateServiceRequest
  *   Name: "STRING_VALUE", // required
  *   NamespaceId: "STRING_VALUE",
  *   CreatorRequestId: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   DnsConfig: {
+ *   DnsConfig: { // DnsConfig
  *     NamespaceId: "STRING_VALUE",
  *     RoutingPolicy: "MULTIVALUE" || "WEIGHTED",
- *     DnsRecords: [ // required
- *       {
+ *     DnsRecords: [ // DnsRecordList // required
+ *       { // DnsRecord
  *         Type: "SRV" || "A" || "AAAA" || "CNAME", // required
  *         TTL: Number("long"), // required
  *       },
  *     ],
  *   },
- *   HealthCheckConfig: {
+ *   HealthCheckConfig: { // HealthCheckConfig
  *     Type: "HTTP" || "HTTPS" || "TCP", // required
  *     ResourcePath: "STRING_VALUE",
  *     FailureThreshold: Number("int"),
  *   },
- *   HealthCheckCustomConfig: {
+ *   HealthCheckCustomConfig: { // HealthCheckCustomConfig
  *     FailureThreshold: Number("int"),
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

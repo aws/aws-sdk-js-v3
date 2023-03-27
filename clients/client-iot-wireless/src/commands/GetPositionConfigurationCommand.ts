@@ -49,7 +49,7 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * import { IoTWirelessClient, GetPositionConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetPositionConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // GetPositionConfigurationRequest
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
  * };

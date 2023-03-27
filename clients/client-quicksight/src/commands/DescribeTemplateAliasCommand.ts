@@ -42,7 +42,7 @@ export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAlia
  * import { QuickSightClient, DescribeTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeTemplateAliasRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   TemplateId: "STRING_VALUE", // required
  *   AliasName: "STRING_VALUE", // required

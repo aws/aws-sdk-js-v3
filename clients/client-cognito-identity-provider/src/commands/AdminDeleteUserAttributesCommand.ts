@@ -53,10 +53,10 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  * import { CognitoIdentityProviderClient, AdminDeleteUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminDeleteUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminDeleteUserAttributesRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE", // required
- *   UserAttributeNames: [ // required
+ *   UserAttributeNames: [ // AttributeNameListType // required
  *     "STRING_VALUE",
  *   ],
  * };

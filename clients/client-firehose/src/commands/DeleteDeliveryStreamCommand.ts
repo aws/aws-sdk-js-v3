@@ -51,7 +51,7 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * import { FirehoseClient, DeleteDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, DeleteDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
- * const input = {
+ * const input = { // DeleteDeliveryStreamInput
  *   DeliveryStreamName: "STRING_VALUE", // required
  *   AllowForceDelete: true || false,
  * };

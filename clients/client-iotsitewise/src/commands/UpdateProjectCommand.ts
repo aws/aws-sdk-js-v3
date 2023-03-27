@@ -42,7 +42,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * import { IoTSiteWiseClient, UpdateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // UpdateProjectRequest
  *   projectId: "STRING_VALUE", // required
  *   projectName: "STRING_VALUE", // required
  *   projectDescription: "STRING_VALUE",

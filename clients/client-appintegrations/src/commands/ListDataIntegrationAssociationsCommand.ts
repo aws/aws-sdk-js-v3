@@ -49,7 +49,7 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * import { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
- * const input = {
+ * const input = { // ListDataIntegrationAssociationsRequest
  *   DataIntegrationIdentifier: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

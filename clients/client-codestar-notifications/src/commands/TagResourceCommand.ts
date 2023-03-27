@@ -46,9 +46,9 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * import { CodestarNotificationsClient, TagResourceCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, TagResourceCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   Arn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // Tags // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

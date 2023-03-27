@@ -46,9 +46,9 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * import { OpenSearchServerlessClient, ListSecurityPoliciesCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListSecurityPoliciesCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // ListSecurityPoliciesRequest
  *   type: "STRING_VALUE", // required
- *   resource: [
+ *   resource: [ // ResourceFilter
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",

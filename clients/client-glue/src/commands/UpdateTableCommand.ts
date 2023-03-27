@@ -42,68 +42,66 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * import { GlueClient, UpdateTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // UpdateTableRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
- *   TableInput: {
+ *   TableInput: { // TableInput
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
  *     Owner: "STRING_VALUE",
  *     LastAccessTime: new Date("TIMESTAMP"),
  *     LastAnalyzedTime: new Date("TIMESTAMP"),
  *     Retention: Number("int"),
- *     StorageDescriptor: {
- *       Columns: [
- *         {
+ *     StorageDescriptor: { // StorageDescriptor
+ *       Columns: [ // ColumnList
+ *         { // Column
  *           Name: "STRING_VALUE", // required
  *           Type: "STRING_VALUE",
  *           Comment: "STRING_VALUE",
- *           Parameters: {
+ *           Parameters: { // ParametersMap
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
  *       ],
  *       Location: "STRING_VALUE",
- *       AdditionalLocations: [
+ *       AdditionalLocations: [ // LocationStringList
  *         "STRING_VALUE",
  *       ],
  *       InputFormat: "STRING_VALUE",
  *       OutputFormat: "STRING_VALUE",
  *       Compressed: true || false,
  *       NumberOfBuckets: Number("int"),
- *       SerdeInfo: {
+ *       SerdeInfo: { // SerDeInfo
  *         Name: "STRING_VALUE",
  *         SerializationLibrary: "STRING_VALUE",
  *         Parameters: {
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
- *       BucketColumns: [
+ *       BucketColumns: [ // NameStringList
  *         "STRING_VALUE",
  *       ],
- *       SortColumns: [
- *         {
+ *       SortColumns: [ // OrderList
+ *         { // Order
  *           Column: "STRING_VALUE", // required
  *           SortOrder: Number("int"), // required
  *         },
  *       ],
- *       Parameters: {
- *         "<keys>": "<ParametersMapValue>",
- *       },
- *       SkewedInfo: {
+ *       Parameters: "<ParametersMap>",
+ *       SkewedInfo: { // SkewedInfo
  *         SkewedColumnNames: [
  *           "STRING_VALUE",
  *         ],
- *         SkewedColumnValues: [
+ *         SkewedColumnValues: [ // ColumnValueStringList
  *           "STRING_VALUE",
  *         ],
- *         SkewedColumnValueLocationMaps: {
+ *         SkewedColumnValueLocationMaps: { // LocationMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *       StoredAsSubDirectories: true || false,
- *       SchemaReference: {
- *         SchemaId: {
+ *       SchemaReference: { // SchemaReference
+ *         SchemaId: { // SchemaId
  *           SchemaArn: "STRING_VALUE",
  *           SchemaName: "STRING_VALUE",
  *           RegistryName: "STRING_VALUE",
@@ -117,18 +115,14 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *         Name: "STRING_VALUE", // required
  *         Type: "STRING_VALUE",
  *         Comment: "STRING_VALUE",
- *         Parameters: {
- *           "<keys>": "<ParametersMapValue>",
- *         },
+ *         Parameters: "<ParametersMap>",
  *       },
  *     ],
  *     ViewOriginalText: "STRING_VALUE",
  *     ViewExpandedText: "STRING_VALUE",
  *     TableType: "STRING_VALUE",
- *     Parameters: {
- *       "<keys>": "<ParametersMapValue>",
- *     },
- *     TargetTable: {
+ *     Parameters: "<ParametersMap>",
+ *     TargetTable: { // TableIdentifier
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
  *       Name: "STRING_VALUE",

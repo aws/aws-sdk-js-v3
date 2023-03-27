@@ -54,7 +54,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * import { PersonalizeClient, DescribeCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeCampaignRequest
  *   campaignArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeCampaignCommand(input);

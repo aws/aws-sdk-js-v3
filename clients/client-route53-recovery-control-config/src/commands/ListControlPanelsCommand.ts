@@ -46,7 +46,7 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  * import { Route53RecoveryControlConfigClient, ListControlPanelsCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, ListControlPanelsCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
+ * const input = { // ListControlPanelsRequest
  *   ClusterArn: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

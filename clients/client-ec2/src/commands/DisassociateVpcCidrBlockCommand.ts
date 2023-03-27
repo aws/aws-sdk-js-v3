@@ -47,7 +47,7 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  * import { EC2Client, DisassociateVpcCidrBlockCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateVpcCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisassociateVpcCidrBlockRequest
  *   AssociationId: "STRING_VALUE", // required
  * };
  * const command = new DisassociateVpcCidrBlockCommand(input);

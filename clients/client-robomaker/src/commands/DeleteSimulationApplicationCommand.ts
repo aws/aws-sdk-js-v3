@@ -44,7 +44,7 @@ export interface DeleteSimulationApplicationCommandOutput
  * import { RoboMakerClient, DeleteSimulationApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteSimulationApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // DeleteSimulationApplicationRequest
  *   application: "STRING_VALUE", // required
  *   applicationVersion: "STRING_VALUE",
  * };

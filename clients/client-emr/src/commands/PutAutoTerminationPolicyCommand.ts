@@ -50,9 +50,9 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * import { EMRClient, PutAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, PutAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // PutAutoTerminationPolicyInput
  *   ClusterId: "STRING_VALUE", // required
- *   AutoTerminationPolicy: {
+ *   AutoTerminationPolicy: { // AutoTerminationPolicy
  *     IdleTimeout: Number("long"),
  *   },
  * };

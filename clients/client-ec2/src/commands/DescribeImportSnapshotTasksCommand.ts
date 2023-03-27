@@ -42,17 +42,17 @@ export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImport
  * import { EC2Client, DescribeImportSnapshotTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeImportSnapshotTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeImportSnapshotTasksRequest
  *   DryRun: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   ImportTaskIds: [
+ *   ImportTaskIds: [ // ImportSnapshotTaskIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

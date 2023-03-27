@@ -47,7 +47,7 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * import { CloudTrailClient, UpdateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // UpdateTrailRequest
  *   Name: "STRING_VALUE", // required
  *   S3BucketName: "STRING_VALUE",
  *   S3KeyPrefix: "STRING_VALUE",

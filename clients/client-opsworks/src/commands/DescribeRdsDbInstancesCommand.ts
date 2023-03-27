@@ -48,9 +48,9 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  * import { OpsWorksClient, DescribeRdsDbInstancesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeRdsDbInstancesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DescribeRdsDbInstancesRequest
  *   StackId: "STRING_VALUE", // required
- *   RdsDbInstanceArns: [
+ *   RdsDbInstanceArns: [ // Strings
  *     "STRING_VALUE",
  *   ],
  * };

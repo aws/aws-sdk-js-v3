@@ -42,8 +42,8 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  * import { AppStreamClient, DescribeImageBuildersCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeImageBuildersCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
- *   Names: [
+ * const input = { // DescribeImageBuildersRequest
+ *   Names: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

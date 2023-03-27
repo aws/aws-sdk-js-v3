@@ -42,7 +42,7 @@ export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefini
  * import { GreengrassClient, GetLoggerDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetLoggerDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // GetLoggerDefinitionVersionRequest
  *   LoggerDefinitionId: "STRING_VALUE", // required
  *   LoggerDefinitionVersionId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

@@ -58,9 +58,9 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * import { SQSClient, SetQueueAttributesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SetQueueAttributesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // SetQueueAttributesRequest
  *   QueueUrl: "STRING_VALUE", // required
- *   Attributes: { // required
+ *   Attributes: { // QueueAttributeMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

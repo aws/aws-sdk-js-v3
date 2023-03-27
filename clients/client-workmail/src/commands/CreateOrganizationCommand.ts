@@ -50,12 +50,12 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * import { WorkMailClient, CreateOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // CreateOrganizationRequest
  *   DirectoryId: "STRING_VALUE",
  *   Alias: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
- *   Domains: [
- *     {
+ *   Domains: [ // Domains
+ *     { // Domain
  *       DomainName: "STRING_VALUE",
  *       HostedZoneId: "STRING_VALUE",
  *     },

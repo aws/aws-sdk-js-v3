@@ -51,20 +51,20 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * import { SSMClient, UpdateResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // UpdateResourceDataSyncRequest
  *   SyncName: "STRING_VALUE", // required
  *   SyncType: "STRING_VALUE", // required
- *   SyncSource: {
+ *   SyncSource: { // ResourceDataSyncSource
  *     SourceType: "STRING_VALUE", // required
- *     AwsOrganizationsSource: {
+ *     AwsOrganizationsSource: { // ResourceDataSyncAwsOrganizationsSource
  *       OrganizationSourceType: "STRING_VALUE", // required
- *       OrganizationalUnits: [
- *         {
+ *       OrganizationalUnits: [ // ResourceDataSyncOrganizationalUnitList
+ *         { // ResourceDataSyncOrganizationalUnit
  *           OrganizationalUnitId: "STRING_VALUE",
  *         },
  *       ],
  *     },
- *     SourceRegions: [ // required
+ *     SourceRegions: [ // ResourceDataSyncSourceRegionList // required
  *       "STRING_VALUE",
  *     ],
  *     IncludeFutureRegions: true || false,

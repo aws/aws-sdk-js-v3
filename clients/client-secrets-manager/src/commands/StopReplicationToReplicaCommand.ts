@@ -50,7 +50,7 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  * import { SecretsManagerClient, StopReplicationToReplicaCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, StopReplicationToReplicaCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // StopReplicationToReplicaRequest
  *   SecretId: "STRING_VALUE", // required
  * };
  * const command = new StopReplicationToReplicaCommand(input);

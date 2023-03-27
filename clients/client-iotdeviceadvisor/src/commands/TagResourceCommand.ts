@@ -43,9 +43,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { IotDeviceAdvisorClient, TagResourceCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, TagResourceCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

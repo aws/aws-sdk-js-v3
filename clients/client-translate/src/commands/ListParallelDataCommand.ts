@@ -42,7 +42,7 @@ export interface ListParallelDataCommandOutput extends ListParallelDataResponse,
  * import { TranslateClient, ListParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
- * const input = {
+ * const input = { // ListParallelDataRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

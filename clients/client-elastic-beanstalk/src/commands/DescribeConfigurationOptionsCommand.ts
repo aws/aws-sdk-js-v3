@@ -45,14 +45,14 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * import { ElasticBeanstalkClient, DescribeConfigurationOptionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeConfigurationOptionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DescribeConfigurationOptionsMessage
  *   ApplicationName: "STRING_VALUE",
  *   TemplateName: "STRING_VALUE",
  *   EnvironmentName: "STRING_VALUE",
  *   SolutionStackName: "STRING_VALUE",
  *   PlatformArn: "STRING_VALUE",
- *   Options: [
- *     {
+ *   Options: [ // OptionsSpecifierList
+ *     { // OptionSpecification
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",

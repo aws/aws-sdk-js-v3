@@ -44,7 +44,7 @@ export interface ListCompilationJobsCommandOutput extends ListCompilationJobsRes
  * import { SageMakerClient, ListCompilationJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListCompilationJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListCompilationJobsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CreationTimeAfter: new Date("TIMESTAMP"),

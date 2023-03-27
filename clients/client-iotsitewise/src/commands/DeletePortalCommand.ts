@@ -42,7 +42,7 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * import { IoTSiteWiseClient, DeletePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeletePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DeletePortalRequest
  *   portalId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

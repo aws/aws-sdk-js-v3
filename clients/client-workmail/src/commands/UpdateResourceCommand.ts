@@ -44,11 +44,11 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * import { WorkMailClient, UpdateResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdateResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // UpdateResourceRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   BookingOptions: {
+ *   BookingOptions: { // BookingOptions
  *     AutoAcceptRequests: true || false,
  *     AutoDeclineRecurringRequests: true || false,
  *     AutoDeclineConflictingRequests: true || false,

@@ -42,14 +42,14 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * import { DocDBClient, DescribeDBClusterSnapshotsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClusterSnapshotsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // DescribeDBClusterSnapshotsMessage
  *   DBClusterIdentifier: "STRING_VALUE",
  *   DBClusterSnapshotIdentifier: "STRING_VALUE",
  *   SnapshotType: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

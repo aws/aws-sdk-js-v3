@@ -42,14 +42,14 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * import { SimSpaceWeaverClient, StartAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StartAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
- * const input = {
+ * const input = { // StartAppInput
  *   ClientToken: "STRING_VALUE",
  *   Simulation: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   LaunchOverrides: {
- *     LaunchCommands: [
+ *   LaunchOverrides: { // LaunchOverrides
+ *     LaunchCommands: [ // LaunchCommandList
  *       "STRING_VALUE",
  *     ],
  *   },

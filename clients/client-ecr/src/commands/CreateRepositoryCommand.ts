@@ -43,20 +43,20 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * import { ECRClient, CreateRepositoryCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, CreateRepositoryCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // CreateRepositoryRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   imageTagMutability: "STRING_VALUE",
- *   imageScanningConfiguration: {
+ *   imageScanningConfiguration: { // ImageScanningConfiguration
  *     scanOnPush: true || false,
  *   },
- *   encryptionConfiguration: {
+ *   encryptionConfiguration: { // EncryptionConfiguration
  *     encryptionType: "STRING_VALUE", // required
  *     kmsKey: "STRING_VALUE",
  *   },

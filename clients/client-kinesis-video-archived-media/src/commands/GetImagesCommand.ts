@@ -46,7 +46,7 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * import { KinesisVideoArchivedMediaClient, GetImagesCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetImagesCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
- * const input = {
+ * const input = { // GetImagesInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  *   ImageSelectorType: "STRING_VALUE", // required
@@ -54,7 +54,7 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  *   EndTimestamp: new Date("TIMESTAMP"), // required
  *   SamplingInterval: Number("int"), // required
  *   Format: "STRING_VALUE", // required
- *   FormatConfig: {
+ *   FormatConfig: { // FormatConfig
  *     "<keys>": "STRING_VALUE",
  *   },
  *   WidthPixels: Number("int"),

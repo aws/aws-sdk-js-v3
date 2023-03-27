@@ -61,7 +61,7 @@ export interface UpdateServerEngineAttributesCommandOutput
  * import { OpsWorksCMClient, UpdateServerEngineAttributesCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, UpdateServerEngineAttributesCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // UpdateServerEngineAttributesRequest
  *   ServerName: "STRING_VALUE", // required
  *   AttributeName: "STRING_VALUE", // required
  *   AttributeValue: "STRING_VALUE",

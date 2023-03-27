@@ -42,7 +42,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * import { SageMakerClient, ListProjectsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListProjectsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListProjectsInput
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   MaxResults: Number("int"),

@@ -43,7 +43,7 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  * import { IoTClient, ListDimensionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListDimensionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListDimensionsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

@@ -43,11 +43,11 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  * import { DataSyncClient, UpdateLocationHdfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationHdfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // UpdateLocationHdfsRequest
  *   LocationArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
- *   NameNodes: [
- *     {
+ *   NameNodes: [ // HdfsNameNodeList
+ *     { // HdfsNameNode
  *       Hostname: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *     },
@@ -55,7 +55,7 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  *   BlockSize: Number("int"),
  *   ReplicationFactor: Number("int"),
  *   KmsKeyProviderUri: "STRING_VALUE",
- *   QopConfiguration: {
+ *   QopConfiguration: { // QopConfiguration
  *     RpcProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
  *     DataTransferProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
  *   },
@@ -64,7 +64,7 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  *   KerberosPrincipal: "STRING_VALUE",
  *   KerberosKeytab: "BLOB_VALUE",
  *   KerberosKrb5Conf: "BLOB_VALUE",
- *   AgentArns: [
+ *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
  * };

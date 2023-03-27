@@ -46,9 +46,9 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * import { RDSClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // RemoveTagsFromResourceMessage
  *   ResourceName: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // KeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

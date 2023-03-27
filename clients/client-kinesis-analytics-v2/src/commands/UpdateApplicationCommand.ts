@@ -54,80 +54,80 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { KinesisAnalyticsV2Client, UpdateApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, UpdateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // UpdateApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   CurrentApplicationVersionId: Number("long"),
- *   ApplicationConfigurationUpdate: {
- *     SqlApplicationConfigurationUpdate: {
- *       InputUpdates: [
- *         {
+ *   ApplicationConfigurationUpdate: { // ApplicationConfigurationUpdate
+ *     SqlApplicationConfigurationUpdate: { // SqlApplicationConfigurationUpdate
+ *       InputUpdates: [ // InputUpdates
+ *         { // InputUpdate
  *           InputId: "STRING_VALUE", // required
  *           NamePrefixUpdate: "STRING_VALUE",
- *           InputProcessingConfigurationUpdate: {
- *             InputLambdaProcessorUpdate: {
+ *           InputProcessingConfigurationUpdate: { // InputProcessingConfigurationUpdate
+ *             InputLambdaProcessorUpdate: { // InputLambdaProcessorUpdate
  *               ResourceARNUpdate: "STRING_VALUE", // required
  *             },
  *           },
- *           KinesisStreamsInputUpdate: {
+ *           KinesisStreamsInputUpdate: { // KinesisStreamsInputUpdate
  *             ResourceARNUpdate: "STRING_VALUE", // required
  *           },
- *           KinesisFirehoseInputUpdate: {
+ *           KinesisFirehoseInputUpdate: { // KinesisFirehoseInputUpdate
  *             ResourceARNUpdate: "STRING_VALUE", // required
  *           },
- *           InputSchemaUpdate: {
- *             RecordFormatUpdate: {
+ *           InputSchemaUpdate: { // InputSchemaUpdate
+ *             RecordFormatUpdate: { // RecordFormat
  *               RecordFormatType: "JSON" || "CSV", // required
- *               MappingParameters: {
- *                 JSONMappingParameters: {
+ *               MappingParameters: { // MappingParameters
+ *                 JSONMappingParameters: { // JSONMappingParameters
  *                   RecordRowPath: "STRING_VALUE", // required
  *                 },
- *                 CSVMappingParameters: {
+ *                 CSVMappingParameters: { // CSVMappingParameters
  *                   RecordRowDelimiter: "STRING_VALUE", // required
  *                   RecordColumnDelimiter: "STRING_VALUE", // required
  *                 },
  *               },
  *             },
  *             RecordEncodingUpdate: "STRING_VALUE",
- *             RecordColumnUpdates: [
- *               {
+ *             RecordColumnUpdates: [ // RecordColumns
+ *               { // RecordColumn
  *                 Name: "STRING_VALUE", // required
  *                 Mapping: "STRING_VALUE",
  *                 SqlType: "STRING_VALUE", // required
  *               },
  *             ],
  *           },
- *           InputParallelismUpdate: {
+ *           InputParallelismUpdate: { // InputParallelismUpdate
  *             CountUpdate: Number("int"), // required
  *           },
  *         },
  *       ],
- *       OutputUpdates: [
- *         {
+ *       OutputUpdates: [ // OutputUpdates
+ *         { // OutputUpdate
  *           OutputId: "STRING_VALUE", // required
  *           NameUpdate: "STRING_VALUE",
- *           KinesisStreamsOutputUpdate: {
+ *           KinesisStreamsOutputUpdate: { // KinesisStreamsOutputUpdate
  *             ResourceARNUpdate: "STRING_VALUE", // required
  *           },
- *           KinesisFirehoseOutputUpdate: {
+ *           KinesisFirehoseOutputUpdate: { // KinesisFirehoseOutputUpdate
  *             ResourceARNUpdate: "STRING_VALUE", // required
  *           },
- *           LambdaOutputUpdate: {
+ *           LambdaOutputUpdate: { // LambdaOutputUpdate
  *             ResourceARNUpdate: "STRING_VALUE", // required
  *           },
- *           DestinationSchemaUpdate: {
+ *           DestinationSchemaUpdate: { // DestinationSchema
  *             RecordFormatType: "JSON" || "CSV", // required
  *           },
  *         },
  *       ],
- *       ReferenceDataSourceUpdates: [
- *         {
+ *       ReferenceDataSourceUpdates: [ // ReferenceDataSourceUpdates
+ *         { // ReferenceDataSourceUpdate
  *           ReferenceId: "STRING_VALUE", // required
  *           TableNameUpdate: "STRING_VALUE",
- *           S3ReferenceDataSourceUpdate: {
+ *           S3ReferenceDataSourceUpdate: { // S3ReferenceDataSourceUpdate
  *             BucketARNUpdate: "STRING_VALUE",
  *             FileKeyUpdate: "STRING_VALUE",
  *           },
- *           ReferenceSchemaUpdate: {
+ *           ReferenceSchemaUpdate: { // SourceSchema
  *             RecordFormat: {
  *               RecordFormatType: "JSON" || "CSV", // required
  *               MappingParameters: {
@@ -152,85 +152,85 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *         },
  *       ],
  *     },
- *     ApplicationCodeConfigurationUpdate: {
+ *     ApplicationCodeConfigurationUpdate: { // ApplicationCodeConfigurationUpdate
  *       CodeContentTypeUpdate: "PLAINTEXT" || "ZIPFILE",
- *       CodeContentUpdate: {
+ *       CodeContentUpdate: { // CodeContentUpdate
  *         TextContentUpdate: "STRING_VALUE",
  *         ZipFileContentUpdate: "BLOB_VALUE",
- *         S3ContentLocationUpdate: {
+ *         S3ContentLocationUpdate: { // S3ContentLocationUpdate
  *           BucketARNUpdate: "STRING_VALUE",
  *           FileKeyUpdate: "STRING_VALUE",
  *           ObjectVersionUpdate: "STRING_VALUE",
  *         },
  *       },
  *     },
- *     FlinkApplicationConfigurationUpdate: {
- *       CheckpointConfigurationUpdate: {
+ *     FlinkApplicationConfigurationUpdate: { // FlinkApplicationConfigurationUpdate
+ *       CheckpointConfigurationUpdate: { // CheckpointConfigurationUpdate
  *         ConfigurationTypeUpdate: "DEFAULT" || "CUSTOM",
  *         CheckpointingEnabledUpdate: true || false,
  *         CheckpointIntervalUpdate: Number("long"),
  *         MinPauseBetweenCheckpointsUpdate: Number("long"),
  *       },
- *       MonitoringConfigurationUpdate: {
+ *       MonitoringConfigurationUpdate: { // MonitoringConfigurationUpdate
  *         ConfigurationTypeUpdate: "DEFAULT" || "CUSTOM",
  *         MetricsLevelUpdate: "APPLICATION" || "TASK" || "OPERATOR" || "PARALLELISM",
  *         LogLevelUpdate: "INFO" || "WARN" || "ERROR" || "DEBUG",
  *       },
- *       ParallelismConfigurationUpdate: {
+ *       ParallelismConfigurationUpdate: { // ParallelismConfigurationUpdate
  *         ConfigurationTypeUpdate: "DEFAULT" || "CUSTOM",
  *         ParallelismUpdate: Number("int"),
  *         ParallelismPerKPUUpdate: Number("int"),
  *         AutoScalingEnabledUpdate: true || false,
  *       },
  *     },
- *     EnvironmentPropertyUpdates: {
- *       PropertyGroups: [ // required
- *         {
+ *     EnvironmentPropertyUpdates: { // EnvironmentPropertyUpdates
+ *       PropertyGroups: [ // PropertyGroups // required
+ *         { // PropertyGroup
  *           PropertyGroupId: "STRING_VALUE", // required
- *           PropertyMap: { // required
+ *           PropertyMap: { // PropertyMap // required
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
  *       ],
  *     },
- *     ApplicationSnapshotConfigurationUpdate: {
+ *     ApplicationSnapshotConfigurationUpdate: { // ApplicationSnapshotConfigurationUpdate
  *       SnapshotsEnabledUpdate: true || false, // required
  *     },
- *     VpcConfigurationUpdates: [
- *       {
+ *     VpcConfigurationUpdates: [ // VpcConfigurationUpdates
+ *       { // VpcConfigurationUpdate
  *         VpcConfigurationId: "STRING_VALUE", // required
- *         SubnetIdUpdates: [
+ *         SubnetIdUpdates: [ // SubnetIds
  *           "STRING_VALUE",
  *         ],
- *         SecurityGroupIdUpdates: [
+ *         SecurityGroupIdUpdates: [ // SecurityGroupIds
  *           "STRING_VALUE",
  *         ],
  *       },
  *     ],
- *     ZeppelinApplicationConfigurationUpdate: {
- *       MonitoringConfigurationUpdate: {
+ *     ZeppelinApplicationConfigurationUpdate: { // ZeppelinApplicationConfigurationUpdate
+ *       MonitoringConfigurationUpdate: { // ZeppelinMonitoringConfigurationUpdate
  *         LogLevelUpdate: "INFO" || "WARN" || "ERROR" || "DEBUG", // required
  *       },
- *       CatalogConfigurationUpdate: {
- *         GlueDataCatalogConfigurationUpdate: {
+ *       CatalogConfigurationUpdate: { // CatalogConfigurationUpdate
+ *         GlueDataCatalogConfigurationUpdate: { // GlueDataCatalogConfigurationUpdate
  *           DatabaseARNUpdate: "STRING_VALUE", // required
  *         },
  *       },
- *       DeployAsApplicationConfigurationUpdate: {
- *         S3ContentLocationUpdate: {
+ *       DeployAsApplicationConfigurationUpdate: { // DeployAsApplicationConfigurationUpdate
+ *         S3ContentLocationUpdate: { // S3ContentBaseLocationUpdate
  *           BucketARNUpdate: "STRING_VALUE",
  *           BasePathUpdate: "STRING_VALUE",
  *         },
  *       },
- *       CustomArtifactsConfigurationUpdate: [
- *         {
+ *       CustomArtifactsConfigurationUpdate: [ // CustomArtifactsConfigurationList
+ *         { // CustomArtifactConfiguration
  *           ArtifactType: "UDF" || "DEPENDENCY_JAR", // required
- *           S3ContentLocation: {
+ *           S3ContentLocation: { // S3ContentLocation
  *             BucketARN: "STRING_VALUE", // required
  *             FileKey: "STRING_VALUE", // required
  *             ObjectVersion: "STRING_VALUE",
  *           },
- *           MavenReference: {
+ *           MavenReference: { // MavenReference
  *             GroupId: "STRING_VALUE", // required
  *             ArtifactId: "STRING_VALUE", // required
  *             Version: "STRING_VALUE", // required
@@ -240,17 +240,17 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *     },
  *   },
  *   ServiceExecutionRoleUpdate: "STRING_VALUE",
- *   RunConfigurationUpdate: {
- *     FlinkRunConfiguration: {
+ *   RunConfigurationUpdate: { // RunConfigurationUpdate
+ *     FlinkRunConfiguration: { // FlinkRunConfiguration
  *       AllowNonRestoredState: true || false,
  *     },
- *     ApplicationRestoreConfiguration: {
+ *     ApplicationRestoreConfiguration: { // ApplicationRestoreConfiguration
  *       ApplicationRestoreType: "SKIP_RESTORE_FROM_SNAPSHOT" || "RESTORE_FROM_LATEST_SNAPSHOT" || "RESTORE_FROM_CUSTOM_SNAPSHOT", // required
  *       SnapshotName: "STRING_VALUE",
  *     },
  *   },
- *   CloudWatchLoggingOptionUpdates: [
- *     {
+ *   CloudWatchLoggingOptionUpdates: [ // CloudWatchLoggingOptionUpdates
+ *     { // CloudWatchLoggingOptionUpdate
  *       CloudWatchLoggingOptionId: "STRING_VALUE", // required
  *       LogStreamARNUpdate: "STRING_VALUE",
  *     },

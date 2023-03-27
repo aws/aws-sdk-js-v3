@@ -44,7 +44,7 @@ export interface GetStreamingDistributionConfigCommandOutput
  * import { CloudFrontClient, GetStreamingDistributionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetStreamingDistributionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // GetStreamingDistributionConfigRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetStreamingDistributionConfigCommand(input);

@@ -46,7 +46,7 @@ export interface ListVoiceProfilesCommandOutput extends ListVoiceProfilesRespons
  * import { ChimeSDKVoiceClient, ListVoiceProfilesCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, ListVoiceProfilesCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // ListVoiceProfilesRequest
  *   VoiceProfileDomainId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

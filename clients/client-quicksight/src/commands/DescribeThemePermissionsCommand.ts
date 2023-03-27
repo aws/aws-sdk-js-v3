@@ -42,7 +42,7 @@ export interface DescribeThemePermissionsCommandOutput extends DescribeThemePerm
  * import { QuickSightClient, DescribeThemePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeThemePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeThemePermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   ThemeId: "STRING_VALUE", // required
  * };

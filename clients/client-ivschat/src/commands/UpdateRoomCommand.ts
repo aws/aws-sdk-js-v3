@@ -42,16 +42,16 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * import { IvschatClient, UpdateRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, UpdateRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
- * const input = {
+ * const input = { // UpdateRoomRequest
  *   identifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   maximumMessageRatePerSecond: Number("int"),
  *   maximumMessageLength: Number("int"),
- *   messageReviewHandler: {
+ *   messageReviewHandler: { // MessageReviewHandler
  *     uri: "STRING_VALUE",
  *     fallbackResult: "STRING_VALUE",
  *   },
- *   loggingConfigurationIdentifiers: [
+ *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
  *     "STRING_VALUE",
  *   ],
  * };

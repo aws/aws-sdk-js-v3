@@ -51,7 +51,7 @@ export interface DescribeProvisioningParametersCommandOutput
  * import { ServiceCatalogClient, DescribeProvisioningParametersCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProvisioningParametersCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DescribeProvisioningParametersInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProductId: "STRING_VALUE",
  *   ProductName: "STRING_VALUE",

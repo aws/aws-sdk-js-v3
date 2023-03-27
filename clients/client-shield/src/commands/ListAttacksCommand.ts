@@ -43,11 +43,11 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * import { ShieldClient, ListAttacksCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, ListAttacksCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
- * const input = {
- *   ResourceArns: [
+ * const input = { // ListAttacksRequest
+ *   ResourceArns: [ // ResourceArnFilterList
  *     "STRING_VALUE",
  *   ],
- *   StartTime: {
+ *   StartTime: { // TimeRange
  *     FromInclusive: new Date("TIMESTAMP"),
  *     ToExclusive: new Date("TIMESTAMP"),
  *   },

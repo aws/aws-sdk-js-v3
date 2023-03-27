@@ -42,22 +42,22 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  * import { CloudDirectoryClient, AttachTypedLinkCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachTypedLinkCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // AttachTypedLinkRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   SourceObjectReference: {
+ *   SourceObjectReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   TargetObjectReference: {
  *     Selector: "STRING_VALUE",
  *   },
- *   TypedLinkFacet: {
+ *   TypedLinkFacet: { // TypedLinkSchemaAndFacetName
  *     SchemaArn: "STRING_VALUE", // required
  *     TypedLinkName: "STRING_VALUE", // required
  *   },
- *   Attributes: [ // required
- *     {
+ *   Attributes: [ // AttributeNameAndValueList // required
+ *     { // AttributeNameAndValue
  *       AttributeName: "STRING_VALUE", // required
- *       Value: { // Union: only one key present
+ *       Value: { // TypedAttributeValue Union: only one key present
  *         StringValue: "STRING_VALUE",
  *         BinaryValue: "BLOB_VALUE",
  *         BooleanValue: true || false,

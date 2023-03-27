@@ -46,15 +46,15 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * import { ConnectCasesClient, SearchRelatedItemsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchRelatedItemsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = {
+ * const input = { // SearchRelatedItemsRequest
  *   domainId: "STRING_VALUE", // required
  *   caseId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filters: [
- *     { // Union: only one key present
- *       contact: {
- *         channel: [
+ *   filters: [ // RelatedItemFilterList
+ *     { // RelatedItemTypeFilter Union: only one key present
+ *       contact: { // ContactFilter
+ *         channel: [ // ChannelList
  *           "STRING_VALUE",
  *         ],
  *         contactArn: "STRING_VALUE",

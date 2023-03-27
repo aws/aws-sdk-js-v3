@@ -49,7 +49,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * import { LookoutVisionClient, DeleteProjectCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DeleteProjectCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
- * const input = {
+ * const input = { // DeleteProjectRequest
  *   ProjectName: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  * };

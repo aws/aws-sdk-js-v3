@@ -65,7 +65,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { FSxClient, ListTagsForResourceCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, ListTagsForResourceCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

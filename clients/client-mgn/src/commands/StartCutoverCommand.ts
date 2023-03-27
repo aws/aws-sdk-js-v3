@@ -47,11 +47,11 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  * import { MgnClient, StartCutoverCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartCutoverCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
- *   sourceServerIDs: [ // required
+ * const input = { // StartCutoverRequest
+ *   sourceServerIDs: [ // StartCutoverRequestSourceServerIDs // required
  *     "STRING_VALUE",
  *   ],
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

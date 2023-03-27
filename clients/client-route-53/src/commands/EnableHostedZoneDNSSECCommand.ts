@@ -43,7 +43,7 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * import { Route53Client, EnableHostedZoneDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, EnableHostedZoneDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // EnableHostedZoneDNSSECRequest
  *   HostedZoneId: "STRING_VALUE", // required
  * };
  * const command = new EnableHostedZoneDNSSECCommand(input);

@@ -42,7 +42,7 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  * import { EC2Client, ModifyTrafficMirrorSessionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTrafficMirrorSessionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyTrafficMirrorSessionRequest
  *   TrafficMirrorSessionId: "STRING_VALUE", // required
  *   TrafficMirrorTargetId: "STRING_VALUE",
  *   TrafficMirrorFilterId: "STRING_VALUE",
@@ -50,7 +50,7 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  *   SessionNumber: Number("int"),
  *   VirtualNetworkId: Number("int"),
  *   Description: "STRING_VALUE",
- *   RemoveFields: [
+ *   RemoveFields: [ // TrafficMirrorSessionFieldList
  *     "packet-length" || "description" || "virtual-network-id",
  *   ],
  *   DryRun: true || false,

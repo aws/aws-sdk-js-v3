@@ -44,15 +44,15 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { ComprehendClient, CreateDatasetCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateDatasetCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // CreateDatasetRequest
  *   FlywheelArn: "STRING_VALUE", // required
  *   DatasetName: "STRING_VALUE", // required
  *   DatasetType: "TRAIN" || "TEST",
  *   Description: "STRING_VALUE",
- *   InputDataConfig: {
- *     AugmentedManifests: [
- *       {
- *         AttributeNames: [ // required
+ *   InputDataConfig: { // DatasetInputDataConfig
+ *     AugmentedManifests: [ // DatasetAugmentedManifestsList
+ *       { // DatasetAugmentedManifestsListItem
+ *         AttributeNames: [ // AttributeNamesList // required
  *           "STRING_VALUE",
  *         ],
  *         S3Uri: "STRING_VALUE", // required
@@ -62,26 +62,26 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *       },
  *     ],
  *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
- *     DocumentClassifierInputDataConfig: {
+ *     DocumentClassifierInputDataConfig: { // DatasetDocumentClassifierInputDataConfig
  *       S3Uri: "STRING_VALUE", // required
  *       LabelDelimiter: "STRING_VALUE",
  *     },
- *     EntityRecognizerInputDataConfig: {
- *       Annotations: {
+ *     EntityRecognizerInputDataConfig: { // DatasetEntityRecognizerInputDataConfig
+ *       Annotations: { // DatasetEntityRecognizerAnnotations
  *         S3Uri: "STRING_VALUE", // required
  *       },
- *       Documents: {
+ *       Documents: { // DatasetEntityRecognizerDocuments
  *         S3Uri: "STRING_VALUE", // required
  *         InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
  *       },
- *       EntityList: {
+ *       EntityList: { // DatasetEntityRecognizerEntityList
  *         S3Uri: "STRING_VALUE", // required
  *       },
  *     },
  *   },
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

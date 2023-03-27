@@ -45,13 +45,13 @@ export interface UpdateBusinessReportScheduleCommandOutput
  * import { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // UpdateBusinessReportScheduleRequest
  *   ScheduleArn: "STRING_VALUE", // required
  *   S3BucketName: "STRING_VALUE",
  *   S3KeyPrefix: "STRING_VALUE",
  *   Format: "STRING_VALUE",
  *   ScheduleName: "STRING_VALUE",
- *   Recurrence: {
+ *   Recurrence: { // BusinessReportRecurrence
  *     StartDate: "STRING_VALUE",
  *   },
  * };

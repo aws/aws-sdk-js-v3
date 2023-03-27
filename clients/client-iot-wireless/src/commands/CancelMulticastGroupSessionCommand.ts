@@ -44,7 +44,7 @@ export interface CancelMulticastGroupSessionCommandOutput
  * import { IoTWirelessClient, CancelMulticastGroupSessionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CancelMulticastGroupSessionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CancelMulticastGroupSessionRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new CancelMulticastGroupSessionCommand(input);

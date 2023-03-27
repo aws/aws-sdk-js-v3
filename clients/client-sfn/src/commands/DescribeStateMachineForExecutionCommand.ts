@@ -52,7 +52,7 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * import { SFNClient, DescribeStateMachineForExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeStateMachineForExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // DescribeStateMachineForExecutionInput
  *   executionArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeStateMachineForExecutionCommand(input);

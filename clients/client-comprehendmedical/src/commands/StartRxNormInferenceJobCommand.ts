@@ -48,12 +48,12 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  * import { ComprehendMedicalClient, StartRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StartRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
- *   InputDataConfig: {
+ * const input = { // StartRxNormInferenceJobRequest
+ *   InputDataConfig: { // InputDataConfig
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE",
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // OutputDataConfig
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE",
  *   },

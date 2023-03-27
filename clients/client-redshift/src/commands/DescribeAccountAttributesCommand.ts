@@ -42,8 +42,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * import { RedshiftClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
- *   AttributeNames: [
+ * const input = { // DescribeAccountAttributesMessage
+ *   AttributeNames: [ // AttributeNameList
  *     "STRING_VALUE",
  *   ],
  * };

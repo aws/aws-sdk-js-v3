@@ -61,7 +61,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * import { EFSClient, DescribeFileSystemsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeFileSystemsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // DescribeFileSystemsRequest
  *   MaxItems: Number("int"),
  *   Marker: "STRING_VALUE",
  *   CreationToken: "STRING_VALUE",

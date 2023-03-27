@@ -42,24 +42,24 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * import { ElasticBeanstalkClient, CreatePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreatePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // CreatePlatformVersionRequest
  *   PlatformName: "STRING_VALUE", // required
  *   PlatformVersion: "STRING_VALUE", // required
- *   PlatformDefinitionBundle: {
+ *   PlatformDefinitionBundle: { // S3Location
  *     S3Bucket: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
  *   },
  *   EnvironmentName: "STRING_VALUE",
- *   OptionSettings: [
- *     {
+ *   OptionSettings: [ // ConfigurationOptionSettingsList
+ *     { // ConfigurationOptionSetting
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

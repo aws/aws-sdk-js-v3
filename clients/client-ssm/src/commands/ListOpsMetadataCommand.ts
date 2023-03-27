@@ -43,11 +43,11 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * import { SSMClient, ListOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // ListOpsMetadataRequest
+ *   Filters: [ // OpsMetadataFilterList
+ *     { // OpsMetadataFilter
  *       Key: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // OpsMetadataFilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

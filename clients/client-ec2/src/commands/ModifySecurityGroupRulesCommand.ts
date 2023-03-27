@@ -42,12 +42,12 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * import { EC2Client, ModifySecurityGroupRulesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifySecurityGroupRulesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifySecurityGroupRulesRequest
  *   GroupId: "STRING_VALUE", // required
- *   SecurityGroupRules: [ // required
- *     {
+ *   SecurityGroupRules: [ // SecurityGroupRuleUpdateList // required
+ *     { // SecurityGroupRuleUpdate
  *       SecurityGroupRuleId: "STRING_VALUE", // required
- *       SecurityGroupRule: {
+ *       SecurityGroupRule: { // SecurityGroupRuleRequest
  *         IpProtocol: "STRING_VALUE",
  *         FromPort: Number("int"),
  *         ToPort: Number("int"),

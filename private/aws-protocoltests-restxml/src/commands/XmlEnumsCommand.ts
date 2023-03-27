@@ -38,17 +38,17 @@ export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBe
  * import { RestXmlProtocolClient, XmlEnumsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEnumsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // XmlEnumsInputOutput
  *   fooEnum1: "Foo" || "Baz" || "Bar" || "1" || "0",
  *   fooEnum2: "Foo" || "Baz" || "Bar" || "1" || "0",
  *   fooEnum3: "Foo" || "Baz" || "Bar" || "1" || "0",
- *   fooEnumList: [
+ *   fooEnumList: [ // FooEnumList
  *     "Foo" || "Baz" || "Bar" || "1" || "0",
  *   ],
- *   fooEnumSet: [
+ *   fooEnumSet: [ // FooEnumSet
  *     "Foo" || "Baz" || "Bar" || "1" || "0",
  *   ],
- *   fooEnumMap: {
+ *   fooEnumMap: { // FooEnumMap
  *     "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
  *   },
  * };

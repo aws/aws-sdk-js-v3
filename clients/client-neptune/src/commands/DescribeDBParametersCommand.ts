@@ -42,13 +42,13 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * import { NeptuneClient, DescribeDBParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // DescribeDBParametersMessage
  *   DBParameterGroupName: "STRING_VALUE", // required
  *   Source: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

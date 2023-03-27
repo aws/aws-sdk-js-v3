@@ -46,10 +46,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { OpenSearchServerlessClient, TagResourceCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, TagResourceCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: [ // required
- *     {
+ *   tags: [ // Tags // required
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

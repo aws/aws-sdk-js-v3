@@ -51,7 +51,7 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  * import { CognitoIdentityProviderClient, UpdateDeviceStatusCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateDeviceStatusCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // UpdateDeviceStatusRequest
  *   AccessToken: "STRING_VALUE", // required
  *   DeviceKey: "STRING_VALUE", // required
  *   DeviceRememberedStatus: "remembered" || "not_remembered",

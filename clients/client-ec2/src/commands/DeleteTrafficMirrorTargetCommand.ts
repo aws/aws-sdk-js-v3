@@ -43,7 +43,7 @@ export interface DeleteTrafficMirrorTargetCommandOutput extends DeleteTrafficMir
  * import { EC2Client, DeleteTrafficMirrorTargetCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTrafficMirrorTargetCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteTrafficMirrorTargetRequest
  *   TrafficMirrorTargetId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

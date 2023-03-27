@@ -47,7 +47,7 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * import { DirectoryServiceClient, RestoreFromSnapshotCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RestoreFromSnapshotCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // RestoreFromSnapshotRequest
  *   SnapshotId: "STRING_VALUE", // required
  * };
  * const command = new RestoreFromSnapshotCommand(input);

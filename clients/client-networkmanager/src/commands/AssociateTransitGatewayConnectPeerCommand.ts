@@ -51,7 +51,7 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  * import { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // AssociateTransitGatewayConnectPeerRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   TransitGatewayConnectPeerArn: "STRING_VALUE", // required
  *   DeviceId: "STRING_VALUE", // required

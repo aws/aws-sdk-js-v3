@@ -70,116 +70,91 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  * import { CostExplorerClient, GetSavingsPlansCoverageCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetSavingsPlansCoverageCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const input = {
- *   TimePeriod: {
+ * const input = { // GetSavingsPlansCoverageRequest
+ *   TimePeriod: { // DateInterval
  *     Start: "STRING_VALUE", // required
  *     End: "STRING_VALUE", // required
  *   },
- *   GroupBy: [
- *     {
+ *   GroupBy: [ // GroupDefinitions
+ *     { // GroupDefinition
  *       Type: "DIMENSION" || "TAG" || "COST_CATEGORY",
  *       Key: "STRING_VALUE",
  *     },
  *   ],
  *   Granularity: "DAILY" || "MONTHLY" || "HOURLY",
- *   Filter: {
- *     Or: [
+ *   Filter: { // Expression
+ *     Or: [ // Expressions
  *       {
  *         Or: [
- *           {
- *             Or: "<Expression>",
- *             And: [
- *               "<Expressions>",
- *             ],
- *             Not: {
- *               Or: "<Expression>",
- *               And: [
- *                 "<Expressions>",
- *               ],
- *               Not: {
- *                 Or: "<Expression>",
- *                 And: "<Expression>",
- *                 Not: "<Expression>",
- *                 Dimensions: {
- *                   Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
- *                   Values: [
- *                     "STRING_VALUE",
- *                   ],
- *                   MatchOptions: [
- *                     "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
- *                   ],
- *                 },
- *                 Tags: {
- *                   Key: "STRING_VALUE",
- *                   Values: [
- *                     "STRING_VALUE",
- *                   ],
- *                   MatchOptions: [
- *                     "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
- *                   ],
- *                 },
- *                 CostCategories: {
- *                   Key: "STRING_VALUE",
- *                   Values: [
- *                     "STRING_VALUE",
- *                   ],
- *                   MatchOptions: [
- *                     "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
- *                   ],
- *                 },
- *               },
- *               Dimensions: {
- *                 Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
- *                 Values: [
- *                   "STRING_VALUE",
- *                 ],
- *                 MatchOptions: [
- *                   "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
- *                 ],
- *               },
- *               Tags: {
- *                 Key: "STRING_VALUE",
- *                 Values: [
- *                   "STRING_VALUE",
- *                 ],
- *                 MatchOptions: [
- *                   "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
- *                 ],
- *               },
- *               CostCategories: {
- *                 Key: "STRING_VALUE",
- *                 Values: [
- *                   "STRING_VALUE",
- *                 ],
- *                 MatchOptions: [
- *                   "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
- *                 ],
- *               },
- *             },
- *             Dimensions: "<Expression>",
- *             Tags: "<Expression>",
- *             CostCategories: "<Expression>",
- *           },
+ *           "<Expression>",
  *         ],
- *         And: "<Expression>",
+ *         And: [
+ *           "<Expression>",
+ *         ],
  *         Not: "<Expression>",
- *         Dimensions: "<Expression>",
- *         Tags: "<Expression>",
- *         CostCategories: "<Expression>",
+ *         Dimensions: { // DimensionValues
+ *           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *           Values: [ // Values
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [ // MatchOptions
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *         Tags: { // TagValues
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *         CostCategories: { // CostCategoryValues
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
  *       },
  *     ],
- *     And: "<Expression>",
+ *     And: [
+ *       "<Expression>",
+ *     ],
  *     Not: "<Expression>",
- *     Dimensions: "<Expression>",
- *     Tags: "<Expression>",
- *     CostCategories: "<Expression>",
+ *     Dimensions: {
+ *       Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MatchOptions: [
+ *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *       ],
+ *     },
+ *     Tags: {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MatchOptions: [
+ *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *       ],
+ *     },
+ *     CostCategories: {
+ *       Key: "STRING_VALUE",
+ *       Values: "<Values>",
+ *       MatchOptions: "<MatchOptions>",
+ *     },
  *   },
- *   Metrics: [
+ *   Metrics: [ // MetricNames
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   SortBy: {
+ *   SortBy: { // SortDefinition
  *     Key: "STRING_VALUE", // required
  *     SortOrder: "ASCENDING" || "DESCENDING",
  *   },

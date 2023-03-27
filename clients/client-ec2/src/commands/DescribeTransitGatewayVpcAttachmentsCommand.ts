@@ -48,14 +48,14 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  * import { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   TransitGatewayAttachmentIds: [
+ * const input = { // DescribeTransitGatewayVpcAttachmentsRequest
+ *   TransitGatewayAttachmentIds: [ // TransitGatewayAttachmentIdStringList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

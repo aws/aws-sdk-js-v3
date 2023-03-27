@@ -47,8 +47,8 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * import { ConfigServiceClient, DescribeConfigurationAggregatorsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigurationAggregatorsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   ConfigurationAggregatorNames: [
+ * const input = { // DescribeConfigurationAggregatorsRequest
+ *   ConfigurationAggregatorNames: [ // ConfigurationAggregatorNameList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

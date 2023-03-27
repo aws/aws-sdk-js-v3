@@ -42,23 +42,23 @@ export interface CreateRobotApplicationCommandOutput extends CreateRobotApplicat
  * import { RoboMakerClient, CreateRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CreateRobotApplicationRequest
  *   name: "STRING_VALUE", // required
- *   sources: [
- *     {
+ *   sources: [ // SourceConfigs
+ *     { // SourceConfig
  *       s3Bucket: "STRING_VALUE",
  *       s3Key: "STRING_VALUE",
  *       architecture: "STRING_VALUE",
  *     },
  *   ],
- *   robotSoftwareSuite: {
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
  *     name: "STRING_VALUE",
  *     version: "STRING_VALUE",
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   environment: {
+ *   environment: { // Environment
  *     uri: "STRING_VALUE",
  *   },
  * };

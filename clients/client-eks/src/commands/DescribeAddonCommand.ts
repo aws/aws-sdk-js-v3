@@ -42,7 +42,7 @@ export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __Met
  * import { EKSClient, DescribeAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = {
+ * const input = { // DescribeAddonRequest
  *   clusterName: "STRING_VALUE", // required
  *   addonName: "STRING_VALUE", // required
  * };

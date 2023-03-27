@@ -44,10 +44,10 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  * import { DirectConnectClient, AllocatePrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocatePrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // AllocatePrivateVirtualInterfaceRequest
  *   connectionId: "STRING_VALUE", // required
  *   ownerAccount: "STRING_VALUE", // required
- *   newPrivateVirtualInterfaceAllocation: {
+ *   newPrivateVirtualInterfaceAllocation: { // NewPrivateVirtualInterfaceAllocation
  *     virtualInterfaceName: "STRING_VALUE", // required
  *     vlan: Number("int"), // required
  *     asn: Number("int"), // required
@@ -56,8 +56,8 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  *     amazonAddress: "STRING_VALUE",
  *     addressFamily: "ipv4" || "ipv6",
  *     customerAddress: "STRING_VALUE",
- *     tags: [
- *       {
+ *     tags: [ // TagList
+ *       { // Tag
  *         key: "STRING_VALUE", // required
  *         value: "STRING_VALUE",
  *       },

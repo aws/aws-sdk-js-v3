@@ -42,7 +42,7 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
  * import { WellArchitectedClient, ListWorkloadSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListWorkloadSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // ListWorkloadSharesInput
  *   WorkloadId: "STRING_VALUE", // required
  *   SharedWithPrefix: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

@@ -66,7 +66,7 @@ export interface DescribeWhatIfForecastExportCommandOutput
  * import { ForecastClient, DescribeWhatIfForecastExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeWhatIfForecastExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DescribeWhatIfForecastExportRequest
  *   WhatIfForecastExportArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeWhatIfForecastExportCommand(input);

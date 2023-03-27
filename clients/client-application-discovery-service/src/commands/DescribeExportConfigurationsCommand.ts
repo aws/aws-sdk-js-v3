@@ -51,8 +51,8 @@ export interface DescribeExportConfigurationsCommandOutput
  * import { ApplicationDiscoveryServiceClient, DescribeExportConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeExportConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
- *   exportIds: [
+ * const input = { // DescribeExportConfigurationsRequest
+ *   exportIds: [ // ExportIds
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

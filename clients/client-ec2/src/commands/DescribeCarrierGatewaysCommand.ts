@@ -42,14 +42,14 @@ export interface DescribeCarrierGatewaysCommandOutput extends DescribeCarrierGat
  * import { EC2Client, DescribeCarrierGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeCarrierGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   CarrierGatewayIds: [
+ * const input = { // DescribeCarrierGatewaysRequest
+ *   CarrierGatewayIds: [ // CarrierGatewayIdSet
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

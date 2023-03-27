@@ -42,7 +42,7 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * import { QuickSightClient, DescribeIpRestrictionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeIpRestrictionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeIpRestrictionRequest
  *   AwsAccountId: "STRING_VALUE", // required
  * };
  * const command = new DescribeIpRestrictionCommand(input);

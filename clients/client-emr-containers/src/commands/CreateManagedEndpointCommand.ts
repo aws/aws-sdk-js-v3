@@ -48,18 +48,18 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  * import { EMRContainersClient, CreateManagedEndpointCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateManagedEndpointCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
- * const input = {
+ * const input = { // CreateManagedEndpointRequest
  *   name: "STRING_VALUE", // required
  *   virtualClusterId: "STRING_VALUE", // required
  *   type: "STRING_VALUE", // required
  *   releaseLabel: "STRING_VALUE", // required
  *   executionRoleArn: "STRING_VALUE", // required
  *   certificateArn: "STRING_VALUE",
- *   configurationOverrides: {
- *     applicationConfiguration: [
- *       {
+ *   configurationOverrides: { // ConfigurationOverrides
+ *     applicationConfiguration: [ // ConfigurationList
+ *       { // Configuration
  *         classification: "STRING_VALUE", // required
- *         properties: {
+ *         properties: { // SensitivePropertiesMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         configurations: [
@@ -68,26 +68,24 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  *             properties: {
  *               "<keys>": "STRING_VALUE",
  *             },
- *             configurations: [
- *               "<ConfigurationList>",
- *             ],
+ *             configurations: "<ConfigurationList>",
  *           },
  *         ],
  *       },
  *     ],
- *     monitoringConfiguration: {
+ *     monitoringConfiguration: { // MonitoringConfiguration
  *       persistentAppUI: "ENABLED" || "DISABLED",
- *       cloudWatchMonitoringConfiguration: {
+ *       cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
  *         logGroupName: "STRING_VALUE", // required
  *         logStreamNamePrefix: "STRING_VALUE",
  *       },
- *       s3MonitoringConfiguration: {
+ *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
  *         logUri: "STRING_VALUE", // required
  *       },
  *     },
  *   },
  *   clientToken: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

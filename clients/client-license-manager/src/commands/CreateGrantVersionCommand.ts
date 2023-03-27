@@ -42,11 +42,11 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * import { LicenseManagerClient, CreateGrantVersionCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateGrantVersionCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // CreateGrantVersionRequest
  *   ClientToken: "STRING_VALUE", // required
  *   GrantArn: "STRING_VALUE", // required
  *   GrantName: "STRING_VALUE",
- *   AllowedOperations: [
+ *   AllowedOperations: [ // AllowedOperationList
  *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
  *   ],
  *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",

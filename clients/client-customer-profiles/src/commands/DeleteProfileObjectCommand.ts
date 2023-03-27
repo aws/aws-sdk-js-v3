@@ -42,7 +42,7 @@ export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectRes
  * import { CustomerProfilesClient, DeleteProfileObjectCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteProfileObjectCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // DeleteProfileObjectRequest
  *   ProfileId: "STRING_VALUE", // required
  *   ProfileObjectUniqueKey: "STRING_VALUE", // required
  *   ObjectTypeName: "STRING_VALUE", // required

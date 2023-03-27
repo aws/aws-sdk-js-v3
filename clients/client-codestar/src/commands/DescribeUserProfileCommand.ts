@@ -46,7 +46,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * import { CodeStarClient, DescribeUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DescribeUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
- * const input = {
+ * const input = { // DescribeUserProfileRequest
  *   userArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeUserProfileCommand(input);

@@ -46,9 +46,9 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  * import { LicenseManagerUserSubscriptionsClient, DeregisterIdentityProviderCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, DeregisterIdentityProviderCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const input = {
- *   IdentityProvider: { // Union: only one key present
- *     ActiveDirectoryIdentityProvider: {
+ * const input = { // DeregisterIdentityProviderRequest
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
  *     },
  *   },

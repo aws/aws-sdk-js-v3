@@ -48,9 +48,9 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  * import { EC2Client, CancelSpotFleetRequestsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelSpotFleetRequestsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CancelSpotFleetRequestsRequest
  *   DryRun: true || false,
- *   SpotFleetRequestIds: [ // required
+ *   SpotFleetRequestIds: [ // SpotFleetRequestIdList // required
  *     "STRING_VALUE",
  *   ],
  *   TerminateInstances: true || false, // required

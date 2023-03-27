@@ -42,7 +42,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * import { ProtonClient, ListServicesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServicesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // ListServicesInput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

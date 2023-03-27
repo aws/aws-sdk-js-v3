@@ -48,9 +48,9 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * import { CodestarNotificationsClient, SubscribeCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, SubscribeCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
- * const input = {
+ * const input = { // SubscribeRequest
  *   Arn: "STRING_VALUE", // required
- *   Target: {
+ *   Target: { // Target
  *     TargetType: "STRING_VALUE",
  *     TargetAddress: "STRING_VALUE",
  *   },

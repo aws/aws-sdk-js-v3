@@ -62,17 +62,17 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * import { CloudFrontClient, UpdateRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   EndPoints: [
- *     {
+ * const input = { // UpdateRealtimeLogConfigRequest
+ *   EndPoints: [ // EndPointList
+ *     { // EndPoint
  *       StreamType: "STRING_VALUE", // required
- *       KinesisStreamConfig: {
+ *       KinesisStreamConfig: { // KinesisStreamConfig
  *         RoleARN: "STRING_VALUE", // required
  *         StreamARN: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
- *   Fields: [
+ *   Fields: [ // FieldList
  *     "STRING_VALUE",
  *   ],
  *   Name: "STRING_VALUE",

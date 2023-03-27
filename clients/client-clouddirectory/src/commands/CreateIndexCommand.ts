@@ -42,17 +42,17 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * import { CloudDirectoryClient, CreateIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // CreateIndexRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   OrderedIndexedAttributeList: [ // required
- *     {
+ *   OrderedIndexedAttributeList: [ // AttributeKeyList // required
+ *     { // AttributeKey
  *       SchemaArn: "STRING_VALUE", // required
  *       FacetName: "STRING_VALUE", // required
  *       Name: "STRING_VALUE", // required
  *     },
  *   ],
  *   IsUnique: true || false, // required
- *   ParentReference: {
+ *   ParentReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   LinkName: "STRING_VALUE",

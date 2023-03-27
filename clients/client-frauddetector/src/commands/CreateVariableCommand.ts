@@ -42,15 +42,15 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * import { FraudDetectorClient, CreateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // CreateVariableRequest
  *   name: "STRING_VALUE", // required
  *   dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN", // required
  *   dataSource: "EVENT" || "MODEL_SCORE" || "EXTERNAL_MODEL_SCORE", // required
  *   defaultValue: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   variableType: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // tagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

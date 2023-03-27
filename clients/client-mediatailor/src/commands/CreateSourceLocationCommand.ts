@@ -42,29 +42,29 @@ export interface CreateSourceLocationCommandOutput extends CreateSourceLocationR
  * import { MediaTailorClient, CreateSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
- *   AccessConfiguration: {
+ * const input = { // CreateSourceLocationRequest
+ *   AccessConfiguration: { // AccessConfiguration
  *     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
- *     SecretsManagerAccessTokenConfiguration: {
+ *     SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
  *       HeaderName: "STRING_VALUE",
  *       SecretArn: "STRING_VALUE",
  *       SecretStringKey: "STRING_VALUE",
  *     },
  *   },
- *   DefaultSegmentDeliveryConfiguration: {
+ *   DefaultSegmentDeliveryConfiguration: { // DefaultSegmentDeliveryConfiguration
  *     BaseUrl: "STRING_VALUE",
  *   },
- *   HttpConfiguration: {
+ *   HttpConfiguration: { // HttpConfiguration
  *     BaseUrl: "STRING_VALUE", // required
  *   },
- *   SegmentDeliveryConfigurations: [
- *     {
+ *   SegmentDeliveryConfigurations: [ // __listOfSegmentDeliveryConfiguration
+ *     { // SegmentDeliveryConfiguration
  *       BaseUrl: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *     },
  *   ],
  *   SourceLocationName: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

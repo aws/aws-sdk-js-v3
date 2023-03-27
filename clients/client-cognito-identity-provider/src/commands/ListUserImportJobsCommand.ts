@@ -47,7 +47,7 @@ export interface ListUserImportJobsCommandOutput extends ListUserImportJobsRespo
  * import { CognitoIdentityProviderClient, ListUserImportJobsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListUserImportJobsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // ListUserImportJobsRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   MaxResults: Number("int"), // required
  *   PaginationToken: "STRING_VALUE",

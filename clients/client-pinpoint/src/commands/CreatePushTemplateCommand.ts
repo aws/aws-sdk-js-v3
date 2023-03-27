@@ -42,9 +42,9 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * import { PinpointClient, CreatePushTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreatePushTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
- *   PushNotificationTemplateRequest: {
- *     ADM: {
+ * const input = { // CreatePushTemplateRequest
+ *   PushNotificationTemplateRequest: { // PushNotificationTemplateRequest
+ *     ADM: { // AndroidPushNotificationTemplate
  *       Action: "STRING_VALUE",
  *       Body: "STRING_VALUE",
  *       ImageIconUrl: "STRING_VALUE",
@@ -55,7 +55,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *       Title: "STRING_VALUE",
  *       Url: "STRING_VALUE",
  *     },
- *     APNS: {
+ *     APNS: { // APNSPushNotificationTemplate
  *       Action: "STRING_VALUE",
  *       Body: "STRING_VALUE",
  *       MediaUrl: "STRING_VALUE",
@@ -75,7 +75,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *       Title: "STRING_VALUE",
  *       Url: "STRING_VALUE",
  *     },
- *     Default: {
+ *     Default: { // DefaultPushNotificationTemplate
  *       Action: "STRING_VALUE",
  *       Body: "STRING_VALUE",
  *       Sound: "STRING_VALUE",
@@ -95,7 +95,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *       Url: "STRING_VALUE",
  *     },
  *     RecommenderId: "STRING_VALUE",
- *     tags: {
+ *     tags: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *     TemplateDescription: "STRING_VALUE",

@@ -82,42 +82,42 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * import { CloudFrontClient, UpdateDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   DistributionConfig: {
+ * const input = { // UpdateDistributionRequest
+ *   DistributionConfig: { // DistributionConfig
  *     CallerReference: "STRING_VALUE", // required
- *     Aliases: {
+ *     Aliases: { // Aliases
  *       Quantity: Number("int"), // required
- *       Items: [
+ *       Items: [ // AliasList
  *         "STRING_VALUE",
  *       ],
  *     },
  *     DefaultRootObject: "STRING_VALUE",
- *     Origins: {
+ *     Origins: { // Origins
  *       Quantity: Number("int"), // required
- *       Items: [ // required
- *         {
+ *       Items: [ // OriginList // required
+ *         { // Origin
  *           Id: "STRING_VALUE", // required
  *           DomainName: "STRING_VALUE", // required
  *           OriginPath: "STRING_VALUE",
- *           CustomHeaders: {
+ *           CustomHeaders: { // CustomHeaders
  *             Quantity: Number("int"), // required
- *             Items: [
- *               {
+ *             Items: [ // OriginCustomHeadersList
+ *               { // OriginCustomHeader
  *                 HeaderName: "STRING_VALUE", // required
  *                 HeaderValue: "STRING_VALUE", // required
  *               },
  *             ],
  *           },
- *           S3OriginConfig: {
+ *           S3OriginConfig: { // S3OriginConfig
  *             OriginAccessIdentity: "STRING_VALUE", // required
  *           },
- *           CustomOriginConfig: {
+ *           CustomOriginConfig: { // CustomOriginConfig
  *             HTTPPort: Number("int"), // required
  *             HTTPSPort: Number("int"), // required
  *             OriginProtocolPolicy: "http-only" || "match-viewer" || "https-only", // required
- *             OriginSslProtocols: {
+ *             OriginSslProtocols: { // OriginSslProtocols
  *               Quantity: Number("int"), // required
- *               Items: [ // required
+ *               Items: [ // SslProtocolsList // required
  *                 "SSLv3" || "TLSv1" || "TLSv1.1" || "TLSv1.2",
  *               ],
  *             },
@@ -126,7 +126,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *           },
  *           ConnectionAttempts: Number("int"),
  *           ConnectionTimeout: Number("int"),
- *           OriginShield: {
+ *           OriginShield: { // OriginShield
  *             Enabled: true || false, // required
  *             OriginShieldRegion: "STRING_VALUE",
  *           },
@@ -134,23 +134,23 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *         },
  *       ],
  *     },
- *     OriginGroups: {
+ *     OriginGroups: { // OriginGroups
  *       Quantity: Number("int"), // required
- *       Items: [
- *         {
+ *       Items: [ // OriginGroupList
+ *         { // OriginGroup
  *           Id: "STRING_VALUE", // required
- *           FailoverCriteria: {
- *             StatusCodes: {
+ *           FailoverCriteria: { // OriginGroupFailoverCriteria
+ *             StatusCodes: { // StatusCodes
  *               Quantity: Number("int"), // required
- *               Items: [ // required
+ *               Items: [ // StatusCodeList // required
  *                 Number("int"),
  *               ],
  *             },
  *           },
- *           Members: {
+ *           Members: { // OriginGroupMembers
  *             Quantity: Number("int"), // required
- *             Items: [ // required
- *               {
+ *             Items: [ // OriginGroupMemberList // required
+ *               { // OriginGroupMember
  *                 OriginId: "STRING_VALUE", // required
  *               },
  *             ],
@@ -158,29 +158,29 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *         },
  *       ],
  *     },
- *     DefaultCacheBehavior: {
+ *     DefaultCacheBehavior: { // DefaultCacheBehavior
  *       TargetOriginId: "STRING_VALUE", // required
- *       TrustedSigners: {
+ *       TrustedSigners: { // TrustedSigners
  *         Enabled: true || false, // required
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // AwsAccountNumberList
  *           "STRING_VALUE",
  *         ],
  *       },
- *       TrustedKeyGroups: {
+ *       TrustedKeyGroups: { // TrustedKeyGroups
  *         Enabled: true || false, // required
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // TrustedKeyGroupIdList
  *           "STRING_VALUE",
  *         ],
  *       },
  *       ViewerProtocolPolicy: "allow-all" || "https-only" || "redirect-to-https", // required
- *       AllowedMethods: {
+ *       AllowedMethods: { // AllowedMethods
  *         Quantity: Number("int"), // required
- *         Items: [ // required
+ *         Items: [ // MethodsList // required
  *           "GET" || "HEAD" || "POST" || "PUT" || "PATCH" || "OPTIONS" || "DELETE",
  *         ],
- *         CachedMethods: {
+ *         CachedMethods: { // CachedMethods
  *           Quantity: Number("int"), // required
  *           Items: [ // required
  *             "GET" || "HEAD" || "POST" || "PUT" || "PATCH" || "OPTIONS" || "DELETE",
@@ -189,20 +189,20 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *       },
  *       SmoothStreaming: true || false,
  *       Compress: true || false,
- *       LambdaFunctionAssociations: {
+ *       LambdaFunctionAssociations: { // LambdaFunctionAssociations
  *         Quantity: Number("int"), // required
- *         Items: [
- *           {
+ *         Items: [ // LambdaFunctionAssociationList
+ *           { // LambdaFunctionAssociation
  *             LambdaFunctionARN: "STRING_VALUE", // required
  *             EventType: "viewer-request" || "viewer-response" || "origin-request" || "origin-response", // required
  *             IncludeBody: true || false,
  *           },
  *         ],
  *       },
- *       FunctionAssociations: {
+ *       FunctionAssociations: { // FunctionAssociations
  *         Quantity: Number("int"), // required
- *         Items: [
- *           {
+ *         Items: [ // FunctionAssociationList
+ *           { // FunctionAssociation
  *             FunctionARN: "STRING_VALUE", // required
  *             EventType: "viewer-request" || "viewer-response" || "origin-request" || "origin-response", // required
  *           },
@@ -213,26 +213,26 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *       CachePolicyId: "STRING_VALUE",
  *       OriginRequestPolicyId: "STRING_VALUE",
  *       ResponseHeadersPolicyId: "STRING_VALUE",
- *       ForwardedValues: {
+ *       ForwardedValues: { // ForwardedValues
  *         QueryString: true || false, // required
- *         Cookies: {
+ *         Cookies: { // CookiePreference
  *           Forward: "none" || "whitelist" || "all", // required
- *           WhitelistedNames: {
+ *           WhitelistedNames: { // CookieNames
  *             Quantity: Number("int"), // required
- *             Items: [
+ *             Items: [ // CookieNameList
  *               "STRING_VALUE",
  *             ],
  *           },
  *         },
- *         Headers: {
+ *         Headers: { // Headers
  *           Quantity: Number("int"), // required
- *           Items: [
+ *           Items: [ // HeaderList
  *             "STRING_VALUE",
  *           ],
  *         },
- *         QueryStringCacheKeys: {
+ *         QueryStringCacheKeys: { // QueryStringCacheKeys
  *           Quantity: Number("int"), // required
- *           Items: [
+ *           Items: [ // QueryStringCacheKeysList
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -241,10 +241,10 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *       DefaultTTL: Number("long"),
  *       MaxTTL: Number("long"),
  *     },
- *     CacheBehaviors: {
+ *     CacheBehaviors: { // CacheBehaviors
  *       Quantity: Number("int"), // required
- *       Items: [
- *         {
+ *       Items: [ // CacheBehaviorList
+ *         { // CacheBehavior
  *           PathPattern: "STRING_VALUE", // required
  *           TargetOriginId: "STRING_VALUE", // required
  *           TrustedSigners: {
@@ -264,14 +264,10 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *           ViewerProtocolPolicy: "allow-all" || "https-only" || "redirect-to-https", // required
  *           AllowedMethods: {
  *             Quantity: Number("int"), // required
- *             Items: [ // required
- *               "<MethodsList>",
- *             ],
+ *             Items: "<MethodsList>", // required
  *             CachedMethods: {
  *               Quantity: Number("int"), // required
- *               Items: [ // required
- *                 "<MethodsList>",
- *               ],
+ *               Items: "<MethodsList>", // required
  *             },
  *           },
  *           SmoothStreaming: true || false,
@@ -330,10 +326,10 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *         },
  *       ],
  *     },
- *     CustomErrorResponses: {
+ *     CustomErrorResponses: { // CustomErrorResponses
  *       Quantity: Number("int"), // required
- *       Items: [
- *         {
+ *       Items: [ // CustomErrorResponseList
+ *         { // CustomErrorResponse
  *           ErrorCode: Number("int"), // required
  *           ResponsePagePath: "STRING_VALUE",
  *           ResponseCode: "STRING_VALUE",
@@ -342,7 +338,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *       ],
  *     },
  *     Comment: "STRING_VALUE", // required
- *     Logging: {
+ *     Logging: { // LoggingConfig
  *       Enabled: true || false, // required
  *       IncludeCookies: true || false, // required
  *       Bucket: "STRING_VALUE", // required
@@ -350,7 +346,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *     },
  *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
  *     Enabled: true || false, // required
- *     ViewerCertificate: {
+ *     ViewerCertificate: { // ViewerCertificate
  *       CloudFrontDefaultCertificate: true || false,
  *       IAMCertificateId: "STRING_VALUE",
  *       ACMCertificateArn: "STRING_VALUE",
@@ -359,11 +355,11 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *       Certificate: "STRING_VALUE",
  *       CertificateSource: "cloudfront" || "iam" || "acm",
  *     },
- *     Restrictions: {
- *       GeoRestriction: {
+ *     Restrictions: { // Restrictions
+ *       GeoRestriction: { // GeoRestriction
  *         RestrictionType: "blacklist" || "whitelist" || "none", // required
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // LocationList
  *           "STRING_VALUE",
  *         ],
  *       },

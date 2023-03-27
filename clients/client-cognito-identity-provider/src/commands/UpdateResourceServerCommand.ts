@@ -51,12 +51,12 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * import { CognitoIdentityProviderClient, UpdateResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // UpdateResourceServerRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Identifier: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Scopes: [
- *     {
+ *   Scopes: [ // ResourceServerScopeListType
+ *     { // ResourceServerScopeType
  *       ScopeName: "STRING_VALUE", // required
  *       ScopeDescription: "STRING_VALUE", // required
  *     },

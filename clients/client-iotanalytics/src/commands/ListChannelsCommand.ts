@@ -42,7 +42,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { IoTAnalyticsClient, ListChannelsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, ListChannelsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // ListChannelsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

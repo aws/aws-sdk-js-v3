@@ -47,7 +47,7 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * import { SageMakerClient, ListNotebookInstanceLifecycleConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListNotebookInstanceLifecycleConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListNotebookInstanceLifecycleConfigsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   SortBy: "Name" || "CreationTime" || "LastModifiedTime",

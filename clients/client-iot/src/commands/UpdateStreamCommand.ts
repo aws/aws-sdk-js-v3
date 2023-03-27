@@ -43,13 +43,13 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * import { IoTClient, UpdateStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateStreamRequest
  *   streamId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   files: [
- *     {
+ *   files: [ // StreamFiles
+ *     { // StreamFile
  *       fileId: Number("int"),
- *       s3Location: {
+ *       s3Location: { // S3Location
  *         bucket: "STRING_VALUE",
  *         key: "STRING_VALUE",
  *         version: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * import { EventBridgeClient, DescribeConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // DescribeConnectionRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeConnectionCommand(input);

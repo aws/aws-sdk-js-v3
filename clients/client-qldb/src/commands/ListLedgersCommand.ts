@@ -45,7 +45,7 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  * import { QLDBClient, ListLedgersCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListLedgersCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
- * const input = {
+ * const input = { // ListLedgersRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

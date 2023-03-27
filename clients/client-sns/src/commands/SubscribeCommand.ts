@@ -44,11 +44,11 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  * import { SNSClient, SubscribeCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SubscribeCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // SubscribeInput
  *   TopicArn: "STRING_VALUE", // required
  *   Protocol: "STRING_VALUE", // required
  *   Endpoint: "STRING_VALUE",
- *   Attributes: {
+ *   Attributes: { // SubscriptionAttributesMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ReturnSubscriptionArn: true || false,

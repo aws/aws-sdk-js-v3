@@ -60,7 +60,7 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  * import { LexModelBuildingServiceClient, GetSlotTypesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetSlotTypesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // GetSlotTypesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nameContains: "STRING_VALUE",

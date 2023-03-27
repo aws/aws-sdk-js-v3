@@ -55,7 +55,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * import { NeptuneClient, DeleteDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // DeleteDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   SkipFinalSnapshot: true || false,
  *   FinalDBSnapshotIdentifier: "STRING_VALUE",

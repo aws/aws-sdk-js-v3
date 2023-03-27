@@ -42,7 +42,7 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  * import { RedshiftClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DeleteEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventSubscriptionCommand(input);

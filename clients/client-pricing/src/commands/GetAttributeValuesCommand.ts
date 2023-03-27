@@ -45,7 +45,7 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * import { PricingClient, GetAttributeValuesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetAttributeValuesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
- * const input = {
+ * const input = { // GetAttributeValuesRequest
  *   ServiceCode: "STRING_VALUE", // required
  *   AttributeName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

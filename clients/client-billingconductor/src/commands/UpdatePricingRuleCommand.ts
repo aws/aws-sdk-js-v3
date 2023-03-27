@@ -49,14 +49,14 @@ export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput,
  * import { BillingconductorClient, UpdatePricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UpdatePricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // UpdatePricingRuleInput
  *   Arn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Type: "STRING_VALUE",
  *   ModifierPercentage: Number("double"),
- *   Tiering: {
- *     FreeTier: {
+ *   Tiering: { // UpdateTieringInput
+ *     FreeTier: { // UpdateFreeTierConfig
  *       Activated: true || false, // required
  *     },
  *   },

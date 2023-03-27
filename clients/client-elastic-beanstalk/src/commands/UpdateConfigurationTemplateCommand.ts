@@ -55,20 +55,20 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * import { ElasticBeanstalkClient, UpdateConfigurationTemplateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateConfigurationTemplateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // UpdateConfigurationTemplateMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   TemplateName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   OptionSettings: [
- *     {
+ *   OptionSettings: [ // ConfigurationOptionSettingsList
+ *     { // ConfigurationOptionSetting
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   OptionsToRemove: [
- *     {
+ *   OptionsToRemove: [ // OptionsSpecifierList
+ *     { // OptionSpecification
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",

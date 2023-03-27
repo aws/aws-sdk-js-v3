@@ -62,7 +62,7 @@ export interface GetOrganizationsAccessReportCommandOutput
  * import { IAMClient, GetOrganizationsAccessReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetOrganizationsAccessReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // GetOrganizationsAccessReportRequest
  *   JobId: "STRING_VALUE", // required
  *   MaxItems: Number("int"),
  *   Marker: "STRING_VALUE",

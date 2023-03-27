@@ -42,10 +42,10 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * import { MemoryDBClient, UpdateClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // UpdateClusterRequest
  *   ClusterName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
  *     "STRING_VALUE",
  *   ],
  *   MaintenanceWindow: "STRING_VALUE",
@@ -56,10 +56,10 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *   SnapshotRetentionLimit: Number("int"),
  *   NodeType: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
- *   ReplicaConfiguration: {
+ *   ReplicaConfiguration: { // ReplicaConfigurationRequest
  *     ReplicaCount: Number("int"),
  *   },
- *   ShardConfiguration: {
+ *   ShardConfiguration: { // ShardConfigurationRequest
  *     ShardCount: Number("int"),
  *   },
  *   ACLName: "STRING_VALUE",

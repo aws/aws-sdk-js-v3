@@ -51,7 +51,7 @@ export interface DescribeGameSessionPlacementCommandOutput
  * import { GameLiftClient, DescribeGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DescribeGameSessionPlacementInput
  *   PlacementId: "STRING_VALUE", // required
  * };
  * const command = new DescribeGameSessionPlacementCommand(input);

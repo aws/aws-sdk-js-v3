@@ -47,7 +47,7 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * import { DataBrewClient, StartProjectSessionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, StartProjectSessionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // StartProjectSessionRequest
  *   Name: "STRING_VALUE", // required
  *   AssumeControl: true || false,
  * };

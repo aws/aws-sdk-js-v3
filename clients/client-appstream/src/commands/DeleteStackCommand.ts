@@ -42,7 +42,7 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  * import { AppStreamClient, DeleteStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // DeleteStackRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteStackCommand(input);

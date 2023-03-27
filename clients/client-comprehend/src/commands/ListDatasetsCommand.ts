@@ -43,9 +43,9 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * import { ComprehendClient, ListDatasetsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDatasetsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // ListDatasetsRequest
  *   FlywheelArn: "STRING_VALUE",
- *   Filter: {
+ *   Filter: { // DatasetFilter
  *     Status: "CREATING" || "COMPLETED" || "FAILED",
  *     DatasetType: "TRAIN" || "TEST",
  *     CreationTimeAfter: new Date("TIMESTAMP"),

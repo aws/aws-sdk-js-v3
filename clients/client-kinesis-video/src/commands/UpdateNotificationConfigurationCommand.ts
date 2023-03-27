@@ -44,12 +44,12 @@ export interface UpdateNotificationConfigurationCommandOutput
  * import { KinesisVideoClient, UpdateNotificationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateNotificationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // UpdateNotificationConfigurationInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
- *   NotificationConfiguration: {
+ *   NotificationConfiguration: { // NotificationConfiguration
  *     Status: "ENABLED" || "DISABLED", // required
- *     DestinationConfig: {
+ *     DestinationConfig: { // NotificationDestinationConfig
  *       Uri: "STRING_VALUE", // required
  *     },
  *   },

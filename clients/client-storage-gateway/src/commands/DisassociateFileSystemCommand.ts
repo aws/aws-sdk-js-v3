@@ -44,7 +44,7 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  * import { StorageGatewayClient, DisassociateFileSystemCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DisassociateFileSystemCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DisassociateFileSystemInput
  *   FileSystemAssociationARN: "STRING_VALUE", // required
  *   ForceDelete: true || false,
  * };

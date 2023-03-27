@@ -43,7 +43,7 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * import { IoTClient, ListStreamsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListStreamsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListStreamsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   ascendingOrder: true || false,

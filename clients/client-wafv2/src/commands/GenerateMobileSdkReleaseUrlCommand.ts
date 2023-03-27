@@ -46,7 +46,7 @@ export interface GenerateMobileSdkReleaseUrlCommandOutput
  * import { WAFV2Client, GenerateMobileSdkReleaseUrlCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GenerateMobileSdkReleaseUrlCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // GenerateMobileSdkReleaseUrlRequest
  *   Platform: "IOS" || "ANDROID", // required
  *   ReleaseVersion: "STRING_VALUE", // required
  * };

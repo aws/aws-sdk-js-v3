@@ -42,9 +42,9 @@ export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * import { APIGatewayClient, ImportRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, ImportRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // ImportRestApiRequest
  *   failOnWarnings: true || false,
- *   parameters: {
+ *   parameters: { // MapOfStringToString
  *     "<keys>": "STRING_VALUE",
  *   },
  *   body: "BLOB_VALUE", // required

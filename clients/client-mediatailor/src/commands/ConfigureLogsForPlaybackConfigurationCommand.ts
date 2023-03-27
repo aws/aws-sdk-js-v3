@@ -48,7 +48,7 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * import { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // ConfigureLogsForPlaybackConfigurationRequest
  *   PercentEnabled: Number("int"), // required
  *   PlaybackConfigurationName: "STRING_VALUE", // required
  * };

@@ -46,26 +46,26 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * import { RedshiftServerlessClient, CreateWorkgroupCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateWorkgroupCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // CreateWorkgroupRequest
  *   workgroupName: "STRING_VALUE", // required
  *   namespaceName: "STRING_VALUE", // required
  *   baseCapacity: Number("int"),
  *   enhancedVpcRouting: true || false,
- *   configParameters: [
- *     {
+ *   configParameters: [ // ConfigParameterList
+ *     { // ConfigParameter
  *       parameterKey: "STRING_VALUE",
  *       parameterValue: "STRING_VALUE",
  *     },
  *   ],
- *   securityGroupIds: [
+ *   securityGroupIds: [ // SecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   subnetIds: [
+ *   subnetIds: [ // SubnetIdList
  *     "STRING_VALUE",
  *   ],
  *   publiclyAccessible: true || false,
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

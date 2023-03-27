@@ -42,9 +42,9 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * import { GreengrassClient, CreateGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // CreateGroupRequest
  *   AmznClientToken: "STRING_VALUE",
- *   InitialVersion: {
+ *   InitialVersion: { // GroupVersion
  *     ConnectorDefinitionVersionArn: "STRING_VALUE",
  *     CoreDefinitionVersionArn: "STRING_VALUE",
  *     DeviceDefinitionVersionArn: "STRING_VALUE",
@@ -54,7 +54,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *     SubscriptionDefinitionVersionArn: "STRING_VALUE",
  *   },
  *   Name: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,7 +42,7 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  * import { WorkMailClient, GetImpersonationRoleEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetImpersonationRoleEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // GetImpersonationRoleEffectRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   ImpersonationRoleId: "STRING_VALUE", // required
  *   TargetUser: "STRING_VALUE", // required

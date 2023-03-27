@@ -42,34 +42,34 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * import { DataBrewClient, UpdateDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // UpdateDatasetRequest
  *   Name: "STRING_VALUE", // required
  *   Format: "CSV" || "JSON" || "PARQUET" || "EXCEL" || "ORC",
- *   FormatOptions: {
- *     Json: {
+ *   FormatOptions: { // FormatOptions
+ *     Json: { // JsonOptions
  *       MultiLine: true || false,
  *     },
- *     Excel: {
- *       SheetNames: [
+ *     Excel: { // ExcelOptions
+ *       SheetNames: [ // SheetNameList
  *         "STRING_VALUE",
  *       ],
- *       SheetIndexes: [
+ *       SheetIndexes: [ // SheetIndexList
  *         Number("int"),
  *       ],
  *       HeaderRow: true || false,
  *     },
- *     Csv: {
+ *     Csv: { // CsvOptions
  *       Delimiter: "STRING_VALUE",
  *       HeaderRow: true || false,
  *     },
  *   },
- *   Input: {
- *     S3InputDefinition: {
+ *   Input: { // Input
+ *     S3InputDefinition: { // S3Location
  *       Bucket: "STRING_VALUE", // required
  *       Key: "STRING_VALUE",
  *       BucketOwner: "STRING_VALUE",
  *     },
- *     DataCatalogInputDefinition: {
+ *     DataCatalogInputDefinition: { // DataCatalogInputDefinition
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE", // required
  *       TableName: "STRING_VALUE", // required
@@ -79,7 +79,7 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  *         BucketOwner: "STRING_VALUE",
  *       },
  *     },
- *     DatabaseInputDefinition: {
+ *     DatabaseInputDefinition: { // DatabaseInputDefinition
  *       GlueConnectionName: "STRING_VALUE", // required
  *       DatabaseTableName: "STRING_VALUE",
  *       TempDirectory: {
@@ -89,27 +89,27 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  *       },
  *       QueryString: "STRING_VALUE",
  *     },
- *     Metadata: {
+ *     Metadata: { // Metadata
  *       SourceArn: "STRING_VALUE",
  *     },
  *   },
- *   PathOptions: {
- *     LastModifiedDateCondition: {
+ *   PathOptions: { // PathOptions
+ *     LastModifiedDateCondition: { // FilterExpression
  *       Expression: "STRING_VALUE", // required
- *       ValuesMap: { // required
+ *       ValuesMap: { // ValuesMap // required
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
- *     FilesLimit: {
+ *     FilesLimit: { // FilesLimit
  *       MaxFiles: Number("int"), // required
  *       OrderedBy: "LAST_MODIFIED_DATE",
  *       Order: "DESCENDING" || "ASCENDING",
  *     },
- *     Parameters: {
- *       "<keys>": {
+ *     Parameters: { // PathParametersMap
+ *       "<keys>": { // DatasetParameter
  *         Name: "STRING_VALUE", // required
  *         Type: "Datetime" || "Number" || "String", // required
- *         DatetimeOptions: {
+ *         DatetimeOptions: { // DatetimeOptions
  *           Format: "STRING_VALUE", // required
  *           TimezoneOffset: "STRING_VALUE",
  *           LocaleCode: "STRING_VALUE",

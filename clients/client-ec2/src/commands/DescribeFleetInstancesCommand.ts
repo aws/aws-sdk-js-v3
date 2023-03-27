@@ -43,15 +43,15 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * import { EC2Client, DescribeFleetInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFleetInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeFleetInstancesRequest
  *   DryRun: true || false,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   FleetId: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

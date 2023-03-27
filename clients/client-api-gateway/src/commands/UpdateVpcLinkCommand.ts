@@ -42,10 +42,10 @@ export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * import { APIGatewayClient, UpdateVpcLinkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateVpcLinkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // UpdateVpcLinkRequest
  *   vpcLinkId: "STRING_VALUE", // required
- *   patchOperations: [
- *     {
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
  *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
  *       path: "STRING_VALUE",
  *       value: "STRING_VALUE",

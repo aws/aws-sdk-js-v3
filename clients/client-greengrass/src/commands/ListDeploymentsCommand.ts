@@ -42,7 +42,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * import { GreengrassClient, ListDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // ListDeploymentsRequest
  *   GroupId: "STRING_VALUE", // required
  *   MaxResults: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

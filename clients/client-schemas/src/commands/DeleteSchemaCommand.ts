@@ -42,7 +42,7 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, DeleteSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // DeleteSchemaRequest
  *   RegistryName: "STRING_VALUE", // required
  *   SchemaName: "STRING_VALUE", // required
  * };

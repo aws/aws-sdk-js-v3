@@ -46,7 +46,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * import { KafkaConnectClient, DescribeConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DescribeConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = {
+ * const input = { // DescribeConnectorRequest
  *   connectorArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeConnectorCommand(input);

@@ -46,7 +46,7 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * import { CostAndUsageReportServiceClient, DescribeReportDefinitionsCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, DescribeReportDefinitionsCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
  * const client = new CostAndUsageReportServiceClient(config);
- * const input = {
+ * const input = { // DescribeReportDefinitionsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

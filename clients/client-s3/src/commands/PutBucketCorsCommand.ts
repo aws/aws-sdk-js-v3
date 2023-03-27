@@ -98,22 +98,22 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketCorsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketCorsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketCorsRequest
  *   Bucket: "STRING_VALUE", // required
- *   CORSConfiguration: {
- *     CORSRules: [ // required
- *       {
+ *   CORSConfiguration: { // CORSConfiguration
+ *     CORSRules: [ // CORSRules // required
+ *       { // CORSRule
  *         ID: "STRING_VALUE",
- *         AllowedHeaders: [
+ *         AllowedHeaders: [ // AllowedHeaders
  *           "STRING_VALUE",
  *         ],
- *         AllowedMethods: [ // required
+ *         AllowedMethods: [ // AllowedMethods // required
  *           "STRING_VALUE",
  *         ],
- *         AllowedOrigins: [ // required
+ *         AllowedOrigins: [ // AllowedOrigins // required
  *           "STRING_VALUE",
  *         ],
- *         ExposeHeaders: [
+ *         ExposeHeaders: [ // ExposeHeaders
  *           "STRING_VALUE",
  *         ],
  *         MaxAgeSeconds: Number("int"),

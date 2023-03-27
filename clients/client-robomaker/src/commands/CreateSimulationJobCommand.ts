@@ -46,31 +46,31 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * import { RoboMakerClient, CreateSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CreateSimulationJobRequest
  *   clientRequestToken: "STRING_VALUE",
- *   outputLocation: {
+ *   outputLocation: { // OutputLocation
  *     s3Bucket: "STRING_VALUE",
  *     s3Prefix: "STRING_VALUE",
  *   },
- *   loggingConfig: {
+ *   loggingConfig: { // LoggingConfig
  *     recordAllRosTopics: true || false,
  *   },
  *   maxJobDurationInSeconds: Number("long"), // required
  *   iamRole: "STRING_VALUE", // required
  *   failureBehavior: "STRING_VALUE",
- *   robotApplications: [
- *     {
+ *   robotApplications: [ // RobotApplicationConfigs
+ *     { // RobotApplicationConfig
  *       application: "STRING_VALUE", // required
  *       applicationVersion: "STRING_VALUE",
- *       launchConfig: {
+ *       launchConfig: { // LaunchConfig
  *         packageName: "STRING_VALUE",
  *         launchFile: "STRING_VALUE",
- *         environmentVariables: {
+ *         environmentVariables: { // EnvironmentVariableMap
  *           "<keys>": "STRING_VALUE",
  *         },
- *         portForwardingConfig: {
- *           portMappings: [
- *             {
+ *         portForwardingConfig: { // PortForwardingConfig
+ *           portMappings: [ // PortMappingList
+ *             { // PortMapping
  *               jobPort: Number("int"), // required
  *               applicationPort: Number("int"), // required
  *               enableOnPublicIp: true || false,
@@ -78,20 +78,20 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *           ],
  *         },
  *         streamUI: true || false,
- *         command: [
+ *         command: [ // CommandList
  *           "STRING_VALUE",
  *         ],
  *       },
- *       uploadConfigurations: [
- *         {
+ *       uploadConfigurations: [ // UploadConfigurations
+ *         { // UploadConfiguration
  *           name: "STRING_VALUE", // required
  *           path: "STRING_VALUE", // required
  *           uploadBehavior: "STRING_VALUE", // required
  *         },
  *       ],
  *       useDefaultUploadConfigurations: true || false,
- *       tools: [
- *         {
+ *       tools: [ // Tools
+ *         { // Tool
  *           streamUI: true || false,
  *           name: "STRING_VALUE", // required
  *           command: "STRING_VALUE", // required
@@ -102,8 +102,8 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *       useDefaultTools: true || false,
  *     },
  *   ],
- *   simulationApplications: [
- *     {
+ *   simulationApplications: [ // SimulationApplicationConfigs
+ *     { // SimulationApplicationConfig
  *       application: "STRING_VALUE", // required
  *       applicationVersion: "STRING_VALUE",
  *       launchConfig: {
@@ -133,8 +133,8 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *           uploadBehavior: "STRING_VALUE", // required
  *         },
  *       ],
- *       worldConfigs: [
- *         {
+ *       worldConfigs: [ // WorldConfigs
+ *         { // WorldConfig
  *           world: "STRING_VALUE",
  *         },
  *       ],
@@ -151,30 +151,30 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *       useDefaultTools: true || false,
  *     },
  *   ],
- *   dataSources: [
- *     {
+ *   dataSources: [ // DataSourceConfigs
+ *     { // DataSourceConfig
  *       name: "STRING_VALUE", // required
  *       s3Bucket: "STRING_VALUE", // required
- *       s3Keys: [ // required
+ *       s3Keys: [ // S3KeysOrPrefixes // required
  *         "STRING_VALUE",
  *       ],
  *       type: "STRING_VALUE",
  *       destination: "STRING_VALUE",
  *     },
  *   ],
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   vpcConfig: {
- *     subnets: [ // required
+ *   vpcConfig: { // VPCConfig
+ *     subnets: [ // Subnets // required
  *       "STRING_VALUE",
  *     ],
- *     securityGroups: [
+ *     securityGroups: [ // SecurityGroups
  *       "STRING_VALUE",
  *     ],
  *     assignPublicIp: true || false,
  *   },
- *   compute: {
+ *   compute: { // Compute
  *     simulationUnitLimit: Number("int"),
  *     computeType: "STRING_VALUE",
  *     gpuUnitLimit: Number("int"),

@@ -53,7 +53,7 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  * import { LightsailClient, GetRelationalDatabaseMasterUserPasswordCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseMasterUserPasswordCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetRelationalDatabaseMasterUserPasswordRequest
  *   relationalDatabaseName: "STRING_VALUE", // required
  *   passwordVersion: "CURRENT" || "PREVIOUS" || "PENDING",
  * };

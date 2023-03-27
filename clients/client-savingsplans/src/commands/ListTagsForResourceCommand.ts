@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { SavingsplansClient, ListTagsForResourceCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, ListTagsForResourceCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

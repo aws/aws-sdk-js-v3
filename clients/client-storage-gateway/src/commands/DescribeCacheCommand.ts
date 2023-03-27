@@ -46,7 +46,7 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  * import { StorageGatewayClient, DescribeCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DescribeCacheInput
  *   GatewayARN: "STRING_VALUE", // required
  * };
  * const command = new DescribeCacheCommand(input);

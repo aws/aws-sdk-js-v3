@@ -42,7 +42,7 @@ export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, _
  * import { LightsailClient, AllocateStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AllocateStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // AllocateStaticIpRequest
  *   staticIpName: "STRING_VALUE", // required
  * };
  * const command = new AllocateStaticIpCommand(input);

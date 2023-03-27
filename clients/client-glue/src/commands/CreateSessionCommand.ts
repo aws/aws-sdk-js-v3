@@ -42,21 +42,21 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * import { GlueClient, CreateSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateSessionRequest
  *   Id: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Role: "STRING_VALUE", // required
- *   Command: {
+ *   Command: { // SessionCommand
  *     Name: "STRING_VALUE",
  *     PythonVersion: "STRING_VALUE",
  *   },
  *   Timeout: Number("int"),
  *   IdleTimeout: Number("int"),
- *   DefaultArguments: {
+ *   DefaultArguments: { // OrchestrationArgumentsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Connections: {
- *     Connections: [
+ *   Connections: { // ConnectionsList
+ *     Connections: [ // OrchestrationStringList
  *       "STRING_VALUE",
  *     ],
  *   },
@@ -65,7 +65,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
  *   SecurityConfiguration: "STRING_VALUE",
  *   GlueVersion: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   RequestOrigin: "STRING_VALUE",

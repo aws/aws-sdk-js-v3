@@ -42,7 +42,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * import { ImagebuilderClient, GetComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // GetComponentRequest
  *   componentBuildVersionArn: "STRING_VALUE", // required
  * };
  * const command = new GetComponentCommand(input);

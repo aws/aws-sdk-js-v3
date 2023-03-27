@@ -47,7 +47,7 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * import { DeviceFarmClient, CreateTestGridUrlCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateTestGridUrlCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // CreateTestGridUrlRequest
  *   projectArn: "STRING_VALUE", // required
  *   expiresInSeconds: Number("int"), // required
  * };

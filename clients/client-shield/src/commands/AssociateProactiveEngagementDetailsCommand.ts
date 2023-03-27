@@ -52,9 +52,9 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
  * import { ShieldClient, AssociateProactiveEngagementDetailsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, AssociateProactiveEngagementDetailsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
- * const input = {
- *   EmergencyContactList: [ // required
- *     {
+ * const input = { // AssociateProactiveEngagementDetailsRequest
+ *   EmergencyContactList: [ // EmergencyContactList // required
+ *     { // EmergencyContact
  *       EmailAddress: "STRING_VALUE", // required
  *       PhoneNumber: "STRING_VALUE",
  *       ContactNotes: "STRING_VALUE",

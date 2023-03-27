@@ -46,7 +46,7 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  * import { IAMClient, GetServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // GetServerCertificateRequest
  *   ServerCertificateName: "STRING_VALUE", // required
  * };
  * const command = new GetServerCertificateCommand(input);

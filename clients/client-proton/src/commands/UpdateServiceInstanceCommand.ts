@@ -55,7 +55,7 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  * import { ProtonClient, UpdateServiceInstanceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceInstanceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // UpdateServiceInstanceInput
  *   name: "STRING_VALUE", // required
  *   serviceName: "STRING_VALUE", // required
  *   deploymentType: "STRING_VALUE", // required

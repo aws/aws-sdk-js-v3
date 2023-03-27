@@ -50,7 +50,7 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * import { CodestarNotificationsClient, DescribeNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, DescribeNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
- * const input = {
+ * const input = { // DescribeNotificationRuleRequest
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new DescribeNotificationRuleCommand(input);

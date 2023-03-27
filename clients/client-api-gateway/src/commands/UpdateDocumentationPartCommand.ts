@@ -42,11 +42,11 @@ export interface UpdateDocumentationPartCommandOutput extends DocumentationPart,
  * import { APIGatewayClient, UpdateDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // UpdateDocumentationPartRequest
  *   restApiId: "STRING_VALUE", // required
  *   documentationPartId: "STRING_VALUE", // required
- *   patchOperations: [
- *     {
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
  *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
  *       path: "STRING_VALUE",
  *       value: "STRING_VALUE",

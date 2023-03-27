@@ -50,9 +50,9 @@ export interface DescribeAppsCommandOutput extends DescribeAppsResult, __Metadat
  * import { OpsWorksClient, DescribeAppsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeAppsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DescribeAppsRequest
  *   StackId: "STRING_VALUE",
- *   AppIds: [
+ *   AppIds: [ // Strings
  *     "STRING_VALUE",
  *   ],
  * };

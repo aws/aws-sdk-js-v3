@@ -44,7 +44,7 @@ export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse,
  * import { NetworkManagerClient, AcceptAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AcceptAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // AcceptAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
  * };
  * const command = new AcceptAttachmentCommand(input);

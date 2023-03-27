@@ -92,10 +92,10 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * import { RekognitionClient, CompareFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CompareFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   SourceImage: {
+ * const input = { // CompareFacesRequest
+ *   SourceImage: { // Image
  *     Bytes: "BLOB_VALUE",
- *     S3Object: {
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",

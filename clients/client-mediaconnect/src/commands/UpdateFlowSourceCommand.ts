@@ -42,8 +42,8 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  * import { MediaConnectClient, UpdateFlowSourceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowSourceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
- *   Decryption: {
+ * const input = { // UpdateFlowSourceRequest
+ *   Decryption: { // UpdateEncryption
  *     Algorithm: "aes128" || "aes192" || "aes256",
  *     ConstantInitializationVector: "STRING_VALUE",
  *     DeviceId: "STRING_VALUE",
@@ -61,13 +61,13 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  *   MaxBitrate: Number("int"),
  *   MaxLatency: Number("int"),
  *   MaxSyncBuffer: Number("int"),
- *   MediaStreamSourceConfigurations: [
- *     {
+ *   MediaStreamSourceConfigurations: [ // __listOfMediaStreamSourceConfigurationRequest
+ *     { // MediaStreamSourceConfigurationRequest
  *       EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *       InputConfigurations: [
- *         {
+ *       InputConfigurations: [ // __listOfInputConfigurationRequest
+ *         { // InputConfigurationRequest
  *           InputPort: Number("int"), // required
- *           Interface: {
+ *           Interface: { // InterfaceRequest
  *             Name: "STRING_VALUE", // required
  *           },
  *         },

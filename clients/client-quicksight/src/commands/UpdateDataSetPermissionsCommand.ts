@@ -43,13 +43,13 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  * import { QuickSightClient, UpdateDataSetPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDataSetPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // UpdateDataSetPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DataSetId: "STRING_VALUE", // required
- *   GrantPermissions: [
- *     {
+ *   GrantPermissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
  *       Principal: "STRING_VALUE", // required
- *       Actions: [ // required
+ *       Actions: [ // ActionList // required
  *         "STRING_VALUE",
  *       ],
  *     },

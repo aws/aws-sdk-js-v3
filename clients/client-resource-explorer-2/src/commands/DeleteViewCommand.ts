@@ -49,7 +49,7 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * import { ResourceExplorer2Client, DeleteViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, DeleteViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
- * const input = {
+ * const input = { // DeleteViewInput
  *   ViewArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteViewCommand(input);

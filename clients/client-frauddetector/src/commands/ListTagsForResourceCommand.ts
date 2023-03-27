@@ -44,7 +44,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { FraudDetectorClient, ListTagsForResourceCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, ListTagsForResourceCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceARN: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

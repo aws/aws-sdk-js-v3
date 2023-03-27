@@ -44,7 +44,7 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  * import { WisdomClient, RemoveKnowledgeBaseTemplateUriCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, RemoveKnowledgeBaseTemplateUriCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // RemoveKnowledgeBaseTemplateUriRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
  * };
  * const command = new RemoveKnowledgeBaseTemplateUriCommand(input);

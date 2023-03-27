@@ -47,26 +47,26 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * import { ComprehendClient, CreateDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // CreateDocumentClassifierRequest
  *   DocumentClassifierName: "STRING_VALUE", // required
  *   VersionName: "STRING_VALUE",
  *   DataAccessRoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   InputDataConfig: {
+ *   InputDataConfig: { // DocumentClassifierInputDataConfig
  *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
  *     S3Uri: "STRING_VALUE",
  *     TestS3Uri: "STRING_VALUE",
  *     LabelDelimiter: "STRING_VALUE",
- *     AugmentedManifests: [
- *       {
+ *     AugmentedManifests: [ // DocumentClassifierAugmentedManifestsList
+ *       { // AugmentedManifestsListItem
  *         S3Uri: "STRING_VALUE", // required
  *         Split: "TRAIN" || "TEST",
- *         AttributeNames: [ // required
+ *         AttributeNames: [ // AttributeNamesList // required
  *           "STRING_VALUE",
  *         ],
  *         AnnotationDataS3Uri: "STRING_VALUE",
@@ -75,7 +75,7 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  *       },
  *     ],
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // DocumentClassifierOutputDataConfig
  *     S3Uri: "STRING_VALUE",
  *     KmsKeyId: "STRING_VALUE",
  *     FlywheelStatsS3Prefix: "STRING_VALUE",
@@ -83,11 +83,11 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  *   ClientRequestToken: "STRING_VALUE",
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
  *   VolumeKmsKeyId: "STRING_VALUE",
- *   VpcConfig: {
- *     SecurityGroupIds: [ // required
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
- *     Subnets: [ // required
+ *     Subnets: [ // Subnets // required
  *       "STRING_VALUE",
  *     ],
  *   },

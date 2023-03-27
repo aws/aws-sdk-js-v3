@@ -42,12 +42,12 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * import { SsmSapClient, ListOperationsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListOperationsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = {
+ * const input = { // ListOperationsInput
  *   ApplicationId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *       Operator: "STRING_VALUE", // required

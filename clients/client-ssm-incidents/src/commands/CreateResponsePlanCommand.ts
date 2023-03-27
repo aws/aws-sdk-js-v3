@@ -44,47 +44,47 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  * import { SSMIncidentsClient, CreateResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, CreateResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // CreateResponsePlanInput
  *   clientToken: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE",
- *   incidentTemplate: {
+ *   incidentTemplate: { // IncidentTemplate
  *     title: "STRING_VALUE", // required
  *     impact: Number("int"), // required
  *     summary: "STRING_VALUE",
  *     dedupeString: "STRING_VALUE",
- *     notificationTargets: [
- *       { // Union: only one key present
+ *     notificationTargets: [ // NotificationTargetSet
+ *       { // NotificationTargetItem Union: only one key present
  *         snsTopicArn: "STRING_VALUE",
  *       },
  *     ],
- *     incidentTags: {
+ *     incidentTags: { // TagMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   chatChannel: { // Union: only one key present
+ *   chatChannel: { // ChatChannel Union: only one key present
  *     empty: {},
- *     chatbotSns: [
+ *     chatbotSns: [ // ChatbotSnsConfigurationSet
  *       "STRING_VALUE",
  *     ],
  *   },
- *   engagements: [
+ *   engagements: [ // EngagementSet
  *     "STRING_VALUE",
  *   ],
- *   actions: [
- *     { // Union: only one key present
- *       ssmAutomation: {
+ *   actions: [ // ActionsList
+ *     { // Action Union: only one key present
+ *       ssmAutomation: { // SsmAutomation
  *         roleArn: "STRING_VALUE", // required
  *         documentName: "STRING_VALUE", // required
  *         documentVersion: "STRING_VALUE",
  *         targetAccount: "STRING_VALUE",
- *         parameters: {
- *           "<keys>": [
+ *         parameters: { // SsmParameters
+ *           "<keys>": [ // SsmParameterValues
  *             "STRING_VALUE",
  *           ],
  *         },
- *         dynamicParameters: {
- *           "<keys>": { // Union: only one key present
+ *         dynamicParameters: { // DynamicSsmParameters
+ *           "<keys>": { // DynamicSsmParameterValue Union: only one key present
  *             variable: "STRING_VALUE",
  *           },
  *         },
@@ -94,12 +94,12 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  *   tags: {
  *     "<keys>": "STRING_VALUE",
  *   },
- *   integrations: [
- *     { // Union: only one key present
- *       pagerDutyConfiguration: {
+ *   integrations: [ // Integrations
+ *     { // Integration Union: only one key present
+ *       pagerDutyConfiguration: { // PagerDutyConfiguration
  *         name: "STRING_VALUE", // required
  *         secretId: "STRING_VALUE", // required
- *         pagerDutyIncidentConfiguration: {
+ *         pagerDutyIncidentConfiguration: { // PagerDutyIncidentConfiguration
  *           serviceId: "STRING_VALUE", // required
  *         },
  *       },

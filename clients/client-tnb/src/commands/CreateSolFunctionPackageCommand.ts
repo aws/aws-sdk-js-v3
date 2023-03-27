@@ -50,8 +50,8 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  * import { TnbClient, CreateSolFunctionPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, CreateSolFunctionPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
- *   tags: {
+ * const input = { // CreateSolFunctionPackageInput
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

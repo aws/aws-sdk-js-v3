@@ -42,7 +42,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * import { CloudWatchEventsClient, DescribeArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribeArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // DescribeArchiveRequest
  *   ArchiveName: "STRING_VALUE", // required
  * };
  * const command = new DescribeArchiveCommand(input);

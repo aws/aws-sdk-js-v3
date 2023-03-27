@@ -46,7 +46,7 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * import { NetworkFirewallClient, AssociateFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, AssociateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // AssociateFirewallPolicyRequest
  *   UpdateToken: "STRING_VALUE",
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",

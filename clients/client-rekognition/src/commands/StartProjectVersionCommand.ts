@@ -52,7 +52,7 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * import { RekognitionClient, StartProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // StartProjectVersionRequest
  *   ProjectVersionArn: "STRING_VALUE", // required
  *   MinInferenceUnits: Number("int"), // required
  *   MaxInferenceUnits: Number("int"),

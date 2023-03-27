@@ -50,7 +50,7 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
  * import { BillingconductorClient, ListPricingPlansAssociatedWithPricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListPricingPlansAssociatedWithPricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // ListPricingPlansAssociatedWithPricingRuleInput
  *   BillingPeriod: "STRING_VALUE",
  *   PricingRuleArn: "STRING_VALUE", // required
  *   MaxResults: Number("int"),

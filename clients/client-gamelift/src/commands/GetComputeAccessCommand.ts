@@ -68,7 +68,7 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * import { GameLiftClient, GetComputeAccessCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, GetComputeAccessCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // GetComputeAccessInput
  *   FleetId: "STRING_VALUE", // required
  *   ComputeName: "STRING_VALUE", // required
  * };

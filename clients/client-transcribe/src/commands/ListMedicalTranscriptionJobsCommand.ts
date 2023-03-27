@@ -46,7 +46,7 @@ export interface ListMedicalTranscriptionJobsCommandOutput
  * import { TranscribeClient, ListMedicalTranscriptionJobsCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListMedicalTranscriptionJobsCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // ListMedicalTranscriptionJobsRequest
  *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
  *   JobNameContains: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

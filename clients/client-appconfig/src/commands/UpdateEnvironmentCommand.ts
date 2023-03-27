@@ -42,13 +42,13 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  * import { AppConfigClient, UpdateEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // UpdateEnvironmentRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   EnvironmentId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   Monitors: [
- *     {
+ *   Monitors: [ // MonitorList
+ *     { // Monitor
  *       AlarmArn: "STRING_VALUE", // required
  *       AlarmRoleArn: "STRING_VALUE",
  *     },

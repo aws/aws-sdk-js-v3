@@ -44,28 +44,28 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * import { ConnectClient, GetMetricDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetMetricDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // GetMetricDataRequest
  *   InstanceId: "STRING_VALUE", // required
  *   StartTime: new Date("TIMESTAMP"), // required
  *   EndTime: new Date("TIMESTAMP"), // required
- *   Filters: {
- *     Queues: [
+ *   Filters: { // Filters
+ *     Queues: [ // Queues
  *       "STRING_VALUE",
  *     ],
- *     Channels: [
+ *     Channels: [ // Channels
  *       "VOICE" || "CHAT" || "TASK",
  *     ],
- *     RoutingProfiles: [
+ *     RoutingProfiles: [ // RoutingProfiles
  *       "STRING_VALUE",
  *     ],
  *   },
- *   Groupings: [
+ *   Groupings: [ // Groupings
  *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE",
  *   ],
- *   HistoricalMetrics: [ // required
- *     {
+ *   HistoricalMetrics: [ // HistoricalMetrics // required
+ *     { // HistoricalMetric
  *       Name: "CONTACTS_QUEUED" || "CONTACTS_HANDLED" || "CONTACTS_ABANDONED" || "CONTACTS_CONSULTED" || "CONTACTS_AGENT_HUNG_UP_FIRST" || "CONTACTS_HANDLED_INCOMING" || "CONTACTS_HANDLED_OUTBOUND" || "CONTACTS_HOLD_ABANDONS" || "CONTACTS_TRANSFERRED_IN" || "CONTACTS_TRANSFERRED_OUT" || "CONTACTS_TRANSFERRED_IN_FROM_QUEUE" || "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE" || "CONTACTS_MISSED" || "CALLBACK_CONTACTS_HANDLED" || "API_CONTACTS_HANDLED" || "OCCUPANCY" || "HANDLE_TIME" || "AFTER_CONTACT_WORK_TIME" || "QUEUED_TIME" || "ABANDON_TIME" || "QUEUE_ANSWER_TIME" || "HOLD_TIME" || "INTERACTION_TIME" || "INTERACTION_AND_HOLD_TIME" || "SERVICE_LEVEL",
- *       Threshold: {
+ *       Threshold: { // Threshold
  *         Comparison: "LT",
  *         ThresholdValue: Number("double"),
  *       },

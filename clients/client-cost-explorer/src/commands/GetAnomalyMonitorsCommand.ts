@@ -43,8 +43,8 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * import { CostExplorerClient, GetAnomalyMonitorsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetAnomalyMonitorsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const input = {
- *   MonitorArnList: [
+ * const input = { // GetAnomalyMonitorsRequest
+ *   MonitorArnList: [ // Values
  *     "STRING_VALUE",
  *   ],
  *   NextPageToken: "STRING_VALUE",

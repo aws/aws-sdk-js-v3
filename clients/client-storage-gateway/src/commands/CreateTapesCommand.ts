@@ -48,7 +48,7 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * import { StorageGatewayClient, CreateTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // CreateTapesInput
  *   GatewayARN: "STRING_VALUE", // required
  *   TapeSizeInBytes: Number("long"), // required
  *   ClientToken: "STRING_VALUE", // required
@@ -58,8 +58,8 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  *   KMSKey: "STRING_VALUE",
  *   PoolId: "STRING_VALUE",
  *   Worm: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

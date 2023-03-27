@@ -45,7 +45,7 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  * import { TnbClient, ValidateSolFunctionPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ValidateSolFunctionPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // ValidateSolFunctionPackageContentInput
  *   vnfPkgId: "STRING_VALUE", // required
  *   contentType: "application/zip",
  *   file: "BLOB_VALUE", // required

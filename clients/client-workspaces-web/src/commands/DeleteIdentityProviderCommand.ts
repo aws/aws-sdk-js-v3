@@ -42,7 +42,7 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  * import { WorkSpacesWebClient, DeleteIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // DeleteIdentityProviderRequest
  *   identityProviderArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteIdentityProviderCommand(input);

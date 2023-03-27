@@ -44,10 +44,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { MediaStoreClient, TagResourceCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, TagResourceCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   Resource: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

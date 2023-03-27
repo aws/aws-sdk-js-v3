@@ -50,10 +50,10 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * import { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, BatchCheckLayerAvailabilityCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
- * const input = {
+ * const input = { // BatchCheckLayerAvailabilityRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
- *   layerDigests: [ // required
+ *   layerDigests: [ // BatchedOperationLayerDigestList // required
  *     "STRING_VALUE",
  *   ],
  * };

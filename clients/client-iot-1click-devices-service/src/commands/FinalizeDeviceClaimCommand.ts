@@ -50,9 +50,9 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  * import { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
- * const input = {
+ * const input = { // FinalizeDeviceClaimRequest
  *   DeviceId: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

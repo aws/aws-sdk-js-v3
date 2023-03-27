@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { GreengrassClient, UntagResourceCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UntagResourceCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
  * };

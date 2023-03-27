@@ -43,7 +43,7 @@ export interface DescribeSlotCommandOutput extends DescribeSlotResponse, __Metad
  * import { LexModelsV2Client, DescribeSlotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeSlotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // DescribeSlotRequest
  *   slotId: "STRING_VALUE", // required
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required

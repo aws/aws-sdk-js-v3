@@ -42,7 +42,7 @@ export interface UpdateVpcLinkCommandOutput extends UpdateVpcLinkResponse, __Met
  * import { ApiGatewayV2Client, UpdateVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // UpdateVpcLinkRequest
  *   Name: "STRING_VALUE",
  *   VpcLinkId: "STRING_VALUE", // required
  * };

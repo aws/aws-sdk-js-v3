@@ -55,7 +55,7 @@ export interface UpdateVoiceProfileCommandOutput extends UpdateVoiceProfileRespo
  * import { ChimeSDKVoiceClient, UpdateVoiceProfileCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, UpdateVoiceProfileCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // UpdateVoiceProfileRequest
  *   VoiceProfileId: "STRING_VALUE", // required
  *   SpeakerSearchTaskId: "STRING_VALUE", // required
  * };

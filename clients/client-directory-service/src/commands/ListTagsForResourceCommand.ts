@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { DirectoryServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),

@@ -42,7 +42,7 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * import { IoTRoboRunnerClient, DeleteWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, DeleteWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // DeleteWorkerRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DeleteWorkerCommand(input);

@@ -43,15 +43,15 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  * import { ConnectClient, SearchQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // SearchQueuesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   SearchFilter: {
- *     TagFilter: {
- *       OrConditions: [
- *         [
- *           {
+ *   SearchFilter: { // QueueSearchFilter
+ *     TagFilter: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
  *             TagKey: "STRING_VALUE",
  *             TagValue: "STRING_VALUE",
  *           },
@@ -63,33 +63,19 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  *           TagValue: "STRING_VALUE",
  *         },
  *       ],
- *       TagCondition: {
- *         TagKey: "<TagCondition>",
- *         TagValue: "<TagCondition>",
- *       },
+ *       TagCondition: "<TagCondition>",
  *     },
  *   },
- *   SearchCriteria: {
- *     OrConditions: [
+ *   SearchCriteria: { // QueueSearchCriteria
+ *     OrConditions: [ // QueueSearchConditionList
  *       {
  *         OrConditions: [
- *           {
- *             OrConditions: "<QueueSearchCriteria>",
- *             AndConditions: [
- *               "<QueueSearchConditionList>",
- *             ],
- *             StringCondition: {
- *               FieldName: "STRING_VALUE",
- *               Value: "STRING_VALUE",
- *               ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
- *             },
- *             QueueTypeCondition: "STANDARD",
- *           },
+ *           "<QueueSearchCriteria>",
  *         ],
  *         AndConditions: [
- *           "<QueueSearchConditionList>",
+ *           "<QueueSearchCriteria>",
  *         ],
- *         StringCondition: {
+ *         StringCondition: { // StringCondition
  *           FieldName: "STRING_VALUE",
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
@@ -97,9 +83,15 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  *         QueueTypeCondition: "STANDARD",
  *       },
  *     ],
- *     AndConditions: "<QueueSearchCriteria>",
- *     StringCondition: "<QueueSearchCriteria>",
- *     QueueTypeCondition: "<QueueSearchCriteria>",
+ *     AndConditions: [
+ *       "<QueueSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
+ *     QueueTypeCondition: "STANDARD",
  *   },
  * };
  * const command = new SearchQueuesCommand(input);

@@ -47,7 +47,7 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * import { SESClient, CloneReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CloneReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // CloneReceiptRuleSetRequest
  *   RuleSetName: "STRING_VALUE", // required
  *   OriginalRuleSetName: "STRING_VALUE", // required
  * };

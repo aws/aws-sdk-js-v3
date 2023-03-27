@@ -42,7 +42,7 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  * import { WorkMailClient, GetDefaultRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetDefaultRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // GetDefaultRetentionPolicyRequest
  *   OrganizationId: "STRING_VALUE", // required
  * };
  * const command = new GetDefaultRetentionPolicyCommand(input);

@@ -42,9 +42,9 @@ export interface DefineExpressionCommandOutput extends DefineExpressionResponse,
  * import { CloudSearchClient, DefineExpressionCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DefineExpressionCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DefineExpressionRequest
  *   DomainName: "STRING_VALUE", // required
- *   Expression: {
+ *   Expression: { // Expression
  *     ExpressionName: "STRING_VALUE", // required
  *     ExpressionValue: "STRING_VALUE", // required
  *   },

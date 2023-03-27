@@ -44,7 +44,7 @@ export interface GetGroupCertificateConfigurationCommandOutput
  * import { GreengrassClient, GetGroupCertificateConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupCertificateConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // GetGroupCertificateConfigurationRequest
  *   GroupId: "STRING_VALUE", // required
  * };
  * const command = new GetGroupCertificateConfigurationCommand(input);

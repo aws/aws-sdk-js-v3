@@ -42,7 +42,7 @@ export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer 
  * import { CloudWatchLogsClient, DeleteSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteSubscriptionFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DeleteSubscriptionFilterRequest
  *   logGroupName: "STRING_VALUE", // required
  *   filterName: "STRING_VALUE", // required
  * };

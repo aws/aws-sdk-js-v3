@@ -42,9 +42,9 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * import { PinpointClient, CreateExportJobCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateExportJobCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // CreateExportJobRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   ExportJobRequest: {
+ *   ExportJobRequest: { // ExportJobRequest
  *     RoleArn: "STRING_VALUE", // required
  *     S3UrlPrefix: "STRING_VALUE", // required
  *     SegmentId: "STRING_VALUE",

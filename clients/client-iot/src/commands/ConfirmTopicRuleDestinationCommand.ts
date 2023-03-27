@@ -48,7 +48,7 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  * import { IoTClient, ConfirmTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ConfirmTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ConfirmTopicRuleDestinationRequest
  *   confirmationToken: "STRING_VALUE", // required
  * };
  * const command = new ConfirmTopicRuleDestinationCommand(input);

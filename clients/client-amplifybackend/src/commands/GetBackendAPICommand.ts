@@ -42,14 +42,14 @@ export interface GetBackendAPICommandOutput extends GetBackendAPIResponse, __Met
  * import { AmplifyBackendClient, GetBackendAPICommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetBackendAPICommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
- * const input = {
+ * const input = { // GetBackendAPIRequest
  *   AppId: "STRING_VALUE", // required
  *   BackendEnvironmentName: "STRING_VALUE", // required
- *   ResourceConfig: {
- *     AdditionalAuthTypes: [
- *       {
+ *   ResourceConfig: { // BackendAPIResourceConfig
+ *     AdditionalAuthTypes: [ // ListOfBackendAPIAuthType
+ *       { // BackendAPIAuthType
  *         Mode: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT",
- *         Settings: {
+ *         Settings: { // BackendAPIAppSyncAuthSettings
  *           CognitoUserPoolId: "STRING_VALUE",
  *           Description: "STRING_VALUE",
  *           ExpirationTime: Number("double"),
@@ -62,7 +62,7 @@ export interface GetBackendAPICommandOutput extends GetBackendAPIResponse, __Met
  *       },
  *     ],
  *     ApiName: "STRING_VALUE",
- *     ConflictResolution: {
+ *     ConflictResolution: { // BackendAPIConflictResolution
  *       ResolutionStrategy: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
  *     },
  *     DefaultAuthType: {

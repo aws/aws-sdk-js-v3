@@ -49,7 +49,7 @@ export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurat
  * import { ChimeClient, PutEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // PutEventsConfigurationRequest
  *   AccountId: "STRING_VALUE", // required
  *   BotId: "STRING_VALUE", // required
  *   OutboundEventsHTTPSEndpoint: "STRING_VALUE",

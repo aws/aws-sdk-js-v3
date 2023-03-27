@@ -50,10 +50,10 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * import { AutoScalingClient, AttachTrafficSourcesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, AttachTrafficSourcesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // AttachTrafficSourcesType
  *   AutoScalingGroupName: "STRING_VALUE", // required
- *   TrafficSources: [ // required
- *     {
+ *   TrafficSources: [ // TrafficSources // required
+ *     { // TrafficSourceIdentifier
  *       Identifier: "STRING_VALUE",
  *     },
  *   ],

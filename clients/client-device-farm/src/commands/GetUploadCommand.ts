@@ -39,7 +39,7 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  * import { DeviceFarmClient, GetUploadCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // GetUploadRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new GetUploadCommand(input);

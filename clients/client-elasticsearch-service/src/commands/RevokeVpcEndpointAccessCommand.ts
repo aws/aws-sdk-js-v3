@@ -47,7 +47,7 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * import { ElasticsearchServiceClient, RevokeVpcEndpointAccessCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, RevokeVpcEndpointAccessCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // RevokeVpcEndpointAccessRequest
  *   DomainName: "STRING_VALUE", // required
  *   Account: "STRING_VALUE", // required
  * };

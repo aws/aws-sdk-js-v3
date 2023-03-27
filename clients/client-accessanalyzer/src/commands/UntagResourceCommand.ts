@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { AccessAnalyzerClient, UntagResourceCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, UntagResourceCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

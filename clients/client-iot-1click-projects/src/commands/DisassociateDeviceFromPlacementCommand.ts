@@ -48,7 +48,7 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  * import { IoT1ClickProjectsClient, DisassociateDeviceFromPlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, DisassociateDeviceFromPlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
- * const input = {
+ * const input = { // DisassociateDeviceFromPlacementRequest
  *   projectName: "STRING_VALUE", // required
  *   placementName: "STRING_VALUE", // required
  *   deviceTemplateName: "STRING_VALUE", // required

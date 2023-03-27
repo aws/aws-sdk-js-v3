@@ -47,7 +47,7 @@ export interface DescribeRobotCommandOutput extends DescribeRobotResponse, __Met
  * import { RoboMakerClient, DescribeRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // DescribeRobotRequest
  *   robot: "STRING_VALUE", // required
  * };
  * const command = new DescribeRobotCommand(input);

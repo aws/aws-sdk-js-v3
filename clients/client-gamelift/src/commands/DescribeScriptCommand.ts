@@ -56,7 +56,7 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  * import { GameLiftClient, DescribeScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DescribeScriptInput
  *   ScriptId: "STRING_VALUE", // required
  * };
  * const command = new DescribeScriptCommand(input);

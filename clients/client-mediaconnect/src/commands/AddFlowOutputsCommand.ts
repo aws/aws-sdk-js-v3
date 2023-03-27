@@ -42,16 +42,16 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * import { MediaConnectClient, AddFlowOutputsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowOutputsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // AddFlowOutputsRequest
  *   FlowArn: "STRING_VALUE", // required
- *   Outputs: [ // required
- *     {
- *       CidrAllowList: [
+ *   Outputs: [ // __listOfAddOutputRequest // required
+ *     { // AddOutputRequest
+ *       CidrAllowList: [ // __listOf__string
  *         "STRING_VALUE",
  *       ],
  *       Description: "STRING_VALUE",
  *       Destination: "STRING_VALUE",
- *       Encryption: {
+ *       Encryption: { // Encryption
  *         Algorithm: "aes128" || "aes192" || "aes256",
  *         ConstantInitializationVector: "STRING_VALUE",
  *         DeviceId: "STRING_VALUE",
@@ -63,19 +63,19 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *         Url: "STRING_VALUE",
  *       },
  *       MaxLatency: Number("int"),
- *       MediaStreamOutputConfigurations: [
- *         {
- *           DestinationConfigurations: [
- *             {
+ *       MediaStreamOutputConfigurations: [ // __listOfMediaStreamOutputConfigurationRequest
+ *         { // MediaStreamOutputConfigurationRequest
+ *           DestinationConfigurations: [ // __listOfDestinationConfigurationRequest
+ *             { // DestinationConfigurationRequest
  *               DestinationIp: "STRING_VALUE", // required
  *               DestinationPort: Number("int"), // required
- *               Interface: {
+ *               Interface: { // InterfaceRequest
  *                 Name: "STRING_VALUE", // required
  *               },
  *             },
  *           ],
  *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *           EncodingParameters: {
+ *           EncodingParameters: { // EncodingParametersRequest
  *             CompressionFactor: Number("double"), // required
  *             EncoderProfile: "main" || "high", // required
  *           },
@@ -90,7 +90,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *       SenderControlPort: Number("int"),
  *       SmoothingLatency: Number("int"),
  *       StreamId: "STRING_VALUE",
- *       VpcInterfaceAttachment: {
+ *       VpcInterfaceAttachment: { // VpcInterfaceAttachment
  *         VpcInterfaceName: "STRING_VALUE",
  *       },
  *     },

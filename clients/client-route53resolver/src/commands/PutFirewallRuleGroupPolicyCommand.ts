@@ -44,7 +44,7 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  * import { Route53ResolverClient, PutFirewallRuleGroupPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, PutFirewallRuleGroupPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // PutFirewallRuleGroupPolicyRequest
  *   Arn: "STRING_VALUE", // required
  *   FirewallRuleGroupPolicy: "STRING_VALUE", // required
  * };

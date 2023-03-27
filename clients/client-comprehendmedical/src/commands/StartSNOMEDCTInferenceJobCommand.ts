@@ -48,12 +48,12 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  * import { ComprehendMedicalClient, StartSNOMEDCTInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StartSNOMEDCTInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
- *   InputDataConfig: {
+ * const input = { // StartSNOMEDCTInferenceJobRequest
+ *   InputDataConfig: { // InputDataConfig
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE",
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // OutputDataConfig
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE",
  *   },

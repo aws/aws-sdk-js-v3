@@ -42,7 +42,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * import { IVSRealTimeClient, UpdateStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, UpdateStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
- * const input = {
+ * const input = { // UpdateStageRequest
  *   arn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  * };

@@ -96,13 +96,13 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * import { WAFRegionalClient, UpdateRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // UpdateRateBasedRuleRequest
  *   RuleId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
- *   Updates: [ // required
- *     {
+ *   Updates: [ // RuleUpdates // required
+ *     { // RuleUpdate
  *       Action: "STRING_VALUE", // required
- *       Predicate: {
+ *       Predicate: { // Predicate
  *         Negated: true || false, // required
  *         Type: "STRING_VALUE", // required
  *         DataId: "STRING_VALUE", // required

@@ -42,8 +42,8 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * import { GameLiftClient, ListLocationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListLocationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
- *   Filters: [
+ * const input = { // ListLocationsInput
+ *   Filters: [ // LocationFilterList
  *     "AWS" || "CUSTOM",
  *   ],
  *   Limit: Number("int"),

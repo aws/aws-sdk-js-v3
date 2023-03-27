@@ -49,10 +49,10 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  * import { HoneycodeClient, QueryTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, QueryTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // QueryTableRowsRequest
  *   workbookId: "STRING_VALUE", // required
  *   tableId: "STRING_VALUE", // required
- *   filterFormula: {
+ *   filterFormula: { // Filter
  *     formula: "STRING_VALUE", // required
  *     contextRowId: "STRING_VALUE",
  *   },

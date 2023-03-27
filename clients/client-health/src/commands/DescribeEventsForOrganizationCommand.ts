@@ -75,21 +75,21 @@ export interface DescribeEventsForOrganizationCommandOutput
  * import { HealthClient, DescribeEventsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
- * const input = {
- *   filter: {
- *     eventTypeCodes: [
+ * const input = { // DescribeEventsForOrganizationRequest
+ *   filter: { // OrganizationEventFilter
+ *     eventTypeCodes: [ // eventTypeList2
  *       "STRING_VALUE",
  *     ],
- *     awsAccountIds: [
+ *     awsAccountIds: [ // awsAccountIdsList
  *       "STRING_VALUE",
  *     ],
- *     services: [
+ *     services: [ // serviceList
  *       "STRING_VALUE",
  *     ],
- *     regions: [
+ *     regions: [ // regionList
  *       "STRING_VALUE",
  *     ],
- *     startTime: {
+ *     startTime: { // DateTimeRange
  *       from: new Date("TIMESTAMP"),
  *       to: new Date("TIMESTAMP"),
  *     },
@@ -101,16 +101,16 @@ export interface DescribeEventsForOrganizationCommandOutput
  *       from: new Date("TIMESTAMP"),
  *       to: new Date("TIMESTAMP"),
  *     },
- *     entityArns: [
+ *     entityArns: [ // entityArnList
  *       "STRING_VALUE",
  *     ],
- *     entityValues: [
+ *     entityValues: [ // entityValueList
  *       "STRING_VALUE",
  *     ],
- *     eventTypeCategories: [
+ *     eventTypeCategories: [ // eventTypeCategoryList2
  *       "STRING_VALUE",
  *     ],
- *     eventStatusCodes: [
+ *     eventStatusCodes: [ // eventStatusCodeList
  *       "STRING_VALUE",
  *     ],
  *   },

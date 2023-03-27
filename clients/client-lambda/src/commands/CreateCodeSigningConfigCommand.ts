@@ -44,14 +44,14 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * import { LambdaClient, CreateCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // CreateCodeSigningConfigRequest
  *   Description: "STRING_VALUE",
- *   AllowedPublishers: {
- *     SigningProfileVersionArns: [ // required
+ *   AllowedPublishers: { // AllowedPublishers
+ *     SigningProfileVersionArns: [ // SigningProfileVersionArns // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   CodeSigningPolicies: {
+ *   CodeSigningPolicies: { // CodeSigningPolicies
  *     UntrustedArtifactOnDeployment: "Warn" || "Enforce",
  *   },
  * };

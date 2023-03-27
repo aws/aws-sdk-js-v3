@@ -43,9 +43,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { ServiceQuotasClient, UntagResourceCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, UntagResourceCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // InputTagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

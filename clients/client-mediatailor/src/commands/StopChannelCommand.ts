@@ -42,7 +42,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * import { MediaTailorClient, StopChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, StopChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // StopChannelRequest
  *   ChannelName: "STRING_VALUE", // required
  * };
  * const command = new StopChannelCommand(input);

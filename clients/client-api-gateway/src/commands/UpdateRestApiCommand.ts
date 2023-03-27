@@ -42,10 +42,10 @@ export interface UpdateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * import { APIGatewayClient, UpdateRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // UpdateRestApiRequest
  *   restApiId: "STRING_VALUE", // required
- *   patchOperations: [
- *     {
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
  *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
  *       path: "STRING_VALUE",
  *       value: "STRING_VALUE",

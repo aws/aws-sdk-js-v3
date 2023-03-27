@@ -45,23 +45,23 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * import { CleanRoomsClient, CreateConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // CreateConfiguredTableAnalysisRuleInput
  *   configuredTableIdentifier: "STRING_VALUE", // required
  *   analysisRuleType: "AGGREGATION" || "LIST", // required
- *   analysisRulePolicy: { // Union: only one key present
- *     v1: { // Union: only one key present
- *       list: {
- *         joinColumns: [ // required
+ *   analysisRulePolicy: { // ConfiguredTableAnalysisRulePolicy Union: only one key present
+ *     v1: { // ConfiguredTableAnalysisRulePolicyV1 Union: only one key present
+ *       list: { // AnalysisRuleList
+ *         joinColumns: [ // AnalysisRuleColumnList // required
  *           "STRING_VALUE",
  *         ],
  *         listColumns: [ // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       aggregation: {
- *         aggregateColumns: [ // required
- *           {
- *             columnNames: [ // required
+ *       aggregation: { // AnalysisRuleAggregation
+ *         aggregateColumns: [ // AggregateColumnList // required
+ *           { // AggregateColumn
+ *             columnNames: [ // AnalysisRuleColumnNameList // required
  *               "STRING_VALUE",
  *             ],
  *             function: "STRING_VALUE", // required
@@ -74,11 +74,11 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  *         dimensionColumns: [ // required
  *           "STRING_VALUE",
  *         ],
- *         scalarFunctions: [ // required
+ *         scalarFunctions: [ // ScalarFunctionsList // required
  *           "STRING_VALUE",
  *         ],
- *         outputConstraints: [ // required
- *           {
+ *         outputConstraints: [ // AggregationConstraints // required
+ *           { // AggregationConstraint
  *             columnName: "STRING_VALUE", // required
  *             minimum: Number("int"), // required
  *             type: "STRING_VALUE", // required

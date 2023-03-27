@@ -48,7 +48,7 @@ export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneA
  * import { ChimeSDKVoiceClient, StartVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, StartVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // StartVoiceToneAnalysisTaskRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   TransactionId: "STRING_VALUE", // required
  *   LanguageCode: "en-US", // required

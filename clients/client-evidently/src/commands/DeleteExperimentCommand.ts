@@ -43,7 +43,7 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * import { EvidentlyClient, DeleteExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, DeleteExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // DeleteExperimentRequest
  *   project: "STRING_VALUE", // required
  *   experiment: "STRING_VALUE", // required
  * };

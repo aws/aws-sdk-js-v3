@@ -42,33 +42,33 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * import { SageMakerClient, CreateEdgeDeploymentPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEdgeDeploymentPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateEdgeDeploymentPlanRequest
  *   EdgeDeploymentPlanName: "STRING_VALUE", // required
- *   ModelConfigs: [ // required
- *     {
+ *   ModelConfigs: [ // EdgeDeploymentModelConfigs // required
+ *     { // EdgeDeploymentModelConfig
  *       ModelHandle: "STRING_VALUE", // required
  *       EdgePackagingJobName: "STRING_VALUE", // required
  *     },
  *   ],
  *   DeviceFleetName: "STRING_VALUE", // required
- *   Stages: [
- *     {
+ *   Stages: [ // DeploymentStages
+ *     { // DeploymentStage
  *       StageName: "STRING_VALUE", // required
- *       DeviceSelectionConfig: {
+ *       DeviceSelectionConfig: { // DeviceSelectionConfig
  *         DeviceSubsetType: "PERCENTAGE" || "SELECTION" || "NAMECONTAINS", // required
  *         Percentage: Number("int"),
- *         DeviceNames: [
+ *         DeviceNames: [ // DeviceNames
  *           "STRING_VALUE",
  *         ],
  *         DeviceNameContains: "STRING_VALUE",
  *       },
- *       DeploymentConfig: {
+ *       DeploymentConfig: { // EdgeDeploymentConfig
  *         FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING", // required
  *       },
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

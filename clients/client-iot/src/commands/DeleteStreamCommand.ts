@@ -43,7 +43,7 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * import { IoTClient, DeleteStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DeleteStreamRequest
  *   streamId: "STRING_VALUE", // required
  * };
  * const command = new DeleteStreamCommand(input);

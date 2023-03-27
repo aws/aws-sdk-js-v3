@@ -51,7 +51,7 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * import { DirectConnectClient, AssociateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // AssociateVirtualInterfaceRequest
  *   virtualInterfaceId: "STRING_VALUE", // required
  *   connectionId: "STRING_VALUE", // required
  * };

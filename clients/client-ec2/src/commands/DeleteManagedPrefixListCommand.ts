@@ -42,7 +42,7 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
  * import { EC2Client, DeleteManagedPrefixListCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteManagedPrefixListCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteManagedPrefixListRequest
  *   DryRun: true || false,
  *   PrefixListId: "STRING_VALUE", // required
  * };

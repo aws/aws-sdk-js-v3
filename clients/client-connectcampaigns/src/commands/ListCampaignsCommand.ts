@@ -42,11 +42,11 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * import { ConnectCampaignsClient, ListCampaignsCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, ListCampaignsCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
- * const input = {
+ * const input = { // ListCampaignsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filters: {
- *     instanceIdFilter: {
+ *   filters: { // CampaignFilters
+ *     instanceIdFilter: { // InstanceIdFilter
  *       value: "STRING_VALUE", // required
  *       operator: "STRING_VALUE", // required
  *     },

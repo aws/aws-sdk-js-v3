@@ -42,7 +42,7 @@ export interface GetModelCommandOutput extends GetModelResponse, __MetadataBeare
  * import { ApiGatewayV2Client, GetModelCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetModelCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // GetModelRequest
  *   ApiId: "STRING_VALUE", // required
  *   ModelId: "STRING_VALUE", // required
  * };

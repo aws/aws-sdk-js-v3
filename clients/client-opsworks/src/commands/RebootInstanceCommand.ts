@@ -48,7 +48,7 @@ export interface RebootInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, RebootInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RebootInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // RebootInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
  * };
  * const command = new RebootInstanceCommand(input);

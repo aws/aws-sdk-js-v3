@@ -86,7 +86,7 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * import { KMSClient, ListGrantsCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListGrantsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // ListGrantsRequest
  *   Limit: Number("int"),
  *   Marker: "STRING_VALUE",
  *   KeyId: "STRING_VALUE", // required

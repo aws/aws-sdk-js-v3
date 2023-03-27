@@ -43,14 +43,14 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  * import { RoboMakerClient, ListRobotApplicationsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListRobotApplicationsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // ListRobotApplicationsRequest
  *   versionQualifier: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filters: [
- *     {
+ *   filters: [ // Filters
+ *     { // Filter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

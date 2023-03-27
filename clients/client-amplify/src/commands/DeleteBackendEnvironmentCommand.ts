@@ -42,7 +42,7 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
  * import { AmplifyClient, DeleteBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // DeleteBackendEnvironmentRequest
  *   appId: "STRING_VALUE", // required
  *   environmentName: "STRING_VALUE", // required
  * };

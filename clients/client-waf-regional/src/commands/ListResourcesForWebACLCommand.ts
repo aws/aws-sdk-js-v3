@@ -50,7 +50,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * import { WAFRegionalClient, ListResourcesForWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListResourcesForWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // ListResourcesForWebACLRequest
  *   WebACLId: "STRING_VALUE", // required
  *   ResourceType: "STRING_VALUE",
  * };

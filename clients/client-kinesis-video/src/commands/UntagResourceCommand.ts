@@ -44,9 +44,9 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { KinesisVideoClient, UntagResourceCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UntagResourceCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // UntagResourceInput
  *   ResourceARN: "STRING_VALUE", // required
- *   TagKeyList: [ // required
+ *   TagKeyList: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

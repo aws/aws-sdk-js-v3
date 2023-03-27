@@ -42,7 +42,7 @@ export interface StopVoiceToneAnalysisTaskCommandOutput extends __MetadataBearer
  * import { ChimeSDKVoiceClient, StopVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, StopVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // StopVoiceToneAnalysisTaskRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   VoiceToneAnalysisTaskId: "STRING_VALUE", // required
  * };

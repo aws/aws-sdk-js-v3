@@ -57,7 +57,7 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, SetAlarmStateCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, SetAlarmStateCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // SetAlarmStateInput
  *   AlarmName: "STRING_VALUE", // required
  *   StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA", // required
  *   StateReason: "STRING_VALUE", // required

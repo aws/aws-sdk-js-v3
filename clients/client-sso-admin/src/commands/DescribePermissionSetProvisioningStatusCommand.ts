@@ -48,7 +48,7 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
  * import { SSOAdminClient, DescribePermissionSetProvisioningStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribePermissionSetProvisioningStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // DescribePermissionSetProvisioningStatusRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   ProvisionPermissionSetRequestId: "STRING_VALUE", // required
  * };

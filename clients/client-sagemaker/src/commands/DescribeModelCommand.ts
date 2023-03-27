@@ -43,7 +43,7 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * import { SageMakerClient, DescribeModelCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeModelInput
  *   ModelName: "STRING_VALUE", // required
  * };
  * const command = new DescribeModelCommand(input);

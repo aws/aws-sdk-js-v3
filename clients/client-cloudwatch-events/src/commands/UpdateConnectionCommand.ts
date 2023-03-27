@@ -42,39 +42,39 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * import { CloudWatchEventsClient, UpdateConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UpdateConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // UpdateConnectionRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   AuthorizationType: "STRING_VALUE",
- *   AuthParameters: {
- *     BasicAuthParameters: {
+ *   AuthParameters: { // UpdateConnectionAuthRequestParameters
+ *     BasicAuthParameters: { // UpdateConnectionBasicAuthRequestParameters
  *       Username: "STRING_VALUE",
  *       Password: "STRING_VALUE",
  *     },
- *     OAuthParameters: {
- *       ClientParameters: {
+ *     OAuthParameters: { // UpdateConnectionOAuthRequestParameters
+ *       ClientParameters: { // UpdateConnectionOAuthClientRequestParameters
  *         ClientID: "STRING_VALUE",
  *         ClientSecret: "STRING_VALUE",
  *       },
  *       AuthorizationEndpoint: "STRING_VALUE",
  *       HttpMethod: "STRING_VALUE",
- *       OAuthHttpParameters: {
- *         HeaderParameters: [
- *           {
+ *       OAuthHttpParameters: { // ConnectionHttpParameters
+ *         HeaderParameters: [ // ConnectionHeaderParametersList
+ *           { // ConnectionHeaderParameter
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *             IsValueSecret: true || false,
  *           },
  *         ],
- *         QueryStringParameters: [
- *           {
+ *         QueryStringParameters: [ // ConnectionQueryStringParametersList
+ *           { // ConnectionQueryStringParameter
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *             IsValueSecret: true || false,
  *           },
  *         ],
- *         BodyParameters: [
- *           {
+ *         BodyParameters: [ // ConnectionBodyParametersList
+ *           { // ConnectionBodyParameter
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *             IsValueSecret: true || false,
@@ -82,7 +82,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *         ],
  *       },
  *     },
- *     ApiKeyAuthParameters: {
+ *     ApiKeyAuthParameters: { // UpdateConnectionApiKeyAuthRequestParameters
  *       ApiKeyName: "STRING_VALUE",
  *       ApiKeyValue: "STRING_VALUE",
  *     },

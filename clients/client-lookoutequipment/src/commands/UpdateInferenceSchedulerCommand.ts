@@ -42,23 +42,23 @@ export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer 
  * import { LookoutEquipmentClient, UpdateInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, UpdateInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = {
+ * const input = { // UpdateInferenceSchedulerRequest
  *   InferenceSchedulerName: "STRING_VALUE", // required
  *   DataDelayOffsetInMinutes: Number("long"),
  *   DataUploadFrequency: "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
- *   DataInputConfiguration: {
- *     S3InputConfiguration: {
+ *   DataInputConfiguration: { // InferenceInputConfiguration
+ *     S3InputConfiguration: { // InferenceS3InputConfiguration
  *       Bucket: "STRING_VALUE", // required
  *       Prefix: "STRING_VALUE",
  *     },
  *     InputTimeZoneOffset: "STRING_VALUE",
- *     InferenceInputNameConfiguration: {
+ *     InferenceInputNameConfiguration: { // InferenceInputNameConfiguration
  *       TimestampFormat: "STRING_VALUE",
  *       ComponentTimestampDelimiter: "STRING_VALUE",
  *     },
  *   },
- *   DataOutputConfiguration: {
- *     S3OutputConfiguration: {
+ *   DataOutputConfiguration: { // InferenceOutputConfiguration
+ *     S3OutputConfiguration: { // InferenceS3OutputConfiguration
  *       Bucket: "STRING_VALUE", // required
  *       Prefix: "STRING_VALUE",
  *     },

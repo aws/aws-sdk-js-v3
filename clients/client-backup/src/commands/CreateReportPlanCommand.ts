@@ -45,19 +45,19 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * import { BackupClient, CreateReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // CreateReportPlanInput
  *   ReportPlanName: "STRING_VALUE", // required
  *   ReportPlanDescription: "STRING_VALUE",
- *   ReportDeliveryChannel: {
+ *   ReportDeliveryChannel: { // ReportDeliveryChannel
  *     S3BucketName: "STRING_VALUE", // required
  *     S3KeyPrefix: "STRING_VALUE",
- *     Formats: [
+ *     Formats: [ // FormatList
  *       "STRING_VALUE",
  *     ],
  *   },
- *   ReportSetting: {
+ *   ReportSetting: { // ReportSetting
  *     ReportTemplate: "STRING_VALUE", // required
- *     FrameworkArns: [
+ *     FrameworkArns: [ // stringList
  *       "STRING_VALUE",
  *     ],
  *     NumberOfFrameworks: Number("int"),
@@ -71,7 +71,7 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  *       "STRING_VALUE",
  *     ],
  *   },
- *   ReportPlanTags: {
+ *   ReportPlanTags: { // stringMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   IdempotencyToken: "STRING_VALUE",

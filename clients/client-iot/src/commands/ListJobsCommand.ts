@@ -43,7 +43,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * import { IoTClient, ListJobsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListJobsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListJobsRequest
  *   status: "IN_PROGRESS" || "CANCELED" || "COMPLETED" || "DELETION_IN_PROGRESS" || "SCHEDULED",
  *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
  *   maxResults: Number("int"),

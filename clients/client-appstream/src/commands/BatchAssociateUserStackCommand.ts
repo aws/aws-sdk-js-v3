@@ -47,9 +47,9 @@ export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUser
  * import { AppStreamClient, BatchAssociateUserStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, BatchAssociateUserStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
- *   UserStackAssociations: [ // required
- *     {
+ * const input = { // BatchAssociateUserStackRequest
+ *   UserStackAssociations: [ // UserStackAssociationList // required
+ *     { // UserStackAssociation
  *       StackName: "STRING_VALUE", // required
  *       UserName: "STRING_VALUE", // required
  *       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required

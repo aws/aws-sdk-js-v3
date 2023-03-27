@@ -42,55 +42,55 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * import { LakeFormationClient, AddLFTagsToResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, AddLFTagsToResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // AddLFTagsToResourceRequest
  *   CatalogId: "STRING_VALUE",
- *   Resource: {
+ *   Resource: { // Resource
  *     Catalog: {},
- *     Database: {
+ *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
  *     },
- *     Table: {
+ *     Table: { // TableResource
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE", // required
  *       Name: "STRING_VALUE",
  *       TableWildcard: {},
  *     },
- *     TableWithColumns: {
+ *     TableWithColumns: { // TableWithColumnsResource
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE", // required
  *       Name: "STRING_VALUE", // required
- *       ColumnNames: [
+ *       ColumnNames: [ // ColumnNames
  *         "STRING_VALUE",
  *       ],
- *       ColumnWildcard: {
+ *       ColumnWildcard: { // ColumnWildcard
  *         ExcludedColumnNames: [
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     DataLocation: {
+ *     DataLocation: { // DataLocationResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceArn: "STRING_VALUE", // required
  *     },
- *     DataCellsFilter: {
+ *     DataCellsFilter: { // DataCellsFilterResource
  *       TableCatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
  *       TableName: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *     },
- *     LFTag: {
+ *     LFTag: { // LFTagKeyResource
  *       CatalogId: "STRING_VALUE",
  *       TagKey: "STRING_VALUE", // required
- *       TagValues: [ // required
+ *       TagValues: [ // TagValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },
- *     LFTagPolicy: {
+ *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // required
- *         {
+ *       Expression: [ // Expression // required
+ *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
  *             "STRING_VALUE",
@@ -99,8 +99,8 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  *       ],
  *     },
  *   },
- *   LFTags: [ // required
- *     {
+ *   LFTags: [ // LFTagsList // required
+ *     { // LFTagPair
  *       CatalogId: "STRING_VALUE",
  *       TagKey: "STRING_VALUE", // required
  *       TagValues: [ // required

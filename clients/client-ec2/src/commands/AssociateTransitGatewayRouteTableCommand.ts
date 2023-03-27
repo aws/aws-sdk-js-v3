@@ -45,7 +45,7 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
  * import { EC2Client, AssociateTransitGatewayRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateTransitGatewayRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AssociateTransitGatewayRouteTableRequest
  *   TransitGatewayRouteTableId: "STRING_VALUE", // required
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required
  *   DryRun: true || false,

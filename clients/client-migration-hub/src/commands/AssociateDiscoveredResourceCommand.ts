@@ -43,10 +43,10 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  * import { MigrationHubClient, AssociateDiscoveredResourceCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, AssociateDiscoveredResourceCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
- * const input = {
+ * const input = { // AssociateDiscoveredResourceRequest
  *   ProgressUpdateStream: "STRING_VALUE", // required
  *   MigrationTaskName: "STRING_VALUE", // required
- *   DiscoveredResource: {
+ *   DiscoveredResource: { // DiscoveredResource
  *     ConfigurationId: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
  *   },

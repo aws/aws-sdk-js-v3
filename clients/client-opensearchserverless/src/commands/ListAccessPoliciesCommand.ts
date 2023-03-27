@@ -46,9 +46,9 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * import { OpenSearchServerlessClient, ListAccessPoliciesCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // ListAccessPoliciesRequest
  *   type: "STRING_VALUE", // required
- *   resource: [
+ *   resource: [ // ResourceFilter
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",

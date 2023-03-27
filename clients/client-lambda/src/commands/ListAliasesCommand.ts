@@ -43,7 +43,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * import { LambdaClient, ListAliasesCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListAliasesCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // ListAliasesRequest
  *   FunctionName: "STRING_VALUE", // required
  *   FunctionVersion: "STRING_VALUE",
  *   Marker: "STRING_VALUE",

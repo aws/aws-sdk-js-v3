@@ -54,8 +54,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * import { DAXClient, DescribeClustersCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeClustersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
- *   ClusterNames: [
+ * const input = { // DescribeClustersRequest
+ *   ClusterNames: [ // ClusterNameList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

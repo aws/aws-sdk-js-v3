@@ -42,7 +42,7 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * import { ElastiCacheClient, DeleteUserGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteUserGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DeleteUserGroupMessage
  *   UserGroupId: "STRING_VALUE", // required
  * };
  * const command = new DeleteUserGroupCommand(input);

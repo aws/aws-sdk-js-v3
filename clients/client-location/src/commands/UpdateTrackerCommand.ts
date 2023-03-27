@@ -42,7 +42,7 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  * import { LocationClient, UpdateTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // UpdateTrackerRequest
  *   TrackerName: "STRING_VALUE", // required
  *   PricingPlan: "STRING_VALUE",
  *   PricingPlanDataSource: "STRING_VALUE",

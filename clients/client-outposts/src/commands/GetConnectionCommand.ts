@@ -52,7 +52,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * import { OutpostsClient, GetConnectionCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetConnectionCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // GetConnectionRequest
  *   ConnectionId: "STRING_VALUE", // required
  * };
  * const command = new GetConnectionCommand(input);

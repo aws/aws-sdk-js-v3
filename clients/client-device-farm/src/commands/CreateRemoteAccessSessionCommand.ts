@@ -42,7 +42,7 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * import { DeviceFarmClient, CreateRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // CreateRemoteAccessSessionRequest
  *   projectArn: "STRING_VALUE", // required
  *   deviceArn: "STRING_VALUE", // required
  *   instanceArn: "STRING_VALUE",
@@ -52,9 +52,9 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  *   remoteRecordAppArn: "STRING_VALUE",
  *   name: "STRING_VALUE",
  *   clientId: "STRING_VALUE",
- *   configuration: {
+ *   configuration: { // CreateRemoteAccessSessionConfiguration
  *     billingMethod: "METERED" || "UNMETERED",
- *     vpceConfigurationArns: [
+ *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
  *   },

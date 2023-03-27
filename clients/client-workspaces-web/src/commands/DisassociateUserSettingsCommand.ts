@@ -42,7 +42,7 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  * import { WorkSpacesWebClient, DisassociateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // DisassociateUserSettingsRequest
  *   portalArn: "STRING_VALUE", // required
  * };
  * const command = new DisassociateUserSettingsCommand(input);

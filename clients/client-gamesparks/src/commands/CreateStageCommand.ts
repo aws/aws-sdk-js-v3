@@ -42,13 +42,13 @@ export interface CreateStageCommandOutput extends CreateStageResult, __MetadataB
  * import { GameSparksClient, CreateStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, CreateStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // CreateStageRequest
  *   GameName: "STRING_VALUE", // required
  *   StageName: "STRING_VALUE", // required
  *   Role: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

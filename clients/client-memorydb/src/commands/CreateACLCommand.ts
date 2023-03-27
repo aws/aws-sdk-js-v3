@@ -39,13 +39,13 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * import { MemoryDBClient, CreateACLCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateACLCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // CreateACLRequest
  *   ACLName: "STRING_VALUE", // required
- *   UserNames: [
+ *   UserNames: [ // UserNameListInput
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

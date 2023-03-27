@@ -47,7 +47,7 @@ export interface DeleteMediaInsightsPipelineConfigurationCommandOutput extends _
  * import { ChimeSDKMediaPipelinesClient, DeleteMediaInsightsPipelineConfigurationCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, DeleteMediaInsightsPipelineConfigurationCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
+ * const input = { // DeleteMediaInsightsPipelineConfigurationRequest
  *   Identifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteMediaInsightsPipelineConfigurationCommand(input);

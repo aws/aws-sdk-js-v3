@@ -42,7 +42,7 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * import { MediaConnectClient, ListFlowsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, ListFlowsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // ListFlowsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

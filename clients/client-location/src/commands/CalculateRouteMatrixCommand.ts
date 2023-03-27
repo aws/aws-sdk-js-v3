@@ -88,10 +88,10 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * import { LocationClient, CalculateRouteMatrixCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CalculateRouteMatrixCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // CalculateRouteMatrixRequest
  *   CalculatorName: "STRING_VALUE", // required
- *   DeparturePositions: [ // required
- *     [
+ *   DeparturePositions: [ // PositionList // required
+ *     [ // Position
  *       Number("double"),
  *     ],
  *   ],
@@ -104,20 +104,20 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *   DepartureTime: new Date("TIMESTAMP"),
  *   DepartNow: true || false,
  *   DistanceUnit: "STRING_VALUE",
- *   CarModeOptions: {
+ *   CarModeOptions: { // CalculateRouteCarModeOptions
  *     AvoidFerries: true || false,
  *     AvoidTolls: true || false,
  *   },
- *   TruckModeOptions: {
+ *   TruckModeOptions: { // CalculateRouteTruckModeOptions
  *     AvoidFerries: true || false,
  *     AvoidTolls: true || false,
- *     Dimensions: {
+ *     Dimensions: { // TruckDimensions
  *       Length: Number("double"),
  *       Height: Number("double"),
  *       Width: Number("double"),
  *       Unit: "STRING_VALUE",
  *     },
- *     Weight: {
+ *     Weight: { // TruckWeight
  *       Total: Number("double"),
  *       Unit: "STRING_VALUE",
  *     },

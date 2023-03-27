@@ -45,7 +45,7 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
  * import { AlexaForBusinessClient, DisassociateSkillGroupFromRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateSkillGroupFromRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DisassociateSkillGroupFromRoomRequest
  *   SkillGroupArn: "STRING_VALUE",
  *   RoomArn: "STRING_VALUE",
  * };

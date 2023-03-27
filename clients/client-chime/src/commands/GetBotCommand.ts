@@ -39,7 +39,7 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * import { ChimeClient, GetBotCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetBotCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // GetBotRequest
  *   AccountId: "STRING_VALUE", // required
  *   BotId: "STRING_VALUE", // required
  * };

@@ -42,7 +42,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { GlueClient, GetSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetSessionRequest
  *   Id: "STRING_VALUE", // required
  *   RequestOrigin: "STRING_VALUE",
  * };

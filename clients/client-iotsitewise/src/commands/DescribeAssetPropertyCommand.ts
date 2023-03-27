@@ -49,7 +49,7 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * import { IoTSiteWiseClient, DescribeAssetPropertyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeAssetPropertyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DescribeAssetPropertyRequest
  *   assetId: "STRING_VALUE", // required
  *   propertyId: "STRING_VALUE", // required
  * };

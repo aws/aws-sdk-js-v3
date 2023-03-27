@@ -44,9 +44,9 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * import { EC2Client, ModifyVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVerifiedAccessTrustProviderRequest
  *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
- *   OidcOptions: {
+ *   OidcOptions: { // ModifyVerifiedAccessTrustProviderOidcOptions
  *     Scope: "STRING_VALUE",
  *   },
  *   Description: "STRING_VALUE",

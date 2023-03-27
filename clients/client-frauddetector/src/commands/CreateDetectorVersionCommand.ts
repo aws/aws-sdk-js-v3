@@ -42,21 +42,21 @@ export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersio
  * import { FraudDetectorClient, CreateDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // CreateDetectorVersionRequest
  *   detectorId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   externalModelEndpoints: [
+ *   externalModelEndpoints: [ // ListOfStrings
  *     "STRING_VALUE",
  *   ],
- *   rules: [ // required
- *     {
+ *   rules: [ // RuleList // required
+ *     { // Rule
  *       detectorId: "STRING_VALUE", // required
  *       ruleId: "STRING_VALUE", // required
  *       ruleVersion: "STRING_VALUE", // required
  *     },
  *   ],
- *   modelVersions: [
- *     {
+ *   modelVersions: [ // ListOfModelVersions
+ *     { // ModelVersion
  *       modelId: "STRING_VALUE", // required
  *       modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
  *       modelVersionNumber: "STRING_VALUE", // required
@@ -64,8 +64,8 @@ export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersio
  *     },
  *   ],
  *   ruleExecutionMode: "ALL_MATCHED" || "FIRST_MATCHED",
- *   tags: [
- *     {
+ *   tags: [ // tagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

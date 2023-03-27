@@ -81,26 +81,26 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * import { GameLiftClient, StartGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // StartGameSessionPlacementInput
  *   PlacementId: "STRING_VALUE", // required
  *   GameSessionQueueName: "STRING_VALUE", // required
- *   GameProperties: [
- *     {
+ *   GameProperties: [ // GamePropertyList
+ *     { // GameProperty
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   MaximumPlayerSessionCount: Number("int"), // required
  *   GameSessionName: "STRING_VALUE",
- *   PlayerLatencies: [
- *     {
+ *   PlayerLatencies: [ // PlayerLatencyList
+ *     { // PlayerLatency
  *       PlayerId: "STRING_VALUE",
  *       RegionIdentifier: "STRING_VALUE",
  *       LatencyInMilliseconds: Number("float"),
  *     },
  *   ],
- *   DesiredPlayerSessions: [
- *     {
+ *   DesiredPlayerSessions: [ // DesiredPlayerSessionList
+ *     { // DesiredPlayerSession
  *       PlayerId: "STRING_VALUE",
  *       PlayerData: "STRING_VALUE",
  *     },

@@ -48,9 +48,9 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  * import { DatabaseMigrationServiceClient, StartRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // StartRecommendationsRequest
  *   DatabaseId: "STRING_VALUE", // required
- *   Settings: {
+ *   Settings: { // RecommendationSettings
  *     InstanceSizingType: "STRING_VALUE", // required
  *     WorkloadType: "STRING_VALUE", // required
  *   },

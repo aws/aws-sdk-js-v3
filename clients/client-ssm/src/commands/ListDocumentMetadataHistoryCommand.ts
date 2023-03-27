@@ -44,7 +44,7 @@ export interface ListDocumentMetadataHistoryCommandOutput
  * import { SSMClient, ListDocumentMetadataHistoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListDocumentMetadataHistoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // ListDocumentMetadataHistoryRequest
  *   Name: "STRING_VALUE", // required
  *   DocumentVersion: "STRING_VALUE",
  *   Metadata: "DocumentReviews", // required

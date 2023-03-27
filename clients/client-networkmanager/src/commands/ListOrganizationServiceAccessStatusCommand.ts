@@ -47,7 +47,7 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * import { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // ListOrganizationServiceAccessStatusRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

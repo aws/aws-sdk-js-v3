@@ -46,7 +46,7 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
  * import { IoTFleetWiseClient, DeleteSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // DeleteSignalCatalogRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeleteSignalCatalogCommand(input);

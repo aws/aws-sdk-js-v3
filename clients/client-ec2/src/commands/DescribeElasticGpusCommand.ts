@@ -43,15 +43,15 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * import { EC2Client, DescribeElasticGpusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeElasticGpusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   ElasticGpuIds: [
+ * const input = { // DescribeElasticGpusRequest
+ *   ElasticGpuIds: [ // ElasticGpuIdSet
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

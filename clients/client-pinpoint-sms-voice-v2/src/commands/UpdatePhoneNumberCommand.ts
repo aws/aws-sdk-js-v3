@@ -50,7 +50,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * import { PinpointSMSVoiceV2Client, UpdatePhoneNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, UpdatePhoneNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // UpdatePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required
  *   TwoWayEnabled: true || false,
  *   TwoWayChannelArn: "STRING_VALUE",

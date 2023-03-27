@@ -42,10 +42,10 @@ export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOut
  * import { SchedulerClient, CreateScheduleGroupCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, CreateScheduleGroupCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
- * const input = {
+ * const input = { // CreateScheduleGroupInput
  *   Name: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -53,13 +53,13 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  * import { EC2Client, ModifyVpcEndpointServiceConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointServiceConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVpcEndpointServiceConfigurationRequest
  *   DryRun: true || false,
  *   ServiceId: "STRING_VALUE", // required
  *   PrivateDnsName: "STRING_VALUE",
  *   RemovePrivateDnsName: true || false,
  *   AcceptanceRequired: true || false,
- *   AddNetworkLoadBalancerArns: [
+ *   AddNetworkLoadBalancerArns: [ // ValueStringList
  *     "STRING_VALUE",
  *   ],
  *   RemoveNetworkLoadBalancerArns: [
@@ -74,9 +74,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  *   AddSupportedIpAddressTypes: [
  *     "STRING_VALUE",
  *   ],
- *   RemoveSupportedIpAddressTypes: [
- *     "STRING_VALUE",
- *   ],
+ *   RemoveSupportedIpAddressTypes: "<ValueStringList>",
  * };
  * const command = new ModifyVpcEndpointServiceConfigurationCommand(input);
  * const response = await client.send(command);

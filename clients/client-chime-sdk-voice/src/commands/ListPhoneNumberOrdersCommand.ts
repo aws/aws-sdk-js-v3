@@ -46,7 +46,7 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  * import { ChimeSDKVoiceClient, ListPhoneNumberOrdersCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, ListPhoneNumberOrdersCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // ListPhoneNumberOrdersRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

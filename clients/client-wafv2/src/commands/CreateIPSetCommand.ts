@@ -45,16 +45,16 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * import { WAFV2Client, CreateIPSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, CreateIPSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // CreateIPSetRequest
  *   Name: "STRING_VALUE", // required
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required
  *   Description: "STRING_VALUE",
  *   IPAddressVersion: "IPV4" || "IPV6", // required
- *   Addresses: [ // required
+ *   Addresses: [ // IPAddresses // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

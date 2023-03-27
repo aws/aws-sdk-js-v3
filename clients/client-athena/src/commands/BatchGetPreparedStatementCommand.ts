@@ -46,8 +46,8 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  * import { AthenaClient, BatchGetPreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, BatchGetPreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
- *   PreparedStatementNames: [ // required
+ * const input = { // BatchGetPreparedStatementInput
+ *   PreparedStatementNames: [ // PreparedStatementNameList // required
  *     "STRING_VALUE",
  *   ],
  *   WorkGroup: "STRING_VALUE", // required

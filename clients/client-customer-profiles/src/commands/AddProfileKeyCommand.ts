@@ -45,10 +45,10 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * import { CustomerProfilesClient, AddProfileKeyCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, AddProfileKeyCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // AddProfileKeyRequest
  *   ProfileId: "STRING_VALUE", // required
  *   KeyName: "STRING_VALUE", // required
- *   Values: [ // required
+ *   Values: [ // requestValueList // required
  *     "STRING_VALUE",
  *   ],
  *   DomainName: "STRING_VALUE", // required

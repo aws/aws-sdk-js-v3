@@ -68,7 +68,7 @@ export interface GetMultiRegionAccessPointPolicyStatusCommandOutput
  * import { S3ControlClient, GetMultiRegionAccessPointPolicyStatusCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetMultiRegionAccessPointPolicyStatusCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // GetMultiRegionAccessPointPolicyStatusRequest
  *   AccountId: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  * };

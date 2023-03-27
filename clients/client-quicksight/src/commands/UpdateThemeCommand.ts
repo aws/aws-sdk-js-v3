@@ -42,15 +42,15 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * import { QuickSightClient, UpdateThemeCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateThemeCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // UpdateThemeRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   ThemeId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   BaseThemeId: "STRING_VALUE", // required
  *   VersionDescription: "STRING_VALUE",
- *   Configuration: {
- *     DataColorPalette: {
- *       Colors: [
+ *   Configuration: { // ThemeConfiguration
+ *     DataColorPalette: { // DataColorPalette
+ *       Colors: [ // ColorList
  *         "STRING_VALUE",
  *       ],
  *       MinMaxGradient: [
@@ -58,7 +58,7 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *       ],
  *       EmptyFillColor: "STRING_VALUE",
  *     },
- *     UIColorPalette: {
+ *     UIColorPalette: { // UIColorPalette
  *       PrimaryForeground: "STRING_VALUE",
  *       PrimaryBackground: "STRING_VALUE",
  *       SecondaryForeground: "STRING_VALUE",
@@ -76,24 +76,24 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *       Measure: "STRING_VALUE",
  *       MeasureForeground: "STRING_VALUE",
  *     },
- *     Sheet: {
- *       Tile: {
- *         Border: {
+ *     Sheet: { // SheetStyle
+ *       Tile: { // TileStyle
+ *         Border: { // BorderStyle
  *           Show: true || false,
  *         },
  *       },
- *       TileLayout: {
- *         Gutter: {
+ *       TileLayout: { // TileLayoutStyle
+ *         Gutter: { // GutterStyle
  *           Show: true || false,
  *         },
- *         Margin: {
+ *         Margin: { // MarginStyle
  *           Show: true || false,
  *         },
  *       },
  *     },
- *     Typography: {
- *       FontFamilies: [
- *         {
+ *     Typography: { // Typography
+ *       FontFamilies: [ // FontList
+ *         { // Font
  *           FontFamily: "STRING_VALUE",
  *         },
  *       ],

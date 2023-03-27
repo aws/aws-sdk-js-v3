@@ -42,10 +42,10 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * import { M2Client, ListEnvironmentsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListEnvironmentsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // ListEnvironmentsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   names: [
+ *   names: [ // EntityNameList
  *     "STRING_VALUE",
  *   ],
  *   engineType: "STRING_VALUE",

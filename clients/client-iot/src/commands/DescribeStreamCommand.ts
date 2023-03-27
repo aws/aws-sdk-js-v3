@@ -43,7 +43,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __M
  * import { IoTClient, DescribeStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DescribeStreamRequest
  *   streamId: "STRING_VALUE", // required
  * };
  * const command = new DescribeStreamCommand(input);

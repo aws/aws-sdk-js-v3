@@ -43,14 +43,14 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * import { ElastiCacheClient, CreateCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // CreateCacheSubnetGroupMessage
  *   CacheSubnetGroupName: "STRING_VALUE", // required
  *   CacheSubnetGroupDescription: "STRING_VALUE", // required
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

@@ -46,7 +46,7 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  * import { Route53RecoveryControlConfigClient, DeleteSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DeleteSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
+ * const input = { // DeleteSafetyRuleRequest
  *   SafetyRuleArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteSafetyRuleCommand(input);

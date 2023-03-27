@@ -50,7 +50,7 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  * import { BudgetsClient, DescribeBudgetNotificationsForAccountCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetNotificationsForAccountCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
- * const input = {
+ * const input = { // DescribeBudgetNotificationsForAccountRequest
  *   AccountId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

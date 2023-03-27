@@ -52,13 +52,13 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * import { ChimeClient, BatchCreateAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchCreateAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // BatchCreateAttendeeRequest
  *   MeetingId: "STRING_VALUE", // required
- *   Attendees: [ // required
- *     {
+ *   Attendees: [ // CreateAttendeeRequestItemList // required
+ *     { // CreateAttendeeRequestItem
  *       ExternalUserId: "STRING_VALUE", // required
- *       Tags: [
- *         {
+ *       Tags: [ // AttendeeTagList
+ *         { // Tag
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },

@@ -39,7 +39,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  * import { DeviceFarmClient, GetDeviceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetDeviceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // GetDeviceRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new GetDeviceCommand(input);

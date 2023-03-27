@@ -44,7 +44,7 @@ export interface GetCalculationExecutionStatusCommandOutput
  * import { AthenaClient, GetCalculationExecutionStatusCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetCalculationExecutionStatusCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // GetCalculationExecutionStatusRequest
  *   CalculationExecutionId: "STRING_VALUE", // required
  * };
  * const command = new GetCalculationExecutionStatusCommand(input);

@@ -42,7 +42,7 @@ export interface DeleteBatchPredictionJobCommandOutput extends DeleteBatchPredic
  * import { FraudDetectorClient, DeleteBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // DeleteBatchPredictionJobRequest
  *   jobId: "STRING_VALUE", // required
  * };
  * const command = new DeleteBatchPredictionJobCommand(input);

@@ -59,28 +59,28 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * import { SESClient, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // UpdateConfigurationSetEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
- *   EventDestination: {
+ *   EventDestination: { // EventDestination
  *     Name: "STRING_VALUE", // required
  *     Enabled: true || false,
- *     MatchingEventTypes: [ // required
+ *     MatchingEventTypes: [ // EventTypes // required
  *       "STRING_VALUE",
  *     ],
- *     KinesisFirehoseDestination: {
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
  *       IAMRoleARN: "STRING_VALUE", // required
  *       DeliveryStreamARN: "STRING_VALUE", // required
  *     },
- *     CloudWatchDestination: {
- *       DimensionConfigurations: [ // required
- *         {
+ *     CloudWatchDestination: { // CloudWatchDestination
+ *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ *         { // CloudWatchDimensionConfiguration
  *           DimensionName: "STRING_VALUE", // required
  *           DimensionValueSource: "STRING_VALUE", // required
  *           DefaultDimensionValue: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     SNSDestination: {
+ *     SNSDestination: { // SNSDestination
  *       TopicARN: "STRING_VALUE", // required
  *     },
  *   },

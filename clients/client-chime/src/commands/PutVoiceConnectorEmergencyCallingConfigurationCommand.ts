@@ -51,11 +51,11 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * import { ChimeClient, PutVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // PutVoiceConnectorEmergencyCallingConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
- *   EmergencyCallingConfiguration: {
- *     DNIS: [
- *       {
+ *   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
+ *     DNIS: [ // DNISEmergencyCallingConfigurationList
+ *       { // DNISEmergencyCallingConfiguration
  *         EmergencyPhoneNumber: "STRING_VALUE", // required
  *         TestPhoneNumber: "STRING_VALUE",
  *         CallingCountry: "STRING_VALUE", // required

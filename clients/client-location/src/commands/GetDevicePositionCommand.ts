@@ -49,7 +49,7 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * import { LocationClient, GetDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // GetDevicePositionRequest
  *   TrackerName: "STRING_VALUE", // required
  *   DeviceId: "STRING_VALUE", // required
  * };

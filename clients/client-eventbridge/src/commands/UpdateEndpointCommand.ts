@@ -42,24 +42,24 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * import { EventBridgeClient, UpdateEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // UpdateEndpointRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   RoutingConfig: {
- *     FailoverConfig: {
- *       Primary: {
+ *   RoutingConfig: { // RoutingConfig
+ *     FailoverConfig: { // FailoverConfig
+ *       Primary: { // Primary
  *         HealthCheck: "STRING_VALUE", // required
  *       },
- *       Secondary: {
+ *       Secondary: { // Secondary
  *         Route: "STRING_VALUE", // required
  *       },
  *     },
  *   },
- *   ReplicationConfig: {
+ *   ReplicationConfig: { // ReplicationConfig
  *     State: "ENABLED" || "DISABLED",
  *   },
- *   EventBuses: [
- *     {
+ *   EventBuses: [ // EndpointEventBusList
+ *     { // EndpointEventBus
  *       EventBusArn: "STRING_VALUE", // required
  *     },
  *   ],

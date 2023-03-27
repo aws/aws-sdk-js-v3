@@ -48,9 +48,9 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * import { DirectoryServiceClient, DescribeSnapshotsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DescribeSnapshotsRequest
  *   DirectoryId: "STRING_VALUE",
- *   SnapshotIds: [
+ *   SnapshotIds: [ // SnapshotIds
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

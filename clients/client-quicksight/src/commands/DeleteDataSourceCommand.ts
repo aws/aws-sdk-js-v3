@@ -43,7 +43,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * import { QuickSightClient, DeleteDataSourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteDataSourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DeleteDataSourceRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DataSourceId: "STRING_VALUE", // required
  * };

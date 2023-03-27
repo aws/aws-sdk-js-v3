@@ -47,18 +47,18 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * import { DataBrewClient, SendProjectSessionActionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, SendProjectSessionActionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // SendProjectSessionActionRequest
  *   Preview: true || false,
  *   Name: "STRING_VALUE", // required
- *   RecipeStep: {
- *     Action: {
+ *   RecipeStep: { // RecipeStep
+ *     Action: { // RecipeAction
  *       Operation: "STRING_VALUE", // required
- *       Parameters: {
+ *       Parameters: { // ParameterMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
- *     ConditionExpressions: [
- *       {
+ *     ConditionExpressions: [ // ConditionExpressionList
+ *       { // ConditionExpression
  *         Condition: "STRING_VALUE", // required
  *         Value: "STRING_VALUE",
  *         TargetColumn: "STRING_VALUE", // required
@@ -67,10 +67,10 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  *   },
  *   StepIndex: Number("int"),
  *   ClientSessionId: "STRING_VALUE",
- *   ViewFrame: {
+ *   ViewFrame: { // ViewFrame
  *     StartColumnIndex: Number("int"), // required
  *     ColumnRange: Number("int"),
- *     HiddenColumns: [
+ *     HiddenColumns: [ // HiddenColumnList
  *       "STRING_VALUE",
  *     ],
  *     StartRowIndex: Number("int"),

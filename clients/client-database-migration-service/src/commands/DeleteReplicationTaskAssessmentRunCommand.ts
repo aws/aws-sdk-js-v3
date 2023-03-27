@@ -54,7 +54,7 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  * import { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DeleteReplicationTaskAssessmentRunMessage
  *   ReplicationTaskAssessmentRunArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteReplicationTaskAssessmentRunCommand(input);

@@ -46,16 +46,16 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * import { SnowDeviceManagementClient, CreateTaskCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, CreateTaskCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
- * const input = {
- *   targets: [ // required
+ * const input = { // CreateTaskInput
+ *   targets: [ // TargetList // required
  *     "STRING_VALUE",
  *   ],
- *   command: { // Union: only one key present
+ *   command: { // Command Union: only one key present
  *     unlock: {},
  *     reboot: {},
  *   },
  *   description: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

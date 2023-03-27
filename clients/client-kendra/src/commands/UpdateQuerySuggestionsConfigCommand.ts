@@ -53,7 +53,7 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  * import { KendraClient, UpdateQuerySuggestionsConfigCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateQuerySuggestionsConfigCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // UpdateQuerySuggestionsConfigRequest
  *   IndexId: "STRING_VALUE", // required
  *   Mode: "ENABLED" || "LEARN_ONLY",
  *   QueryLogLookBackWindowInDays: Number("int"),

@@ -43,7 +43,7 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * import { CodeCommitClient, PutCommentReactionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PutCommentReactionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // PutCommentReactionInput
  *   commentId: "STRING_VALUE", // required
  *   reactionValue: "STRING_VALUE", // required
  * };

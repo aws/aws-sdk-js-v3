@@ -42,7 +42,7 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  * import { AthenaClient, GetSessionStatusCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetSessionStatusCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // GetSessionStatusRequest
  *   SessionId: "STRING_VALUE", // required
  * };
  * const command = new GetSessionStatusCommand(input);

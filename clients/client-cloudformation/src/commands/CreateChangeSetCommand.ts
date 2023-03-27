@@ -62,40 +62,40 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * import { CloudFormationClient, CreateChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // CreateChangeSetInput
  *   StackName: "STRING_VALUE", // required
  *   TemplateBody: "STRING_VALUE",
  *   TemplateURL: "STRING_VALUE",
  *   UsePreviousTemplate: true || false,
- *   Parameters: [
- *     {
+ *   Parameters: [ // Parameters
+ *     { // Parameter
  *       ParameterKey: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       UsePreviousValue: true || false,
  *       ResolvedValue: "STRING_VALUE",
  *     },
  *   ],
- *   Capabilities: [
+ *   Capabilities: [ // Capabilities
  *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
  *   ],
- *   ResourceTypes: [
+ *   ResourceTypes: [ // ResourceTypes
  *     "STRING_VALUE",
  *   ],
  *   RoleARN: "STRING_VALUE",
- *   RollbackConfiguration: {
- *     RollbackTriggers: [
- *       {
+ *   RollbackConfiguration: { // RollbackConfiguration
+ *     RollbackTriggers: [ // RollbackTriggers
+ *       { // RollbackTrigger
  *         Arn: "STRING_VALUE", // required
  *         Type: "STRING_VALUE", // required
  *       },
  *     ],
  *     MonitoringTimeInMinutes: Number("int"),
  *   },
- *   NotificationARNs: [
+ *   NotificationARNs: [ // NotificationARNs
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
@@ -104,11 +104,11 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  *   ClientToken: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   ChangeSetType: "CREATE" || "UPDATE" || "IMPORT",
- *   ResourcesToImport: [
- *     {
+ *   ResourcesToImport: [ // ResourcesToImport
+ *     { // ResourceToImport
  *       ResourceType: "STRING_VALUE", // required
  *       LogicalResourceId: "STRING_VALUE", // required
- *       ResourceIdentifier: { // required
+ *       ResourceIdentifier: { // ResourceIdentifierProperties // required
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

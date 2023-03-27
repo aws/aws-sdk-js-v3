@@ -42,7 +42,7 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * import { SageMakerClient, DeleteAssociationCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteAssociationCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteAssociationRequest
  *   SourceArn: "STRING_VALUE", // required
  *   DestinationArn: "STRING_VALUE", // required
  * };

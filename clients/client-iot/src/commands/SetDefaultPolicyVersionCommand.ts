@@ -46,7 +46,7 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * import { IoTClient, SetDefaultPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetDefaultPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // SetDefaultPolicyVersionRequest
  *   policyName: "STRING_VALUE", // required
  *   policyVersionId: "STRING_VALUE", // required
  * };

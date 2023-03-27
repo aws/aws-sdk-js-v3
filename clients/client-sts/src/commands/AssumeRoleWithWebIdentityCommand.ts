@@ -174,13 +174,13 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleWithWebIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
- * const input = {
+ * const input = { // AssumeRoleWithWebIdentityRequest
  *   RoleArn: "STRING_VALUE", // required
  *   RoleSessionName: "STRING_VALUE", // required
  *   WebIdentityToken: "STRING_VALUE", // required
  *   ProviderId: "STRING_VALUE",
- *   PolicyArns: [
- *     {
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
  *       arn: "STRING_VALUE",
  *     },
  *   ],

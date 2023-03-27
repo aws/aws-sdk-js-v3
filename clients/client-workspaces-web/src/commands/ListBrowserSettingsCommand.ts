@@ -42,7 +42,7 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * import { WorkSpacesWebClient, ListBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // ListBrowserSettingsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

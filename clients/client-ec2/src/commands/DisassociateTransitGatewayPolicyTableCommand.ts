@@ -48,7 +48,7 @@ export interface DisassociateTransitGatewayPolicyTableCommandOutput
  * import { EC2Client, DisassociateTransitGatewayPolicyTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateTransitGatewayPolicyTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisassociateTransitGatewayPolicyTableRequest
  *   TransitGatewayPolicyTableId: "STRING_VALUE", // required
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required
  *   DryRun: true || false,

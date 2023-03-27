@@ -44,7 +44,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * import { ForecastClient, ListDatasetsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListDatasetsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // ListDatasetsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

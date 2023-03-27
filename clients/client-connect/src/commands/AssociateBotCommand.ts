@@ -44,13 +44,13 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, AssociateBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // AssociateBotRequest
  *   InstanceId: "STRING_VALUE", // required
- *   LexBot: {
+ *   LexBot: { // LexBot
  *     Name: "STRING_VALUE", // required
  *     LexRegion: "STRING_VALUE", // required
  *   },
- *   LexV2Bot: {
+ *   LexV2Bot: { // LexV2Bot
  *     AliasArn: "STRING_VALUE",
  *   },
  * };

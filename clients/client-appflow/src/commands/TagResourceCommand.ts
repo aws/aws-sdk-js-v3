@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { AppflowClient, TagResourceCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, TagResourceCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

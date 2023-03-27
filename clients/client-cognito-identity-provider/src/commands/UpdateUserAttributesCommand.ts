@@ -68,15 +68,15 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * import { CognitoIdentityProviderClient, UpdateUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
- *   UserAttributes: [ // required
- *     {
+ * const input = { // UpdateUserAttributesRequest
+ *   UserAttributes: [ // AttributeListType // required
+ *     { // AttributeType
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   AccessToken: "STRING_VALUE", // required
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

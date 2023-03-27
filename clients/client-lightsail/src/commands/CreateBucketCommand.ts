@@ -46,11 +46,11 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * import { LightsailClient, CreateBucketCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateBucketCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // CreateBucketRequest
  *   bucketName: "STRING_VALUE", // required
  *   bundleId: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

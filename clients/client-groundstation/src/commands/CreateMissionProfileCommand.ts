@@ -45,21 +45,21 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  * import { GroundStationClient, CreateMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // CreateMissionProfileRequest
  *   name: "STRING_VALUE", // required
  *   contactPrePassDurationSeconds: Number("int"),
  *   contactPostPassDurationSeconds: Number("int"),
  *   minimumViableContactDurationSeconds: Number("int"), // required
- *   dataflowEdges: [ // required
- *     [
+ *   dataflowEdges: [ // DataflowEdgeList // required
+ *     [ // DataflowEdge
  *       "STRING_VALUE",
  *     ],
  *   ],
  *   trackingConfigArn: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   streamsKmsKey: { // Union: only one key present
+ *   streamsKmsKey: { // KmsKey Union: only one key present
  *     kmsKeyArn: "STRING_VALUE",
  *     kmsAliasArn: "STRING_VALUE",
  *   },

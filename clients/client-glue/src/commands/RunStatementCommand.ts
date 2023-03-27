@@ -42,7 +42,7 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  * import { GlueClient, RunStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, RunStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // RunStatementRequest
  *   SessionId: "STRING_VALUE", // required
  *   Code: "STRING_VALUE", // required
  *   RequestOrigin: "STRING_VALUE",

@@ -44,18 +44,18 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  * import { PersonalizeClient, CreateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // CreateMetricAttributionRequest
  *   name: "STRING_VALUE", // required
  *   datasetGroupArn: "STRING_VALUE", // required
- *   metrics: [ // required
- *     {
+ *   metrics: [ // MetricAttributes // required
+ *     { // MetricAttribute
  *       eventType: "STRING_VALUE", // required
  *       metricName: "STRING_VALUE", // required
  *       expression: "STRING_VALUE", // required
  *     },
  *   ],
- *   metricsOutputConfig: {
- *     s3DataDestination: {
+ *   metricsOutputConfig: { // MetricAttributionOutput
+ *     s3DataDestination: { // S3DataConfig
  *       path: "STRING_VALUE", // required
  *       kmsKeyArn: "STRING_VALUE",
  *     },

@@ -80,7 +80,7 @@ export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {
  * import { SWFClient, SignalWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, SignalWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // SignalWorkflowExecutionInput
  *   domain: "STRING_VALUE", // required
  *   workflowId: "STRING_VALUE", // required
  *   runId: "STRING_VALUE",

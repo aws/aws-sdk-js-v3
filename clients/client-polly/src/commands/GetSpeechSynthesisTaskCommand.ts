@@ -45,7 +45,7 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  * import { PollyClient, GetSpeechSynthesisTaskCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, GetSpeechSynthesisTaskCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
- * const input = {
+ * const input = { // GetSpeechSynthesisTaskInput
  *   TaskId: "STRING_VALUE", // required
  * };
  * const command = new GetSpeechSynthesisTaskCommand(input);

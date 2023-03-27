@@ -51,7 +51,7 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * import { ApplicationAutoScalingClient, DeleteScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DeleteScalingPolicyCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
- * const input = {
+ * const input = { // DeleteScalingPolicyRequest
  *   PolicyName: "STRING_VALUE", // required
  *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
  *   ResourceId: "STRING_VALUE", // required

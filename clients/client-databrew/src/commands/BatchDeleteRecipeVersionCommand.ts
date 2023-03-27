@@ -80,9 +80,9 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * import { DataBrewClient, BatchDeleteRecipeVersionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, BatchDeleteRecipeVersionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // BatchDeleteRecipeVersionRequest
  *   Name: "STRING_VALUE", // required
- *   RecipeVersions: [ // required
+ *   RecipeVersions: [ // RecipeVersionList // required
  *     "STRING_VALUE",
  *   ],
  * };

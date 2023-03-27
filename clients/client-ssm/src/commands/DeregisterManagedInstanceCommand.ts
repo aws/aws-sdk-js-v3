@@ -44,7 +44,7 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * import { SSMClient, DeregisterManagedInstanceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeregisterManagedInstanceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DeregisterManagedInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
  * };
  * const command = new DeregisterManagedInstanceCommand(input);

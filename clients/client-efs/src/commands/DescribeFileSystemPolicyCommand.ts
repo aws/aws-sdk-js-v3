@@ -43,7 +43,7 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  * import { EFSClient, DescribeFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // DescribeFileSystemPolicyRequest
  *   FileSystemId: "STRING_VALUE", // required
  * };
  * const command = new DescribeFileSystemPolicyCommand(input);

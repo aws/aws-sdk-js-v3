@@ -53,7 +53,7 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * import { RDSClient, RevokeDBSecurityGroupIngressCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RevokeDBSecurityGroupIngressCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // RevokeDBSecurityGroupIngressMessage
  *   DBSecurityGroupName: "STRING_VALUE", // required
  *   CIDRIP: "STRING_VALUE",
  *   EC2SecurityGroupName: "STRING_VALUE",

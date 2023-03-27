@@ -46,11 +46,11 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * import { WorkSpacesWebClient, CreateIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // CreateIdentityProviderRequest
  *   portalArn: "STRING_VALUE", // required
  *   identityProviderName: "STRING_VALUE", // required
  *   identityProviderType: "STRING_VALUE", // required
- *   identityProviderDetails: { // required
+ *   identityProviderDetails: { // IdentityProviderDetails // required
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

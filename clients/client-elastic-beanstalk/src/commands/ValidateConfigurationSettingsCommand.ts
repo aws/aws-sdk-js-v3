@@ -47,12 +47,12 @@ export interface ValidateConfigurationSettingsCommandOutput
  * import { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // ValidateConfigurationSettingsMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   TemplateName: "STRING_VALUE",
  *   EnvironmentName: "STRING_VALUE",
- *   OptionSettings: [ // required
- *     {
+ *   OptionSettings: [ // ConfigurationOptionSettingsList // required
+ *     { // ConfigurationOptionSetting
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",

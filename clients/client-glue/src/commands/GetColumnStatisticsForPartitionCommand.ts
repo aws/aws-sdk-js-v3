@@ -45,14 +45,14 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  * import { GlueClient, GetColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetColumnStatisticsForPartitionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   PartitionValues: [ // required
+ *   PartitionValues: [ // ValueStringList // required
  *     "STRING_VALUE",
  *   ],
- *   ColumnNames: [ // required
+ *   ColumnNames: [ // GetColumnNamesList // required
  *     "STRING_VALUE",
  *   ],
  * };

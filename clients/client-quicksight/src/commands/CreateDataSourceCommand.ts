@@ -46,122 +46,122 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * import { QuickSightClient, CreateDataSourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateDataSourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // CreateDataSourceRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DataSourceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS", // required
- *   DataSourceParameters: { // Union: only one key present
- *     AmazonElasticsearchParameters: {
+ *   DataSourceParameters: { // DataSourceParameters Union: only one key present
+ *     AmazonElasticsearchParameters: { // AmazonElasticsearchParameters
  *       Domain: "STRING_VALUE", // required
  *     },
- *     AthenaParameters: {
+ *     AthenaParameters: { // AthenaParameters
  *       WorkGroup: "STRING_VALUE",
  *       RoleArn: "STRING_VALUE",
  *     },
- *     AuroraParameters: {
+ *     AuroraParameters: { // AuroraParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     AuroraPostgreSqlParameters: {
+ *     AuroraPostgreSqlParameters: { // AuroraPostgreSqlParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     AwsIotAnalyticsParameters: {
+ *     AwsIotAnalyticsParameters: { // AwsIotAnalyticsParameters
  *       DataSetName: "STRING_VALUE", // required
  *     },
- *     JiraParameters: {
+ *     JiraParameters: { // JiraParameters
  *       SiteBaseUrl: "STRING_VALUE", // required
  *     },
- *     MariaDbParameters: {
+ *     MariaDbParameters: { // MariaDbParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     MySqlParameters: {
+ *     MySqlParameters: { // MySqlParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     OracleParameters: {
+ *     OracleParameters: { // OracleParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     PostgreSqlParameters: {
+ *     PostgreSqlParameters: { // PostgreSqlParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     PrestoParameters: {
+ *     PrestoParameters: { // PrestoParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Catalog: "STRING_VALUE", // required
  *     },
- *     RdsParameters: {
+ *     RdsParameters: { // RdsParameters
  *       InstanceId: "STRING_VALUE", // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     RedshiftParameters: {
+ *     RedshiftParameters: { // RedshiftParameters
  *       Host: "STRING_VALUE",
  *       Port: Number("int"),
  *       Database: "STRING_VALUE", // required
  *       ClusterId: "STRING_VALUE",
  *     },
- *     S3Parameters: {
- *       ManifestFileLocation: {
+ *     S3Parameters: { // S3Parameters
+ *       ManifestFileLocation: { // ManifestFileLocation
  *         Bucket: "STRING_VALUE", // required
  *         Key: "STRING_VALUE", // required
  *       },
  *       RoleArn: "STRING_VALUE",
  *     },
- *     ServiceNowParameters: {
+ *     ServiceNowParameters: { // ServiceNowParameters
  *       SiteBaseUrl: "STRING_VALUE", // required
  *     },
- *     SnowflakeParameters: {
+ *     SnowflakeParameters: { // SnowflakeParameters
  *       Host: "STRING_VALUE", // required
  *       Database: "STRING_VALUE", // required
  *       Warehouse: "STRING_VALUE", // required
  *     },
- *     SparkParameters: {
+ *     SparkParameters: { // SparkParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *     },
- *     SqlServerParameters: {
- *       Host: "STRING_VALUE", // required
- *       Port: Number("int"), // required
- *       Database: "STRING_VALUE", // required
- *     },
- *     TeradataParameters: {
+ *     SqlServerParameters: { // SqlServerParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     TwitterParameters: {
+ *     TeradataParameters: { // TeradataParameters
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     TwitterParameters: { // TwitterParameters
  *       Query: "STRING_VALUE", // required
  *       MaxRows: Number("int"), // required
  *     },
- *     AmazonOpenSearchParameters: {
+ *     AmazonOpenSearchParameters: { // AmazonOpenSearchParameters
  *       Domain: "STRING_VALUE", // required
  *     },
- *     ExasolParameters: {
+ *     ExasolParameters: { // ExasolParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *     },
- *     DatabricksParameters: {
+ *     DatabricksParameters: { // DatabricksParameters
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       SqlEndpointPath: "STRING_VALUE", // required
  *     },
  *   },
- *   Credentials: {
- *     CredentialPair: {
+ *   Credentials: { // DataSourceCredentials
+ *     CredentialPair: { // CredentialPair
  *       Username: "STRING_VALUE", // required
  *       Password: "STRING_VALUE", // required
- *       AlternateDataSourceParameters: [
- *         { // Union: only one key present
+ *       AlternateDataSourceParameters: [ // DataSourceParametersList
+ *         {//  Union: only one key present
  *           AmazonElasticsearchParameters: {
  *             Domain: "STRING_VALUE", // required
  *           },
@@ -271,22 +271,22 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *     CopySourceArn: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
  *   },
- *   Permissions: [
- *     {
+ *   Permissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
  *       Principal: "STRING_VALUE", // required
- *       Actions: [ // required
+ *       Actions: [ // ActionList // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   VpcConnectionProperties: {
+ *   VpcConnectionProperties: { // VpcConnectionProperties
  *     VpcConnectionArn: "STRING_VALUE", // required
  *   },
- *   SslProperties: {
+ *   SslProperties: { // SslProperties
  *     DisableSsl: true || false,
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

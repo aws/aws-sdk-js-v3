@@ -44,7 +44,7 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * import { OpenSearchClient, PurchaseReservedInstanceOfferingCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, PurchaseReservedInstanceOfferingCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // PurchaseReservedInstanceOfferingRequest
  *   ReservedInstanceOfferingId: "STRING_VALUE", // required
  *   ReservationName: "STRING_VALUE", // required
  *   InstanceCount: Number("int"),

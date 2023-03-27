@@ -44,7 +44,7 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  * import { ConnectClient, UpdateContactFlowNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactFlowNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateContactFlowNameRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactFlowId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",

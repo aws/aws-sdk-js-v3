@@ -72,10 +72,10 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  * import { MachineLearningClient, CreateDataSourceFromS3Command } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateDataSourceFromS3Command } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // CreateDataSourceFromS3Input
  *   DataSourceId: "STRING_VALUE", // required
  *   DataSourceName: "STRING_VALUE",
- *   DataSpec: {
+ *   DataSpec: { // S3DataSpec
  *     DataLocationS3: "STRING_VALUE", // required
  *     DataRearrangement: "STRING_VALUE",
  *     DataSchema: "STRING_VALUE",

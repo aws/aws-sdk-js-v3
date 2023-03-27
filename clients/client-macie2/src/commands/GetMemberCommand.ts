@@ -42,7 +42,7 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * import { Macie2Client, GetMemberCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetMemberCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // GetMemberRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetMemberCommand(input);

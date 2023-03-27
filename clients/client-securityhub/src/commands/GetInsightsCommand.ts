@@ -42,8 +42,8 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * import { SecurityHubClient, GetInsightsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetInsightsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   InsightArns: [
+ * const input = { // GetInsightsRequest
+ *   InsightArns: [ // ArnList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

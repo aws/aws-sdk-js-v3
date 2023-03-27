@@ -42,7 +42,7 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * import { BackupClient, DescribeBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DescribeBackupVaultInput
  *   BackupVaultName: "STRING_VALUE", // required
  * };
  * const command = new DescribeBackupVaultCommand(input);

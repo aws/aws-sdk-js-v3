@@ -46,11 +46,11 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * import { ElasticsearchServiceClient, DescribePackagesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribePackagesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribePackagesRequest
+ *   Filters: [ // DescribePackagesFilterList
+ *     { // DescribePackagesFilter
  *       Name: "PackageID" || "PackageName" || "PackageStatus",
- *       Value: [
+ *       Value: [ // DescribePackagesFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

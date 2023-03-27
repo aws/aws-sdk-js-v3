@@ -42,8 +42,8 @@ export interface GetInsightSummariesCommandOutput extends GetInsightSummariesRes
  * import { XRayClient, GetInsightSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetInsightSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
- *   States: [
+ * const input = { // GetInsightSummariesRequest
+ *   States: [ // InsightStateList
  *     "ACTIVE" || "CLOSED",
  *   ],
  *   GroupARN: "STRING_VALUE",

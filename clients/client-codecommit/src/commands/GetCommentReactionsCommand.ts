@@ -42,7 +42,7 @@ export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOut
  * import { CodeCommitClient, GetCommentReactionsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommentReactionsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetCommentReactionsInput
  *   commentId: "STRING_VALUE", // required
  *   reactionUserArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

@@ -44,7 +44,7 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DetachInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DetachInternetGatewayRequest
  *   DryRun: true || false,
  *   InternetGatewayId: "STRING_VALUE", // required
  *   VpcId: "STRING_VALUE", // required

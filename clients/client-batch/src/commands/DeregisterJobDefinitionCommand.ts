@@ -42,7 +42,7 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * import { BatchClient, DeregisterJobDefinitionCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeregisterJobDefinitionCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // DeregisterJobDefinitionRequest
  *   jobDefinition: "STRING_VALUE", // required
  * };
  * const command = new DeregisterJobDefinitionCommand(input);

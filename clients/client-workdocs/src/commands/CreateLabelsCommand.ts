@@ -43,9 +43,9 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * import { WorkDocsClient, CreateLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // CreateLabelsRequest
  *   ResourceId: "STRING_VALUE", // required
- *   Labels: [ // required
+ *   Labels: [ // SharedLabels // required
  *     "STRING_VALUE",
  *   ],
  *   AuthenticationToken: "STRING_VALUE",

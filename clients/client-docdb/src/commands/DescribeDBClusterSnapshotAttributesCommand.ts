@@ -50,7 +50,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * import { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // DescribeDBClusterSnapshotAttributesMessage
  *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);

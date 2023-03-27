@@ -49,9 +49,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { EMRContainersClient, TagResourceCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, TagResourceCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

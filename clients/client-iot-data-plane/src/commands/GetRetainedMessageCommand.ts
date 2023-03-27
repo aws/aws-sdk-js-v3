@@ -48,7 +48,7 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * import { IoTDataPlaneClient, GetRetainedMessageCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, GetRetainedMessageCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
- * const input = {
+ * const input = { // GetRetainedMessageRequest
  *   topic: "STRING_VALUE", // required
  * };
  * const command = new GetRetainedMessageCommand(input);

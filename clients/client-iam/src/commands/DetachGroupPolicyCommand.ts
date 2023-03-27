@@ -46,7 +46,7 @@ export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DetachGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DetachGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // DetachGroupPolicyRequest
  *   GroupName: "STRING_VALUE", // required
  *   PolicyArn: "STRING_VALUE", // required
  * };

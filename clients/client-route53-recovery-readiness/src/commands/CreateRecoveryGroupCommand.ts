@@ -46,12 +46,12 @@ export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupRes
  * import { Route53RecoveryReadinessClient, CreateRecoveryGroupCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateRecoveryGroupCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
- *   Cells: [
+ * const input = { // CreateRecoveryGroupRequest
+ *   Cells: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  *   RecoveryGroupName: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

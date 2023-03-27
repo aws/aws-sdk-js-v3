@@ -42,48 +42,48 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * import { BatchClient, RegisterJobDefinitionCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, RegisterJobDefinitionCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // RegisterJobDefinitionRequest
  *   jobDefinitionName: "STRING_VALUE", // required
  *   type: "container" || "multinode", // required
- *   parameters: {
+ *   parameters: { // ParametersMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   schedulingPriority: Number("int"),
- *   containerProperties: {
+ *   containerProperties: { // ContainerProperties
  *     image: "STRING_VALUE",
  *     vcpus: Number("int"),
  *     memory: Number("int"),
- *     command: [
+ *     command: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     jobRoleArn: "STRING_VALUE",
  *     executionRoleArn: "STRING_VALUE",
- *     volumes: [
- *       {
- *         host: {
+ *     volumes: [ // Volumes
+ *       { // Volume
+ *         host: { // Host
  *           sourcePath: "STRING_VALUE",
  *         },
  *         name: "STRING_VALUE",
- *         efsVolumeConfiguration: {
+ *         efsVolumeConfiguration: { // EFSVolumeConfiguration
  *           fileSystemId: "STRING_VALUE", // required
  *           rootDirectory: "STRING_VALUE",
  *           transitEncryption: "ENABLED" || "DISABLED",
  *           transitEncryptionPort: Number("int"),
- *           authorizationConfig: {
+ *           authorizationConfig: { // EFSAuthorizationConfig
  *             accessPointId: "STRING_VALUE",
  *             iam: "ENABLED" || "DISABLED",
  *           },
  *         },
  *       },
  *     ],
- *     environment: [
- *       {
+ *     environment: [ // EnvironmentVariables
+ *       { // KeyValuePair
  *         name: "STRING_VALUE",
  *         value: "STRING_VALUE",
  *       },
  *     ],
- *     mountPoints: [
- *       {
+ *     mountPoints: [ // MountPoints
+ *       { // MountPoint
  *         containerPath: "STRING_VALUE",
  *         readOnly: true || false,
  *         sourceVolume: "STRING_VALUE",
@@ -91,8 +91,8 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *     ],
  *     readonlyRootFilesystem: true || false,
  *     privileged: true || false,
- *     ulimits: [
- *       {
+ *     ulimits: [ // Ulimits
+ *       { // Ulimit
  *         hardLimit: Number("int"), // required
  *         name: "STRING_VALUE", // required
  *         softLimit: Number("int"), // required
@@ -100,26 +100,26 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *     ],
  *     user: "STRING_VALUE",
  *     instanceType: "STRING_VALUE",
- *     resourceRequirements: [
- *       {
+ *     resourceRequirements: [ // ResourceRequirements
+ *       { // ResourceRequirement
  *         value: "STRING_VALUE", // required
  *         type: "GPU" || "VCPU" || "MEMORY", // required
  *       },
  *     ],
- *     linuxParameters: {
- *       devices: [
- *         {
+ *     linuxParameters: { // LinuxParameters
+ *       devices: [ // DevicesList
+ *         { // Device
  *           hostPath: "STRING_VALUE", // required
  *           containerPath: "STRING_VALUE",
- *           permissions: [
+ *           permissions: [ // DeviceCgroupPermissions
  *             "READ" || "WRITE" || "MKNOD",
  *           ],
  *         },
  *       ],
  *       initProcessEnabled: true || false,
  *       sharedMemorySize: Number("int"),
- *       tmpfs: [
- *         {
+ *       tmpfs: [ // TmpfsList
+ *         { // Tmpfs
  *           containerPath: "STRING_VALUE", // required
  *           size: Number("int"), // required
  *           mountOptions: [
@@ -130,13 +130,13 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *       maxSwap: Number("int"),
  *       swappiness: Number("int"),
  *     },
- *     logConfiguration: {
+ *     logConfiguration: { // LogConfiguration
  *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk", // required
- *       options: {
+ *       options: { // LogConfigurationOptionsMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       secretOptions: [
- *         {
+ *       secretOptions: [ // SecretList
+ *         { // Secret
  *           name: "STRING_VALUE", // required
  *           valueFrom: "STRING_VALUE", // required
  *         },
@@ -148,21 +148,21 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *         valueFrom: "STRING_VALUE", // required
  *       },
  *     ],
- *     networkConfiguration: {
+ *     networkConfiguration: { // NetworkConfiguration
  *       assignPublicIp: "ENABLED" || "DISABLED",
  *     },
- *     fargatePlatformConfiguration: {
+ *     fargatePlatformConfiguration: { // FargatePlatformConfiguration
  *       platformVersion: "STRING_VALUE",
  *     },
- *     ephemeralStorage: {
+ *     ephemeralStorage: { // EphemeralStorage
  *       sizeInGiB: Number("int"), // required
  *     },
  *   },
- *   nodeProperties: {
+ *   nodeProperties: { // NodeProperties
  *     numNodes: Number("int"), // required
  *     mainNode: Number("int"), // required
- *     nodeRangeProperties: [ // required
- *       {
+ *     nodeRangeProperties: [ // NodeRangeProperties // required
+ *       { // NodeRangeProperty
  *         targetNodes: "STRING_VALUE", // required
  *         container: {
  *           image: "STRING_VALUE",
@@ -237,9 +237,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *               {
  *                 containerPath: "STRING_VALUE", // required
  *                 size: Number("int"), // required
- *                 mountOptions: [
- *                   "<StringList>",
- *                 ],
+ *                 mountOptions: "<StringList>",
  *               },
  *             ],
  *             maxSwap: Number("int"),
@@ -248,15 +246,11 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *           logConfiguration: {
  *             logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk", // required
  *             options: {
- *               "<keys>": "<String>",
+ *               "<keys>": "STRING_VALUE",
  *             },
- *             secretOptions: [
- *               "<SecretList>",
- *             ],
+ *             secretOptions: "<SecretList>",
  *           },
- *           secrets: [
- *             "<SecretList>",
- *           ],
+ *           secrets: "<SecretList>",
  *           networkConfiguration: {
  *             assignPublicIp: "ENABLED" || "DISABLED",
  *           },
@@ -270,10 +264,10 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *       },
  *     ],
  *   },
- *   retryStrategy: {
+ *   retryStrategy: { // RetryStrategy
  *     attempts: Number("int"),
- *     evaluateOnExit: [
- *       {
+ *     evaluateOnExit: [ // EvaluateOnExitList
+ *       { // EvaluateOnExit
  *         onStatusReason: "STRING_VALUE",
  *         onReason: "STRING_VALUE",
  *         onExitCode: "STRING_VALUE",
@@ -282,53 +276,49 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *     ],
  *   },
  *   propagateTags: true || false,
- *   timeout: {
+ *   timeout: { // JobTimeout
  *     attemptDurationSeconds: Number("int"),
  *   },
- *   tags: {
+ *   tags: { // TagrisTagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   platformCapabilities: [
+ *   platformCapabilities: [ // PlatformCapabilityList
  *     "EC2" || "FARGATE",
  *   ],
- *   eksProperties: {
- *     podProperties: {
+ *   eksProperties: { // EksProperties
+ *     podProperties: { // EksPodProperties
  *       serviceAccountName: "STRING_VALUE",
  *       hostNetwork: true || false,
  *       dnsPolicy: "STRING_VALUE",
- *       containers: [
- *         {
+ *       containers: [ // EksContainers
+ *         { // EksContainer
  *           name: "STRING_VALUE",
  *           image: "STRING_VALUE", // required
  *           imagePullPolicy: "STRING_VALUE",
- *           command: [
- *             "<StringList>",
- *           ],
- *           args: [
- *             "<StringList>",
- *           ],
- *           env: [
- *             {
+ *           command: "<StringList>",
+ *           args: "<StringList>",
+ *           env: [ // EksContainerEnvironmentVariables
+ *             { // EksContainerEnvironmentVariable
  *               name: "STRING_VALUE", // required
  *               value: "STRING_VALUE",
  *             },
  *           ],
- *           resources: {
- *             limits: {
+ *           resources: { // EksContainerResourceRequirements
+ *             limits: { // EksLimits
  *               "<keys>": "STRING_VALUE",
  *             },
- *             requests: {
+ *             requests: { // EksRequests
  *               "<keys>": "STRING_VALUE",
  *             },
  *           },
- *           volumeMounts: [
- *             {
+ *           volumeMounts: [ // EksContainerVolumeMounts
+ *             { // EksContainerVolumeMount
  *               name: "STRING_VALUE",
  *               mountPath: "STRING_VALUE",
  *               readOnly: true || false,
  *             },
  *           ],
- *           securityContext: {
+ *           securityContext: { // EksContainerSecurityContext
  *             runAsUser: Number("long"),
  *             runAsGroup: Number("long"),
  *             privileged: true || false,
@@ -337,25 +327,25 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *           },
  *         },
  *       ],
- *       volumes: [
- *         {
+ *       volumes: [ // EksVolumes
+ *         { // EksVolume
  *           name: "STRING_VALUE", // required
- *           hostPath: {
+ *           hostPath: { // EksHostPath
  *             path: "STRING_VALUE",
  *           },
- *           emptyDir: {
+ *           emptyDir: { // EksEmptyDir
  *             medium: "STRING_VALUE",
  *             sizeLimit: "STRING_VALUE",
  *           },
- *           secret: {
+ *           secret: { // EksSecret
  *             secretName: "STRING_VALUE", // required
  *             optional: true || false,
  *           },
  *         },
  *       ],
- *       metadata: {
- *         labels: {
- *           "<keys>": "<String>",
+ *       metadata: { // EksMetadata
+ *         labels: { // EksLabelsMap
+ *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     },

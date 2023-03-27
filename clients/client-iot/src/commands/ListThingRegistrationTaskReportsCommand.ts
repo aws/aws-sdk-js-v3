@@ -44,7 +44,7 @@ export interface ListThingRegistrationTaskReportsCommandOutput
  * import { IoTClient, ListThingRegistrationTaskReportsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingRegistrationTaskReportsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListThingRegistrationTaskReportsRequest
  *   taskId: "STRING_VALUE", // required
  *   reportType: "ERRORS" || "RESULTS", // required
  *   nextToken: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * import { ConfigServiceClient, DeleteRetentionConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteRetentionConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeleteRetentionConfigurationRequest
  *   RetentionConfigurationName: "STRING_VALUE", // required
  * };
  * const command = new DeleteRetentionConfigurationCommand(input);

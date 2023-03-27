@@ -50,7 +50,7 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * import { LexModelBuildingServiceClient, GetSlotTypeCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetSlotTypeCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // GetSlotTypeRequest
  *   name: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
  * };

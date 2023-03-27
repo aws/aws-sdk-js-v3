@@ -42,7 +42,7 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * import { M2Client, GetApplicationVersionCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetApplicationVersionCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // GetApplicationVersionRequest
  *   applicationId: "STRING_VALUE", // required
  *   applicationVersion: Number("int"), // required
  * };

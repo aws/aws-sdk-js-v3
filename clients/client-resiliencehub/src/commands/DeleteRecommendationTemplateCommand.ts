@@ -45,7 +45,7 @@ export interface DeleteRecommendationTemplateCommandOutput
  * import { ResiliencehubClient, DeleteRecommendationTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteRecommendationTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // DeleteRecommendationTemplateRequest
  *   recommendationTemplateArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

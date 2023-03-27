@@ -48,15 +48,15 @@ export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
  * import { EC2Client, DescribeIpamResourceDiscoveryAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpamResourceDiscoveryAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeIpamResourceDiscoveryAssociationsRequest
  *   DryRun: true || false,
- *   IpamResourceDiscoveryAssociationIds: [
+ *   IpamResourceDiscoveryAssociationIds: [ // ValueStringList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
  *       Values: [
  *         "STRING_VALUE",

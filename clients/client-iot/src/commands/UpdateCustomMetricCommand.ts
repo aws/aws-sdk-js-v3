@@ -44,7 +44,7 @@ export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricRespo
  * import { IoTClient, UpdateCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateCustomMetricRequest
  *   metricName: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE", // required
  * };

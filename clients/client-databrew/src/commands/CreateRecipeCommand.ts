@@ -42,19 +42,19 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  * import { DataBrewClient, CreateRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // CreateRecipeRequest
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
- *   Steps: [ // required
- *     {
- *       Action: {
+ *   Steps: [ // RecipeStepList // required
+ *     { // RecipeStep
+ *       Action: { // RecipeAction
  *         Operation: "STRING_VALUE", // required
- *         Parameters: {
+ *         Parameters: { // ParameterMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
- *       ConditionExpressions: [
- *         {
+ *       ConditionExpressions: [ // ConditionExpressionList
+ *         { // ConditionExpression
  *           Condition: "STRING_VALUE", // required
  *           Value: "STRING_VALUE",
  *           TargetColumn: "STRING_VALUE", // required
@@ -62,7 +62,7 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  *       ],
  *     },
  *   ],
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

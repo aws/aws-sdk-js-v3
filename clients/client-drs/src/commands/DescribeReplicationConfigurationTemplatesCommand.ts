@@ -49,8 +49,8 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * import { DrsClient, DescribeReplicationConfigurationTemplatesCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeReplicationConfigurationTemplatesCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
- *   replicationConfigurationTemplateIDs: [
+ * const input = { // DescribeReplicationConfigurationTemplatesRequest
+ *   replicationConfigurationTemplateIDs: [ // ReplicationConfigurationTemplateIDs
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

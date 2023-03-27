@@ -44,10 +44,10 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  * import { SecurityHubClient, UpdateFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // UpdateFindingAggregatorRequest
  *   FindingAggregatorArn: "STRING_VALUE", // required
  *   RegionLinkingMode: "STRING_VALUE", // required
- *   Regions: [
+ *   Regions: [ // StringList
  *     "STRING_VALUE",
  *   ],
  * };

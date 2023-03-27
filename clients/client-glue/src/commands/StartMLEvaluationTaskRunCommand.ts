@@ -47,7 +47,7 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * import { GlueClient, StartMLEvaluationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartMLEvaluationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // StartMLEvaluationTaskRunRequest
  *   TransformId: "STRING_VALUE", // required
  * };
  * const command = new StartMLEvaluationTaskRunCommand(input);

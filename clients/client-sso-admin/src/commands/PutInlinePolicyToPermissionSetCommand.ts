@@ -51,7 +51,7 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  * import { SSOAdminClient, PutInlinePolicyToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, PutInlinePolicyToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // PutInlinePolicyToPermissionSetRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   PermissionSetArn: "STRING_VALUE", // required
  *   InlinePolicy: "STRING_VALUE", // required

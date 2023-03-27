@@ -42,7 +42,7 @@ export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult,
  * import { DeviceFarmClient, GetDeviceInstanceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetDeviceInstanceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // GetDeviceInstanceRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new GetDeviceInstanceCommand(input);

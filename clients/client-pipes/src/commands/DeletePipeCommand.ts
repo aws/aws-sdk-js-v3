@@ -42,7 +42,7 @@ export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataB
  * import { PipesClient, DeletePipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, DeletePipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
- * const input = {
+ * const input = { // DeletePipeRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeletePipeCommand(input);

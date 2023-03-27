@@ -42,7 +42,7 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * import { MediaLiveClient, ListReservationsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListReservationsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // ListReservationsRequest
  *   ChannelClass: "STRING_VALUE",
  *   Codec: "STRING_VALUE",
  *   MaxResults: Number("int"),

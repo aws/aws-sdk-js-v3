@@ -42,7 +42,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * import { IoTAnalyticsClient, DescribeChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DescribeChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // DescribeChannelRequest
  *   channelName: "STRING_VALUE", // required
  *   includeStatistics: true || false,
  * };

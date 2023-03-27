@@ -42,7 +42,7 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * import { WorkSpacesWebClient, ListUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // ListUserSettingsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

@@ -49,7 +49,7 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
  * import { GreengrassV2Client, ListClientDevicesAssociatedWithCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListClientDevicesAssociatedWithCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // ListClientDevicesAssociatedWithCoreDeviceRequest
  *   coreDeviceThingName: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

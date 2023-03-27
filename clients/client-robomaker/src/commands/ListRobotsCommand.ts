@@ -47,13 +47,13 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
  * import { RoboMakerClient, ListRobotsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListRobotsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // ListRobotsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filters: [
- *     {
+ *   filters: [ // Filters
+ *     { // Filter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

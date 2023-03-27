@@ -72,19 +72,19 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * import { S3ControlClient, CreateJobCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateJobCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // CreateJobRequest
  *   AccountId: "STRING_VALUE",
  *   ConfirmationRequired: true || false,
- *   Operation: {
- *     LambdaInvoke: {
+ *   Operation: { // JobOperation
+ *     LambdaInvoke: { // LambdaInvokeOperation
  *       FunctionArn: "STRING_VALUE",
  *     },
- *     S3PutObjectCopy: {
+ *     S3PutObjectCopy: { // S3CopyObjectOperation
  *       TargetResource: "STRING_VALUE",
  *       CannedAccessControlList: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
- *       AccessControlGrants: [
- *         {
- *           Grantee: {
+ *       AccessControlGrants: [ // S3GrantList
+ *         { // S3Grant
+ *           Grantee: { // S3Grantee
  *             TypeIdentifier: "id" || "emailAddress" || "uri",
  *             Identifier: "STRING_VALUE",
  *             DisplayName: "STRING_VALUE",
@@ -94,12 +94,12 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       ],
  *       MetadataDirective: "COPY" || "REPLACE",
  *       ModifiedSinceConstraint: new Date("TIMESTAMP"),
- *       NewObjectMetadata: {
+ *       NewObjectMetadata: { // S3ObjectMetadata
  *         CacheControl: "STRING_VALUE",
  *         ContentDisposition: "STRING_VALUE",
  *         ContentEncoding: "STRING_VALUE",
  *         ContentLanguage: "STRING_VALUE",
- *         UserMetadata: {
+ *         UserMetadata: { // S3UserMetadata
  *           "<keys>": "STRING_VALUE",
  *         },
  *         ContentLength: Number("long"),
@@ -109,8 +109,8 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *         RequesterCharged: true || false,
  *         SSEAlgorithm: "AES256" || "KMS",
  *       },
- *       NewObjectTagging: [
- *         {
+ *       NewObjectTagging: [ // S3TagSet
+ *         { // S3Tag
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },
@@ -127,10 +127,10 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       BucketKeyEnabled: true || false,
  *       ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
  *     },
- *     S3PutObjectAcl: {
- *       AccessControlPolicy: {
- *         AccessControlList: {
- *           Owner: {
+ *     S3PutObjectAcl: { // S3SetObjectAclOperation
+ *       AccessControlPolicy: { // S3AccessControlPolicy
+ *         AccessControlList: { // S3AccessControlList
+ *           Owner: { // S3ObjectOwner
  *             ID: "STRING_VALUE",
  *             DisplayName: "STRING_VALUE",
  *           },
@@ -148,7 +148,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *         CannedAccessControlList: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
  *       },
  *     },
- *     S3PutObjectTagging: {
+ *     S3PutObjectTagging: { // S3SetObjectTaggingOperation
  *       TagSet: [
  *         {
  *           Key: "STRING_VALUE", // required
@@ -157,25 +157,25 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       ],
  *     },
  *     S3DeleteObjectTagging: {},
- *     S3InitiateRestoreObject: {
+ *     S3InitiateRestoreObject: { // S3InitiateRestoreObjectOperation
  *       ExpirationInDays: Number("int"),
  *       GlacierJobTier: "BULK" || "STANDARD",
  *     },
- *     S3PutObjectLegalHold: {
- *       LegalHold: {
+ *     S3PutObjectLegalHold: { // S3SetObjectLegalHoldOperation
+ *       LegalHold: { // S3ObjectLockLegalHold
  *         Status: "OFF" || "ON", // required
  *       },
  *     },
- *     S3PutObjectRetention: {
+ *     S3PutObjectRetention: { // S3SetObjectRetentionOperation
  *       BypassGovernanceRetention: true || false,
- *       Retention: {
+ *       Retention: { // S3Retention
  *         RetainUntilDate: new Date("TIMESTAMP"),
  *         Mode: "COMPLIANCE" || "GOVERNANCE",
  *       },
  *     },
  *     S3ReplicateObject: {},
  *   },
- *   Report: {
+ *   Report: { // JobReport
  *     Bucket: "STRING_VALUE",
  *     Format: "Report_CSV_20180820",
  *     Enabled: true || false, // required
@@ -183,14 +183,14 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *     ReportScope: "AllTasks" || "FailedTasksOnly",
  *   },
  *   ClientRequestToken: "STRING_VALUE", // required
- *   Manifest: {
- *     Spec: {
+ *   Manifest: { // JobManifest
+ *     Spec: { // JobManifestSpec
  *       Format: "S3BatchOperations_CSV_20180820" || "S3InventoryReport_CSV_20161130", // required
- *       Fields: [
+ *       Fields: [ // JobManifestFieldList
  *         "Ignore" || "Bucket" || "Key" || "VersionId",
  *       ],
  *     },
- *     Location: {
+ *     Location: { // JobManifestLocation
  *       ObjectArn: "STRING_VALUE", // required
  *       ObjectVersionId: "STRING_VALUE",
  *       ETag: "STRING_VALUE", // required
@@ -205,27 +205,27 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   ManifestGenerator: { // Union: only one key present
- *     S3JobManifestGenerator: {
+ *   ManifestGenerator: { // JobManifestGenerator Union: only one key present
+ *     S3JobManifestGenerator: { // S3JobManifestGenerator
  *       ExpectedBucketOwner: "STRING_VALUE",
  *       SourceBucket: "STRING_VALUE", // required
- *       ManifestOutputLocation: {
+ *       ManifestOutputLocation: { // S3ManifestOutputLocation
  *         ExpectedManifestBucketOwner: "STRING_VALUE",
  *         Bucket: "STRING_VALUE", // required
  *         ManifestPrefix: "STRING_VALUE",
- *         ManifestEncryption: {
+ *         ManifestEncryption: { // GeneratedManifestEncryption
  *           SSES3: {},
- *           SSEKMS: {
+ *           SSEKMS: { // SSEKMSEncryption
  *             KeyId: "STRING_VALUE", // required
  *           },
  *         },
  *         ManifestFormat: "S3InventoryReport_CSV_20211130", // required
  *       },
- *       Filter: {
+ *       Filter: { // JobManifestGeneratorFilter
  *         EligibleForReplication: true || false,
  *         CreatedAfter: new Date("TIMESTAMP"),
  *         CreatedBefore: new Date("TIMESTAMP"),
- *         ObjectReplicationStatuses: [
+ *         ObjectReplicationStatuses: [ // ReplicationStatusFilterList
  *           "COMPLETED" || "FAILED" || "REPLICA" || "NONE",
  *         ],
  *       },

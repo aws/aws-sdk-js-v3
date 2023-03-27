@@ -46,7 +46,7 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  * import { DatabaseMigrationServiceClient, DeleteCertificateCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteCertificateCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DeleteCertificateMessage
  *   CertificateArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteCertificateCommand(input);

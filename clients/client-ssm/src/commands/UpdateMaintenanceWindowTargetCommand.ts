@@ -74,13 +74,13 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  * import { SSMClient, UpdateMaintenanceWindowTargetCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateMaintenanceWindowTargetCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // UpdateMaintenanceWindowTargetRequest
  *   WindowId: "STRING_VALUE", // required
  *   WindowTargetId: "STRING_VALUE", // required
- *   Targets: [
- *     {
+ *   Targets: [ // Targets
+ *     { // Target
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // TargetValues
  *         "STRING_VALUE",
  *       ],
  *     },

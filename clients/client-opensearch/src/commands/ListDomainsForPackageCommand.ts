@@ -44,7 +44,7 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * import { OpenSearchClient, ListDomainsForPackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListDomainsForPackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // ListDomainsForPackageRequest
  *   PackageID: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

@@ -56,15 +56,15 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * import { SNSClient, PublishCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, PublishCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // PublishInput
  *   TopicArn: "STRING_VALUE",
  *   TargetArn: "STRING_VALUE",
  *   PhoneNumber: "STRING_VALUE",
  *   Message: "STRING_VALUE", // required
  *   Subject: "STRING_VALUE",
  *   MessageStructure: "STRING_VALUE",
- *   MessageAttributes: {
- *     "<keys>": {
+ *   MessageAttributes: { // MessageAttributeMap
+ *     "<keys>": { // MessageAttributeValue
  *       DataType: "STRING_VALUE", // required
  *       StringValue: "STRING_VALUE",
  *       BinaryValue: "BLOB_VALUE",

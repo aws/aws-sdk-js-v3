@@ -43,7 +43,7 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * import { CloudWatchEventsClient, DeleteEventBusCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeleteEventBusCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // DeleteEventBusRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventBusCommand(input);

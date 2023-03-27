@@ -47,7 +47,7 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * import { PanoramaClient, ListApplicationInstanceDependenciesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListApplicationInstanceDependenciesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // ListApplicationInstanceDependenciesRequest
  *   ApplicationInstanceId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

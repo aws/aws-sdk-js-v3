@@ -46,7 +46,7 @@ export interface GetMLTransformCommandOutput extends GetMLTransformResponse, __M
  * import { GlueClient, GetMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetMLTransformRequest
  *   TransformId: "STRING_VALUE", // required
  * };
  * const command = new GetMLTransformCommand(input);

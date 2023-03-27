@@ -53,7 +53,7 @@ export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {
  * import { ChimeSDKMessagingClient, DisassociateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DisassociateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // DisassociateChannelFlowRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   ChannelFlowArn: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE", // required

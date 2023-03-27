@@ -43,7 +43,7 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DeleteRecommenderRequest
  *   recommenderArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteRecommenderCommand(input);

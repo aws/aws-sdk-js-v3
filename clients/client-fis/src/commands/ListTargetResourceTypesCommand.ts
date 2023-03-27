@@ -42,7 +42,7 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  * import { FisClient, ListTargetResourceTypesCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, ListTargetResourceTypesCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
- * const input = {
+ * const input = { // ListTargetResourceTypesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

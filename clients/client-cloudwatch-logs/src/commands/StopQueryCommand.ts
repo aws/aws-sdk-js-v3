@@ -40,7 +40,7 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * import { CloudWatchLogsClient, StopQueryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, StopQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // StopQueryRequest
  *   queryId: "STRING_VALUE", // required
  * };
  * const command = new StopQueryCommand(input);

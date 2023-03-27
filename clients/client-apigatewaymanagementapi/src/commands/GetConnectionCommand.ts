@@ -46,7 +46,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * import { ApiGatewayManagementApiClient, GetConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
  * // const { ApiGatewayManagementApiClient, GetConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
- * const input = {
+ * const input = { // GetConnectionRequest
  *   ConnectionId: "STRING_VALUE", // required
  * };
  * const command = new GetConnectionCommand(input);

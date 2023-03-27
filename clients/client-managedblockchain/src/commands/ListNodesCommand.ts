@@ -47,7 +47,7 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  * import { ManagedBlockchainClient, ListNodesCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListNodesCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // ListNodesInput
  *   NetworkId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE",
  *   Status: "CREATING" || "AVAILABLE" || "UNHEALTHY" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "INACCESSIBLE_ENCRYPTION_KEY",

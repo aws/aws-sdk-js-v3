@@ -42,7 +42,7 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * import { DirectoryServiceClient, DisableClientAuthenticationCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableClientAuthenticationCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DisableClientAuthenticationRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   Type: "SmartCard" || "SmartCardOrPassword", // required
  * };

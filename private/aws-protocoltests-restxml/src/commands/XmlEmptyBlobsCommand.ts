@@ -41,7 +41,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __Metad
  * import { RestXmlProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // XmlBlobsInputOutput
  *   data: "BLOB_VALUE",
  * };
  * const command = new XmlEmptyBlobsCommand(input);

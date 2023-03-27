@@ -42,23 +42,23 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  * import { CloudDirectoryClient, GetLinkAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetLinkAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // GetLinkAttributesRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   TypedLinkSpecifier: {
- *     TypedLinkFacet: {
+ *   TypedLinkSpecifier: { // TypedLinkSpecifier
+ *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
  *       SchemaArn: "STRING_VALUE", // required
  *       TypedLinkName: "STRING_VALUE", // required
  *     },
- *     SourceObjectReference: {
+ *     SourceObjectReference: { // ObjectReference
  *       Selector: "STRING_VALUE",
  *     },
  *     TargetObjectReference: {
  *       Selector: "STRING_VALUE",
  *     },
- *     IdentityAttributeValues: [ // required
- *       {
+ *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *       { // AttributeNameAndValue
  *         AttributeName: "STRING_VALUE", // required
- *         Value: { // Union: only one key present
+ *         Value: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,
@@ -68,7 +68,7 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  *       },
  *     ],
  *   },
- *   AttributeNames: [ // required
+ *   AttributeNames: [ // AttributeNameList // required
  *     "STRING_VALUE",
  *   ],
  *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",

@@ -59,7 +59,7 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * import { IAMClient, CreateAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // CreateAccessKeyRequest
  *   UserName: "STRING_VALUE",
  * };
  * const command = new CreateAccessKeyCommand(input);

@@ -42,13 +42,13 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * import { SSMClient, ListInventoryEntriesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListInventoryEntriesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // ListInventoryEntriesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   TypeName: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // InventoryFilterList
+ *     { // InventoryFilter
  *       Key: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // InventoryFilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",

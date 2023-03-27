@@ -42,7 +42,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * import { QuickSightClient, DescribeUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeUserRequest
  *   UserName: "STRING_VALUE", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required

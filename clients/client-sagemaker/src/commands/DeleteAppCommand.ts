@@ -39,7 +39,7 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteAppRequest
  *   DomainId: "STRING_VALUE", // required
  *   UserProfileName: "STRING_VALUE",
  *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway", // required

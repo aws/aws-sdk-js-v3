@@ -42,10 +42,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { SchedulerClient, TagResourceCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, TagResourceCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

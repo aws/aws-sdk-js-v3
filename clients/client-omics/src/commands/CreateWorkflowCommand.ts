@@ -42,21 +42,21 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * import { OmicsClient, CreateWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // CreateWorkflowRequest
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   engine: "STRING_VALUE",
  *   definitionZip: "BLOB_VALUE",
  *   definitionUri: "STRING_VALUE",
  *   main: "STRING_VALUE",
- *   parameterTemplate: {
- *     "<keys>": {
+ *   parameterTemplate: { // WorkflowParameterTemplate
+ *     "<keys>": { // WorkflowParameter
  *       description: "STRING_VALUE",
  *       optional: true || false,
  *     },
  *   },
  *   storageCapacity: Number("int"),
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   requestId: "STRING_VALUE", // required

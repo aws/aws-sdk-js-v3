@@ -42,7 +42,7 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * import { IoTWirelessClient, ListDestinationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListDestinationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // ListDestinationsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

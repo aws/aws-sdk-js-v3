@@ -43,15 +43,15 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  * import { SSMClient, CreateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // CreateOpsMetadataRequest
  *   ResourceId: "STRING_VALUE", // required
- *   Metadata: {
- *     "<keys>": {
+ *   Metadata: { // MetadataMap
+ *     "<keys>": { // MetadataValue
  *       Value: "STRING_VALUE",
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

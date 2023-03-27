@@ -47,17 +47,17 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * import { ElasticBeanstalkClient, UpdateApplicationResourceLifecycleCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateApplicationResourceLifecycleCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // UpdateApplicationResourceLifecycleMessage
  *   ApplicationName: "STRING_VALUE", // required
- *   ResourceLifecycleConfig: {
+ *   ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
  *     ServiceRole: "STRING_VALUE",
- *     VersionLifecycleConfig: {
- *       MaxCountRule: {
+ *     VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
+ *       MaxCountRule: { // MaxCountRule
  *         Enabled: true || false, // required
  *         MaxCount: Number("int"),
  *         DeleteSourceFromS3: true || false,
  *       },
- *       MaxAgeRule: {
+ *       MaxAgeRule: { // MaxAgeRule
  *         Enabled: true || false, // required
  *         MaxAgeInDays: Number("int"),
  *         DeleteSourceFromS3: true || false,

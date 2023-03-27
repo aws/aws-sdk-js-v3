@@ -55,7 +55,7 @@ export interface GetRawMessageContentCommandOutput
  * import { WorkMailMessageFlowClient, GetRawMessageContentCommand } from "@aws-sdk/client-workmailmessageflow"; // ES Modules import
  * // const { WorkMailMessageFlowClient, GetRawMessageContentCommand } = require("@aws-sdk/client-workmailmessageflow"); // CommonJS import
  * const client = new WorkMailMessageFlowClient(config);
- * const input = {
+ * const input = { // GetRawMessageContentRequest
  *   messageId: "STRING_VALUE", // required
  * };
  * const command = new GetRawMessageContentCommand(input);

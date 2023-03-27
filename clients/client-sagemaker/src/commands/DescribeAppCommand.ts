@@ -42,7 +42,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * import { SageMakerClient, DescribeAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeAppRequest
  *   DomainId: "STRING_VALUE", // required
  *   UserProfileName: "STRING_VALUE",
  *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway", // required

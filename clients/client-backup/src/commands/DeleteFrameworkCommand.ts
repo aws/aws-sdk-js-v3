@@ -42,7 +42,7 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  * import { BackupClient, DeleteFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DeleteFrameworkInput
  *   FrameworkName: "STRING_VALUE", // required
  * };
  * const command = new DeleteFrameworkCommand(input);

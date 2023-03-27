@@ -63,7 +63,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * import { ACMPCAClient, CreateCertificateAuthorityAuditReportCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, CreateCertificateAuthorityAuditReportCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
+ * const input = { // CreateCertificateAuthorityAuditReportRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required
  *   S3BucketName: "STRING_VALUE", // required
  *   AuditReportResponseFormat: "JSON" || "CSV", // required

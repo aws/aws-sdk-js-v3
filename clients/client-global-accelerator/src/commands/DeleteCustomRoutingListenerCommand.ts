@@ -46,7 +46,7 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * import { GlobalAcceleratorClient, DeleteCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeleteCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
+ * const input = { // DeleteCustomRoutingListenerRequest
  *   ListenerArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteCustomRoutingListenerCommand(input);

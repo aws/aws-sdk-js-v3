@@ -42,7 +42,7 @@ export interface DeleteIpamResourceDiscoveryCommandOutput extends DeleteIpamReso
  * import { EC2Client, DeleteIpamResourceDiscoveryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteIpamResourceDiscoveryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteIpamResourceDiscoveryRequest
  *   DryRun: true || false,
  *   IpamResourceDiscoveryId: "STRING_VALUE", // required
  * };

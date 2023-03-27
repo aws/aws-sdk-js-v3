@@ -42,7 +42,7 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * import { WorkSpacesWebClient, GetTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // GetTrustStoreRequest
  *   trustStoreArn: "STRING_VALUE", // required
  * };
  * const command = new GetTrustStoreCommand(input);

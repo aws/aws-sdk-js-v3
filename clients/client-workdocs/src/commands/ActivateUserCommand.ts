@@ -48,7 +48,7 @@ export interface ActivateUserCommandOutput extends ActivateUserResponse, __Metad
  * import { WorkDocsClient, ActivateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, ActivateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // ActivateUserRequest
  *   UserId: "STRING_VALUE", // required
  *   AuthenticationToken: "STRING_VALUE",
  * };

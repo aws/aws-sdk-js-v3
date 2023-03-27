@@ -47,7 +47,7 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * import { MTurkClient, ListWorkersWithQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListWorkersWithQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // ListWorkersWithQualificationTypeRequest
  *   QualificationTypeId: "STRING_VALUE", // required
  *   Status: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

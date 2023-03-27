@@ -42,11 +42,11 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  * import { GreengrassClient, CreateDeviceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateDeviceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // CreateDeviceDefinitionRequest
  *   AmznClientToken: "STRING_VALUE",
- *   InitialVersion: {
- *     Devices: [
- *       {
+ *   InitialVersion: { // DeviceDefinitionVersion
+ *     Devices: [ // __listOfDevice
+ *       { // Device
  *         CertificateArn: "STRING_VALUE", // required
  *         Id: "STRING_VALUE", // required
  *         SyncShadow: true || false,
@@ -55,7 +55,7 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  *     ],
  *   },
  *   Name: "STRING_VALUE",
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

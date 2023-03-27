@@ -66,10 +66,10 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  * import { ChimeSDKMeetingsClient, UpdateAttendeeCapabilitiesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, UpdateAttendeeCapabilitiesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
- * const input = {
+ * const input = { // UpdateAttendeeCapabilitiesRequest
  *   MeetingId: "STRING_VALUE", // required
  *   AttendeeId: "STRING_VALUE", // required
- *   Capabilities: {
+ *   Capabilities: { // AttendeeCapabilities
  *     Audio: "SendReceive" || "Send" || "Receive" || "None", // required
  *     Video: "SendReceive" || "Send" || "Receive" || "None", // required
  *     Content: "SendReceive" || "Send" || "Receive" || "None", // required

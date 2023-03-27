@@ -42,9 +42,9 @@ export interface DescribeAnalysisSchemesCommandOutput extends DescribeAnalysisSc
  * import { CloudSearchClient, DescribeAnalysisSchemesCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeAnalysisSchemesCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DescribeAnalysisSchemesRequest
  *   DomainName: "STRING_VALUE", // required
- *   AnalysisSchemeNames: [
+ *   AnalysisSchemeNames: [ // StandardNameList
  *     "STRING_VALUE",
  *   ],
  *   Deployed: true || false,

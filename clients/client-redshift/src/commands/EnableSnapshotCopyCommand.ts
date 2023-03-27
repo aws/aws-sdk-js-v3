@@ -43,7 +43,7 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * import { RedshiftClient, EnableSnapshotCopyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, EnableSnapshotCopyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // EnableSnapshotCopyMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   DestinationRegion: "STRING_VALUE", // required
  *   RetentionPeriod: Number("int"),

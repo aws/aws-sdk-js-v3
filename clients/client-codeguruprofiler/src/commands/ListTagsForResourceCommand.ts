@@ -44,7 +44,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { CodeGuruProfilerClient, ListTagsForResourceCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

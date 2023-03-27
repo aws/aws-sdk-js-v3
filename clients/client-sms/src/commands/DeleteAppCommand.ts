@@ -40,7 +40,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * import { SMSClient, DeleteAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // DeleteAppRequest
  *   appId: "STRING_VALUE",
  *   forceStopAppReplication: true || false,
  *   forceTerminateApp: true || false,

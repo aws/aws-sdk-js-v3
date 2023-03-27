@@ -43,7 +43,7 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * import { LocationClient, DeleteKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // DeleteKeyRequest
  *   KeyName: "STRING_VALUE", // required
  * };
  * const command = new DeleteKeyCommand(input);

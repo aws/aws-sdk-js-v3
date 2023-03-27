@@ -49,7 +49,7 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  * import { DatabaseMigrationServiceClient, ModifyReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // ModifyReplicationTaskMessage
  *   ReplicationTaskArn: "STRING_VALUE", // required
  *   ReplicationTaskIdentifier: "STRING_VALUE",
  *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc",

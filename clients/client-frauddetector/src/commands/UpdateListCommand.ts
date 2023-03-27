@@ -44,9 +44,9 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * import { FraudDetectorClient, UpdateListCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateListCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // UpdateListRequest
  *   name: "STRING_VALUE", // required
- *   elements: [
+ *   elements: [ // ElementsList
  *     "STRING_VALUE",
  *   ],
  *   description: "STRING_VALUE",

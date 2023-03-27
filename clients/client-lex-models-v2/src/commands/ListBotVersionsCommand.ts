@@ -49,9 +49,9 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  * import { LexModelsV2Client, ListBotVersionsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotVersionsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // ListBotVersionsRequest
  *   botId: "STRING_VALUE", // required
- *   sortBy: {
+ *   sortBy: { // BotVersionSortBy
  *     attribute: "BotVersion", // required
  *     order: "Ascending" || "Descending", // required
  *   },

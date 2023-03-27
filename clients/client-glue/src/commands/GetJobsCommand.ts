@@ -40,7 +40,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * import { GlueClient, GetJobsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetJobsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetJobsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

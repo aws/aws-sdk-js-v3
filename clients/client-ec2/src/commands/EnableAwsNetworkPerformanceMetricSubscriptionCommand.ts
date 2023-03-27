@@ -48,7 +48,7 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * import { EC2Client, EnableAwsNetworkPerformanceMetricSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableAwsNetworkPerformanceMetricSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // EnableAwsNetworkPerformanceMetricSubscriptionRequest
  *   Source: "STRING_VALUE",
  *   Destination: "STRING_VALUE",
  *   Metric: "aggregate-latency",

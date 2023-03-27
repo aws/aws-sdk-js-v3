@@ -45,14 +45,14 @@ export interface GetLoadBalancerMetricDataCommandOutput extends GetLoadBalancerM
  * import { LightsailClient, GetLoadBalancerMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetLoadBalancerMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetLoadBalancerMetricDataRequest
  *   loadBalancerName: "STRING_VALUE", // required
  *   metricName: "ClientTLSNegotiationErrorCount" || "HealthyHostCount" || "UnhealthyHostCount" || "HTTPCode_LB_4XX_Count" || "HTTPCode_LB_5XX_Count" || "HTTPCode_Instance_2XX_Count" || "HTTPCode_Instance_3XX_Count" || "HTTPCode_Instance_4XX_Count" || "HTTPCode_Instance_5XX_Count" || "InstanceResponseTime" || "RejectedConnectionCount" || "RequestCount", // required
  *   period: Number("int"), // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None", // required
- *   statistics: [ // required
+ *   statistics: [ // MetricStatisticList // required
  *     "Minimum" || "Maximum" || "Sum" || "Average" || "SampleCount",
  *   ],
  * };

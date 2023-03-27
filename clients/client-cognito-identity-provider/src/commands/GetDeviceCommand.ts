@@ -49,7 +49,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * import { CognitoIdentityProviderClient, GetDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // GetDeviceRequest
  *   DeviceKey: "STRING_VALUE", // required
  *   AccessToken: "STRING_VALUE",
  * };

@@ -50,12 +50,12 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  * import { BillingconductorClient, ListResourcesAssociatedToCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListResourcesAssociatedToCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // ListResourcesAssociatedToCustomLineItemInput
  *   BillingPeriod: "STRING_VALUE",
  *   Arn: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: {
+ *   Filters: { // ListResourcesAssociatedToCustomLineItemFilter
  *     Relationship: "STRING_VALUE",
  *   },
  * };

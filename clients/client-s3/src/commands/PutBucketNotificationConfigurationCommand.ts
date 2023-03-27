@@ -96,20 +96,20 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * import { S3Client, PutBucketNotificationConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketNotificationConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketNotificationConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
- *   NotificationConfiguration: {
- *     TopicConfigurations: [
- *       {
+ *   NotificationConfiguration: { // NotificationConfiguration
+ *     TopicConfigurations: [ // TopicConfigurationList
+ *       { // TopicConfiguration
  *         Id: "STRING_VALUE",
  *         TopicArn: "STRING_VALUE", // required
- *         Events: [ // required
+ *         Events: [ // EventList // required
  *           "STRING_VALUE",
  *         ],
- *         Filter: {
- *           Key: {
- *             FilterRules: [
- *               {
+ *         Filter: { // NotificationConfigurationFilter
+ *           Key: { // S3KeyFilter
+ *             FilterRules: [ // FilterRuleList
+ *               { // FilterRule
  *                 Name: "prefix" || "suffix",
  *                 Value: "STRING_VALUE",
  *               },
@@ -118,8 +118,8 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *         },
  *       },
  *     ],
- *     QueueConfigurations: [
- *       {
+ *     QueueConfigurations: [ // QueueConfigurationList
+ *       { // QueueConfiguration
  *         Id: "STRING_VALUE",
  *         QueueArn: "STRING_VALUE", // required
  *         Events: [ // required
@@ -137,8 +137,8 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *         },
  *       },
  *     ],
- *     LambdaFunctionConfigurations: [
- *       {
+ *     LambdaFunctionConfigurations: [ // LambdaFunctionConfigurationList
+ *       { // LambdaFunctionConfiguration
  *         Id: "STRING_VALUE",
  *         LambdaFunctionArn: "STRING_VALUE", // required
  *         Events: [ // required

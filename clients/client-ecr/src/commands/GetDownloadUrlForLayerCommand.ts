@@ -49,7 +49,7 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * import { ECRClient, GetDownloadUrlForLayerCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetDownloadUrlForLayerCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // GetDownloadUrlForLayerRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
  *   layerDigest: "STRING_VALUE", // required

@@ -67,11 +67,11 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  * import { StorageGatewayClient, CreateSnapshotFromVolumeRecoveryPointCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateSnapshotFromVolumeRecoveryPointCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // CreateSnapshotFromVolumeRecoveryPointInput
  *   VolumeARN: "STRING_VALUE", // required
  *   SnapshotDescription: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * import { ImagebuilderClient, DeleteComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // DeleteComponentRequest
  *   componentBuildVersionArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteComponentCommand(input);

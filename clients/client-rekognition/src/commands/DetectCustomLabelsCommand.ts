@@ -73,11 +73,11 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * import { RekognitionClient, DetectCustomLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectCustomLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // DetectCustomLabelsRequest
  *   ProjectVersionArn: "STRING_VALUE", // required
- *   Image: {
+ *   Image: { // Image
  *     Bytes: "BLOB_VALUE",
- *     S3Object: {
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",

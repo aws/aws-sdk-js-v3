@@ -49,11 +49,11 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * import { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const input = {
- *   filters: [
- *     {
+ * const input = { // GetEnrollmentStatusesForOrganizationRequest
+ *   filters: [ // EnrollmentFilters
+ *     { // EnrollmentFilter
  *       name: "Status",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

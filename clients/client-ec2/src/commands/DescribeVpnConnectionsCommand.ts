@@ -44,16 +44,16 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * import { EC2Client, DescribeVpnConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpnConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeVpnConnectionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   VpnConnectionIds: [
+ *   VpnConnectionIds: [ // VpnConnectionIdStringList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

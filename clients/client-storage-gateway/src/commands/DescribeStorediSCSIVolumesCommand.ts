@@ -44,8 +44,8 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  * import { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
- *   VolumeARNs: [ // required
+ * const input = { // DescribeStorediSCSIVolumesInput
+ *   VolumeARNs: [ // VolumeARNs // required
  *     "STRING_VALUE",
  *   ],
  * };

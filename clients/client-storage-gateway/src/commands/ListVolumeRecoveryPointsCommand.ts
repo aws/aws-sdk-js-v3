@@ -48,7 +48,7 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * import { StorageGatewayClient, ListVolumeRecoveryPointsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListVolumeRecoveryPointsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // ListVolumeRecoveryPointsInput
  *   GatewayARN: "STRING_VALUE", // required
  * };
  * const command = new ListVolumeRecoveryPointsCommand(input);

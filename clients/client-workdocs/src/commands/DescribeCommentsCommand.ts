@@ -47,7 +47,7 @@ export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse,
  * import { WorkDocsClient, DescribeCommentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeCommentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DescribeCommentsRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   DocumentId: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE", // required

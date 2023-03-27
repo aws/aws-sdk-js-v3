@@ -46,9 +46,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { Route53RecoveryControlConfigClient, UntagResourceCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, UntagResourceCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
  * };

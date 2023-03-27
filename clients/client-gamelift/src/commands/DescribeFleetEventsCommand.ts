@@ -56,7 +56,7 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  * import { GameLiftClient, DescribeFleetEventsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetEventsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DescribeFleetEventsInput
  *   FleetId: "STRING_VALUE", // required
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),

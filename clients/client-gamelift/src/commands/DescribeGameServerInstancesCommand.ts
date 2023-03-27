@@ -64,9 +64,9 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  * import { GameLiftClient, DescribeGameServerInstancesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameServerInstancesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DescribeGameServerInstancesInput
  *   GameServerGroupName: "STRING_VALUE", // required
- *   InstanceIds: [
+ *   InstanceIds: [ // GameServerInstanceIds
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

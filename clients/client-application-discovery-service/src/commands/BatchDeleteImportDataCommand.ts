@@ -52,8 +52,8 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * import { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
- *   importTaskIds: [ // required
+ * const input = { // BatchDeleteImportDataRequest
+ *   importTaskIds: [ // ToDeleteIdentifierList // required
  *     "STRING_VALUE",
  *   ],
  * };

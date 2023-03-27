@@ -47,9 +47,9 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  * import { CloudDirectoryClient, LookupPolicyCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, LookupPolicyCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // LookupPolicyRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   ObjectReference: {
+ *   ObjectReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   NextToken: "STRING_VALUE",

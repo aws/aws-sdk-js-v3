@@ -46,7 +46,7 @@ export interface DeleteReplicationTaskCommandOutput extends DeleteReplicationTas
  * import { DatabaseMigrationServiceClient, DeleteReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DeleteReplicationTaskMessage
  *   ReplicationTaskArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteReplicationTaskCommand(input);

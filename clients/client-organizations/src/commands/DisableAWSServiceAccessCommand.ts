@@ -97,7 +97,7 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * import { OrganizationsClient, DisableAWSServiceAccessCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DisableAWSServiceAccessCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // DisableAWSServiceAccessRequest
  *   ServicePrincipal: "STRING_VALUE", // required
  * };
  * const command = new DisableAWSServiceAccessCommand(input);

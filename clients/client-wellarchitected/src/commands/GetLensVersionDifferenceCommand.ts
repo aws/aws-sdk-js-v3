@@ -42,7 +42,7 @@ export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDif
  * import { WellArchitectedClient, GetLensVersionDifferenceCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetLensVersionDifferenceCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // GetLensVersionDifferenceInput
  *   LensAlias: "STRING_VALUE", // required
  *   BaseLensVersion: "STRING_VALUE",
  *   TargetLensVersion: "STRING_VALUE",

@@ -61,7 +61,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * import { ForecastClient, DescribeDatasetCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeDatasetCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DescribeDatasetRequest
  *   DatasetArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeDatasetCommand(input);

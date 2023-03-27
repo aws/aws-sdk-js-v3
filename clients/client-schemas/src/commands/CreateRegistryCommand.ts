@@ -42,10 +42,10 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * import { SchemasClient, CreateRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, CreateRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // CreateRegistryRequest
  *   Description: "STRING_VALUE",
  *   RegistryName: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

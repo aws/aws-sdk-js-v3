@@ -44,8 +44,8 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
  * import { GreengrassClient, UpdateThingRuntimeConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateThingRuntimeConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
- *   TelemetryConfiguration: {
+ * const input = { // UpdateThingRuntimeConfigurationRequest
+ *   TelemetryConfiguration: { // TelemetryConfigurationUpdate
  *     Telemetry: "On" || "Off", // required
  *   },
  *   ThingName: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __M
  * import { BackupClient, DescribeCopyJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeCopyJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DescribeCopyJobInput
  *   CopyJobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeCopyJobCommand(input);

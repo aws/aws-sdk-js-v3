@@ -44,21 +44,21 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * import { WorkSpacesClient, CreateWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // CreateWorkspaceBundleRequest
  *   BundleName: "STRING_VALUE", // required
  *   BundleDescription: "STRING_VALUE", // required
  *   ImageId: "STRING_VALUE", // required
- *   ComputeType: {
+ *   ComputeType: { // ComputeType
  *     Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  *   },
- *   UserStorage: {
+ *   UserStorage: { // UserStorage
  *     Capacity: "STRING_VALUE",
  *   },
- *   RootStorage: {
+ *   RootStorage: { // RootStorage
  *     Capacity: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

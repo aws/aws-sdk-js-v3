@@ -57,9 +57,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { ApplicationAutoScalingClient, TagResourceCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, TagResourceCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

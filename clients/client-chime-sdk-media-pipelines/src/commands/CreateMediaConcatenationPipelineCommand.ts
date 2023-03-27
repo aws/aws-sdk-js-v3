@@ -53,33 +53,33 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  * import { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
- *   Sources: [ // required
- *     {
+ * const input = { // CreateMediaConcatenationPipelineRequest
+ *   Sources: [ // ConcatenationSourceList // required
+ *     { // ConcatenationSource
  *       Type: "MediaCapturePipeline", // required
- *       MediaCapturePipelineSourceConfiguration: {
+ *       MediaCapturePipelineSourceConfiguration: { // MediaCapturePipelineSourceConfiguration
  *         MediaPipelineArn: "STRING_VALUE", // required
- *         ChimeSdkMeetingConfiguration: {
- *           ArtifactsConfiguration: {
- *             Audio: {
+ *         ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConcatenationConfiguration
+ *           ArtifactsConfiguration: { // ArtifactsConcatenationConfiguration
+ *             Audio: { // AudioConcatenationConfiguration
  *               State: "Enabled", // required
  *             },
- *             Video: {
+ *             Video: { // VideoConcatenationConfiguration
  *               State: "Enabled" || "Disabled", // required
  *             },
- *             Content: {
+ *             Content: { // ContentConcatenationConfiguration
  *               State: "Enabled" || "Disabled", // required
  *             },
- *             DataChannel: {
+ *             DataChannel: { // DataChannelConcatenationConfiguration
  *               State: "Enabled" || "Disabled", // required
  *             },
- *             TranscriptionMessages: {
+ *             TranscriptionMessages: { // TranscriptionMessagesConcatenationConfiguration
  *               State: "Enabled" || "Disabled", // required
  *             },
- *             MeetingEvents: {
+ *             MeetingEvents: { // MeetingEventsConcatenationConfiguration
  *               State: "Enabled" || "Disabled", // required
  *             },
- *             CompositedVideo: {
+ *             CompositedVideo: { // CompositedVideoConcatenationConfiguration
  *               State: "Enabled" || "Disabled", // required
  *             },
  *           },
@@ -87,17 +87,17 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  *       },
  *     },
  *   ],
- *   Sinks: [ // required
- *     {
+ *   Sinks: [ // ConcatenationSinkList // required
+ *     { // ConcatenationSink
  *       Type: "S3Bucket", // required
- *       S3BucketSinkConfiguration: {
+ *       S3BucketSinkConfiguration: { // S3BucketSinkConfiguration
  *         Destination: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

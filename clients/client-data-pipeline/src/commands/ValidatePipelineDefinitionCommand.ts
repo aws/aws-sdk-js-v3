@@ -193,14 +193,14 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * import { DataPipelineClient, ValidatePipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ValidatePipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // ValidatePipelineDefinitionInput
  *   pipelineId: "STRING_VALUE", // required
- *   pipelineObjects: [ // required
- *     {
+ *   pipelineObjects: [ // PipelineObjectList // required
+ *     { // PipelineObject
  *       id: "STRING_VALUE", // required
  *       name: "STRING_VALUE", // required
- *       fields: [ // required
- *         {
+ *       fields: [ // fieldList // required
+ *         { // Field
  *           key: "STRING_VALUE", // required
  *           stringValue: "STRING_VALUE",
  *           refValue: "STRING_VALUE",
@@ -208,19 +208,19 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  *       ],
  *     },
  *   ],
- *   parameterObjects: [
- *     {
+ *   parameterObjects: [ // ParameterObjectList
+ *     { // ParameterObject
  *       id: "STRING_VALUE", // required
- *       attributes: [ // required
- *         {
+ *       attributes: [ // ParameterAttributeList // required
+ *         { // ParameterAttribute
  *           key: "STRING_VALUE", // required
  *           stringValue: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
  *   ],
- *   parameterValues: [
- *     {
+ *   parameterValues: [ // ParameterValueList
+ *     { // ParameterValue
  *       id: "STRING_VALUE", // required
  *       stringValue: "STRING_VALUE", // required
  *     },

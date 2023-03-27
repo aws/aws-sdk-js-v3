@@ -56,31 +56,31 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * import { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // AddApplicationReferenceDataSourceRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   CurrentApplicationVersionId: Number("long"), // required
- *   ReferenceDataSource: {
+ *   ReferenceDataSource: { // ReferenceDataSource
  *     TableName: "STRING_VALUE", // required
- *     S3ReferenceDataSource: {
+ *     S3ReferenceDataSource: { // S3ReferenceDataSource
  *       BucketARN: "STRING_VALUE",
  *       FileKey: "STRING_VALUE",
  *     },
- *     ReferenceSchema: {
- *       RecordFormat: {
+ *     ReferenceSchema: { // SourceSchema
+ *       RecordFormat: { // RecordFormat
  *         RecordFormatType: "JSON" || "CSV", // required
- *         MappingParameters: {
- *           JSONMappingParameters: {
+ *         MappingParameters: { // MappingParameters
+ *           JSONMappingParameters: { // JSONMappingParameters
  *             RecordRowPath: "STRING_VALUE", // required
  *           },
- *           CSVMappingParameters: {
+ *           CSVMappingParameters: { // CSVMappingParameters
  *             RecordRowDelimiter: "STRING_VALUE", // required
  *             RecordColumnDelimiter: "STRING_VALUE", // required
  *           },
  *         },
  *       },
  *       RecordEncoding: "STRING_VALUE",
- *       RecordColumns: [ // required
- *         {
+ *       RecordColumns: [ // RecordColumns // required
+ *         { // RecordColumn
  *           Name: "STRING_VALUE", // required
  *           Mapping: "STRING_VALUE",
  *           SqlType: "STRING_VALUE", // required

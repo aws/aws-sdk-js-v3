@@ -42,7 +42,7 @@ export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer 
  * import { ConnectClient, UpdateUserRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateUserRoutingProfileRequest
  *   RoutingProfileId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required

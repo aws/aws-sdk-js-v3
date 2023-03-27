@@ -42,7 +42,7 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * import { IoTAnalyticsClient, ListDatastoresCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, ListDatastoresCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // ListDatastoresRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

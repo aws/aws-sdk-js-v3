@@ -40,7 +40,7 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // DeleteGroupRequest
  *   GroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteGroupCommand(input);

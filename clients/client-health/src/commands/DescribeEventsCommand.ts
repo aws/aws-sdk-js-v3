@@ -64,25 +64,25 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * import { HealthClient, DescribeEventsCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventsCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
- * const input = {
- *   filter: {
- *     eventArns: [
+ * const input = { // DescribeEventsRequest
+ *   filter: { // EventFilter
+ *     eventArns: [ // eventArnList
  *       "STRING_VALUE",
  *     ],
- *     eventTypeCodes: [
+ *     eventTypeCodes: [ // eventTypeList2
  *       "STRING_VALUE",
  *     ],
- *     services: [
+ *     services: [ // serviceList
  *       "STRING_VALUE",
  *     ],
- *     regions: [
+ *     regions: [ // regionList
  *       "STRING_VALUE",
  *     ],
- *     availabilityZones: [
+ *     availabilityZones: [ // availabilityZones
  *       "STRING_VALUE",
  *     ],
- *     startTimes: [
- *       {
+ *     startTimes: [ // dateTimeRangeList
+ *       { // DateTimeRange
  *         from: new Date("TIMESTAMP"),
  *         to: new Date("TIMESTAMP"),
  *       },
@@ -99,21 +99,21 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *         to: new Date("TIMESTAMP"),
  *       },
  *     ],
- *     entityArns: [
+ *     entityArns: [ // entityArnList
  *       "STRING_VALUE",
  *     ],
- *     entityValues: [
+ *     entityValues: [ // entityValueList
  *       "STRING_VALUE",
  *     ],
- *     eventTypeCategories: [
+ *     eventTypeCategories: [ // eventTypeCategoryList2
  *       "STRING_VALUE",
  *     ],
- *     tags: [
- *       {
+ *     tags: [ // tagFilter
+ *       { // tagSet
  *         "<keys>": "STRING_VALUE",
  *       },
  *     ],
- *     eventStatusCodes: [
+ *     eventStatusCodes: [ // eventStatusCodeList
  *       "STRING_VALUE",
  *     ],
  *   },

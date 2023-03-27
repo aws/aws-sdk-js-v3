@@ -48,7 +48,7 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * import { SQSClient, ListQueueTagsCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ListQueueTagsCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // ListQueueTagsRequest
  *   QueueUrl: "STRING_VALUE", // required
  * };
  * const command = new ListQueueTagsCommand(input);

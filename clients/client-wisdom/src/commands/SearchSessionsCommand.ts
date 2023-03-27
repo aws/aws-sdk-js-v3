@@ -42,13 +42,13 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * import { WisdomClient, SearchSessionsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, SearchSessionsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // SearchSessionsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   assistantId: "STRING_VALUE", // required
- *   searchExpression: {
- *     filters: [ // required
- *       {
+ *   searchExpression: { // SearchExpression
+ *     filters: [ // FilterList // required
+ *       { // Filter
  *         field: "STRING_VALUE", // required
  *         operator: "STRING_VALUE", // required
  *         value: "STRING_VALUE", // required

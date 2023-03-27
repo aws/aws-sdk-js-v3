@@ -50,7 +50,7 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  * import { KendraClient, DescribePrincipalMappingCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribePrincipalMappingCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // DescribePrincipalMappingRequest
  *   IndexId: "STRING_VALUE", // required
  *   DataSourceId: "STRING_VALUE",
  *   GroupId: "STRING_VALUE", // required

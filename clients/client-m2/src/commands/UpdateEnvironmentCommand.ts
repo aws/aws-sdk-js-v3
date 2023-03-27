@@ -42,7 +42,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * import { M2Client, UpdateEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, UpdateEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // UpdateEnvironmentRequest
  *   environmentId: "STRING_VALUE", // required
  *   desiredCapacity: Number("int"),
  *   instanceType: "STRING_VALUE",

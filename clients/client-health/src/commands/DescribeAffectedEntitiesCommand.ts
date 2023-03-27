@@ -59,29 +59,29 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * import { HealthClient, DescribeAffectedEntitiesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeAffectedEntitiesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
- * const input = {
- *   filter: {
- *     eventArns: [ // required
+ * const input = { // DescribeAffectedEntitiesRequest
+ *   filter: { // EntityFilter
+ *     eventArns: [ // eventArnList // required
  *       "STRING_VALUE",
  *     ],
- *     entityArns: [
+ *     entityArns: [ // entityArnList
  *       "STRING_VALUE",
  *     ],
- *     entityValues: [
+ *     entityValues: [ // entityValueList
  *       "STRING_VALUE",
  *     ],
- *     lastUpdatedTimes: [
- *       {
+ *     lastUpdatedTimes: [ // dateTimeRangeList
+ *       { // DateTimeRange
  *         from: new Date("TIMESTAMP"),
  *         to: new Date("TIMESTAMP"),
  *       },
  *     ],
- *     tags: [
- *       {
+ *     tags: [ // tagFilter
+ *       { // tagSet
  *         "<keys>": "STRING_VALUE",
  *       },
  *     ],
- *     statusCodes: [
+ *     statusCodes: [ // entityStatusCodeList
  *       "STRING_VALUE",
  *     ],
  *   },

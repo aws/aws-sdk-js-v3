@@ -49,7 +49,7 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput
  * import { ChimeSDKVoiceClient, GetSipMediaApplicationAlexaSkillConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetSipMediaApplicationAlexaSkillConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // GetSipMediaApplicationAlexaSkillConfigurationRequest
  *   SipMediaApplicationId: "STRING_VALUE", // required
  * };
  * const command = new GetSipMediaApplicationAlexaSkillConfigurationCommand(input);

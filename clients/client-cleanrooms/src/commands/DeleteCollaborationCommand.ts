@@ -42,7 +42,7 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  * import { CleanRoomsClient, DeleteCollaborationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteCollaborationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // DeleteCollaborationInput
  *   collaborationIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteCollaborationCommand(input);

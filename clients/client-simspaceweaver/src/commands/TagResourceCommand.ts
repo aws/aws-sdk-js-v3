@@ -43,9 +43,9 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { SimSpaceWeaverClient, TagResourceCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, TagResourceCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

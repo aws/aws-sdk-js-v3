@@ -48,7 +48,7 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * import { CloudFormationClient, RegisterPublisherCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RegisterPublisherCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // RegisterPublisherInput
  *   AcceptTermsAndConditions: true || false,
  *   ConnectionArn: "STRING_VALUE",
  * };

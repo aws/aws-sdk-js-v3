@@ -42,7 +42,7 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  * import { MediaLiveClient, RebootInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, RebootInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // RebootInputDeviceRequest
  *   Force: "NO" || "YES",
  *   InputDeviceId: "STRING_VALUE", // required
  * };

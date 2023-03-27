@@ -51,9 +51,9 @@ export interface RemoveRegionsFromReplicationCommandOutput
  * import { SecretsManagerClient, RemoveRegionsFromReplicationCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, RemoveRegionsFromReplicationCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // RemoveRegionsFromReplicationRequest
  *   SecretId: "STRING_VALUE", // required
- *   RemoveReplicaRegions: [ // required
+ *   RemoveReplicaRegions: [ // RemoveReplicaRegionListType // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { CodeGuruReviewerClient, TagResourceCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, TagResourceCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

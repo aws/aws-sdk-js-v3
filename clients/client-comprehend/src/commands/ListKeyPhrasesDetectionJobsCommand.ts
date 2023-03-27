@@ -44,8 +44,8 @@ export interface ListKeyPhrasesDetectionJobsCommandOutput
  * import { ComprehendClient, ListKeyPhrasesDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListKeyPhrasesDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
- *   Filter: {
+ * const input = { // ListKeyPhrasesDetectionJobsRequest
+ *   Filter: { // KeyPhrasesDetectionJobFilter
  *     JobName: "STRING_VALUE",
  *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
  *     SubmitTimeBefore: new Date("TIMESTAMP"),

@@ -51,10 +51,10 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * import { SyntheticsClient, DescribeCanariesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DescribeCanariesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const input = {
+ * const input = { // DescribeCanariesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Names: [
+ *   Names: [ // DescribeCanariesNameFilter
  *     "STRING_VALUE",
  *   ],
  * };

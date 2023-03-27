@@ -42,13 +42,13 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * import { BraketClient, SearchDevicesCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, SearchDevicesCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
- * const input = {
+ * const input = { // SearchDevicesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filters: [ // required
- *     {
+ *   filters: [ // SearchDevicesFilterList // required
+ *     { // SearchDevicesFilter
  *       name: "STRING_VALUE", // required
- *       values: [ // required
+ *       values: [ // String256List // required
  *         "STRING_VALUE",
  *       ],
  *     },

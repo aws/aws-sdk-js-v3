@@ -42,7 +42,7 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  * import { MachineLearningClient, DescribeEvaluationsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeEvaluationsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // DescribeEvaluationsInput
  *   FilterVariable: "STRING_VALUE",
  *   EQ: "STRING_VALUE",
  *   GT: "STRING_VALUE",

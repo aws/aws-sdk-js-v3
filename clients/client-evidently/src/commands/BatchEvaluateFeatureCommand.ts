@@ -56,10 +56,10 @@ export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureR
  * import { EvidentlyClient, BatchEvaluateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, BatchEvaluateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // BatchEvaluateFeatureRequest
  *   project: "STRING_VALUE", // required
- *   requests: [ // required
- *     {
+ *   requests: [ // EvaluationRequestsList // required
+ *     { // EvaluationRequest
  *       feature: "STRING_VALUE", // required
  *       entityId: "STRING_VALUE", // required
  *       evaluationContext: "STRING_VALUE",

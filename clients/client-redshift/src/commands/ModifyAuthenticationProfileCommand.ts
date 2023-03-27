@@ -42,7 +42,7 @@ export interface ModifyAuthenticationProfileCommandOutput extends ModifyAuthenti
  * import { RedshiftClient, ModifyAuthenticationProfileCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyAuthenticationProfileCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // ModifyAuthenticationProfileMessage
  *   AuthenticationProfileName: "STRING_VALUE", // required
  *   AuthenticationProfileContent: "STRING_VALUE", // required
  * };

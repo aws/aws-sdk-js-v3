@@ -40,7 +40,7 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * import { DeviceFarmClient, DeleteRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // DeleteRunRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new DeleteRunCommand(input);

@@ -42,7 +42,7 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  * import { APIGatewayClient, CreateDomainNameCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateDomainNameCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // CreateDomainNameRequest
  *   domainName: "STRING_VALUE", // required
  *   certificateName: "STRING_VALUE",
  *   certificateBody: "STRING_VALUE",
@@ -51,19 +51,19 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  *   certificateArn: "STRING_VALUE",
  *   regionalCertificateName: "STRING_VALUE",
  *   regionalCertificateArn: "STRING_VALUE",
- *   endpointConfiguration: {
- *     types: [
+ *   endpointConfiguration: { // EndpointConfiguration
+ *     types: [ // ListOfEndpointType
  *       "REGIONAL" || "EDGE" || "PRIVATE",
  *     ],
- *     vpcEndpointIds: [
+ *     vpcEndpointIds: [ // ListOfString
  *       "STRING_VALUE",
  *     ],
  *   },
- *   tags: {
+ *   tags: { // MapOfStringToString
  *     "<keys>": "STRING_VALUE",
  *   },
  *   securityPolicy: "TLS_1_0" || "TLS_1_2",
- *   mutualTlsAuthentication: {
+ *   mutualTlsAuthentication: { // MutualTlsAuthenticationInput
  *     truststoreUri: "STRING_VALUE",
  *     truststoreVersion: "STRING_VALUE",
  *   },

@@ -105,7 +105,7 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * import { SupportClient, DescribeTrustedAdvisorCheckResultCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeTrustedAdvisorCheckResultCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
- * const input = {
+ * const input = { // DescribeTrustedAdvisorCheckResultRequest
  *   checkId: "STRING_VALUE", // required
  *   language: "STRING_VALUE",
  * };

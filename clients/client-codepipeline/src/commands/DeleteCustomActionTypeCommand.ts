@@ -50,7 +50,7 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, DeleteCustomActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DeleteCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // DeleteCustomActionTypeInput
  *   category: "STRING_VALUE", // required
  *   provider: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required

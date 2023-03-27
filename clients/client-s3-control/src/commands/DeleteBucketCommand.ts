@@ -70,7 +70,7 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, DeleteBucketCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteBucketCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // DeleteBucketRequest
  *   AccountId: "STRING_VALUE",
  *   Bucket: "STRING_VALUE", // required
  * };

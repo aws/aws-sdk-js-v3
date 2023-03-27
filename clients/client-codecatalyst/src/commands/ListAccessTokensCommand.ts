@@ -42,7 +42,7 @@ export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse,
  * import { CodeCatalystClient, ListAccessTokensCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, ListAccessTokensCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // ListAccessTokensRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

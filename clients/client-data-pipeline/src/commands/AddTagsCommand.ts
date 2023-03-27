@@ -39,10 +39,10 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { DataPipelineClient, AddTagsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, AddTagsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // AddTagsInput
  *   pipelineId: "STRING_VALUE", // required
- *   tags: [ // required
- *     {
+ *   tags: [ // tagList // required
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

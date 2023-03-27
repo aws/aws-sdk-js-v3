@@ -42,7 +42,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { GlueClient, PutResourcePolicyCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutResourcePolicyCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyRequest
  *   PolicyInJson: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE",
  *   PolicyHashCondition: "STRING_VALUE",

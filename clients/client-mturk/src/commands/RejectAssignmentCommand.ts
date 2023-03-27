@@ -54,7 +54,7 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * import { MTurkClient, RejectAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, RejectAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // RejectAssignmentRequest
  *   AssignmentId: "STRING_VALUE", // required
  *   RequesterFeedback: "STRING_VALUE", // required
  * };

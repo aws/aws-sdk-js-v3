@@ -61,9 +61,9 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  * import { GameLiftClient, ResumeGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ResumeGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // ResumeGameServerGroupInput
  *   GameServerGroupName: "STRING_VALUE", // required
- *   ResumeActions: [ // required
+ *   ResumeActions: [ // GameServerGroupActions // required
  *     "REPLACE_INSTANCE_TYPES",
  *   ],
  * };

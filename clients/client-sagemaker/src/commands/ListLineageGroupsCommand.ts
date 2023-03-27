@@ -44,7 +44,7 @@ export interface ListLineageGroupsCommandOutput extends ListLineageGroupsRespons
  * import { SageMakerClient, ListLineageGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListLineageGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListLineageGroupsRequest
  *   CreatedAfter: new Date("TIMESTAMP"),
  *   CreatedBefore: new Date("TIMESTAMP"),
  *   SortBy: "Name" || "CreationTime",

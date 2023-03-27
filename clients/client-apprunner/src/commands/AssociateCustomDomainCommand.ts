@@ -46,7 +46,7 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  * import { AppRunnerClient, AssociateCustomDomainCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, AssociateCustomDomainCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // AssociateCustomDomainRequest
  *   ServiceArn: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  *   EnableWWWSubdomain: true || false,

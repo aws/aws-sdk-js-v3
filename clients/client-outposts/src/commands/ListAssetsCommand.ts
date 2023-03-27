@@ -45,14 +45,14 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * import { OutpostsClient, ListAssetsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListAssetsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // ListAssetsInput
  *   OutpostIdentifier: "STRING_VALUE", // required
- *   HostIdFilter: [
+ *   HostIdFilter: [ // HostIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   StatusFilter: [
+ *   StatusFilter: [ // StatusList
  *     "ACTIVE" || "RETIRING",
  *   ],
  * };

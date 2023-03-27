@@ -59,11 +59,11 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * import { IAMClient, CreateSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // CreateSAMLProviderRequest
  *   SAMLMetadataDocument: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // tagListType
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

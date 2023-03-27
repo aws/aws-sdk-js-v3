@@ -42,7 +42,7 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * import { EMRServerlessClient, CancelJobRunCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, CancelJobRunCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
- * const input = {
+ * const input = { // CancelJobRunRequest
  *   applicationId: "STRING_VALUE", // required
  *   jobRunId: "STRING_VALUE", // required
  * };

@@ -44,7 +44,7 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  * import { IAMClient, GetAccessKeyLastUsedCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetAccessKeyLastUsedCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // GetAccessKeyLastUsedRequest
  *   AccessKeyId: "STRING_VALUE", // required
  * };
  * const command = new GetAccessKeyLastUsedCommand(input);

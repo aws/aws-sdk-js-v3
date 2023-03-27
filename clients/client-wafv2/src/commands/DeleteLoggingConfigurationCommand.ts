@@ -42,7 +42,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * import { WAFV2Client, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // DeleteLoggingConfigurationRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);

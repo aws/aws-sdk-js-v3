@@ -52,16 +52,16 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * import { CloudTrailClient, UpdateEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // UpdateEventDataStoreRequest
  *   EventDataStore: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   AdvancedEventSelectors: [
- *     {
+ *   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *     { // AdvancedEventSelector
  *       Name: "STRING_VALUE",
- *       FieldSelectors: [ // required
- *         {
+ *       FieldSelectors: [ // AdvancedFieldSelectors // required
+ *         { // AdvancedFieldSelector
  *           Field: "STRING_VALUE", // required
- *           Equals: [
+ *           Equals: [ // Operator
  *             "STRING_VALUE",
  *           ],
  *           StartsWith: [
@@ -76,9 +76,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *           NotStartsWith: [
  *             "STRING_VALUE",
  *           ],
- *           NotEndsWith: [
- *             "STRING_VALUE",
- *           ],
+ *           NotEndsWith: "<Operator>",
  *         },
  *       ],
  *     },

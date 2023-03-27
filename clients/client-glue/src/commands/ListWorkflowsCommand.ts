@@ -42,7 +42,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * import { GlueClient, ListWorkflowsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListWorkflowsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListWorkflowsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

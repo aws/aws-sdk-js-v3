@@ -42,7 +42,7 @@ export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttrib
  * import { EC2Client, ModifyAddressAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyAddressAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyAddressAttributeRequest
  *   AllocationId: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE",
  *   DryRun: true || false,

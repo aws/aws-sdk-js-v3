@@ -55,7 +55,7 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * import { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // PutLifecycleEventHookExecutionStatusInput
  *   deploymentId: "STRING_VALUE",
  *   lifecycleEventHookExecutionId: "STRING_VALUE",
  *   status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown",

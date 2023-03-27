@@ -83,10 +83,10 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // SendEmailRequest
  *   Source: "STRING_VALUE", // required
- *   Destination: {
- *     ToAddresses: [
+ *   Destination: { // Destination
+ *     ToAddresses: [ // AddressList
  *       "STRING_VALUE",
  *     ],
  *     CcAddresses: [
@@ -96,12 +96,12 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *       "STRING_VALUE",
  *     ],
  *   },
- *   Message: {
- *     Subject: {
+ *   Message: { // Message
+ *     Subject: { // Content
  *       Data: "STRING_VALUE", // required
  *       Charset: "STRING_VALUE",
  *     },
- *     Body: {
+ *     Body: { // Body
  *       Text: {
  *         Data: "STRING_VALUE", // required
  *         Charset: "STRING_VALUE",
@@ -118,8 +118,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *   ReturnPath: "STRING_VALUE",
  *   SourceArn: "STRING_VALUE",
  *   ReturnPathArn: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // MessageTagList
+ *     { // MessageTag
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

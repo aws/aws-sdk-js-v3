@@ -50,7 +50,7 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * import { TimestreamQueryClient, PrepareQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, PrepareQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
- * const input = {
+ * const input = { // PrepareQueryRequest
  *   QueryString: "STRING_VALUE", // required
  *   ValidateOnly: true || false,
  * };

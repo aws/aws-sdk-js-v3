@@ -56,7 +56,7 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, PutGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, PutGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // PutGroupPolicyRequest
  *   GroupName: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  *   PolicyDocument: "STRING_VALUE", // required

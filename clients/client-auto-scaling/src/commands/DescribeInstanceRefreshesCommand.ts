@@ -51,9 +51,9 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * import { AutoScalingClient, DescribeInstanceRefreshesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeInstanceRefreshesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // DescribeInstanceRefreshesType
  *   AutoScalingGroupName: "STRING_VALUE", // required
- *   InstanceRefreshIds: [
+ *   InstanceRefreshIds: [ // InstanceRefreshIds
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

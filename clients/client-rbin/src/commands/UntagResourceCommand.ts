@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { RbinClient, UntagResourceCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, UntagResourceCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

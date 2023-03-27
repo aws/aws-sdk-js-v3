@@ -42,7 +42,7 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * import { PanoramaClient, UpdateDeviceMetadataCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, UpdateDeviceMetadataCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // UpdateDeviceMetadataRequest
  *   DeviceId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  * };

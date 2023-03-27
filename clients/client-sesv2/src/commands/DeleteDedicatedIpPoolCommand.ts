@@ -42,7 +42,7 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  * import { SESv2Client, DeleteDedicatedIpPoolCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteDedicatedIpPoolCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // DeleteDedicatedIpPoolRequest
  *   PoolName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDedicatedIpPoolCommand(input);

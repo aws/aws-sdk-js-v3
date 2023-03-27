@@ -42,7 +42,7 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * import { OAMClient, ListSinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, ListSinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
- * const input = {
+ * const input = { // ListSinksInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

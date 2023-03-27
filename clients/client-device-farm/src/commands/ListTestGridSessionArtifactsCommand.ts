@@ -48,7 +48,7 @@ export interface ListTestGridSessionArtifactsCommandOutput
  * import { DeviceFarmClient, ListTestGridSessionArtifactsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridSessionArtifactsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // ListTestGridSessionArtifactsRequest
  *   sessionArn: "STRING_VALUE", // required
  *   type: "VIDEO" || "LOG",
  *   maxResult: Number("int"),

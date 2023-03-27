@@ -46,7 +46,7 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * import { NetworkManagerClient, RegisterTransitGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, RegisterTransitGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // RegisterTransitGatewayRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   TransitGatewayArn: "STRING_VALUE", // required
  * };

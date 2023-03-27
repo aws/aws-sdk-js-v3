@@ -48,7 +48,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  * import { ElastiCacheClient, DescribeSnapshotsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DescribeSnapshotsMessage
  *   ReplicationGroupId: "STRING_VALUE",
  *   CacheClusterId: "STRING_VALUE",
  *   SnapshotName: "STRING_VALUE",

@@ -42,8 +42,8 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ModifyVpcAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   EnableDnsHostnames: {
+ * const input = { // ModifyVpcAttributeRequest
+ *   EnableDnsHostnames: { // AttributeBooleanValue
  *     Value: true || false,
  *   },
  *   EnableDnsSupport: {

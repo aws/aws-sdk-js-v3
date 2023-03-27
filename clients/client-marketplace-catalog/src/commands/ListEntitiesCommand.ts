@@ -46,18 +46,18 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * import { MarketplaceCatalogClient, ListEntitiesCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, ListEntitiesCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
- * const input = {
+ * const input = { // ListEntitiesRequest
  *   Catalog: "STRING_VALUE", // required
  *   EntityType: "STRING_VALUE", // required
- *   FilterList: [
- *     {
+ *   FilterList: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       ValueList: [
+ *       ValueList: [ // ValueList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   Sort: {
+ *   Sort: { // Sort
  *     SortBy: "STRING_VALUE",
  *     SortOrder: "ASCENDING" || "DESCENDING",
  *   },

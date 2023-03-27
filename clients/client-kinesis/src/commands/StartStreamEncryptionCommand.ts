@@ -61,7 +61,7 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, StartStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, StartStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
+ * const input = { // StartStreamEncryptionInput
  *   StreamName: "STRING_VALUE",
  *   EncryptionType: "NONE" || "KMS", // required
  *   KeyId: "STRING_VALUE", // required

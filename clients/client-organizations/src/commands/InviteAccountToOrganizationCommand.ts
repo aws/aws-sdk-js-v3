@@ -74,14 +74,14 @@ export interface InviteAccountToOrganizationCommandOutput
  * import { OrganizationsClient, InviteAccountToOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, InviteAccountToOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
- *   Target: {
+ * const input = { // InviteAccountToOrganizationRequest
+ *   Target: { // HandshakeParty
  *     Id: "STRING_VALUE", // required
  *     Type: "ACCOUNT" || "ORGANIZATION" || "EMAIL", // required
  *   },
  *   Notes: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

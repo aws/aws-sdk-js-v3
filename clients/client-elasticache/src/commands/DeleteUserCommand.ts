@@ -39,7 +39,7 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  * import { ElastiCacheClient, DeleteUserCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteUserCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DeleteUserMessage
  *   UserId: "STRING_VALUE", // required
  * };
  * const command = new DeleteUserCommand(input);

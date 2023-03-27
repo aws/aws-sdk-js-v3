@@ -73,7 +73,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * import { DataPipelineClient, DeletePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, DeletePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // DeletePipelineInput
  *   pipelineId: "STRING_VALUE", // required
  * };
  * const command = new DeletePipelineCommand(input);

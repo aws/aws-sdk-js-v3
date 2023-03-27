@@ -43,7 +43,7 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * import { CloudWatchEventsClient, CreateApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreateApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // CreateApiDestinationRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ConnectionArn: "STRING_VALUE", // required

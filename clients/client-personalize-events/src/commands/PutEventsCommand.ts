@@ -47,12 +47,12 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * import { PersonalizeEventsClient, PutEventsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutEventsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
- * const input = {
+ * const input = { // PutEventsRequest
  *   trackingId: "STRING_VALUE", // required
  *   userId: "STRING_VALUE",
  *   sessionId: "STRING_VALUE", // required
- *   eventList: [ // required
- *     {
+ *   eventList: [ // EventList // required
+ *     { // Event
  *       eventId: "STRING_VALUE",
  *       eventType: "STRING_VALUE", // required
  *       eventValue: Number("float"),
@@ -60,10 +60,10 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  *       properties: "STRING_VALUE",
  *       sentAt: new Date("TIMESTAMP"), // required
  *       recommendationId: "STRING_VALUE",
- *       impression: [
+ *       impression: [ // Impression
  *         "STRING_VALUE",
  *       ],
- *       metricAttribution: {
+ *       metricAttribution: { // MetricAttribution
  *         eventAttributionSource: "STRING_VALUE", // required
  *       },
  *     },

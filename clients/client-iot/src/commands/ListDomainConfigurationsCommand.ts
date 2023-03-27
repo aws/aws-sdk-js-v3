@@ -44,7 +44,7 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  * import { IoTClient, ListDomainConfigurationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListDomainConfigurationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListDomainConfigurationsRequest
  *   marker: "STRING_VALUE",
  *   pageSize: Number("int"),
  *   serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",

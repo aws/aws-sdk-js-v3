@@ -44,11 +44,11 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * import { SSMClient, ListComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // ListComplianceSummariesRequest
+ *   Filters: [ // ComplianceStringFilterList
+ *     { // ComplianceStringFilter
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ComplianceStringFilterValueList
  *         "STRING_VALUE",
  *       ],
  *       Type: "EQUAL" || "NOT_EQUAL" || "BEGIN_WITH" || "LESS_THAN" || "GREATER_THAN",

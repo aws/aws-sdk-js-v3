@@ -42,7 +42,7 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * import { LicenseManagerClient, DeleteTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // DeleteTokenRequest
  *   TokenId: "STRING_VALUE", // required
  * };
  * const command = new DeleteTokenCommand(input);

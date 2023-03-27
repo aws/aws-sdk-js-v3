@@ -42,8 +42,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * import { DirectConnectClient, DescribeTagsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeTagsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
- *   resourceArns: [ // required
+ * const input = { // DescribeTagsRequest
+ *   resourceArns: [ // ResourceArnList // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -45,7 +45,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  * import { ServiceQuotasClient, ListAWSDefaultServiceQuotasCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListAWSDefaultServiceQuotasCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // ListAWSDefaultServiceQuotasRequest
  *   ServiceCode: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

@@ -45,15 +45,15 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  * import { AppIntegrationsClient, CreateEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, CreateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
- * const input = {
+ * const input = { // CreateEventIntegrationRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   EventFilter: {
+ *   EventFilter: { // EventFilter
  *     Source: "STRING_VALUE", // required
  *   },
  *   EventBridgeBus: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

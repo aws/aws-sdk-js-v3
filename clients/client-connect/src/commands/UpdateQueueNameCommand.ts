@@ -43,7 +43,7 @@ export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateQueueNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateQueueNameRequest
  *   InstanceId: "STRING_VALUE", // required
  *   QueueId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",

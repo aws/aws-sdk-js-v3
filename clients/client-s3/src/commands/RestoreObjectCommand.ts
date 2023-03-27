@@ -326,21 +326,21 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * import { S3Client, RestoreObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, RestoreObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // RestoreObjectRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE",
- *   RestoreRequest: {
+ *   RestoreRequest: { // RestoreRequest
  *     Days: Number("int"),
- *     GlacierJobParameters: {
+ *     GlacierJobParameters: { // GlacierJobParameters
  *       Tier: "Standard" || "Bulk" || "Expedited", // required
  *     },
  *     Type: "SELECT",
  *     Tier: "Standard" || "Bulk" || "Expedited",
  *     Description: "STRING_VALUE",
- *     SelectParameters: {
- *       InputSerialization: {
- *         CSV: {
+ *     SelectParameters: { // SelectParameters
+ *       InputSerialization: { // InputSerialization
+ *         CSV: { // CSVInput
  *           FileHeaderInfo: "USE" || "IGNORE" || "NONE",
  *           Comments: "STRING_VALUE",
  *           QuoteEscapeCharacter: "STRING_VALUE",
@@ -350,39 +350,39 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *           AllowQuotedRecordDelimiter: true || false,
  *         },
  *         CompressionType: "NONE" || "GZIP" || "BZIP2",
- *         JSON: {
+ *         JSON: { // JSONInput
  *           Type: "DOCUMENT" || "LINES",
  *         },
  *         Parquet: {},
  *       },
  *       ExpressionType: "SQL", // required
  *       Expression: "STRING_VALUE", // required
- *       OutputSerialization: {
- *         CSV: {
+ *       OutputSerialization: { // OutputSerialization
+ *         CSV: { // CSVOutput
  *           QuoteFields: "ALWAYS" || "ASNEEDED",
  *           QuoteEscapeCharacter: "STRING_VALUE",
  *           RecordDelimiter: "STRING_VALUE",
  *           FieldDelimiter: "STRING_VALUE",
  *           QuoteCharacter: "STRING_VALUE",
  *         },
- *         JSON: {
+ *         JSON: { // JSONOutput
  *           RecordDelimiter: "STRING_VALUE",
  *         },
  *       },
  *     },
- *     OutputLocation: {
- *       S3: {
+ *     OutputLocation: { // OutputLocation
+ *       S3: { // S3Location
  *         BucketName: "STRING_VALUE", // required
  *         Prefix: "STRING_VALUE", // required
- *         Encryption: {
+ *         Encryption: { // Encryption
  *           EncryptionType: "AES256" || "aws:kms", // required
  *           KMSKeyId: "STRING_VALUE",
  *           KMSContext: "STRING_VALUE",
  *         },
  *         CannedACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
- *         AccessControlList: [
- *           {
- *             Grantee: {
+ *         AccessControlList: [ // Grants
+ *           { // Grant
+ *             Grantee: { // Grantee
  *               DisplayName: "STRING_VALUE",
  *               EmailAddress: "STRING_VALUE",
  *               ID: "STRING_VALUE",
@@ -392,16 +392,16 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *             Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
  *           },
  *         ],
- *         Tagging: {
- *           TagSet: [ // required
- *             {
+ *         Tagging: { // Tagging
+ *           TagSet: [ // TagSet // required
+ *             { // Tag
  *               Key: "STRING_VALUE", // required
  *               Value: "STRING_VALUE", // required
  *             },
  *           ],
  *         },
- *         UserMetadata: [
- *           {
+ *         UserMetadata: [ // UserMetadata
+ *           { // MetadataEntry
  *             Name: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *           },

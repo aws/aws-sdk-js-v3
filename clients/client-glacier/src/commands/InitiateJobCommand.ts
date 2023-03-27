@@ -46,10 +46,10 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * import { GlacierClient, InitiateJobCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, InitiateJobCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
- * const input = {
+ * const input = { // InitiateJobInput
  *   accountId: "STRING_VALUE", // required
  *   vaultName: "STRING_VALUE", // required
- *   jobParameters: {
+ *   jobParameters: { // JobParameters
  *     Format: "STRING_VALUE",
  *     Type: "STRING_VALUE",
  *     ArchiveId: "STRING_VALUE",
@@ -57,15 +57,15 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  *     SNSTopic: "STRING_VALUE",
  *     RetrievalByteRange: "STRING_VALUE",
  *     Tier: "STRING_VALUE",
- *     InventoryRetrievalParameters: {
+ *     InventoryRetrievalParameters: { // InventoryRetrievalJobInput
  *       StartDate: "STRING_VALUE",
  *       EndDate: "STRING_VALUE",
  *       Limit: "STRING_VALUE",
  *       Marker: "STRING_VALUE",
  *     },
- *     SelectParameters: {
- *       InputSerialization: {
- *         csv: {
+ *     SelectParameters: { // SelectParameters
+ *       InputSerialization: { // InputSerialization
+ *         csv: { // CSVInput
  *           FileHeaderInfo: "USE" || "IGNORE" || "NONE",
  *           Comments: "STRING_VALUE",
  *           QuoteEscapeCharacter: "STRING_VALUE",
@@ -76,8 +76,8 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  *       },
  *       ExpressionType: "SQL",
  *       Expression: "STRING_VALUE",
- *       OutputSerialization: {
- *         csv: {
+ *       OutputSerialization: { // OutputSerialization
+ *         csv: { // CSVOutput
  *           QuoteFields: "ALWAYS" || "ASNEEDED",
  *           QuoteEscapeCharacter: "STRING_VALUE",
  *           RecordDelimiter: "STRING_VALUE",
@@ -86,19 +86,19 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  *         },
  *       },
  *     },
- *     OutputLocation: {
- *       S3: {
+ *     OutputLocation: { // OutputLocation
+ *       S3: { // S3Location
  *         BucketName: "STRING_VALUE",
  *         Prefix: "STRING_VALUE",
- *         Encryption: {
+ *         Encryption: { // Encryption
  *           EncryptionType: "aws:kms" || "AES256",
  *           KMSKeyId: "STRING_VALUE",
  *           KMSContext: "STRING_VALUE",
  *         },
  *         CannedACL: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
- *         AccessControlList: [
- *           {
- *             Grantee: {
+ *         AccessControlList: [ // AccessControlPolicyList
+ *           { // Grant
+ *             Grantee: { // Grantee
  *               Type: "AmazonCustomerByEmail" || "CanonicalUser" || "Group", // required
  *               DisplayName: "STRING_VALUE",
  *               URI: "STRING_VALUE",
@@ -108,7 +108,7 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  *             Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
  *           },
  *         ],
- *         Tagging: {
+ *         Tagging: { // hashmap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         UserMetadata: {

@@ -43,7 +43,7 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * import { DirectoryServiceClient, CreateLogSubscriptionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateLogSubscriptionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // CreateLogSubscriptionRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   LogGroupName: "STRING_VALUE", // required
  * };

@@ -106,7 +106,7 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * import { DataPipelineClient, GetPipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, GetPipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // GetPipelineDefinitionInput
  *   pipelineId: "STRING_VALUE", // required
  *   version: "STRING_VALUE",
  * };

@@ -43,7 +43,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { CloudWatchLogsClient, ListTagsForResourceCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

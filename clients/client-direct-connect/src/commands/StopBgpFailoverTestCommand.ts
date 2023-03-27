@@ -42,7 +42,7 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * import { DirectConnectClient, StopBgpFailoverTestCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, StopBgpFailoverTestCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // StopBgpFailoverTestRequest
  *   virtualInterfaceId: "STRING_VALUE", // required
  * };
  * const command = new StopBgpFailoverTestCommand(input);

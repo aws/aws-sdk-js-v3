@@ -45,7 +45,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { IoTFleetHubClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
  * const client = new IoTFleetHubClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

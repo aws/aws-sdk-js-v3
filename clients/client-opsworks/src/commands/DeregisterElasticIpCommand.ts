@@ -48,7 +48,7 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeregisterElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DeregisterElasticIpRequest
  *   ElasticIp: "STRING_VALUE", // required
  * };
  * const command = new DeregisterElasticIpCommand(input);

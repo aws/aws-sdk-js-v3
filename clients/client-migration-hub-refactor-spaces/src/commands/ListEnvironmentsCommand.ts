@@ -51,7 +51,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * import { MigrationHubRefactorSpacesClient, ListEnvironmentsCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, ListEnvironmentsCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
- * const input = {
+ * const input = { // ListEnvironmentsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

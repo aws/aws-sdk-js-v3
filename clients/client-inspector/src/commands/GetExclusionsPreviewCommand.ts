@@ -44,7 +44,7 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * import { InspectorClient, GetExclusionsPreviewCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetExclusionsPreviewCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
+ * const input = { // GetExclusionsPreviewRequest
  *   assessmentTemplateArn: "STRING_VALUE", // required
  *   previewToken: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",

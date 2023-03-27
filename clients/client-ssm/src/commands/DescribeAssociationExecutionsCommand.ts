@@ -44,10 +44,10 @@ export interface DescribeAssociationExecutionsCommandOutput
  * import { SSMClient, DescribeAssociationExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeAssociationExecutionsRequest
  *   AssociationId: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // AssociationExecutionFilterList
+ *     { // AssociationExecutionFilter
  *       Key: "ExecutionId" || "Status" || "CreatedTime", // required
  *       Value: "STRING_VALUE", // required
  *       Type: "EQUAL" || "LESS_THAN" || "GREATER_THAN", // required

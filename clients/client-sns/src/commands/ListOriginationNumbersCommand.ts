@@ -44,7 +44,7 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * import { SNSClient, ListOriginationNumbersCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListOriginationNumbersCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // ListOriginationNumbersRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

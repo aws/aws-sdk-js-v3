@@ -48,7 +48,7 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  * import { ServiceCatalogAppRegistryClient, AssociateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, AssociateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
- * const input = {
+ * const input = { // AssociateAttributeGroupRequest
  *   application: "STRING_VALUE", // required
  *   attributeGroup: "STRING_VALUE", // required
  * };

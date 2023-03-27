@@ -42,14 +42,14 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * import { FinspaceDataClient, CreateChangesetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateChangesetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // CreateChangesetRequest
  *   clientToken: "STRING_VALUE",
  *   datasetId: "STRING_VALUE", // required
  *   changeType: "STRING_VALUE", // required
- *   sourceParams: { // required
+ *   sourceParams: { // SourceParams // required
  *     "<keys>": "STRING_VALUE",
  *   },
- *   formatParams: { // required
+ *   formatParams: { // FormatParams // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,7 +42,7 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  * import { ChimeClient, GetSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // GetSipRuleRequest
  *   SipRuleId: "STRING_VALUE", // required
  * };
  * const command = new GetSipRuleCommand(input);

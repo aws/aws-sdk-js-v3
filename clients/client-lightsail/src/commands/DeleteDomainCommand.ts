@@ -45,7 +45,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResult, __Metadat
  * import { LightsailClient, DeleteDomainCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteDomainCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DeleteDomainRequest
  *   domainName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDomainCommand(input);

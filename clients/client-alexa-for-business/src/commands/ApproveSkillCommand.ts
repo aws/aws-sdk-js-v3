@@ -43,7 +43,7 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
  * import { AlexaForBusinessClient, ApproveSkillCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ApproveSkillCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // ApproveSkillRequest
  *   SkillId: "STRING_VALUE", // required
  * };
  * const command = new ApproveSkillCommand(input);

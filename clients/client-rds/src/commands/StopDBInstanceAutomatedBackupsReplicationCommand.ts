@@ -52,7 +52,7 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * import { RDSClient, StopDBInstanceAutomatedBackupsReplicationCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StopDBInstanceAutomatedBackupsReplicationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // StopDBInstanceAutomatedBackupsReplicationMessage
  *   SourceDBInstanceArn: "STRING_VALUE", // required
  * };
  * const command = new StopDBInstanceAutomatedBackupsReplicationCommand(input);

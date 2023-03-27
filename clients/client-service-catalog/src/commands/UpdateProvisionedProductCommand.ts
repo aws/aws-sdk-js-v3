@@ -46,7 +46,7 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  * import { ServiceCatalogClient, UpdateProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // UpdateProvisionedProductInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProvisionedProductName: "STRING_VALUE",
  *   ProvisionedProductId: "STRING_VALUE",
@@ -56,18 +56,18 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  *   ProvisioningArtifactName: "STRING_VALUE",
  *   PathId: "STRING_VALUE",
  *   PathName: "STRING_VALUE",
- *   ProvisioningParameters: [
- *     {
+ *   ProvisioningParameters: [ // UpdateProvisioningParameters
+ *     { // UpdateProvisioningParameter
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       UsePreviousValue: true || false,
  *     },
  *   ],
- *   ProvisioningPreferences: {
- *     StackSetAccounts: [
+ *   ProvisioningPreferences: { // UpdateProvisioningPreferences
+ *     StackSetAccounts: [ // StackSetAccounts
  *       "STRING_VALUE",
  *     ],
- *     StackSetRegions: [
+ *     StackSetRegions: [ // StackSetRegions
  *       "STRING_VALUE",
  *     ],
  *     StackSetFailureToleranceCount: Number("int"),
@@ -76,8 +76,8 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  *     StackSetMaxConcurrencyPercentage: Number("int"),
  *     StackSetOperationType: "CREATE" || "UPDATE" || "DELETE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

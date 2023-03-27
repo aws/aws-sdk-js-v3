@@ -42,7 +42,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * import { AppflowClient, DescribeFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
- * const input = {
+ * const input = { // DescribeFlowRequest
  *   flowName: "STRING_VALUE", // required
  * };
  * const command = new DescribeFlowCommand(input);

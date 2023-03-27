@@ -40,21 +40,21 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * import { SMSClient, CreateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, CreateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // CreateAppRequest
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   roleName: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
- *   serverGroups: [
- *     {
+ *   serverGroups: [ // ServerGroups
+ *     { // ServerGroup
  *       serverGroupId: "STRING_VALUE",
  *       name: "STRING_VALUE",
- *       serverList: [
- *         {
+ *       serverList: [ // ServerList
+ *         { // Server
  *           serverId: "STRING_VALUE",
  *           serverType: "STRING_VALUE",
- *           vmServer: {
- *             vmServerAddress: {
+ *           vmServer: { // VmServer
+ *             vmServerAddress: { // VmServerAddress
  *               vmManagerId: "STRING_VALUE",
  *               vmId: "STRING_VALUE",
  *             },
@@ -69,8 +69,8 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *       ],
  *     },
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

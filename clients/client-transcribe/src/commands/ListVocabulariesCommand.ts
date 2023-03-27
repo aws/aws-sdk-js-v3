@@ -44,7 +44,7 @@ export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse,
  * import { TranscribeClient, ListVocabulariesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListVocabulariesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // ListVocabulariesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   StateEquals: "PENDING" || "READY" || "FAILED",

@@ -44,10 +44,10 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * import { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // ListVirtualInterfaceTestHistoryRequest
  *   testId: "STRING_VALUE",
  *   virtualInterfaceId: "STRING_VALUE",
- *   bgpPeers: [
+ *   bgpPeers: [ // BGPPeerIdList
  *     "STRING_VALUE",
  *   ],
  *   status: "STRING_VALUE",

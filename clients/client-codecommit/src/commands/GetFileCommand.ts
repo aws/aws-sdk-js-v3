@@ -39,7 +39,7 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * import { CodeCommitClient, GetFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetFileInput
  *   repositoryName: "STRING_VALUE", // required
  *   commitSpecifier: "STRING_VALUE",
  *   filePath: "STRING_VALUE", // required

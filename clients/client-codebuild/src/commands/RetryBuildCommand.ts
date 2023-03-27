@@ -42,7 +42,7 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  * import { CodeBuildClient, RetryBuildCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, RetryBuildCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // RetryBuildInput
  *   id: "STRING_VALUE",
  *   idempotencyToken: "STRING_VALUE",
  * };

@@ -46,7 +46,7 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  * import { LookoutVisionClient, StopModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, StopModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
- * const input = {
+ * const input = { // StopModelRequest
  *   ProjectName: "STRING_VALUE", // required
  *   ModelVersion: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",

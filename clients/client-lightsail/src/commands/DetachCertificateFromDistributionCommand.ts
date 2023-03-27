@@ -47,7 +47,7 @@ export interface DetachCertificateFromDistributionCommandOutput
  * import { LightsailClient, DetachCertificateFromDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DetachCertificateFromDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DetachCertificateFromDistributionRequest
  *   distributionName: "STRING_VALUE", // required
  * };
  * const command = new DetachCertificateFromDistributionCommand(input);

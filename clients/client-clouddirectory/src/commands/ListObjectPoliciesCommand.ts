@@ -42,9 +42,9 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  * import { CloudDirectoryClient, ListObjectPoliciesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectPoliciesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // ListObjectPoliciesRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   ObjectReference: {
+ *   ObjectReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   NextToken: "STRING_VALUE",

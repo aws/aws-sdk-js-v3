@@ -42,7 +42,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { WorkMailClient, CreateUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // CreateUserRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE", // required

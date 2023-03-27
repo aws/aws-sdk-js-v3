@@ -58,20 +58,20 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  * import { HoneycodeClient, BatchUpsertTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchUpsertTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // BatchUpsertTableRowsRequest
  *   workbookId: "STRING_VALUE", // required
  *   tableId: "STRING_VALUE", // required
- *   rowsToUpsert: [ // required
- *     {
+ *   rowsToUpsert: [ // UpsertRowDataList // required
+ *     { // UpsertRowData
  *       batchItemId: "STRING_VALUE", // required
- *       filter: {
+ *       filter: { // Filter
  *         formula: "STRING_VALUE", // required
  *         contextRowId: "STRING_VALUE",
  *       },
- *       cellsToUpdate: { // required
- *         "<keys>": {
+ *       cellsToUpdate: { // RowDataInput // required
+ *         "<keys>": { // CellInput
  *           fact: "STRING_VALUE",
- *           facts: [
+ *           facts: [ // FactList
  *             "STRING_VALUE",
  *           ],
  *         },

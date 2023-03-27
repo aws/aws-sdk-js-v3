@@ -42,7 +42,7 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * import { IvsClient, GetStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
- * const input = {
+ * const input = { // GetStreamKeyRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new GetStreamKeyCommand(input);

@@ -59,7 +59,7 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  * import { LexModelBuildingServiceClient, CreateIntentVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, CreateIntentVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // CreateIntentVersionRequest
  *   name: "STRING_VALUE", // required
  *   checksum: "STRING_VALUE",
  * };

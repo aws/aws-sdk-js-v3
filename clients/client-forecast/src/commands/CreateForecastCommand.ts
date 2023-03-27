@@ -66,30 +66,30 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * import { ForecastClient, CreateForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // CreateForecastRequest
  *   ForecastName: "STRING_VALUE", // required
  *   PredictorArn: "STRING_VALUE", // required
- *   ForecastTypes: [
+ *   ForecastTypes: [ // ForecastTypes
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   TimeSeriesSelector: {
- *     TimeSeriesIdentifiers: {
- *       DataSource: {
- *         S3Config: {
+ *   TimeSeriesSelector: { // TimeSeriesSelector
+ *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
+ *       DataSource: { // DataSource
+ *         S3Config: { // S3Config
  *           Path: "STRING_VALUE", // required
  *           RoleArn: "STRING_VALUE", // required
  *           KMSKeyArn: "STRING_VALUE",
  *         },
  *       },
- *       Schema: {
- *         Attributes: [
- *           {
+ *       Schema: { // Schema
+ *         Attributes: [ // SchemaAttributes
+ *           { // SchemaAttribute
  *             AttributeName: "STRING_VALUE",
  *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
  *           },

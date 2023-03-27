@@ -44,11 +44,11 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * import { SecurityLakeClient, CreateDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {
- *   configurationForNewAccounts: [ // required
- *     {
+ * const input = { // CreateDatalakeAutoEnableRequest
+ *   configurationForNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
+ *     { // AutoEnableNewRegionConfiguration
  *       region: "STRING_VALUE", // required
- *       sources: [ // required
+ *       sources: [ // AwsSourceTypeList // required
  *         "STRING_VALUE",
  *       ],
  *     },

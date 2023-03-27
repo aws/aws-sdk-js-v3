@@ -48,12 +48,12 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  * import { SSMClient, DescribeMaintenanceWindowTargetsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowTargetsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeMaintenanceWindowTargetsRequest
  *   WindowId: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // MaintenanceWindowFilterList
+ *     { // MaintenanceWindowFilter
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // MaintenanceWindowFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

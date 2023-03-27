@@ -43,13 +43,13 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * import { NeptuneClient, ModifyDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ModifyDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   NewDBClusterIdentifier: "STRING_VALUE",
  *   ApplyImmediately: true || false,
  *   BackupRetentionPeriod: Number("int"),
  *   DBClusterParameterGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   Port: Number("int"),
@@ -58,8 +58,8 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   PreferredBackupWindow: "STRING_VALUE",
  *   PreferredMaintenanceWindow: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
- *   CloudwatchLogsExportConfiguration: {
- *     EnableLogTypes: [
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
  *       "STRING_VALUE",
  *     ],
  *     DisableLogTypes: [
@@ -71,7 +71,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   DBInstanceParameterGroupName: "STRING_VALUE",
  *   DeletionProtection: true || false,
  *   CopyTagsToSnapshot: true || false,
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UntagResourceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UntagResourceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,9 +42,9 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * import { MqClient, CreateTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = {
+ * const input = { // CreateTagsRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

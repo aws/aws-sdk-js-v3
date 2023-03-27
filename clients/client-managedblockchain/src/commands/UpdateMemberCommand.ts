@@ -47,13 +47,13 @@ export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __Metadat
  * import { ManagedBlockchainClient, UpdateMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, UpdateMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // UpdateMemberInput
  *   NetworkId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE", // required
- *   LogPublishingConfiguration: {
- *     Fabric: {
- *       CaLogs: {
- *         Cloudwatch: {
+ *   LogPublishingConfiguration: { // MemberLogPublishingConfiguration
+ *     Fabric: { // MemberFabricLogPublishingConfiguration
+ *       CaLogs: { // LogConfigurations
+ *         Cloudwatch: { // LogConfiguration
  *           Enabled: true || false,
  *         },
  *       },

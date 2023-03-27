@@ -48,8 +48,8 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ModifyVolumeAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVolumeAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   AutoEnableIO: {
+ * const input = { // ModifyVolumeAttributeRequest
+ *   AutoEnableIO: { // AttributeBooleanValue
  *     Value: true || false,
  *   },
  *   VolumeId: "STRING_VALUE", // required

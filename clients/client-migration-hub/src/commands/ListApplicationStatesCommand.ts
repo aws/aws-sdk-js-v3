@@ -44,8 +44,8 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * import { MigrationHubClient, ListApplicationStatesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListApplicationStatesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
- * const input = {
- *   ApplicationIds: [
+ * const input = { // ListApplicationStatesRequest
+ *   ApplicationIds: [ // ApplicationIds
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

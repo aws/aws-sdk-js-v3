@@ -55,10 +55,10 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * import { ConnectClient, UpdateQueueOutboundCallerConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueOutboundCallerConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateQueueOutboundCallerConfigRequest
  *   InstanceId: "STRING_VALUE", // required
  *   QueueId: "STRING_VALUE", // required
- *   OutboundCallerConfig: {
+ *   OutboundCallerConfig: { // OutboundCallerConfig
  *     OutboundCallerIdName: "STRING_VALUE",
  *     OutboundCallerIdNumberId: "STRING_VALUE",
  *     OutboundFlowId: "STRING_VALUE",

@@ -42,25 +42,25 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * import { GuardDutyClient, ListFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // ListFindingsRequest
  *   DetectorId: "STRING_VALUE", // required
- *   FindingCriteria: {
- *     Criterion: {
- *       "<keys>": {
- *         Eq: [
+ *   FindingCriteria: { // FindingCriteria
+ *     Criterion: { // Criterion
+ *       "<keys>": { // Condition
+ *         Eq: [ // Eq
  *           "STRING_VALUE",
  *         ],
- *         Neq: [
+ *         Neq: [ // Neq
  *           "STRING_VALUE",
  *         ],
  *         Gt: Number("int"),
  *         Gte: Number("int"),
  *         Lt: Number("int"),
  *         Lte: Number("int"),
- *         Equals: [
+ *         Equals: [ // Equals
  *           "STRING_VALUE",
  *         ],
- *         NotEquals: [
+ *         NotEquals: [ // NotEquals
  *           "STRING_VALUE",
  *         ],
  *         GreaterThan: Number("long"),
@@ -70,7 +70,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *       },
  *     },
  *   },
- *   SortCriteria: {
+ *   SortCriteria: { // SortCriteria
  *     AttributeName: "STRING_VALUE",
  *     OrderBy: "ASC" || "DESC",
  *   },

@@ -46,7 +46,7 @@ export interface DeleteVoiceConnectorTerminationCommandOutput extends __Metadata
  * import { ChimeClient, DeleteVoiceConnectorTerminationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteVoiceConnectorTerminationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DeleteVoiceConnectorTerminationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  * };
  * const command = new DeleteVoiceConnectorTerminationCommand(input);

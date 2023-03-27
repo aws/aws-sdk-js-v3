@@ -43,7 +43,7 @@ export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLeve
  * import { IoTWirelessClient, ResetResourceLogLevelCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ResetResourceLogLevelCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // ResetResourceLogLevelRequest
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ResourceType: "STRING_VALUE", // required
  * };

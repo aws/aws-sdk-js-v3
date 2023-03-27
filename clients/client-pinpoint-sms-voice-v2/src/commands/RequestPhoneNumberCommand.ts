@@ -48,10 +48,10 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  * import { PinpointSMSVoiceV2Client, RequestPhoneNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, RequestPhoneNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // RequestPhoneNumberRequest
  *   IsoCountryCode: "STRING_VALUE", // required
  *   MessageType: "STRING_VALUE", // required
- *   NumberCapabilities: [ // required
+ *   NumberCapabilities: [ // NumberCapabilityList // required
  *     "STRING_VALUE",
  *   ],
  *   NumberType: "STRING_VALUE", // required
@@ -59,8 +59,8 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  *   PoolId: "STRING_VALUE",
  *   RegistrationId: "STRING_VALUE",
  *   DeletionProtectionEnabled: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

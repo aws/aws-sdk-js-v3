@@ -53,7 +53,7 @@ export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityP
  * import { SESv2Client, GetEmailIdentityPoliciesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetEmailIdentityPoliciesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // GetEmailIdentityPoliciesRequest
  *   EmailIdentity: "STRING_VALUE", // required
  * };
  * const command = new GetEmailIdentityPoliciesCommand(input);

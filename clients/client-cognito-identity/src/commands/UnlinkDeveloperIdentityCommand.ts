@@ -47,7 +47,7 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  * import { CognitoIdentityClient, UnlinkDeveloperIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UnlinkDeveloperIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
- * const input = {
+ * const input = { // UnlinkDeveloperIdentityInput
  *   IdentityId: "STRING_VALUE", // required
  *   IdentityPoolId: "STRING_VALUE", // required
  *   DeveloperProviderName: "STRING_VALUE", // required

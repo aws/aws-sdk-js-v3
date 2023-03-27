@@ -69,12 +69,12 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * import { AuditManagerClient, BatchImportEvidenceToAssessmentControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchImportEvidenceToAssessmentControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // BatchImportEvidenceToAssessmentControlRequest
  *   assessmentId: "STRING_VALUE", // required
  *   controlSetId: "STRING_VALUE", // required
  *   controlId: "STRING_VALUE", // required
- *   manualEvidence: [ // required
- *     {
+ *   manualEvidence: [ // ManualEvidenceList // required
+ *     { // ManualEvidence
  *       s3ResourcePath: "STRING_VALUE",
  *     },
  *   ],

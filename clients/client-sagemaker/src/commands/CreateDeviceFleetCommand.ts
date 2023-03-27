@@ -42,18 +42,18 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, CreateDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateDeviceFleetRequest
  *   DeviceFleetName: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   OutputConfig: {
+ *   OutputConfig: { // EdgeOutputConfig
  *     S3OutputLocation: "STRING_VALUE", // required
  *     KmsKeyId: "STRING_VALUE",
  *     PresetDeploymentType: "GreengrassV2Component",
  *     PresetDeploymentConfig: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

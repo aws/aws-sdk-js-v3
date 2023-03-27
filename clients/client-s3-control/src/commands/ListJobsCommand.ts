@@ -66,9 +66,9 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * import { S3ControlClient, ListJobsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListJobsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // ListJobsRequest
  *   AccountId: "STRING_VALUE",
- *   JobStatuses: [
+ *   JobStatuses: [ // JobStatusList
  *     "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
  *   ],
  *   NextToken: "STRING_VALUE",

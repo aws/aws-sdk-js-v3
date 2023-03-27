@@ -51,14 +51,14 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * import { CloudControlClient, ListResourceRequestsCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, ListResourceRequestsCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
- * const input = {
+ * const input = { // ListResourceRequestsInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   ResourceRequestStatusFilter: {
- *     Operations: [
+ *   ResourceRequestStatusFilter: { // ResourceRequestStatusFilter
+ *     Operations: [ // Operations
  *       "STRING_VALUE",
  *     ],
- *     OperationStatuses: [
+ *     OperationStatuses: [ // OperationStatuses
  *       "STRING_VALUE",
  *     ],
  *   },

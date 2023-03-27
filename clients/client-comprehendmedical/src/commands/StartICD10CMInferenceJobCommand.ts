@@ -48,12 +48,12 @@ export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInfer
  * import { ComprehendMedicalClient, StartICD10CMInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StartICD10CMInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
- *   InputDataConfig: {
+ * const input = { // StartICD10CMInferenceJobRequest
+ *   InputDataConfig: { // InputDataConfig
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE",
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // OutputDataConfig
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE",
  *   },

@@ -42,8 +42,8 @@ export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __Metad
  * import { XRayClient, GetTraceGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetTraceGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
- *   TraceIds: [ // required
+ * const input = { // GetTraceGraphRequest
+ *   TraceIds: [ // TraceIdList // required
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

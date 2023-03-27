@@ -42,9 +42,9 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * import { CleanRoomsClient, BatchGetSchemaCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, BatchGetSchemaCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // BatchGetSchemaInput
  *   collaborationIdentifier: "STRING_VALUE", // required
- *   names: [ // required
+ *   names: [ // TableAliasList // required
  *     "STRING_VALUE",
  *   ],
  * };

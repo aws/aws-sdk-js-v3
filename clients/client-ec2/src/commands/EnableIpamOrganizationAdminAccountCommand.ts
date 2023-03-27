@@ -48,7 +48,7 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
  * import { EC2Client, EnableIpamOrganizationAdminAccountCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableIpamOrganizationAdminAccountCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // EnableIpamOrganizationAdminAccountRequest
  *   DryRun: true || false,
  *   DelegatedAdminAccountId: "STRING_VALUE", // required
  * };

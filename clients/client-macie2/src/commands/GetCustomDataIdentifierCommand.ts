@@ -42,7 +42,7 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  * import { Macie2Client, GetCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // GetCustomDataIdentifierRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetCustomDataIdentifierCommand(input);

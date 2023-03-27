@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { IVSRealTimeClient, TagResourceCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, TagResourceCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // Tags // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

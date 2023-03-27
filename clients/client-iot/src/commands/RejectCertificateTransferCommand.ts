@@ -49,7 +49,7 @@ export interface RejectCertificateTransferCommandOutput extends __MetadataBearer
  * import { IoTClient, RejectCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RejectCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // RejectCertificateTransferRequest
  *   certificateId: "STRING_VALUE", // required
  *   rejectReason: "STRING_VALUE",
  * };

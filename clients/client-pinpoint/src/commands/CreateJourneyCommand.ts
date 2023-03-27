@@ -42,45 +42,45 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  * import { PinpointClient, CreateJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // CreateJourneyRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   WriteJourneyRequest: {
- *     Activities: {
- *       "<keys>": {
- *         CUSTOM: {
+ *   WriteJourneyRequest: { // WriteJourneyRequest
+ *     Activities: { // MapOfActivity
+ *       "<keys>": { // Activity
+ *         CUSTOM: { // CustomMessageActivity
  *           DeliveryUri: "STRING_VALUE",
- *           EndpointTypes: [
+ *           EndpointTypes: [ // ListOf__EndpointTypesElement
  *             "STRING_VALUE",
  *           ],
- *           MessageConfig: {
+ *           MessageConfig: { // JourneyCustomMessage
  *             Data: "STRING_VALUE",
  *           },
  *           NextActivity: "STRING_VALUE",
  *           TemplateName: "STRING_VALUE",
  *           TemplateVersion: "STRING_VALUE",
  *         },
- *         ConditionalSplit: {
- *           Condition: {
- *             Conditions: [
- *               {
- *                 EventCondition: {
- *                   Dimensions: {
- *                     Attributes: {
- *                       "<keys>": {
+ *         ConditionalSplit: { // ConditionalSplitActivity
+ *           Condition: { // Condition
+ *             Conditions: [ // ListOfSimpleCondition
+ *               { // SimpleCondition
+ *                 EventCondition: { // EventCondition
+ *                   Dimensions: { // EventDimensions
+ *                     Attributes: { // MapOfAttributeDimension
+ *                       "<keys>": { // AttributeDimension
  *                         AttributeType: "STRING_VALUE",
- *                         Values: [ // required
+ *                         Values: [ // ListOf__string // required
  *                           "STRING_VALUE",
  *                         ],
  *                       },
  *                     },
- *                     EventType: {
+ *                     EventType: { // SetDimension
  *                       DimensionType: "STRING_VALUE",
  *                       Values: [ // required
  *                         "STRING_VALUE",
  *                       ],
  *                     },
- *                     Metrics: {
- *                       "<keys>": {
+ *                     Metrics: { // MapOfMetricDimension
+ *                       "<keys>": { // MetricDimension
  *                         ComparisonOperator: "STRING_VALUE", // required
  *                         Value: Number("double"), // required
  *                       },
@@ -88,10 +88,10 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                   },
  *                   MessageActivity: "STRING_VALUE",
  *                 },
- *                 SegmentCondition: {
+ *                 SegmentCondition: { // SegmentCondition
  *                   SegmentId: "STRING_VALUE", // required
  *                 },
- *                 SegmentDimensions: {
+ *                 SegmentDimensions: { // SegmentDimensions
  *                   Attributes: {
  *                     "<keys>": {
  *                       AttributeType: "STRING_VALUE",
@@ -100,13 +100,13 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                       ],
  *                     },
  *                   },
- *                   Behavior: {
- *                     Recency: {
+ *                   Behavior: { // SegmentBehaviors
+ *                     Recency: { // RecencyDimension
  *                       Duration: "STRING_VALUE", // required
  *                       RecencyType: "STRING_VALUE", // required
  *                     },
  *                   },
- *                   Demographic: {
+ *                   Demographic: { // SegmentDemographics
  *                     AppVersion: {
  *                       DimensionType: "STRING_VALUE",
  *                       Values: [ // required
@@ -121,38 +121,19 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                     },
  *                     DeviceType: {
  *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
+ *                       Values: "<ListOf__string>", // required
  *                     },
  *                     Make: {
  *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
+ *                       Values: "<ListOf__string>", // required
  *                     },
- *                     Model: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                     Platform: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
+ *                     Model: "<SetDimension>",
+ *                     Platform: "<SetDimension>",
  *                   },
- *                   Location: {
- *                     Country: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                     GPSPoint: {
- *                       Coordinates: {
+ *                   Location: { // SegmentLocation
+ *                     Country: "<SetDimension>",
+ *                     GPSPoint: { // GPSPointDimension
+ *                       Coordinates: { // GPSCoordinates
  *                         Latitude: Number("double"), // required
  *                         Longitude: Number("double"), // required
  *                       },
@@ -168,9 +149,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                   UserAttributes: {
  *                     "<keys>": {
  *                       AttributeType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
+ *                       Values: "<ListOf__string>", // required
  *                     },
  *                   },
  *                 },
@@ -178,7 +157,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *             ],
  *             Operator: "STRING_VALUE",
  *           },
- *           EvaluationWaitTime: {
+ *           EvaluationWaitTime: { // WaitTime
  *             WaitFor: "STRING_VALUE",
  *             WaitUntil: "STRING_VALUE",
  *           },
@@ -186,38 +165,31 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *           TrueActivity: "STRING_VALUE",
  *         },
  *         Description: "STRING_VALUE",
- *         EMAIL: {
- *           MessageConfig: {
+ *         EMAIL: { // EmailMessageActivity
+ *           MessageConfig: { // JourneyEmailMessage
  *             FromAddress: "STRING_VALUE",
  *           },
  *           NextActivity: "STRING_VALUE",
  *           TemplateName: "STRING_VALUE",
  *           TemplateVersion: "STRING_VALUE",
  *         },
- *         Holdout: {
+ *         Holdout: { // HoldoutActivity
  *           NextActivity: "STRING_VALUE",
  *           Percentage: Number("int"), // required
  *         },
- *         MultiCondition: {
- *           Branches: [
- *             {
+ *         MultiCondition: { // MultiConditionalSplitActivity
+ *           Branches: [ // ListOfMultiConditionalBranch
+ *             { // MultiConditionalBranch
  *               Condition: {
  *                 EventCondition: {
  *                   Dimensions: {
  *                     Attributes: {
  *                       "<keys>": {
  *                         AttributeType: "STRING_VALUE",
- *                         Values: [ // required
- *                           "STRING_VALUE",
- *                         ],
+ *                         Values: "<ListOf__string>", // required
  *                       },
  *                     },
- *                     EventType: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
+ *                     EventType: "<SetDimension>",
  *                     Metrics: {
  *                       "<keys>": {
  *                         ComparisonOperator: "STRING_VALUE", // required
@@ -234,9 +206,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                   Attributes: {
  *                     "<keys>": {
  *                       AttributeType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
+ *                       Values: "<ListOf__string>", // required
  *                     },
  *                   },
  *                   Behavior: {
@@ -246,50 +216,15 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                     },
  *                   },
  *                   Demographic: {
- *                     AppVersion: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                     Channel: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                     DeviceType: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                     Make: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                     Model: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                     Platform: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
+ *                     AppVersion: "<SetDimension>",
+ *                     Channel: "<SetDimension>",
+ *                     DeviceType: "<SetDimension>",
+ *                     Make: "<SetDimension>",
+ *                     Model: "<SetDimension>",
+ *                     Platform: "<SetDimension>",
  *                   },
  *                   Location: {
- *                     Country: {
- *                       DimensionType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
+ *                     Country: "<SetDimension>",
  *                     GPSPoint: {
  *                       Coordinates: {
  *                         Latitude: Number("double"), // required
@@ -304,14 +239,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                       Value: Number("double"), // required
  *                     },
  *                   },
- *                   UserAttributes: {
- *                     "<keys>": {
- *                       AttributeType: "STRING_VALUE",
- *                       Values: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                   },
+ *                   UserAttributes: "<MapOfAttributeDimension>",
  *                 },
  *               },
  *               NextActivity: "STRING_VALUE",
@@ -323,24 +251,24 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *             WaitUntil: "STRING_VALUE",
  *           },
  *         },
- *         PUSH: {
- *           MessageConfig: {
+ *         PUSH: { // PushMessageActivity
+ *           MessageConfig: { // JourneyPushMessage
  *             TimeToLive: "STRING_VALUE",
  *           },
  *           NextActivity: "STRING_VALUE",
  *           TemplateName: "STRING_VALUE",
  *           TemplateVersion: "STRING_VALUE",
  *         },
- *         RandomSplit: {
- *           Branches: [
- *             {
+ *         RandomSplit: { // RandomSplitActivity
+ *           Branches: [ // ListOfRandomSplitEntry
+ *             { // RandomSplitEntry
  *               NextActivity: "STRING_VALUE",
  *               Percentage: Number("int"),
  *             },
  *           ],
  *         },
- *         SMS: {
- *           MessageConfig: {
+ *         SMS: { // SMSMessageActivity
+ *           MessageConfig: { // JourneySMSMessage
  *             MessageType: "STRING_VALUE",
  *             OriginationNumber: "STRING_VALUE",
  *             SenderId: "STRING_VALUE",
@@ -351,21 +279,21 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *           TemplateName: "STRING_VALUE",
  *           TemplateVersion: "STRING_VALUE",
  *         },
- *         Wait: {
+ *         Wait: { // WaitActivity
  *           NextActivity: "STRING_VALUE",
  *           WaitTime: {
  *             WaitFor: "STRING_VALUE",
  *             WaitUntil: "STRING_VALUE",
  *           },
  *         },
- *         ContactCenter: {
+ *         ContactCenter: { // ContactCenterActivity
  *           NextActivity: "STRING_VALUE",
  *         },
  *       },
  *     },
  *     CreationDate: "STRING_VALUE",
  *     LastModifiedDate: "STRING_VALUE",
- *     Limits: {
+ *     Limits: { // JourneyLimits
  *       DailyCap: Number("int"),
  *       EndpointReentryCap: Number("int"),
  *       MessagesPerSecond: Number("int"),
@@ -373,34 +301,25 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *     },
  *     LocalTime: true || false,
  *     Name: "STRING_VALUE", // required
- *     QuietTime: {
+ *     QuietTime: { // QuietTime
  *       End: "STRING_VALUE",
  *       Start: "STRING_VALUE",
  *     },
  *     RefreshFrequency: "STRING_VALUE",
- *     Schedule: {
+ *     Schedule: { // JourneySchedule
  *       EndTime: new Date("TIMESTAMP"),
  *       StartTime: new Date("TIMESTAMP"),
  *       Timezone: "STRING_VALUE",
  *     },
  *     StartActivity: "STRING_VALUE",
- *     StartCondition: {
+ *     StartCondition: { // StartCondition
  *       Description: "STRING_VALUE",
- *       EventStartCondition: {
- *         EventFilter: {
+ *       EventStartCondition: { // EventStartCondition
+ *         EventFilter: { // EventFilter
  *           Dimensions: {
- *             Attributes: {
- *               "<keys>": "<AttributeDimension>",
- *             },
- *             EventType: {
- *               DimensionType: "STRING_VALUE",
- *               Values: [ // required
- *                 "<ListOf__string>",
- *               ],
- *             },
- *             Metrics: {
- *               "<keys>": "<MetricDimension>",
- *             },
+ *             Attributes: "<MapOfAttributeDimension>",
+ *             EventType: "<SetDimension>",
+ *             Metrics: "<MapOfMetricDimension>",
  *           },
  *           FilterType: "STRING_VALUE", // required
  *         },
@@ -413,15 +332,15 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *     State: "STRING_VALUE",
  *     WaitForQuietTime: true || false,
  *     RefreshOnSegmentUpdate: true || false,
- *     JourneyChannelSettings: {
+ *     JourneyChannelSettings: { // JourneyChannelSettings
  *       ConnectCampaignArn: "STRING_VALUE",
  *       ConnectCampaignExecutionRoleArn: "STRING_VALUE",
  *     },
  *     SendingSchedule: true || false,
- *     OpenHours: {
- *       EMAIL: {
- *         "<keys>": [
- *           {
+ *     OpenHours: { // OpenHours
+ *       EMAIL: { // MapOfListOfOpenHoursRules
+ *         "<keys>": [ // ListOfOpenHoursRules
+ *           { // OpenHoursRule
  *             StartTime: "STRING_VALUE",
  *             EndTime: "STRING_VALUE",
  *           },
@@ -460,9 +379,9 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *         ],
  *       },
  *     },
- *     ClosedDays: {
- *       EMAIL: [
- *         {
+ *     ClosedDays: { // ClosedDays
+ *       EMAIL: [ // ListOfClosedDaysRules
+ *         { // ClosedDaysRule
  *           Name: "STRING_VALUE",
  *           StartDateTime: "STRING_VALUE",
  *           EndDateTime: "STRING_VALUE",

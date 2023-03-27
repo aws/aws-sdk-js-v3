@@ -42,40 +42,40 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * import { MediaLiveClient, CreateInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
- *   Destinations: [
- *     {
+ * const input = { // CreateInputRequest
+ *   Destinations: [ // __listOfInputDestinationRequest
+ *     { // InputDestinationRequest
  *       StreamName: "STRING_VALUE",
  *     },
  *   ],
- *   InputDevices: [
- *     {
+ *   InputDevices: [ // __listOfInputDeviceSettings
+ *     { // InputDeviceSettings
  *       Id: "STRING_VALUE",
  *     },
  *   ],
- *   InputSecurityGroups: [
+ *   InputSecurityGroups: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
- *   MediaConnectFlows: [
- *     {
+ *   MediaConnectFlows: [ // __listOfMediaConnectFlowRequest
+ *     { // MediaConnectFlowRequest
  *       FlowArn: "STRING_VALUE",
  *     },
  *   ],
  *   Name: "STRING_VALUE",
  *   RequestId: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
- *   Sources: [
- *     {
+ *   Sources: [ // __listOfInputSourceRequest
+ *     { // InputSourceRequest
  *       PasswordParam: "STRING_VALUE",
  *       Url: "STRING_VALUE",
  *       Username: "STRING_VALUE",
  *     },
  *   ],
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE",
- *   Vpc: {
+ *   Vpc: { // InputVpcRequest
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
  *     ],

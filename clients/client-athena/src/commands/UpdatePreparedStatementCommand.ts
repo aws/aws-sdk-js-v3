@@ -42,7 +42,7 @@ export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStat
  * import { AthenaClient, UpdatePreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdatePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // UpdatePreparedStatementInput
  *   StatementName: "STRING_VALUE", // required
  *   WorkGroup: "STRING_VALUE", // required
  *   QueryStatement: "STRING_VALUE", // required

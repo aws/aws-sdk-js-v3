@@ -39,7 +39,7 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  * import { AppStreamClient, CopyImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CopyImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // CopyImageRequest
  *   SourceImageName: "STRING_VALUE", // required
  *   DestinationImageName: "STRING_VALUE", // required
  *   DestinationRegion: "STRING_VALUE", // required

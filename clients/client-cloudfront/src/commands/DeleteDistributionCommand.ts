@@ -42,7 +42,7 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, DeleteDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // DeleteDistributionRequest
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
  * };

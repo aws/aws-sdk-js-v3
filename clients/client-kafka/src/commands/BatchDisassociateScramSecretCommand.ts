@@ -44,9 +44,9 @@ export interface BatchDisassociateScramSecretCommandOutput
  * import { KafkaClient, BatchDisassociateScramSecretCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, BatchDisassociateScramSecretCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // BatchDisassociateScramSecretRequest
  *   ClusterArn: "STRING_VALUE", // required
- *   SecretArnList: [ // required
+ *   SecretArnList: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
  * };

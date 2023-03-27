@@ -43,10 +43,10 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * import { MemoryDBClient, UpdateSubnetGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateSubnetGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // UpdateSubnetGroupRequest
  *   SubnetGroupName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   SubnetIds: [
+ *   SubnetIds: [ // SubnetIdentifierList
  *     "STRING_VALUE",
  *   ],
  * };

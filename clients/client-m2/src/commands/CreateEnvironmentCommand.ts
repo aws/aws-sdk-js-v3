@@ -42,35 +42,35 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * import { M2Client, CreateEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // CreateEnvironmentRequest
  *   name: "STRING_VALUE", // required
  *   instanceType: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   engineType: "STRING_VALUE", // required
  *   engineVersion: "STRING_VALUE",
- *   subnetIds: [
+ *   subnetIds: [ // String50List
  *     "STRING_VALUE",
  *   ],
  *   securityGroupIds: [
  *     "STRING_VALUE",
  *   ],
- *   storageConfigurations: [
- *     { // Union: only one key present
- *       efs: {
+ *   storageConfigurations: [ // StorageConfigurationList
+ *     { // StorageConfiguration Union: only one key present
+ *       efs: { // EfsStorageConfiguration
  *         fileSystemId: "STRING_VALUE", // required
  *         mountPoint: "STRING_VALUE", // required
  *       },
- *       fsx: {
+ *       fsx: { // FsxStorageConfiguration
  *         fileSystemId: "STRING_VALUE", // required
  *         mountPoint: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
  *   publiclyAccessible: true || false,
- *   highAvailabilityConfig: {
+ *   highAvailabilityConfig: { // HighAvailabilityConfig
  *     desiredCapacity: Number("int"), // required
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   preferredMaintenanceWindow: "STRING_VALUE",

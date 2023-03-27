@@ -45,12 +45,12 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * import { ElastiCacheClient, CreateCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // CreateCacheClusterMessage
  *   CacheClusterId: "STRING_VALUE", // required
  *   ReplicationGroupId: "STRING_VALUE",
  *   AZMode: "single-az" || "cross-az",
  *   PreferredAvailabilityZone: "STRING_VALUE",
- *   PreferredAvailabilityZones: [
+ *   PreferredAvailabilityZones: [ // PreferredAvailabilityZoneList
  *     "STRING_VALUE",
  *   ],
  *   NumCacheNodes: Number("int"),
@@ -59,19 +59,19 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *   EngineVersion: "STRING_VALUE",
  *   CacheParameterGroupName: "STRING_VALUE",
  *   CacheSubnetGroupName: "STRING_VALUE",
- *   CacheSecurityGroupNames: [
+ *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   SnapshotArns: [
+ *   SnapshotArns: [ // SnapshotArnsList
  *     "STRING_VALUE",
  *   ],
  *   SnapshotName: "STRING_VALUE",
@@ -84,18 +84,18 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *   AuthToken: "STRING_VALUE",
  *   OutpostMode: "single-outpost" || "cross-outpost",
  *   PreferredOutpostArn: "STRING_VALUE",
- *   PreferredOutpostArns: [
+ *   PreferredOutpostArns: [ // PreferredOutpostArnList
  *     "STRING_VALUE",
  *   ],
- *   LogDeliveryConfigurations: [
- *     {
+ *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
+ *     { // LogDeliveryConfigurationRequest
  *       LogType: "slow-log" || "engine-log",
  *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
- *       DestinationDetails: {
- *         CloudWatchLogsDetails: {
+ *       DestinationDetails: { // DestinationDetails
+ *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
  *           LogGroup: "STRING_VALUE",
  *         },
- *         KinesisFirehoseDetails: {
+ *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
  *           DeliveryStream: "STRING_VALUE",
  *         },
  *       },

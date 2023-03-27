@@ -43,13 +43,13 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupRespo
  * import { IoTClient, CreateBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateBillingGroupRequest
  *   billingGroupName: "STRING_VALUE", // required
- *   billingGroupProperties: {
+ *   billingGroupProperties: { // BillingGroupProperties
  *     billingGroupDescription: "STRING_VALUE",
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

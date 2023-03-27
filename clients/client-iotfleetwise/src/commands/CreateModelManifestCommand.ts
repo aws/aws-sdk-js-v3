@@ -45,15 +45,15 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * import { IoTFleetWiseClient, CreateModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // CreateModelManifestRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   nodes: [ // required
+ *   nodes: [ // listOfStrings // required
  *     "STRING_VALUE",
  *   ],
  *   signalCatalogArn: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

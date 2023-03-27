@@ -42,9 +42,9 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * import { LookoutMetricsClient, PutFeedbackCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, PutFeedbackCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
+ * const input = { // PutFeedbackRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required
- *   AnomalyGroupTimeSeriesFeedback: {
+ *   AnomalyGroupTimeSeriesFeedback: { // AnomalyGroupTimeSeriesFeedback
  *     AnomalyGroupId: "STRING_VALUE", // required
  *     TimeSeriesId: "STRING_VALUE", // required
  *     IsAnomaly: true || false, // required

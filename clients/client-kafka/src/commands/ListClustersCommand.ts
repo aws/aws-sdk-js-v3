@@ -42,7 +42,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * import { KafkaClient, ListClustersCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListClustersCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // ListClustersRequest
  *   ClusterNameFilter: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

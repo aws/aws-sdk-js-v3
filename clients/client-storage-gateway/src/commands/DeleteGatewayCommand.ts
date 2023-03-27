@@ -59,7 +59,7 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * import { StorageGatewayClient, DeleteGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DeleteGatewayInput
  *   GatewayARN: "STRING_VALUE", // required
  * };
  * const command = new DeleteGatewayCommand(input);

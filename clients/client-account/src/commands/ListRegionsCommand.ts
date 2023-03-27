@@ -44,11 +44,11 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * import { AccountClient, ListRegionsCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, ListRegionsCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
- * const input = {
+ * const input = { // ListRegionsRequest
  *   AccountId: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   RegionOptStatusContains: [
+ *   RegionOptStatusContains: [ // RegionOptStatusList
  *     "STRING_VALUE",
  *   ],
  * };

@@ -39,13 +39,13 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * import { DataSyncClient, ListTasksCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListTasksCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // ListTasksRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // TaskFilters
+ *     { // TaskFilter
  *       Name: "LocationId" || "CreationTime", // required
- *       Values: [ // required
+ *       Values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       Operator: "Equals" || "NotEquals" || "In" || "LessThanOrEqual" || "LessThan" || "GreaterThanOrEqual" || "GreaterThan" || "Contains" || "NotContains" || "BeginsWith", // required

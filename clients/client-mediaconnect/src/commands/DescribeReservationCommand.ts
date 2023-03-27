@@ -42,7 +42,7 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * import { MediaConnectClient, DescribeReservationCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, DescribeReservationCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // DescribeReservationRequest
  *   ReservationArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeReservationCommand(input);

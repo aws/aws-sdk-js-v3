@@ -44,7 +44,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * import { WorkLinkClient, DescribeDomainCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeDomainCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // DescribeDomainRequest
  *   FleetArn: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  * };

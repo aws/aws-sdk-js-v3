@@ -42,7 +42,7 @@ export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, _
  * import { NetworkManagerClient, ListAttachmentsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListAttachmentsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // ListAttachmentsRequest
  *   CoreNetworkId: "STRING_VALUE",
  *   AttachmentType: "CONNECT" || "SITE_TO_SITE_VPN" || "VPC" || "TRANSIT_GATEWAY_ROUTE_TABLE",
  *   EdgeLocation: "STRING_VALUE",

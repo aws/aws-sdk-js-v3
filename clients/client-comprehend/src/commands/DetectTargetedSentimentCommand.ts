@@ -48,7 +48,7 @@ export interface DetectTargetedSentimentCommandOutput extends DetectTargetedSent
  * import { ComprehendClient, DetectTargetedSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectTargetedSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DetectTargetedSentimentRequest
  *   Text: "STRING_VALUE", // required
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
  * };

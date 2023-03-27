@@ -44,7 +44,7 @@ export interface DisassociateIpamResourceDiscoveryCommandOutput
  * import { EC2Client, DisassociateIpamResourceDiscoveryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateIpamResourceDiscoveryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisassociateIpamResourceDiscoveryRequest
  *   DryRun: true || false,
  *   IpamResourceDiscoveryAssociationId: "STRING_VALUE", // required
  * };

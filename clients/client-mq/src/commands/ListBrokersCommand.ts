@@ -42,7 +42,7 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * import { MqClient, ListBrokersCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListBrokersCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = {
+ * const input = { // ListBrokersRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

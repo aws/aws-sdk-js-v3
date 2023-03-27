@@ -52,7 +52,7 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  * import { ECSClient, ExecuteCommandCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ExecuteCommandCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // ExecuteCommandRequest
  *   cluster: "STRING_VALUE",
  *   container: "STRING_VALUE",
  *   command: "STRING_VALUE", // required

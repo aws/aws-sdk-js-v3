@@ -43,12 +43,12 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * import { SSMClient, DescribeInstancePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeInstancePatchesRequest
  *   InstanceId: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // PatchOrchestratorFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

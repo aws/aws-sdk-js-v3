@@ -59,7 +59,7 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * import { S3Client, GetBucketLocationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketLocationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetBucketLocationRequest
  *   Bucket: "STRING_VALUE", // required
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };

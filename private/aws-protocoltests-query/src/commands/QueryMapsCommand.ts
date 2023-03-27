@@ -38,19 +38,19 @@ export interface QueryMapsCommandOutput extends __MetadataBearer {}
  * import { QueryProtocolClient, QueryMapsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryMapsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
- * const input = {
- *   MapArg: {
+ * const input = { // QueryMapsInput
+ *   MapArg: { // StringMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   RenamedMapArg: {
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ComplexMapArg: {
- *     "<keys>": {
+ *   ComplexMapArg: { // ComplexMap
+ *     "<keys>": { // GreetingStruct
  *       hi: "STRING_VALUE",
  *     },
  *   },
- *   MapWithXmlMemberName: {
+ *   MapWithXmlMemberName: { // MapWithXmlName
  *     "<keys>": "STRING_VALUE",
  *   },
  *   FlattenedMap: {
@@ -59,12 +59,12 @@ export interface QueryMapsCommandOutput extends __MetadataBearer {}
  *   FlattenedMapWithXmlName: {
  *     "<keys>": "STRING_VALUE",
  *   },
- *   MapOfLists: {
- *     "<keys>": [
+ *   MapOfLists: { // MapOfLists
+ *     "<keys>": [ // StringList
  *       "STRING_VALUE",
  *     ],
  *   },
- *   NestedStructWithMap: {
+ *   NestedStructWithMap: { // NestedStructWithMap
  *     MapArg: {
  *       "<keys>": "STRING_VALUE",
  *     },

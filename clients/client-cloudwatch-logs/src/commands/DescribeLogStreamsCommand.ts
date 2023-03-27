@@ -51,7 +51,7 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  * import { CloudWatchLogsClient, DescribeLogStreamsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeLogStreamsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DescribeLogStreamsRequest
  *   logGroupName: "STRING_VALUE",
  *   logGroupIdentifier: "STRING_VALUE",
  *   logStreamNamePrefix: "STRING_VALUE",

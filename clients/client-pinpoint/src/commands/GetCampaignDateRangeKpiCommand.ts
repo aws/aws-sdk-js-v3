@@ -42,7 +42,7 @@ export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRan
  * import { PinpointClient, GetCampaignDateRangeKpiCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignDateRangeKpiCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetCampaignDateRangeKpiRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   CampaignId: "STRING_VALUE", // required
  *   EndTime: new Date("TIMESTAMP"),

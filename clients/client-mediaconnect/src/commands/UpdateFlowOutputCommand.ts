@@ -42,13 +42,13 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * import { MediaConnectClient, UpdateFlowOutputCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
- *   CidrAllowList: [
+ * const input = { // UpdateFlowOutputRequest
+ *   CidrAllowList: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  *   Description: "STRING_VALUE",
  *   Destination: "STRING_VALUE",
- *   Encryption: {
+ *   Encryption: { // UpdateEncryption
  *     Algorithm: "aes128" || "aes192" || "aes256",
  *     ConstantInitializationVector: "STRING_VALUE",
  *     DeviceId: "STRING_VALUE",
@@ -61,19 +61,19 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   },
  *   FlowArn: "STRING_VALUE", // required
  *   MaxLatency: Number("int"),
- *   MediaStreamOutputConfigurations: [
- *     {
- *       DestinationConfigurations: [
- *         {
+ *   MediaStreamOutputConfigurations: [ // __listOfMediaStreamOutputConfigurationRequest
+ *     { // MediaStreamOutputConfigurationRequest
+ *       DestinationConfigurations: [ // __listOfDestinationConfigurationRequest
+ *         { // DestinationConfigurationRequest
  *           DestinationIp: "STRING_VALUE", // required
  *           DestinationPort: Number("int"), // required
- *           Interface: {
+ *           Interface: { // InterfaceRequest
  *             Name: "STRING_VALUE", // required
  *           },
  *         },
  *       ],
  *       EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *       EncodingParameters: {
+ *       EncodingParameters: { // EncodingParametersRequest
  *         CompressionFactor: Number("double"), // required
  *         EncoderProfile: "main" || "high", // required
  *       },
@@ -89,7 +89,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   SenderIpAddress: "STRING_VALUE",
  *   SmoothingLatency: Number("int"),
  *   StreamId: "STRING_VALUE",
- *   VpcInterfaceAttachment: {
+ *   VpcInterfaceAttachment: { // VpcInterfaceAttachment
  *     VpcInterfaceName: "STRING_VALUE",
  *   },
  * };

@@ -46,9 +46,9 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * import { DirectoryServiceClient, DescribeSharedDirectoriesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeSharedDirectoriesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DescribeSharedDirectoriesRequest
  *   OwnerDirectoryId: "STRING_VALUE", // required
- *   SharedDirectoryIds: [
+ *   SharedDirectoryIds: [ // DirectoryIds
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

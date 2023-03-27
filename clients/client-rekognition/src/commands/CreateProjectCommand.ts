@@ -44,7 +44,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * import { RekognitionClient, CreateProjectCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateProjectCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // CreateProjectRequest
  *   ProjectName: "STRING_VALUE", // required
  * };
  * const command = new CreateProjectCommand(input);

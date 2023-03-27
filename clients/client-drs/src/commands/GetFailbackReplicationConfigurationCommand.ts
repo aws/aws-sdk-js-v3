@@ -47,7 +47,7 @@ export interface GetFailbackReplicationConfigurationCommandOutput
  * import { DrsClient, GetFailbackReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, GetFailbackReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // GetFailbackReplicationConfigurationRequest
  *   recoveryInstanceID: "STRING_VALUE", // required
  * };
  * const command = new GetFailbackReplicationConfigurationCommand(input);

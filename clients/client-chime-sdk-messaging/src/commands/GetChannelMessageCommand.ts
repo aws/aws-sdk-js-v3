@@ -55,7 +55,7 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * import { ChimeSDKMessagingClient, GetChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, GetChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // GetChannelMessageRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   MessageId: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE", // required

@@ -44,9 +44,9 @@ export interface ListGroupMembershipsForMemberCommandOutput
  * import { IdentitystoreClient, ListGroupMembershipsForMemberCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, ListGroupMembershipsForMemberCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
- * const input = {
+ * const input = { // ListGroupMembershipsForMemberRequest
  *   IdentityStoreId: "STRING_VALUE", // required
- *   MemberId: { // Union: only one key present
+ *   MemberId: { // MemberId Union: only one key present
  *     UserId: "STRING_VALUE",
  *   },
  *   MaxResults: Number("int"),

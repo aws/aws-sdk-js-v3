@@ -52,13 +52,13 @@ export interface CreateAutoScalingConfigurationCommandOutput
  * import { AppRunnerClient, CreateAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // CreateAutoScalingConfigurationRequest
  *   AutoScalingConfigurationName: "STRING_VALUE", // required
  *   MaxConcurrency: Number("int"),
  *   MinSize: Number("int"),
  *   MaxSize: Number("int"),
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

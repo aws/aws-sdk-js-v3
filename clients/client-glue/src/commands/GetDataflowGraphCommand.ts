@@ -42,7 +42,7 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  * import { GlueClient, GetDataflowGraphCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataflowGraphCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetDataflowGraphRequest
  *   PythonScript: "STRING_VALUE",
  * };
  * const command = new GetDataflowGraphCommand(input);

@@ -44,9 +44,9 @@ export interface GetResourceShareAssociationsCommandOutput
  * import { RAMClient, GetResourceShareAssociationsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourceShareAssociationsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // GetResourceShareAssociationsRequest
  *   associationType: "PRINCIPAL" || "RESOURCE", // required
- *   resourceShareArns: [
+ *   resourceShareArns: [ // ResourceShareArnList
  *     "STRING_VALUE",
  *   ],
  *   resourceArn: "STRING_VALUE",

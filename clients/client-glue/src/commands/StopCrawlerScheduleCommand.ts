@@ -44,7 +44,7 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  * import { GlueClient, StopCrawlerScheduleCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopCrawlerScheduleCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // StopCrawlerScheduleRequest
  *   CrawlerName: "STRING_VALUE", // required
  * };
  * const command = new StopCrawlerScheduleCommand(input);

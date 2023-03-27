@@ -53,7 +53,7 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  * import { CloudFormationClient, DetectStackResourceDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DetectStackResourceDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DetectStackResourceDriftInput
  *   StackName: "STRING_VALUE", // required
  *   LogicalResourceId: "STRING_VALUE", // required
  * };

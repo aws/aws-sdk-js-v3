@@ -50,9 +50,9 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
  * import { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // AssociatePhoneNumbersWithVoiceConnectorGroupRequest
  *   VoiceConnectorGroupId: "STRING_VALUE", // required
- *   E164PhoneNumbers: [ // required
+ *   E164PhoneNumbers: [ // E164PhoneNumberList // required
  *     "STRING_VALUE",
  *   ],
  *   ForceAssociate: true || false,

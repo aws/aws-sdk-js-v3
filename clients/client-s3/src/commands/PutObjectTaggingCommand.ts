@@ -134,15 +134,15 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * import { S3Client, PutObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutObjectTaggingRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE",
  *   ContentMD5: "STRING_VALUE",
  *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   Tagging: {
- *     TagSet: [ // required
- *       {
+ *   Tagging: { // Tagging
+ *     TagSet: [ // TagSet // required
+ *       { // Tag
  *         Key: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },

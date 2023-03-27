@@ -48,7 +48,7 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * import { ConfigServiceClient, DeleteOrganizationConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteOrganizationConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeleteOrganizationConformancePackRequest
  *   OrganizationConformancePackName: "STRING_VALUE", // required
  * };
  * const command = new DeleteOrganizationConformancePackCommand(input);

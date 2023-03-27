@@ -42,7 +42,7 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  * import { ConnectCampaignsClient, GetCampaignStateCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, GetCampaignStateCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
- * const input = {
+ * const input = { // GetCampaignStateRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetCampaignStateCommand(input);

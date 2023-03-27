@@ -42,10 +42,10 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * import { GameLiftClient, CreateLocationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateLocationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // CreateLocationInput
  *   LocationName: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

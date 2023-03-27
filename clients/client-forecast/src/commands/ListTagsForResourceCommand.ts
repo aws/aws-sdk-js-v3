@@ -46,7 +46,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { ForecastClient, ListTagsForResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListTagsForResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

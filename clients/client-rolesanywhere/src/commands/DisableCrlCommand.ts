@@ -46,7 +46,7 @@ export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBe
  * import { RolesAnywhereClient, DisableCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DisableCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
- * const input = {
+ * const input = { // ScalarCrlRequest
  *   crlId: "STRING_VALUE", // required
  * };
  * const command = new DisableCrlCommand(input);

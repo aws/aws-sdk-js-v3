@@ -52,7 +52,7 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * import { OrganizationsClient, DescribeHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // DescribeHandshakeRequest
  *   HandshakeId: "STRING_VALUE", // required
  * };
  * const command = new DescribeHandshakeCommand(input);

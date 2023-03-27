@@ -48,15 +48,15 @@ export interface CreateLoadBalancerTlsCertificateCommandOutput
  * import { LightsailClient, CreateLoadBalancerTlsCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateLoadBalancerTlsCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // CreateLoadBalancerTlsCertificateRequest
  *   loadBalancerName: "STRING_VALUE", // required
  *   certificateName: "STRING_VALUE", // required
  *   certificateDomainName: "STRING_VALUE", // required
- *   certificateAlternativeNames: [
+ *   certificateAlternativeNames: [ // DomainNameList
  *     "STRING_VALUE",
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

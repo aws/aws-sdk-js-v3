@@ -48,8 +48,8 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * import { MgnClient, DescribeLaunchConfigurationTemplatesCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeLaunchConfigurationTemplatesCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
- *   launchConfigurationTemplateIDs: [
+ * const input = { // DescribeLaunchConfigurationTemplatesRequest
+ *   launchConfigurationTemplateIDs: [ // LaunchConfigurationTemplateIDs
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

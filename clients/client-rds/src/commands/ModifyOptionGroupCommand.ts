@@ -42,21 +42,21 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * import { RDSClient, ModifyOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyOptionGroupMessage
  *   OptionGroupName: "STRING_VALUE", // required
- *   OptionsToInclude: [
- *     {
+ *   OptionsToInclude: [ // OptionConfigurationList
+ *     { // OptionConfiguration
  *       OptionName: "STRING_VALUE", // required
  *       Port: Number("int"),
  *       OptionVersion: "STRING_VALUE",
- *       DBSecurityGroupMemberships: [
+ *       DBSecurityGroupMemberships: [ // DBSecurityGroupNameList
  *         "STRING_VALUE",
  *       ],
- *       VpcSecurityGroupMemberships: [
+ *       VpcSecurityGroupMemberships: [ // VpcSecurityGroupIdList
  *         "STRING_VALUE",
  *       ],
- *       OptionSettings: [
- *         {
+ *       OptionSettings: [ // OptionSettingsList
+ *         { // OptionSetting
  *           Name: "STRING_VALUE",
  *           Value: "STRING_VALUE",
  *           DefaultValue: "STRING_VALUE",
@@ -70,7 +70,7 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  *       ],
  *     },
  *   ],
- *   OptionsToRemove: [
+ *   OptionsToRemove: [ // OptionNamesList
  *     "STRING_VALUE",
  *   ],
  *   ApplyImmediately: true || false,

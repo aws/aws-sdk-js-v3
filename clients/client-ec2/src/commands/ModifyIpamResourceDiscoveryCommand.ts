@@ -42,17 +42,17 @@ export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamReso
  * import { EC2Client, ModifyIpamResourceDiscoveryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamResourceDiscoveryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyIpamResourceDiscoveryRequest
  *   DryRun: true || false,
  *   IpamResourceDiscoveryId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   AddOperatingRegions: [
- *     {
+ *   AddOperatingRegions: [ // AddIpamOperatingRegionSet
+ *     { // AddIpamOperatingRegion
  *       RegionName: "STRING_VALUE",
  *     },
  *   ],
- *   RemoveOperatingRegions: [
- *     {
+ *   RemoveOperatingRegions: [ // RemoveIpamOperatingRegionSet
+ *     { // RemoveIpamOperatingRegion
  *       RegionName: "STRING_VALUE",
  *     },
  *   ],

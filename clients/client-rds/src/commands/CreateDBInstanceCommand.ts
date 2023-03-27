@@ -50,7 +50,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * import { RDSClient, CreateDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // CreateDBInstanceMessage
  *   DBName: "STRING_VALUE",
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   AllocatedStorage: Number("int"),
@@ -58,10 +58,10 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   Engine: "STRING_VALUE", // required
  *   MasterUsername: "STRING_VALUE",
  *   MasterUserPassword: "STRING_VALUE",
- *   DBSecurityGroups: [
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   AvailabilityZone: "STRING_VALUE",
@@ -80,8 +80,8 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   CharacterSetName: "STRING_VALUE",
  *   NcharCharacterSetName: "STRING_VALUE",
  *   PubliclyAccessible: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -103,11 +103,11 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
- *   ProcessorFeatures: [
- *     {
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

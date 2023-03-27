@@ -42,12 +42,12 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * import { ImagebuilderClient, ListImagePipelineImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImagePipelineImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // ListImagePipelineImagesRequest
  *   imagePipelineArn: "STRING_VALUE", // required
- *   filters: [
- *     {
+ *   filters: [ // FilterList
+ *     { // Filter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -42,11 +42,11 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * import { GroundStationClient, ListEphemeridesCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListEphemeridesCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // ListEphemeridesRequest
  *   satelliteId: "STRING_VALUE", // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
- *   statusList: [
+ *   statusList: [ // EphemerisStatusList
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

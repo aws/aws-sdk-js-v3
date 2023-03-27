@@ -43,21 +43,21 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * import { MWAAClient, PublishMetricsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, PublishMetricsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
- * const input = {
+ * const input = { // PublishMetricsInput
  *   EnvironmentName: "STRING_VALUE", // required
- *   MetricData: [ // required
- *     {
+ *   MetricData: [ // MetricData // required
+ *     { // MetricDatum
  *       MetricName: "STRING_VALUE", // required
  *       Timestamp: new Date("TIMESTAMP"), // required
- *       Dimensions: [
- *         {
+ *       Dimensions: [ // Dimensions
+ *         { // Dimension
  *           Name: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
  *       Value: Number("double"),
  *       Unit: "STRING_VALUE",
- *       StatisticValues: {
+ *       StatisticValues: { // StatisticSet
  *         SampleCount: Number("int"),
  *         Sum: Number("double"),
  *         Minimum: Number("double"),

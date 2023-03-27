@@ -42,7 +42,7 @@ export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, ResetAuthorizersCacheCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, ResetAuthorizersCacheCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // ResetAuthorizersCacheRequest
  *   ApiId: "STRING_VALUE", // required
  *   StageName: "STRING_VALUE", // required
  * };

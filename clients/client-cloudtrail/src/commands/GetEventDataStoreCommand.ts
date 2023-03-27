@@ -43,7 +43,7 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  * import { CloudTrailClient, GetEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // GetEventDataStoreRequest
  *   EventDataStore: "STRING_VALUE", // required
  * };
  * const command = new GetEventDataStoreCommand(input);

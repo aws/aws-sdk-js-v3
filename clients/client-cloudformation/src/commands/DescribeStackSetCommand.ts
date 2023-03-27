@@ -42,7 +42,7 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
  * import { CloudFormationClient, DescribeStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DescribeStackSetInput
  *   StackSetName: "STRING_VALUE", // required
  *   CallAs: "SELF" || "DELEGATED_ADMIN",
  * };

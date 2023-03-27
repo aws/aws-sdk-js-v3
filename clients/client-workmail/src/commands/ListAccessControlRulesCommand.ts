@@ -42,7 +42,7 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  * import { WorkMailClient, ListAccessControlRulesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListAccessControlRulesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // ListAccessControlRulesRequest
  *   OrganizationId: "STRING_VALUE", // required
  * };
  * const command = new ListAccessControlRulesCommand(input);

@@ -42,13 +42,13 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * import { QuickSightClient, UpdateDashboardPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDashboardPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // UpdateDashboardPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DashboardId: "STRING_VALUE", // required
- *   GrantPermissions: [
- *     {
+ *   GrantPermissions: [ // UpdateResourcePermissionList
+ *     { // ResourcePermission
  *       Principal: "STRING_VALUE", // required
- *       Actions: [ // required
+ *       Actions: [ // ActionList // required
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -61,7 +61,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  *       ],
  *     },
  *   ],
- *   GrantLinkPermissions: [
+ *   GrantLinkPermissions: [ // UpdateLinkPermissionList
  *     {
  *       Principal: "STRING_VALUE", // required
  *       Actions: [ // required

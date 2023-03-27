@@ -42,7 +42,7 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  * import { WellArchitectedClient, GetLensReviewReportCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetLensReviewReportCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // GetLensReviewReportInput
  *   WorkloadId: "STRING_VALUE", // required
  *   LensAlias: "STRING_VALUE", // required
  *   MilestoneNumber: Number("int"),

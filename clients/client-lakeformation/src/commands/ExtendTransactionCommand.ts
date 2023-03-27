@@ -43,7 +43,7 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * import { LakeFormationClient, ExtendTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ExtendTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // ExtendTransactionRequest
  *   TransactionId: "STRING_VALUE",
  * };
  * const command = new ExtendTransactionCommand(input);

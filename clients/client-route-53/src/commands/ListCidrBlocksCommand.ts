@@ -42,7 +42,7 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * import { Route53Client, ListCidrBlocksCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListCidrBlocksCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // ListCidrBlocksRequest
  *   CollectionId: "STRING_VALUE", // required
  *   LocationName: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

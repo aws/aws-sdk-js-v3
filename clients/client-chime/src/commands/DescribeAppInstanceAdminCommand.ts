@@ -46,7 +46,7 @@ export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstan
  * import { ChimeClient, DescribeAppInstanceAdminCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeAppInstanceAdminCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DescribeAppInstanceAdminRequest
  *   AppInstanceAdminArn: "STRING_VALUE", // required
  *   AppInstanceArn: "STRING_VALUE", // required
  * };

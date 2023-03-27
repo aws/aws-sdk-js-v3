@@ -42,7 +42,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * import { AmplifyBackendClient, CreateTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
- * const input = {
+ * const input = { // CreateTokenRequest
  *   AppId: "STRING_VALUE", // required
  * };
  * const command = new CreateTokenCommand(input);

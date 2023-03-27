@@ -45,9 +45,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { LexModelsV2Client, TagResourceCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, TagResourceCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceARN: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

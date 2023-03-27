@@ -42,7 +42,7 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  * import { ResiliencehubClient, ListAppVersionsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppVersionsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // ListAppVersionsRequest
  *   appArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

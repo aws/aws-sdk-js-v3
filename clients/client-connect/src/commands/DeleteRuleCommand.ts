@@ -42,7 +42,7 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DeleteRuleRequest
  *   InstanceId: "STRING_VALUE", // required
  *   RuleId: "STRING_VALUE", // required
  * };

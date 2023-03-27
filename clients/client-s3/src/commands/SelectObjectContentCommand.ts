@@ -163,7 +163,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * import { S3Client, SelectObjectContentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, SelectObjectContentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // SelectObjectContentRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
  *   SSECustomerAlgorithm: "STRING_VALUE",
@@ -171,11 +171,11 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *   SSECustomerKeyMD5: "STRING_VALUE",
  *   Expression: "STRING_VALUE", // required
  *   ExpressionType: "SQL", // required
- *   RequestProgress: {
+ *   RequestProgress: { // RequestProgress
  *     Enabled: true || false,
  *   },
- *   InputSerialization: {
- *     CSV: {
+ *   InputSerialization: { // InputSerialization
+ *     CSV: { // CSVInput
  *       FileHeaderInfo: "USE" || "IGNORE" || "NONE",
  *       Comments: "STRING_VALUE",
  *       QuoteEscapeCharacter: "STRING_VALUE",
@@ -185,24 +185,24 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *       AllowQuotedRecordDelimiter: true || false,
  *     },
  *     CompressionType: "NONE" || "GZIP" || "BZIP2",
- *     JSON: {
+ *     JSON: { // JSONInput
  *       Type: "DOCUMENT" || "LINES",
  *     },
  *     Parquet: {},
  *   },
- *   OutputSerialization: {
- *     CSV: {
+ *   OutputSerialization: { // OutputSerialization
+ *     CSV: { // CSVOutput
  *       QuoteFields: "ALWAYS" || "ASNEEDED",
  *       QuoteEscapeCharacter: "STRING_VALUE",
  *       RecordDelimiter: "STRING_VALUE",
  *       FieldDelimiter: "STRING_VALUE",
  *       QuoteCharacter: "STRING_VALUE",
  *     },
- *     JSON: {
+ *     JSON: { // JSONOutput
  *       RecordDelimiter: "STRING_VALUE",
  *     },
  *   },
- *   ScanRange: {
+ *   ScanRange: { // ScanRange
  *     Start: Number("long"),
  *     End: Number("long"),
  *   },

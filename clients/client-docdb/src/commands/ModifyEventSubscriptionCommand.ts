@@ -42,11 +42,11 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * import { DocDBClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // ModifyEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SnsTopicArn: "STRING_VALUE",
  *   SourceType: "STRING_VALUE",
- *   EventCategories: [
+ *   EventCategories: [ // EventCategoriesList
  *     "STRING_VALUE",
  *   ],
  *   Enabled: true || false,

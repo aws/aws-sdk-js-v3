@@ -43,7 +43,7 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
  * import { TranscribeClient, GetVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // GetVocabularyFilterRequest
  *   VocabularyFilterName: "STRING_VALUE", // required
  * };
  * const command = new GetVocabularyFilterCommand(input);

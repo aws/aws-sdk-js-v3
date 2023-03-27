@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { MediaConvertClient, UntagResourceCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, UntagResourceCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   Arn: "STRING_VALUE", // required
- *   TagKeys: [
+ *   TagKeys: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  * };

@@ -45,7 +45,7 @@ export interface PauseServiceCommandOutput extends PauseServiceResponse, __Metad
  * import { AppRunnerClient, PauseServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, PauseServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // PauseServiceRequest
  *   ServiceArn: "STRING_VALUE", // required
  * };
  * const command = new PauseServiceCommand(input);

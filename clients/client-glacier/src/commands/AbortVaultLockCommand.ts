@@ -55,7 +55,7 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, AbortVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, AbortVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
- * const input = {
+ * const input = { // AbortVaultLockInput
  *   accountId: "STRING_VALUE", // required
  *   vaultName: "STRING_VALUE", // required
  * };

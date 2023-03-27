@@ -90,11 +90,11 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * import { KMSClient, SignCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, SignCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // SignRequest
  *   KeyId: "STRING_VALUE", // required
  *   Message: "BLOB_VALUE", // required
  *   MessageType: "RAW" || "DIGEST",
- *   GrantTokens: [
+ *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
  *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA", // required

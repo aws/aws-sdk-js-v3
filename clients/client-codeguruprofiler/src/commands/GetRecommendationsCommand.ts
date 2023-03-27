@@ -53,7 +53,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * import { CodeGuruProfilerClient, GetRecommendationsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetRecommendationsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // GetRecommendationsRequest
  *   profilingGroupName: "STRING_VALUE", // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required

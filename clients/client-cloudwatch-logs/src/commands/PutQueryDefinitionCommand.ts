@@ -52,10 +52,10 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * import { CloudWatchLogsClient, PutQueryDefinitionCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutQueryDefinitionCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // PutQueryDefinitionRequest
  *   name: "STRING_VALUE", // required
  *   queryDefinitionId: "STRING_VALUE",
- *   logGroupNames: [
+ *   logGroupNames: [ // LogGroupNames
  *     "STRING_VALUE",
  *   ],
  *   queryString: "STRING_VALUE", // required

@@ -39,7 +39,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * import { BraketClient, GetJobCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, GetJobCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
- * const input = {
+ * const input = { // GetJobRequest
  *   jobArn: "STRING_VALUE", // required
  * };
  * const command = new GetJobCommand(input);

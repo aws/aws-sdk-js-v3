@@ -46,7 +46,7 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  * import { MigrationHubStrategyClient, GetAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // GetAssessmentRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetAssessmentCommand(input);

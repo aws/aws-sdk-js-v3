@@ -54,7 +54,7 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  * import { RekognitionClient, PutProjectPolicyCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, PutProjectPolicyCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // PutProjectPolicyRequest
  *   ProjectArn: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  *   PolicyRevisionId: "STRING_VALUE",

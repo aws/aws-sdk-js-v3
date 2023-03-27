@@ -46,7 +46,7 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * import { ChimeClient, GetVoiceConnectorProxyCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // GetVoiceConnectorProxyRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  * };
  * const command = new GetVoiceConnectorProxyCommand(input);

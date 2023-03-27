@@ -55,7 +55,7 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * import { BackupStorageClient, NotifyObjectCompleteCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, NotifyObjectCompleteCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
- * const input = {
+ * const input = { // NotifyObjectCompleteInput
  *   BackupJobId: "STRING_VALUE", // required
  *   UploadId: "STRING_VALUE", // required
  *   ObjectChecksum: "STRING_VALUE", // required

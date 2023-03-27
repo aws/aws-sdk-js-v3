@@ -45,7 +45,7 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // DeleteFileSystemPolicyRequest
  *   FileSystemId: "STRING_VALUE", // required
  * };
  * const command = new DeleteFileSystemPolicyCommand(input);

@@ -50,12 +50,12 @@ export interface DescribeReservedInstancesOfferingsCommandOutput
  * import { EC2Client, DescribeReservedInstancesOfferingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeReservedInstancesOfferingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeReservedInstancesOfferingsRequest
  *   AvailabilityZone: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -67,7 +67,7 @@ export interface DescribeReservedInstancesOfferingsCommandOutput
  *   MinDuration: Number("long"),
  *   OfferingClass: "standard" || "convertible",
  *   ProductDescription: "Linux/UNIX" || "Linux/UNIX (Amazon VPC)" || "Windows" || "Windows (Amazon VPC)",
- *   ReservedInstancesOfferingIds: [
+ *   ReservedInstancesOfferingIds: [ // ReservedInstancesOfferingIdStringList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

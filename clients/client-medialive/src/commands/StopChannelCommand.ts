@@ -42,7 +42,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * import { MediaLiveClient, StopChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StopChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // StopChannelRequest
  *   ChannelId: "STRING_VALUE", // required
  * };
  * const command = new StopChannelCommand(input);

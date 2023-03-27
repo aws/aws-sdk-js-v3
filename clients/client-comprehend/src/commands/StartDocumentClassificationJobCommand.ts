@@ -46,37 +46,37 @@ export interface StartDocumentClassificationJobCommandOutput
  * import { ComprehendClient, StartDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // StartDocumentClassificationJobRequest
  *   JobName: "STRING_VALUE",
  *   DocumentClassifierArn: "STRING_VALUE",
- *   InputDataConfig: {
+ *   InputDataConfig: { // InputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
- *     DocumentReaderConfig: {
+ *     DocumentReaderConfig: { // DocumentReaderConfig
  *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
  *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
- *       FeatureTypes: [
+ *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
  *         "TABLES" || "FORMS",
  *       ],
  *     },
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // OutputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     KmsKeyId: "STRING_VALUE",
  *   },
  *   DataAccessRoleArn: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
  *   VolumeKmsKeyId: "STRING_VALUE",
- *   VpcConfig: {
- *     SecurityGroupIds: [ // required
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
- *     Subnets: [ // required
+ *     Subnets: [ // Subnets // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

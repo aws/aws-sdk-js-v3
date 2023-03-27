@@ -49,7 +49,7 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
  * import { DatabaseMigrationServiceClient, MoveReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, MoveReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // MoveReplicationTaskMessage
  *   ReplicationTaskArn: "STRING_VALUE", // required
  *   TargetReplicationInstanceArn: "STRING_VALUE", // required
  * };

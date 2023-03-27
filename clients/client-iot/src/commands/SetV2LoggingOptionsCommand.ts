@@ -43,7 +43,7 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * import { IoTClient, SetV2LoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetV2LoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // SetV2LoggingOptionsRequest
  *   roleArn: "STRING_VALUE",
  *   defaultLogLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
  *   disableAllLogs: true || false,

@@ -46,7 +46,7 @@ export interface DeleteCellCommandOutput extends __MetadataBearer {}
  * import { Route53RecoveryReadinessClient, DeleteCellCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, DeleteCellCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // DeleteCellRequest
  *   CellName: "STRING_VALUE", // required
  * };
  * const command = new DeleteCellCommand(input);

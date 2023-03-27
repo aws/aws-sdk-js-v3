@@ -118,14 +118,14 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketLoggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketLoggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketLoggingRequest
  *   Bucket: "STRING_VALUE", // required
- *   BucketLoggingStatus: {
- *     LoggingEnabled: {
+ *   BucketLoggingStatus: { // BucketLoggingStatus
+ *     LoggingEnabled: { // LoggingEnabled
  *       TargetBucket: "STRING_VALUE", // required
- *       TargetGrants: [
- *         {
- *           Grantee: {
+ *       TargetGrants: [ // TargetGrants
+ *         { // TargetGrant
+ *           Grantee: { // Grantee
  *             DisplayName: "STRING_VALUE",
  *             EmailAddress: "STRING_VALUE",
  *             ID: "STRING_VALUE",

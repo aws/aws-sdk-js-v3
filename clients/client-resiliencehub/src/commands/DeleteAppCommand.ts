@@ -43,7 +43,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * import { ResiliencehubClient, DeleteAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // DeleteAppRequest
  *   appArn: "STRING_VALUE", // required
  *   forceDelete: true || false,
  *   clientToken: "STRING_VALUE",

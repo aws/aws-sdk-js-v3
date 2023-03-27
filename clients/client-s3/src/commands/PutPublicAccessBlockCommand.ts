@@ -81,11 +81,11 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutPublicAccessBlockCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutPublicAccessBlockCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutPublicAccessBlockRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
  *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   PublicAccessBlockConfiguration: {
+ *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
  *     BlockPublicAcls: true || false,
  *     IgnorePublicAcls: true || false,
  *     BlockPublicPolicy: true || false,

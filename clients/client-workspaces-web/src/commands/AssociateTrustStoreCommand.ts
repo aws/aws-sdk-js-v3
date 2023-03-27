@@ -42,7 +42,7 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * import { WorkSpacesWebClient, AssociateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // AssociateTrustStoreRequest
  *   portalArn: "STRING_VALUE", // required
  *   trustStoreArn: "STRING_VALUE", // required
  * };

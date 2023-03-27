@@ -52,9 +52,9 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  * import { ApplicationDiscoveryServiceClient, AssociateConfigurationItemsToApplicationCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, AssociateConfigurationItemsToApplicationCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
+ * const input = { // AssociateConfigurationItemsToApplicationRequest
  *   applicationConfigurationId: "STRING_VALUE", // required
- *   configurationIds: [ // required
+ *   configurationIds: [ // ConfigurationIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

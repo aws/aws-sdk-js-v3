@@ -42,10 +42,10 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * import { GlueClient, ListBlueprintsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListBlueprintsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListBlueprintsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

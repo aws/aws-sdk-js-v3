@@ -45,10 +45,10 @@ export interface ListAvailableResourceMetricsCommandOutput
  * import { PIClient, ListAvailableResourceMetricsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, ListAvailableResourceMetricsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
- * const input = {
+ * const input = { // ListAvailableResourceMetricsRequest
  *   ServiceType: "RDS" || "DOCDB", // required
  *   Identifier: "STRING_VALUE", // required
- *   MetricTypes: [ // required
+ *   MetricTypes: [ // MetricTypeList // required
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

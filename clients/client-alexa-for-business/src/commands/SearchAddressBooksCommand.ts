@@ -43,17 +43,17 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  * import { AlexaForBusinessClient, SearchAddressBooksCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchAddressBooksCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // SearchAddressBooksRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Key: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   SortCriteria: [
- *     {
+ *   SortCriteria: [ // SortList
+ *     { // Sort
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -45,7 +45,7 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * import { ConfigServiceClient, DeleteEvaluationResultsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteEvaluationResultsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeleteEvaluationResultsRequest
  *   ConfigRuleName: "STRING_VALUE", // required
  * };
  * const command = new DeleteEvaluationResultsCommand(input);

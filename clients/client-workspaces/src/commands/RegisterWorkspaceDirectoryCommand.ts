@@ -46,16 +46,16 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * import { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // RegisterWorkspaceDirectoryRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   SubnetIds: [
+ *   SubnetIds: [ // SubnetIds
  *     "STRING_VALUE",
  *   ],
  *   EnableWorkDocs: true || false, // required
  *   EnableSelfService: true || false,
  *   Tenancy: "DEDICATED" || "SHARED",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

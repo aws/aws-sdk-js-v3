@@ -42,17 +42,17 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  * import { SSMIncidentsClient, UpdateRelatedItemsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateRelatedItemsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // UpdateRelatedItemsInput
  *   clientToken: "STRING_VALUE",
  *   incidentRecordArn: "STRING_VALUE", // required
- *   relatedItemsUpdate: { // Union: only one key present
- *     itemToAdd: {
- *       identifier: {
- *         value: { // Union: only one key present
+ *   relatedItemsUpdate: { // RelatedItemsUpdate Union: only one key present
+ *     itemToAdd: { // RelatedItem
+ *       identifier: { // ItemIdentifier
+ *         value: { // ItemValue Union: only one key present
  *           arn: "STRING_VALUE",
  *           url: "STRING_VALUE",
  *           metricDefinition: "STRING_VALUE",
- *           pagerDutyIncidentDetail: {
+ *           pagerDutyIncidentDetail: { // PagerDutyIncidentDetail
  *             id: "STRING_VALUE", // required
  *             autoResolve: true || false,
  *             secretId: "STRING_VALUE",
@@ -64,7 +64,7 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  *       generatedId: "STRING_VALUE",
  *     },
  *     itemToRemove: {
- *       value: { // Union: only one key present
+ *       value: {//  Union: only one key present
  *         arn: "STRING_VALUE",
  *         url: "STRING_VALUE",
  *         metricDefinition: "STRING_VALUE",

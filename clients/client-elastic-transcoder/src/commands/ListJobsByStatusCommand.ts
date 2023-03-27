@@ -47,7 +47,7 @@ export interface ListJobsByStatusCommandOutput extends ListJobsByStatusResponse,
  * import { ElasticTranscoderClient, ListJobsByStatusCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ListJobsByStatusCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // ListJobsByStatusRequest
  *   Status: "STRING_VALUE", // required
  *   Ascending: "STRING_VALUE",
  *   PageToken: "STRING_VALUE",

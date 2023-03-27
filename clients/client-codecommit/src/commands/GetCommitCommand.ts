@@ -39,7 +39,7 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
  * import { CodeCommitClient, GetCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetCommitInput
  *   repositoryName: "STRING_VALUE", // required
  *   commitId: "STRING_VALUE", // required
  * };

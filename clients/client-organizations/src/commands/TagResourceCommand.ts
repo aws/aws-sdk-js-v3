@@ -58,10 +58,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, TagResourceCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, TagResourceCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceId: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // Tags // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

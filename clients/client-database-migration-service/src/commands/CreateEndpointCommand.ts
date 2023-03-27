@@ -58,7 +58,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * import { DatabaseMigrationServiceClient, CreateEndpointCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateEndpointCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // CreateEndpointMessage
  *   EndpointIdentifier: "STRING_VALUE", // required
  *   EndpointType: "source" || "target", // required
  *   EngineName: "STRING_VALUE", // required
@@ -69,8 +69,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *   DatabaseName: "STRING_VALUE",
  *   ExtraConnectionAttributes: "STRING_VALUE",
  *   KmsKeyId: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       ResourceArn: "STRING_VALUE",
@@ -80,10 +80,10 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *   SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *   ServiceAccessRoleArn: "STRING_VALUE",
  *   ExternalTableDefinition: "STRING_VALUE",
- *   DynamoDbSettings: {
+ *   DynamoDbSettings: { // DynamoDbSettings
  *     ServiceAccessRoleArn: "STRING_VALUE", // required
  *   },
- *   S3Settings: {
+ *   S3Settings: { // S3Settings
  *     ServiceAccessRoleArn: "STRING_VALUE",
  *     ExternalTableDefinition: "STRING_VALUE",
  *     CsvRowDelimiter: "STRING_VALUE",
@@ -126,11 +126,11 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     ExpectedBucketOwner: "STRING_VALUE",
  *     GlueCatalogGeneration: true || false,
  *   },
- *   DmsTransferSettings: {
+ *   DmsTransferSettings: { // DmsTransferSettings
  *     ServiceAccessRoleArn: "STRING_VALUE",
  *     BucketName: "STRING_VALUE",
  *   },
- *   MongoDbSettings: {
+ *   MongoDbSettings: { // MongoDbSettings
  *     Username: "STRING_VALUE",
  *     Password: "STRING_VALUE",
  *     ServerName: "STRING_VALUE",
@@ -146,7 +146,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SecretsManagerAccessRoleArn: "STRING_VALUE",
  *     SecretsManagerSecretId: "STRING_VALUE",
  *   },
- *   KinesisSettings: {
+ *   KinesisSettings: { // KinesisSettings
  *     StreamArn: "STRING_VALUE",
  *     MessageFormat: "json" || "json-unformatted",
  *     ServiceAccessRoleArn: "STRING_VALUE",
@@ -158,7 +158,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     IncludeNullAndEmpty: true || false,
  *     NoHexPrefix: true || false,
  *   },
- *   KafkaSettings: {
+ *   KafkaSettings: { // KafkaSettings
  *     Broker: "STRING_VALUE",
  *     Topic: "STRING_VALUE",
  *     MessageFormat: "json" || "json-unformatted",
@@ -179,14 +179,14 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     NoHexPrefix: true || false,
  *     SaslMechanism: "scram-sha-512" || "plain",
  *   },
- *   ElasticsearchSettings: {
+ *   ElasticsearchSettings: { // ElasticsearchSettings
  *     ServiceAccessRoleArn: "STRING_VALUE", // required
  *     EndpointUri: "STRING_VALUE", // required
  *     FullLoadErrorPercentage: Number("int"),
  *     ErrorRetryDuration: Number("int"),
  *     UseNewMappingType: true || false,
  *   },
- *   NeptuneSettings: {
+ *   NeptuneSettings: { // NeptuneSettings
  *     ServiceAccessRoleArn: "STRING_VALUE",
  *     S3BucketName: "STRING_VALUE", // required
  *     S3BucketFolder: "STRING_VALUE", // required
@@ -195,7 +195,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     MaxRetryCount: Number("int"),
  *     IamAuthEnabled: true || false,
  *   },
- *   RedshiftSettings: {
+ *   RedshiftSettings: { // RedshiftSettings
  *     AcceptAnyDate: true || false,
  *     AfterConnectScript: "STRING_VALUE",
  *     BucketFolder: "STRING_VALUE",
@@ -228,7 +228,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SecretsManagerSecretId: "STRING_VALUE",
  *     MapBooleanAsBoolean: true || false,
  *   },
- *   PostgreSQLSettings: {
+ *   PostgreSQLSettings: { // PostgreSQLSettings
  *     AfterConnectScript: "STRING_VALUE",
  *     CaptureDdls: true || false,
  *     MaxFileSize: Number("int"),
@@ -250,7 +250,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     TrimSpaceInChar: true || false,
  *     MapBooleanAsBoolean: true || false,
  *   },
- *   MySQLSettings: {
+ *   MySQLSettings: { // MySQLSettings
  *     AfterConnectScript: "STRING_VALUE",
  *     CleanSourceMetadataOnMismatch: true || false,
  *     DatabaseName: "STRING_VALUE",
@@ -266,11 +266,11 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SecretsManagerAccessRoleArn: "STRING_VALUE",
  *     SecretsManagerSecretId: "STRING_VALUE",
  *   },
- *   OracleSettings: {
+ *   OracleSettings: { // OracleSettings
  *     AddSupplementalLogging: true || false,
  *     ArchivedLogDestId: Number("int"),
  *     AdditionalArchivedLogDestId: Number("int"),
- *     ExtraArchivedLogDestIds: [
+ *     ExtraArchivedLogDestIds: [ // IntegerList
  *       Number("int"),
  *     ],
  *     AllowSelectNestedTables: true || false,
@@ -312,7 +312,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     TrimSpaceInChar: true || false,
  *     ConvertTimestampWithZoneToUTC: true || false,
  *   },
- *   SybaseSettings: {
+ *   SybaseSettings: { // SybaseSettings
  *     DatabaseName: "STRING_VALUE",
  *     Password: "STRING_VALUE",
  *     Port: Number("int"),
@@ -321,7 +321,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SecretsManagerAccessRoleArn: "STRING_VALUE",
  *     SecretsManagerSecretId: "STRING_VALUE",
  *   },
- *   MicrosoftSQLServerSettings: {
+ *   MicrosoftSQLServerSettings: { // MicrosoftSQLServerSettings
  *     Port: Number("int"),
  *     BcpPacketSize: Number("int"),
  *     DatabaseName: "STRING_VALUE",
@@ -340,7 +340,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     TlogAccessMode: "BackupOnly" || "PreferBackup" || "PreferTlog" || "TlogOnly",
  *     ForceLobLookup: true || false,
  *   },
- *   IBMDb2Settings: {
+ *   IBMDb2Settings: { // IBMDb2Settings
  *     DatabaseName: "STRING_VALUE",
  *     Password: "STRING_VALUE",
  *     Port: Number("int"),
@@ -353,7 +353,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SecretsManagerSecretId: "STRING_VALUE",
  *   },
  *   ResourceIdentifier: "STRING_VALUE",
- *   DocDbSettings: {
+ *   DocDbSettings: { // DocDbSettings
  *     Username: "STRING_VALUE",
  *     Password: "STRING_VALUE",
  *     ServerName: "STRING_VALUE",
@@ -366,7 +366,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SecretsManagerAccessRoleArn: "STRING_VALUE",
  *     SecretsManagerSecretId: "STRING_VALUE",
  *   },
- *   RedisSettings: {
+ *   RedisSettings: { // RedisSettings
  *     ServerName: "STRING_VALUE", // required
  *     Port: Number("int"), // required
  *     SslSecurityProtocol: "plaintext" || "ssl-encryption",
@@ -375,7 +375,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     AuthPassword: "STRING_VALUE",
  *     SslCaCertificateArn: "STRING_VALUE",
  *   },
- *   GcpMySQLSettings: {
+ *   GcpMySQLSettings: { // GcpMySQLSettings
  *     AfterConnectScript: "STRING_VALUE",
  *     CleanSourceMetadataOnMismatch: true || false,
  *     DatabaseName: "STRING_VALUE",

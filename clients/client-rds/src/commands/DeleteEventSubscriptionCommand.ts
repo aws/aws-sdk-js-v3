@@ -42,7 +42,7 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * import { RDSClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeleteEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventSubscriptionCommand(input);

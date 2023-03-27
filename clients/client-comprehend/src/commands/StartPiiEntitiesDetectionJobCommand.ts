@@ -44,25 +44,25 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
  * import { ComprehendClient, StartPiiEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartPiiEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
- *   InputDataConfig: {
+ * const input = { // StartPiiEntitiesDetectionJobRequest
+ *   InputDataConfig: { // InputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
- *     DocumentReaderConfig: {
+ *     DocumentReaderConfig: { // DocumentReaderConfig
  *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
  *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
- *       FeatureTypes: [
+ *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
  *         "TABLES" || "FORMS",
  *       ],
  *     },
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // OutputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     KmsKeyId: "STRING_VALUE",
  *   },
  *   Mode: "ONLY_REDACTION" || "ONLY_OFFSETS", // required
- *   RedactionConfig: {
- *     PiiEntityTypes: [
+ *   RedactionConfig: { // RedactionConfig
+ *     PiiEntityTypes: [ // ListOfPiiEntityTypes
  *       "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "DATE_TIME" || "PASSPORT_NUMBER" || "DRIVER_ID" || "URL" || "AGE" || "USERNAME" || "PASSWORD" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "IP_ADDRESS" || "MAC_ADDRESS" || "ALL" || "LICENSE_PLATE" || "VEHICLE_IDENTIFICATION_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "IN_PERMANENT_ACCOUNT_NUMBER" || "IN_NREGA" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "CA_HEALTH_NUMBER" || "IN_AADHAAR" || "IN_VOTER_NUMBER",
  *     ],
  *     MaskMode: "MASK" || "REPLACE_WITH_PII_ENTITY_TYPE",
@@ -72,8 +72,8 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
  *   JobName: "STRING_VALUE",
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

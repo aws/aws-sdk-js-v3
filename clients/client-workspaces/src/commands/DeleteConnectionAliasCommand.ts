@@ -57,7 +57,7 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  * import { WorkSpacesClient, DeleteConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // DeleteConnectionAliasRequest
  *   AliasId: "STRING_VALUE", // required
  * };
  * const command = new DeleteConnectionAliasCommand(input);

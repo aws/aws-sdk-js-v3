@@ -42,11 +42,11 @@ export interface UpdateClassificationScopeCommandOutput extends UpdateClassifica
  * import { Macie2Client, UpdateClassificationScopeCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateClassificationScopeCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // UpdateClassificationScopeRequest
  *   id: "STRING_VALUE", // required
- *   s3: {
- *     excludes: {
- *       bucketNames: [ // required
+ *   s3: { // S3ClassificationScopeUpdate
+ *     excludes: { // S3ClassificationScopeExclusionUpdate
+ *       bucketNames: [ // __listOfS3BucketName // required
  *         "STRING_VALUE",
  *       ],
  *       operation: "ADD" || "REPLACE" || "REMOVE", // required

@@ -44,7 +44,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * import { DynamoDBClient, DeleteBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DeleteBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // DeleteBackupInput
  *   BackupArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteBackupCommand(input);

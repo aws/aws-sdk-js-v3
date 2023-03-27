@@ -43,8 +43,8 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * import { IvsClient, ListStreamsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListStreamsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
- * const input = {
- *   filterBy: {
+ * const input = { // ListStreamsRequest
+ *   filterBy: { // StreamFilters
  *     health: "STRING_VALUE",
  *   },
  *   nextToken: "STRING_VALUE",

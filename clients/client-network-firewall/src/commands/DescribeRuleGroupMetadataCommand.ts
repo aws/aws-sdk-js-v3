@@ -45,7 +45,7 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * import { NetworkFirewallClient, DescribeRuleGroupMetadataCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeRuleGroupMetadataCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // DescribeRuleGroupMetadataRequest
  *   RuleGroupName: "STRING_VALUE",
  *   RuleGroupArn: "STRING_VALUE",
  *   Type: "STATELESS" || "STATEFUL",

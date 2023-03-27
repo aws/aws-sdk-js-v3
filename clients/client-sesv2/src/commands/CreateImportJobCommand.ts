@@ -42,17 +42,17 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * import { SESv2Client, CreateImportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateImportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
- *   ImportDestination: {
- *     SuppressionListDestination: {
+ * const input = { // CreateImportJobRequest
+ *   ImportDestination: { // ImportDestination
+ *     SuppressionListDestination: { // SuppressionListDestination
  *       SuppressionListImportAction: "DELETE" || "PUT", // required
  *     },
- *     ContactListDestination: {
+ *     ContactListDestination: { // ContactListDestination
  *       ContactListName: "STRING_VALUE", // required
  *       ContactListImportAction: "DELETE" || "PUT", // required
  *     },
  *   },
- *   ImportDataSource: {
+ *   ImportDataSource: { // ImportDataSource
  *     S3Url: "STRING_VALUE", // required
  *     DataFormat: "CSV" || "JSON", // required
  *   },

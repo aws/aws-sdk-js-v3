@@ -42,7 +42,7 @@ export interface DescribeFolderCommandOutput extends DescribeFolderResponse, __M
  * import { QuickSightClient, DescribeFolderCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeFolderCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeFolderRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   FolderId: "STRING_VALUE", // required
  * };

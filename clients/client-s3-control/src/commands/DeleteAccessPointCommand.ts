@@ -62,7 +62,7 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, DeleteAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // DeleteAccessPointRequest
  *   AccountId: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  * };

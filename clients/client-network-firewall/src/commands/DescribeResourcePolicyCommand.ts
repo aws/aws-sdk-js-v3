@@ -42,7 +42,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * import { NetworkFirewallClient, DescribeResourcePolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeResourcePolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // DescribeResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeResourcePolicyCommand(input);

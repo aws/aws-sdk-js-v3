@@ -42,7 +42,7 @@ export interface CreateResourceCommandOutput extends Resource, __MetadataBearer 
  * import { APIGatewayClient, CreateResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // CreateResourceRequest
  *   restApiId: "STRING_VALUE", // required
  *   parentId: "STRING_VALUE", // required
  *   pathPart: "STRING_VALUE", // required

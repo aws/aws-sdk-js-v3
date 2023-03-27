@@ -45,19 +45,19 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * import { CodePipelineClient, UpdatePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, UpdatePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
- *   pipeline: {
+ * const input = { // UpdatePipelineInput
+ *   pipeline: { // PipelineDeclaration
  *     name: "STRING_VALUE", // required
  *     roleArn: "STRING_VALUE", // required
- *     artifactStore: {
+ *     artifactStore: { // ArtifactStore
  *       type: "STRING_VALUE", // required
  *       location: "STRING_VALUE", // required
- *       encryptionKey: {
+ *       encryptionKey: { // EncryptionKey
  *         id: "STRING_VALUE", // required
  *         type: "STRING_VALUE", // required
  *       },
  *     },
- *     artifactStores: {
+ *     artifactStores: { // ArtifactStoreMap
  *       "<keys>": {
  *         type: "STRING_VALUE", // required
  *         location: "STRING_VALUE", // required
@@ -67,35 +67,35 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *         },
  *       },
  *     },
- *     stages: [ // required
- *       {
+ *     stages: [ // PipelineStageDeclarationList // required
+ *       { // StageDeclaration
  *         name: "STRING_VALUE", // required
- *         blockers: [
- *           {
+ *         blockers: [ // StageBlockerDeclarationList
+ *           { // BlockerDeclaration
  *             name: "STRING_VALUE", // required
  *             type: "STRING_VALUE", // required
  *           },
  *         ],
- *         actions: [ // required
- *           {
+ *         actions: [ // StageActionDeclarationList // required
+ *           { // ActionDeclaration
  *             name: "STRING_VALUE", // required
- *             actionTypeId: {
+ *             actionTypeId: { // ActionTypeId
  *               category: "STRING_VALUE", // required
  *               owner: "STRING_VALUE", // required
  *               provider: "STRING_VALUE", // required
  *               version: "STRING_VALUE", // required
  *             },
  *             runOrder: Number("int"),
- *             configuration: {
+ *             configuration: { // ActionConfigurationMap
  *               "<keys>": "STRING_VALUE",
  *             },
- *             outputArtifacts: [
- *               {
+ *             outputArtifacts: [ // OutputArtifactList
+ *               { // OutputArtifact
  *                 name: "STRING_VALUE", // required
  *               },
  *             ],
- *             inputArtifacts: [
- *               {
+ *             inputArtifacts: [ // InputArtifactList
+ *               { // InputArtifact
  *                 name: "STRING_VALUE", // required
  *               },
  *             ],

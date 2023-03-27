@@ -43,7 +43,7 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * import { EC2Client, DeleteLaunchTemplateCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLaunchTemplateCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteLaunchTemplateRequest
  *   DryRun: true || false,
  *   LaunchTemplateId: "STRING_VALUE",
  *   LaunchTemplateName: "STRING_VALUE",

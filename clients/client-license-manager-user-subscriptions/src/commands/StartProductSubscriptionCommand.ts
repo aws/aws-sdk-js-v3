@@ -51,10 +51,10 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * import { LicenseManagerUserSubscriptionsClient, StartProductSubscriptionCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, StartProductSubscriptionCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const input = {
+ * const input = { // StartProductSubscriptionRequest
  *   Username: "STRING_VALUE", // required
- *   IdentityProvider: { // Union: only one key present
- *     ActiveDirectoryIdentityProvider: {
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
  *     },
  *   },

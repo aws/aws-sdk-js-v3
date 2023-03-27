@@ -42,7 +42,7 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  * import { TranslateClient, DeleteTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, DeleteTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
- * const input = {
+ * const input = { // DeleteTerminologyRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteTerminologyCommand(input);

@@ -177,7 +177,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * import { S3Client, UploadPartCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, UploadPartCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // UploadPartRequest
  *   Body: "STREAMING_BLOB_VALUE",
  *   Bucket: "STRING_VALUE", // required
  *   ContentLength: Number("long"),

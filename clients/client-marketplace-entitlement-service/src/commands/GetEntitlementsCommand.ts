@@ -47,10 +47,10 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * import { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } from "@aws-sdk/client-marketplace-entitlement-service"; // ES Modules import
  * // const { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } = require("@aws-sdk/client-marketplace-entitlement-service"); // CommonJS import
  * const client = new MarketplaceEntitlementServiceClient(config);
- * const input = {
+ * const input = { // GetEntitlementsRequest
  *   ProductCode: "STRING_VALUE", // required
- *   Filter: {
- *     "<keys>": [
+ *   Filter: { // GetEntitlementFilters
+ *     "<keys>": [ // FilterValueList
  *       "STRING_VALUE",
  *     ],
  *   },

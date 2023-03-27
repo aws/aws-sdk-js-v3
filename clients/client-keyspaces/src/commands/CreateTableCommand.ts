@@ -49,59 +49,59 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * import { KeyspacesClient, CreateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, CreateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = {
+ * const input = { // CreateTableRequest
  *   keyspaceName: "STRING_VALUE", // required
  *   tableName: "STRING_VALUE", // required
- *   schemaDefinition: {
- *     allColumns: [ // required
- *       {
+ *   schemaDefinition: { // SchemaDefinition
+ *     allColumns: [ // ColumnDefinitionList // required
+ *       { // ColumnDefinition
  *         name: "STRING_VALUE", // required
  *         type: "STRING_VALUE", // required
  *       },
  *     ],
- *     partitionKeys: [ // required
- *       {
+ *     partitionKeys: [ // PartitionKeyList // required
+ *       { // PartitionKey
  *         name: "STRING_VALUE", // required
  *       },
  *     ],
- *     clusteringKeys: [
- *       {
+ *     clusteringKeys: [ // ClusteringKeyList
+ *       { // ClusteringKey
  *         name: "STRING_VALUE", // required
  *         orderBy: "STRING_VALUE", // required
  *       },
  *     ],
- *     staticColumns: [
- *       {
+ *     staticColumns: [ // StaticColumnList
+ *       { // StaticColumn
  *         name: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
- *   comment: {
+ *   comment: { // Comment
  *     message: "STRING_VALUE", // required
  *   },
- *   capacitySpecification: {
+ *   capacitySpecification: { // CapacitySpecification
  *     throughputMode: "STRING_VALUE", // required
  *     readCapacityUnits: Number("long"),
  *     writeCapacityUnits: Number("long"),
  *   },
- *   encryptionSpecification: {
+ *   encryptionSpecification: { // EncryptionSpecification
  *     type: "STRING_VALUE", // required
  *     kmsKeyIdentifier: "STRING_VALUE",
  *   },
- *   pointInTimeRecovery: {
+ *   pointInTimeRecovery: { // PointInTimeRecovery
  *     status: "STRING_VALUE", // required
  *   },
- *   ttl: {
+ *   ttl: { // TimeToLive
  *     status: "STRING_VALUE", // required
  *   },
  *   defaultTimeToLive: Number("int"),
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
- *   clientSideTimestamps: {
+ *   clientSideTimestamps: { // ClientSideTimestamps
  *     status: "STRING_VALUE", // required
  *   },
  * };

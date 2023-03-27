@@ -42,7 +42,7 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * import { CleanRoomsClient, GetMembershipCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetMembershipCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // GetMembershipInput
  *   membershipIdentifier: "STRING_VALUE", // required
  * };
  * const command = new GetMembershipCommand(input);

@@ -55,15 +55,15 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * import { CodestarNotificationsClient, UpdateNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, UpdateNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
- * const input = {
+ * const input = { // UpdateNotificationRuleRequest
  *   Arn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Status: "ENABLED" || "DISABLED",
- *   EventTypeIds: [
+ *   EventTypeIds: [ // EventTypeIds
  *     "STRING_VALUE",
  *   ],
- *   Targets: [
- *     {
+ *   Targets: [ // Targets
+ *     { // Target
  *       TargetType: "STRING_VALUE",
  *       TargetAddress: "STRING_VALUE",
  *     },

@@ -46,7 +46,7 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * import { DAXClient, DeleteSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DeleteSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
+ * const input = { // DeleteSubnetGroupRequest
  *   SubnetGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteSubnetGroupCommand(input);

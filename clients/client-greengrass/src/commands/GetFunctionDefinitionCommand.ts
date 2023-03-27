@@ -42,7 +42,7 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
  * import { GreengrassClient, GetFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // GetFunctionDefinitionRequest
  *   FunctionDefinitionId: "STRING_VALUE", // required
  * };
  * const command = new GetFunctionDefinitionCommand(input);

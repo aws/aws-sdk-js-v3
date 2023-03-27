@@ -43,7 +43,7 @@ export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecat
  * import { EC2Client, EnableImageDeprecationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableImageDeprecationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // EnableImageDeprecationRequest
  *   ImageId: "STRING_VALUE", // required
  *   DeprecateAt: new Date("TIMESTAMP"), // required
  *   DryRun: true || false,

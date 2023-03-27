@@ -42,7 +42,7 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
  * import { ServiceCatalogClient, CreateTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // CreateTagOptionInput
  *   Key: "STRING_VALUE", // required
  *   Value: "STRING_VALUE", // required
  * };

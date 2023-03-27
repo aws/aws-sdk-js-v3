@@ -42,13 +42,13 @@ export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput,
  * import { ServiceCatalogClient, ListRecordHistoryCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListRecordHistoryCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListRecordHistoryInput
  *   AcceptLanguage: "STRING_VALUE",
- *   AccessLevelFilter: {
+ *   AccessLevelFilter: { // AccessLevelFilter
  *     Key: "Account" || "Role" || "User",
  *     Value: "STRING_VALUE",
  *   },
- *   SearchFilter: {
+ *   SearchFilter: { // ListRecordHistorySearchFilter
  *     Key: "STRING_VALUE",
  *     Value: "STRING_VALUE",
  *   },

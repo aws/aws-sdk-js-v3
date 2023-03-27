@@ -56,11 +56,11 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * import { EC2Client, PurchaseReservedInstancesOfferingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, PurchaseReservedInstancesOfferingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // PurchaseReservedInstancesOfferingRequest
  *   InstanceCount: Number("int"), // required
  *   ReservedInstancesOfferingId: "STRING_VALUE", // required
  *   DryRun: true || false,
- *   LimitPrice: {
+ *   LimitPrice: { // ReservedInstanceLimitPrice
  *     Amount: Number("double"),
  *     CurrencyCode: "USD",
  *   },

@@ -44,7 +44,7 @@ export interface DeleteOutcomeCommandOutput extends DeleteOutcomeResult, __Metad
  * import { FraudDetectorClient, DeleteOutcomeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteOutcomeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // DeleteOutcomeRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeleteOutcomeCommand(input);

@@ -54,48 +54,48 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * import { BatchClient, SubmitJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, SubmitJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // SubmitJobRequest
  *   jobName: "STRING_VALUE", // required
  *   jobQueue: "STRING_VALUE", // required
  *   shareIdentifier: "STRING_VALUE",
  *   schedulingPriorityOverride: Number("int"),
- *   arrayProperties: {
+ *   arrayProperties: { // ArrayProperties
  *     size: Number("int"),
  *   },
- *   dependsOn: [
- *     {
+ *   dependsOn: [ // JobDependencyList
+ *     { // JobDependency
  *       jobId: "STRING_VALUE",
  *       type: "N_TO_N" || "SEQUENTIAL",
  *     },
  *   ],
  *   jobDefinition: "STRING_VALUE", // required
- *   parameters: {
+ *   parameters: { // ParametersMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   containerOverrides: {
+ *   containerOverrides: { // ContainerOverrides
  *     vcpus: Number("int"),
  *     memory: Number("int"),
- *     command: [
+ *     command: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     instanceType: "STRING_VALUE",
- *     environment: [
- *       {
+ *     environment: [ // EnvironmentVariables
+ *       { // KeyValuePair
  *         name: "STRING_VALUE",
  *         value: "STRING_VALUE",
  *       },
  *     ],
- *     resourceRequirements: [
- *       {
+ *     resourceRequirements: [ // ResourceRequirements
+ *       { // ResourceRequirement
  *         value: "STRING_VALUE", // required
  *         type: "GPU" || "VCPU" || "MEMORY", // required
  *       },
  *     ],
  *   },
- *   nodeOverrides: {
+ *   nodeOverrides: { // NodeOverrides
  *     numNodes: Number("int"),
- *     nodePropertyOverrides: [
- *       {
+ *     nodePropertyOverrides: [ // NodePropertyOverrides
+ *       { // NodePropertyOverride
  *         targetNodes: "STRING_VALUE", // required
  *         containerOverrides: {
  *           vcpus: Number("int"),
@@ -120,10 +120,10 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *       },
  *     ],
  *   },
- *   retryStrategy: {
+ *   retryStrategy: { // RetryStrategy
  *     attempts: Number("int"),
- *     evaluateOnExit: [
- *       {
+ *     evaluateOnExit: [ // EvaluateOnExitList
+ *       { // EvaluateOnExit
  *         onStatusReason: "STRING_VALUE",
  *         onReason: "STRING_VALUE",
  *         onExitCode: "STRING_VALUE",
@@ -132,16 +132,16 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *     ],
  *   },
  *   propagateTags: true || false,
- *   timeout: {
+ *   timeout: { // JobTimeout
  *     attemptDurationSeconds: Number("int"),
  *   },
- *   tags: {
+ *   tags: { // TagrisTagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   eksPropertiesOverride: {
- *     podProperties: {
- *       containers: [
- *         {
+ *   eksPropertiesOverride: { // EksPropertiesOverride
+ *     podProperties: { // EksPodPropertiesOverride
+ *       containers: [ // EksContainerOverrideList
+ *         { // EksContainerOverride
  *           image: "STRING_VALUE",
  *           command: [
  *             "STRING_VALUE",
@@ -149,24 +149,24 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *           args: [
  *             "STRING_VALUE",
  *           ],
- *           env: [
- *             {
+ *           env: [ // EksContainerEnvironmentVariables
+ *             { // EksContainerEnvironmentVariable
  *               name: "STRING_VALUE", // required
  *               value: "STRING_VALUE",
  *             },
  *           ],
- *           resources: {
- *             limits: {
+ *           resources: { // EksContainerResourceRequirements
+ *             limits: { // EksLimits
  *               "<keys>": "STRING_VALUE",
  *             },
- *             requests: {
+ *             requests: { // EksRequests
  *               "<keys>": "STRING_VALUE",
  *             },
  *           },
  *         },
  *       ],
- *       metadata: {
- *         labels: {
+ *       metadata: { // EksMetadata
+ *         labels: { // EksLabelsMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },

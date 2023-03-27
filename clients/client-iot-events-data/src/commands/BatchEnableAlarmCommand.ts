@@ -43,9 +43,9 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  * import { IoTEventsDataClient, BatchEnableAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchEnableAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
- * const input = {
- *   enableActionRequests: [ // required
- *     {
+ * const input = { // BatchEnableAlarmRequest
+ *   enableActionRequests: [ // EnableAlarmActionRequests // required
+ *     { // EnableAlarmActionRequest
  *       requestId: "STRING_VALUE", // required
  *       alarmModelName: "STRING_VALUE", // required
  *       keyValue: "STRING_VALUE",

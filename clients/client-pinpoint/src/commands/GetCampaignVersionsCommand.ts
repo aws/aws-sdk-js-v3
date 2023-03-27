@@ -42,7 +42,7 @@ export interface GetCampaignVersionsCommandOutput extends GetCampaignVersionsRes
  * import { PinpointClient, GetCampaignVersionsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignVersionsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetCampaignVersionsRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   CampaignId: "STRING_VALUE", // required
  *   PageSize: "STRING_VALUE",

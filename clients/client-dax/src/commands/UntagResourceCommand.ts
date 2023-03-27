@@ -43,9 +43,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { DAXClient, UntagResourceCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UntagResourceCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceName: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // KeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

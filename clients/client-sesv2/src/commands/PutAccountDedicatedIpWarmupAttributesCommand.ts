@@ -48,7 +48,7 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
  * import { SESv2Client, PutAccountDedicatedIpWarmupAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountDedicatedIpWarmupAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // PutAccountDedicatedIpWarmupAttributesRequest
  *   AutoWarmupEnabled: true || false,
  * };
  * const command = new PutAccountDedicatedIpWarmupAttributesCommand(input);

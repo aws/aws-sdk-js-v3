@@ -42,21 +42,21 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  * import { FMSClient, PutAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
- *   AppsList: {
+ * const input = { // PutAppsListRequest
+ *   AppsList: { // AppsListData
  *     ListId: "STRING_VALUE",
  *     ListName: "STRING_VALUE", // required
  *     ListUpdateToken: "STRING_VALUE",
  *     CreateTime: new Date("TIMESTAMP"),
  *     LastUpdateTime: new Date("TIMESTAMP"),
- *     AppsList: [ // required
- *       {
+ *     AppsList: [ // AppsList // required
+ *       { // App
  *         AppName: "STRING_VALUE", // required
  *         Protocol: "STRING_VALUE", // required
  *         Port: Number("long"), // required
  *       },
  *     ],
- *     PreviousAppsList: {
+ *     PreviousAppsList: { // PreviousAppsList
  *       "<keys>": [
  *         {
  *           AppName: "STRING_VALUE", // required
@@ -66,8 +66,8 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  *       ],
  *     },
  *   },
- *   TagList: [
- *     {
+ *   TagList: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,38 +42,38 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * import { MgnClient, UpdateLaunchConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateLaunchConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // UpdateLaunchConfigurationRequest
  *   sourceServerID: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   launchDisposition: "STRING_VALUE",
  *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
  *   copyPrivateIp: true || false,
  *   copyTags: true || false,
- *   licensing: {
+ *   licensing: { // Licensing
  *     osByol: true || false,
  *   },
  *   bootMode: "STRING_VALUE",
- *   postLaunchActions: {
+ *   postLaunchActions: { // PostLaunchActions
  *     deployment: "STRING_VALUE",
  *     s3LogBucket: "STRING_VALUE",
  *     s3OutputKeyPrefix: "STRING_VALUE",
  *     cloudWatchLogGroupName: "STRING_VALUE",
- *     ssmDocuments: [
- *       {
+ *     ssmDocuments: [ // SsmDocuments
+ *       { // SsmDocument
  *         actionName: "STRING_VALUE", // required
  *         ssmDocumentName: "STRING_VALUE", // required
  *         timeoutSeconds: Number("int"),
  *         mustSucceedForCutover: true || false,
- *         parameters: {
- *           "<keys>": [
- *             {
+ *         parameters: { // SsmDocumentParameters
+ *           "<keys>": [ // SsmParameterStoreParameters
+ *             { // SsmParameterStoreParameter
  *               parameterType: "STRING_VALUE", // required
  *               parameterName: "STRING_VALUE", // required
  *             },
  *           ],
  *         },
- *         externalParameters: {
- *           "<keys>": { // Union: only one key present
+ *         externalParameters: { // SsmDocumentExternalParameters
+ *           "<keys>": { // SsmExternalParameter Union: only one key present
  *             dynamicPath: "STRING_VALUE",
  *           },
  *         },

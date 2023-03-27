@@ -39,9 +39,9 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * import { GlueClient, GetPlanCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPlanCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   Mapping: [ // required
- *     {
+ * const input = { // GetPlanRequest
+ *   Mapping: [ // MappingList // required
+ *     { // MappingEntry
  *       SourceTable: "STRING_VALUE",
  *       SourcePath: "STRING_VALUE",
  *       SourceType: "STRING_VALUE",
@@ -50,19 +50,19 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  *       TargetType: "STRING_VALUE",
  *     },
  *   ],
- *   Source: {
+ *   Source: { // CatalogEntry
  *     DatabaseName: "STRING_VALUE", // required
  *     TableName: "STRING_VALUE", // required
  *   },
- *   Sinks: [
+ *   Sinks: [ // CatalogEntries
  *     {
  *       DatabaseName: "STRING_VALUE", // required
  *       TableName: "STRING_VALUE", // required
  *     },
  *   ],
- *   Location: {
- *     Jdbc: [
- *       {
+ *   Location: { // Location
+ *     Jdbc: [ // CodeGenNodeArgs
+ *       { // CodeGenNodeArg
  *         Name: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *         Param: true || false,
@@ -84,7 +84,7 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  *     ],
  *   },
  *   Language: "PYTHON" || "SCALA",
- *   AdditionalPlanOptionsMap: {
+ *   AdditionalPlanOptionsMap: { // AdditionalPlanOptionsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

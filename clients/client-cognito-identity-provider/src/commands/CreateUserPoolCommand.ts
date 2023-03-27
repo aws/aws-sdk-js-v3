@@ -66,10 +66,10 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * import { CognitoIdentityProviderClient, CreateUserPoolCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateUserPoolCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // CreateUserPoolRequest
  *   PoolName: "STRING_VALUE", // required
- *   Policies: {
- *     PasswordPolicy: {
+ *   Policies: { // UserPoolPolicyType
+ *     PasswordPolicy: { // PasswordPolicyType
  *       MinimumLength: Number("int"),
  *       RequireUppercase: true || false,
  *       RequireLowercase: true || false,
@@ -79,7 +79,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *     },
  *   },
  *   DeletionProtection: "ACTIVE" || "INACTIVE",
- *   LambdaConfig: {
+ *   LambdaConfig: { // LambdaConfigType
  *     PreSignUp: "STRING_VALUE",
  *     CustomMessage: "STRING_VALUE",
  *     PostConfirmation: "STRING_VALUE",
@@ -90,29 +90,29 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *     VerifyAuthChallengeResponse: "STRING_VALUE",
  *     PreTokenGeneration: "STRING_VALUE",
  *     UserMigration: "STRING_VALUE",
- *     CustomSMSSender: {
+ *     CustomSMSSender: { // CustomSMSLambdaVersionConfigType
  *       LambdaVersion: "V1_0", // required
  *       LambdaArn: "STRING_VALUE", // required
  *     },
- *     CustomEmailSender: {
+ *     CustomEmailSender: { // CustomEmailLambdaVersionConfigType
  *       LambdaVersion: "V1_0", // required
  *       LambdaArn: "STRING_VALUE", // required
  *     },
  *     KMSKeyID: "STRING_VALUE",
  *   },
- *   AutoVerifiedAttributes: [
+ *   AutoVerifiedAttributes: [ // VerifiedAttributesListType
  *     "phone_number" || "email",
  *   ],
- *   AliasAttributes: [
+ *   AliasAttributes: [ // AliasAttributesListType
  *     "phone_number" || "email" || "preferred_username",
  *   ],
- *   UsernameAttributes: [
+ *   UsernameAttributes: [ // UsernameAttributesListType
  *     "phone_number" || "email",
  *   ],
  *   SmsVerificationMessage: "STRING_VALUE",
  *   EmailVerificationMessage: "STRING_VALUE",
  *   EmailVerificationSubject: "STRING_VALUE",
- *   VerificationMessageTemplate: {
+ *   VerificationMessageTemplate: { // VerificationMessageTemplateType
  *     SmsMessage: "STRING_VALUE",
  *     EmailMessage: "STRING_VALUE",
  *     EmailSubject: "STRING_VALUE",
@@ -122,65 +122,65 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *   },
  *   SmsAuthenticationMessage: "STRING_VALUE",
  *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
- *   UserAttributeUpdateSettings: {
- *     AttributesRequireVerificationBeforeUpdate: [
+ *   UserAttributeUpdateSettings: { // UserAttributeUpdateSettingsType
+ *     AttributesRequireVerificationBeforeUpdate: [ // AttributesRequireVerificationBeforeUpdateType
  *       "phone_number" || "email",
  *     ],
  *   },
- *   DeviceConfiguration: {
+ *   DeviceConfiguration: { // DeviceConfigurationType
  *     ChallengeRequiredOnNewDevice: true || false,
  *     DeviceOnlyRememberedOnUserPrompt: true || false,
  *   },
- *   EmailConfiguration: {
+ *   EmailConfiguration: { // EmailConfigurationType
  *     SourceArn: "STRING_VALUE",
  *     ReplyToEmailAddress: "STRING_VALUE",
  *     EmailSendingAccount: "COGNITO_DEFAULT" || "DEVELOPER",
  *     From: "STRING_VALUE",
  *     ConfigurationSet: "STRING_VALUE",
  *   },
- *   SmsConfiguration: {
+ *   SmsConfiguration: { // SmsConfigurationType
  *     SnsCallerArn: "STRING_VALUE", // required
  *     ExternalId: "STRING_VALUE",
  *     SnsRegion: "STRING_VALUE",
  *   },
- *   UserPoolTags: {
+ *   UserPoolTags: { // UserPoolTagsType
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AdminCreateUserConfig: {
+ *   AdminCreateUserConfig: { // AdminCreateUserConfigType
  *     AllowAdminCreateUserOnly: true || false,
  *     UnusedAccountValidityDays: Number("int"),
- *     InviteMessageTemplate: {
+ *     InviteMessageTemplate: { // MessageTemplateType
  *       SMSMessage: "STRING_VALUE",
  *       EmailMessage: "STRING_VALUE",
  *       EmailSubject: "STRING_VALUE",
  *     },
  *   },
- *   Schema: [
- *     {
+ *   Schema: [ // SchemaAttributesListType
+ *     { // SchemaAttributeType
  *       Name: "STRING_VALUE",
  *       AttributeDataType: "String" || "Number" || "DateTime" || "Boolean",
  *       DeveloperOnlyAttribute: true || false,
  *       Mutable: true || false,
  *       Required: true || false,
- *       NumberAttributeConstraints: {
+ *       NumberAttributeConstraints: { // NumberAttributeConstraintsType
  *         MinValue: "STRING_VALUE",
  *         MaxValue: "STRING_VALUE",
  *       },
- *       StringAttributeConstraints: {
+ *       StringAttributeConstraints: { // StringAttributeConstraintsType
  *         MinLength: "STRING_VALUE",
  *         MaxLength: "STRING_VALUE",
  *       },
  *     },
  *   ],
- *   UserPoolAddOns: {
+ *   UserPoolAddOns: { // UserPoolAddOnsType
  *     AdvancedSecurityMode: "OFF" || "AUDIT" || "ENFORCED", // required
  *   },
- *   UsernameConfiguration: {
+ *   UsernameConfiguration: { // UsernameConfigurationType
  *     CaseSensitive: true || false, // required
  *   },
- *   AccountRecoverySetting: {
- *     RecoveryMechanisms: [
- *       {
+ *   AccountRecoverySetting: { // AccountRecoverySettingType
+ *     RecoveryMechanisms: [ // RecoveryMechanismsType
+ *       { // RecoveryOptionType
  *         Priority: Number("int"), // required
  *         Name: "verified_email" || "verified_phone_number" || "admin_only", // required
  *       },

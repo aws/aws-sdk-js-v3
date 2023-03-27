@@ -93,12 +93,12 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * import { WAFRegionalClient, CreateRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // CreateRuleRequest
  *   Name: "STRING_VALUE", // required
  *   MetricName: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
  * import { AppSyncClient, DeleteApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // DeleteApiKeyRequest
  *   apiId: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required
  * };

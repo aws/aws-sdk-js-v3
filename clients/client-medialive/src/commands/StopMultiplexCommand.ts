@@ -42,7 +42,7 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  * import { MediaLiveClient, StopMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StopMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // StopMultiplexRequest
  *   MultiplexId: "STRING_VALUE", // required
  * };
  * const command = new StopMultiplexCommand(input);

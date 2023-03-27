@@ -42,7 +42,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * import { CustomerProfilesClient, ListDomainsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListDomainsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // ListDomainsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

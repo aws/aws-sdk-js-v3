@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { BraketClient, UntagResourceCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, UntagResourceCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

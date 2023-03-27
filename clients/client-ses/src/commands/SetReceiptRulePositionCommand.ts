@@ -45,7 +45,7 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * import { SESClient, SetReceiptRulePositionCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetReceiptRulePositionCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // SetReceiptRulePositionRequest
  *   RuleSetName: "STRING_VALUE", // required
  *   RuleName: "STRING_VALUE", // required
  *   After: "STRING_VALUE",

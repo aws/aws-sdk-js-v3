@@ -45,7 +45,7 @@ export interface DescribeAccountModificationsCommandOutput
  * import { WorkSpacesClient, DescribeAccountModificationsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeAccountModificationsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // DescribeAccountModificationsRequest
  *   NextToken: "STRING_VALUE",
  * };
  * const command = new DescribeAccountModificationsCommand(input);

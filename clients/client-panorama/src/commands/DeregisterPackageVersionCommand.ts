@@ -42,7 +42,7 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * import { PanoramaClient, DeregisterPackageVersionCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DeregisterPackageVersionCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // DeregisterPackageVersionRequest
  *   OwnerAccount: "STRING_VALUE",
  *   PackageId: "STRING_VALUE", // required
  *   PackageVersion: "STRING_VALUE", // required

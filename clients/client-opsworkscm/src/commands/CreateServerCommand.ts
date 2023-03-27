@@ -74,7 +74,7 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * import { OpsWorksCMClient, CreateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, CreateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // CreateServerRequest
  *   AssociatePublicIpAddress: true || false,
  *   CustomDomain: "STRING_VALUE",
  *   CustomCertificate: "STRING_VALUE",
@@ -83,8 +83,8 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *   Engine: "STRING_VALUE", // required
  *   EngineModel: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
- *   EngineAttributes: [
- *     {
+ *   EngineAttributes: [ // EngineAttributes
+ *     { // EngineAttribute
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -96,15 +96,15 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *   KeyPair: "STRING_VALUE",
  *   PreferredMaintenanceWindow: "STRING_VALUE",
  *   PreferredBackupWindow: "STRING_VALUE",
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // Strings
  *     "STRING_VALUE",
  *   ],
  *   ServiceRoleArn: "STRING_VALUE", // required
  *   SubnetIds: [
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

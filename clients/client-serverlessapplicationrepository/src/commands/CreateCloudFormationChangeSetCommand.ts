@@ -48,9 +48,9 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * import { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
- * const input = {
+ * const input = { // CreateCloudFormationChangeSetRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   Capabilities: [
+ *   Capabilities: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  *   ChangeSetName: "STRING_VALUE",
@@ -59,8 +59,8 @@ export interface CreateCloudFormationChangeSetCommandOutput
  *   NotificationArns: [
  *     "STRING_VALUE",
  *   ],
- *   ParameterOverrides: [
- *     {
+ *   ParameterOverrides: [ // __listOfParameterValue
+ *     { // ParameterValue
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
@@ -68,10 +68,10 @@ export interface CreateCloudFormationChangeSetCommandOutput
  *   ResourceTypes: [
  *     "STRING_VALUE",
  *   ],
- *   RollbackConfiguration: {
+ *   RollbackConfiguration: { // RollbackConfiguration
  *     MonitoringTimeInMinutes: Number("int"),
- *     RollbackTriggers: [
- *       {
+ *     RollbackTriggers: [ // __listOfRollbackTrigger
+ *       { // RollbackTrigger
  *         Arn: "STRING_VALUE", // required
  *         Type: "STRING_VALUE", // required
  *       },
@@ -79,8 +79,8 @@ export interface CreateCloudFormationChangeSetCommandOutput
  *   },
  *   SemanticVersion: "STRING_VALUE",
  *   StackName: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // __listOfTag
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

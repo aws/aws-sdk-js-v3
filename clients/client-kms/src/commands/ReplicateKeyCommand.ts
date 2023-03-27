@@ -124,14 +124,14 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * import { KMSClient, ReplicateKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ReplicateKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // ReplicateKeyRequest
  *   KeyId: "STRING_VALUE", // required
  *   ReplicaRegion: "STRING_VALUE", // required
  *   Policy: "STRING_VALUE",
  *   BypassPolicyLockoutSafetyCheck: true || false,
  *   Description: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       TagKey: "STRING_VALUE", // required
  *       TagValue: "STRING_VALUE", // required
  *     },

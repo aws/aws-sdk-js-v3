@@ -50,25 +50,25 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  * import { BackupClient, CreateBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
- *   BackupPlan: {
+ * const input = { // CreateBackupPlanInput
+ *   BackupPlan: { // BackupPlanInput
  *     BackupPlanName: "STRING_VALUE", // required
- *     Rules: [ // required
- *       {
+ *     Rules: [ // BackupRulesInput // required
+ *       { // BackupRuleInput
  *         RuleName: "STRING_VALUE", // required
  *         TargetBackupVaultName: "STRING_VALUE", // required
  *         ScheduleExpression: "STRING_VALUE",
  *         StartWindowMinutes: Number("long"),
  *         CompletionWindowMinutes: Number("long"),
- *         Lifecycle: {
+ *         Lifecycle: { // Lifecycle
  *           MoveToColdStorageAfterDays: Number("long"),
  *           DeleteAfterDays: Number("long"),
  *         },
- *         RecoveryPointTags: {
+ *         RecoveryPointTags: { // Tags
  *           "<keys>": "STRING_VALUE",
  *         },
- *         CopyActions: [
- *           {
+ *         CopyActions: [ // CopyActions
+ *           { // CopyAction
  *             Lifecycle: {
  *               MoveToColdStorageAfterDays: Number("long"),
  *               DeleteAfterDays: Number("long"),
@@ -79,10 +79,10 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *         EnableContinuousBackup: true || false,
  *       },
  *     ],
- *     AdvancedBackupSettings: [
- *       {
+ *     AdvancedBackupSettings: [ // AdvancedBackupSettings
+ *       { // AdvancedBackupSetting
  *         ResourceType: "STRING_VALUE",
- *         BackupOptions: {
+ *         BackupOptions: { // BackupOptions
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },

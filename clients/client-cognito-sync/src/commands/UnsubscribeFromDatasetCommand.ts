@@ -86,7 +86,7 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * import { CognitoSyncClient, UnsubscribeFromDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, UnsubscribeFromDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
- * const input = {
+ * const input = { // UnsubscribeFromDatasetRequest
  *   IdentityPoolId: "STRING_VALUE", // required
  *   IdentityId: "STRING_VALUE", // required
  *   DatasetName: "STRING_VALUE", // required

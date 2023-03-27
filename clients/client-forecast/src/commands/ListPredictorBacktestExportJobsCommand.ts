@@ -47,11 +47,11 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  * import { ForecastClient, ListPredictorBacktestExportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListPredictorBacktestExportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // ListPredictorBacktestExportJobsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *       Condition: "IS" || "IS_NOT", // required

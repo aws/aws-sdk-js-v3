@@ -42,13 +42,13 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  * import { OmicsClient, StartReadSetImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReadSetImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // StartReadSetImportJobRequest
  *   sequenceStoreId: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   sources: [ // required
- *     {
- *       sourceFiles: {
+ *   sources: [ // StartReadSetImportJobSourceList // required
+ *     { // StartReadSetImportJobSourceItem
+ *       sourceFiles: { // SourceFiles
  *         source1: "STRING_VALUE", // required
  *         source2: "STRING_VALUE",
  *       },
@@ -59,7 +59,7 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  *       referenceArn: "STRING_VALUE", // required
  *       name: "STRING_VALUE",
  *       description: "STRING_VALUE",
- *       tags: {
+ *       tags: { // TagMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

@@ -42,7 +42,7 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * import { OmicsClient, GetReadSetMetadataCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReadSetMetadataCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // GetReadSetMetadataRequest
  *   id: "STRING_VALUE", // required
  *   sequenceStoreId: "STRING_VALUE", // required
  * };

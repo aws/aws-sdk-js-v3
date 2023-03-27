@@ -44,11 +44,11 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * import { IoTThingsGraphClient, SearchSystemInstancesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchSystemInstancesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
- *   filters: [
- *     {
+ * const input = { // SearchSystemInstancesRequest
+ *   filters: [ // SystemInstanceFilters
+ *     { // SystemInstanceFilter
  *       name: "STRING_VALUE",
- *       value: [
+ *       value: [ // SystemInstanceFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

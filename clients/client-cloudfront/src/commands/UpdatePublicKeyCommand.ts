@@ -43,8 +43,8 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  * import { CloudFrontClient, UpdatePublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdatePublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   PublicKeyConfig: {
+ * const input = { // UpdatePublicKeyRequest
+ *   PublicKeyConfig: { // PublicKeyConfig
  *     CallerReference: "STRING_VALUE", // required
  *     Name: "STRING_VALUE", // required
  *     EncodedKey: "STRING_VALUE", // required

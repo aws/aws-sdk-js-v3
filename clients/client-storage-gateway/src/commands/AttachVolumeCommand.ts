@@ -45,7 +45,7 @@ export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __Metadat
  * import { StorageGatewayClient, AttachVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AttachVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // AttachVolumeInput
  *   GatewayARN: "STRING_VALUE", // required
  *   TargetName: "STRING_VALUE",
  *   VolumeARN: "STRING_VALUE", // required

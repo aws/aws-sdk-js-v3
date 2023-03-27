@@ -48,7 +48,7 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  * import { GrafanaClient, AssociateLicenseCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, AssociateLicenseCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const input = {
+ * const input = { // AssociateLicenseRequest
  *   workspaceId: "STRING_VALUE", // required
  *   licenseType: "STRING_VALUE", // required
  * };

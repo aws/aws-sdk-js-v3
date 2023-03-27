@@ -42,13 +42,13 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * import { WorkSpacesWebClient, UpdateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // UpdateNetworkSettingsRequest
  *   networkSettingsArn: "STRING_VALUE", // required
  *   vpcId: "STRING_VALUE",
- *   subnetIds: [
+ *   subnetIds: [ // SubnetIdList
  *     "STRING_VALUE",
  *   ],
- *   securityGroupIds: [
+ *   securityGroupIds: [ // SecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",

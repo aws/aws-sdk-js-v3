@@ -42,7 +42,7 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * import { GroundStationClient, ListConfigsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListConfigsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // ListConfigsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

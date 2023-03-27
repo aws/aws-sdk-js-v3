@@ -44,10 +44,10 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * import { DirectoryServiceClient, CreateConditionalForwarderCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateConditionalForwarderCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // CreateConditionalForwarderRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   RemoteDomainName: "STRING_VALUE", // required
- *   DnsIpAddrs: [ // required
+ *   DnsIpAddrs: [ // DnsIpAddrs // required
  *     "STRING_VALUE",
  *   ],
  * };

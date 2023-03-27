@@ -121,24 +121,24 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * import { WAFRegionalClient, UpdateWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // UpdateWebACLRequest
  *   WebACLId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
- *   Updates: [
- *     {
+ *   Updates: [ // WebACLUpdates
+ *     { // WebACLUpdate
  *       Action: "STRING_VALUE", // required
- *       ActivatedRule: {
+ *       ActivatedRule: { // ActivatedRule
  *         Priority: Number("int"), // required
  *         RuleId: "STRING_VALUE", // required
- *         Action: {
+ *         Action: { // WafAction
  *           Type: "STRING_VALUE", // required
  *         },
- *         OverrideAction: {
+ *         OverrideAction: { // WafOverrideAction
  *           Type: "STRING_VALUE", // required
  *         },
  *         Type: "STRING_VALUE",
- *         ExcludedRules: [
- *           {
+ *         ExcludedRules: [ // ExcludedRules
+ *           { // ExcludedRule
  *             RuleId: "STRING_VALUE", // required
  *           },
  *         ],

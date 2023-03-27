@@ -44,11 +44,11 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * import { IoTClient, UpdateScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateScheduledAuditRequest
  *   frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY",
  *   dayOfMonth: "STRING_VALUE",
  *   dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
- *   targetCheckNames: [
+ *   targetCheckNames: [ // TargetAuditCheckNames
  *     "STRING_VALUE",
  *   ],
  *   scheduledAuditName: "STRING_VALUE", // required

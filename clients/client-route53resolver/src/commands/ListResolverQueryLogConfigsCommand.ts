@@ -45,13 +45,13 @@ export interface ListResolverQueryLogConfigsCommandOutput
  * import { Route53ResolverClient, ListResolverQueryLogConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListResolverQueryLogConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // ListResolverQueryLogConfigsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

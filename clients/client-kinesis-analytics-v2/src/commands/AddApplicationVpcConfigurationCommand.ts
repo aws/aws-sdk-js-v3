@@ -59,14 +59,14 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * import { KinesisAnalyticsV2Client, AddApplicationVpcConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationVpcConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // AddApplicationVpcConfigurationRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   CurrentApplicationVersionId: Number("long"),
- *   VpcConfiguration: {
- *     SubnetIds: [ // required
+ *   VpcConfiguration: { // VpcConfiguration
+ *     SubnetIds: [ // SubnetIds // required
  *       "STRING_VALUE",
  *     ],
- *     SecurityGroupIds: [ // required
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
  *   },

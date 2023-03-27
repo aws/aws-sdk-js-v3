@@ -42,29 +42,29 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * import { FraudDetectorClient, PutExternalModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutExternalModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // PutExternalModelRequest
  *   modelEndpoint: "STRING_VALUE", // required
  *   modelSource: "SAGEMAKER", // required
  *   invokeModelEndpointRoleArn: "STRING_VALUE", // required
- *   inputConfiguration: {
+ *   inputConfiguration: { // ModelInputConfiguration
  *     eventTypeName: "STRING_VALUE",
  *     format: "TEXT_CSV" || "APPLICATION_JSON",
  *     useEventVariables: true || false, // required
  *     jsonInputTemplate: "STRING_VALUE",
  *     csvInputTemplate: "STRING_VALUE",
  *   },
- *   outputConfiguration: {
+ *   outputConfiguration: { // ModelOutputConfiguration
  *     format: "TEXT_CSV" || "APPLICATION_JSONLINES", // required
- *     jsonKeyToVariableMap: {
+ *     jsonKeyToVariableMap: { // JsonKeyToVariableMap
  *       "<keys>": "STRING_VALUE",
  *     },
- *     csvIndexToVariableMap: {
+ *     csvIndexToVariableMap: { // CsvIndexToVariableMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
  *   modelEndpointStatus: "ASSOCIATED" || "DISSOCIATED", // required
- *   tags: [
- *     {
+ *   tags: [ // tagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * import { XRayClient, GetSamplingRulesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetSamplingRulesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
+ * const input = { // GetSamplingRulesRequest
  *   NextToken: "STRING_VALUE",
  * };
  * const command = new GetSamplingRulesCommand(input);

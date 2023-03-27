@@ -59,16 +59,16 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * import { SNSClient, PublishBatchCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, PublishBatchCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // PublishBatchInput
  *   TopicArn: "STRING_VALUE", // required
- *   PublishBatchRequestEntries: [ // required
- *     {
+ *   PublishBatchRequestEntries: [ // PublishBatchRequestEntryList // required
+ *     { // PublishBatchRequestEntry
  *       Id: "STRING_VALUE", // required
  *       Message: "STRING_VALUE", // required
  *       Subject: "STRING_VALUE",
  *       MessageStructure: "STRING_VALUE",
- *       MessageAttributes: {
- *         "<keys>": {
+ *       MessageAttributes: { // MessageAttributeMap
+ *         "<keys>": { // MessageAttributeValue
  *           DataType: "STRING_VALUE", // required
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",

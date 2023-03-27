@@ -42,11 +42,11 @@ export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateRes
  * import { RoboMakerClient, UpdateWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, UpdateWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // UpdateWorldTemplateRequest
  *   template: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   templateBody: "STRING_VALUE",
- *   templateLocation: {
+ *   templateLocation: { // TemplateLocation
  *     s3Bucket: "STRING_VALUE", // required
  *     s3Key: "STRING_VALUE", // required
  *   },

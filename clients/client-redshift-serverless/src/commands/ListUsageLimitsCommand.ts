@@ -46,7 +46,7 @@ export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, _
  * import { RedshiftServerlessClient, ListUsageLimitsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListUsageLimitsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // ListUsageLimitsRequest
  *   resourceArn: "STRING_VALUE",
  *   usageType: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

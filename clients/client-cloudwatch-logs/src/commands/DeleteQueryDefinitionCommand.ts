@@ -46,7 +46,7 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * import { CloudWatchLogsClient, DeleteQueryDefinitionCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteQueryDefinitionCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DeleteQueryDefinitionRequest
  *   queryDefinitionId: "STRING_VALUE", // required
  * };
  * const command = new DeleteQueryDefinitionCommand(input);

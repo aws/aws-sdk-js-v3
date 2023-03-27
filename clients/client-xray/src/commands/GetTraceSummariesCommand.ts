@@ -58,12 +58,12 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * import { XRayClient, GetTraceSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetTraceSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
+ * const input = { // GetTraceSummariesRequest
  *   StartTime: new Date("TIMESTAMP"), // required
  *   EndTime: new Date("TIMESTAMP"), // required
  *   TimeRangeType: "TraceId" || "Event",
  *   Sampling: true || false,
- *   SamplingStrategy: {
+ *   SamplingStrategy: { // SamplingStrategy
  *     Name: "PartialScan" || "FixedRate",
  *     Value: Number("double"),
  *   },

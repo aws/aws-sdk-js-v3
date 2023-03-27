@@ -42,7 +42,7 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * import { AuditManagerClient, GetChangeLogsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetChangeLogsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // GetChangeLogsRequest
  *   assessmentId: "STRING_VALUE", // required
  *   controlSetId: "STRING_VALUE",
  *   controlId: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * import { NeptuneClient, PromoteReadReplicaDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, PromoteReadReplicaDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // PromoteReadReplicaDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  * };
  * const command = new PromoteReadReplicaDBClusterCommand(input);

@@ -44,7 +44,7 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
  * import { EC2Client, ModifyVerifiedAccessGroupPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessGroupPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVerifiedAccessGroupPolicyRequest
  *   VerifiedAccessGroupId: "STRING_VALUE", // required
  *   PolicyEnabled: true || false, // required
  *   PolicyDocument: "STRING_VALUE",

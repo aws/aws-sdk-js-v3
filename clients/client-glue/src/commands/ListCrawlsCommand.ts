@@ -57,11 +57,11 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * import { GlueClient, ListCrawlsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListCrawlsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListCrawlsRequest
  *   CrawlerName: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // CrawlsFilterList
+ *     { // CrawlsFilter
  *       FieldName: "CRAWL_ID" || "STATE" || "START_TIME" || "END_TIME" || "DPU_HOUR",
  *       FilterOperator: "GT" || "GE" || "LT" || "LE" || "EQ" || "NE",
  *       FieldValue: "STRING_VALUE",

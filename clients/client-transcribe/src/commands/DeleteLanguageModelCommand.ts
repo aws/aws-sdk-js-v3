@@ -44,7 +44,7 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
  * import { TranscribeClient, DeleteLanguageModelCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteLanguageModelCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // DeleteLanguageModelRequest
  *   ModelName: "STRING_VALUE", // required
  * };
  * const command = new DeleteLanguageModelCommand(input);

@@ -44,9 +44,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { AppStreamClient, UntagResourceCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UntagResourceCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

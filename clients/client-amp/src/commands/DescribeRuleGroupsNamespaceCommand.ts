@@ -44,7 +44,7 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
  * import { AmpClient, DescribeRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DescribeRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
- * const input = {
+ * const input = { // DescribeRuleGroupsNamespaceRequest
  *   workspaceId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  * };

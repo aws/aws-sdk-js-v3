@@ -42,20 +42,20 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  * import { SSMContactsClient, UpdateContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, UpdateContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = {
+ * const input = { // UpdateContactRequest
  *   ContactId: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
- *   Plan: {
- *     Stages: [ // required
- *       {
+ *   Plan: { // Plan
+ *     Stages: [ // StagesList // required
+ *       { // Stage
  *         DurationInMinutes: Number("int"), // required
- *         Targets: [ // required
- *           {
- *             ChannelTargetInfo: {
+ *         Targets: [ // TargetsList // required
+ *           { // Target
+ *             ChannelTargetInfo: { // ChannelTargetInfo
  *               ContactChannelId: "STRING_VALUE", // required
  *               RetryIntervalInMinutes: Number("int"),
  *             },
- *             ContactTargetInfo: {
+ *             ContactTargetInfo: { // ContactTargetInfo
  *               ContactId: "STRING_VALUE",
  *               IsEssential: true || false, // required
  *             },

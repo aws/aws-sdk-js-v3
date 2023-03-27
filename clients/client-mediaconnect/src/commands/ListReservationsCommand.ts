@@ -42,7 +42,7 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * import { MediaConnectClient, ListReservationsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, ListReservationsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // ListReservationsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

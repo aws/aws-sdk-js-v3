@@ -43,7 +43,7 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * import { BackupClient, ListBackupVaultsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupVaultsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // ListBackupVaultsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

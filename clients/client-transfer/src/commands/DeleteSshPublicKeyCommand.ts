@@ -42,7 +42,7 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteSshPublicKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteSshPublicKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // DeleteSshPublicKeyRequest
  *   ServerId: "STRING_VALUE", // required
  *   SshPublicKeyId: "STRING_VALUE", // required
  *   UserName: "STRING_VALUE", // required

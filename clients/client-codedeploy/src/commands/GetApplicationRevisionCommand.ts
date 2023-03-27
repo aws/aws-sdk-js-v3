@@ -42,26 +42,26 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
  * import { CodeDeployClient, GetApplicationRevisionCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetApplicationRevisionCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // GetApplicationRevisionInput
  *   applicationName: "STRING_VALUE", // required
- *   revision: {
+ *   revision: { // RevisionLocation
  *     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
- *     s3Location: {
+ *     s3Location: { // S3Location
  *       bucket: "STRING_VALUE",
  *       key: "STRING_VALUE",
  *       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
  *       version: "STRING_VALUE",
  *       eTag: "STRING_VALUE",
  *     },
- *     gitHubLocation: {
+ *     gitHubLocation: { // GitHubLocation
  *       repository: "STRING_VALUE",
  *       commitId: "STRING_VALUE",
  *     },
- *     string: {
+ *     string: { // RawString
  *       content: "STRING_VALUE",
  *       sha256: "STRING_VALUE",
  *     },
- *     appSpecContent: {
+ *     appSpecContent: { // AppSpecContent
  *       content: "STRING_VALUE",
  *       sha256: "STRING_VALUE",
  *     },

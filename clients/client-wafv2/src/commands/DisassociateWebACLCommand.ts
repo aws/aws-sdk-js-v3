@@ -46,7 +46,7 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * import { WAFV2Client, DisassociateWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DisassociateWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // DisassociateWebACLRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DisassociateWebACLCommand(input);

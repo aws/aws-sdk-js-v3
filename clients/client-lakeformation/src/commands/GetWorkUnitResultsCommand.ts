@@ -52,7 +52,7 @@ export interface GetWorkUnitResultsCommandOutput
  * import { LakeFormationClient, GetWorkUnitResultsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetWorkUnitResultsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // GetWorkUnitResultsRequest
  *   QueryId: "STRING_VALUE", // required
  *   WorkUnitId: Number("long"), // required
  *   WorkUnitToken: "STRING_VALUE", // required

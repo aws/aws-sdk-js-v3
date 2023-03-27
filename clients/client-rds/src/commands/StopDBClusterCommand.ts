@@ -50,7 +50,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * import { RDSClient, StopDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StopDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // StopDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  * };
  * const command = new StopDBClusterCommand(input);

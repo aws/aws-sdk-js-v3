@@ -44,7 +44,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * import { ControlTowerClient, DisableControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, DisableControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = {
+ * const input = { // DisableControlInput
  *   controlIdentifier: "STRING_VALUE", // required
  *   targetIdentifier: "STRING_VALUE", // required
  * };

@@ -42,7 +42,7 @@ export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsD
  * import { ComprehendClient, DescribeEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DescribeEventsDetectionJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeEventsDetectionJobCommand(input);

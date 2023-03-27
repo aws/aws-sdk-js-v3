@@ -92,9 +92,9 @@ export interface UpdateContainerInstancesStateCommandOutput
  * import { ECSClient, UpdateContainerInstancesStateCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateContainerInstancesStateCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // UpdateContainerInstancesStateRequest
  *   cluster: "STRING_VALUE",
- *   containerInstances: [ // required
+ *   containerInstances: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  *   status: "ACTIVE" || "DRAINING" || "REGISTERING" || "DEREGISTERING" || "REGISTRATION_FAILED", // required

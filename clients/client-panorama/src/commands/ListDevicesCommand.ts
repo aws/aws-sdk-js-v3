@@ -42,7 +42,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * import { PanoramaClient, ListDevicesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListDevicesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // ListDevicesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   SortBy: "STRING_VALUE",

@@ -49,7 +49,7 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  * import { WorkLinkClient, DescribeDevicePolicyConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeDevicePolicyConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // DescribeDevicePolicyConfigurationRequest
  *   FleetArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeDevicePolicyConfigurationCommand(input);

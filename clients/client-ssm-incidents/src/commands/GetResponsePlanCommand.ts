@@ -42,7 +42,7 @@ export interface GetResponsePlanCommandOutput extends GetResponsePlanOutput, __M
  * import { SSMIncidentsClient, GetResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, GetResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // GetResponsePlanInput
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new GetResponsePlanCommand(input);

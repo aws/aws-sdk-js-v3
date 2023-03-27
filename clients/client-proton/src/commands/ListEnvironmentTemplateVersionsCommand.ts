@@ -48,7 +48,7 @@ export interface ListEnvironmentTemplateVersionsCommandOutput
  * import { ProtonClient, ListEnvironmentTemplateVersionsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentTemplateVersionsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // ListEnvironmentTemplateVersionsInput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   templateName: "STRING_VALUE", // required

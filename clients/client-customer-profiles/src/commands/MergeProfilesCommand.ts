@@ -84,13 +84,13 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * import { CustomerProfilesClient, MergeProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, MergeProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // MergeProfilesRequest
  *   DomainName: "STRING_VALUE", // required
  *   MainProfileId: "STRING_VALUE", // required
- *   ProfileIdsToBeMerged: [ // required
+ *   ProfileIdsToBeMerged: [ // ProfileIdToBeMergedList // required
  *     "STRING_VALUE",
  *   ],
- *   FieldSourceProfileIds: {
+ *   FieldSourceProfileIds: { // FieldSourceProfileIds
  *     AccountNumber: "STRING_VALUE",
  *     AdditionalInformation: "STRING_VALUE",
  *     PartyType: "STRING_VALUE",
@@ -111,7 +111,7 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  *     ShippingAddress: "STRING_VALUE",
  *     MailingAddress: "STRING_VALUE",
  *     BillingAddress: "STRING_VALUE",
- *     Attributes: {
+ *     Attributes: { // AttributeSourceIdMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

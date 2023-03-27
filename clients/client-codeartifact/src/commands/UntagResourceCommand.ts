@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * import { CodeartifactClient, UntagResourceCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, UntagResourceCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

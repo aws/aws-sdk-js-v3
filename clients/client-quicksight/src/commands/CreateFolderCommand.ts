@@ -42,22 +42,22 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * import { QuickSightClient, CreateFolderCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateFolderCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // CreateFolderRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   FolderId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   FolderType: "SHARED",
  *   ParentFolderArn: "STRING_VALUE",
- *   Permissions: [
- *     {
+ *   Permissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
  *       Principal: "STRING_VALUE", // required
- *       Actions: [ // required
+ *       Actions: [ // ActionList // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

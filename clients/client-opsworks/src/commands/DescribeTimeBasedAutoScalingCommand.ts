@@ -52,8 +52,8 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * import { OpsWorksClient, DescribeTimeBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeTimeBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
- *   InstanceIds: [ // required
+ * const input = { // DescribeTimeBasedAutoScalingRequest
+ *   InstanceIds: [ // Strings // required
  *     "STRING_VALUE",
  *   ],
  * };

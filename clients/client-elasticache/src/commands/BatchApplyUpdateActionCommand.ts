@@ -42,11 +42,11 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * import { ElastiCacheClient, BatchApplyUpdateActionCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, BatchApplyUpdateActionCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
- *   ReplicationGroupIds: [
+ * const input = { // BatchApplyUpdateActionMessage
+ *   ReplicationGroupIds: [ // ReplicationGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   CacheClusterIds: [
+ *   CacheClusterIds: [ // CacheClusterIdList
  *     "STRING_VALUE",
  *   ],
  *   ServiceUpdateName: "STRING_VALUE", // required

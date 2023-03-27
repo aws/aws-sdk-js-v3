@@ -47,7 +47,7 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
  * import { RoboMakerClient, DeleteRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // DeleteRobotRequest
  *   robot: "STRING_VALUE", // required
  * };
  * const command = new DeleteRobotCommand(input);

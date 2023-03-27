@@ -42,7 +42,7 @@ export interface DescribeClusterOperationCommandOutput extends DescribeClusterOp
  * import { KafkaClient, DescribeClusterOperationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DescribeClusterOperationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // DescribeClusterOperationRequest
  *   ClusterOperationArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeClusterOperationCommand(input);

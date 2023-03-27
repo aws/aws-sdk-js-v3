@@ -56,10 +56,10 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  * import { LightsailClient, UpdateRelationalDatabaseParametersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateRelationalDatabaseParametersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // UpdateRelationalDatabaseParametersRequest
  *   relationalDatabaseName: "STRING_VALUE", // required
- *   parameters: [ // required
- *     {
+ *   parameters: [ // RelationalDatabaseParameterList // required
+ *     { // RelationalDatabaseParameter
  *       allowedValues: "STRING_VALUE",
  *       applyMethod: "STRING_VALUE",
  *       applyType: "STRING_VALUE",

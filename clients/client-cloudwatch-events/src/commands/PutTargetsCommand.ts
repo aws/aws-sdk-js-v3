@@ -207,42 +207,42 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * import { CloudWatchEventsClient, PutTargetsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutTargetsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // PutTargetsRequest
  *   Rule: "STRING_VALUE", // required
  *   EventBusName: "STRING_VALUE",
- *   Targets: [ // required
- *     {
+ *   Targets: [ // TargetList // required
+ *     { // Target
  *       Id: "STRING_VALUE", // required
  *       Arn: "STRING_VALUE", // required
  *       RoleArn: "STRING_VALUE",
  *       Input: "STRING_VALUE",
  *       InputPath: "STRING_VALUE",
- *       InputTransformer: {
- *         InputPathsMap: {
+ *       InputTransformer: { // InputTransformer
+ *         InputPathsMap: { // TransformerPaths
  *           "<keys>": "STRING_VALUE",
  *         },
  *         InputTemplate: "STRING_VALUE", // required
  *       },
- *       KinesisParameters: {
+ *       KinesisParameters: { // KinesisParameters
  *         PartitionKeyPath: "STRING_VALUE", // required
  *       },
- *       RunCommandParameters: {
- *         RunCommandTargets: [ // required
- *           {
+ *       RunCommandParameters: { // RunCommandParameters
+ *         RunCommandTargets: [ // RunCommandTargets // required
+ *           { // RunCommandTarget
  *             Key: "STRING_VALUE", // required
- *             Values: [ // required
+ *             Values: [ // RunCommandTargetValues // required
  *               "STRING_VALUE",
  *             ],
  *           },
  *         ],
  *       },
- *       EcsParameters: {
+ *       EcsParameters: { // EcsParameters
  *         TaskDefinitionArn: "STRING_VALUE", // required
  *         TaskCount: Number("int"),
  *         LaunchType: "STRING_VALUE",
- *         NetworkConfiguration: {
- *           awsvpcConfiguration: {
- *             Subnets: [ // required
+ *         NetworkConfiguration: { // NetworkConfiguration
+ *           awsvpcConfiguration: { // AwsVpcConfiguration
+ *             Subnets: [ // StringList // required
  *               "STRING_VALUE",
  *             ],
  *             SecurityGroups: [
@@ -253,8 +253,8 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *         },
  *         PlatformVersion: "STRING_VALUE",
  *         Group: "STRING_VALUE",
- *         CapacityProviderStrategy: [
- *           {
+ *         CapacityProviderStrategy: [ // CapacityProviderStrategy
+ *           { // CapacityProviderStrategyItem
  *             capacityProvider: "STRING_VALUE", // required
  *             weight: Number("int"),
  *             base: Number("int"),
@@ -262,52 +262,52 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *         ],
  *         EnableECSManagedTags: true || false,
  *         EnableExecuteCommand: true || false,
- *         PlacementConstraints: [
- *           {
+ *         PlacementConstraints: [ // PlacementConstraints
+ *           { // PlacementConstraint
  *             type: "STRING_VALUE",
  *             expression: "STRING_VALUE",
  *           },
  *         ],
- *         PlacementStrategy: [
- *           {
+ *         PlacementStrategy: [ // PlacementStrategies
+ *           { // PlacementStrategy
  *             type: "STRING_VALUE",
  *             field: "STRING_VALUE",
  *           },
  *         ],
  *         PropagateTags: "STRING_VALUE",
  *         ReferenceId: "STRING_VALUE",
- *         Tags: [
- *           {
+ *         Tags: [ // TagList
+ *           { // Tag
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
  *         ],
  *       },
- *       BatchParameters: {
+ *       BatchParameters: { // BatchParameters
  *         JobDefinition: "STRING_VALUE", // required
  *         JobName: "STRING_VALUE", // required
- *         ArrayProperties: {
+ *         ArrayProperties: { // BatchArrayProperties
  *           Size: Number("int"),
  *         },
- *         RetryStrategy: {
+ *         RetryStrategy: { // BatchRetryStrategy
  *           Attempts: Number("int"),
  *         },
  *       },
- *       SqsParameters: {
+ *       SqsParameters: { // SqsParameters
  *         MessageGroupId: "STRING_VALUE",
  *       },
- *       HttpParameters: {
- *         PathParameterValues: [
+ *       HttpParameters: { // HttpParameters
+ *         PathParameterValues: [ // PathParameterList
  *           "STRING_VALUE",
  *         ],
- *         HeaderParameters: {
+ *         HeaderParameters: { // HeaderParametersMap
  *           "<keys>": "STRING_VALUE",
  *         },
- *         QueryStringParameters: {
+ *         QueryStringParameters: { // QueryStringParametersMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
- *       RedshiftDataParameters: {
+ *       RedshiftDataParameters: { // RedshiftDataParameters
  *         SecretManagerArn: "STRING_VALUE",
  *         Database: "STRING_VALUE", // required
  *         DbUser: "STRING_VALUE",
@@ -315,18 +315,18 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *         StatementName: "STRING_VALUE",
  *         WithEvent: true || false,
  *       },
- *       SageMakerPipelineParameters: {
- *         PipelineParameterList: [
- *           {
+ *       SageMakerPipelineParameters: { // SageMakerPipelineParameters
+ *         PipelineParameterList: [ // SageMakerPipelineParameterList
+ *           { // SageMakerPipelineParameter
  *             Name: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
  *         ],
  *       },
- *       DeadLetterConfig: {
+ *       DeadLetterConfig: { // DeadLetterConfig
  *         Arn: "STRING_VALUE",
  *       },
- *       RetryPolicy: {
+ *       RetryPolicy: { // RetryPolicy
  *         MaximumRetryAttempts: Number("int"),
  *         MaximumEventAgeInSeconds: Number("int"),
  *       },

@@ -42,7 +42,7 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * import { ProtonClient, ListRepositoriesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListRepositoriesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // ListRepositoriesInput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

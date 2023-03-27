@@ -49,7 +49,7 @@ export interface DisableTransitGatewayRouteTablePropagationCommandOutput
  * import { EC2Client, DisableTransitGatewayRouteTablePropagationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableTransitGatewayRouteTablePropagationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisableTransitGatewayRouteTablePropagationRequest
  *   TransitGatewayRouteTableId: "STRING_VALUE", // required
  *   TransitGatewayAttachmentId: "STRING_VALUE",
  *   DryRun: true || false,

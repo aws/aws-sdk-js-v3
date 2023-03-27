@@ -54,13 +54,13 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * import { ChimeClient, PutRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // PutRetentionSettingsRequest
  *   AccountId: "STRING_VALUE", // required
- *   RetentionSettings: {
- *     RoomRetentionSettings: {
+ *   RetentionSettings: { // RetentionSettings
+ *     RoomRetentionSettings: { // RoomRetentionSettings
  *       RetentionDays: Number("int"),
  *     },
- *     ConversationRetentionSettings: {
+ *     ConversationRetentionSettings: { // ConversationRetentionSettings
  *       RetentionDays: Number("int"),
  *     },
  *   },

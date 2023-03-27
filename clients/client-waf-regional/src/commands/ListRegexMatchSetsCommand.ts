@@ -50,7 +50,7 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  * import { WAFRegionalClient, ListRegexMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListRegexMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // ListRegexMatchSetsRequest
  *   NextMarker: "STRING_VALUE",
  *   Limit: Number("int"),
  * };

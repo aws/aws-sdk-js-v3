@@ -45,7 +45,7 @@ export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryption
  * import { EC2Client, GetEbsEncryptionByDefaultCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetEbsEncryptionByDefaultCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // GetEbsEncryptionByDefaultRequest
  *   DryRun: true || false,
  * };
  * const command = new GetEbsEncryptionByDefaultCommand(input);

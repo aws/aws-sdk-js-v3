@@ -46,17 +46,17 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * import { CloudFrontClient, CreateRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   EndPoints: [ // required
- *     {
+ * const input = { // CreateRealtimeLogConfigRequest
+ *   EndPoints: [ // EndPointList // required
+ *     { // EndPoint
  *       StreamType: "STRING_VALUE", // required
- *       KinesisStreamConfig: {
+ *       KinesisStreamConfig: { // KinesisStreamConfig
  *         RoleARN: "STRING_VALUE", // required
  *         StreamARN: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
- *   Fields: [ // required
+ *   Fields: [ // FieldList // required
  *     "STRING_VALUE",
  *   ],
  *   Name: "STRING_VALUE", // required

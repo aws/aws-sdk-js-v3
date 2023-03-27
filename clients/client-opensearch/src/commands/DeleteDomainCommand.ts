@@ -43,7 +43,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * import { OpenSearchClient, DeleteDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DeleteDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // DeleteDomainRequest
  *   DomainName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDomainCommand(input);

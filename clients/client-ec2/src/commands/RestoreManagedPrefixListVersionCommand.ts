@@ -44,7 +44,7 @@ export interface RestoreManagedPrefixListVersionCommandOutput
  * import { EC2Client, RestoreManagedPrefixListVersionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RestoreManagedPrefixListVersionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // RestoreManagedPrefixListVersionRequest
  *   DryRun: true || false,
  *   PrefixListId: "STRING_VALUE", // required
  *   PreviousVersion: Number("long"), // required

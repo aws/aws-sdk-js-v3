@@ -42,16 +42,16 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  * import { LicenseManagerClient, ListLicenseConfigurationsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicenseConfigurationsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
- *   LicenseConfigurationArns: [
+ * const input = { // ListLicenseConfigurationsRequest
+ *   LicenseConfigurationArns: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

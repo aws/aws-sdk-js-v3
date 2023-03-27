@@ -42,14 +42,14 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * import { IoTSiteWiseClient, UpdatePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdatePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // UpdatePortalRequest
  *   portalId: "STRING_VALUE", // required
  *   portalName: "STRING_VALUE", // required
  *   portalDescription: "STRING_VALUE",
  *   portalContactEmail: "STRING_VALUE", // required
- *   portalLogoImage: {
+ *   portalLogoImage: { // Image
  *     id: "STRING_VALUE",
- *     file: {
+ *     file: { // ImageFile
  *       data: "BLOB_VALUE", // required
  *       type: "PNG", // required
  *     },
@@ -57,7 +57,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *   roleArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   notificationSenderEmail: "STRING_VALUE",
- *   alarms: {
+ *   alarms: { // Alarms
  *     alarmRoleArn: "STRING_VALUE", // required
  *     notificationLambdaArn: "STRING_VALUE",
  *   },

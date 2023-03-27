@@ -43,10 +43,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { WorkMailClient, TagResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, TagResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

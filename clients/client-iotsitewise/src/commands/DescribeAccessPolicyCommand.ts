@@ -43,7 +43,7 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  * import { IoTSiteWiseClient, DescribeAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DescribeAccessPolicyRequest
  *   accessPolicyId: "STRING_VALUE", // required
  * };
  * const command = new DescribeAccessPolicyCommand(input);

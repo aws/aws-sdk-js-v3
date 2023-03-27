@@ -113,13 +113,13 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * import { ACMClient, ImportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ImportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
- * const input = {
+ * const input = { // ImportCertificateRequest
  *   CertificateArn: "STRING_VALUE",
  *   Certificate: "BLOB_VALUE", // required
  *   PrivateKey: "BLOB_VALUE", // required
  *   CertificateChain: "BLOB_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

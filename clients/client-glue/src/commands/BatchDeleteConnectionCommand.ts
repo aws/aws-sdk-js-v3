@@ -42,9 +42,9 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * import { GlueClient, BatchDeleteConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeleteConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // BatchDeleteConnectionRequest
  *   CatalogId: "STRING_VALUE",
- *   ConnectionNameList: [ // required
+ *   ConnectionNameList: [ // DeleteConnectionNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

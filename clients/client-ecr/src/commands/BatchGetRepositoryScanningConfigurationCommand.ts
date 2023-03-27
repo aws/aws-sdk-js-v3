@@ -48,8 +48,8 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * import { ECRClient, BatchGetRepositoryScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, BatchGetRepositoryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
- *   repositoryNames: [ // required
+ * const input = { // BatchGetRepositoryScanningConfigurationRequest
+ *   repositoryNames: [ // ScanningConfigurationRepositoryNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

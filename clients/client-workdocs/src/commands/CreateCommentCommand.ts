@@ -47,7 +47,7 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  * import { WorkDocsClient, CreateCommentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateCommentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // CreateCommentRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   DocumentId: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE", // required

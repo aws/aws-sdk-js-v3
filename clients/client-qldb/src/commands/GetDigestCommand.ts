@@ -43,7 +43,7 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  * import { QLDBClient, GetDigestCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetDigestCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
- * const input = {
+ * const input = { // GetDigestRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new GetDigestCommand(input);

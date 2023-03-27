@@ -44,9 +44,9 @@ export interface UpdateWirelessDeviceImportTaskCommandOutput
  * import { IoTWirelessClient, UpdateWirelessDeviceImportTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateWirelessDeviceImportTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // UpdateWirelessDeviceImportTaskRequest
  *   Id: "STRING_VALUE", // required
- *   Sidewalk: {
+ *   Sidewalk: { // SidewalkUpdateImportInfo
  *     DeviceCreationFile: "STRING_VALUE",
  *   },
  * };

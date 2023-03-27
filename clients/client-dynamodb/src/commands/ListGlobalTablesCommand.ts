@@ -54,7 +54,7 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * import { DynamoDBClient, ListGlobalTablesCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListGlobalTablesCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // ListGlobalTablesInput
  *   ExclusiveStartGlobalTableName: "STRING_VALUE",
  *   Limit: Number("int"),
  *   RegionName: "STRING_VALUE",

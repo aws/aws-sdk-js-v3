@@ -49,7 +49,7 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * import { RDSClient, StartActivityStreamCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartActivityStreamCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // StartActivityStreamRequest
  *   ResourceArn: "STRING_VALUE", // required
  *   Mode: "sync" || "async", // required
  *   KmsKeyId: "STRING_VALUE", // required

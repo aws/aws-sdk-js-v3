@@ -49,23 +49,23 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * import { BackupClient, CreateLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // CreateLegalHoldInput
  *   Title: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
  *   IdempotencyToken: "STRING_VALUE",
- *   RecoveryPointSelection: {
- *     VaultNames: [
+ *   RecoveryPointSelection: { // RecoveryPointSelection
+ *     VaultNames: [ // VaultNames
  *       "STRING_VALUE",
  *     ],
- *     ResourceIdentifiers: [
+ *     ResourceIdentifiers: [ // ResourceIdentifiers
  *       "STRING_VALUE",
  *     ],
- *     DateRange: {
+ *     DateRange: { // DateRange
  *       FromDate: new Date("TIMESTAMP"), // required
  *       ToDate: new Date("TIMESTAMP"), // required
  *     },
  *   },
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

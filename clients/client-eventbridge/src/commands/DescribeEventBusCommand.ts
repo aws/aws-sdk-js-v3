@@ -48,7 +48,7 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * import { EventBridgeClient, DescribeEventBusCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeEventBusCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // DescribeEventBusRequest
  *   Name: "STRING_VALUE",
  * };
  * const command = new DescribeEventBusCommand(input);

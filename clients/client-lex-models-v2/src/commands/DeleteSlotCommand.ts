@@ -42,7 +42,7 @@ export interface DeleteSlotCommandOutput extends __MetadataBearer {}
  * import { LexModelsV2Client, DeleteSlotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteSlotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // DeleteSlotRequest
  *   slotId: "STRING_VALUE", // required
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required

@@ -42,17 +42,17 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * import { MediaConvertClient, CreateQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CreateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // CreateQueueRequest
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   PricingPlan: "ON_DEMAND" || "RESERVED",
- *   ReservationPlanSettings: {
+ *   ReservationPlanSettings: { // ReservationPlanSettings
  *     Commitment: "ONE_YEAR", // required
  *     RenewalType: "AUTO_RENEW" || "EXPIRE", // required
  *     ReservedSlots: Number("int"), // required
  *   },
  *   Status: "ACTIVE" || "PAUSED",
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

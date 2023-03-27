@@ -41,7 +41,7 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
  * import { RestXmlProtocolClient, TimestampFormatHeadersCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, TimestampFormatHeadersCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // TimestampFormatHeadersIO
  *   memberEpochSeconds: new Date("TIMESTAMP"),
  *   memberHttpDate: new Date("TIMESTAMP"),
  *   memberDateTime: new Date("TIMESTAMP"),

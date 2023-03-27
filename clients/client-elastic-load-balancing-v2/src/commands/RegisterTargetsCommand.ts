@@ -55,10 +55,10 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * import { ElasticLoadBalancingV2Client, RegisterTargetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, RegisterTargetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // RegisterTargetsInput
  *   TargetGroupArn: "STRING_VALUE", // required
- *   Targets: [ // required
- *     {
+ *   Targets: [ // TargetDescriptions // required
+ *     { // TargetDescription
  *       Id: "STRING_VALUE", // required
  *       Port: Number("int"),
  *       AvailabilityZone: "STRING_VALUE",

@@ -44,7 +44,7 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
  * import { ConnectCampaignsClient, GetInstanceOnboardingJobStatusCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, GetInstanceOnboardingJobStatusCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
- * const input = {
+ * const input = { // GetInstanceOnboardingJobStatusRequest
  *   connectInstanceId: "STRING_VALUE", // required
  * };
  * const command = new GetInstanceOnboardingJobStatusCommand(input);

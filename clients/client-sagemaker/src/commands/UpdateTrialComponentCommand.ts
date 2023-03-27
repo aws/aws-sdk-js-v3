@@ -42,26 +42,26 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  * import { SageMakerClient, UpdateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateTrialComponentRequest
  *   TrialComponentName: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
- *   Status: {
+ *   Status: { // TrialComponentStatus
  *     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
  *     Message: "STRING_VALUE",
  *   },
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),
- *   Parameters: {
- *     "<keys>": { // Union: only one key present
+ *   Parameters: { // TrialComponentParameters
+ *     "<keys>": { // TrialComponentParameterValue Union: only one key present
  *       StringValue: "STRING_VALUE",
  *       NumberValue: Number("double"),
  *     },
  *   },
- *   ParametersToRemove: [
+ *   ParametersToRemove: [ // ListTrialComponentKey256
  *     "STRING_VALUE",
  *   ],
- *   InputArtifacts: {
- *     "<keys>": {
+ *   InputArtifacts: { // TrialComponentArtifacts
+ *     "<keys>": { // TrialComponentArtifact
  *       MediaType: "STRING_VALUE",
  *       Value: "STRING_VALUE", // required
  *     },

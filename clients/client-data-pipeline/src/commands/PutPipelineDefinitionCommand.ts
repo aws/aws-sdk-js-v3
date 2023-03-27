@@ -201,14 +201,14 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * import { DataPipelineClient, PutPipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, PutPipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // PutPipelineDefinitionInput
  *   pipelineId: "STRING_VALUE", // required
- *   pipelineObjects: [ // required
- *     {
+ *   pipelineObjects: [ // PipelineObjectList // required
+ *     { // PipelineObject
  *       id: "STRING_VALUE", // required
  *       name: "STRING_VALUE", // required
- *       fields: [ // required
- *         {
+ *       fields: [ // fieldList // required
+ *         { // Field
  *           key: "STRING_VALUE", // required
  *           stringValue: "STRING_VALUE",
  *           refValue: "STRING_VALUE",
@@ -216,19 +216,19 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  *       ],
  *     },
  *   ],
- *   parameterObjects: [
- *     {
+ *   parameterObjects: [ // ParameterObjectList
+ *     { // ParameterObject
  *       id: "STRING_VALUE", // required
- *       attributes: [ // required
- *         {
+ *       attributes: [ // ParameterAttributeList // required
+ *         { // ParameterAttribute
  *           key: "STRING_VALUE", // required
  *           stringValue: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
  *   ],
- *   parameterValues: [
- *     {
+ *   parameterValues: [ // ParameterValueList
+ *     { // ParameterValue
  *       id: "STRING_VALUE", // required
  *       stringValue: "STRING_VALUE", // required
  *     },

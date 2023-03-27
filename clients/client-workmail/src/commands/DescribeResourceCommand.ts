@@ -42,7 +42,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * import { WorkMailClient, DescribeResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // DescribeResourceRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  * };

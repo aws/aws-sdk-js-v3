@@ -57,7 +57,7 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * import { RedshiftClient, RestoreTableFromClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RestoreTableFromClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // RestoreTableFromClusterSnapshotMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   SnapshotIdentifier: "STRING_VALUE", // required
  *   SourceDatabaseName: "STRING_VALUE", // required

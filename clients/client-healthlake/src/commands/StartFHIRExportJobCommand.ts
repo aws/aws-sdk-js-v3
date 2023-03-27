@@ -42,10 +42,10 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * import { HealthLakeClient, StartFHIRExportJobCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, StartFHIRExportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
- * const input = {
+ * const input = { // StartFHIRExportJobRequest
  *   JobName: "STRING_VALUE",
- *   OutputDataConfig: { // Union: only one key present
- *     S3Configuration: {
+ *   OutputDataConfig: { // OutputDataConfig Union: only one key present
+ *     S3Configuration: { // S3Configuration
  *       S3Uri: "STRING_VALUE", // required
  *       KmsKeyId: "STRING_VALUE", // required
  *     },

@@ -46,8 +46,8 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * import { SecurityHubClient, GetMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   AccountIds: [ // required
+ * const input = { // GetMembersRequest
+ *   AccountIds: [ // AccountIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

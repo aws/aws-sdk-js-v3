@@ -47,7 +47,7 @@ export interface GetSolNetworkPackageCommandOutput extends GetSolNetworkPackageO
  * import { TnbClient, GetSolNetworkPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolNetworkPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // GetSolNetworkPackageInput
  *   nsdInfoId: "STRING_VALUE", // required
  * };
  * const command = new GetSolNetworkPackageCommand(input);

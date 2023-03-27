@@ -42,7 +42,7 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * import { AlexaForBusinessClient, ListSkillsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListSkillsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // ListSkillsRequest
  *   SkillGroupArn: "STRING_VALUE",
  *   EnablementType: "STRING_VALUE",
  *   SkillType: "STRING_VALUE",

@@ -47,7 +47,7 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
  * import { CognitoIdentityProviderClient, StartUserImportJobCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, StartUserImportJobCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // StartUserImportJobRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   JobId: "STRING_VALUE", // required
  * };

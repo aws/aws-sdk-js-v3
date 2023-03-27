@@ -54,7 +54,7 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * import { StorageGatewayClient, ResetCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ResetCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // ResetCacheInput
  *   GatewayARN: "STRING_VALUE", // required
  * };
  * const command = new ResetCacheCommand(input);

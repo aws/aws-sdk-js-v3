@@ -43,7 +43,7 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  * import { ECSClient, DeleteTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // DeleteTaskSetRequest
  *   cluster: "STRING_VALUE", // required
  *   service: "STRING_VALUE", // required
  *   taskSet: "STRING_VALUE", // required

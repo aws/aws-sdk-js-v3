@@ -51,7 +51,7 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMessagingClient, DeleteChannelBanCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DeleteChannelBanCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // DeleteChannelBanRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   MemberArn: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE", // required

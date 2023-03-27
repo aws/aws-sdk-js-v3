@@ -42,11 +42,11 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, TagResourceCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, TagResourceCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   Resource: "STRING_VALUE", // required
- *   Tags: {
- *     Items: [
- *       {
+ *   Tags: { // Tags
+ *     Items: [ // TagList
+ *       { // Tag
  *         Key: "STRING_VALUE", // required
  *         Value: "STRING_VALUE",
  *       },

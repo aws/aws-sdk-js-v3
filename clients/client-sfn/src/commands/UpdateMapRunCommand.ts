@@ -42,7 +42,7 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * import { SFNClient, UpdateMapRunCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, UpdateMapRunCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // UpdateMapRunInput
  *   mapRunArn: "STRING_VALUE", // required
  *   maxConcurrency: Number("int"),
  *   toleratedFailurePercentage: Number("float"),

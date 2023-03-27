@@ -49,7 +49,7 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * import { EMRContainersClient, DescribeJobTemplateCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DescribeJobTemplateCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
- * const input = {
+ * const input = { // DescribeJobTemplateRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DescribeJobTemplateCommand(input);

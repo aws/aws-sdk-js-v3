@@ -44,11 +44,11 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * import { ChimeSDKVoiceClient, PutVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, PutVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // PutVoiceConnectorOriginationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
- *   Origination: {
- *     Routes: [
- *       {
+ *   Origination: { // Origination
+ *     Routes: [ // OriginationRouteList
+ *       { // OriginationRoute
  *         Host: "STRING_VALUE",
  *         Port: Number("int"),
  *         Protocol: "TCP" || "UDP",

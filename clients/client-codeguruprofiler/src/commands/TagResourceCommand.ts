@@ -44,9 +44,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { CodeGuruProfilerClient, TagResourceCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, TagResourceCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

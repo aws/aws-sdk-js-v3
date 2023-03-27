@@ -47,14 +47,14 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * import { ApplicationDiscoveryServiceClient, DescribeExportTasksCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeExportTasksCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
- *   exportIds: [
+ * const input = { // DescribeExportTasksRequest
+ *   exportIds: [ // ExportIds
  *     "STRING_VALUE",
  *   ],
- *   filters: [
- *     {
+ *   filters: [ // ExportFilters
+ *     { // ExportFilter
  *       name: "STRING_VALUE", // required
- *       values: [ // required
+ *       values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       condition: "STRING_VALUE", // required

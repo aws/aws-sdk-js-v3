@@ -42,67 +42,65 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
  * import { GlueClient, CreatePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreatePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreatePartitionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   PartitionInput: {
- *     Values: [
+ *   PartitionInput: { // PartitionInput
+ *     Values: [ // ValueStringList
  *       "STRING_VALUE",
  *     ],
  *     LastAccessTime: new Date("TIMESTAMP"),
- *     StorageDescriptor: {
- *       Columns: [
- *         {
+ *     StorageDescriptor: { // StorageDescriptor
+ *       Columns: [ // ColumnList
+ *         { // Column
  *           Name: "STRING_VALUE", // required
  *           Type: "STRING_VALUE",
  *           Comment: "STRING_VALUE",
- *           Parameters: {
+ *           Parameters: { // ParametersMap
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
  *       ],
  *       Location: "STRING_VALUE",
- *       AdditionalLocations: [
+ *       AdditionalLocations: [ // LocationStringList
  *         "STRING_VALUE",
  *       ],
  *       InputFormat: "STRING_VALUE",
  *       OutputFormat: "STRING_VALUE",
  *       Compressed: true || false,
  *       NumberOfBuckets: Number("int"),
- *       SerdeInfo: {
+ *       SerdeInfo: { // SerDeInfo
  *         Name: "STRING_VALUE",
  *         SerializationLibrary: "STRING_VALUE",
  *         Parameters: {
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
- *       BucketColumns: [
+ *       BucketColumns: [ // NameStringList
  *         "STRING_VALUE",
  *       ],
- *       SortColumns: [
- *         {
+ *       SortColumns: [ // OrderList
+ *         { // Order
  *           Column: "STRING_VALUE", // required
  *           SortOrder: Number("int"), // required
  *         },
  *       ],
- *       Parameters: {
- *         "<keys>": "<ParametersMapValue>",
- *       },
- *       SkewedInfo: {
+ *       Parameters: "<ParametersMap>",
+ *       SkewedInfo: { // SkewedInfo
  *         SkewedColumnNames: [
  *           "STRING_VALUE",
  *         ],
- *         SkewedColumnValues: [
+ *         SkewedColumnValues: [ // ColumnValueStringList
  *           "STRING_VALUE",
  *         ],
- *         SkewedColumnValueLocationMaps: {
+ *         SkewedColumnValueLocationMaps: { // LocationMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *       StoredAsSubDirectories: true || false,
- *       SchemaReference: {
- *         SchemaId: {
+ *       SchemaReference: { // SchemaReference
+ *         SchemaId: { // SchemaId
  *           SchemaArn: "STRING_VALUE",
  *           SchemaName: "STRING_VALUE",
  *           RegistryName: "STRING_VALUE",
@@ -111,9 +109,7 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
  *         SchemaVersionNumber: Number("long"),
  *       },
  *     },
- *     Parameters: {
- *       "<keys>": "<ParametersMapValue>",
- *     },
+ *     Parameters: "<ParametersMap>",
  *     LastAnalyzedTime: new Date("TIMESTAMP"),
  *   },
  * };

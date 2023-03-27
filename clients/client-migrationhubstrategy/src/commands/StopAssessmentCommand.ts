@@ -46,7 +46,7 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  * import { MigrationHubStrategyClient, StopAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StopAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // StopAssessmentRequest
  *   assessmentId: "STRING_VALUE", // required
  * };
  * const command = new StopAssessmentCommand(input);

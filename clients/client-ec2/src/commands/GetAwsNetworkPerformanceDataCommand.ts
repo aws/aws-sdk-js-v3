@@ -44,9 +44,9 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
  * import { EC2Client, GetAwsNetworkPerformanceDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetAwsNetworkPerformanceDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   DataQueries: [
- *     {
+ * const input = { // GetAwsNetworkPerformanceDataRequest
+ *   DataQueries: [ // DataQueries
+ *     { // DataQuery
  *       Id: "STRING_VALUE",
  *       Source: "STRING_VALUE",
  *       Destination: "STRING_VALUE",

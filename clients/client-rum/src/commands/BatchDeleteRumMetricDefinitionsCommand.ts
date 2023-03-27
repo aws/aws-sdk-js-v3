@@ -49,11 +49,11 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * import { RUMClient, BatchDeleteRumMetricDefinitionsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, BatchDeleteRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // BatchDeleteRumMetricDefinitionsRequest
  *   AppMonitorName: "STRING_VALUE", // required
  *   Destination: "STRING_VALUE", // required
  *   DestinationArn: "STRING_VALUE",
- *   MetricDefinitionIds: [ // required
+ *   MetricDefinitionIds: [ // MetricDefinitionIds // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -55,7 +55,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * import { ResiliencehubClient, DescribeDraftAppVersionResourcesImportStatusCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeDraftAppVersionResourcesImportStatusCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // DescribeDraftAppVersionResourcesImportStatusRequest
  *   appArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeDraftAppVersionResourcesImportStatusCommand(input);

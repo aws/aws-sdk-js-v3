@@ -51,13 +51,13 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * import { OAMClient, CreateLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, CreateLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
- * const input = {
+ * const input = { // CreateLinkInput
  *   LabelTemplate: "STRING_VALUE", // required
- *   ResourceTypes: [ // required
+ *   ResourceTypes: [ // ResourceTypesInput // required
  *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace",
  *   ],
  *   SinkIdentifier: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMapInput
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

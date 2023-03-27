@@ -42,11 +42,11 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
  * import { MediaLiveClient, CreateMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
- *   AvailabilityZones: [ // required
+ * const input = { // CreateMultiplexRequest
+ *   AvailabilityZones: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
- *   MultiplexSettings: {
+ *   MultiplexSettings: { // MultiplexSettings
  *     MaximumVideoBufferDelayMilliseconds: Number("int"),
  *     TransportStreamBitrate: Number("int"), // required
  *     TransportStreamId: Number("int"), // required
@@ -54,7 +54,7 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
  *   },
  *   Name: "STRING_VALUE", // required
  *   RequestId: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

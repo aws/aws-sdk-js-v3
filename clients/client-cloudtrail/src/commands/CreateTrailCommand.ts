@@ -43,7 +43,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * import { CloudTrailClient, CreateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, CreateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // CreateTrailRequest
  *   Name: "STRING_VALUE", // required
  *   S3BucketName: "STRING_VALUE", // required
  *   S3KeyPrefix: "STRING_VALUE",
@@ -55,8 +55,8 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *   CloudWatchLogsRoleArn: "STRING_VALUE",
  *   KmsKeyId: "STRING_VALUE",
  *   IsOrganizationTrail: true || false,
- *   TagsList: [
- *     {
+ *   TagsList: [ // TagsList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

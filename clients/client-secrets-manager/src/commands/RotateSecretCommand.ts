@@ -57,11 +57,11 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * import { SecretsManagerClient, RotateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, RotateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // RotateSecretRequest
  *   SecretId: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
  *   RotationLambdaARN: "STRING_VALUE",
- *   RotationRules: {
+ *   RotationRules: { // RotationRulesType
  *     AutomaticallyAfterDays: Number("long"),
  *     Duration: "STRING_VALUE",
  *     ScheduleExpression: "STRING_VALUE",

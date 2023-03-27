@@ -52,7 +52,7 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  * import { WorkDocsClient, GetDocumentPathCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetDocumentPathCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // GetDocumentPathRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   DocumentId: "STRING_VALUE", // required
  *   Limit: Number("int"),

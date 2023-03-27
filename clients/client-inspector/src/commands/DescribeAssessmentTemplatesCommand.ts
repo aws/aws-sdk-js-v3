@@ -45,8 +45,8 @@ export interface DescribeAssessmentTemplatesCommandOutput
  * import { InspectorClient, DescribeAssessmentTemplatesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeAssessmentTemplatesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
- *   assessmentTemplateArns: [ // required
+ * const input = { // DescribeAssessmentTemplatesRequest
+ *   assessmentTemplateArns: [ // BatchDescribeArnList // required
  *     "STRING_VALUE",
  *   ],
  * };

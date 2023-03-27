@@ -43,7 +43,7 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  * import { IoTClient, DeleteScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DeleteScheduledAuditRequest
  *   scheduledAuditName: "STRING_VALUE", // required
  * };
  * const command = new DeleteScheduledAuditCommand(input);

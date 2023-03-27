@@ -42,7 +42,7 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * import { APIGatewayClient, GetBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
  *   basePath: "STRING_VALUE", // required
  * };

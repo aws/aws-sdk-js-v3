@@ -49,12 +49,12 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * import { NeptuneClient, DescribeEngineDefaultClusterParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEngineDefaultClusterParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // DescribeEngineDefaultClusterParametersMessage
  *   DBParameterGroupFamily: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

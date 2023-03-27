@@ -68,7 +68,7 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  * import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, InvokeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // InvocationRequest
  *   FunctionName: "STRING_VALUE", // required
  *   InvocationType: "Event" || "RequestResponse" || "DryRun",
  *   LogType: "None" || "Tail",

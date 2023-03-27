@@ -47,13 +47,13 @@ export interface CreateAppVersionAppComponentCommandOutput
  * import { ResiliencehubClient, CreateAppVersionAppComponentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, CreateAppVersionAppComponentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // CreateAppVersionAppComponentRequest
  *   appArn: "STRING_VALUE", // required
  *   id: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   type: "STRING_VALUE", // required
- *   additionalInfo: {
- *     "<keys>": [
+ *   additionalInfo: { // AdditionalInfoMap
+ *     "<keys>": [ // AdditionalInfoValueList
  *       "STRING_VALUE",
  *     ],
  *   },

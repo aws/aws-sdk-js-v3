@@ -52,7 +52,7 @@ export interface PublishVersionCommandOutput extends FunctionConfiguration, __Me
  * import { LambdaClient, PublishVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PublishVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // PublishVersionRequest
  *   FunctionName: "STRING_VALUE", // required
  *   CodeSha256: "STRING_VALUE",
  *   Description: "STRING_VALUE",

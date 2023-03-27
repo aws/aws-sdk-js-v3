@@ -42,7 +42,7 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * import { SavingsplansClient, DeleteQueuedSavingsPlanCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DeleteQueuedSavingsPlanCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
- * const input = {
+ * const input = { // DeleteQueuedSavingsPlanRequest
  *   savingsPlanId: "STRING_VALUE", // required
  * };
  * const command = new DeleteQueuedSavingsPlanCommand(input);

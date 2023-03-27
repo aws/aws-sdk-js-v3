@@ -45,7 +45,7 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  * import { IoTDataPlaneClient, UpdateThingShadowCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, UpdateThingShadowCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
- * const input = {
+ * const input = { // UpdateThingShadowRequest
  *   thingName: "STRING_VALUE", // required
  *   shadowName: "STRING_VALUE",
  *   payload: "BLOB_VALUE", // required

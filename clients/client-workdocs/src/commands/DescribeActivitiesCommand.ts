@@ -47,7 +47,7 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
  * import { WorkDocsClient, DescribeActivitiesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeActivitiesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DescribeActivitiesRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),

@@ -42,7 +42,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * import { WAFV2Client, DeleteRuleGroupCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeleteRuleGroupCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // DeleteRuleGroupRequest
  *   Name: "STRING_VALUE", // required
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required
  *   Id: "STRING_VALUE", // required

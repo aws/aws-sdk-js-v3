@@ -44,8 +44,8 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * import { RestJsonProtocolClient, HttpPayloadWithStructureCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpPayloadWithStructureCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
- *   nested: {
+ * const input = { // HttpPayloadWithStructureInputOutput
+ *   nested: { // NestedPayload
  *     greeting: "STRING_VALUE",
  *     name: "STRING_VALUE",
  *   },

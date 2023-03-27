@@ -44,7 +44,7 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * import { PersonalizeClient, ListDatasetGroupsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListDatasetGroupsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // ListDatasetGroupsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

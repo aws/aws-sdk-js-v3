@@ -43,7 +43,7 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  * import { MacieClient, DisassociateMemberAccountCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, DisassociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
- * const input = {
+ * const input = { // DisassociateMemberAccountRequest
  *   memberAccountId: "STRING_VALUE", // required
  * };
  * const command = new DisassociateMemberAccountCommand(input);

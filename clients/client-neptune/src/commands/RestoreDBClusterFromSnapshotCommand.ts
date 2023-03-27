@@ -49,8 +49,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * import { NeptuneClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
- *   AvailabilityZones: [
+ * const input = { // RestoreDBClusterFromSnapshotMessage
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
  *   DBClusterIdentifier: "STRING_VALUE", // required
@@ -61,24 +61,24 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   DBSubnetGroupName: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE",
  *   OptionGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   KmsKeyId: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DBClusterParameterGroupName: "STRING_VALUE",
  *   DeletionProtection: true || false,
  *   CopyTagsToSnapshot: true || false,
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

@@ -55,7 +55,7 @@ export interface DescribeListenerCertificatesCommandOutput
  * import { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // DescribeListenerCertificatesInput
  *   ListenerArn: "STRING_VALUE", // required
  *   Marker: "STRING_VALUE",
  *   PageSize: Number("int"),

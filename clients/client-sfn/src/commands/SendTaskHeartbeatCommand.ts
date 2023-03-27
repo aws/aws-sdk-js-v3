@@ -56,7 +56,7 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * import { SFNClient, SendTaskHeartbeatCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, SendTaskHeartbeatCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // SendTaskHeartbeatInput
  *   taskToken: "STRING_VALUE", // required
  * };
  * const command = new SendTaskHeartbeatCommand(input);

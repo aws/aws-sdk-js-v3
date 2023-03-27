@@ -47,10 +47,10 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
  * import { SageMakerClient, UpdateNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateNotebookInstanceLifecycleConfigInput
  *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
- *   OnCreate: [
- *     {
+ *   OnCreate: [ // NotebookInstanceLifecycleConfigList
+ *     { // NotebookInstanceLifecycleHook
  *       Content: "STRING_VALUE",
  *     },
  *   ],

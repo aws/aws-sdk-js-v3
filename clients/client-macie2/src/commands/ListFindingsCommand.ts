@@ -42,11 +42,11 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * import { Macie2Client, ListFindingsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListFindingsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
- *   findingCriteria: {
- *     criterion: {
- *       "<keys>": {
- *         eq: [
+ * const input = { // ListFindingsRequest
+ *   findingCriteria: { // FindingCriteria
+ *     criterion: { // Criterion
+ *       "<keys>": { // CriterionAdditionalProperties
+ *         eq: [ // __listOf__string
  *           "STRING_VALUE",
  *         ],
  *         eqExactMatch: [
@@ -64,7 +64,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   sortCriteria: {
+ *   sortCriteria: { // SortCriteria
  *     attributeName: "STRING_VALUE",
  *     orderBy: "ASC" || "DESC",
  *   },

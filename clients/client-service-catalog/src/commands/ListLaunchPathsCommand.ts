@@ -67,7 +67,7 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * import { ServiceCatalogClient, ListLaunchPathsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListLaunchPathsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListLaunchPathsInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProductId: "STRING_VALUE", // required
  *   PageSize: Number("int"),

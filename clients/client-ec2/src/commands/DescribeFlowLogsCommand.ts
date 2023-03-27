@@ -44,17 +44,17 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * import { EC2Client, DescribeFlowLogsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFlowLogsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeFlowLogsRequest
  *   DryRun: true || false,
- *   Filter: [
- *     {
+ *   Filter: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   FlowLogIds: [
+ *   FlowLogIds: [ // FlowLogIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

@@ -52,7 +52,7 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  * import { CognitoIdentityProviderClient, ListUsersInGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListUsersInGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // ListUsersInGroupRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   GroupName: "STRING_VALUE", // required
  *   Limit: Number("int"),

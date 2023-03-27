@@ -45,7 +45,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * import { SecurityHubClient, ListMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // ListMembersRequest
  *   OnlyAssociated: true || false,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

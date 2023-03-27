@@ -51,7 +51,7 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * import { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
  * // const { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
  * const client = new EC2InstanceConnectClient(config);
- * const input = {
+ * const input = { // SendSerialConsoleSSHPublicKeyRequest
  *   InstanceId: "STRING_VALUE", // required
  *   SerialPort: Number("int"),
  *   SSHPublicKey: "STRING_VALUE", // required

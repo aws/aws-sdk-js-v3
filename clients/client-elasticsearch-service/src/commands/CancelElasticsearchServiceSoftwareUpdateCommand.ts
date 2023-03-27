@@ -52,7 +52,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
  * import { ElasticsearchServiceClient, CancelElasticsearchServiceSoftwareUpdateCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, CancelElasticsearchServiceSoftwareUpdateCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // CancelElasticsearchServiceSoftwareUpdateRequest
  *   DomainName: "STRING_VALUE", // required
  * };
  * const command = new CancelElasticsearchServiceSoftwareUpdateCommand(input);

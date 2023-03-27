@@ -42,7 +42,7 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * import { GlueClient, GetDataQualityResultCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataQualityResultCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetDataQualityResultRequest
  *   ResultId: "STRING_VALUE", // required
  * };
  * const command = new GetDataQualityResultCommand(input);

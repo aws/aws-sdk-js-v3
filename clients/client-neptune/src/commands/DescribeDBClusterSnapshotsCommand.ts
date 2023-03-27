@@ -43,14 +43,14 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * import { NeptuneClient, DescribeDBClusterSnapshotsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBClusterSnapshotsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // DescribeDBClusterSnapshotsMessage
  *   DBClusterIdentifier: "STRING_VALUE",
  *   DBClusterSnapshotIdentifier: "STRING_VALUE",
  *   SnapshotType: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -42,7 +42,7 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
  * import { SageMakerClient, DeleteActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteActionRequest
  *   ActionName: "STRING_VALUE", // required
  * };
  * const command = new DeleteActionCommand(input);

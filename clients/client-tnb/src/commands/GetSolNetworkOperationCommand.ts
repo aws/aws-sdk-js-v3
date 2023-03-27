@@ -47,7 +47,7 @@ export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperat
  * import { TnbClient, GetSolNetworkOperationCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolNetworkOperationCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // GetSolNetworkOperationInput
  *   nsLcmOpOccId: "STRING_VALUE", // required
  * };
  * const command = new GetSolNetworkOperationCommand(input);

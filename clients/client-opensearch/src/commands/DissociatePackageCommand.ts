@@ -45,7 +45,7 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * import { OpenSearchClient, DissociatePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DissociatePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // DissociatePackageRequest
  *   PackageID: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  * };

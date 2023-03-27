@@ -42,9 +42,9 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * import { PinpointClient, CreateImportJobCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateImportJobCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // CreateImportJobRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   ImportJobRequest: {
+ *   ImportJobRequest: { // ImportJobRequest
  *     DefineSegment: true || false,
  *     ExternalId: "STRING_VALUE",
  *     Format: "STRING_VALUE", // required

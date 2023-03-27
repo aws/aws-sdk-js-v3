@@ -42,7 +42,7 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * import { DrsClient, ListStagingAccountsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, ListStagingAccountsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // ListStagingAccountsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

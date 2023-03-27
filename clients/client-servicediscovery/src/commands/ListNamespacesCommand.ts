@@ -42,13 +42,13 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * import { ServiceDiscoveryClient, ListNamespacesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListNamespacesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // ListNamespacesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // NamespaceFilters
+ *     { // NamespaceFilter
  *       Name: "TYPE" || "NAME" || "HTTP_NAME", // required
- *       Values: [ // required
+ *       Values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",

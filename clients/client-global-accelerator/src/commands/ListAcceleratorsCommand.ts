@@ -46,7 +46,7 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  * import { GlobalAcceleratorClient, ListAcceleratorsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListAcceleratorsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
+ * const input = { // ListAcceleratorsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

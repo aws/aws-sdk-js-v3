@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { SWFClient, UntagResourceCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, UntagResourceCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // ResourceTagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

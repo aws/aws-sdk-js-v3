@@ -43,14 +43,14 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * import { DocDBClient, CreateDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // CreateDBSubnetGroupMessage
  *   DBSubnetGroupName: "STRING_VALUE", // required
  *   DBSubnetGroupDescription: "STRING_VALUE", // required
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

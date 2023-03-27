@@ -42,19 +42,19 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * import { PersonalizeClient, UpdateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UpdateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
- *   addMetrics: [
- *     {
+ * const input = { // UpdateMetricAttributionRequest
+ *   addMetrics: [ // MetricAttributes
+ *     { // MetricAttribute
  *       eventType: "STRING_VALUE", // required
  *       metricName: "STRING_VALUE", // required
  *       expression: "STRING_VALUE", // required
  *     },
  *   ],
- *   removeMetrics: [
+ *   removeMetrics: [ // MetricAttributesNamesList
  *     "STRING_VALUE",
  *   ],
- *   metricsOutputConfig: {
- *     s3DataDestination: {
+ *   metricsOutputConfig: { // MetricAttributionOutput
+ *     s3DataDestination: { // S3DataConfig
  *       path: "STRING_VALUE", // required
  *       kmsKeyArn: "STRING_VALUE",
  *     },

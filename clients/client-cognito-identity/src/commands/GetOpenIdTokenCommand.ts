@@ -46,9 +46,9 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * import { CognitoIdentityClient, GetOpenIdTokenCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetOpenIdTokenCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
- * const input = {
+ * const input = { // GetOpenIdTokenInput
  *   IdentityId: "STRING_VALUE", // required
- *   Logins: {
+ *   Logins: { // LoginsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -70,7 +70,7 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
  * import { S3Client, GetBucketIntelligentTieringConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketIntelligentTieringConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetBucketIntelligentTieringConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
  * };

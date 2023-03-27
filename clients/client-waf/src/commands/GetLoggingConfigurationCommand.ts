@@ -50,7 +50,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * import { WAFClient, GetLoggingConfigurationCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetLoggingConfigurationCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // GetLoggingConfigurationRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new GetLoggingConfigurationCommand(input);

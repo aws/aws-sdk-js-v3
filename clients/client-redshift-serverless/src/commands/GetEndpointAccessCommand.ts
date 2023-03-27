@@ -46,7 +46,7 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * import { RedshiftServerlessClient, GetEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // GetEndpointAccessRequest
  *   endpointName: "STRING_VALUE", // required
  * };
  * const command = new GetEndpointAccessCommand(input);

@@ -42,18 +42,18 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * import { NetworkManagerClient, CreateLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // CreateLinkRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Type: "STRING_VALUE",
- *   Bandwidth: {
+ *   Bandwidth: { // Bandwidth
  *     UploadSpeed: Number("int"),
  *     DownloadSpeed: Number("int"),
  *   },
  *   Provider: "STRING_VALUE",
  *   SiteId: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

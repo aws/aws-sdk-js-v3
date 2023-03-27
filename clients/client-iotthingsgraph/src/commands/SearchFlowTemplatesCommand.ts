@@ -44,11 +44,11 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  * import { IoTThingsGraphClient, SearchFlowTemplatesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchFlowTemplatesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
- *   filters: [
- *     {
+ * const input = { // SearchFlowTemplatesRequest
+ *   filters: [ // FlowTemplateFilters
+ *     { // FlowTemplateFilter
  *       name: "STRING_VALUE", // required
- *       value: [ // required
+ *       value: [ // FlowTemplateFilterValues // required
  *         "STRING_VALUE",
  *       ],
  *     },

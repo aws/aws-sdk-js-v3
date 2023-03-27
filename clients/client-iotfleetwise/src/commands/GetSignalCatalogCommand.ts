@@ -42,7 +42,7 @@ export interface GetSignalCatalogCommandOutput extends GetSignalCatalogResponse,
  * import { IoTFleetWiseClient, GetSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // GetSignalCatalogRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new GetSignalCatalogCommand(input);

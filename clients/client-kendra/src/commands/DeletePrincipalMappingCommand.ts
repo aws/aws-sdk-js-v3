@@ -56,7 +56,7 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
  * import { KendraClient, DeletePrincipalMappingCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeletePrincipalMappingCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // DeletePrincipalMappingRequest
  *   IndexId: "STRING_VALUE", // required
  *   DataSourceId: "STRING_VALUE",
  *   GroupId: "STRING_VALUE", // required

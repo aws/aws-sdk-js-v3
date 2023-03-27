@@ -50,7 +50,7 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  * import { WAFRegionalClient, GetSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // GetSqlInjectionMatchSetRequest
  *   SqlInjectionMatchSetId: "STRING_VALUE", // required
  * };
  * const command = new GetSqlInjectionMatchSetCommand(input);

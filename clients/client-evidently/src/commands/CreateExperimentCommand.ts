@@ -51,21 +51,21 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * import { EvidentlyClient, CreateExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // CreateExperimentRequest
  *   project: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   treatments: [ // required
- *     {
+ *   treatments: [ // TreatmentConfigList // required
+ *     { // TreatmentConfig
  *       name: "STRING_VALUE", // required
  *       description: "STRING_VALUE",
  *       feature: "STRING_VALUE", // required
  *       variation: "STRING_VALUE", // required
  *     },
  *   ],
- *   metricGoals: [ // required
- *     {
- *       metricDefinition: {
+ *   metricGoals: [ // MetricGoalConfigList // required
+ *     { // MetricGoalConfig
+ *       metricDefinition: { // MetricDefinitionConfig
  *         name: "STRING_VALUE", // required
  *         entityIdKey: "STRING_VALUE", // required
  *         valueKey: "STRING_VALUE", // required
@@ -77,14 +77,14 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  *   ],
  *   randomizationSalt: "STRING_VALUE",
  *   samplingRate: Number("long"),
- *   onlineAbConfig: {
+ *   onlineAbConfig: { // OnlineAbConfig
  *     controlTreatmentName: "STRING_VALUE",
- *     treatmentWeights: {
+ *     treatmentWeights: { // TreatmentToWeightMap
  *       "<keys>": Number("long"),
  *     },
  *   },
  *   segment: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,12 +42,12 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * import { DeviceFarmClient, UpdateInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // UpdateInstanceProfileRequest
  *   arn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   packageCleanup: true || false,
- *   excludeAppPackagesFromCleanup: [
+ *   excludeAppPackagesFromCleanup: [ // PackageIds
  *     "STRING_VALUE",
  *   ],
  *   rebootAfterUse: true || false,

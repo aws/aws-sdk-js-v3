@@ -42,7 +42,7 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  * import { QuickSightClient, ListIngestionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListIngestionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // ListIngestionsRequest
  *   DataSetId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   AwsAccountId: "STRING_VALUE", // required

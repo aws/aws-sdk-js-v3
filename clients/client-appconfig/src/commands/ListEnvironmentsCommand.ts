@@ -42,7 +42,7 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * import { AppConfigClient, ListEnvironmentsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListEnvironmentsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // ListEnvironmentsRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

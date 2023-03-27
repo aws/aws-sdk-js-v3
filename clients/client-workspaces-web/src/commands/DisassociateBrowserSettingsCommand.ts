@@ -44,7 +44,7 @@ export interface DisassociateBrowserSettingsCommandOutput
  * import { WorkSpacesWebClient, DisassociateBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // DisassociateBrowserSettingsRequest
  *   portalArn: "STRING_VALUE", // required
  * };
  * const command = new DisassociateBrowserSettingsCommand(input);

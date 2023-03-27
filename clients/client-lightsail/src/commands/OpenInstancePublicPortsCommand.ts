@@ -46,12 +46,12 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  * import { LightsailClient, OpenInstancePublicPortsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, OpenInstancePublicPortsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
- *   portInfo: {
+ * const input = { // OpenInstancePublicPortsRequest
+ *   portInfo: { // PortInfo
  *     fromPort: Number("int"),
  *     toPort: Number("int"),
  *     protocol: "tcp" || "all" || "udp" || "icmp",
- *     cidrs: [
+ *     cidrs: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     ipv6Cidrs: [

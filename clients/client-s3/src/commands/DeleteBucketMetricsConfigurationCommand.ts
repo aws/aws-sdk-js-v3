@@ -75,7 +75,7 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  * import { S3Client, DeleteBucketMetricsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // DeleteBucketMetricsConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
  *   ExpectedBucketOwner: "STRING_VALUE",

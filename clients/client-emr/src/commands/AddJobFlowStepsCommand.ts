@@ -60,22 +60,22 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  * import { EMRClient, AddJobFlowStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, AddJobFlowStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // AddJobFlowStepsInput
  *   JobFlowId: "STRING_VALUE", // required
- *   Steps: [ // required
- *     {
+ *   Steps: [ // StepConfigList // required
+ *     { // StepConfig
  *       Name: "STRING_VALUE", // required
  *       ActionOnFailure: "TERMINATE_JOB_FLOW" || "TERMINATE_CLUSTER" || "CANCEL_AND_WAIT" || "CONTINUE",
- *       HadoopJarStep: {
- *         Properties: [
- *           {
+ *       HadoopJarStep: { // HadoopJarStepConfig
+ *         Properties: [ // KeyValueList
+ *           { // KeyValue
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *           },
  *         ],
  *         Jar: "STRING_VALUE", // required
  *         MainClass: "STRING_VALUE",
- *         Args: [
+ *         Args: [ // XmlStringList
  *           "STRING_VALUE",
  *         ],
  *       },

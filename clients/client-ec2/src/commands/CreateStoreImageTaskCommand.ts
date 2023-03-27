@@ -46,11 +46,11 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
  * import { EC2Client, CreateStoreImageTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateStoreImageTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateStoreImageTaskRequest
  *   ImageId: "STRING_VALUE", // required
  *   Bucket: "STRING_VALUE", // required
- *   S3ObjectTags: [
- *     {
+ *   S3ObjectTags: [ // S3ObjectTagList
+ *     { // S3ObjectTag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

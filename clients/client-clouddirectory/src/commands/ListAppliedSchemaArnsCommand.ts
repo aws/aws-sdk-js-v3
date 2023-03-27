@@ -42,7 +42,7 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
  * import { CloudDirectoryClient, ListAppliedSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListAppliedSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // ListAppliedSchemaArnsRequest
  *   DirectoryArn: "STRING_VALUE", // required
  *   SchemaArn: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

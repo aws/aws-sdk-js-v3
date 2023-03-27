@@ -42,7 +42,7 @@ export interface DescribeDeviceJobCommandOutput extends DescribeDeviceJobRespons
  * import { PanoramaClient, DescribeDeviceJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeDeviceJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // DescribeDeviceJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeDeviceJobCommand(input);

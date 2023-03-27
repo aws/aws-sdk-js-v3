@@ -44,30 +44,30 @@ export interface CreatePackagingConfigurationCommandOutput
  * import { MediaPackageVodClient, CreatePackagingConfigurationCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, CreatePackagingConfigurationCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
- *   CmafPackage: {
- *     Encryption: {
+ * const input = { // CreatePackagingConfigurationRequest
+ *   CmafPackage: { // CmafPackage
+ *     Encryption: { // CmafEncryption
  *       ConstantInitializationVector: "STRING_VALUE",
- *       SpekeKeyProvider: {
- *         EncryptionContractConfiguration: {
+ *       SpekeKeyProvider: { // SpekeKeyProvider
+ *         EncryptionContractConfiguration: { // EncryptionContractConfiguration
  *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
  *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
  *         },
  *         RoleArn: "STRING_VALUE", // required
- *         SystemIds: [ // required
+ *         SystemIds: [ // __listOf__string // required
  *           "STRING_VALUE",
  *         ],
  *         Url: "STRING_VALUE", // required
  *       },
  *     },
- *     HlsManifests: [ // required
- *       {
+ *     HlsManifests: [ // __listOfHlsManifest // required
+ *       { // HlsManifest
  *         AdMarkers: "NONE" || "SCTE35_ENHANCED" || "PASSTHROUGH",
  *         IncludeIframeOnlyStream: true || false,
  *         ManifestName: "STRING_VALUE",
  *         ProgramDateTimeIntervalSeconds: Number("int"),
  *         RepeatExtXKey: true || false,
- *         StreamSelection: {
+ *         StreamSelection: { // StreamSelection
  *           MaxVideoBitsPerSecond: Number("int"),
  *           MinVideoBitsPerSecond: Number("int"),
  *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
@@ -77,9 +77,9 @@ export interface CreatePackagingConfigurationCommandOutput
  *     IncludeEncoderConfigurationInSegments: true || false,
  *     SegmentDurationSeconds: Number("int"),
  *   },
- *   DashPackage: {
- *     DashManifests: [ // required
- *       {
+ *   DashPackage: { // DashPackage
+ *     DashManifests: [ // __listOfDashManifest // required
+ *       { // DashManifest
  *         ManifestLayout: "FULL" || "COMPACT",
  *         ManifestName: "STRING_VALUE",
  *         MinBufferTimeSeconds: Number("int"),
@@ -92,7 +92,7 @@ export interface CreatePackagingConfigurationCommandOutput
  *         },
  *       },
  *     ],
- *     Encryption: {
+ *     Encryption: { // DashEncryption
  *       SpekeKeyProvider: {
  *         EncryptionContractConfiguration: {
  *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
@@ -107,14 +107,14 @@ export interface CreatePackagingConfigurationCommandOutput
  *     },
  *     IncludeEncoderConfigurationInSegments: true || false,
  *     IncludeIframeOnlyStream: true || false,
- *     PeriodTriggers: [
+ *     PeriodTriggers: [ // __listOf__PeriodTriggersElement
  *       "ADS",
  *     ],
  *     SegmentDurationSeconds: Number("int"),
  *     SegmentTemplateFormat: "NUMBER_WITH_TIMELINE" || "TIME_WITH_TIMELINE" || "NUMBER_WITH_DURATION",
  *   },
- *   HlsPackage: {
- *     Encryption: {
+ *   HlsPackage: { // HlsPackage
+ *     Encryption: { // HlsEncryption
  *       ConstantInitializationVector: "STRING_VALUE",
  *       EncryptionMethod: "AES_128" || "SAMPLE_AES",
  *       SpekeKeyProvider: {
@@ -148,8 +148,8 @@ export interface CreatePackagingConfigurationCommandOutput
  *     UseAudioRenditionGroup: true || false,
  *   },
  *   Id: "STRING_VALUE", // required
- *   MssPackage: {
- *     Encryption: {
+ *   MssPackage: { // MssPackage
+ *     Encryption: { // MssEncryption
  *       SpekeKeyProvider: {
  *         EncryptionContractConfiguration: {
  *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
@@ -162,8 +162,8 @@ export interface CreatePackagingConfigurationCommandOutput
  *         Url: "STRING_VALUE", // required
  *       },
  *     },
- *     MssManifests: [ // required
- *       {
+ *     MssManifests: [ // __listOfMssManifest // required
+ *       { // MssManifest
  *         ManifestName: "STRING_VALUE",
  *         StreamSelection: {
  *           MaxVideoBitsPerSecond: Number("int"),
@@ -175,7 +175,7 @@ export interface CreatePackagingConfigurationCommandOutput
  *     SegmentDurationSeconds: Number("int"),
  *   },
  *   PackagingGroupId: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,8 +42,8 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateUserPhoneConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserPhoneConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
- *   PhoneConfig: {
+ * const input = { // UpdateUserPhoneConfigRequest
+ *   PhoneConfig: { // UserPhoneConfig
  *     PhoneType: "SOFT_PHONE" || "DESK_PHONE", // required
  *     AutoAccept: true || false,
  *     AfterContactWorkTimeLimit: Number("int"),

@@ -85,50 +85,46 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, UpdateAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, UpdateAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // UpdateAutoScalingGroupType
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   LaunchConfigurationName: "STRING_VALUE",
- *   LaunchTemplate: {
+ *   LaunchTemplate: { // LaunchTemplateSpecification
  *     LaunchTemplateId: "STRING_VALUE",
  *     LaunchTemplateName: "STRING_VALUE",
  *     Version: "STRING_VALUE",
  *   },
- *   MixedInstancesPolicy: {
- *     LaunchTemplate: {
+ *   MixedInstancesPolicy: { // MixedInstancesPolicy
+ *     LaunchTemplate: { // LaunchTemplate
  *       LaunchTemplateSpecification: {
  *         LaunchTemplateId: "STRING_VALUE",
  *         LaunchTemplateName: "STRING_VALUE",
  *         Version: "STRING_VALUE",
  *       },
- *       Overrides: [
- *         {
+ *       Overrides: [ // Overrides
+ *         { // LaunchTemplateOverrides
  *           InstanceType: "STRING_VALUE",
  *           WeightedCapacity: "STRING_VALUE",
- *           LaunchTemplateSpecification: {
- *             LaunchTemplateId: "<LaunchTemplateSpecification>",
- *             LaunchTemplateName: "<LaunchTemplateSpecification>",
- *             Version: "<LaunchTemplateSpecification>",
- *           },
- *           InstanceRequirements: {
- *             VCpuCount: {
+ *           LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
+ *           InstanceRequirements: { // InstanceRequirements
+ *             VCpuCount: { // VCpuCountRequest
  *               Min: Number("int"), // required
  *               Max: Number("int"),
  *             },
- *             MemoryMiB: {
+ *             MemoryMiB: { // MemoryMiBRequest
  *               Min: Number("int"), // required
  *               Max: Number("int"),
  *             },
- *             CpuManufacturers: [
+ *             CpuManufacturers: [ // CpuManufacturers
  *               "intel" || "amd" || "amazon-web-services",
  *             ],
- *             MemoryGiBPerVCpu: {
+ *             MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *               Min: Number("double"),
  *               Max: Number("double"),
  *             },
- *             ExcludedInstanceTypes: [
+ *             ExcludedInstanceTypes: [ // ExcludedInstanceTypes
  *               "STRING_VALUE",
  *             ],
- *             InstanceGenerations: [
+ *             InstanceGenerations: [ // InstanceGenerations
  *               "current" || "previous",
  *             ],
  *             SpotMaxPricePercentageOverLowestPrice: Number("int"),
@@ -136,51 +132,51 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             BareMetal: "included" || "excluded" || "required",
  *             BurstablePerformance: "included" || "excluded" || "required",
  *             RequireHibernateSupport: true || false,
- *             NetworkInterfaceCount: {
+ *             NetworkInterfaceCount: { // NetworkInterfaceCountRequest
  *               Min: Number("int"),
  *               Max: Number("int"),
  *             },
  *             LocalStorage: "included" || "excluded" || "required",
- *             LocalStorageTypes: [
+ *             LocalStorageTypes: [ // LocalStorageTypes
  *               "hdd" || "ssd",
  *             ],
- *             TotalLocalStorageGB: {
+ *             TotalLocalStorageGB: { // TotalLocalStorageGBRequest
  *               Min: Number("double"),
  *               Max: Number("double"),
  *             },
- *             BaselineEbsBandwidthMbps: {
+ *             BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
  *               Min: Number("int"),
  *               Max: Number("int"),
  *             },
- *             AcceleratorTypes: [
+ *             AcceleratorTypes: [ // AcceleratorTypes
  *               "gpu" || "fpga" || "inference",
  *             ],
- *             AcceleratorCount: {
+ *             AcceleratorCount: { // AcceleratorCountRequest
  *               Min: Number("int"),
  *               Max: Number("int"),
  *             },
- *             AcceleratorManufacturers: [
+ *             AcceleratorManufacturers: [ // AcceleratorManufacturers
  *               "nvidia" || "amd" || "amazon-web-services" || "xilinx",
  *             ],
- *             AcceleratorNames: [
+ *             AcceleratorNames: [ // AcceleratorNames
  *               "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
  *             ],
- *             AcceleratorTotalMemoryMiB: {
+ *             AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
  *               Min: Number("int"),
  *               Max: Number("int"),
  *             },
- *             NetworkBandwidthGbps: {
+ *             NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
  *               Min: Number("double"),
  *               Max: Number("double"),
  *             },
- *             AllowedInstanceTypes: [
+ *             AllowedInstanceTypes: [ // AllowedInstanceTypes
  *               "STRING_VALUE",
  *             ],
  *           },
  *         },
  *       ],
  *     },
- *     InstancesDistribution: {
+ *     InstancesDistribution: { // InstancesDistribution
  *       OnDemandAllocationStrategy: "STRING_VALUE",
  *       OnDemandBaseCapacity: Number("int"),
  *       OnDemandPercentageAboveBaseCapacity: Number("int"),
@@ -193,14 +189,14 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *   MaxSize: Number("int"),
  *   DesiredCapacity: Number("int"),
  *   DefaultCooldown: Number("int"),
- *   AvailabilityZones: [
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
  *   HealthCheckType: "STRING_VALUE",
  *   HealthCheckGracePeriod: Number("int"),
  *   PlacementGroup: "STRING_VALUE",
  *   VPCZoneIdentifier: "STRING_VALUE",
- *   TerminationPolicies: [
+ *   TerminationPolicies: [ // TerminationPolicies
  *     "STRING_VALUE",
  *   ],
  *   NewInstancesProtectedFromScaleIn: true || false,

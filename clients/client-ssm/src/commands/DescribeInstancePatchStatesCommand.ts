@@ -46,8 +46,8 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * import { SSMClient, DescribeInstancePatchStatesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchStatesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   InstanceIds: [ // required
+ * const input = { // DescribeInstancePatchStatesRequest
+ *   InstanceIds: [ // InstanceIdList // required
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

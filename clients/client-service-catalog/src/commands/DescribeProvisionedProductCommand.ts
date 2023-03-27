@@ -42,7 +42,7 @@ export interface DescribeProvisionedProductCommandOutput extends DescribeProvisi
  * import { ServiceCatalogClient, DescribeProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DescribeProvisionedProductInput
  *   AcceptLanguage: "STRING_VALUE",
  *   Id: "STRING_VALUE",
  *   Name: "STRING_VALUE",

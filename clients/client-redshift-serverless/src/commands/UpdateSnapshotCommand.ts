@@ -46,7 +46,7 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * import { RedshiftServerlessClient, UpdateSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, UpdateSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // UpdateSnapshotRequest
  *   snapshotName: "STRING_VALUE", // required
  *   retentionPeriod: Number("int"),
  * };

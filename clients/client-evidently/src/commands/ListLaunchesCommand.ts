@@ -42,7 +42,7 @@ export interface ListLaunchesCommandOutput extends ListLaunchesResponse, __Metad
  * import { EvidentlyClient, ListLaunchesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListLaunchesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // ListLaunchesRequest
  *   project: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

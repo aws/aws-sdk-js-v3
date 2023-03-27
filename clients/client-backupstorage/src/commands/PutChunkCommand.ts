@@ -51,7 +51,7 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * import { BackupStorageClient, PutChunkCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, PutChunkCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
- * const input = {
+ * const input = { // PutChunkInput
  *   BackupJobId: "STRING_VALUE", // required
  *   UploadId: "STRING_VALUE", // required
  *   ChunkIndex: Number("long"), // required

@@ -42,7 +42,7 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // DeleteHostKeyRequest
  *   ServerId: "STRING_VALUE", // required
  *   HostKeyId: "STRING_VALUE", // required
  * };

@@ -89,23 +89,23 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  * import { SWFClient, ListOpenWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListOpenWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // ListOpenWorkflowExecutionsInput
  *   domain: "STRING_VALUE", // required
- *   startTimeFilter: {
+ *   startTimeFilter: { // ExecutionTimeFilter
  *     oldestDate: new Date("TIMESTAMP"), // required
  *     latestDate: new Date("TIMESTAMP"),
  *   },
- *   typeFilter: {
+ *   typeFilter: { // WorkflowTypeFilter
  *     name: "STRING_VALUE", // required
  *     version: "STRING_VALUE",
  *   },
- *   tagFilter: {
+ *   tagFilter: { // TagFilter
  *     tag: "STRING_VALUE", // required
  *   },
  *   nextPageToken: "STRING_VALUE",
  *   maximumPageSize: Number("int"),
  *   reverseOrder: true || false,
- *   executionFilter: {
+ *   executionFilter: { // WorkflowExecutionFilter
  *     workflowId: "STRING_VALUE", // required
  *   },
  * };

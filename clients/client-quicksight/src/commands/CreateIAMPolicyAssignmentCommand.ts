@@ -45,13 +45,13 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * import { QuickSightClient, CreateIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // CreateIAMPolicyAssignmentRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   AssignmentName: "STRING_VALUE", // required
  *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED", // required
  *   PolicyArn: "STRING_VALUE",
- *   Identities: {
- *     "<keys>": [
+ *   Identities: { // IdentityMap
+ *     "<keys>": [ // IdentityNameList
  *       "STRING_VALUE",
  *     ],
  *   },

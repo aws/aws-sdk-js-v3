@@ -43,7 +43,7 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
  * import { ServiceQuotasClient, GetAWSDefaultServiceQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetAWSDefaultServiceQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // GetAWSDefaultServiceQuotaRequest
  *   ServiceCode: "STRING_VALUE", // required
  *   QuotaCode: "STRING_VALUE", // required
  * };

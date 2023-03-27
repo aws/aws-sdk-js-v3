@@ -43,7 +43,7 @@ export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJ
  * import { RoboMakerClient, CancelSimulationJobBatchCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelSimulationJobBatchCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CancelSimulationJobBatchRequest
  *   batch: "STRING_VALUE", // required
  * };
  * const command = new CancelSimulationJobBatchCommand(input);

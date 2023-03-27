@@ -47,7 +47,7 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * import { CodeCatalystClient, CreateSourceRepositoryBranchCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateSourceRepositoryBranchCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // CreateSourceRepositoryBranchRequest
  *   spaceName: "STRING_VALUE", // required
  *   projectName: "STRING_VALUE", // required
  *   sourceRepositoryName: "STRING_VALUE", // required

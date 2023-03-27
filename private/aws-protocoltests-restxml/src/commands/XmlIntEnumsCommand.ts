@@ -41,17 +41,17 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __Meta
  * import { RestXmlProtocolClient, XmlIntEnumsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // XmlIntEnumsInputOutput
  *   intEnum1: 1 || 2 || 3,
  *   intEnum2: 1 || 2 || 3,
  *   intEnum3: 1 || 2 || 3,
- *   intEnumList: [
+ *   intEnumList: [ // IntegerEnumList
  *     1 || 2 || 3,
  *   ],
- *   intEnumSet: [
+ *   intEnumSet: [ // IntegerEnumSet
  *     1 || 2 || 3,
  *   ],
- *   intEnumMap: {
+ *   intEnumMap: { // IntegerEnumMap
  *     "<keys>": 1 || 2 || 3,
  *   },
  * };

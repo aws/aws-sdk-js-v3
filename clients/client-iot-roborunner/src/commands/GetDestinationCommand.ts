@@ -42,7 +42,7 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * import { IoTRoboRunnerClient, GetDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, GetDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // GetDestinationRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetDestinationCommand(input);

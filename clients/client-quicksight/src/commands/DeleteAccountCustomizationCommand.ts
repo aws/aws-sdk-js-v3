@@ -43,7 +43,7 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * import { QuickSightClient, DeleteAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DeleteAccountCustomizationRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE",
  * };

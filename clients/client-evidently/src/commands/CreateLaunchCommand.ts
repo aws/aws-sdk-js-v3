@@ -49,19 +49,19 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  * import { EvidentlyClient, CreateLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // CreateLaunchRequest
  *   project: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   scheduledSplitsConfig: {
- *     steps: [ // required
- *       {
+ *   scheduledSplitsConfig: { // ScheduledSplitsLaunchConfig
+ *     steps: [ // ScheduledSplitConfigList // required
+ *       { // ScheduledSplitConfig
  *         startTime: new Date("TIMESTAMP"), // required
- *         groupWeights: { // required
+ *         groupWeights: { // GroupToWeightMap // required
  *           "<keys>": Number("long"),
  *         },
- *         segmentOverrides: [
- *           {
+ *         segmentOverrides: [ // SegmentOverridesList
+ *           { // SegmentOverride
  *             segment: "STRING_VALUE", // required
  *             evaluationOrder: Number("long"), // required
  *             weights: { // required
@@ -72,9 +72,9 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  *       },
  *     ],
  *   },
- *   metricMonitors: [
- *     {
- *       metricDefinition: {
+ *   metricMonitors: [ // MetricMonitorConfigList
+ *     { // MetricMonitorConfig
+ *       metricDefinition: { // MetricDefinitionConfig
  *         name: "STRING_VALUE", // required
  *         entityIdKey: "STRING_VALUE", // required
  *         valueKey: "STRING_VALUE", // required
@@ -83,8 +83,8 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  *       },
  *     },
  *   ],
- *   groups: [ // required
- *     {
+ *   groups: [ // LaunchGroupConfigList // required
+ *     { // LaunchGroupConfig
  *       name: "STRING_VALUE", // required
  *       description: "STRING_VALUE",
  *       feature: "STRING_VALUE", // required
@@ -92,7 +92,7 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  *     },
  *   ],
  *   randomizationSalt: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -44,15 +44,15 @@ export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __Met
  * import { EvidentlyClient, UpdateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // UpdateFeatureRequest
  *   project: "STRING_VALUE", // required
  *   feature: "STRING_VALUE", // required
  *   evaluationStrategy: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   addOrUpdateVariations: [
- *     {
+ *   addOrUpdateVariations: [ // VariationConfigsList
+ *     { // VariationConfig
  *       name: "STRING_VALUE", // required
- *       value: { // Union: only one key present
+ *       value: { // VariableValue Union: only one key present
  *         boolValue: true || false,
  *         stringValue: "STRING_VALUE",
  *         longValue: Number("long"),
@@ -60,11 +60,11 @@ export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __Met
  *       },
  *     },
  *   ],
- *   removeVariations: [
+ *   removeVariations: [ // VariationNameList
  *     "STRING_VALUE",
  *   ],
  *   defaultVariation: "STRING_VALUE",
- *   entityOverrides: {
+ *   entityOverrides: { // EntityOverrideMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

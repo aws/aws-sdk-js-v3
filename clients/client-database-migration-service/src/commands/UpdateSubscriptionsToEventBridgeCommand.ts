@@ -56,7 +56,7 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
  * import { DatabaseMigrationServiceClient, UpdateSubscriptionsToEventBridgeCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, UpdateSubscriptionsToEventBridgeCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // UpdateSubscriptionsToEventBridgeMessage
  *   ForceMove: true || false,
  * };
  * const command = new UpdateSubscriptionsToEventBridgeCommand(input);

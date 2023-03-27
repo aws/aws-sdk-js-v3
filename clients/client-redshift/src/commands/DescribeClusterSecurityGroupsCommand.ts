@@ -56,14 +56,14 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * import { RedshiftClient, DescribeClusterSecurityGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterSecurityGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeClusterSecurityGroupsMessage
  *   ClusterSecurityGroupName: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",
- *   TagKeys: [
+ *   TagKeys: [ // TagKeyList
  *     "STRING_VALUE",
  *   ],
- *   TagValues: [
+ *   TagValues: [ // TagValueList
  *     "STRING_VALUE",
  *   ],
  * };

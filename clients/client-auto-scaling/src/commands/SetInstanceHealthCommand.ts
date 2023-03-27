@@ -44,7 +44,7 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, SetInstanceHealthCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetInstanceHealthCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // SetInstanceHealthQuery
  *   InstanceId: "STRING_VALUE", // required
  *   HealthStatus: "STRING_VALUE", // required
  *   ShouldRespectGracePeriod: true || false,

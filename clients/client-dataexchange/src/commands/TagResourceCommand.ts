@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, TagResourceCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, TagResourceCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // MapOf__string // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

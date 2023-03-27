@@ -48,10 +48,10 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * import { ElasticLoadBalancingClient, CreateLoadBalancerListenersCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateLoadBalancerListenersCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // CreateLoadBalancerListenerInput
  *   LoadBalancerName: "STRING_VALUE", // required
- *   Listeners: [ // required
- *     {
+ *   Listeners: [ // Listeners // required
+ *     { // Listener
  *       Protocol: "STRING_VALUE", // required
  *       LoadBalancerPort: Number("int"), // required
  *       InstanceProtocol: "STRING_VALUE",

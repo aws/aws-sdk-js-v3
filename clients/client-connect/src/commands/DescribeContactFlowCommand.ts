@@ -44,7 +44,7 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * import { ConnectClient, DescribeContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DescribeContactFlowRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactFlowId: "STRING_VALUE", // required
  * };

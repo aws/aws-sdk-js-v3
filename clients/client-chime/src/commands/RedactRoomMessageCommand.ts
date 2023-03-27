@@ -42,7 +42,7 @@ export interface RedactRoomMessageCommandOutput extends RedactRoomMessageRespons
  * import { ChimeClient, RedactRoomMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, RedactRoomMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // RedactRoomMessageRequest
  *   AccountId: "STRING_VALUE", // required
  *   RoomId: "STRING_VALUE", // required
  *   MessageId: "STRING_VALUE", // required

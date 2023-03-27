@@ -44,7 +44,7 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  * import { SSMClient, DeleteDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DeleteDocumentRequest
  *   Name: "STRING_VALUE", // required
  *   DocumentVersion: "STRING_VALUE",
  *   VersionName: "STRING_VALUE",

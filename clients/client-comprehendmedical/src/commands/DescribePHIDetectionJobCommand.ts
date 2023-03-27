@@ -47,7 +47,7 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
  * import { ComprehendMedicalClient, DescribePHIDetectionJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribePHIDetectionJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
+ * const input = { // DescribePHIDetectionJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribePHIDetectionJobCommand(input);

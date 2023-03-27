@@ -44,35 +44,35 @@ export interface UpdateResourceEventConfigurationCommandOutput
  * import { IoTWirelessClient, UpdateResourceEventConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateResourceEventConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // UpdateResourceEventConfigurationRequest
  *   Identifier: "STRING_VALUE", // required
  *   IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId", // required
  *   PartnerType: "Sidewalk",
- *   DeviceRegistrationState: {
+ *   DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
+ *     Sidewalk: { // SidewalkEventNotificationConfigurations
+ *       AmazonIdEventTopic: "Enabled" || "Disabled",
+ *     },
+ *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *   },
+ *   Proximity: { // ProximityEventConfiguration
  *     Sidewalk: {
  *       AmazonIdEventTopic: "Enabled" || "Disabled",
  *     },
  *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
  *   },
- *   Proximity: {
- *     Sidewalk: {
- *       AmazonIdEventTopic: "Enabled" || "Disabled",
- *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
- *   },
- *   Join: {
- *     LoRaWAN: {
+ *   Join: { // JoinEventConfiguration
+ *     LoRaWAN: { // LoRaWANJoinEventNotificationConfigurations
  *       DevEuiEventTopic: "Enabled" || "Disabled",
  *     },
  *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
  *   },
- *   ConnectionStatus: {
- *     LoRaWAN: {
+ *   ConnectionStatus: { // ConnectionStatusEventConfiguration
+ *     LoRaWAN: { // LoRaWANConnectionStatusEventNotificationConfigurations
  *       GatewayEuiEventTopic: "Enabled" || "Disabled",
  *     },
  *     WirelessGatewayIdEventTopic: "Enabled" || "Disabled",
  *   },
- *   MessageDeliveryStatus: {
+ *   MessageDeliveryStatus: { // MessageDeliveryStatusEventConfiguration
  *     Sidewalk: {
  *       AmazonIdEventTopic: "Enabled" || "Disabled",
  *     },

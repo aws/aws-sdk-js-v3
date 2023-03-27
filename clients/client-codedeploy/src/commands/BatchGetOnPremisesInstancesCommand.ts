@@ -43,8 +43,8 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * import { CodeDeployClient, BatchGetOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
- *   instanceNames: [ // required
+ * const input = { // BatchGetOnPremisesInstancesInput
+ *   instanceNames: [ // InstanceNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

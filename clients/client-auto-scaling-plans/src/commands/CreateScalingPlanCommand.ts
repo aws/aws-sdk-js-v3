@@ -42,37 +42,37 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * import { AutoScalingPlansClient, CreateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, CreateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
- * const input = {
+ * const input = { // CreateScalingPlanRequest
  *   ScalingPlanName: "STRING_VALUE", // required
- *   ApplicationSource: {
+ *   ApplicationSource: { // ApplicationSource
  *     CloudFormationStackARN: "STRING_VALUE",
- *     TagFilters: [
- *       {
+ *     TagFilters: [ // TagFilters
+ *       { // TagFilter
  *         Key: "STRING_VALUE",
- *         Values: [
+ *         Values: [ // TagValues
  *           "STRING_VALUE",
  *         ],
  *       },
  *     ],
  *   },
- *   ScalingInstructions: [ // required
- *     {
+ *   ScalingInstructions: [ // ScalingInstructions // required
+ *     { // ScalingInstruction
  *       ServiceNamespace: "STRING_VALUE", // required
  *       ResourceId: "STRING_VALUE", // required
  *       ScalableDimension: "STRING_VALUE", // required
  *       MinCapacity: Number("int"), // required
  *       MaxCapacity: Number("int"), // required
- *       TargetTrackingConfigurations: [ // required
- *         {
- *           PredefinedScalingMetricSpecification: {
+ *       TargetTrackingConfigurations: [ // TargetTrackingConfigurations // required
+ *         { // TargetTrackingConfiguration
+ *           PredefinedScalingMetricSpecification: { // PredefinedScalingMetricSpecification
  *             PredefinedScalingMetricType: "STRING_VALUE", // required
  *             ResourceLabel: "STRING_VALUE",
  *           },
- *           CustomizedScalingMetricSpecification: {
+ *           CustomizedScalingMetricSpecification: { // CustomizedScalingMetricSpecification
  *             MetricName: "STRING_VALUE", // required
  *             Namespace: "STRING_VALUE", // required
- *             Dimensions: [
- *               {
+ *             Dimensions: [ // MetricDimensions
+ *               { // MetricDimension
  *                 Name: "STRING_VALUE", // required
  *                 Value: "STRING_VALUE", // required
  *               },
@@ -87,11 +87,11 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  *           EstimatedInstanceWarmup: Number("int"),
  *         },
  *       ],
- *       PredefinedLoadMetricSpecification: {
+ *       PredefinedLoadMetricSpecification: { // PredefinedLoadMetricSpecification
  *         PredefinedLoadMetricType: "STRING_VALUE", // required
  *         ResourceLabel: "STRING_VALUE",
  *       },
- *       CustomizedLoadMetricSpecification: {
+ *       CustomizedLoadMetricSpecification: { // CustomizedLoadMetricSpecification
  *         MetricName: "STRING_VALUE", // required
  *         Namespace: "STRING_VALUE", // required
  *         Dimensions: [

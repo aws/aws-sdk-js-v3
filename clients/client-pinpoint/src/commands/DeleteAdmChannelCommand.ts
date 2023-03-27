@@ -42,7 +42,7 @@ export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse,
  * import { PinpointClient, DeleteAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // DeleteAdmChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new DeleteAdmChannelCommand(input);

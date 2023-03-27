@@ -43,7 +43,7 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * import { CloudFormationClient, GetStackPolicyCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetStackPolicyCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // GetStackPolicyInput
  *   StackName: "STRING_VALUE", // required
  * };
  * const command = new GetStackPolicyCommand(input);

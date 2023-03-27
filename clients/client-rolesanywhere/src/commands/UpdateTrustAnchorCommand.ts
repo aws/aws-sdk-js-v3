@@ -46,12 +46,12 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * import { RolesAnywhereClient, UpdateTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, UpdateTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
- * const input = {
+ * const input = { // UpdateTrustAnchorRequest
  *   trustAnchorId: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
- *   source: {
+ *   source: { // Source
  *     sourceType: "STRING_VALUE",
- *     sourceData: { // Union: only one key present
+ *     sourceData: { // SourceData Union: only one key present
  *       x509CertificateData: "STRING_VALUE",
  *       acmPcaArn: "STRING_VALUE",
  *     },

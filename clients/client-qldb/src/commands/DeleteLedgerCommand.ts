@@ -44,7 +44,7 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  * import { QLDBClient, DeleteLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DeleteLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
- * const input = {
+ * const input = { // DeleteLedgerRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteLedgerCommand(input);

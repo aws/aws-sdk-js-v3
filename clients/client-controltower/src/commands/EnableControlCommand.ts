@@ -44,7 +44,7 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * import { ControlTowerClient, EnableControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, EnableControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = {
+ * const input = { // EnableControlInput
  *   controlIdentifier: "STRING_VALUE", // required
  *   targetIdentifier: "STRING_VALUE", // required
  * };

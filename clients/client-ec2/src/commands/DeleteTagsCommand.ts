@@ -43,13 +43,13 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteTagsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTagsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteTagsRequest
  *   DryRun: true || false,
- *   Resources: [ // required
+ *   Resources: [ // ResourceIdList // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

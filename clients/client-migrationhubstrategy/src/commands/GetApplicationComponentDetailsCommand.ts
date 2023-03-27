@@ -48,7 +48,7 @@ export interface GetApplicationComponentDetailsCommandOutput
  * import { MigrationHubStrategyClient, GetApplicationComponentDetailsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetApplicationComponentDetailsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // GetApplicationComponentDetailsRequest
  *   applicationComponentId: "STRING_VALUE", // required
  * };
  * const command = new GetApplicationComponentDetailsCommand(input);

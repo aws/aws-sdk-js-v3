@@ -65,7 +65,7 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * import { GlacierClient, CreateVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, CreateVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
- * const input = {
+ * const input = { // CreateVaultInput
  *   accountId: "STRING_VALUE", // required
  *   vaultName: "STRING_VALUE", // required
  * };

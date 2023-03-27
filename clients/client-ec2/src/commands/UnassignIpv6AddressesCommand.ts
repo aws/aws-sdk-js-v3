@@ -42,11 +42,11 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * import { EC2Client, UnassignIpv6AddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, UnassignIpv6AddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Ipv6Addresses: [
+ * const input = { // UnassignIpv6AddressesRequest
+ *   Ipv6Addresses: [ // Ipv6AddressList
  *     "STRING_VALUE",
  *   ],
- *   Ipv6Prefixes: [
+ *   Ipv6Prefixes: [ // IpPrefixList
  *     "STRING_VALUE",
  *   ],
  *   NetworkInterfaceId: "STRING_VALUE", // required

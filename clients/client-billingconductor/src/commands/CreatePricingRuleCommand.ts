@@ -48,7 +48,7 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * import { BillingconductorClient, CreatePricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreatePricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // CreatePricingRuleInput
  *   ClientToken: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
@@ -56,12 +56,12 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  *   Type: "STRING_VALUE", // required
  *   ModifierPercentage: Number("double"),
  *   Service: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   BillingEntity: "STRING_VALUE",
- *   Tiering: {
- *     FreeTier: {
+ *   Tiering: { // CreateTieringInput
+ *     FreeTier: { // CreateFreeTierConfig
  *       Activated: true || false, // required
  *     },
  *   },

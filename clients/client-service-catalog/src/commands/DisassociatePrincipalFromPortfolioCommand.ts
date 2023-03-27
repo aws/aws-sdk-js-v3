@@ -52,7 +52,7 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
  * import { ServiceCatalogClient, DisassociatePrincipalFromPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociatePrincipalFromPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DisassociatePrincipalFromPortfolioInput
  *   AcceptLanguage: "STRING_VALUE",
  *   PortfolioId: "STRING_VALUE", // required
  *   PrincipalARN: "STRING_VALUE", // required

@@ -43,7 +43,7 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * import { EventBridgeClient, ListRuleNamesByTargetCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListRuleNamesByTargetCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // ListRuleNamesByTargetRequest
  *   TargetArn: "STRING_VALUE", // required
  *   EventBusName: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

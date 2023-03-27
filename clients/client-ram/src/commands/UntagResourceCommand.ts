@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { RAMClient, UntagResourceCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, UntagResourceCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceShareArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

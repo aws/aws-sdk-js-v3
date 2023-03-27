@@ -42,12 +42,12 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  * import { RAMClient, DisassociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, DisassociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // DisassociateResourceShareRequest
  *   resourceShareArn: "STRING_VALUE", // required
- *   resourceArns: [
+ *   resourceArns: [ // ResourceArnList
  *     "STRING_VALUE",
  *   ],
- *   principals: [
+ *   principals: [ // PrincipalArnOrIdList
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",

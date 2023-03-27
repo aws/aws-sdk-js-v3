@@ -53,7 +53,7 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * import { SESClient, DeleteIdentityPolicyCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteIdentityPolicyCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // DeleteIdentityPolicyRequest
  *   Identity: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  * };

@@ -53,16 +53,16 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  * import { RedshiftServerlessClient, UpdateNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, UpdateNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // UpdateNamespaceRequest
  *   namespaceName: "STRING_VALUE", // required
  *   adminUserPassword: "STRING_VALUE",
  *   adminUsername: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
  *   defaultIamRoleArn: "STRING_VALUE",
- *   iamRoles: [
+ *   iamRoles: [ // IamRoleArnList
  *     "STRING_VALUE",
  *   ],
- *   logExports: [
+ *   logExports: [ // LogExportList
  *     "STRING_VALUE",
  *   ],
  * };

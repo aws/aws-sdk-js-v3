@@ -64,39 +64,39 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * import { CloudFrontClient, CreateCachePolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateCachePolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   CachePolicyConfig: {
+ * const input = { // CreateCachePolicyRequest
+ *   CachePolicyConfig: { // CachePolicyConfig
  *     Comment: "STRING_VALUE",
  *     Name: "STRING_VALUE", // required
  *     DefaultTTL: Number("long"),
  *     MaxTTL: Number("long"),
  *     MinTTL: Number("long"), // required
- *     ParametersInCacheKeyAndForwardedToOrigin: {
+ *     ParametersInCacheKeyAndForwardedToOrigin: { // ParametersInCacheKeyAndForwardedToOrigin
  *       EnableAcceptEncodingGzip: true || false, // required
  *       EnableAcceptEncodingBrotli: true || false,
- *       HeadersConfig: {
+ *       HeadersConfig: { // CachePolicyHeadersConfig
  *         HeaderBehavior: "none" || "whitelist", // required
- *         Headers: {
+ *         Headers: { // Headers
  *           Quantity: Number("int"), // required
- *           Items: [
+ *           Items: [ // HeaderList
  *             "STRING_VALUE",
  *           ],
  *         },
  *       },
- *       CookiesConfig: {
+ *       CookiesConfig: { // CachePolicyCookiesConfig
  *         CookieBehavior: "none" || "whitelist" || "allExcept" || "all", // required
- *         Cookies: {
+ *         Cookies: { // CookieNames
  *           Quantity: Number("int"), // required
- *           Items: [
+ *           Items: [ // CookieNameList
  *             "STRING_VALUE",
  *           ],
  *         },
  *       },
- *       QueryStringsConfig: {
+ *       QueryStringsConfig: { // CachePolicyQueryStringsConfig
  *         QueryStringBehavior: "none" || "whitelist" || "allExcept" || "all", // required
- *         QueryStrings: {
+ *         QueryStrings: { // QueryStringNames
  *           Quantity: Number("int"), // required
- *           Items: [
+ *           Items: [ // QueryStringNamesList
  *             "STRING_VALUE",
  *           ],
  *         },

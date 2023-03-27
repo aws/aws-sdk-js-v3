@@ -43,7 +43,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * import { SnowballClient, DescribeJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
+ * const input = { // DescribeJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeJobCommand(input);

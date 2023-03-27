@@ -48,8 +48,8 @@ export interface GetHostReservationPurchasePreviewCommandOutput
  * import { EC2Client, GetHostReservationPurchasePreviewCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetHostReservationPurchasePreviewCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   HostIdSet: [ // required
+ * const input = { // GetHostReservationPurchasePreviewRequest
+ *   HostIdSet: [ // RequestHostIdSet // required
  *     "STRING_VALUE",
  *   ],
  *   OfferingId: "STRING_VALUE", // required

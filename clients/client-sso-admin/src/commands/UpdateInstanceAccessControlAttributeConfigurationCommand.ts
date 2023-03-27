@@ -53,14 +53,14 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * import { SSOAdminClient, UpdateInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, UpdateInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // UpdateInstanceAccessControlAttributeConfigurationRequest
  *   InstanceArn: "STRING_VALUE", // required
- *   InstanceAccessControlAttributeConfiguration: {
- *     AccessControlAttributes: [ // required
- *       {
+ *   InstanceAccessControlAttributeConfiguration: { // InstanceAccessControlAttributeConfiguration
+ *     AccessControlAttributes: [ // AccessControlAttributeList // required
+ *       { // AccessControlAttribute
  *         Key: "STRING_VALUE", // required
- *         Value: {
- *           Source: [ // required
+ *         Value: { // AccessControlAttributeValue
+ *           Source: [ // AccessControlAttributeValueSourceList // required
  *             "STRING_VALUE",
  *           ],
  *         },

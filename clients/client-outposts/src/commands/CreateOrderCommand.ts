@@ -42,10 +42,10 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * import { OutpostsClient, CreateOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // CreateOrderInput
  *   OutpostIdentifier: "STRING_VALUE", // required
- *   LineItems: [ // required
- *     {
+ *   LineItems: [ // LineItemRequestListDefinition // required
+ *     { // LineItemRequest
  *       CatalogItemId: "STRING_VALUE",
  *       Quantity: Number("int"),
  *     },

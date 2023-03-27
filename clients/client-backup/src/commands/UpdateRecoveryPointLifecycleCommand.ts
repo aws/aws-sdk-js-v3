@@ -56,10 +56,10 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * import { BackupClient, UpdateRecoveryPointLifecycleCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateRecoveryPointLifecycleCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // UpdateRecoveryPointLifecycleInput
  *   BackupVaultName: "STRING_VALUE", // required
  *   RecoveryPointArn: "STRING_VALUE", // required
- *   Lifecycle: {
+ *   Lifecycle: { // Lifecycle
  *     MoveToColdStorageAfterDays: Number("long"),
  *     DeleteAfterDays: Number("long"),
  *   },

@@ -49,7 +49,7 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  * import { CognitoIdentityProviderClient, RevokeTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, RevokeTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // RevokeTokenRequest
  *   Token: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE", // required
  *   ClientSecret: "STRING_VALUE",

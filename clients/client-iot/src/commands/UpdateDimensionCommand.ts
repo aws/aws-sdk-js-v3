@@ -48,9 +48,9 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * import { IoTClient, UpdateDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateDimensionRequest
  *   name: "STRING_VALUE", // required
- *   stringValues: [ // required
+ *   stringValues: [ // DimensionStringValues // required
  *     "STRING_VALUE",
  *   ],
  * };

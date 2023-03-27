@@ -50,9 +50,9 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  * import { PrivateNetworksClient, ListDeviceIdentifiersCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListDeviceIdentifiersCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
- *   filters: {
- *     "<keys>": [
+ * const input = { // ListDeviceIdentifiersRequest
+ *   filters: { // DeviceIdentifierFilters
+ *     "<keys>": [ // DeviceIdentifierFilterValues
  *       "STRING_VALUE",
  *     ],
  *   },

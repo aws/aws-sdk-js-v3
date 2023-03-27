@@ -46,7 +46,7 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * import { RDSClient, AddRoleToDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, AddRoleToDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // AddRoleToDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
  *   FeatureName: "STRING_VALUE", // required

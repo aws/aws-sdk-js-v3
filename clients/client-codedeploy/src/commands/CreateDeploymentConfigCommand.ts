@@ -42,19 +42,19 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * import { CodeDeployClient, CreateDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // CreateDeploymentConfigInput
  *   deploymentConfigName: "STRING_VALUE", // required
- *   minimumHealthyHosts: {
+ *   minimumHealthyHosts: { // MinimumHealthyHosts
  *     type: "HOST_COUNT" || "FLEET_PERCENT",
  *     value: Number("int"),
  *   },
- *   trafficRoutingConfig: {
+ *   trafficRoutingConfig: { // TrafficRoutingConfig
  *     type: "TimeBasedCanary" || "TimeBasedLinear" || "AllAtOnce",
- *     timeBasedCanary: {
+ *     timeBasedCanary: { // TimeBasedCanary
  *       canaryPercentage: Number("int"),
  *       canaryInterval: Number("int"),
  *     },
- *     timeBasedLinear: {
+ *     timeBasedLinear: { // TimeBasedLinear
  *       linearPercentage: Number("int"),
  *       linearInterval: Number("int"),
  *     },

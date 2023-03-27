@@ -69,10 +69,10 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * import { RDSClient, ModifyDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required
- *   Parameters: [ // required
- *     {
+ *   Parameters: [ // ParametersList // required
+ *     { // Parameter
  *       ParameterName: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       Description: "STRING_VALUE",
@@ -83,7 +83,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *       IsModifiable: true || false,
  *       MinimumEngineVersion: "STRING_VALUE",
  *       ApplyMethod: "immediate" || "pending-reboot",
- *       SupportedEngineModes: [
+ *       SupportedEngineModes: [ // EngineModeList
  *         "STRING_VALUE",
  *       ],
  *     },

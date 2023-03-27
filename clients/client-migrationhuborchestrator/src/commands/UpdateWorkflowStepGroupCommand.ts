@@ -46,12 +46,12 @@ export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStep
  * import { MigrationHubOrchestratorClient, UpdateWorkflowStepGroupCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, UpdateWorkflowStepGroupCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // UpdateWorkflowStepGroupRequest
  *   workflowId: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   next: [
+ *   next: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   previous: [

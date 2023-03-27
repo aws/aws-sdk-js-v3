@@ -49,43 +49,43 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * import { EC2Client, GetSpotPlacementScoresCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetSpotPlacementScoresCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   InstanceTypes: [
+ * const input = { // GetSpotPlacementScoresRequest
+ *   InstanceTypes: [ // InstanceTypes
  *     "STRING_VALUE",
  *   ],
  *   TargetCapacity: Number("int"), // required
  *   TargetCapacityUnitType: "vcpu" || "memory-mib" || "units",
  *   SingleAvailabilityZone: true || false,
- *   RegionNames: [
+ *   RegionNames: [ // RegionNames
  *     "STRING_VALUE",
  *   ],
- *   InstanceRequirementsWithMetadata: {
- *     ArchitectureTypes: [
+ *   InstanceRequirementsWithMetadata: { // InstanceRequirementsWithMetadataRequest
+ *     ArchitectureTypes: [ // ArchitectureTypeSet
  *       "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
  *     ],
- *     VirtualizationTypes: [
+ *     VirtualizationTypes: [ // VirtualizationTypeSet
  *       "hvm" || "paravirtual",
  *     ],
- *     InstanceRequirements: {
- *       VCpuCount: {
+ *     InstanceRequirements: { // InstanceRequirementsRequest
+ *       VCpuCount: { // VCpuCountRangeRequest
  *         Min: Number("int"), // required
  *         Max: Number("int"),
  *       },
- *       MemoryMiB: {
+ *       MemoryMiB: { // MemoryMiBRequest
  *         Min: Number("int"), // required
  *         Max: Number("int"),
  *       },
- *       CpuManufacturers: [
+ *       CpuManufacturers: [ // CpuManufacturerSet
  *         "intel" || "amd" || "amazon-web-services",
  *       ],
- *       MemoryGiBPerVCpu: {
+ *       MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *         Min: Number("double"),
  *         Max: Number("double"),
  *       },
- *       ExcludedInstanceTypes: [
+ *       ExcludedInstanceTypes: [ // ExcludedInstanceTypeSet
  *         "STRING_VALUE",
  *       ],
- *       InstanceGenerations: [
+ *       InstanceGenerations: [ // InstanceGenerationSet
  *         "current" || "previous",
  *       ],
  *       SpotMaxPricePercentageOverLowestPrice: Number("int"),
@@ -93,44 +93,44 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *       BareMetal: "included" || "required" || "excluded",
  *       BurstablePerformance: "included" || "required" || "excluded",
  *       RequireHibernateSupport: true || false,
- *       NetworkInterfaceCount: {
+ *       NetworkInterfaceCount: { // NetworkInterfaceCountRequest
  *         Min: Number("int"),
  *         Max: Number("int"),
  *       },
  *       LocalStorage: "included" || "required" || "excluded",
- *       LocalStorageTypes: [
+ *       LocalStorageTypes: [ // LocalStorageTypeSet
  *         "hdd" || "ssd",
  *       ],
- *       TotalLocalStorageGB: {
+ *       TotalLocalStorageGB: { // TotalLocalStorageGBRequest
  *         Min: Number("double"),
  *         Max: Number("double"),
  *       },
- *       BaselineEbsBandwidthMbps: {
+ *       BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
  *         Min: Number("int"),
  *         Max: Number("int"),
  *       },
- *       AcceleratorTypes: [
+ *       AcceleratorTypes: [ // AcceleratorTypeSet
  *         "gpu" || "fpga" || "inference",
  *       ],
- *       AcceleratorCount: {
+ *       AcceleratorCount: { // AcceleratorCountRequest
  *         Min: Number("int"),
  *         Max: Number("int"),
  *       },
- *       AcceleratorManufacturers: [
+ *       AcceleratorManufacturers: [ // AcceleratorManufacturerSet
  *         "nvidia" || "amd" || "amazon-web-services" || "xilinx",
  *       ],
- *       AcceleratorNames: [
+ *       AcceleratorNames: [ // AcceleratorNameSet
  *         "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p" || "inferentia" || "k520",
  *       ],
- *       AcceleratorTotalMemoryMiB: {
+ *       AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
  *         Min: Number("int"),
  *         Max: Number("int"),
  *       },
- *       NetworkBandwidthGbps: {
+ *       NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
  *         Min: Number("double"),
  *         Max: Number("double"),
  *       },
- *       AllowedInstanceTypes: [
+ *       AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  *         "STRING_VALUE",
  *       ],
  *     },

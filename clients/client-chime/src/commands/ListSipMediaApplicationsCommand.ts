@@ -46,7 +46,7 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
  * import { ChimeClient, ListSipMediaApplicationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListSipMediaApplicationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListSipMediaApplicationsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

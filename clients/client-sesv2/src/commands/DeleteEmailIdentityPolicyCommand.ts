@@ -53,7 +53,7 @@ export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdent
  * import { SESv2Client, DeleteEmailIdentityPolicyCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteEmailIdentityPolicyCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // DeleteEmailIdentityPolicyRequest
  *   EmailIdentity: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  * };

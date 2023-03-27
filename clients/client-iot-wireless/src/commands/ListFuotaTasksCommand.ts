@@ -42,7 +42,7 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * import { IoTWirelessClient, ListFuotaTasksCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListFuotaTasksCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // ListFuotaTasksRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

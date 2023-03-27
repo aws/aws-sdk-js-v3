@@ -44,10 +44,10 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * import { DirectoryServiceClient, UpdateDirectorySetupCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateDirectorySetupCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // UpdateDirectorySetupRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   UpdateType: "OS", // required
- *   OSUpdateSettings: {
+ *   OSUpdateSettings: { // OSUpdateSettings
  *     OSVersion: "SERVER_2012" || "SERVER_2019",
  *   },
  *   CreateSnapshotBeforeUpdate: true || false,

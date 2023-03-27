@@ -42,7 +42,7 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * import { SsmSapClient, ListComponentsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListComponentsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = {
+ * const input = { // ListComponentsInput
  *   ApplicationId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

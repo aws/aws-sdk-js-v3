@@ -42,14 +42,14 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * import { PinpointClient, UpdateEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateEmailTemplateRequest
  *   CreateNewVersion: true || false,
- *   EmailTemplateRequest: {
+ *   EmailTemplateRequest: { // EmailTemplateRequest
  *     DefaultSubstitutions: "STRING_VALUE",
  *     HtmlPart: "STRING_VALUE",
  *     RecommenderId: "STRING_VALUE",
  *     Subject: "STRING_VALUE",
- *     tags: {
+ *     tags: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *     TemplateDescription: "STRING_VALUE",

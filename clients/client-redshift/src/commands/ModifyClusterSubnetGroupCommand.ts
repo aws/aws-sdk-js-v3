@@ -43,10 +43,10 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  * import { RedshiftClient, ModifyClusterSubnetGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterSubnetGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // ModifyClusterSubnetGroupMessage
  *   ClusterSubnetGroupName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
  *     "STRING_VALUE",
  *   ],
  * };

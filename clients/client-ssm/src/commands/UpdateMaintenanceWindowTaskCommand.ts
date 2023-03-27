@@ -102,66 +102,66 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * import { SSMClient, UpdateMaintenanceWindowTaskCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateMaintenanceWindowTaskCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // UpdateMaintenanceWindowTaskRequest
  *   WindowId: "STRING_VALUE", // required
  *   WindowTaskId: "STRING_VALUE", // required
- *   Targets: [
- *     {
+ *   Targets: [ // Targets
+ *     { // Target
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // TargetValues
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   TaskArn: "STRING_VALUE",
  *   ServiceRoleArn: "STRING_VALUE",
- *   TaskParameters: {
- *     "<keys>": {
- *       Values: [
+ *   TaskParameters: { // MaintenanceWindowTaskParameters
+ *     "<keys>": { // MaintenanceWindowTaskParameterValueExpression
+ *       Values: [ // MaintenanceWindowTaskParameterValueList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
- *   TaskInvocationParameters: {
- *     RunCommand: {
+ *   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
+ *     RunCommand: { // MaintenanceWindowRunCommandParameters
  *       Comment: "STRING_VALUE",
- *       CloudWatchOutputConfig: {
+ *       CloudWatchOutputConfig: { // CloudWatchOutputConfig
  *         CloudWatchLogGroupName: "STRING_VALUE",
  *         CloudWatchOutputEnabled: true || false,
  *       },
  *       DocumentHash: "STRING_VALUE",
  *       DocumentHashType: "Sha256" || "Sha1",
  *       DocumentVersion: "STRING_VALUE",
- *       NotificationConfig: {
+ *       NotificationConfig: { // NotificationConfig
  *         NotificationArn: "STRING_VALUE",
- *         NotificationEvents: [
+ *         NotificationEvents: [ // NotificationEventList
  *           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
  *         ],
  *         NotificationType: "Command" || "Invocation",
  *       },
  *       OutputS3BucketName: "STRING_VALUE",
  *       OutputS3KeyPrefix: "STRING_VALUE",
- *       Parameters: {
- *         "<keys>": [
+ *       Parameters: { // Parameters
+ *         "<keys>": [ // ParameterValueList
  *           "STRING_VALUE",
  *         ],
  *       },
  *       ServiceRoleArn: "STRING_VALUE",
  *       TimeoutSeconds: Number("int"),
  *     },
- *     Automation: {
+ *     Automation: { // MaintenanceWindowAutomationParameters
  *       DocumentVersion: "STRING_VALUE",
- *       Parameters: {
- *         "<keys>": [
+ *       Parameters: { // AutomationParameterMap
+ *         "<keys>": [ // AutomationParameterValueList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     StepFunctions: {
+ *     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
  *       Input: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *     },
- *     Lambda: {
+ *     Lambda: { // MaintenanceWindowLambdaParameters
  *       ClientContext: "STRING_VALUE",
  *       Qualifier: "STRING_VALUE",
  *       Payload: "BLOB_VALUE",
@@ -170,7 +170,7 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  *   Priority: Number("int"),
  *   MaxConcurrency: "STRING_VALUE",
  *   MaxErrors: "STRING_VALUE",
- *   LoggingInfo: {
+ *   LoggingInfo: { // LoggingInfo
  *     S3BucketName: "STRING_VALUE", // required
  *     S3KeyPrefix: "STRING_VALUE",
  *     S3Region: "STRING_VALUE", // required
@@ -179,10 +179,10 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  *   Description: "STRING_VALUE",
  *   Replace: true || false,
  *   CutoffBehavior: "CONTINUE_TASK" || "CANCEL_TASK",
- *   AlarmConfiguration: {
+ *   AlarmConfiguration: { // AlarmConfiguration
  *     IgnorePollAlarmFailure: true || false,
- *     Alarms: [ // required
- *       {
+ *     Alarms: [ // AlarmList // required
+ *       { // Alarm
  *         Name: "STRING_VALUE", // required
  *       },
  *     ],

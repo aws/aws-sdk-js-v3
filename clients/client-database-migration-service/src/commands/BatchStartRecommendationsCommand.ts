@@ -51,11 +51,11 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * import { DatabaseMigrationServiceClient, BatchStartRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, BatchStartRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
- *   Data: [
- *     {
+ * const input = { // BatchStartRecommendationsRequest
+ *   Data: [ // StartRecommendationsRequestEntryList
+ *     { // StartRecommendationsRequestEntry
  *       DatabaseId: "STRING_VALUE", // required
- *       Settings: {
+ *       Settings: { // RecommendationSettings
  *         InstanceSizingType: "STRING_VALUE", // required
  *         WorkloadType: "STRING_VALUE", // required
  *       },

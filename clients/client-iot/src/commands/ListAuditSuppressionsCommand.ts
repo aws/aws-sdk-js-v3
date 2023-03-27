@@ -45,21 +45,21 @@ export interface ListAuditSuppressionsCommandOutput extends ListAuditSuppression
  * import { IoTClient, ListAuditSuppressionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAuditSuppressionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListAuditSuppressionsRequest
  *   checkName: "STRING_VALUE",
- *   resourceIdentifier: {
+ *   resourceIdentifier: { // ResourceIdentifier
  *     deviceCertificateId: "STRING_VALUE",
  *     caCertificateId: "STRING_VALUE",
  *     cognitoIdentityPoolId: "STRING_VALUE",
  *     clientId: "STRING_VALUE",
- *     policyVersionIdentifier: {
+ *     policyVersionIdentifier: { // PolicyVersionIdentifier
  *       policyName: "STRING_VALUE",
  *       policyVersionId: "STRING_VALUE",
  *     },
  *     account: "STRING_VALUE",
  *     iamRoleArn: "STRING_VALUE",
  *     roleAliasArn: "STRING_VALUE",
- *     issuerCertificateIdentifier: {
+ *     issuerCertificateIdentifier: { // IssuerCertificateIdentifier
  *       issuerCertificateSubject: "STRING_VALUE",
  *       issuerId: "STRING_VALUE",
  *       issuerCertificateSerialNumber: "STRING_VALUE",

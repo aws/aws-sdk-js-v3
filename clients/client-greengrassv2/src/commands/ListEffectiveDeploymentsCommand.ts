@@ -43,7 +43,7 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
  * import { GreengrassV2Client, ListEffectiveDeploymentsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListEffectiveDeploymentsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // ListEffectiveDeploymentsRequest
  *   coreDeviceThingName: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

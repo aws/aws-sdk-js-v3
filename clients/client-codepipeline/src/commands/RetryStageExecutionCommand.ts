@@ -45,7 +45,7 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * import { CodePipelineClient, RetryStageExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, RetryStageExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // RetryStageExecutionInput
  *   pipelineName: "STRING_VALUE", // required
  *   stageName: "STRING_VALUE", // required
  *   pipelineExecutionId: "STRING_VALUE", // required

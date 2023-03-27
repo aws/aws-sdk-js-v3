@@ -42,7 +42,7 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * import { RDSClient, DeleteOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeleteOptionGroupMessage
  *   OptionGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteOptionGroupCommand(input);

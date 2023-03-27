@@ -44,7 +44,7 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * import { RestJsonProtocolClient, HttpPayloadTraitsWithMediaTypeCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpPayloadTraitsWithMediaTypeCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
+ * const input = { // HttpPayloadTraitsWithMediaTypeInputOutput
  *   foo: "STRING_VALUE",
  *   blob: "BLOB_VALUE",
  * };

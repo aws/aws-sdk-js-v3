@@ -44,7 +44,7 @@ export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefini
  * import { M2Client, ListBatchJobDefinitionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListBatchJobDefinitionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // ListBatchJobDefinitionsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   applicationId: "STRING_VALUE", // required

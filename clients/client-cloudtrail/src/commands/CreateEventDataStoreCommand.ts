@@ -42,15 +42,15 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  * import { CloudTrailClient, CreateEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, CreateEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // CreateEventDataStoreRequest
  *   Name: "STRING_VALUE", // required
- *   AdvancedEventSelectors: [
- *     {
+ *   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *     { // AdvancedEventSelector
  *       Name: "STRING_VALUE",
- *       FieldSelectors: [ // required
- *         {
+ *       FieldSelectors: [ // AdvancedFieldSelectors // required
+ *         { // AdvancedFieldSelector
  *           Field: "STRING_VALUE", // required
- *           Equals: [
+ *           Equals: [ // Operator
  *             "STRING_VALUE",
  *           ],
  *           StartsWith: [
@@ -65,9 +65,7 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  *           NotStartsWith: [
  *             "STRING_VALUE",
  *           ],
- *           NotEndsWith: [
- *             "STRING_VALUE",
- *           ],
+ *           NotEndsWith: "<Operator>",
  *         },
  *       ],
  *     },
@@ -76,8 +74,8 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  *   OrganizationEnabled: true || false,
  *   RetentionPeriod: Number("int"),
  *   TerminationProtectionEnabled: true || false,
- *   TagsList: [
- *     {
+ *   TagsList: [ // TagsList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

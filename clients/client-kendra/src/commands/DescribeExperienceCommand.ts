@@ -45,7 +45,7 @@ export interface DescribeExperienceCommandOutput extends DescribeExperienceRespo
  * import { KendraClient, DescribeExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // DescribeExperienceRequest
  *   Id: "STRING_VALUE", // required
  *   IndexId: "STRING_VALUE", // required
  * };

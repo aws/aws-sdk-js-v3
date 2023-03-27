@@ -126,25 +126,25 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * import { LexRuntimeServiceClient, PostTextCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PostTextCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
- * const input = {
+ * const input = { // PostTextRequest
  *   botName: "STRING_VALUE", // required
  *   botAlias: "STRING_VALUE", // required
  *   userId: "STRING_VALUE", // required
- *   sessionAttributes: {
+ *   sessionAttributes: { // StringMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   requestAttributes: {
  *     "<keys>": "STRING_VALUE",
  *   },
  *   inputText: "STRING_VALUE", // required
- *   activeContexts: [
- *     {
+ *   activeContexts: [ // ActiveContextsList
+ *     { // ActiveContext
  *       name: "STRING_VALUE", // required
- *       timeToLive: {
+ *       timeToLive: { // ActiveContextTimeToLive
  *         timeToLiveInSeconds: Number("int"),
  *         turnsToLive: Number("int"),
  *       },
- *       parameters: { // required
+ *       parameters: { // ActiveContextParametersMap // required
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

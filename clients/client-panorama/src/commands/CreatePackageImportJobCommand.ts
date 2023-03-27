@@ -42,29 +42,29 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * import { PanoramaClient, CreatePackageImportJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreatePackageImportJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // CreatePackageImportJobRequest
  *   JobType: "STRING_VALUE", // required
- *   InputConfig: {
- *     PackageVersionInputConfig: {
- *       S3Location: {
+ *   InputConfig: { // PackageImportJobInputConfig
+ *     PackageVersionInputConfig: { // PackageVersionInputConfig
+ *       S3Location: { // S3Location
  *         Region: "STRING_VALUE",
  *         BucketName: "STRING_VALUE", // required
  *         ObjectKey: "STRING_VALUE", // required
  *       },
  *     },
  *   },
- *   OutputConfig: {
- *     PackageVersionOutputConfig: {
+ *   OutputConfig: { // PackageImportJobOutputConfig
+ *     PackageVersionOutputConfig: { // PackageVersionOutputConfig
  *       PackageName: "STRING_VALUE", // required
  *       PackageVersion: "STRING_VALUE", // required
  *       MarkLatest: true || false,
  *     },
  *   },
  *   ClientToken: "STRING_VALUE", // required
- *   JobTags: [
- *     {
+ *   JobTags: [ // JobTagsList
+ *     { // JobResourceTags
  *       ResourceType: "STRING_VALUE", // required
- *       Tags: { // required
+ *       Tags: { // TagMap // required
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

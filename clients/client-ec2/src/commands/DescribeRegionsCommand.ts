@@ -42,16 +42,16 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * import { EC2Client, DescribeRegionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeRegionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeRegionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   RegionNames: [
+ *   RegionNames: [ // RegionNameStringList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

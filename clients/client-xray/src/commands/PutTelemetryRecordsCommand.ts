@@ -42,15 +42,15 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * import { XRayClient, PutTelemetryRecordsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutTelemetryRecordsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
- *   TelemetryRecords: [ // required
- *     {
+ * const input = { // PutTelemetryRecordsRequest
+ *   TelemetryRecords: [ // TelemetryRecordList // required
+ *     { // TelemetryRecord
  *       Timestamp: new Date("TIMESTAMP"), // required
  *       SegmentsReceivedCount: Number("int"),
  *       SegmentsSentCount: Number("int"),
  *       SegmentsSpilloverCount: Number("int"),
  *       SegmentsRejectedCount: Number("int"),
- *       BackendConnectionErrors: {
+ *       BackendConnectionErrors: { // BackendConnectionErrors
  *         TimeoutCount: Number("int"),
  *         ConnectionRefusedCount: Number("int"),
  *         HTTPCode4XXCount: Number("int"),

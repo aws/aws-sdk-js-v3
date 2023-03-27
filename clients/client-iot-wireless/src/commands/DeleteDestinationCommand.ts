@@ -42,7 +42,7 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * import { IoTWirelessClient, DeleteDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // DeleteDestinationRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteDestinationCommand(input);

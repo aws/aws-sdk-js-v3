@@ -43,7 +43,7 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  * import { CloudWatchLogsClient, DeleteDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DeleteDataProtectionPolicyRequest
  *   logGroupIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteDataProtectionPolicyCommand(input);

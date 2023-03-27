@@ -43,7 +43,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * import { SESClient, DeleteTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // DeleteTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  * };
  * const command = new DeleteTemplateCommand(input);

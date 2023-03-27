@@ -51,19 +51,19 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * import { ConfigServiceClient, PutConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // PutConformancePackRequest
  *   ConformancePackName: "STRING_VALUE", // required
  *   TemplateS3Uri: "STRING_VALUE",
  *   TemplateBody: "STRING_VALUE",
  *   DeliveryS3Bucket: "STRING_VALUE",
  *   DeliveryS3KeyPrefix: "STRING_VALUE",
- *   ConformancePackInputParameters: [
- *     {
+ *   ConformancePackInputParameters: [ // ConformancePackInputParameters
+ *     { // ConformancePackInputParameter
  *       ParameterName: "STRING_VALUE", // required
  *       ParameterValue: "STRING_VALUE", // required
  *     },
  *   ],
- *   TemplateSSMDocumentDetails: {
+ *   TemplateSSMDocumentDetails: { // TemplateSSMDocumentDetails
  *     DocumentName: "STRING_VALUE", // required
  *     DocumentVersion: "STRING_VALUE",
  *   },

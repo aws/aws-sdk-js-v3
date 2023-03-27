@@ -42,7 +42,7 @@ export interface GetModelsCommandOutput extends Models, __MetadataBearer {}
  * import { APIGatewayClient, GetModelsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetModelsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetModelsRequest
  *   restApiId: "STRING_VALUE", // required
  *   position: "STRING_VALUE",
  *   limit: Number("int"),

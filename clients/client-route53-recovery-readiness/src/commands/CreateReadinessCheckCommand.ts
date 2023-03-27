@@ -46,10 +46,10 @@ export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckR
  * import { Route53RecoveryReadinessClient, CreateReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // CreateReadinessCheckRequest
  *   ReadinessCheckName: "STRING_VALUE", // required
  *   ResourceSetName: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

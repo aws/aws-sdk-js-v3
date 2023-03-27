@@ -76,10 +76,10 @@ export interface DescribeComplianceByResourceCommandOutput
  * import { ConfigServiceClient, DescribeComplianceByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeComplianceByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DescribeComplianceByResourceRequest
  *   ResourceType: "STRING_VALUE",
  *   ResourceId: "STRING_VALUE",
- *   ComplianceTypes: [
+ *   ComplianceTypes: [ // ComplianceTypes
  *     "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
  *   ],
  *   Limit: Number("int"),

@@ -49,7 +49,7 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * import { AutoScalingClient, CancelInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CancelInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // CancelInstanceRefreshType
  *   AutoScalingGroupName: "STRING_VALUE", // required
  * };
  * const command = new CancelInstanceRefreshCommand(input);

@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { MediaConnectClient, TagResourceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, TagResourceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // __mapOf__string // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

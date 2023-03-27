@@ -44,97 +44,97 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * import { DLMClient, UpdateLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, UpdateLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
  * const client = new DLMClient(config);
- * const input = {
+ * const input = { // UpdateLifecyclePolicyRequest
  *   PolicyId: "STRING_VALUE", // required
  *   ExecutionRoleArn: "STRING_VALUE",
  *   State: "ENABLED" || "DISABLED",
  *   Description: "STRING_VALUE",
- *   PolicyDetails: {
+ *   PolicyDetails: { // PolicyDetails
  *     PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
- *     ResourceTypes: [
+ *     ResourceTypes: [ // ResourceTypeValuesList
  *       "VOLUME" || "INSTANCE",
  *     ],
- *     ResourceLocations: [
+ *     ResourceLocations: [ // ResourceLocationList
  *       "CLOUD" || "OUTPOST",
  *     ],
- *     TargetTags: [
- *       {
+ *     TargetTags: [ // TargetTagList
+ *       { // Tag
  *         Key: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
- *     Schedules: [
- *       {
+ *     Schedules: [ // ScheduleList
+ *       { // Schedule
  *         Name: "STRING_VALUE",
  *         CopyTags: true || false,
- *         TagsToAdd: [
+ *         TagsToAdd: [ // TagsToAddList
  *           {
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
  *         ],
- *         VariableTags: [
+ *         VariableTags: [ // VariableTagsList
  *           {
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
  *         ],
- *         CreateRule: {
+ *         CreateRule: { // CreateRule
  *           Location: "CLOUD" || "OUTPOST_LOCAL",
  *           Interval: Number("int"),
  *           IntervalUnit: "HOURS",
- *           Times: [
+ *           Times: [ // TimesList
  *             "STRING_VALUE",
  *           ],
  *           CronExpression: "STRING_VALUE",
  *         },
- *         RetainRule: {
+ *         RetainRule: { // RetainRule
  *           Count: Number("int"),
  *           Interval: Number("int"),
  *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
  *         },
- *         FastRestoreRule: {
+ *         FastRestoreRule: { // FastRestoreRule
  *           Count: Number("int"),
  *           Interval: Number("int"),
  *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *           AvailabilityZones: [ // required
+ *           AvailabilityZones: [ // AvailabilityZoneList // required
  *             "STRING_VALUE",
  *           ],
  *         },
- *         CrossRegionCopyRules: [
- *           {
+ *         CrossRegionCopyRules: [ // CrossRegionCopyRules
+ *           { // CrossRegionCopyRule
  *             TargetRegion: "STRING_VALUE",
  *             Target: "STRING_VALUE",
  *             Encrypted: true || false, // required
  *             CmkArn: "STRING_VALUE",
  *             CopyTags: true || false,
- *             RetainRule: {
+ *             RetainRule: { // CrossRegionCopyRetainRule
  *               Interval: Number("int"),
  *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
  *             },
- *             DeprecateRule: {
+ *             DeprecateRule: { // CrossRegionCopyDeprecateRule
  *               Interval: Number("int"),
  *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
  *             },
  *           },
  *         ],
- *         ShareRules: [
- *           {
- *             TargetAccounts: [ // required
+ *         ShareRules: [ // ShareRules
+ *           { // ShareRule
+ *             TargetAccounts: [ // ShareTargetAccountList // required
  *               "STRING_VALUE",
  *             ],
  *             UnshareInterval: Number("int"),
  *             UnshareIntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
  *           },
  *         ],
- *         DeprecateRule: {
+ *         DeprecateRule: { // DeprecateRule
  *           Count: Number("int"),
  *           Interval: Number("int"),
  *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
  *         },
- *         ArchiveRule: {
- *           RetainRule: {
- *             RetentionArchiveTier: {
+ *         ArchiveRule: { // ArchiveRule
+ *           RetainRule: { // ArchiveRetainRule
+ *             RetentionArchiveTier: { // RetentionArchiveTier
  *               Count: Number("int"),
  *               Interval: Number("int"),
  *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
@@ -143,33 +143,30 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *         },
  *       },
  *     ],
- *     Parameters: {
+ *     Parameters: { // Parameters
  *       ExcludeBootVolume: true || false,
  *       NoReboot: true || false,
- *       ExcludeDataVolumeTags: [
- *         {
- *           Key: "<Tag>",
- *           Value: "<Tag>",
- *         },
+ *       ExcludeDataVolumeTags: [ // ExcludeDataVolumeTagList
+ *         "<Tag>",
  *       ],
  *     },
- *     EventSource: {
+ *     EventSource: { // EventSource
  *       Type: "MANAGED_CWE", // required
- *       Parameters: {
+ *       Parameters: { // EventParameters
  *         EventType: "shareSnapshot", // required
- *         SnapshotOwner: [ // required
+ *         SnapshotOwner: [ // SnapshotOwnerList // required
  *           "STRING_VALUE",
  *         ],
  *         DescriptionRegex: "STRING_VALUE", // required
  *       },
  *     },
- *     Actions: [
- *       {
+ *     Actions: [ // ActionList
+ *       { // Action
  *         Name: "STRING_VALUE", // required
- *         CrossRegionCopy: [ // required
- *           {
+ *         CrossRegionCopy: [ // CrossRegionCopyActionList // required
+ *           { // CrossRegionCopyAction
  *             Target: "STRING_VALUE", // required
- *             EncryptionConfiguration: {
+ *             EncryptionConfiguration: { // EncryptionConfiguration
  *               Encrypted: true || false, // required
  *               CmkArn: "STRING_VALUE",
  *             },

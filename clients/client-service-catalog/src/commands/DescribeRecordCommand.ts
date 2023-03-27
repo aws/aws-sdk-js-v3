@@ -50,7 +50,7 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  * import { ServiceCatalogClient, DescribeRecordCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeRecordCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DescribeRecordInput
  *   AcceptLanguage: "STRING_VALUE",
  *   Id: "STRING_VALUE", // required
  *   PageToken: "STRING_VALUE",

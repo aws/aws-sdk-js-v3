@@ -43,7 +43,7 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * import { CodeDeployClient, ListDeploymentGroupsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentGroupsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // ListDeploymentGroupsInput
  *   applicationName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  * };

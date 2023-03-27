@@ -56,11 +56,11 @@ export interface PutStorageLensConfigurationTaggingCommandOutput
  * import { S3ControlClient, PutStorageLensConfigurationTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutStorageLensConfigurationTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // PutStorageLensConfigurationTaggingRequest
  *   ConfigId: "STRING_VALUE", // required
  *   AccountId: "STRING_VALUE",
- *   Tags: [ // required
- *     {
+ *   Tags: [ // StorageLensTags // required
+ *     { // StorageLensTag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

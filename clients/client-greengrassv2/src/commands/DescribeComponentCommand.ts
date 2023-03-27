@@ -42,7 +42,7 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * import { GreengrassV2Client, DescribeComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, DescribeComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // DescribeComponentRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new DescribeComponentCommand(input);

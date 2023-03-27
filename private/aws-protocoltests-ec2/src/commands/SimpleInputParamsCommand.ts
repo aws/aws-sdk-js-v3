@@ -41,7 +41,7 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * import { EC2ProtocolClient, SimpleInputParamsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, SimpleInputParamsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
- * const input = {
+ * const input = { // SimpleInputParamsInput
  *   Foo: "STRING_VALUE",
  *   Bar: "STRING_VALUE",
  *   Baz: true || false,

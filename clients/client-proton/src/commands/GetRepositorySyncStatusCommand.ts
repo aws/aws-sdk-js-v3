@@ -49,7 +49,7 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * import { ProtonClient, GetRepositorySyncStatusCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetRepositorySyncStatusCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // GetRepositorySyncStatusInput
  *   repositoryName: "STRING_VALUE", // required
  *   repositoryProvider: "STRING_VALUE", // required
  *   branch: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface AttachStaticIpCommandOutput extends AttachStaticIpResult, __Met
  * import { LightsailClient, AttachStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // AttachStaticIpRequest
  *   staticIpName: "STRING_VALUE", // required
  *   instanceName: "STRING_VALUE", // required
  * };

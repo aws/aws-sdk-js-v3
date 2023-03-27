@@ -42,7 +42,7 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * import { RedshiftClient, ModifyAquaConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyAquaConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // ModifyAquaInputMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
  * };

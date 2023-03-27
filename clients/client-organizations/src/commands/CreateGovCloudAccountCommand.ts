@@ -177,13 +177,13 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  * import { OrganizationsClient, CreateGovCloudAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateGovCloudAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // CreateGovCloudAccountRequest
  *   Email: "STRING_VALUE", // required
  *   AccountName: "STRING_VALUE", // required
  *   RoleName: "STRING_VALUE",
  *   IamUserAccessToBilling: "ALLOW" || "DENY",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

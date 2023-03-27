@@ -49,7 +49,7 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * import { OpenSearchServerlessClient, CreateAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // CreateAccessPolicyRequest
  *   type: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",

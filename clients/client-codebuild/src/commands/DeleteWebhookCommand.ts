@@ -44,7 +44,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * import { CodeBuildClient, DeleteWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // DeleteWebhookInput
  *   projectName: "STRING_VALUE", // required
  * };
  * const command = new DeleteWebhookCommand(input);

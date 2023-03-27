@@ -47,7 +47,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * import { RoboMakerClient, DeleteFleetCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteFleetCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // DeleteFleetRequest
  *   fleet: "STRING_VALUE", // required
  * };
  * const command = new DeleteFleetCommand(input);

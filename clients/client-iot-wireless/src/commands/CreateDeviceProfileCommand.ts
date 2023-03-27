@@ -42,9 +42,9 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * import { IoTWirelessClient, CreateDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CreateDeviceProfileRequest
  *   Name: "STRING_VALUE",
- *   LoRaWAN: {
+ *   LoRaWAN: { // LoRaWANDeviceProfile
  *     SupportsClassB: true || false,
  *     ClassBTimeout: Number("int"),
  *     PingSlotPeriod: Number("int"),
@@ -58,7 +58,7 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  *     RxDrOffset1: Number("int"),
  *     RxDataRate2: Number("int"),
  *     RxFreq2: Number("int"),
- *     FactoryPresetFreqsList: [
+ *     FactoryPresetFreqsList: [ // FactoryPresetFreqsList
  *       Number("int"),
  *     ],
  *     MaxEirp: Number("int"),
@@ -67,8 +67,8 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  *     SupportsJoin: true || false,
  *     Supports32BitFCnt: true || false,
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

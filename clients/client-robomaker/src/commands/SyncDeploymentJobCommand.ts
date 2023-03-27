@@ -47,7 +47,7 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
  * import { RoboMakerClient, SyncDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, SyncDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // SyncDeploymentJobRequest
  *   clientRequestToken: "STRING_VALUE", // required
  *   fleet: "STRING_VALUE", // required
  * };

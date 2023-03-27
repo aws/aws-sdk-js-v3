@@ -48,7 +48,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * import { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // ListAllowedNodeTypeModificationsMessage
  *   CacheClusterId: "STRING_VALUE",
  *   ReplicationGroupId: "STRING_VALUE",
  * };

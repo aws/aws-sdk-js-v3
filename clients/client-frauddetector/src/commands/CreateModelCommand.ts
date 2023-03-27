@@ -42,13 +42,13 @@ export interface CreateModelCommandOutput extends CreateModelResult, __MetadataB
  * import { FraudDetectorClient, CreateModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // CreateModelRequest
  *   modelId: "STRING_VALUE", // required
  *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
  *   description: "STRING_VALUE",
  *   eventTypeName: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // tagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

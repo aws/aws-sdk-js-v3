@@ -44,20 +44,20 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
  * import { CloudFrontClient, CreateFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   FieldLevelEncryptionProfileConfig: {
+ * const input = { // CreateFieldLevelEncryptionProfileRequest
+ *   FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
  *     Name: "STRING_VALUE", // required
  *     CallerReference: "STRING_VALUE", // required
  *     Comment: "STRING_VALUE",
- *     EncryptionEntities: {
+ *     EncryptionEntities: { // EncryptionEntities
  *       Quantity: Number("int"), // required
- *       Items: [
- *         {
+ *       Items: [ // EncryptionEntityList
+ *         { // EncryptionEntity
  *           PublicKeyId: "STRING_VALUE", // required
  *           ProviderId: "STRING_VALUE", // required
- *           FieldPatterns: {
+ *           FieldPatterns: { // FieldPatterns
  *             Quantity: Number("int"), // required
- *             Items: [
+ *             Items: [ // FieldPatternList
  *               "STRING_VALUE",
  *             ],
  *           },

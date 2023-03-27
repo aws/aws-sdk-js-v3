@@ -42,7 +42,7 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  * import { SSMContactsClient, DescribePageCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DescribePageCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = {
+ * const input = { // DescribePageRequest
  *   PageId: "STRING_VALUE", // required
  * };
  * const command = new DescribePageCommand(input);

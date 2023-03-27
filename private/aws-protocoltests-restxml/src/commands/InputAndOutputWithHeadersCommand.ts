@@ -42,7 +42,7 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * import { RestXmlProtocolClient, InputAndOutputWithHeadersCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, InputAndOutputWithHeadersCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // InputAndOutputWithHeadersIO
  *   headerString: "STRING_VALUE",
  *   headerByte: "BYTE_VALUE",
  *   headerShort: Number("short"),
@@ -52,23 +52,23 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  *   headerDouble: Number("double"),
  *   headerTrueBool: true || false,
  *   headerFalseBool: true || false,
- *   headerStringList: [
+ *   headerStringList: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   headerStringSet: [
+ *   headerStringSet: [ // StringSet
  *     "STRING_VALUE",
  *   ],
- *   headerIntegerList: [
+ *   headerIntegerList: [ // IntegerList
  *     Number("int"),
  *   ],
- *   headerBooleanList: [
+ *   headerBooleanList: [ // BooleanList
  *     true || false,
  *   ],
- *   headerTimestampList: [
+ *   headerTimestampList: [ // TimestampList
  *     new Date("TIMESTAMP"),
  *   ],
  *   headerEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
- *   headerEnumList: [
+ *   headerEnumList: [ // FooEnumList
  *     "Foo" || "Baz" || "Bar" || "1" || "0",
  *   ],
  * };

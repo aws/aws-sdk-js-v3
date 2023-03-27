@@ -45,7 +45,7 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  * import { FMSClient, AssociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, AssociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // AssociateAdminAccountRequest
  *   AdminAccount: "STRING_VALUE", // required
  * };
  * const command = new AssociateAdminAccountCommand(input);

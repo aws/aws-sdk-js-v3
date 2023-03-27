@@ -48,33 +48,33 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
  * import { GlueClient, UpdateColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // UpdateColumnStatisticsForPartitionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   PartitionValues: [ // required
+ *   PartitionValues: [ // ValueStringList // required
  *     "STRING_VALUE",
  *   ],
- *   ColumnStatisticsList: [ // required
- *     {
+ *   ColumnStatisticsList: [ // UpdateColumnStatisticsList // required
+ *     { // ColumnStatistics
  *       ColumnName: "STRING_VALUE", // required
  *       ColumnType: "STRING_VALUE", // required
  *       AnalyzedTime: new Date("TIMESTAMP"), // required
- *       StatisticsData: {
+ *       StatisticsData: { // ColumnStatisticsData
  *         Type: "BOOLEAN" || "DATE" || "DECIMAL" || "DOUBLE" || "LONG" || "STRING" || "BINARY", // required
- *         BooleanColumnStatisticsData: {
+ *         BooleanColumnStatisticsData: { // BooleanColumnStatisticsData
  *           NumberOfTrues: Number("long"), // required
  *           NumberOfFalses: Number("long"), // required
  *           NumberOfNulls: Number("long"), // required
  *         },
- *         DateColumnStatisticsData: {
+ *         DateColumnStatisticsData: { // DateColumnStatisticsData
  *           MinimumValue: new Date("TIMESTAMP"),
  *           MaximumValue: new Date("TIMESTAMP"),
  *           NumberOfNulls: Number("long"), // required
  *           NumberOfDistinctValues: Number("long"), // required
  *         },
- *         DecimalColumnStatisticsData: {
- *           MinimumValue: {
+ *         DecimalColumnStatisticsData: { // DecimalColumnStatisticsData
+ *           MinimumValue: { // DecimalNumber
  *             UnscaledValue: "BLOB_VALUE", // required
  *             Scale: Number("int"), // required
  *           },
@@ -85,25 +85,25 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
  *           NumberOfNulls: Number("long"), // required
  *           NumberOfDistinctValues: Number("long"), // required
  *         },
- *         DoubleColumnStatisticsData: {
+ *         DoubleColumnStatisticsData: { // DoubleColumnStatisticsData
  *           MinimumValue: Number("double"),
  *           MaximumValue: Number("double"),
  *           NumberOfNulls: Number("long"), // required
  *           NumberOfDistinctValues: Number("long"), // required
  *         },
- *         LongColumnStatisticsData: {
+ *         LongColumnStatisticsData: { // LongColumnStatisticsData
  *           MinimumValue: Number("long"),
  *           MaximumValue: Number("long"),
  *           NumberOfNulls: Number("long"), // required
  *           NumberOfDistinctValues: Number("long"), // required
  *         },
- *         StringColumnStatisticsData: {
+ *         StringColumnStatisticsData: { // StringColumnStatisticsData
  *           MaximumLength: Number("long"), // required
  *           AverageLength: Number("double"), // required
  *           NumberOfNulls: Number("long"), // required
  *           NumberOfDistinctValues: Number("long"), // required
  *         },
- *         BinaryColumnStatisticsData: {
+ *         BinaryColumnStatisticsData: { // BinaryColumnStatisticsData
  *           MaximumLength: Number("long"), // required
  *           AverageLength: Number("double"), // required
  *           NumberOfNulls: Number("long"), // required

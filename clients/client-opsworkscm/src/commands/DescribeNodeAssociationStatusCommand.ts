@@ -54,7 +54,7 @@ export interface DescribeNodeAssociationStatusCommandOutput
  * import { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // DescribeNodeAssociationStatusRequest
  *   NodeAssociationStatusToken: "STRING_VALUE", // required
  *   ServerName: "STRING_VALUE", // required
  * };

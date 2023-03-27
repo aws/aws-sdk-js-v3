@@ -48,7 +48,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * import { GameLiftClient, DescribeScalingPoliciesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeScalingPoliciesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DescribeScalingPoliciesInput
  *   FleetId: "STRING_VALUE", // required
  *   StatusFilter: "ACTIVE" || "UPDATE_REQUESTED" || "UPDATING" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "ERROR",
  *   Limit: Number("int"),

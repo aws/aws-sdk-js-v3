@@ -42,9 +42,9 @@ export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse,
  * import { PinpointClient, UpdateGcmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateGcmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateGcmChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   GCMChannelRequest: {
+ *   GCMChannelRequest: { // GCMChannelRequest
  *     ApiKey: "STRING_VALUE", // required
  *     Enabled: true || false,
  *   },

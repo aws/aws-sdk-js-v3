@@ -42,30 +42,30 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * import { MediaLiveClient, UpdateInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
- *   Destinations: [
- *     {
+ * const input = { // UpdateInputRequest
+ *   Destinations: [ // __listOfInputDestinationRequest
+ *     { // InputDestinationRequest
  *       StreamName: "STRING_VALUE",
  *     },
  *   ],
- *   InputDevices: [
- *     {
+ *   InputDevices: [ // __listOfInputDeviceRequest
+ *     { // InputDeviceRequest
  *       Id: "STRING_VALUE",
  *     },
  *   ],
  *   InputId: "STRING_VALUE", // required
- *   InputSecurityGroups: [
+ *   InputSecurityGroups: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
- *   MediaConnectFlows: [
- *     {
+ *   MediaConnectFlows: [ // __listOfMediaConnectFlowRequest
+ *     { // MediaConnectFlowRequest
  *       FlowArn: "STRING_VALUE",
  *     },
  *   ],
  *   Name: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
- *   Sources: [
- *     {
+ *   Sources: [ // __listOfInputSourceRequest
+ *     { // InputSourceRequest
  *       PasswordParam: "STRING_VALUE",
  *       Url: "STRING_VALUE",
  *       Username: "STRING_VALUE",

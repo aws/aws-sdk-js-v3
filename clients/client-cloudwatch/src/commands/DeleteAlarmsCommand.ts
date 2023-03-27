@@ -56,8 +56,8 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, DeleteAlarmsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteAlarmsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
- *   AlarmNames: [ // required
+ * const input = { // DeleteAlarmsInput
+ *   AlarmNames: [ // AlarmNames // required
  *     "STRING_VALUE",
  *   ],
  * };

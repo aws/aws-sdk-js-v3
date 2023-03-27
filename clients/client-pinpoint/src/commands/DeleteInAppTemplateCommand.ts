@@ -42,7 +42,7 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  * import { PinpointClient, DeleteInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // DeleteInAppTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  *   Version: "STRING_VALUE",
  * };

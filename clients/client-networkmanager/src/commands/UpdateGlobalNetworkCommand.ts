@@ -43,7 +43,7 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * import { NetworkManagerClient, UpdateGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // UpdateGlobalNetworkRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  * };

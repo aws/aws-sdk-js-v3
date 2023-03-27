@@ -70,7 +70,7 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * import { RekognitionClient, GetFaceSearchCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetFaceSearchCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // GetFaceSearchRequest
  *   JobId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

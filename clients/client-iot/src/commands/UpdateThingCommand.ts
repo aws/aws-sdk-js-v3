@@ -43,11 +43,11 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  * import { IoTClient, UpdateThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateThingRequest
  *   thingName: "STRING_VALUE", // required
  *   thingTypeName: "STRING_VALUE",
- *   attributePayload: {
- *     attributes: {
+ *   attributePayload: { // AttributePayload
+ *     attributes: { // Attributes
  *       "<keys>": "STRING_VALUE",
  *     },
  *     merge: true || false,

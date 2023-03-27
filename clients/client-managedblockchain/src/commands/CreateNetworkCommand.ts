@@ -47,43 +47,43 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * import { ManagedBlockchainClient, CreateNetworkCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateNetworkCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // CreateNetworkInput
  *   ClientRequestToken: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM", // required
  *   FrameworkVersion: "STRING_VALUE", // required
- *   FrameworkConfiguration: {
- *     Fabric: {
+ *   FrameworkConfiguration: { // NetworkFrameworkConfiguration
+ *     Fabric: { // NetworkFabricConfiguration
  *       Edition: "STARTER" || "STANDARD", // required
  *     },
  *   },
- *   VotingPolicy: {
- *     ApprovalThresholdPolicy: {
+ *   VotingPolicy: { // VotingPolicy
+ *     ApprovalThresholdPolicy: { // ApprovalThresholdPolicy
  *       ThresholdPercentage: Number("int"),
  *       ProposalDurationInHours: Number("int"),
  *       ThresholdComparator: "GREATER_THAN" || "GREATER_THAN_OR_EQUAL_TO",
  *     },
  *   },
- *   MemberConfiguration: {
+ *   MemberConfiguration: { // MemberConfiguration
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
- *     FrameworkConfiguration: {
- *       Fabric: {
+ *     FrameworkConfiguration: { // MemberFrameworkConfiguration
+ *       Fabric: { // MemberFabricConfiguration
  *         AdminUsername: "STRING_VALUE", // required
  *         AdminPassword: "STRING_VALUE", // required
  *       },
  *     },
- *     LogPublishingConfiguration: {
- *       Fabric: {
- *         CaLogs: {
- *           Cloudwatch: {
+ *     LogPublishingConfiguration: { // MemberLogPublishingConfiguration
+ *       Fabric: { // MemberFabricLogPublishingConfiguration
+ *         CaLogs: { // LogConfigurations
+ *           Cloudwatch: { // LogConfiguration
  *             Enabled: true || false,
  *           },
  *         },
  *       },
  *     },
- *     Tags: {
+ *     Tags: { // InputTagMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     KmsKeyArn: "STRING_VALUE",

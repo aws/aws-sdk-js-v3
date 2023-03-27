@@ -47,18 +47,18 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  * import { AppMeshClient, CreateMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // CreateMeshInput
  *   meshName: "STRING_VALUE", // required
- *   spec: {
- *     egressFilter: {
+ *   spec: { // MeshSpec
+ *     egressFilter: { // EgressFilter
  *       type: "STRING_VALUE", // required
  *     },
- *     serviceDiscovery: {
+ *     serviceDiscovery: { // MeshServiceDiscovery
  *       ipPreference: "STRING_VALUE",
  *     },
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // TagRef
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

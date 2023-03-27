@@ -45,11 +45,11 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  * import { ForecastClient, ListForecastExportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListForecastExportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // ListForecastExportJobsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *       Condition: "IS" || "IS_NOT", // required

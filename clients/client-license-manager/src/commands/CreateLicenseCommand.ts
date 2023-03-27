@@ -42,21 +42,21 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  * import { LicenseManagerClient, CreateLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // CreateLicenseRequest
  *   LicenseName: "STRING_VALUE", // required
  *   ProductName: "STRING_VALUE", // required
  *   ProductSKU: "STRING_VALUE", // required
- *   Issuer: {
+ *   Issuer: { // Issuer
  *     Name: "STRING_VALUE", // required
  *     SignKey: "STRING_VALUE",
  *   },
  *   HomeRegion: "STRING_VALUE", // required
- *   Validity: {
+ *   Validity: { // DatetimeRange
  *     Begin: "STRING_VALUE", // required
  *     End: "STRING_VALUE",
  *   },
- *   Entitlements: [ // required
- *     {
+ *   Entitlements: [ // EntitlementList // required
+ *     { // Entitlement
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *       MaxCount: Number("long"),
@@ -66,18 +66,18 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  *     },
  *   ],
  *   Beneficiary: "STRING_VALUE", // required
- *   ConsumptionConfiguration: {
+ *   ConsumptionConfiguration: { // ConsumptionConfiguration
  *     RenewType: "None" || "Weekly" || "Monthly",
- *     ProvisionalConfiguration: {
+ *     ProvisionalConfiguration: { // ProvisionalConfiguration
  *       MaxTimeToLiveInMinutes: Number("int"), // required
  *     },
- *     BorrowConfiguration: {
+ *     BorrowConfiguration: { // BorrowConfiguration
  *       AllowEarlyCheckIn: true || false, // required
  *       MaxTimeToLiveInMinutes: Number("int"), // required
  *     },
  *   },
- *   LicenseMetadata: [
- *     {
+ *   LicenseMetadata: [ // MetadataList
+ *     { // Metadata
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

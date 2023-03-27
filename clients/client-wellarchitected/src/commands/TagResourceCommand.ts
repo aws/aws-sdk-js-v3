@@ -45,9 +45,9 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { WellArchitectedClient, TagResourceCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, TagResourceCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   WorkloadArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

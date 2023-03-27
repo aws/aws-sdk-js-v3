@@ -45,7 +45,7 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  * import { IoTFleetWiseClient, ListVehiclesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListVehiclesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // ListVehiclesRequest
  *   modelManifestArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

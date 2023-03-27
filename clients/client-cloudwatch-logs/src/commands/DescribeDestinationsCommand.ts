@@ -42,7 +42,7 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  * import { CloudWatchLogsClient, DescribeDestinationsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeDestinationsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DescribeDestinationsRequest
  *   DestinationNamePrefix: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),

@@ -44,9 +44,9 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * import { SSMClient, ListAssociationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListAssociationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   AssociationFilterList: [
- *     {
+ * const input = { // ListAssociationsRequest
+ *   AssociationFilterList: [ // AssociationFilterList
+ *     { // AssociationFilter
  *       key: "InstanceId" || "Name" || "AssociationId" || "AssociationStatusName" || "LastExecutedBefore" || "LastExecutedAfter" || "AssociationName" || "ResourceGroupName", // required
  *       value: "STRING_VALUE", // required
  *     },

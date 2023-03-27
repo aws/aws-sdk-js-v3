@@ -42,7 +42,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * import { ResiliencehubClient, UpdateAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, UpdateAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // UpdateAppRequest
  *   appArn: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   policyArn: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface DeleteReservationCommandOutput extends DeleteReservationRespons
  * import { MediaLiveClient, DeleteReservationCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteReservationCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // DeleteReservationRequest
  *   ReservationId: "STRING_VALUE", // required
  * };
  * const command = new DeleteReservationCommand(input);

@@ -42,21 +42,21 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * import { IVSRealTimeClient, CreateStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, CreateStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
- * const input = {
+ * const input = { // CreateStageRequest
  *   name: "STRING_VALUE",
- *   participantTokenConfigurations: [
- *     {
+ *   participantTokenConfigurations: [ // ParticipantTokenConfigurations
+ *     { // ParticipantTokenConfiguration
  *       duration: Number("int"),
  *       userId: "STRING_VALUE",
- *       attributes: {
+ *       attributes: { // ParticipantTokenAttributes
  *         "<keys>": "STRING_VALUE",
  *       },
- *       capabilities: [
+ *       capabilities: [ // ParticipantTokenCapabilities
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

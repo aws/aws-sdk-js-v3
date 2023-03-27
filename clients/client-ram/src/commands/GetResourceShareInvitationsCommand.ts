@@ -44,11 +44,11 @@ export interface GetResourceShareInvitationsCommandOutput
  * import { RAMClient, GetResourceShareInvitationsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourceShareInvitationsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
- *   resourceShareInvitationArns: [
+ * const input = { // GetResourceShareInvitationsRequest
+ *   resourceShareInvitationArns: [ // ResourceShareInvitationArnList
  *     "STRING_VALUE",
  *   ],
- *   resourceShareArns: [
+ *   resourceShareArns: [ // ResourceShareArnList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",

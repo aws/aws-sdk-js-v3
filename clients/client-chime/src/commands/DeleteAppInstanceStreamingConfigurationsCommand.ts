@@ -43,7 +43,7 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
  * import { ChimeClient, DeleteAppInstanceStreamingConfigurationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteAppInstanceStreamingConfigurationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DeleteAppInstanceStreamingConfigurationsRequest
  *   AppInstanceArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteAppInstanceStreamingConfigurationsCommand(input);

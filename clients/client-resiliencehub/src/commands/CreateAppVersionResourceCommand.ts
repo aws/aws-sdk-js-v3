@@ -60,10 +60,10 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * import { ResiliencehubClient, CreateAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, CreateAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // CreateAppVersionResourceRequest
  *   appArn: "STRING_VALUE", // required
  *   resourceName: "STRING_VALUE", // required
- *   logicalResourceId: {
+ *   logicalResourceId: { // LogicalResourceId
  *     identifier: "STRING_VALUE", // required
  *     logicalStackName: "STRING_VALUE",
  *     resourceGroupName: "STRING_VALUE",
@@ -74,11 +74,11 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  *   awsRegion: "STRING_VALUE",
  *   awsAccountId: "STRING_VALUE",
  *   resourceType: "STRING_VALUE", // required
- *   appComponents: [ // required
+ *   appComponents: [ // AppComponentNameList // required
  *     "STRING_VALUE",
  *   ],
- *   additionalInfo: {
- *     "<keys>": [
+ *   additionalInfo: { // AdditionalInfoMap
+ *     "<keys>": [ // AdditionalInfoValueList
  *       "STRING_VALUE",
  *     ],
  *   },

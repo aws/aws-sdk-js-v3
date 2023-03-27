@@ -57,9 +57,9 @@ export interface TagLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, TagLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, TagLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // TagLogGroupRequest
  *   logGroupName: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // Tags // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

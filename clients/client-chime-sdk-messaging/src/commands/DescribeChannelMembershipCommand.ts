@@ -55,7 +55,7 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * import { ChimeSDKMessagingClient, DescribeChannelMembershipCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DescribeChannelMembershipCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // DescribeChannelMembershipRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   MemberArn: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE", // required

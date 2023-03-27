@@ -46,7 +46,7 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  * import { EC2Client, ModifyVpnConnectionOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpnConnectionOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVpnConnectionOptionsRequest
  *   VpnConnectionId: "STRING_VALUE", // required
  *   LocalIpv4NetworkCidr: "STRING_VALUE",
  *   RemoteIpv4NetworkCidr: "STRING_VALUE",

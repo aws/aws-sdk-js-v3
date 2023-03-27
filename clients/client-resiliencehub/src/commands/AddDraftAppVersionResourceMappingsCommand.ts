@@ -47,16 +47,16 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * import { ResiliencehubClient, AddDraftAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, AddDraftAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // AddDraftAppVersionResourceMappingsRequest
  *   appArn: "STRING_VALUE", // required
- *   resourceMappings: [ // required
- *     {
+ *   resourceMappings: [ // ResourceMappingList // required
+ *     { // ResourceMapping
  *       resourceName: "STRING_VALUE",
  *       logicalStackName: "STRING_VALUE",
  *       appRegistryAppName: "STRING_VALUE",
  *       resourceGroupName: "STRING_VALUE",
  *       mappingType: "STRING_VALUE", // required
- *       physicalResourceId: {
+ *       physicalResourceId: { // PhysicalResourceId
  *         identifier: "STRING_VALUE", // required
  *         type: "STRING_VALUE", // required
  *         awsRegion: "STRING_VALUE",

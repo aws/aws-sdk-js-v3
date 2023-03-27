@@ -46,7 +46,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { ChimeSDKMediaPipelinesClient, ListTagsForResourceCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, ListTagsForResourceCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

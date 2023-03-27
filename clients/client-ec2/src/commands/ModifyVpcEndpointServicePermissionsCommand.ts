@@ -52,10 +52,10 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * import { EC2Client, ModifyVpcEndpointServicePermissionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointServicePermissionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVpcEndpointServicePermissionsRequest
  *   DryRun: true || false,
  *   ServiceId: "STRING_VALUE", // required
- *   AddAllowedPrincipals: [
+ *   AddAllowedPrincipals: [ // ValueStringList
  *     "STRING_VALUE",
  *   ],
  *   RemoveAllowedPrincipals: [

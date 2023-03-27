@@ -44,14 +44,14 @@ export interface CreateStreamingSessionCommandOutput extends CreateStreamingSess
  * import { NimbleClient, CreateStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // CreateStreamingSessionRequest
  *   clientToken: "STRING_VALUE",
  *   ec2InstanceType: "g4dn.xlarge" || "g4dn.2xlarge" || "g4dn.4xlarge" || "g4dn.8xlarge" || "g4dn.12xlarge" || "g4dn.16xlarge" || "g3.4xlarge" || "g3s.xlarge" || "g5.xlarge" || "g5.2xlarge" || "g5.4xlarge" || "g5.8xlarge" || "g5.16xlarge",
  *   launchProfileId: "STRING_VALUE", // required
  *   ownedBy: "STRING_VALUE",
  *   streamingImageId: "STRING_VALUE",
  *   studioId: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

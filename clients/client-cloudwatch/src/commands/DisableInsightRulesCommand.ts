@@ -43,8 +43,8 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * import { CloudWatchClient, DisableInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DisableInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
- *   RuleNames: [ // required
+ * const input = { // DisableInsightRulesInput
+ *   RuleNames: [ // InsightRuleNames // required
  *     "STRING_VALUE",
  *   ],
  * };

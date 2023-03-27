@@ -42,7 +42,7 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  * import { Route53DomainsClient, ViewBillingCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ViewBillingCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // ViewBillingRequest
  *   Start: new Date("TIMESTAMP"),
  *   End: new Date("TIMESTAMP"),
  *   Marker: "STRING_VALUE",

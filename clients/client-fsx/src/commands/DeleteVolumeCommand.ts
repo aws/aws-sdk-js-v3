@@ -43,20 +43,20 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * import { FSxClient, DeleteVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // DeleteVolumeRequest
  *   ClientRequestToken: "STRING_VALUE",
  *   VolumeId: "STRING_VALUE", // required
- *   OntapConfiguration: {
+ *   OntapConfiguration: { // DeleteVolumeOntapConfiguration
  *     SkipFinalBackup: true || false,
- *     FinalBackupTags: [
- *       {
+ *     FinalBackupTags: [ // Tags
+ *       { // Tag
  *         Key: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
- *   OpenZFSConfiguration: {
- *     Options: [
+ *   OpenZFSConfiguration: { // DeleteVolumeOpenZFSConfiguration
+ *     Options: [ // DeleteOpenZFSVolumeOptions
  *       "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
  *     ],
  *   },

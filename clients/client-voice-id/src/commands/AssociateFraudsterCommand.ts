@@ -46,7 +46,7 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  * import { VoiceIDClient, AssociateFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, AssociateFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // AssociateFraudsterRequest
  *   DomainId: "STRING_VALUE", // required
  *   WatchlistId: "STRING_VALUE", // required
  *   FraudsterId: "STRING_VALUE", // required

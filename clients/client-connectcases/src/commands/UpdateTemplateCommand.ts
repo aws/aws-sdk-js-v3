@@ -46,16 +46,16 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * import { ConnectCasesClient, UpdateTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = {
+ * const input = { // UpdateTemplateRequest
  *   domainId: "STRING_VALUE", // required
  *   templateId: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   layoutConfiguration: {
+ *   layoutConfiguration: { // LayoutConfiguration
  *     defaultLayout: "STRING_VALUE",
  *   },
- *   requiredFields: [
- *     {
+ *   requiredFields: [ // RequiredFieldList
+ *     { // RequiredField
  *       fieldId: "STRING_VALUE", // required
  *     },
  *   ],

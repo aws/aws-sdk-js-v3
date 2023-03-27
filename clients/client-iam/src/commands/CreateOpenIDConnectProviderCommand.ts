@@ -85,16 +85,16 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * import { IAMClient, CreateOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // CreateOpenIDConnectProviderRequest
  *   Url: "STRING_VALUE", // required
- *   ClientIDList: [
+ *   ClientIDList: [ // clientIDListType
  *     "STRING_VALUE",
  *   ],
- *   ThumbprintList: [ // required
+ *   ThumbprintList: [ // thumbprintListType // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // tagListType
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

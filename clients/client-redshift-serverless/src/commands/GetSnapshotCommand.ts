@@ -46,7 +46,7 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  * import { RedshiftServerlessClient, GetSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // GetSnapshotRequest
  *   snapshotName: "STRING_VALUE",
  *   ownerAccount: "STRING_VALUE",
  *   snapshotArn: "STRING_VALUE",

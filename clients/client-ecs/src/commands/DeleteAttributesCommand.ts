@@ -42,10 +42,10 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * import { ECSClient, DeleteAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // DeleteAttributesRequest
  *   cluster: "STRING_VALUE",
- *   attributes: [ // required
- *     {
+ *   attributes: [ // Attributes // required
+ *     { // Attribute
  *       name: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *       targetType: "container-instance",

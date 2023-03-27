@@ -84,31 +84,31 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * import { WAFV2Client, PutLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, PutLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
- *   LoggingConfiguration: {
+ * const input = { // PutLoggingConfigurationRequest
+ *   LoggingConfiguration: { // LoggingConfiguration
  *     ResourceArn: "STRING_VALUE", // required
- *     LogDestinationConfigs: [ // required
+ *     LogDestinationConfigs: [ // LogDestinationConfigs // required
  *       "STRING_VALUE",
  *     ],
- *     RedactedFields: [
- *       {
- *         SingleHeader: {
+ *     RedactedFields: [ // RedactedFields
+ *       { // FieldToMatch
+ *         SingleHeader: { // SingleHeader
  *           Name: "STRING_VALUE", // required
  *         },
- *         SingleQueryArgument: {
+ *         SingleQueryArgument: { // SingleQueryArgument
  *           Name: "STRING_VALUE", // required
  *         },
  *         AllQueryArguments: {},
  *         UriPath: {},
  *         QueryString: {},
- *         Body: {
+ *         Body: { // Body
  *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH",
  *         },
  *         Method: {},
- *         JsonBody: {
- *           MatchPattern: {
+ *         JsonBody: { // JsonBody
+ *           MatchPattern: { // JsonMatchPattern
  *             All: {},
- *             IncludedPaths: [
+ *             IncludedPaths: [ // JsonPointerPaths
  *               "STRING_VALUE",
  *             ],
  *           },
@@ -116,10 +116,10 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *           InvalidFallbackBehavior: "MATCH" || "NO_MATCH" || "EVALUATE_AS_STRING",
  *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH",
  *         },
- *         Headers: {
- *           MatchPattern: {
+ *         Headers: { // Headers
+ *           MatchPattern: { // HeaderMatchPattern
  *             All: {},
- *             IncludedHeaders: [
+ *             IncludedHeaders: [ // HeaderNames
  *               "STRING_VALUE",
  *             ],
  *             ExcludedHeaders: [
@@ -129,10 +129,10 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *           MatchScope: "ALL" || "KEY" || "VALUE", // required
  *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *         },
- *         Cookies: {
- *           MatchPattern: {
+ *         Cookies: { // Cookies
+ *           MatchPattern: { // CookieMatchPattern
  *             All: {},
- *             IncludedCookies: [
+ *             IncludedCookies: [ // CookieNames
  *               "STRING_VALUE",
  *             ],
  *             ExcludedCookies: [
@@ -145,17 +145,17 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *       },
  *     ],
  *     ManagedByFirewallManager: true || false,
- *     LoggingFilter: {
- *       Filters: [ // required
- *         {
+ *     LoggingFilter: { // LoggingFilter
+ *       Filters: [ // Filters // required
+ *         { // Filter
  *           Behavior: "KEEP" || "DROP", // required
  *           Requirement: "MEETS_ALL" || "MEETS_ANY", // required
- *           Conditions: [ // required
- *             {
- *               ActionCondition: {
+ *           Conditions: [ // Conditions // required
+ *             { // Condition
+ *               ActionCondition: { // ActionCondition
  *                 Action: "ALLOW" || "BLOCK" || "COUNT" || "CAPTCHA" || "CHALLENGE" || "EXCLUDED_AS_COUNT", // required
  *               },
- *               LabelNameCondition: {
+ *               LabelNameCondition: { // LabelNameCondition
  *                 LabelName: "STRING_VALUE", // required
  *               },
  *             },

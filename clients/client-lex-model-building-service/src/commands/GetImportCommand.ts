@@ -47,7 +47,7 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * import { LexModelBuildingServiceClient, GetImportCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetImportCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // GetImportRequest
  *   importId: "STRING_VALUE", // required
  * };
  * const command = new GetImportCommand(input);

@@ -46,7 +46,7 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * import { LocationClient, DeleteMapCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // DeleteMapRequest
  *   MapName: "STRING_VALUE", // required
  * };
  * const command = new DeleteMapCommand(input);

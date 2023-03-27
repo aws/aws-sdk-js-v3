@@ -43,16 +43,16 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * import { SageMakerClient, UpdateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateAppImageConfigRequest
  *   AppImageConfigName: "STRING_VALUE", // required
- *   KernelGatewayImageConfig: {
- *     KernelSpecs: [ // required
- *       {
+ *   KernelGatewayImageConfig: { // KernelGatewayImageConfig
+ *     KernelSpecs: [ // KernelSpecs // required
+ *       { // KernelSpec
  *         Name: "STRING_VALUE", // required
  *         DisplayName: "STRING_VALUE",
  *       },
  *     ],
- *     FileSystemConfig: {
+ *     FileSystemConfig: { // FileSystemConfig
  *       MountPath: "STRING_VALUE",
  *       DefaultUid: Number("int"),
  *       DefaultGid: Number("int"),

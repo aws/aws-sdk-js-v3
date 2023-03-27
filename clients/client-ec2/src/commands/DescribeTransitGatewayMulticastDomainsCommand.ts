@@ -48,14 +48,14 @@ export interface DescribeTransitGatewayMulticastDomainsCommandOutput
  * import { EC2Client, DescribeTransitGatewayMulticastDomainsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayMulticastDomainsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   TransitGatewayMulticastDomainIds: [
+ * const input = { // DescribeTransitGatewayMulticastDomainsRequest
+ *   TransitGatewayMulticastDomainIds: [ // TransitGatewayMulticastDomainIdStringList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

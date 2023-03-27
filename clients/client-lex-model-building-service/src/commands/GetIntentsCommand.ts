@@ -60,7 +60,7 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  * import { LexModelBuildingServiceClient, GetIntentsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetIntentsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // GetIntentsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nameContains: "STRING_VALUE",

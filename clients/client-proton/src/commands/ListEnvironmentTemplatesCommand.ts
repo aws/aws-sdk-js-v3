@@ -46,7 +46,7 @@ export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTe
  * import { ProtonClient, ListEnvironmentTemplatesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentTemplatesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // ListEnvironmentTemplatesInput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

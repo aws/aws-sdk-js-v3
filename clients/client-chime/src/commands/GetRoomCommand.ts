@@ -42,7 +42,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * import { ChimeClient, GetRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // GetRoomRequest
  *   AccountId: "STRING_VALUE", // required
  *   RoomId: "STRING_VALUE", // required
  * };

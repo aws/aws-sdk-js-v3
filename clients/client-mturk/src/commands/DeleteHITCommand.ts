@@ -74,7 +74,7 @@ export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBea
  * import { MTurkClient, DeleteHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, DeleteHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // DeleteHITRequest
  *   HITId: "STRING_VALUE", // required
  * };
  * const command = new DeleteHITCommand(input);

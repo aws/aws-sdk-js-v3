@@ -47,7 +47,7 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  * import { IAMClient, ListMFADevicesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListMFADevicesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // ListMFADevicesRequest
  *   UserName: "STRING_VALUE",
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),

@@ -62,9 +62,9 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * import { CloudFormationClient, DetectStackDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DetectStackDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DetectStackDriftInput
  *   StackName: "STRING_VALUE", // required
- *   LogicalResourceIds: [
+ *   LogicalResourceIds: [ // LogicalResourceIds
  *     "STRING_VALUE",
  *   ],
  * };

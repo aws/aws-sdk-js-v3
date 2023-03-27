@@ -49,8 +49,8 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * import { ApplicationAutoScalingClient, DescribeScalingPoliciesCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DescribeScalingPoliciesCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
- * const input = {
- *   PolicyNames: [
+ * const input = { // DescribeScalingPoliciesRequest
+ *   PolicyNames: [ // ResourceIdsMaxLen1600
  *     "STRING_VALUE",
  *   ],
  *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required

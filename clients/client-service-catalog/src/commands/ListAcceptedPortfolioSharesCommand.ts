@@ -44,7 +44,7 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * import { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListAcceptedPortfolioSharesInput
  *   AcceptLanguage: "STRING_VALUE",
  *   PageToken: "STRING_VALUE",
  *   PageSize: Number("int"),

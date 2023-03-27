@@ -44,19 +44,19 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * import { DocDBClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // CreateEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SnsTopicArn: "STRING_VALUE", // required
  *   SourceType: "STRING_VALUE",
- *   EventCategories: [
+ *   EventCategories: [ // EventCategoriesList
  *     "STRING_VALUE",
  *   ],
- *   SourceIds: [
+ *   SourceIds: [ // SourceIdsList
  *     "STRING_VALUE",
  *   ],
  *   Enabled: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

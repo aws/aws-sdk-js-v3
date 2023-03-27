@@ -47,7 +47,7 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * import { IoTFleetWiseClient, DisassociateVehicleFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DisassociateVehicleFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // DisassociateVehicleFleetRequest
  *   vehicleName: "STRING_VALUE", // required
  *   fleetId: "STRING_VALUE", // required
  * };

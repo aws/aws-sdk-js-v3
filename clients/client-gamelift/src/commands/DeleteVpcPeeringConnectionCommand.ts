@@ -52,7 +52,7 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * import { GameLiftClient, DeleteVpcPeeringConnectionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteVpcPeeringConnectionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DeleteVpcPeeringConnectionInput
  *   FleetId: "STRING_VALUE", // required
  *   VpcPeeringConnectionId: "STRING_VALUE", // required
  * };

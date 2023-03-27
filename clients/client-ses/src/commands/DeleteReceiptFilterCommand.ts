@@ -45,7 +45,7 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * import { SESClient, DeleteReceiptFilterCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteReceiptFilterCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // DeleteReceiptFilterRequest
  *   FilterName: "STRING_VALUE", // required
  * };
  * const command = new DeleteReceiptFilterCommand(input);

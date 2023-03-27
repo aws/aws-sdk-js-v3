@@ -51,8 +51,8 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateUserIdentityInfoCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserIdentityInfoCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
- *   IdentityInfo: {
+ * const input = { // UpdateUserIdentityInfoRequest
+ *   IdentityInfo: { // UserIdentityInfo
  *     FirstName: "STRING_VALUE",
  *     LastName: "STRING_VALUE",
  *     Email: "STRING_VALUE",

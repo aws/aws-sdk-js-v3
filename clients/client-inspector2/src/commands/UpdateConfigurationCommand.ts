@@ -42,8 +42,8 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * import { Inspector2Client, UpdateConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, UpdateConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
- *   ecrConfiguration: {
+ * const input = { // UpdateConfigurationRequest
+ *   ecrConfiguration: { // EcrConfiguration
  *     rescanDuration: "STRING_VALUE", // required
  *   },
  * };

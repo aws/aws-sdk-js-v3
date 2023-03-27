@@ -48,11 +48,11 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * import { ECSClient, CreateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // CreateCapacityProviderRequest
  *   name: "STRING_VALUE", // required
- *   autoScalingGroupProvider: {
+ *   autoScalingGroupProvider: { // AutoScalingGroupProvider
  *     autoScalingGroupArn: "STRING_VALUE", // required
- *     managedScaling: {
+ *     managedScaling: { // ManagedScaling
  *       status: "ENABLED" || "DISABLED",
  *       targetCapacity: Number("int"),
  *       minimumScalingStepSize: Number("int"),
@@ -61,8 +61,8 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *     },
  *     managedTerminationProtection: "ENABLED" || "DISABLED",
  *   },
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

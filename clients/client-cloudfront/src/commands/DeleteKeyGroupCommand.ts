@@ -48,7 +48,7 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, DeleteKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // DeleteKeyGroupRequest
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
  * };

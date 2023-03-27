@@ -47,7 +47,7 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
  * import { Route53Client, GetHealthCheckStatusCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHealthCheckStatusCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // GetHealthCheckStatusRequest
  *   HealthCheckId: "STRING_VALUE", // required
  * };
  * const command = new GetHealthCheckStatusCommand(input);

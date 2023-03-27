@@ -51,44 +51,44 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * import { GrafanaClient, CreateWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, CreateWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const input = {
+ * const input = { // CreateWorkspaceRequest
  *   accountAccessType: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   organizationRoleName: "STRING_VALUE",
  *   permissionType: "STRING_VALUE", // required
  *   stackSetName: "STRING_VALUE",
- *   workspaceDataSources: [
+ *   workspaceDataSources: [ // DataSourceTypesList
  *     "STRING_VALUE",
  *   ],
  *   workspaceDescription: "STRING_VALUE",
  *   workspaceName: "STRING_VALUE",
- *   workspaceNotificationDestinations: [
+ *   workspaceNotificationDestinations: [ // NotificationDestinationsList
  *     "STRING_VALUE",
  *   ],
- *   workspaceOrganizationalUnits: [
+ *   workspaceOrganizationalUnits: [ // OrganizationalUnitList
  *     "STRING_VALUE",
  *   ],
  *   workspaceRoleArn: "STRING_VALUE",
- *   authenticationProviders: [ // required
+ *   authenticationProviders: [ // AuthenticationProviders // required
  *     "STRING_VALUE",
  *   ],
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   vpcConfiguration: {
- *     securityGroupIds: [ // required
+ *   vpcConfiguration: { // VpcConfiguration
+ *     securityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
- *     subnetIds: [ // required
+ *     subnetIds: [ // SubnetIds // required
  *       "STRING_VALUE",
  *     ],
  *   },
  *   configuration: "STRING_VALUE",
- *   networkAccessControl: {
- *     prefixListIds: [ // required
+ *   networkAccessControl: { // NetworkAccessConfiguration
+ *     prefixListIds: [ // PrefixListIds // required
  *       "STRING_VALUE",
  *     ],
- *     vpceIds: [ // required
+ *     vpceIds: [ // VpceIds // required
  *       "STRING_VALUE",
  *     ],
  *   },

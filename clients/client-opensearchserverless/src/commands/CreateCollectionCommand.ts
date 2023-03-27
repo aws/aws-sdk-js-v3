@@ -47,12 +47,12 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * import { OpenSearchServerlessClient, CreateCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // CreateCollectionRequest
  *   name: "STRING_VALUE", // required
  *   type: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

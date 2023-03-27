@@ -69,7 +69,7 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  * import { S3Client, GetBucketAccelerateConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketAccelerateConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetBucketAccelerateConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };

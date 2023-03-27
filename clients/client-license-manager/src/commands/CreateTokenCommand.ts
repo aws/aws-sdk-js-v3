@@ -45,13 +45,13 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * import { LicenseManagerClient, CreateTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // CreateTokenRequest
  *   LicenseArn: "STRING_VALUE", // required
- *   RoleArns: [
+ *   RoleArns: [ // ArnList
  *     "STRING_VALUE",
  *   ],
  *   ExpirationInDays: Number("int"),
- *   TokenProperties: [
+ *   TokenProperties: [ // MaxSize3StringList
  *     "STRING_VALUE",
  *   ],
  *   ClientToken: "STRING_VALUE", // required

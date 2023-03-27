@@ -47,9 +47,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { ApplicationAutoScalingClient, UntagResourceCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, UntagResourceCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

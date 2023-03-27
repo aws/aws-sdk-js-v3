@@ -44,7 +44,7 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * import { BackupClient, DeleteBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DeleteBackupPlanInput
  *   BackupPlanId: "STRING_VALUE", // required
  * };
  * const command = new DeleteBackupPlanCommand(input);

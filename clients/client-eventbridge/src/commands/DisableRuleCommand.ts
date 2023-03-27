@@ -45,7 +45,7 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  * import { EventBridgeClient, DisableRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DisableRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // DisableRuleRequest
  *   Name: "STRING_VALUE", // required
  *   EventBusName: "STRING_VALUE",
  * };

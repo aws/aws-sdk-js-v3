@@ -42,7 +42,7 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * import { AlexaForBusinessClient, GetAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // GetAddressBookRequest
  *   AddressBookArn: "STRING_VALUE", // required
  * };
  * const command = new GetAddressBookCommand(input);

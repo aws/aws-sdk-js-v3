@@ -42,7 +42,7 @@ export interface DescribeVocabularyCommandOutput extends DescribeVocabularyRespo
  * import { ConnectClient, DescribeVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DescribeVocabularyRequest
  *   InstanceId: "STRING_VALUE", // required
  *   VocabularyId: "STRING_VALUE", // required
  * };

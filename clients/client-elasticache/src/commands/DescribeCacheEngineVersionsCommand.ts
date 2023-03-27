@@ -43,7 +43,7 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * import { ElastiCacheClient, DescribeCacheEngineVersionsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheEngineVersionsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DescribeCacheEngineVersionsMessage
  *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   CacheParameterGroupFamily: "STRING_VALUE",

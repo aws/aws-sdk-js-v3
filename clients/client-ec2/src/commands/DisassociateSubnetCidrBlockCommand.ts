@@ -42,7 +42,7 @@ export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSu
  * import { EC2Client, DisassociateSubnetCidrBlockCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateSubnetCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisassociateSubnetCidrBlockRequest
  *   AssociationId: "STRING_VALUE", // required
  * };
  * const command = new DisassociateSubnetCidrBlockCommand(input);

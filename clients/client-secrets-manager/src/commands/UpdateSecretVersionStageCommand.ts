@@ -63,7 +63,7 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * import { SecretsManagerClient, UpdateSecretVersionStageCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, UpdateSecretVersionStageCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // UpdateSecretVersionStageRequest
  *   SecretId: "STRING_VALUE", // required
  *   VersionStage: "STRING_VALUE", // required
  *   RemoveFromVersionId: "STRING_VALUE",

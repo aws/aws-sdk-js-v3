@@ -48,17 +48,17 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * import { ServiceCatalogClient, CopyProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CopyProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // CopyProductInput
  *   AcceptLanguage: "STRING_VALUE",
  *   SourceProductArn: "STRING_VALUE", // required
  *   TargetProductId: "STRING_VALUE",
  *   TargetProductName: "STRING_VALUE",
- *   SourceProvisioningArtifactIdentifiers: [
- *     {
+ *   SourceProvisioningArtifactIdentifiers: [ // SourceProvisioningArtifactProperties
+ *     { // SourceProvisioningArtifactPropertiesMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   ],
- *   CopyOptions: [
+ *   CopyOptions: [ // CopyOptions
  *     "CopyTags",
  *   ],
  *   IdempotencyToken: "STRING_VALUE", // required

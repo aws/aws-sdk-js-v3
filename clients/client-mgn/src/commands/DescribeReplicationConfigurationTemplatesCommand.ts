@@ -49,8 +49,8 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * import { MgnClient, DescribeReplicationConfigurationTemplatesCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeReplicationConfigurationTemplatesCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
- *   replicationConfigurationTemplateIDs: [
+ * const input = { // DescribeReplicationConfigurationTemplatesRequest
+ *   replicationConfigurationTemplateIDs: [ // ReplicationConfigurationTemplateIDs
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

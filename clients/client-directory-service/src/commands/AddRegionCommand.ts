@@ -39,12 +39,12 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * import { DirectoryServiceClient, AddRegionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, AddRegionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // AddRegionRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   RegionName: "STRING_VALUE", // required
- *   VPCSettings: {
+ *   VPCSettings: { // DirectoryVpcSettings
  *     VpcId: "STRING_VALUE", // required
- *     SubnetIds: [ // required
+ *     SubnetIds: [ // SubnetIds // required
  *       "STRING_VALUE",
  *     ],
  *   },

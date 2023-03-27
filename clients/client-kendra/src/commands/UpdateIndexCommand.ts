@@ -42,25 +42,25 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  * import { KendraClient, UpdateIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // UpdateIndexRequest
  *   Id: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   DocumentMetadataConfigurationUpdates: [
- *     {
+ *   DocumentMetadataConfigurationUpdates: [ // DocumentMetadataConfigurationList
+ *     { // DocumentMetadataConfiguration
  *       Name: "STRING_VALUE", // required
  *       Type: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE", // required
- *       Relevance: {
+ *       Relevance: { // Relevance
  *         Freshness: true || false,
  *         Importance: Number("int"),
  *         Duration: "STRING_VALUE",
  *         RankOrder: "ASCENDING" || "DESCENDING",
- *         ValueImportanceMap: {
+ *         ValueImportanceMap: { // ValueImportanceMap
  *           "<keys>": Number("int"),
  *         },
  *       },
- *       Search: {
+ *       Search: { // Search
  *         Facetable: true || false,
  *         Searchable: true || false,
  *         Displayable: true || false,
@@ -68,13 +68,13 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  *       },
  *     },
  *   ],
- *   CapacityUnits: {
+ *   CapacityUnits: { // CapacityUnitsConfiguration
  *     StorageCapacityUnits: Number("int"), // required
  *     QueryCapacityUnits: Number("int"), // required
  *   },
- *   UserTokenConfigurations: [
- *     {
- *       JwtTokenTypeConfiguration: {
+ *   UserTokenConfigurations: [ // UserTokenConfigurationList
+ *     { // UserTokenConfiguration
+ *       JwtTokenTypeConfiguration: { // JwtTokenTypeConfiguration
  *         KeyLocation: "URL" || "SECRET_MANAGER", // required
  *         URL: "STRING_VALUE",
  *         SecretManagerArn: "STRING_VALUE",
@@ -83,14 +83,14 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  *         Issuer: "STRING_VALUE",
  *         ClaimRegex: "STRING_VALUE",
  *       },
- *       JsonTokenTypeConfiguration: {
+ *       JsonTokenTypeConfiguration: { // JsonTokenTypeConfiguration
  *         UserNameAttributeField: "STRING_VALUE", // required
  *         GroupAttributeField: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
  *   UserContextPolicy: "ATTRIBUTE_FILTER" || "USER_TOKEN",
- *   UserGroupResolutionConfiguration: {
+ *   UserGroupResolutionConfiguration: { // UserGroupResolutionConfiguration
  *     UserGroupResolutionMode: "AWS_SSO" || "NONE", // required
  *   },
  * };

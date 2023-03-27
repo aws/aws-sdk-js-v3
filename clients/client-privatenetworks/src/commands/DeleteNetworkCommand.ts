@@ -45,7 +45,7 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * import { PrivateNetworksClient, DeleteNetworkCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, DeleteNetworkCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // DeleteNetworkRequest
  *   networkArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

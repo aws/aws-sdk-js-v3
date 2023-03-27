@@ -42,7 +42,7 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * import { GlueClient, GetWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetWorkflowRequest
  *   Name: "STRING_VALUE", // required
  *   IncludeGraph: true || false,
  * };

@@ -49,19 +49,19 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * import { BillingconductorClient, UpdateCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UpdateCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // UpdateCustomLineItemInput
  *   Arn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   ChargeDetails: {
- *     Flat: {
+ *   ChargeDetails: { // UpdateCustomLineItemChargeDetails
+ *     Flat: { // UpdateCustomLineItemFlatChargeDetails
  *       ChargeValue: Number("double"), // required
  *     },
- *     Percentage: {
+ *     Percentage: { // UpdateCustomLineItemPercentageChargeDetails
  *       PercentageValue: Number("double"), // required
  *     },
  *   },
- *   BillingPeriodRange: {
+ *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
  *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
  *     ExclusiveEndBillingPeriod: "STRING_VALUE",
  *   },

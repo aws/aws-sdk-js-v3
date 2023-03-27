@@ -48,7 +48,7 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  * import { ChimeClient, GetAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // GetAttendeeRequest
  *   MeetingId: "STRING_VALUE", // required
  *   AttendeeId: "STRING_VALUE", // required
  * };

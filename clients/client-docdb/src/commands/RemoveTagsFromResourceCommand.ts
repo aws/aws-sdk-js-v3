@@ -42,9 +42,9 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * import { DocDBClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // RemoveTagsFromResourceMessage
  *   ResourceName: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // KeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -44,16 +44,16 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * import { NeptuneClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // DescribeOrderableDBInstanceOptionsMessage
  *   Engine: "STRING_VALUE", // required
  *   EngineVersion: "STRING_VALUE",
  *   DBInstanceClass: "STRING_VALUE",
  *   LicenseModel: "STRING_VALUE",
  *   Vpc: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

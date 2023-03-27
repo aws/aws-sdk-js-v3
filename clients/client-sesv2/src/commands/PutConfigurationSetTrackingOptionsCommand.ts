@@ -48,7 +48,7 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * import { SESv2Client, PutConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // PutConfigurationSetTrackingOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   CustomRedirectDomain: "STRING_VALUE",
  * };

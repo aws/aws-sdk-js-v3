@@ -44,7 +44,7 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * import { DirectConnectClient, ConfirmCustomerAgreementCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmCustomerAgreementCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // ConfirmCustomerAgreementRequest
  *   agreementName: "STRING_VALUE",
  * };
  * const command = new ConfirmCustomerAgreementCommand(input);

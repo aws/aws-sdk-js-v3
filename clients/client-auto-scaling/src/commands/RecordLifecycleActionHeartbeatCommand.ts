@@ -80,7 +80,7 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * import { AutoScalingClient, RecordLifecycleActionHeartbeatCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, RecordLifecycleActionHeartbeatCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // RecordLifecycleActionHeartbeatType
  *   LifecycleHookName: "STRING_VALUE", // required
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   LifecycleActionToken: "STRING_VALUE",

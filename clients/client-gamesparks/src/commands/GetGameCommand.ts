@@ -42,7 +42,7 @@ export interface GetGameCommandOutput extends GetGameResult, __MetadataBearer {}
  * import { GameSparksClient, GetGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // GetGameRequest
  *   GameName: "STRING_VALUE", // required
  * };
  * const command = new GetGameCommand(input);

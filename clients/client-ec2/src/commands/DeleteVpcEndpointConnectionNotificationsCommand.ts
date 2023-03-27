@@ -48,9 +48,9 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
  * import { EC2Client, DeleteVpcEndpointConnectionNotificationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcEndpointConnectionNotificationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteVpcEndpointConnectionNotificationsRequest
  *   DryRun: true || false,
- *   ConnectionNotificationIds: [ // required
+ *   ConnectionNotificationIds: [ // ConnectionNotificationIdsList // required
  *     "STRING_VALUE",
  *   ],
  * };

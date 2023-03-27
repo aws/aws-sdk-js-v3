@@ -48,13 +48,13 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
  * import { ServiceCatalogClient, ExecuteProvisionedProductServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ExecuteProvisionedProductServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ExecuteProvisionedProductServiceActionInput
  *   ProvisionedProductId: "STRING_VALUE", // required
  *   ServiceActionId: "STRING_VALUE", // required
  *   ExecuteToken: "STRING_VALUE", // required
  *   AcceptLanguage: "STRING_VALUE",
- *   Parameters: {
- *     "<keys>": [
+ *   Parameters: { // ExecutionParameterMap
+ *     "<keys>": [ // ExecutionParameterValueList
  *       "STRING_VALUE",
  *     ],
  *   },

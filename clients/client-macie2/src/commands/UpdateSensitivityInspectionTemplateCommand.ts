@@ -47,15 +47,15 @@ export interface UpdateSensitivityInspectionTemplateCommandOutput
  * import { Macie2Client, UpdateSensitivityInspectionTemplateCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateSensitivityInspectionTemplateCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // UpdateSensitivityInspectionTemplateRequest
  *   description: "STRING_VALUE",
- *   excludes: {
- *     managedDataIdentifierIds: [
+ *   excludes: { // SensitivityInspectionTemplateExcludes
+ *     managedDataIdentifierIds: [ // __listOf__string
  *       "STRING_VALUE",
  *     ],
  *   },
  *   id: "STRING_VALUE", // required
- *   includes: {
+ *   includes: { // SensitivityInspectionTemplateIncludes
  *     allowListIds: [
  *       "STRING_VALUE",
  *     ],

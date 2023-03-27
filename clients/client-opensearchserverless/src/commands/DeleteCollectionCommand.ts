@@ -47,7 +47,7 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * import { OpenSearchServerlessClient, DeleteCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // DeleteCollectionRequest
  *   id: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

@@ -43,7 +43,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * import { EventBridgeClient, ListEventBusesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListEventBusesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // ListEventBusesRequest
  *   NamePrefix: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),

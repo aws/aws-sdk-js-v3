@@ -44,9 +44,9 @@ export interface DescribeApplicationVersionsCommandOutput
  * import { ElasticBeanstalkClient, DescribeApplicationVersionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeApplicationVersionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DescribeApplicationVersionsMessage
  *   ApplicationName: "STRING_VALUE",
- *   VersionLabels: [
+ *   VersionLabels: [ // VersionLabelsList
  *     "STRING_VALUE",
  *   ],
  *   MaxRecords: Number("int"),

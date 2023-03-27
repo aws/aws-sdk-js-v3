@@ -42,15 +42,15 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * import { ApiGatewayV2Client, CreateStageCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateStageCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
- *   AccessLogSettings: {
+ * const input = { // CreateStageRequest
+ *   AccessLogSettings: { // AccessLogSettings
  *     DestinationArn: "STRING_VALUE",
  *     Format: "STRING_VALUE",
  *   },
  *   ApiId: "STRING_VALUE", // required
  *   AutoDeploy: true || false,
  *   ClientCertificateId: "STRING_VALUE",
- *   DefaultRouteSettings: {
+ *   DefaultRouteSettings: { // RouteSettings
  *     DataTraceEnabled: true || false,
  *     DetailedMetricsEnabled: true || false,
  *     LoggingLevel: "STRING_VALUE",
@@ -59,7 +59,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  *   },
  *   DeploymentId: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   RouteSettings: {
+ *   RouteSettings: { // RouteSettingsMap
  *     "<keys>": {
  *       DataTraceEnabled: true || false,
  *       DetailedMetricsEnabled: true || false,
@@ -69,10 +69,10 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  *     },
  *   },
  *   StageName: "STRING_VALUE", // required
- *   StageVariables: {
+ *   StageVariables: { // StageVariablesMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

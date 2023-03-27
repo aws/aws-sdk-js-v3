@@ -44,7 +44,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * import { MobileClient, DeleteProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, DeleteProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
- * const input = {
+ * const input = { // DeleteProjectRequest
  *   projectId: "STRING_VALUE", // required
  * };
  * const command = new DeleteProjectCommand(input);

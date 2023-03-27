@@ -43,7 +43,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * import { IoTClient, ListPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListPoliciesRequest
  *   marker: "STRING_VALUE",
  *   pageSize: Number("int"),
  *   ascendingOrder: true || false,

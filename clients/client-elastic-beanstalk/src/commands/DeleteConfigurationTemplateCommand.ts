@@ -47,7 +47,7 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * import { ElasticBeanstalkClient, DeleteConfigurationTemplateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteConfigurationTemplateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DeleteConfigurationTemplateMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   TemplateName: "STRING_VALUE", // required
  * };

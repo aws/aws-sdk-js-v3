@@ -42,7 +42,7 @@ export interface UnarchiveApplicationCommandOutput extends Application, __Metada
  * import { MgnClient, UnarchiveApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UnarchiveApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // UnarchiveApplicationRequest
  *   applicationID: "STRING_VALUE", // required
  * };
  * const command = new UnarchiveApplicationCommand(input);

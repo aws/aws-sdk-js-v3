@@ -55,7 +55,7 @@ export interface GetPackageVersionAssetCommandOutput
  * import { CodeartifactClient, GetPackageVersionAssetCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetPackageVersionAssetCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const input = {
+ * const input = { // GetPackageVersionAssetRequest
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required

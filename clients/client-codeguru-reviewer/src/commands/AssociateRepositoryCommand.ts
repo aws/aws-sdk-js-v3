@@ -64,12 +64,12 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * import { CodeGuruReviewerClient, AssociateRepositoryCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, AssociateRepositoryCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
- *   Repository: {
- *     CodeCommit: {
+ * const input = { // AssociateRepositoryRequest
+ *   Repository: { // Repository
+ *     CodeCommit: { // CodeCommitRepository
  *       Name: "STRING_VALUE", // required
  *     },
- *     Bitbucket: {
+ *     Bitbucket: { // ThirdPartySourceRepository
  *       Name: "STRING_VALUE", // required
  *       ConnectionArn: "STRING_VALUE", // required
  *       Owner: "STRING_VALUE", // required
@@ -79,16 +79,16 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *       ConnectionArn: "STRING_VALUE", // required
  *       Owner: "STRING_VALUE", // required
  *     },
- *     S3Bucket: {
+ *     S3Bucket: { // S3Repository
  *       Name: "STRING_VALUE", // required
  *       BucketName: "STRING_VALUE", // required
  *     },
  *   },
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   KMSKeyDetails: {
+ *   KMSKeyDetails: { // KMSKeyDetails
  *     KMSKeyId: "STRING_VALUE",
  *     EncryptionOption: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK",
  *   },

@@ -42,15 +42,15 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * import { DocDBClient, CreateDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // CreateDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   DBInstanceClass: "STRING_VALUE", // required
  *   Engine: "STRING_VALUE", // required
  *   AvailabilityZone: "STRING_VALUE",
  *   PreferredMaintenanceWindow: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

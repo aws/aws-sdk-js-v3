@@ -45,12 +45,12 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * import { SSMClient, DescribeAutomationStepExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAutomationStepExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeAutomationStepExecutionsRequest
  *   AutomationExecutionId: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // StepExecutionFilterList
+ *     { // StepExecutionFilter
  *       Key: "StartTimeBefore" || "StartTimeAfter" || "StepExecutionStatus" || "StepExecutionId" || "StepName" || "Action", // required
- *       Values: [ // required
+ *       Values: [ // StepExecutionFilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -46,7 +46,7 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * import { ResiliencehubClient, ListAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // ListAppVersionResourceMappingsRequest
  *   appArn: "STRING_VALUE", // required
  *   appVersion: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",

@@ -42,49 +42,49 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * import { DynamoDBClient, ImportTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ImportTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // ImportTableInput
  *   ClientToken: "STRING_VALUE",
- *   S3BucketSource: {
+ *   S3BucketSource: { // S3BucketSource
  *     S3BucketOwner: "STRING_VALUE",
  *     S3Bucket: "STRING_VALUE", // required
  *     S3KeyPrefix: "STRING_VALUE",
  *   },
  *   InputFormat: "DYNAMODB_JSON" || "ION" || "CSV", // required
- *   InputFormatOptions: {
- *     Csv: {
+ *   InputFormatOptions: { // InputFormatOptions
+ *     Csv: { // CsvOptions
  *       Delimiter: "STRING_VALUE",
- *       HeaderList: [
+ *       HeaderList: [ // CsvHeaderList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
  *   InputCompressionType: "GZIP" || "ZSTD" || "NONE",
- *   TableCreationParameters: {
+ *   TableCreationParameters: { // TableCreationParameters
  *     TableName: "STRING_VALUE", // required
- *     AttributeDefinitions: [ // required
- *       {
+ *     AttributeDefinitions: [ // AttributeDefinitions // required
+ *       { // AttributeDefinition
  *         AttributeName: "STRING_VALUE", // required
  *         AttributeType: "S" || "N" || "B", // required
  *       },
  *     ],
- *     KeySchema: [ // required
- *       {
+ *     KeySchema: [ // KeySchema // required
+ *       { // KeySchemaElement
  *         AttributeName: "STRING_VALUE", // required
  *         KeyType: "HASH" || "RANGE", // required
  *       },
  *     ],
  *     BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
- *     ProvisionedThroughput: {
+ *     ProvisionedThroughput: { // ProvisionedThroughput
  *       ReadCapacityUnits: Number("long"), // required
  *       WriteCapacityUnits: Number("long"), // required
  *     },
- *     SSESpecification: {
+ *     SSESpecification: { // SSESpecification
  *       Enabled: true || false,
  *       SSEType: "AES256" || "KMS",
  *       KMSMasterKeyId: "STRING_VALUE",
  *     },
- *     GlobalSecondaryIndexes: [
- *       {
+ *     GlobalSecondaryIndexes: [ // GlobalSecondaryIndexList
+ *       { // GlobalSecondaryIndex
  *         IndexName: "STRING_VALUE", // required
  *         KeySchema: [ // required
  *           {
@@ -92,9 +92,9 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *             KeyType: "HASH" || "RANGE", // required
  *           },
  *         ],
- *         Projection: {
+ *         Projection: { // Projection
  *           ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
- *           NonKeyAttributes: [
+ *           NonKeyAttributes: [ // NonKeyAttributeNameList
  *             "STRING_VALUE",
  *           ],
  *         },

@@ -42,7 +42,7 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, _
  * import { CleanRoomsClient, DeleteMembershipCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteMembershipCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // DeleteMembershipInput
  *   membershipIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteMembershipCommand(input);

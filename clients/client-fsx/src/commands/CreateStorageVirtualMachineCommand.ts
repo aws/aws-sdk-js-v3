@@ -48,16 +48,16 @@ export interface CreateStorageVirtualMachineCommandOutput
  * import { FSxClient, CreateStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
- *   ActiveDirectoryConfiguration: {
+ * const input = { // CreateStorageVirtualMachineRequest
+ *   ActiveDirectoryConfiguration: { // CreateSvmActiveDirectoryConfiguration
  *     NetBiosName: "STRING_VALUE", // required
- *     SelfManagedActiveDirectoryConfiguration: {
+ *     SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryConfiguration
  *       DomainName: "STRING_VALUE", // required
  *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
  *       FileSystemAdministratorsGroup: "STRING_VALUE",
  *       UserName: "STRING_VALUE", // required
  *       Password: "STRING_VALUE", // required
- *       DnsIps: [ // required
+ *       DnsIps: [ // DnsIps // required
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -66,8 +66,8 @@ export interface CreateStorageVirtualMachineCommandOutput
  *   FileSystemId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   SvmAdminPassword: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

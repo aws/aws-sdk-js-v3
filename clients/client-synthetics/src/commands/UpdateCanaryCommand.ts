@@ -46,9 +46,9 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * import { SyntheticsClient, UpdateCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, UpdateCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const input = {
+ * const input = { // UpdateCanaryRequest
  *   Name: "STRING_VALUE", // required
- *   Code: {
+ *   Code: { // CanaryCodeInput
  *     S3Bucket: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
  *     S3Version: "STRING_VALUE",
@@ -57,33 +57,33 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *   },
  *   ExecutionRoleArn: "STRING_VALUE",
  *   RuntimeVersion: "STRING_VALUE",
- *   Schedule: {
+ *   Schedule: { // CanaryScheduleInput
  *     Expression: "STRING_VALUE", // required
  *     DurationInSeconds: Number("long"),
  *   },
- *   RunConfig: {
+ *   RunConfig: { // CanaryRunConfigInput
  *     TimeoutInSeconds: Number("int"),
  *     MemoryInMB: Number("int"),
  *     ActiveTracing: true || false,
- *     EnvironmentVariables: {
+ *     EnvironmentVariables: { // EnvironmentVariablesMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
  *   SuccessRetentionPeriodInDays: Number("int"),
  *   FailureRetentionPeriodInDays: Number("int"),
- *   VpcConfig: {
- *     SubnetIds: [
+ *   VpcConfig: { // VpcConfigInput
+ *     SubnetIds: [ // SubnetIds
  *       "STRING_VALUE",
  *     ],
- *     SecurityGroupIds: [
+ *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
  *   },
- *   VisualReference: {
- *     BaseScreenshots: [
- *       {
+ *   VisualReference: { // VisualReferenceInput
+ *     BaseScreenshots: [ // BaseScreenshots
+ *       { // BaseScreenshot
  *         ScreenshotName: "STRING_VALUE", // required
- *         IgnoreCoordinates: [
+ *         IgnoreCoordinates: [ // BaseScreenshotIgnoreCoordinates
  *           "STRING_VALUE",
  *         ],
  *       },
@@ -91,8 +91,8 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     BaseCanaryRunId: "STRING_VALUE", // required
  *   },
  *   ArtifactS3Location: "STRING_VALUE",
- *   ArtifactConfig: {
- *     S3Encryption: {
+ *   ArtifactConfig: { // ArtifactConfigInput
+ *     S3Encryption: { // S3EncryptionConfig
  *       EncryptionMode: "STRING_VALUE",
  *       KmsKeyArn: "STRING_VALUE",
  *     },

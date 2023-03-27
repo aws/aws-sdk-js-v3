@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, TagResourceCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, TagResourceCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // Tags // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

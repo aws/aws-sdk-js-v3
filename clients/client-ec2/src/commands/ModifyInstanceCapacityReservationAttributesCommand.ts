@@ -50,11 +50,11 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * import { EC2Client, ModifyInstanceCapacityReservationAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceCapacityReservationAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyInstanceCapacityReservationAttributesRequest
  *   InstanceId: "STRING_VALUE", // required
- *   CapacityReservationSpecification: {
+ *   CapacityReservationSpecification: { // CapacityReservationSpecification
  *     CapacityReservationPreference: "open" || "none",
- *     CapacityReservationTarget: {
+ *     CapacityReservationTarget: { // CapacityReservationTarget
  *       CapacityReservationId: "STRING_VALUE",
  *       CapacityReservationResourceGroupArn: "STRING_VALUE",
  *     },

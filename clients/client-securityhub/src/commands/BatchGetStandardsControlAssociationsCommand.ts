@@ -49,9 +49,9 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
  * import { SecurityHubClient, BatchGetStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchGetStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   StandardsControlAssociationIds: [ // required
- *     {
+ * const input = { // BatchGetStandardsControlAssociationsRequest
+ *   StandardsControlAssociationIds: [ // StandardsControlAssociationIds // required
+ *     { // StandardsControlAssociationId
  *       SecurityControlId: "STRING_VALUE", // required
  *       StandardsArn: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBe
  * import { BackupClient, DeleteBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DeleteBackupVaultAccessPolicyInput
  *   BackupVaultName: "STRING_VALUE", // required
  * };
  * const command = new DeleteBackupVaultAccessPolicyCommand(input);

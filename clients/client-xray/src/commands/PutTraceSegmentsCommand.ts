@@ -104,8 +104,8 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * import { XRayClient, PutTraceSegmentsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutTraceSegmentsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
- *   TraceSegmentDocuments: [ // required
+ * const input = { // PutTraceSegmentsRequest
+ *   TraceSegmentDocuments: [ // TraceSegmentDocumentList // required
  *     "STRING_VALUE",
  *   ],
  * };

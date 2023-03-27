@@ -42,7 +42,7 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * import { EventBridgeClient, ListApiDestinationsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListApiDestinationsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // ListApiDestinationsRequest
  *   NamePrefix: "STRING_VALUE",
  *   ConnectionArn: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

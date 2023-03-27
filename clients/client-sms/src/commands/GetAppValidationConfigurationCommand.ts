@@ -44,7 +44,7 @@ export interface GetAppValidationConfigurationCommandOutput
  * import { SMSClient, GetAppValidationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetAppValidationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // GetAppValidationConfigurationRequest
  *   appId: "STRING_VALUE", // required
  * };
  * const command = new GetAppValidationConfigurationCommand(input);

@@ -43,7 +43,7 @@ export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyR
  * import { ConnectClient, AssociateSecurityKeyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateSecurityKeyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // AssociateSecurityKeyRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
  * };

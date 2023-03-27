@@ -48,11 +48,11 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  * import { ChimeSDKVoiceClient, CreateSipMediaApplicationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreateSipMediaApplicationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // CreateSipMediaApplicationRequest
  *   AwsRegion: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Endpoints: [ // required
- *     {
+ *   Endpoints: [ // SipMediaApplicationEndpointList // required
+ *     { // SipMediaApplicationEndpoint
  *       LambdaArn: "STRING_VALUE",
  *     },
  *   ],

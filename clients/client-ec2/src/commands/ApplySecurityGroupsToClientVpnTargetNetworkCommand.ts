@@ -49,10 +49,10 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
  * import { EC2Client, ApplySecurityGroupsToClientVpnTargetNetworkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ApplySecurityGroupsToClientVpnTargetNetworkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ApplySecurityGroupsToClientVpnTargetNetworkRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   VpcId: "STRING_VALUE", // required
- *   SecurityGroupIds: [ // required
+ *   SecurityGroupIds: [ // ClientVpnSecurityGroupIdSet // required
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

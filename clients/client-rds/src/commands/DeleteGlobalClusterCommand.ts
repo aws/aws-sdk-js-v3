@@ -46,7 +46,7 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * import { RDSClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeleteGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteGlobalClusterCommand(input);

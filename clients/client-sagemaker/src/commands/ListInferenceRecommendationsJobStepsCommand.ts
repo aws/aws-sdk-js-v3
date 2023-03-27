@@ -48,7 +48,7 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
  * import { SageMakerClient, ListInferenceRecommendationsJobStepsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListInferenceRecommendationsJobStepsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListInferenceRecommendationsJobStepsRequest
  *   JobName: "STRING_VALUE", // required
  *   Status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
  *   StepType: "BENCHMARK",

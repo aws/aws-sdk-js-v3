@@ -44,7 +44,7 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * import { TransferClient, UpdateAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // UpdateAgreementRequest
  *   AgreementId: "STRING_VALUE", // required
  *   ServerId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

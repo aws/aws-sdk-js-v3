@@ -42,7 +42,7 @@ export interface DeleteDevEnvironmentCommandOutput extends DeleteDevEnvironmentR
  * import { CodeCatalystClient, DeleteDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, DeleteDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // DeleteDevEnvironmentRequest
  *   spaceName: "STRING_VALUE", // required
  *   projectName: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required

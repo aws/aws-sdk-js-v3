@@ -47,14 +47,14 @@ export interface DescribeTransitGatewayPolicyTablesCommandOutput
  * import { EC2Client, DescribeTransitGatewayPolicyTablesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayPolicyTablesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   TransitGatewayPolicyTableIds: [
+ * const input = { // DescribeTransitGatewayPolicyTablesRequest
+ *   TransitGatewayPolicyTableIds: [ // TransitGatewayPolicyTableIdStringList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -77,8 +77,8 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  * import { GameLiftClient, DescribeFleetCapacityCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetCapacityCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
- *   FleetIds: [
+ * const input = { // DescribeFleetCapacityInput
+ *   FleetIds: [ // FleetIdOrArnList
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

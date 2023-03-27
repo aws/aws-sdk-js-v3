@@ -38,25 +38,25 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * import { QueryProtocolClient, QueryListsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryListsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
- * const input = {
- *   ListArg: [
+ * const input = { // QueryListsInput
+ *   ListArg: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   ComplexListArg: [
- *     {
+ *   ComplexListArg: [ // GreetingList
+ *     { // GreetingStruct
  *       hi: "STRING_VALUE",
  *     },
  *   ],
  *   FlattenedListArg: [
  *     "STRING_VALUE",
  *   ],
- *   ListArgWithXmlNameMember: [
+ *   ListArgWithXmlNameMember: [ // ListWithXmlName
  *     "STRING_VALUE",
  *   ],
  *   FlattenedListArgWithXmlName: [
  *     "STRING_VALUE",
  *   ],
- *   NestedWithList: {
+ *   NestedWithList: { // NestedStructWithList
  *     ListArg: [
  *       "STRING_VALUE",
  *     ],

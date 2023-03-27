@@ -42,7 +42,7 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * import { LakeFormationClient, CancelTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CancelTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // CancelTransactionRequest
  *   TransactionId: "STRING_VALUE", // required
  * };
  * const command = new CancelTransactionCommand(input);

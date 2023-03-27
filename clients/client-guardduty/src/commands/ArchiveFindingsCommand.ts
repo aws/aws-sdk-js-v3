@@ -46,9 +46,9 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  * import { GuardDutyClient, ArchiveFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ArchiveFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // ArchiveFindingsRequest
  *   DetectorId: "STRING_VALUE", // required
- *   FindingIds: [ // required
+ *   FindingIds: [ // FindingIds // required
  *     "STRING_VALUE",
  *   ],
  * };

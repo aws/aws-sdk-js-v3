@@ -52,7 +52,7 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * import { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
+ * const input = { // UpdateCustomRoutingAcceleratorAttributesRequest
  *   AcceleratorArn: "STRING_VALUE", // required
  *   FlowLogsEnabled: true || false,
  *   FlowLogsS3Bucket: "STRING_VALUE",

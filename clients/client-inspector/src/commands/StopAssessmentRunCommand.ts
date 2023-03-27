@@ -43,7 +43,7 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, StopAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, StopAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
+ * const input = { // StopAssessmentRunRequest
  *   assessmentRunArn: "STRING_VALUE", // required
  *   stopAction: "STRING_VALUE",
  * };

@@ -49,19 +49,19 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * import { ProtonClient, UpdateServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // UpdateServiceTemplateVersionInput
  *   templateName: "STRING_VALUE", // required
  *   majorVersion: "STRING_VALUE", // required
  *   minorVersion: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   status: "STRING_VALUE",
- *   compatibleEnvironmentTemplates: [
- *     {
+ *   compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateInputList
+ *     { // CompatibleEnvironmentTemplateInput
  *       templateName: "STRING_VALUE", // required
  *       majorVersion: "STRING_VALUE", // required
  *     },
  *   ],
- *   supportedComponentSources: [
+ *   supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
  *     "STRING_VALUE",
  *   ],
  * };

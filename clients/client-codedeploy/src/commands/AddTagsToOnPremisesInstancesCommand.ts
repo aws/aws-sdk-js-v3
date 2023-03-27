@@ -42,14 +42,14 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  * import { CodeDeployClient, AddTagsToOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, AddTagsToOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
- *   tags: [ // required
- *     {
+ * const input = { // AddTagsToOnPremisesInstancesInput
+ *   tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   instanceNames: [ // required
+ *   instanceNames: [ // InstanceNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

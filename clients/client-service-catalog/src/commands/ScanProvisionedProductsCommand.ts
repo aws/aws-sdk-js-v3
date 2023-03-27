@@ -43,9 +43,9 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * import { ServiceCatalogClient, ScanProvisionedProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ScanProvisionedProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ScanProvisionedProductsInput
  *   AcceptLanguage: "STRING_VALUE",
- *   AccessLevelFilter: {
+ *   AccessLevelFilter: { // AccessLevelFilter
  *     Key: "Account" || "Role" || "User",
  *     Value: "STRING_VALUE",
  *   },

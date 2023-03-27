@@ -42,7 +42,7 @@ export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBea
  * import { WellArchitectedClient, ListLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // ListLensesInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   LensType: "AWS_OFFICIAL" || "CUSTOM_SHARED" || "CUSTOM_SELF",

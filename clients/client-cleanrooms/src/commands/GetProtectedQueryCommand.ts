@@ -46,7 +46,7 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * import { CleanRoomsClient, GetProtectedQueryCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetProtectedQueryCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // GetProtectedQueryInput
  *   membershipIdentifier: "STRING_VALUE", // required
  *   protectedQueryIdentifier: "STRING_VALUE", // required
  * };

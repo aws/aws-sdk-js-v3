@@ -42,7 +42,7 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  * import { LexModelsV2Client, DescribeBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // DescribeBotVersionRequest
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
  * };

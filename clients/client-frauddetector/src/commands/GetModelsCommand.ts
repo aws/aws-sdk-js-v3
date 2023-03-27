@@ -45,7 +45,7 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  * import { FraudDetectorClient, GetModelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetModelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // GetModelsRequest
  *   modelId: "STRING_VALUE",
  *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
  *   nextToken: "STRING_VALUE",

@@ -41,41 +41,41 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * import { RestJsonProtocolClient, JsonMapsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonMapsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
- *   denseStructMap: {
+ * const input = { // JsonMapsInputOutput
+ *   denseStructMap: { // DenseStructMap
+ *     "<keys>": { // GreetingStruct
+ *       hi: "STRING_VALUE",
+ *     },
+ *   },
+ *   sparseStructMap: { // SparseStructMap
  *     "<keys>": {
  *       hi: "STRING_VALUE",
  *     },
  *   },
- *   sparseStructMap: {
- *     "<keys>": {
- *       hi: "STRING_VALUE",
- *     },
- *   },
- *   denseNumberMap: {
+ *   denseNumberMap: { // DenseNumberMap
  *     "<keys>": Number("int"),
  *   },
- *   denseBooleanMap: {
+ *   denseBooleanMap: { // DenseBooleanMap
  *     "<keys>": true || false,
  *   },
- *   denseStringMap: {
+ *   denseStringMap: { // DenseStringMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   sparseNumberMap: {
+ *   sparseNumberMap: { // SparseNumberMap
  *     "<keys>": Number("int"),
  *   },
- *   sparseBooleanMap: {
+ *   sparseBooleanMap: { // SparseBooleanMap
  *     "<keys>": true || false,
  *   },
- *   sparseStringMap: {
+ *   sparseStringMap: { // SparseStringMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   denseSetMap: {
- *     "<keys>": [
+ *   denseSetMap: { // DenseSetMap
+ *     "<keys>": [ // StringSet
  *       "STRING_VALUE",
  *     ],
  *   },
- *   sparseSetMap: {
+ *   sparseSetMap: { // SparseSetMap
  *     "<keys>": [
  *       "STRING_VALUE",
  *     ],

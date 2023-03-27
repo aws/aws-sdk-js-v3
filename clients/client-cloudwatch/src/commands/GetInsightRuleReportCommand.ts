@@ -78,13 +78,13 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * import { CloudWatchClient, GetInsightRuleReportCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetInsightRuleReportCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // GetInsightRuleReportInput
  *   RuleName: "STRING_VALUE", // required
  *   StartTime: new Date("TIMESTAMP"), // required
  *   EndTime: new Date("TIMESTAMP"), // required
  *   Period: Number("int"), // required
  *   MaxContributorCount: Number("int"),
- *   Metrics: [
+ *   Metrics: [ // InsightRuleMetricList
  *     "STRING_VALUE",
  *   ],
  *   OrderBy: "STRING_VALUE",

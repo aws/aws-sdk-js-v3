@@ -44,7 +44,7 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, DeleteUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // DeleteUserAccessLoggingSettingsRequest
  *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteUserAccessLoggingSettingsCommand(input);

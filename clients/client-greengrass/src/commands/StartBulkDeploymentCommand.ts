@@ -42,11 +42,11 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * import { GreengrassClient, StartBulkDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, StartBulkDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // StartBulkDeploymentRequest
  *   AmznClientToken: "STRING_VALUE",
  *   ExecutionRoleArn: "STRING_VALUE", // required
  *   InputFileUri: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

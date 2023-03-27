@@ -44,8 +44,8 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * import { CloudWatchClient, DeleteDashboardsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteDashboardsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
- *   DashboardNames: [ // required
+ * const input = { // DeleteDashboardsInput
+ *   DashboardNames: [ // DashboardNames // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,12 +42,12 @@ export interface DefineAnalysisSchemeCommandOutput extends DefineAnalysisSchemeR
  * import { CloudSearchClient, DefineAnalysisSchemeCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DefineAnalysisSchemeCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DefineAnalysisSchemeRequest
  *   DomainName: "STRING_VALUE", // required
- *   AnalysisScheme: {
+ *   AnalysisScheme: { // AnalysisScheme
  *     AnalysisSchemeName: "STRING_VALUE", // required
  *     AnalysisSchemeLanguage: "STRING_VALUE", // required
- *     AnalysisOptions: {
+ *     AnalysisOptions: { // AnalysisOptions
  *       Synonyms: "STRING_VALUE",
  *       Stopwords: "STRING_VALUE",
  *       StemmingDictionary: "STRING_VALUE",

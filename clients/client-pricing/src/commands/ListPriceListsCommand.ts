@@ -54,7 +54,7 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * import { PricingClient, ListPriceListsCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, ListPriceListsCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
- * const input = {
+ * const input = { // ListPriceListsRequest
  *   ServiceCode: "STRING_VALUE", // required
  *   EffectiveDate: new Date("TIMESTAMP"), // required
  *   RegionCode: "STRING_VALUE",

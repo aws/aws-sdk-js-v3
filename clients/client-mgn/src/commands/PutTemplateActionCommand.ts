@@ -42,7 +42,7 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  * import { MgnClient, PutTemplateActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, PutTemplateActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // PutTemplateActionRequest
  *   launchConfigurationTemplateID: "STRING_VALUE", // required
  *   actionName: "STRING_VALUE", // required
  *   documentIdentifier: "STRING_VALUE", // required
@@ -52,17 +52,17 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  *   active: true || false,
  *   timeoutSeconds: Number("int"),
  *   mustSucceedForCutover: true || false,
- *   parameters: {
- *     "<keys>": [
- *       {
+ *   parameters: { // SsmDocumentParameters
+ *     "<keys>": [ // SsmParameterStoreParameters
+ *       { // SsmParameterStoreParameter
  *         parameterType: "STRING_VALUE", // required
  *         parameterName: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
  *   operatingSystem: "STRING_VALUE",
- *   externalParameters: {
- *     "<keys>": { // Union: only one key present
+ *   externalParameters: { // SsmDocumentExternalParameters
+ *     "<keys>": { // SsmExternalParameter Union: only one key present
  *       dynamicPath: "STRING_VALUE",
  *     },
  *   },

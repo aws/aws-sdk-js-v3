@@ -46,7 +46,7 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * import { CloudWatchEventsClient, CreateArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreateArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // CreateArchiveRequest
  *   ArchiveName: "STRING_VALUE", // required
  *   EventSourceArn: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

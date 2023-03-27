@@ -57,25 +57,25 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * import { ChimeClient, CreateMeetingWithAttendeesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMeetingWithAttendeesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateMeetingWithAttendeesRequest
  *   ClientRequestToken: "STRING_VALUE", // required
  *   ExternalMeetingId: "STRING_VALUE",
  *   MeetingHostId: "STRING_VALUE",
  *   MediaRegion: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // MeetingTagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   NotificationsConfiguration: {
+ *   NotificationsConfiguration: { // MeetingNotificationConfiguration
  *     SnsTopicArn: "STRING_VALUE",
  *     SqsQueueArn: "STRING_VALUE",
  *   },
- *   Attendees: [
- *     {
+ *   Attendees: [ // CreateMeetingWithAttendeesRequestItemList
+ *     { // CreateAttendeeRequestItem
  *       ExternalUserId: "STRING_VALUE", // required
- *       Tags: [
+ *       Tags: [ // AttendeeTagList
  *         {
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required

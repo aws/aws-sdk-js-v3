@@ -42,10 +42,10 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * import { PricingClient, GetProductsCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetProductsCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
- * const input = {
+ * const input = { // GetProductsRequest
  *   ServiceCode: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Type: "TERM_MATCH", // required
  *       Field: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDat
  * import { Macie2Client, DeleteCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DeleteCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // DeleteCustomDataIdentifierRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DeleteCustomDataIdentifierCommand(input);

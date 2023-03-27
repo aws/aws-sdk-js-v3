@@ -80,15 +80,15 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * import { DataPipelineClient, QueryObjectsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, QueryObjectsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // QueryObjectsInput
  *   pipelineId: "STRING_VALUE", // required
- *   query: {
- *     selectors: [
- *       {
+ *   query: { // Query
+ *     selectors: [ // SelectorList
+ *       { // Selector
  *         fieldName: "STRING_VALUE",
- *         operator: {
+ *         operator: { // Operator
  *           type: "STRING_VALUE",
- *           values: [
+ *           values: [ // stringList
  *             "STRING_VALUE",
  *           ],
  *         },

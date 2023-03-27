@@ -43,8 +43,8 @@ export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExcepti
  * import { SecurityLakeClient, ListDatalakeExceptionsCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListDatalakeExceptionsCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {
- *   regionSet: [
+ * const input = { // ListDatalakeExceptionsRequest
+ *   regionSet: [ // RegionSet
  *     "STRING_VALUE",
  *   ],
  *   maxFailures: Number("int"),

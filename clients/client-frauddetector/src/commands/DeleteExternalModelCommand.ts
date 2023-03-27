@@ -43,7 +43,7 @@ export interface DeleteExternalModelCommandOutput extends DeleteExternalModelRes
  * import { FraudDetectorClient, DeleteExternalModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteExternalModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // DeleteExternalModelRequest
  *   modelEndpoint: "STRING_VALUE", // required
  * };
  * const command = new DeleteExternalModelCommand(input);

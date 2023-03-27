@@ -42,7 +42,7 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteDeploymentCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteDeploymentCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // DeleteDeploymentRequest
  *   ApiId: "STRING_VALUE", // required
  *   DeploymentId: "STRING_VALUE", // required
  * };

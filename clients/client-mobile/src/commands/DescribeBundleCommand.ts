@@ -44,7 +44,7 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  * import { MobileClient, DescribeBundleCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, DescribeBundleCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
- * const input = {
+ * const input = { // DescribeBundleRequest
  *   bundleId: "STRING_VALUE", // required
  * };
  * const command = new DescribeBundleCommand(input);

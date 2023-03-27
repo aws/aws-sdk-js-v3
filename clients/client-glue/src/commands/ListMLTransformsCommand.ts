@@ -46,10 +46,10 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * import { GlueClient, ListMLTransformsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListMLTransformsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListMLTransformsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filter: {
+ *   Filter: { // TransformFilterCriteria
  *     Name: "STRING_VALUE",
  *     TransformType: "FIND_MATCHES",
  *     Status: "NOT_READY" || "READY" || "DELETING",
@@ -58,18 +58,18 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  *     CreatedAfter: new Date("TIMESTAMP"),
  *     LastModifiedBefore: new Date("TIMESTAMP"),
  *     LastModifiedAfter: new Date("TIMESTAMP"),
- *     Schema: [
- *       {
+ *     Schema: [ // TransformSchema
+ *       { // SchemaColumn
  *         Name: "STRING_VALUE",
  *         DataType: "STRING_VALUE",
  *       },
  *     ],
  *   },
- *   Sort: {
+ *   Sort: { // TransformSortCriteria
  *     Column: "NAME" || "TRANSFORM_TYPE" || "STATUS" || "CREATED" || "LAST_MODIFIED", // required
  *     SortDirection: "DESCENDING" || "ASCENDING", // required
  *   },
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

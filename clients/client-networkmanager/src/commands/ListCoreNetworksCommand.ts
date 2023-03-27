@@ -42,7 +42,7 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * import { NetworkManagerClient, ListCoreNetworksCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, ListCoreNetworksCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // ListCoreNetworksRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

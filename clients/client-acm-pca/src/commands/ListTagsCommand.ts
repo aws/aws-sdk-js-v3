@@ -42,7 +42,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * import { ACMPCAClient, ListTagsCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, ListTagsCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
+ * const input = { // ListTagsRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

@@ -52,7 +52,7 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * import { OrganizationsClient, EnablePolicyTypeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, EnablePolicyTypeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // EnablePolicyTypeRequest
  *   RootId: "STRING_VALUE", // required
  *   PolicyType: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
  * };

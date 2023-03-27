@@ -47,7 +47,7 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * import { SESClient, UpdateAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // UpdateAccountSendingEnabledRequest
  *   Enabled: true || false,
  * };
  * const command = new UpdateAccountSendingEnabledCommand(input);

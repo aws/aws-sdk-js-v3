@@ -42,7 +42,7 @@ export interface ListModelCardVersionsCommandOutput extends ListModelCardVersion
  * import { SageMakerClient, ListModelCardVersionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelCardVersionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListModelCardVersionsRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   MaxResults: Number("int"),

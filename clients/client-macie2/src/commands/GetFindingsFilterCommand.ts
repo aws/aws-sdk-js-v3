@@ -42,7 +42,7 @@ export interface GetFindingsFilterCommandOutput extends GetFindingsFilterRespons
  * import { Macie2Client, GetFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // GetFindingsFilterRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetFindingsFilterCommand(input);

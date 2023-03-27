@@ -43,7 +43,7 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * import { EvidentlyClient, StartExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, StartExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // StartExperimentRequest
  *   project: "STRING_VALUE", // required
  *   experiment: "STRING_VALUE", // required
  *   analysisCompleteTime: new Date("TIMESTAMP"), // required

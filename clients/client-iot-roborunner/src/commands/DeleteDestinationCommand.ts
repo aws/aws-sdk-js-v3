@@ -42,7 +42,7 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * import { IoTRoboRunnerClient, DeleteDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, DeleteDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // DeleteDestinationRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DeleteDestinationCommand(input);

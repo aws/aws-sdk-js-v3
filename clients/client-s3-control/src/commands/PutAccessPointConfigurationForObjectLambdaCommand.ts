@@ -53,22 +53,22 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * import { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // PutAccessPointConfigurationForObjectLambdaRequest
  *   AccountId: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
- *   Configuration: {
+ *   Configuration: { // ObjectLambdaConfiguration
  *     SupportingAccessPoint: "STRING_VALUE", // required
  *     CloudWatchMetricsEnabled: true || false,
- *     AllowedFeatures: [
+ *     AllowedFeatures: [ // ObjectLambdaAllowedFeaturesList
  *       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
  *     ],
- *     TransformationConfigurations: [ // required
- *       {
- *         Actions: [ // required
+ *     TransformationConfigurations: [ // ObjectLambdaTransformationConfigurationsList // required
+ *       { // ObjectLambdaTransformationConfiguration
+ *         Actions: [ // ObjectLambdaTransformationConfigurationActionsList // required
  *           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
  *         ],
- *         ContentTransformation: { // Union: only one key present
- *           AwsLambda: {
+ *         ContentTransformation: { // ObjectLambdaContentTransformation Union: only one key present
+ *           AwsLambda: { // AwsLambdaTransformation
  *             FunctionArn: "STRING_VALUE", // required
  *             FunctionPayload: "STRING_VALUE",
  *           },

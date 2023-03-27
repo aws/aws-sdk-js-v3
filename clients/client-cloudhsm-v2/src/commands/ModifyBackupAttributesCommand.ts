@@ -42,7 +42,7 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * import { CloudHSMV2Client, ModifyBackupAttributesCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, ModifyBackupAttributesCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
- * const input = {
+ * const input = { // ModifyBackupAttributesRequest
  *   BackupId: "STRING_VALUE", // required
  *   NeverExpires: true || false, // required
  * };

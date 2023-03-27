@@ -48,14 +48,14 @@ export interface ImportHypervisorConfigurationCommandOutput
  * import { BackupGatewayClient, ImportHypervisorConfigurationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ImportHypervisorConfigurationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
- * const input = {
+ * const input = { // ImportHypervisorConfigurationInput
  *   Name: "STRING_VALUE", // required
  *   Host: "STRING_VALUE", // required
  *   Username: "STRING_VALUE",
  *   Password: "STRING_VALUE",
  *   KmsKeyArn: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

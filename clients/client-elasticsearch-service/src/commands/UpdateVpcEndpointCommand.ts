@@ -46,10 +46,10 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * import { ElasticsearchServiceClient, UpdateVpcEndpointCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, UpdateVpcEndpointCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // UpdateVpcEndpointRequest
  *   VpcEndpointId: "STRING_VALUE", // required
- *   VpcOptions: {
- *     SubnetIds: [
+ *   VpcOptions: { // VPCOptions
+ *     SubnetIds: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     SecurityGroupIds: [

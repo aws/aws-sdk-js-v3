@@ -42,32 +42,32 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  * import { IoTWirelessClient, CreateWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CreateWirelessGatewayRequest
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   LoRaWAN: {
+ *   LoRaWAN: { // LoRaWANGateway
  *     GatewayEui: "STRING_VALUE",
  *     RfRegion: "STRING_VALUE",
- *     JoinEuiFilters: [
- *       [
+ *     JoinEuiFilters: [ // JoinEuiFilters
+ *       [ // JoinEuiRange
  *         "STRING_VALUE",
  *       ],
  *     ],
- *     NetIdFilters: [
+ *     NetIdFilters: [ // NetIdFilters
  *       "STRING_VALUE",
  *     ],
- *     SubBands: [
+ *     SubBands: [ // SubBands
  *       Number("int"),
  *     ],
- *     Beaconing: {
+ *     Beaconing: { // Beaconing
  *       DataRate: Number("int"),
- *       Frequencies: [
+ *       Frequencies: [ // BeaconingFrequencies
  *         Number("int"),
  *       ],
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

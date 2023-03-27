@@ -74,30 +74,30 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * import { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminRespondToAuthChallengeRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE", // required
  *   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED", // required
- *   ChallengeResponses: {
+ *   ChallengeResponses: { // ChallengeResponsesType
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Session: "STRING_VALUE",
- *   AnalyticsMetadata: {
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
  *     AnalyticsEndpointId: "STRING_VALUE",
  *   },
- *   ContextData: {
+ *   ContextData: { // ContextDataType
  *     IpAddress: "STRING_VALUE", // required
  *     ServerName: "STRING_VALUE", // required
  *     ServerPath: "STRING_VALUE", // required
- *     HttpHeaders: [ // required
- *       {
+ *     HttpHeaders: [ // HttpHeaderList // required
+ *       { // HttpHeader
  *         headerName: "STRING_VALUE",
  *         headerValue: "STRING_VALUE",
  *       },
  *     ],
  *     EncodedData: "STRING_VALUE",
  *   },
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

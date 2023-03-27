@@ -103,19 +103,19 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * import { LexModelBuildingServiceClient, PutIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // PutIntentRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   slots: [
- *     {
+ *   slots: [ // SlotList
+ *     { // Slot
  *       name: "STRING_VALUE", // required
  *       description: "STRING_VALUE",
  *       slotConstraint: "STRING_VALUE", // required
  *       slotType: "STRING_VALUE",
  *       slotTypeVersion: "STRING_VALUE",
- *       valueElicitationPrompt: {
- *         messages: [ // required
- *           {
+ *       valueElicitationPrompt: { // Prompt
+ *         messages: [ // MessageList // required
+ *           { // Message
  *             contentType: "STRING_VALUE", // required
  *             content: "STRING_VALUE", // required
  *             groupNumber: Number("int"),
@@ -125,21 +125,21 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *         responseCard: "STRING_VALUE",
  *       },
  *       priority: Number("int"),
- *       sampleUtterances: [
+ *       sampleUtterances: [ // SlotUtteranceList
  *         "STRING_VALUE",
  *       ],
  *       responseCard: "STRING_VALUE",
  *       obfuscationSetting: "STRING_VALUE",
- *       defaultValueSpec: {
- *         defaultValueList: [ // required
- *           {
+ *       defaultValueSpec: { // SlotDefaultValueSpec
+ *         defaultValueList: [ // SlotDefaultValueList // required
+ *           { // SlotDefaultValue
  *             defaultValue: "STRING_VALUE", // required
  *           },
  *         ],
  *       },
  *     },
  *   ],
- *   sampleUtterances: [
+ *   sampleUtterances: [ // IntentUtteranceList
  *     "STRING_VALUE",
  *   ],
  *   confirmationPrompt: {
@@ -153,7 +153,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *     maxAttempts: Number("int"), // required
  *     responseCard: "STRING_VALUE",
  *   },
- *   rejectionStatement: {
+ *   rejectionStatement: { // Statement
  *     messages: [ // required
  *       {
  *         contentType: "STRING_VALUE", // required
@@ -163,30 +163,22 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *     ],
  *     responseCard: "STRING_VALUE",
  *   },
- *   followUpPrompt: {
- *     prompt: {
- *       messages: "<Prompt>",
- *       maxAttempts: "<Prompt>",
- *       responseCard: "<Prompt>",
- *     },
+ *   followUpPrompt: { // FollowUpPrompt
+ *     prompt: "<Prompt>", // required
  *     rejectionStatement: {
- *       messages: [ // required
- *         "<MessageList>",
- *       ],
+ *       messages: "<MessageList>", // required
  *       responseCard: "STRING_VALUE",
  *     },
  *   },
  *   conclusionStatement: {
- *     messages: [ // required
- *       "<MessageList>",
- *     ],
+ *     messages: "<MessageList>", // required
  *     responseCard: "STRING_VALUE",
  *   },
- *   dialogCodeHook: {
+ *   dialogCodeHook: { // CodeHook
  *     uri: "STRING_VALUE", // required
  *     messageVersion: "STRING_VALUE", // required
  *   },
- *   fulfillmentActivity: {
+ *   fulfillmentActivity: { // FulfillmentActivity
  *     type: "STRING_VALUE", // required
  *     codeHook: {
  *       uri: "STRING_VALUE", // required
@@ -196,18 +188,18 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *   parentIntentSignature: "STRING_VALUE",
  *   checksum: "STRING_VALUE",
  *   createVersion: true || false,
- *   kendraConfiguration: {
+ *   kendraConfiguration: { // KendraConfiguration
  *     kendraIndex: "STRING_VALUE", // required
  *     queryFilterString: "STRING_VALUE",
  *     role: "STRING_VALUE", // required
  *   },
- *   inputContexts: [
- *     {
+ *   inputContexts: [ // InputContextList
+ *     { // InputContext
  *       name: "STRING_VALUE", // required
  *     },
  *   ],
- *   outputContexts: [
- *     {
+ *   outputContexts: [ // OutputContextList
+ *     { // OutputContext
  *       name: "STRING_VALUE", // required
  *       timeToLiveInSeconds: Number("int"), // required
  *       turnsToLive: Number("int"), // required

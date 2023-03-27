@@ -50,7 +50,7 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * import { CognitoIdentityProviderClient, ChangePasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ChangePasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // ChangePasswordRequest
  *   PreviousPassword: "STRING_VALUE", // required
  *   ProposedPassword: "STRING_VALUE", // required
  *   AccessToken: "STRING_VALUE", // required

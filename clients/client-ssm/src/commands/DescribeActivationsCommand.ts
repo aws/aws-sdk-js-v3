@@ -45,11 +45,11 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * import { SSMClient, DescribeActivationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeActivationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeActivationsRequest
+ *   Filters: [ // DescribeActivationsFilterList
+ *     { // DescribeActivationsFilter
  *       FilterKey: "ActivationIds" || "DefaultInstanceName" || "IamRole",
- *       FilterValues: [
+ *       FilterValues: [ // StringList
  *         "STRING_VALUE",
  *       ],
  *     },

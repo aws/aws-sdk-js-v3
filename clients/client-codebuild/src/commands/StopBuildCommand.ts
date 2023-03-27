@@ -39,7 +39,7 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * import { CodeBuildClient, StopBuildCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StopBuildCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // StopBuildInput
  *   id: "STRING_VALUE", // required
  * };
  * const command = new StopBuildCommand(input);

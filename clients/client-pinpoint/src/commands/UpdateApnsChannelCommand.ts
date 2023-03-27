@@ -42,8 +42,8 @@ export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelRespons
  * import { PinpointClient, UpdateApnsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApnsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
- *   APNSChannelRequest: {
+ * const input = { // UpdateApnsChannelRequest
+ *   APNSChannelRequest: { // APNSChannelRequest
  *     BundleId: "STRING_VALUE",
  *     Certificate: "STRING_VALUE",
  *     DefaultAuthenticationMethod: "STRING_VALUE",

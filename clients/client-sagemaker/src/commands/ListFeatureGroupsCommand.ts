@@ -42,7 +42,7 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * import { SageMakerClient, ListFeatureGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListFeatureGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListFeatureGroupsRequest
  *   NameContains: "STRING_VALUE",
  *   FeatureGroupStatusEquals: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
  *   OfflineStoreStatusEquals: "Active" || "Blocked" || "Disabled",

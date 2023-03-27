@@ -55,10 +55,10 @@ export interface BatchGetAggregateResourceConfigCommandOutput
  * import { ConfigServiceClient, BatchGetAggregateResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, BatchGetAggregateResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // BatchGetAggregateResourceConfigRequest
  *   ConfigurationAggregatorName: "STRING_VALUE", // required
- *   ResourceIdentifiers: [ // required
- *     {
+ *   ResourceIdentifiers: [ // ResourceIdentifiersList // required
+ *     { // AggregateResourceIdentifier
  *       SourceAccountId: "STRING_VALUE", // required
  *       SourceRegion: "STRING_VALUE", // required
  *       ResourceId: "STRING_VALUE", // required

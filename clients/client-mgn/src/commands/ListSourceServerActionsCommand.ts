@@ -42,10 +42,10 @@ export interface ListSourceServerActionsCommandOutput extends ListSourceServerAc
  * import { MgnClient, ListSourceServerActionsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListSourceServerActionsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // ListSourceServerActionsRequest
  *   sourceServerID: "STRING_VALUE", // required
- *   filters: {
- *     actionIDs: [
+ *   filters: { // SourceServerActionsRequestFilters
+ *     actionIDs: [ // ActionIDs
  *       "STRING_VALUE",
  *     ],
  *   },

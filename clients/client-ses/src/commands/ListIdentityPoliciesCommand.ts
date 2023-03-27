@@ -53,7 +53,7 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * import { SESClient, ListIdentityPoliciesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListIdentityPoliciesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // ListIdentityPoliciesRequest
  *   Identity: "STRING_VALUE", // required
  * };
  * const command = new ListIdentityPoliciesCommand(input);

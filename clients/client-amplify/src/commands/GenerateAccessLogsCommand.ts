@@ -43,7 +43,7 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * import { AmplifyClient, GenerateAccessLogsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GenerateAccessLogsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // GenerateAccessLogsRequest
  *   startTime: new Date("TIMESTAMP"),
  *   endTime: new Date("TIMESTAMP"),
  *   domainName: "STRING_VALUE", // required

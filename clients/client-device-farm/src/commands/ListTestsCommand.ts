@@ -39,7 +39,7 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  * import { DeviceFarmClient, ListTestsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // ListTestsRequest
  *   arn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  * };

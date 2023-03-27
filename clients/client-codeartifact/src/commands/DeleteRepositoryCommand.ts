@@ -44,7 +44,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * import { CodeartifactClient, DeleteRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DeleteRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const input = {
+ * const input = { // DeleteRepositoryRequest
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required

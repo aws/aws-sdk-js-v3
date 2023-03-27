@@ -42,7 +42,7 @@ export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGateway
  * import { EC2Client, DeleteLocalGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLocalGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteLocalGatewayRouteRequest
  *   DestinationCidrBlock: "STRING_VALUE",
  *   LocalGatewayRouteTableId: "STRING_VALUE", // required
  *   DryRun: true || false,

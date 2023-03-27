@@ -42,7 +42,7 @@ export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBea
  * import { GameSparksClient, UpdateGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, UpdateGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // UpdateGameRequest
  *   GameName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  * };

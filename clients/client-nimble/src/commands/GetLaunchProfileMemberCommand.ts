@@ -42,7 +42,7 @@ export interface GetLaunchProfileMemberCommandOutput extends GetLaunchProfileMem
  * import { NimbleClient, GetLaunchProfileMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetLaunchProfileMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // GetLaunchProfileMemberRequest
  *   launchProfileId: "STRING_VALUE", // required
  *   principalId: "STRING_VALUE", // required
  *   studioId: "STRING_VALUE", // required

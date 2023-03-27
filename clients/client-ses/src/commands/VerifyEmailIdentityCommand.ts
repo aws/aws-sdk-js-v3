@@ -45,7 +45,7 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * import { SESClient, VerifyEmailIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, VerifyEmailIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // VerifyEmailIdentityRequest
  *   EmailAddress: "STRING_VALUE", // required
  * };
  * const command = new VerifyEmailIdentityCommand(input);

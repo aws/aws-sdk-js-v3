@@ -48,7 +48,7 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  * import { ElasticBeanstalkClient, DescribeEnvironmentManagedActionHistoryCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentManagedActionHistoryCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DescribeEnvironmentManagedActionHistoryRequest
  *   EnvironmentId: "STRING_VALUE",
  *   EnvironmentName: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

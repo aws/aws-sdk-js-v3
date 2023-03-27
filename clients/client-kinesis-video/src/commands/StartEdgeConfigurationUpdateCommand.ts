@@ -60,30 +60,30 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  * import { KinesisVideoClient, StartEdgeConfigurationUpdateCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, StartEdgeConfigurationUpdateCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // StartEdgeConfigurationUpdateInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
- *   EdgeConfig: {
+ *   EdgeConfig: { // EdgeConfig
  *     HubDeviceArn: "STRING_VALUE", // required
- *     RecorderConfig: {
- *       MediaSourceConfig: {
+ *     RecorderConfig: { // RecorderConfig
+ *       MediaSourceConfig: { // MediaSourceConfig
  *         MediaUriSecretArn: "STRING_VALUE", // required
  *         MediaUriType: "RTSP_URI" || "FILE_URI", // required
  *       },
+ *       ScheduleConfig: { // ScheduleConfig
+ *         ScheduleExpression: "STRING_VALUE", // required
+ *         DurationInSeconds: Number("int"), // required
+ *       },
+ *     },
+ *     UploaderConfig: { // UploaderConfig
  *       ScheduleConfig: {
  *         ScheduleExpression: "STRING_VALUE", // required
  *         DurationInSeconds: Number("int"), // required
  *       },
  *     },
- *     UploaderConfig: {
- *       ScheduleConfig: {
- *         ScheduleExpression: "STRING_VALUE", // required
- *         DurationInSeconds: Number("int"), // required
- *       },
- *     },
- *     DeletionConfig: {
+ *     DeletionConfig: { // DeletionConfig
  *       EdgeRetentionInHours: Number("int"),
- *       LocalSizeConfig: {
+ *       LocalSizeConfig: { // LocalSizeConfig
  *         MaxLocalMediaSizeInMB: Number("int"),
  *         StrategyOnFullSize: "DELETE_OLDEST_MEDIA" || "DENY_NEW_MEDIA",
  *       },

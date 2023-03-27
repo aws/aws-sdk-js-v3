@@ -43,7 +43,7 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  * import { DirectoryServiceClient, DisableRadiusCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableRadiusCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DisableRadiusRequest
  *   DirectoryId: "STRING_VALUE", // required
  * };
  * const command = new DisableRadiusCommand(input);

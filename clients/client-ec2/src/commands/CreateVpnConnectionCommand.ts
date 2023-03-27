@@ -58,18 +58,18 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  * import { EC2Client, CreateVpnConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpnConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateVpnConnectionRequest
  *   CustomerGatewayId: "STRING_VALUE", // required
  *   Type: "STRING_VALUE", // required
  *   VpnGatewayId: "STRING_VALUE",
  *   TransitGatewayId: "STRING_VALUE",
  *   DryRun: true || false,
- *   Options: {
+ *   Options: { // VpnConnectionOptionsSpecification
  *     EnableAcceleration: true || false,
  *     StaticRoutesOnly: true || false,
  *     TunnelInsideIpVersion: "ipv4" || "ipv6",
- *     TunnelOptions: [
- *       {
+ *     TunnelOptions: [ // VpnTunnelOptionsSpecificationsList
+ *       { // VpnTunnelOptionsSpecification
  *         TunnelInsideCidr: "STRING_VALUE",
  *         TunnelInsideIpv6Cidr: "STRING_VALUE",
  *         PreSharedKey: "STRING_VALUE",
@@ -80,44 +80,44 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  *         ReplayWindowSize: Number("int"),
  *         DPDTimeoutSeconds: Number("int"),
  *         DPDTimeoutAction: "STRING_VALUE",
- *         Phase1EncryptionAlgorithms: [
- *           {
+ *         Phase1EncryptionAlgorithms: [ // Phase1EncryptionAlgorithmsRequestList
+ *           { // Phase1EncryptionAlgorithmsRequestListValue
  *             Value: "STRING_VALUE",
  *           },
  *         ],
- *         Phase2EncryptionAlgorithms: [
- *           {
+ *         Phase2EncryptionAlgorithms: [ // Phase2EncryptionAlgorithmsRequestList
+ *           { // Phase2EncryptionAlgorithmsRequestListValue
  *             Value: "STRING_VALUE",
  *           },
  *         ],
- *         Phase1IntegrityAlgorithms: [
- *           {
+ *         Phase1IntegrityAlgorithms: [ // Phase1IntegrityAlgorithmsRequestList
+ *           { // Phase1IntegrityAlgorithmsRequestListValue
  *             Value: "STRING_VALUE",
  *           },
  *         ],
- *         Phase2IntegrityAlgorithms: [
- *           {
+ *         Phase2IntegrityAlgorithms: [ // Phase2IntegrityAlgorithmsRequestList
+ *           { // Phase2IntegrityAlgorithmsRequestListValue
  *             Value: "STRING_VALUE",
  *           },
  *         ],
- *         Phase1DHGroupNumbers: [
- *           {
+ *         Phase1DHGroupNumbers: [ // Phase1DHGroupNumbersRequestList
+ *           { // Phase1DHGroupNumbersRequestListValue
  *             Value: Number("int"),
  *           },
  *         ],
- *         Phase2DHGroupNumbers: [
- *           {
+ *         Phase2DHGroupNumbers: [ // Phase2DHGroupNumbersRequestList
+ *           { // Phase2DHGroupNumbersRequestListValue
  *             Value: Number("int"),
  *           },
  *         ],
- *         IKEVersions: [
- *           {
+ *         IKEVersions: [ // IKEVersionsRequestList
+ *           { // IKEVersionsRequestListValue
  *             Value: "STRING_VALUE",
  *           },
  *         ],
  *         StartupAction: "STRING_VALUE",
- *         LogOptions: {
- *           CloudWatchLogOptions: {
+ *         LogOptions: { // VpnTunnelLogOptionsSpecification
+ *           CloudWatchLogOptions: { // CloudWatchLogOptionsSpecification
  *             LogEnabled: true || false,
  *             LogGroupArn: "STRING_VALUE",
  *             LogOutputFormat: "STRING_VALUE",
@@ -132,11 +132,11 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  *     OutsideIpAddressType: "STRING_VALUE",
  *     TransportTransitGatewayAttachmentId: "STRING_VALUE",
  *   },
- *   TagSpecifications: [
- *     {
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
  *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
- *       Tags: [
- *         {
+ *       Tags: [ // TagList
+ *         { // Tag
  *           Key: "STRING_VALUE",
  *           Value: "STRING_VALUE",
  *         },

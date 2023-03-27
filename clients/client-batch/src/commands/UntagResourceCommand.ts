@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { BatchClient, UntagResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UntagResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeysList // required
  *     "STRING_VALUE",
  *   ],
  * };

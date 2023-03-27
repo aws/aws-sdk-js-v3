@@ -43,7 +43,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * import { CodePipelineClient, StartPipelineExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, StartPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // StartPipelineExecutionInput
  *   name: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  * };

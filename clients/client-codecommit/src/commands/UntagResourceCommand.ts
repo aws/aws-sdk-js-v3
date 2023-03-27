@@ -44,9 +44,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { CodeCommitClient, UntagResourceCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UntagResourceCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeysList // required
  *     "STRING_VALUE",
  *   ],
  * };

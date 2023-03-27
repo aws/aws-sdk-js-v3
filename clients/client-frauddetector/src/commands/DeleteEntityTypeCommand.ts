@@ -44,7 +44,7 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  * import { FraudDetectorClient, DeleteEntityTypeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteEntityTypeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // DeleteEntityTypeRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeleteEntityTypeCommand(input);

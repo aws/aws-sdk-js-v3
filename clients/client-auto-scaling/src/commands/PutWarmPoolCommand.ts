@@ -48,12 +48,12 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * import { AutoScalingClient, PutWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // PutWarmPoolType
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   MaxGroupPreparedCapacity: Number("int"),
  *   MinSize: Number("int"),
  *   PoolState: "Stopped" || "Running" || "Hibernated",
- *   InstanceReusePolicy: {
+ *   InstanceReusePolicy: { // InstanceReusePolicy
  *     ReuseOnScaleIn: true || false,
  *   },
  * };

@@ -48,46 +48,46 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { KinesisAnalyticsV2Client, CreateApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, CreateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // CreateApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   ApplicationDescription: "STRING_VALUE",
  *   RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15", // required
  *   ServiceExecutionRole: "STRING_VALUE", // required
- *   ApplicationConfiguration: {
- *     SqlApplicationConfiguration: {
- *       Inputs: [
- *         {
+ *   ApplicationConfiguration: { // ApplicationConfiguration
+ *     SqlApplicationConfiguration: { // SqlApplicationConfiguration
+ *       Inputs: [ // Inputs
+ *         { // Input
  *           NamePrefix: "STRING_VALUE", // required
- *           InputProcessingConfiguration: {
- *             InputLambdaProcessor: {
+ *           InputProcessingConfiguration: { // InputProcessingConfiguration
+ *             InputLambdaProcessor: { // InputLambdaProcessor
  *               ResourceARN: "STRING_VALUE", // required
  *             },
  *           },
- *           KinesisStreamsInput: {
+ *           KinesisStreamsInput: { // KinesisStreamsInput
  *             ResourceARN: "STRING_VALUE", // required
  *           },
- *           KinesisFirehoseInput: {
+ *           KinesisFirehoseInput: { // KinesisFirehoseInput
  *             ResourceARN: "STRING_VALUE", // required
  *           },
- *           InputParallelism: {
+ *           InputParallelism: { // InputParallelism
  *             Count: Number("int"),
  *           },
- *           InputSchema: {
- *             RecordFormat: {
+ *           InputSchema: { // SourceSchema
+ *             RecordFormat: { // RecordFormat
  *               RecordFormatType: "JSON" || "CSV", // required
- *               MappingParameters: {
- *                 JSONMappingParameters: {
+ *               MappingParameters: { // MappingParameters
+ *                 JSONMappingParameters: { // JSONMappingParameters
  *                   RecordRowPath: "STRING_VALUE", // required
  *                 },
- *                 CSVMappingParameters: {
+ *                 CSVMappingParameters: { // CSVMappingParameters
  *                   RecordRowDelimiter: "STRING_VALUE", // required
  *                   RecordColumnDelimiter: "STRING_VALUE", // required
  *                 },
  *               },
  *             },
  *             RecordEncoding: "STRING_VALUE",
- *             RecordColumns: [ // required
- *               {
+ *             RecordColumns: [ // RecordColumns // required
+ *               { // RecordColumn
  *                 Name: "STRING_VALUE", // required
  *                 Mapping: "STRING_VALUE",
  *                 SqlType: "STRING_VALUE", // required
@@ -96,27 +96,27 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *           },
  *         },
  *       ],
- *       Outputs: [
- *         {
+ *       Outputs: [ // Outputs
+ *         { // Output
  *           Name: "STRING_VALUE", // required
- *           KinesisStreamsOutput: {
+ *           KinesisStreamsOutput: { // KinesisStreamsOutput
  *             ResourceARN: "STRING_VALUE", // required
  *           },
- *           KinesisFirehoseOutput: {
+ *           KinesisFirehoseOutput: { // KinesisFirehoseOutput
  *             ResourceARN: "STRING_VALUE", // required
  *           },
- *           LambdaOutput: {
+ *           LambdaOutput: { // LambdaOutput
  *             ResourceARN: "STRING_VALUE", // required
  *           },
- *           DestinationSchema: {
+ *           DestinationSchema: { // DestinationSchema
  *             RecordFormatType: "JSON" || "CSV", // required
  *           },
  *         },
  *       ],
- *       ReferenceDataSources: [
- *         {
+ *       ReferenceDataSources: [ // ReferenceDataSources
+ *         { // ReferenceDataSource
  *           TableName: "STRING_VALUE", // required
- *           S3ReferenceDataSource: {
+ *           S3ReferenceDataSource: { // S3ReferenceDataSource
  *             BucketARN: "STRING_VALUE",
  *             FileKey: "STRING_VALUE",
  *           },
@@ -145,40 +145,40 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *         },
  *       ],
  *     },
- *     FlinkApplicationConfiguration: {
- *       CheckpointConfiguration: {
+ *     FlinkApplicationConfiguration: { // FlinkApplicationConfiguration
+ *       CheckpointConfiguration: { // CheckpointConfiguration
  *         ConfigurationType: "DEFAULT" || "CUSTOM", // required
  *         CheckpointingEnabled: true || false,
  *         CheckpointInterval: Number("long"),
  *         MinPauseBetweenCheckpoints: Number("long"),
  *       },
- *       MonitoringConfiguration: {
+ *       MonitoringConfiguration: { // MonitoringConfiguration
  *         ConfigurationType: "DEFAULT" || "CUSTOM", // required
  *         MetricsLevel: "APPLICATION" || "TASK" || "OPERATOR" || "PARALLELISM",
  *         LogLevel: "INFO" || "WARN" || "ERROR" || "DEBUG",
  *       },
- *       ParallelismConfiguration: {
+ *       ParallelismConfiguration: { // ParallelismConfiguration
  *         ConfigurationType: "DEFAULT" || "CUSTOM", // required
  *         Parallelism: Number("int"),
  *         ParallelismPerKPU: Number("int"),
  *         AutoScalingEnabled: true || false,
  *       },
  *     },
- *     EnvironmentProperties: {
- *       PropertyGroups: [ // required
- *         {
+ *     EnvironmentProperties: { // EnvironmentProperties
+ *       PropertyGroups: [ // PropertyGroups // required
+ *         { // PropertyGroup
  *           PropertyGroupId: "STRING_VALUE", // required
- *           PropertyMap: { // required
+ *           PropertyMap: { // PropertyMap // required
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
  *       ],
  *     },
- *     ApplicationCodeConfiguration: {
- *       CodeContent: {
+ *     ApplicationCodeConfiguration: { // ApplicationCodeConfiguration
+ *       CodeContent: { // CodeContent
  *         TextContent: "STRING_VALUE",
  *         ZipFileContent: "BLOB_VALUE",
- *         S3ContentLocation: {
+ *         S3ContentLocation: { // S3ContentLocation
  *           BucketARN: "STRING_VALUE", // required
  *           FileKey: "STRING_VALUE", // required
  *           ObjectVersion: "STRING_VALUE",
@@ -186,43 +186,43 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       },
  *       CodeContentType: "PLAINTEXT" || "ZIPFILE", // required
  *     },
- *     ApplicationSnapshotConfiguration: {
+ *     ApplicationSnapshotConfiguration: { // ApplicationSnapshotConfiguration
  *       SnapshotsEnabled: true || false, // required
  *     },
- *     VpcConfigurations: [
- *       {
- *         SubnetIds: [ // required
+ *     VpcConfigurations: [ // VpcConfigurations
+ *       { // VpcConfiguration
+ *         SubnetIds: [ // SubnetIds // required
  *           "STRING_VALUE",
  *         ],
- *         SecurityGroupIds: [ // required
+ *         SecurityGroupIds: [ // SecurityGroupIds // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     ],
- *     ZeppelinApplicationConfiguration: {
- *       MonitoringConfiguration: {
+ *     ZeppelinApplicationConfiguration: { // ZeppelinApplicationConfiguration
+ *       MonitoringConfiguration: { // ZeppelinMonitoringConfiguration
  *         LogLevel: "INFO" || "WARN" || "ERROR" || "DEBUG", // required
  *       },
- *       CatalogConfiguration: {
- *         GlueDataCatalogConfiguration: {
+ *       CatalogConfiguration: { // CatalogConfiguration
+ *         GlueDataCatalogConfiguration: { // GlueDataCatalogConfiguration
  *           DatabaseARN: "STRING_VALUE", // required
  *         },
  *       },
- *       DeployAsApplicationConfiguration: {
- *         S3ContentLocation: {
+ *       DeployAsApplicationConfiguration: { // DeployAsApplicationConfiguration
+ *         S3ContentLocation: { // S3ContentBaseLocation
  *           BucketARN: "STRING_VALUE", // required
  *           BasePath: "STRING_VALUE",
  *         },
  *       },
- *       CustomArtifactsConfiguration: [
- *         {
+ *       CustomArtifactsConfiguration: [ // CustomArtifactsConfigurationList
+ *         { // CustomArtifactConfiguration
  *           ArtifactType: "UDF" || "DEPENDENCY_JAR", // required
  *           S3ContentLocation: {
  *             BucketARN: "STRING_VALUE", // required
  *             FileKey: "STRING_VALUE", // required
  *             ObjectVersion: "STRING_VALUE",
  *           },
- *           MavenReference: {
+ *           MavenReference: { // MavenReference
  *             GroupId: "STRING_VALUE", // required
  *             ArtifactId: "STRING_VALUE", // required
  *             Version: "STRING_VALUE", // required
@@ -231,13 +231,13 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       ],
  *     },
  *   },
- *   CloudWatchLoggingOptions: [
- *     {
+ *   CloudWatchLoggingOptions: [ // CloudWatchLoggingOptions
+ *     { // CloudWatchLoggingOption
  *       LogStreamARN: "STRING_VALUE", // required
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

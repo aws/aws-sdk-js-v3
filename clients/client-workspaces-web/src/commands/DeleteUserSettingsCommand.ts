@@ -42,7 +42,7 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * import { WorkSpacesWebClient, DeleteUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // DeleteUserSettingsRequest
  *   userSettingsArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteUserSettingsCommand(input);

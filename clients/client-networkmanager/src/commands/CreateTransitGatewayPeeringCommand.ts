@@ -44,11 +44,11 @@ export interface CreateTransitGatewayPeeringCommandOutput
  * import { NetworkManagerClient, CreateTransitGatewayPeeringCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateTransitGatewayPeeringCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // CreateTransitGatewayPeeringRequest
  *   CoreNetworkId: "STRING_VALUE", // required
  *   TransitGatewayArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

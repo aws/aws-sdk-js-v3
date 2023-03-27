@@ -57,9 +57,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { CognitoIdentityClient, TagResourceCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, TagResourceCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // IdentityPoolTagsType // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

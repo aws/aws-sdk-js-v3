@@ -43,7 +43,7 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * import { ConnectClient, DescribeAgentStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeAgentStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DescribeAgentStatusRequest
  *   InstanceId: "STRING_VALUE", // required
  *   AgentStatusId: "STRING_VALUE", // required
  * };

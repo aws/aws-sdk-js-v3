@@ -42,12 +42,12 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  * import { ChimeClient, UpdateSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // UpdateSipRuleRequest
  *   SipRuleId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Disabled: true || false,
- *   TargetApplications: [
- *     {
+ *   TargetApplications: [ // SipRuleTargetApplicationList
+ *     { // SipRuleTargetApplication
  *       SipMediaApplicationId: "STRING_VALUE",
  *       Priority: Number("int"),
  *       AwsRegion: "STRING_VALUE",

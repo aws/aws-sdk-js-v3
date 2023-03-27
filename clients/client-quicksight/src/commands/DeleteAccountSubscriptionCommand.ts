@@ -42,7 +42,7 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  * import { QuickSightClient, DeleteAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DeleteAccountSubscriptionRequest
  *   AwsAccountId: "STRING_VALUE", // required
  * };
  * const command = new DeleteAccountSubscriptionCommand(input);

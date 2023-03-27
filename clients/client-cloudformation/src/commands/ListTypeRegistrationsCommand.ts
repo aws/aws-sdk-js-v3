@@ -42,7 +42,7 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  * import { CloudFormationClient, ListTypeRegistrationsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListTypeRegistrationsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // ListTypeRegistrationsInput
  *   Type: "RESOURCE" || "MODULE" || "HOOK",
  *   TypeName: "STRING_VALUE",
  *   TypeArn: "STRING_VALUE",

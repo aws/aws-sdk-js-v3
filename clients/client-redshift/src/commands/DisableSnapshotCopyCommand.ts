@@ -46,7 +46,7 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * import { RedshiftClient, DisableSnapshotCopyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DisableSnapshotCopyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DisableSnapshotCopyMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DisableSnapshotCopyCommand(input);

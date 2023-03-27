@@ -50,7 +50,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * import { WAFClient, ListRuleGroupsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListRuleGroupsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // ListRuleGroupsRequest
  *   NextMarker: "STRING_VALUE",
  *   Limit: Number("int"),
  * };

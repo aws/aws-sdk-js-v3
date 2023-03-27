@@ -42,7 +42,7 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * import { WAFV2Client, GetRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // GetRegexPatternSetRequest
  *   Name: "STRING_VALUE", // required
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required
  *   Id: "STRING_VALUE", // required

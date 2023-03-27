@@ -48,7 +48,7 @@ export interface DescribeResourcePermissionsCommandOutput
  * import { WorkDocsClient, DescribeResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DescribeResourcePermissionsRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   ResourceId: "STRING_VALUE", // required
  *   PrincipalId: "STRING_VALUE",

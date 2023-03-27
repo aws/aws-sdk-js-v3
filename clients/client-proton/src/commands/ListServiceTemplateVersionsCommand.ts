@@ -46,7 +46,7 @@ export interface ListServiceTemplateVersionsCommandOutput extends ListServiceTem
  * import { ProtonClient, ListServiceTemplateVersionsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceTemplateVersionsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // ListServiceTemplateVersionsInput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   templateName: "STRING_VALUE", // required

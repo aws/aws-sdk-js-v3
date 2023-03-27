@@ -44,11 +44,11 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * import { ConnectClient, MonitorContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, MonitorContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // MonitorContactRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
- *   AllowedMonitorCapabilities: [
+ *   AllowedMonitorCapabilities: [ // AllowedMonitorCapabilities
  *     "SILENT_MONITOR" || "BARGE",
  *   ],
  *   ClientToken: "STRING_VALUE",

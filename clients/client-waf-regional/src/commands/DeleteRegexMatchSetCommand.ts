@@ -65,7 +65,7 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  * import { WAFRegionalClient, DeleteRegexMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteRegexMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // DeleteRegexMatchSetRequest
  *   RegexMatchSetId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

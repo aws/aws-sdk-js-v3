@@ -42,16 +42,16 @@ export interface CreateVodSourceCommandOutput extends CreateVodSourceResponse, _
  * import { MediaTailorClient, CreateVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
- *   HttpPackageConfigurations: [ // required
- *     {
+ * const input = { // CreateVodSourceRequest
+ *   HttpPackageConfigurations: [ // HttpPackageConfigurations // required
+ *     { // HttpPackageConfiguration
  *       Path: "STRING_VALUE", // required
  *       SourceGroup: "STRING_VALUE", // required
  *       Type: "DASH" || "HLS", // required
  *     },
  *   ],
  *   SourceLocationName: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  *   VodSourceName: "STRING_VALUE", // required

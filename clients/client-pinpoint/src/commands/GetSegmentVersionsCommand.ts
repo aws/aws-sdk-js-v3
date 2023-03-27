@@ -42,7 +42,7 @@ export interface GetSegmentVersionsCommandOutput extends GetSegmentVersionsRespo
  * import { PinpointClient, GetSegmentVersionsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSegmentVersionsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetSegmentVersionsRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   PageSize: "STRING_VALUE",
  *   SegmentId: "STRING_VALUE", // required

@@ -47,11 +47,11 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  * import { SSMClient, DescribeAssociationExecutionTargetsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationExecutionTargetsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeAssociationExecutionTargetsRequest
  *   AssociationId: "STRING_VALUE", // required
  *   ExecutionId: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // AssociationExecutionTargetsFilterList
+ *     { // AssociationExecutionTargetsFilter
  *       Key: "Status" || "ResourceId" || "ResourceType", // required
  *       Value: "STRING_VALUE", // required
  *     },

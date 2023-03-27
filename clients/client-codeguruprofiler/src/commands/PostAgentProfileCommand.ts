@@ -48,7 +48,7 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * import { CodeGuruProfilerClient, PostAgentProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, PostAgentProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // PostAgentProfileRequest
  *   profilingGroupName: "STRING_VALUE", // required
  *   agentProfile: "BLOB_VALUE", // required
  *   profileToken: "STRING_VALUE",

@@ -61,7 +61,7 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // DeleteFileSystemRequest
  *   FileSystemId: "STRING_VALUE", // required
  * };
  * const command = new DeleteFileSystemCommand(input);

@@ -49,15 +49,15 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * import { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const input = {
- *   IdentityProvider: { // Union: only one key present
- *     ActiveDirectoryIdentityProvider: {
+ * const input = { // UpdateIdentityProviderSettingsRequest
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
  *     },
  *   },
  *   Product: "STRING_VALUE", // required
- *   UpdateSettings: {
- *     AddSubnets: [ // required
+ *   UpdateSettings: { // UpdateSettings
+ *     AddSubnets: [ // Subnets // required
  *       "STRING_VALUE",
  *     ],
  *     RemoveSubnets: [ // required

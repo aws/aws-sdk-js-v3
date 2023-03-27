@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { PersonalizeClient, UntagResourceCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UntagResourceCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

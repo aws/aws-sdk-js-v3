@@ -48,7 +48,7 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  * import { GameLiftClient, UpdateGameSessionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateGameSessionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // UpdateGameSessionInput
  *   GameSessionId: "STRING_VALUE", // required
  *   MaximumPlayerSessionCount: Number("int"),
  *   Name: "STRING_VALUE",

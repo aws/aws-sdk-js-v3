@@ -43,7 +43,7 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteRetentionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteRetentionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DeleteRetentionPolicyRequest
  *   logGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteRetentionPolicyCommand(input);

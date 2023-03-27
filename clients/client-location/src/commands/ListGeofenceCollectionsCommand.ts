@@ -42,7 +42,7 @@ export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollec
  * import { LocationClient, ListGeofenceCollectionsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListGeofenceCollectionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // ListGeofenceCollectionsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

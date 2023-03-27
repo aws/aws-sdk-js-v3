@@ -42,7 +42,7 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  * import { AppConfigClient, GetApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // GetApplicationRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new GetApplicationCommand(input);

@@ -42,7 +42,7 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  * import { PinpointClient, GetCampaignActivitiesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignActivitiesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetCampaignActivitiesRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   CampaignId: "STRING_VALUE", // required
  *   PageSize: "STRING_VALUE",

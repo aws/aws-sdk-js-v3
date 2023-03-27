@@ -42,7 +42,7 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * import { CloudWatchEventsClient, ListApiDestinationsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListApiDestinationsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // ListApiDestinationsRequest
  *   NamePrefix: "STRING_VALUE",
  *   ConnectionArn: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * import { GlueClient, StopTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // StopTriggerRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new StopTriggerCommand(input);

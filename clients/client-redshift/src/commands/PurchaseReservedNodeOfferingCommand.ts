@@ -52,7 +52,7 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  * import { RedshiftClient, PurchaseReservedNodeOfferingCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, PurchaseReservedNodeOfferingCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // PurchaseReservedNodeOfferingMessage
  *   ReservedNodeOfferingId: "STRING_VALUE", // required
  *   NodeCount: Number("int"),
  * };

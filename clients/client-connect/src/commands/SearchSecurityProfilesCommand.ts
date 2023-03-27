@@ -44,44 +44,40 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * import { ConnectClient, SearchSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // SearchSecurityProfilesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   SearchCriteria: {
- *     OrConditions: [
+ *   SearchCriteria: { // SecurityProfileSearchCriteria
+ *     OrConditions: [ // SecurityProfileSearchConditionList
  *       {
  *         OrConditions: [
- *           {
- *             OrConditions: "<SecurityProfileSearchCriteria>",
- *             AndConditions: [
- *               "<SecurityProfileSearchConditionList>",
- *             ],
- *             StringCondition: {
- *               FieldName: "STRING_VALUE",
- *               Value: "STRING_VALUE",
- *               ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
- *             },
- *           },
+ *           "<SecurityProfileSearchCriteria>",
  *         ],
  *         AndConditions: [
- *           "<SecurityProfileSearchConditionList>",
+ *           "<SecurityProfileSearchCriteria>",
  *         ],
- *         StringCondition: {
+ *         StringCondition: { // StringCondition
  *           FieldName: "STRING_VALUE",
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
  *       },
  *     ],
- *     AndConditions: "<SecurityProfileSearchCriteria>",
- *     StringCondition: "<SecurityProfileSearchCriteria>",
+ *     AndConditions: [
+ *       "<SecurityProfileSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
  *   },
- *   SearchFilter: {
- *     TagFilter: {
- *       OrConditions: [
- *         [
- *           {
+ *   SearchFilter: { // SecurityProfilesSearchFilter
+ *     TagFilter: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
  *             TagKey: "STRING_VALUE",
  *             TagValue: "STRING_VALUE",
  *           },
@@ -93,10 +89,7 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *           TagValue: "STRING_VALUE",
  *         },
  *       ],
- *       TagCondition: {
- *         TagKey: "<TagCondition>",
- *         TagValue: "<TagCondition>",
- *       },
+ *       TagCondition: "<TagCondition>",
  *     },
  *   },
  * };

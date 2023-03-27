@@ -56,7 +56,7 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * import { ElasticLoadBalancingClient, CreateAppCookieStickinessPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateAppCookieStickinessPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // CreateAppCookieStickinessPolicyInput
  *   LoadBalancerName: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  *   CookieName: "STRING_VALUE", // required

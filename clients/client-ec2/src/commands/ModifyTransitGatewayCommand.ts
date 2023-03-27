@@ -42,11 +42,11 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  * import { EC2Client, ModifyTransitGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTransitGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyTransitGatewayRequest
  *   TransitGatewayId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Options: {
- *     AddTransitGatewayCidrBlocks: [
+ *   Options: { // ModifyTransitGatewayOptions
+ *     AddTransitGatewayCidrBlocks: [ // TransitGatewayCidrBlockStringList
  *       "STRING_VALUE",
  *     ],
  *     RemoveTransitGatewayCidrBlocks: [

@@ -93,7 +93,7 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * import { KMSClient, DisconnectCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DisconnectCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // DisconnectCustomKeyStoreRequest
  *   CustomKeyStoreId: "STRING_VALUE", // required
  * };
  * const command = new DisconnectCustomKeyStoreCommand(input);

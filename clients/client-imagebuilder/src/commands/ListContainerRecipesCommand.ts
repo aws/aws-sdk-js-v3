@@ -42,12 +42,12 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * import { ImagebuilderClient, ListContainerRecipesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListContainerRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // ListContainerRecipesRequest
  *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
- *   filters: [
- *     {
+ *   filters: [ // FilterList
+ *     { // Filter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

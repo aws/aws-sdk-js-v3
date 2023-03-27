@@ -53,7 +53,7 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * import { MachineLearningClient, CreateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // CreateEvaluationInput
  *   EvaluationId: "STRING_VALUE", // required
  *   EvaluationName: "STRING_VALUE",
  *   MLModelId: "STRING_VALUE", // required

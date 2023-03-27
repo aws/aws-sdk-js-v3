@@ -53,11 +53,11 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * import { ResourceGroupsClient, ListGroupsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, ListGroupsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // ListGroupsInput
+ *   Filters: [ // GroupFilterList
+ *     { // GroupFilter
  *       Name: "resource-type" || "configuration-type", // required
- *       Values: [ // required
+ *       Values: [ // GroupFilterValues // required
  *         "STRING_VALUE",
  *       ],
  *     },

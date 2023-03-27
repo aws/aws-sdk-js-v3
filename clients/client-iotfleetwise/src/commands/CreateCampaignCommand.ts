@@ -47,7 +47,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * import { IoTFleetWiseClient, CreateCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // CreateCampaignRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   signalCatalogArn: "STRING_VALUE", // required
@@ -59,29 +59,29 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *   spoolingMode: "STRING_VALUE",
  *   compression: "STRING_VALUE",
  *   priority: Number("int"),
- *   signalsToCollect: [
- *     {
+ *   signalsToCollect: [ // SignalInformationList
+ *     { // SignalInformation
  *       name: "STRING_VALUE", // required
  *       maxSampleCount: Number("long"),
  *       minimumSamplingIntervalMs: Number("long"),
  *     },
  *   ],
- *   collectionScheme: { // Union: only one key present
- *     timeBasedCollectionScheme: {
+ *   collectionScheme: { // CollectionScheme Union: only one key present
+ *     timeBasedCollectionScheme: { // TimeBasedCollectionScheme
  *       periodMs: Number("long"), // required
  *     },
- *     conditionBasedCollectionScheme: {
+ *     conditionBasedCollectionScheme: { // ConditionBasedCollectionScheme
  *       expression: "STRING_VALUE", // required
  *       minimumTriggerIntervalMs: Number("long"),
  *       triggerMode: "STRING_VALUE",
  *       conditionLanguageVersion: Number("int"),
  *     },
  *   },
- *   dataExtraDimensions: [
+ *   dataExtraDimensions: [ // DataExtraDimensionNodePathList
  *     "STRING_VALUE",
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,8 +42,8 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  * import { EC2Client, DescribeAddressTransfersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAddressTransfersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   AllocationIds: [
+ * const input = { // DescribeAddressTransfersRequest
+ *   AllocationIds: [ // AllocationIdList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

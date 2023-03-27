@@ -45,7 +45,7 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * import { AutoScalingClient, DeleteLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // DeleteLifecycleHookType
  *   LifecycleHookName: "STRING_VALUE", // required
  *   AutoScalingGroupName: "STRING_VALUE", // required
  * };

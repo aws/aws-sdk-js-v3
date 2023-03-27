@@ -62,13 +62,13 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * import { CognitoIdentityProviderClient, SignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // SignUpRequest
  *   ClientId: "STRING_VALUE", // required
  *   SecretHash: "STRING_VALUE",
  *   Username: "STRING_VALUE", // required
  *   Password: "STRING_VALUE", // required
- *   UserAttributes: [
- *     {
+ *   UserAttributes: [ // AttributeListType
+ *     { // AttributeType
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },
@@ -79,14 +79,14 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   AnalyticsMetadata: {
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
  *     AnalyticsEndpointId: "STRING_VALUE",
  *   },
- *   UserContextData: {
+ *   UserContextData: { // UserContextDataType
  *     IpAddress: "STRING_VALUE",
  *     EncodedData: "STRING_VALUE",
  *   },
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

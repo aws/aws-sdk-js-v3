@@ -51,12 +51,12 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  * import { LocationClient, CreateRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // CreateRouteCalculatorRequest
  *   CalculatorName: "STRING_VALUE", // required
  *   DataSource: "STRING_VALUE", // required
  *   PricingPlan: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

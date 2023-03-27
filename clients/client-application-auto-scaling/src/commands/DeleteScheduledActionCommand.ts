@@ -47,7 +47,7 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * import { ApplicationAutoScalingClient, DeleteScheduledActionCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DeleteScheduledActionCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
- * const input = {
+ * const input = { // DeleteScheduledActionRequest
  *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
  *   ScheduledActionName: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required

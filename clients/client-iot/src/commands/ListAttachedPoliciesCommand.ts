@@ -43,7 +43,7 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
  * import { IoTClient, ListAttachedPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAttachedPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListAttachedPoliciesRequest
  *   target: "STRING_VALUE", // required
  *   recursive: true || false,
  *   marker: "STRING_VALUE",

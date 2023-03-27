@@ -49,7 +49,7 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * import { FirehoseClient, ListDeliveryStreamsCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, ListDeliveryStreamsCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
- * const input = {
+ * const input = { // ListDeliveryStreamsInput
  *   Limit: Number("int"),
  *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource",
  *   ExclusiveStartDeliveryStreamName: "STRING_VALUE",

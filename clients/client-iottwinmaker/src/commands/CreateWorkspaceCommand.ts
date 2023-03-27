@@ -42,12 +42,12 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * import { IoTTwinMakerClient, CreateWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // CreateWorkspaceRequest
  *   workspaceId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   s3Location: "STRING_VALUE", // required
  *   role: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

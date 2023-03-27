@@ -44,11 +44,11 @@ export interface ListInfrastructureConfigurationsCommandOutput
  * import { ImagebuilderClient, ListInfrastructureConfigurationsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListInfrastructureConfigurationsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
- *   filters: [
- *     {
+ * const input = { // ListInfrastructureConfigurationsRequest
+ *   filters: [ // FilterList
+ *     { // Filter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

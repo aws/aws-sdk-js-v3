@@ -48,11 +48,11 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  * import { SSOAdminClient, ListAccountAssignmentCreationStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListAccountAssignmentCreationStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // ListAccountAssignmentCreationStatusRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filter: {
+ *   Filter: { // OperationStatusFilter
  *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
  *   },
  * };

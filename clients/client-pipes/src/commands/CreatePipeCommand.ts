@@ -42,22 +42,22 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  * import { PipesClient, CreatePipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, CreatePipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
- * const input = {
+ * const input = { // CreatePipeRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   DesiredState: "STRING_VALUE",
  *   Source: "STRING_VALUE", // required
- *   SourceParameters: {
- *     FilterCriteria: {
- *       Filters: [
- *         {
+ *   SourceParameters: { // PipeSourceParameters
+ *     FilterCriteria: { // FilterCriteria
+ *       Filters: [ // FilterList
+ *         { // Filter
  *           Pattern: "STRING_VALUE",
  *         },
  *       ],
  *     },
- *     KinesisStreamParameters: {
+ *     KinesisStreamParameters: { // PipeSourceKinesisStreamParameters
  *       BatchSize: Number("int"),
- *       DeadLetterConfig: {
+ *       DeadLetterConfig: { // DeadLetterConfig
  *         Arn: "STRING_VALUE",
  *       },
  *       OnPartialBatchItemFailure: "STRING_VALUE",
@@ -68,7 +68,7 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *       StartingPosition: "STRING_VALUE", // required
  *       StartingPositionTimestamp: new Date("TIMESTAMP"),
  *     },
- *     DynamoDBStreamParameters: {
+ *     DynamoDBStreamParameters: { // PipeSourceDynamoDBStreamParameters
  *       BatchSize: Number("int"),
  *       DeadLetterConfig: {
  *         Arn: "STRING_VALUE",
@@ -80,20 +80,20 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *       ParallelizationFactor: Number("int"),
  *       StartingPosition: "STRING_VALUE", // required
  *     },
- *     SqsQueueParameters: {
+ *     SqsQueueParameters: { // PipeSourceSqsQueueParameters
  *       BatchSize: Number("int"),
  *       MaximumBatchingWindowInSeconds: Number("int"),
  *     },
- *     ActiveMQBrokerParameters: {
- *       Credentials: { // Union: only one key present
+ *     ActiveMQBrokerParameters: { // PipeSourceActiveMQBrokerParameters
+ *       Credentials: { // MQBrokerAccessCredentials Union: only one key present
  *         BasicAuth: "STRING_VALUE",
  *       },
  *       QueueName: "STRING_VALUE", // required
  *       BatchSize: Number("int"),
  *       MaximumBatchingWindowInSeconds: Number("int"),
  *     },
- *     RabbitMQBrokerParameters: {
- *       Credentials: { // Union: only one key present
+ *     RabbitMQBrokerParameters: { // PipeSourceRabbitMQBrokerParameters
+ *       Credentials: {//  Union: only one key present
  *         BasicAuth: "STRING_VALUE",
  *       },
  *       QueueName: "STRING_VALUE", // required
@@ -101,80 +101,80 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *       BatchSize: Number("int"),
  *       MaximumBatchingWindowInSeconds: Number("int"),
  *     },
- *     ManagedStreamingKafkaParameters: {
+ *     ManagedStreamingKafkaParameters: { // PipeSourceManagedStreamingKafkaParameters
  *       TopicName: "STRING_VALUE", // required
  *       StartingPosition: "STRING_VALUE",
  *       BatchSize: Number("int"),
  *       MaximumBatchingWindowInSeconds: Number("int"),
  *       ConsumerGroupID: "STRING_VALUE",
- *       Credentials: { // Union: only one key present
+ *       Credentials: { // MSKAccessCredentials Union: only one key present
  *         SaslScram512Auth: "STRING_VALUE",
  *         ClientCertificateTlsAuth: "STRING_VALUE",
  *       },
  *     },
- *     SelfManagedKafkaParameters: {
+ *     SelfManagedKafkaParameters: { // PipeSourceSelfManagedKafkaParameters
  *       TopicName: "STRING_VALUE", // required
  *       StartingPosition: "STRING_VALUE",
- *       AdditionalBootstrapServers: [
+ *       AdditionalBootstrapServers: [ // KafkaBootstrapServers
  *         "STRING_VALUE",
  *       ],
  *       BatchSize: Number("int"),
  *       MaximumBatchingWindowInSeconds: Number("int"),
  *       ConsumerGroupID: "STRING_VALUE",
- *       Credentials: { // Union: only one key present
+ *       Credentials: { // SelfManagedKafkaAccessConfigurationCredentials Union: only one key present
  *         BasicAuth: "STRING_VALUE",
  *         SaslScram512Auth: "STRING_VALUE",
  *         SaslScram256Auth: "STRING_VALUE",
  *         ClientCertificateTlsAuth: "STRING_VALUE",
  *       },
  *       ServerRootCaCertificate: "STRING_VALUE",
- *       Vpc: {
- *         Subnets: [
+ *       Vpc: { // SelfManagedKafkaAccessConfigurationVpc
+ *         Subnets: [ // SubnetIds
  *           "STRING_VALUE",
  *         ],
- *         SecurityGroup: [
+ *         SecurityGroup: [ // SecurityGroupIds
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
  *   },
  *   Enrichment: "STRING_VALUE",
- *   EnrichmentParameters: {
+ *   EnrichmentParameters: { // PipeEnrichmentParameters
  *     InputTemplate: "STRING_VALUE",
- *     HttpParameters: {
- *       PathParameterValues: [
+ *     HttpParameters: { // PipeEnrichmentHttpParameters
+ *       PathParameterValues: [ // PathParameterList
  *         "STRING_VALUE",
  *       ],
- *       HeaderParameters: {
+ *       HeaderParameters: { // HeaderParametersMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       QueryStringParameters: {
+ *       QueryStringParameters: { // QueryStringParametersMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
  *   },
  *   Target: "STRING_VALUE", // required
- *   TargetParameters: {
+ *   TargetParameters: { // PipeTargetParameters
  *     InputTemplate: "STRING_VALUE",
- *     LambdaFunctionParameters: {
+ *     LambdaFunctionParameters: { // PipeTargetLambdaFunctionParameters
  *       InvocationType: "STRING_VALUE",
  *     },
- *     StepFunctionStateMachineParameters: {
+ *     StepFunctionStateMachineParameters: { // PipeTargetStateMachineParameters
  *       InvocationType: "STRING_VALUE",
  *     },
- *     KinesisStreamParameters: {
+ *     KinesisStreamParameters: { // PipeTargetKinesisStreamParameters
  *       PartitionKey: "STRING_VALUE", // required
  *     },
- *     EcsTaskParameters: {
+ *     EcsTaskParameters: { // PipeTargetEcsTaskParameters
  *       TaskDefinitionArn: "STRING_VALUE", // required
  *       TaskCount: Number("int"),
  *       LaunchType: "STRING_VALUE",
- *       NetworkConfiguration: {
- *         awsvpcConfiguration: {
- *           Subnets: [ // required
+ *       NetworkConfiguration: { // NetworkConfiguration
+ *         awsvpcConfiguration: { // AwsVpcConfiguration
+ *           Subnets: [ // Subnets // required
  *             "STRING_VALUE",
  *           ],
- *           SecurityGroups: [
+ *           SecurityGroups: [ // SecurityGroups
  *             "STRING_VALUE",
  *           ],
  *           AssignPublicIp: "STRING_VALUE",
@@ -182,8 +182,8 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *       },
  *       PlatformVersion: "STRING_VALUE",
  *       Group: "STRING_VALUE",
- *       CapacityProviderStrategy: [
- *         {
+ *       CapacityProviderStrategy: [ // CapacityProviderStrategy
+ *         { // CapacityProviderStrategyItem
  *           capacityProvider: "STRING_VALUE", // required
  *           weight: Number("int"),
  *           base: Number("int"),
@@ -191,35 +191,35 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *       ],
  *       EnableECSManagedTags: true || false,
  *       EnableExecuteCommand: true || false,
- *       PlacementConstraints: [
- *         {
+ *       PlacementConstraints: [ // PlacementConstraints
+ *         { // PlacementConstraint
  *           type: "STRING_VALUE",
  *           expression: "STRING_VALUE",
  *         },
  *       ],
- *       PlacementStrategy: [
- *         {
+ *       PlacementStrategy: [ // PlacementStrategies
+ *         { // PlacementStrategy
  *           type: "STRING_VALUE",
  *           field: "STRING_VALUE",
  *         },
  *       ],
  *       PropagateTags: "STRING_VALUE",
  *       ReferenceId: "STRING_VALUE",
- *       Overrides: {
- *         ContainerOverrides: [
- *           {
- *             Command: [
+ *       Overrides: { // EcsTaskOverride
+ *         ContainerOverrides: [ // EcsContainerOverrideList
+ *           { // EcsContainerOverride
+ *             Command: [ // StringList
  *               "STRING_VALUE",
  *             ],
  *             Cpu: Number("int"),
- *             Environment: [
- *               {
+ *             Environment: [ // EcsEnvironmentVariableList
+ *               { // EcsEnvironmentVariable
  *                 name: "STRING_VALUE",
  *                 value: "STRING_VALUE",
  *               },
  *             ],
- *             EnvironmentFiles: [
- *               {
+ *             EnvironmentFiles: [ // EcsEnvironmentFileList
+ *               { // EcsEnvironmentFile
  *                 type: "STRING_VALUE", // required
  *                 value: "STRING_VALUE", // required
  *               },
@@ -227,8 +227,8 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *             Memory: Number("int"),
  *             MemoryReservation: Number("int"),
  *             Name: "STRING_VALUE",
- *             ResourceRequirements: [
- *               {
+ *             ResourceRequirements: [ // EcsResourceRequirementsList
+ *               { // EcsResourceRequirement
  *                 type: "STRING_VALUE", // required
  *                 value: "STRING_VALUE", // required
  *               },
@@ -236,12 +236,12 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *           },
  *         ],
  *         Cpu: "STRING_VALUE",
- *         EphemeralStorage: {
+ *         EphemeralStorage: { // EcsEphemeralStorage
  *           sizeInGiB: Number("int"), // required
  *         },
  *         ExecutionRoleArn: "STRING_VALUE",
- *         InferenceAcceleratorOverrides: [
- *           {
+ *         InferenceAcceleratorOverrides: [ // EcsInferenceAcceleratorOverrideList
+ *           { // EcsInferenceAcceleratorOverride
  *             deviceName: "STRING_VALUE",
  *             deviceType: "STRING_VALUE",
  *           },
@@ -249,55 +249,55 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *         Memory: "STRING_VALUE",
  *         TaskRoleArn: "STRING_VALUE",
  *       },
- *       Tags: [
- *         {
+ *       Tags: [ // TagList
+ *         { // Tag
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     BatchJobParameters: {
+ *     BatchJobParameters: { // PipeTargetBatchJobParameters
  *       JobDefinition: "STRING_VALUE", // required
  *       JobName: "STRING_VALUE", // required
- *       ArrayProperties: {
+ *       ArrayProperties: { // BatchArrayProperties
  *         Size: Number("int"),
  *       },
- *       RetryStrategy: {
+ *       RetryStrategy: { // BatchRetryStrategy
  *         Attempts: Number("int"),
  *       },
- *       ContainerOverrides: {
+ *       ContainerOverrides: { // BatchContainerOverrides
  *         Command: [
  *           "STRING_VALUE",
  *         ],
- *         Environment: [
- *           {
+ *         Environment: [ // BatchEnvironmentVariableList
+ *           { // BatchEnvironmentVariable
  *             Name: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *           },
  *         ],
  *         InstanceType: "STRING_VALUE",
- *         ResourceRequirements: [
- *           {
+ *         ResourceRequirements: [ // BatchResourceRequirementsList
+ *           { // BatchResourceRequirement
  *             Type: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
  *         ],
  *       },
- *       DependsOn: [
- *         {
+ *       DependsOn: [ // BatchDependsOn
+ *         { // BatchJobDependency
  *           JobId: "STRING_VALUE",
  *           Type: "STRING_VALUE",
  *         },
  *       ],
- *       Parameters: {
+ *       Parameters: { // BatchParametersMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
- *     SqsQueueParameters: {
+ *     SqsQueueParameters: { // PipeTargetSqsQueueParameters
  *       MessageGroupId: "STRING_VALUE",
  *       MessageDeduplicationId: "STRING_VALUE",
  *     },
- *     HttpParameters: {
+ *     HttpParameters: { // PipeTargetHttpParameters
  *       PathParameterValues: [
  *         "STRING_VALUE",
  *       ],
@@ -308,40 +308,40 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
- *     RedshiftDataParameters: {
+ *     RedshiftDataParameters: { // PipeTargetRedshiftDataParameters
  *       SecretManagerArn: "STRING_VALUE",
  *       Database: "STRING_VALUE", // required
  *       DbUser: "STRING_VALUE",
  *       StatementName: "STRING_VALUE",
  *       WithEvent: true || false,
- *       Sqls: [ // required
+ *       Sqls: [ // Sqls // required
  *         "STRING_VALUE",
  *       ],
  *     },
- *     SageMakerPipelineParameters: {
- *       PipelineParameterList: [
- *         {
+ *     SageMakerPipelineParameters: { // PipeTargetSageMakerPipelineParameters
+ *       PipelineParameterList: [ // SageMakerPipelineParameterList
+ *         { // SageMakerPipelineParameter
  *           Name: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     EventBridgeEventBusParameters: {
+ *     EventBridgeEventBusParameters: { // PipeTargetEventBridgeEventBusParameters
  *       EndpointId: "STRING_VALUE",
  *       DetailType: "STRING_VALUE",
  *       Source: "STRING_VALUE",
- *       Resources: [
+ *       Resources: [ // EventBridgeEventResourceList
  *         "STRING_VALUE",
  *       ],
  *       Time: "STRING_VALUE",
  *     },
- *     CloudWatchLogsParameters: {
+ *     CloudWatchLogsParameters: { // PipeTargetCloudWatchLogsParameters
  *       LogStreamName: "STRING_VALUE",
  *       Timestamp: "STRING_VALUE",
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

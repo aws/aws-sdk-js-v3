@@ -48,7 +48,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * import { ElasticLoadBalancingClient, DescribeAccountLimitsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DescribeAccountLimitsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // DescribeAccountLimitsInput
  *   Marker: "STRING_VALUE",
  *   PageSize: Number("int"),
  * };

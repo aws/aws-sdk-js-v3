@@ -43,9 +43,9 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * import { CloudDirectoryClient, DeleteObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DeleteObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // DeleteObjectRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   ObjectReference: {
+ *   ObjectReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  * };

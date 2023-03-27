@@ -43,12 +43,12 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * import { SSMClient, DescribeSessionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeSessionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeSessionsRequest
  *   State: "Active" || "History", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // SessionFilterList
+ *     { // SessionFilter
  *       key: "InvokedAfter" || "InvokedBefore" || "Target" || "Owner" || "Status" || "SessionId", // required
  *       value: "STRING_VALUE", // required
  *     },

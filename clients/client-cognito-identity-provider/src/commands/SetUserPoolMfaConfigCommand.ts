@@ -65,17 +65,17 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * import { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // SetUserPoolMfaConfigRequest
  *   UserPoolId: "STRING_VALUE", // required
- *   SmsMfaConfiguration: {
+ *   SmsMfaConfiguration: { // SmsMfaConfigType
  *     SmsAuthenticationMessage: "STRING_VALUE",
- *     SmsConfiguration: {
+ *     SmsConfiguration: { // SmsConfigurationType
  *       SnsCallerArn: "STRING_VALUE", // required
  *       ExternalId: "STRING_VALUE",
  *       SnsRegion: "STRING_VALUE",
  *     },
  *   },
- *   SoftwareTokenMfaConfiguration: {
+ *   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
  *     Enabled: true || false,
  *   },
  *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",

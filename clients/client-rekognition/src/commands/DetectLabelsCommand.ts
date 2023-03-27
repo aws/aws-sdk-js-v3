@@ -154,10 +154,10 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * import { RekognitionClient, DetectLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   Image: {
+ * const input = { // DetectLabelsRequest
+ *   Image: { // Image
  *     Bytes: "BLOB_VALUE",
- *     S3Object: {
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
@@ -165,12 +165,12 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *   },
  *   MaxLabels: Number("int"),
  *   MinConfidence: Number("float"),
- *   Features: [
+ *   Features: [ // DetectLabelsFeatureList
  *     "GENERAL_LABELS" || "IMAGE_PROPERTIES",
  *   ],
- *   Settings: {
- *     GeneralLabels: {
- *       LabelInclusionFilters: [
+ *   Settings: { // DetectLabelsSettings
+ *     GeneralLabels: { // GeneralLabelsSettings
+ *       LabelInclusionFilters: [ // GeneralLabelsFilterList
  *         "STRING_VALUE",
  *       ],
  *       LabelExclusionFilters: [
@@ -183,7 +183,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *         "STRING_VALUE",
  *       ],
  *     },
- *     ImageProperties: {
+ *     ImageProperties: { // DetectLabelsImagePropertiesSettings
  *       MaxDominantColors: Number("int"),
  *     },
  *   },

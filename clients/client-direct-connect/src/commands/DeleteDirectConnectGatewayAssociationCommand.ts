@@ -49,7 +49,7 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
  * import { DirectConnectClient, DeleteDirectConnectGatewayAssociationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteDirectConnectGatewayAssociationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // DeleteDirectConnectGatewayAssociationRequest
  *   associationId: "STRING_VALUE",
  *   directConnectGatewayId: "STRING_VALUE",
  *   virtualGatewayId: "STRING_VALUE",

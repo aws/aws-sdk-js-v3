@@ -43,7 +43,7 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * import { GlueClient, DeleteCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // DeleteCrawlerRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteCrawlerCommand(input);

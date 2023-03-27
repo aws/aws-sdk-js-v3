@@ -42,7 +42,7 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * import { SageMakerClient, ListEdgeDeploymentPlansCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListEdgeDeploymentPlansCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListEdgeDeploymentPlansRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CreationTimeAfter: new Date("TIMESTAMP"),

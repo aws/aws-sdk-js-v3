@@ -42,7 +42,7 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
  * import { OutpostsClient, DeleteSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, DeleteSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // DeleteSiteInput
  *   SiteId: "STRING_VALUE", // required
  * };
  * const command = new DeleteSiteCommand(input);

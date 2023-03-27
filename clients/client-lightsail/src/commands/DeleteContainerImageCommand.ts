@@ -43,7 +43,7 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  * import { LightsailClient, DeleteContainerImageCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteContainerImageCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DeleteContainerImageRequest
  *   serviceName: "STRING_VALUE", // required
  *   image: "STRING_VALUE", // required
  * };

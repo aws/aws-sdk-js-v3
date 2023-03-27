@@ -48,7 +48,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * import { SESv2Client, PutConfigurationSetDeliveryOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetDeliveryOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // PutConfigurationSetDeliveryOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   TlsPolicy: "REQUIRE" || "OPTIONAL",
  *   SendingPoolName: "STRING_VALUE",

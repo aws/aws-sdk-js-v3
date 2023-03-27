@@ -82,13 +82,13 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * import { GameLiftClient, CreateGameSessionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateGameSessionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // CreateGameSessionInput
  *   FleetId: "STRING_VALUE",
  *   AliasId: "STRING_VALUE",
  *   MaximumPlayerSessionCount: Number("int"), // required
  *   Name: "STRING_VALUE",
- *   GameProperties: [
- *     {
+ *   GameProperties: [ // GamePropertyList
+ *     { // GameProperty
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

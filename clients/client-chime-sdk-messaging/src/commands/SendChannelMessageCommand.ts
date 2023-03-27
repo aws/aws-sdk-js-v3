@@ -57,7 +57,7 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * import { ChimeSDKMessagingClient, SendChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, SendChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // SendChannelMessageRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   Content: "STRING_VALUE", // required
  *   Type: "STANDARD" || "CONTROL", // required
@@ -65,14 +65,14 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  *   Metadata: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE", // required
- *   PushNotification: {
+ *   PushNotification: { // PushNotificationConfiguration
  *     Title: "STRING_VALUE",
  *     Body: "STRING_VALUE",
  *     Type: "DEFAULT" || "VOIP",
  *   },
- *   MessageAttributes: {
- *     "<keys>": {
- *       StringValues: [
+ *   MessageAttributes: { // MessageAttributeMap
+ *     "<keys>": { // MessageAttributeValue
+ *       StringValues: [ // MessageAttributeStringValues
  *         "STRING_VALUE",
  *       ],
  *     },

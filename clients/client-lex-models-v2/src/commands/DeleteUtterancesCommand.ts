@@ -53,7 +53,7 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  * import { LexModelsV2Client, DeleteUtterancesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteUtterancesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // DeleteUtterancesRequest
  *   botId: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE",
  *   sessionId: "STRING_VALUE",

@@ -49,7 +49,7 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  * import { LightsailClient, PutAlarmCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, PutAlarmCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // PutAlarmRequest
  *   alarmName: "STRING_VALUE", // required
  *   metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "ClientTLSNegotiationErrorCount" || "HealthyHostCount" || "UnhealthyHostCount" || "HTTPCode_LB_4XX_Count" || "HTTPCode_LB_5XX_Count" || "HTTPCode_Instance_2XX_Count" || "HTTPCode_Instance_3XX_Count" || "HTTPCode_Instance_4XX_Count" || "HTTPCode_Instance_5XX_Count" || "InstanceResponseTime" || "RejectedConnectionCount" || "RequestCount" || "DatabaseConnections" || "DiskQueueDepth" || "FreeStorageSpace" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "BurstCapacityTime" || "BurstCapacityPercentage", // required
  *   monitoredResourceName: "STRING_VALUE", // required
@@ -58,10 +58,10 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  *   evaluationPeriods: Number("int"), // required
  *   datapointsToAlarm: Number("int"),
  *   treatMissingData: "breaching" || "notBreaching" || "ignore" || "missing",
- *   contactProtocols: [
+ *   contactProtocols: [ // ContactProtocolsList
  *     "Email" || "SMS",
  *   ],
- *   notificationTriggers: [
+ *   notificationTriggers: [ // NotificationTriggerList
  *     "OK" || "ALARM" || "INSUFFICIENT_DATA",
  *   ],
  *   notificationEnabled: true || false,

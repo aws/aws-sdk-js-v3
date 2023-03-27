@@ -46,26 +46,26 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * import { ElasticTranscoderClient, CreatePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreatePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // CreatePipelineRequest
  *   Name: "STRING_VALUE", // required
  *   InputBucket: "STRING_VALUE", // required
  *   OutputBucket: "STRING_VALUE",
  *   Role: "STRING_VALUE", // required
  *   AwsKmsKeyArn: "STRING_VALUE",
- *   Notifications: {
+ *   Notifications: { // Notifications
  *     Progressing: "STRING_VALUE",
  *     Completed: "STRING_VALUE",
  *     Warning: "STRING_VALUE",
  *     Error: "STRING_VALUE",
  *   },
- *   ContentConfig: {
+ *   ContentConfig: { // PipelineOutputConfig
  *     Bucket: "STRING_VALUE",
  *     StorageClass: "STRING_VALUE",
- *     Permissions: [
- *       {
+ *     Permissions: [ // Permissions
+ *       { // Permission
  *         GranteeType: "STRING_VALUE",
  *         Grantee: "STRING_VALUE",
- *         Access: [
+ *         Access: [ // AccessControls
  *           "STRING_VALUE",
  *         ],
  *       },

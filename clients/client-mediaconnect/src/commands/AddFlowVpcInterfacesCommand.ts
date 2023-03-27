@@ -42,14 +42,14 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  * import { MediaConnectClient, AddFlowVpcInterfacesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowVpcInterfacesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // AddFlowVpcInterfacesRequest
  *   FlowArn: "STRING_VALUE", // required
- *   VpcInterfaces: [ // required
- *     {
+ *   VpcInterfaces: [ // __listOfVpcInterfaceRequest // required
+ *     { // VpcInterfaceRequest
  *       Name: "STRING_VALUE", // required
  *       NetworkInterfaceType: "ena" || "efa",
  *       RoleArn: "STRING_VALUE", // required
- *       SecurityGroupIds: [ // required
+ *       SecurityGroupIds: [ // __listOf__string // required
  *         "STRING_VALUE",
  *       ],
  *       SubnetId: "STRING_VALUE", // required

@@ -62,20 +62,20 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  * import { ForecastClient, CreateWhatIfForecastExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateWhatIfForecastExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // CreateWhatIfForecastExportRequest
  *   WhatIfForecastExportName: "STRING_VALUE", // required
- *   WhatIfForecastArns: [ // required
+ *   WhatIfForecastArns: [ // WhatIfForecastArnListForExport // required
  *     "STRING_VALUE",
  *   ],
- *   Destination: {
- *     S3Config: {
+ *   Destination: { // DataDestination
+ *     S3Config: { // S3Config
  *       Path: "STRING_VALUE", // required
  *       RoleArn: "STRING_VALUE", // required
  *       KMSKeyArn: "STRING_VALUE",
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * import { GlueClient, ListStatementsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListStatementsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListStatementsRequest
  *   SessionId: "STRING_VALUE", // required
  *   RequestOrigin: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

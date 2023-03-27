@@ -45,7 +45,7 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * import { EC2Client, DeleteClientVpnRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteClientVpnRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteClientVpnRouteRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   TargetVpcSubnetId: "STRING_VALUE",
  *   DestinationCidrBlock: "STRING_VALUE", // required

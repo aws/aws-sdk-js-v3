@@ -44,7 +44,7 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  * import { Route53DomainsClient, CheckDomainAvailabilityCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, CheckDomainAvailabilityCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // CheckDomainAvailabilityRequest
  *   DomainName: "STRING_VALUE", // required
  *   IdnLangCode: "STRING_VALUE",
  * };

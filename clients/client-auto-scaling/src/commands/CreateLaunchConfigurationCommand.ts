@@ -54,15 +54,15 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * import { AutoScalingClient, CreateLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CreateLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // CreateLaunchConfigurationType
  *   LaunchConfigurationName: "STRING_VALUE", // required
  *   ImageId: "STRING_VALUE",
  *   KeyName: "STRING_VALUE",
- *   SecurityGroups: [
+ *   SecurityGroups: [ // SecurityGroups
  *     "STRING_VALUE",
  *   ],
  *   ClassicLinkVPCId: "STRING_VALUE",
- *   ClassicLinkVPCSecurityGroups: [
+ *   ClassicLinkVPCSecurityGroups: [ // ClassicLinkVPCSecurityGroups
  *     "STRING_VALUE",
  *   ],
  *   UserData: "STRING_VALUE",
@@ -70,11 +70,11 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  *   InstanceType: "STRING_VALUE",
  *   KernelId: "STRING_VALUE",
  *   RamdiskId: "STRING_VALUE",
- *   BlockDeviceMappings: [
- *     {
+ *   BlockDeviceMappings: [ // BlockDeviceMappings
+ *     { // BlockDeviceMapping
  *       VirtualName: "STRING_VALUE",
  *       DeviceName: "STRING_VALUE", // required
- *       Ebs: {
+ *       Ebs: { // Ebs
  *         SnapshotId: "STRING_VALUE",
  *         VolumeSize: Number("int"),
  *         VolumeType: "STRING_VALUE",
@@ -86,7 +86,7 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  *       NoDevice: true || false,
  *     },
  *   ],
- *   InstanceMonitoring: {
+ *   InstanceMonitoring: { // InstanceMonitoring
  *     Enabled: true || false,
  *   },
  *   SpotPrice: "STRING_VALUE",
@@ -94,7 +94,7 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  *   EbsOptimized: true || false,
  *   AssociatePublicIpAddress: true || false,
  *   PlacementTenancy: "STRING_VALUE",
- *   MetadataOptions: {
+ *   MetadataOptions: { // InstanceMetadataOptions
  *     HttpTokens: "optional" || "required",
  *     HttpPutResponseHopLimit: Number("int"),
  *     HttpEndpoint: "disabled" || "enabled",

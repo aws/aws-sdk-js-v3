@@ -82,11 +82,11 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * import { CognitoIdentityProviderClient, AdminCreateUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminCreateUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // AdminCreateUserRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE", // required
- *   UserAttributes: [
- *     {
+ *   UserAttributes: [ // AttributeListType
+ *     { // AttributeType
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },
@@ -100,10 +100,10 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *   TemporaryPassword: "STRING_VALUE",
  *   ForceAliasCreation: true || false,
  *   MessageAction: "RESEND" || "SUPPRESS",
- *   DesiredDeliveryMediums: [
+ *   DesiredDeliveryMediums: [ // DeliveryMediumListType
  *     "SMS" || "EMAIL",
  *   ],
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

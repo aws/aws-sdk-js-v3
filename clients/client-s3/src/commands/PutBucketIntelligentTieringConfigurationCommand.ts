@@ -124,20 +124,20 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  * import { S3Client, PutBucketIntelligentTieringConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketIntelligentTieringConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketIntelligentTieringConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
- *   IntelligentTieringConfiguration: {
+ *   IntelligentTieringConfiguration: { // IntelligentTieringConfiguration
  *     Id: "STRING_VALUE", // required
- *     Filter: {
+ *     Filter: { // IntelligentTieringFilter
  *       Prefix: "STRING_VALUE",
- *       Tag: {
+ *       Tag: { // Tag
  *         Key: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
- *       And: {
+ *       And: { // IntelligentTieringAndOperator
  *         Prefix: "STRING_VALUE",
- *         Tags: [
+ *         Tags: [ // TagSet
  *           {
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
@@ -146,8 +146,8 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  *       },
  *     },
  *     Status: "Enabled" || "Disabled", // required
- *     Tierings: [ // required
- *       {
+ *     Tierings: [ // TieringList // required
+ *       { // Tiering
  *         Days: Number("int"), // required
  *         AccessTier: "ARCHIVE_ACCESS" || "DEEP_ARCHIVE_ACCESS", // required
  *       },

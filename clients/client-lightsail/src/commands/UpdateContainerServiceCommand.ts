@@ -43,18 +43,18 @@ export interface UpdateContainerServiceCommandOutput extends UpdateContainerServ
  * import { LightsailClient, UpdateContainerServiceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateContainerServiceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // UpdateContainerServiceRequest
  *   serviceName: "STRING_VALUE", // required
  *   power: "nano" || "micro" || "small" || "medium" || "large" || "xlarge",
  *   scale: Number("int"),
  *   isDisabled: true || false,
- *   publicDomainNames: {
- *     "<keys>": [
+ *   publicDomainNames: { // ContainerServicePublicDomains
+ *     "<keys>": [ // ContainerServicePublicDomainsList
  *       "STRING_VALUE",
  *     ],
  *   },
- *   privateRegistryAccess: {
- *     ecrImagePullerRole: {
+ *   privateRegistryAccess: { // PrivateRegistryAccessRequest
+ *     ecrImagePullerRole: { // ContainerServiceECRImagePullerRoleRequest
  *       isActive: true || false,
  *     },
  *   },

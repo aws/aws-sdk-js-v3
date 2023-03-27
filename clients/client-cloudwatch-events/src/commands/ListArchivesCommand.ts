@@ -43,7 +43,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * import { CloudWatchEventsClient, ListArchivesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListArchivesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // ListArchivesRequest
  *   NamePrefix: "STRING_VALUE",
  *   EventSourceArn: "STRING_VALUE",
  *   State: "STRING_VALUE",

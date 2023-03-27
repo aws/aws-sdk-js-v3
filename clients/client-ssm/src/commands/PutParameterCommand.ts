@@ -42,7 +42,7 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * import { SSMClient, PutParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // PutParameterRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Value: "STRING_VALUE", // required
@@ -50,8 +50,8 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  *   KeyId: "STRING_VALUE",
  *   Overwrite: true || false,
  *   AllowedPattern: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

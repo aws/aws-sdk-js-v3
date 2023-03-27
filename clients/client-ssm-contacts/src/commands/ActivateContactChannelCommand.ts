@@ -43,7 +43,7 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * import { SSMContactsClient, ActivateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ActivateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = {
+ * const input = { // ActivateContactChannelRequest
  *   ContactChannelId: "STRING_VALUE", // required
  *   ActivationCode: "STRING_VALUE", // required
  * };

@@ -47,16 +47,16 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  * import { AppStreamClient, CreateDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // CreateDirectoryConfigRequest
  *   DirectoryName: "STRING_VALUE", // required
- *   OrganizationalUnitDistinguishedNames: [ // required
+ *   OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList // required
  *     "STRING_VALUE",
  *   ],
- *   ServiceAccountCredentials: {
+ *   ServiceAccountCredentials: { // ServiceAccountCredentials
  *     AccountName: "STRING_VALUE", // required
  *     AccountPassword: "STRING_VALUE", // required
  *   },
- *   CertificateBasedAuthProperties: {
+ *   CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
  *     Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
  *     CertificateAuthorityArn: "STRING_VALUE",
  *   },

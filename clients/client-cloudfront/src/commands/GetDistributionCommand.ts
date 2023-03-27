@@ -46,7 +46,7 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * import { CloudFrontClient, GetDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // GetDistributionRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetDistributionCommand(input);

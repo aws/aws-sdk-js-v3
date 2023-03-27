@@ -46,7 +46,7 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * import { EventBridgeClient, DeletePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeletePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // DeletePartnerEventSourceRequest
  *   Name: "STRING_VALUE", // required
  *   Account: "STRING_VALUE", // required
  * };

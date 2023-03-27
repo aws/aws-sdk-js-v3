@@ -48,7 +48,7 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * import { SESv2Client, PutConfigurationSetSendingOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetSendingOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // PutConfigurationSetSendingOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   SendingEnabled: true || false,
  * };

@@ -51,10 +51,10 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * import { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // UpdateLicenseSpecificationsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   AddLicenseSpecifications: [
- *     {
+ *   AddLicenseSpecifications: [ // LicenseSpecifications
+ *     { // LicenseSpecification
  *       LicenseConfigurationArn: "STRING_VALUE", // required
  *       AmiAssociationScope: "STRING_VALUE",
  *     },

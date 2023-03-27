@@ -49,7 +49,7 @@ export interface DescribeClientBrandingCommandOutput extends DescribeClientBrand
  * import { WorkSpacesClient, DescribeClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // DescribeClientBrandingRequest
  *   ResourceId: "STRING_VALUE", // required
  * };
  * const command = new DescribeClientBrandingCommand(input);

@@ -52,17 +52,17 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * import { MigrationHubStrategyClient, UpdateApplicationComponentConfigCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, UpdateApplicationComponentConfigCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // UpdateApplicationComponentConfigRequest
  *   applicationComponentId: "STRING_VALUE", // required
  *   inclusionStatus: "STRING_VALUE",
- *   strategyOption: {
+ *   strategyOption: { // StrategyOption
  *     strategy: "STRING_VALUE",
  *     toolName: "STRING_VALUE",
  *     targetDestination: "STRING_VALUE",
  *     isPreferred: true || false,
  *   },
- *   sourceCodeList: [
- *     {
+ *   sourceCodeList: [ // SourceCodeList
+ *     { // SourceCode
  *       versionControl: "STRING_VALUE",
  *       sourceVersion: "STRING_VALUE",
  *       location: "STRING_VALUE",

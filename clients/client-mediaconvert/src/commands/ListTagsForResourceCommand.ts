@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { MediaConvertClient, ListTagsForResourceCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

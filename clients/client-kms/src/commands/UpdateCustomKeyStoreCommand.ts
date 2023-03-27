@@ -138,7 +138,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * import { KMSClient, UpdateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // UpdateCustomKeyStoreRequest
  *   CustomKeyStoreId: "STRING_VALUE", // required
  *   NewCustomKeyStoreName: "STRING_VALUE",
  *   KeyStorePassword: "STRING_VALUE",
@@ -146,7 +146,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *   XksProxyUriEndpoint: "STRING_VALUE",
  *   XksProxyUriPath: "STRING_VALUE",
  *   XksProxyVpcEndpointServiceName: "STRING_VALUE",
- *   XksProxyAuthenticationCredential: {
+ *   XksProxyAuthenticationCredential: { // XksProxyAuthenticationCredentialType
  *     AccessKeyId: "STRING_VALUE", // required
  *     RawSecretAccessKey: "STRING_VALUE", // required
  *   },

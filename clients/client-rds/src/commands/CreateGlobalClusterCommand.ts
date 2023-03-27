@@ -54,7 +54,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * import { RDSClient, CreateGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // CreateGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE",
  *   SourceDBClusterIdentifier: "STRING_VALUE",
  *   Engine: "STRING_VALUE",

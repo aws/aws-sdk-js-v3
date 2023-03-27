@@ -45,7 +45,7 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * import { ElastiCacheClient, DeleteCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DeleteCacheSubnetGroupMessage
  *   CacheSubnetGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteCacheSubnetGroupCommand(input);

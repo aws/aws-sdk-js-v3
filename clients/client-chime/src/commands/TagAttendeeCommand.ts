@@ -42,11 +42,11 @@ export interface TagAttendeeCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, TagAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, TagAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // TagAttendeeRequest
  *   MeetingId: "STRING_VALUE", // required
  *   AttendeeId: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // AttendeeTagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

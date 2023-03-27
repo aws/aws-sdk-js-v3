@@ -44,7 +44,7 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * import { CognitoIdentityClient, ListIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, ListIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
- * const input = {
+ * const input = { // ListIdentitiesInput
  *   IdentityPoolId: "STRING_VALUE", // required
  *   MaxResults: Number("int"), // required
  *   NextToken: "STRING_VALUE",

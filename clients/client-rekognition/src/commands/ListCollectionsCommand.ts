@@ -48,7 +48,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * import { RekognitionClient, ListCollectionsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListCollectionsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // ListCollectionsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

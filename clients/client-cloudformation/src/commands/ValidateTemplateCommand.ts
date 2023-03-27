@@ -44,7 +44,7 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * import { CloudFormationClient, ValidateTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ValidateTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // ValidateTemplateInput
  *   TemplateBody: "STRING_VALUE",
  *   TemplateURL: "STRING_VALUE",
  * };

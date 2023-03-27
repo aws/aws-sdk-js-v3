@@ -56,13 +56,13 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * import { KinesisClient, ListShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, ListShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
+ * const input = { // ListShardsInput
  *   StreamName: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   ExclusiveStartShardId: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   StreamCreationTimestamp: new Date("TIMESTAMP"),
- *   ShardFilter: {
+ *   ShardFilter: { // ShardFilter
  *     Type: "AFTER_SHARD_ID" || "AT_TRIM_HORIZON" || "FROM_TRIM_HORIZON" || "AT_LATEST" || "AT_TIMESTAMP" || "FROM_TIMESTAMP", // required
  *     ShardId: "STRING_VALUE",
  *     Timestamp: new Date("TIMESTAMP"),

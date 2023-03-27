@@ -47,7 +47,7 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * import { WAFRegionalClient, GetRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // GetRuleRequest
  *   RuleId: "STRING_VALUE", // required
  * };
  * const command = new GetRuleCommand(input);

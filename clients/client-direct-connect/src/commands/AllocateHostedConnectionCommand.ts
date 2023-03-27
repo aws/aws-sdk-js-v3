@@ -47,14 +47,14 @@ export interface AllocateHostedConnectionCommandOutput extends Connection, __Met
  * import { DirectConnectClient, AllocateHostedConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocateHostedConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // AllocateHostedConnectionRequest
  *   connectionId: "STRING_VALUE", // required
  *   ownerAccount: "STRING_VALUE", // required
  *   bandwidth: "STRING_VALUE", // required
  *   connectionName: "STRING_VALUE", // required
  *   vlan: Number("int"), // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },

@@ -42,11 +42,11 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * import { RDSClient, ModifyDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyDBProxyRequest
  *   DBProxyName: "STRING_VALUE", // required
  *   NewDBProxyName: "STRING_VALUE",
- *   Auth: [
- *     {
+ *   Auth: [ // UserAuthConfigList
+ *     { // UserAuthConfig
  *       Description: "STRING_VALUE",
  *       UserName: "STRING_VALUE",
  *       AuthScheme: "SECRETS",
@@ -59,7 +59,7 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  *   IdleClientTimeout: Number("int"),
  *   DebugLogging: true || false,
  *   RoleArn: "STRING_VALUE",
- *   SecurityGroups: [
+ *   SecurityGroups: [ // StringList
  *     "STRING_VALUE",
  *   ],
  * };

@@ -43,7 +43,7 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * import { SESv2Client, DeleteEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // DeleteEmailTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  * };
  * const command = new DeleteEmailTemplateCommand(input);
