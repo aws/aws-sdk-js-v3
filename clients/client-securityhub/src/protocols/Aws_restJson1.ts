@@ -197,6 +197,8 @@ import {
   Adjustment,
   AdminAccount,
   AssociatedStandard,
+  AssociationSetDetails,
+  AssociationStateDetails,
   AvailabilityZone,
   AwsApiCallAction,
   AwsApiCallActionDomainDetails,
@@ -290,6 +292,7 @@ import {
   AwsEc2EipDetails,
   AwsEc2InstanceDetails,
   AwsEc2InstanceMetadataOptions,
+  AwsEc2InstanceMonitoringDetails,
   AwsEc2InstanceNetworkInterfacesDetails,
   AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails,
   AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails,
@@ -334,6 +337,7 @@ import {
   AwsEc2NetworkInterfaceIpV6AddressDetail,
   AwsEc2NetworkInterfacePrivateIpAddressDetail,
   AwsEc2NetworkInterfaceSecurityGroup,
+  AwsEc2RouteTableDetails,
   AwsEc2SecurityGroupDetails,
   AwsEc2SecurityGroupIpPermission,
   AwsEc2SecurityGroupIpRange,
@@ -451,11 +455,6 @@ import {
   AwsElbLoadBalancerSourceSecurityGroup,
   AwsElbv2LoadBalancerAttribute,
   AwsElbv2LoadBalancerDetails,
-  AwsIamAccessKeyDetails,
-  AwsIamAccessKeySessionContext,
-  AwsIamAccessKeySessionContextAttributes,
-  AwsIamAccessKeySessionContextSessionIssuer,
-  AwsIamAttachedManagedPolicy,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -474,13 +473,20 @@ import {
   PortProbeAction,
   PortProbeDetail,
   PortRangeFromTo,
+  PropagatingVgwSetDetails,
   ResourceNotFoundException,
+  RouteSetDetails,
   VpcInfoCidrBlockSetDetails,
   VpcInfoIpv6CidrBlockSetDetails,
   VpcInfoPeeringOptionsDetails,
 } from "../models/models_0";
 import {
   _Record,
+  AwsIamAccessKeyDetails,
+  AwsIamAccessKeySessionContext,
+  AwsIamAccessKeySessionContextAttributes,
+  AwsIamAccessKeySessionContextSessionIssuer,
+  AwsIamAttachedManagedPolicy,
   AwsIamGroupDetails,
   AwsIamGroupPolicy,
   AwsIamInstanceProfile,
@@ -579,6 +585,9 @@ import {
   AwsS3BucketNotificationConfigurationFilter,
   AwsS3BucketNotificationConfigurationS3KeyFilter,
   AwsS3BucketNotificationConfigurationS3KeyFilterRule,
+  AwsS3BucketObjectLockConfiguration,
+  AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails,
+  AwsS3BucketObjectLockConfigurationRuleDetails,
   AwsS3BucketServerSideEncryptionByDefault,
   AwsS3BucketServerSideEncryptionConfiguration,
   AwsS3BucketServerSideEncryptionRule,
@@ -681,7 +690,6 @@ import {
   Resource,
   ResourceConflictException,
   ResourceDetails,
-  Result,
   RuleGroupDetails,
   RuleGroupSource,
   RuleGroupSourceCustomActionsDetails,
@@ -741,6 +749,7 @@ import {
   Invitation,
   Member,
   Product,
+  Result,
   SecurityControlDefinition,
   SortCriterion,
   Standard,
@@ -5788,6 +5797,37 @@ const serializeAws_restJson1AssociatedStandardsList = (input: AssociatedStandard
     });
 };
 
+const serializeAws_restJson1AssociationSetDetails = (input: AssociationSetDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.AssociationState != null && {
+      AssociationState: serializeAws_restJson1AssociationStateDetails(input.AssociationState, context),
+    }),
+    ...(input.GatewayId != null && { GatewayId: input.GatewayId }),
+    ...(input.Main != null && { Main: input.Main }),
+    ...(input.RouteTableAssociationId != null && { RouteTableAssociationId: input.RouteTableAssociationId }),
+    ...(input.RouteTableId != null && { RouteTableId: input.RouteTableId }),
+    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
+  };
+};
+
+const serializeAws_restJson1AssociationSetList = (input: AssociationSetDetails[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AssociationSetDetails(entry, context);
+    });
+};
+
+const serializeAws_restJson1AssociationStateDetails = (
+  input: AssociationStateDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.State != null && { State: input.State }),
+    ...(input.StatusMessage != null && { StatusMessage: input.StatusMessage }),
+  };
+};
+
 const serializeAws_restJson1AvailabilityZone = (input: AvailabilityZone, context: __SerdeContext): any => {
   return {
     ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
@@ -7613,6 +7653,9 @@ const serializeAws_restJson1AwsEc2InstanceDetails = (input: AwsEc2InstanceDetail
     ...(input.MetadataOptions != null && {
       MetadataOptions: serializeAws_restJson1AwsEc2InstanceMetadataOptions(input.MetadataOptions, context),
     }),
+    ...(input.Monitoring != null && {
+      Monitoring: serializeAws_restJson1AwsEc2InstanceMonitoringDetails(input.Monitoring, context),
+    }),
     ...(input.NetworkInterfaces != null && {
       NetworkInterfaces: serializeAws_restJson1AwsEc2InstanceNetworkInterfacesList(input.NetworkInterfaces, context),
     }),
@@ -7633,6 +7676,15 @@ const serializeAws_restJson1AwsEc2InstanceMetadataOptions = (
     ...(input.HttpPutResponseHopLimit != null && { HttpPutResponseHopLimit: input.HttpPutResponseHopLimit }),
     ...(input.HttpTokens != null && { HttpTokens: input.HttpTokens }),
     ...(input.InstanceMetadataTags != null && { InstanceMetadataTags: input.InstanceMetadataTags }),
+  };
+};
+
+const serializeAws_restJson1AwsEc2InstanceMonitoringDetails = (
+  input: AwsEc2InstanceMonitoringDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.State != null && { State: input.State }),
   };
 };
 
@@ -8542,6 +8594,24 @@ const serializeAws_restJson1AwsEc2NetworkInterfaceSecurityGroupList = (
     .map((entry) => {
       return serializeAws_restJson1AwsEc2NetworkInterfaceSecurityGroup(entry, context);
     });
+};
+
+const serializeAws_restJson1AwsEc2RouteTableDetails = (
+  input: AwsEc2RouteTableDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationSet != null && {
+      AssociationSet: serializeAws_restJson1AssociationSetList(input.AssociationSet, context),
+    }),
+    ...(input.OwnerId != null && { OwnerId: input.OwnerId }),
+    ...(input.PropagatingVgwSet != null && {
+      PropagatingVgwSet: serializeAws_restJson1PropagatingVgwSetList(input.PropagatingVgwSet, context),
+    }),
+    ...(input.RouteSet != null && { RouteSet: serializeAws_restJson1RouteSetList(input.RouteSet, context) }),
+    ...(input.RouteTableId != null && { RouteTableId: input.RouteTableId }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
+  };
 };
 
 const serializeAws_restJson1AwsEc2SecurityGroupDetails = (
@@ -10367,6 +10437,7 @@ const serializeAws_restJson1AwsEksClusterResourcesVpcConfigDetails = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.EndpointPublicAccess != null && { EndpointPublicAccess: input.EndpointPublicAccess }),
     ...(input.SecurityGroupIds != null && {
       SecurityGroupIds: serializeAws_restJson1NonEmptyStringList(input.SecurityGroupIds, context),
     }),
@@ -13009,6 +13080,12 @@ const serializeAws_restJson1AwsS3BucketDetails = (input: AwsS3BucketDetails, con
       ),
     }),
     ...(input.CreatedAt != null && { CreatedAt: input.CreatedAt }),
+    ...(input.ObjectLockConfiguration != null && {
+      ObjectLockConfiguration: serializeAws_restJson1AwsS3BucketObjectLockConfiguration(
+        input.ObjectLockConfiguration,
+        context
+      ),
+    }),
     ...(input.OwnerAccountId != null && { OwnerAccountId: input.OwnerAccountId }),
     ...(input.OwnerId != null && { OwnerId: input.OwnerId }),
     ...(input.OwnerName != null && { OwnerName: input.OwnerName }),
@@ -13130,6 +13207,43 @@ const serializeAws_restJson1AwsS3BucketNotificationConfigurationS3KeyFilterRules
     .map((entry) => {
       return serializeAws_restJson1AwsS3BucketNotificationConfigurationS3KeyFilterRule(entry, context);
     });
+};
+
+const serializeAws_restJson1AwsS3BucketObjectLockConfiguration = (
+  input: AwsS3BucketObjectLockConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ObjectLockEnabled != null && { ObjectLockEnabled: input.ObjectLockEnabled }),
+    ...(input.Rule != null && {
+      Rule: serializeAws_restJson1AwsS3BucketObjectLockConfigurationRuleDetails(input.Rule, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails = (
+  input: AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Days != null && { Days: input.Days }),
+    ...(input.Mode != null && { Mode: input.Mode }),
+    ...(input.Years != null && { Years: input.Years }),
+  };
+};
+
+const serializeAws_restJson1AwsS3BucketObjectLockConfigurationRuleDetails = (
+  input: AwsS3BucketObjectLockConfigurationRuleDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DefaultRetention != null && {
+      DefaultRetention: serializeAws_restJson1AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails(
+        input.DefaultRetention,
+        context
+      ),
+    }),
+  };
 };
 
 const serializeAws_restJson1AwsS3BucketServerSideEncryptionByDefault = (
@@ -15133,6 +15247,26 @@ const serializeAws_restJson1ProcessDetails = (input: ProcessDetails, context: __
   };
 };
 
+const serializeAws_restJson1PropagatingVgwSetDetails = (
+  input: PropagatingVgwSetDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GatewayId != null && { GatewayId: input.GatewayId }),
+  };
+};
+
+const serializeAws_restJson1PropagatingVgwSetList = (
+  input: PropagatingVgwSetDetails[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1PropagatingVgwSetDetails(entry, context);
+    });
+};
+
 const serializeAws_restJson1Range = (input: Range, context: __SerdeContext): any => {
   return {
     ...(input.End != null && { End: input.End }),
@@ -15300,6 +15434,9 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
         input.AwsEc2NetworkInterface,
         context
       ),
+    }),
+    ...(input.AwsEc2RouteTable != null && {
+      AwsEc2RouteTable: serializeAws_restJson1AwsEc2RouteTableDetails(input.AwsEc2RouteTable, context),
     }),
     ...(input.AwsEc2SecurityGroup != null && {
       AwsEc2SecurityGroup: serializeAws_restJson1AwsEc2SecurityGroupDetails(input.AwsEc2SecurityGroup, context),
@@ -15527,6 +15664,37 @@ const serializeAws_restJson1ResourceList = (input: Resource[], context: __SerdeC
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1Resource(entry, context);
+    });
+};
+
+const serializeAws_restJson1RouteSetDetails = (input: RouteSetDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.CarrierGatewayId != null && { CarrierGatewayId: input.CarrierGatewayId }),
+    ...(input.CoreNetworkArn != null && { CoreNetworkArn: input.CoreNetworkArn }),
+    ...(input.DestinationCidrBlock != null && { DestinationCidrBlock: input.DestinationCidrBlock }),
+    ...(input.DestinationIpv6CidrBlock != null && { DestinationIpv6CidrBlock: input.DestinationIpv6CidrBlock }),
+    ...(input.DestinationPrefixListId != null && { DestinationPrefixListId: input.DestinationPrefixListId }),
+    ...(input.EgressOnlyInternetGatewayId != null && {
+      EgressOnlyInternetGatewayId: input.EgressOnlyInternetGatewayId,
+    }),
+    ...(input.GatewayId != null && { GatewayId: input.GatewayId }),
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.InstanceOwnerId != null && { InstanceOwnerId: input.InstanceOwnerId }),
+    ...(input.LocalGatewayId != null && { LocalGatewayId: input.LocalGatewayId }),
+    ...(input.NatGatewayId != null && { NatGatewayId: input.NatGatewayId }),
+    ...(input.NetworkInterfaceId != null && { NetworkInterfaceId: input.NetworkInterfaceId }),
+    ...(input.Origin != null && { Origin: input.Origin }),
+    ...(input.State != null && { State: input.State }),
+    ...(input.TransitGatewayId != null && { TransitGatewayId: input.TransitGatewayId }),
+    ...(input.VpcPeeringConnectionId != null && { VpcPeeringConnectionId: input.VpcPeeringConnectionId }),
+  };
+};
+
+const serializeAws_restJson1RouteSetList = (input: RouteSetDetails[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1RouteSetDetails(entry, context);
     });
 };
 
@@ -16520,6 +16688,42 @@ const deserializeAws_restJson1AssociatedStandardsList = (
       return deserializeAws_restJson1AssociatedStandard(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AssociationSetDetails = (output: any, context: __SerdeContext): AssociationSetDetails => {
+  return {
+    AssociationState:
+      output.AssociationState != null
+        ? deserializeAws_restJson1AssociationStateDetails(output.AssociationState, context)
+        : undefined,
+    GatewayId: __expectString(output.GatewayId),
+    Main: __expectBoolean(output.Main),
+    RouteTableAssociationId: __expectString(output.RouteTableAssociationId),
+    RouteTableId: __expectString(output.RouteTableId),
+    SubnetId: __expectString(output.SubnetId),
+  } as any;
+};
+
+const deserializeAws_restJson1AssociationSetList = (output: any, context: __SerdeContext): AssociationSetDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssociationSetDetails(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AssociationStateDetails = (
+  output: any,
+  context: __SerdeContext
+): AssociationStateDetails => {
+  return {
+    State: __expectString(output.State),
+    StatusMessage: __expectString(output.StatusMessage),
+  } as any;
 };
 
 const deserializeAws_restJson1AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
@@ -18448,6 +18652,10 @@ const deserializeAws_restJson1AwsEc2InstanceDetails = (output: any, context: __S
       output.MetadataOptions != null
         ? deserializeAws_restJson1AwsEc2InstanceMetadataOptions(output.MetadataOptions, context)
         : undefined,
+    Monitoring:
+      output.Monitoring != null
+        ? deserializeAws_restJson1AwsEc2InstanceMonitoringDetails(output.Monitoring, context)
+        : undefined,
     NetworkInterfaces:
       output.NetworkInterfaces != null
         ? deserializeAws_restJson1AwsEc2InstanceNetworkInterfacesList(output.NetworkInterfaces, context)
@@ -18469,6 +18677,15 @@ const deserializeAws_restJson1AwsEc2InstanceMetadataOptions = (
     HttpPutResponseHopLimit: __expectInt32(output.HttpPutResponseHopLimit),
     HttpTokens: __expectString(output.HttpTokens),
     InstanceMetadataTags: __expectString(output.InstanceMetadataTags),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsEc2InstanceMonitoringDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsEc2InstanceMonitoringDetails => {
+  return {
+    State: __expectString(output.State),
   } as any;
 };
 
@@ -19447,6 +19664,26 @@ const deserializeAws_restJson1AwsEc2NetworkInterfaceSecurityGroupList = (
       return deserializeAws_restJson1AwsEc2NetworkInterfaceSecurityGroup(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AwsEc2RouteTableDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsEc2RouteTableDetails => {
+  return {
+    AssociationSet:
+      output.AssociationSet != null
+        ? deserializeAws_restJson1AssociationSetList(output.AssociationSet, context)
+        : undefined,
+    OwnerId: __expectString(output.OwnerId),
+    PropagatingVgwSet:
+      output.PropagatingVgwSet != null
+        ? deserializeAws_restJson1PropagatingVgwSetList(output.PropagatingVgwSet, context)
+        : undefined,
+    RouteSet: output.RouteSet != null ? deserializeAws_restJson1RouteSetList(output.RouteSet, context) : undefined,
+    RouteTableId: __expectString(output.RouteTableId),
+    VpcId: __expectString(output.VpcId),
+  } as any;
 };
 
 const deserializeAws_restJson1AwsEc2SecurityGroupDetails = (
@@ -21443,6 +21680,7 @@ const deserializeAws_restJson1AwsEksClusterResourcesVpcConfigDetails = (
   context: __SerdeContext
 ): AwsEksClusterResourcesVpcConfigDetails => {
   return {
+    EndpointPublicAccess: __expectBoolean(output.EndpointPublicAccess),
     SecurityGroupIds:
       output.SecurityGroupIds != null
         ? deserializeAws_restJson1NonEmptyStringList(output.SecurityGroupIds, context)
@@ -24261,6 +24499,10 @@ const deserializeAws_restJson1AwsS3BucketDetails = (output: any, context: __Serd
         ? deserializeAws_restJson1AwsS3BucketWebsiteConfiguration(output.BucketWebsiteConfiguration, context)
         : undefined,
     CreatedAt: __expectString(output.CreatedAt),
+    ObjectLockConfiguration:
+      output.ObjectLockConfiguration != null
+        ? deserializeAws_restJson1AwsS3BucketObjectLockConfiguration(output.ObjectLockConfiguration, context)
+        : undefined,
     OwnerAccountId: __expectString(output.OwnerAccountId),
     OwnerId: __expectString(output.OwnerId),
     OwnerName: __expectString(output.OwnerName),
@@ -24395,6 +24637,45 @@ const deserializeAws_restJson1AwsS3BucketNotificationConfigurationS3KeyFilterRul
       return deserializeAws_restJson1AwsS3BucketNotificationConfigurationS3KeyFilterRule(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AwsS3BucketObjectLockConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AwsS3BucketObjectLockConfiguration => {
+  return {
+    ObjectLockEnabled: __expectString(output.ObjectLockEnabled),
+    Rule:
+      output.Rule != null
+        ? deserializeAws_restJson1AwsS3BucketObjectLockConfigurationRuleDetails(output.Rule, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails => {
+  return {
+    Days: __expectInt32(output.Days),
+    Mode: __expectString(output.Mode),
+    Years: __expectInt32(output.Years),
+  } as any;
+};
+
+const deserializeAws_restJson1AwsS3BucketObjectLockConfigurationRuleDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsS3BucketObjectLockConfigurationRuleDetails => {
+  return {
+    DefaultRetention:
+      output.DefaultRetention != null
+        ? deserializeAws_restJson1AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails(
+            output.DefaultRetention,
+            context
+          )
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1AwsS3BucketServerSideEncryptionByDefault = (
@@ -26797,6 +27078,30 @@ const deserializeAws_restJson1ProductSubscriptionArnList = (output: any, context
   return retVal;
 };
 
+const deserializeAws_restJson1PropagatingVgwSetDetails = (
+  output: any,
+  context: __SerdeContext
+): PropagatingVgwSetDetails => {
+  return {
+    GatewayId: __expectString(output.GatewayId),
+  } as any;
+};
+
+const deserializeAws_restJson1PropagatingVgwSetList = (
+  output: any,
+  context: __SerdeContext
+): PropagatingVgwSetDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PropagatingVgwSetDetails(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1Range = (output: any, context: __SerdeContext): Range => {
   return {
     End: __expectLong(output.End),
@@ -26988,6 +27293,10 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
     AwsEc2NetworkInterface:
       output.AwsEc2NetworkInterface != null
         ? deserializeAws_restJson1AwsEc2NetworkInterfaceDetails(output.AwsEc2NetworkInterface, context)
+        : undefined,
+    AwsEc2RouteTable:
+      output.AwsEc2RouteTable != null
+        ? deserializeAws_restJson1AwsEc2RouteTableDetails(output.AwsEc2RouteTable, context)
         : undefined,
     AwsEc2SecurityGroup:
       output.AwsEc2SecurityGroup != null
@@ -27243,6 +27552,39 @@ const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext
         return null as any;
       }
       return deserializeAws_restJson1Result(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RouteSetDetails = (output: any, context: __SerdeContext): RouteSetDetails => {
+  return {
+    CarrierGatewayId: __expectString(output.CarrierGatewayId),
+    CoreNetworkArn: __expectString(output.CoreNetworkArn),
+    DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
+    DestinationIpv6CidrBlock: __expectString(output.DestinationIpv6CidrBlock),
+    DestinationPrefixListId: __expectString(output.DestinationPrefixListId),
+    EgressOnlyInternetGatewayId: __expectString(output.EgressOnlyInternetGatewayId),
+    GatewayId: __expectString(output.GatewayId),
+    InstanceId: __expectString(output.InstanceId),
+    InstanceOwnerId: __expectString(output.InstanceOwnerId),
+    LocalGatewayId: __expectString(output.LocalGatewayId),
+    NatGatewayId: __expectString(output.NatGatewayId),
+    NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
+    Origin: __expectString(output.Origin),
+    State: __expectString(output.State),
+    TransitGatewayId: __expectString(output.TransitGatewayId),
+    VpcPeeringConnectionId: __expectString(output.VpcPeeringConnectionId),
+  } as any;
+};
+
+const deserializeAws_restJson1RouteSetList = (output: any, context: __SerdeContext): RouteSetDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RouteSetDetails(entry, context);
     });
   return retVal;
 };

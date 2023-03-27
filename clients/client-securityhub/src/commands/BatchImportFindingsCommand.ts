@@ -623,6 +623,9 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 HttpTokens: "STRING_VALUE",
  *                 InstanceMetadataTags: "STRING_VALUE",
  *               },
+ *               Monitoring: {
+ *                 State: "STRING_VALUE",
+ *               },
  *             },
  *             AwsEc2NetworkInterface: {
  *               Attachment: {
@@ -1079,6 +1082,16 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               BucketVersioningConfiguration: {
  *                 IsMfaDeleteEnabled: true || false,
  *                 Status: "STRING_VALUE",
+ *               },
+ *               ObjectLockConfiguration: {
+ *                 ObjectLockEnabled: "STRING_VALUE",
+ *                 Rule: {
+ *                   DefaultRetention: {
+ *                     Days: Number("int"),
+ *                     Mode: "STRING_VALUE",
+ *                     Years: Number("int"),
+ *                   },
+ *                 },
  *               },
  *             },
  *             AwsS3AccountPublicAccessBlock: {
@@ -2893,6 +2906,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 SubnetIds: [
  *                   "<NonEmptyStringList>",
  *                 ],
+ *                 EndpointPublicAccess: true || false,
  *               },
  *               RoleArn: "STRING_VALUE",
  *               Version: "STRING_VALUE",
@@ -3867,6 +3881,49 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 MetricName: "STRING_VALUE",
  *                 SampledRequestsEnabled: true || false,
  *               },
+ *             },
+ *             AwsEc2RouteTable: {
+ *               AssociationSet: [
+ *                 {
+ *                   AssociationState: {
+ *                     State: "STRING_VALUE",
+ *                     StatusMessage: "STRING_VALUE",
+ *                   },
+ *                   GatewayId: "STRING_VALUE",
+ *                   Main: true || false,
+ *                   RouteTableAssociationId: "STRING_VALUE",
+ *                   RouteTableId: "STRING_VALUE",
+ *                   SubnetId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               OwnerId: "STRING_VALUE",
+ *               PropagatingVgwSet: [
+ *                 {
+ *                   GatewayId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               RouteTableId: "STRING_VALUE",
+ *               RouteSet: [
+ *                 {
+ *                   CarrierGatewayId: "STRING_VALUE",
+ *                   CoreNetworkArn: "STRING_VALUE",
+ *                   DestinationCidrBlock: "STRING_VALUE",
+ *                   DestinationIpv6CidrBlock: "STRING_VALUE",
+ *                   DestinationPrefixListId: "STRING_VALUE",
+ *                   EgressOnlyInternetGatewayId: "STRING_VALUE",
+ *                   GatewayId: "STRING_VALUE",
+ *                   InstanceId: "STRING_VALUE",
+ *                   InstanceOwnerId: "STRING_VALUE",
+ *                   LocalGatewayId: "STRING_VALUE",
+ *                   NatGatewayId: "STRING_VALUE",
+ *                   NetworkInterfaceId: "STRING_VALUE",
+ *                   Origin: "STRING_VALUE",
+ *                   State: "STRING_VALUE",
+ *                   TransitGatewayId: "STRING_VALUE",
+ *                   VpcPeeringConnectionId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               VpcId: "STRING_VALUE",
  *             },
  *           },
  *         },

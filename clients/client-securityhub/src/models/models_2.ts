@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ActionTarget, AdminAccount, AssociationStatus, AutoEnableStandards } from "./models_0";
+import { AccountDetails, ActionTarget, AdminAccount, AssociationStatus, AutoEnableStandards } from "./models_0";
 import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
@@ -7,10 +7,122 @@ import {
   ControlStatus,
   NoteUpdate,
   RecordState,
-  Result,
   SeverityRating,
   StandardsSubscription,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateInsightRequest {
+  /**
+   * <p>The name of the custom insight to create.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more attributes used to filter the findings included in the insight. The insight
+   *          only includes findings that match the criteria defined in the filters.</p>
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The attribute used to group the findings for the insight. The grouping attribute
+   *          identifies the type of item that the insight applies to. For example, if an insight is
+   *          grouped by resource identifier, then the insight produces a list of resource
+   *          identifiers.</p>
+   */
+  GroupByAttribute: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInsightResponse {
+  /**
+   * <p>The ARN of the insight created.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembersRequest {
+  /**
+   * <p>The list of accounts to associate with the Security Hub administrator account. For each account, the
+   *          list includes the account ID and optionally the email address.</p>
+   */
+  AccountDetails: AccountDetails[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Details about the account that was not processed.</p>
+ */
+export interface Result {
+  /**
+   * <p>An Amazon Web Services account ID of the account that was not processed.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The reason that the account was not processed.</p>
+   */
+  ProcessingResult?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
+   *          the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+/**
+ * @public
+ */
+export interface DeclineInvitationsRequest {
+  /**
+   * <p>The list of prospective member account IDs for which to decline an invitation.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeclineInvitationsResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
+   *          the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+/**
+ * @public
+ */
+export interface DeleteActionTargetRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom action target to delete.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteActionTargetResponse {
+  /**
+   * <p>The ARN of the custom action target that was deleted.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
 
 /**
  * @public
@@ -52,7 +164,7 @@ export interface DeleteInsightResponse {
  */
 export interface DeleteInvitationsRequest {
   /**
-   * <p>The list of the account IDs that sent the invitations to delete.</p>
+   * <p>The list of member account IDs that received the invitations you want to delete.</p>
    */
   AccountIds: string[] | undefined;
 }
@@ -170,7 +282,7 @@ export interface DescribeHubResponse {
    *          for a control check when the check applies to multiple enabled standards.</p>
    *          <p>The value for this field in a member account matches the value in the administrator
    *          account. For accounts that aren't part of an organization, the default value of this field
-   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 9,
+   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 23,
    *          2023.</p>
    */
   ControlFindingGenerator?: ControlFindingGenerator | string;
@@ -655,7 +767,7 @@ export interface EnableSecurityHubRequest {
    *       for a control check when the check applies to multiple enabled standards.</p>
    *          <p>The value for this field in a member account matches the value in the administrator
    *          account. For accounts that aren't part of an organization, the default value of this field
-   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 9,
+   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 23,
    *          2023.</p>
    */
   ControlFindingGenerator?: ControlFindingGenerator | string;

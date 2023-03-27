@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_1";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1DeclineInvitationsCommand,
   serializeAws_restJson1DeclineInvitationsCommand,
@@ -36,8 +36,9 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
 /**
  * @public
  * <p>Declines invitations to become a member account.</p>
- *          <p>This operation is only used by accounts that are not part of an organization.
- *          Organization accounts do not receive invitations.</p>
+ *          <p>A prospective member account uses this operation to decline an invitation to become a member.</p>
+ *          <p>This operation is only called by member accounts that aren't part of an organization.
+ *          Organization accounts don't receive invitations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

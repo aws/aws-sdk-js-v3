@@ -2,7 +2,6 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
 import {
-  AccountDetails,
   Action,
   Adjustment,
   AssociatedStandard,
@@ -28,6 +27,7 @@ import {
   AwsEc2LaunchTemplateDetails,
   AwsEc2NetworkAclDetails,
   AwsEc2NetworkInterfaceDetails,
+  AwsEc2RouteTableDetails,
   AwsEc2SecurityGroupDetails,
   AwsEc2SubnetDetails,
   AwsEc2TransitGatewayDetails,
@@ -49,10 +49,158 @@ import {
   AwsElasticsearchDomainDetails,
   AwsElbLoadBalancerDetails,
   AwsElbv2LoadBalancerDetails,
-  AwsIamAccessKeyDetails,
-  AwsIamAttachedManagedPolicy,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * @public
+ * <p>Attributes of the session that the key was used for.</p>
+ */
+export interface AwsIamAccessKeySessionContextAttributes {
+  /**
+   * <p>Indicates whether the session used multi-factor authentication (MFA).</p>
+   */
+  MfaAuthenticated?: boolean;
+
+  /**
+   * <p>Indicates when the session was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreationDate?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the entity that created the session.</p>
+ */
+export interface AwsIamAccessKeySessionContextSessionIssuer {
+  /**
+   * <p>The type of principal (user, role, or group) that created the session.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The principal ID of the principal (user, role, or group) that created the
+   *          session.</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The ARN of the session.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account that created the session.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The name of the principal that created the session.</p>
+   */
+  UserName?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the session that the key was used for.</p>
+ */
+export interface AwsIamAccessKeySessionContext {
+  /**
+   * <p>Attributes of the session that the key was used for.</p>
+   */
+  Attributes?: AwsIamAccessKeySessionContextAttributes;
+
+  /**
+   * <p>Information about the entity that created the session.</p>
+   */
+  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
+}
+
+/**
+ * @public
+ */
+export enum AwsIamAccessKeyStatus {
+  ACTIVE = "Active",
+  INACTIVE = "Inactive",
+}
+
+/**
+ * @public
+ * <p>IAM access key details related to a finding.</p>
+ */
+export interface AwsIamAccessKeyDetails {
+  /**
+   * @deprecated
+   *
+   * <p>The user associated with the IAM access key related to a finding.</p>
+   *          <p>The <code>UserName</code> parameter has been replaced with the
+   *             <code>PrincipalName</code> parameter because access keys can also be assigned to
+   *          principals that are not IAM users.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The status of the IAM access key related to a finding.</p>
+   */
+  Status?: AwsIamAccessKeyStatus | string;
+
+  /**
+   * <p>Indicates when the IAM access key was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedAt?: string;
+
+  /**
+   * <p>The ID of the principal associated with an access key.</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The type of principal associated with an access key.</p>
+   */
+  PrincipalType?: string;
+
+  /**
+   * <p>The name of the principal.</p>
+   */
+  PrincipalName?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the account for the key.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The identifier of the access key.</p>
+   */
+  AccessKeyId?: string;
+
+  /**
+   * <p>Information about the session that the key was used for.</p>
+   */
+  SessionContext?: AwsIamAccessKeySessionContext;
+}
+
+/**
+ * @public
+ * <p>A managed policy that is attached to an IAM principal.</p>
+ */
+export interface AwsIamAttachedManagedPolicy {
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName?: string;
+
+  /**
+   * <p>The ARN of the policy.</p>
+   */
+  PolicyArn?: string;
+}
 
 /**
  * @public
@@ -4573,6 +4721,72 @@ export interface AwsS3BucketWebsiteConfiguration {
 
 /**
  * @public
+ * <p>
+ *          The default S3 Object Lock retention mode and period that you want to apply to new objects placed in the specified Amazon S3 bucket.
+ *       </p>
+ */
+export interface AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails {
+  /**
+   * <p>
+   *          The number of days that you want to specify for the default retention period.
+   *       </p>
+   */
+  Days?: number;
+
+  /**
+   * <p>
+   *          The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
+   *       </p>
+   */
+  Mode?: string;
+
+  /**
+   * <p>
+   *          The number of years that you want to specify for the default retention period.
+   *       </p>
+   */
+  Years?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies the S3 Object Lock rule for the specified object. In Amazon S3, Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.
+ *       </p>
+ */
+export interface AwsS3BucketObjectLockConfigurationRuleDetails {
+  /**
+   * <p>
+   *          The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket.
+   *       </p>
+   */
+  DefaultRetention?: AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          The container element for S3 Object Lock configuration parameters. In Amazon S3, Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.
+ *       </p>
+ */
+export interface AwsS3BucketObjectLockConfiguration {
+  /**
+   * <p>
+   *          Indicates whether the bucket has an Object Lock configuration enabled.
+   *       </p>
+   */
+  ObjectLockEnabled?: string;
+
+  /**
+   * <p>
+   *          Specifies the Object Lock rule for the specified object.
+   *       </p>
+   */
+  Rule?: AwsS3BucketObjectLockConfigurationRuleDetails;
+}
+
+/**
+ * @public
  * <p>Specifies the default server-side encryption to apply to new objects in the
  *          bucket.</p>
  */
@@ -4680,6 +4894,13 @@ export interface AwsS3BucketDetails {
    * <p>The versioning state of an S3 bucket.</p>
    */
   BucketVersioningConfiguration?: AwsS3BucketBucketVersioningConfiguration;
+
+  /**
+   * <p>
+   *          Specifies which rule Amazon S3 applies by default to every new object placed in the specified bucket.
+   *       </p>
+   */
+  ObjectLockConfiguration?: AwsS3BucketObjectLockConfiguration;
 }
 
 /**
@@ -5459,7 +5680,7 @@ export interface ProcessDetails {
   Pid?: number;
 
   /**
-   * <p>The parent process ID.</p>
+   * <p>The parent process ID. This field accepts positive integers between <code>O</code> and <code>2147483647</code>.</p>
    */
   ParentPid?: number;
 
@@ -7778,6 +7999,14 @@ export interface ResourceDetails {
    *       </p>
    */
   AwsWafv2RuleGroup?: AwsWafv2RuleGroupDetails;
+
+  /**
+   * <p>
+   *          Provides details about a route table. A route table contains a set of rules, called routes, that
+   *          determine where to direct network traffic from your subnet or gateway.
+   *       </p>
+   */
+  AwsEc2RouteTable?: AwsEc2RouteTableDetails;
 }
 
 /**
@@ -9132,7 +9361,7 @@ export interface AwsSecurityFindingFilters {
   ProcessPid?: NumberFilter[];
 
   /**
-   * <p>The parent process ID.</p>
+   * <p>The parent process ID. This field accepts positive integers between <code>O</code> and <code>2147483647</code>.</p>
    */
   ProcessParentPid?: NumberFilter[];
 
@@ -10573,118 +10802,4 @@ export interface CreateFindingAggregatorResponse {
    * <p>The list of excluded Regions or included Regions.</p>
    */
   Regions?: string[];
-}
-
-/**
- * @public
- */
-export interface CreateInsightRequest {
-  /**
-   * <p>The name of the custom insight to create.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>One or more attributes used to filter the findings included in the insight. The insight
-   *          only includes findings that match the criteria defined in the filters.</p>
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The attribute used to group the findings for the insight. The grouping attribute
-   *          identifies the type of item that the insight applies to. For example, if an insight is
-   *          grouped by resource identifier, then the insight produces a list of resource
-   *          identifiers.</p>
-   */
-  GroupByAttribute: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateInsightResponse {
-  /**
-   * <p>The ARN of the insight created.</p>
-   */
-  InsightArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMembersRequest {
-  /**
-   * <p>The list of accounts to associate with the Security Hub administrator account. For each account, the
-   *          list includes the account ID and optionally the email address.</p>
-   */
-  AccountDetails: AccountDetails[] | undefined;
-}
-
-/**
- * @public
- * <p>Details about the account that was not processed.</p>
- */
-export interface Result {
-  /**
-   * <p>An Amazon Web Services account ID of the account that was not processed.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The reason that the account was not processed.</p>
-   */
-  ProcessingResult?: string;
-}
-
-/**
- * @public
- */
-export interface CreateMembersResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
-   *          the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-/**
- * @public
- */
-export interface DeclineInvitationsRequest {
-  /**
-   * <p>The list of account IDs for the accounts from which to decline the invitations to
-   *          Security Hub.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeclineInvitationsResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
-   *          the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-/**
- * @public
- */
-export interface DeleteActionTargetRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom action target to delete.</p>
-   */
-  ActionTargetArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteActionTargetResponse {
-  /**
-   * <p>The ARN of the custom action target that was deleted.</p>
-   */
-  ActionTargetArn: string | undefined;
 }

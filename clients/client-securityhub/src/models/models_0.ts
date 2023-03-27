@@ -672,6 +672,78 @@ export interface AssociatedStandard {
 
 /**
  * @public
+ * <p>
+ *          Describes the state of an association between a route table and a subnet or gateway.
+ *       </p>
+ */
+export interface AssociationStateDetails {
+  /**
+   * <p>
+   *          The state of the association.
+   *       </p>
+   */
+  State?: string;
+
+  /**
+   * <p>
+   *          The status message, if applicable.
+   *       </p>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          The associations between a route table and one or more subnets or a gateway.
+ *       </p>
+ */
+export interface AssociationSetDetails {
+  /**
+   * <p>
+   *          The state of the association between a route table and a subnet or gateway.
+   *       </p>
+   */
+  AssociationState?: AssociationStateDetails;
+
+  /**
+   * <p>
+   *          The ID of the internet gateway or virtual private gateway.
+   *       </p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>
+   *          Indicates whether this is the main route table.
+   *       </p>
+   */
+  Main?: boolean;
+
+  /**
+   * <p>
+   *          The ID of the association.
+   *       </p>
+   */
+  RouteTableAssociationId?: string;
+
+  /**
+   * <p>
+   *          The ID of the route table.
+   *       </p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>
+   *          The ID of the subnet. A subnet ID is not returned for an implicit association.
+   *       </p>
+   */
+  SubnetId?: string;
+}
+
+/**
+ * @public
  */
 export enum AssociationStatus {
   DISABLED = "DISABLED",
@@ -4361,6 +4433,21 @@ export interface AwsEc2InstanceMetadataOptions {
 
 /**
  * @public
+ * <p>
+ *          The type of monitoring that’s turned on for an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2InstanceMonitoringDetails {
+  /**
+   * <p>
+   *          Indicates whether detailed monitoring is turned on. Otherwise, basic monitoring is turned on.
+   *       </p>
+   */
+  State?: string;
+}
+
+/**
+ * @public
  * <p>Identifies a network interface for the Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceNetworkInterfacesDetails {
@@ -4439,6 +4526,13 @@ export interface AwsEc2InstanceDetails {
    *       </p>
    */
   MetadataOptions?: AwsEc2InstanceMetadataOptions;
+
+  /**
+   * <p>
+   *          Describes the type of monitoring that’s turned on for an instance.
+   *       </p>
+   */
+  Monitoring?: AwsEc2InstanceMonitoringDetails;
 }
 
 /**
@@ -6069,6 +6163,191 @@ export interface AwsEc2NetworkInterfaceDetails {
    * <p>The address of the Elastic IP address bound to the network interface.</p>
    */
   PublicIp?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          Describes a virtual private gateway propagating route.
+ *       </p>
+ */
+export interface PropagatingVgwSetDetails {
+  /**
+   * <p>
+   *          The ID of the virtual private gateway.
+   *       </p>
+   */
+  GatewayId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          Provides details about the routes in the route table.
+ *       </p>
+ */
+export interface RouteSetDetails {
+  /**
+   * <p>
+   *          The ID of the carrier gateway.
+   *       </p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the core network.
+   *       </p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>
+   *          The IPv4 CIDR block used for the destination match.
+   *       </p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>
+   *          The IPv6 CIDR block used for the destination match.
+   *       </p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>
+   *          The prefix of the destination Amazon Web Service.
+   *       </p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>
+   *          The ID of the egress-only internet gateway.
+   *       </p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of a gateway attached to your VPC.
+   *       </p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of a NAT instance in your VPC.
+   *       </p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>
+   *          The ID of the Amazon Web Services account that owns the instance.
+   *       </p>
+   */
+  InstanceOwnerId?: string;
+
+  /**
+   * <p>
+   *          The ID of the local gateway.
+   *       </p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of a NAT gateway.
+   *       </p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of the network interface.
+   *       </p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>
+   *          Describes how the route was created.
+   *       </p>
+   */
+  Origin?: string;
+
+  /**
+   * <p>
+   *          The state of the route.
+   *       </p>
+   */
+  State?: string;
+
+  /**
+   * <p>
+   *          The ID of a transit gateway.
+   *       </p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>
+   *          The ID of a VPC peering connection.
+   *       </p>
+   */
+  VpcPeeringConnectionId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          Provides details about a route table for the specified VPC.
+ *       </p>
+ */
+export interface AwsEc2RouteTableDetails {
+  /**
+   * <p>
+   *          The associations between a route table and one or more subnets or a gateway.
+   *       </p>
+   */
+  AssociationSet?: AssociationSetDetails[];
+
+  /**
+   * <p>
+   *          The ID of the Amazon Web Services account that owns the route table.
+   *       </p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>
+   *          Describes a virtual private gateway propagating route.
+   *       </p>
+   */
+  PropagatingVgwSet?: PropagatingVgwSetDetails[];
+
+  /**
+   * <p>
+   *          The ID of the route table.
+   *       </p>
+   */
+  RouteTableId?: string;
+
+  /**
+   * <p>
+   *          The routes in the route table.
+   *       </p>
+   */
+  RouteSet?: RouteSetDetails[];
+
+  /**
+   * <p>
+   *          The ID of the virtual private cloud (VPC).
+   *       </p>
+   */
+  VpcId?: string;
 }
 
 /**
@@ -9326,6 +9605,15 @@ export interface AwsEksClusterResourcesVpcConfigDetails {
    * <p>The subnets that are associated with the cluster.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>
+   *          Indicates whether the Amazon EKS public API server endpoint is turned on. If the Amazon EKS public API
+   *          server endpoint is turned off, your cluster's Kubernetes API server can only receive requests that originate from within
+   *          the cluster VPC.
+   *       </p>
+   */
+  EndpointPublicAccess?: boolean;
 }
 
 /**
@@ -10462,154 +10750,4 @@ export interface AwsElbv2LoadBalancerDetails {
    * <p>Attributes of the load balancer.</p>
    */
   LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[];
-}
-
-/**
- * @public
- * <p>Attributes of the session that the key was used for.</p>
- */
-export interface AwsIamAccessKeySessionContextAttributes {
-  /**
-   * <p>Indicates whether the session used multi-factor authentication (MFA).</p>
-   */
-  MfaAuthenticated?: boolean;
-
-  /**
-   * <p>Indicates when the session was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreationDate?: string;
-}
-
-/**
- * @public
- * <p>Information about the entity that created the session.</p>
- */
-export interface AwsIamAccessKeySessionContextSessionIssuer {
-  /**
-   * <p>The type of principal (user, role, or group) that created the session.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The principal ID of the principal (user, role, or group) that created the
-   *          session.</p>
-   */
-  PrincipalId?: string;
-
-  /**
-   * <p>The ARN of the session.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The identifier of the Amazon Web Services account that created the session.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The name of the principal that created the session.</p>
-   */
-  UserName?: string;
-}
-
-/**
- * @public
- * <p>Provides information about the session that the key was used for.</p>
- */
-export interface AwsIamAccessKeySessionContext {
-  /**
-   * <p>Attributes of the session that the key was used for.</p>
-   */
-  Attributes?: AwsIamAccessKeySessionContextAttributes;
-
-  /**
-   * <p>Information about the entity that created the session.</p>
-   */
-  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
-}
-
-/**
- * @public
- */
-export enum AwsIamAccessKeyStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
-
-/**
- * @public
- * <p>IAM access key details related to a finding.</p>
- */
-export interface AwsIamAccessKeyDetails {
-  /**
-   * @deprecated
-   *
-   * <p>The user associated with the IAM access key related to a finding.</p>
-   *          <p>The <code>UserName</code> parameter has been replaced with the
-   *             <code>PrincipalName</code> parameter because access keys can also be assigned to
-   *          principals that are not IAM users.</p>
-   */
-  UserName?: string;
-
-  /**
-   * <p>The status of the IAM access key related to a finding.</p>
-   */
-  Status?: AwsIamAccessKeyStatus | string;
-
-  /**
-   * <p>Indicates when the IAM access key was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedAt?: string;
-
-  /**
-   * <p>The ID of the principal associated with an access key.</p>
-   */
-  PrincipalId?: string;
-
-  /**
-   * <p>The type of principal associated with an access key.</p>
-   */
-  PrincipalType?: string;
-
-  /**
-   * <p>The name of the principal.</p>
-   */
-  PrincipalName?: string;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account for the key.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The identifier of the access key.</p>
-   */
-  AccessKeyId?: string;
-
-  /**
-   * <p>Information about the session that the key was used for.</p>
-   */
-  SessionContext?: AwsIamAccessKeySessionContext;
-}
-
-/**
- * @public
- * <p>A managed policy that is attached to an IAM principal.</p>
- */
-export interface AwsIamAttachedManagedPolicy {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-
-  /**
-   * <p>The ARN of the policy.</p>
-   */
-  PolicyArn?: string;
 }
