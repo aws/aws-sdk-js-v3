@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -17,10 +18,13 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { AssociateFraudsterCommandInput, AssociateFraudsterCommandOutput } from "../commands/AssociateFraudsterCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
+import { CreateWatchlistCommandInput, CreateWatchlistCommandOutput } from "../commands/CreateWatchlistCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import { DeleteFraudsterCommandInput, DeleteFraudsterCommandOutput } from "../commands/DeleteFraudsterCommand";
 import { DeleteSpeakerCommandInput, DeleteSpeakerCommandOutput } from "../commands/DeleteSpeakerCommand";
+import { DeleteWatchlistCommandInput, DeleteWatchlistCommandOutput } from "../commands/DeleteWatchlistCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "../commands/DescribeDomainCommand";
 import { DescribeFraudsterCommandInput, DescribeFraudsterCommandOutput } from "../commands/DescribeFraudsterCommand";
 import {
@@ -32,12 +36,18 @@ import {
   DescribeSpeakerEnrollmentJobCommandInput,
   DescribeSpeakerEnrollmentJobCommandOutput,
 } from "../commands/DescribeSpeakerEnrollmentJobCommand";
+import { DescribeWatchlistCommandInput, DescribeWatchlistCommandOutput } from "../commands/DescribeWatchlistCommand";
+import {
+  DisassociateFraudsterCommandInput,
+  DisassociateFraudsterCommandOutput,
+} from "../commands/DisassociateFraudsterCommand";
 import { EvaluateSessionCommandInput, EvaluateSessionCommandOutput } from "../commands/EvaluateSessionCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import {
   ListFraudsterRegistrationJobsCommandInput,
   ListFraudsterRegistrationJobsCommandOutput,
 } from "../commands/ListFraudsterRegistrationJobsCommand";
+import { ListFraudstersCommandInput, ListFraudstersCommandOutput } from "../commands/ListFraudstersCommand";
 import {
   ListSpeakerEnrollmentJobsCommandInput,
   ListSpeakerEnrollmentJobsCommandOutput,
@@ -47,6 +57,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListWatchlistsCommandInput, ListWatchlistsCommandOutput } from "../commands/ListWatchlistsCommand";
 import { OptOutSpeakerCommandInput, OptOutSpeakerCommandOutput } from "../commands/OptOutSpeakerCommand";
 import {
   StartFraudsterRegistrationJobCommandInput,
@@ -59,16 +70,22 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "../commands/UpdateDomainCommand";
+import { UpdateWatchlistCommandInput, UpdateWatchlistCommandOutput } from "../commands/UpdateWatchlistCommand";
 import {
   AccessDeniedException,
+  AssociateFraudsterRequest,
+  AssociateFraudsterResponse,
   AuthenticationConfiguration,
   AuthenticationResult,
   ConflictException,
   CreateDomainRequest,
   CreateDomainResponse,
+  CreateWatchlistRequest,
+  CreateWatchlistResponse,
   DeleteDomainRequest,
   DeleteFraudsterRequest,
   DeleteSpeakerRequest,
+  DeleteWatchlistRequest,
   DescribeDomainRequest,
   DescribeDomainResponse,
   DescribeFraudsterRegistrationJobRequest,
@@ -79,6 +96,10 @@ import {
   DescribeSpeakerEnrollmentJobResponse,
   DescribeSpeakerRequest,
   DescribeSpeakerResponse,
+  DescribeWatchlistRequest,
+  DescribeWatchlistResponse,
+  DisassociateFraudsterRequest,
+  DisassociateFraudsterResponse,
   Domain,
   DomainSummary,
   EnrollmentConfig,
@@ -93,6 +114,7 @@ import {
   Fraudster,
   FraudsterRegistrationJob,
   FraudsterRegistrationJobSummary,
+  FraudsterSummary,
   InputDataConfig,
   InternalServerException,
   JobProgress,
@@ -101,12 +123,16 @@ import {
   ListDomainsResponse,
   ListFraudsterRegistrationJobsRequest,
   ListFraudsterRegistrationJobsResponse,
+  ListFraudstersRequest,
+  ListFraudstersResponse,
   ListSpeakerEnrollmentJobsRequest,
   ListSpeakerEnrollmentJobsResponse,
   ListSpeakersRequest,
   ListSpeakersResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  ListWatchlistsRequest,
+  ListWatchlistsResponse,
   OptOutSpeakerRequest,
   OptOutSpeakerResponse,
   OutputDataConfig,
@@ -131,10 +157,28 @@ import {
   UntagResourceResponse,
   UpdateDomainRequest,
   UpdateDomainResponse,
+  UpdateWatchlistRequest,
+  UpdateWatchlistResponse,
   ValidationException,
   VoiceSpoofingRisk,
+  Watchlist,
+  WatchlistDetails,
+  WatchlistSummary,
 } from "../models/models_0";
 import { VoiceIDServiceException as __BaseException } from "../models/VoiceIDServiceException";
+
+export const serializeAws_json1_0AssociateFraudsterCommand = async (
+  input: AssociateFraudsterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "VoiceID.AssociateFraudster",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0AssociateFraudsterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_0CreateDomainCommand = async (
   input: CreateDomainCommandInput,
@@ -146,6 +190,19 @@ export const serializeAws_json1_0CreateDomainCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateDomainRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0CreateWatchlistCommand = async (
+  input: CreateWatchlistCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "VoiceID.CreateWatchlist",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateWatchlistRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -185,6 +242,19 @@ export const serializeAws_json1_0DeleteSpeakerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteSpeakerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DeleteWatchlistCommand = async (
+  input: DeleteWatchlistCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "VoiceID.DeleteWatchlist",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteWatchlistRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -253,6 +323,32 @@ export const serializeAws_json1_0DescribeSpeakerEnrollmentJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DescribeWatchlistCommand = async (
+  input: DescribeWatchlistCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "VoiceID.DescribeWatchlist",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeWatchlistRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DisassociateFraudsterCommand = async (
+  input: DisassociateFraudsterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "VoiceID.DisassociateFraudster",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DisassociateFraudsterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0EvaluateSessionCommand = async (
   input: EvaluateSessionCommandInput,
   context: __SerdeContext
@@ -292,6 +388,19 @@ export const serializeAws_json1_0ListFraudsterRegistrationJobsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0ListFraudstersCommand = async (
+  input: ListFraudstersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "VoiceID.ListFraudsters",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListFraudstersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0ListSpeakerEnrollmentJobsCommand = async (
   input: ListSpeakerEnrollmentJobsCommandInput,
   context: __SerdeContext
@@ -328,6 +437,19 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListWatchlistsCommand = async (
+  input: ListWatchlistsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "VoiceID.ListWatchlists",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListWatchlistsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -409,6 +531,78 @@ export const serializeAws_json1_0UpdateDomainCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0UpdateWatchlistCommand = async (
+  input: UpdateWatchlistCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "VoiceID.UpdateWatchlist",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateWatchlistRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_0AssociateFraudsterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFraudsterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0AssociateFraudsterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0AssociateFraudsterResponse(data, context);
+  const response: AssociateFraudsterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0AssociateFraudsterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFraudsterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.voiceid#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0CreateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -430,6 +624,65 @@ const deserializeAws_json1_0CreateDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.voiceid#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0CreateWatchlistCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWatchlistCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateWatchlistCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateWatchlistResponse(data, context);
+  const response: CreateWatchlistCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateWatchlistCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWatchlistCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -592,6 +845,59 @@ const deserializeAws_json1_0DeleteSpeakerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSpeakerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DeleteWatchlistCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWatchlistCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteWatchlistCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWatchlistCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteWatchlistCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWatchlistCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -892,6 +1198,115 @@ const deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0DescribeWatchlistCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWatchlistCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeWatchlistCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeWatchlistResponse(data, context);
+  const response: DescribeWatchlistCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeWatchlistCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWatchlistCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DisassociateFraudsterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFraudsterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DisassociateFraudsterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DisassociateFraudsterResponse(data, context);
+  const response: DisassociateFraudsterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DisassociateFraudsterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFraudsterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0EvaluateSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1051,6 +1466,59 @@ const deserializeAws_json1_0ListFraudsterRegistrationJobsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0ListFraudstersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFraudstersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListFraudstersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListFraudstersResponse(data, context);
+  const response: ListFraudstersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListFraudstersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFraudstersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0ListSpeakerEnrollmentJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1178,6 +1646,59 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ListWatchlistsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWatchlistsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListWatchlistsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListWatchlistsResponse(data, context);
+  const response: ListWatchlistsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListWatchlistsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWatchlistsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1555,6 +2076,62 @@ const deserializeAws_json1_0UpdateDomainCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0UpdateWatchlistCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWatchlistCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateWatchlistCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateWatchlistResponse(data, context);
+  const response: UpdateWatchlistCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateWatchlistCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWatchlistCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1646,6 +2223,17 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const serializeAws_json1_0AssociateFraudsterRequest = (
+  input: AssociateFraudsterRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
+    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
+  };
+};
+
 const serializeAws_json1_0CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -1658,6 +2246,15 @@ const serializeAws_json1_0CreateDomainRequest = (input: CreateDomainRequest, con
       ),
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_0CreateWatchlistRequest = (input: CreateWatchlistRequest, context: __SerdeContext): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -1678,6 +2275,13 @@ const serializeAws_json1_0DeleteSpeakerRequest = (input: DeleteSpeakerRequest, c
   return {
     ...(input.DomainId != null && { DomainId: input.DomainId }),
     ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
+  };
+};
+
+const serializeAws_json1_0DeleteWatchlistRequest = (input: DeleteWatchlistRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
   };
 };
 
@@ -1724,6 +2328,27 @@ const serializeAws_json1_0DescribeSpeakerRequest = (input: DescribeSpeakerReques
   };
 };
 
+const serializeAws_json1_0DescribeWatchlistRequest = (
+  input: DescribeWatchlistRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
+  };
+};
+
+const serializeAws_json1_0DisassociateFraudsterRequest = (
+  input: DisassociateFraudsterRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
+    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
+  };
+};
+
 const serializeAws_json1_0EnrollmentConfig = (input: EnrollmentConfig, context: __SerdeContext): any => {
   return {
     ...(input.ExistingEnrollmentAction != null && { ExistingEnrollmentAction: input.ExistingEnrollmentAction }),
@@ -1740,7 +2365,21 @@ const serializeAws_json1_0EnrollmentJobFraudDetectionConfig = (
   return {
     ...(input.FraudDetectionAction != null && { FraudDetectionAction: input.FraudDetectionAction }),
     ...(input.RiskThreshold != null && { RiskThreshold: input.RiskThreshold }),
+    ...(input.WatchlistIds != null && {
+      WatchlistIds: serializeAws_json1_0EnrollmentJobFraudDetectionConfigWatchlistIds(input.WatchlistIds, context),
+    }),
   };
+};
+
+const serializeAws_json1_0EnrollmentJobFraudDetectionConfigWatchlistIds = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_0EvaluateSessionRequest = (input: EvaluateSessionRequest, context: __SerdeContext): any => {
@@ -1775,6 +2414,15 @@ const serializeAws_json1_0ListFraudsterRegistrationJobsRequest = (
   };
 };
 
+const serializeAws_json1_0ListFraudstersRequest = (input: ListFraudstersRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
+  };
+};
+
 const serializeAws_json1_0ListSpeakerEnrollmentJobsRequest = (
   input: ListSpeakerEnrollmentJobsRequest,
   context: __SerdeContext
@@ -1804,6 +2452,14 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_0ListWatchlistsRequest = (input: ListWatchlistsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_0OptOutSpeakerRequest = (input: OptOutSpeakerRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainId != null && { DomainId: input.DomainId }),
@@ -1826,7 +2482,18 @@ const serializeAws_json1_0RegistrationConfig = (input: RegistrationConfig, conte
     ...(input.FraudsterSimilarityThreshold != null && {
       FraudsterSimilarityThreshold: input.FraudsterSimilarityThreshold,
     }),
+    ...(input.WatchlistIds != null && {
+      WatchlistIds: serializeAws_json1_0RegistrationConfigWatchlistIds(input.WatchlistIds, context),
+    }),
   };
+};
+
+const serializeAws_json1_0RegistrationConfigWatchlistIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_0ServerSideEncryptionConfiguration = (
@@ -1931,9 +2598,27 @@ const serializeAws_json1_0UpdateDomainRequest = (input: UpdateDomainRequest, con
   };
 };
 
+const serializeAws_json1_0UpdateWatchlistRequest = (input: UpdateWatchlistRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.WatchlistId != null && { WatchlistId: input.WatchlistId }),
+  };
+};
+
 const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0AssociateFraudsterResponse = (
+  output: any,
+  context: __SerdeContext
+): AssociateFraudsterResponse => {
+  return {
+    Fraudster: output.Fraudster != null ? deserializeAws_json1_0Fraudster(output.Fraudster, context) : undefined,
   } as any;
 };
 
@@ -1981,6 +2666,15 @@ const deserializeAws_json1_0CreateDomainResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_0CreateWatchlistResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateWatchlistResponse => {
+  return {
+    Watchlist: output.Watchlist != null ? deserializeAws_json1_0Watchlist(output.Watchlist, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeDomainResponse = (output: any, context: __SerdeContext): DescribeDomainResponse => {
   return {
     Domain: output.Domain != null ? deserializeAws_json1_0Domain(output.Domain, context) : undefined,
@@ -2023,6 +2717,24 @@ const deserializeAws_json1_0DescribeSpeakerResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0DescribeWatchlistResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeWatchlistResponse => {
+  return {
+    Watchlist: output.Watchlist != null ? deserializeAws_json1_0Watchlist(output.Watchlist, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DisassociateFraudsterResponse = (
+  output: any,
+  context: __SerdeContext
+): DisassociateFraudsterResponse => {
+  return {
+    Fraudster: output.Fraudster != null ? deserializeAws_json1_0Fraudster(output.Fraudster, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0Domain = (output: any, context: __SerdeContext): Domain => {
   return {
     Arn: __expectString(output.Arn),
@@ -2042,6 +2754,10 @@ const deserializeAws_json1_0Domain = (output: any, context: __SerdeContext): Dom
         : undefined,
     UpdatedAt:
       output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+    WatchlistDetails:
+      output.WatchlistDetails != null
+        ? deserializeAws_json1_0WatchlistDetails(output.WatchlistDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -2076,6 +2792,10 @@ const deserializeAws_json1_0DomainSummary = (output: any, context: __SerdeContex
         : undefined,
     UpdatedAt:
       output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+    WatchlistDetails:
+      output.WatchlistDetails != null
+        ? deserializeAws_json1_0WatchlistDetails(output.WatchlistDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -2096,7 +2816,26 @@ const deserializeAws_json1_0EnrollmentJobFraudDetectionConfig = (
   return {
     FraudDetectionAction: __expectString(output.FraudDetectionAction),
     RiskThreshold: __expectInt32(output.RiskThreshold),
+    WatchlistIds:
+      output.WatchlistIds != null
+        ? deserializeAws_json1_0EnrollmentJobFraudDetectionConfigWatchlistIds(output.WatchlistIds, context)
+        : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0EnrollmentJobFraudDetectionConfigWatchlistIds = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_0EvaluateSessionResponse = (
@@ -2132,6 +2871,7 @@ const deserializeAws_json1_0FraudDetectionConfiguration = (
 ): FraudDetectionConfiguration => {
   return {
     RiskThreshold: __expectInt32(output.RiskThreshold),
+    WatchlistId: __expectString(output.WatchlistId),
   } as any;
 };
 
@@ -2191,6 +2931,10 @@ const deserializeAws_json1_0Fraudster = (output: any, context: __SerdeContext): 
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DomainId: __expectString(output.DomainId),
     GeneratedFraudsterId: __expectString(output.GeneratedFraudsterId),
+    WatchlistIds:
+      output.WatchlistIds != null
+        ? deserializeAws_json1_0ResponseWatchlistIds(output.WatchlistIds, context)
+        : undefined,
   } as any;
 };
 
@@ -2262,6 +3006,31 @@ const deserializeAws_json1_0FraudsterRegistrationJobSummary = (
   } as any;
 };
 
+const deserializeAws_json1_0FraudsterSummaries = (output: any, context: __SerdeContext): FraudsterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0FraudsterSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0FraudsterSummary = (output: any, context: __SerdeContext): FraudsterSummary => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    DomainId: __expectString(output.DomainId),
+    GeneratedFraudsterId: __expectString(output.GeneratedFraudsterId),
+    WatchlistIds:
+      output.WatchlistIds != null
+        ? deserializeAws_json1_0ResponseWatchlistIds(output.WatchlistIds, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
     S3Uri: __expectString(output.S3Uri),
@@ -2313,6 +3082,16 @@ const deserializeAws_json1_0ListFraudsterRegistrationJobsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0ListFraudstersResponse = (output: any, context: __SerdeContext): ListFraudstersResponse => {
+  return {
+    FraudsterSummaries:
+      output.FraudsterSummaries != null
+        ? deserializeAws_json1_0FraudsterSummaries(output.FraudsterSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_0ListSpeakerEnrollmentJobsResponse = (
   output: any,
   context: __SerdeContext
@@ -2345,6 +3124,16 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0ListWatchlistsResponse = (output: any, context: __SerdeContext): ListWatchlistsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    WatchlistSummaries:
+      output.WatchlistSummaries != null
+        ? deserializeAws_json1_0WatchlistSummaries(output.WatchlistSummaries, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0OptOutSpeakerResponse = (output: any, context: __SerdeContext): OptOutSpeakerResponse => {
   return {
     Speaker: output.Speaker != null ? deserializeAws_json1_0Speaker(output.Speaker, context) : undefined,
@@ -2362,7 +3151,23 @@ const deserializeAws_json1_0RegistrationConfig = (output: any, context: __SerdeC
   return {
     DuplicateRegistrationAction: __expectString(output.DuplicateRegistrationAction),
     FraudsterSimilarityThreshold: __expectInt32(output.FraudsterSimilarityThreshold),
+    WatchlistIds:
+      output.WatchlistIds != null
+        ? deserializeAws_json1_0RegistrationConfigWatchlistIds(output.WatchlistIds, context)
+        : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0RegistrationConfigWatchlistIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_0ResourceNotFoundException = (
@@ -2373,6 +3178,18 @@ const deserializeAws_json1_0ResourceNotFoundException = (
     Message: __expectString(output.Message),
     ResourceType: __expectString(output.ResourceType),
   } as any;
+};
+
+const deserializeAws_json1_0ResponseWatchlistIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_0ServerSideEncryptionConfiguration = (
@@ -2572,6 +3389,15 @@ const deserializeAws_json1_0UpdateDomainResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_0UpdateWatchlistResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateWatchlistResponse => {
+  return {
+    Watchlist: output.Watchlist != null ? deserializeAws_json1_0Watchlist(output.Watchlist, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
@@ -2581,6 +3407,52 @@ const deserializeAws_json1_0ValidationException = (output: any, context: __Serde
 const deserializeAws_json1_0VoiceSpoofingRisk = (output: any, context: __SerdeContext): VoiceSpoofingRisk => {
   return {
     RiskScore: __expectInt32(output.RiskScore),
+  } as any;
+};
+
+const deserializeAws_json1_0Watchlist = (output: any, context: __SerdeContext): Watchlist => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    DefaultWatchlist: __expectBoolean(output.DefaultWatchlist),
+    Description: __expectString(output.Description),
+    DomainId: __expectString(output.DomainId),
+    Name: __expectString(output.Name),
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+    WatchlistId: __expectString(output.WatchlistId),
+  } as any;
+};
+
+const deserializeAws_json1_0WatchlistDetails = (output: any, context: __SerdeContext): WatchlistDetails => {
+  return {
+    DefaultWatchlistId: __expectString(output.DefaultWatchlistId),
+  } as any;
+};
+
+const deserializeAws_json1_0WatchlistSummaries = (output: any, context: __SerdeContext): WatchlistSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0WatchlistSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0WatchlistSummary = (output: any, context: __SerdeContext): WatchlistSummary => {
+  return {
+    CreatedAt:
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    DefaultWatchlist: __expectBoolean(output.DefaultWatchlist),
+    Description: __expectString(output.Description),
+    DomainId: __expectString(output.DomainId),
+    Name: __expectString(output.Name),
+    UpdatedAt:
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+    WatchlistId: __expectString(output.WatchlistId),
   } as any;
 };
 

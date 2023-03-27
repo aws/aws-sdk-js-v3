@@ -57,6 +57,9 @@ export interface StartFraudsterRegistrationJobCommandOutput
  *   RegistrationConfig: {
  *     DuplicateRegistrationAction: "STRING_VALUE",
  *     FraudsterSimilarityThreshold: Number("int"),
+ *     WatchlistIds: [
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   InputDataConfig: {
  *     S3Uri: "STRING_VALUE", // required

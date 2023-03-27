@@ -35,7 +35,7 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the specified fraudster from Voice ID.</p>
+ * <p>Deletes the specified fraudster from Voice ID. This action disassociates the fraudster from any watchlists it is a part of.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

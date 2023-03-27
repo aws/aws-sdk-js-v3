@@ -57,6 +57,9 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  *     FraudDetectionConfig: {
  *       FraudDetectionAction: "STRING_VALUE",
  *       RiskThreshold: Number("int"),
+ *       WatchlistIds: [
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   },
  *   InputDataConfig: {

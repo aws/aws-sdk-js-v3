@@ -49,10 +49,13 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { AssociateFraudsterCommandInput, AssociateFraudsterCommandOutput } from "./commands/AssociateFraudsterCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreateWatchlistCommandInput, CreateWatchlistCommandOutput } from "./commands/CreateWatchlistCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteFraudsterCommandInput, DeleteFraudsterCommandOutput } from "./commands/DeleteFraudsterCommand";
 import { DeleteSpeakerCommandInput, DeleteSpeakerCommandOutput } from "./commands/DeleteSpeakerCommand";
+import { DeleteWatchlistCommandInput, DeleteWatchlistCommandOutput } from "./commands/DeleteWatchlistCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import { DescribeFraudsterCommandInput, DescribeFraudsterCommandOutput } from "./commands/DescribeFraudsterCommand";
 import {
@@ -64,12 +67,18 @@ import {
   DescribeSpeakerEnrollmentJobCommandInput,
   DescribeSpeakerEnrollmentJobCommandOutput,
 } from "./commands/DescribeSpeakerEnrollmentJobCommand";
+import { DescribeWatchlistCommandInput, DescribeWatchlistCommandOutput } from "./commands/DescribeWatchlistCommand";
+import {
+  DisassociateFraudsterCommandInput,
+  DisassociateFraudsterCommandOutput,
+} from "./commands/DisassociateFraudsterCommand";
 import { EvaluateSessionCommandInput, EvaluateSessionCommandOutput } from "./commands/EvaluateSessionCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListFraudsterRegistrationJobsCommandInput,
   ListFraudsterRegistrationJobsCommandOutput,
 } from "./commands/ListFraudsterRegistrationJobsCommand";
+import { ListFraudstersCommandInput, ListFraudstersCommandOutput } from "./commands/ListFraudstersCommand";
 import {
   ListSpeakerEnrollmentJobsCommandInput,
   ListSpeakerEnrollmentJobsCommandOutput,
@@ -79,6 +88,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListWatchlistsCommandInput, ListWatchlistsCommandOutput } from "./commands/ListWatchlistsCommand";
 import { OptOutSpeakerCommandInput, OptOutSpeakerCommandOutput } from "./commands/OptOutSpeakerCommand";
 import {
   StartFraudsterRegistrationJobCommandInput,
@@ -91,6 +101,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import { UpdateWatchlistCommandInput, UpdateWatchlistCommandOutput } from "./commands/UpdateWatchlistCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -103,53 +114,69 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateFraudsterCommandInput
   | CreateDomainCommandInput
+  | CreateWatchlistCommandInput
   | DeleteDomainCommandInput
   | DeleteFraudsterCommandInput
   | DeleteSpeakerCommandInput
+  | DeleteWatchlistCommandInput
   | DescribeDomainCommandInput
   | DescribeFraudsterCommandInput
   | DescribeFraudsterRegistrationJobCommandInput
   | DescribeSpeakerCommandInput
   | DescribeSpeakerEnrollmentJobCommandInput
+  | DescribeWatchlistCommandInput
+  | DisassociateFraudsterCommandInput
   | EvaluateSessionCommandInput
   | ListDomainsCommandInput
   | ListFraudsterRegistrationJobsCommandInput
+  | ListFraudstersCommandInput
   | ListSpeakerEnrollmentJobsCommandInput
   | ListSpeakersCommandInput
   | ListTagsForResourceCommandInput
+  | ListWatchlistsCommandInput
   | OptOutSpeakerCommandInput
   | StartFraudsterRegistrationJobCommandInput
   | StartSpeakerEnrollmentJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateDomainCommandInput;
+  | UpdateDomainCommandInput
+  | UpdateWatchlistCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateFraudsterCommandOutput
   | CreateDomainCommandOutput
+  | CreateWatchlistCommandOutput
   | DeleteDomainCommandOutput
   | DeleteFraudsterCommandOutput
   | DeleteSpeakerCommandOutput
+  | DeleteWatchlistCommandOutput
   | DescribeDomainCommandOutput
   | DescribeFraudsterCommandOutput
   | DescribeFraudsterRegistrationJobCommandOutput
   | DescribeSpeakerCommandOutput
   | DescribeSpeakerEnrollmentJobCommandOutput
+  | DescribeWatchlistCommandOutput
+  | DisassociateFraudsterCommandOutput
   | EvaluateSessionCommandOutput
   | ListDomainsCommandOutput
   | ListFraudsterRegistrationJobsCommandOutput
+  | ListFraudstersCommandOutput
   | ListSpeakerEnrollmentJobsCommandOutput
   | ListSpeakersCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWatchlistsCommandOutput
   | OptOutSpeakerCommandOutput
   | StartFraudsterRegistrationJobCommandOutput
   | StartSpeakerEnrollmentJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateDomainCommandOutput;
+  | UpdateDomainCommandOutput
+  | UpdateWatchlistCommandOutput;
 
 /**
  * @public
@@ -315,8 +342,8 @@ export interface VoiceIDClientResolvedConfig extends VoiceIDClientResolvedConfig
 
 /**
  * @public
- * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud screening. This guide
- *             describes the APIs used for this service. </p>
+ * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud risk detection, which
+ *             make voice interactions in contact centers more secure and efficient.</p>
  */
 export class VoiceIDClient extends __Client<
   __HttpHandlerOptions,

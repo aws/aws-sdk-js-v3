@@ -14,62 +14,51 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  CreateDomainRequest,
-  CreateDomainRequestFilterSensitiveLog,
-  CreateDomainResponse,
-  CreateDomainResponseFilterSensitiveLog,
+  AssociateFraudsterRequest,
+  AssociateFraudsterRequestFilterSensitiveLog,
+  AssociateFraudsterResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0CreateDomainCommand,
-  serializeAws_json1_0CreateDomainCommand,
+  deserializeAws_json1_0AssociateFraudsterCommand,
+  serializeAws_json1_0AssociateFraudsterCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  *
- * The input for {@link CreateDomainCommand}.
+ * The input for {@link AssociateFraudsterCommand}.
  */
-export interface CreateDomainCommandInput extends CreateDomainRequest {}
+export interface AssociateFraudsterCommandInput extends AssociateFraudsterRequest {}
 /**
  * @public
  *
- * The output of {@link CreateDomainCommand}.
+ * The output of {@link AssociateFraudsterCommand}.
  */
-export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
+export interface AssociateFraudsterCommandOutput extends AssociateFraudsterResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters,
- *             customer audio, and voiceprints.  Every domain is created with a default watchlist that fraudsters can be a part of.</p>
+ * <p>Associates the fraudsters with the watchlist specified in the same domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VoiceIDClient, CreateDomainCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
- * // const { VoiceIDClient, CreateDomainCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * import { VoiceIDClient, AssociateFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
+ * // const { VoiceIDClient, AssociateFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
  * const input = {
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ServerSideEncryptionConfiguration: {
- *     KmsKeyId: "STRING_VALUE", // required
- *   },
- *   ClientToken: "STRING_VALUE",
- *   Tags: [
- *     {
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
+ *   DomainId: "STRING_VALUE", // required
+ *   WatchlistId: "STRING_VALUE", // required
+ *   FraudsterId: "STRING_VALUE", // required
  * };
- * const command = new CreateDomainCommand(input);
+ * const command = new AssociateFraudsterCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
- * @returns {@link CreateDomainCommandOutput}
- * @see {@link CreateDomainCommandInput} for command's `input` shape.
- * @see {@link CreateDomainCommandOutput} for command's `response` shape.
+ * @param AssociateFraudsterCommandInput - {@link AssociateFraudsterCommandInput}
+ * @returns {@link AssociateFraudsterCommandOutput}
+ * @see {@link AssociateFraudsterCommandInput} for command's `input` shape.
+ * @see {@link AssociateFraudsterCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -102,9 +91,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *
  *
  */
-export class CreateDomainCommand extends $Command<
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
+export class AssociateFraudsterCommand extends $Command<
+  AssociateFraudsterCommandInput,
+  AssociateFraudsterCommandOutput,
   VoiceIDClientResolvedConfig
 > {
   // Start section: command_properties
@@ -122,7 +111,7 @@ export class CreateDomainCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateDomainCommandInput) {
+  constructor(readonly input: AssociateFraudsterCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -135,21 +124,23 @@ export class CreateDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: VoiceIDClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDomainCommandInput, CreateDomainCommandOutput> {
+  ): Handler<AssociateFraudsterCommandInput, AssociateFraudsterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateDomainCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateFraudsterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "VoiceIDClient";
-    const commandName = "CreateDomainCommand";
+    const commandName = "AssociateFraudsterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: AssociateFraudsterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,15 +153,15 @@ export class CreateDomainCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateDomainCommand(input, context);
+  private serialize(input: AssociateFraudsterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0AssociateFraudsterCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return deserializeAws_json1_0CreateDomainCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateFraudsterCommandOutput> {
+    return deserializeAws_json1_0AssociateFraudsterCommand(output, context);
   }
 
   // Start section: command_body_extra
