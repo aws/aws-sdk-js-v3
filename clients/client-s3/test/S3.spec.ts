@@ -1,5 +1,5 @@
 /// <reference types="mocha" />
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { BuildMiddleware, FinalizeRequestMiddleware, SerializeMiddleware } from "@aws-sdk/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
@@ -253,5 +253,22 @@ describe("regional endpoints", () => {
       Body: "body",
     });
     expect(result.request.hostname).to.eql("bucket.s3.amazonaws.com");
+  });
+});
+
+describe("signing", () => {
+  it("handler recieves properly encoded path with default signingEscapePath client config option", async () => {
+    const requestHandler: HttpHandler = {
+      handle: async (request, handlerOptions) => {
+        expect(request.path).to.equal("/some%20file.txt");
+        return { response: new HttpResponse({ statusCode: 200 }) };
+      },
+    };
+
+    const client = new S3({ requestHandler });
+    return await client.putObject({
+      Bucket: "bucket",
+      Key: "some file.txt",
+    });
   });
 });
