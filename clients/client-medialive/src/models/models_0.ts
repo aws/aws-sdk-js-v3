@@ -3248,6 +3248,11 @@ export interface InputDeviceSummary {
    * Settings that describe an input device that is type UHD.
    */
   UhdDeviceSettings?: InputDeviceUhdSettings;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: Record<string, string>;
 }
 
 /**

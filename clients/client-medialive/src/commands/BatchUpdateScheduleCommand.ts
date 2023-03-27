@@ -50,7 +50,8 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *         ActionName: "STRING_VALUE", // required
  *         ScheduleActionSettings: {
  *           HlsId3SegmentTaggingSettings: {
- *             Tag: "STRING_VALUE", // required
+ *             Tag: "STRING_VALUE",
+ *             Id3: "STRING_VALUE",
  *           },
  *           HlsTimedMetadataSettings: {
  *             Id3: "STRING_VALUE", // required

@@ -998,7 +998,12 @@ export interface HlsId3SegmentTaggingScheduleActionSettings {
   /**
    * ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
    */
-  Tag: string | undefined;
+  Tag?: string;
+
+  /**
+   * Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   */
+  Id3?: string;
 }
 
 /**
@@ -5338,6 +5343,11 @@ export interface DescribeInputDeviceResponse {
    * Settings that describe an input device that is type UHD.
    */
   UhdDeviceSettings?: InputDeviceUhdSettings;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: Record<string, string>;
 }
 
 /**

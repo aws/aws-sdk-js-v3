@@ -3773,6 +3773,9 @@ export const deserializeAws_restJson1DescribeInputDeviceCommand = async (
   if (data.serialNumber != null) {
     contents.SerialNumber = __expectString(data.serialNumber);
   }
+  if (data.tags != null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
   if (data.type != null) {
     contents.Type = __expectString(data.type);
   }
@@ -5930,6 +5933,9 @@ export const deserializeAws_restJson1UpdateInputDeviceCommand = async (
   if (data.serialNumber != null) {
     contents.SerialNumber = __expectString(data.serialNumber);
   }
+  if (data.tags != null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
   if (data.type != null) {
     contents.Type = __expectString(data.type);
   }
@@ -7763,6 +7769,7 @@ const serializeAws_restJson1HlsId3SegmentTaggingScheduleActionSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Id3 != null && { id3: input.Id3 }),
     ...(input.Tag != null && { tag: input.Tag }),
   };
 };
@@ -11048,6 +11055,7 @@ const deserializeAws_restJson1HlsId3SegmentTaggingScheduleActionSettings = (
   context: __SerdeContext
 ): HlsId3SegmentTaggingScheduleActionSettings => {
   return {
+    Id3: __expectString(output.id3),
     Tag: __expectString(output.tag),
   } as any;
 };
@@ -11279,6 +11287,7 @@ const deserializeAws_restJson1InputDeviceSummary = (output: any, context: __Serd
         ? deserializeAws_restJson1InputDeviceNetworkSettings(output.networkSettings, context)
         : undefined,
     SerialNumber: __expectString(output.serialNumber),
+    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     Type: __expectString(output.type),
     UhdDeviceSettings:
       output.uhdDeviceSettings != null
