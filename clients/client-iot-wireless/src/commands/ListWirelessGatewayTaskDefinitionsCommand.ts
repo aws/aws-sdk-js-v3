@@ -17,7 +17,7 @@ import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   ListWirelessGatewayTaskDefinitionsRequest,
   ListWirelessGatewayTaskDefinitionsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand,
   serializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand,

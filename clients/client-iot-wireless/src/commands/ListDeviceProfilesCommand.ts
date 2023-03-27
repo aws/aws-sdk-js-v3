@@ -45,6 +45,7 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
  * const input = {
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   DeviceProfileType: "Sidewalk" || "LoRaWAN",
  * };
  * const command = new ListDeviceProfilesCommand(input);
  * const response = await client.send(command);

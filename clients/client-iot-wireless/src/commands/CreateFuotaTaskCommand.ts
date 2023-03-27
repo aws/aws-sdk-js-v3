@@ -47,7 +47,7 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  *   Description: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE",
  *   LoRaWAN: {
- *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1",
+ *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
  *   },
  *   FirmwareUpdateImage: "STRING_VALUE", // required
  *   FirmwareUpdateRole: "STRING_VALUE", // required

@@ -105,6 +105,9 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  *     },
  *   ],
  *   Positioning: "Enabled" || "Disabled",
+ *   Sidewalk: {
+ *     DeviceProfileId: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateWirelessDeviceCommand(input);
  * const response = await client.send(command);

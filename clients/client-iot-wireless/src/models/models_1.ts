@@ -10,28 +10,394 @@ import {
   DeviceRegistrationStateResourceTypeEventConfiguration,
   EventNotificationPartnerType,
   ExpressionType,
+  FuotaDeviceStatus,
   IdentifierType,
   JoinEventConfiguration,
   JoinResourceTypeEventConfiguration,
   LogLevel,
   LoRaWANFuotaTask,
+  LoRaWANGateway,
+  LoRaWANGatewayVersion,
+  LoRaWANListDevice,
   LoRaWANMulticast,
   LoRaWANMulticastSession,
   LoRaWANSendDataToDevice,
   MessageDeliveryStatusEventConfiguration,
   MessageDeliveryStatusResourceTypeEventConfiguration,
-  MulticastWirelessMetadata,
   PartnerType,
+  PositionConfigurationFec,
+  PositionConfigurationStatus,
   Positioning,
   PositioningConfigStatus,
   PositionResourceType,
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
+  SidewalkListDevice,
   Tag,
   TraceContent,
   WirelessDeviceLogOption,
+  WirelessDeviceType,
   WirelessGatewayLogOption,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Information about a wireless device's operation.</p>
+ */
+export interface WirelessDeviceStatistics {
+  /**
+   * <p>The Amazon Resource Name of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the wireless device reporting the data.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The wireless device type.</p>
+   */
+  Type?: WirelessDeviceType | string;
+
+  /**
+   * <p>The name of the resource.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The name of the destination to which the device is assigned.</p>
+   */
+  DestinationName?: string;
+
+  /**
+   * <p>The date and time when the most recent uplink was received.</p>
+   */
+  LastUplinkReceivedAt?: string;
+
+  /**
+   * <p>LoRaWAN device info.</p>
+   */
+  LoRaWAN?: LoRaWANListDevice;
+
+  /**
+   * <p>The Sidewalk account credentials.</p>
+   */
+  Sidewalk?: SidewalkListDevice;
+
+  /**
+   * <p>The status of a wireless device in a FUOTA task.</p>
+   */
+  FuotaDeviceStatus?: FuotaDeviceStatus | string;
+
+  /**
+   * <p>The status of the wireless device in the multicast group.</p>
+   */
+  MulticastDeviceStatus?: string;
+
+  /**
+   * <p>Id of the multicast group.</p>
+   */
+  McGroupId?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessDevicesResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the wireless device.</p>
+   */
+  WirelessDeviceList?: WirelessDeviceStatistics[];
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessGatewaysRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Information about a wireless gateway's operation.</p>
+ */
+export interface WirelessGatewayStatistics {
+  /**
+   * <p>The Amazon Resource Name of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the wireless gateway reporting the data.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the resource.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>LoRaWAN gateway info.</p>
+   */
+  LoRaWAN?: LoRaWANGateway;
+
+  /**
+   * <p>The date and time when the most recent uplink was received.</p>
+   */
+  LastUplinkReceivedAt?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessGatewaysResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the wireless gateway.</p>
+   */
+  WirelessGatewayList?: WirelessGatewayStatistics[];
+}
+
+/**
+ * @public
+ */
+export enum WirelessGatewayTaskDefinitionType {
+  UPDATE = "UPDATE",
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessGatewayTaskDefinitionsRequest {
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A filter to list only the wireless gateway task definitions that use this task definition type.</p>
+   */
+  TaskDefinitionType?: WirelessGatewayTaskDefinitionType | string;
+}
+
+/**
+ * @public
+ * <p>LoRaWANUpdateGatewayTaskEntry object.</p>
+ */
+export interface LoRaWANUpdateGatewayTaskEntry {
+  /**
+   * <p>The version of the gateways that should receive the update.</p>
+   */
+  CurrentVersion?: LoRaWANGatewayVersion;
+
+  /**
+   * <p>The firmware version to update the gateway to.</p>
+   */
+  UpdateVersion?: LoRaWANGatewayVersion;
+}
+
+/**
+ * @public
+ * <p>UpdateWirelessGatewayTaskEntry object.</p>
+ */
+export interface UpdateWirelessGatewayTaskEntry {
+  /**
+   * <p>The ID of the new wireless gateway task entry.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The properties that relate to the LoRaWAN wireless gateway.</p>
+   */
+  LoRaWAN?: LoRaWANUpdateGatewayTaskEntry;
+
+  /**
+   * <p>The Amazon Resource Name of the resource.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessGatewayTaskDefinitionsResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of task definitions.</p>
+   */
+  TaskDefinitions?: UpdateWirelessGatewayTaskEntry[];
+}
+
+/**
+ * @public
+ * <p>Information about the Semtech GNSS solver configuration.</p>
+ */
+export interface SemtechGnssConfiguration {
+  /**
+   * <p>The status indicating whether the solver is enabled.</p>
+   */
+  Status: PositionConfigurationStatus | string | undefined;
+
+  /**
+   * <p>Whether forward error correction is enabled.</p>
+   */
+  Fec: PositionConfigurationFec | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The wrapper for position solver configurations.</p>
+ */
+export interface PositionSolverConfigurations {
+  /**
+   * <p>The Semtech GNSS solver configuration object.</p>
+   */
+  SemtechGnss?: SemtechGnssConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface PutPositionConfigurationRequest {
+  /**
+   * <p>Resource identifier used to update the position configuration.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>Resource type of the resource for which you want to update the position configuration.</p>
+   */
+  ResourceType: PositionResourceType | string | undefined;
+
+  /**
+   * <p>The positioning solvers used to update the position configuration of the resource.</p>
+   */
+  Solvers?: PositionSolverConfigurations;
+
+  /**
+   * <p>The position data destination that describes the AWS IoT rule that processes the device's position
+   *             data for use by AWS IoT Core for LoRaWAN.</p>
+   */
+  Destination?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutPositionConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface PutResourceLogLevelRequest {
+  /**
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
+   *             it is the wireless gateway ID.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
+   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
+   */
+  LogLevel: LogLevel | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourceLogLevelResponse {}
+
+/**
+ * @public
+ */
+export interface ResetAllResourceLogLevelsRequest {}
+
+/**
+ * @public
+ */
+export interface ResetAllResourceLogLevelsResponse {}
+
+/**
+ * @public
+ */
+export interface ResetResourceLogLevelRequest {
+  /**
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
+   *             it is the wireless gateway ID.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
+   */
+  ResourceType: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetResourceLogLevelResponse {}
+
+/**
+ * @public
+ * <p>The metadata information of the LoRaWAN multicast group.</p>
+ */
+export interface LoRaWANMulticastMetadata {
+  /**
+   * <p>The Fport value.</p>
+   */
+  FPort?: number;
+}
+
+/**
+ * @public
+ * <p>Wireless metadata that is to be sent to multicast group.</p>
+ */
+export interface MulticastWirelessMetadata {
+  /**
+   * <p>The metadata information of the LoRaWAN multicast group.</p>
+   */
+  LoRaWAN?: LoRaWANMulticastMetadata;
+}
 
 /**
  * @public
@@ -245,6 +611,120 @@ export interface StartMulticastGroupSessionRequest {
  * @public
  */
 export interface StartMulticastGroupSessionResponse {}
+
+/**
+ * @public
+ * <p>Information about an import task created for an individual Sidewalk device.</p>
+ */
+export interface SidewalkSingleStartImportInfo {
+  /**
+   * <p>The Sidewalk manufacturing serial number (SMSN) of the device added to the import task.</p>
+   */
+  SidewalkManufacturingSn?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartSingleWirelessDeviceImportTaskRequest {
+  /**
+   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages from the device in the import
+   *          task that will be onboarded to AWS IoT Wireless.</p>
+   */
+  DestinationName: string | undefined;
+
+  /**
+   * <p>Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The name of the wireless device for which an import task is being started.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Sidewalk-related parameters for importing a single wireless device.</p>
+   */
+  Sidewalk: SidewalkSingleStartImportInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSingleWirelessDeviceImportTaskResponse {
+  /**
+   * <p>The import task ID.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the import task.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ * <p>Information about an import task created for bulk provisioning.</p>
+ */
+export interface SidewalkStartImportInfo {
+  /**
+   * <p>The CSV file contained in an S3 bucket that's used for adding devices to an import task.</p>
+   */
+  DeviceCreationFile?: string;
+
+  /**
+   * <p>The IAM role that allows AWS IoT Wireless to access the CSV file in the S3 bucket.</p>
+   */
+  Role?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartWirelessDeviceImportTaskRequest {
+  /**
+   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages from the devices in the import
+   *          task that are onboarded to AWS IoT Wireless.</p>
+   */
+  DestinationName: string | undefined;
+
+  /**
+   * <p>Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Sidewalk-related parameters for importing wireless devices that need to be provisioned in bulk.</p>
+   */
+  Sidewalk: SidewalkStartImportInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartWirelessDeviceImportTaskResponse {
+  /**
+   * <p>The import task ID.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the import task.</p>
+   */
+  Arn?: string;
+}
 
 /**
  * @public
@@ -816,6 +1296,37 @@ export interface UpdateWirelessDeviceRequest {
  * @public
  */
 export interface UpdateWirelessDeviceResponse {}
+
+/**
+ * @public
+ * <p>Sidewalk object information for updating an import task.</p>
+ */
+export interface SidewalkUpdateImportInfo {
+  /**
+   * <p>The CSV file contained in an S3 bucket that's used for appending devices to an existing import task.</p>
+   */
+  DeviceCreationFile?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWirelessDeviceImportTaskRequest {
+  /**
+   * <p>The identifier of the import task to be updated.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Sidewalk-related parameters of the import task to be updated.</p>
+   */
+  Sidewalk: SidewalkUpdateImportInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWirelessDeviceImportTaskResponse {}
 
 /**
  * @public

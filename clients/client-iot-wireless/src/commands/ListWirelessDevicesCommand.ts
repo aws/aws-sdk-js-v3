@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListWirelessDevicesRequest, ListWirelessDevicesResponse } from "../models/models_0";
+import { ListWirelessDevicesRequest } from "../models/models_0";
+import { ListWirelessDevicesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListWirelessDevicesCommand,
   serializeAws_restJson1ListWirelessDevicesCommand,

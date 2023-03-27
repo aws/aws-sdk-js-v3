@@ -14,76 +14,50 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { CreateDeviceProfileRequest, CreateDeviceProfileResponse } from "../models/models_0";
+import { UpdateWirelessDeviceImportTaskRequest, UpdateWirelessDeviceImportTaskResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1CreateDeviceProfileCommand,
-  serializeAws_restJson1CreateDeviceProfileCommand,
+  deserializeAws_restJson1UpdateWirelessDeviceImportTaskCommand,
+  serializeAws_restJson1UpdateWirelessDeviceImportTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link CreateDeviceProfileCommand}.
+ * The input for {@link UpdateWirelessDeviceImportTaskCommand}.
  */
-export interface CreateDeviceProfileCommandInput extends CreateDeviceProfileRequest {}
+export interface UpdateWirelessDeviceImportTaskCommandInput extends UpdateWirelessDeviceImportTaskRequest {}
 /**
  * @public
  *
- * The output of {@link CreateDeviceProfileCommand}.
+ * The output of {@link UpdateWirelessDeviceImportTaskCommand}.
  */
-export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileResponse, __MetadataBearer {}
+export interface UpdateWirelessDeviceImportTaskCommandOutput
+  extends UpdateWirelessDeviceImportTaskResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a new device profile.</p>
+ * <p>Update an import task to add more devices to the task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, CreateDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, CreateDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateWirelessDeviceImportTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, UpdateWirelessDeviceImportTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const input = {
- *   Name: "STRING_VALUE",
- *   LoRaWAN: {
- *     SupportsClassB: true || false,
- *     ClassBTimeout: Number("int"),
- *     PingSlotPeriod: Number("int"),
- *     PingSlotDr: Number("int"),
- *     PingSlotFreq: Number("int"),
- *     SupportsClassC: true || false,
- *     ClassCTimeout: Number("int"),
- *     MacVersion: "STRING_VALUE",
- *     RegParamsRevision: "STRING_VALUE",
- *     RxDelay1: Number("int"),
- *     RxDrOffset1: Number("int"),
- *     RxDataRate2: Number("int"),
- *     RxFreq2: Number("int"),
- *     FactoryPresetFreqsList: [
- *       Number("int"),
- *     ],
- *     MaxEirp: Number("int"),
- *     MaxDutyCycle: Number("int"),
- *     RfRegion: "STRING_VALUE",
- *     SupportsJoin: true || false,
- *     Supports32BitFCnt: true || false,
+ *   Id: "STRING_VALUE", // required
+ *   Sidewalk: {
+ *     DeviceCreationFile: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   ClientRequestToken: "STRING_VALUE",
- *   Sidewalk: {},
  * };
- * const command = new CreateDeviceProfileCommand(input);
+ * const command = new UpdateWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param CreateDeviceProfileCommandInput - {@link CreateDeviceProfileCommandInput}
- * @returns {@link CreateDeviceProfileCommandOutput}
- * @see {@link CreateDeviceProfileCommandInput} for command's `input` shape.
- * @see {@link CreateDeviceProfileCommandOutput} for command's `response` shape.
+ * @param UpdateWirelessDeviceImportTaskCommandInput - {@link UpdateWirelessDeviceImportTaskCommandInput}
+ * @returns {@link UpdateWirelessDeviceImportTaskCommandOutput}
+ * @see {@link UpdateWirelessDeviceImportTaskCommandInput} for command's `input` shape.
+ * @see {@link UpdateWirelessDeviceImportTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -95,6 +69,9 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing a request.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because it exceeded the allowed API request rate.</p>
  *
@@ -103,9 +80,9 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  *
  *
  */
-export class CreateDeviceProfileCommand extends $Command<
-  CreateDeviceProfileCommandInput,
-  CreateDeviceProfileCommandOutput,
+export class UpdateWirelessDeviceImportTaskCommand extends $Command<
+  UpdateWirelessDeviceImportTaskCommandInput,
+  UpdateWirelessDeviceImportTaskCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
   // Start section: command_properties
@@ -123,7 +100,7 @@ export class CreateDeviceProfileCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateDeviceProfileCommandInput) {
+  constructor(readonly input: UpdateWirelessDeviceImportTaskCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -136,17 +113,17 @@ export class CreateDeviceProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTWirelessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDeviceProfileCommandInput, CreateDeviceProfileCommandOutput> {
+  ): Handler<UpdateWirelessDeviceImportTaskCommandInput, UpdateWirelessDeviceImportTaskCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDeviceProfileCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateWirelessDeviceImportTaskCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTWirelessClient";
-    const commandName = "CreateDeviceProfileCommand";
+    const commandName = "UpdateWirelessDeviceImportTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -165,15 +142,21 @@ export class CreateDeviceProfileCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateDeviceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeviceProfileCommand(input, context);
+  private serialize(
+    input: UpdateWirelessDeviceImportTaskCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateWirelessDeviceImportTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceProfileCommandOutput> {
-    return deserializeAws_restJson1CreateDeviceProfileCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateWirelessDeviceImportTaskCommandOutput> {
+    return deserializeAws_restJson1UpdateWirelessDeviceImportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

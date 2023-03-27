@@ -132,6 +132,11 @@ import {
   DeleteWirelessDeviceCommandOutput,
 } from "./commands/DeleteWirelessDeviceCommand";
 import {
+  DeleteWirelessDeviceImportTaskCommand,
+  DeleteWirelessDeviceImportTaskCommandInput,
+  DeleteWirelessDeviceImportTaskCommandOutput,
+} from "./commands/DeleteWirelessDeviceImportTaskCommand";
+import {
   DeleteWirelessGatewayCommand,
   DeleteWirelessGatewayCommandInput,
   DeleteWirelessGatewayCommandOutput,
@@ -146,6 +151,11 @@ import {
   DeleteWirelessGatewayTaskDefinitionCommandInput,
   DeleteWirelessGatewayTaskDefinitionCommandOutput,
 } from "./commands/DeleteWirelessGatewayTaskDefinitionCommand";
+import {
+  DeregisterWirelessDeviceCommand,
+  DeregisterWirelessDeviceCommandInput,
+  DeregisterWirelessDeviceCommandOutput,
+} from "./commands/DeregisterWirelessDeviceCommand";
 import {
   DisassociateAwsAccountFromPartnerAccountCommand,
   DisassociateAwsAccountFromPartnerAccountCommandInput,
@@ -268,6 +278,11 @@ import {
   GetWirelessDeviceCommandOutput,
 } from "./commands/GetWirelessDeviceCommand";
 import {
+  GetWirelessDeviceImportTaskCommand,
+  GetWirelessDeviceImportTaskCommandInput,
+  GetWirelessDeviceImportTaskCommandOutput,
+} from "./commands/GetWirelessDeviceImportTaskCommand";
+import {
   GetWirelessDeviceStatisticsCommand,
   GetWirelessDeviceStatisticsCommandInput,
   GetWirelessDeviceStatisticsCommandOutput,
@@ -312,6 +327,11 @@ import {
   ListDeviceProfilesCommandInput,
   ListDeviceProfilesCommandOutput,
 } from "./commands/ListDeviceProfilesCommand";
+import {
+  ListDevicesForWirelessDeviceImportTaskCommand,
+  ListDevicesForWirelessDeviceImportTaskCommandInput,
+  ListDevicesForWirelessDeviceImportTaskCommandOutput,
+} from "./commands/ListDevicesForWirelessDeviceImportTaskCommand";
 import {
   ListEventConfigurationsCommand,
   ListEventConfigurationsCommandInput,
@@ -362,6 +382,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWirelessDeviceImportTasksCommand,
+  ListWirelessDeviceImportTasksCommandInput,
+  ListWirelessDeviceImportTasksCommandOutput,
+} from "./commands/ListWirelessDeviceImportTasksCommand";
 import {
   ListWirelessDevicesCommand,
   ListWirelessDevicesCommandInput,
@@ -427,6 +452,16 @@ import {
   StartMulticastGroupSessionCommandInput,
   StartMulticastGroupSessionCommandOutput,
 } from "./commands/StartMulticastGroupSessionCommand";
+import {
+  StartSingleWirelessDeviceImportTaskCommand,
+  StartSingleWirelessDeviceImportTaskCommandInput,
+  StartSingleWirelessDeviceImportTaskCommandOutput,
+} from "./commands/StartSingleWirelessDeviceImportTaskCommand";
+import {
+  StartWirelessDeviceImportTaskCommand,
+  StartWirelessDeviceImportTaskCommandInput,
+  StartWirelessDeviceImportTaskCommandOutput,
+} from "./commands/StartWirelessDeviceImportTaskCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestWirelessDeviceCommand,
@@ -493,6 +528,11 @@ import {
   UpdateWirelessDeviceCommandInput,
   UpdateWirelessDeviceCommandOutput,
 } from "./commands/UpdateWirelessDeviceCommand";
+import {
+  UpdateWirelessDeviceImportTaskCommand,
+  UpdateWirelessDeviceImportTaskCommandInput,
+  UpdateWirelessDeviceImportTaskCommandOutput,
+} from "./commands/UpdateWirelessDeviceImportTaskCommand";
 import {
   UpdateWirelessGatewayCommand,
   UpdateWirelessGatewayCommandInput,
@@ -1381,6 +1421,39 @@ export class IoTWireless extends IoTWirelessClient {
 
   /**
    * @public
+   * <p>Delete an import task.</p>
+   */
+  public deleteWirelessDeviceImportTask(
+    args: DeleteWirelessDeviceImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWirelessDeviceImportTaskCommandOutput>;
+  public deleteWirelessDeviceImportTask(
+    args: DeleteWirelessDeviceImportTaskCommandInput,
+    cb: (err: any, data?: DeleteWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public deleteWirelessDeviceImportTask(
+    args: DeleteWirelessDeviceImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public deleteWirelessDeviceImportTask(
+    args: DeleteWirelessDeviceImportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWirelessDeviceImportTaskCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWirelessDeviceImportTaskCommandOutput) => void
+  ): Promise<DeleteWirelessDeviceImportTaskCommandOutput> | void {
+    const command = new DeleteWirelessDeviceImportTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Deletes a wireless gateway.</p>
    */
   public deleteWirelessGateway(
@@ -1468,6 +1541,39 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: DeleteWirelessGatewayTaskDefinitionCommandOutput) => void
   ): Promise<DeleteWirelessGatewayTaskDefinitionCommandOutput> | void {
     const command = new DeleteWirelessGatewayTaskDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Deregister a wireless device from AWS IoT Wireless.</p>
+   */
+  public deregisterWirelessDevice(
+    args: DeregisterWirelessDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterWirelessDeviceCommandOutput>;
+  public deregisterWirelessDevice(
+    args: DeregisterWirelessDeviceCommandInput,
+    cb: (err: any, data?: DeregisterWirelessDeviceCommandOutput) => void
+  ): void;
+  public deregisterWirelessDevice(
+    args: DeregisterWirelessDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterWirelessDeviceCommandOutput) => void
+  ): void;
+  public deregisterWirelessDevice(
+    args: DeregisterWirelessDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterWirelessDeviceCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterWirelessDeviceCommandOutput) => void
+  ): Promise<DeregisterWirelessDeviceCommandOutput> | void {
+    const command = new DeregisterWirelessDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2325,6 +2431,40 @@ export class IoTWireless extends IoTWirelessClient {
 
   /**
    * @public
+   * <p>Get information about an import task and count of device onboarding summary information for the
+   *          import task.</p>
+   */
+  public getWirelessDeviceImportTask(
+    args: GetWirelessDeviceImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWirelessDeviceImportTaskCommandOutput>;
+  public getWirelessDeviceImportTask(
+    args: GetWirelessDeviceImportTaskCommandInput,
+    cb: (err: any, data?: GetWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public getWirelessDeviceImportTask(
+    args: GetWirelessDeviceImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public getWirelessDeviceImportTask(
+    args: GetWirelessDeviceImportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWirelessDeviceImportTaskCommandOutput) => void),
+    cb?: (err: any, data?: GetWirelessDeviceImportTaskCommandOutput) => void
+  ): Promise<GetWirelessDeviceImportTaskCommandOutput> | void {
+    const command = new GetWirelessDeviceImportTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Gets operating information about a wireless device.</p>
    */
   public getWirelessDeviceStatistics(
@@ -2612,6 +2752,41 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: ListDeviceProfilesCommandOutput) => void
   ): Promise<ListDeviceProfilesCommandOutput> | void {
     const command = new ListDeviceProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>List the Sidewalk devices in an import task and their onboarding status.</p>
+   */
+  public listDevicesForWirelessDeviceImportTask(
+    args: ListDevicesForWirelessDeviceImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDevicesForWirelessDeviceImportTaskCommandOutput>;
+  public listDevicesForWirelessDeviceImportTask(
+    args: ListDevicesForWirelessDeviceImportTaskCommandInput,
+    cb: (err: any, data?: ListDevicesForWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public listDevicesForWirelessDeviceImportTask(
+    args: ListDevicesForWirelessDeviceImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDevicesForWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public listDevicesForWirelessDeviceImportTask(
+    args: ListDevicesForWirelessDeviceImportTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDevicesForWirelessDeviceImportTaskCommandOutput) => void),
+    cb?: (err: any, data?: ListDevicesForWirelessDeviceImportTaskCommandOutput) => void
+  ): Promise<ListDevicesForWirelessDeviceImportTaskCommandOutput> | void {
+    const command = new ListDevicesForWirelessDeviceImportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2949,6 +3124,39 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>List wireless devices that have been added to an import task.</p>
+   */
+  public listWirelessDeviceImportTasks(
+    args: ListWirelessDeviceImportTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWirelessDeviceImportTasksCommandOutput>;
+  public listWirelessDeviceImportTasks(
+    args: ListWirelessDeviceImportTasksCommandInput,
+    cb: (err: any, data?: ListWirelessDeviceImportTasksCommandOutput) => void
+  ): void;
+  public listWirelessDeviceImportTasks(
+    args: ListWirelessDeviceImportTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWirelessDeviceImportTasksCommandOutput) => void
+  ): void;
+  public listWirelessDeviceImportTasks(
+    args: ListWirelessDeviceImportTasksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWirelessDeviceImportTasksCommandOutput) => void),
+    cb?: (err: any, data?: ListWirelessDeviceImportTasksCommandOutput) => void
+  ): Promise<ListWirelessDeviceImportTasksCommandOutput> | void {
+    const command = new ListWirelessDeviceImportTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3390,6 +3598,72 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: StartMulticastGroupSessionCommandOutput) => void
   ): Promise<StartMulticastGroupSessionCommandOutput> | void {
     const command = new StartMulticastGroupSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Start import task for a single wireless device.</p>
+   */
+  public startSingleWirelessDeviceImportTask(
+    args: StartSingleWirelessDeviceImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSingleWirelessDeviceImportTaskCommandOutput>;
+  public startSingleWirelessDeviceImportTask(
+    args: StartSingleWirelessDeviceImportTaskCommandInput,
+    cb: (err: any, data?: StartSingleWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public startSingleWirelessDeviceImportTask(
+    args: StartSingleWirelessDeviceImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSingleWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public startSingleWirelessDeviceImportTask(
+    args: StartSingleWirelessDeviceImportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSingleWirelessDeviceImportTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartSingleWirelessDeviceImportTaskCommandOutput) => void
+  ): Promise<StartSingleWirelessDeviceImportTaskCommandOutput> | void {
+    const command = new StartSingleWirelessDeviceImportTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Start import task for provisioning Sidewalk devices in bulk using an S3 CSV file.</p>
+   */
+  public startWirelessDeviceImportTask(
+    args: StartWirelessDeviceImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartWirelessDeviceImportTaskCommandOutput>;
+  public startWirelessDeviceImportTask(
+    args: StartWirelessDeviceImportTaskCommandInput,
+    cb: (err: any, data?: StartWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public startWirelessDeviceImportTask(
+    args: StartWirelessDeviceImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public startWirelessDeviceImportTask(
+    args: StartWirelessDeviceImportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartWirelessDeviceImportTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartWirelessDeviceImportTaskCommandOutput) => void
+  ): Promise<StartWirelessDeviceImportTaskCommandOutput> | void {
+    const command = new StartWirelessDeviceImportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3857,6 +4131,39 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: UpdateWirelessDeviceCommandOutput) => void
   ): Promise<UpdateWirelessDeviceCommandOutput> | void {
     const command = new UpdateWirelessDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Update an import task to add more devices to the task.</p>
+   */
+  public updateWirelessDeviceImportTask(
+    args: UpdateWirelessDeviceImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWirelessDeviceImportTaskCommandOutput>;
+  public updateWirelessDeviceImportTask(
+    args: UpdateWirelessDeviceImportTaskCommandInput,
+    cb: (err: any, data?: UpdateWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public updateWirelessDeviceImportTask(
+    args: UpdateWirelessDeviceImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWirelessDeviceImportTaskCommandOutput) => void
+  ): void;
+  public updateWirelessDeviceImportTask(
+    args: UpdateWirelessDeviceImportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWirelessDeviceImportTaskCommandOutput) => void),
+    cb?: (err: any, data?: UpdateWirelessDeviceImportTaskCommandOutput) => void
+  ): Promise<UpdateWirelessDeviceImportTaskCommandOutput> | void {
+    const command = new UpdateWirelessDeviceImportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

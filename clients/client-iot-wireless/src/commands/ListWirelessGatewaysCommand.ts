@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListWirelessGatewaysRequest, ListWirelessGatewaysResponse } from "../models/models_0";
+import { ListWirelessGatewaysRequest, ListWirelessGatewaysResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListWirelessGatewaysCommand,
   serializeAws_restJson1ListWirelessGatewaysCommand,

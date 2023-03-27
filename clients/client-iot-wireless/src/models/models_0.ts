@@ -1305,6 +1305,12 @@ export interface LoRaWANDeviceProfile {
 
 /**
  * @public
+ * <p>Sidewalk object for creating a device profile.</p>
+ */
+export interface SidewalkCreateDeviceProfile {}
+
+/**
+ * @public
  */
 export interface CreateDeviceProfileRequest {
   /**
@@ -1326,6 +1332,11 @@ export interface CreateDeviceProfileRequest {
    * <p>Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. </p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The Sidewalk-related information for creating the Sidewalk device profile.</p>
+   */
+  Sidewalk?: SidewalkCreateDeviceProfile;
 }
 
 /**
@@ -1348,8 +1359,17 @@ export interface CreateDeviceProfileResponse {
  */
 export enum SupportedRfRegion {
   AS923_1 = "AS923-1",
+  AS923_2 = "AS923-2",
+  AS923_3 = "AS923-3",
+  AS923_4 = "AS923-4",
   AU915 = "AU915",
+  CN470 = "CN470",
+  CN779 = "CN779",
+  EU433 = "EU433",
   EU868 = "EU868",
+  IN865 = "IN865",
+  KR920 = "KR920",
+  RU864 = "RU864",
   US915 = "US915",
 }
 
@@ -1811,6 +1831,17 @@ export enum PositioningConfigStatus {
 
 /**
  * @public
+ * <p>Sidewalk object for creating a wireless device.</p>
+ */
+export interface SidewalkCreateWirelessDevice {
+  /**
+   * <p>The ID of the Sidewalk device profile.</p>
+   */
+  DeviceProfileId?: string;
+}
+
+/**
+ * @public
  */
 export enum WirelessDeviceType {
   LoRaWAN = "LoRaWAN",
@@ -1860,6 +1891,11 @@ export interface CreateWirelessDeviceRequest {
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
    */
   Positioning?: PositioningConfigStatus | string;
+
+  /**
+   * <p>The device configuration information to use to create the Sidewalk device.</p>
+   */
+  Sidewalk?: SidewalkCreateWirelessDevice;
 }
 
 /**
@@ -2115,6 +2151,38 @@ export interface CreateWirelessGatewayTaskDefinitionResponse {
 
 /**
  * @public
+ * <p>The device attestation key (DAK) information.</p>
+ */
+export interface DakCertificateMetadata {
+  /**
+   * <p>The certificate ID for the DAK.</p>
+   */
+  CertificateId: string | undefined;
+
+  /**
+   * <p>The maximum number of signatures that the DAK can sign. A value of <code>-1</code> indicates
+   *          that there's no device limit.</p>
+   */
+  MaxAllowedSignature?: number;
+
+  /**
+   * <p>Whether factory support has been enabled.</p>
+   */
+  FactorySupport?: boolean;
+
+  /**
+   * <p>The advertised product ID (APID) that's used for pre-production and production applications.</p>
+   */
+  ApId?: string;
+
+  /**
+   * <p>The device type ID that's used for prototyping applications.</p>
+   */
+  DeviceTypeId?: string;
+}
+
+/**
+ * @public
  */
 export interface DeleteDestinationRequest {
   /**
@@ -2248,6 +2316,21 @@ export interface DeleteWirelessDeviceResponse {}
 /**
  * @public
  */
+export interface DeleteWirelessDeviceImportTaskRequest {
+  /**
+   * <p>The unique identifier of the import task to be deleted.</p>
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWirelessDeviceImportTaskResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteWirelessGatewayRequest {
   /**
    * <p>The ID of the resource to delete.</p>
@@ -2289,6 +2372,27 @@ export interface DeleteWirelessGatewayTaskDefinitionRequest {
  * @public
  */
 export interface DeleteWirelessGatewayTaskDefinitionResponse {}
+
+/**
+ * @public
+ */
+export interface DeregisterWirelessDeviceRequest {
+  /**
+   * <p>The identifier of the wireless device to deregister from AWS IoT Wireless.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The type of wireless device to deregister from AWS IoT Wireless, which can be <code>LoRaWAN</code>
+   *          or <code>Sidewalk</code>.</p>
+   */
+  WirelessDeviceType?: WirelessDeviceType | string;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterWirelessDeviceResponse {}
 
 /**
  * @public
@@ -2345,6 +2449,14 @@ export interface DeviceProfile {
    * <p>The ID of the device profile.</p>
    */
   Id?: string;
+}
+
+/**
+ * @public
+ */
+export enum DeviceProfileType {
+  LoRaWAN = "LoRaWAN",
+  Sidewalk = "Sidewalk",
 }
 
 /**
@@ -2902,6 +3014,27 @@ export interface GetDeviceProfileRequest {
 
 /**
  * @public
+ * <p>Gets information about a Sidewalk device profile.</p>
+ */
+export interface SidewalkGetDeviceProfile {
+  /**
+   * <p>The Sidewalk application server public key.</p>
+   */
+  ApplicationServerPublicKey?: string;
+
+  /**
+   * <p>Gets information about the certification status of a Sidewalk device profile.</p>
+   */
+  QualificationStatus?: boolean;
+
+  /**
+   * <p>The DAK certificate information of the Sidewalk device profile.</p>
+   */
+  DakCertificateMetadata?: DakCertificateMetadata[];
+}
+
+/**
+ * @public
  */
 export interface GetDeviceProfileResponse {
   /**
@@ -2923,6 +3056,11 @@ export interface GetDeviceProfileResponse {
    * <p>Information about the device profile.</p>
    */
   LoRaWAN?: LoRaWANDeviceProfile;
+
+  /**
+   * <p>Information about the Sidewalk parameters in the device profile.</p>
+   */
+  Sidewalk?: SidewalkGetDeviceProfile;
 }
 
 /**
@@ -3674,7 +3812,7 @@ export interface WiFiAccessPoint {
   MacAddress: string | undefined;
 
   /**
-   * <p>Recived signal strength of the WLAN measurement data.</p>
+   * <p>Received signal strength (dBm) of the WLAN measurement data.</p>
    */
   Rss: number | undefined;
 }
@@ -4035,6 +4173,16 @@ export interface GetWirelessDeviceRequest {
 
 /**
  * @public
+ */
+export enum WirelessDeviceSidewalkStatus {
+  ACTIVATED = "ACTIVATED",
+  PROVISIONED = "PROVISIONED",
+  REGISTERED = "REGISTERED",
+  UNKNOWN = "UNKNOWN",
+}
+
+/**
+ * @public
  * <p>Sidewalk device object.</p>
  */
 export interface SidewalkDevice {
@@ -4057,6 +4205,26 @@ export interface SidewalkDevice {
    * <p>The sidewalk device certificates for Ed25519 and P256r1.</p>
    */
   DeviceCertificates?: CertificateList[];
+
+  /**
+   * <p>The Sidewalk device private keys that will be used for onboarding the device.</p>
+   */
+  PrivateKeys?: CertificateList[];
+
+  /**
+   * <p>The ID of the Sidewalk device profile.</p>
+   */
+  DeviceProfileId?: string;
+
+  /**
+   * <p>The ID of the Sidewalk device profile.</p>
+   */
+  CertificateId?: string;
+
+  /**
+   * <p>The Sidewalk device status, such as provisioned or registered.</p>
+   */
+  Status?: WirelessDeviceSidewalkStatus | string;
 }
 
 /**
@@ -4117,6 +4285,105 @@ export interface GetWirelessDeviceResponse {
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
    */
   Positioning?: PositioningConfigStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface GetWirelessDeviceImportTaskRequest {
+  /**
+   * <p>The identifier of the import task for which information is requested.</p>
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Sidewalk-related information for devices in an import task that are being onboarded.</p>
+ */
+export interface SidewalkGetStartImportInfo {
+  /**
+   * <p>List of Sidewalk devices that are added to the import task.</p>
+   */
+  DeviceCreationFileList?: string[];
+
+  /**
+   * <p>The IAM role that allows AWS IoT Wireless to access the CSV file in the S3 bucket.</p>
+   */
+  Role?: string;
+}
+
+/**
+ * @public
+ */
+export enum ImportTaskStatus {
+  COMPLETE = "COMPLETE",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  INITIALIZED = "INITIALIZED",
+  INITIALIZING = "INITIALIZING",
+  PENDING = "PENDING",
+}
+
+/**
+ * @public
+ */
+export interface GetWirelessDeviceImportTaskResponse {
+  /**
+   * <p>The identifier of the import task for which information is retrieved.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the import task.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the destination that's assigned to the wireless devices in the import task.</p>
+   */
+  DestinationName?: string;
+
+  /**
+   * <p>The Sidewalk-related information about an import task.</p>
+   */
+  Sidewalk?: SidewalkGetStartImportInfo;
+
+  /**
+   * <p>The time at which the import task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The import task status.</p>
+   */
+  Status?: ImportTaskStatus | string;
+
+  /**
+   * <p>The reason for the provided status information, such as a validation error that causes the import
+   *          task to fail.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The number of devices in the import task that are waiting for the control log to start processing.</p>
+   */
+  InitializedImportedDeviceCount?: number;
+
+  /**
+   * <p>The number of devices in the import task that are waiting in the import task queue to be onboarded.</p>
+   */
+  PendingImportedDeviceCount?: number;
+
+  /**
+   * <p>The number of devices in the import task that have been onboarded to the import task.</p>
+   */
+  OnboardedImportedDeviceCount?: number;
+
+  /**
+   * <p>The number of devices in the import task that failed to onboard to the import task.</p>
+   */
+  FailedImportedDeviceCount?: number;
 }
 
 /**
@@ -4465,6 +4732,53 @@ export interface GetWirelessGatewayTaskDefinitionResponse {
 /**
  * @public
  */
+export enum OnboardStatus {
+  FAILED = "FAILED",
+  INITIALIZED = "INITIALIZED",
+  ONBOARDED = "ONBOARDED",
+  PENDING = "PENDING",
+}
+
+/**
+ * @public
+ * <p>Information about a Sidewalk device that has been added to an import task.</p>
+ */
+export interface ImportedSidewalkDevice {
+  /**
+   * <p>The Sidewalk manufacturing serial number (SMSN) of the Sidewalk device.</p>
+   */
+  SidewalkManufacturingSn?: string;
+
+  /**
+   * <p>The onboarding status of the Sidewalk device in the import task.</p>
+   */
+  OnboardingStatus?: OnboardStatus | string;
+
+  /**
+   * <p>The reason for the onboarding status information for the Sidewalk device.</p>
+   */
+  OnboardingStatusReason?: string;
+
+  /**
+   * <p>The time at which the status information was last updated.</p>
+   */
+  LastUpdateTime?: Date;
+}
+
+/**
+ * @public
+ * <p>Information about a wireless device that has been added to an import task.</p>
+ */
+export interface ImportedWirelessDevice {
+  /**
+   * <p>The Sidewalk-related information about a device that has been added to an import task.</p>
+   */
+  Sidewalk?: ImportedSidewalkDevice;
+}
+
+/**
+ * @public
+ */
 export interface ListDestinationsRequest {
   /**
    * <p>The maximum number of results to return in this operation.</p>
@@ -4505,6 +4819,12 @@ export interface ListDeviceProfilesRequest {
    * <p>The maximum number of results to return in this operation.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A filter to list only device profiles that use this type, which can be <code>LoRaWAN</code>
+   *          or <code>Sidewalk</code>.</p>
+   */
+  DeviceProfileType?: DeviceProfileType | string;
 }
 
 /**
@@ -4520,6 +4840,54 @@ export interface ListDeviceProfilesResponse {
    * <p>The list of device profiles.</p>
    */
   DeviceProfileList?: DeviceProfile[];
+}
+
+/**
+ * @public
+ */
+export interface ListDevicesForWirelessDeviceImportTaskRequest {
+  /**
+   * <p>The identifier of the import task for which wireless devices are listed.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise
+   *          <code>null</code> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The status of the devices in the import task.</p>
+   */
+  Status?: OnboardStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface ListDevicesForWirelessDeviceImportTaskResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <code>null</code> if there are no additional
+   *          results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages received from
+   *          devices in an import task that are onboarded to AWS IoT Wireless.</p>
+   */
+  DestinationName?: string;
+
+  /**
+   * <p>List of wireless devices in an import task and their onboarding status.</p>
+   */
+  ImportedWirelessDeviceList?: ImportedWirelessDevice[];
 }
 
 /**
@@ -4941,6 +5309,104 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface ListWirelessDeviceImportTasksRequest {
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise
+   *          <code>null</code> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Information about an import task for wireless devices.</p>
+ */
+export interface WirelessDeviceImportTask {
+  /**
+   * <p>The ID of the wireless device import task.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the wireless device import task.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the Sidewalk destination that that describes the IoT rule to route messages from the device in
+   *          the import task that will be onboarded to AWS IoT Wireless</p>
+   */
+  DestinationName?: string;
+
+  /**
+   * <p>The Sidewalk-related information of the wireless device import task.</p>
+   */
+  Sidewalk?: SidewalkGetStartImportInfo;
+
+  /**
+   * <p>The time at which the import task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The status information of the wireless device import task.</p>
+   */
+  Status?: ImportTaskStatus | string;
+
+  /**
+   * <p>The reason that provides additional information about the import task status.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The summary information of count of wireless devices that are waiting for the control log to be
+   *          added to an import task.</p>
+   */
+  InitializedImportedDeviceCount?: number;
+
+  /**
+   * <p>The summary information of count of wireless devices in an import task that are waiting in the queue
+   *          to be onboarded.</p>
+   */
+  PendingImportedDeviceCount?: number;
+
+  /**
+   * <p>The summary information of count of wireless devices in an import task that have been onboarded to the
+   *          import task.</p>
+   */
+  OnboardedImportedDeviceCount?: number;
+
+  /**
+   * <p>The summary information of count of wireless devices in an import task that failed to onboarded to the
+   *          import task.</p>
+   */
+  FailedImportedDeviceCount?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessDeviceImportTasksResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <code>null</code> if there are no additional
+   *          results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>List of import tasks and summary information of onboarding status of devices in each import task.</p>
+   */
+  WirelessDeviceImportTaskList?: WirelessDeviceImportTask[];
+}
+
+/**
+ * @public
+ */
 export interface ListWirelessDevicesRequest {
   /**
    * <p>The maximum number of results to return in this operation.</p>
@@ -5018,365 +5484,16 @@ export interface SidewalkListDevice {
    * <p>The sidewalk device certificates for Ed25519 and P256r1.</p>
    */
   DeviceCertificates?: CertificateList[];
-}
-
-/**
- * @public
- * <p>Information about a wireless device's operation.</p>
- */
-export interface WirelessDeviceStatistics {
-  /**
-   * <p>The Amazon Resource Name of the resource.</p>
-   */
-  Arn?: string;
 
   /**
-   * <p>The ID of the wireless device reporting the data.</p>
+   * <p>Sidewalk object used by list functions.</p>
    */
-  Id?: string;
+  DeviceProfileId?: string;
 
   /**
-   * <p>The wireless device type.</p>
+   * <p>The status of the Sidewalk devices, such as provisioned or registered.</p>
    */
-  Type?: WirelessDeviceType | string;
-
-  /**
-   * <p>The name of the resource.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The name of the destination to which the device is assigned.</p>
-   */
-  DestinationName?: string;
-
-  /**
-   * <p>The date and time when the most recent uplink was received.</p>
-   */
-  LastUplinkReceivedAt?: string;
-
-  /**
-   * <p>LoRaWAN device info.</p>
-   */
-  LoRaWAN?: LoRaWANListDevice;
-
-  /**
-   * <p>The Sidewalk account credentials.</p>
-   */
-  Sidewalk?: SidewalkListDevice;
-
-  /**
-   * <p>The status of a wireless device in a FUOTA task.</p>
-   */
-  FuotaDeviceStatus?: FuotaDeviceStatus | string;
-
-  /**
-   * <p>The status of the wireless device in the multicast group.</p>
-   */
-  MulticastDeviceStatus?: string;
-
-  /**
-   * <p>Id of the multicast group.</p>
-   */
-  McGroupId?: number;
-}
-
-/**
- * @public
- */
-export interface ListWirelessDevicesResponse {
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the wireless device.</p>
-   */
-  WirelessDeviceList?: WirelessDeviceStatistics[];
-}
-
-/**
- * @public
- */
-export interface ListWirelessGatewaysRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * <p>Information about a wireless gateway's operation.</p>
- */
-export interface WirelessGatewayStatistics {
-  /**
-   * <p>The Amazon Resource Name of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the wireless gateway reporting the data.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the resource.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the resource.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>LoRaWAN gateway info.</p>
-   */
-  LoRaWAN?: LoRaWANGateway;
-
-  /**
-   * <p>The date and time when the most recent uplink was received.</p>
-   */
-  LastUplinkReceivedAt?: string;
-}
-
-/**
- * @public
- */
-export interface ListWirelessGatewaysResponse {
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the wireless gateway.</p>
-   */
-  WirelessGatewayList?: WirelessGatewayStatistics[];
-}
-
-/**
- * @public
- */
-export enum WirelessGatewayTaskDefinitionType {
-  UPDATE = "UPDATE",
-}
-
-/**
- * @public
- */
-export interface ListWirelessGatewayTaskDefinitionsRequest {
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A filter to list only the wireless gateway task definitions that use this task definition type.</p>
-   */
-  TaskDefinitionType?: WirelessGatewayTaskDefinitionType | string;
-}
-
-/**
- * @public
- * <p>LoRaWANUpdateGatewayTaskEntry object.</p>
- */
-export interface LoRaWANUpdateGatewayTaskEntry {
-  /**
-   * <p>The version of the gateways that should receive the update.</p>
-   */
-  CurrentVersion?: LoRaWANGatewayVersion;
-
-  /**
-   * <p>The firmware version to update the gateway to.</p>
-   */
-  UpdateVersion?: LoRaWANGatewayVersion;
-}
-
-/**
- * @public
- * <p>UpdateWirelessGatewayTaskEntry object.</p>
- */
-export interface UpdateWirelessGatewayTaskEntry {
-  /**
-   * <p>The ID of the new wireless gateway task entry.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The properties that relate to the LoRaWAN wireless gateway.</p>
-   */
-  LoRaWAN?: LoRaWANUpdateGatewayTaskEntry;
-
-  /**
-   * <p>The Amazon Resource Name of the resource.</p>
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- */
-export interface ListWirelessGatewayTaskDefinitionsResponse {
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The list of task definitions.</p>
-   */
-  TaskDefinitions?: UpdateWirelessGatewayTaskEntry[];
-}
-
-/**
- * @public
- * <p>Information about the Semtech GNSS solver configuration.</p>
- */
-export interface SemtechGnssConfiguration {
-  /**
-   * <p>The status indicating whether the solver is enabled.</p>
-   */
-  Status: PositionConfigurationStatus | string | undefined;
-
-  /**
-   * <p>Whether forward error correction is enabled.</p>
-   */
-  Fec: PositionConfigurationFec | string | undefined;
-}
-
-/**
- * @public
- * <p>The wrapper for position solver configurations.</p>
- */
-export interface PositionSolverConfigurations {
-  /**
-   * <p>The Semtech GNSS solver configuration object.</p>
-   */
-  SemtechGnss?: SemtechGnssConfiguration;
-}
-
-/**
- * @public
- */
-export interface PutPositionConfigurationRequest {
-  /**
-   * <p>Resource identifier used to update the position configuration.</p>
-   */
-  ResourceIdentifier: string | undefined;
-
-  /**
-   * <p>Resource type of the resource for which you want to update the position configuration.</p>
-   */
-  ResourceType: PositionResourceType | string | undefined;
-
-  /**
-   * <p>The positioning solvers used to update the position configuration of the resource.</p>
-   */
-  Solvers?: PositionSolverConfigurations;
-
-  /**
-   * <p>The position data destination that describes the AWS IoT rule that processes the device's position
-   *             data for use by AWS IoT Core for LoRaWAN.</p>
-   */
-  Destination?: string;
-}
-
-/**
- * @public
- */
-export interface PutPositionConfigurationResponse {}
-
-/**
- * @public
- */
-export interface PutResourceLogLevelRequest {
-  /**
-   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
-   *             it is the wireless gateway ID.</p>
-   */
-  ResourceIdentifier: string | undefined;
-
-  /**
-   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
-   *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
-   */
-  LogLevel: LogLevel | string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutResourceLogLevelResponse {}
-
-/**
- * @public
- */
-export interface ResetAllResourceLogLevelsRequest {}
-
-/**
- * @public
- */
-export interface ResetAllResourceLogLevelsResponse {}
-
-/**
- * @public
- */
-export interface ResetResourceLogLevelRequest {
-  /**
-   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
-   *             it is the wireless gateway ID.</p>
-   */
-  ResourceIdentifier: string | undefined;
-
-  /**
-   * <p>The type of the resource, which can be <code>WirelessDevice</code> or <code>WirelessGateway</code>.</p>
-   */
-  ResourceType: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetResourceLogLevelResponse {}
-
-/**
- * @public
- * <p>The metadata information of the LoRaWAN multicast group.</p>
- */
-export interface LoRaWANMulticastMetadata {
-  /**
-   * <p>The Fport value.</p>
-   */
-  FPort?: number;
-}
-
-/**
- * @public
- * <p>Wireless metadata that is to be sent to multicast group.</p>
- */
-export interface MulticastWirelessMetadata {
-  /**
-   * <p>The metadata information of the LoRaWAN multicast group.</p>
-   */
-  LoRaWAN?: LoRaWANMulticastMetadata;
+  Status?: WirelessDeviceSidewalkStatus | string;
 }
 
 /**
@@ -5405,6 +5522,22 @@ export const AssociateAwsAccountWithPartnerAccountResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoFilterSensitiveLog(obj.Sidewalk) }),
+});
+
+/**
+ * @internal
+ */
+export const SidewalkGetDeviceProfileFilterSensitiveLog = (obj: SidewalkGetDeviceProfile): any => ({
+  ...obj,
+  ...(obj.ApplicationServerPublicKey && { ApplicationServerPublicKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceProfileResponseFilterSensitiveLog = (obj: GetDeviceProfileResponse): any => ({
+  ...obj,
+  ...(obj.Sidewalk && { Sidewalk: SidewalkGetDeviceProfileFilterSensitiveLog(obj.Sidewalk) }),
 });
 
 /**

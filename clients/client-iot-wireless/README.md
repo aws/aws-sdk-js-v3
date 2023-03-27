@@ -426,6 +426,14 @@ DeleteWirelessDevice
 </details>
 <details>
 <summary>
+DeleteWirelessDeviceImportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletewirelessdeviceimporttaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessdeviceimporttaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessdeviceimporttaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteWirelessGateway
 </summary>
 
@@ -446,6 +454,14 @@ DeleteWirelessGatewayTaskDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deletewirelessgatewaytaskdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessgatewaytaskdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deletewirelessgatewaytaskdefinitioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeregisterWirelessDevice
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/deregisterwirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deregisterwirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/deregisterwirelessdevicecommandoutput.html)
 
 </details>
 <details>
@@ -650,6 +666,14 @@ GetWirelessDevice
 </details>
 <details>
 <summary>
+GetWirelessDeviceImportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/getwirelessdeviceimporttaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessdeviceimporttaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/getwirelessdeviceimporttaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetWirelessDeviceStatistics
 </summary>
 
@@ -718,6 +742,14 @@ ListDeviceProfiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listdeviceprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listdeviceprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listdeviceprofilescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDevicesForWirelessDeviceImportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listdevicesforwirelessdeviceimporttaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listdevicesforwirelessdeviceimporttaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listdevicesforwirelessdeviceimporttaskcommandoutput.html)
 
 </details>
 <details>
@@ -798,6 +830,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListWirelessDeviceImportTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/listwirelessdeviceimporttaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listwirelessdeviceimporttaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/listwirelessdeviceimporttaskscommandoutput.html)
 
 </details>
 <details>
@@ -902,6 +942,22 @@ StartMulticastGroupSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/startmulticastgroupsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startmulticastgroupsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startmulticastgroupsessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartSingleWirelessDeviceImportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/startsinglewirelessdeviceimporttaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startsinglewirelessdeviceimporttaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startsinglewirelessdeviceimporttaskcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartWirelessDeviceImportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/startwirelessdeviceimporttaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startwirelessdeviceimporttaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/startwirelessdeviceimporttaskcommandoutput.html)
 
 </details>
 <details>
@@ -1014,6 +1070,14 @@ UpdateWirelessDevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatewirelessdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatewirelessdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatewirelessdevicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateWirelessDeviceImportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/classes/updatewirelessdeviceimporttaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatewirelessdeviceimporttaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-wireless/interfaces/updatewirelessdeviceimporttaskcommandoutput.html)
 
 </details>
 <details>

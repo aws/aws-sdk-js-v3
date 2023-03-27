@@ -119,6 +119,10 @@ import {
   DeleteWirelessDeviceCommandOutput,
 } from "../commands/DeleteWirelessDeviceCommand";
 import {
+  DeleteWirelessDeviceImportTaskCommandInput,
+  DeleteWirelessDeviceImportTaskCommandOutput,
+} from "../commands/DeleteWirelessDeviceImportTaskCommand";
+import {
   DeleteWirelessGatewayCommandInput,
   DeleteWirelessGatewayCommandOutput,
 } from "../commands/DeleteWirelessGatewayCommand";
@@ -130,6 +134,10 @@ import {
   DeleteWirelessGatewayTaskDefinitionCommandInput,
   DeleteWirelessGatewayTaskDefinitionCommandOutput,
 } from "../commands/DeleteWirelessGatewayTaskDefinitionCommand";
+import {
+  DeregisterWirelessDeviceCommandInput,
+  DeregisterWirelessDeviceCommandOutput,
+} from "../commands/DeregisterWirelessDeviceCommand";
 import {
   DisassociateAwsAccountFromPartnerAccountCommandInput,
   DisassociateAwsAccountFromPartnerAccountCommandOutput,
@@ -204,6 +212,10 @@ import { GetServiceEndpointCommandInput, GetServiceEndpointCommandOutput } from 
 import { GetServiceProfileCommandInput, GetServiceProfileCommandOutput } from "../commands/GetServiceProfileCommand";
 import { GetWirelessDeviceCommandInput, GetWirelessDeviceCommandOutput } from "../commands/GetWirelessDeviceCommand";
 import {
+  GetWirelessDeviceImportTaskCommandInput,
+  GetWirelessDeviceImportTaskCommandOutput,
+} from "../commands/GetWirelessDeviceImportTaskCommand";
+import {
   GetWirelessDeviceStatisticsCommandInput,
   GetWirelessDeviceStatisticsCommandOutput,
 } from "../commands/GetWirelessDeviceStatisticsCommand";
@@ -230,6 +242,10 @@ import {
 } from "../commands/GetWirelessGatewayTaskDefinitionCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "../commands/ListDestinationsCommand";
 import { ListDeviceProfilesCommandInput, ListDeviceProfilesCommandOutput } from "../commands/ListDeviceProfilesCommand";
+import {
+  ListDevicesForWirelessDeviceImportTaskCommandInput,
+  ListDevicesForWirelessDeviceImportTaskCommandOutput,
+} from "../commands/ListDevicesForWirelessDeviceImportTaskCommand";
 import {
   ListEventConfigurationsCommandInput,
   ListEventConfigurationsCommandOutput,
@@ -264,6 +280,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListWirelessDeviceImportTasksCommandInput,
+  ListWirelessDeviceImportTasksCommandOutput,
+} from "../commands/ListWirelessDeviceImportTasksCommand";
 import {
   ListWirelessDevicesCommandInput,
   ListWirelessDevicesCommandOutput,
@@ -313,6 +333,14 @@ import {
   StartMulticastGroupSessionCommandInput,
   StartMulticastGroupSessionCommandOutput,
 } from "../commands/StartMulticastGroupSessionCommand";
+import {
+  StartSingleWirelessDeviceImportTaskCommandInput,
+  StartSingleWirelessDeviceImportTaskCommandOutput,
+} from "../commands/StartSingleWirelessDeviceImportTaskCommand";
+import {
+  StartWirelessDeviceImportTaskCommandInput,
+  StartWirelessDeviceImportTaskCommandOutput,
+} from "../commands/StartWirelessDeviceImportTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput } from "../commands/TestWirelessDeviceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -352,6 +380,10 @@ import {
   UpdateWirelessDeviceCommandOutput,
 } from "../commands/UpdateWirelessDeviceCommand";
 import {
+  UpdateWirelessDeviceImportTaskCommandInput,
+  UpdateWirelessDeviceImportTaskCommandOutput,
+} from "../commands/UpdateWirelessDeviceImportTaskCommand";
+import {
   UpdateWirelessGatewayCommandInput,
   UpdateWirelessGatewayCommandOutput,
 } from "../commands/UpdateWirelessGatewayCommand";
@@ -371,6 +403,7 @@ import {
   ConflictException,
   ConnectionStatusEventConfiguration,
   ConnectionStatusResourceTypeEventConfiguration,
+  DakCertificateMetadata,
   Destinations,
   DeviceProfile,
   DeviceRegistrationStateEventConfiguration,
@@ -386,6 +419,8 @@ import {
   GsmLocalId,
   GsmNmrObj,
   GsmObj,
+  ImportedSidewalkDevice,
+  ImportedWirelessDevice,
   InternalServerException,
   Ip,
   JoinEventConfiguration,
@@ -407,12 +442,10 @@ import {
   LoRaWANListDevice,
   LoRaWANMulticast,
   LoRaWANMulticastGet,
-  LoRaWANMulticastMetadata,
   LoRaWANMulticastSession,
   LoRaWANSendDataToDevice,
   LoRaWANServiceProfile,
   LoRaWANUpdateGatewayTaskCreate,
-  LoRaWANUpdateGatewayTaskEntry,
   LteLocalId,
   LteNmrObj,
   LteObj,
@@ -420,28 +453,29 @@ import {
   MessageDeliveryStatusResourceTypeEventConfiguration,
   MulticastGroup,
   MulticastGroupByFuotaTask,
-  MulticastWirelessMetadata,
   NetworkAnalyzerConfigurations,
   OtaaV1_0_x,
   OtaaV1_1,
   ParticipatingGateways,
   PositionConfigurationItem,
   Positioning,
-  PositionSolverConfigurations,
   PositionSolverDetails,
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
   ResourceNotFoundException,
-  SemtechGnssConfiguration,
   SemtechGnssDetail,
   ServiceProfile,
   SessionKeysAbpV1_0_x,
   SessionKeysAbpV1_1,
   SidewalkAccountInfo,
   SidewalkAccountInfoWithFingerprint,
+  SidewalkCreateDeviceProfile,
+  SidewalkCreateWirelessDevice,
   SidewalkDevice,
   SidewalkDeviceMetadata,
   SidewalkEventNotificationConfigurations,
+  SidewalkGetDeviceProfile,
+  SidewalkGetStartImportInfo,
   SidewalkListDevice,
   SidewalkResourceTypeEventConfiguration,
   Tag,
@@ -451,28 +485,37 @@ import {
   ThrottlingException,
   TraceContent,
   UpdateWirelessGatewayTaskCreate,
-  UpdateWirelessGatewayTaskEntry,
   ValidationException,
   WcdmaLocalId,
   WcdmaNmrObj,
   WcdmaObj,
   WiFiAccessPoint,
   WirelessDeviceEventLogOption,
+  WirelessDeviceImportTask,
   WirelessDeviceLogOption,
-  WirelessDeviceStatistics,
   WirelessGatewayEventLogOption,
   WirelessGatewayLogOption,
-  WirelessGatewayStatistics,
 } from "../models/models_0";
 import {
+  LoRaWANMulticastMetadata,
   LoRaWANStartFuotaTask,
   LoRaWANUpdateDevice,
+  LoRaWANUpdateGatewayTaskEntry,
+  MulticastWirelessMetadata,
+  PositionSolverConfigurations,
+  SemtechGnssConfiguration,
   SidewalkSendDataToDevice,
+  SidewalkSingleStartImportInfo,
+  SidewalkStartImportInfo,
   SidewalkUpdateAccount,
+  SidewalkUpdateImportInfo,
   TooManyTagsException,
   UpdateAbpV1_0_x,
   UpdateAbpV1_1,
   UpdateFPorts,
+  UpdateWirelessGatewayTaskEntry,
+  WirelessDeviceStatistics,
+  WirelessGatewayStatistics,
   WirelessMetadata,
 } from "../models/models_1";
 
@@ -723,6 +766,9 @@ export const serializeAws_restJson1CreateDeviceProfileCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANDeviceProfile(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Sidewalk != null && {
+      Sidewalk: serializeAws_restJson1SidewalkCreateDeviceProfile(input.Sidewalk, context),
+    }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -878,6 +924,9 @@ export const serializeAws_restJson1CreateWirelessDeviceCommand = async (
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANDevice(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Positioning != null && { Positioning: input.Positioning }),
+    ...(input.Sidewalk != null && {
+      Sidewalk: serializeAws_restJson1SidewalkCreateWirelessDevice(input.Sidewalk, context),
+    }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
     ...(input.Type != null && { Type: input.Type }),
   });
@@ -1154,6 +1203,27 @@ export const serializeAws_restJson1DeleteWirelessDeviceCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteWirelessDeviceImportTaskCommand = async (
+  input: DeleteWirelessDeviceImportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task/{Id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteWirelessGatewayCommand = async (
   input: DeleteWirelessGatewayCommandInput,
   context: __SerdeContext
@@ -1212,6 +1282,31 @@ export const serializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand = 
     method: "DELETE",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeregisterWirelessDeviceCommand = async (
+  input: DeregisterWirelessDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Identifier}/deregister";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  const query: any = map({
+    WirelessDeviceType: [, input.WirelessDeviceType!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1861,6 +1956,27 @@ export const serializeAws_restJson1GetWirelessDeviceCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetWirelessDeviceImportTaskCommand = async (
+  input: GetWirelessDeviceImportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task/{Id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetWirelessDeviceStatisticsCommand = async (
   input: GetWirelessDeviceStatisticsCommandInput,
   context: __SerdeContext
@@ -2063,6 +2179,34 @@ export const serializeAws_restJson1ListDeviceProfilesCommand = async (
   const query: any = map({
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    deviceProfileType: [, input.DeviceProfileType!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListDevicesForWirelessDeviceImportTaskCommand = async (
+  input: ListDevicesForWirelessDeviceImportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task";
+  const query: any = map({
+    id: [, __expectNonNull(input.Id!, `Id`)],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+    status: [, input.Status!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2311,6 +2455,31 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
     resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWirelessDeviceImportTasksCommand = async (
+  input: ListWirelessDeviceImportTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_tasks";
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2695,6 +2864,65 @@ export const serializeAws_restJson1StartMulticastGroupSessionCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartSingleWirelessDeviceImportTaskCommand = async (
+  input: StartSingleWirelessDeviceImportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_single_device_import_task";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
+    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
+    ...(input.Sidewalk != null && {
+      Sidewalk: serializeAws_restJson1SidewalkSingleStartImportInfo(input.Sidewalk, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartWirelessDeviceImportTaskCommand = async (
+  input: StartWirelessDeviceImportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
+    ...(input.Sidewalk != null && { Sidewalk: serializeAws_restJson1SidewalkStartImportInfo(input.Sidewalk, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -3172,6 +3400,34 @@ export const serializeAws_restJson1UpdateWirelessDeviceCommand = async (
     ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANUpdateDevice(input.LoRaWAN, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Positioning != null && { Positioning: input.Positioning }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateWirelessDeviceImportTaskCommand = async (
+  input: UpdateWirelessDeviceImportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task/{Id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Sidewalk != null && {
+      Sidewalk: serializeAws_restJson1SidewalkUpdateImportInfo(input.Sidewalk, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -4645,6 +4901,59 @@ const deserializeAws_restJson1DeleteWirelessDeviceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteWirelessDeviceImportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWirelessDeviceImportTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteWirelessDeviceImportTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteWirelessDeviceImportTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWirelessDeviceImportTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteWirelessGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4772,6 +5081,53 @@ const deserializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommandError = 
     case "AccessDeniedException":
     case "com.amazonaws.iotwireless#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeregisterWirelessDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterWirelessDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeregisterWirelessDeviceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeregisterWirelessDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterWirelessDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -5241,6 +5597,9 @@ export const deserializeAws_restJson1GetDeviceProfileCommand = async (
   }
   if (data.Name != null) {
     contents.Name = __expectString(data.Name);
+  }
+  if (data.Sidewalk != null) {
+    contents.Sidewalk = deserializeAws_restJson1SidewalkGetDeviceProfile(data.Sidewalk, context);
   }
   return contents;
 };
@@ -6299,6 +6658,92 @@ const deserializeAws_restJson1GetWirelessDeviceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetWirelessDeviceImportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWirelessDeviceImportTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetWirelessDeviceImportTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.CreationTime != null) {
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
+  }
+  if (data.DestinationName != null) {
+    contents.DestinationName = __expectString(data.DestinationName);
+  }
+  if (data.FailedImportedDeviceCount != null) {
+    contents.FailedImportedDeviceCount = __expectLong(data.FailedImportedDeviceCount);
+  }
+  if (data.Id != null) {
+    contents.Id = __expectString(data.Id);
+  }
+  if (data.InitializedImportedDeviceCount != null) {
+    contents.InitializedImportedDeviceCount = __expectLong(data.InitializedImportedDeviceCount);
+  }
+  if (data.OnboardedImportedDeviceCount != null) {
+    contents.OnboardedImportedDeviceCount = __expectLong(data.OnboardedImportedDeviceCount);
+  }
+  if (data.PendingImportedDeviceCount != null) {
+    contents.PendingImportedDeviceCount = __expectLong(data.PendingImportedDeviceCount);
+  }
+  if (data.Sidewalk != null) {
+    contents.Sidewalk = deserializeAws_restJson1SidewalkGetStartImportInfo(data.Sidewalk, context);
+  }
+  if (data.Status != null) {
+    contents.Status = __expectString(data.Status);
+  }
+  if (data.StatusReason != null) {
+    contents.StatusReason = __expectString(data.StatusReason);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetWirelessDeviceImportTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWirelessDeviceImportTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetWirelessDeviceStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6816,6 +7261,71 @@ const deserializeAws_restJson1ListDeviceProfilesCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListDevicesForWirelessDeviceImportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDevicesForWirelessDeviceImportTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListDevicesForWirelessDeviceImportTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DestinationName != null) {
+    contents.DestinationName = __expectString(data.DestinationName);
+  }
+  if (data.ImportedWirelessDeviceList != null) {
+    contents.ImportedWirelessDeviceList = deserializeAws_restJson1ImportedWirelessDeviceList(
+      data.ImportedWirelessDeviceList,
+      context
+    );
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListDevicesForWirelessDeviceImportTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDevicesForWirelessDeviceImportTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotwireless#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -7358,6 +7868,68 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListWirelessDeviceImportTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWirelessDeviceImportTasksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWirelessDeviceImportTasksCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.WirelessDeviceImportTaskList != null) {
+    contents.WirelessDeviceImportTaskList = deserializeAws_restJson1WirelessDeviceImportTaskList(
+      data.WirelessDeviceImportTaskList,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListWirelessDeviceImportTasksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWirelessDeviceImportTasksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.iotwireless#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
@@ -8026,6 +8598,124 @@ const deserializeAws_restJson1StartMulticastGroupSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMulticastGroupSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StartSingleWirelessDeviceImportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSingleWirelessDeviceImportTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartSingleWirelessDeviceImportTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Id != null) {
+    contents.Id = __expectString(data.Id);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StartSingleWirelessDeviceImportTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSingleWirelessDeviceImportTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StartWirelessDeviceImportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartWirelessDeviceImportTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartWirelessDeviceImportTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Id != null) {
+    contents.Id = __expectString(data.Id);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StartWirelessDeviceImportTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartWirelessDeviceImportTaskCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -8747,6 +9437,59 @@ const deserializeAws_restJson1UpdateWirelessDeviceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.iotwireless#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateWirelessDeviceImportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWirelessDeviceImportTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateWirelessDeviceImportTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateWirelessDeviceImportTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWirelessDeviceImportTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -9638,6 +10381,22 @@ const serializeAws_restJson1SidewalkAccountInfo = (input: SidewalkAccountInfo, c
   };
 };
 
+const serializeAws_restJson1SidewalkCreateDeviceProfile = (
+  input: SidewalkCreateDeviceProfile,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
+const serializeAws_restJson1SidewalkCreateWirelessDevice = (
+  input: SidewalkCreateWirelessDevice,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceProfileId != null && { DeviceProfileId: input.DeviceProfileId }),
+  };
+};
+
 const serializeAws_restJson1SidewalkEventNotificationConfigurations = (
   input: SidewalkEventNotificationConfigurations,
   context: __SerdeContext
@@ -9667,9 +10426,37 @@ const serializeAws_restJson1SidewalkSendDataToDevice = (
   };
 };
 
+const serializeAws_restJson1SidewalkSingleStartImportInfo = (
+  input: SidewalkSingleStartImportInfo,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SidewalkManufacturingSn != null && { SidewalkManufacturingSn: input.SidewalkManufacturingSn }),
+  };
+};
+
+const serializeAws_restJson1SidewalkStartImportInfo = (
+  input: SidewalkStartImportInfo,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceCreationFile != null && { DeviceCreationFile: input.DeviceCreationFile }),
+    ...(input.Role != null && { Role: input.Role }),
+  };
+};
+
 const serializeAws_restJson1SidewalkUpdateAccount = (input: SidewalkUpdateAccount, context: __SerdeContext): any => {
   return {
     ...(input.AppServerPrivateKey != null && { AppServerPrivateKey: input.AppServerPrivateKey }),
+  };
+};
+
+const serializeAws_restJson1SidewalkUpdateImportInfo = (
+  input: SidewalkUpdateImportInfo,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceCreationFile != null && { DeviceCreationFile: input.DeviceCreationFile }),
   };
 };
 
@@ -10065,6 +10852,34 @@ const deserializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1DakCertificateMetadata = (
+  output: any,
+  context: __SerdeContext
+): DakCertificateMetadata => {
+  return {
+    ApId: __expectString(output.ApId),
+    CertificateId: __expectString(output.CertificateId),
+    DeviceTypeId: __expectString(output.DeviceTypeId),
+    FactorySupport: __expectBoolean(output.FactorySupport),
+    MaxAllowedSignature: __expectInt32(output.MaxAllowedSignature),
+  } as any;
+};
+
+const deserializeAws_restJson1DakCertificateMetadataList = (
+  output: any,
+  context: __SerdeContext
+): DakCertificateMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DakCertificateMetadata(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1DestinationList = (output: any, context: __SerdeContext): Destinations[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -10096,6 +10911,18 @@ const deserializeAws_restJson1DeviceCertificateList = (output: any, context: __S
         return null as any;
       }
       return deserializeAws_restJson1CertificateList(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DeviceCreationFileList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -10286,6 +11113,46 @@ const deserializeAws_restJson1GatewayListItem = (output: any, context: __SerdeCo
     DownlinkFrequency: __expectInt32(output.DownlinkFrequency),
     GatewayId: __expectString(output.GatewayId),
   } as any;
+};
+
+const deserializeAws_restJson1ImportedSidewalkDevice = (
+  output: any,
+  context: __SerdeContext
+): ImportedSidewalkDevice => {
+  return {
+    LastUpdateTime:
+      output.LastUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.LastUpdateTime))
+        : undefined,
+    OnboardingStatus: __expectString(output.OnboardingStatus),
+    OnboardingStatusReason: __expectString(output.OnboardingStatusReason),
+    SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
+  } as any;
+};
+
+const deserializeAws_restJson1ImportedWirelessDevice = (
+  output: any,
+  context: __SerdeContext
+): ImportedWirelessDevice => {
+  return {
+    Sidewalk:
+      output.Sidewalk != null ? deserializeAws_restJson1ImportedSidewalkDevice(output.Sidewalk, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImportedWirelessDeviceList = (
+  output: any,
+  context: __SerdeContext
+): ImportedWirelessDevice[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ImportedWirelessDevice(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1JoinEuiFilters = (output: any, context: __SerdeContext): string[][] => {
@@ -10789,6 +11656,18 @@ const deserializeAws_restJson1PositionSolverDetails = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1PrivateKeysList = (output: any, context: __SerdeContext): CertificateList[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CertificateList(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ProximityEventConfiguration = (
   output: any,
   context: __SerdeContext
@@ -10895,12 +11774,17 @@ const deserializeAws_restJson1SidewalkAccountList = (
 const deserializeAws_restJson1SidewalkDevice = (output: any, context: __SerdeContext): SidewalkDevice => {
   return {
     AmazonId: __expectString(output.AmazonId),
+    CertificateId: __expectString(output.CertificateId),
     DeviceCertificates:
       output.DeviceCertificates != null
         ? deserializeAws_restJson1DeviceCertificateList(output.DeviceCertificates, context)
         : undefined,
+    DeviceProfileId: __expectString(output.DeviceProfileId),
+    PrivateKeys:
+      output.PrivateKeys != null ? deserializeAws_restJson1PrivateKeysList(output.PrivateKeys, context) : undefined,
     SidewalkId: __expectString(output.SidewalkId),
     SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -10925,6 +11809,33 @@ const deserializeAws_restJson1SidewalkEventNotificationConfigurations = (
   } as any;
 };
 
+const deserializeAws_restJson1SidewalkGetDeviceProfile = (
+  output: any,
+  context: __SerdeContext
+): SidewalkGetDeviceProfile => {
+  return {
+    ApplicationServerPublicKey: __expectString(output.ApplicationServerPublicKey),
+    DakCertificateMetadata:
+      output.DakCertificateMetadata != null
+        ? deserializeAws_restJson1DakCertificateMetadataList(output.DakCertificateMetadata, context)
+        : undefined,
+    QualificationStatus: __expectBoolean(output.QualificationStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1SidewalkGetStartImportInfo = (
+  output: any,
+  context: __SerdeContext
+): SidewalkGetStartImportInfo => {
+  return {
+    DeviceCreationFileList:
+      output.DeviceCreationFileList != null
+        ? deserializeAws_restJson1DeviceCreationFileList(output.DeviceCreationFileList, context)
+        : undefined,
+    Role: __expectString(output.Role),
+  } as any;
+};
+
 const deserializeAws_restJson1SidewalkListDevice = (output: any, context: __SerdeContext): SidewalkListDevice => {
   return {
     AmazonId: __expectString(output.AmazonId),
@@ -10932,8 +11843,10 @@ const deserializeAws_restJson1SidewalkListDevice = (output: any, context: __Serd
       output.DeviceCertificates != null
         ? deserializeAws_restJson1DeviceCertificateList(output.DeviceCertificates, context)
         : undefined,
+    DeviceProfileId: __expectString(output.DeviceProfileId),
     SidewalkId: __expectString(output.SidewalkId),
     SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -11033,6 +11946,44 @@ const deserializeAws_restJson1WirelessDeviceEventLogOptionList = (
         return null as any;
       }
       return deserializeAws_restJson1WirelessDeviceEventLogOption(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1WirelessDeviceImportTask = (
+  output: any,
+  context: __SerdeContext
+): WirelessDeviceImportTask => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreationTime:
+      output.CreationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationTime)) : undefined,
+    DestinationName: __expectString(output.DestinationName),
+    FailedImportedDeviceCount: __expectLong(output.FailedImportedDeviceCount),
+    Id: __expectString(output.Id),
+    InitializedImportedDeviceCount: __expectLong(output.InitializedImportedDeviceCount),
+    OnboardedImportedDeviceCount: __expectLong(output.OnboardedImportedDeviceCount),
+    PendingImportedDeviceCount: __expectLong(output.PendingImportedDeviceCount),
+    Sidewalk:
+      output.Sidewalk != null
+        ? deserializeAws_restJson1SidewalkGetStartImportInfo(output.Sidewalk, context)
+        : undefined,
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
+  } as any;
+};
+
+const deserializeAws_restJson1WirelessDeviceImportTaskList = (
+  output: any,
+  context: __SerdeContext
+): WirelessDeviceImportTask[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1WirelessDeviceImportTask(entry, context);
     });
   return retVal;
 };

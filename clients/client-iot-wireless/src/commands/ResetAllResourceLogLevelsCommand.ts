@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ResetAllResourceLogLevelsRequest, ResetAllResourceLogLevelsResponse } from "../models/models_0";
+import { ResetAllResourceLogLevelsRequest, ResetAllResourceLogLevelsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ResetAllResourceLogLevelsCommand,
   serializeAws_restJson1ResetAllResourceLogLevelsCommand,

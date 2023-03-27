@@ -142,6 +142,10 @@ import {
   DeleteWirelessDeviceCommandOutput,
 } from "./commands/DeleteWirelessDeviceCommand";
 import {
+  DeleteWirelessDeviceImportTaskCommandInput,
+  DeleteWirelessDeviceImportTaskCommandOutput,
+} from "./commands/DeleteWirelessDeviceImportTaskCommand";
+import {
   DeleteWirelessGatewayCommandInput,
   DeleteWirelessGatewayCommandOutput,
 } from "./commands/DeleteWirelessGatewayCommand";
@@ -153,6 +157,10 @@ import {
   DeleteWirelessGatewayTaskDefinitionCommandInput,
   DeleteWirelessGatewayTaskDefinitionCommandOutput,
 } from "./commands/DeleteWirelessGatewayTaskDefinitionCommand";
+import {
+  DeregisterWirelessDeviceCommandInput,
+  DeregisterWirelessDeviceCommandOutput,
+} from "./commands/DeregisterWirelessDeviceCommand";
 import {
   DisassociateAwsAccountFromPartnerAccountCommandInput,
   DisassociateAwsAccountFromPartnerAccountCommandOutput,
@@ -227,6 +235,10 @@ import { GetServiceEndpointCommandInput, GetServiceEndpointCommandOutput } from 
 import { GetServiceProfileCommandInput, GetServiceProfileCommandOutput } from "./commands/GetServiceProfileCommand";
 import { GetWirelessDeviceCommandInput, GetWirelessDeviceCommandOutput } from "./commands/GetWirelessDeviceCommand";
 import {
+  GetWirelessDeviceImportTaskCommandInput,
+  GetWirelessDeviceImportTaskCommandOutput,
+} from "./commands/GetWirelessDeviceImportTaskCommand";
+import {
   GetWirelessDeviceStatisticsCommandInput,
   GetWirelessDeviceStatisticsCommandOutput,
 } from "./commands/GetWirelessDeviceStatisticsCommand";
@@ -253,6 +265,10 @@ import {
 } from "./commands/GetWirelessGatewayTaskDefinitionCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "./commands/ListDestinationsCommand";
 import { ListDeviceProfilesCommandInput, ListDeviceProfilesCommandOutput } from "./commands/ListDeviceProfilesCommand";
+import {
+  ListDevicesForWirelessDeviceImportTaskCommandInput,
+  ListDevicesForWirelessDeviceImportTaskCommandOutput,
+} from "./commands/ListDevicesForWirelessDeviceImportTaskCommand";
 import {
   ListEventConfigurationsCommandInput,
   ListEventConfigurationsCommandOutput,
@@ -287,6 +303,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWirelessDeviceImportTasksCommandInput,
+  ListWirelessDeviceImportTasksCommandOutput,
+} from "./commands/ListWirelessDeviceImportTasksCommand";
 import {
   ListWirelessDevicesCommandInput,
   ListWirelessDevicesCommandOutput,
@@ -336,6 +356,14 @@ import {
   StartMulticastGroupSessionCommandInput,
   StartMulticastGroupSessionCommandOutput,
 } from "./commands/StartMulticastGroupSessionCommand";
+import {
+  StartSingleWirelessDeviceImportTaskCommandInput,
+  StartSingleWirelessDeviceImportTaskCommandOutput,
+} from "./commands/StartSingleWirelessDeviceImportTaskCommand";
+import {
+  StartWirelessDeviceImportTaskCommandInput,
+  StartWirelessDeviceImportTaskCommandOutput,
+} from "./commands/StartWirelessDeviceImportTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput } from "./commands/TestWirelessDeviceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -374,6 +402,10 @@ import {
   UpdateWirelessDeviceCommandInput,
   UpdateWirelessDeviceCommandOutput,
 } from "./commands/UpdateWirelessDeviceCommand";
+import {
+  UpdateWirelessDeviceImportTaskCommandInput,
+  UpdateWirelessDeviceImportTaskCommandOutput,
+} from "./commands/UpdateWirelessDeviceImportTaskCommand";
 import {
   UpdateWirelessGatewayCommandInput,
   UpdateWirelessGatewayCommandOutput,
@@ -416,9 +448,11 @@ export type ServiceInputTypes =
   | DeleteQueuedMessagesCommandInput
   | DeleteServiceProfileCommandInput
   | DeleteWirelessDeviceCommandInput
+  | DeleteWirelessDeviceImportTaskCommandInput
   | DeleteWirelessGatewayCommandInput
   | DeleteWirelessGatewayTaskCommandInput
   | DeleteWirelessGatewayTaskDefinitionCommandInput
+  | DeregisterWirelessDeviceCommandInput
   | DisassociateAwsAccountFromPartnerAccountCommandInput
   | DisassociateMulticastGroupFromFuotaTaskCommandInput
   | DisassociateWirelessDeviceFromFuotaTaskCommandInput
@@ -444,6 +478,7 @@ export type ServiceInputTypes =
   | GetServiceEndpointCommandInput
   | GetServiceProfileCommandInput
   | GetWirelessDeviceCommandInput
+  | GetWirelessDeviceImportTaskCommandInput
   | GetWirelessDeviceStatisticsCommandInput
   | GetWirelessGatewayCertificateCommandInput
   | GetWirelessGatewayCommandInput
@@ -453,6 +488,7 @@ export type ServiceInputTypes =
   | GetWirelessGatewayTaskDefinitionCommandInput
   | ListDestinationsCommandInput
   | ListDeviceProfilesCommandInput
+  | ListDevicesForWirelessDeviceImportTaskCommandInput
   | ListEventConfigurationsCommandInput
   | ListFuotaTasksCommandInput
   | ListMulticastGroupsByFuotaTaskCommandInput
@@ -463,6 +499,7 @@ export type ServiceInputTypes =
   | ListQueuedMessagesCommandInput
   | ListServiceProfilesCommandInput
   | ListTagsForResourceCommandInput
+  | ListWirelessDeviceImportTasksCommandInput
   | ListWirelessDevicesCommandInput
   | ListWirelessGatewayTaskDefinitionsCommandInput
   | ListWirelessGatewaysCommandInput
@@ -476,6 +513,8 @@ export type ServiceInputTypes =
   | StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput
   | StartFuotaTaskCommandInput
   | StartMulticastGroupSessionCommandInput
+  | StartSingleWirelessDeviceImportTaskCommandInput
+  | StartWirelessDeviceImportTaskCommandInput
   | TagResourceCommandInput
   | TestWirelessDeviceCommandInput
   | UntagResourceCommandInput
@@ -490,6 +529,7 @@ export type ServiceInputTypes =
   | UpdateResourceEventConfigurationCommandInput
   | UpdateResourcePositionCommandInput
   | UpdateWirelessDeviceCommandInput
+  | UpdateWirelessDeviceImportTaskCommandInput
   | UpdateWirelessGatewayCommandInput;
 
 /**
@@ -522,9 +562,11 @@ export type ServiceOutputTypes =
   | DeleteQueuedMessagesCommandOutput
   | DeleteServiceProfileCommandOutput
   | DeleteWirelessDeviceCommandOutput
+  | DeleteWirelessDeviceImportTaskCommandOutput
   | DeleteWirelessGatewayCommandOutput
   | DeleteWirelessGatewayTaskCommandOutput
   | DeleteWirelessGatewayTaskDefinitionCommandOutput
+  | DeregisterWirelessDeviceCommandOutput
   | DisassociateAwsAccountFromPartnerAccountCommandOutput
   | DisassociateMulticastGroupFromFuotaTaskCommandOutput
   | DisassociateWirelessDeviceFromFuotaTaskCommandOutput
@@ -550,6 +592,7 @@ export type ServiceOutputTypes =
   | GetServiceEndpointCommandOutput
   | GetServiceProfileCommandOutput
   | GetWirelessDeviceCommandOutput
+  | GetWirelessDeviceImportTaskCommandOutput
   | GetWirelessDeviceStatisticsCommandOutput
   | GetWirelessGatewayCertificateCommandOutput
   | GetWirelessGatewayCommandOutput
@@ -559,6 +602,7 @@ export type ServiceOutputTypes =
   | GetWirelessGatewayTaskDefinitionCommandOutput
   | ListDestinationsCommandOutput
   | ListDeviceProfilesCommandOutput
+  | ListDevicesForWirelessDeviceImportTaskCommandOutput
   | ListEventConfigurationsCommandOutput
   | ListFuotaTasksCommandOutput
   | ListMulticastGroupsByFuotaTaskCommandOutput
@@ -569,6 +613,7 @@ export type ServiceOutputTypes =
   | ListQueuedMessagesCommandOutput
   | ListServiceProfilesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWirelessDeviceImportTasksCommandOutput
   | ListWirelessDevicesCommandOutput
   | ListWirelessGatewayTaskDefinitionsCommandOutput
   | ListWirelessGatewaysCommandOutput
@@ -582,6 +627,8 @@ export type ServiceOutputTypes =
   | StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput
   | StartFuotaTaskCommandOutput
   | StartMulticastGroupSessionCommandOutput
+  | StartSingleWirelessDeviceImportTaskCommandOutput
+  | StartWirelessDeviceImportTaskCommandOutput
   | TagResourceCommandOutput
   | TestWirelessDeviceCommandOutput
   | UntagResourceCommandOutput
@@ -596,6 +643,7 @@ export type ServiceOutputTypes =
   | UpdateResourceEventConfigurationCommandOutput
   | UpdateResourcePositionCommandOutput
   | UpdateWirelessDeviceCommandOutput
+  | UpdateWirelessDeviceImportTaskCommandOutput
   | UpdateWirelessGatewayCommandOutput;
 
 /**
