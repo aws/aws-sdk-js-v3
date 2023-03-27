@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
+
+
+### Features
+
+* **client-chime-sdk-voice:** Documentation updates for Amazon Chime SDK Voice. ([226c721](https://github.com/aws/aws-sdk-js-v3/commit/226c721eb27768d80d2760a7b110c9b796edaecf))
+
+
+
+
+
 # [3.299.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.298.0...v3.299.0) (2023-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-voice

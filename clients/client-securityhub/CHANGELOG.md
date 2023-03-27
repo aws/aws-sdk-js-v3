@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
+
+
+### Features
+
+* **client-securityhub:** Added new resource detail objects to ASFF, including resources for AwsEksCluster, AWSS3Bucket, AwsEc2RouteTable and AwsEC2Instance. ([23a7115](https://github.com/aws/aws-sdk-js-v3/commit/23a7115863423322dacdf1ac8c764cc1ca226d96))
+* **clients:** codegen for structural hint documentation in commands ([#4573](https://github.com/aws/aws-sdk-js-v3/issues/4573)) ([b3ff58d](https://github.com/aws/aws-sdk-js-v3/commit/b3ff58d3606ceefcdd04ac82fc1ca54f5f811989))
+
+
+
+
+
 # [3.299.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.298.0...v3.299.0) (2023-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-securityhub

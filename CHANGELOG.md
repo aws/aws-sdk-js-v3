@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
+
+
+### Bug Fixes
+
+* correct merging of config files so that keys from each file are kept ([#4388](https://github.com/aws/aws-sdk-js-v3/issues/4388)) ([9284e20](https://github.com/aws/aws-sdk-js-v3/commit/9284e20b85a96f1bca9fb1d891611de81454b047))
+
+
+### Features
+
+* **client-athena:** Enforces a minimal level of encryption for the workgroup for query and calculation results that are written to Amazon S3. When enabled, workgroup users can set encryption only to the minimum level set by the administrator or higher when they submit queries. ([652bc31](https://github.com/aws/aws-sdk-js-v3/commit/652bc3119c2ef5490a56667db467e3dabdd71a6a))
+* **client-chime-sdk-voice:** Documentation updates for Amazon Chime SDK Voice. ([226c721](https://github.com/aws/aws-sdk-js-v3/commit/226c721eb27768d80d2760a7b110c9b796edaecf))
+* **client-connect:** This release introduces support for RelatedContactId in the StartChatContact API. Interactive message and interactive message response have been added to the list of supported message content types for this API as well. ([ffed7a8](https://github.com/aws/aws-sdk-js-v3/commit/ffed7a88259002a16202cfc3776554fdae63629a))
+* **client-iot-wireless:** Introducing new APIs that enable Sidewalk devices to communicate with AWS IoT Core through Sidewalk gateways. This will empower AWS customers to connect Sidewalk devices with other AWS IoT Services, creating  possibilities for seamless integration and advanced device management. ([42b9bb8](https://github.com/aws/aws-sdk-js-v3/commit/42b9bb8750a307904a5a69adde2b13e3c1de905e))
+* **client-medialive:** AWS Elemental MediaLive now supports ID3 tag insertion for audio only HLS output groups. AWS Elemental Link devices now support tagging. ([fce0f2f](https://github.com/aws/aws-sdk-js-v3/commit/fce0f2fa40e682c2fc75f5094827038da5f510b5))
+* **client-securityhub:** Added new resource detail objects to ASFF, including resources for AwsEksCluster, AWSS3Bucket, AwsEc2RouteTable and AwsEC2Instance. ([23a7115](https://github.com/aws/aws-sdk-js-v3/commit/23a7115863423322dacdf1ac8c764cc1ca226d96))
+* **client-service-catalog-appregistry:** In this release, we started supporting ARN in applicationSpecifier and attributeGroupSpecifier. GetAttributeGroup, ListAttributeGroups and ListAttributeGroupsForApplication APIs will now have CreatedBy field in the response. ([8add959](https://github.com/aws/aws-sdk-js-v3/commit/8add9594a6979756554f05a02631532d54d0b5ab))
+* **client-voice-id:** Amazon Connect Voice ID now supports multiple fraudster watchlists. Every domain has a default watchlist where all existing fraudsters are placed by default. Custom watchlists may now be created, managed, and evaluated against for known fraudster detection. ([510f609](https://github.com/aws/aws-sdk-js-v3/commit/510f6093946122a7c411390075d0a6045b7b4c6f))
+* **clients:** codegen for structural hint documentation in commands ([#4573](https://github.com/aws/aws-sdk-js-v3/issues/4573)) ([b3ff58d](https://github.com/aws/aws-sdk-js-v3/commit/b3ff58d3606ceefcdd04ac82fc1ca54f5f811989))
+
+
+
+
+
 # [3.299.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.298.0...v3.299.0) (2023-03-24)
 
 

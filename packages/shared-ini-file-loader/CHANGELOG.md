@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
+
+
+### Bug Fixes
+
+* correct merging of config files so that keys from each file are kept ([#4388](https://github.com/aws/aws-sdk-js-v3/issues/4388)) ([9284e20](https://github.com/aws/aws-sdk-js-v3/commit/9284e20b85a96f1bca9fb1d891611de81454b047))
+
+
+
+
+
 # [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
 
 **Note:** Version bump only for package @aws-sdk/shared-ini-file-loader

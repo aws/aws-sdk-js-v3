@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
+
+
+### Features
+
+* **client-service-catalog-appregistry:** In this release, we started supporting ARN in applicationSpecifier and attributeGroupSpecifier. GetAttributeGroup, ListAttributeGroups and ListAttributeGroupsForApplication APIs will now have CreatedBy field in the response. ([8add959](https://github.com/aws/aws-sdk-js-v3/commit/8add9594a6979756554f05a02631532d54d0b5ab))
+* **clients:** codegen for structural hint documentation in commands ([#4573](https://github.com/aws/aws-sdk-js-v3/issues/4573)) ([b3ff58d](https://github.com/aws/aws-sdk-js-v3/commit/b3ff58d3606ceefcdd04ac82fc1ca54f5f811989))
+
+
+
+
+
 # [3.299.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.298.0...v3.299.0) (2023-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-service-catalog-appregistry
