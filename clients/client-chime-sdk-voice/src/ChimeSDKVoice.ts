@@ -462,10 +462,13 @@ import {
 
 /**
  * @public
+ * <p>The Amazon Chime SDK telephony APIs in this section enable developers to create PSTN calling solutions that use Amazon Chime SDK Voice Connectors, and Amazon Chime SDK SIP media applications. Developers can
+ *           also order and manage phone numbers, create and manage Voice Connectors and SIP media applications, and run voice analytics.</p>
  */
 export class ChimeSDKVoice extends ChimeSDKVoiceClient {
   /**
    * @public
+   * <p>Associates phone numbers with the specified Amazon Chime SDK Voice Connector.</p>
    */
   public associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
@@ -500,6 +503,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Associates phone numbers with the specified Amazon Chime SDK Voice Connector group.</p>
    */
   public associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
@@ -534,6 +538,14 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>
+   *          Moves phone numbers into the
+   *          <b>Deletion queue</b>. Phone numbers must be disassociated from any users or Amazon Chime SDK Voice Connectors before they can be deleted.
+   *       </p>
+   *          <p>
+   *          Phone numbers remain in the
+   *          <b>Deletion queue</b> for 7 days before they are deleted permanently.
+   *       </p>
    */
   public batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
@@ -566,6 +578,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates one or more phone numbers.</p>
    */
   public batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
@@ -598,6 +611,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates an order for phone numbers to be provisioned. For numbers outside the U.S., you must use the Amazon Chime SDK SIP media application dial-in product type.</p>
    */
   public createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
@@ -630,6 +644,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates a proxy session for the specified Amazon Chime SDK Voice Connector for
+   *             the specified participant phone numbers.</p>
    */
   public createProxySession(
     args: CreateProxySessionCommandInput,
@@ -662,6 +678,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates a SIP media application. For more information about SIP media applications, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html">Managing SIP media applications
+   *            and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
    */
   public createSipMediaApplication(
     args: CreateSipMediaApplicationCommandInput,
@@ -694,6 +712,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates an outbound call to a phone number from the phone number specified
+   *          in the request, and it invokes the endpoint of the specified
+   *          <code>sipMediaApplicationId</code>.</p>
    */
   public createSipMediaApplicationCall(
     args: CreateSipMediaApplicationCallCommandInput,
@@ -726,6 +747,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates a SIP rule, which can be used to run a SIP media application as a target for a specific trigger type. For more information about SIP rules, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html">Managing SIP media applications
+   *            and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
    */
   public createSipRule(
     args: CreateSipRuleCommandInput,
@@ -758,6 +781,10 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates an Amazon Chime SDK Voice Connector. For more information about
+   *           Voice Connectors,
+   *          see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html">Managing Amazon Chime SDK Voice Connector groups</a> in the <i>Amazon Chime SDK
+   *             Administrator Guide</i>.</p>
    */
   public createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
@@ -790,6 +817,12 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates an Amazon Chime SDK Voice Connector group under the administrator's
+   *          AWS account. You can associate Amazon Chime SDK Voice Connectors with the
+   *          Voice Connector group by including <code>VoiceConnectorItems</code> in the
+   *          request. </p>
+   *          <p>You can include Voice Connectors from different AWS Regions in your group.
+   *          This creates a fault tolerant mechanism for fallback in case of availability events.</p>
    */
   public createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
@@ -822,6 +855,13 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates a voice profile, which consists of an enrolled user and their latest voice print.</p>
+   *          <important>
+   *             <p>Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
+   *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
+   *          </important>
+   *          <p>For more information about voice profiles and voice analytics, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using Amazon Chime SDK Voice Analytics</a>
+   *       in the <i>Amazon Chime SDK Developer Guide</i>.</p>
    */
   public createVoiceProfile(
     args: CreateVoiceProfileCommandInput,
@@ -854,6 +894,13 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Creates a voice profile domain, a collection of voice profiles, their voice prints, and encrypted enrollment audio.</p>
+   *          <important>
+   *             <p>Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
+   *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
+   *          </important>
+   *          <p>For more information about voice profile domains, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using Amazon Chime SDK Voice Analytics</a>
+   *          in the <i>Amazon Chime SDK Developer Guide</i>.</p>
    */
   public createVoiceProfileDomain(
     args: CreateVoiceProfileDomainCommandInput,
@@ -886,6 +933,13 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Moves the specified phone number into the
+   *          <b>Deletion queue</b>. A phone number must
+   *          be disassociated from any users or Amazon Chime SDK Voice Connectors before it can be
+   *          deleted.</p>
+   *          <p>Deleted phone numbers remain in the
+   *          <b>Deletion queue</b> queue for 7 days before
+   *          they are deleted permanently.</p>
    */
   public deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
@@ -918,6 +972,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes the specified proxy session from the specified Amazon Chime SDK Voice
+   *             Connector.</p>
    */
   public deleteProxySession(
     args: DeleteProxySessionCommandInput,
@@ -950,6 +1006,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes a SIP media application.</p>
    */
   public deleteSipMediaApplication(
     args: DeleteSipMediaApplicationCommandInput,
@@ -982,6 +1039,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes a SIP rule.</p>
    */
   public deleteSipRule(
     args: DeleteSipRuleCommandInput,
@@ -1014,6 +1072,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes an Amazon Chime SDK Voice Connector. Any phone numbers associated
+   *          with the Amazon Chime SDK Voice Connector must be disassociated from it before it
+   *          can be deleted.</p>
    */
   public deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
@@ -1046,6 +1107,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes the emergency calling details from the specified Amazon Chime SDK Voice
+   *          Connector.</p>
    */
   public deleteVoiceConnectorEmergencyCallingConfiguration(
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -1080,6 +1143,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes an Amazon Chime SDK Voice Connector group. Any <code>VoiceConnectorItems</code>
+   *          and phone numbers associated with the group must be removed before it can be
+   *          deleted.</p>
    */
   public deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
@@ -1112,6 +1178,11 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes the origination settings for the specified Amazon Chime SDK Voice Connector. </p>
+   *          <note>
+   *             <p>If emergency calling is configured for the Voice Connector, it must be
+   *          deleted prior to deleting the origination settings.</p>
+   *          </note>
    */
   public deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
@@ -1144,6 +1215,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes the proxy configuration from the specified Amazon Chime SDK Voice Connector.</p>
    */
   public deleteVoiceConnectorProxy(
     args: DeleteVoiceConnectorProxyCommandInput,
@@ -1176,6 +1248,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes a Voice Connector's streaming configuration.</p>
    */
   public deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
@@ -1210,6 +1283,11 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes the termination settings for the specified Amazon Chime SDK Voice Connector.</p>
+   *          <note>
+   *             <p>If emergency calling is configured for the Voice Connector, it must be
+   *          deleted prior to deleting the termination settings.</p>
+   *          </note>
    */
   public deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
@@ -1242,6 +1320,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes the specified SIP credentials used by your equipment to
+   *          authenticate during call termination.</p>
    */
   public deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
@@ -1276,6 +1356,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes a voice profile, including its voice print and enrollment data. WARNING: This action is not reversible.</p>
    */
   public deleteVoiceProfile(
     args: DeleteVoiceProfileCommandInput,
@@ -1308,6 +1389,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Deletes all voice profiles in the domain. WARNING: This action is not reversible.</p>
    */
   public deleteVoiceProfileDomain(
     args: DeleteVoiceProfileDomainCommandInput,
@@ -1340,6 +1422,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Disassociates the specified phone numbers from the specified
+   *          Amazon Chime SDK Voice Connector.</p>
    */
   public disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
@@ -1374,6 +1458,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Disassociates the specified phone numbers from the specified Amazon Chime SDK Voice
+   *          Connector group.</p>
    */
   public disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
@@ -1408,6 +1494,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an AWS account.</p>
    */
   public getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
@@ -1440,6 +1527,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves details for the specified phone number ID, such as associations,
+   *          capabilities, and product type.</p>
    */
   public getPhoneNumber(
     args: GetPhoneNumberCommandInput,
@@ -1472,6 +1561,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves details for the specified phone number order, such as the order
+   *          creation timestamp, phone numbers in E.164 format, product type, and
+   *          order status.</p>
    */
   public getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
@@ -1504,6 +1596,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the phone number settings for the administrator's AWS account,
+   *          such as the default outbound calling name.</p>
    */
   public getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
@@ -1536,6 +1630,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the specified proxy session details for the specified Amazon Chime SDK Voice Connector.</p>
    */
   public getProxySession(
     args: GetProxySessionCommandInput,
@@ -1568,6 +1663,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the information for a SIP media application, including name,
+   *          AWS Region, and endpoints.</p>
    */
   public getSipMediaApplication(
     args: GetSipMediaApplicationCommandInput,
@@ -1600,6 +1697,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Gets the Alexa Skill configuration for the SIP media application.</p>
    */
   public getSipMediaApplicationAlexaSkillConfiguration(
     args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
@@ -1634,6 +1732,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the logging configuration for the specified SIP media application.</p>
    */
   public getSipMediaApplicationLoggingConfiguration(
     args: GetSipMediaApplicationLoggingConfigurationCommandInput,
@@ -1668,6 +1767,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
+   *          target endpoints.</p>
    */
   public getSipRule(args: GetSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetSipRuleCommandOutput>;
   public getSipRule(args: GetSipRuleCommandInput, cb: (err: any, data?: GetSipRuleCommandOutput) => void): void;
@@ -1694,6 +1795,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the details of the specified speaker search task.</p>
    */
   public getSpeakerSearchTask(
     args: GetSpeakerSearchTaskCommandInput,
@@ -1726,6 +1828,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves details for the specified Amazon Chime SDK Voice Connector, such as
+   *          timestamps,name, outbound host, and encryption requirements.</p>
    */
   public getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
@@ -1758,6 +1862,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the emergency calling configuration details for the specified Voice Connector.</p>
    */
   public getVoiceConnectorEmergencyCallingConfiguration(
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -1792,6 +1897,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves details for the specified Amazon Chime SDK Voice Connector group,
+   *          such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>
    */
   public getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
@@ -1824,6 +1931,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the logging configuration settings for the specified Voice Connector.
+   *          Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
    */
   public getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
@@ -1858,6 +1967,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the origination settings for the specified Voice Connector.</p>
    */
   public getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
@@ -1890,6 +2000,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the proxy configuration details for the specified Amazon Chime SDK Voice
+   *             Connector.</p>
    */
   public getVoiceConnectorProxy(
     args: GetVoiceConnectorProxyCommandInput,
@@ -1922,6 +2034,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the streaming configuration details for the specified Amazon Chime SDK
+   *          Voice Connector. Shows whether media streaming is enabled for sending to Amazon
+   *          Kinesis. It also shows the retention period, in hours, for the Amazon Kinesis data.</p>
    */
   public getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
@@ -1956,6 +2071,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the termination setting details for the specified Voice Connector.</p>
    */
   public getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
@@ -1988,6 +2104,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves information about the last time a <code>SIP OPTIONS</code> ping
+   *          was received from your SIP infrastructure for the specified Amazon Chime SDK Voice
+   *          Connector.</p>
    */
   public getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
@@ -2020,6 +2139,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the details of the specified voice profile.</p>
    */
   public getVoiceProfile(
     args: GetVoiceProfileCommandInput,
@@ -2052,6 +2172,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the details of the specified voice profile domain.</p>
    */
   public getVoiceProfileDomain(
     args: GetVoiceProfileDomainCommandInput,
@@ -2084,6 +2205,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Retrieves the details of a voice tone analysis task.</p>
    */
   public getVoiceToneAnalysisTask(
     args: GetVoiceToneAnalysisTaskCommandInput,
@@ -2116,6 +2238,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the available AWS Regions in which you can create an Amazon Chime SDK Voice Connector.</p>
    */
   public listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
@@ -2148,6 +2271,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the phone numbers for an administrator's Amazon Chime SDK account.</p>
    */
   public listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
@@ -2180,6 +2304,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the phone numbers for the specified Amazon Chime SDK account,
+   *          Amazon Chime SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK Voice
+   *          Connector group.</p>
    */
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
@@ -2212,6 +2339,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the proxy sessions for the specified Amazon Chime SDK Voice Connector.</p>
    */
   public listProxySessions(
     args: ListProxySessionsCommandInput,
@@ -2244,6 +2372,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the SIP media applications  under the administrator's AWS account.</p>
    */
   public listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
@@ -2276,6 +2405,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the SIP rules under the administrator's AWS account.</p>
    */
   public listSipRules(
     args: ListSipRulesCommandInput,
@@ -2305,6 +2435,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the countries that you can order phone numbers from.</p>
    */
   public listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
@@ -2337,6 +2468,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Returns a list of the tags in a given resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2369,6 +2501,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the Amazon Chime SDK Voice Connector groups in the administrator's AWS
+   *          account.</p>
    */
   public listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
@@ -2401,6 +2535,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the Amazon Chime SDK Voice Connectors in the administrators
+   *          AWS account.</p>
    */
   public listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
@@ -2433,6 +2569,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.</p>
    */
   public listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
@@ -2467,6 +2604,8 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the specified voice profile domains in the administrator's AWS account.
+   *          </p>
    */
   public listVoiceProfileDomains(
     args: ListVoiceProfileDomainsCommandInput,
@@ -2499,6 +2638,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Lists the voice profiles in a voice profile domain.</p>
    */
   public listVoiceProfiles(
     args: ListVoiceProfilesCommandInput,
@@ -2531,6 +2671,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the Alexa Skill configuration for the SIP media application.</p>
    */
   public putSipMediaApplicationAlexaSkillConfiguration(
     args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
@@ -2565,6 +2706,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the logging configuration for the specified SIP media application.</p>
    */
   public putSipMediaApplicationLoggingConfiguration(
     args: PutSipMediaApplicationLoggingConfigurationCommandInput,
@@ -2599,6 +2741,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates a Voice Connector's emergency calling configuration.</p>
    */
   public putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -2633,6 +2776,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates a Voice Connector's logging configuration.</p>
    */
   public putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
@@ -2667,6 +2811,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates a Voice Connector's origination settings.</p>
    */
   public putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
@@ -2699,6 +2844,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Puts the specified proxy configuration to the specified Amazon Chime SDK Voice Connector.</p>
    */
   public putVoiceConnectorProxy(
     args: PutVoiceConnectorProxyCommandInput,
@@ -2731,6 +2877,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates a Voice Connector's streaming configuration settings.</p>
    */
   public putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
@@ -2765,6 +2912,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates a Voice Connector's termination settings.</p>
    */
   public putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
@@ -2797,6 +2945,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates a Voice Connector's termination credentials.</p>
    */
   public putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
@@ -2831,6 +2980,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Restores a deleted phone number.</p>
    */
   public restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
@@ -2863,6 +3013,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Searches the provisioned phone numbers in an organization.</p>
    */
   public searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
@@ -2895,6 +3046,11 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Starts a speaker search task.</p>
+   *          <important>
+   *             <p>Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
+   *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
+   *          </important>
    */
   public startSpeakerSearchTask(
     args: StartSpeakerSearchTaskCommandInput,
@@ -2927,6 +3083,13 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Starts a voice tone analysis task. For more information about voice tone analysis, see
+   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using Amazon Chime SDK voice analytics</a>
+   *          in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+   *          <important>
+   *             <p>Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
+   *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
+   *          </important>
    */
   public startVoiceToneAnalysisTask(
     args: StartVoiceToneAnalysisTaskCommandInput,
@@ -2959,6 +3122,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Stops a speaker search task.</p>
    */
   public stopSpeakerSearchTask(
     args: StopSpeakerSearchTaskCommandInput,
@@ -2991,6 +3155,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Stops a voice tone analysis task.</p>
    */
   public stopVoiceToneAnalysisTask(
     args: StopVoiceToneAnalysisTaskCommandInput,
@@ -3023,6 +3188,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Adds a tag to the specified resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -3049,6 +3215,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Removes tags from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3081,6 +3248,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates global settings for the Amazon Chime SDK Voice Connectors in an AWS account.</p>
    */
   public updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
@@ -3113,6 +3281,14 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates phone number details, such as product type or calling name, for the
+   *          specified phone number ID. You can update one phone number detail at a time. For
+   *          example, you can update either the product type or the calling name in one action.</p>
+   *          <p>For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media
+   *          Application Dial-In product type.</p>
+   *          <p>Updates to outbound calling names can take 72 hours to complete. Pending
+   *          updates to outbound calling names must be complete before you can request another
+   *          update.</p>
    */
   public updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -3145,6 +3321,10 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the phone number settings for the administrator's AWS account, such
+   *          as the default outbound calling name. You can update the default outbound calling
+   *          name once every seven days. Outbound calling names can take up to 72 hours to
+   *          update.</p>
    */
   public updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
@@ -3177,6 +3357,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
    */
   public updateProxySession(
     args: UpdateProxySessionCommandInput,
@@ -3209,6 +3390,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the details of the specified SIP media application.</p>
    */
   public updateSipMediaApplication(
     args: UpdateSipMediaApplicationCommandInput,
@@ -3241,6 +3423,9 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Invokes the AWS Lambda function associated with the SIP media application and
+   *          transaction ID in an update request. The Lambda function can then return a new set
+   *          of actions.</p>
    */
   public updateSipMediaApplicationCall(
     args: UpdateSipMediaApplicationCallCommandInput,
@@ -3273,6 +3458,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the details of the specified SIP rule.</p>
    */
   public updateSipRule(
     args: UpdateSipRuleCommandInput,
@@ -3305,6 +3491,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the details for the specified Amazon Chime SDK Voice Connector.</p>
    */
   public updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
@@ -3337,6 +3524,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the settings for the specified Amazon Chime SDK Voice Connector group.</p>
    */
   public updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,
@@ -3369,6 +3557,16 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the specified voice profile’s voice print and refreshes its expiration timestamp.</p>
+   *          <important>
+   *             <p>As a condition of using this feature, you acknowledge that the collection, use, storage, and retention of
+   *             your caller’s biometric identifiers and biometric information (“biometric data”) in the form of a digital voiceprint
+   *             requires the caller’s informed consent via a written release. Such consent is required under various state laws,
+   *             including biometrics laws in Illinois, Texas, Washington and other state privacy laws.</p>
+   *             <p>You must provide a written release to each caller through a process that clearly reflects each caller’s informed
+   *             consent before using Amazon Chime SDK Voice Insights service, as required under the terms of your agreement
+   *             with AWS governing your use of the service.</p>
+   *          </important>
    */
   public updateVoiceProfile(
     args: UpdateVoiceProfileCommandInput,
@@ -3401,6 +3599,7 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Updates the settings for the specified voice profile domain.</p>
    */
   public updateVoiceProfileDomain(
     args: UpdateVoiceProfileDomainCommandInput,
@@ -3433,6 +3632,10 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
 
   /**
    * @public
+   * <p>Validates an address to be used for 911 calls made with Amazon Chime SDK Voice
+   *          Connectors. You can use validated addresses in a Presence Information Data Format
+   *          Location Object file that you include in SIP requests. That helps ensure that addresses
+   *          are routed to the appropriate Public Safety Answering Point.</p>
    */
   public validateE911Address(
     args: ValidateE911AddressCommandInput,

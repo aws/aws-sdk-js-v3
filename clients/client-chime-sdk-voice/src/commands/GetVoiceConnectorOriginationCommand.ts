@@ -35,6 +35,51 @@ export interface GetVoiceConnectorOriginationCommandOutput
   extends GetVoiceConnectorOriginationResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Retrieves the origination settings for the specified Voice Connector.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ * };
+ * const command = new GetVoiceConnectorOriginationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetVoiceConnectorOriginationCommandInput - {@link GetVoiceConnectorOriginationCommandInput}
+ * @returns {@link GetVoiceConnectorOriginationCommandOutput}
+ * @see {@link GetVoiceConnectorOriginationCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorOriginationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetVoiceConnectorOriginationCommand extends $Command<
   GetVoiceConnectorOriginationCommandInput,
   GetVoiceConnectorOriginationCommandOutput,

@@ -37,6 +37,57 @@ export interface PutVoiceConnectorTerminationCredentialsCommandInput
  */
 export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Updates a Voice Connector's termination credentials.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, PutVoiceConnectorTerminationCredentialsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, PutVoiceConnectorTerminationCredentialsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Credentials: [
+ *     {
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ * const command = new PutVoiceConnectorTerminationCredentialsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param PutVoiceConnectorTerminationCredentialsCommandInput - {@link PutVoiceConnectorTerminationCredentialsCommandInput}
+ * @returns {@link PutVoiceConnectorTerminationCredentialsCommandOutput}
+ * @see {@link PutVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
+ * @see {@link PutVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
   PutVoiceConnectorTerminationCredentialsCommandInput,
   PutVoiceConnectorTerminationCredentialsCommandOutput,

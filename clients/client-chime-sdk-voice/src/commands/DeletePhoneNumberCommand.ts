@@ -33,6 +33,57 @@ export interface DeletePhoneNumberCommandInput extends DeletePhoneNumberRequest 
  */
 export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Moves the specified phone number into the
+ *          <b>Deletion queue</b>. A phone number must
+ *          be disassociated from any users or Amazon Chime SDK Voice Connectors before it can be
+ *          deleted.</p>
+ *          <p>Deleted phone numbers remain in the
+ *          <b>Deletion queue</b> queue for 7 days before
+ *          they are deleted permanently.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, DeletePhoneNumberCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, DeletePhoneNumberCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   PhoneNumberId: "STRING_VALUE", // required
+ * };
+ * const command = new DeletePhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param DeletePhoneNumberCommandInput - {@link DeletePhoneNumberCommandInput}
+ * @returns {@link DeletePhoneNumberCommandOutput}
+ * @see {@link DeletePhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link DeletePhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class DeletePhoneNumberCommand extends $Command<
   DeletePhoneNumberCommandInput,
   DeletePhoneNumberCommandOutput,

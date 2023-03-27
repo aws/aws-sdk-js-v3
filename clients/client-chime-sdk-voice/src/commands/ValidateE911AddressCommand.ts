@@ -38,6 +38,60 @@ export interface ValidateE911AddressCommandInput extends ValidateE911AddressRequ
  */
 export interface ValidateE911AddressCommandOutput extends ValidateE911AddressResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Validates an address to be used for 911 calls made with Amazon Chime SDK Voice
+ *          Connectors. You can use validated addresses in a Presence Information Data Format
+ *          Location Object file that you include in SIP requests. That helps ensure that addresses
+ *          are routed to the appropriate Public Safety Answering Point.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, ValidateE911AddressCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, ValidateE911AddressCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   StreetNumber: "STRING_VALUE", // required
+ *   StreetInfo: "STRING_VALUE", // required
+ *   City: "STRING_VALUE", // required
+ *   State: "STRING_VALUE", // required
+ *   Country: "STRING_VALUE", // required
+ *   PostalCode: "STRING_VALUE", // required
+ * };
+ * const command = new ValidateE911AddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param ValidateE911AddressCommandInput - {@link ValidateE911AddressCommandInput}
+ * @returns {@link ValidateE911AddressCommandOutput}
+ * @see {@link ValidateE911AddressCommandInput} for command's `input` shape.
+ * @see {@link ValidateE911AddressCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class ValidateE911AddressCommand extends $Command<
   ValidateE911AddressCommandInput,
   ValidateE911AddressCommandOutput,

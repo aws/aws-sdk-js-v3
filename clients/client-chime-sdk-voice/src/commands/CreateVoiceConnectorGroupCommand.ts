@@ -33,6 +33,65 @@ export interface CreateVoiceConnectorGroupCommandInput extends CreateVoiceConnec
  */
 export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConnectorGroupResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Creates an Amazon Chime SDK Voice Connector group under the administrator's
+ *          AWS account. You can associate Amazon Chime SDK Voice Connectors with the
+ *          Voice Connector group by including <code>VoiceConnectorItems</code> in the
+ *          request. </p>
+ *          <p>You can include Voice Connectors from different AWS Regions in your group.
+ *          This creates a fault tolerant mechanism for fallback in case of availability events.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, CreateVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, CreateVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   VoiceConnectorItems: [
+ *     {
+ *       VoiceConnectorId: "STRING_VALUE", // required
+ *       Priority: Number("int"), // required
+ *     },
+ *   ],
+ * };
+ * const command = new CreateVoiceConnectorGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param CreateVoiceConnectorGroupCommandInput - {@link CreateVoiceConnectorGroupCommandInput}
+ * @returns {@link CreateVoiceConnectorGroupCommandOutput}
+ * @see {@link CreateVoiceConnectorGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateVoiceConnectorGroupCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have the permissions needed to run this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class CreateVoiceConnectorGroupCommand extends $Command<
   CreateVoiceConnectorGroupCommandInput,
   CreateVoiceConnectorGroupCommandOutput,

@@ -38,6 +38,57 @@ export interface BatchUpdatePhoneNumberCommandInput extends BatchUpdatePhoneNumb
  */
 export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNumberResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Updates one or more phone numbers.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, BatchUpdatePhoneNumberCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, BatchUpdatePhoneNumberCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   UpdatePhoneNumberRequestItems: [ // required
+ *     {
+ *       PhoneNumberId: "STRING_VALUE", // required
+ *       ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
+ *       CallingName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
+ * const command = new BatchUpdatePhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param BatchUpdatePhoneNumberCommandInput - {@link BatchUpdatePhoneNumberCommandInput}
+ * @returns {@link BatchUpdatePhoneNumberCommandOutput}
+ * @see {@link BatchUpdatePhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link BatchUpdatePhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class BatchUpdatePhoneNumberCommand extends $Command<
   BatchUpdatePhoneNumberCommandInput,
   BatchUpdatePhoneNumberCommandOutput,

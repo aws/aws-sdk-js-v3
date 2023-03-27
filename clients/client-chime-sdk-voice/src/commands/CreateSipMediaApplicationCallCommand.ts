@@ -39,6 +39,64 @@ export interface CreateSipMediaApplicationCallCommandOutput
   extends CreateSipMediaApplicationCallResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Creates an outbound call to a phone number from the phone number specified
+ *          in the request, and it invokes the endpoint of the specified
+ *          <code>sipMediaApplicationId</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, CreateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, CreateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   FromPhoneNumber: "STRING_VALUE", // required
+ *   ToPhoneNumber: "STRING_VALUE", // required
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipHeaders: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ArgumentsMap: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
+ * const command = new CreateSipMediaApplicationCallCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param CreateSipMediaApplicationCallCommandInput - {@link CreateSipMediaApplicationCallCommandInput}
+ * @returns {@link CreateSipMediaApplicationCallCommandOutput}
+ * @see {@link CreateSipMediaApplicationCallCommandInput} for command's `input` shape.
+ * @see {@link CreateSipMediaApplicationCallCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have the permissions needed to run this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class CreateSipMediaApplicationCallCommand extends $Command<
   CreateSipMediaApplicationCallCommandInput,
   CreateSipMediaApplicationCallCommandOutput,

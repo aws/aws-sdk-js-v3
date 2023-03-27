@@ -33,6 +33,75 @@ export interface StartVoiceToneAnalysisTaskCommandInput extends StartVoiceToneAn
  */
 export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneAnalysisTaskResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Starts a voice tone analysis task. For more information about voice tone analysis, see
+ *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using Amazon Chime SDK voice analytics</a>
+ *          in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *          <important>
+ *             <p>Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
+ *          <a href="https://aws.amazon.com/service-terms/">AWS service terms</a> for the Amazon Chime SDK.</p>
+ *          </important>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, StartVoiceToneAnalysisTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, StartVoiceToneAnalysisTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   TransactionId: "STRING_VALUE", // required
+ *   LanguageCode: "en-US", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
+ * const command = new StartVoiceToneAnalysisTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param StartVoiceToneAnalysisTaskCommandInput - {@link StartVoiceToneAnalysisTaskCommandInput}
+ * @returns {@link StartVoiceToneAnalysisTaskCommandOutput}
+ * @see {@link StartVoiceToneAnalysisTaskCommandInput} for command's `input` shape.
+ * @see {@link StartVoiceToneAnalysisTaskCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have the permissions needed to run this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Multiple instances of the same request were made simultaneously.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link GoneException} (client fault)
+ *  <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  <p>A well-formed request couldn't be followed due to semantic errors.</p>
+ *
+ *
+ */
 export class StartVoiceToneAnalysisTaskCommand extends $Command<
   StartVoiceToneAnalysisTaskCommandInput,
   StartVoiceToneAnalysisTaskCommandOutput,

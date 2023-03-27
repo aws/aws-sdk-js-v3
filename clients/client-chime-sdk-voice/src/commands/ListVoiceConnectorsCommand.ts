@@ -33,6 +33,50 @@ export interface ListVoiceConnectorsCommandInput extends ListVoiceConnectorsRequ
  */
 export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Lists the Amazon Chime SDK Voice Connectors in the administrators
+ *          AWS account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, ListVoiceConnectorsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, ListVoiceConnectorsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
+ * const command = new ListVoiceConnectorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param ListVoiceConnectorsCommandInput - {@link ListVoiceConnectorsCommandInput}
+ * @returns {@link ListVoiceConnectorsCommandOutput}
+ * @see {@link ListVoiceConnectorsCommandInput} for command's `input` shape.
+ * @see {@link ListVoiceConnectorsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class ListVoiceConnectorsCommand extends $Command<
   ListVoiceConnectorsCommandInput,
   ListVoiceConnectorsCommandOutput,

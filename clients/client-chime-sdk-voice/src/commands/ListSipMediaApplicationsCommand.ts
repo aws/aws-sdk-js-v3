@@ -37,6 +37,49 @@ export interface ListSipMediaApplicationsCommandInput extends ListSipMediaApplic
  */
 export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaApplicationsResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Lists the SIP media applications  under the administrator's AWS account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, ListSipMediaApplicationsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, ListSipMediaApplicationsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ * const command = new ListSipMediaApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param ListSipMediaApplicationsCommandInput - {@link ListSipMediaApplicationsCommandInput}
+ * @returns {@link ListSipMediaApplicationsCommandOutput}
+ * @see {@link ListSipMediaApplicationsCommandInput} for command's `input` shape.
+ * @see {@link ListSipMediaApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class ListSipMediaApplicationsCommand extends $Command<
   ListSipMediaApplicationsCommandInput,
   ListSipMediaApplicationsCommandOutput,

@@ -33,6 +33,55 @@ export interface DeleteVoiceConnectorOriginationCommandInput extends DeleteVoice
  */
 export interface DeleteVoiceConnectorOriginationCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Deletes the origination settings for the specified Amazon Chime SDK Voice Connector. </p>
+ *          <note>
+ *             <p>If emergency calling is configured for the Voice Connector, it must be
+ *          deleted prior to deleting the origination settings.</p>
+ *          </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, DeleteVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ * };
+ * const command = new DeleteVoiceConnectorOriginationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param DeleteVoiceConnectorOriginationCommandInput - {@link DeleteVoiceConnectorOriginationCommandInput}
+ * @returns {@link DeleteVoiceConnectorOriginationCommandOutput}
+ * @see {@link DeleteVoiceConnectorOriginationCommandInput} for command's `input` shape.
+ * @see {@link DeleteVoiceConnectorOriginationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class DeleteVoiceConnectorOriginationCommand extends $Command<
   DeleteVoiceConnectorOriginationCommandInput,
   DeleteVoiceConnectorOriginationCommandOutput,

@@ -33,6 +33,53 @@ export interface UpdateVoiceConnectorCommandInput extends UpdateVoiceConnectorRe
  */
 export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Updates the details for the specified Amazon Chime SDK Voice Connector.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, UpdateVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   RequireEncryption: true || false, // required
+ * };
+ * const command = new UpdateVoiceConnectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param UpdateVoiceConnectorCommandInput - {@link UpdateVoiceConnectorCommandInput}
+ * @returns {@link UpdateVoiceConnectorCommandOutput}
+ * @see {@link UpdateVoiceConnectorCommandInput} for command's `input` shape.
+ * @see {@link UpdateVoiceConnectorCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class UpdateVoiceConnectorCommand extends $Command<
   UpdateVoiceConnectorCommandInput,
   UpdateVoiceConnectorCommandOutput,

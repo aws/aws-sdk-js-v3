@@ -33,6 +33,57 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
  */
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Adds a tag to the specified resource.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, TagResourceCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, TagResourceCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,
   TagResourceCommandOutput,
