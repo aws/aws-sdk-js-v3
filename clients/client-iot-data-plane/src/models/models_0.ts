@@ -422,7 +422,7 @@ export interface PublishRequest {
    *         <code>userProperties</code> is an HTTP header value in the API.</p>
    *          <p>The following example <code>userProperties</code> parameter is a JSON string which
    *       represents two User Properties. Note that it needs to be base64-encoded:</p>
-   *         <p>
+   *          <p>
    *             <code>[\{"deviceName": "alpha"\}, \{"deviceCnt": "45"\}]</code>
    *          </p>
    */
