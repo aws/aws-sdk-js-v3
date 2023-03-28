@@ -37,7 +37,7 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * @public
  * <p>Contacts are either the contacts that Incident Manager engages during an incident or the
  *          escalation plans that Incident Manager uses to engage contacts in phases during an
- *          incident. </p>
+ *          incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,9 +47,9 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * const input = { // CreateContactRequest
  *   Alias: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
- *   Type: "STRING_VALUE", // required
+ *   Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE", // required
  *   Plan: { // Plan
- *     Stages: [ // StagesList // required
+ *     Stages: [ // StagesList
  *       { // Stage
  *         DurationInMinutes: Number("int"), // required
  *         Targets: [ // TargetsList // required
@@ -65,6 +65,9 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *           },
  *         ],
  *       },
+ *     ],
+ *     RotationIds: [ // SsmContactsArnList
+ *       "STRING_VALUE",
  *     ],
  *   },
  *   Tags: [ // TagsList
@@ -95,8 +98,7 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *  <p>The operation failed to due an encryption key error.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>Request would cause a service quota to be exceeded.</p>

@@ -65,8 +65,7 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  *  <p>Updating or deleting a resource causes an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>

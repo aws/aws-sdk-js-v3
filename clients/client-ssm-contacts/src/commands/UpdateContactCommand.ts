@@ -35,7 +35,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
 
 /**
  * @public
- * <p>Updates the contact or escalation plan specified. </p>
+ * <p>Updates the contact or escalation plan specified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,7 +46,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  *   ContactId: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
  *   Plan: { // Plan
- *     Stages: [ // StagesList // required
+ *     Stages: [ // StagesList
  *       { // Stage
  *         DurationInMinutes: Number("int"), // required
  *         Targets: [ // TargetsList // required
@@ -62,6 +62,9 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  *           },
  *         ],
  *       },
+ *     ],
+ *     RotationIds: [ // SsmContactsArnList
+ *       "STRING_VALUE",
  *     ],
  *   },
  * };
@@ -82,8 +85,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  *  <p>The operation failed to due an encryption key error.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>

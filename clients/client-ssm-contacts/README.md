@@ -11,12 +11,12 @@ AWS SDK for JavaScript SSMContacts Client for Node.js, Browser and React Native.
 
 <p>Systems Manager Incident Manager is an incident management console designed to help users
 mitigate and recover from incidents affecting their Amazon Web Services-hosted applications.
-An incident is any unplanned interruption or reduction in quality of services. </p>
-<p>Incident Manager increases incident resolution by notifying responders of impact,
-highlighting relevant troubleshooting data, and providing collaboration tools to get
-services back up and running. To achieve the primary goal of reducing the
+An incident is any unplanned interruption or reduction in quality of services.</p>
+<p>Incident Manager increases incident resolution by notifying responders of
+impact, highlighting relevant troubleshooting data, and providing collaboration tools to
+get services back up and running. To achieve the primary goal of reducing the
 time-to-resolution of critical incidents, Incident Manager automates response plans
-and enables responder team escalation. </p>
+and enables responder team escalation.</p>
 
 ## Installing
 
@@ -247,6 +247,22 @@ CreateContactChannel
 </details>
 <details>
 <summary>
+CreateRotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/createrotationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/createrotationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/createrotationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateRotationOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/createrotationoverridecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/createrotationoverridecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/createrotationoverridecommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeactivateContactChannel
 </summary>
 
@@ -267,6 +283,22 @@ DeleteContactChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/deletecontactchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/deletecontactchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/deletecontactchannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteRotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/deleterotationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/deleterotationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/deleterotationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteRotationOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/deleterotationoverridecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/deleterotationoverridecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/deleterotationoverridecommandoutput.html)
 
 </details>
 <details>
@@ -311,6 +343,22 @@ GetContactPolicy
 </details>
 <details>
 <summary>
+GetRotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/getrotationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/getrotationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/getrotationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetRotationOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/getrotationoverridecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/getrotationoverridecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/getrotationoverridecommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListContactChannels
 </summary>
 
@@ -343,6 +391,14 @@ ListPageReceipts
 </details>
 <details>
 <summary>
+ListPageResolutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/listpageresolutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listpageresolutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listpageresolutionscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListPagesByContact
 </summary>
 
@@ -355,6 +411,38 @@ ListPagesByEngagement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/listpagesbyengagementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listpagesbyengagementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listpagesbyengagementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListPreviewRotationShifts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/listpreviewrotationshiftscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listpreviewrotationshiftscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listpreviewrotationshiftscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRotationOverrides
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/listrotationoverridescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listrotationoverridescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listrotationoverridescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRotations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/listrotationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listrotationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listrotationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListRotationShifts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/listrotationshiftscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listrotationshiftscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/listrotationshiftscommandoutput.html)
 
 </details>
 <details>
@@ -427,5 +515,13 @@ UpdateContactChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/updatecontactchannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/updatecontactchannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/updatecontactchannelcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateRotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/classes/updaterotationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/updaterotationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-contacts/interfaces/updaterotationcommandoutput.html)
 
 </details>

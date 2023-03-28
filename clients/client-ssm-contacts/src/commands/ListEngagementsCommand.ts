@@ -65,8 +65,7 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

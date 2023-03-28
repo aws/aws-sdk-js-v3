@@ -28,6 +28,11 @@ import {
   CreateContactChannelCommandOutput,
 } from "../commands/CreateContactChannelCommand";
 import { CreateContactCommandInput, CreateContactCommandOutput } from "../commands/CreateContactCommand";
+import { CreateRotationCommandInput, CreateRotationCommandOutput } from "../commands/CreateRotationCommand";
+import {
+  CreateRotationOverrideCommandInput,
+  CreateRotationOverrideCommandOutput,
+} from "../commands/CreateRotationOverrideCommand";
 import {
   DeactivateContactChannelCommandInput,
   DeactivateContactChannelCommandOutput,
@@ -37,11 +42,21 @@ import {
   DeleteContactChannelCommandOutput,
 } from "../commands/DeleteContactChannelCommand";
 import { DeleteContactCommandInput, DeleteContactCommandOutput } from "../commands/DeleteContactCommand";
+import { DeleteRotationCommandInput, DeleteRotationCommandOutput } from "../commands/DeleteRotationCommand";
+import {
+  DeleteRotationOverrideCommandInput,
+  DeleteRotationOverrideCommandOutput,
+} from "../commands/DeleteRotationOverrideCommand";
 import { DescribeEngagementCommandInput, DescribeEngagementCommandOutput } from "../commands/DescribeEngagementCommand";
 import { DescribePageCommandInput, DescribePageCommandOutput } from "../commands/DescribePageCommand";
 import { GetContactChannelCommandInput, GetContactChannelCommandOutput } from "../commands/GetContactChannelCommand";
 import { GetContactCommandInput, GetContactCommandOutput } from "../commands/GetContactCommand";
 import { GetContactPolicyCommandInput, GetContactPolicyCommandOutput } from "../commands/GetContactPolicyCommand";
+import { GetRotationCommandInput, GetRotationCommandOutput } from "../commands/GetRotationCommand";
+import {
+  GetRotationOverrideCommandInput,
+  GetRotationOverrideCommandOutput,
+} from "../commands/GetRotationOverrideCommand";
 import {
   ListContactChannelsCommandInput,
   ListContactChannelsCommandOutput,
@@ -49,11 +64,25 @@ import {
 import { ListContactsCommandInput, ListContactsCommandOutput } from "../commands/ListContactsCommand";
 import { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "../commands/ListEngagementsCommand";
 import { ListPageReceiptsCommandInput, ListPageReceiptsCommandOutput } from "../commands/ListPageReceiptsCommand";
+import {
+  ListPageResolutionsCommandInput,
+  ListPageResolutionsCommandOutput,
+} from "../commands/ListPageResolutionsCommand";
 import { ListPagesByContactCommandInput, ListPagesByContactCommandOutput } from "../commands/ListPagesByContactCommand";
 import {
   ListPagesByEngagementCommandInput,
   ListPagesByEngagementCommandOutput,
 } from "../commands/ListPagesByEngagementCommand";
+import {
+  ListPreviewRotationShiftsCommandInput,
+  ListPreviewRotationShiftsCommandOutput,
+} from "../commands/ListPreviewRotationShiftsCommand";
+import {
+  ListRotationOverridesCommandInput,
+  ListRotationOverridesCommandOutput,
+} from "../commands/ListRotationOverridesCommand";
+import { ListRotationsCommandInput, ListRotationsCommandOutput } from "../commands/ListRotationsCommand";
+import { ListRotationShiftsCommandInput, ListRotationShiftsCommandOutput } from "../commands/ListRotationShiftsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -69,6 +98,7 @@ import {
   UpdateContactChannelCommandOutput,
 } from "../commands/UpdateContactChannelCommand";
 import { UpdateContactCommandInput, UpdateContactCommandOutput } from "../commands/UpdateContactCommand";
+import { UpdateRotationCommandInput, UpdateRotationCommandOutput } from "../commands/UpdateRotationCommand";
 import {
   AcceptPageRequest,
   AcceptPageResult,
@@ -81,17 +111,28 @@ import {
   ContactChannel,
   ContactChannelAddress,
   ContactTargetInfo,
+  CoverageTime,
   CreateContactChannelRequest,
   CreateContactChannelResult,
   CreateContactRequest,
   CreateContactResult,
+  CreateRotationOverrideRequest,
+  CreateRotationOverrideResult,
+  CreateRotationRequest,
+  CreateRotationResult,
   DataEncryptionException,
+  DayOfWeek,
   DeactivateContactChannelRequest,
   DeactivateContactChannelResult,
   DeleteContactChannelRequest,
   DeleteContactChannelResult,
   DeleteContactRequest,
   DeleteContactResult,
+  DeleteRotationOverrideRequest,
+  DeleteRotationOverrideResult,
+  DeleteRotationRequest,
+  DeleteRotationResult,
+  DependentEntity,
   DescribeEngagementRequest,
   DescribeEngagementResult,
   DescribePageRequest,
@@ -103,6 +144,11 @@ import {
   GetContactPolicyResult,
   GetContactRequest,
   GetContactResult,
+  GetRotationOverrideRequest,
+  GetRotationOverrideResult,
+  GetRotationRequest,
+  GetRotationResult,
+  HandOffTime,
   InternalServerException,
   ListContactChannelsRequest,
   ListContactChannelsResult,
@@ -112,21 +158,39 @@ import {
   ListEngagementsResult,
   ListPageReceiptsRequest,
   ListPageReceiptsResult,
+  ListPageResolutionsRequest,
+  ListPageResolutionsResult,
   ListPagesByContactRequest,
   ListPagesByContactResult,
   ListPagesByEngagementRequest,
   ListPagesByEngagementResult,
+  ListPreviewRotationShiftsRequest,
+  ListPreviewRotationShiftsResult,
+  ListRotationOverridesRequest,
+  ListRotationOverridesResult,
+  ListRotationShiftsRequest,
+  ListRotationShiftsResult,
+  ListRotationsRequest,
+  ListRotationsResult,
   ListTagsForResourceRequest,
   ListTagsForResourceResult,
+  MonthlySetting,
   Page,
   Plan,
+  PreviewOverride,
   PutContactPolicyRequest,
   PutContactPolicyResult,
   Receipt,
+  RecurrenceSettings,
+  ResolutionContact,
   ResourceNotFoundException,
+  Rotation,
+  RotationOverride,
+  RotationShift,
   SendActivationCodeRequest,
   SendActivationCodeResult,
   ServiceQuotaExceededException,
+  ShiftDetails,
   Stage,
   StartEngagementRequest,
   StartEngagementResult,
@@ -144,8 +208,11 @@ import {
   UpdateContactChannelResult,
   UpdateContactRequest,
   UpdateContactResult,
+  UpdateRotationRequest,
+  UpdateRotationResult,
   ValidationException,
   ValidationExceptionField,
+  WeeklySetting,
 } from "../models/models_0";
 import { SSMContactsServiceException as __BaseException } from "../models/SSMContactsServiceException";
 
@@ -201,6 +268,32 @@ export const serializeAws_json1_1CreateContactChannelCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateRotationCommand = async (
+  input: CreateRotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.CreateRotation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateRotationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateRotationOverrideCommand = async (
+  input: CreateRotationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.CreateRotationOverride",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateRotationOverrideRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeactivateContactChannelCommand = async (
   input: DeactivateContactChannelCommandInput,
   context: __SerdeContext
@@ -237,6 +330,32 @@ export const serializeAws_json1_1DeleteContactChannelCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteContactChannelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteRotationCommand = async (
+  input: DeleteRotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.DeleteRotation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteRotationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteRotationOverrideCommand = async (
+  input: DeleteRotationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.DeleteRotationOverride",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteRotationOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -305,6 +424,32 @@ export const serializeAws_json1_1GetContactPolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetRotationCommand = async (
+  input: GetRotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.GetRotation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetRotationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetRotationOverrideCommand = async (
+  input: GetRotationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.GetRotationOverride",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetRotationOverrideRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListContactChannelsCommand = async (
   input: ListContactChannelsCommandInput,
   context: __SerdeContext
@@ -357,6 +502,19 @@ export const serializeAws_json1_1ListPageReceiptsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListPageResolutionsCommand = async (
+  input: ListPageResolutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.ListPageResolutions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListPageResolutionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListPagesByContactCommand = async (
   input: ListPagesByContactCommandInput,
   context: __SerdeContext
@@ -380,6 +538,58 @@ export const serializeAws_json1_1ListPagesByEngagementCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPagesByEngagementRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListPreviewRotationShiftsCommand = async (
+  input: ListPreviewRotationShiftsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.ListPreviewRotationShifts",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListPreviewRotationShiftsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListRotationOverridesCommand = async (
+  input: ListRotationOverridesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.ListRotationOverrides",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListRotationOverridesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListRotationsCommand = async (
+  input: ListRotationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.ListRotations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListRotationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListRotationShiftsCommand = async (
+  input: ListRotationShiftsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.ListRotationShifts",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListRotationShiftsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -497,6 +707,19 @@ export const serializeAws_json1_1UpdateContactChannelCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateContactChannelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateRotationCommand = async (
+  input: UpdateRotationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SSMContacts.UpdateRotation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateRotationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -721,6 +944,118 @@ const deserializeAws_json1_1CreateContactChannelCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CreateRotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateRotationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateRotationResult(data, context);
+  const response: CreateRotationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateRotationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRotationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateRotationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRotationOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateRotationOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateRotationOverrideResult(data, context);
+  const response: CreateRotationOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateRotationOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRotationOverrideCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeactivateContactChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -804,6 +1139,9 @@ const deserializeAws_json1_1DeleteContactCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
       throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
@@ -848,6 +1186,115 @@ const deserializeAws_json1_1DeleteContactChannelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContactChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteRotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteRotationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteRotationResult(data, context);
+  const response: DeleteRotationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteRotationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRotationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteRotationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRotationOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteRotationOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteRotationOverrideResult(data, context);
+  const response: DeleteRotationOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteRotationOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRotationOverrideCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1157,6 +1604,112 @@ const deserializeAws_json1_1GetContactPolicyCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetRotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetRotationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetRotationResult(data, context);
+  const response: GetRotationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetRotationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRotationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetRotationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRotationOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetRotationOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetRotationOverrideResult(data, context);
+  const response: GetRotationOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetRotationOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRotationOverrideCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListContactChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1366,6 +1919,59 @@ const deserializeAws_json1_1ListPageReceiptsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListPageResolutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPageResolutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListPageResolutionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListPageResolutionsResult(data, context);
+  const response: ListPageResolutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListPageResolutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPageResolutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListPagesByContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1449,6 +2055,218 @@ const deserializeAws_json1_1ListPagesByEngagementCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListPreviewRotationShiftsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPreviewRotationShiftsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListPreviewRotationShiftsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListPreviewRotationShiftsResult(data, context);
+  const response: ListPreviewRotationShiftsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListPreviewRotationShiftsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPreviewRotationShiftsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListRotationOverridesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationOverridesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListRotationOverridesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListRotationOverridesResult(data, context);
+  const response: ListRotationOverridesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListRotationOverridesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationOverridesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListRotationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListRotationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListRotationsResult(data, context);
+  const response: ListRotationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListRotationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListRotationShiftsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationShiftsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListRotationShiftsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListRotationShiftsResult(data, context);
+  const response: ListRotationShiftsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListRotationShiftsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRotationShiftsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
       throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
@@ -1976,6 +2794,62 @@ const deserializeAws_json1_1UpdateContactChannelCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateRotationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRotationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateRotationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateRotationResult(data, context);
+  const response: UpdateRotationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateRotationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRotationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssmcontacts#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmcontacts#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssmcontacts#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmcontacts#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2121,6 +2995,21 @@ const serializeAws_json1_1ContactTargetInfo = (input: ContactTargetInfo, context
   };
 };
 
+const serializeAws_json1_1CoverageTime = (input: CoverageTime, context: __SerdeContext): any => {
+  return {
+    ...(input.End != null && { End: serializeAws_json1_1HandOffTime(input.End, context) }),
+    ...(input.Start != null && { Start: serializeAws_json1_1HandOffTime(input.Start, context) }),
+  };
+};
+
+const serializeAws_json1_1CoverageTimes = (input: CoverageTime[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1CoverageTime(entry, context);
+    });
+};
+
 const serializeAws_json1_1CreateContactChannelRequest = (
   input: CreateContactChannelRequest,
   context: __SerdeContext
@@ -2148,6 +3037,43 @@ const serializeAws_json1_1CreateContactRequest = (input: CreateContactRequest, c
   };
 };
 
+const serializeAws_json1_1CreateRotationOverrideRequest = (
+  input: CreateRotationOverrideRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.NewContactIds != null && {
+      NewContactIds: serializeAws_json1_1RotationOverrideContactsArnList(input.NewContactIds, context),
+    }),
+    ...(input.RotationId != null && { RotationId: input.RotationId }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1CreateRotationRequest = (input: CreateRotationRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ContactIds != null && {
+      ContactIds: serializeAws_json1_1RotationContactsArnList(input.ContactIds, context),
+    }),
+    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Recurrence != null && { Recurrence: serializeAws_json1_1RecurrenceSettings(input.Recurrence, context) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
+    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
+  };
+};
+
+const serializeAws_json1_1DailySettings = (input: HandOffTime[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1HandOffTime(entry, context);
+    });
+};
+
 const serializeAws_json1_1DeactivateContactChannelRequest = (
   input: DeactivateContactChannelRequest,
   context: __SerdeContext
@@ -2169,6 +3095,22 @@ const serializeAws_json1_1DeleteContactChannelRequest = (
 const serializeAws_json1_1DeleteContactRequest = (input: DeleteContactRequest, context: __SerdeContext): any => {
   return {
     ...(input.ContactId != null && { ContactId: input.ContactId }),
+  };
+};
+
+const serializeAws_json1_1DeleteRotationOverrideRequest = (
+  input: DeleteRotationOverrideRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RotationId != null && { RotationId: input.RotationId }),
+    ...(input.RotationOverrideId != null && { RotationOverrideId: input.RotationOverrideId }),
+  };
+};
+
+const serializeAws_json1_1DeleteRotationRequest = (input: DeleteRotationRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.RotationId != null && { RotationId: input.RotationId }),
   };
 };
 
@@ -2205,6 +3147,29 @@ const serializeAws_json1_1GetContactPolicyRequest = (input: GetContactPolicyRequ
 const serializeAws_json1_1GetContactRequest = (input: GetContactRequest, context: __SerdeContext): any => {
   return {
     ...(input.ContactId != null && { ContactId: input.ContactId }),
+  };
+};
+
+const serializeAws_json1_1GetRotationOverrideRequest = (
+  input: GetRotationOverrideRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RotationId != null && { RotationId: input.RotationId }),
+    ...(input.RotationOverrideId != null && { RotationOverrideId: input.RotationOverrideId }),
+  };
+};
+
+const serializeAws_json1_1GetRotationRequest = (input: GetRotationRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.RotationId != null && { RotationId: input.RotationId }),
+  };
+};
+
+const serializeAws_json1_1HandOffTime = (input: HandOffTime, context: __SerdeContext): any => {
+  return {
+    ...(input.HourOfDay != null && { HourOfDay: input.HourOfDay }),
+    ...(input.MinuteOfHour != null && { MinuteOfHour: input.MinuteOfHour }),
   };
 };
 
@@ -2247,6 +3212,16 @@ const serializeAws_json1_1ListPageReceiptsRequest = (input: ListPageReceiptsRequ
   };
 };
 
+const serializeAws_json1_1ListPageResolutionsRequest = (
+  input: ListPageResolutionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PageId != null && { PageId: input.PageId }),
+  };
+};
+
 const serializeAws_json1_1ListPagesByContactRequest = (
   input: ListPagesByContactRequest,
   context: __SerdeContext
@@ -2269,6 +3244,57 @@ const serializeAws_json1_1ListPagesByEngagementRequest = (
   };
 };
 
+const serializeAws_json1_1ListPreviewRotationShiftsRequest = (
+  input: ListPreviewRotationShiftsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Members != null && { Members: serializeAws_json1_1RotationPreviewMemberList(input.Members, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Overrides != null && { Overrides: serializeAws_json1_1OverrideList(input.Overrides, context) }),
+    ...(input.Recurrence != null && { Recurrence: serializeAws_json1_1RecurrenceSettings(input.Recurrence, context) }),
+    ...(input.RotationStartTime != null && { RotationStartTime: Math.round(input.RotationStartTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
+  };
+};
+
+const serializeAws_json1_1ListRotationOverridesRequest = (
+  input: ListRotationOverridesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RotationId != null && { RotationId: input.RotationId }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1ListRotationShiftsRequest = (
+  input: ListRotationShiftsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RotationId != null && { RotationId: input.RotationId }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1ListRotationsRequest = (input: ListRotationsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RotationNamePrefix != null && { RotationNamePrefix: input.RotationNamePrefix }),
+  };
+};
+
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
@@ -2278,9 +3304,45 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1MonthlySetting = (input: MonthlySetting, context: __SerdeContext): any => {
+  return {
+    ...(input.DayOfMonth != null && { DayOfMonth: input.DayOfMonth }),
+    ...(input.HandOffTime != null && { HandOffTime: serializeAws_json1_1HandOffTime(input.HandOffTime, context) }),
+  };
+};
+
+const serializeAws_json1_1MonthlySettings = (input: MonthlySetting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1MonthlySetting(entry, context);
+    });
+};
+
+const serializeAws_json1_1OverrideList = (input: PreviewOverride[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1PreviewOverride(entry, context);
+    });
+};
+
 const serializeAws_json1_1Plan = (input: Plan, context: __SerdeContext): any => {
   return {
+    ...(input.RotationIds != null && {
+      RotationIds: serializeAws_json1_1SsmContactsArnList(input.RotationIds, context),
+    }),
     ...(input.Stages != null && { Stages: serializeAws_json1_1StagesList(input.Stages, context) }),
+  };
+};
+
+const serializeAws_json1_1PreviewOverride = (input: PreviewOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.NewMembers != null && {
+      NewMembers: serializeAws_json1_1RotationOverridePreviewMemberList(input.NewMembers, context),
+    }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -2291,6 +3353,57 @@ const serializeAws_json1_1PutContactPolicyRequest = (input: PutContactPolicyRequ
   };
 };
 
+const serializeAws_json1_1RecurrenceSettings = (input: RecurrenceSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.DailySettings != null && {
+      DailySettings: serializeAws_json1_1DailySettings(input.DailySettings, context),
+    }),
+    ...(input.MonthlySettings != null && {
+      MonthlySettings: serializeAws_json1_1MonthlySettings(input.MonthlySettings, context),
+    }),
+    ...(input.NumberOfOnCalls != null && { NumberOfOnCalls: input.NumberOfOnCalls }),
+    ...(input.RecurrenceMultiplier != null && { RecurrenceMultiplier: input.RecurrenceMultiplier }),
+    ...(input.ShiftCoverages != null && {
+      ShiftCoverages: serializeAws_json1_1ShiftCoveragesMap(input.ShiftCoverages, context),
+    }),
+    ...(input.WeeklySettings != null && {
+      WeeklySettings: serializeAws_json1_1WeeklySettings(input.WeeklySettings, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1RotationContactsArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RotationOverrideContactsArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RotationOverridePreviewMemberList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RotationPreviewMemberList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1SendActivationCodeRequest = (
   input: SendActivationCodeRequest,
   context: __SerdeContext
@@ -2298,6 +3411,24 @@ const serializeAws_json1_1SendActivationCodeRequest = (
   return {
     ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
   };
+};
+
+const serializeAws_json1_1ShiftCoveragesMap = (input: Record<string, CoverageTime[]>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [DayOfWeek | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_json1_1CoverageTimes(value, context);
+    return acc;
+  }, {});
+};
+
+const serializeAws_json1_1SsmContactsArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Stage = (input: Stage, context: __SerdeContext): any => {
@@ -2419,6 +3550,33 @@ const serializeAws_json1_1UpdateContactRequest = (input: UpdateContactRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateRotationRequest = (input: UpdateRotationRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ContactIds != null && {
+      ContactIds: serializeAws_json1_1RotationContactsArnList(input.ContactIds, context),
+    }),
+    ...(input.Recurrence != null && { Recurrence: serializeAws_json1_1RecurrenceSettings(input.Recurrence, context) }),
+    ...(input.RotationId != null && { RotationId: input.RotationId }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
+  };
+};
+
+const serializeAws_json1_1WeeklySetting = (input: WeeklySetting, context: __SerdeContext): any => {
+  return {
+    ...(input.DayOfWeek != null && { DayOfWeek: input.DayOfWeek }),
+    ...(input.HandOffTime != null && { HandOffTime: serializeAws_json1_1HandOffTime(input.HandOffTime, context) }),
+  };
+};
+
+const serializeAws_json1_1WeeklySettings = (input: WeeklySetting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1WeeklySetting(entry, context);
+    });
+};
+
 const deserializeAws_json1_1AcceptPageResult = (output: any, context: __SerdeContext): AcceptPageResult => {
   return {} as any;
 };
@@ -2445,6 +3603,10 @@ const deserializeAws_json1_1ChannelTargetInfo = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
+    DependentEntities:
+      output.DependentEntities != null
+        ? deserializeAws_json1_1DependentEntityList(output.DependentEntities, context)
+        : undefined,
     Message: __expectString(output.Message),
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
@@ -2511,6 +3673,25 @@ const deserializeAws_json1_1ContactTargetInfo = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1CoverageTime = (output: any, context: __SerdeContext): CoverageTime => {
+  return {
+    End: output.End != null ? deserializeAws_json1_1HandOffTime(output.End, context) : undefined,
+    Start: output.Start != null ? deserializeAws_json1_1HandOffTime(output.Start, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CoverageTimes = (output: any, context: __SerdeContext): CoverageTime[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CoverageTime(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1CreateContactChannelResult = (
   output: any,
   context: __SerdeContext
@@ -2524,6 +3705,33 @@ const deserializeAws_json1_1CreateContactResult = (output: any, context: __Serde
   return {
     ContactArn: __expectString(output.ContactArn),
   } as any;
+};
+
+const deserializeAws_json1_1CreateRotationOverrideResult = (
+  output: any,
+  context: __SerdeContext
+): CreateRotationOverrideResult => {
+  return {
+    RotationOverrideId: __expectString(output.RotationOverrideId),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateRotationResult = (output: any, context: __SerdeContext): CreateRotationResult => {
+  return {
+    RotationArn: __expectString(output.RotationArn),
+  } as any;
+};
+
+const deserializeAws_json1_1DailySettings = (output: any, context: __SerdeContext): HandOffTime[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HandOffTime(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1DataEncryptionException = (
@@ -2551,6 +3759,39 @@ const deserializeAws_json1_1DeleteContactChannelResult = (
 
 const deserializeAws_json1_1DeleteContactResult = (output: any, context: __SerdeContext): DeleteContactResult => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteRotationOverrideResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteRotationOverrideResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteRotationResult = (output: any, context: __SerdeContext): DeleteRotationResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DependentEntity = (output: any, context: __SerdeContext): DependentEntity => {
+  return {
+    DependentResourceIds:
+      output.DependentResourceIds != null
+        ? deserializeAws_json1_1SsmContactsArnList(output.DependentResourceIds, context)
+        : undefined,
+    RelationType: __expectString(output.RelationType),
+  } as any;
+};
+
+const deserializeAws_json1_1DependentEntityList = (output: any, context: __SerdeContext): DependentEntity[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DependentEntity(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeEngagementResult = (
@@ -2654,6 +3895,47 @@ const deserializeAws_json1_1GetContactResult = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1GetRotationOverrideResult = (
+  output: any,
+  context: __SerdeContext
+): GetRotationOverrideResult => {
+  return {
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    NewContactIds:
+      output.NewContactIds != null
+        ? deserializeAws_json1_1SsmContactsArnList(output.NewContactIds, context)
+        : undefined,
+    RotationArn: __expectString(output.RotationArn),
+    RotationOverrideId: __expectString(output.RotationOverrideId),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetRotationResult = (output: any, context: __SerdeContext): GetRotationResult => {
+  return {
+    ContactIds:
+      output.ContactIds != null ? deserializeAws_json1_1RotationContactsArnList(output.ContactIds, context) : undefined,
+    Name: __expectString(output.Name),
+    Recurrence:
+      output.Recurrence != null ? deserializeAws_json1_1RecurrenceSettings(output.Recurrence, context) : undefined,
+    RotationArn: __expectString(output.RotationArn),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    TimeZoneId: __expectString(output.TimeZoneId),
+  } as any;
+};
+
+const deserializeAws_json1_1HandOffTime = (output: any, context: __SerdeContext): HandOffTime => {
+  return {
+    HourOfDay: __expectInt32(output.HourOfDay),
+    MinuteOfHour: __expectInt32(output.MinuteOfHour),
+  } as any;
+};
+
 const deserializeAws_json1_1InternalServerException = (
   output: any,
   context: __SerdeContext
@@ -2699,6 +3981,19 @@ const deserializeAws_json1_1ListPageReceiptsResult = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListPageResolutionsResult = (
+  output: any,
+  context: __SerdeContext
+): ListPageResolutionsResult => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    PageResolutions:
+      output.PageResolutions != null
+        ? deserializeAws_json1_1ResolutionList(output.PageResolutions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListPagesByContactResult = (
   output: any,
   context: __SerdeContext
@@ -2719,6 +4014,48 @@ const deserializeAws_json1_1ListPagesByEngagementResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ListPreviewRotationShiftsResult = (
+  output: any,
+  context: __SerdeContext
+): ListPreviewRotationShiftsResult => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    RotationShifts:
+      output.RotationShifts != null ? deserializeAws_json1_1RotationShifts(output.RotationShifts, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListRotationOverridesResult = (
+  output: any,
+  context: __SerdeContext
+): ListRotationOverridesResult => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    RotationOverrides:
+      output.RotationOverrides != null
+        ? deserializeAws_json1_1RotationOverrides(output.RotationOverrides, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListRotationShiftsResult = (
+  output: any,
+  context: __SerdeContext
+): ListRotationShiftsResult => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    RotationShifts:
+      output.RotationShifts != null ? deserializeAws_json1_1RotationShifts(output.RotationShifts, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListRotationsResult = (output: any, context: __SerdeContext): ListRotationsResult => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Rotations: output.Rotations != null ? deserializeAws_json1_1Rotations(output.Rotations, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTagsForResourceResult = (
   output: any,
   context: __SerdeContext
@@ -2726,6 +4063,26 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
   return {
     Tags: output.Tags != null ? deserializeAws_json1_1TagsList(output.Tags, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1MonthlySetting = (output: any, context: __SerdeContext): MonthlySetting => {
+  return {
+    DayOfMonth: __expectInt32(output.DayOfMonth),
+    HandOffTime:
+      output.HandOffTime != null ? deserializeAws_json1_1HandOffTime(output.HandOffTime, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MonthlySettings = (output: any, context: __SerdeContext): MonthlySetting[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MonthlySetting(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Page = (output: any, context: __SerdeContext): Page => {
@@ -2760,6 +4117,8 @@ const deserializeAws_json1_1PagesList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Plan = (output: any, context: __SerdeContext): Plan => {
   return {
+    RotationIds:
+      output.RotationIds != null ? deserializeAws_json1_1SsmContactsArnList(output.RotationIds, context) : undefined,
     Stages: output.Stages != null ? deserializeAws_json1_1StagesList(output.Stages, context) : undefined,
   } as any;
 };
@@ -2792,6 +4151,45 @@ const deserializeAws_json1_1ReceiptsList = (output: any, context: __SerdeContext
   return retVal;
 };
 
+const deserializeAws_json1_1RecurrenceSettings = (output: any, context: __SerdeContext): RecurrenceSettings => {
+  return {
+    DailySettings:
+      output.DailySettings != null ? deserializeAws_json1_1DailySettings(output.DailySettings, context) : undefined,
+    MonthlySettings:
+      output.MonthlySettings != null
+        ? deserializeAws_json1_1MonthlySettings(output.MonthlySettings, context)
+        : undefined,
+    NumberOfOnCalls: __expectInt32(output.NumberOfOnCalls),
+    RecurrenceMultiplier: __expectInt32(output.RecurrenceMultiplier),
+    ShiftCoverages:
+      output.ShiftCoverages != null
+        ? deserializeAws_json1_1ShiftCoveragesMap(output.ShiftCoverages, context)
+        : undefined,
+    WeeklySettings:
+      output.WeeklySettings != null ? deserializeAws_json1_1WeeklySettings(output.WeeklySettings, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResolutionContact = (output: any, context: __SerdeContext): ResolutionContact => {
+  return {
+    ContactArn: __expectString(output.ContactArn),
+    StageIndex: __expectInt32(output.StageIndex),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1ResolutionList = (output: any, context: __SerdeContext): ResolutionContact[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResolutionContact(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -2801,6 +4199,98 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
   } as any;
+};
+
+const deserializeAws_json1_1Rotation = (output: any, context: __SerdeContext): Rotation => {
+  return {
+    ContactIds:
+      output.ContactIds != null ? deserializeAws_json1_1SsmContactsArnList(output.ContactIds, context) : undefined,
+    Name: __expectString(output.Name),
+    Recurrence:
+      output.Recurrence != null ? deserializeAws_json1_1RecurrenceSettings(output.Recurrence, context) : undefined,
+    RotationArn: __expectString(output.RotationArn),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    TimeZoneId: __expectString(output.TimeZoneId),
+  } as any;
+};
+
+const deserializeAws_json1_1RotationContactsArnList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RotationOverride = (output: any, context: __SerdeContext): RotationOverride => {
+  return {
+    CreateTime:
+      output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    NewContactIds:
+      output.NewContactIds != null
+        ? deserializeAws_json1_1SsmContactsArnList(output.NewContactIds, context)
+        : undefined,
+    RotationOverrideId: __expectString(output.RotationOverrideId),
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RotationOverrides = (output: any, context: __SerdeContext): RotationOverride[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RotationOverride(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Rotations = (output: any, context: __SerdeContext): Rotation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Rotation(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RotationShift = (output: any, context: __SerdeContext): RotationShift => {
+  return {
+    ContactIds:
+      output.ContactIds != null ? deserializeAws_json1_1SsmContactsArnList(output.ContactIds, context) : undefined,
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    ShiftDetails:
+      output.ShiftDetails != null ? deserializeAws_json1_1ShiftDetails(output.ShiftDetails, context) : undefined,
+    StartTime:
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1RotationShifts = (output: any, context: __SerdeContext): RotationShift[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RotationShift(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1SendActivationCodeResult = (
@@ -2821,6 +4311,43 @@ const deserializeAws_json1_1ServiceQuotaExceededException = (
     ResourceType: __expectString(output.ResourceType),
     ServiceCode: __expectString(output.ServiceCode),
   } as any;
+};
+
+const deserializeAws_json1_1ShiftCoveragesMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, CoverageTime[]> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, CoverageTime[]>, [key, value]: [DayOfWeek | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = deserializeAws_json1_1CoverageTimes(value, context);
+      return acc;
+    },
+    {}
+  );
+};
+
+const deserializeAws_json1_1ShiftDetails = (output: any, context: __SerdeContext): ShiftDetails => {
+  return {
+    OverriddenContactIds:
+      output.OverriddenContactIds != null
+        ? deserializeAws_json1_1SsmContactsArnList(output.OverriddenContactIds, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SsmContactsArnList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Stage = (output: any, context: __SerdeContext): Stage => {
@@ -2924,6 +4451,10 @@ const deserializeAws_json1_1UpdateContactResult = (output: any, context: __Serde
   return {} as any;
 };
 
+const deserializeAws_json1_1UpdateRotationResult = (output: any, context: __SerdeContext): UpdateRotationResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Fields:
@@ -2954,6 +4485,26 @@ const deserializeAws_json1_1ValidationExceptionFieldList = (
         return null as any;
       }
       return deserializeAws_json1_1ValidationExceptionField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1WeeklySetting = (output: any, context: __SerdeContext): WeeklySetting => {
+  return {
+    DayOfWeek: __expectString(output.DayOfWeek),
+    HandOffTime:
+      output.HandOffTime != null ? deserializeAws_json1_1HandOffTime(output.HandOffTime, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1WeeklySettings = (output: any, context: __SerdeContext): WeeklySetting[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WeeklySetting(entry, context);
     });
   return retVal;
 };

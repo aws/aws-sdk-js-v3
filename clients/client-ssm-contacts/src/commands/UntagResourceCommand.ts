@@ -35,7 +35,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
 
 /**
  * @public
- * <p>Removes tags from the specified resource. </p>
+ * <p>Removes tags from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +62,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>

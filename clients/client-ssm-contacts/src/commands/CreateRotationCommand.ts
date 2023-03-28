@@ -13,53 +13,94 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TagResourceRequest, TagResourceResult } from "../models/models_0";
+import { CreateRotationRequest, CreateRotationResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1TagResourceCommand,
-  serializeAws_json1_1TagResourceCommand,
+  deserializeAws_json1_1CreateRotationCommand,
+  serializeAws_json1_1CreateRotationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link CreateRotationCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface CreateRotationCommandInput extends CreateRotationRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link CreateRotationCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceResult, __MetadataBearer {}
+export interface CreateRotationCommandOutput extends CreateRotationResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>Tags a contact or escalation plan. You can tag only contacts and escalation plans in the
- *          first region of your replication set.</p>
+ * <p>Creates a rotation in an on-call schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, TagResourceCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, TagResourceCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, CreateRotationCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
+ * // const { SSMContactsClient, CreateRotationCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = { // TagResourceRequest
- *   ResourceARN: "STRING_VALUE", // required
- *   Tags: [ // TagsList // required
+ * const input = { // CreateRotationRequest
+ *   Name: "STRING_VALUE", // required
+ *   ContactIds: [ // RotationContactsArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"),
+ *   TimeZoneId: "STRING_VALUE", // required
+ *   Recurrence: { // RecurrenceSettings
+ *     MonthlySettings: [ // MonthlySettings
+ *       { // MonthlySetting
+ *         DayOfMonth: Number("int"), // required
+ *         HandOffTime: { // HandOffTime
+ *           HourOfDay: Number("int"), // required
+ *           MinuteOfHour: Number("int"), // required
+ *         },
+ *       },
+ *     ],
+ *     WeeklySettings: [ // WeeklySettings
+ *       { // WeeklySetting
+ *         DayOfWeek: "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT" || "SUN", // required
+ *         HandOffTime: {
+ *           HourOfDay: Number("int"), // required
+ *           MinuteOfHour: Number("int"), // required
+ *         },
+ *       },
+ *     ],
+ *     DailySettings: [ // DailySettings
+ *       {
+ *         HourOfDay: Number("int"), // required
+ *         MinuteOfHour: Number("int"), // required
+ *       },
+ *     ],
+ *     NumberOfOnCalls: Number("int"), // required
+ *     ShiftCoverages: { // ShiftCoveragesMap
+ *       "<keys>": [ // CoverageTimes
+ *         { // CoverageTime
+ *           Start: "<HandOffTime>",
+ *           End: "<HandOffTime>",
+ *         },
+ *       ],
+ *     },
+ *     RecurrenceMultiplier: Number("int"), // required
+ *   },
+ *   Tags: [ // TagsList
  *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   IdempotencyToken: "STRING_VALUE",
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new CreateRotationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param CreateRotationCommandInput - {@link CreateRotationCommandInput}
+ * @returns {@link CreateRotationCommandOutput}
+ * @see {@link CreateRotationCommandInput} for command's `input` shape.
+ * @see {@link CreateRotationCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -82,27 +123,10 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *          service.</p>
  *
  *
- * @example To tag a contact
- * ```javascript
- * // The following tag-resource example tags a specified contact with the provided tag key value pair.
- * const input = {
- *   "ResourceARN": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam",
- *   "Tags": [
- *     {
- *       "Key": "group1",
- *       "Value": "1"
- *     }
- *   ]
- * };
- * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: to-tag-a-contact-1630437124572
- * ```
- *
  */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
+export class CreateRotationCommand extends $Command<
+  CreateRotationCommandInput,
+  CreateRotationCommandOutput,
   SSMContactsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -120,7 +144,7 @@ export class TagResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: TagResourceCommandInput) {
+  constructor(readonly input: CreateRotationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -133,15 +157,17 @@ export class TagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMContactsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
+  ): Handler<CreateRotationCommandInput, CreateRotationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateRotationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSMContactsClient";
-    const commandName = "TagResourceCommand";
+    const commandName = "CreateRotationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -160,15 +186,15 @@ export class TagResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagResourceCommand(input, context);
+  private serialize(input: CreateRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateRotationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_json1_1TagResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRotationCommandOutput> {
+    return deserializeAws_json1_1CreateRotationCommand(output, context);
   }
 
   // Start section: command_body_extra

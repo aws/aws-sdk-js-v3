@@ -13,49 +13,51 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteContactChannelRequest, DeleteContactChannelResult } from "../models/models_0";
+import { ListPageResolutionsRequest, ListPageResolutionsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteContactChannelCommand,
-  serializeAws_json1_1DeleteContactChannelCommand,
+  deserializeAws_json1_1ListPageResolutionsCommand,
+  serializeAws_json1_1ListPageResolutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  *
- * The input for {@link DeleteContactChannelCommand}.
+ * The input for {@link ListPageResolutionsCommand}.
  */
-export interface DeleteContactChannelCommandInput extends DeleteContactChannelRequest {}
+export interface ListPageResolutionsCommandInput extends ListPageResolutionsRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteContactChannelCommand}.
+ * The output of {@link ListPageResolutionsCommand}.
  */
-export interface DeleteContactChannelCommandOutput extends DeleteContactChannelResult, __MetadataBearer {}
+export interface ListPageResolutionsCommandOutput extends ListPageResolutionsResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>To no longer receive engagements on a contact channel, you can delete the channel from a
- *          contact. Deleting the contact channel removes it from the contact's engagement plan. If you
- *          delete the only contact channel for a contact, you won't be able to engage that contact
- *          during an incident.</p>
+ * <p>Returns the resolution path of an engagement. For example, the escalation plan engaged
+ *          in an incident might target an on-call schedule that includes several contacts in a
+ *          rotation, but just one contact on-call when the incident starts. The resolution path
+ *          indicates the hierarchy of <i>escalation plan > on-call schedule >
+ *             contact</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, DeleteContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, DeleteContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListPageResolutionsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
+ * // const { SSMContactsClient, ListPageResolutionsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = { // DeleteContactChannelRequest
- *   ContactChannelId: "STRING_VALUE", // required
+ * const input = { // ListPageResolutionsRequest
+ *   NextToken: "STRING_VALUE",
+ *   PageId: "STRING_VALUE", // required
  * };
- * const command = new DeleteContactChannelCommand(input);
+ * const command = new ListPageResolutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param DeleteContactChannelCommandInput - {@link DeleteContactChannelCommandInput}
- * @returns {@link DeleteContactChannelCommandOutput}
- * @see {@link DeleteContactChannelCommandInput} for command's `input` shape.
- * @see {@link DeleteContactChannelCommandOutput} for command's `response` shape.
+ * @param ListPageResolutionsCommandInput - {@link ListPageResolutionsCommandInput}
+ * @returns {@link ListPageResolutionsCommandOutput}
+ * @see {@link ListPageResolutionsCommandInput} for command's `input` shape.
+ * @see {@link ListPageResolutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -75,21 +77,10 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  *          service.</p>
  *
  *
- * @example To delete a contact channel
- * ```javascript
- * // The following delete-contact-channel example deletes a contact channel. Deleting a contact channel ensures the contact channel will not be paged during an incident.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/13149bad-52ee-45ea-ae1e-45857f78f9b2"
- * };
- * const command = new DeleteContactChannelCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-contact-channel-1630364616682
- * ```
- *
  */
-export class DeleteContactChannelCommand extends $Command<
-  DeleteContactChannelCommandInput,
-  DeleteContactChannelCommandOutput,
+export class ListPageResolutionsCommand extends $Command<
+  ListPageResolutionsCommandInput,
+  ListPageResolutionsCommandOutput,
   SSMContactsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -107,7 +98,7 @@ export class DeleteContactChannelCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteContactChannelCommandInput) {
+  constructor(readonly input: ListPageResolutionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -120,17 +111,17 @@ export class DeleteContactChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMContactsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteContactChannelCommandInput, DeleteContactChannelCommandOutput> {
+  ): Handler<ListPageResolutionsCommandInput, ListPageResolutionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteContactChannelCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListPageResolutionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSMContactsClient";
-    const commandName = "DeleteContactChannelCommand";
+    const commandName = "ListPageResolutionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -149,15 +140,15 @@ export class DeleteContactChannelCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContactChannelCommand(input, context);
+  private serialize(input: ListPageResolutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListPageResolutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactChannelCommandOutput> {
-    return deserializeAws_json1_1DeleteContactChannelCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPageResolutionsCommandOutput> {
+    return deserializeAws_json1_1ListPageResolutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

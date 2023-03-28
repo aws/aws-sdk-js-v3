@@ -35,7 +35,7 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
 
 /**
  * @public
- * <p>Lists all of the engagements to contact channels that have been acknowledged. </p>
+ * <p>Lists all of the engagements to contact channels that have been acknowledged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +61,7 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>

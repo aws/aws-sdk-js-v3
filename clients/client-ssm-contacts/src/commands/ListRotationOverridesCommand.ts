@@ -13,49 +13,50 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteContactChannelRequest, DeleteContactChannelResult } from "../models/models_0";
+import { ListRotationOverridesRequest, ListRotationOverridesResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteContactChannelCommand,
-  serializeAws_json1_1DeleteContactChannelCommand,
+  deserializeAws_json1_1ListRotationOverridesCommand,
+  serializeAws_json1_1ListRotationOverridesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  *
- * The input for {@link DeleteContactChannelCommand}.
+ * The input for {@link ListRotationOverridesCommand}.
  */
-export interface DeleteContactChannelCommandInput extends DeleteContactChannelRequest {}
+export interface ListRotationOverridesCommandInput extends ListRotationOverridesRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteContactChannelCommand}.
+ * The output of {@link ListRotationOverridesCommand}.
  */
-export interface DeleteContactChannelCommandOutput extends DeleteContactChannelResult, __MetadataBearer {}
+export interface ListRotationOverridesCommandOutput extends ListRotationOverridesResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>To no longer receive engagements on a contact channel, you can delete the channel from a
- *          contact. Deleting the contact channel removes it from the contact's engagement plan. If you
- *          delete the only contact channel for a contact, you won't be able to engage that contact
- *          during an incident.</p>
+ * <p>Retrieves a list of overrides currently specified for an on-call rotation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMContactsClient, DeleteContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
- * // const { SSMContactsClient, DeleteContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * import { SSMContactsClient, ListRotationOverridesCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
+ * // const { SSMContactsClient, ListRotationOverridesCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = { // DeleteContactChannelRequest
- *   ContactChannelId: "STRING_VALUE", // required
+ * const input = { // ListRotationOverridesRequest
+ *   RotationId: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new DeleteContactChannelCommand(input);
+ * const command = new ListRotationOverridesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param DeleteContactChannelCommandInput - {@link DeleteContactChannelCommandInput}
- * @returns {@link DeleteContactChannelCommandOutput}
- * @see {@link DeleteContactChannelCommandInput} for command's `input` shape.
- * @see {@link DeleteContactChannelCommandOutput} for command's `response` shape.
+ * @param ListRotationOverridesCommandInput - {@link ListRotationOverridesCommandInput}
+ * @returns {@link ListRotationOverridesCommandOutput}
+ * @see {@link ListRotationOverridesCommandInput} for command's `input` shape.
+ * @see {@link ListRotationOverridesCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -75,21 +76,10 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  *          service.</p>
  *
  *
- * @example To delete a contact channel
- * ```javascript
- * // The following delete-contact-channel example deletes a contact channel. Deleting a contact channel ensures the contact channel will not be paged during an incident.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/13149bad-52ee-45ea-ae1e-45857f78f9b2"
- * };
- * const command = new DeleteContactChannelCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-contact-channel-1630364616682
- * ```
- *
  */
-export class DeleteContactChannelCommand extends $Command<
-  DeleteContactChannelCommandInput,
-  DeleteContactChannelCommandOutput,
+export class ListRotationOverridesCommand extends $Command<
+  ListRotationOverridesCommandInput,
+  ListRotationOverridesCommandOutput,
   SSMContactsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -107,7 +97,7 @@ export class DeleteContactChannelCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteContactChannelCommandInput) {
+  constructor(readonly input: ListRotationOverridesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -120,17 +110,17 @@ export class DeleteContactChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMContactsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteContactChannelCommandInput, DeleteContactChannelCommandOutput> {
+  ): Handler<ListRotationOverridesCommandInput, ListRotationOverridesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteContactChannelCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListRotationOverridesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSMContactsClient";
-    const commandName = "DeleteContactChannelCommand";
+    const commandName = "ListRotationOverridesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -149,15 +139,15 @@ export class DeleteContactChannelCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContactChannelCommand(input, context);
+  private serialize(input: ListRotationOverridesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListRotationOverridesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactChannelCommandOutput> {
-    return deserializeAws_json1_1DeleteContactChannelCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRotationOverridesCommandOutput> {
+    return deserializeAws_json1_1ListRotationOverridesCommand(output, context);
   }
 
   // Start section: command_body_extra

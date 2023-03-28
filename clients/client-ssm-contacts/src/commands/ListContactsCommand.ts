@@ -46,7 +46,7 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   AliasPrefix: "STRING_VALUE",
- *   Type: "STRING_VALUE",
+ *   Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE",
  * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
@@ -62,8 +62,7 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

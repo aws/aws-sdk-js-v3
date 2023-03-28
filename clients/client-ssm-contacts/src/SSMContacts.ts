@@ -18,6 +18,16 @@ import {
   CreateContactCommandOutput,
 } from "./commands/CreateContactCommand";
 import {
+  CreateRotationCommand,
+  CreateRotationCommandInput,
+  CreateRotationCommandOutput,
+} from "./commands/CreateRotationCommand";
+import {
+  CreateRotationOverrideCommand,
+  CreateRotationOverrideCommandInput,
+  CreateRotationOverrideCommandOutput,
+} from "./commands/CreateRotationOverrideCommand";
+import {
   DeactivateContactChannelCommand,
   DeactivateContactChannelCommandInput,
   DeactivateContactChannelCommandOutput,
@@ -32,6 +42,16 @@ import {
   DeleteContactCommandInput,
   DeleteContactCommandOutput,
 } from "./commands/DeleteContactCommand";
+import {
+  DeleteRotationCommand,
+  DeleteRotationCommandInput,
+  DeleteRotationCommandOutput,
+} from "./commands/DeleteRotationCommand";
+import {
+  DeleteRotationOverrideCommand,
+  DeleteRotationOverrideCommandInput,
+  DeleteRotationOverrideCommandOutput,
+} from "./commands/DeleteRotationOverrideCommand";
 import {
   DescribeEngagementCommand,
   DescribeEngagementCommandInput,
@@ -53,6 +73,12 @@ import {
   GetContactPolicyCommandInput,
   GetContactPolicyCommandOutput,
 } from "./commands/GetContactPolicyCommand";
+import { GetRotationCommand, GetRotationCommandInput, GetRotationCommandOutput } from "./commands/GetRotationCommand";
+import {
+  GetRotationOverrideCommand,
+  GetRotationOverrideCommandInput,
+  GetRotationOverrideCommandOutput,
+} from "./commands/GetRotationOverrideCommand";
 import {
   ListContactChannelsCommand,
   ListContactChannelsCommandInput,
@@ -74,6 +100,11 @@ import {
   ListPageReceiptsCommandOutput,
 } from "./commands/ListPageReceiptsCommand";
 import {
+  ListPageResolutionsCommand,
+  ListPageResolutionsCommandInput,
+  ListPageResolutionsCommandOutput,
+} from "./commands/ListPageResolutionsCommand";
+import {
   ListPagesByContactCommand,
   ListPagesByContactCommandInput,
   ListPagesByContactCommandOutput,
@@ -83,6 +114,26 @@ import {
   ListPagesByEngagementCommandInput,
   ListPagesByEngagementCommandOutput,
 } from "./commands/ListPagesByEngagementCommand";
+import {
+  ListPreviewRotationShiftsCommand,
+  ListPreviewRotationShiftsCommandInput,
+  ListPreviewRotationShiftsCommandOutput,
+} from "./commands/ListPreviewRotationShiftsCommand";
+import {
+  ListRotationOverridesCommand,
+  ListRotationOverridesCommandInput,
+  ListRotationOverridesCommandOutput,
+} from "./commands/ListRotationOverridesCommand";
+import {
+  ListRotationsCommand,
+  ListRotationsCommandInput,
+  ListRotationsCommandOutput,
+} from "./commands/ListRotationsCommand";
+import {
+  ListRotationShiftsCommand,
+  ListRotationShiftsCommandInput,
+  ListRotationShiftsCommandOutput,
+} from "./commands/ListRotationShiftsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -124,18 +175,23 @@ import {
   UpdateContactCommandInput,
   UpdateContactCommandOutput,
 } from "./commands/UpdateContactCommand";
+import {
+  UpdateRotationCommand,
+  UpdateRotationCommandInput,
+  UpdateRotationCommandOutput,
+} from "./commands/UpdateRotationCommand";
 import { SSMContactsClient } from "./SSMContactsClient";
 
 /**
  * @public
  * <p>Systems Manager Incident Manager is an incident management console designed to help users
  *          mitigate and recover from incidents affecting their Amazon Web Services-hosted applications.
- *          An incident is any unplanned interruption or reduction in quality of services. </p>
- *          <p>Incident Manager increases incident resolution by notifying responders of impact,
- *          highlighting relevant troubleshooting data, and providing collaboration tools to get
- *          services back up and running. To achieve the primary goal of reducing the
+ *          An incident is any unplanned interruption or reduction in quality of services.</p>
+ *          <p>Incident Manager increases incident resolution by notifying responders of
+ *          impact, highlighting relevant troubleshooting data, and providing collaboration tools to
+ *          get services back up and running. To achieve the primary goal of reducing the
  *          time-to-resolution of critical incidents, Incident Manager automates response plans
- *          and enables responder team escalation. </p>
+ *          and enables responder team escalation.</p>
  */
 export class SSMContacts extends SSMContactsClient {
   /**
@@ -203,7 +259,7 @@ export class SSMContacts extends SSMContactsClient {
    * @public
    * <p>Contacts are either the contacts that Incident Manager engages during an incident or the
    *          escalation plans that Incident Manager uses to engage contacts in phases during an
-   *          incident. </p>
+   *          incident.</p>
    */
   public createContact(
     args: CreateContactCommandInput,
@@ -257,6 +313,72 @@ export class SSMContacts extends SSMContactsClient {
     cb?: (err: any, data?: CreateContactChannelCommandOutput) => void
   ): Promise<CreateContactChannelCommandOutput> | void {
     const command = new CreateContactChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Creates a rotation in an on-call schedule.</p>
+   */
+  public createRotation(
+    args: CreateRotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRotationCommandOutput>;
+  public createRotation(
+    args: CreateRotationCommandInput,
+    cb: (err: any, data?: CreateRotationCommandOutput) => void
+  ): void;
+  public createRotation(
+    args: CreateRotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRotationCommandOutput) => void
+  ): void;
+  public createRotation(
+    args: CreateRotationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRotationCommandOutput) => void),
+    cb?: (err: any, data?: CreateRotationCommandOutput) => void
+  ): Promise<CreateRotationCommandOutput> | void {
+    const command = new CreateRotationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Creates an override for a rotation in an on-call schedule.</p>
+   */
+  public createRotationOverride(
+    args: CreateRotationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRotationOverrideCommandOutput>;
+  public createRotationOverride(
+    args: CreateRotationOverrideCommandInput,
+    cb: (err: any, data?: CreateRotationOverrideCommandOutput) => void
+  ): void;
+  public createRotationOverride(
+    args: CreateRotationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRotationOverrideCommandOutput) => void
+  ): void;
+  public createRotationOverride(
+    args: CreateRotationOverrideCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRotationOverrideCommandOutput) => void),
+    cb?: (err: any, data?: CreateRotationOverrideCommandOutput) => void
+  ): Promise<CreateRotationOverrideCommandOutput> | void {
+    const command = new CreateRotationOverrideCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -363,6 +485,73 @@ export class SSMContacts extends SSMContactsClient {
     cb?: (err: any, data?: DeleteContactChannelCommandOutput) => void
   ): Promise<DeleteContactChannelCommandOutput> | void {
     const command = new DeleteContactChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Deletes a rotation from the system. If a rotation belongs to more than one on-call
+   *          schedule, this operation deletes it from all of them.</p>
+   */
+  public deleteRotation(
+    args: DeleteRotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRotationCommandOutput>;
+  public deleteRotation(
+    args: DeleteRotationCommandInput,
+    cb: (err: any, data?: DeleteRotationCommandOutput) => void
+  ): void;
+  public deleteRotation(
+    args: DeleteRotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRotationCommandOutput) => void
+  ): void;
+  public deleteRotation(
+    args: DeleteRotationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRotationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRotationCommandOutput) => void
+  ): Promise<DeleteRotationCommandOutput> | void {
+    const command = new DeleteRotationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Deletes an existing override for an on-call rotation.</p>
+   */
+  public deleteRotationOverride(
+    args: DeleteRotationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRotationOverrideCommandOutput>;
+  public deleteRotationOverride(
+    args: DeleteRotationOverrideCommandInput,
+    cb: (err: any, data?: DeleteRotationOverrideCommandOutput) => void
+  ): void;
+  public deleteRotationOverride(
+    args: DeleteRotationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRotationOverrideCommandOutput) => void
+  ): void;
+  public deleteRotationOverride(
+    args: DeleteRotationOverrideCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRotationOverrideCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRotationOverrideCommandOutput) => void
+  ): Promise<DeleteRotationOverrideCommandOutput> | void {
+    const command = new DeleteRotationOverrideCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -533,6 +722,66 @@ export class SSMContacts extends SSMContactsClient {
 
   /**
    * @public
+   * <p>Retrieves information about an on-call rotation.</p>
+   */
+  public getRotation(args: GetRotationCommandInput, options?: __HttpHandlerOptions): Promise<GetRotationCommandOutput>;
+  public getRotation(args: GetRotationCommandInput, cb: (err: any, data?: GetRotationCommandOutput) => void): void;
+  public getRotation(
+    args: GetRotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRotationCommandOutput) => void
+  ): void;
+  public getRotation(
+    args: GetRotationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRotationCommandOutput) => void),
+    cb?: (err: any, data?: GetRotationCommandOutput) => void
+  ): Promise<GetRotationCommandOutput> | void {
+    const command = new GetRotationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Retrieves information about an override to an on-call rotation.</p>
+   */
+  public getRotationOverride(
+    args: GetRotationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRotationOverrideCommandOutput>;
+  public getRotationOverride(
+    args: GetRotationOverrideCommandInput,
+    cb: (err: any, data?: GetRotationOverrideCommandOutput) => void
+  ): void;
+  public getRotationOverride(
+    args: GetRotationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRotationOverrideCommandOutput) => void
+  ): void;
+  public getRotationOverride(
+    args: GetRotationOverrideCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRotationOverrideCommandOutput) => void),
+    cb?: (err: any, data?: GetRotationOverrideCommandOutput) => void
+  ): Promise<GetRotationOverrideCommandOutput> | void {
+    const command = new GetRotationOverrideCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Lists all contact channels for the specified contact.</p>
    */
   public listContactChannels(
@@ -629,7 +878,7 @@ export class SSMContacts extends SSMContactsClient {
 
   /**
    * @public
-   * <p>Lists all of the engagements to contact channels that have been acknowledged. </p>
+   * <p>Lists all of the engagements to contact channels that have been acknowledged.</p>
    */
   public listPageReceipts(
     args: ListPageReceiptsCommandInput,
@@ -650,6 +899,43 @@ export class SSMContacts extends SSMContactsClient {
     cb?: (err: any, data?: ListPageReceiptsCommandOutput) => void
   ): Promise<ListPageReceiptsCommandOutput> | void {
     const command = new ListPageReceiptsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Returns the resolution path of an engagement. For example, the escalation plan engaged
+   *          in an incident might target an on-call schedule that includes several contacts in a
+   *          rotation, but just one contact on-call when the incident starts. The resolution path
+   *          indicates the hierarchy of <i>escalation plan > on-call schedule >
+   *             contact</i>.</p>
+   */
+  public listPageResolutions(
+    args: ListPageResolutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPageResolutionsCommandOutput>;
+  public listPageResolutions(
+    args: ListPageResolutionsCommandInput,
+    cb: (err: any, data?: ListPageResolutionsCommandOutput) => void
+  ): void;
+  public listPageResolutions(
+    args: ListPageResolutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPageResolutionsCommandOutput) => void
+  ): void;
+  public listPageResolutions(
+    args: ListPageResolutionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPageResolutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListPageResolutionsCommandOutput) => void
+  ): Promise<ListPageResolutionsCommandOutput> | void {
+    const command = new ListPageResolutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -716,6 +1002,141 @@ export class SSMContacts extends SSMContactsClient {
     cb?: (err: any, data?: ListPagesByEngagementCommandOutput) => void
   ): Promise<ListPagesByEngagementCommandOutput> | void {
     const command = new ListPagesByEngagementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Returns a list of shifts based on rotation configuration parameters.</p>
+   *          <note>
+   *             <p>The Incident Manager primarily uses this operation to populate the <b>Preview</b> calendar. It is not typically run by end users.</p>
+   *          </note>
+   */
+  public listPreviewRotationShifts(
+    args: ListPreviewRotationShiftsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPreviewRotationShiftsCommandOutput>;
+  public listPreviewRotationShifts(
+    args: ListPreviewRotationShiftsCommandInput,
+    cb: (err: any, data?: ListPreviewRotationShiftsCommandOutput) => void
+  ): void;
+  public listPreviewRotationShifts(
+    args: ListPreviewRotationShiftsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPreviewRotationShiftsCommandOutput) => void
+  ): void;
+  public listPreviewRotationShifts(
+    args: ListPreviewRotationShiftsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPreviewRotationShiftsCommandOutput) => void),
+    cb?: (err: any, data?: ListPreviewRotationShiftsCommandOutput) => void
+  ): Promise<ListPreviewRotationShiftsCommandOutput> | void {
+    const command = new ListPreviewRotationShiftsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Retrieves a list of overrides currently specified for an on-call rotation.</p>
+   */
+  public listRotationOverrides(
+    args: ListRotationOverridesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRotationOverridesCommandOutput>;
+  public listRotationOverrides(
+    args: ListRotationOverridesCommandInput,
+    cb: (err: any, data?: ListRotationOverridesCommandOutput) => void
+  ): void;
+  public listRotationOverrides(
+    args: ListRotationOverridesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRotationOverridesCommandOutput) => void
+  ): void;
+  public listRotationOverrides(
+    args: ListRotationOverridesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRotationOverridesCommandOutput) => void),
+    cb?: (err: any, data?: ListRotationOverridesCommandOutput) => void
+  ): Promise<ListRotationOverridesCommandOutput> | void {
+    const command = new ListRotationOverridesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Retrieves a list of on-call rotations.</p>
+   */
+  public listRotations(
+    args: ListRotationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRotationsCommandOutput>;
+  public listRotations(
+    args: ListRotationsCommandInput,
+    cb: (err: any, data?: ListRotationsCommandOutput) => void
+  ): void;
+  public listRotations(
+    args: ListRotationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRotationsCommandOutput) => void
+  ): void;
+  public listRotations(
+    args: ListRotationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRotationsCommandOutput) => void),
+    cb?: (err: any, data?: ListRotationsCommandOutput) => void
+  ): Promise<ListRotationsCommandOutput> | void {
+    const command = new ListRotationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Returns a list of shifts generated by an existing rotation in the system.</p>
+   */
+  public listRotationShifts(
+    args: ListRotationShiftsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRotationShiftsCommandOutput>;
+  public listRotationShifts(
+    args: ListRotationShiftsCommandInput,
+    cb: (err: any, data?: ListRotationShiftsCommandOutput) => void
+  ): void;
+  public listRotationShifts(
+    args: ListRotationShiftsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRotationShiftsCommandOutput) => void
+  ): void;
+  public listRotationShifts(
+    args: ListRotationShiftsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRotationShiftsCommandOutput) => void),
+    cb?: (err: any, data?: ListRotationShiftsCommandOutput) => void
+  ): Promise<ListRotationShiftsCommandOutput> | void {
+    const command = new ListRotationShiftsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -900,7 +1321,7 @@ export class SSMContacts extends SSMContactsClient {
   /**
    * @public
    * <p>Tags a contact or escalation plan. You can tag only contacts and escalation plans in the
-   *          first region of your replication set. </p>
+   *          first region of your replication set.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -927,7 +1348,7 @@ export class SSMContacts extends SSMContactsClient {
 
   /**
    * @public
-   * <p>Removes tags from the specified resource. </p>
+   * <p>Removes tags from the specified resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -960,7 +1381,7 @@ export class SSMContacts extends SSMContactsClient {
 
   /**
    * @public
-   * <p>Updates the contact or escalation plan specified. </p>
+   * <p>Updates the contact or escalation plan specified.</p>
    */
   public updateContact(
     args: UpdateContactCommandInput,
@@ -1014,6 +1435,39 @@ export class SSMContacts extends SSMContactsClient {
     cb?: (err: any, data?: UpdateContactChannelCommandOutput) => void
   ): Promise<UpdateContactChannelCommandOutput> | void {
     const command = new UpdateContactChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Updates the information specified for an on-call rotation.</p>
+   */
+  public updateRotation(
+    args: UpdateRotationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRotationCommandOutput>;
+  public updateRotation(
+    args: UpdateRotationCommandInput,
+    cb: (err: any, data?: UpdateRotationCommandOutput) => void
+  ): void;
+  public updateRotation(
+    args: UpdateRotationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRotationCommandOutput) => void
+  ): void;
+  public updateRotation(
+    args: UpdateRotationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRotationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRotationCommandOutput) => void
+  ): Promise<UpdateRotationCommandOutput> | void {
+    const command = new UpdateRotationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

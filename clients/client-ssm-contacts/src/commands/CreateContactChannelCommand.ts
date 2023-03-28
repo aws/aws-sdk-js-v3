@@ -45,7 +45,7 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * const input = { // CreateContactChannelRequest
  *   ContactId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Type: "STRING_VALUE", // required
+ *   Type: "SMS" || "VOICE" || "EMAIL", // required
  *   DeliveryAddress: { // ContactChannelAddress
  *     SimpleAddress: "STRING_VALUE",
  *   },
@@ -72,8 +72,7 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *  <p>The operation failed to due an encryption key error.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

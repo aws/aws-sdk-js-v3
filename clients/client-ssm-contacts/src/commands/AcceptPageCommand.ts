@@ -45,10 +45,10 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * const input = { // AcceptPageRequest
  *   PageId: "STRING_VALUE", // required
  *   ContactChannelId: "STRING_VALUE",
- *   AcceptType: "STRING_VALUE", // required
+ *   AcceptType: "DELIVERED" || "READ", // required
  *   Note: "STRING_VALUE",
  *   AcceptCode: "STRING_VALUE", // required
- *   AcceptCodeValidation: "STRING_VALUE",
+ *   AcceptCodeValidation: "IGNORE" || "ENFORCE",
  * };
  * const command = new AcceptPageCommand(input);
  * const response = await client.send(command);
@@ -64,8 +64,7 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
