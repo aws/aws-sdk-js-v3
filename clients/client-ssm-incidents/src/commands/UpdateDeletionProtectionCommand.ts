@@ -36,7 +36,7 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
 /**
  * @public
  * <p>Update deletion protection to either allow or deny deletion of the final Region in a
- *             replication set.</p>
+ *       replication set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,7 +36,7 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
 /**
  * @public
  * <p>Lists all incident records in your account. Use this command to retrieve the Amazon
- *             Resource Name (ARN) of the incident record you want to update. </p>
+ *       Resource Name (ARN) of the incident record you want to update. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

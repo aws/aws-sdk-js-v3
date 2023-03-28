@@ -36,7 +36,7 @@ export interface StartIncidentCommandOutput extends StartIncidentOutput, __Metad
 /**
  * @public
  * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or
- *             manually. </p>
+ *       manually. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

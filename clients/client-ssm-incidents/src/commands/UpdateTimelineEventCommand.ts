@@ -35,8 +35,7 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
 
 /**
  * @public
- * <p>Updates a timeline event. You can update events of type <code>Custom
- *             Event</code>.</p>
+ * <p>Updates a timeline event. You can update events of type <code>Custom Event</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

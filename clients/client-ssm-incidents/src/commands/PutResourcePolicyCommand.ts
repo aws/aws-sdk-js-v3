@@ -36,9 +36,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
 /**
  * @public
  * <p>Adds a resource policy to the specified response plan. The resource policy is used to
- *             share the response plan using Resource Access Manager (RAM). For more
- *             information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html">Cross-Region and cross-account incident
- *             management</a>.</p>
+ *       share the response plan using Resource Access Manager (RAM). For more
+ *       information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html">Cross-Region and cross-account incident management</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

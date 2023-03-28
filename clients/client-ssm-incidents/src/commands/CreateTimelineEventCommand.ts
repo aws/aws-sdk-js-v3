@@ -36,9 +36,9 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
 /**
  * @public
  * <p>Creates a custom timeline event on the incident details page of an incident record.
- *             Timeline events are automatically created by Incident Manager, marking key moment during an
- *             incident. You can create custom timeline events to mark important events that are
- *             automatically detected by Incident Manager.</p>
+ *       Incident Manager automatically creates timeline events that mark key moments during an incident.
+ *       You can create custom timeline events to mark important events that Incident Manager can detect
+ *       automatically.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

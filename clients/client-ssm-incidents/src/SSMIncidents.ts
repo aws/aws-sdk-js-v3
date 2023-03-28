@@ -159,7 +159,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   /**
    * @public
    * <p>A replication set replicates and encrypts your data to the provided Regions with the
-   *             provided KMS key. </p>
+   *       provided KMS key. </p>
    */
   public createReplicationSet(
     args: CreateReplicationSetCommandInput,
@@ -192,9 +192,9 @@ export class SSMIncidents extends SSMIncidentsClient {
 
   /**
    * @public
-   * <p>Creates a response plan that automates the initial response to incidents. A response
-   *             plan engages contacts, starts chat channel collaboration, and initiates runbooks at the
-   *             beginning of an incident.</p>
+   * <p>Creates a response plan that automates the initial response to incidents. A response plan
+   *       engages contacts, starts chat channel collaboration, and initiates runbooks at the beginning
+   *       of an incident.</p>
    */
   public createResponsePlan(
     args: CreateResponsePlanCommandInput,
@@ -228,9 +228,9 @@ export class SSMIncidents extends SSMIncidentsClient {
   /**
    * @public
    * <p>Creates a custom timeline event on the incident details page of an incident record.
-   *             Timeline events are automatically created by Incident Manager, marking key moment during an
-   *             incident. You can create custom timeline events to mark important events that are
-   *             automatically detected by Incident Manager.</p>
+   *       Incident Manager automatically creates timeline events that mark key moments during an incident.
+   *       You can create custom timeline events to mark important events that Incident Manager can detect
+   *       automatically.</p>
    */
   public createTimelineEvent(
     args: CreateTimelineEventCommandInput,
@@ -297,7 +297,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   /**
    * @public
    * <p>Deletes all Regions in your replication set. Deleting the replication set deletes all
-   *             Incident Manager data.</p>
+   *       Incident Manager data.</p>
    */
   public deleteReplicationSet(
     args: DeleteReplicationSetCommandInput,
@@ -331,7 +331,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   /**
    * @public
    * <p>Deletes the resource policy that Resource Access Manager uses to share your Incident Manager
-   *             resource.</p>
+   *       resource.</p>
    */
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -364,8 +364,8 @@ export class SSMIncidents extends SSMIncidentsClient {
 
   /**
    * @public
-   * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this
-   *             response plan.</p>
+   * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this response
+   *       plan.</p>
    */
   public deleteResponsePlan(
     args: DeleteResponsePlanCommandInput,
@@ -597,7 +597,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   /**
    * @public
    * <p>Lists all incident records in your account. Use this command to retrieve the Amazon
-   *             Resource Name (ARN) of the incident record you want to update. </p>
+   *       Resource Name (ARN) of the incident record you want to update. </p>
    */
   public listIncidentRecords(
     args: ListIncidentRecordsCommandInput,
@@ -796,9 +796,8 @@ export class SSMIncidents extends SSMIncidentsClient {
   /**
    * @public
    * <p>Adds a resource policy to the specified response plan. The resource policy is used to
-   *             share the response plan using Resource Access Manager (RAM). For more
-   *             information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html">Cross-Region and cross-account incident
-   *             management</a>.</p>
+   *       share the response plan using Resource Access Manager (RAM). For more
+   *       information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html">Cross-Region and cross-account incident management</a>.</p>
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -832,7 +831,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   /**
    * @public
    * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or
-   *             manually. </p>
+   *       manually. </p>
    */
   public startIncident(
     args: StartIncidentCommandInput,
@@ -926,7 +925,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   /**
    * @public
    * <p>Update deletion protection to either allow or deny deletion of the final Region in a
-   *             replication set.</p>
+   *       replication set.</p>
    */
   public updateDeletionProtection(
     args: UpdateDeletionProtectionCommandInput,
@@ -959,9 +958,9 @@ export class SSMIncidents extends SSMIncidentsClient {
 
   /**
    * @public
-   * <p>Update the details of an incident record. You can use this operation to update an
-   *             incident record from the defined chat channel. For more information about using actions
-   *             in chat channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting through chat</a>.</p>
+   * <p>Update the details of an incident record. You can use this operation to update an incident
+   *       record from the defined chat channel. For more information about using actions in chat
+   *       channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting through chat</a>.</p>
    */
   public updateIncidentRecord(
     args: UpdateIncidentRecordCommandInput,
@@ -1093,8 +1092,7 @@ export class SSMIncidents extends SSMIncidentsClient {
 
   /**
    * @public
-   * <p>Updates a timeline event. You can update events of type <code>Custom
-   *             Event</code>.</p>
+   * <p>Updates a timeline event. You can update events of type <code>Custom Event</code>.</p>
    */
   public updateTimelineEvent(
     args: UpdateTimelineEventCommandInput,

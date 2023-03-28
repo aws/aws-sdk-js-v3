@@ -35,8 +35,8 @@ export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutpu
 
 /**
  * @public
- * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this
- *             response plan.</p>
+ * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this response
+ *       plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

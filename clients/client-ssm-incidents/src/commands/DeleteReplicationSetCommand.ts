@@ -36,7 +36,7 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
 /**
  * @public
  * <p>Deletes all Regions in your replication set. Deleting the replication set deletes all
- *             Incident Manager data.</p>
+ *       Incident Manager data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

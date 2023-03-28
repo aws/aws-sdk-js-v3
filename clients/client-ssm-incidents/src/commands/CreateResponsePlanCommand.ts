@@ -35,9 +35,9 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
 
 /**
  * @public
- * <p>Creates a response plan that automates the initial response to incidents. A response
- *             plan engages contacts, starts chat channel collaboration, and initiates runbooks at the
- *             beginning of an incident.</p>
+ * <p>Creates a response plan that automates the initial response to incidents. A response plan
+ *       engages contacts, starts chat channel collaboration, and initiates runbooks at the beginning
+ *       of an incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

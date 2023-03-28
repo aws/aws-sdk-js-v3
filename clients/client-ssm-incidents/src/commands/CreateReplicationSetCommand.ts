@@ -36,7 +36,7 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
 /**
  * @public
  * <p>A replication set replicates and encrypts your data to the provided Regions with the
- *             provided KMS key. </p>
+ *       provided KMS key. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
