@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
+
+**Note:** Version bump only for package @aws-sdk/client-mediastore-data
+
+
+
+
+
 # [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
 
 

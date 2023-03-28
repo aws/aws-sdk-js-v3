@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
+
+
+### Features
+
+* **client-ssm-incidents:** Increased maximum length of "TriggerDetails.rawData" to 10K characters and "IncidentSummary" to 8K characters. ([94fe54f](https://github.com/aws/aws-sdk-js-v3/commit/94fe54fd72715d97ba6f145df263e2ecd154861f))
+
+
+
+
+
 # [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
 
 

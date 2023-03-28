@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
+
+
+### Features
+
+* **client-ssm-contacts:** This release adds 12 new APIs as part of Oncall Schedule feature release, adds support for a new contact type: ONCALL_SCHEDULE. Check public documentation for AWS ssm-contacts for more information ([bfff52b](https://github.com/aws/aws-sdk-js-v3/commit/bfff52b40767c72ec6028f778509d40c63f4051b))
+
+
+
+
+
 # [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
 
 

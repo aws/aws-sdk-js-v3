@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
+
+
+### Features
+
+* **client-iot-data-plane:** Add endpoint ruleset support for cn-north-1. ([6b9470d](https://github.com/aws/aws-sdk-js-v3/commit/6b9470d007607f000e2bb8a4a69fba0b943f7a16))
+
+
+
+
+
 # [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
 
 

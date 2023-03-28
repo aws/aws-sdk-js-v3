@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
+
+
+### Bug Fixes
+
+* **docs:** reveal protected types ([#4583](https://github.com/aws/aws-sdk-js-v3/issues/4583)) ([7039533](https://github.com/aws/aws-sdk-js-v3/commit/70395336f80a54e087c58e84eca7a84abf951266))
+
+
+### Features
+
+* **client-iot-data-plane:** Add endpoint ruleset support for cn-north-1. ([6b9470d](https://github.com/aws/aws-sdk-js-v3/commit/6b9470d007607f000e2bb8a4a69fba0b943f7a16))
+* **client-ssm-contacts:** This release adds 12 new APIs as part of Oncall Schedule feature release, adds support for a new contact type: ONCALL_SCHEDULE. Check public documentation for AWS ssm-contacts for more information ([bfff52b](https://github.com/aws/aws-sdk-js-v3/commit/bfff52b40767c72ec6028f778509d40c63f4051b))
+* **client-ssm-incidents:** Increased maximum length of "TriggerDetails.rawData" to 10K characters and "IncidentSummary" to 8K characters. ([94fe54f](https://github.com/aws/aws-sdk-js-v3/commit/94fe54fd72715d97ba6f145df263e2ecd154861f))
+* **clients:** update client endpoints as of 2023-03-28 ([e7bfe9a](https://github.com/aws/aws-sdk-js-v3/commit/e7bfe9a5be05ac4bc689713a81274736b0c07ebf))
+
+
+
+
+
 # [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
 
 
