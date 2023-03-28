@@ -215,7 +215,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * import { S3Client, UploadPartCopyCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, UploadPartCopyCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // UploadPartCopyRequest
  *   Bucket: "STRING_VALUE", // required
  *   CopySource: "STRING_VALUE", // required
  *   CopySourceIfMatch: "STRING_VALUE",

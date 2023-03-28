@@ -44,7 +44,7 @@ export interface DeleteRemediationConfigurationCommandOutput
  * import { ConfigServiceClient, DeleteRemediationConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteRemediationConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeleteRemediationConfigurationRequest
  *   ConfigRuleName: "STRING_VALUE", // required
  *   ResourceType: "STRING_VALUE",
  * };

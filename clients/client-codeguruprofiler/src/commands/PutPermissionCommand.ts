@@ -67,10 +67,10 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * import { CodeGuruProfilerClient, PutPermissionCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, PutPermissionCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // PutPermissionRequest
  *   profilingGroupName: "STRING_VALUE", // required
  *   actionGroup: "STRING_VALUE", // required
- *   principals: [ // required
+ *   principals: [ // Principals // required
  *     "STRING_VALUE",
  *   ],
  *   revisionId: "STRING_VALUE",

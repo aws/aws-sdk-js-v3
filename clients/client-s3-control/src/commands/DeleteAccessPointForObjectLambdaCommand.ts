@@ -62,7 +62,7 @@ export interface DeleteAccessPointForObjectLambdaCommandOutput extends __Metadat
  * import { S3ControlClient, DeleteAccessPointForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteAccessPointForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // DeleteAccessPointForObjectLambdaRequest
  *   AccountId: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  * };

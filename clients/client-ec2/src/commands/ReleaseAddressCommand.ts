@@ -56,7 +56,7 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ReleaseAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReleaseAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ReleaseAddressRequest
  *   AllocationId: "STRING_VALUE",
  *   PublicIp: "STRING_VALUE",
  *   NetworkBorderGroup: "STRING_VALUE",

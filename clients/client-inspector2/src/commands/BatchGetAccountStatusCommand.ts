@@ -42,8 +42,8 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * import { Inspector2Client, BatchGetAccountStatusCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, BatchGetAccountStatusCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
- *   accountIds: [
+ * const input = { // BatchGetAccountStatusRequest
+ *   accountIds: [ // AccountIdSet
  *     "STRING_VALUE",
  *   ],
  * };

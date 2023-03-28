@@ -47,12 +47,12 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * import { RedshiftClient, CreateClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // CreateClusterSnapshotMessage
  *   SnapshotIdentifier: "STRING_VALUE", // required
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   ManualSnapshotRetentionPeriod: Number("int"),
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

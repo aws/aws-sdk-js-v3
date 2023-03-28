@@ -42,23 +42,23 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * import { MediaLiveClient, UpdateChannelClassCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateChannelClassCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // UpdateChannelClassRequest
  *   ChannelClass: "STANDARD" || "SINGLE_PIPELINE", // required
  *   ChannelId: "STRING_VALUE", // required
- *   Destinations: [
- *     {
+ *   Destinations: [ // __listOfOutputDestination
+ *     { // OutputDestination
  *       Id: "STRING_VALUE",
- *       MediaPackageSettings: [
- *         {
+ *       MediaPackageSettings: [ // __listOfMediaPackageOutputDestinationSettings
+ *         { // MediaPackageOutputDestinationSettings
  *           ChannelId: "STRING_VALUE",
  *         },
  *       ],
- *       MultiplexSettings: {
+ *       MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
  *         MultiplexId: "STRING_VALUE",
  *         ProgramName: "STRING_VALUE",
  *       },
- *       Settings: [
- *         {
+ *       Settings: [ // __listOfOutputDestinationSettings
+ *         { // OutputDestinationSettings
  *           PasswordParam: "STRING_VALUE",
  *           StreamName: "STRING_VALUE",
  *           Url: "STRING_VALUE",

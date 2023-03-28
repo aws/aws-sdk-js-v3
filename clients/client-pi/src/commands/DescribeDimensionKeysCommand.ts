@@ -47,21 +47,21 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * import { PIClient, DescribeDimensionKeysCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, DescribeDimensionKeysCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
- * const input = {
+ * const input = { // DescribeDimensionKeysRequest
  *   ServiceType: "RDS" || "DOCDB", // required
  *   Identifier: "STRING_VALUE", // required
  *   StartTime: new Date("TIMESTAMP"), // required
  *   EndTime: new Date("TIMESTAMP"), // required
  *   Metric: "STRING_VALUE", // required
  *   PeriodInSeconds: Number("int"),
- *   GroupBy: {
+ *   GroupBy: { // DimensionGroup
  *     Group: "STRING_VALUE", // required
- *     Dimensions: [
+ *     Dimensions: [ // RequestStringList
  *       "STRING_VALUE",
  *     ],
  *     Limit: Number("int"),
  *   },
- *   AdditionalMetrics: [
+ *   AdditionalMetrics: [ // AdditionalMetricsList
  *     "STRING_VALUE",
  *   ],
  *   PartitionBy: {
@@ -71,7 +71,7 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  *     ],
  *     Limit: Number("int"),
  *   },
- *   Filter: {
+ *   Filter: { // MetricQueryFilterMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   MaxResults: Number("int"),

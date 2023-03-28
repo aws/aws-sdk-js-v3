@@ -46,7 +46,7 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * import { RekognitionClient, DescribeCollectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeCollectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // DescribeCollectionRequest
  *   CollectionId: "STRING_VALUE", // required
  * };
  * const command = new DescribeCollectionCommand(input);

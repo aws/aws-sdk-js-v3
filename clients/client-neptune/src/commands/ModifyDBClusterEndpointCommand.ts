@@ -42,10 +42,10 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
  * import { NeptuneClient, ModifyDBClusterEndpointCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBClusterEndpointCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ModifyDBClusterEndpointMessage
  *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
  *   EndpointType: "STRING_VALUE",
- *   StaticMembers: [
+ *   StaticMembers: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   ExcludedMembers: [

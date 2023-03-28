@@ -46,7 +46,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * import { CodeStarClient, DescribeProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DescribeProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
- * const input = {
+ * const input = { // DescribeProjectRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DescribeProjectCommand(input);

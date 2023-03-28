@@ -44,7 +44,7 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
  * import { LambdaClient, PutProvisionedConcurrencyConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutProvisionedConcurrencyConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // PutProvisionedConcurrencyConfigRequest
  *   FunctionName: "STRING_VALUE", // required
  *   Qualifier: "STRING_VALUE", // required
  *   ProvisionedConcurrentExecutions: Number("int"), // required

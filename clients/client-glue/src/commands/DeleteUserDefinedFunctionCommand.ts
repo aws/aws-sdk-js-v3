@@ -42,7 +42,7 @@ export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefine
  * import { GlueClient, DeleteUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // DeleteUserDefinedFunctionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   FunctionName: "STRING_VALUE", // required

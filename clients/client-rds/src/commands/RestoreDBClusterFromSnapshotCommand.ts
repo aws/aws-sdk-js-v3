@@ -62,8 +62,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * import { RDSClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
- *   AvailabilityZones: [
+ * const input = { // RestoreDBClusterFromSnapshotMessage
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
  *   DBClusterIdentifier: "STRING_VALUE", // required
@@ -74,11 +74,11 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   DBSubnetGroupName: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE",
  *   OptionGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -86,11 +86,11 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   KmsKeyId: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
  *   BacktrackWindow: Number("long"),
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   EngineMode: "STRING_VALUE",
- *   ScalingConfiguration: {
+ *   ScalingConfiguration: { // ScalingConfiguration
  *     MinCapacity: Number("int"),
  *     MaxCapacity: Number("int"),
  *     AutoPause: true || false,
@@ -107,7 +107,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *   StorageType: "STRING_VALUE",
  *   Iops: Number("int"),
  *   PubliclyAccessible: true || false,
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

@@ -42,7 +42,7 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * import { AmpClient, PutRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, PutRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
- * const input = {
+ * const input = { // PutRuleGroupsNamespaceRequest
  *   workspaceId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   data: "BLOB_VALUE", // required

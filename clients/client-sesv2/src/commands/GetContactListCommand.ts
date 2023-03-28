@@ -43,7 +43,7 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  * import { SESv2Client, GetContactListCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetContactListCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // GetContactListRequest
  *   ContactListName: "STRING_VALUE", // required
  * };
  * const command = new GetContactListCommand(input);

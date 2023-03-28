@@ -42,12 +42,12 @@ export interface PostCommentForPullRequestCommandOutput extends PostCommentForPu
  * import { CodeCommitClient, PostCommentForPullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PostCommentForPullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // PostCommentForPullRequestInput
  *   pullRequestId: "STRING_VALUE", // required
  *   repositoryName: "STRING_VALUE", // required
  *   beforeCommitId: "STRING_VALUE", // required
  *   afterCommitId: "STRING_VALUE", // required
- *   location: {
+ *   location: { // Location
  *     filePath: "STRING_VALUE",
  *     filePosition: Number("long"),
  *     relativeFileVersion: "STRING_VALUE",

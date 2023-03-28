@@ -41,8 +41,8 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapInputOutput
  * import { RestXmlProtocolClient, FlattenedXmlMapCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, FlattenedXmlMapCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
- *   myMap: {
+ * const input = { // FlattenedXmlMapInputOutput
+ *   myMap: { // FooEnumMap
  *     "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
  *   },
  * };

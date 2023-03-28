@@ -114,26 +114,26 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * import { DynamoDBClient, TransactWriteItemsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, TransactWriteItemsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
- *   TransactItems: [ // required
- *     {
- *       ConditionCheck: {
- *         Key: { // required
- *           "<keys>": { // Union: only one key present
+ * const input = { // TransactWriteItemsInput
+ *   TransactItems: [ // TransactWriteItemList // required
+ *     { // TransactWriteItem
+ *       ConditionCheck: { // ConditionCheck
+ *         Key: { // Key // required
+ *           "<keys>": { // AttributeValue Union: only one key present
  *             S: "STRING_VALUE",
  *             N: "STRING_VALUE",
  *             B: "BLOB_VALUE",
- *             SS: [
+ *             SS: [ // StringSetAttributeValue
  *               "STRING_VALUE",
  *             ],
- *             NS: [
+ *             NS: [ // NumberSetAttributeValue
  *               "STRING_VALUE",
  *             ],
- *             BS: [
+ *             BS: [ // BinarySetAttributeValue
  *               "BLOB_VALUE",
  *             ],
- *             M: {
- *               "<keys>": { // Union: only one key present
+ *             M: { // MapAttributeValue
+ *               "<keys>": {//  Union: only one key present
  *                 S: "STRING_VALUE",
  *                 N: "STRING_VALUE",
  *                 B: "BLOB_VALUE",
@@ -149,54 +149,32 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *                 M: {
  *                   "<keys>": "<AttributeValue>",
  *                 },
- *                 L: [
- *                   { // Union: only one key present
- *                     S: "<AttributeValue>",
- *                     N: "<AttributeValue>",
- *                     B: "<AttributeValue>",
- *                     SS: "<AttributeValue>",
- *                     NS: "<AttributeValue>",
- *                     BS: "<AttributeValue>",
- *                     M: "<AttributeValue>",
- *                     L: [
- *                       { // Union: only one key present
- *                         S: "<AttributeValue>",
- *                         N: "<AttributeValue>",
- *                         B: "<AttributeValue>",
- *                         SS: "<AttributeValue>",
- *                         NS: "<AttributeValue>",
- *                         BS: "<AttributeValue>",
- *                         M: "<AttributeValue>",
- *                         L: "<AttributeValue>",
- *                         NULL: true || false,
- *                         BOOL: true || false,
- *                       },
- *                     ],
- *                     NULL: true || false,
- *                     BOOL: true || false,
- *                   },
+ *                 L: [ // ListAttributeValue
+ *                   "<AttributeValue>",
  *                 ],
- *                 NULL: "<AttributeValue>",
- *                 BOOL: "<AttributeValue>",
+ *                 NULL: true || false,
+ *                 BOOL: true || false,
  *               },
  *             },
- *             L: "<AttributeValue>",
- *             NULL: "<AttributeValue>",
- *             BOOL: "<AttributeValue>",
+ *             L: [
+ *               "<AttributeValue>",
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
  *           },
  *         },
  *         TableName: "STRING_VALUE", // required
  *         ConditionExpression: "STRING_VALUE", // required
- *         ExpressionAttributeNames: {
+ *         ExpressionAttributeNames: { // ExpressionAttributeNameMap
  *           "<keys>": "STRING_VALUE",
  *         },
- *         ExpressionAttributeValues: {
+ *         ExpressionAttributeValues: { // ExpressionAttributeValueMap
  *           "<keys>": "<AttributeValue>",
  *         },
  *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
  *       },
- *       Put: {
- *         Item: { // required
+ *       Put: { // Put
+ *         Item: { // PutItemInputAttributeMap // required
  *           "<keys>": "<AttributeValue>",
  *         },
  *         TableName: "STRING_VALUE", // required
@@ -209,7 +187,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *         },
  *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
  *       },
- *       Delete: {
+ *       Delete: { // Delete
  *         Key: { // required
  *           "<keys>": "<AttributeValue>",
  *         },
@@ -223,7 +201,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *         },
  *         ReturnValuesOnConditionCheckFailure: "ALL_OLD" || "NONE",
  *       },
- *       Update: {
+ *       Update: { // Update
  *         Key: { // required
  *           "<keys>": "<AttributeValue>",
  *         },

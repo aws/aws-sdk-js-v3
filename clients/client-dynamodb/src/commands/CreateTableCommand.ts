@@ -54,22 +54,22 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * import { DynamoDBClient, CreateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, CreateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
- *   AttributeDefinitions: [ // required
- *     {
+ * const input = { // CreateTableInput
+ *   AttributeDefinitions: [ // AttributeDefinitions // required
+ *     { // AttributeDefinition
  *       AttributeName: "STRING_VALUE", // required
  *       AttributeType: "S" || "N" || "B", // required
  *     },
  *   ],
  *   TableName: "STRING_VALUE", // required
- *   KeySchema: [ // required
- *     {
+ *   KeySchema: [ // KeySchema // required
+ *     { // KeySchemaElement
  *       AttributeName: "STRING_VALUE", // required
  *       KeyType: "HASH" || "RANGE", // required
  *     },
  *   ],
- *   LocalSecondaryIndexes: [
- *     {
+ *   LocalSecondaryIndexes: [ // LocalSecondaryIndexList
+ *     { // LocalSecondaryIndex
  *       IndexName: "STRING_VALUE", // required
  *       KeySchema: [ // required
  *         {
@@ -77,16 +77,16 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *           KeyType: "HASH" || "RANGE", // required
  *         },
  *       ],
- *       Projection: {
+ *       Projection: { // Projection
  *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
- *         NonKeyAttributes: [
+ *         NonKeyAttributes: [ // NonKeyAttributeNameList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
  *   ],
- *   GlobalSecondaryIndexes: [
- *     {
+ *   GlobalSecondaryIndexes: [ // GlobalSecondaryIndexList
+ *     { // GlobalSecondaryIndex
  *       IndexName: "STRING_VALUE", // required
  *       KeySchema: [ // required
  *         {
@@ -100,7 +100,7 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *           "STRING_VALUE",
  *         ],
  *       },
- *       ProvisionedThroughput: {
+ *       ProvisionedThroughput: { // ProvisionedThroughput
  *         ReadCapacityUnits: Number("long"), // required
  *         WriteCapacityUnits: Number("long"), // required
  *       },
@@ -111,17 +111,17 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *     ReadCapacityUnits: Number("long"), // required
  *     WriteCapacityUnits: Number("long"), // required
  *   },
- *   StreamSpecification: {
+ *   StreamSpecification: { // StreamSpecification
  *     StreamEnabled: true || false, // required
  *     StreamViewType: "NEW_IMAGE" || "OLD_IMAGE" || "NEW_AND_OLD_IMAGES" || "KEYS_ONLY",
  *   },
- *   SSESpecification: {
+ *   SSESpecification: { // SSESpecification
  *     Enabled: true || false,
  *     SSEType: "AES256" || "KMS",
  *     KMSMasterKeyId: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

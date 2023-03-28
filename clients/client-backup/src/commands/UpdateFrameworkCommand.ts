@@ -43,26 +43,26 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * import { BackupClient, UpdateFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // UpdateFrameworkInput
  *   FrameworkName: "STRING_VALUE", // required
  *   FrameworkDescription: "STRING_VALUE",
- *   FrameworkControls: [
- *     {
+ *   FrameworkControls: [ // FrameworkControls
+ *     { // FrameworkControl
  *       ControlName: "STRING_VALUE", // required
- *       ControlInputParameters: [
- *         {
+ *       ControlInputParameters: [ // ControlInputParameters
+ *         { // ControlInputParameter
  *           ParameterName: "STRING_VALUE",
  *           ParameterValue: "STRING_VALUE",
  *         },
  *       ],
- *       ControlScope: {
- *         ComplianceResourceIds: [
+ *       ControlScope: { // ControlScope
+ *         ComplianceResourceIds: [ // ComplianceResourceIdList
  *           "STRING_VALUE",
  *         ],
- *         ComplianceResourceTypes: [
+ *         ComplianceResourceTypes: [ // ResourceTypeList
  *           "STRING_VALUE",
  *         ],
- *         Tags: {
+ *         Tags: { // stringMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },

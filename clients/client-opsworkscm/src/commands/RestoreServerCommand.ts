@@ -60,7 +60,7 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  * import { OpsWorksCMClient, RestoreServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, RestoreServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // RestoreServerRequest
  *   BackupId: "STRING_VALUE", // required
  *   ServerName: "STRING_VALUE", // required
  *   InstanceType: "STRING_VALUE",

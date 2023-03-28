@@ -42,7 +42,7 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * import { WisdomClient, GetAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // GetAssistantRequest
  *   assistantId: "STRING_VALUE", // required
  * };
  * const command = new GetAssistantCommand(input);

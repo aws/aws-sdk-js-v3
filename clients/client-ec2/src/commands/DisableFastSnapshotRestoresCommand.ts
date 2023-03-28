@@ -42,11 +42,11 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
  * import { EC2Client, DisableFastSnapshotRestoresCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableFastSnapshotRestoresCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   AvailabilityZones: [ // required
+ * const input = { // DisableFastSnapshotRestoresRequest
+ *   AvailabilityZones: [ // AvailabilityZoneStringList // required
  *     "STRING_VALUE",
  *   ],
- *   SourceSnapshotIds: [ // required
+ *   SourceSnapshotIds: [ // SnapshotIdStringList // required
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

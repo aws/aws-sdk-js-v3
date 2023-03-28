@@ -43,7 +43,7 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * import { MachineLearningClient, UpdateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // UpdateMLModelInput
  *   MLModelId: "STRING_VALUE", // required
  *   MLModelName: "STRING_VALUE",
  *   ScoreThreshold: Number("float"),

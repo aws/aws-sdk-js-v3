@@ -46,7 +46,7 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * import { CodeStarConnectionsClient, GetConnectionCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, GetConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
- * const input = {
+ * const input = { // GetConnectionInput
  *   ConnectionArn: "STRING_VALUE", // required
  * };
  * const command = new GetConnectionCommand(input);

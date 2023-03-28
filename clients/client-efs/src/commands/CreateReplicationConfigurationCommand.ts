@@ -125,10 +125,10 @@ export interface CreateReplicationConfigurationCommandOutput
  * import { EFSClient, CreateReplicationConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateReplicationConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // CreateReplicationConfigurationRequest
  *   SourceFileSystemId: "STRING_VALUE", // required
- *   Destinations: [ // required
- *     {
+ *   Destinations: [ // DestinationsToCreate // required
+ *     { // DestinationToCreate
  *       Region: "STRING_VALUE",
  *       AvailabilityZoneName: "STRING_VALUE",
  *       KmsKeyId: "STRING_VALUE",

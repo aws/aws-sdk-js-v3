@@ -98,7 +98,7 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * import { Route53Client, ListHostedZonesByNameCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListHostedZonesByNameCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // ListHostedZonesByNameRequest
  *   DNSName: "STRING_VALUE",
  *   HostedZoneId: "STRING_VALUE",
  *   MaxItems: Number("int"),

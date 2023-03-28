@@ -42,7 +42,7 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, CancelJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CancelJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // CancelJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new CancelJobCommand(input);

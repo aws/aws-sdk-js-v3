@@ -42,7 +42,7 @@ export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsRes
  * import { MediaPackageVodClient, ListPackagingGroupsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ListPackagingGroupsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // ListPackagingGroupsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

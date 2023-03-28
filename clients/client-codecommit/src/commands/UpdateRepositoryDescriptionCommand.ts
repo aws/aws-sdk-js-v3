@@ -49,7 +49,7 @@ export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBear
  * import { CodeCommitClient, UpdateRepositoryDescriptionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateRepositoryDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // UpdateRepositoryDescriptionInput
  *   repositoryName: "STRING_VALUE", // required
  *   repositoryDescription: "STRING_VALUE",
  * };

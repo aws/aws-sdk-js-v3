@@ -49,7 +49,7 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * import { IoTClient, ListSecurityProfilesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListSecurityProfilesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListSecurityProfilesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   dimensionName: "STRING_VALUE",

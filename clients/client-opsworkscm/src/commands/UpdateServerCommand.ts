@@ -47,7 +47,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * import { OpsWorksCMClient, UpdateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, UpdateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // UpdateServerRequest
  *   DisableAutomatedBackup: true || false,
  *   BackupRetentionCount: Number("int"),
  *   ServerName: "STRING_VALUE", // required

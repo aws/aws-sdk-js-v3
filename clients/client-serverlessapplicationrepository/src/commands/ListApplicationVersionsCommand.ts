@@ -46,7 +46,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * import { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
- * const input = {
+ * const input = { // ListApplicationVersionsRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   MaxItems: Number("int"),
  *   NextToken: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * import { AuditManagerClient, RegisterAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, RegisterAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // RegisterAccountRequest
  *   kmsKey: "STRING_VALUE",
  *   delegatedAdminAccount: "STRING_VALUE",
  * };

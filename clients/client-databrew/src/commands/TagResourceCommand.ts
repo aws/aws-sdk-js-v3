@@ -43,9 +43,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { DataBrewClient, TagResourceCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, TagResourceCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -45,26 +45,26 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * import { IoTWirelessClient, UpdateLogLevelsByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateLogLevelsByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // UpdateLogLevelsByResourceTypesRequest
  *   DefaultLogLevel: "INFO" || "ERROR" || "DISABLED",
- *   WirelessDeviceLogOptions: [
- *     {
+ *   WirelessDeviceLogOptions: [ // WirelessDeviceLogOptionList
+ *     { // WirelessDeviceLogOption
  *       Type: "Sidewalk" || "LoRaWAN", // required
  *       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
- *       Events: [
- *         {
+ *       Events: [ // WirelessDeviceEventLogOptionList
+ *         { // WirelessDeviceEventLogOption
  *           Event: "Join" || "Rejoin" || "Uplink_Data" || "Downlink_Data" || "Registration", // required
  *           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
  *         },
  *       ],
  *     },
  *   ],
- *   WirelessGatewayLogOptions: [
- *     {
+ *   WirelessGatewayLogOptions: [ // WirelessGatewayLogOptionList
+ *     { // WirelessGatewayLogOption
  *       Type: "LoRaWAN", // required
  *       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
- *       Events: [
- *         {
+ *       Events: [ // WirelessGatewayEventLogOptionList
+ *         { // WirelessGatewayEventLogOption
  *           Event: "CUPS_Request" || "Certificate", // required
  *           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
  *         },

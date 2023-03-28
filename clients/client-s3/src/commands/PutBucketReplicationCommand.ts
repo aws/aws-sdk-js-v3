@@ -104,26 +104,26 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketReplicationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketReplicationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketReplicationRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
  *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   ReplicationConfiguration: {
+ *   ReplicationConfiguration: { // ReplicationConfiguration
  *     Role: "STRING_VALUE", // required
- *     Rules: [ // required
- *       {
+ *     Rules: [ // ReplicationRules // required
+ *       { // ReplicationRule
  *         ID: "STRING_VALUE",
  *         Priority: Number("int"),
  *         Prefix: "STRING_VALUE",
- *         Filter: { // Union: only one key present
+ *         Filter: { // ReplicationRuleFilter Union: only one key present
  *           Prefix: "STRING_VALUE",
- *           Tag: {
+ *           Tag: { // Tag
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
- *           And: {
+ *           And: { // ReplicationRuleAndOperator
  *             Prefix: "STRING_VALUE",
- *             Tags: [
+ *             Tags: [ // TagSet
  *               {
  *                 Key: "STRING_VALUE", // required
  *                 Value: "STRING_VALUE", // required
@@ -132,41 +132,41 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *           },
  *         },
  *         Status: "Enabled" || "Disabled", // required
- *         SourceSelectionCriteria: {
- *           SseKmsEncryptedObjects: {
+ *         SourceSelectionCriteria: { // SourceSelectionCriteria
+ *           SseKmsEncryptedObjects: { // SseKmsEncryptedObjects
  *             Status: "Enabled" || "Disabled", // required
  *           },
- *           ReplicaModifications: {
+ *           ReplicaModifications: { // ReplicaModifications
  *             Status: "Enabled" || "Disabled", // required
  *           },
  *         },
- *         ExistingObjectReplication: {
+ *         ExistingObjectReplication: { // ExistingObjectReplication
  *           Status: "Enabled" || "Disabled", // required
  *         },
- *         Destination: {
+ *         Destination: { // Destination
  *           Bucket: "STRING_VALUE", // required
  *           Account: "STRING_VALUE",
  *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
- *           AccessControlTranslation: {
+ *           AccessControlTranslation: { // AccessControlTranslation
  *             Owner: "Destination", // required
  *           },
- *           EncryptionConfiguration: {
+ *           EncryptionConfiguration: { // EncryptionConfiguration
  *             ReplicaKmsKeyID: "STRING_VALUE",
  *           },
- *           ReplicationTime: {
+ *           ReplicationTime: { // ReplicationTime
  *             Status: "Enabled" || "Disabled", // required
- *             Time: {
+ *             Time: { // ReplicationTimeValue
  *               Minutes: Number("int"),
  *             },
  *           },
- *           Metrics: {
+ *           Metrics: { // Metrics
  *             Status: "Enabled" || "Disabled", // required
  *             EventThreshold: {
  *               Minutes: Number("int"),
  *             },
  *           },
  *         },
- *         DeleteMarkerReplication: {
+ *         DeleteMarkerReplication: { // DeleteMarkerReplication
  *           Status: "Enabled" || "Disabled",
  *         },
  *       },

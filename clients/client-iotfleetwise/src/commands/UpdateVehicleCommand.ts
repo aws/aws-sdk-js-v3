@@ -42,11 +42,11 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * import { IoTFleetWiseClient, UpdateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // UpdateVehicleRequest
  *   vehicleName: "STRING_VALUE", // required
  *   modelManifestArn: "STRING_VALUE",
  *   decoderManifestArn: "STRING_VALUE",
- *   attributes: {
+ *   attributes: { // attributesMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   attributeUpdateMode: "STRING_VALUE",

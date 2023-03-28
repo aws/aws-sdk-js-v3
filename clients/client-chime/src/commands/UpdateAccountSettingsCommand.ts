@@ -46,9 +46,9 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * import { ChimeClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // UpdateAccountSettingsRequest
  *   AccountId: "STRING_VALUE", // required
- *   AccountSettings: {
+ *   AccountSettings: { // AccountSettings
  *     DisableRemoteControl: true || false,
  *     EnableDialOut: true || false,
  *   },

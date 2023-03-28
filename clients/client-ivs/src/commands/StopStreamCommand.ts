@@ -49,7 +49,7 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * import { IvsClient, StopStreamCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, StopStreamCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
- * const input = {
+ * const input = { // StopStreamRequest
  *   channelArn: "STRING_VALUE", // required
  * };
  * const command = new StopStreamCommand(input);

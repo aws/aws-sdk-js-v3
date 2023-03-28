@@ -70,7 +70,7 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  * import { S3ControlClient, ListAccessPointsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListAccessPointsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // ListAccessPointsRequest
  *   AccountId: "STRING_VALUE",
  *   Bucket: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

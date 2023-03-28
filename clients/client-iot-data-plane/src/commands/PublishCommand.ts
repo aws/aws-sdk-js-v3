@@ -48,7 +48,7 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * import { IoTDataPlaneClient, PublishCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, PublishCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
- * const input = {
+ * const input = { // PublishRequest
  *   topic: "STRING_VALUE", // required
  *   qos: Number("int"),
  *   retain: true || false,

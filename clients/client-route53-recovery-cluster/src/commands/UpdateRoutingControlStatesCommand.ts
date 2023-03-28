@@ -79,14 +79,14 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  * import { Route53RecoveryClusterClient, UpdateRoutingControlStatesCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
  * // const { Route53RecoveryClusterClient, UpdateRoutingControlStatesCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
  * const client = new Route53RecoveryClusterClient(config);
- * const input = {
- *   UpdateRoutingControlStateEntries: [ // required
- *     {
+ * const input = { // UpdateRoutingControlStatesRequest
+ *   UpdateRoutingControlStateEntries: [ // UpdateRoutingControlStateEntries // required
+ *     { // UpdateRoutingControlStateEntry
  *       RoutingControlArn: "STRING_VALUE", // required
  *       RoutingControlState: "STRING_VALUE", // required
  *     },
  *   ],
- *   SafetyRulesToOverride: [
+ *   SafetyRulesToOverride: [ // Arns
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,7 +42,7 @@ export interface ListWorkerFleetsCommandOutput extends ListWorkerFleetsResponse,
  * import { IoTRoboRunnerClient, ListWorkerFleetsCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, ListWorkerFleetsCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // ListWorkerFleetsRequest
  *   site: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

@@ -47,7 +47,7 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * import { ApplicationCostProfilerClient, DeleteReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, DeleteReportDefinitionCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
- * const input = {
+ * const input = { // DeleteReportDefinitionRequest
  *   reportId: "STRING_VALUE", // required
  * };
  * const command = new DeleteReportDefinitionCommand(input);

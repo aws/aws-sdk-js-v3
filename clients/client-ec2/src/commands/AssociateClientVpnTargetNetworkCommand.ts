@@ -45,7 +45,7 @@ export interface AssociateClientVpnTargetNetworkCommandOutput
  * import { EC2Client, AssociateClientVpnTargetNetworkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateClientVpnTargetNetworkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AssociateClientVpnTargetNetworkRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   SubnetId: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",

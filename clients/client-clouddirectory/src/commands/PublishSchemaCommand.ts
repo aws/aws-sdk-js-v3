@@ -42,7 +42,7 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  * import { CloudDirectoryClient, PublishSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, PublishSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // PublishSchemaRequest
  *   DevelopmentSchemaArn: "STRING_VALUE", // required
  *   Version: "STRING_VALUE", // required
  *   MinorVersion: "STRING_VALUE",

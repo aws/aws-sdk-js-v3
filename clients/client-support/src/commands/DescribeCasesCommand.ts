@@ -72,8 +72,8 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  * import { SupportClient, DescribeCasesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeCasesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
- * const input = {
- *   caseIdList: [
+ * const input = { // DescribeCasesRequest
+ *   caseIdList: [ // CaseIdList
  *     "STRING_VALUE",
  *   ],
  *   displayId: "STRING_VALUE",

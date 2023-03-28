@@ -42,7 +42,7 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * import { PinpointClient, GetApplicationSettingsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetApplicationSettingsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetApplicationSettingsRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new GetApplicationSettingsCommand(input);

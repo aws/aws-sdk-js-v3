@@ -43,7 +43,7 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * import { ChimeClient, GetVoiceConnectorGroupCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // GetVoiceConnectorGroupRequest
  *   VoiceConnectorGroupId: "STRING_VALUE", // required
  * };
  * const command = new GetVoiceConnectorGroupCommand(input);

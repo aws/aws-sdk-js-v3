@@ -44,8 +44,8 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * import { WorkSpacesClient, DescribeWorkspaceDirectoriesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceDirectoriesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
- *   DirectoryIds: [
+ * const input = { // DescribeWorkspaceDirectoriesRequest
+ *   DirectoryIds: [ // DirectoryIdList
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

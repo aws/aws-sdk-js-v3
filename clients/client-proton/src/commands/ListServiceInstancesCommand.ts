@@ -47,12 +47,12 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * import { ProtonClient, ListServiceInstancesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceInstancesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // ListServiceInstancesInput
  *   serviceName: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filters: [
- *     {
+ *   filters: [ // ListServiceInstancesFilterList
+ *     { // ListServiceInstancesFilter
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

@@ -56,14 +56,14 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * import { SecretsManagerClient, ListSecretsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ListSecretsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // ListSecretsRequest
  *   IncludePlannedDeletion: true || false,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FiltersListType
+ *     { // Filter
  *       Key: "description" || "name" || "tag-key" || "tag-value" || "primary-region" || "owning-service" || "all",
- *       Values: [
+ *       Values: [ // FilterValuesStringList
  *         "STRING_VALUE",
  *       ],
  *     },

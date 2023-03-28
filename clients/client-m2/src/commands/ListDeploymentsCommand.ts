@@ -44,7 +44,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * import { M2Client, ListDeploymentsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListDeploymentsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // ListDeploymentsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   applicationId: "STRING_VALUE", // required

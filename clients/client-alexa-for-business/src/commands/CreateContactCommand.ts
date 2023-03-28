@@ -46,26 +46,26 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * import { AlexaForBusinessClient, CreateContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // CreateContactRequest
  *   DisplayName: "STRING_VALUE",
  *   FirstName: "STRING_VALUE", // required
  *   LastName: "STRING_VALUE",
  *   PhoneNumber: "STRING_VALUE",
- *   PhoneNumbers: [
- *     {
+ *   PhoneNumbers: [ // PhoneNumberList
+ *     { // PhoneNumber
  *       Number: "STRING_VALUE", // required
  *       Type: "STRING_VALUE", // required
  *     },
  *   ],
- *   SipAddresses: [
- *     {
+ *   SipAddresses: [ // SipAddressList
+ *     { // SipAddress
  *       Uri: "STRING_VALUE", // required
  *       Type: "STRING_VALUE", // required
  *     },
  *   ],
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -146,20 +146,20 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketAnalyticsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAnalyticsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketAnalyticsConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
- *   AnalyticsConfiguration: {
+ *   AnalyticsConfiguration: { // AnalyticsConfiguration
  *     Id: "STRING_VALUE", // required
- *     Filter: { // Union: only one key present
+ *     Filter: { // AnalyticsFilter Union: only one key present
  *       Prefix: "STRING_VALUE",
- *       Tag: {
+ *       Tag: { // Tag
  *         Key: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
- *       And: {
+ *       And: { // AnalyticsAndOperator
  *         Prefix: "STRING_VALUE",
- *         Tags: [
+ *         Tags: [ // TagSet
  *           {
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
@@ -167,11 +167,11 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  *         ],
  *       },
  *     },
- *     StorageClassAnalysis: {
- *       DataExport: {
+ *     StorageClassAnalysis: { // StorageClassAnalysis
+ *       DataExport: { // StorageClassAnalysisDataExport
  *         OutputSchemaVersion: "V_1", // required
- *         Destination: {
- *           S3BucketDestination: {
+ *         Destination: { // AnalyticsExportDestination
+ *           S3BucketDestination: { // AnalyticsS3BucketDestination
  *             Format: "CSV", // required
  *             BucketAccountId: "STRING_VALUE",
  *             Bucket: "STRING_VALUE", // required

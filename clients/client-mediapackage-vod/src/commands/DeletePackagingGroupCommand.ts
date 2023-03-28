@@ -42,7 +42,7 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  * import { MediaPackageVodClient, DeletePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DeletePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // DeletePackagingGroupRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DeletePackagingGroupCommand(input);

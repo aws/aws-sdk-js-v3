@@ -44,7 +44,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { ComprehendClient, PutResourcePolicyCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, PutResourcePolicyCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required
  *   ResourcePolicy: "STRING_VALUE", // required
  *   PolicyRevisionId: "STRING_VALUE",

@@ -45,7 +45,7 @@ export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBeare
  * import { LightsailClient, GetAlarmsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetAlarmsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetAlarmsRequest
  *   alarmName: "STRING_VALUE",
  *   pageToken: "STRING_VALUE",
  *   monitoredResourceName: "STRING_VALUE",

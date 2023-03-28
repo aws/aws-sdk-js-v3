@@ -50,9 +50,9 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * import { DataSyncClient, UpdateTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // UpdateTaskExecutionRequest
  *   TaskExecutionArn: "STRING_VALUE", // required
- *   Options: {
+ *   Options: { // Options
  *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
  *     OverwriteMode: "ALWAYS" || "NEVER",
  *     Atime: "NONE" || "BEST_EFFORT",

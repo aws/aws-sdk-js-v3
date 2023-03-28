@@ -42,37 +42,37 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * import { MediaLiveClient, BatchUpdateScheduleCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, BatchUpdateScheduleCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // BatchUpdateScheduleRequest
  *   ChannelId: "STRING_VALUE", // required
- *   Creates: {
- *     ScheduleActions: [ // required
- *       {
+ *   Creates: { // BatchScheduleActionCreateRequest
+ *     ScheduleActions: [ // __listOfScheduleAction // required
+ *       { // ScheduleAction
  *         ActionName: "STRING_VALUE", // required
- *         ScheduleActionSettings: {
- *           HlsId3SegmentTaggingSettings: {
+ *         ScheduleActionSettings: { // ScheduleActionSettings
+ *           HlsId3SegmentTaggingSettings: { // HlsId3SegmentTaggingScheduleActionSettings
  *             Tag: "STRING_VALUE",
  *             Id3: "STRING_VALUE",
  *           },
- *           HlsTimedMetadataSettings: {
+ *           HlsTimedMetadataSettings: { // HlsTimedMetadataScheduleActionSettings
  *             Id3: "STRING_VALUE", // required
  *           },
- *           InputPrepareSettings: {
+ *           InputPrepareSettings: { // InputPrepareScheduleActionSettings
  *             InputAttachmentNameReference: "STRING_VALUE",
- *             InputClippingSettings: {
+ *             InputClippingSettings: { // InputClippingSettings
  *               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
- *               StartTimecode: {
+ *               StartTimecode: { // StartTimecode
  *                 Timecode: "STRING_VALUE",
  *               },
- *               StopTimecode: {
+ *               StopTimecode: { // StopTimecode
  *                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
  *                 Timecode: "STRING_VALUE",
  *               },
  *             },
- *             UrlPath: [
+ *             UrlPath: [ // __listOf__string
  *               "STRING_VALUE",
  *             ],
  *           },
- *           InputSwitchSettings: {
+ *           InputSwitchSettings: { // InputSwitchScheduleActionSettings
  *             InputAttachmentNameReference: "STRING_VALUE", // required
  *             InputClippingSettings: {
  *               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
@@ -88,37 +88,37 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *               "STRING_VALUE",
  *             ],
  *           },
- *           MotionGraphicsImageActivateSettings: {
+ *           MotionGraphicsImageActivateSettings: { // MotionGraphicsActivateScheduleActionSettings
  *             Duration: Number("long"),
  *             PasswordParam: "STRING_VALUE",
  *             Url: "STRING_VALUE",
  *             Username: "STRING_VALUE",
  *           },
  *           MotionGraphicsImageDeactivateSettings: {},
- *           PauseStateSettings: {
- *             Pipelines: [
- *               {
+ *           PauseStateSettings: { // PauseStateScheduleActionSettings
+ *             Pipelines: [ // __listOfPipelinePauseStateSettings
+ *               { // PipelinePauseStateSettings
  *                 PipelineId: "PIPELINE_0" || "PIPELINE_1", // required
  *               },
  *             ],
  *           },
- *           Scte35InputSettings: {
+ *           Scte35InputSettings: { // Scte35InputScheduleActionSettings
  *             InputAttachmentNameReference: "STRING_VALUE",
  *             Mode: "FIXED" || "FOLLOW_ACTIVE", // required
  *           },
- *           Scte35ReturnToNetworkSettings: {
+ *           Scte35ReturnToNetworkSettings: { // Scte35ReturnToNetworkScheduleActionSettings
  *             SpliceEventId: Number("long"), // required
  *           },
- *           Scte35SpliceInsertSettings: {
+ *           Scte35SpliceInsertSettings: { // Scte35SpliceInsertScheduleActionSettings
  *             Duration: Number("long"),
  *             SpliceEventId: Number("long"), // required
  *           },
- *           Scte35TimeSignalSettings: {
- *             Scte35Descriptors: [ // required
- *               {
- *                 Scte35DescriptorSettings: {
- *                   SegmentationDescriptorScte35DescriptorSettings: {
- *                     DeliveryRestrictions: {
+ *           Scte35TimeSignalSettings: { // Scte35TimeSignalScheduleActionSettings
+ *             Scte35Descriptors: [ // __listOfScte35Descriptor // required
+ *               { // Scte35Descriptor
+ *                 Scte35DescriptorSettings: { // Scte35DescriptorSettings
+ *                   SegmentationDescriptorScte35DescriptorSettings: { // Scte35SegmentationDescriptor
+ *                     DeliveryRestrictions: { // Scte35DeliveryRestrictions
  *                       ArchiveAllowedFlag: "ARCHIVE_NOT_ALLOWED" || "ARCHIVE_ALLOWED", // required
  *                       DeviceRestrictions: "NONE" || "RESTRICT_GROUP0" || "RESTRICT_GROUP1" || "RESTRICT_GROUP2", // required
  *                       NoRegionalBlackoutFlag: "REGIONAL_BLACKOUT" || "NO_REGIONAL_BLACKOUT", // required
@@ -139,12 +139,12 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *               },
  *             ],
  *           },
- *           StaticImageActivateSettings: {
+ *           StaticImageActivateSettings: { // StaticImageActivateScheduleActionSettings
  *             Duration: Number("int"),
  *             FadeIn: Number("int"),
  *             FadeOut: Number("int"),
  *             Height: Number("int"),
- *             Image: {
+ *             Image: { // InputLocation
  *               PasswordParam: "STRING_VALUE",
  *               Uri: "STRING_VALUE", // required
  *               Username: "STRING_VALUE",
@@ -155,16 +155,16 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *             Opacity: Number("int"),
  *             Width: Number("int"),
  *           },
- *           StaticImageDeactivateSettings: {
+ *           StaticImageDeactivateSettings: { // StaticImageDeactivateScheduleActionSettings
  *             FadeOut: Number("int"),
  *             Layer: Number("int"),
  *           },
  *         },
- *         ScheduleActionStartSettings: {
- *           FixedModeScheduleActionStartSettings: {
+ *         ScheduleActionStartSettings: { // ScheduleActionStartSettings
+ *           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
  *             Time: "STRING_VALUE", // required
  *           },
- *           FollowModeScheduleActionStartSettings: {
+ *           FollowModeScheduleActionStartSettings: { // FollowModeScheduleActionStartSettings
  *             FollowPoint: "END" || "START", // required
  *             ReferenceActionName: "STRING_VALUE", // required
  *           },
@@ -173,7 +173,7 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *       },
  *     ],
  *   },
- *   Deletes: {
+ *   Deletes: { // BatchScheduleActionDeleteRequest
  *     ActionNames: [ // required
  *       "STRING_VALUE",
  *     ],

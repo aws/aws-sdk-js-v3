@@ -63,7 +63,7 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  * import { S3Client, GetBucketAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetBucketAclRequest
  *   Bucket: "STRING_VALUE", // required
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };

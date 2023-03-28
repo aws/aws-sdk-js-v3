@@ -43,7 +43,7 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * import { OpenSearchClient, GetUpgradeHistoryCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, GetUpgradeHistoryCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // GetUpgradeHistoryRequest
  *   DomainName: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

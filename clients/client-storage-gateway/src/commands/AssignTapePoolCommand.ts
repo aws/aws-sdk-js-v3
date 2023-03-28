@@ -45,7 +45,7 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  * import { StorageGatewayClient, AssignTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AssignTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // AssignTapePoolInput
  *   TapeARN: "STRING_VALUE", // required
  *   PoolId: "STRING_VALUE", // required
  *   BypassGovernanceRetention: true || false,

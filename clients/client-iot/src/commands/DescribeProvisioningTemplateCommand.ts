@@ -45,7 +45,7 @@ export interface DescribeProvisioningTemplateCommandOutput
  * import { IoTClient, DescribeProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DescribeProvisioningTemplateRequest
  *   templateName: "STRING_VALUE", // required
  * };
  * const command = new DescribeProvisioningTemplateCommand(input);

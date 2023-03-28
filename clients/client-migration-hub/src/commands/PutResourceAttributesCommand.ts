@@ -67,11 +67,11 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * import { MigrationHubClient, PutResourceAttributesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, PutResourceAttributesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
- * const input = {
+ * const input = { // PutResourceAttributesRequest
  *   ProgressUpdateStream: "STRING_VALUE", // required
  *   MigrationTaskName: "STRING_VALUE", // required
- *   ResourceAttributeList: [ // required
- *     {
+ *   ResourceAttributeList: [ // ResourceAttributeList // required
+ *     { // ResourceAttribute
  *       Type: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

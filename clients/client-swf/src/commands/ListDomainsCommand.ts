@@ -73,7 +73,7 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * import { SWFClient, ListDomainsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListDomainsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // ListDomainsInput
  *   nextPageToken: "STRING_VALUE",
  *   registrationStatus: "REGISTERED" || "DEPRECATED", // required
  *   maximumPageSize: Number("int"),

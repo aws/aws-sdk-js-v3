@@ -52,22 +52,22 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * import { SSMClient, UpdatePatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdatePatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // UpdatePatchBaselineRequest
  *   BaselineId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   GlobalFilters: {
- *     PatchFilters: [ // required
- *       {
+ *   GlobalFilters: { // PatchFilterGroup
+ *     PatchFilters: [ // PatchFilterList // required
+ *       { // PatchFilter
  *         Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
- *         Values: [ // required
+ *         Values: [ // PatchFilterValueList // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     ],
  *   },
- *   ApprovalRules: {
- *     PatchRules: [ // required
- *       {
+ *   ApprovalRules: { // PatchRuleGroup
+ *     PatchRules: [ // PatchRuleList // required
+ *       { // PatchRule
  *         PatchFilterGroup: {
  *           PatchFilters: [ // required
  *             {
@@ -85,7 +85,7 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  *       },
  *     ],
  *   },
- *   ApprovedPatches: [
+ *   ApprovedPatches: [ // PatchIdList
  *     "STRING_VALUE",
  *   ],
  *   ApprovedPatchesComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
@@ -95,10 +95,10 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  *   ],
  *   RejectedPatchesAction: "ALLOW_AS_DEPENDENCY" || "BLOCK",
  *   Description: "STRING_VALUE",
- *   Sources: [
- *     {
+ *   Sources: [ // PatchSourceList
+ *     { // PatchSource
  *       Name: "STRING_VALUE", // required
- *       Products: [ // required
+ *       Products: [ // PatchSourceProductList // required
  *         "STRING_VALUE",
  *       ],
  *       Configuration: "STRING_VALUE", // required

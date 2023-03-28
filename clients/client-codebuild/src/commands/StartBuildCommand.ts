@@ -42,23 +42,23 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * import { CodeBuildClient, StartBuildCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StartBuildCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // StartBuildInput
  *   projectName: "STRING_VALUE", // required
- *   secondarySourcesOverride: [
- *     {
+ *   secondarySourcesOverride: [ // ProjectSources
+ *     { // ProjectSource
  *       type: "STRING_VALUE", // required
  *       location: "STRING_VALUE",
  *       gitCloneDepth: Number("int"),
- *       gitSubmodulesConfig: {
+ *       gitSubmodulesConfig: { // GitSubmodulesConfig
  *         fetchSubmodules: true || false, // required
  *       },
  *       buildspec: "STRING_VALUE",
- *       auth: {
+ *       auth: { // SourceAuth
  *         type: "STRING_VALUE", // required
  *         resource: "STRING_VALUE",
  *       },
  *       reportBuildStatus: true || false,
- *       buildStatusConfig: {
+ *       buildStatusConfig: { // BuildStatusConfig
  *         context: "STRING_VALUE",
  *         targetUrl: "STRING_VALUE",
  *       },
@@ -66,14 +66,14 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *       sourceIdentifier: "STRING_VALUE",
  *     },
  *   ],
- *   secondarySourcesVersionOverride: [
- *     {
+ *   secondarySourcesVersionOverride: [ // ProjectSecondarySourceVersions
+ *     { // ProjectSourceVersion
  *       sourceIdentifier: "STRING_VALUE", // required
  *       sourceVersion: "STRING_VALUE", // required
  *     },
  *   ],
  *   sourceVersion: "STRING_VALUE",
- *   artifactsOverride: {
+ *   artifactsOverride: { // ProjectArtifacts
  *     type: "STRING_VALUE", // required
  *     location: "STRING_VALUE",
  *     path: "STRING_VALUE",
@@ -85,7 +85,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *     artifactIdentifier: "STRING_VALUE",
  *     bucketOwnerAccess: "STRING_VALUE",
  *   },
- *   secondaryArtifactsOverride: [
+ *   secondaryArtifactsOverride: [ // ProjectArtifactsList
  *     {
  *       type: "STRING_VALUE", // required
  *       location: "STRING_VALUE",
@@ -99,8 +99,8 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *       bucketOwnerAccess: "STRING_VALUE",
  *     },
  *   ],
- *   environmentVariablesOverride: [
- *     {
+ *   environmentVariablesOverride: [ // EnvironmentVariables
+ *     { // EnvironmentVariable
  *       name: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *       type: "STRING_VALUE",
@@ -127,10 +127,10 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   imageOverride: "STRING_VALUE",
  *   computeTypeOverride: "STRING_VALUE",
  *   certificateOverride: "STRING_VALUE",
- *   cacheOverride: {
+ *   cacheOverride: { // ProjectCache
  *     type: "STRING_VALUE", // required
  *     location: "STRING_VALUE",
- *     modes: [
+ *     modes: [ // ProjectCacheModes
  *       "STRING_VALUE",
  *     ],
  *   },
@@ -140,20 +140,20 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   queuedTimeoutInMinutesOverride: Number("int"),
  *   encryptionKeyOverride: "STRING_VALUE",
  *   idempotencyToken: "STRING_VALUE",
- *   logsConfigOverride: {
- *     cloudWatchLogs: {
+ *   logsConfigOverride: { // LogsConfig
+ *     cloudWatchLogs: { // CloudWatchLogsConfig
  *       status: "STRING_VALUE", // required
  *       groupName: "STRING_VALUE",
  *       streamName: "STRING_VALUE",
  *     },
- *     s3Logs: {
+ *     s3Logs: { // S3LogsConfig
  *       status: "STRING_VALUE", // required
  *       location: "STRING_VALUE",
  *       encryptionDisabled: true || false,
  *       bucketOwnerAccess: "STRING_VALUE",
  *     },
  *   },
- *   registryCredentialOverride: {
+ *   registryCredentialOverride: { // RegistryCredential
  *     credential: "STRING_VALUE", // required
  *     credentialProvider: "STRING_VALUE", // required
  *   },

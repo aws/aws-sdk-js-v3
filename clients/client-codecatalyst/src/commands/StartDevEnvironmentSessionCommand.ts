@@ -46,15 +46,15 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  * import { CodeCatalystClient, StartDevEnvironmentSessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, StartDevEnvironmentSessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // StartDevEnvironmentSessionRequest
  *   spaceName: "STRING_VALUE", // required
  *   projectName: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required
- *   sessionConfiguration: {
+ *   sessionConfiguration: { // DevEnvironmentSessionConfiguration
  *     sessionType: "STRING_VALUE", // required
- *     executeCommandSessionConfiguration: {
+ *     executeCommandSessionConfiguration: { // ExecuteCommandSessionConfiguration
  *       command: "STRING_VALUE", // required
- *       arguments: [
+ *       arguments: [ // ExecuteCommandSessionConfigurationArguments
  *         "STRING_VALUE",
  *       ],
  *     },

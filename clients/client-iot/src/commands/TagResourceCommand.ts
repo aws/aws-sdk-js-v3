@@ -44,10 +44,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { IoTClient, TagResourceCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TagResourceCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tags: [ // required
- *     {
+ *   tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

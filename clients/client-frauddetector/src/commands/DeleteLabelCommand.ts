@@ -45,7 +45,7 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  * import { FraudDetectorClient, DeleteLabelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteLabelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // DeleteLabelRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeleteLabelCommand(input);

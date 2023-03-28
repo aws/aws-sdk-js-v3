@@ -42,23 +42,23 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
  * import { MediaTailorClient, UpdateSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
- *   AccessConfiguration: {
+ * const input = { // UpdateSourceLocationRequest
+ *   AccessConfiguration: { // AccessConfiguration
  *     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
- *     SecretsManagerAccessTokenConfiguration: {
+ *     SecretsManagerAccessTokenConfiguration: { // SecretsManagerAccessTokenConfiguration
  *       HeaderName: "STRING_VALUE",
  *       SecretArn: "STRING_VALUE",
  *       SecretStringKey: "STRING_VALUE",
  *     },
  *   },
- *   DefaultSegmentDeliveryConfiguration: {
+ *   DefaultSegmentDeliveryConfiguration: { // DefaultSegmentDeliveryConfiguration
  *     BaseUrl: "STRING_VALUE",
  *   },
- *   HttpConfiguration: {
+ *   HttpConfiguration: { // HttpConfiguration
  *     BaseUrl: "STRING_VALUE", // required
  *   },
- *   SegmentDeliveryConfigurations: [
- *     {
+ *   SegmentDeliveryConfigurations: [ // __listOfSegmentDeliveryConfiguration
+ *     { // SegmentDeliveryConfiguration
  *       BaseUrl: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *     },

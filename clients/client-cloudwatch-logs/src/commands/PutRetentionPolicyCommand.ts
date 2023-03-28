@@ -56,7 +56,7 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, PutRetentionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutRetentionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // PutRetentionPolicyRequest
  *   logGroupName: "STRING_VALUE", // required
  *   retentionInDays: Number("int"), // required
  * };

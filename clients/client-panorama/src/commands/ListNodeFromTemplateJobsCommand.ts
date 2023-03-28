@@ -42,7 +42,7 @@ export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTempl
  * import { PanoramaClient, ListNodeFromTemplateJobsCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListNodeFromTemplateJobsCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // ListNodeFromTemplateJobsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

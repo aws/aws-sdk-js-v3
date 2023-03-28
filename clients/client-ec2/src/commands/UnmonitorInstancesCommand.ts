@@ -44,8 +44,8 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  * import { EC2Client, UnmonitorInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, UnmonitorInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   InstanceIds: [ // required
+ * const input = { // UnmonitorInstancesRequest
+ *   InstanceIds: [ // InstanceIdStringList // required
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

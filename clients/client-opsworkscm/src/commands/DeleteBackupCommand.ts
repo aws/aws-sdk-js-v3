@@ -49,7 +49,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * import { OpsWorksCMClient, DeleteBackupCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DeleteBackupCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // DeleteBackupRequest
  *   BackupId: "STRING_VALUE", // required
  * };
  * const command = new DeleteBackupCommand(input);

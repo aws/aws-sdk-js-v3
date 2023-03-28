@@ -44,7 +44,7 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  * import { DirectoryServiceClient, RemoveRegionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RemoveRegionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // RemoveRegionRequest
  *   DirectoryId: "STRING_VALUE", // required
  * };
  * const command = new RemoveRegionCommand(input);

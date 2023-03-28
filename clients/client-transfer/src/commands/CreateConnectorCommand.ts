@@ -44,9 +44,9 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * import { TransferClient, CreateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // CreateConnectorRequest
  *   Url: "STRING_VALUE", // required
- *   As2Config: {
+ *   As2Config: { // As2ConnectorConfig
  *     LocalProfileId: "STRING_VALUE",
  *     PartnerProfileId: "STRING_VALUE",
  *     MessageSubject: "STRING_VALUE",
@@ -58,8 +58,8 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *   },
  *   AccessRole: "STRING_VALUE", // required
  *   LoggingRole: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

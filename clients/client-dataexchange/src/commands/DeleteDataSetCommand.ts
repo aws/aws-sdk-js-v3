@@ -42,7 +42,7 @@ export interface DeleteDataSetCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // DeleteDataSetRequest
  *   DataSetId: "STRING_VALUE", // required
  * };
  * const command = new DeleteDataSetCommand(input);

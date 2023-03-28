@@ -42,7 +42,7 @@ export interface GetDomainAssociationCommandOutput extends GetDomainAssociationR
  * import { AmplifyClient, GetDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // GetDomainAssociationRequest
  *   appId: "STRING_VALUE", // required
  *   domainName: "STRING_VALUE", // required
  * };

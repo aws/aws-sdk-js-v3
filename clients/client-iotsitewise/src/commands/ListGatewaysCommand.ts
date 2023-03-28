@@ -42,7 +42,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * import { IoTSiteWiseClient, ListGatewaysCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListGatewaysCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // ListGatewaysRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

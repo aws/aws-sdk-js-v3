@@ -44,17 +44,17 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * import { EC2Client, ModifyVerifiedAccessEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVerifiedAccessEndpointRequest
  *   VerifiedAccessEndpointId: "STRING_VALUE", // required
  *   VerifiedAccessGroupId: "STRING_VALUE",
- *   LoadBalancerOptions: {
- *     SubnetIds: [
+ *   LoadBalancerOptions: { // ModifyVerifiedAccessEndpointLoadBalancerOptions
+ *     SubnetIds: [ // ModifyVerifiedAccessEndpointSubnetIdList
  *       "STRING_VALUE",
  *     ],
  *     Protocol: "http" || "https",
  *     Port: Number("int"),
  *   },
- *   NetworkInterfaceOptions: {
+ *   NetworkInterfaceOptions: { // ModifyVerifiedAccessEndpointEniOptions
  *     Protocol: "http" || "https",
  *     Port: Number("int"),
  *   },

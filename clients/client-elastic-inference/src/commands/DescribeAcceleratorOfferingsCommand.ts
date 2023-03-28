@@ -46,9 +46,9 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  * import { ElasticInferenceClient, DescribeAcceleratorOfferingsCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
  * // const { ElasticInferenceClient, DescribeAcceleratorOfferingsCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
  * const client = new ElasticInferenceClient(config);
- * const input = {
+ * const input = { // DescribeAcceleratorOfferingsRequest
  *   locationType: "STRING_VALUE", // required
- *   acceleratorTypes: [
+ *   acceleratorTypes: [ // AcceleratorTypeNameList
  *     "STRING_VALUE",
  *   ],
  * };

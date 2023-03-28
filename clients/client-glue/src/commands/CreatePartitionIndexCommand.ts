@@ -42,12 +42,12 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * import { GlueClient, CreatePartitionIndexCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreatePartitionIndexCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreatePartitionIndexRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   PartitionIndex: {
- *     Keys: [ // required
+ *   PartitionIndex: { // PartitionIndex
+ *     Keys: [ // KeyList // required
  *       "STRING_VALUE",
  *     ],
  *     IndexName: "STRING_VALUE", // required

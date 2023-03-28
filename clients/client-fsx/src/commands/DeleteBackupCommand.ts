@@ -49,7 +49,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * import { FSxClient, DeleteBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // DeleteBackupRequest
  *   BackupId: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
  * };

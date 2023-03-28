@@ -42,12 +42,12 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  * import { CloudSearchClient, DefineIndexFieldCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DefineIndexFieldCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DefineIndexFieldRequest
  *   DomainName: "STRING_VALUE", // required
- *   IndexField: {
+ *   IndexField: { // IndexField
  *     IndexFieldName: "STRING_VALUE", // required
  *     IndexFieldType: "STRING_VALUE", // required
- *     IntOptions: {
+ *     IntOptions: { // IntOptions
  *       DefaultValue: Number("long"),
  *       SourceField: "STRING_VALUE",
  *       FacetEnabled: true || false,
@@ -55,7 +55,7 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  *       ReturnEnabled: true || false,
  *       SortEnabled: true || false,
  *     },
- *     DoubleOptions: {
+ *     DoubleOptions: { // DoubleOptions
  *       DefaultValue: Number("double"),
  *       SourceField: "STRING_VALUE",
  *       FacetEnabled: true || false,
@@ -63,7 +63,7 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  *       ReturnEnabled: true || false,
  *       SortEnabled: true || false,
  *     },
- *     LiteralOptions: {
+ *     LiteralOptions: { // LiteralOptions
  *       DefaultValue: "STRING_VALUE",
  *       SourceField: "STRING_VALUE",
  *       FacetEnabled: true || false,
@@ -71,7 +71,7 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  *       ReturnEnabled: true || false,
  *       SortEnabled: true || false,
  *     },
- *     TextOptions: {
+ *     TextOptions: { // TextOptions
  *       DefaultValue: "STRING_VALUE",
  *       SourceField: "STRING_VALUE",
  *       ReturnEnabled: true || false,
@@ -79,7 +79,7 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  *       HighlightEnabled: true || false,
  *       AnalysisScheme: "STRING_VALUE",
  *     },
- *     DateOptions: {
+ *     DateOptions: { // DateOptions
  *       DefaultValue: "STRING_VALUE",
  *       SourceField: "STRING_VALUE",
  *       FacetEnabled: true || false,
@@ -87,7 +87,7 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  *       ReturnEnabled: true || false,
  *       SortEnabled: true || false,
  *     },
- *     LatLonOptions: {
+ *     LatLonOptions: { // LatLonOptions
  *       DefaultValue: "STRING_VALUE",
  *       SourceField: "STRING_VALUE",
  *       FacetEnabled: true || false,
@@ -95,35 +95,35 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  *       ReturnEnabled: true || false,
  *       SortEnabled: true || false,
  *     },
- *     IntArrayOptions: {
+ *     IntArrayOptions: { // IntArrayOptions
  *       DefaultValue: Number("long"),
  *       SourceFields: "STRING_VALUE",
  *       FacetEnabled: true || false,
  *       SearchEnabled: true || false,
  *       ReturnEnabled: true || false,
  *     },
- *     DoubleArrayOptions: {
+ *     DoubleArrayOptions: { // DoubleArrayOptions
  *       DefaultValue: Number("double"),
  *       SourceFields: "STRING_VALUE",
  *       FacetEnabled: true || false,
  *       SearchEnabled: true || false,
  *       ReturnEnabled: true || false,
  *     },
- *     LiteralArrayOptions: {
+ *     LiteralArrayOptions: { // LiteralArrayOptions
  *       DefaultValue: "STRING_VALUE",
  *       SourceFields: "STRING_VALUE",
  *       FacetEnabled: true || false,
  *       SearchEnabled: true || false,
  *       ReturnEnabled: true || false,
  *     },
- *     TextArrayOptions: {
+ *     TextArrayOptions: { // TextArrayOptions
  *       DefaultValue: "STRING_VALUE",
  *       SourceFields: "STRING_VALUE",
  *       ReturnEnabled: true || false,
  *       HighlightEnabled: true || false,
  *       AnalysisScheme: "STRING_VALUE",
  *     },
- *     DateArrayOptions: {
+ *     DateArrayOptions: { // DateArrayOptions
  *       DefaultValue: "STRING_VALUE",
  *       SourceFields: "STRING_VALUE",
  *       FacetEnabled: true || false,

@@ -44,7 +44,7 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * import { CodeCommitClient, GetDifferencesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetDifferencesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetDifferencesInput
  *   repositoryName: "STRING_VALUE", // required
  *   beforeCommitSpecifier: "STRING_VALUE",
  *   afterCommitSpecifier: "STRING_VALUE", // required

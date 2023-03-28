@@ -47,7 +47,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { LexModelBuildingServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

@@ -49,7 +49,7 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * import { LightsailClient, DeleteKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DeleteKeyPairRequest
  *   keyPairName: "STRING_VALUE", // required
  *   expectedFingerprint: "STRING_VALUE",
  * };

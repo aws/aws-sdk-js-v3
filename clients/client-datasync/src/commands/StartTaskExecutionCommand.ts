@@ -43,9 +43,9 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * import { DataSyncClient, StartTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, StartTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // StartTaskExecutionRequest
  *   TaskArn: "STRING_VALUE", // required
- *   OverrideOptions: {
+ *   OverrideOptions: { // Options
  *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
  *     OverwriteMode: "ALWAYS" || "NEVER",
  *     Atime: "NONE" || "BEST_EFFORT",
@@ -62,8 +62,8 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
  *     ObjectTags: "PRESERVE" || "NONE",
  *   },
- *   Includes: [
- *     {
+ *   Includes: [ // FilterList
+ *     { // FilterRule
  *       FilterType: "SIMPLE_PATTERN",
  *       Value: "STRING_VALUE",
  *     },
@@ -74,8 +74,8 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

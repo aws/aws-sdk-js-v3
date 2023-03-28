@@ -53,7 +53,7 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * import { RDSClient, ModifyCustomDBEngineVersionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyCustomDBEngineVersionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyCustomDBEngineVersionMessage
  *   Engine: "STRING_VALUE", // required
  *   EngineVersion: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

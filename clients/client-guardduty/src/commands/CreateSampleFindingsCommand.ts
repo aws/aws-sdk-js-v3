@@ -44,9 +44,9 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * import { GuardDutyClient, CreateSampleFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateSampleFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // CreateSampleFindingsRequest
  *   DetectorId: "STRING_VALUE", // required
- *   FindingTypes: [
+ *   FindingTypes: [ // FindingTypes
  *     "STRING_VALUE",
  *   ],
  * };

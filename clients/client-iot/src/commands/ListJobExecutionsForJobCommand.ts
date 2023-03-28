@@ -43,7 +43,7 @@ export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsF
  * import { IoTClient, ListJobExecutionsForJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListJobExecutionsForJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListJobExecutionsForJobRequest
  *   jobId: "STRING_VALUE", // required
  *   status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
  *   maxResults: Number("int"),

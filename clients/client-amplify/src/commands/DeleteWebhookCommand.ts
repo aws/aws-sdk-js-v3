@@ -42,7 +42,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  * import { AmplifyClient, DeleteWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // DeleteWebhookRequest
  *   webhookId: "STRING_VALUE", // required
  * };
  * const command = new DeleteWebhookCommand(input);

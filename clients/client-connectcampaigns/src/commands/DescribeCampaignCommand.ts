@@ -42,7 +42,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * import { ConnectCampaignsClient, DescribeCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, DescribeCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
- * const input = {
+ * const input = { // DescribeCampaignRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DescribeCampaignCommand(input);

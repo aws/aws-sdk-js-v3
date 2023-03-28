@@ -43,7 +43,7 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * import { BackupClient, CancelLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CancelLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // CancelLegalHoldInput
  *   LegalHoldId: "STRING_VALUE", // required
  *   CancelDescription: "STRING_VALUE", // required
  *   RetainRecordInDays: Number("long"),

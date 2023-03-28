@@ -42,7 +42,7 @@ export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, _
  * import { PinpointClient, GetEmailChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetEmailChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetEmailChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new GetEmailChannelCommand(input);

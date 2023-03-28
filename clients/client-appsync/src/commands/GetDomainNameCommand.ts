@@ -42,7 +42,7 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * import { AppSyncClient, GetDomainNameCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetDomainNameCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // GetDomainNameRequest
  *   domainName: "STRING_VALUE", // required
  * };
  * const command = new GetDomainNameCommand(input);

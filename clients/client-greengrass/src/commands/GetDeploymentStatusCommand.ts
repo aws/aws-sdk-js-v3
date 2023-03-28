@@ -42,7 +42,7 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * import { GreengrassClient, GetDeploymentStatusCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetDeploymentStatusCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // GetDeploymentStatusRequest
  *   DeploymentId: "STRING_VALUE", // required
  *   GroupId: "STRING_VALUE", // required
  * };

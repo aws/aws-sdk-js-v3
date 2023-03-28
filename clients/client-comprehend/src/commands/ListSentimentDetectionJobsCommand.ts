@@ -42,8 +42,8 @@ export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDe
  * import { ComprehendClient, ListSentimentDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListSentimentDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
- *   Filter: {
+ * const input = { // ListSentimentDetectionJobsRequest
+ *   Filter: { // SentimentDetectionJobFilter
  *     JobName: "STRING_VALUE",
  *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
  *     SubmitTimeBefore: new Date("TIMESTAMP"),

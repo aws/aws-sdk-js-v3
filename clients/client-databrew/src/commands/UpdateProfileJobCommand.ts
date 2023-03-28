@@ -42,29 +42,29 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  * import { DataBrewClient, UpdateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
- *   Configuration: {
- *     DatasetStatisticsConfiguration: {
- *       IncludedStatistics: [
+ * const input = { // UpdateProfileJobRequest
+ *   Configuration: { // ProfileConfiguration
+ *     DatasetStatisticsConfiguration: { // StatisticsConfiguration
+ *       IncludedStatistics: [ // StatisticList
  *         "STRING_VALUE",
  *       ],
- *       Overrides: [
- *         {
+ *       Overrides: [ // StatisticOverrideList
+ *         { // StatisticOverride
  *           Statistic: "STRING_VALUE", // required
- *           Parameters: { // required
+ *           Parameters: { // ParameterMap // required
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
  *       ],
  *     },
- *     ProfileColumns: [
- *       {
+ *     ProfileColumns: [ // ColumnSelectorList
+ *       { // ColumnSelector
  *         Regex: "STRING_VALUE",
  *         Name: "STRING_VALUE",
  *       },
  *     ],
- *     ColumnStatisticsConfigurations: [
- *       {
+ *     ColumnStatisticsConfigurations: [ // ColumnStatisticsConfigurationList
+ *       { // ColumnStatisticsConfiguration
  *         Selectors: [
  *           {
  *             Regex: "STRING_VALUE",
@@ -86,12 +86,12 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  *         },
  *       },
  *     ],
- *     EntityDetectorConfiguration: {
- *       EntityTypes: [ // required
+ *     EntityDetectorConfiguration: { // EntityDetectorConfiguration
+ *       EntityTypes: [ // EntityTypeList // required
  *         "STRING_VALUE",
  *       ],
- *       AllowedStatistics: [
- *         {
+ *       AllowedStatistics: [ // AllowedStatisticList
+ *         { // AllowedStatistics
  *           Statistics: [ // required
  *             "STRING_VALUE",
  *           ],
@@ -105,20 +105,20 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  *   LogSubscription: "ENABLE" || "DISABLE",
  *   MaxCapacity: Number("int"),
  *   MaxRetries: Number("int"),
- *   OutputLocation: {
+ *   OutputLocation: { // S3Location
  *     Bucket: "STRING_VALUE", // required
  *     Key: "STRING_VALUE",
  *     BucketOwner: "STRING_VALUE",
  *   },
- *   ValidationConfigurations: [
- *     {
+ *   ValidationConfigurations: [ // ValidationConfigurationList
+ *     { // ValidationConfiguration
  *       RulesetArn: "STRING_VALUE", // required
  *       ValidationMode: "CHECK_ALL",
  *     },
  *   ],
  *   RoleArn: "STRING_VALUE", // required
  *   Timeout: Number("int"),
- *   JobSample: {
+ *   JobSample: { // JobSample
  *     Mode: "FULL_DATASET" || "CUSTOM_ROWS",
  *     Size: Number("long"),
  *   },

@@ -44,31 +44,31 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * import { CloudFormationClient, UpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // UpdateStackInput
  *   StackName: "STRING_VALUE", // required
  *   TemplateBody: "STRING_VALUE",
  *   TemplateURL: "STRING_VALUE",
  *   UsePreviousTemplate: true || false,
  *   StackPolicyDuringUpdateBody: "STRING_VALUE",
  *   StackPolicyDuringUpdateURL: "STRING_VALUE",
- *   Parameters: [
- *     {
+ *   Parameters: [ // Parameters
+ *     { // Parameter
  *       ParameterKey: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       UsePreviousValue: true || false,
  *       ResolvedValue: "STRING_VALUE",
  *     },
  *   ],
- *   Capabilities: [
+ *   Capabilities: [ // Capabilities
  *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
  *   ],
- *   ResourceTypes: [
+ *   ResourceTypes: [ // ResourceTypes
  *     "STRING_VALUE",
  *   ],
  *   RoleARN: "STRING_VALUE",
- *   RollbackConfiguration: {
- *     RollbackTriggers: [
- *       {
+ *   RollbackConfiguration: { // RollbackConfiguration
+ *     RollbackTriggers: [ // RollbackTriggers
+ *       { // RollbackTrigger
  *         Arn: "STRING_VALUE", // required
  *         Type: "STRING_VALUE", // required
  *       },
@@ -77,11 +77,11 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  *   },
  *   StackPolicyBody: "STRING_VALUE",
  *   StackPolicyURL: "STRING_VALUE",
- *   NotificationARNs: [
+ *   NotificationARNs: [ // NotificationARNs
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

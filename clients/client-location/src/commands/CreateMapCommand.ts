@@ -49,14 +49,14 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  * import { LocationClient, CreateMapCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // CreateMapRequest
  *   MapName: "STRING_VALUE", // required
- *   Configuration: {
+ *   Configuration: { // MapConfiguration
  *     Style: "STRING_VALUE", // required
  *   },
  *   PricingPlan: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

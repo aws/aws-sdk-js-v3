@@ -42,7 +42,7 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
  * import { AthenaClient, ListWorkGroupsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListWorkGroupsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // ListWorkGroupsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

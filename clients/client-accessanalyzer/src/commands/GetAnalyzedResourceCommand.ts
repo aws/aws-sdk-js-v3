@@ -42,7 +42,7 @@ export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceRes
  * import { AccessAnalyzerClient, GetAnalyzedResourceCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetAnalyzedResourceCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // GetAnalyzedResourceRequest
  *   analyzerArn: "STRING_VALUE", // required
  *   resourceArn: "STRING_VALUE", // required
  * };

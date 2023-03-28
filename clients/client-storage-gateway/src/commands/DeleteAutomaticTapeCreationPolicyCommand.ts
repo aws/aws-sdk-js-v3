@@ -46,7 +46,7 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
  * import { StorageGatewayClient, DeleteAutomaticTapeCreationPolicyCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteAutomaticTapeCreationPolicyCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DeleteAutomaticTapeCreationPolicyInput
  *   GatewayARN: "STRING_VALUE", // required
  * };
  * const command = new DeleteAutomaticTapeCreationPolicyCommand(input);

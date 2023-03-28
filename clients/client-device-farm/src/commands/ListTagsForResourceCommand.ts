@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { DeviceFarmClient, ListTagsForResourceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTagsForResourceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

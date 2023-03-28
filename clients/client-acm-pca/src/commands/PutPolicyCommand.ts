@@ -70,7 +70,7 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  * import { ACMPCAClient, PutPolicyCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, PutPolicyCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
+ * const input = { // PutPolicyRequest
  *   ResourceArn: "STRING_VALUE", // required
  *   Policy: "STRING_VALUE", // required
  * };

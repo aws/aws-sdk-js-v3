@@ -53,86 +53,86 @@ export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponse
  * import { CloudFrontClient, CreateResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   ResponseHeadersPolicyConfig: {
+ * const input = { // CreateResponseHeadersPolicyRequest
+ *   ResponseHeadersPolicyConfig: { // ResponseHeadersPolicyConfig
  *     Comment: "STRING_VALUE",
  *     Name: "STRING_VALUE", // required
- *     CorsConfig: {
- *       AccessControlAllowOrigins: {
+ *     CorsConfig: { // ResponseHeadersPolicyCorsConfig
+ *       AccessControlAllowOrigins: { // ResponseHeadersPolicyAccessControlAllowOrigins
  *         Quantity: Number("int"), // required
- *         Items: [ // required
+ *         Items: [ // AccessControlAllowOriginsList // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       AccessControlAllowHeaders: {
+ *       AccessControlAllowHeaders: { // ResponseHeadersPolicyAccessControlAllowHeaders
  *         Quantity: Number("int"), // required
- *         Items: [ // required
+ *         Items: [ // AccessControlAllowHeadersList // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       AccessControlAllowMethods: {
+ *       AccessControlAllowMethods: { // ResponseHeadersPolicyAccessControlAllowMethods
  *         Quantity: Number("int"), // required
- *         Items: [ // required
+ *         Items: [ // AccessControlAllowMethodsList // required
  *           "GET" || "POST" || "OPTIONS" || "PUT" || "DELETE" || "PATCH" || "HEAD" || "ALL",
  *         ],
  *       },
  *       AccessControlAllowCredentials: true || false, // required
- *       AccessControlExposeHeaders: {
+ *       AccessControlExposeHeaders: { // ResponseHeadersPolicyAccessControlExposeHeaders
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // AccessControlExposeHeadersList
  *           "STRING_VALUE",
  *         ],
  *       },
  *       AccessControlMaxAgeSec: Number("int"),
  *       OriginOverride: true || false, // required
  *     },
- *     SecurityHeadersConfig: {
- *       XSSProtection: {
+ *     SecurityHeadersConfig: { // ResponseHeadersPolicySecurityHeadersConfig
+ *       XSSProtection: { // ResponseHeadersPolicyXSSProtection
  *         Override: true || false, // required
  *         Protection: true || false, // required
  *         ModeBlock: true || false,
  *         ReportUri: "STRING_VALUE",
  *       },
- *       FrameOptions: {
+ *       FrameOptions: { // ResponseHeadersPolicyFrameOptions
  *         Override: true || false, // required
  *         FrameOption: "DENY" || "SAMEORIGIN", // required
  *       },
- *       ReferrerPolicy: {
+ *       ReferrerPolicy: { // ResponseHeadersPolicyReferrerPolicy
  *         Override: true || false, // required
  *         ReferrerPolicy: "no-referrer" || "no-referrer-when-downgrade" || "origin" || "origin-when-cross-origin" || "same-origin" || "strict-origin" || "strict-origin-when-cross-origin" || "unsafe-url", // required
  *       },
- *       ContentSecurityPolicy: {
+ *       ContentSecurityPolicy: { // ResponseHeadersPolicyContentSecurityPolicy
  *         Override: true || false, // required
  *         ContentSecurityPolicy: "STRING_VALUE", // required
  *       },
- *       ContentTypeOptions: {
+ *       ContentTypeOptions: { // ResponseHeadersPolicyContentTypeOptions
  *         Override: true || false, // required
  *       },
- *       StrictTransportSecurity: {
+ *       StrictTransportSecurity: { // ResponseHeadersPolicyStrictTransportSecurity
  *         Override: true || false, // required
  *         IncludeSubdomains: true || false,
  *         Preload: true || false,
  *         AccessControlMaxAgeSec: Number("int"), // required
  *       },
  *     },
- *     ServerTimingHeadersConfig: {
+ *     ServerTimingHeadersConfig: { // ResponseHeadersPolicyServerTimingHeadersConfig
  *       Enabled: true || false, // required
  *       SamplingRate: Number("double"),
  *     },
- *     CustomHeadersConfig: {
+ *     CustomHeadersConfig: { // ResponseHeadersPolicyCustomHeadersConfig
  *       Quantity: Number("int"), // required
- *       Items: [
- *         {
+ *       Items: [ // ResponseHeadersPolicyCustomHeaderList
+ *         { // ResponseHeadersPolicyCustomHeader
  *           Header: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *           Override: true || false, // required
  *         },
  *       ],
  *     },
- *     RemoveHeadersConfig: {
+ *     RemoveHeadersConfig: { // ResponseHeadersPolicyRemoveHeadersConfig
  *       Quantity: Number("int"), // required
- *       Items: [
- *         {
+ *       Items: [ // ResponseHeadersPolicyRemoveHeaderList
+ *         { // ResponseHeadersPolicyRemoveHeader
  *           Header: "STRING_VALUE", // required
  *         },
  *       ],

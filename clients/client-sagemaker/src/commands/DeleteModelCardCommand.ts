@@ -42,7 +42,7 @@ export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteModelCardRequest
  *   ModelCardName: "STRING_VALUE", // required
  * };
  * const command = new DeleteModelCardCommand(input);

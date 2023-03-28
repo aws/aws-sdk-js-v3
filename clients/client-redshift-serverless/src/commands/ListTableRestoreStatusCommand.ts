@@ -46,7 +46,7 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * import { RedshiftServerlessClient, ListTableRestoreStatusCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListTableRestoreStatusCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // ListTableRestoreStatusRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   namespaceName: "STRING_VALUE",

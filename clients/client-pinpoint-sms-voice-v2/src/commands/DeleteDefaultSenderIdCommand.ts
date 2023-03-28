@@ -49,7 +49,7 @@ export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderI
  * import { PinpointSMSVoiceV2Client, DeleteDefaultSenderIdCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteDefaultSenderIdCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // DeleteDefaultSenderIdRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDefaultSenderIdCommand(input);

@@ -47,19 +47,19 @@ export interface CreateProxySessionCommandOutput extends CreateProxySessionRespo
  * import { ChimeClient, CreateProxySessionCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateProxySessionRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
- *   ParticipantPhoneNumbers: [ // required
+ *   ParticipantPhoneNumbers: [ // ParticipantPhoneNumberList // required
  *     "STRING_VALUE",
  *   ],
  *   Name: "STRING_VALUE",
  *   ExpiryMinutes: Number("int"),
- *   Capabilities: [ // required
+ *   Capabilities: [ // CapabilityList // required
  *     "STRING_VALUE",
  *   ],
  *   NumberSelectionBehavior: "STRING_VALUE",
  *   GeoMatchLevel: "STRING_VALUE",
- *   GeoMatchParams: {
+ *   GeoMatchParams: { // GeoMatchParams
  *     Country: "STRING_VALUE", // required
  *     AreaCode: "STRING_VALUE", // required
  *   },

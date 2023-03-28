@@ -114,69 +114,69 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * import { PersonalizeClient, CreateSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // CreateSolutionRequest
  *   name: "STRING_VALUE", // required
  *   performHPO: true || false,
  *   performAutoML: true || false,
  *   recipeArn: "STRING_VALUE",
  *   datasetGroupArn: "STRING_VALUE", // required
  *   eventType: "STRING_VALUE",
- *   solutionConfig: {
+ *   solutionConfig: { // SolutionConfig
  *     eventValueThreshold: "STRING_VALUE",
- *     hpoConfig: {
- *       hpoObjective: {
+ *     hpoConfig: { // HPOConfig
+ *       hpoObjective: { // HPOObjective
  *         type: "STRING_VALUE",
  *         metricName: "STRING_VALUE",
  *         metricRegex: "STRING_VALUE",
  *       },
- *       hpoResourceConfig: {
+ *       hpoResourceConfig: { // HPOResourceConfig
  *         maxNumberOfTrainingJobs: "STRING_VALUE",
  *         maxParallelTrainingJobs: "STRING_VALUE",
  *       },
- *       algorithmHyperParameterRanges: {
- *         integerHyperParameterRanges: [
- *           {
+ *       algorithmHyperParameterRanges: { // HyperParameterRanges
+ *         integerHyperParameterRanges: [ // IntegerHyperParameterRanges
+ *           { // IntegerHyperParameterRange
  *             name: "STRING_VALUE",
  *             minValue: Number("int"),
  *             maxValue: Number("int"),
  *           },
  *         ],
- *         continuousHyperParameterRanges: [
- *           {
+ *         continuousHyperParameterRanges: [ // ContinuousHyperParameterRanges
+ *           { // ContinuousHyperParameterRange
  *             name: "STRING_VALUE",
  *             minValue: Number("double"),
  *             maxValue: Number("double"),
  *           },
  *         ],
- *         categoricalHyperParameterRanges: [
- *           {
+ *         categoricalHyperParameterRanges: [ // CategoricalHyperParameterRanges
+ *           { // CategoricalHyperParameterRange
  *             name: "STRING_VALUE",
- *             values: [
+ *             values: [ // CategoricalValues
  *               "STRING_VALUE",
  *             ],
  *           },
  *         ],
  *       },
  *     },
- *     algorithmHyperParameters: {
+ *     algorithmHyperParameters: { // HyperParameters
  *       "<keys>": "STRING_VALUE",
  *     },
- *     featureTransformationParameters: {
+ *     featureTransformationParameters: { // FeatureTransformationParameters
  *       "<keys>": "STRING_VALUE",
  *     },
- *     autoMLConfig: {
+ *     autoMLConfig: { // AutoMLConfig
  *       metricName: "STRING_VALUE",
- *       recipeList: [
+ *       recipeList: [ // ArnList
  *         "STRING_VALUE",
  *       ],
  *     },
- *     optimizationObjective: {
+ *     optimizationObjective: { // OptimizationObjective
  *       itemAttribute: "STRING_VALUE",
  *       objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
  *     },
  *   },
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       tagKey: "STRING_VALUE", // required
  *       tagValue: "STRING_VALUE", // required
  *     },

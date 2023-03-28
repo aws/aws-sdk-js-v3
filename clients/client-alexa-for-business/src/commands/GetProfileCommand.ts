@@ -42,7 +42,7 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * import { AlexaForBusinessClient, GetProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // GetProfileRequest
  *   ProfileArn: "STRING_VALUE",
  * };
  * const command = new GetProfileCommand(input);

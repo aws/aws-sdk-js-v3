@@ -48,30 +48,30 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * import { GuardDutyClient, CreateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // CreateDetectorRequest
  *   Enable: true || false, // required
  *   ClientToken: "STRING_VALUE",
  *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
- *   DataSources: {
- *     S3Logs: {
+ *   DataSources: { // DataSourceConfigurations
+ *     S3Logs: { // S3LogsConfiguration
  *       Enable: true || false, // required
  *     },
- *     Kubernetes: {
- *       AuditLogs: {
+ *     Kubernetes: { // KubernetesConfiguration
+ *       AuditLogs: { // KubernetesAuditLogsConfiguration
  *         Enable: true || false, // required
  *       },
  *     },
- *     MalwareProtection: {
- *       ScanEc2InstanceWithFindings: {
+ *     MalwareProtection: { // MalwareProtectionConfiguration
+ *       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindings
  *         EbsVolumes: true || false,
  *       },
  *     },
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Features: [
- *     {
+ *   Features: [ // DetectorFeatureConfigurations
+ *     { // DetectorFeatureConfiguration
  *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS",
  *       Status: "ENABLED" || "DISABLED",
  *     },

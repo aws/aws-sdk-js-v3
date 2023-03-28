@@ -42,7 +42,7 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  * import { LexModelsV2Client, DescribeBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // DescribeBotRequest
  *   botId: "STRING_VALUE", // required
  * };
  * const command = new DescribeBotCommand(input);

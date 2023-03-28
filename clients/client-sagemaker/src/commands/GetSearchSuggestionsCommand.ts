@@ -45,10 +45,10 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * import { SageMakerClient, GetSearchSuggestionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetSearchSuggestionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // GetSearchSuggestionsRequest
  *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "Project" || "FeatureMetadata" || "HyperParameterTuningJob" || "ModelCard" || "Model", // required
- *   SuggestionQuery: {
- *     PropertyNameQuery: {
+ *   SuggestionQuery: { // SuggestionQuery
+ *     PropertyNameQuery: { // PropertyNameQuery
  *       PropertyNameHint: "STRING_VALUE", // required
  *     },
  *   },

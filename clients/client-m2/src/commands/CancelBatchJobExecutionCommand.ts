@@ -42,7 +42,7 @@ export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExec
  * import { M2Client, CancelBatchJobExecutionCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CancelBatchJobExecutionCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // CancelBatchJobExecutionRequest
  *   applicationId: "STRING_VALUE", // required
  *   executionId: "STRING_VALUE", // required
  * };

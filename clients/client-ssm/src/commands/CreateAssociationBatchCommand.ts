@@ -53,29 +53,29 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * import { SSMClient, CreateAssociationBatchCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateAssociationBatchCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   Entries: [ // required
- *     {
+ * const input = { // CreateAssociationBatchRequest
+ *   Entries: [ // CreateAssociationBatchRequestEntries // required
+ *     { // CreateAssociationBatchRequestEntry
  *       Name: "STRING_VALUE", // required
  *       InstanceId: "STRING_VALUE",
- *       Parameters: {
- *         "<keys>": [
+ *       Parameters: { // Parameters
+ *         "<keys>": [ // ParameterValueList
  *           "STRING_VALUE",
  *         ],
  *       },
  *       AutomationTargetParameterName: "STRING_VALUE",
  *       DocumentVersion: "STRING_VALUE",
- *       Targets: [
- *         {
+ *       Targets: [ // Targets
+ *         { // Target
  *           Key: "STRING_VALUE",
- *           Values: [
+ *           Values: [ // TargetValues
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
  *       ScheduleExpression: "STRING_VALUE",
- *       OutputLocation: {
- *         S3Location: {
+ *       OutputLocation: { // InstanceAssociationOutputLocation
+ *         S3Location: { // S3OutputLocation
  *           OutputS3Region: "STRING_VALUE",
  *           OutputS3BucketName: "STRING_VALUE",
  *           OutputS3KeyPrefix: "STRING_VALUE",
@@ -87,24 +87,24 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *       ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
  *       SyncCompliance: "AUTO" || "MANUAL",
  *       ApplyOnlyAtCronInterval: true || false,
- *       CalendarNames: [
+ *       CalendarNames: [ // CalendarNameOrARNList
  *         "STRING_VALUE",
  *       ],
- *       TargetLocations: [
- *         {
- *           Accounts: [
+ *       TargetLocations: [ // TargetLocations
+ *         { // TargetLocation
+ *           Accounts: [ // Accounts
  *             "STRING_VALUE",
  *           ],
- *           Regions: [
+ *           Regions: [ // Regions
  *             "STRING_VALUE",
  *           ],
  *           TargetLocationMaxConcurrency: "STRING_VALUE",
  *           TargetLocationMaxErrors: "STRING_VALUE",
  *           ExecutionRoleName: "STRING_VALUE",
- *           TargetLocationAlarmConfiguration: {
+ *           TargetLocationAlarmConfiguration: { // AlarmConfiguration
  *             IgnorePollAlarmFailure: true || false,
- *             Alarms: [ // required
- *               {
+ *             Alarms: [ // AlarmList // required
+ *               { // Alarm
  *                 Name: "STRING_VALUE", // required
  *               },
  *             ],
@@ -112,9 +112,9 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *         },
  *       ],
  *       ScheduleOffset: Number("int"),
- *       TargetMaps: [
- *         {
- *           "<keys>": [
+ *       TargetMaps: [ // TargetMaps
+ *         { // TargetMap
+ *           "<keys>": [ // TargetMapValueList
  *             "STRING_VALUE",
  *           ],
  *         },

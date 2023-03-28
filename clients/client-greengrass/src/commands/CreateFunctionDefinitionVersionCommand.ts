@@ -44,39 +44,39 @@ export interface CreateFunctionDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateFunctionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateFunctionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // CreateFunctionDefinitionVersionRequest
  *   AmznClientToken: "STRING_VALUE",
- *   DefaultConfig: {
- *     Execution: {
+ *   DefaultConfig: { // FunctionDefaultConfig
+ *     Execution: { // FunctionDefaultExecutionConfig
  *       IsolationMode: "GreengrassContainer" || "NoContainer",
- *       RunAs: {
+ *       RunAs: { // FunctionRunAsConfig
  *         Gid: Number("int"),
  *         Uid: Number("int"),
  *       },
  *     },
  *   },
  *   FunctionDefinitionId: "STRING_VALUE", // required
- *   Functions: [
- *     {
+ *   Functions: [ // __listOfFunction
+ *     { // Function
  *       FunctionArn: "STRING_VALUE",
- *       FunctionConfiguration: {
+ *       FunctionConfiguration: { // FunctionConfiguration
  *         EncodingType: "binary" || "json",
- *         Environment: {
+ *         Environment: { // FunctionConfigurationEnvironment
  *           AccessSysfs: true || false,
- *           Execution: {
+ *           Execution: { // FunctionExecutionConfig
  *             IsolationMode: "GreengrassContainer" || "NoContainer",
  *             RunAs: {
  *               Gid: Number("int"),
  *               Uid: Number("int"),
  *             },
  *           },
- *           ResourceAccessPolicies: [
- *             {
+ *           ResourceAccessPolicies: [ // __listOfResourceAccessPolicy
+ *             { // ResourceAccessPolicy
  *               Permission: "ro" || "rw",
  *               ResourceId: "STRING_VALUE", // required
  *             },
  *           ],
- *           Variables: {
+ *           Variables: { // __mapOf__string
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },

@@ -43,11 +43,11 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * import { RDSClient, CreateDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // CreateDBSnapshotMessage
  *   DBSnapshotIdentifier: "STRING_VALUE", // required
  *   DBInstanceIdentifier: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

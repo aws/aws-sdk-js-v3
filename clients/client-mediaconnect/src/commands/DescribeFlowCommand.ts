@@ -42,7 +42,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * import { MediaConnectClient, DescribeFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, DescribeFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // DescribeFlowRequest
  *   FlowArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeFlowCommand(input);

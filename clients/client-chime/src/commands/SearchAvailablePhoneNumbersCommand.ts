@@ -52,7 +52,7 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * import { ChimeClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // SearchAvailablePhoneNumbersRequest
  *   AreaCode: "STRING_VALUE",
  *   City: "STRING_VALUE",
  *   Country: "STRING_VALUE",

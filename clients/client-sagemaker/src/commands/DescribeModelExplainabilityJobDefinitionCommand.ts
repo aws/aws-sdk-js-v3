@@ -48,7 +48,7 @@ export interface DescribeModelExplainabilityJobDefinitionCommandOutput
  * import { SageMakerClient, DescribeModelExplainabilityJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelExplainabilityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeModelExplainabilityJobDefinitionRequest
  *   JobDefinitionName: "STRING_VALUE", // required
  * };
  * const command = new DescribeModelExplainabilityJobDefinitionCommand(input);

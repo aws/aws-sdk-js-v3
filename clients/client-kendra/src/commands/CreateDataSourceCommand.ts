@@ -54,14 +54,14 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * import { KendraClient, CreateDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // CreateDataSourceRequest
  *   Name: "STRING_VALUE", // required
  *   IndexId: "STRING_VALUE", // required
  *   Type: "S3" || "SHAREPOINT" || "DATABASE" || "SALESFORCE" || "ONEDRIVE" || "SERVICENOW" || "CUSTOM" || "CONFLUENCE" || "GOOGLEDRIVE" || "WEBCRAWLER" || "WORKDOCS" || "FSX" || "SLACK" || "BOX" || "QUIP" || "JIRA" || "GITHUB" || "ALFRESCO" || "TEMPLATE", // required
- *   Configuration: {
- *     S3Configuration: {
+ *   Configuration: { // DataSourceConfiguration
+ *     S3Configuration: { // S3DataSourceConfiguration
  *       BucketName: "STRING_VALUE", // required
- *       InclusionPrefixes: [
+ *       InclusionPrefixes: [ // DataSourceInclusionsExclusionsStrings
  *         "STRING_VALUE",
  *       ],
  *       InclusionPatterns: [
@@ -70,16 +70,16 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ExclusionPatterns: [
  *         "STRING_VALUE",
  *       ],
- *       DocumentsMetadataConfiguration: {
+ *       DocumentsMetadataConfiguration: { // DocumentsMetadataConfiguration
  *         S3Prefix: "STRING_VALUE",
  *       },
- *       AccessControlListConfiguration: {
+ *       AccessControlListConfiguration: { // AccessControlListConfiguration
  *         KeyPath: "STRING_VALUE",
  *       },
  *     },
- *     SharePointConfiguration: {
+ *     SharePointConfiguration: { // SharePointConfiguration
  *       SharePointVersion: "SHAREPOINT_2013" || "SHAREPOINT_2016" || "SHAREPOINT_ONLINE" || "SHAREPOINT_2019", // required
- *       Urls: [ // required
+ *       Urls: [ // SharePointUrlList // required
  *         "STRING_VALUE",
  *       ],
  *       SecretArn: "STRING_VALUE", // required
@@ -91,16 +91,16 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ExclusionPatterns: [
  *         "STRING_VALUE",
  *       ],
- *       VpcConfiguration: {
- *         SubnetIds: [ // required
+ *       VpcConfiguration: { // DataSourceVpcConfiguration
+ *         SubnetIds: [ // SubnetIdList // required
  *           "STRING_VALUE",
  *         ],
- *         SecurityGroupIds: [ // required
+ *         SecurityGroupIds: [ // SecurityGroupIdList // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       FieldMappings: [
- *         {
+ *       FieldMappings: [ // DataSourceToIndexFieldMappingList
+ *         { // DataSourceToIndexFieldMapping
  *           DataSourceFieldName: "STRING_VALUE", // required
  *           DateFieldFormat: "STRING_VALUE",
  *           IndexFieldName: "STRING_VALUE", // required
@@ -108,20 +108,20 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ],
  *       DocumentTitleFieldName: "STRING_VALUE",
  *       DisableLocalGroups: true || false,
- *       SslCertificateS3Path: {
+ *       SslCertificateS3Path: { // S3Path
  *         Bucket: "STRING_VALUE", // required
  *         Key: "STRING_VALUE", // required
  *       },
  *       AuthenticationType: "HTTP_BASIC" || "OAUTH2",
- *       ProxyConfiguration: {
+ *       ProxyConfiguration: { // ProxyConfiguration
  *         Host: "STRING_VALUE", // required
  *         Port: Number("int"), // required
  *         Credentials: "STRING_VALUE",
  *       },
  *     },
- *     DatabaseConfiguration: {
+ *     DatabaseConfiguration: { // DatabaseConfiguration
  *       DatabaseEngineType: "RDS_AURORA_MYSQL" || "RDS_AURORA_POSTGRESQL" || "RDS_MYSQL" || "RDS_POSTGRESQL", // required
- *       ConnectionConfiguration: {
+ *       ConnectionConfiguration: { // ConnectionConfiguration
  *         DatabaseHost: "STRING_VALUE", // required
  *         DatabasePort: Number("int"), // required
  *         DatabaseName: "STRING_VALUE", // required
@@ -136,7 +136,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *           "STRING_VALUE",
  *         ],
  *       },
- *       ColumnConfiguration: {
+ *       ColumnConfiguration: { // ColumnConfiguration
  *         DocumentIdColumnName: "STRING_VALUE", // required
  *         DocumentDataColumnName: "STRING_VALUE", // required
  *         DocumentTitleColumnName: "STRING_VALUE",
@@ -147,81 +147,67 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             IndexFieldName: "STRING_VALUE", // required
  *           },
  *         ],
- *         ChangeDetectingColumns: [ // required
+ *         ChangeDetectingColumns: [ // ChangeDetectingColumns // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       AclConfiguration: {
+ *       AclConfiguration: { // AclConfiguration
  *         AllowedGroupsColumnName: "STRING_VALUE", // required
  *       },
- *       SqlConfiguration: {
+ *       SqlConfiguration: { // SqlConfiguration
  *         QueryIdentifiersEnclosingOption: "DOUBLE_QUOTES" || "NONE",
  *       },
  *     },
- *     SalesforceConfiguration: {
+ *     SalesforceConfiguration: { // SalesforceConfiguration
  *       ServerUrl: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
- *       StandardObjectConfigurations: [
- *         {
+ *       StandardObjectConfigurations: [ // SalesforceStandardObjectConfigurationList
+ *         { // SalesforceStandardObjectConfiguration
  *           Name: "ACCOUNT" || "CAMPAIGN" || "CASE" || "CONTACT" || "CONTRACT" || "DOCUMENT" || "GROUP" || "IDEA" || "LEAD" || "OPPORTUNITY" || "PARTNER" || "PRICEBOOK" || "PRODUCT" || "PROFILE" || "SOLUTION" || "TASK" || "USER", // required
  *           DocumentDataFieldName: "STRING_VALUE", // required
  *           DocumentTitleFieldName: "STRING_VALUE",
- *           FieldMappings: [
- *             "<DataSourceToIndexFieldMappingList>",
- *           ],
+ *           FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *         },
  *       ],
- *       KnowledgeArticleConfiguration: {
- *         IncludedStates: [ // required
+ *       KnowledgeArticleConfiguration: { // SalesforceKnowledgeArticleConfiguration
+ *         IncludedStates: [ // SalesforceKnowledgeArticleStateList // required
  *           "DRAFT" || "PUBLISHED" || "ARCHIVED",
  *         ],
- *         StandardKnowledgeArticleTypeConfiguration: {
+ *         StandardKnowledgeArticleTypeConfiguration: { // SalesforceStandardKnowledgeArticleTypeConfiguration
  *           DocumentDataFieldName: "STRING_VALUE", // required
  *           DocumentTitleFieldName: "STRING_VALUE",
- *           FieldMappings: [
- *             "<DataSourceToIndexFieldMappingList>",
- *           ],
+ *           FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *         },
- *         CustomKnowledgeArticleTypeConfigurations: [
- *           {
+ *         CustomKnowledgeArticleTypeConfigurations: [ // SalesforceCustomKnowledgeArticleTypeConfigurationList
+ *           { // SalesforceCustomKnowledgeArticleTypeConfiguration
  *             Name: "STRING_VALUE", // required
  *             DocumentDataFieldName: "STRING_VALUE", // required
  *             DocumentTitleFieldName: "STRING_VALUE",
- *             FieldMappings: [
- *               "<DataSourceToIndexFieldMappingList>",
- *             ],
+ *             FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *           },
  *         ],
  *       },
- *       ChatterFeedConfiguration: {
+ *       ChatterFeedConfiguration: { // SalesforceChatterFeedConfiguration
  *         DocumentDataFieldName: "STRING_VALUE", // required
  *         DocumentTitleFieldName: "STRING_VALUE",
- *         FieldMappings: [
- *           "<DataSourceToIndexFieldMappingList>",
- *         ],
- *         IncludeFilterTypes: [
+ *         FieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *         IncludeFilterTypes: [ // SalesforceChatterFeedIncludeFilterTypes
  *           "ACTIVE_USER" || "STANDARD_USER",
  *         ],
  *       },
  *       CrawlAttachments: true || false,
- *       StandardObjectAttachmentConfiguration: {
+ *       StandardObjectAttachmentConfiguration: { // SalesforceStandardObjectAttachmentConfiguration
  *         DocumentTitleFieldName: "STRING_VALUE",
- *         FieldMappings: [
- *           "<DataSourceToIndexFieldMappingList>",
- *         ],
+ *         FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *       },
- *       IncludeAttachmentFilePatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExcludeAttachmentFilePatterns: [
- *         "STRING_VALUE",
- *       ],
+ *       IncludeAttachmentFilePatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExcludeAttachmentFilePatterns: "<DataSourceInclusionsExclusionsStrings>",
  *     },
- *     OneDriveConfiguration: {
+ *     OneDriveConfiguration: { // OneDriveConfiguration
  *       TenantDomain: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
- *       OneDriveUsers: {
- *         OneDriveUserList: [
+ *       OneDriveUsers: { // OneDriveUsers
+ *         OneDriveUserList: [ // OneDriveUserList
  *           "STRING_VALUE",
  *         ],
  *         OneDriveUserS3Path: {
@@ -229,95 +215,77 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *           Key: "STRING_VALUE", // required
  *         },
  *       },
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       FieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *       DisableLocalGroups: true || false,
  *     },
- *     ServiceNowConfiguration: {
+ *     ServiceNowConfiguration: { // ServiceNowConfiguration
  *       HostUrl: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
  *       ServiceNowBuildVersion: "LONDON" || "OTHERS", // required
- *       KnowledgeArticleConfiguration: {
+ *       KnowledgeArticleConfiguration: { // ServiceNowKnowledgeArticleConfiguration
  *         CrawlAttachments: true || false,
- *         IncludeAttachmentFilePatterns: [
- *           "STRING_VALUE",
- *         ],
- *         ExcludeAttachmentFilePatterns: [
- *           "STRING_VALUE",
- *         ],
+ *         IncludeAttachmentFilePatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *         ExcludeAttachmentFilePatterns: "<DataSourceInclusionsExclusionsStrings>",
  *         DocumentDataFieldName: "STRING_VALUE", // required
  *         DocumentTitleFieldName: "STRING_VALUE",
- *         FieldMappings: [
- *           "<DataSourceToIndexFieldMappingList>",
- *         ],
+ *         FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *         FilterQuery: "STRING_VALUE",
  *       },
- *       ServiceCatalogConfiguration: {
+ *       ServiceCatalogConfiguration: { // ServiceNowServiceCatalogConfiguration
  *         CrawlAttachments: true || false,
- *         IncludeAttachmentFilePatterns: [
- *           "STRING_VALUE",
- *         ],
- *         ExcludeAttachmentFilePatterns: [
- *           "STRING_VALUE",
- *         ],
+ *         IncludeAttachmentFilePatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *         ExcludeAttachmentFilePatterns: "<DataSourceInclusionsExclusionsStrings>",
  *         DocumentDataFieldName: "STRING_VALUE", // required
  *         DocumentTitleFieldName: "STRING_VALUE",
- *         FieldMappings: [
- *           "<DataSourceToIndexFieldMappingList>",
- *         ],
+ *         FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *       },
  *       AuthenticationType: "HTTP_BASIC" || "OAUTH2",
  *     },
- *     ConfluenceConfiguration: {
+ *     ConfluenceConfiguration: { // ConfluenceConfiguration
  *       ServerUrl: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
  *       Version: "CLOUD" || "SERVER", // required
- *       SpaceConfiguration: {
+ *       SpaceConfiguration: { // ConfluenceSpaceConfiguration
  *         CrawlPersonalSpaces: true || false,
  *         CrawlArchivedSpaces: true || false,
- *         IncludeSpaces: [
+ *         IncludeSpaces: [ // ConfluenceSpaceList
  *           "STRING_VALUE",
  *         ],
  *         ExcludeSpaces: [
  *           "STRING_VALUE",
  *         ],
- *         SpaceFieldMappings: [
- *           {
+ *         SpaceFieldMappings: [ // ConfluenceSpaceFieldMappingsList
+ *           { // ConfluenceSpaceToIndexFieldMapping
  *             DataSourceFieldName: "DISPLAY_URL" || "ITEM_TYPE" || "SPACE_KEY" || "URL",
  *             DateFieldFormat: "STRING_VALUE",
  *             IndexFieldName: "STRING_VALUE",
  *           },
  *         ],
  *       },
- *       PageConfiguration: {
- *         PageFieldMappings: [
- *           {
+ *       PageConfiguration: { // ConfluencePageConfiguration
+ *         PageFieldMappings: [ // ConfluencePageFieldMappingsList
+ *           { // ConfluencePageToIndexFieldMapping
  *             DataSourceFieldName: "AUTHOR" || "CONTENT_STATUS" || "CREATED_DATE" || "DISPLAY_URL" || "ITEM_TYPE" || "LABELS" || "MODIFIED_DATE" || "PARENT_ID" || "SPACE_KEY" || "SPACE_NAME" || "URL" || "VERSION",
  *             DateFieldFormat: "STRING_VALUE",
  *             IndexFieldName: "STRING_VALUE",
  *           },
  *         ],
  *       },
- *       BlogConfiguration: {
- *         BlogFieldMappings: [
- *           {
+ *       BlogConfiguration: { // ConfluenceBlogConfiguration
+ *         BlogFieldMappings: [ // ConfluenceBlogFieldMappingsList
+ *           { // ConfluenceBlogToIndexFieldMapping
  *             DataSourceFieldName: "AUTHOR" || "DISPLAY_URL" || "ITEM_TYPE" || "LABELS" || "PUBLISH_DATE" || "SPACE_KEY" || "SPACE_NAME" || "URL" || "VERSION",
  *             DateFieldFormat: "STRING_VALUE",
  *             IndexFieldName: "STRING_VALUE",
  *           },
  *         ],
  *       },
- *       AttachmentConfiguration: {
+ *       AttachmentConfiguration: { // ConfluenceAttachmentConfiguration
  *         CrawlAttachments: true || false,
- *         AttachmentFieldMappings: [
- *           {
+ *         AttachmentFieldMappings: [ // ConfluenceAttachmentFieldMappingsList
+ *           { // ConfluenceAttachmentToIndexFieldMapping
  *             DataSourceFieldName: "AUTHOR" || "CONTENT_TYPE" || "CREATED_DATE" || "DISPLAY_URL" || "FILE_SIZE" || "ITEM_TYPE" || "PARENT_ID" || "SPACE_KEY" || "SPACE_NAME" || "URL" || "VERSION",
  *             DateFieldFormat: "STRING_VALUE",
  *             IndexFieldName: "STRING_VALUE",
@@ -332,12 +300,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *           "STRING_VALUE",
  *         ],
  *       },
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
  *       ProxyConfiguration: {
  *         Host: "STRING_VALUE", // required
  *         Port: Number("int"), // required
@@ -345,37 +309,31 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       },
  *       AuthenticationType: "HTTP_BASIC" || "PAT",
  *     },
- *     GoogleDriveConfiguration: {
+ *     GoogleDriveConfiguration: { // GoogleDriveConfiguration
  *       SecretArn: "STRING_VALUE", // required
- *       InclusionPatterns: [
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       FieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       ExcludeMimeTypes: [ // ExcludeMimeTypesList
  *         "STRING_VALUE",
  *       ],
- *       ExclusionPatterns: [
+ *       ExcludeUserAccounts: [ // ExcludeUserAccountsList
  *         "STRING_VALUE",
  *       ],
- *       FieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       ExcludeMimeTypes: [
- *         "STRING_VALUE",
- *       ],
- *       ExcludeUserAccounts: [
- *         "STRING_VALUE",
- *       ],
- *       ExcludeSharedDrives: [
+ *       ExcludeSharedDrives: [ // ExcludeSharedDrivesList
  *         "STRING_VALUE",
  *       ],
  *     },
- *     WebCrawlerConfiguration: {
- *       Urls: {
- *         SeedUrlConfiguration: {
- *           SeedUrls: [ // required
+ *     WebCrawlerConfiguration: { // WebCrawlerConfiguration
+ *       Urls: { // Urls
+ *         SeedUrlConfiguration: { // SeedUrlConfiguration
+ *           SeedUrls: [ // SeedUrlList // required
  *             "STRING_VALUE",
  *           ],
  *           WebCrawlerMode: "HOST_ONLY" || "SUBDOMAINS" || "EVERYTHING",
  *         },
- *         SiteMapsConfiguration: {
- *           SiteMaps: [ // required
+ *         SiteMapsConfiguration: { // SiteMapsConfiguration
+ *           SiteMaps: [ // SiteMapsList // required
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -384,20 +342,16 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       MaxLinksPerPage: Number("int"),
  *       MaxContentSizePerPageInMegaBytes: Number("float"),
  *       MaxUrlsPerMinuteCrawlRate: Number("int"),
- *       UrlInclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       UrlExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
+ *       UrlInclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       UrlExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
  *       ProxyConfiguration: {
  *         Host: "STRING_VALUE", // required
  *         Port: Number("int"), // required
  *         Credentials: "STRING_VALUE",
  *       },
- *       AuthenticationConfiguration: {
- *         BasicAuthentication: [
- *           {
+ *       AuthenticationConfiguration: { // AuthenticationConfiguration
+ *         BasicAuthentication: [ // BasicAuthenticationConfigurationList
+ *           { // BasicAuthenticationConfiguration
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             Credentials: "STRING_VALUE", // required
@@ -405,21 +359,15 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *         ],
  *       },
  *     },
- *     WorkDocsConfiguration: {
+ *     WorkDocsConfiguration: { // WorkDocsConfiguration
  *       OrganizationId: "STRING_VALUE", // required
  *       CrawlComments: true || false,
  *       UseChangeLog: true || false,
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       FieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *     },
- *     FsxConfiguration: {
+ *     FsxConfiguration: { // FsxConfiguration
  *       FileSystemId: "STRING_VALUE", // required
  *       FileSystemType: "WINDOWS", // required
  *       VpcConfiguration: {
@@ -431,17 +379,11 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *         ],
  *       },
  *       SecretArn: "STRING_VALUE",
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       FieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *     },
- *     SlackConfiguration: {
+ *     SlackConfiguration: { // SlackConfiguration
  *       TeamId: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
  *       VpcConfiguration: {
@@ -452,7 +394,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *           "STRING_VALUE",
  *         ],
  *       },
- *       SlackEntityList: [ // required
+ *       SlackEntityList: [ // SlackEntityList // required
  *         "PUBLIC_CHANNEL" || "PRIVATE_CHANNEL" || "GROUP_MESSAGE" || "DIRECT_MESSAGE",
  *       ],
  *       UseChangeLog: true || false,
@@ -460,141 +402,78 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ExcludeArchived: true || false,
  *       SinceCrawlDate: "STRING_VALUE", // required
  *       LookBackPeriod: Number("int"),
- *       PrivateChannelFilter: [
+ *       PrivateChannelFilter: [ // PrivateChannelFilter
  *         "STRING_VALUE",
  *       ],
- *       PublicChannelFilter: [
+ *       PublicChannelFilter: [ // PublicChannelFilter
  *         "STRING_VALUE",
  *       ],
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       FieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       FieldMappings: "<DataSourceToIndexFieldMappingList>",
  *     },
- *     BoxConfiguration: {
+ *     BoxConfiguration: { // BoxConfiguration
  *       EnterpriseId: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
  *       UseChangeLog: true || false,
  *       CrawlComments: true || false,
  *       CrawlTasks: true || false,
  *       CrawlWebLinks: true || false,
- *       FileFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       TaskFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       CommentFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       WebLinkFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       VpcConfiguration: {
- *         SubnetIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *         SecurityGroupIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *       },
+ *       FileFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       TaskFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       CommentFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       WebLinkFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       VpcConfiguration: "<DataSourceVpcConfiguration>",
  *     },
- *     QuipConfiguration: {
+ *     QuipConfiguration: { // QuipConfiguration
  *       Domain: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
  *       CrawlFileComments: true || false,
  *       CrawlChatRooms: true || false,
  *       CrawlAttachments: true || false,
- *       FolderIds: [
+ *       FolderIds: [ // FolderIdList
  *         "STRING_VALUE",
  *       ],
- *       ThreadFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       MessageFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       AttachmentFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       VpcConfiguration: {
- *         SubnetIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *         SecurityGroupIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *       },
+ *       ThreadFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       MessageFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       AttachmentFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       VpcConfiguration: "<DataSourceVpcConfiguration>",
  *     },
- *     JiraConfiguration: {
+ *     JiraConfiguration: { // JiraConfiguration
  *       JiraAccountUrl: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
  *       UseChangeLog: true || false,
- *       Project: [
+ *       Project: [ // Project
  *         "STRING_VALUE",
  *       ],
- *       IssueType: [
+ *       IssueType: [ // IssueType
  *         "STRING_VALUE",
  *       ],
- *       Status: [
+ *       Status: [ // JiraStatus
  *         "STRING_VALUE",
  *       ],
- *       IssueSubEntityFilter: [
+ *       IssueSubEntityFilter: [ // IssueSubEntityFilter
  *         "COMMENTS" || "ATTACHMENTS" || "WORKLOGS",
  *       ],
- *       AttachmentFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       CommentFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       IssueFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       ProjectFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       WorkLogFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       VpcConfiguration: {
- *         SubnetIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *         SecurityGroupIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *       },
+ *       AttachmentFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       CommentFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       IssueFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       ProjectFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       WorkLogFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       VpcConfiguration: "<DataSourceVpcConfiguration>",
  *     },
- *     GitHubConfiguration: {
- *       SaaSConfiguration: {
+ *     GitHubConfiguration: { // GitHubConfiguration
+ *       SaaSConfiguration: { // SaaSConfiguration
  *         OrganizationName: "STRING_VALUE", // required
  *         HostUrl: "STRING_VALUE", // required
  *       },
- *       OnPremiseConfiguration: {
+ *       OnPremiseConfiguration: { // OnPremiseConfiguration
  *         HostUrl: "STRING_VALUE", // required
  *         OrganizationName: "STRING_VALUE", // required
  *         SslCertificateS3Path: {
@@ -605,7 +484,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Type: "SAAS" || "ON_PREMISE",
  *       SecretArn: "STRING_VALUE", // required
  *       UseChangeLog: true || false,
- *       GitHubDocumentCrawlProperties: {
+ *       GitHubDocumentCrawlProperties: { // GitHubDocumentCrawlProperties
  *         CrawlRepositoryDocuments: true || false,
  *         CrawlIssue: true || false,
  *         CrawlIssueComment: true || false,
@@ -614,10 +493,10 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *         CrawlPullRequestComment: true || false,
  *         CrawlPullRequestCommentAttachment: true || false,
  *       },
- *       RepositoryFilter: [
+ *       RepositoryFilter: [ // RepositoryNames
  *         "STRING_VALUE",
  *       ],
- *       InclusionFolderNamePatterns: [
+ *       InclusionFolderNamePatterns: [ // StringList
  *         "STRING_VALUE",
  *       ],
  *       InclusionFileTypePatterns: [
@@ -632,43 +511,18 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ExclusionFileTypePatterns: [
  *         "STRING_VALUE",
  *       ],
- *       ExclusionFileNamePatterns: [
- *         "STRING_VALUE",
- *       ],
- *       VpcConfiguration: {
- *         SubnetIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *         SecurityGroupIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       GitHubRepositoryConfigurationFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       GitHubCommitConfigurationFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       GitHubIssueDocumentConfigurationFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       GitHubIssueCommentConfigurationFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       GitHubIssueAttachmentConfigurationFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       GitHubPullRequestCommentConfigurationFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       GitHubPullRequestDocumentConfigurationFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       GitHubPullRequestDocumentAttachmentConfigurationFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
+ *       ExclusionFileNamePatterns: "<StringList>",
+ *       VpcConfiguration: "<DataSourceVpcConfiguration>",
+ *       GitHubRepositoryConfigurationFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       GitHubCommitConfigurationFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       GitHubIssueDocumentConfigurationFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       GitHubIssueCommentConfigurationFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       GitHubIssueAttachmentConfigurationFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       GitHubPullRequestCommentConfigurationFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       GitHubPullRequestDocumentConfigurationFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       GitHubPullRequestDocumentAttachmentConfigurationFieldMappings: "<DataSourceToIndexFieldMappingList>",
  *     },
- *     AlfrescoConfiguration: {
+ *     AlfrescoConfiguration: { // AlfrescoConfiguration
  *       SiteUrl: "STRING_VALUE", // required
  *       SiteId: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
@@ -678,72 +532,48 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       },
  *       CrawlSystemFolders: true || false,
  *       CrawlComments: true || false,
- *       EntityFilter: [
+ *       EntityFilter: [ // EntityFilter
  *         "wiki" || "blog" || "documentLibrary",
  *       ],
- *       DocumentLibraryFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       BlogFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       WikiFieldMappings: [
- *         "<DataSourceToIndexFieldMappingList>",
- *       ],
- *       InclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       ExclusionPatterns: [
- *         "STRING_VALUE",
- *       ],
- *       VpcConfiguration: {
- *         SubnetIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *         SecurityGroupIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *       },
+ *       DocumentLibraryFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       BlogFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       WikiFieldMappings: "<DataSourceToIndexFieldMappingList>",
+ *       InclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       ExclusionPatterns: "<DataSourceInclusionsExclusionsStrings>",
+ *       VpcConfiguration: "<DataSourceVpcConfiguration>",
  *     },
- *     TemplateConfiguration: {
+ *     TemplateConfiguration: { // TemplateConfiguration
  *       Template: "DOCUMENT_VALUE",
  *     },
  *   },
- *   VpcConfiguration: {
- *     SubnetIds: [ // required
- *       "STRING_VALUE",
- *     ],
- *     SecurityGroupIds: [ // required
- *       "STRING_VALUE",
- *     ],
- *   },
+ *   VpcConfiguration: "<DataSourceVpcConfiguration>",
  *   Description: "STRING_VALUE",
  *   Schedule: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   ClientToken: "STRING_VALUE",
  *   LanguageCode: "STRING_VALUE",
- *   CustomDocumentEnrichmentConfiguration: {
- *     InlineConfigurations: [
- *       {
- *         Condition: {
+ *   CustomDocumentEnrichmentConfiguration: { // CustomDocumentEnrichmentConfiguration
+ *     InlineConfigurations: [ // InlineCustomDocumentEnrichmentConfigurationList
+ *       { // InlineCustomDocumentEnrichmentConfiguration
+ *         Condition: { // DocumentAttributeCondition
  *           ConditionDocumentAttributeKey: "STRING_VALUE", // required
  *           Operator: "GreaterThan" || "GreaterThanOrEquals" || "LessThan" || "LessThanOrEquals" || "Equals" || "NotEquals" || "Contains" || "NotContains" || "Exists" || "NotExists" || "BeginsWith", // required
- *           ConditionOnValue: {
+ *           ConditionOnValue: { // DocumentAttributeValue
  *             StringValue: "STRING_VALUE",
- *             StringListValue: [
+ *             StringListValue: [ // DocumentAttributeStringListValue
  *               "STRING_VALUE",
  *             ],
  *             LongValue: Number("long"),
  *             DateValue: new Date("TIMESTAMP"),
  *           },
  *         },
- *         Target: {
+ *         Target: { // DocumentAttributeTarget
  *           TargetDocumentAttributeKey: "STRING_VALUE",
  *           TargetDocumentAttributeValueDeletion: true || false,
  *           TargetDocumentAttributeValue: {
@@ -758,7 +588,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *         DocumentContentDeletion: true || false,
  *       },
  *     ],
- *     PreExtractionHookConfiguration: {
+ *     PreExtractionHookConfiguration: { // HookConfiguration
  *       InvocationCondition: {
  *         ConditionDocumentAttributeKey: "STRING_VALUE", // required
  *         Operator: "GreaterThan" || "GreaterThanOrEquals" || "LessThan" || "LessThanOrEquals" || "Equals" || "NotEquals" || "Contains" || "NotContains" || "Exists" || "NotExists" || "BeginsWith", // required

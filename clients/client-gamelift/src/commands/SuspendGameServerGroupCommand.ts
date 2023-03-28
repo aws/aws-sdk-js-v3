@@ -71,9 +71,9 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
  * import { GameLiftClient, SuspendGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, SuspendGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // SuspendGameServerGroupInput
  *   GameServerGroupName: "STRING_VALUE", // required
- *   SuspendActions: [ // required
+ *   SuspendActions: [ // GameServerGroupActions // required
  *     "REPLACE_INSTANCE_TYPES",
  *   ],
  * };

@@ -48,7 +48,7 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  * import { DatabaseMigrationServiceClient, CreateFleetAdvisorCollectorCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateFleetAdvisorCollectorCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // CreateFleetAdvisorCollectorRequest
  *   CollectorName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ServiceAccessRoleArn: "STRING_VALUE", // required

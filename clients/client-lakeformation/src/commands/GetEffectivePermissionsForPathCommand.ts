@@ -45,7 +45,7 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * import { LakeFormationClient, GetEffectivePermissionsForPathCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetEffectivePermissionsForPathCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // GetEffectivePermissionsForPathRequest
  *   CatalogId: "STRING_VALUE",
  *   ResourceArn: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

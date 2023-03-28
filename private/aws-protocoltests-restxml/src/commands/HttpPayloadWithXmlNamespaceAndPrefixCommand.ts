@@ -44,8 +44,8 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
  * import { RestXmlProtocolClient, HttpPayloadWithXmlNamespaceAndPrefixCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithXmlNamespaceAndPrefixCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
- *   nested: {
+ * const input = { // HttpPayloadWithXmlNamespaceAndPrefixInputOutput
+ *   nested: { // PayloadWithXmlNamespaceAndPrefix
  *     name: "STRING_VALUE",
  *   },
  * };

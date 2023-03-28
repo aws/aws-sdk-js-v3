@@ -44,7 +44,7 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * import { ConnectClient, DisassociateLambdaFunctionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateLambdaFunctionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DisassociateLambdaFunctionRequest
  *   InstanceId: "STRING_VALUE", // required
  *   FunctionArn: "STRING_VALUE", // required
  * };

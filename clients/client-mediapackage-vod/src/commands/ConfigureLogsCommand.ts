@@ -42,8 +42,8 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * import { MediaPackageVodClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
- *   EgressAccessLogs: {
+ * const input = { // ConfigureLogsRequest
+ *   EgressAccessLogs: { // EgressAccessLogs
  *     LogGroupName: "STRING_VALUE",
  *   },
  *   Id: "STRING_VALUE", // required

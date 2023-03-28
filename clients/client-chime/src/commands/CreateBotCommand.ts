@@ -47,7 +47,7 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  * import { ChimeClient, CreateBotCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateBotCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateBotRequest
  *   AccountId: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE",

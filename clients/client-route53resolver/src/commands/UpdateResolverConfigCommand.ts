@@ -43,7 +43,7 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  * import { Route53ResolverClient, UpdateResolverConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // UpdateResolverConfigRequest
  *   ResourceId: "STRING_VALUE", // required
  *   AutodefinedReverseFlag: "ENABLE" || "DISABLE" || "USE_LOCAL_RESOURCE_SETTING", // required
  * };

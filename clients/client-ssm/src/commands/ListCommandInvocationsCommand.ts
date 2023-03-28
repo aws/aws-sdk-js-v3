@@ -46,13 +46,13 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * import { SSMClient, ListCommandInvocationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListCommandInvocationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // ListCommandInvocationsRequest
  *   CommandId: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // CommandFilterList
+ *     { // CommandFilter
  *       key: "InvokedAfter" || "InvokedBefore" || "Status" || "ExecutionStage" || "DocumentName", // required
  *       value: "STRING_VALUE", // required
  *     },

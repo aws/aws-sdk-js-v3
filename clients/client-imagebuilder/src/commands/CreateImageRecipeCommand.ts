@@ -43,17 +43,17 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * import { ImagebuilderClient, CreateImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // CreateImageRecipeRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   semanticVersion: "STRING_VALUE", // required
- *   components: [ // required
- *     {
+ *   components: [ // ComponentConfigurationList // required
+ *     { // ComponentConfiguration
  *       componentArn: "STRING_VALUE", // required
- *       parameters: [
- *         {
+ *       parameters: [ // ComponentParameterList
+ *         { // ComponentParameter
  *           name: "STRING_VALUE", // required
- *           value: [ // required
+ *           value: [ // ComponentParameterValueList // required
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -61,10 +61,10 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  *     },
  *   ],
  *   parentImage: "STRING_VALUE", // required
- *   blockDeviceMappings: [
- *     {
+ *   blockDeviceMappings: [ // InstanceBlockDeviceMappings
+ *     { // InstanceBlockDeviceMapping
  *       deviceName: "STRING_VALUE",
- *       ebs: {
+ *       ebs: { // EbsInstanceBlockDeviceSpecification
  *         encrypted: true || false,
  *         deleteOnTermination: true || false,
  *         iops: Number("int"),
@@ -78,12 +78,12 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  *       noDevice: "STRING_VALUE",
  *     },
  *   ],
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   workingDirectory: "STRING_VALUE",
- *   additionalInstanceConfiguration: {
- *     systemsManagerAgent: {
+ *   additionalInstanceConfiguration: { // AdditionalInstanceConfiguration
+ *     systemsManagerAgent: { // SystemsManagerAgent
  *       uninstallAfterBuild: true || false,
  *     },
  *     userDataOverride: "STRING_VALUE",

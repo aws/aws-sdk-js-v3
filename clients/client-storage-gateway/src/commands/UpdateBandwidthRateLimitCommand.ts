@@ -53,7 +53,7 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  * import { StorageGatewayClient, UpdateBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // UpdateBandwidthRateLimitInput
  *   GatewayARN: "STRING_VALUE", // required
  *   AverageUploadRateLimitInBitsPerSec: Number("long"),
  *   AverageDownloadRateLimitInBitsPerSec: Number("long"),

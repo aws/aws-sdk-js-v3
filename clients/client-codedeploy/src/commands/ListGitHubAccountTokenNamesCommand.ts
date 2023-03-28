@@ -42,7 +42,7 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * import { CodeDeployClient, ListGitHubAccountTokenNamesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListGitHubAccountTokenNamesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // ListGitHubAccountTokenNamesInput
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListGitHubAccountTokenNamesCommand(input);

@@ -42,9 +42,9 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * import { ECRClient, DescribeRepositoriesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeRepositoriesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // DescribeRepositoriesRequest
  *   registryId: "STRING_VALUE",
- *   repositoryNames: [
+ *   repositoryNames: [ // RepositoryNameList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",

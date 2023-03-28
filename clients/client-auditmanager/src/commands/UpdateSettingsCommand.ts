@@ -42,21 +42,21 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * import { AuditManagerClient, UpdateSettingsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, UpdateSettingsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // UpdateSettingsRequest
  *   snsTopic: "STRING_VALUE",
- *   defaultAssessmentReportsDestination: {
+ *   defaultAssessmentReportsDestination: { // AssessmentReportsDestination
  *     destinationType: "S3",
  *     destination: "STRING_VALUE",
  *   },
- *   defaultProcessOwners: [
- *     {
+ *   defaultProcessOwners: [ // Roles
+ *     { // Role
  *       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER", // required
  *       roleArn: "STRING_VALUE", // required
  *     },
  *   ],
  *   kmsKey: "STRING_VALUE",
  *   evidenceFinderEnabled: true || false,
- *   deregistrationPolicy: {
+ *   deregistrationPolicy: { // DeregistrationPolicy
  *     deleteResources: "ALL" || "DEFAULT",
  *   },
  * };

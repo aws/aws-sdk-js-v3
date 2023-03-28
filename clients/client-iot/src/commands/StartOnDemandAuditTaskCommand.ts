@@ -43,8 +43,8 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * import { IoTClient, StartOnDemandAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartOnDemandAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
- *   targetCheckNames: [ // required
+ * const input = { // StartOnDemandAuditTaskRequest
+ *   targetCheckNames: [ // TargetAuditCheckNames // required
  *     "STRING_VALUE",
  *   ],
  * };

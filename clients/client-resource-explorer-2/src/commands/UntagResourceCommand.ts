@@ -46,9 +46,9 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { ResourceExplorer2Client, UntagResourceCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, UntagResourceCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
- * const input = {
+ * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  * };

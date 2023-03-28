@@ -51,10 +51,10 @@ export interface DescribeRemediationExceptionsCommandOutput
  * import { ConfigServiceClient, DescribeRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DescribeRemediationExceptionsRequest
  *   ConfigRuleName: "STRING_VALUE", // required
- *   ResourceKeys: [
- *     {
+ *   ResourceKeys: [ // RemediationExceptionResourceKeys
+ *     { // RemediationExceptionResourceKey
  *       ResourceType: "STRING_VALUE",
  *       ResourceId: "STRING_VALUE",
  *     },

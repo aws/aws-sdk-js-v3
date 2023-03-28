@@ -48,7 +48,7 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
  * import { ServiceQuotasClient, ListServiceQuotaIncreaseRequestsInTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListServiceQuotaIncreaseRequestsInTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // ListServiceQuotaIncreaseRequestsInTemplateRequest
  *   ServiceCode: "STRING_VALUE",
  *   AwsRegion: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

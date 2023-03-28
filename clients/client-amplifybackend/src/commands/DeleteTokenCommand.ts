@@ -42,7 +42,7 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * import { AmplifyBackendClient, DeleteTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, DeleteTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
- * const input = {
+ * const input = { // DeleteTokenRequest
  *   AppId: "STRING_VALUE", // required
  *   SessionId: "STRING_VALUE", // required
  * };

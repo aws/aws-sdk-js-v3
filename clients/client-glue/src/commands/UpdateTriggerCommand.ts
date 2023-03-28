@@ -42,30 +42,30 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  * import { GlueClient, UpdateTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // UpdateTriggerRequest
  *   Name: "STRING_VALUE", // required
- *   TriggerUpdate: {
+ *   TriggerUpdate: { // TriggerUpdate
  *     Name: "STRING_VALUE",
  *     Description: "STRING_VALUE",
  *     Schedule: "STRING_VALUE",
- *     Actions: [
- *       {
+ *     Actions: [ // ActionList
+ *       { // Action
  *         JobName: "STRING_VALUE",
- *         Arguments: {
+ *         Arguments: { // GenericMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         Timeout: Number("int"),
  *         SecurityConfiguration: "STRING_VALUE",
- *         NotificationProperty: {
+ *         NotificationProperty: { // NotificationProperty
  *           NotifyDelayAfter: Number("int"),
  *         },
  *         CrawlerName: "STRING_VALUE",
  *       },
  *     ],
- *     Predicate: {
+ *     Predicate: { // Predicate
  *       Logical: "AND" || "ANY",
- *       Conditions: [
- *         {
+ *       Conditions: [ // ConditionList
+ *         { // Condition
  *           LogicalOperator: "EQUALS",
  *           JobName: "STRING_VALUE",
  *           State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
@@ -74,7 +74,7 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  *         },
  *       ],
  *     },
- *     EventBatchingCondition: {
+ *     EventBatchingCondition: { // EventBatchingCondition
  *       BatchSize: Number("int"), // required
  *       BatchWindow: Number("int"),
  *     },

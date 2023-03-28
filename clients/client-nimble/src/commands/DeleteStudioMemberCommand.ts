@@ -42,7 +42,7 @@ export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberRespo
  * import { NimbleClient, DeleteStudioMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteStudioMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // DeleteStudioMemberRequest
  *   clientToken: "STRING_VALUE",
  *   principalId: "STRING_VALUE", // required
  *   studioId: "STRING_VALUE", // required

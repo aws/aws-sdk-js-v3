@@ -53,7 +53,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { SecretsManagerClient, PutResourcePolicyCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, PutResourcePolicyCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyRequest
  *   SecretId: "STRING_VALUE", // required
  *   ResourcePolicy: "STRING_VALUE", // required
  *   BlockPublicPolicy: true || false,

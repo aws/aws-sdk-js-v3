@@ -42,7 +42,7 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * import { CodeDeployClient, DeleteDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // DeleteDeploymentGroupInput
  *   applicationName: "STRING_VALUE", // required
  *   deploymentGroupName: "STRING_VALUE", // required
  * };

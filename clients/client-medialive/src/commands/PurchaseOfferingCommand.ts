@@ -42,17 +42,17 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * import { MediaLiveClient, PurchaseOfferingCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, PurchaseOfferingCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // PurchaseOfferingRequest
  *   Count: Number("int"), // required
  *   Name: "STRING_VALUE",
  *   OfferingId: "STRING_VALUE", // required
- *   RenewalSettings: {
+ *   RenewalSettings: { // RenewalSettings
  *     AutomaticRenewal: "DISABLED" || "ENABLED" || "UNAVAILABLE",
  *     RenewalCount: Number("int"),
  *   },
  *   RequestId: "STRING_VALUE",
  *   Start: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

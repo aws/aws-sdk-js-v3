@@ -60,7 +60,7 @@ export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // PutAccessPointPolicyRequest
  *   AccountId: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   Policy: "STRING_VALUE", // required

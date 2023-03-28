@@ -45,7 +45,7 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * import { EFSClient, DescribeAccessPointsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeAccessPointsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // DescribeAccessPointsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   AccessPointId: "STRING_VALUE",

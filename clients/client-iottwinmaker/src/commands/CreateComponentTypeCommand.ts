@@ -42,141 +42,101 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  * import { IoTTwinMakerClient, CreateComponentTypeCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateComponentTypeCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // CreateComponentTypeRequest
  *   workspaceId: "STRING_VALUE", // required
  *   isSingleton: true || false,
  *   componentTypeId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   propertyDefinitions: {
- *     "<keys>": {
- *       dataType: {
+ *   propertyDefinitions: { // PropertyDefinitionsRequest
+ *     "<keys>": { // PropertyDefinitionRequest
+ *       dataType: { // DataType
  *         type: "STRING_VALUE", // required
  *         nestedType: {
  *           type: "STRING_VALUE", // required
- *           nestedType: {
- *             type: "<DataType>",
- *             nestedType: "<DataType>",
- *             allowedValues: [
- *               {
- *                 booleanValue: true || false,
- *                 doubleValue: Number("double"),
- *                 integerValue: Number("int"),
- *                 longValue: Number("long"),
- *                 stringValue: "STRING_VALUE",
- *                 listValue: [
- *                   {
- *                     booleanValue: true || false,
- *                     doubleValue: Number("double"),
- *                     integerValue: Number("int"),
- *                     longValue: Number("long"),
- *                     stringValue: "STRING_VALUE",
- *                     listValue: [
- *                       "<DataValueList>",
- *                     ],
- *                     mapValue: {
- *                       "<keys>": {
- *                         booleanValue: "<DataValue>",
- *                         doubleValue: "<DataValue>",
- *                         integerValue: "<DataValue>",
- *                         longValue: "<DataValue>",
- *                         stringValue: "<DataValue>",
- *                         listValue: "<DataValue>",
- *                         mapValue: {
- *                           "<keys>": {
- *                             booleanValue: "<DataValue>",
- *                             doubleValue: "<DataValue>",
- *                             integerValue: "<DataValue>",
- *                             longValue: "<DataValue>",
- *                             stringValue: "<DataValue>",
- *                             listValue: "<DataValue>",
- *                             mapValue: "<DataValue>",
- *                             relationshipValue: {
- *                               targetEntityId: "STRING_VALUE",
- *                               targetComponentName: "STRING_VALUE",
- *                             },
- *                             expression: "STRING_VALUE",
- *                           },
- *                         },
- *                         relationshipValue: {
- *                           targetEntityId: "STRING_VALUE",
- *                           targetComponentName: "STRING_VALUE",
- *                         },
- *                         expression: "STRING_VALUE",
- *                       },
- *                     },
- *                     relationshipValue: "<DataValue>",
- *                     expression: "<DataValue>",
+ *           nestedType: "<DataType>",
+ *           allowedValues: [ // DataValueList
+ *             { // DataValue
+ *               booleanValue: true || false,
+ *               doubleValue: Number("double"),
+ *               integerValue: Number("int"),
+ *               longValue: Number("long"),
+ *               stringValue: "STRING_VALUE",
+ *               listValue: [
+ *                 {
+ *                   booleanValue: true || false,
+ *                   doubleValue: Number("double"),
+ *                   integerValue: Number("int"),
+ *                   longValue: Number("long"),
+ *                   stringValue: "STRING_VALUE",
+ *                   listValue: "<DataValueList>",
+ *                   mapValue: { // DataValueMap
+ *                     "<keys>": "<DataValue>",
  *                   },
- *                 ],
- *                 mapValue: "<DataValue>",
- *                 relationshipValue: "<DataValue>",
- *                 expression: "<DataValue>",
+ *                   relationshipValue: { // RelationshipValue
+ *                     targetEntityId: "STRING_VALUE",
+ *                     targetComponentName: "STRING_VALUE",
+ *                   },
+ *                   expression: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               mapValue: {
+ *                 "<keys>": "<DataValue>",
  *               },
- *             ],
- *             unitOfMeasure: "STRING_VALUE",
- *             relationship: {
- *               targetComponentTypeId: "STRING_VALUE",
- *               relationshipType: "STRING_VALUE",
+ *               relationshipValue: {
+ *                 targetEntityId: "STRING_VALUE",
+ *                 targetComponentName: "STRING_VALUE",
+ *               },
+ *               expression: "STRING_VALUE",
  *             },
- *           },
- *           allowedValues: [
- *             "<DataValueList>",
  *           ],
  *           unitOfMeasure: "STRING_VALUE",
- *           relationship: {
+ *           relationship: { // Relationship
  *             targetComponentTypeId: "STRING_VALUE",
  *             relationshipType: "STRING_VALUE",
  *           },
  *         },
- *         allowedValues: "<DataType>",
- *         unitOfMeasure: "<DataType>",
- *         relationship: "<DataType>",
+ *         allowedValues: "<DataValueList>",
+ *         unitOfMeasure: "STRING_VALUE",
+ *         relationship: {
+ *           targetComponentTypeId: "STRING_VALUE",
+ *           relationshipType: "STRING_VALUE",
+ *         },
  *       },
  *       isRequiredInEntity: true || false,
  *       isExternalId: true || false,
  *       isStoredExternally: true || false,
  *       isTimeSeries: true || false,
- *       defaultValue: {
- *         booleanValue: "<DataValue>",
- *         doubleValue: "<DataValue>",
- *         integerValue: "<DataValue>",
- *         longValue: "<DataValue>",
- *         stringValue: "<DataValue>",
- *         listValue: "<DataValue>",
- *         mapValue: "<DataValue>",
- *         relationshipValue: "<DataValue>",
- *         expression: "<DataValue>",
- *       },
- *       configuration: {
+ *       defaultValue: "<DataValue>",
+ *       configuration: { // Configuration
  *         "<keys>": "STRING_VALUE",
  *       },
  *       displayName: "STRING_VALUE",
  *     },
  *   },
- *   extendsFrom: [
+ *   extendsFrom: [ // ExtendsFrom
  *     "STRING_VALUE",
  *   ],
- *   functions: {
- *     "<keys>": {
- *       requiredProperties: [
+ *   functions: { // FunctionsRequest
+ *     "<keys>": { // FunctionRequest
+ *       requiredProperties: [ // RequiredProperties
  *         "STRING_VALUE",
  *       ],
  *       scope: "STRING_VALUE",
- *       implementedBy: {
- *         lambda: {
+ *       implementedBy: { // DataConnector
+ *         lambda: { // LambdaFunction
  *           arn: "STRING_VALUE", // required
  *         },
  *         isNative: true || false,
  *       },
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   propertyGroups: {
- *     "<keys>": {
+ *   propertyGroups: { // PropertyGroupsRequest
+ *     "<keys>": { // PropertyGroupRequest
  *       groupType: "STRING_VALUE",
- *       propertyNames: [
+ *       propertyNames: [ // PropertyNames
  *         "STRING_VALUE",
  *       ],
  *     },

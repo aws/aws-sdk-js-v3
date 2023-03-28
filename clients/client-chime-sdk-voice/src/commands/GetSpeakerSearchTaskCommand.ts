@@ -42,7 +42,7 @@ export interface GetSpeakerSearchTaskCommandOutput extends GetSpeakerSearchTaskR
  * import { ChimeSDKVoiceClient, GetSpeakerSearchTaskCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetSpeakerSearchTaskCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // GetSpeakerSearchTaskRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   SpeakerSearchTaskId: "STRING_VALUE", // required
  * };

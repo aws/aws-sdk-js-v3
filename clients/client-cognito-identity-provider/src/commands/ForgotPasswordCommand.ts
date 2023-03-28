@@ -75,18 +75,18 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * import { CognitoIdentityProviderClient, ForgotPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ForgotPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // ForgotPasswordRequest
  *   ClientId: "STRING_VALUE", // required
  *   SecretHash: "STRING_VALUE",
- *   UserContextData: {
+ *   UserContextData: { // UserContextDataType
  *     IpAddress: "STRING_VALUE",
  *     EncodedData: "STRING_VALUE",
  *   },
  *   Username: "STRING_VALUE", // required
- *   AnalyticsMetadata: {
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
  *     AnalyticsEndpointId: "STRING_VALUE",
  *   },
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

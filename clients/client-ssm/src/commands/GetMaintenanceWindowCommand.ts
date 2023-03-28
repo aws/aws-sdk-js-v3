@@ -46,7 +46,7 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
  * import { SSMClient, GetMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // GetMaintenanceWindowRequest
  *   WindowId: "STRING_VALUE", // required
  * };
  * const command = new GetMaintenanceWindowCommand(input);

@@ -45,14 +45,14 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * import { GuardDutyClient, CreateIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // CreateIPSetRequest
  *   DetectorId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
  *   Location: "STRING_VALUE", // required
  *   Activate: true || false, // required
  *   ClientToken: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

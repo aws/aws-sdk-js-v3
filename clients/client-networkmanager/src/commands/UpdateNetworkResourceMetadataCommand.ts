@@ -44,10 +44,10 @@ export interface UpdateNetworkResourceMetadataCommandOutput
  * import { NetworkManagerClient, UpdateNetworkResourceMetadataCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateNetworkResourceMetadataCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // UpdateNetworkResourceMetadataRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
- *   Metadata: { // required
+ *   Metadata: { // NetworkResourceMetadataMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

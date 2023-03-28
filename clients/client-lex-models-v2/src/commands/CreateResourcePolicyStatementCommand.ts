@@ -48,21 +48,21 @@ export interface CreateResourcePolicyStatementCommandOutput
  * import { LexModelsV2Client, CreateResourcePolicyStatementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateResourcePolicyStatementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // CreateResourcePolicyStatementRequest
  *   resourceArn: "STRING_VALUE", // required
  *   statementId: "STRING_VALUE", // required
  *   effect: "Allow" || "Deny", // required
- *   principal: [ // required
- *     {
+ *   principal: [ // PrincipalList // required
+ *     { // Principal
  *       service: "STRING_VALUE",
  *       arn: "STRING_VALUE",
  *     },
  *   ],
- *   action: [ // required
+ *   action: [ // OperationList // required
  *     "STRING_VALUE",
  *   ],
- *   condition: {
- *     "<keys>": {
+ *   condition: { // ConditionMap
+ *     "<keys>": { // ConditionKeyValueMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

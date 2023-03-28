@@ -45,7 +45,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * import { SSMIncidentsClient, PutResourcePolicyCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, PutResourcePolicyCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyInput
  *   resourceArn: "STRING_VALUE", // required
  *   policy: "STRING_VALUE", // required
  * };

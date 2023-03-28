@@ -42,30 +42,30 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  * import { SESv2Client, SendBulkEmailCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, SendBulkEmailCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // SendBulkEmailRequest
  *   FromEmailAddress: "STRING_VALUE",
  *   FromEmailAddressIdentityArn: "STRING_VALUE",
- *   ReplyToAddresses: [
+ *   ReplyToAddresses: [ // EmailAddressList
  *     "STRING_VALUE",
  *   ],
  *   FeedbackForwardingEmailAddress: "STRING_VALUE",
  *   FeedbackForwardingEmailAddressIdentityArn: "STRING_VALUE",
- *   DefaultEmailTags: [
- *     {
+ *   DefaultEmailTags: [ // MessageTagList
+ *     { // MessageTag
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   DefaultContent: {
- *     Template: {
+ *   DefaultContent: { // BulkEmailContent
+ *     Template: { // Template
  *       TemplateName: "STRING_VALUE",
  *       TemplateArn: "STRING_VALUE",
  *       TemplateData: "STRING_VALUE",
  *     },
  *   },
- *   BulkEmailEntries: [ // required
- *     {
- *       Destination: {
+ *   BulkEmailEntries: [ // BulkEmailEntryList // required
+ *     { // BulkEmailEntry
+ *       Destination: { // Destination
  *         ToAddresses: [
  *           "STRING_VALUE",
  *         ],
@@ -82,8 +82,8 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
- *       ReplacementEmailContent: {
- *         ReplacementTemplate: {
+ *       ReplacementEmailContent: { // ReplacementEmailContent
+ *         ReplacementTemplate: { // ReplacementTemplate
  *           ReplacementTemplateData: "STRING_VALUE",
  *         },
  *       },

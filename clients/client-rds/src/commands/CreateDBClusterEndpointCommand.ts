@@ -45,18 +45,18 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * import { RDSClient, CreateDBClusterEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBClusterEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // CreateDBClusterEndpointMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
  *   EndpointType: "STRING_VALUE", // required
- *   StaticMembers: [
+ *   StaticMembers: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   ExcludedMembers: [
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

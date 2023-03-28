@@ -43,7 +43,7 @@ export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPacka
  * import { TnbClient, ListSolNetworkPackagesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolNetworkPackagesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // ListSolNetworkPackagesInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

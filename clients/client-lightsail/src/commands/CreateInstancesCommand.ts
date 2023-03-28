@@ -44,8 +44,8 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
  * import { LightsailClient, CreateInstancesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateInstancesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
- *   instanceNames: [ // required
+ * const input = { // CreateInstancesRequest
+ *   instanceNames: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  *   availabilityZone: "STRING_VALUE", // required
@@ -54,19 +54,19 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
  *   bundleId: "STRING_VALUE", // required
  *   userData: "STRING_VALUE",
  *   keyPairName: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   addOns: [
- *     {
+ *   addOns: [ // AddOnRequestList
+ *     { // AddOnRequest
  *       addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
- *       autoSnapshotAddOnRequest: {
+ *       autoSnapshotAddOnRequest: { // AutoSnapshotAddOnRequest
  *         snapshotTimeOfDay: "STRING_VALUE",
  *       },
- *       stopInstanceOnIdleRequest: {
+ *       stopInstanceOnIdleRequest: { // StopInstanceOnIdleRequest
  *         threshold: "STRING_VALUE",
  *         duration: "STRING_VALUE",
  *       },

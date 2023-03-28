@@ -46,10 +46,10 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * import { LicenseManagerLinuxSubscriptionsClient, UpdateServiceSettingsCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, UpdateServiceSettingsCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
- * const input = {
+ * const input = { // UpdateServiceSettingsRequest
  *   LinuxSubscriptionsDiscovery: "STRING_VALUE", // required
- *   LinuxSubscriptionsDiscoverySettings: {
- *     SourceRegions: [ // required
+ *   LinuxSubscriptionsDiscoverySettings: { // LinuxSubscriptionsDiscoverySettings
+ *     SourceRegions: [ // StringList // required
  *       "STRING_VALUE",
  *     ],
  *     OrganizationIntegration: "STRING_VALUE", // required

@@ -48,21 +48,21 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetEBSVolumeRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEBSVolumeRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const input = {
- *   volumeArns: [
+ * const input = { // GetEBSVolumeRecommendationsRequest
+ *   volumeArns: [ // VolumeArns
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filters: [
- *     {
+ *   filters: [ // EBSFilters
+ *     { // EBSFilter
  *       name: "Finding",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   accountIds: [
+ *   accountIds: [ // AccountIds
  *     "STRING_VALUE",
  *   ],
  * };

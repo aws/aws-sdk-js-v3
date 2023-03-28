@@ -43,7 +43,7 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * import { EventBridgeClient, CreateApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CreateApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // CreateApiDestinationRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ConnectionArn: "STRING_VALUE", // required

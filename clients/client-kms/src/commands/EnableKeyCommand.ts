@@ -49,7 +49,7 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * import { KMSClient, EnableKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, EnableKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // EnableKeyRequest
  *   KeyId: "STRING_VALUE", // required
  * };
  * const command = new EnableKeyCommand(input);

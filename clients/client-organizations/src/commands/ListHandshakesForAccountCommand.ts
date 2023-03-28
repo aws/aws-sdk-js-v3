@@ -60,8 +60,8 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * import { OrganizationsClient, ListHandshakesForAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListHandshakesForAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
- *   Filter: {
+ * const input = { // ListHandshakesForAccountRequest
+ *   Filter: { // HandshakeFilter
  *     ActionType: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
  *     ParentHandshakeId: "STRING_VALUE",
  *   },

@@ -43,7 +43,7 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  * import { LookoutEquipmentClient, DeleteInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = {
+ * const input = { // DeleteInferenceSchedulerRequest
  *   InferenceSchedulerName: "STRING_VALUE", // required
  * };
  * const command = new DeleteInferenceSchedulerCommand(input);

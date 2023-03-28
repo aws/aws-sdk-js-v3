@@ -60,33 +60,33 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  * import { CloudFrontClient, UpdateOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   OriginRequestPolicyConfig: {
+ * const input = { // UpdateOriginRequestPolicyRequest
+ *   OriginRequestPolicyConfig: { // OriginRequestPolicyConfig
  *     Comment: "STRING_VALUE",
  *     Name: "STRING_VALUE", // required
- *     HeadersConfig: {
+ *     HeadersConfig: { // OriginRequestPolicyHeadersConfig
  *       HeaderBehavior: "none" || "whitelist" || "allViewer" || "allViewerAndWhitelistCloudFront" || "allExcept", // required
- *       Headers: {
+ *       Headers: { // Headers
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // HeaderList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     CookiesConfig: {
+ *     CookiesConfig: { // OriginRequestPolicyCookiesConfig
  *       CookieBehavior: "none" || "whitelist" || "all" || "allExcept", // required
- *       Cookies: {
+ *       Cookies: { // CookieNames
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // CookieNameList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     QueryStringsConfig: {
+ *     QueryStringsConfig: { // OriginRequestPolicyQueryStringsConfig
  *       QueryStringBehavior: "none" || "whitelist" || "all" || "allExcept", // required
- *       QueryStrings: {
+ *       QueryStrings: { // QueryStringNames
  *         Quantity: Number("int"), // required
- *         Items: [
+ *         Items: [ // QueryStringNamesList
  *           "STRING_VALUE",
  *         ],
  *       },

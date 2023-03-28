@@ -42,7 +42,7 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  * import { DirectConnectClient, DeleteVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // DeleteVirtualInterfaceRequest
  *   virtualInterfaceId: "STRING_VALUE", // required
  * };
  * const command = new DeleteVirtualInterfaceCommand(input);

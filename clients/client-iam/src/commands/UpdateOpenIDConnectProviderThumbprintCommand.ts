@@ -65,9 +65,9 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * import { IAMClient, UpdateOpenIDConnectProviderThumbprintCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateOpenIDConnectProviderThumbprintCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UpdateOpenIDConnectProviderThumbprintRequest
  *   OpenIDConnectProviderArn: "STRING_VALUE", // required
- *   ThumbprintList: [ // required
+ *   ThumbprintList: [ // thumbprintListType // required
  *     "STRING_VALUE",
  *   ],
  * };

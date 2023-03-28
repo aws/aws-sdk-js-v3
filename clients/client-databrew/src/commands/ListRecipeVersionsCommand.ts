@@ -43,7 +43,7 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * import { DataBrewClient, ListRecipeVersionsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListRecipeVersionsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // ListRecipeVersionsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required

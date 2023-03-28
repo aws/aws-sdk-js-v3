@@ -42,18 +42,18 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * import { LexModelsV2Client, UpdateBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // UpdateBotRequest
  *   botId: "STRING_VALUE", // required
  *   botName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   roleArn: "STRING_VALUE", // required
- *   dataPrivacy: {
+ *   dataPrivacy: { // DataPrivacy
  *     childDirected: true || false, // required
  *   },
  *   idleSessionTTLInSeconds: Number("int"), // required
  *   botType: "Bot" || "BotNetwork",
- *   botMembers: [
- *     {
+ *   botMembers: [ // BotMembers
+ *     { // BotMember
  *       botMemberId: "STRING_VALUE", // required
  *       botMemberName: "STRING_VALUE", // required
  *       botMemberAliasId: "STRING_VALUE", // required

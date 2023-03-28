@@ -42,7 +42,7 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  * import { IvsClient, GetStreamCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetStreamCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
- * const input = {
+ * const input = { // GetStreamRequest
  *   channelArn: "STRING_VALUE", // required
  * };
  * const command = new GetStreamCommand(input);

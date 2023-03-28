@@ -66,9 +66,9 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * import { WorkSpacesClient, TerminateWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, TerminateWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
- *   TerminateWorkspaceRequests: [ // required
- *     {
+ * const input = { // TerminateWorkspacesRequest
+ *   TerminateWorkspaceRequests: [ // TerminateWorkspaceRequests // required
+ *     { // TerminateRequest
  *       WorkspaceId: "STRING_VALUE", // required
  *     },
  *   ],

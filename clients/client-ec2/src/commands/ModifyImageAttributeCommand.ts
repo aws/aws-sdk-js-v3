@@ -47,15 +47,15 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ModifyImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyImageAttributeRequest
  *   Attribute: "STRING_VALUE",
- *   Description: {
+ *   Description: { // AttributeValue
  *     Value: "STRING_VALUE",
  *   },
  *   ImageId: "STRING_VALUE", // required
- *   LaunchPermission: {
- *     Add: [
- *       {
+ *   LaunchPermission: { // LaunchPermissionModifications
+ *     Add: [ // LaunchPermissionList
+ *       { // LaunchPermission
  *         Group: "all",
  *         UserId: "STRING_VALUE",
  *         OrganizationArn: "STRING_VALUE",
@@ -72,21 +72,21 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  *     ],
  *   },
  *   OperationType: "add" || "remove",
- *   ProductCodes: [
+ *   ProductCodes: [ // ProductCodeStringList
  *     "STRING_VALUE",
  *   ],
- *   UserGroups: [
+ *   UserGroups: [ // UserGroupStringList
  *     "STRING_VALUE",
  *   ],
- *   UserIds: [
+ *   UserIds: [ // UserIdStringList
  *     "STRING_VALUE",
  *   ],
  *   Value: "STRING_VALUE",
  *   DryRun: true || false,
- *   OrganizationArns: [
+ *   OrganizationArns: [ // OrganizationArnStringList
  *     "STRING_VALUE",
  *   ],
- *   OrganizationalUnitArns: [
+ *   OrganizationalUnitArns: [ // OrganizationalUnitArnStringList
  *     "STRING_VALUE",
  *   ],
  *   ImdsSupport: {

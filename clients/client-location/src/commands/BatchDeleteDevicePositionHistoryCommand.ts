@@ -44,9 +44,9 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
  * import { LocationClient, BatchDeleteDevicePositionHistoryCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchDeleteDevicePositionHistoryCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // BatchDeleteDevicePositionHistoryRequest
  *   TrackerName: "STRING_VALUE", // required
- *   DeviceIds: [ // required
+ *   DeviceIds: [ // DeviceIdsList // required
  *     "STRING_VALUE",
  *   ],
  * };

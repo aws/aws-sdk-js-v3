@@ -46,7 +46,7 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * import { OpenSearchServerlessClient, UpdateCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // UpdateCollectionRequest
  *   id: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",

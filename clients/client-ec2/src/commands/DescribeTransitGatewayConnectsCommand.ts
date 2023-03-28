@@ -44,14 +44,14 @@ export interface DescribeTransitGatewayConnectsCommandOutput
  * import { EC2Client, DescribeTransitGatewayConnectsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayConnectsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   TransitGatewayAttachmentIds: [
+ * const input = { // DescribeTransitGatewayConnectsRequest
+ *   TransitGatewayAttachmentIds: [ // TransitGatewayAttachmentIdStringList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

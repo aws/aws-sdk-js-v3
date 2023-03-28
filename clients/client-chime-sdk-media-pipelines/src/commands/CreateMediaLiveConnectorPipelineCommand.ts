@@ -53,29 +53,29 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * import { ChimeSDKMediaPipelinesClient, CreateMediaLiveConnectorPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaLiveConnectorPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
- *   Sources: [ // required
- *     {
+ * const input = { // CreateMediaLiveConnectorPipelineRequest
+ *   Sources: [ // LiveConnectorSourceList // required
+ *     { // LiveConnectorSourceConfiguration
  *       SourceType: "ChimeSdkMeeting", // required
- *       ChimeSdkMeetingLiveConnectorConfiguration: {
+ *       ChimeSdkMeetingLiveConnectorConfiguration: { // ChimeSdkMeetingLiveConnectorConfiguration
  *         Arn: "STRING_VALUE", // required
  *         MuxType: "AudioWithCompositedVideo" || "AudioWithActiveSpeakerVideo", // required
- *         CompositedVideo: {
+ *         CompositedVideo: { // CompositedVideoArtifactsConfiguration
  *           Layout: "GridView",
  *           Resolution: "HD" || "FHD",
- *           GridViewConfiguration: {
+ *           GridViewConfiguration: { // GridViewConfiguration
  *             ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
- *             PresenterOnlyConfiguration: {
+ *             PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
  *               PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
  *             },
  *           },
  *         },
- *         SourceConfiguration: {
- *           SelectedVideoStreams: {
- *             AttendeeIds: [
+ *         SourceConfiguration: { // SourceConfiguration
+ *           SelectedVideoStreams: { // SelectedVideoStreams
+ *             AttendeeIds: [ // AttendeeIdList
  *               "STRING_VALUE",
  *             ],
- *             ExternalUserIds: [
+ *             ExternalUserIds: [ // ExternalUserIdList
  *               "STRING_VALUE",
  *             ],
  *           },
@@ -83,10 +83,10 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  *       },
  *     },
  *   ],
- *   Sinks: [ // required
- *     {
+ *   Sinks: [ // LiveConnectorSinkList // required
+ *     { // LiveConnectorSinkConfiguration
  *       SinkType: "RTMP", // required
- *       RTMPConfiguration: {
+ *       RTMPConfiguration: { // LiveConnectorRTMPConfiguration
  *         Url: "STRING_VALUE", // required
  *         AudioChannels: "Stereo" || "Mono",
  *         AudioSampleRate: "STRING_VALUE",
@@ -94,8 +94,8 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  *     },
  *   ],
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

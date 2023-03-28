@@ -46,7 +46,7 @@ export interface ListProxySessionsCommandOutput extends ListProxySessionsRespons
  * import { ChimeClient, ListProxySessionsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListProxySessionsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListProxySessionsRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   Status: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

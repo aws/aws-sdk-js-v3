@@ -42,7 +42,7 @@ export interface GetLoadBalancerCommandOutput extends GetLoadBalancerResult, __M
  * import { LightsailClient, GetLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetLoadBalancerRequest
  *   loadBalancerName: "STRING_VALUE", // required
  * };
  * const command = new GetLoadBalancerCommand(input);

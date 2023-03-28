@@ -47,16 +47,16 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
  * import { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CreateWirelessGatewayTaskDefinitionRequest
  *   AutoCreateTasks: true || false, // required
  *   Name: "STRING_VALUE",
- *   Update: {
+ *   Update: { // UpdateWirelessGatewayTaskCreate
  *     UpdateDataSource: "STRING_VALUE",
  *     UpdateDataRole: "STRING_VALUE",
- *     LoRaWAN: {
+ *     LoRaWAN: { // LoRaWANUpdateGatewayTaskCreate
  *       UpdateSignature: "STRING_VALUE",
  *       SigKeyCrc: Number("long"),
- *       CurrentVersion: {
+ *       CurrentVersion: { // LoRaWANGatewayVersion
  *         PackageVersion: "STRING_VALUE",
  *         Model: "STRING_VALUE",
  *         Station: "STRING_VALUE",
@@ -69,8 +69,8 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
  *     },
  *   },
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

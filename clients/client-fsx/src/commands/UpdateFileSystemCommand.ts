@@ -198,63 +198,63 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * import { FSxClient, UpdateFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // UpdateFileSystemRequest
  *   FileSystemId: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
  *   StorageCapacity: Number("int"),
- *   WindowsConfiguration: {
+ *   WindowsConfiguration: { // UpdateFileSystemWindowsConfiguration
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
  *     DailyAutomaticBackupStartTime: "STRING_VALUE",
  *     AutomaticBackupRetentionDays: Number("int"),
  *     ThroughputCapacity: Number("int"),
- *     SelfManagedActiveDirectoryConfiguration: {
+ *     SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryConfigurationUpdates
  *       UserName: "STRING_VALUE",
  *       Password: "STRING_VALUE",
- *       DnsIps: [
+ *       DnsIps: [ // DnsIps
  *         "STRING_VALUE",
  *       ],
  *     },
- *     AuditLogConfiguration: {
+ *     AuditLogConfiguration: { // WindowsAuditLogCreateConfiguration
  *       FileAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  *       FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  *       AuditLogDestination: "STRING_VALUE",
  *     },
  *   },
- *   LustreConfiguration: {
+ *   LustreConfiguration: { // UpdateFileSystemLustreConfiguration
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
  *     DailyAutomaticBackupStartTime: "STRING_VALUE",
  *     AutomaticBackupRetentionDays: Number("int"),
  *     AutoImportPolicy: "NONE" || "NEW" || "NEW_CHANGED" || "NEW_CHANGED_DELETED",
  *     DataCompressionType: "NONE" || "LZ4",
- *     LogConfiguration: {
+ *     LogConfiguration: { // LustreLogCreateConfiguration
  *       Level: "DISABLED" || "WARN_ONLY" || "ERROR_ONLY" || "WARN_ERROR", // required
  *       Destination: "STRING_VALUE",
  *     },
- *     RootSquashConfiguration: {
+ *     RootSquashConfiguration: { // LustreRootSquashConfiguration
  *       RootSquash: "STRING_VALUE",
- *       NoSquashNids: [
+ *       NoSquashNids: [ // LustreNoSquashNids
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
- *   OntapConfiguration: {
+ *   OntapConfiguration: { // UpdateFileSystemOntapConfiguration
  *     AutomaticBackupRetentionDays: Number("int"),
  *     DailyAutomaticBackupStartTime: "STRING_VALUE",
  *     FsxAdminPassword: "STRING_VALUE",
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
- *     DiskIopsConfiguration: {
+ *     DiskIopsConfiguration: { // DiskIopsConfiguration
  *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
  *       Iops: Number("long"),
  *     },
  *     ThroughputCapacity: Number("int"),
- *     AddRouteTableIds: [
+ *     AddRouteTableIds: [ // RouteTableIds
  *       "STRING_VALUE",
  *     ],
  *     RemoveRouteTableIds: [
  *       "STRING_VALUE",
  *     ],
  *   },
- *   OpenZFSConfiguration: {
+ *   OpenZFSConfiguration: { // UpdateFileSystemOpenZFSConfiguration
  *     AutomaticBackupRetentionDays: Number("int"),
  *     CopyTagsToBackups: true || false,
  *     CopyTagsToVolumes: true || false,

@@ -48,7 +48,7 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * import { AlexaForBusinessClient, ResolveRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ResolveRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // ResolveRoomRequest
  *   UserId: "STRING_VALUE", // required
  *   SkillId: "STRING_VALUE", // required
  * };

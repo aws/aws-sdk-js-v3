@@ -52,7 +52,7 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
  * import { EC2Client, EnableReachabilityAnalyzerOrganizationSharingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableReachabilityAnalyzerOrganizationSharingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // EnableReachabilityAnalyzerOrganizationSharingRequest
  *   DryRun: true || false,
  * };
  * const command = new EnableReachabilityAnalyzerOrganizationSharingCommand(input);

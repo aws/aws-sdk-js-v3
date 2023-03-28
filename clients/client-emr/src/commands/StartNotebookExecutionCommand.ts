@@ -42,20 +42,20 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * import { EMRClient, StartNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, StartNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // StartNotebookExecutionInput
  *   EditorId: "STRING_VALUE", // required
  *   RelativePath: "STRING_VALUE", // required
  *   NotebookExecutionName: "STRING_VALUE",
  *   NotebookParams: "STRING_VALUE",
- *   ExecutionEngine: {
+ *   ExecutionEngine: { // ExecutionEngineConfig
  *     Id: "STRING_VALUE", // required
  *     Type: "EMR",
  *     MasterInstanceSecurityGroupId: "STRING_VALUE",
  *   },
  *   ServiceRole: "STRING_VALUE", // required
  *   NotebookInstanceSecurityGroupId: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

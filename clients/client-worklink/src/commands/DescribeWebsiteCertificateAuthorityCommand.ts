@@ -49,7 +49,7 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
  * import { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // DescribeWebsiteCertificateAuthorityRequest
  *   FleetArn: "STRING_VALUE", // required
  *   WebsiteCaId: "STRING_VALUE", // required
  * };

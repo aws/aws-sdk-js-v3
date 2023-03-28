@@ -46,8 +46,8 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * import { StorageGatewayClient, DescribeTapeArchivesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeTapeArchivesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
- *   TapeARNs: [
+ * const input = { // DescribeTapeArchivesInput
+ *   TapeARNs: [ // TapeARNs
  *     "STRING_VALUE",
  *   ],
  *   Marker: "STRING_VALUE",

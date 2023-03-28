@@ -50,7 +50,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * import { KinesisAnalyticsV2Client, ListApplicationsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, ListApplicationsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // ListApplicationsRequest
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

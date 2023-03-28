@@ -46,7 +46,7 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // DeleteAccessKeyRequest
  *   UserName: "STRING_VALUE",
  *   AccessKeyId: "STRING_VALUE", // required
  * };

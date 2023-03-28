@@ -43,7 +43,7 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * import { FirehoseClient, ListTagsForDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, ListTagsForDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
- * const input = {
+ * const input = { // ListTagsForDeliveryStreamInput
  *   DeliveryStreamName: "STRING_VALUE", // required
  *   ExclusiveStartTagKey: "STRING_VALUE",
  *   Limit: Number("int"),

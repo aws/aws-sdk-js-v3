@@ -48,7 +48,7 @@ export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
  * import { EC2Client, DeleteTransitGatewayRouteTableAnnouncementCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTransitGatewayRouteTableAnnouncementCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteTransitGatewayRouteTableAnnouncementRequest
  *   TransitGatewayRouteTableAnnouncementId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

@@ -55,8 +55,8 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  * import { IoTClient, AssociateTargetsWithJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AssociateTargetsWithJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
- *   targets: [ // required
+ * const input = { // AssociateTargetsWithJobRequest
+ *   targets: [ // JobTargets // required
  *     "STRING_VALUE",
  *   ],
  *   jobId: "STRING_VALUE", // required

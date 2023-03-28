@@ -54,20 +54,20 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * import { SSMClient, DescribeParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeParametersRequest
+ *   Filters: [ // ParametersFilterList
+ *     { // ParametersFilter
  *       Key: "Name" || "Type" || "KeyId", // required
- *       Values: [ // required
+ *       Values: [ // ParametersFilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   ParameterFilters: [
- *     {
+ *   ParameterFilters: [ // ParameterStringFilterList
+ *     { // ParameterStringFilter
  *       Key: "STRING_VALUE", // required
  *       Option: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ParameterStringFilterValueList
  *         "STRING_VALUE",
  *       ],
  *     },

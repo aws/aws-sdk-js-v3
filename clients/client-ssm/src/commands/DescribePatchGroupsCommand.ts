@@ -42,12 +42,12 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * import { SSMClient, DescribePatchGroupsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribePatchGroupsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribePatchGroupsRequest
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // PatchOrchestratorFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -42,7 +42,7 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
  * import { AlexaForBusinessClient, RevokeInvitationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, RevokeInvitationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // RevokeInvitationRequest
  *   UserArn: "STRING_VALUE",
  *   EnrollmentId: "STRING_VALUE",
  * };

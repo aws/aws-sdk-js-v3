@@ -42,7 +42,7 @@ export interface GetGeneratedCodeJobCommandOutput extends GetGeneratedCodeJobRes
  * import { GameSparksClient, GetGeneratedCodeJobCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetGeneratedCodeJobCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // GetGeneratedCodeJobRequest
  *   GameName: "STRING_VALUE", // required
  *   SnapshotId: "STRING_VALUE", // required
  *   JobId: "STRING_VALUE", // required

@@ -44,9 +44,9 @@ export interface DeleteQueuedReservedInstancesCommandOutput
  * import { EC2Client, DeleteQueuedReservedInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteQueuedReservedInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteQueuedReservedInstancesRequest
  *   DryRun: true || false,
- *   ReservedInstancesIds: [ // required
+ *   ReservedInstancesIds: [ // DeleteQueuedReservedInstancesIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

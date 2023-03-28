@@ -43,20 +43,20 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * import { LakeFormationClient, PutDataLakeSettingsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, PutDataLakeSettingsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // PutDataLakeSettingsRequest
  *   CatalogId: "STRING_VALUE",
- *   DataLakeSettings: {
- *     DataLakeAdmins: [
- *       {
+ *   DataLakeSettings: { // DataLakeSettings
+ *     DataLakeAdmins: [ // DataLakePrincipalList
+ *       { // DataLakePrincipal
  *         DataLakePrincipalIdentifier: "STRING_VALUE",
  *       },
  *     ],
- *     CreateDatabaseDefaultPermissions: [
- *       {
+ *     CreateDatabaseDefaultPermissions: [ // PrincipalPermissionsList
+ *       { // PrincipalPermissions
  *         Principal: {
  *           DataLakePrincipalIdentifier: "STRING_VALUE",
  *         },
- *         Permissions: [
+ *         Permissions: [ // PermissionList
  *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
  *         ],
  *       },
@@ -71,10 +71,10 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  *         ],
  *       },
  *     ],
- *     Parameters: {
+ *     Parameters: { // ParametersMap
  *       "<keys>": "STRING_VALUE",
  *     },
- *     TrustedResourceOwners: [
+ *     TrustedResourceOwners: [ // TrustedResourceOwners
  *       "STRING_VALUE",
  *     ],
  *     AllowExternalDataFiltering: true || false,
@@ -83,7 +83,7 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  *         DataLakePrincipalIdentifier: "STRING_VALUE",
  *       },
  *     ],
- *     AuthorizedSessionTagValueList: [
+ *     AuthorizedSessionTagValueList: [ // AuthorizedSessionTagValueList
  *       "STRING_VALUE",
  *     ],
  *   },

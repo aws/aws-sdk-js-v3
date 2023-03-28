@@ -44,7 +44,7 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * import { RedshiftClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeEventCategoriesMessage
  *   SourceType: "STRING_VALUE",
  * };
  * const command = new DescribeEventCategoriesCommand(input);

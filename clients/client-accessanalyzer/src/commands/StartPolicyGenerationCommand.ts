@@ -42,15 +42,15 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * import { AccessAnalyzerClient, StartPolicyGenerationCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, StartPolicyGenerationCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
- *   policyGenerationDetails: {
+ * const input = { // StartPolicyGenerationRequest
+ *   policyGenerationDetails: { // PolicyGenerationDetails
  *     principalArn: "STRING_VALUE", // required
  *   },
- *   cloudTrailDetails: {
- *     trails: [ // required
- *       {
+ *   cloudTrailDetails: { // CloudTrailDetails
+ *     trails: [ // TrailList // required
+ *       { // Trail
  *         cloudTrailArn: "STRING_VALUE", // required
- *         regions: [
+ *         regions: [ // RegionList
  *           "STRING_VALUE",
  *         ],
  *         allRegions: true || false,

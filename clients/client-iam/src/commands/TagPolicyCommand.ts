@@ -74,10 +74,10 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // TagPolicyRequest
  *   PolicyArn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // tagListType // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

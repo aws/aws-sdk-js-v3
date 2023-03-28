@@ -45,7 +45,7 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * import { LookoutVisionClient, ListDatasetEntriesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListDatasetEntriesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
- * const input = {
+ * const input = { // ListDatasetEntriesRequest
  *   ProjectName: "STRING_VALUE", // required
  *   DatasetType: "STRING_VALUE", // required
  *   Labeled: true || false,

@@ -42,7 +42,7 @@ export interface ListNetworkSettingsCommandOutput extends ListNetworkSettingsRes
  * import { WorkSpacesWebClient, ListNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // ListNetworkSettingsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

@@ -43,7 +43,7 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  * import { IoTWirelessClient, PutResourceLogLevelCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, PutResourceLogLevelCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // PutResourceLogLevelRequest
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ResourceType: "STRING_VALUE", // required
  *   LogLevel: "INFO" || "ERROR" || "DISABLED", // required

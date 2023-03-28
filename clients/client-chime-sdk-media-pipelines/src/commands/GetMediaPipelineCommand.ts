@@ -50,7 +50,7 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * import { ChimeSDKMediaPipelinesClient, GetMediaPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, GetMediaPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
+ * const input = { // GetMediaPipelineRequest
  *   MediaPipelineId: "STRING_VALUE", // required
  * };
  * const command = new GetMediaPipelineCommand(input);

@@ -50,9 +50,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { DatabaseMigrationServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceMessage
  *   ResourceArn: "STRING_VALUE",
- *   ResourceArnList: [
+ *   ResourceArnList: [ // ArnList
  *     "STRING_VALUE",
  *   ],
  * };

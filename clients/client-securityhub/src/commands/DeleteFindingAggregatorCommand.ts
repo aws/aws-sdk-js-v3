@@ -44,7 +44,7 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  * import { SecurityHubClient, DeleteFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // DeleteFindingAggregatorRequest
  *   FindingAggregatorArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteFindingAggregatorCommand(input);

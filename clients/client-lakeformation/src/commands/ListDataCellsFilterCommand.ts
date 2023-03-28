@@ -42,8 +42,8 @@ export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterRes
  * import { LakeFormationClient, ListDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
- *   Table: {
+ * const input = { // ListDataCellsFilterRequest
+ *   Table: { // TableResource
  *     CatalogId: "STRING_VALUE",
  *     DatabaseName: "STRING_VALUE", // required
  *     Name: "STRING_VALUE",

@@ -51,11 +51,11 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * import { CloudWatchLogsClient, PutDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // PutDestinationRequest
  *   destinationName: "STRING_VALUE", // required
  *   targetArn: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

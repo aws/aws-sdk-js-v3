@@ -44,7 +44,7 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  * import { WorkLinkClient, DisassociateDomainCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DisassociateDomainCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // DisassociateDomainRequest
  *   FleetArn: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  * };

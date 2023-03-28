@@ -45,7 +45,7 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * import { LightsailClient, GetLoadBalancerTlsPoliciesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetLoadBalancerTlsPoliciesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetLoadBalancerTlsPoliciesRequest
  *   pageToken: "STRING_VALUE",
  * };
  * const command = new GetLoadBalancerTlsPoliciesCommand(input);

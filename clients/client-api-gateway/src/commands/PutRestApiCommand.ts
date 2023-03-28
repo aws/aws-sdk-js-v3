@@ -43,11 +43,11 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * import { APIGatewayClient, PutRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // PutRestApiRequest
  *   restApiId: "STRING_VALUE", // required
  *   mode: "merge" || "overwrite",
  *   failOnWarnings: true || false,
- *   parameters: {
+ *   parameters: { // MapOfStringToString
  *     "<keys>": "STRING_VALUE",
  *   },
  *   body: "BLOB_VALUE", // required

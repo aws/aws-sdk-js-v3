@@ -46,7 +46,7 @@ export interface GetPermissionGroupCommandOutput extends GetPermissionGroupRespo
  * import { FinspaceDataClient, GetPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // GetPermissionGroupRequest
  *   permissionGroupId: "STRING_VALUE", // required
  * };
  * const command = new GetPermissionGroupCommand(input);

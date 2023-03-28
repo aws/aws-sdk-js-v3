@@ -44,7 +44,7 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  * import { EC2Client, GetConsoleScreenshotCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetConsoleScreenshotCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // GetConsoleScreenshotRequest
  *   DryRun: true || false,
  *   InstanceId: "STRING_VALUE", // required
  *   WakeUp: true || false,

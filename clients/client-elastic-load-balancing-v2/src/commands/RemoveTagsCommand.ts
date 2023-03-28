@@ -45,11 +45,11 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * import { ElasticLoadBalancingV2Client, RemoveTagsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, RemoveTagsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
- *   ResourceArns: [ // required
+ * const input = { // RemoveTagsInput
+ *   ResourceArns: [ // ResourceArns // required
  *     "STRING_VALUE",
  *   ],
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

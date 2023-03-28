@@ -46,13 +46,13 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * import { DrsClient, DescribeSourceServersCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeSourceServersCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
- *   filters: {
- *     sourceServerIDs: [
+ * const input = { // DescribeSourceServersRequest
+ *   filters: { // DescribeSourceServersRequestFilters
+ *     sourceServerIDs: [ // DescribeSourceServersRequestFiltersIDs
  *       "STRING_VALUE",
  *     ],
  *     hardwareId: "STRING_VALUE",
- *     stagingAccountIDs: [
+ *     stagingAccountIDs: [ // AccountIDs
  *       "STRING_VALUE",
  *     ],
  *   },

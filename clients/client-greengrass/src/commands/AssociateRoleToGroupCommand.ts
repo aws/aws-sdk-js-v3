@@ -42,7 +42,7 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  * import { GreengrassClient, AssociateRoleToGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, AssociateRoleToGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // AssociateRoleToGroupRequest
  *   GroupId: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
  * };

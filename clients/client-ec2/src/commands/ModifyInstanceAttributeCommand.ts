@@ -52,15 +52,15 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * import { EC2Client, ModifyInstanceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   SourceDestCheck: {
+ * const input = { // ModifyInstanceAttributeRequest
+ *   SourceDestCheck: { // AttributeBooleanValue
  *     Value: true || false,
  *   },
  *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop",
- *   BlockDeviceMappings: [
- *     {
+ *   BlockDeviceMappings: [ // InstanceBlockDeviceMappingSpecificationList
+ *     { // InstanceBlockDeviceMappingSpecification
  *       DeviceName: "STRING_VALUE",
- *       Ebs: {
+ *       Ebs: { // EbsInstanceBlockDeviceSpecification
  *         DeleteOnTermination: true || false,
  *         VolumeId: "STRING_VALUE",
  *       },
@@ -78,11 +78,11 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *   EnaSupport: {
  *     Value: true || false,
  *   },
- *   Groups: [
+ *   Groups: [ // GroupIdStringList
  *     "STRING_VALUE",
  *   ],
  *   InstanceId: "STRING_VALUE", // required
- *   InstanceInitiatedShutdownBehavior: {
+ *   InstanceInitiatedShutdownBehavior: { // AttributeValue
  *     Value: "STRING_VALUE",
  *   },
  *   InstanceType: {
@@ -97,7 +97,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *   SriovNetSupport: {
  *     Value: "STRING_VALUE",
  *   },
- *   UserData: {
+ *   UserData: { // BlobAttributeValue
  *     Value: "BLOB_VALUE",
  *   },
  *   Value: "STRING_VALUE",

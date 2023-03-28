@@ -42,11 +42,11 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * import { CleanRoomsClient, CreateCollaborationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateCollaborationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
- *   members: [ // required
- *     {
+ * const input = { // CreateCollaborationInput
+ *   members: [ // MemberList // required
+ *     { // MemberSpecification
  *       accountId: "STRING_VALUE", // required
- *       memberAbilities: [ // required
+ *       memberAbilities: [ // MemberAbilities // required
  *         "STRING_VALUE",
  *       ],
  *       displayName: "STRING_VALUE", // required
@@ -58,14 +58,14 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     "STRING_VALUE",
  *   ],
  *   creatorDisplayName: "STRING_VALUE", // required
- *   dataEncryptionMetadata: {
+ *   dataEncryptionMetadata: { // DataEncryptionMetadata
  *     allowCleartext: true || false, // required
  *     allowDuplicates: true || false, // required
  *     allowJoinsOnColumnsWithDifferentNames: true || false, // required
  *     preserveNulls: true || false, // required
  *   },
  *   queryLogStatus: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

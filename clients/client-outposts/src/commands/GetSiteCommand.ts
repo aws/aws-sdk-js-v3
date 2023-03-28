@@ -42,7 +42,7 @@ export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
  * import { OutpostsClient, GetSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // GetSiteInput
  *   SiteId: "STRING_VALUE", // required
  * };
  * const command = new GetSiteCommand(input);

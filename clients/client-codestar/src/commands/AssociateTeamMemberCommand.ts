@@ -42,7 +42,7 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * import { CodeStarClient, AssociateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, AssociateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
- * const input = {
+ * const input = { // AssociateTeamMemberRequest
  *   projectId: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  *   userArn: "STRING_VALUE", // required

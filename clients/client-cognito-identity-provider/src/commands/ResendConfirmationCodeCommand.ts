@@ -69,18 +69,18 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * import { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // ResendConfirmationCodeRequest
  *   ClientId: "STRING_VALUE", // required
  *   SecretHash: "STRING_VALUE",
- *   UserContextData: {
+ *   UserContextData: { // UserContextDataType
  *     IpAddress: "STRING_VALUE",
  *     EncodedData: "STRING_VALUE",
  *   },
  *   Username: "STRING_VALUE", // required
- *   AnalyticsMetadata: {
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
  *     AnalyticsEndpointId: "STRING_VALUE",
  *   },
- *   ClientMetadata: {
+ *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

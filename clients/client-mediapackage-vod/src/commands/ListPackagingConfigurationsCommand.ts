@@ -44,7 +44,7 @@ export interface ListPackagingConfigurationsCommandOutput
  * import { MediaPackageVodClient, ListPackagingConfigurationsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ListPackagingConfigurationsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // ListPackagingConfigurationsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   PackagingGroupId: "STRING_VALUE",

@@ -132,18 +132,18 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * import { RekognitionClient, IndexFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, IndexFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // IndexFacesRequest
  *   CollectionId: "STRING_VALUE", // required
- *   Image: {
+ *   Image: { // Image
  *     Bytes: "BLOB_VALUE",
- *     S3Object: {
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
  *     },
  *   },
  *   ExternalImageId: "STRING_VALUE",
- *   DetectionAttributes: [
+ *   DetectionAttributes: [ // Attributes
  *     "DEFAULT" || "ALL",
  *   ],
  *   MaxFaces: Number("int"),

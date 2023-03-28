@@ -49,11 +49,11 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * import { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
- * const input = {
+ * const input = { // PutApplicationPolicyRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   Statements: [ // required
- *     {
- *       Actions: [ // required
+ *   Statements: [ // __listOfApplicationPolicyStatement // required
+ *     { // ApplicationPolicyStatement
+ *       Actions: [ // __listOf__string // required
  *         "STRING_VALUE",
  *       ],
  *       PrincipalOrgIDs: [

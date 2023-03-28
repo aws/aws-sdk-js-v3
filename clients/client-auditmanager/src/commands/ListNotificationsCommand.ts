@@ -42,7 +42,7 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
  * import { AuditManagerClient, ListNotificationsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListNotificationsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // ListNotificationsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

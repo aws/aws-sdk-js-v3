@@ -56,8 +56,8 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
  * import { GameLiftClient, DescribeMatchmakingConfigurationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeMatchmakingConfigurationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
- *   Names: [
+ * const input = { // DescribeMatchmakingConfigurationsInput
+ *   Names: [ // MatchmakingConfigurationNameList
  *     "STRING_VALUE",
  *   ],
  *   RuleSetName: "STRING_VALUE",

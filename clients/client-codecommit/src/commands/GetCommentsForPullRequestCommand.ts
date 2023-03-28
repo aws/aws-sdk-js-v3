@@ -46,7 +46,7 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
  * import { CodeCommitClient, GetCommentsForPullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommentsForPullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetCommentsForPullRequestInput
  *   pullRequestId: "STRING_VALUE", // required
  *   repositoryName: "STRING_VALUE",
  *   beforeCommitId: "STRING_VALUE",

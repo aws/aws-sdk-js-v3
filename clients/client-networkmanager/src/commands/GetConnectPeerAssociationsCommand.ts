@@ -42,9 +42,9 @@ export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerA
  * import { NetworkManagerClient, GetConnectPeerAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectPeerAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetConnectPeerAssociationsRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
- *   ConnectPeerIds: [
+ *   ConnectPeerIds: [ // ConnectPeerIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

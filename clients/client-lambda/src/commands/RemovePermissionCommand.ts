@@ -43,7 +43,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * import { LambdaClient, RemovePermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, RemovePermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // RemovePermissionRequest
  *   FunctionName: "STRING_VALUE", // required
  *   StatementId: "STRING_VALUE", // required
  *   Qualifier: "STRING_VALUE",

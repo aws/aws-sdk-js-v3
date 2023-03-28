@@ -44,7 +44,7 @@ export interface GetConnectorDefinitionVersionCommandOutput
  * import { GreengrassClient, GetConnectorDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetConnectorDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // GetConnectorDefinitionVersionRequest
  *   ConnectorDefinitionId: "STRING_VALUE", // required
  *   ConnectorDefinitionVersionId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

@@ -45,9 +45,9 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * import { WorkSpacesClient, StopWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, StopWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
- *   StopWorkspaceRequests: [ // required
- *     {
+ * const input = { // StopWorkspacesRequest
+ *   StopWorkspaceRequests: [ // StopWorkspaceRequests // required
+ *     { // StopRequest
  *       WorkspaceId: "STRING_VALUE",
  *     },
  *   ],

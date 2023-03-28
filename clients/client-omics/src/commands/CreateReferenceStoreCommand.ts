@@ -42,14 +42,14 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  * import { OmicsClient, CreateReferenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateReferenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // CreateReferenceStoreRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   sseConfig: {
+ *   sseConfig: { // SseConfig
  *     type: "STRING_VALUE", // required
  *     keyArn: "STRING_VALUE",
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

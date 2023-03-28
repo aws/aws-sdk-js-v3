@@ -46,7 +46,7 @@ export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * import { RolesAnywhereClient, DeleteTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DeleteTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
- * const input = {
+ * const input = { // ScalarTrustAnchorRequest
  *   trustAnchorId: "STRING_VALUE", // required
  * };
  * const command = new DeleteTrustAnchorCommand(input);

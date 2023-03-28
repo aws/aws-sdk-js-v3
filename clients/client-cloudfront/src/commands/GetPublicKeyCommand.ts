@@ -42,7 +42,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  * import { CloudFrontClient, GetPublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetPublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // GetPublicKeyRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetPublicKeyCommand(input);

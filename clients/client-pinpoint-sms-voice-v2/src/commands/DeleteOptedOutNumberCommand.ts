@@ -50,7 +50,7 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  * import { PinpointSMSVoiceV2Client, DeleteOptedOutNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteOptedOutNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // DeleteOptedOutNumberRequest
  *   OptOutListName: "STRING_VALUE", // required
  *   OptedOutNumber: "STRING_VALUE", // required
  * };

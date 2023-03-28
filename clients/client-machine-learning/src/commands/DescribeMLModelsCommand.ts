@@ -42,7 +42,7 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * import { MachineLearningClient, DescribeMLModelsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeMLModelsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // DescribeMLModelsInput
  *   FilterVariable: "STRING_VALUE",
  *   EQ: "STRING_VALUE",
  *   GT: "STRING_VALUE",

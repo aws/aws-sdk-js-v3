@@ -47,7 +47,7 @@ export interface DescribeApplicationInstanceDetailsCommandOutput
  * import { PanoramaClient, DescribeApplicationInstanceDetailsCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeApplicationInstanceDetailsCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // DescribeApplicationInstanceDetailsRequest
  *   ApplicationInstanceId: "STRING_VALUE", // required
  * };
  * const command = new DescribeApplicationInstanceDetailsCommand(input);

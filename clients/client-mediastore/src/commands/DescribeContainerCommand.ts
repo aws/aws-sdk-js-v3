@@ -48,7 +48,7 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * import { MediaStoreClient, DescribeContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DescribeContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
- * const input = {
+ * const input = { // DescribeContainerInput
  *   ContainerName: "STRING_VALUE",
  * };
  * const command = new DescribeContainerCommand(input);

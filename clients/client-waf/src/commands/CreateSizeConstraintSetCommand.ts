@@ -73,7 +73,7 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * import { WAFClient, CreateSizeConstraintSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateSizeConstraintSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // CreateSizeConstraintSetRequest
  *   Name: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

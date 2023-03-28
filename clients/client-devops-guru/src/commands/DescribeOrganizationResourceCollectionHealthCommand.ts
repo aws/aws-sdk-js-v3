@@ -50,12 +50,12 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
  * import { DevOpsGuruClient, DescribeOrganizationResourceCollectionHealthCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeOrganizationResourceCollectionHealthCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
+ * const input = { // DescribeOrganizationResourceCollectionHealthRequest
  *   OrganizationResourceCollectionType: "AWS_CLOUD_FORMATION" || "AWS_SERVICE" || "AWS_ACCOUNT" || "AWS_TAGS", // required
- *   AccountIds: [
+ *   AccountIds: [ // AccountIdList
  *     "STRING_VALUE",
  *   ],
- *   OrganizationalUnitIds: [
+ *   OrganizationalUnitIds: [ // OrganizationalUnitIdList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

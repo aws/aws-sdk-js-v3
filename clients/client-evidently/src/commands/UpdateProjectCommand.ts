@@ -47,9 +47,9 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * import { EvidentlyClient, UpdateProjectCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateProjectCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // UpdateProjectRequest
  *   project: "STRING_VALUE", // required
- *   appConfigResource: {
+ *   appConfigResource: { // ProjectAppConfigResourceConfig
  *     applicationId: "STRING_VALUE",
  *     environmentId: "STRING_VALUE",
  *   },

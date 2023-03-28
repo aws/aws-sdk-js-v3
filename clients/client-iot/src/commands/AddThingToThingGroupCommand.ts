@@ -43,7 +43,7 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
  * import { IoTClient, AddThingToThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AddThingToThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // AddThingToThingGroupRequest
  *   thingGroupName: "STRING_VALUE",
  *   thingGroupArn: "STRING_VALUE",
  *   thingName: "STRING_VALUE",

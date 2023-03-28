@@ -42,9 +42,9 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * import { ElastiCacheClient, ModifyUserGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyUserGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // ModifyUserGroupMessage
  *   UserGroupId: "STRING_VALUE", // required
- *   UserIdsToAdd: [
+ *   UserIdsToAdd: [ // UserIdListInput
  *     "STRING_VALUE",
  *   ],
  *   UserIdsToRemove: [

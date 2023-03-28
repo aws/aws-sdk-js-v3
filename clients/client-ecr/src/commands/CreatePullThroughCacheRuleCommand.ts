@@ -43,7 +43,7 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * import { ECRClient, CreatePullThroughCacheRuleCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, CreatePullThroughCacheRuleCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // CreatePullThroughCacheRuleRequest
  *   ecrRepositoryPrefix: "STRING_VALUE", // required
  *   upstreamRegistryUrl: "STRING_VALUE", // required
  *   registryId: "STRING_VALUE",

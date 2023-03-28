@@ -48,12 +48,12 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * import { MTurkClient, SendTestEventNotificationCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, SendTestEventNotificationCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
- *   Notification: {
+ * const input = { // SendTestEventNotificationRequest
+ *   Notification: { // NotificationSpecification
  *     Destination: "STRING_VALUE", // required
  *     Transport: "STRING_VALUE", // required
  *     Version: "STRING_VALUE", // required
- *     EventTypes: [ // required
+ *     EventTypes: [ // EventTypeList // required
  *       "STRING_VALUE",
  *     ],
  *   },

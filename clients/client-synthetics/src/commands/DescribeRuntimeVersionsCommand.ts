@@ -44,7 +44,7 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * import { SyntheticsClient, DescribeRuntimeVersionsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DescribeRuntimeVersionsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const input = {
+ * const input = { // DescribeRuntimeVersionsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

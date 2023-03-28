@@ -87,8 +87,8 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * import { ConfigServiceClient, StartConfigRulesEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StartConfigRulesEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   ConfigRuleNames: [
+ * const input = { // StartConfigRulesEvaluationRequest
+ *   ConfigRuleNames: [ // ReevaluateConfigRuleNames
  *     "STRING_VALUE",
  *   ],
  * };

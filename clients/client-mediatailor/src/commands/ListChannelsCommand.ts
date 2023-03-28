@@ -42,7 +42,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { MediaTailorClient, ListChannelsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListChannelsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // ListChannelsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

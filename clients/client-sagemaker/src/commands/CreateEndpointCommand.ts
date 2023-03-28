@@ -119,15 +119,15 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * import { SageMakerClient, CreateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateEndpointInput
  *   EndpointName: "STRING_VALUE", // required
  *   EndpointConfigName: "STRING_VALUE", // required
- *   DeploymentConfig: {
- *     BlueGreenUpdatePolicy: {
- *       TrafficRoutingConfiguration: {
+ *   DeploymentConfig: { // DeploymentConfig
+ *     BlueGreenUpdatePolicy: { // BlueGreenUpdatePolicy
+ *       TrafficRoutingConfiguration: { // TrafficRoutingConfig
  *         Type: "ALL_AT_ONCE" || "CANARY" || "LINEAR", // required
  *         WaitIntervalInSeconds: Number("int"), // required
- *         CanarySize: {
+ *         CanarySize: { // CapacitySize
  *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
  *           Value: Number("int"), // required
  *         },
@@ -139,16 +139,16 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *       TerminationWaitInSeconds: Number("int"),
  *       MaximumExecutionTimeoutInSeconds: Number("int"),
  *     },
- *     AutoRollbackConfiguration: {
- *       Alarms: [
- *         {
+ *     AutoRollbackConfiguration: { // AutoRollbackConfig
+ *       Alarms: [ // AlarmList
+ *         { // Alarm
  *           AlarmName: "STRING_VALUE",
  *         },
  *       ],
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

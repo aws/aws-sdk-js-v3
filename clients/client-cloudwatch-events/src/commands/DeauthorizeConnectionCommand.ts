@@ -43,7 +43,7 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * import { CloudWatchEventsClient, DeauthorizeConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeauthorizeConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // DeauthorizeConnectionRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeauthorizeConnectionCommand(input);

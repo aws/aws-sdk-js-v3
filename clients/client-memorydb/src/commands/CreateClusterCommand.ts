@@ -42,7 +42,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { MemoryDBClient, CreateClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // CreateClusterRequest
  *   ClusterName: "STRING_VALUE", // required
  *   NodeType: "STRING_VALUE", // required
  *   ParameterGroupName: "STRING_VALUE",
@@ -50,7 +50,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   NumShards: Number("int"),
  *   NumReplicasPerShard: Number("int"),
  *   SubnetGroupName: "STRING_VALUE",
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
  *     "STRING_VALUE",
  *   ],
  *   MaintenanceWindow: "STRING_VALUE",
@@ -58,13 +58,13 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   SnsTopicArn: "STRING_VALUE",
  *   TLSEnabled: true || false,
  *   KmsKeyId: "STRING_VALUE",
- *   SnapshotArns: [
+ *   SnapshotArns: [ // SnapshotArnsList
  *     "STRING_VALUE",
  *   ],
  *   SnapshotName: "STRING_VALUE",
  *   SnapshotRetentionLimit: Number("int"),
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

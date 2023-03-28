@@ -49,10 +49,10 @@ export interface PutImageScanningConfigurationCommandOutput
  * import { ECRClient, PutImageScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutImageScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // PutImageScanningConfigurationRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
- *   imageScanningConfiguration: {
+ *   imageScanningConfiguration: { // ImageScanningConfiguration
  *     scanOnPush: true || false,
  *   },
  * };

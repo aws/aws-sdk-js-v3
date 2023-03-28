@@ -42,29 +42,29 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { DAXClient, CreateClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, CreateClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
+ * const input = { // CreateClusterRequest
  *   ClusterName: "STRING_VALUE", // required
  *   NodeType: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ReplicationFactor: Number("int"), // required
- *   AvailabilityZones: [
+ *   AvailabilityZones: [ // AvailabilityZoneList
  *     "STRING_VALUE",
  *   ],
  *   SubnetGroupName: "STRING_VALUE",
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIdentifierList
  *     "STRING_VALUE",
  *   ],
  *   PreferredMaintenanceWindow: "STRING_VALUE",
  *   NotificationTopicArn: "STRING_VALUE",
  *   IamRoleArn: "STRING_VALUE", // required
  *   ParameterGroupName: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   SSESpecification: {
+ *   SSESpecification: { // SSESpecification
  *     Enabled: true || false, // required
  *   },
  *   ClusterEndpointEncryptionType: "STRING_VALUE",

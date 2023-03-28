@@ -49,9 +49,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { ManagedBlockchainClient, TagResourceCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, TagResourceCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // InputTagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

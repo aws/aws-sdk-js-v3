@@ -79,10 +79,10 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * import { DataPipelineClient, ReportTaskProgressCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ReportTaskProgressCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // ReportTaskProgressInput
  *   taskId: "STRING_VALUE", // required
- *   fields: [
- *     {
+ *   fields: [ // fieldList
+ *     { // Field
  *       key: "STRING_VALUE", // required
  *       stringValue: "STRING_VALUE",
  *       refValue: "STRING_VALUE",

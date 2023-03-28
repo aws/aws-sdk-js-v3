@@ -43,7 +43,7 @@ export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyR
  * import { LexModelsV2Client, CreateResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // CreateResourcePolicyRequest
  *   resourceArn: "STRING_VALUE", // required
  *   policy: "STRING_VALUE", // required
  * };

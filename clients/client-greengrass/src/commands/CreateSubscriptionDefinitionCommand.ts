@@ -44,11 +44,11 @@ export interface CreateSubscriptionDefinitionCommandOutput
  * import { GreengrassClient, CreateSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // CreateSubscriptionDefinitionRequest
  *   AmznClientToken: "STRING_VALUE",
- *   InitialVersion: {
- *     Subscriptions: [
- *       {
+ *   InitialVersion: { // SubscriptionDefinitionVersion
+ *     Subscriptions: [ // __listOfSubscription
+ *       { // Subscription
  *         Id: "STRING_VALUE", // required
  *         Source: "STRING_VALUE", // required
  *         Subject: "STRING_VALUE", // required
@@ -57,7 +57,7 @@ export interface CreateSubscriptionDefinitionCommandOutput
  *     ],
  *   },
  *   Name: "STRING_VALUE",
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

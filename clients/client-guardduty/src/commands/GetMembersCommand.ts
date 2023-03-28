@@ -43,9 +43,9 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * import { GuardDutyClient, GetMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // GetMembersRequest
  *   DetectorId: "STRING_VALUE", // required
- *   AccountIds: [ // required
+ *   AccountIds: [ // AccountIds // required
  *     "STRING_VALUE",
  *   ],
  * };

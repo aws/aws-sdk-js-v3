@@ -54,7 +54,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * import { QuickSightClient, DescribeTemplateDefinitionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeTemplateDefinitionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeTemplateDefinitionRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   TemplateId: "STRING_VALUE", // required
  *   VersionNumber: Number("long"),

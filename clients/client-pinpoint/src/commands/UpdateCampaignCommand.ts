@@ -42,20 +42,20 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * import { PinpointClient, UpdateCampaignCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateCampaignCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateCampaignRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   CampaignId: "STRING_VALUE", // required
- *   WriteCampaignRequest: {
- *     AdditionalTreatments: [
- *       {
- *         CustomDeliveryConfiguration: {
+ *   WriteCampaignRequest: { // WriteCampaignRequest
+ *     AdditionalTreatments: [ // ListOfWriteTreatmentResource
+ *       { // WriteTreatmentResource
+ *         CustomDeliveryConfiguration: { // CustomDeliveryConfiguration
  *           DeliveryUri: "STRING_VALUE", // required
- *           EndpointTypes: [
+ *           EndpointTypes: [ // ListOf__EndpointTypesElement
  *             "STRING_VALUE",
  *           ],
  *         },
- *         MessageConfiguration: {
- *           ADMMessage: {
+ *         MessageConfiguration: { // MessageConfiguration
+ *           ADMMessage: { // Message
  *             Action: "STRING_VALUE",
  *             Body: "STRING_VALUE",
  *             ImageIconUrl: "STRING_VALUE",
@@ -97,7 +97,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             Title: "STRING_VALUE",
  *             Url: "STRING_VALUE",
  *           },
- *           CustomMessage: {
+ *           CustomMessage: { // CampaignCustomMessage
  *             Data: "STRING_VALUE",
  *           },
  *           DefaultMessage: {
@@ -114,7 +114,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             Title: "STRING_VALUE",
  *             Url: "STRING_VALUE",
  *           },
- *           EmailMessage: {
+ *           EmailMessage: { // CampaignEmailMessage
  *             Body: "STRING_VALUE",
  *             FromAddress: "STRING_VALUE",
  *             HtmlBody: "STRING_VALUE",
@@ -134,7 +134,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             Title: "STRING_VALUE",
  *             Url: "STRING_VALUE",
  *           },
- *           SMSMessage: {
+ *           SMSMessage: { // CampaignSmsMessage
  *             Body: "STRING_VALUE",
  *             MessageType: "STRING_VALUE",
  *             OriginationNumber: "STRING_VALUE",
@@ -142,28 +142,28 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             EntityId: "STRING_VALUE",
  *             TemplateId: "STRING_VALUE",
  *           },
- *           InAppMessage: {
+ *           InAppMessage: { // CampaignInAppMessage
  *             Body: "STRING_VALUE",
- *             Content: [
- *               {
+ *             Content: [ // ListOfInAppMessageContent
+ *               { // InAppMessageContent
  *                 BackgroundColor: "STRING_VALUE",
- *                 BodyConfig: {
+ *                 BodyConfig: { // InAppMessageBodyConfig
  *                   Alignment: "STRING_VALUE", // required
  *                   Body: "STRING_VALUE", // required
  *                   TextColor: "STRING_VALUE", // required
  *                 },
- *                 HeaderConfig: {
+ *                 HeaderConfig: { // InAppMessageHeaderConfig
  *                   Alignment: "STRING_VALUE", // required
  *                   Header: "STRING_VALUE", // required
  *                   TextColor: "STRING_VALUE", // required
  *                 },
  *                 ImageUrl: "STRING_VALUE",
- *                 PrimaryBtn: {
- *                   Android: {
+ *                 PrimaryBtn: { // InAppMessageButton
+ *                   Android: { // OverrideButtonConfiguration
  *                     ButtonAction: "STRING_VALUE", // required
  *                     Link: "STRING_VALUE",
  *                   },
- *                   DefaultConfig: {
+ *                   DefaultConfig: { // DefaultButtonConfiguration
  *                     BackgroundColor: "STRING_VALUE",
  *                     BorderRadius: Number("int"),
  *                     ButtonAction: "STRING_VALUE", // required
@@ -197,39 +197,36 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *                     ButtonAction: "STRING_VALUE", // required
  *                     Link: "STRING_VALUE",
  *                   },
- *                   Web: {
- *                     ButtonAction: "STRING_VALUE", // required
- *                     Link: "STRING_VALUE",
- *                   },
+ *                   Web: "<OverrideButtonConfiguration>",
  *                 },
  *               },
  *             ],
- *             CustomConfig: {
+ *             CustomConfig: { // MapOf__string
  *               "<keys>": "STRING_VALUE",
  *             },
  *             Layout: "STRING_VALUE",
  *           },
  *         },
- *         Schedule: {
+ *         Schedule: { // Schedule
  *           EndTime: "STRING_VALUE",
- *           EventFilter: {
- *             Dimensions: {
- *               Attributes: {
- *                 "<keys>": {
+ *           EventFilter: { // CampaignEventFilter
+ *             Dimensions: { // EventDimensions
+ *               Attributes: { // MapOfAttributeDimension
+ *                 "<keys>": { // AttributeDimension
  *                   AttributeType: "STRING_VALUE",
- *                   Values: [ // required
+ *                   Values: [ // ListOf__string // required
  *                     "STRING_VALUE",
  *                   ],
  *                 },
  *               },
- *               EventType: {
+ *               EventType: { // SetDimension
  *                 DimensionType: "STRING_VALUE",
  *                 Values: [ // required
  *                   "STRING_VALUE",
  *                 ],
  *               },
- *               Metrics: {
- *                 "<keys>": {
+ *               Metrics: { // MapOfMetricDimension
+ *                 "<keys>": { // MetricDimension
  *                   ComparisonOperator: "STRING_VALUE", // required
  *                   Value: Number("double"), // required
  *                 },
@@ -239,7 +236,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *           },
  *           Frequency: "STRING_VALUE",
  *           IsLocalTime: true || false,
- *           QuietTime: {
+ *           QuietTime: { // QuietTime
  *             End: "STRING_VALUE",
  *             Start: "STRING_VALUE",
  *           },
@@ -247,8 +244,8 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *           Timezone: "STRING_VALUE",
  *         },
  *         SizePercent: Number("int"), // required
- *         TemplateConfiguration: {
- *           EmailTemplate: {
+ *         TemplateConfiguration: { // TemplateConfiguration
+ *           EmailTemplate: { // Template
  *             Name: "STRING_VALUE",
  *             Version: "STRING_VALUE",
  *           },
@@ -277,13 +274,13 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *     },
  *     Description: "STRING_VALUE",
  *     HoldoutPercent: Number("int"),
- *     Hook: {
+ *     Hook: { // CampaignHook
  *       LambdaFunctionName: "STRING_VALUE",
  *       Mode: "STRING_VALUE",
  *       WebUrl: "STRING_VALUE",
  *     },
  *     IsPaused: true || false,
- *     Limits: {
+ *     Limits: { // CampaignLimits
  *       Daily: Number("int"),
  *       MaximumDuration: Number("int"),
  *       MessagesPerSecond: Number("int"),
@@ -291,85 +288,20 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *       Session: Number("int"),
  *     },
  *     MessageConfiguration: {
- *       ADMMessage: {
- *         Action: "STRING_VALUE",
- *         Body: "STRING_VALUE",
- *         ImageIconUrl: "STRING_VALUE",
- *         ImageSmallIconUrl: "STRING_VALUE",
- *         ImageUrl: "STRING_VALUE",
- *         JsonBody: "STRING_VALUE",
- *         MediaUrl: "STRING_VALUE",
- *         RawContent: "STRING_VALUE",
- *         SilentPush: true || false,
- *         TimeToLive: Number("int"),
- *         Title: "STRING_VALUE",
- *         Url: "STRING_VALUE",
- *       },
- *       APNSMessage: {
- *         Action: "STRING_VALUE",
- *         Body: "STRING_VALUE",
- *         ImageIconUrl: "STRING_VALUE",
- *         ImageSmallIconUrl: "STRING_VALUE",
- *         ImageUrl: "STRING_VALUE",
- *         JsonBody: "STRING_VALUE",
- *         MediaUrl: "STRING_VALUE",
- *         RawContent: "STRING_VALUE",
- *         SilentPush: true || false,
- *         TimeToLive: Number("int"),
- *         Title: "STRING_VALUE",
- *         Url: "STRING_VALUE",
- *       },
- *       BaiduMessage: {
- *         Action: "STRING_VALUE",
- *         Body: "STRING_VALUE",
- *         ImageIconUrl: "STRING_VALUE",
- *         ImageSmallIconUrl: "STRING_VALUE",
- *         ImageUrl: "STRING_VALUE",
- *         JsonBody: "STRING_VALUE",
- *         MediaUrl: "STRING_VALUE",
- *         RawContent: "STRING_VALUE",
- *         SilentPush: true || false,
- *         TimeToLive: Number("int"),
- *         Title: "STRING_VALUE",
- *         Url: "STRING_VALUE",
- *       },
+ *       ADMMessage: "<Message>",
+ *       APNSMessage: "<Message>",
+ *       BaiduMessage: "<Message>",
  *       CustomMessage: {
  *         Data: "STRING_VALUE",
  *       },
- *       DefaultMessage: {
- *         Action: "STRING_VALUE",
- *         Body: "STRING_VALUE",
- *         ImageIconUrl: "STRING_VALUE",
- *         ImageSmallIconUrl: "STRING_VALUE",
- *         ImageUrl: "STRING_VALUE",
- *         JsonBody: "STRING_VALUE",
- *         MediaUrl: "STRING_VALUE",
- *         RawContent: "STRING_VALUE",
- *         SilentPush: true || false,
- *         TimeToLive: Number("int"),
- *         Title: "STRING_VALUE",
- *         Url: "STRING_VALUE",
- *       },
+ *       DefaultMessage: "<Message>",
  *       EmailMessage: {
  *         Body: "STRING_VALUE",
  *         FromAddress: "STRING_VALUE",
  *         HtmlBody: "STRING_VALUE",
  *         Title: "STRING_VALUE",
  *       },
- *       GCMMessage: {
- *         Action: "STRING_VALUE",
- *         Body: "STRING_VALUE",
- *         ImageIconUrl: "STRING_VALUE",
- *         ImageSmallIconUrl: "STRING_VALUE",
- *         ImageUrl: "STRING_VALUE",
- *         JsonBody: "STRING_VALUE",
- *         MediaUrl: "STRING_VALUE",
- *         RawContent: "STRING_VALUE",
- *         SilentPush: true || false,
- *         TimeToLive: Number("int"),
- *         Title: "STRING_VALUE",
- *         Url: "STRING_VALUE",
- *       },
+ *       GCMMessage: "<Message>",
  *       SMSMessage: {
  *         Body: "STRING_VALUE",
  *         MessageType: "STRING_VALUE",
@@ -395,10 +327,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             },
  *             ImageUrl: "STRING_VALUE",
  *             PrimaryBtn: {
- *               Android: {
- *                 ButtonAction: "STRING_VALUE", // required
- *                 Link: "STRING_VALUE",
- *               },
+ *               Android: "<OverrideButtonConfiguration>",
  *               DefaultConfig: {
  *                 BackgroundColor: "STRING_VALUE",
  *                 BorderRadius: Number("int"),
@@ -407,20 +336,11 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *                 Text: "STRING_VALUE", // required
  *                 TextColor: "STRING_VALUE",
  *               },
- *               IOS: {
- *                 ButtonAction: "STRING_VALUE", // required
- *                 Link: "STRING_VALUE",
- *               },
- *               Web: {
- *                 ButtonAction: "STRING_VALUE", // required
- *                 Link: "STRING_VALUE",
- *               },
+ *               IOS: "<OverrideButtonConfiguration>",
+ *               Web: "<OverrideButtonConfiguration>",
  *             },
  *             SecondaryBtn: {
- *               Android: {
- *                 ButtonAction: "STRING_VALUE", // required
- *                 Link: "STRING_VALUE",
- *               },
+ *               Android: "<OverrideButtonConfiguration>",
  *               DefaultConfig: {
  *                 BackgroundColor: "STRING_VALUE",
  *                 BorderRadius: Number("int"),
@@ -429,14 +349,8 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *                 Text: "STRING_VALUE", // required
  *                 TextColor: "STRING_VALUE",
  *               },
- *               IOS: {
- *                 ButtonAction: "STRING_VALUE", // required
- *                 Link: "STRING_VALUE",
- *               },
- *               Web: {
- *                 ButtonAction: "STRING_VALUE", // required
- *                 Link: "STRING_VALUE",
- *               },
+ *               IOS: "<OverrideButtonConfiguration>",
+ *               Web: "<OverrideButtonConfiguration>",
  *             },
  *           },
  *         ],
@@ -454,16 +368,12 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *           Attributes: {
  *             "<keys>": {
  *               AttributeType: "STRING_VALUE",
- *               Values: [ // required
- *                 "<ListOf__string>",
- *               ],
+ *               Values: "<ListOf__string>", // required
  *             },
  *           },
  *           EventType: {
  *             DimensionType: "STRING_VALUE",
- *             Values: [ // required
- *               "<ListOf__string>",
- *             ],
+ *             Values: "<ListOf__string>", // required
  *           },
  *           Metrics: {
  *             "<keys>": {
@@ -485,26 +395,15 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *     },
  *     SegmentId: "STRING_VALUE",
  *     SegmentVersion: Number("int"),
- *     tags: {
- *       "<keys>": "<__string>",
- *     },
+ *     tags: "<MapOf__string>",
  *     TemplateConfiguration: {
  *       EmailTemplate: {
  *         Name: "STRING_VALUE",
  *         Version: "STRING_VALUE",
  *       },
- *       PushTemplate: {
- *         Name: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
- *       SMSTemplate: {
- *         Name: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
- *       VoiceTemplate: {
- *         Name: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
+ *       PushTemplate: "<Template>",
+ *       SMSTemplate: "<Template>",
+ *       VoiceTemplate: "<Template>",
  *     },
  *     TreatmentDescription: "STRING_VALUE",
  *     TreatmentName: "STRING_VALUE",

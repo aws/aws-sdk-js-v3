@@ -44,7 +44,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * import { RDSClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ApplyPendingMaintenanceActionMessage
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ApplyAction: "STRING_VALUE", // required
  *   OptInType: "STRING_VALUE", // required

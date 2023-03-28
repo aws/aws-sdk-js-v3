@@ -42,21 +42,21 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  * import { GreengrassClient, CreateConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // CreateConnectorDefinitionRequest
  *   AmznClientToken: "STRING_VALUE",
- *   InitialVersion: {
- *     Connectors: [
- *       {
+ *   InitialVersion: { // ConnectorDefinitionVersion
+ *     Connectors: [ // __listOfConnector
+ *       { // Connector
  *         ConnectorArn: "STRING_VALUE", // required
  *         Id: "STRING_VALUE", // required
- *         Parameters: {
+ *         Parameters: { // __mapOf__string
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     ],
  *   },
  *   Name: "STRING_VALUE",
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -51,26 +51,26 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  * import { SageMakerGeospatialClient, SearchRasterDataCollectionCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, SearchRasterDataCollectionCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // SearchRasterDataCollectionInput
  *   Arn: "STRING_VALUE", // required
- *   RasterDataCollectionQuery: {
- *     TimeRangeFilter: {
+ *   RasterDataCollectionQuery: { // RasterDataCollectionQueryWithBandFilterInput
+ *     TimeRangeFilter: { // TimeRangeFilterInput
  *       StartTime: new Date("TIMESTAMP"), // required
  *       EndTime: new Date("TIMESTAMP"), // required
  *     },
- *     AreaOfInterest: { // Union: only one key present
- *       AreaOfInterestGeometry: { // Union: only one key present
- *         PolygonGeometry: {
- *           Coordinates: [ // required
- *             [
- *               [
+ *     AreaOfInterest: { // AreaOfInterest Union: only one key present
+ *       AreaOfInterestGeometry: { // AreaOfInterestGeometry Union: only one key present
+ *         PolygonGeometry: { // PolygonGeometryInput
+ *           Coordinates: [ // LinearRings // required
+ *             [ // LinearRing
+ *               [ // Position
  *                 Number("double"),
  *               ],
  *             ],
  *           ],
  *         },
- *         MultiPolygonGeometry: {
- *           Coordinates: [ // required
+ *         MultiPolygonGeometry: { // MultiPolygonGeometryInput
+ *           Coordinates: [ // LinearRingsList // required
  *             [
  *               [
  *                 [
@@ -82,31 +82,31 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  *         },
  *       },
  *     },
- *     PropertyFilters: {
- *       Properties: [
- *         {
- *           Property: { // Union: only one key present
- *             EoCloudCover: {
+ *     PropertyFilters: { // PropertyFilters
+ *       Properties: [ // PropertyFiltersList
+ *         { // PropertyFilter
+ *           Property: { // Property Union: only one key present
+ *             EoCloudCover: { // EoCloudCoverInput
  *               LowerBound: Number("float"), // required
  *               UpperBound: Number("float"), // required
  *             },
- *             ViewOffNadir: {
+ *             ViewOffNadir: { // ViewOffNadirInput
  *               LowerBound: Number("float"), // required
  *               UpperBound: Number("float"), // required
  *             },
- *             ViewSunAzimuth: {
+ *             ViewSunAzimuth: { // ViewSunAzimuthInput
  *               LowerBound: Number("float"), // required
  *               UpperBound: Number("float"), // required
  *             },
- *             ViewSunElevation: {
+ *             ViewSunElevation: { // ViewSunElevationInput
  *               LowerBound: Number("float"), // required
  *               UpperBound: Number("float"), // required
  *             },
- *             Platform: {
+ *             Platform: { // PlatformInput
  *               Value: "STRING_VALUE", // required
  *               ComparisonOperator: "STRING_VALUE",
  *             },
- *             LandsatCloudCoverLand: {
+ *             LandsatCloudCoverLand: { // LandsatCloudCoverLandInput
  *               LowerBound: Number("float"), // required
  *               UpperBound: Number("float"), // required
  *             },
@@ -115,7 +115,7 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  *       ],
  *       LogicalOperator: "STRING_VALUE",
  *     },
- *     BandFilter: [
+ *     BandFilter: [ // StringListInput
  *       "STRING_VALUE",
  *     ],
  *   },

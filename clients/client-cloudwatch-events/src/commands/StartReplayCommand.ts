@@ -50,15 +50,15 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * import { CloudWatchEventsClient, StartReplayCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, StartReplayCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // StartReplayRequest
  *   ReplayName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   EventSourceArn: "STRING_VALUE", // required
  *   EventStartTime: new Date("TIMESTAMP"), // required
  *   EventEndTime: new Date("TIMESTAMP"), // required
- *   Destination: {
+ *   Destination: { // ReplayDestination
  *     Arn: "STRING_VALUE", // required
- *     FilterArns: [
+ *     FilterArns: [ // ReplayDestinationFilters
  *       "STRING_VALUE",
  *     ],
  *   },

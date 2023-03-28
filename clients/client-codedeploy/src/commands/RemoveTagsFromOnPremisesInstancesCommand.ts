@@ -42,14 +42,14 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * import { CodeDeployClient, RemoveTagsFromOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, RemoveTagsFromOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
- *   tags: [ // required
- *     {
+ * const input = { // RemoveTagsFromOnPremisesInstancesInput
+ *   tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   instanceNames: [ // required
+ *   instanceNames: [ // InstanceNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

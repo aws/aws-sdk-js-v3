@@ -52,22 +52,22 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * import { Route53ResolverClient, CreateResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, CreateResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // CreateResolverEndpointRequest
  *   CreatorRequestId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   SecurityGroupIds: [ // required
+ *   SecurityGroupIds: [ // SecurityGroupIds // required
  *     "STRING_VALUE",
  *   ],
  *   Direction: "INBOUND" || "OUTBOUND", // required
- *   IpAddresses: [ // required
- *     {
+ *   IpAddresses: [ // IpAddressesRequest // required
+ *     { // IpAddressRequest
  *       SubnetId: "STRING_VALUE", // required
  *       Ip: "STRING_VALUE",
  *       Ipv6: "STRING_VALUE",
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

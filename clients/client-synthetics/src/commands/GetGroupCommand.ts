@@ -43,7 +43,7 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * import { SyntheticsClient, GetGroupCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, GetGroupCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const input = {
+ * const input = { // GetGroupRequest
  *   GroupIdentifier: "STRING_VALUE", // required
  * };
  * const command = new GetGroupCommand(input);

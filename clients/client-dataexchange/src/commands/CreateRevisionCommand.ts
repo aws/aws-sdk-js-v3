@@ -42,10 +42,10 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
  * import { DataExchangeClient, CreateRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CreateRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // CreateRevisionRequest
  *   Comment: "STRING_VALUE",
  *   DataSetId: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // MapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

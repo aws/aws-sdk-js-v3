@@ -47,11 +47,11 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * import { SSMClient, DescribeOpsItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeOpsItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   OpsItemFilters: [
- *     {
+ * const input = { // DescribeOpsItemsRequest
+ *   OpsItemFilters: [ // OpsItemFilters
+ *     { // OpsItemFilter
  *       Key: "Status" || "CreatedBy" || "Source" || "Priority" || "Title" || "OpsItemId" || "CreatedTime" || "LastModifiedTime" || "ActualStartTime" || "ActualEndTime" || "PlannedStartTime" || "PlannedEndTime" || "OperationalData" || "OperationalDataKey" || "OperationalDataValue" || "ResourceId" || "AutomationId" || "Category" || "Severity" || "OpsItemType" || "ChangeRequestByRequesterArn" || "ChangeRequestByRequesterName" || "ChangeRequestByApproverArn" || "ChangeRequestByApproverName" || "ChangeRequestByTemplate" || "ChangeRequestByTargetsResourceGroup" || "InsightByType" || "AccountId", // required
- *       Values: [ // required
+ *       Values: [ // OpsItemFilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       Operator: "Equal" || "Contains" || "GreaterThan" || "LessThan", // required

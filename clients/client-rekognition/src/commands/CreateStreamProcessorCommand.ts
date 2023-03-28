@@ -62,59 +62,59 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * import { RekognitionClient, CreateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   Input: {
- *     KinesisVideoStream: {
+ * const input = { // CreateStreamProcessorRequest
+ *   Input: { // StreamProcessorInput
+ *     KinesisVideoStream: { // KinesisVideoStream
  *       Arn: "STRING_VALUE",
  *     },
  *   },
- *   Output: {
- *     KinesisDataStream: {
+ *   Output: { // StreamProcessorOutput
+ *     KinesisDataStream: { // KinesisDataStream
  *       Arn: "STRING_VALUE",
  *     },
- *     S3Destination: {
+ *     S3Destination: { // S3Destination
  *       Bucket: "STRING_VALUE",
  *       KeyPrefix: "STRING_VALUE",
  *     },
  *   },
  *   Name: "STRING_VALUE", // required
- *   Settings: {
- *     FaceSearch: {
+ *   Settings: { // StreamProcessorSettings
+ *     FaceSearch: { // FaceSearchSettings
  *       CollectionId: "STRING_VALUE",
  *       FaceMatchThreshold: Number("float"),
  *     },
- *     ConnectedHome: {
- *       Labels: [ // required
+ *     ConnectedHome: { // ConnectedHomeSettings
+ *       Labels: [ // ConnectedHomeLabels // required
  *         "STRING_VALUE",
  *       ],
  *       MinConfidence: Number("float"),
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   NotificationChannel: {
+ *   NotificationChannel: { // StreamProcessorNotificationChannel
  *     SNSTopicArn: "STRING_VALUE", // required
  *   },
  *   KmsKeyId: "STRING_VALUE",
- *   RegionsOfInterest: [
- *     {
- *       BoundingBox: {
+ *   RegionsOfInterest: [ // RegionsOfInterest
+ *     { // RegionOfInterest
+ *       BoundingBox: { // BoundingBox
  *         Width: Number("float"),
  *         Height: Number("float"),
  *         Left: Number("float"),
  *         Top: Number("float"),
  *       },
- *       Polygon: [
- *         {
+ *       Polygon: [ // Polygon
+ *         { // Point
  *           X: Number("float"),
  *           Y: Number("float"),
  *         },
  *       ],
  *     },
  *   ],
- *   DataSharingPreference: {
+ *   DataSharingPreference: { // StreamProcessorDataSharingPreference
  *     OptIn: true || false, // required
  *   },
  * };

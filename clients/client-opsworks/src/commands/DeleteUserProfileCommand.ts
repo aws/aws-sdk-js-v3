@@ -46,7 +46,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeleteUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeleteUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DeleteUserProfileRequest
  *   IamUserArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteUserProfileCommand(input);

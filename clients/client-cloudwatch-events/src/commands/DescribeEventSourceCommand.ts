@@ -43,7 +43,7 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * import { CloudWatchEventsClient, DescribeEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribeEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // DescribeEventSourceRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeEventSourceCommand(input);

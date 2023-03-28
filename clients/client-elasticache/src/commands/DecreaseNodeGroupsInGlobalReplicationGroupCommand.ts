@@ -48,10 +48,10 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, DecreaseNodeGroupsInGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DecreaseNodeGroupsInGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DecreaseNodeGroupsInGlobalReplicationGroupMessage
  *   GlobalReplicationGroupId: "STRING_VALUE", // required
  *   NodeGroupCount: Number("int"), // required
- *   GlobalNodeGroupsToRemove: [
+ *   GlobalNodeGroupsToRemove: [ // GlobalNodeGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   GlobalNodeGroupsToRetain: [

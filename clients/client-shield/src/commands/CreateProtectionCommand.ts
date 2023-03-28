@@ -47,11 +47,11 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  * import { ShieldClient, CreateProtectionCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, CreateProtectionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
- * const input = {
+ * const input = { // CreateProtectionRequest
  *   Name: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

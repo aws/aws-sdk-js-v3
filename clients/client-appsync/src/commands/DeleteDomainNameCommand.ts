@@ -42,7 +42,7 @@ export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse,
  * import { AppSyncClient, DeleteDomainNameCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteDomainNameCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // DeleteDomainNameRequest
  *   domainName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDomainNameCommand(input);

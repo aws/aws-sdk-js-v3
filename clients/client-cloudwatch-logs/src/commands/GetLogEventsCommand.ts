@@ -52,7 +52,7 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * import { CloudWatchLogsClient, GetLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // GetLogEventsRequest
  *   logGroupName: "STRING_VALUE",
  *   logGroupIdentifier: "STRING_VALUE",
  *   logStreamName: "STRING_VALUE", // required

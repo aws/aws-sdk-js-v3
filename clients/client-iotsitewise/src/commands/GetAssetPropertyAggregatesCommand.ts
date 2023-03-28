@@ -53,15 +53,15 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  * import { IoTSiteWiseClient, GetAssetPropertyAggregatesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, GetAssetPropertyAggregatesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // GetAssetPropertyAggregatesRequest
  *   assetId: "STRING_VALUE",
  *   propertyId: "STRING_VALUE",
  *   propertyAlias: "STRING_VALUE",
- *   aggregateTypes: [ // required
+ *   aggregateTypes: [ // AggregateTypes // required
  *     "AVERAGE" || "COUNT" || "MAXIMUM" || "MINIMUM" || "SUM" || "STANDARD_DEVIATION",
  *   ],
  *   resolution: "STRING_VALUE", // required
- *   qualities: [
+ *   qualities: [ // Qualities
  *     "GOOD" || "BAD" || "UNCERTAIN",
  *   ],
  *   startDate: new Date("TIMESTAMP"), // required

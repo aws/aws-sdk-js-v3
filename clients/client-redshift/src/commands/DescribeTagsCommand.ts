@@ -63,15 +63,15 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * import { RedshiftClient, DescribeTagsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeTagsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeTagsMessage
  *   ResourceName: "STRING_VALUE",
  *   ResourceType: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",
- *   TagKeys: [
+ *   TagKeys: [ // TagKeyList
  *     "STRING_VALUE",
  *   ],
- *   TagValues: [
+ *   TagValues: [ // TagValueList
  *     "STRING_VALUE",
  *   ],
  * };

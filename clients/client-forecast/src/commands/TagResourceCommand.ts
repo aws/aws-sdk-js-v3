@@ -45,10 +45,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { ForecastClient, TagResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, TagResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // Tags // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

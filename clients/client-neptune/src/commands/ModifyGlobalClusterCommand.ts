@@ -44,7 +44,7 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * import { NeptuneClient, ModifyGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ModifyGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   NewGlobalClusterIdentifier: "STRING_VALUE",
  *   DeletionProtection: true || false,

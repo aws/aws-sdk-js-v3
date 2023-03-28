@@ -42,7 +42,7 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
  * import { CodeBuildClient, RetryBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, RetryBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // RetryBuildBatchInput
  *   id: "STRING_VALUE",
  *   idempotencyToken: "STRING_VALUE",
  *   retryType: "STRING_VALUE",

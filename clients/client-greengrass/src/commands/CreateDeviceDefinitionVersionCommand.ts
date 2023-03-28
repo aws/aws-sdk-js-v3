@@ -44,11 +44,11 @@ export interface CreateDeviceDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateDeviceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateDeviceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // CreateDeviceDefinitionVersionRequest
  *   AmznClientToken: "STRING_VALUE",
  *   DeviceDefinitionId: "STRING_VALUE", // required
- *   Devices: [
- *     {
+ *   Devices: [ // __listOfDevice
+ *     { // Device
  *       CertificateArn: "STRING_VALUE", // required
  *       Id: "STRING_VALUE", // required
  *       SyncShadow: true || false,

@@ -44,11 +44,11 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  * import { CodeBuildClient, UpdateReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, UpdateReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // UpdateReportGroupInput
  *   arn: "STRING_VALUE", // required
- *   exportConfig: {
+ *   exportConfig: { // ReportExportConfig
  *     exportConfigType: "STRING_VALUE",
- *     s3Destination: {
+ *     s3Destination: { // S3ReportExportConfig
  *       bucket: "STRING_VALUE",
  *       bucketOwner: "STRING_VALUE",
  *       path: "STRING_VALUE",
@@ -57,8 +57,8 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  *       encryptionDisabled: true || false,
  *     },
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

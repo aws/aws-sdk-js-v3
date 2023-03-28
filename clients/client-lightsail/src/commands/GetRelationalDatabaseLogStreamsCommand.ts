@@ -44,7 +44,7 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  * import { LightsailClient, GetRelationalDatabaseLogStreamsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseLogStreamsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetRelationalDatabaseLogStreamsRequest
  *   relationalDatabaseName: "STRING_VALUE", // required
  * };
  * const command = new GetRelationalDatabaseLogStreamsCommand(input);

@@ -43,18 +43,18 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * import { CodePipelineClient, CreateCustomActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, CreateCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // CreateCustomActionTypeInput
  *   category: "STRING_VALUE", // required
  *   provider: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
- *   settings: {
+ *   settings: { // ActionTypeSettings
  *     thirdPartyConfigurationUrl: "STRING_VALUE",
  *     entityUrlTemplate: "STRING_VALUE",
  *     executionUrlTemplate: "STRING_VALUE",
  *     revisionUrlTemplate: "STRING_VALUE",
  *   },
- *   configurationProperties: [
- *     {
+ *   configurationProperties: [ // ActionConfigurationPropertyList
+ *     { // ActionConfigurationProperty
  *       name: "STRING_VALUE", // required
  *       required: true || false, // required
  *       key: true || false, // required
@@ -64,7 +64,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  *       type: "STRING_VALUE",
  *     },
  *   ],
- *   inputArtifactDetails: {
+ *   inputArtifactDetails: { // ArtifactDetails
  *     minimumCount: Number("int"), // required
  *     maximumCount: Number("int"), // required
  *   },
@@ -72,8 +72,8 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  *     minimumCount: Number("int"), // required
  *     maximumCount: Number("int"), // required
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

@@ -221,12 +221,12 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * import { S3Client, PutObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutObjectAclRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
- *   AccessControlPolicy: {
- *     Grants: [
- *       {
- *         Grantee: {
+ *   AccessControlPolicy: { // AccessControlPolicy
+ *     Grants: [ // Grants
+ *       { // Grant
+ *         Grantee: { // Grantee
  *           DisplayName: "STRING_VALUE",
  *           EmailAddress: "STRING_VALUE",
  *           ID: "STRING_VALUE",
@@ -236,7 +236,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
  *       },
  *     ],
- *     Owner: {
+ *     Owner: { // Owner
  *       DisplayName: "STRING_VALUE",
  *       ID: "STRING_VALUE",
  *     },

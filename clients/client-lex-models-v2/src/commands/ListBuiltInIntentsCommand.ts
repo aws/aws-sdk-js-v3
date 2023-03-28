@@ -47,9 +47,9 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * import { LexModelsV2Client, ListBuiltInIntentsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBuiltInIntentsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // ListBuiltInIntentsRequest
  *   localeId: "STRING_VALUE", // required
- *   sortBy: {
+ *   sortBy: { // BuiltInIntentSortBy
  *     attribute: "IntentSignature", // required
  *     order: "Ascending" || "Descending", // required
  *   },

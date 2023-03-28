@@ -143,34 +143,34 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketInventoryConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketInventoryConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketInventoryConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
- *   InventoryConfiguration: {
- *     Destination: {
- *       S3BucketDestination: {
+ *   InventoryConfiguration: { // InventoryConfiguration
+ *     Destination: { // InventoryDestination
+ *       S3BucketDestination: { // InventoryS3BucketDestination
  *         AccountId: "STRING_VALUE",
  *         Bucket: "STRING_VALUE", // required
  *         Format: "CSV" || "ORC" || "Parquet", // required
  *         Prefix: "STRING_VALUE",
- *         Encryption: {
+ *         Encryption: { // InventoryEncryption
  *           SSES3: {},
- *           SSEKMS: {
+ *           SSEKMS: { // SSEKMS
  *             KeyId: "STRING_VALUE", // required
  *           },
  *         },
  *       },
  *     },
  *     IsEnabled: true || false, // required
- *     Filter: {
+ *     Filter: { // InventoryFilter
  *       Prefix: "STRING_VALUE", // required
  *     },
  *     Id: "STRING_VALUE", // required
  *     IncludedObjectVersions: "All" || "Current", // required
- *     OptionalFields: [
+ *     OptionalFields: [ // InventoryOptionalFields
  *       "Size" || "LastModifiedDate" || "StorageClass" || "ETag" || "IsMultipartUploaded" || "ReplicationStatus" || "EncryptionStatus" || "ObjectLockRetainUntilDate" || "ObjectLockMode" || "ObjectLockLegalHoldStatus" || "IntelligentTieringAccessTier" || "BucketKeyStatus" || "ChecksumAlgorithm",
  *     ],
- *     Schedule: {
+ *     Schedule: { // InventorySchedule
  *       Frequency: "Daily" || "Weekly", // required
  *     },
  *   },

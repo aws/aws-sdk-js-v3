@@ -52,25 +52,25 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { ECSClient, CreateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // CreateClusterRequest
  *   clusterName: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   settings: [
- *     {
+ *   settings: [ // ClusterSettings
+ *     { // ClusterSetting
  *       name: "containerInsights",
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   configuration: {
- *     executeCommandConfiguration: {
+ *   configuration: { // ClusterConfiguration
+ *     executeCommandConfiguration: { // ExecuteCommandConfiguration
  *       kmsKeyId: "STRING_VALUE",
  *       logging: "NONE" || "DEFAULT" || "OVERRIDE",
- *       logConfiguration: {
+ *       logConfiguration: { // ExecuteCommandLogConfiguration
  *         cloudWatchLogGroupName: "STRING_VALUE",
  *         cloudWatchEncryptionEnabled: true || false,
  *         s3BucketName: "STRING_VALUE",
@@ -79,17 +79,17 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       },
  *     },
  *   },
- *   capacityProviders: [
+ *   capacityProviders: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   defaultCapacityProviderStrategy: [
- *     {
+ *   defaultCapacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
  *       weight: Number("int"),
  *       base: Number("int"),
  *     },
  *   ],
- *   serviceConnectDefaults: {
+ *   serviceConnectDefaults: { // ClusterServiceConnectDefaultsRequest
  *     namespace: "STRING_VALUE", // required
  *   },
  * };

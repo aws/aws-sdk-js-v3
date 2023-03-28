@@ -46,7 +46,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * import { ProtonClient, DeleteEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // DeleteEnvironmentInput
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeleteEnvironmentCommand(input);

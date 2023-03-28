@@ -42,7 +42,7 @@ export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudge
  * import { ServiceCatalogClient, AssociateBudgetWithResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AssociateBudgetWithResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // AssociateBudgetWithResourceInput
  *   BudgetName: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  * };

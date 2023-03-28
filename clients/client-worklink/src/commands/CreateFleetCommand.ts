@@ -45,11 +45,11 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * import { WorkLinkClient, CreateFleetCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, CreateFleetCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // CreateFleetRequest
  *   FleetName: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
  *   OptimizeForEndUserLocation: true || false,
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

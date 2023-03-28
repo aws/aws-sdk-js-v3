@@ -53,7 +53,7 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * import { QuickSightClient, DeleteAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DeleteAnalysisRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   AnalysisId: "STRING_VALUE", // required
  *   RecoveryWindowInDays: Number("long"),

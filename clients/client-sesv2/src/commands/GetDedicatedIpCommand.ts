@@ -44,7 +44,7 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  * import { SESv2Client, GetDedicatedIpCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetDedicatedIpCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // GetDedicatedIpRequest
  *   Ip: "STRING_VALUE", // required
  * };
  * const command = new GetDedicatedIpCommand(input);

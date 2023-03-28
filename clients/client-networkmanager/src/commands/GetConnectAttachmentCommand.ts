@@ -42,7 +42,7 @@ export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentR
  * import { NetworkManagerClient, GetConnectAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetConnectAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
  * };
  * const command = new GetConnectAttachmentCommand(input);

@@ -42,7 +42,7 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * import { IoTRoboRunnerClient, UpdateSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, UpdateSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // UpdateSiteRequest
  *   id: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   countryCode: "STRING_VALUE",

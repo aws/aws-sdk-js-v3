@@ -42,13 +42,13 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * import { QuickSightClient, UpdateAnalysisPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateAnalysisPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // UpdateAnalysisPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   AnalysisId: "STRING_VALUE", // required
- *   GrantPermissions: [
- *     {
+ *   GrantPermissions: [ // UpdateResourcePermissionList
+ *     { // ResourcePermission
  *       Principal: "STRING_VALUE", // required
- *       Actions: [ // required
+ *       Actions: [ // ActionList // required
  *         "STRING_VALUE",
  *       ],
  *     },

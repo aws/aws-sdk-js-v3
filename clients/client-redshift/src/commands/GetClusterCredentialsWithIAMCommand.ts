@@ -52,7 +52,7 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * import { RedshiftClient, GetClusterCredentialsWithIAMCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, GetClusterCredentialsWithIAMCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // GetClusterCredentialsWithIAMMessage
  *   DbName: "STRING_VALUE",
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   DurationSeconds: Number("int"),

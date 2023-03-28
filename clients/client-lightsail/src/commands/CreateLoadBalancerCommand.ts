@@ -49,17 +49,17 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  * import { LightsailClient, CreateLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // CreateLoadBalancerRequest
  *   loadBalancerName: "STRING_VALUE", // required
  *   instancePort: Number("int"), // required
  *   healthCheckPath: "STRING_VALUE",
  *   certificateName: "STRING_VALUE",
  *   certificateDomainName: "STRING_VALUE",
- *   certificateAlternativeNames: [
+ *   certificateAlternativeNames: [ // DomainNameList
  *     "STRING_VALUE",
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

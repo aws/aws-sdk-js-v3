@@ -52,7 +52,7 @@ export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutpu
  * import { S3Client, GetObjectLegalHoldCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectLegalHoldCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetObjectLegalHoldRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE",

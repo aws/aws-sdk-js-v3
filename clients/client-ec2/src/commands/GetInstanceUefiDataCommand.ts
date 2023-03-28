@@ -52,7 +52,7 @@ export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataRes
  * import { EC2Client, GetInstanceUefiDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetInstanceUefiDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // GetInstanceUefiDataRequest
  *   InstanceId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

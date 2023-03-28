@@ -46,7 +46,7 @@ export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBea
  * import { Route53RecoveryReadinessClient, ListCellsCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, ListCellsCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // ListCellsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

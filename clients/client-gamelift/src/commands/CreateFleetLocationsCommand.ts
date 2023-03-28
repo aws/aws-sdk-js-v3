@@ -65,10 +65,10 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * import { GameLiftClient, CreateFleetLocationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateFleetLocationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // CreateFleetLocationsInput
  *   FleetId: "STRING_VALUE", // required
- *   Locations: [ // required
- *     {
+ *   Locations: [ // LocationConfigurationList // required
+ *     { // LocationConfiguration
  *       Location: "STRING_VALUE", // required
  *     },
  *   ],

@@ -92,14 +92,14 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * import { WAFRegionalClient, UpdateSizeConstraintSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateSizeConstraintSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // UpdateSizeConstraintSetRequest
  *   SizeConstraintSetId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
- *   Updates: [ // required
- *     {
+ *   Updates: [ // SizeConstraintSetUpdates // required
+ *     { // SizeConstraintSetUpdate
  *       Action: "STRING_VALUE", // required
- *       SizeConstraint: {
- *         FieldToMatch: {
+ *       SizeConstraint: { // SizeConstraint
+ *         FieldToMatch: { // FieldToMatch
  *           Type: "STRING_VALUE", // required
  *           Data: "STRING_VALUE",
  *         },

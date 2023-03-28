@@ -42,25 +42,25 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { MediaLiveClient, CreateChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
- *   CdiInputSpecification: {
+ * const input = { // CreateChannelRequest
+ *   CdiInputSpecification: { // CdiInputSpecification
  *     Resolution: "SD" || "HD" || "FHD" || "UHD",
  *   },
  *   ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
- *   Destinations: [
- *     {
+ *   Destinations: [ // __listOfOutputDestination
+ *     { // OutputDestination
  *       Id: "STRING_VALUE",
- *       MediaPackageSettings: [
- *         {
+ *       MediaPackageSettings: [ // __listOfMediaPackageOutputDestinationSettings
+ *         { // MediaPackageOutputDestinationSettings
  *           ChannelId: "STRING_VALUE",
  *         },
  *       ],
- *       MultiplexSettings: {
+ *       MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
  *         MultiplexId: "STRING_VALUE",
  *         ProgramName: "STRING_VALUE",
  *       },
- *       Settings: [
- *         {
+ *       Settings: [ // __listOfOutputDestinationSettings
+ *         { // OutputDestinationSettings
  *           PasswordParam: "STRING_VALUE",
  *           StreamName: "STRING_VALUE",
  *           Url: "STRING_VALUE",
@@ -69,10 +69,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *       ],
  *     },
  *   ],
- *   EncoderSettings: {
- *     AudioDescriptions: [ // required
- *       {
- *         AudioNormalizationSettings: {
+ *   EncoderSettings: { // EncoderSettings
+ *     AudioDescriptions: [ // __listOfAudioDescription // required
+ *       { // AudioDescription
+ *         AudioNormalizationSettings: { // AudioNormalizationSettings
  *           Algorithm: "ITU_1770_1" || "ITU_1770_2",
  *           AlgorithmControl: "CORRECT_AUDIO",
  *           TargetLkfs: Number("double"),
@@ -80,23 +80,23 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         AudioSelectorName: "STRING_VALUE", // required
  *         AudioType: "CLEAN_EFFECTS" || "HEARING_IMPAIRED" || "UNDEFINED" || "VISUAL_IMPAIRED_COMMENTARY",
  *         AudioTypeControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
- *         AudioWatermarkingSettings: {
- *           NielsenWatermarksSettings: {
- *             NielsenCbetSettings: {
+ *         AudioWatermarkingSettings: { // AudioWatermarkSettings
+ *           NielsenWatermarksSettings: { // NielsenWatermarksSettings
+ *             NielsenCbetSettings: { // NielsenCBET
  *               CbetCheckDigitString: "STRING_VALUE", // required
  *               CbetStepaside: "DISABLED" || "ENABLED", // required
  *               Csid: "STRING_VALUE", // required
  *             },
  *             NielsenDistributionType: "FINAL_DISTRIBUTOR" || "PROGRAM_CONTENT",
- *             NielsenNaesIiNwSettings: {
+ *             NielsenNaesIiNwSettings: { // NielsenNaesIiNw
  *               CheckDigitString: "STRING_VALUE", // required
  *               Sid: Number("double"), // required
  *               Timezone: "AMERICA_PUERTO_RICO" || "US_ALASKA" || "US_ARIZONA" || "US_CENTRAL" || "US_EASTERN" || "US_HAWAII" || "US_MOUNTAIN" || "US_PACIFIC" || "US_SAMOA" || "UTC",
  *             },
  *           },
  *         },
- *         CodecSettings: {
- *           AacSettings: {
+ *         CodecSettings: { // AudioCodecSettings
+ *           AacSettings: { // AacSettings
  *             Bitrate: Number("double"),
  *             CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1",
  *             InputType: "BROADCASTER_MIXED_AD" || "NORMAL",
@@ -107,7 +107,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             Spec: "MPEG2" || "MPEG4",
  *             VbrQuality: "HIGH" || "LOW" || "MEDIUM_HIGH" || "MEDIUM_LOW",
  *           },
- *           Ac3Settings: {
+ *           Ac3Settings: { // Ac3Settings
  *             Bitrate: Number("double"),
  *             BitstreamMode: "COMMENTARY" || "COMPLETE_MAIN" || "DIALOGUE" || "EMERGENCY" || "HEARING_IMPAIRED" || "MUSIC_AND_EFFECTS" || "VISUALLY_IMPAIRED" || "VOICE_OVER",
  *             CodingMode: "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_3_2_LFE",
@@ -116,7 +116,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             LfeFilter: "DISABLED" || "ENABLED",
  *             MetadataControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
  *           },
- *           Eac3AtmosSettings: {
+ *           Eac3AtmosSettings: { // Eac3AtmosSettings
  *             Bitrate: Number("double"),
  *             CodingMode: "CODING_MODE_5_1_4" || "CODING_MODE_7_1_4" || "CODING_MODE_9_1_6",
  *             Dialnorm: Number("int"),
@@ -125,7 +125,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             HeightTrim: Number("double"),
  *             SurroundTrim: Number("double"),
  *           },
- *           Eac3Settings: {
+ *           Eac3Settings: { // Eac3Settings
  *             AttenuationControl: "ATTENUATE_3_DB" || "NONE",
  *             Bitrate: Number("double"),
  *             BitstreamMode: "COMMENTARY" || "COMPLETE_MAIN" || "EMERGENCY" || "HEARING_IMPAIRED" || "VISUALLY_IMPAIRED",
@@ -147,13 +147,13 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             SurroundExMode: "DISABLED" || "ENABLED" || "NOT_INDICATED",
  *             SurroundMode: "DISABLED" || "ENABLED" || "NOT_INDICATED",
  *           },
- *           Mp2Settings: {
+ *           Mp2Settings: { // Mp2Settings
  *             Bitrate: Number("double"),
  *             CodingMode: "CODING_MODE_1_0" || "CODING_MODE_2_0",
  *             SampleRate: Number("double"),
  *           },
  *           PassThroughSettings: {},
- *           WavSettings: {
+ *           WavSettings: { // WavSettings
  *             BitDepth: Number("double"),
  *             CodingMode: "CODING_MODE_1_0" || "CODING_MODE_2_0" || "CODING_MODE_4_0" || "CODING_MODE_8_0",
  *             SampleRate: Number("double"),
@@ -162,11 +162,11 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         LanguageCode: "STRING_VALUE",
  *         LanguageCodeControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
  *         Name: "STRING_VALUE", // required
- *         RemixSettings: {
- *           ChannelMappings: [ // required
- *             {
- *               InputChannelLevels: [ // required
- *                 {
+ *         RemixSettings: { // RemixSettings
+ *           ChannelMappings: [ // __listOfAudioChannelMapping // required
+ *             { // AudioChannelMapping
+ *               InputChannelLevels: [ // __listOfInputChannelLevel // required
+ *                 { // InputChannelLevel
  *                   Gain: Number("int"), // required
  *                   InputChannel: Number("int"), // required
  *                 },
@@ -180,17 +180,17 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         StreamName: "STRING_VALUE",
  *       },
  *     ],
- *     AvailBlanking: {
- *       AvailBlankingImage: {
+ *     AvailBlanking: { // AvailBlanking
+ *       AvailBlankingImage: { // InputLocation
  *         PasswordParam: "STRING_VALUE",
  *         Uri: "STRING_VALUE", // required
  *         Username: "STRING_VALUE",
  *       },
  *       State: "DISABLED" || "ENABLED",
  *     },
- *     AvailConfiguration: {
- *       AvailSettings: {
- *         Esam: {
+ *     AvailConfiguration: { // AvailConfiguration
+ *       AvailSettings: { // AvailSettings
+ *         Esam: { // Esam
  *           AcquisitionPointId: "STRING_VALUE", // required
  *           AdAvailOffset: Number("int"),
  *           PasswordParam: "STRING_VALUE",
@@ -198,19 +198,19 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *           Username: "STRING_VALUE",
  *           ZoneIdentity: "STRING_VALUE",
  *         },
- *         Scte35SpliceInsert: {
+ *         Scte35SpliceInsert: { // Scte35SpliceInsert
  *           AdAvailOffset: Number("int"),
  *           NoRegionalBlackoutFlag: "FOLLOW" || "IGNORE",
  *           WebDeliveryAllowedFlag: "FOLLOW" || "IGNORE",
  *         },
- *         Scte35TimeSignalApos: {
+ *         Scte35TimeSignalApos: { // Scte35TimeSignalApos
  *           AdAvailOffset: Number("int"),
  *           NoRegionalBlackoutFlag: "FOLLOW" || "IGNORE",
  *           WebDeliveryAllowedFlag: "FOLLOW" || "IGNORE",
  *         },
  *       },
  *     },
- *     BlackoutSlate: {
+ *     BlackoutSlate: { // BlackoutSlate
  *       BlackoutSlateImage: {
  *         PasswordParam: "STRING_VALUE",
  *         Uri: "STRING_VALUE", // required
@@ -225,13 +225,13 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *       NetworkId: "STRING_VALUE",
  *       State: "DISABLED" || "ENABLED",
  *     },
- *     CaptionDescriptions: [
- *       {
+ *     CaptionDescriptions: [ // __listOfCaptionDescription
+ *       { // CaptionDescription
  *         Accessibility: "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES" || "IMPLEMENTS_ACCESSIBILITY_FEATURES",
  *         CaptionSelectorName: "STRING_VALUE", // required
- *         DestinationSettings: {
+ *         DestinationSettings: { // CaptionDestinationSettings
  *           AribDestinationSettings: {},
- *           BurnInDestinationSettings: {
+ *           BurnInDestinationSettings: { // BurnInDestinationSettings
  *             Alignment: "CENTERED" || "LEFT" || "SMART",
  *             BackgroundColor: "BLACK" || "NONE" || "WHITE",
  *             BackgroundOpacity: Number("int"),
@@ -254,7 +254,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             XPosition: Number("int"),
  *             YPosition: Number("int"),
  *           },
- *           DvbSubDestinationSettings: {
+ *           DvbSubDestinationSettings: { // DvbSubDestinationSettings
  *             Alignment: "CENTERED" || "LEFT" || "SMART",
  *             BackgroundColor: "BLACK" || "NONE" || "WHITE",
  *             BackgroundOpacity: Number("int"),
@@ -277,7 +277,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             XPosition: Number("int"),
  *             YPosition: Number("int"),
  *           },
- *           EbuTtDDestinationSettings: {
+ *           EbuTtDDestinationSettings: { // EbuTtDDestinationSettings
  *             CopyrightHolder: "STRING_VALUE",
  *             FillLineGap: "DISABLED" || "ENABLED",
  *             FontFamily: "STRING_VALUE",
@@ -290,10 +290,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *           Scte27DestinationSettings: {},
  *           SmpteTtDestinationSettings: {},
  *           TeletextDestinationSettings: {},
- *           TtmlDestinationSettings: {
+ *           TtmlDestinationSettings: { // TtmlDestinationSettings
  *             StyleControl: "PASSTHROUGH" || "USE_CONFIGURED",
  *           },
- *           WebvttDestinationSettings: {
+ *           WebvttDestinationSettings: { // WebvttDestinationSettings
  *             StyleControl: "NO_STYLE_DATA" || "PASSTHROUGH",
  *           },
  *         },
@@ -302,20 +302,16 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         Name: "STRING_VALUE", // required
  *       },
  *     ],
- *     FeatureActivations: {
+ *     FeatureActivations: { // FeatureActivations
  *       InputPrepareScheduleActions: "DISABLED" || "ENABLED",
  *     },
- *     GlobalConfiguration: {
+ *     GlobalConfiguration: { // GlobalConfiguration
  *       InitialAudioGain: Number("int"),
  *       InputEndAction: "NONE" || "SWITCH_AND_LOOP_INPUTS",
- *       InputLossBehavior: {
+ *       InputLossBehavior: { // InputLossBehavior
  *         BlackFrameMsec: Number("int"),
  *         InputLossImageColor: "STRING_VALUE",
- *         InputLossImageSlate: {
- *           PasswordParam: "<InputLocation>",
- *           Uri: "<InputLocation>",
- *           Username: "<InputLocation>",
- *         },
+ *         InputLossImageSlate: "<InputLocation>",
  *         InputLossImageType: "COLOR" || "SLATE",
  *         RepeatFrameMsec: Number("int"),
  *       },
@@ -323,51 +319,51 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *       OutputTimingSource: "INPUT_CLOCK" || "SYSTEM_CLOCK",
  *       SupportLowFramerateInputs: "DISABLED" || "ENABLED",
  *     },
- *     MotionGraphicsConfiguration: {
+ *     MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
  *       MotionGraphicsInsertion: "DISABLED" || "ENABLED",
- *       MotionGraphicsSettings: {
+ *       MotionGraphicsSettings: { // MotionGraphicsSettings
  *         HtmlMotionGraphicsSettings: {},
  *       },
  *     },
- *     NielsenConfiguration: {
+ *     NielsenConfiguration: { // NielsenConfiguration
  *       DistributorId: "STRING_VALUE",
  *       NielsenPcmToId3Tagging: "DISABLED" || "ENABLED",
  *     },
- *     OutputGroups: [ // required
- *       {
+ *     OutputGroups: [ // __listOfOutputGroup // required
+ *       { // OutputGroup
  *         Name: "STRING_VALUE",
- *         OutputGroupSettings: {
- *           ArchiveGroupSettings: {
- *             ArchiveCdnSettings: {
- *               ArchiveS3Settings: {
+ *         OutputGroupSettings: { // OutputGroupSettings
+ *           ArchiveGroupSettings: { // ArchiveGroupSettings
+ *             ArchiveCdnSettings: { // ArchiveCdnSettings
+ *               ArchiveS3Settings: { // ArchiveS3Settings
  *                 CannedAcl: "AUTHENTICATED_READ" || "BUCKET_OWNER_FULL_CONTROL" || "BUCKET_OWNER_READ" || "PUBLIC_READ",
  *               },
  *             },
- *             Destination: {
+ *             Destination: { // OutputLocationRef
  *               DestinationRefId: "STRING_VALUE",
  *             },
  *             RolloverInterval: Number("int"),
  *           },
- *           FrameCaptureGroupSettings: {
+ *           FrameCaptureGroupSettings: { // FrameCaptureGroupSettings
  *             Destination: {
  *               DestinationRefId: "STRING_VALUE",
  *             },
- *             FrameCaptureCdnSettings: {
- *               FrameCaptureS3Settings: {
+ *             FrameCaptureCdnSettings: { // FrameCaptureCdnSettings
+ *               FrameCaptureS3Settings: { // FrameCaptureS3Settings
  *                 CannedAcl: "AUTHENTICATED_READ" || "BUCKET_OWNER_FULL_CONTROL" || "BUCKET_OWNER_READ" || "PUBLIC_READ",
  *               },
  *             },
  *           },
- *           HlsGroupSettings: {
- *             AdMarkers: [
+ *           HlsGroupSettings: { // HlsGroupSettings
+ *             AdMarkers: [ // __listOfHlsAdMarkers
  *               "ADOBE" || "ELEMENTAL" || "ELEMENTAL_SCTE35",
  *             ],
  *             BaseUrlContent: "STRING_VALUE",
  *             BaseUrlContent1: "STRING_VALUE",
  *             BaseUrlManifest: "STRING_VALUE",
  *             BaseUrlManifest1: "STRING_VALUE",
- *             CaptionLanguageMappings: [
- *               {
+ *             CaptionLanguageMappings: [ // __listOfCaptionLanguageMapping
+ *               { // CaptionLanguageMapping
  *                 CaptionChannel: Number("int"), // required
  *                 LanguageCode: "STRING_VALUE", // required
  *                 LanguageDescription: "STRING_VALUE", // required
@@ -383,8 +379,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             DirectoryStructure: "SINGLE_DIRECTORY" || "SUBDIRECTORY_PER_STREAM",
  *             DiscontinuityTags: "INSERT" || "NEVER_INSERT",
  *             EncryptionType: "AES128" || "SAMPLE_AES",
- *             HlsCdnSettings: {
- *               HlsAkamaiSettings: {
+ *             HlsCdnSettings: { // HlsCdnSettings
+ *               HlsAkamaiSettings: { // HlsAkamaiSettings
  *                 ConnectionRetryInterval: Number("int"),
  *                 FilecacheDuration: Number("int"),
  *                 HttpTransferMode: "CHUNKED" || "NON_CHUNKED",
@@ -393,23 +389,23 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                 Salt: "STRING_VALUE",
  *                 Token: "STRING_VALUE",
  *               },
- *               HlsBasicPutSettings: {
+ *               HlsBasicPutSettings: { // HlsBasicPutSettings
  *                 ConnectionRetryInterval: Number("int"),
  *                 FilecacheDuration: Number("int"),
  *                 NumRetries: Number("int"),
  *                 RestartDelay: Number("int"),
  *               },
- *               HlsMediaStoreSettings: {
+ *               HlsMediaStoreSettings: { // HlsMediaStoreSettings
  *                 ConnectionRetryInterval: Number("int"),
  *                 FilecacheDuration: Number("int"),
  *                 MediaStoreStorageClass: "TEMPORAL",
  *                 NumRetries: Number("int"),
  *                 RestartDelay: Number("int"),
  *               },
- *               HlsS3Settings: {
+ *               HlsS3Settings: { // HlsS3Settings
  *                 CannedAcl: "AUTHENTICATED_READ" || "BUCKET_OWNER_FULL_CONTROL" || "BUCKET_OWNER_READ" || "PUBLIC_READ",
  *               },
- *               HlsWebdavSettings: {
+ *               HlsWebdavSettings: { // HlsWebdavSettings
  *                 ConnectionRetryInterval: Number("int"),
  *                 FilecacheDuration: Number("int"),
  *                 HttpTransferMode: "CHUNKED" || "NON_CHUNKED",
@@ -427,13 +423,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             KeepSegments: Number("int"),
  *             KeyFormat: "STRING_VALUE",
  *             KeyFormatVersions: "STRING_VALUE",
- *             KeyProviderSettings: {
- *               StaticKeySettings: {
- *                 KeyProviderServer: {
- *                   PasswordParam: "<InputLocation>",
- *                   Uri: "<InputLocation>",
- *                   Username: "<InputLocation>",
- *                 },
+ *             KeyProviderSettings: { // KeyProviderSettings
+ *               StaticKeySettings: { // StaticKeySettings
+ *                 KeyProviderServer: "<InputLocation>",
  *                 StaticKeyValue: "STRING_VALUE", // required
  *               },
  *             },
@@ -455,12 +447,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             TimestampDeltaMilliseconds: Number("int"),
  *             TsFileMode: "SEGMENTED_FILES" || "SINGLE_FILE",
  *           },
- *           MediaPackageGroupSettings: {
+ *           MediaPackageGroupSettings: { // MediaPackageGroupSettings
  *             Destination: {
  *               DestinationRefId: "STRING_VALUE",
  *             },
  *           },
- *           MsSmoothGroupSettings: {
+ *           MsSmoothGroupSettings: { // MsSmoothGroupSettings
  *             AcquisitionPointId: "STRING_VALUE",
  *             AudioOnlyTimecodeControl: "PASSTHROUGH" || "USE_CONFIGURED_CLOCK",
  *             CertificateMode: "SELF_SIGNED" || "VERIFY_AUTHENTICITY",
@@ -484,8 +476,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             TimestampOffsetMode: "USE_CONFIGURED_OFFSET" || "USE_EVENT_START_DATE",
  *           },
  *           MultiplexGroupSettings: {},
- *           RtmpGroupSettings: {
- *             AdMarkers: [
+ *           RtmpGroupSettings: { // RtmpGroupSettings
+ *             AdMarkers: [ // __listOfRtmpAdMarkers
  *               "ON_CUE_POINT_SCTE35",
  *             ],
  *             AuthenticationScheme: "AKAMAI" || "COMMON",
@@ -495,25 +487,25 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             InputLossAction: "EMIT_OUTPUT" || "PAUSE_OUTPUT",
  *             RestartDelay: Number("int"),
  *           },
- *           UdpGroupSettings: {
+ *           UdpGroupSettings: { // UdpGroupSettings
  *             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
  *             TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
  *             TimedMetadataId3Period: Number("int"),
  *           },
  *         },
- *         Outputs: [ // required
- *           {
- *             AudioDescriptionNames: [
+ *         Outputs: [ // __listOfOutput // required
+ *           { // Output
+ *             AudioDescriptionNames: [ // __listOf__string
  *               "STRING_VALUE",
  *             ],
  *             CaptionDescriptionNames: [
  *               "STRING_VALUE",
  *             ],
  *             OutputName: "STRING_VALUE",
- *             OutputSettings: {
- *               ArchiveOutputSettings: {
- *                 ContainerSettings: {
- *                   M2tsSettings: {
+ *             OutputSettings: { // OutputSettings
+ *               ArchiveOutputSettings: { // ArchiveOutputSettings
+ *                 ContainerSettings: { // ArchiveContainerSettings
+ *                   M2tsSettings: { // M2tsSettings
  *                     AbsentInputAudioBehavior: "DROP" || "ENCODE_SILENCE",
  *                     Arib: "DISABLED" || "ENABLED",
  *                     AribCaptionsPid: "STRING_VALUE",
@@ -525,19 +517,19 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                     Bitrate: Number("int"),
  *                     BufferModel: "MULTIPLEX" || "NONE",
  *                     CcDescriptor: "DISABLED" || "ENABLED",
- *                     DvbNitSettings: {
+ *                     DvbNitSettings: { // DvbNitSettings
  *                       NetworkId: Number("int"), // required
  *                       NetworkName: "STRING_VALUE", // required
  *                       RepInterval: Number("int"),
  *                     },
- *                     DvbSdtSettings: {
+ *                     DvbSdtSettings: { // DvbSdtSettings
  *                       OutputSdt: "SDT_FOLLOW" || "SDT_FOLLOW_IF_PRESENT" || "SDT_MANUAL" || "SDT_NONE",
  *                       RepInterval: Number("int"),
  *                       ServiceName: "STRING_VALUE",
  *                       ServiceProviderName: "STRING_VALUE",
  *                     },
  *                     DvbSubPids: "STRING_VALUE",
- *                     DvbTdtSettings: {
+ *                     DvbTdtSettings: { // DvbTdtSettings
  *                       RepInterval: Number("int"),
  *                     },
  *                     DvbTeletextPid: "STRING_VALUE",
@@ -579,31 +571,27 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                 Extension: "STRING_VALUE",
  *                 NameModifier: "STRING_VALUE",
  *               },
- *               FrameCaptureOutputSettings: {
+ *               FrameCaptureOutputSettings: { // FrameCaptureOutputSettings
  *                 NameModifier: "STRING_VALUE",
  *               },
- *               HlsOutputSettings: {
+ *               HlsOutputSettings: { // HlsOutputSettings
  *                 H265PackagingType: "HEV1" || "HVC1",
- *                 HlsSettings: {
- *                   AudioOnlyHlsSettings: {
+ *                 HlsSettings: { // HlsSettings
+ *                   AudioOnlyHlsSettings: { // AudioOnlyHlsSettings
  *                     AudioGroupId: "STRING_VALUE",
- *                     AudioOnlyImage: {
- *                       PasswordParam: "<InputLocation>",
- *                       Uri: "<InputLocation>",
- *                       Username: "<InputLocation>",
- *                     },
+ *                     AudioOnlyImage: "<InputLocation>",
  *                     AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT" || "AUDIO_ONLY_VARIANT_STREAM",
  *                     SegmentType: "AAC" || "FMP4",
  *                   },
- *                   Fmp4HlsSettings: {
+ *                   Fmp4HlsSettings: { // Fmp4HlsSettings
  *                     AudioRenditionSets: "STRING_VALUE",
  *                     NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
  *                     TimedMetadataBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
  *                   },
  *                   FrameCaptureHlsSettings: {},
- *                   StandardHlsSettings: {
+ *                   StandardHlsSettings: { // StandardHlsSettings
  *                     AudioRenditionSets: "STRING_VALUE",
- *                     M3u8Settings: {
+ *                     M3u8Settings: { // M3u8Settings
  *                       AudioFramesPerPes: Number("int"),
  *                       AudioPids: "STRING_VALUE",
  *                       EcmPid: "STRING_VALUE",
@@ -628,26 +616,22 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                 SegmentModifier: "STRING_VALUE",
  *               },
  *               MediaPackageOutputSettings: {},
- *               MsSmoothOutputSettings: {
+ *               MsSmoothOutputSettings: { // MsSmoothOutputSettings
  *                 H265PackagingType: "HEV1" || "HVC1",
  *                 NameModifier: "STRING_VALUE",
  *               },
- *               MultiplexOutputSettings: {
- *                 Destination: {
- *                   DestinationRefId: "STRING_VALUE",
- *                 },
+ *               MultiplexOutputSettings: { // MultiplexOutputSettings
+ *                 Destination: "<OutputLocationRef>", // required
  *               },
- *               RtmpOutputSettings: {
+ *               RtmpOutputSettings: { // RtmpOutputSettings
  *                 CertificateMode: "SELF_SIGNED" || "VERIFY_AUTHENTICITY",
  *                 ConnectionRetryInterval: Number("int"),
- *                 Destination: {
- *                   DestinationRefId: "STRING_VALUE",
- *                 },
+ *                 Destination: "<OutputLocationRef>", // required
  *                 NumRetries: Number("int"),
  *               },
- *               UdpOutputSettings: {
+ *               UdpOutputSettings: { // UdpOutputSettings
  *                 BufferMsec: Number("int"),
- *                 ContainerSettings: {
+ *                 ContainerSettings: { // UdpContainerSettings
  *                   M2tsSettings: {
  *                     AbsentInputAudioBehavior: "DROP" || "ENCODE_SILENCE",
  *                     Arib: "DISABLED" || "ENABLED",
@@ -710,10 +694,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                     Scte35PrerollPullupMilliseconds: Number("double"),
  *                   },
  *                 },
- *                 Destination: {
- *                   DestinationRefId: "STRING_VALUE",
- *                 },
- *                 FecOutputSettings: {
+ *                 Destination: "<OutputLocationRef>", // required
+ *                 FecOutputSettings: { // FecOutputSettings
  *                   ColumnDepth: Number("int"),
  *                   IncludeFec: "COLUMN" || "COLUMN_AND_ROW",
  *                   RowLength: Number("int"),
@@ -725,37 +707,37 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         ],
  *       },
  *     ],
- *     TimecodeConfig: {
+ *     TimecodeConfig: { // TimecodeConfig
  *       Source: "EMBEDDED" || "SYSTEMCLOCK" || "ZEROBASED", // required
  *       SyncThreshold: Number("int"),
  *     },
- *     VideoDescriptions: [ // required
- *       {
- *         CodecSettings: {
- *           FrameCaptureSettings: {
+ *     VideoDescriptions: [ // __listOfVideoDescription // required
+ *       { // VideoDescription
+ *         CodecSettings: { // VideoCodecSettings
+ *           FrameCaptureSettings: { // FrameCaptureSettings
  *             CaptureInterval: Number("int"),
  *             CaptureIntervalUnits: "MILLISECONDS" || "SECONDS",
- *             TimecodeBurninSettings: {
+ *             TimecodeBurninSettings: { // TimecodeBurninSettings
  *               FontSize: "EXTRA_SMALL_10" || "LARGE_48" || "MEDIUM_32" || "SMALL_16", // required
  *               Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  *               Prefix: "STRING_VALUE",
  *             },
  *           },
- *           H264Settings: {
+ *           H264Settings: { // H264Settings
  *             AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
  *             AfdSignaling: "AUTO" || "FIXED" || "NONE",
  *             Bitrate: Number("int"),
  *             BufFillPct: Number("int"),
  *             BufSize: Number("int"),
  *             ColorMetadata: "IGNORE" || "INSERT",
- *             ColorSpaceSettings: {
+ *             ColorSpaceSettings: { // H264ColorSpaceSettings
  *               ColorSpacePassthroughSettings: {},
  *               Rec601Settings: {},
  *               Rec709Settings: {},
  *             },
  *             EntropyEncoding: "CABAC" || "CAVLC",
- *             FilterSettings: {
- *               TemporalFilterSettings: {
+ *             FilterSettings: { // H264FilterSettings
+ *               TemporalFilterSettings: { // TemporalFilterSettings
  *                 PostFilterSharpening: "AUTO" || "DISABLED" || "ENABLED",
  *                 Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4" || "STRENGTH_5" || "STRENGTH_6" || "STRENGTH_7" || "STRENGTH_8" || "STRENGTH_9" || "STRENGTH_10" || "STRENGTH_11" || "STRENGTH_12" || "STRENGTH_13" || "STRENGTH_14" || "STRENGTH_15" || "STRENGTH_16",
  *               },
@@ -798,24 +780,24 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *               Prefix: "STRING_VALUE",
  *             },
  *           },
- *           H265Settings: {
+ *           H265Settings: { // H265Settings
  *             AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
  *             AfdSignaling: "AUTO" || "FIXED" || "NONE",
  *             AlternativeTransferFunction: "INSERT" || "OMIT",
  *             Bitrate: Number("int"),
  *             BufSize: Number("int"),
  *             ColorMetadata: "IGNORE" || "INSERT",
- *             ColorSpaceSettings: {
+ *             ColorSpaceSettings: { // H265ColorSpaceSettings
  *               ColorSpacePassthroughSettings: {},
  *               DolbyVision81Settings: {},
- *               Hdr10Settings: {
+ *               Hdr10Settings: { // Hdr10Settings
  *                 MaxCll: Number("int"),
  *                 MaxFall: Number("int"),
  *               },
  *               Rec601Settings: {},
  *               Rec709Settings: {},
  *             },
- *             FilterSettings: {
+ *             FilterSettings: { // H265FilterSettings
  *               TemporalFilterSettings: {
  *                 PostFilterSharpening: "AUTO" || "DISABLED" || "ENABLED",
  *                 Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4" || "STRENGTH_5" || "STRENGTH_6" || "STRENGTH_7" || "STRENGTH_8" || "STRENGTH_9" || "STRENGTH_10" || "STRENGTH_11" || "STRENGTH_12" || "STRENGTH_13" || "STRENGTH_14" || "STRENGTH_15" || "STRENGTH_16",
@@ -848,13 +830,13 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *               Prefix: "STRING_VALUE",
  *             },
  *           },
- *           Mpeg2Settings: {
+ *           Mpeg2Settings: { // Mpeg2Settings
  *             AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",
  *             AfdSignaling: "AUTO" || "FIXED" || "NONE",
  *             ColorMetadata: "IGNORE" || "INSERT",
  *             ColorSpace: "AUTO" || "PASSTHROUGH",
  *             DisplayAspectRatio: "DISPLAYRATIO16X9" || "DISPLAYRATIO4X3",
- *             FilterSettings: {
+ *             FilterSettings: { // Mpeg2FilterSettings
  *               TemporalFilterSettings: {
  *                 PostFilterSharpening: "AUTO" || "DISABLED" || "ENABLED",
  *                 Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4" || "STRENGTH_5" || "STRENGTH_6" || "STRENGTH_7" || "STRENGTH_8" || "STRENGTH_9" || "STRENGTH_10" || "STRENGTH_11" || "STRENGTH_12" || "STRENGTH_13" || "STRENGTH_14" || "STRENGTH_15" || "STRENGTH_16",
@@ -886,21 +868,21 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *       },
  *     ],
  *   },
- *   InputAttachments: [
- *     {
- *       AutomaticInputFailoverSettings: {
+ *   InputAttachments: [ // __listOfInputAttachment
+ *     { // InputAttachment
+ *       AutomaticInputFailoverSettings: { // AutomaticInputFailoverSettings
  *         ErrorClearTimeMsec: Number("int"),
- *         FailoverConditions: [
- *           {
- *             FailoverConditionSettings: {
- *               AudioSilenceSettings: {
+ *         FailoverConditions: [ // __listOfFailoverCondition
+ *           { // FailoverCondition
+ *             FailoverConditionSettings: { // FailoverConditionSettings
+ *               AudioSilenceSettings: { // AudioSilenceFailoverSettings
  *                 AudioSelectorName: "STRING_VALUE", // required
  *                 AudioSilenceThresholdMsec: Number("int"),
  *               },
- *               InputLossSettings: {
+ *               InputLossSettings: { // InputLossFailoverSettings
  *                 InputLossThresholdMsec: Number("int"),
  *               },
- *               VideoBlackSettings: {
+ *               VideoBlackSettings: { // VideoBlackFailoverSettings
  *                 BlackDetectThreshold: Number("double"),
  *                 VideoBlackThresholdMsec: Number("int"),
  *               },
@@ -912,64 +894,64 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *       },
  *       InputAttachmentName: "STRING_VALUE",
  *       InputId: "STRING_VALUE",
- *       InputSettings: {
- *         AudioSelectors: [
- *           {
+ *       InputSettings: { // InputSettings
+ *         AudioSelectors: [ // __listOfAudioSelector
+ *           { // AudioSelector
  *             Name: "STRING_VALUE", // required
- *             SelectorSettings: {
- *               AudioHlsRenditionSelection: {
+ *             SelectorSettings: { // AudioSelectorSettings
+ *               AudioHlsRenditionSelection: { // AudioHlsRenditionSelection
  *                 GroupId: "STRING_VALUE", // required
  *                 Name: "STRING_VALUE", // required
  *               },
- *               AudioLanguageSelection: {
+ *               AudioLanguageSelection: { // AudioLanguageSelection
  *                 LanguageCode: "STRING_VALUE", // required
  *                 LanguageSelectionPolicy: "LOOSE" || "STRICT",
  *               },
- *               AudioPidSelection: {
+ *               AudioPidSelection: { // AudioPidSelection
  *                 Pid: Number("int"), // required
  *               },
- *               AudioTrackSelection: {
- *                 Tracks: [ // required
- *                   {
+ *               AudioTrackSelection: { // AudioTrackSelection
+ *                 Tracks: [ // __listOfAudioTrack // required
+ *                   { // AudioTrack
  *                     Track: Number("int"), // required
  *                   },
  *                 ],
- *                 DolbyEDecode: {
+ *                 DolbyEDecode: { // AudioDolbyEDecode
  *                   ProgramSelection: "ALL_CHANNELS" || "PROGRAM_1" || "PROGRAM_2" || "PROGRAM_3" || "PROGRAM_4" || "PROGRAM_5" || "PROGRAM_6" || "PROGRAM_7" || "PROGRAM_8", // required
  *                 },
  *               },
  *             },
  *           },
  *         ],
- *         CaptionSelectors: [
- *           {
+ *         CaptionSelectors: [ // __listOfCaptionSelector
+ *           { // CaptionSelector
  *             LanguageCode: "STRING_VALUE",
  *             Name: "STRING_VALUE", // required
- *             SelectorSettings: {
- *               AncillarySourceSettings: {
+ *             SelectorSettings: { // CaptionSelectorSettings
+ *               AncillarySourceSettings: { // AncillarySourceSettings
  *                 SourceAncillaryChannelNumber: Number("int"),
  *               },
  *               AribSourceSettings: {},
- *               DvbSubSourceSettings: {
+ *               DvbSubSourceSettings: { // DvbSubSourceSettings
  *                 OcrLanguage: "DEU" || "ENG" || "FRA" || "NLD" || "POR" || "SPA",
  *                 Pid: Number("int"),
  *               },
- *               EmbeddedSourceSettings: {
+ *               EmbeddedSourceSettings: { // EmbeddedSourceSettings
  *                 Convert608To708: "DISABLED" || "UPCONVERT",
  *                 Scte20Detection: "AUTO" || "OFF",
  *                 Source608ChannelNumber: Number("int"),
  *                 Source608TrackNumber: Number("int"),
  *               },
- *               Scte20SourceSettings: {
+ *               Scte20SourceSettings: { // Scte20SourceSettings
  *                 Convert608To708: "DISABLED" || "UPCONVERT",
  *                 Source608ChannelNumber: Number("int"),
  *               },
- *               Scte27SourceSettings: {
+ *               Scte27SourceSettings: { // Scte27SourceSettings
  *                 OcrLanguage: "DEU" || "ENG" || "FRA" || "NLD" || "POR" || "SPA",
  *                 Pid: Number("int"),
  *               },
- *               TeletextSourceSettings: {
- *                 OutputRectangle: {
+ *               TeletextSourceSettings: { // TeletextSourceSettings
+ *                 OutputRectangle: { // CaptionRectangle
  *                   Height: Number("double"), // required
  *                   LeftOffset: Number("double"), // required
  *                   TopOffset: Number("double"), // required
@@ -984,8 +966,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         DenoiseFilter: "DISABLED" || "ENABLED",
  *         FilterStrength: Number("int"),
  *         InputFilter: "AUTO" || "DISABLED" || "FORCED",
- *         NetworkInputSettings: {
- *           HlsInputSettings: {
+ *         NetworkInputSettings: { // NetworkInputSettings
+ *           HlsInputSettings: { // HlsInputSettings
  *             Bandwidth: Number("int"),
  *             BufferSegments: Number("int"),
  *             Retries: Number("int"),
@@ -997,20 +979,20 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         Scte35Pid: Number("int"),
  *         Smpte2038DataPreference: "IGNORE" || "PREFER",
  *         SourceEndBehavior: "CONTINUE" || "LOOP",
- *         VideoSelector: {
+ *         VideoSelector: { // VideoSelector
  *           ColorSpace: "FOLLOW" || "HDR10" || "HLG_2020" || "REC_601" || "REC_709",
- *           ColorSpaceSettings: {
+ *           ColorSpaceSettings: { // VideoSelectorColorSpaceSettings
  *             Hdr10Settings: {
  *               MaxCll: Number("int"),
  *               MaxFall: Number("int"),
  *             },
  *           },
  *           ColorSpaceUsage: "FALLBACK" || "FORCE",
- *           SelectorSettings: {
- *             VideoSelectorPid: {
+ *           SelectorSettings: { // VideoSelectorSettings
+ *             VideoSelectorPid: { // VideoSelectorPid
  *               Pid: Number("int"),
  *             },
- *             VideoSelectorProgramId: {
+ *             VideoSelectorProgramId: { // VideoSelectorProgramId
  *               ProgramId: Number("int"),
  *             },
  *           },
@@ -1018,13 +1000,13 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *       },
  *     },
  *   ],
- *   InputSpecification: {
+ *   InputSpecification: { // InputSpecification
  *     Codec: "MPEG2" || "AVC" || "HEVC",
  *     MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
  *     Resolution: "SD" || "HD" || "UHD",
  *   },
  *   LogLevel: "ERROR" || "WARNING" || "INFO" || "DEBUG" || "DISABLED",
- *   Maintenance: {
+ *   Maintenance: { // MaintenanceCreateSettings
  *     MaintenanceDay: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY",
  *     MaintenanceStartTime: "STRING_VALUE",
  *   },
@@ -1032,10 +1014,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   RequestId: "STRING_VALUE",
  *   Reserved: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Vpc: {
+ *   Vpc: { // VpcOutputSettings
  *     PublicAddressAllocationIds: [
  *       "STRING_VALUE",
  *     ],

@@ -44,9 +44,9 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * import { GuardDutyClient, DisassociateMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DisassociateMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // DisassociateMembersRequest
  *   DetectorId: "STRING_VALUE", // required
- *   AccountIds: [ // required
+ *   AccountIds: [ // AccountIds // required
  *     "STRING_VALUE",
  *   ],
  * };

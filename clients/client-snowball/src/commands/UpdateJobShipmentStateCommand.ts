@@ -42,7 +42,7 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  * import { SnowballClient, UpdateJobShipmentStateCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateJobShipmentStateCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
+ * const input = { // UpdateJobShipmentStateRequest
  *   JobId: "STRING_VALUE", // required
  *   ShipmentState: "RECEIVED" || "RETURNED", // required
  * };

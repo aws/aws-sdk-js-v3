@@ -42,7 +42,7 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  * import { IoTWirelessClient, TestWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, TestWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // TestWirelessDeviceRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new TestWirelessDeviceCommand(input);

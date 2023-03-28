@@ -42,10 +42,10 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * import { SageMakerClient, UpdateFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateFeatureGroupRequest
  *   FeatureGroupName: "STRING_VALUE", // required
- *   FeatureAdditions: [
- *     {
+ *   FeatureAdditions: [ // FeatureAdditions
+ *     { // FeatureDefinition
  *       FeatureName: "STRING_VALUE",
  *       FeatureType: "Integral" || "Fractional" || "String",
  *     },

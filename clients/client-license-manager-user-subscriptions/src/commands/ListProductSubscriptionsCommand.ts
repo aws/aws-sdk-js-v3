@@ -46,16 +46,16 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * import { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const input = {
+ * const input = { // ListProductSubscriptionsRequest
  *   Product: "STRING_VALUE", // required
- *   IdentityProvider: { // Union: only one key present
- *     ActiveDirectoryIdentityProvider: {
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
  *     },
  *   },
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Attribute: "STRING_VALUE",
  *       Operation: "STRING_VALUE",
  *       Value: "STRING_VALUE",

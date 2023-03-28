@@ -42,7 +42,7 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
  * import { WellArchitectedClient, ListAnswersCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListAnswersCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // ListAnswersInput
  *   WorkloadId: "STRING_VALUE", // required
  *   LensAlias: "STRING_VALUE", // required
  *   PillarId: "STRING_VALUE",

@@ -88,10 +88,10 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * import { EFSClient, PutLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // PutLifecycleConfigurationRequest
  *   FileSystemId: "STRING_VALUE", // required
- *   LifecyclePolicies: [ // required
- *     {
+ *   LifecyclePolicies: [ // LifecyclePolicies // required
+ *     { // LifecyclePolicy
  *       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY",
  *       TransitionToPrimaryStorageClass: "AFTER_1_ACCESS",
  *     },

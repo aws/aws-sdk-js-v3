@@ -53,7 +53,7 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  * import { IoTClient, DeleteCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DeleteCustomMetricRequest
  *   metricName: "STRING_VALUE", // required
  * };
  * const command = new DeleteCustomMetricCommand(input);

@@ -69,7 +69,7 @@ export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __Met
  * import { SWFClient, ListActivityTypesCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListActivityTypesCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // ListActivityTypesInput
  *   domain: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   registrationStatus: "REGISTERED" || "DEPRECATED", // required

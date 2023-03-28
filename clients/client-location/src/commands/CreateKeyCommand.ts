@@ -49,23 +49,23 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * import { LocationClient, CreateKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // CreateKeyRequest
  *   KeyName: "STRING_VALUE", // required
- *   Restrictions: {
- *     AllowActions: [ // required
+ *   Restrictions: { // ApiKeyRestrictions
+ *     AllowActions: [ // ApiKeyActionList // required
  *       "STRING_VALUE",
  *     ],
- *     AllowResources: [ // required
+ *     AllowResources: [ // GeoArnList // required
  *       "STRING_VALUE",
  *     ],
- *     AllowReferers: [
+ *     AllowReferers: [ // RefererPatternList
  *       "STRING_VALUE",
  *     ],
  *   },
  *   Description: "STRING_VALUE",
  *   ExpireTime: new Date("TIMESTAMP"),
  *   NoExpiry: true || false,
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

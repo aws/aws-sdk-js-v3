@@ -42,63 +42,63 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  * import { LookoutMetricsClient, CreateMetricSetCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateMetricSetCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
+ * const input = { // CreateMetricSetRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required
  *   MetricSetName: "STRING_VALUE", // required
  *   MetricSetDescription: "STRING_VALUE",
- *   MetricList: [ // required
- *     {
+ *   MetricList: [ // MetricList // required
+ *     { // Metric
  *       MetricName: "STRING_VALUE", // required
  *       AggregationFunction: "STRING_VALUE", // required
  *       Namespace: "STRING_VALUE",
  *     },
  *   ],
  *   Offset: Number("int"),
- *   TimestampColumn: {
+ *   TimestampColumn: { // TimestampColumn
  *     ColumnName: "STRING_VALUE",
  *     ColumnFormat: "STRING_VALUE",
  *   },
- *   DimensionList: [
+ *   DimensionList: [ // DimensionList
  *     "STRING_VALUE",
  *   ],
  *   MetricSetFrequency: "STRING_VALUE",
- *   MetricSource: {
- *     S3SourceConfig: {
+ *   MetricSource: { // MetricSource
+ *     S3SourceConfig: { // S3SourceConfig
  *       RoleArn: "STRING_VALUE",
- *       TemplatedPathList: [
+ *       TemplatedPathList: [ // TemplatedPathList
  *         "STRING_VALUE",
  *       ],
- *       HistoricalDataPathList: [
+ *       HistoricalDataPathList: [ // HistoricalDataPathList
  *         "STRING_VALUE",
  *       ],
- *       FileFormatDescriptor: {
- *         CsvFormatDescriptor: {
+ *       FileFormatDescriptor: { // FileFormatDescriptor
+ *         CsvFormatDescriptor: { // CsvFormatDescriptor
  *           FileCompression: "STRING_VALUE",
  *           Charset: "STRING_VALUE",
  *           ContainsHeader: true || false,
  *           Delimiter: "STRING_VALUE",
- *           HeaderList: [
+ *           HeaderList: [ // HeaderList
  *             "STRING_VALUE",
  *           ],
  *           QuoteSymbol: "STRING_VALUE",
  *         },
- *         JsonFormatDescriptor: {
+ *         JsonFormatDescriptor: { // JsonFormatDescriptor
  *           FileCompression: "STRING_VALUE",
  *           Charset: "STRING_VALUE",
  *         },
  *       },
  *     },
- *     AppFlowConfig: {
+ *     AppFlowConfig: { // AppFlowConfig
  *       RoleArn: "STRING_VALUE",
  *       FlowName: "STRING_VALUE",
  *     },
- *     CloudWatchConfig: {
+ *     CloudWatchConfig: { // CloudWatchConfig
  *       RoleArn: "STRING_VALUE",
- *       BackTestConfiguration: {
+ *       BackTestConfiguration: { // BackTestConfiguration
  *         RunBackTestMode: true || false, // required
  *       },
  *     },
- *     RDSSourceConfig: {
+ *     RDSSourceConfig: { // RDSSourceConfig
  *       DBInstanceIdentifier: "STRING_VALUE",
  *       DatabaseHost: "STRING_VALUE",
  *       DatabasePort: Number("int"),
@@ -106,16 +106,16 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *       DatabaseName: "STRING_VALUE",
  *       TableName: "STRING_VALUE",
  *       RoleArn: "STRING_VALUE",
- *       VpcConfiguration: {
- *         SubnetIdList: [ // required
+ *       VpcConfiguration: { // VpcConfiguration
+ *         SubnetIdList: [ // SubnetIdList // required
  *           "STRING_VALUE",
  *         ],
- *         SecurityGroupIdList: [ // required
+ *         SecurityGroupIdList: [ // SecurityGroupIdList // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     RedshiftSourceConfig: {
+ *     RedshiftSourceConfig: { // RedshiftSourceConfig
  *       ClusterIdentifier: "STRING_VALUE",
  *       DatabaseHost: "STRING_VALUE",
  *       DatabasePort: Number("int"),
@@ -132,7 +132,7 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *         ],
  *       },
  *     },
- *     AthenaSourceConfig: {
+ *     AthenaSourceConfig: { // AthenaSourceConfig
  *       RoleArn: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
  *       DataCatalog: "STRING_VALUE",
@@ -145,14 +145,14 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *     },
  *   },
  *   Timezone: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   DimensionFilterList: [
- *     {
+ *   DimensionFilterList: [ // MetricSetDimensionFilterList
+ *     { // MetricSetDimensionFilter
  *       Name: "STRING_VALUE",
- *       FilterList: [
- *         {
+ *       FilterList: [ // FilterList
+ *         { // Filter
  *           DimensionValue: "STRING_VALUE",
  *           FilterOperation: "STRING_VALUE",
  *         },

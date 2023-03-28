@@ -42,7 +42,7 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * import { OmicsClient, ListRunTasksCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListRunTasksCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // ListRunTasksRequest
  *   id: "STRING_VALUE", // required
  *   status: "STRING_VALUE",
  *   startingToken: "STRING_VALUE",

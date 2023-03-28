@@ -42,7 +42,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * import { NetworkManagerClient, DeleteConnectionCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteConnectionCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // DeleteConnectionRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   ConnectionId: "STRING_VALUE", // required
  * };

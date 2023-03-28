@@ -90,7 +90,7 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * import { EFSClient, CreateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // CreateFileSystemRequest
  *   CreationToken: "STRING_VALUE", // required
  *   PerformanceMode: "generalPurpose" || "maxIO",
  *   Encrypted: true || false,
@@ -99,8 +99,8 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *   ProvisionedThroughputInMibps: Number("double"),
  *   AvailabilityZoneName: "STRING_VALUE",
  *   Backup: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

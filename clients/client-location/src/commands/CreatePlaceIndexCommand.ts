@@ -52,15 +52,15 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * import { LocationClient, CreatePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreatePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // CreatePlaceIndexRequest
  *   IndexName: "STRING_VALUE", // required
  *   DataSource: "STRING_VALUE", // required
  *   PricingPlan: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   DataSourceConfiguration: {
+ *   DataSourceConfiguration: { // DataSourceConfiguration
  *     IntendedUse: "STRING_VALUE",
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

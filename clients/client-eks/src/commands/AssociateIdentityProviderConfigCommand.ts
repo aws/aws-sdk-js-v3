@@ -51,9 +51,9 @@ export interface AssociateIdentityProviderConfigCommandOutput
  * import { EKSClient, AssociateIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, AssociateIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = {
+ * const input = { // AssociateIdentityProviderConfigRequest
  *   clusterName: "STRING_VALUE", // required
- *   oidc: {
+ *   oidc: { // OidcIdentityProviderConfigRequest
  *     identityProviderConfigName: "STRING_VALUE", // required
  *     issuerUrl: "STRING_VALUE", // required
  *     clientId: "STRING_VALUE", // required
@@ -61,11 +61,11 @@ export interface AssociateIdentityProviderConfigCommandOutput
  *     usernamePrefix: "STRING_VALUE",
  *     groupsClaim: "STRING_VALUE",
  *     groupsPrefix: "STRING_VALUE",
- *     requiredClaims: {
+ *     requiredClaims: { // requiredClaimsMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientRequestToken: "STRING_VALUE",

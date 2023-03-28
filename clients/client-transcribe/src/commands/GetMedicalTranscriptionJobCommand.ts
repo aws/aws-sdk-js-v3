@@ -49,7 +49,7 @@ export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTrans
  * import { TranscribeClient, GetMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetMedicalTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // GetMedicalTranscriptionJobRequest
  *   MedicalTranscriptionJobName: "STRING_VALUE", // required
  * };
  * const command = new GetMedicalTranscriptionJobCommand(input);

@@ -42,11 +42,11 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * import { ChimeSDKVoiceClient, UpdateVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, UpdateVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // UpdateVoiceConnectorGroupRequest
  *   VoiceConnectorGroupId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   VoiceConnectorItems: [ // required
- *     {
+ *   VoiceConnectorItems: [ // VoiceConnectorItemList // required
+ *     { // VoiceConnectorItem
  *       VoiceConnectorId: "STRING_VALUE", // required
  *       Priority: Number("int"), // required
  *     },

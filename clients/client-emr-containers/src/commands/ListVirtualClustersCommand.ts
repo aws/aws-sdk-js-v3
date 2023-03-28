@@ -47,12 +47,12 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * import { EMRContainersClient, ListVirtualClustersCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListVirtualClustersCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
- * const input = {
+ * const input = { // ListVirtualClustersRequest
  *   containerProviderId: "STRING_VALUE",
  *   containerProviderType: "EKS",
  *   createdAfter: new Date("TIMESTAMP"),
  *   createdBefore: new Date("TIMESTAMP"),
- *   states: [
+ *   states: [ // VirtualClusterStates
  *     "RUNNING" || "TERMINATING" || "TERMINATED" || "ARRESTED",
  *   ],
  *   maxResults: Number("int"),

@@ -45,22 +45,22 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * import { IoTClient, TestInvokeAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TestInvokeAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // TestInvokeAuthorizerRequest
  *   authorizerName: "STRING_VALUE", // required
  *   token: "STRING_VALUE",
  *   tokenSignature: "STRING_VALUE",
- *   httpContext: {
- *     headers: {
+ *   httpContext: { // HttpContext
+ *     headers: { // HttpHeaders
  *       "<keys>": "STRING_VALUE",
  *     },
  *     queryString: "STRING_VALUE",
  *   },
- *   mqttContext: {
+ *   mqttContext: { // MqttContext
  *     username: "STRING_VALUE",
  *     password: "BLOB_VALUE",
  *     clientId: "STRING_VALUE",
  *   },
- *   tlsContext: {
+ *   tlsContext: { // TlsContext
  *     serverName: "STRING_VALUE",
  *   },
  * };

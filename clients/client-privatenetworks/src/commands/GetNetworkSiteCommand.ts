@@ -46,7 +46,7 @@ export interface GetNetworkSiteCommandOutput extends GetNetworkSiteResponse, __M
  * import { PrivateNetworksClient, GetNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // GetNetworkSiteRequest
  *   networkSiteArn: "STRING_VALUE", // required
  * };
  * const command = new GetNetworkSiteCommand(input);

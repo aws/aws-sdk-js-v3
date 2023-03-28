@@ -55,11 +55,11 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * import { ResiliencehubClient, CreateAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, CreateAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // CreateAppRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   policyArn: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

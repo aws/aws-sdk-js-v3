@@ -46,7 +46,7 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  * import { MgnClient, UpdateSourceServerReplicationTypeCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateSourceServerReplicationTypeCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // UpdateSourceServerReplicationTypeRequest
  *   sourceServerID: "STRING_VALUE", // required
  *   replicationType: "STRING_VALUE", // required
  * };

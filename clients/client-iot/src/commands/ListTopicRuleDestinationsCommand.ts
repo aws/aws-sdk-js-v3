@@ -43,7 +43,7 @@ export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDes
  * import { IoTClient, ListTopicRuleDestinationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTopicRuleDestinationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListTopicRuleDestinationsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

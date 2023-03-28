@@ -43,16 +43,16 @@ export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataRespons
  * import { RUMClient, GetAppMonitorDataCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, GetAppMonitorDataCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // GetAppMonitorDataRequest
  *   Name: "STRING_VALUE", // required
- *   TimeRange: {
+ *   TimeRange: { // TimeRange
  *     After: Number("long"), // required
  *     Before: Number("long"),
  *   },
- *   Filters: [
- *     {
+ *   Filters: [ // QueryFilters
+ *     { // QueryFilter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // QueryFilterValueList
  *         "STRING_VALUE",
  *       ],
  *     },

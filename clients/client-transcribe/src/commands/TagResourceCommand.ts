@@ -45,10 +45,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { TranscribeClient, TagResourceCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, TagResourceCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

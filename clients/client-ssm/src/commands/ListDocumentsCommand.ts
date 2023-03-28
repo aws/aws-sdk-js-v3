@@ -43,17 +43,17 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  * import { SSMClient, ListDocumentsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListDocumentsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   DocumentFilterList: [
- *     {
+ * const input = { // ListDocumentsRequest
+ *   DocumentFilterList: [ // DocumentFilterList
+ *     { // DocumentFilter
  *       key: "Name" || "Owner" || "PlatformTypes" || "DocumentType", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // DocumentKeyValuesFilterList
+ *     { // DocumentKeyValuesFilter
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // DocumentKeyValuesFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

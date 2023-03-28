@@ -46,7 +46,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * import { DAXClient, DeleteClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DeleteClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
+ * const input = { // DeleteClusterRequest
  *   ClusterName: "STRING_VALUE", // required
  * };
  * const command = new DeleteClusterCommand(input);

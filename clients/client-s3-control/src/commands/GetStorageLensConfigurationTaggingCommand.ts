@@ -57,7 +57,7 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
  * import { S3ControlClient, GetStorageLensConfigurationTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetStorageLensConfigurationTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // GetStorageLensConfigurationTaggingRequest
  *   ConfigId: "STRING_VALUE", // required
  *   AccountId: "STRING_VALUE",
  * };

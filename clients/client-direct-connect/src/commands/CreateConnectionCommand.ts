@@ -49,13 +49,13 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * import { DirectConnectClient, CreateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // CreateConnectionRequest
  *   location: "STRING_VALUE", // required
  *   bandwidth: "STRING_VALUE", // required
  *   connectionName: "STRING_VALUE", // required
  *   lagId: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },

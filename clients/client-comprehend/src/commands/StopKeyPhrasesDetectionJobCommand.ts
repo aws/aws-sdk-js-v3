@@ -51,7 +51,7 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  * import { ComprehendClient, StopKeyPhrasesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopKeyPhrasesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // StopKeyPhrasesDetectionJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new StopKeyPhrasesDetectionJobCommand(input);

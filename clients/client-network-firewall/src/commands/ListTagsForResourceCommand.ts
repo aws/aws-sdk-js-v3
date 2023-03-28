@@ -48,7 +48,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { NetworkFirewallClient, ListTagsForResourceCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListTagsForResourceCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   ResourceArn: "STRING_VALUE", // required

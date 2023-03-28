@@ -55,7 +55,7 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * import { IAMClient, ListVirtualMFADevicesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListVirtualMFADevicesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // ListVirtualMFADevicesRequest
  *   AssignmentStatus: "Assigned" || "Unassigned" || "Any",
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),

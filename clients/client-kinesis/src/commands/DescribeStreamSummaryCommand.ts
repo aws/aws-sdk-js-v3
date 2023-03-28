@@ -53,7 +53,7 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * import { KinesisClient, DescribeStreamSummaryCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeStreamSummaryCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
+ * const input = { // DescribeStreamSummaryInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  * };

@@ -42,16 +42,16 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  * import { GlueClient, CreateUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateUserDefinedFunctionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
- *   FunctionInput: {
+ *   FunctionInput: { // UserDefinedFunctionInput
  *     FunctionName: "STRING_VALUE",
  *     ClassName: "STRING_VALUE",
  *     OwnerName: "STRING_VALUE",
  *     OwnerType: "USER" || "ROLE" || "GROUP",
- *     ResourceUris: [
- *       {
+ *     ResourceUris: [ // ResourceUriList
+ *       { // ResourceUri
  *         ResourceType: "JAR" || "FILE" || "ARCHIVE",
  *         Uri: "STRING_VALUE",
  *       },

@@ -42,7 +42,7 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  * import { MediaTailorClient, DescribeProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // DescribeProgramRequest
  *   ChannelName: "STRING_VALUE", // required
  *   ProgramName: "STRING_VALUE", // required
  * };

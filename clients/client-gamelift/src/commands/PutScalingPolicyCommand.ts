@@ -99,7 +99,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * import { GameLiftClient, PutScalingPolicyCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, PutScalingPolicyCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // PutScalingPolicyInput
  *   Name: "STRING_VALUE", // required
  *   FleetId: "STRING_VALUE", // required
  *   ScalingAdjustment: Number("int"),
@@ -109,7 +109,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  *   EvaluationPeriods: Number("int"),
  *   MetricName: "ActivatingGameSessions" || "ActiveGameSessions" || "ActiveInstances" || "AvailableGameSessions" || "AvailablePlayerSessions" || "CurrentPlayerSessions" || "IdleInstances" || "PercentAvailableGameSessions" || "PercentIdleInstances" || "QueueDepth" || "WaitTime" || "ConcurrentActivatableGameSessions", // required
  *   PolicyType: "RuleBased" || "TargetBased",
- *   TargetConfiguration: {
+ *   TargetConfiguration: { // TargetConfiguration
  *     TargetValue: Number("double"), // required
  *   },
  * };

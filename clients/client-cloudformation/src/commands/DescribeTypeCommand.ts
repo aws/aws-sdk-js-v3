@@ -42,7 +42,7 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * import { CloudFormationClient, DescribeTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DescribeTypeInput
  *   Type: "RESOURCE" || "MODULE" || "HOOK",
  *   TypeName: "STRING_VALUE",
  *   Arn: "STRING_VALUE",

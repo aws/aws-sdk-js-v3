@@ -43,13 +43,13 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  * import { InspectorClient, ListAssessmentRunAgentsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListAssessmentRunAgentsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
+ * const input = { // ListAssessmentRunAgentsRequest
  *   assessmentRunArn: "STRING_VALUE", // required
- *   filter: {
- *     agentHealths: [ // required
+ *   filter: { // AgentFilter
+ *     agentHealths: [ // AgentHealthList // required
  *       "STRING_VALUE",
  *     ],
- *     agentHealthCodes: [ // required
+ *     agentHealthCodes: [ // AgentHealthCodeList // required
  *       "STRING_VALUE",
  *     ],
  *   },

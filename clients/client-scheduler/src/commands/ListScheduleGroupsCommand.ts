@@ -42,7 +42,7 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  * import { SchedulerClient, ListScheduleGroupsCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, ListScheduleGroupsCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
- * const input = {
+ * const input = { // ListScheduleGroupsInput
  *   NamePrefix: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

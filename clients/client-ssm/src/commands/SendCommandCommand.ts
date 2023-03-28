@@ -47,14 +47,14 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * import { SSMClient, SendCommandCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, SendCommandCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   InstanceIds: [
+ * const input = { // SendCommandRequest
+ *   InstanceIds: [ // InstanceIdList
  *     "STRING_VALUE",
  *   ],
- *   Targets: [
- *     {
+ *   Targets: [ // Targets
+ *     { // Target
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // TargetValues
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -65,8 +65,8 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *   DocumentHashType: "Sha256" || "Sha1",
  *   TimeoutSeconds: Number("int"),
  *   Comment: "STRING_VALUE",
- *   Parameters: {
- *     "<keys>": [
+ *   Parameters: { // Parameters
+ *     "<keys>": [ // ParameterValueList
  *       "STRING_VALUE",
  *     ],
  *   },
@@ -76,21 +76,21 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *   MaxConcurrency: "STRING_VALUE",
  *   MaxErrors: "STRING_VALUE",
  *   ServiceRoleArn: "STRING_VALUE",
- *   NotificationConfig: {
+ *   NotificationConfig: { // NotificationConfig
  *     NotificationArn: "STRING_VALUE",
- *     NotificationEvents: [
+ *     NotificationEvents: [ // NotificationEventList
  *       "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
  *     ],
  *     NotificationType: "Command" || "Invocation",
  *   },
- *   CloudWatchOutputConfig: {
+ *   CloudWatchOutputConfig: { // CloudWatchOutputConfig
  *     CloudWatchLogGroupName: "STRING_VALUE",
  *     CloudWatchOutputEnabled: true || false,
  *   },
- *   AlarmConfiguration: {
+ *   AlarmConfiguration: { // AlarmConfiguration
  *     IgnorePollAlarmFailure: true || false,
- *     Alarms: [ // required
- *       {
+ *     Alarms: [ // AlarmList // required
+ *       { // Alarm
  *         Name: "STRING_VALUE", // required
  *       },
  *     ],

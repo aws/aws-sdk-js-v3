@@ -49,17 +49,17 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * import { EMRContainersClient, CreateJobTemplateCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateJobTemplateCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
- * const input = {
+ * const input = { // CreateJobTemplateRequest
  *   name: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE", // required
- *   jobTemplateData: {
+ *   jobTemplateData: { // JobTemplateData
  *     executionRoleArn: "STRING_VALUE", // required
  *     releaseLabel: "STRING_VALUE", // required
- *     configurationOverrides: {
- *       applicationConfiguration: [
- *         {
+ *     configurationOverrides: { // ParametricConfigurationOverrides
+ *       applicationConfiguration: [ // ConfigurationList
+ *         { // Configuration
  *           classification: "STRING_VALUE", // required
- *           properties: {
+ *           properties: { // SensitivePropertiesMap
  *             "<keys>": "STRING_VALUE",
  *           },
  *           configurations: [
@@ -68,44 +68,42 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               properties: {
  *                 "<keys>": "STRING_VALUE",
  *               },
- *               configurations: [
- *                 "<ConfigurationList>",
- *               ],
+ *               configurations: "<ConfigurationList>",
  *             },
  *           ],
  *         },
  *       ],
- *       monitoringConfiguration: {
+ *       monitoringConfiguration: { // ParametricMonitoringConfiguration
  *         persistentAppUI: "STRING_VALUE",
- *         cloudWatchMonitoringConfiguration: {
+ *         cloudWatchMonitoringConfiguration: { // ParametricCloudWatchMonitoringConfiguration
  *           logGroupName: "STRING_VALUE",
  *           logStreamNamePrefix: "STRING_VALUE",
  *         },
- *         s3MonitoringConfiguration: {
+ *         s3MonitoringConfiguration: { // ParametricS3MonitoringConfiguration
  *           logUri: "STRING_VALUE",
  *         },
  *       },
  *     },
- *     jobDriver: {
- *       sparkSubmitJobDriver: {
+ *     jobDriver: { // JobDriver
+ *       sparkSubmitJobDriver: { // SparkSubmitJobDriver
  *         entryPoint: "STRING_VALUE", // required
- *         entryPointArguments: [
+ *         entryPointArguments: [ // EntryPointArguments
  *           "STRING_VALUE",
  *         ],
  *         sparkSubmitParameters: "STRING_VALUE",
  *       },
- *       sparkSqlJobDriver: {
+ *       sparkSqlJobDriver: { // SparkSqlJobDriver
  *         entryPoint: "STRING_VALUE",
  *         sparkSqlParameters: "STRING_VALUE",
  *       },
  *     },
- *     parameterConfiguration: {
- *       "<keys>": {
+ *     parameterConfiguration: { // TemplateParameterConfigurationMap
+ *       "<keys>": { // TemplateParameterConfiguration
  *         type: "NUMBER" || "STRING",
  *         defaultValue: "STRING_VALUE",
  *       },
  *     },
- *     jobTags: {
+ *     jobTags: { // TagMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

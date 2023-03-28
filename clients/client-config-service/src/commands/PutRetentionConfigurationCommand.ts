@@ -52,7 +52,7 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * import { ConfigServiceClient, PutRetentionConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutRetentionConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // PutRetentionConfigurationRequest
  *   RetentionPeriodInDays: Number("int"), // required
  * };
  * const command = new PutRetentionConfigurationCommand(input);

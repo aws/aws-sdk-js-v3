@@ -86,11 +86,11 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * import { CloudFormationClient, DetectStackSetDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DetectStackSetDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DetectStackSetDriftInput
  *   StackSetName: "STRING_VALUE", // required
- *   OperationPreferences: {
+ *   OperationPreferences: { // StackSetOperationPreferences
  *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
- *     RegionOrder: [
+ *     RegionOrder: [ // RegionList
  *       "STRING_VALUE",
  *     ],
  *     FailureToleranceCount: Number("int"),

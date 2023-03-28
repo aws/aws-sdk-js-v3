@@ -51,15 +51,15 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
  * import { EC2Client, DescribeTrunkInterfaceAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTrunkInterfaceAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   AssociationIds: [
+ * const input = { // DescribeTrunkInterfaceAssociationsRequest
+ *   AssociationIds: [ // TrunkInterfaceAssociationIdList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

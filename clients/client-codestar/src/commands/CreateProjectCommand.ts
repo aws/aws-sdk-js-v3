@@ -44,24 +44,24 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * import { CodeStarClient, CreateProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, CreateProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
- * const input = {
+ * const input = { // CreateProjectRequest
  *   name: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   clientRequestToken: "STRING_VALUE",
- *   sourceCode: [
- *     {
- *       source: {
- *         s3: {
+ *   sourceCode: [ // SourceCode
+ *     { // Code
+ *       source: { // CodeSource
+ *         s3: { // S3Location
  *           bucketName: "STRING_VALUE",
  *           bucketKey: "STRING_VALUE",
  *         },
  *       },
- *       destination: {
- *         codeCommit: {
+ *       destination: { // CodeDestination
+ *         codeCommit: { // CodeCommitCodeDestination
  *           name: "STRING_VALUE", // required
  *         },
- *         gitHub: {
+ *         gitHub: { // GitHubCodeDestination
  *           name: "STRING_VALUE", // required
  *           description: "STRING_VALUE",
  *           type: "STRING_VALUE", // required
@@ -73,19 +73,19 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  *       },
  *     },
  *   ],
- *   toolchain: {
- *     source: {
+ *   toolchain: { // Toolchain
+ *     source: { // ToolchainSource
  *       s3: {
  *         bucketName: "STRING_VALUE",
  *         bucketKey: "STRING_VALUE",
  *       },
  *     },
  *     roleArn: "STRING_VALUE",
- *     stackParameters: {
+ *     stackParameters: { // TemplateParameterMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

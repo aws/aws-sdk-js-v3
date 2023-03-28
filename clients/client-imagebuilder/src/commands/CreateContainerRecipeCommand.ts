@@ -42,30 +42,30 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * import { ImagebuilderClient, CreateContainerRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateContainerRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // CreateContainerRecipeRequest
  *   containerType: "DOCKER", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   semanticVersion: "STRING_VALUE", // required
- *   components: [ // required
- *     {
+ *   components: [ // ComponentConfigurationList // required
+ *     { // ComponentConfiguration
  *       componentArn: "STRING_VALUE", // required
- *       parameters: [
- *         {
+ *       parameters: [ // ComponentParameterList
+ *         { // ComponentParameter
  *           name: "STRING_VALUE", // required
- *           value: [ // required
+ *           value: [ // ComponentParameterValueList // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
  *     },
  *   ],
- *   instanceConfiguration: {
+ *   instanceConfiguration: { // InstanceConfiguration
  *     image: "STRING_VALUE",
- *     blockDeviceMappings: [
- *       {
+ *     blockDeviceMappings: [ // InstanceBlockDeviceMappings
+ *       { // InstanceBlockDeviceMapping
  *         deviceName: "STRING_VALUE",
- *         ebs: {
+ *         ebs: { // EbsInstanceBlockDeviceSpecification
  *           encrypted: true || false,
  *           deleteOnTermination: true || false,
  *           iops: Number("int"),
@@ -85,11 +85,11 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  *   platformOverride: "Windows" || "Linux",
  *   imageOsVersionOverride: "STRING_VALUE",
  *   parentImage: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   workingDirectory: "STRING_VALUE",
- *   targetRepository: {
+ *   targetRepository: { // TargetContainerRepository
  *     service: "ECR", // required
  *     repositoryName: "STRING_VALUE", // required
  *   },

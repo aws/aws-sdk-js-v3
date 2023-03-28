@@ -42,7 +42,7 @@ export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredicto
  * import { ForecastClient, DescribeAutoPredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeAutoPredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DescribeAutoPredictorRequest
  *   PredictorArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeAutoPredictorCommand(input);

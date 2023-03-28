@@ -43,7 +43,7 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * import { CloudWatchEventsClient, ListPartnerEventSourcesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListPartnerEventSourcesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // ListPartnerEventSourcesRequest
  *   NamePrefix: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),

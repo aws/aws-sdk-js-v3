@@ -71,15 +71,15 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * import { SESv2Client, CreateEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // CreateEmailIdentityRequest
  *   EmailIdentity: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   DkimSigningAttributes: {
+ *   DkimSigningAttributes: { // DkimSigningAttributes
  *     DomainSigningSelector: "STRING_VALUE",
  *     DomainSigningPrivateKey: "STRING_VALUE",
  *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",

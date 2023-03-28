@@ -44,9 +44,9 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * import { OpenSearchClient, CreateOutboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, CreateOutboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
- *   LocalDomainInfo: {
- *     AWSDomainInformation: {
+ * const input = { // CreateOutboundConnectionRequest
+ *   LocalDomainInfo: { // DomainInformationContainer
+ *     AWSDomainInformation: { // AWSDomainInformation
  *       OwnerId: "STRING_VALUE",
  *       DomainName: "STRING_VALUE", // required
  *       Region: "STRING_VALUE",

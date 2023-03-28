@@ -62,15 +62,15 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * import { ComprehendClient, DetectEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DetectEntitiesRequest
  *   Text: "STRING_VALUE",
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW",
  *   EndpointArn: "STRING_VALUE",
  *   Bytes: "BLOB_VALUE",
- *   DocumentReaderConfig: {
+ *   DocumentReaderConfig: { // DocumentReaderConfig
  *     DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
  *     DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
- *     FeatureTypes: [
+ *     FeatureTypes: [ // ListOfDocumentReadFeatureTypes
  *       "TABLES" || "FORMS",
  *     ],
  *   },

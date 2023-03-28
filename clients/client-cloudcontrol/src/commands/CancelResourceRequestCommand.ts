@@ -49,7 +49,7 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * import { CloudControlClient, CancelResourceRequestCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, CancelResourceRequestCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
- * const input = {
+ * const input = { // CancelResourceRequestInput
  *   RequestToken: "STRING_VALUE", // required
  * };
  * const command = new CancelResourceRequestCommand(input);

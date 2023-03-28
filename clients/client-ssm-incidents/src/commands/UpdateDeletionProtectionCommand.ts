@@ -43,7 +43,7 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  * import { SSMIncidentsClient, UpdateDeletionProtectionCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateDeletionProtectionCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // UpdateDeletionProtectionInput
  *   arn: "STRING_VALUE", // required
  *   deletionProtected: true || false, // required
  *   clientToken: "STRING_VALUE",

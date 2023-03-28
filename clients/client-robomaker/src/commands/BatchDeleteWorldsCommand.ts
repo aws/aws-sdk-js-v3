@@ -42,8 +42,8 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * import { RoboMakerClient, BatchDeleteWorldsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, BatchDeleteWorldsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
- *   worlds: [ // required
+ * const input = { // BatchDeleteWorldsRequest
+ *   worlds: [ // Arns // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -52,7 +52,7 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * import { WorkDocsClient, GetFolderPathCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetFolderPathCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // GetFolderPathRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   FolderId: "STRING_VALUE", // required
  *   Limit: Number("int"),

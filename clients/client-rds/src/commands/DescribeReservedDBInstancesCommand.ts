@@ -42,7 +42,7 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * import { RDSClient, DescribeReservedDBInstancesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeReservedDBInstancesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DescribeReservedDBInstancesMessage
  *   ReservedDBInstanceId: "STRING_VALUE",
  *   ReservedDBInstancesOfferingId: "STRING_VALUE",
  *   DBInstanceClass: "STRING_VALUE",
@@ -51,10 +51,10 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  *   OfferingType: "STRING_VALUE",
  *   MultiAZ: true || false,
  *   LeaseId: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

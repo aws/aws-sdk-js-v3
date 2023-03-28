@@ -57,7 +57,7 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * import { RekognitionClient, SearchFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, SearchFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // SearchFacesRequest
  *   CollectionId: "STRING_VALUE", // required
  *   FaceId: "STRING_VALUE", // required
  *   MaxFaces: Number("int"),

@@ -42,7 +42,7 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * import { AlexaForBusinessClient, DeleteNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DeleteNetworkProfileRequest
  *   NetworkProfileArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteNetworkProfileCommand(input);

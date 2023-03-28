@@ -47,38 +47,38 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * import { RestJsonProtocolClient, JsonListsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonListsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
- *   stringList: [
+ * const input = { // JsonListsInputOutput
+ *   stringList: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   sparseStringList: [
+ *   sparseStringList: [ // SparseStringList
  *     "STRING_VALUE",
  *   ],
- *   stringSet: [
+ *   stringSet: [ // StringSet
  *     "STRING_VALUE",
  *   ],
- *   integerList: [
+ *   integerList: [ // IntegerList
  *     Number("int"),
  *   ],
- *   booleanList: [
+ *   booleanList: [ // BooleanList
  *     true || false,
  *   ],
- *   timestampList: [
+ *   timestampList: [ // TimestampList
  *     new Date("TIMESTAMP"),
  *   ],
- *   enumList: [
+ *   enumList: [ // FooEnumList
  *     "Foo" || "Baz" || "Bar" || "1" || "0",
  *   ],
- *   intEnumList: [
+ *   intEnumList: [ // IntegerEnumList
  *     1 || 2 || 3,
  *   ],
- *   nestedStringList: [
+ *   nestedStringList: [ // NestedStringList
  *     [
  *       "STRING_VALUE",
  *     ],
  *   ],
- *   structureList: [
- *     {
+ *   structureList: [ // StructureList
+ *     { // StructureListMember
  *       a: "STRING_VALUE",
  *       b: "STRING_VALUE",
  *     },

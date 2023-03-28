@@ -43,19 +43,19 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * import { ElasticBeanstalkClient, CreateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // CreateEnvironmentMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   EnvironmentName: "STRING_VALUE",
  *   GroupName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   CNAMEPrefix: "STRING_VALUE",
- *   Tier: {
+ *   Tier: { // EnvironmentTier
  *     Name: "STRING_VALUE",
  *     Type: "STRING_VALUE",
  *     Version: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -64,16 +64,16 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  *   TemplateName: "STRING_VALUE",
  *   SolutionStackName: "STRING_VALUE",
  *   PlatformArn: "STRING_VALUE",
- *   OptionSettings: [
- *     {
+ *   OptionSettings: [ // ConfigurationOptionSettingsList
+ *     { // ConfigurationOptionSetting
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   OptionsToRemove: [
- *     {
+ *   OptionsToRemove: [ // OptionsSpecifierList
+ *     { // OptionSpecification
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",

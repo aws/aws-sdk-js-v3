@@ -42,7 +42,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { SSOAdminClient, ListTagsForResourceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListTagsForResourceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

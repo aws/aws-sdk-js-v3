@@ -43,15 +43,15 @@ export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningC
  * import { LambdaClient, UpdateCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // UpdateCodeSigningConfigRequest
  *   CodeSigningConfigArn: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   AllowedPublishers: {
- *     SigningProfileVersionArns: [ // required
+ *   AllowedPublishers: { // AllowedPublishers
+ *     SigningProfileVersionArns: [ // SigningProfileVersionArns // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   CodeSigningPolicies: {
+ *   CodeSigningPolicies: { // CodeSigningPolicies
  *     UntrustedArtifactOnDeployment: "Warn" || "Enforce",
  *   },
  * };

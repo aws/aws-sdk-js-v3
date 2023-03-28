@@ -45,13 +45,13 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * import { IoTClient, CreateStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateStreamRequest
  *   streamId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   files: [ // required
- *     {
+ *   files: [ // StreamFiles // required
+ *     { // StreamFile
  *       fileId: Number("int"),
- *       s3Location: {
+ *       s3Location: { // S3Location
  *         bucket: "STRING_VALUE",
  *         key: "STRING_VALUE",
  *         version: "STRING_VALUE",
@@ -59,8 +59,8 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  *     },
  *   ],
  *   roleArn: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

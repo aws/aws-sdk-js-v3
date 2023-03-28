@@ -43,7 +43,7 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  * import { Route53ResolverClient, GetFirewallRuleGroupPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetFirewallRuleGroupPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // GetFirewallRuleGroupPolicyRequest
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new GetFirewallRuleGroupPolicyCommand(input);

@@ -43,7 +43,7 @@ export interface ListReportPlansCommandOutput extends ListReportPlansOutput, __M
  * import { BackupClient, ListReportPlansCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListReportPlansCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // ListReportPlansInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

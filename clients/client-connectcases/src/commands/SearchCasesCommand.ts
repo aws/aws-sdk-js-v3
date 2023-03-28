@@ -48,16 +48,16 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * import { ConnectCasesClient, SearchCasesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchCasesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = {
+ * const input = { // SearchCasesRequest
  *   domainId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   searchTerm: "STRING_VALUE",
- *   filter: { // Union: only one key present
- *     field: { // Union: only one key present
- *       equalTo: {
+ *   filter: { // CaseFilter Union: only one key present
+ *     field: { // FieldFilter Union: only one key present
+ *       equalTo: { // FieldValue
  *         id: "STRING_VALUE", // required
- *         value: { // Union: only one key present
+ *         value: { // FieldValueUnion Union: only one key present
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
@@ -65,7 +65,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *       },
  *       contains: {
  *         id: "STRING_VALUE", // required
- *         value: { // Union: only one key present
+ *         value: {//  Union: only one key present
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
@@ -73,7 +73,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *       },
  *       greaterThan: {
  *         id: "STRING_VALUE", // required
- *         value: { // Union: only one key present
+ *         value: {//  Union: only one key present
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
@@ -81,7 +81,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *       },
  *       greaterThanOrEqualTo: {
  *         id: "STRING_VALUE", // required
- *         value: { // Union: only one key present
+ *         value: {//  Union: only one key present
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
@@ -89,101 +89,40 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *       },
  *       lessThan: {
  *         id: "STRING_VALUE", // required
- *         value: { // Union: only one key present
+ *         value: {//  Union: only one key present
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
  *         },
  *       },
- *       lessThanOrEqualTo: {
- *         id: "STRING_VALUE", // required
- *         value: { // Union: only one key present
- *           stringValue: "STRING_VALUE",
- *           doubleValue: Number("double"),
- *           booleanValue: true || false,
- *         },
- *       },
+ *       lessThanOrEqualTo: "<FieldValue>",
  *     },
- *     not: { // Union: only one key present
- *       field: { // Union: only one key present
- *         equalTo: {
- *           id: "STRING_VALUE", // required
- *           value: { // Union: only one key present
- *             stringValue: "STRING_VALUE",
- *             doubleValue: Number("double"),
- *             booleanValue: true || false,
- *           },
- *         },
- *         contains: {
- *           id: "STRING_VALUE", // required
- *           value: { // Union: only one key present
- *             stringValue: "STRING_VALUE",
- *             doubleValue: Number("double"),
- *             booleanValue: true || false,
- *           },
- *         },
- *         greaterThan: {
- *           id: "STRING_VALUE", // required
- *           value: { // Union: only one key present
- *             stringValue: "STRING_VALUE",
- *             doubleValue: Number("double"),
- *             booleanValue: true || false,
- *           },
- *         },
- *         greaterThanOrEqualTo: {
- *           id: "STRING_VALUE", // required
- *           value: { // Union: only one key present
- *             stringValue: "STRING_VALUE",
- *             doubleValue: Number("double"),
- *             booleanValue: true || false,
- *           },
- *         },
- *         lessThan: {
- *           id: "STRING_VALUE", // required
- *           value: { // Union: only one key present
- *             stringValue: "STRING_VALUE",
- *             doubleValue: Number("double"),
- *             booleanValue: true || false,
- *           },
- *         },
- *         lessThanOrEqualTo: {
- *           id: "STRING_VALUE", // required
- *           value: { // Union: only one key present
- *             stringValue: "STRING_VALUE",
- *             doubleValue: Number("double"),
- *             booleanValue: true || false,
- *           },
- *         },
+ *     not: {//  Union: only one key present
+ *       field: {//  Union: only one key present
+ *         equalTo: "<FieldValue>",
+ *         contains: "<FieldValue>",
+ *         greaterThan: "<FieldValue>",
+ *         greaterThanOrEqualTo: "<FieldValue>",
+ *         lessThan: "<FieldValue>",
+ *         lessThanOrEqualTo: "<FieldValue>",
  *       },
- *       not: { // Union: only one key present
- *         field: "<CaseFilter>",
- *         not: "<CaseFilter>",
- *         andAll: [
- *           { // Union: only one key present
- *             field: "<CaseFilter>",
- *             not: "<CaseFilter>",
- *             andAll: [
- *               { // Union: only one key present
- *                 field: "<CaseFilter>",
- *                 not: "<CaseFilter>",
- *                 andAll: "<CaseFilter>",
- *               },
- *             ],
- *           },
- *         ],
- *       },
- *       andAll: "<CaseFilter>",
+ *       not: "<CaseFilter>",
+ *       andAll: [ // CaseFilterList
+ *         "<CaseFilter>",
+ *       ],
  *     },
- *     andAll: "<CaseFilter>",
+ *     andAll: [
+ *       "<CaseFilter>",
+ *     ],
  *   },
- *   sorts: [
- *     {
+ *   sorts: [ // SortList
+ *     { // Sort
  *       fieldId: "STRING_VALUE", // required
  *       sortOrder: "STRING_VALUE", // required
  *     },
  *   ],
- *   fields: [
- *     {
+ *   fields: [ // FieldIdentifierList
+ *     { // FieldIdentifier
  *       id: "STRING_VALUE", // required
  *     },
  *   ],

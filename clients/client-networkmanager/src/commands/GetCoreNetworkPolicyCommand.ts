@@ -42,7 +42,7 @@ export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyR
  * import { NetworkManagerClient, GetCoreNetworkPolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetCoreNetworkPolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetCoreNetworkPolicyRequest
  *   CoreNetworkId: "STRING_VALUE", // required
  *   PolicyVersionId: Number("int"),
  *   Alias: "LIVE" || "LATEST",

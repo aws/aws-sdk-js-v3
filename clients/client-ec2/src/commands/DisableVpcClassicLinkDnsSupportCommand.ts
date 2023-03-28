@@ -51,7 +51,7 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
  * import { EC2Client, DisableVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisableVpcClassicLinkDnsSupportRequest
  *   VpcId: "STRING_VALUE",
  * };
  * const command = new DisableVpcClassicLinkDnsSupportCommand(input);

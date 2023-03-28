@@ -42,7 +42,7 @@ export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePer
  * import { SsmSapClient, DeleteResourcePermissionCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, DeleteResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = {
+ * const input = { // DeleteResourcePermissionInput
  *   ActionType: "STRING_VALUE",
  *   SourceResourceArn: "STRING_VALUE",
  *   ResourceArn: "STRING_VALUE", // required

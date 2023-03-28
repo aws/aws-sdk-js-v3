@@ -48,11 +48,11 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * import { NeptuneClient, ResetDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ResetDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ResetDBParameterGroupMessage
  *   DBParameterGroupName: "STRING_VALUE", // required
  *   ResetAllParameters: true || false,
- *   Parameters: [
- *     {
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
  *       ParameterName: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       Description: "STRING_VALUE",

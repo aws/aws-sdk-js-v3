@@ -43,7 +43,7 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * import { BackupClient, DescribeReportJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeReportJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DescribeReportJobInput
  *   ReportJobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeReportJobCommand(input);

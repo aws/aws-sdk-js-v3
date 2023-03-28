@@ -42,9 +42,9 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  * import { PinpointClient, SendOTPMessageCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, SendOTPMessageCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // SendOTPMessageRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   SendOTPMessageRequestParameters: {
+ *   SendOTPMessageRequestParameters: { // SendOTPMessageRequestParameters
  *     AllowedAttempts: Number("int"),
  *     BrandName: "STRING_VALUE", // required
  *     Channel: "STRING_VALUE", // required

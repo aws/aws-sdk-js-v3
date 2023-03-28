@@ -43,8 +43,8 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * import { HealthLakeClient, ListFHIRDatastoresCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, ListFHIRDatastoresCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
- * const input = {
- *   Filter: {
+ * const input = { // ListFHIRDatastoresRequest
+ *   Filter: { // DatastoreFilter
  *     DatastoreName: "STRING_VALUE",
  *     DatastoreStatus: "STRING_VALUE",
  *     CreatedBefore: new Date("TIMESTAMP"),

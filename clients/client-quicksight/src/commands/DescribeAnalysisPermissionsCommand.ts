@@ -44,7 +44,7 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * import { QuickSightClient, DescribeAnalysisPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAnalysisPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeAnalysisPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   AnalysisId: "STRING_VALUE", // required
  * };

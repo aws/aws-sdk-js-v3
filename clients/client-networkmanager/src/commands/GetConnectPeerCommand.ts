@@ -42,7 +42,7 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * import { NetworkManagerClient, GetConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetConnectPeerRequest
  *   ConnectPeerId: "STRING_VALUE", // required
  * };
  * const command = new GetConnectPeerCommand(input);

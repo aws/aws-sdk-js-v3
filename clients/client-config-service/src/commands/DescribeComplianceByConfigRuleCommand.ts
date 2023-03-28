@@ -76,11 +76,11 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  * import { ConfigServiceClient, DescribeComplianceByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeComplianceByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   ConfigRuleNames: [
+ * const input = { // DescribeComplianceByConfigRuleRequest
+ *   ConfigRuleNames: [ // ConfigRuleNames
  *     "STRING_VALUE",
  *   ],
- *   ComplianceTypes: [
+ *   ComplianceTypes: [ // ComplianceTypes
  *     "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
  *   ],
  *   NextToken: "STRING_VALUE",

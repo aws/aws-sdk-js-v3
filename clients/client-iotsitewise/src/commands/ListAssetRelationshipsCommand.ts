@@ -44,7 +44,7 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  * import { IoTSiteWiseClient, ListAssetRelationshipsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetRelationshipsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // ListAssetRelationshipsRequest
  *   assetId: "STRING_VALUE", // required
  *   traversalType: "PATH_TO_ROOT", // required
  *   nextToken: "STRING_VALUE",

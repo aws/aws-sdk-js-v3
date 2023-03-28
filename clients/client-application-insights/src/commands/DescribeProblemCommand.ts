@@ -46,7 +46,7 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * import { ApplicationInsightsClient, DescribeProblemCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeProblemCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // DescribeProblemRequest
  *   ProblemId: "STRING_VALUE", // required
  * };
  * const command = new DescribeProblemCommand(input);

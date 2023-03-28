@@ -60,7 +60,7 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  * import { Route53DomainsClient, ListPricesCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListPricesCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // ListPricesRequest
  *   Tld: "STRING_VALUE",
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),

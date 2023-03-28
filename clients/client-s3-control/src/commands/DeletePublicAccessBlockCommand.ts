@@ -58,7 +58,7 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  * import { S3ControlClient, DeletePublicAccessBlockCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeletePublicAccessBlockCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // DeletePublicAccessBlockRequest
  *   AccountId: "STRING_VALUE",
  * };
  * const command = new DeletePublicAccessBlockCommand(input);

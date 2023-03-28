@@ -43,11 +43,11 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * import { IoTSiteWiseClient, CreateAssetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateAssetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // CreateAssetRequest
  *   assetName: "STRING_VALUE", // required
  *   assetModelId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   assetDescription: "STRING_VALUE",

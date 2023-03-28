@@ -46,7 +46,7 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  * import { MigrationHubOrchestratorClient, GetTemplateCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetTemplateCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // GetMigrationWorkflowTemplateRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetTemplateCommand(input);

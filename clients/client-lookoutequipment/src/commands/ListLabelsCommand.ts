@@ -44,7 +44,7 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * import { LookoutEquipmentClient, ListLabelsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListLabelsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = {
+ * const input = { // ListLabelsRequest
  *   LabelGroupName: "STRING_VALUE", // required
  *   IntervalStartTime: new Date("TIMESTAMP"),
  *   IntervalEndTime: new Date("TIMESTAMP"),

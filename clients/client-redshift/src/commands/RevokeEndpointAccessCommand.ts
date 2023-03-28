@@ -43,10 +43,10 @@ export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization
  * import { RedshiftClient, RevokeEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RevokeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // RevokeEndpointAccessMessage
  *   ClusterIdentifier: "STRING_VALUE",
  *   Account: "STRING_VALUE",
- *   VpcIds: [
+ *   VpcIds: [ // VpcIdentifierList
  *     "STRING_VALUE",
  *   ],
  *   Force: true || false,

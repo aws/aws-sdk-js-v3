@@ -51,14 +51,14 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  * import { KendraRankingClient, CreateRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, CreateRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
- * const input = {
+ * const input = { // CreateRescoreExecutionPlanRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   CapacityUnits: {
+ *   CapacityUnits: { // CapacityUnitsConfiguration
  *     RescoreCapacityUnits: Number("int"), // required
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * import { WorkMailClient, ListOrganizationsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListOrganizationsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // ListOrganizationsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

@@ -42,10 +42,10 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  * import { ServiceCatalogClient, CreateServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // CreateServiceActionInput
  *   Name: "STRING_VALUE", // required
  *   DefinitionType: "SSM_AUTOMATION", // required
- *   Definition: { // required
+ *   Definition: { // ServiceActionDefinitionMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Description: "STRING_VALUE",

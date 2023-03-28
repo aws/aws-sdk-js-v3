@@ -47,15 +47,15 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  * import { SageMakerClient, CreateModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateModelCardRequest
  *   ModelCardName: "STRING_VALUE", // required
- *   SecurityConfig: {
+ *   SecurityConfig: { // ModelCardSecurityConfig
  *     KmsKeyId: "STRING_VALUE",
  *   },
  *   Content: "STRING_VALUE", // required
  *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

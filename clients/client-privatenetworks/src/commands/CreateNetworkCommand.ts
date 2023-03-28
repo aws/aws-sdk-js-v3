@@ -47,11 +47,11 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  * import { PrivateNetworksClient, CreateNetworkCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, CreateNetworkCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // CreateNetworkRequest
  *   networkName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

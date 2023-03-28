@@ -45,14 +45,14 @@ export interface CreateIntegrationAssociationCommandOutput
  * import { ConnectClient, CreateIntegrationAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateIntegrationAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // CreateIntegrationAssociationRequest
  *   InstanceId: "STRING_VALUE", // required
  *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN", // required
  *   IntegrationArn: "STRING_VALUE", // required
  *   SourceApplicationUrl: "STRING_VALUE",
  *   SourceApplicationName: "STRING_VALUE",
  *   SourceType: "SALESFORCE" || "ZENDESK",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

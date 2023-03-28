@@ -45,7 +45,7 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * import { EC2Client, DeprovisionByoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeprovisionByoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeprovisionByoipCidrRequest
  *   Cidr: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

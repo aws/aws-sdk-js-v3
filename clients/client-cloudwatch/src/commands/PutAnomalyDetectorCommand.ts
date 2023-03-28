@@ -44,26 +44,26 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * import { CloudWatchClient, PutAnomalyDetectorCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutAnomalyDetectorCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // PutAnomalyDetectorInput
  *   Namespace: "STRING_VALUE",
  *   MetricName: "STRING_VALUE",
- *   Dimensions: [
- *     {
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   Stat: "STRING_VALUE",
- *   Configuration: {
- *     ExcludedTimeRanges: [
- *       {
+ *   Configuration: { // AnomalyDetectorConfiguration
+ *     ExcludedTimeRanges: [ // AnomalyDetectorExcludedTimeRanges
+ *       { // Range
  *         StartTime: new Date("TIMESTAMP"), // required
  *         EndTime: new Date("TIMESTAMP"), // required
  *       },
  *     ],
  *     MetricTimezone: "STRING_VALUE",
  *   },
- *   SingleMetricAnomalyDetector: {
+ *   SingleMetricAnomalyDetector: { // SingleMetricAnomalyDetector
  *     Namespace: "STRING_VALUE",
  *     MetricName: "STRING_VALUE",
  *     Dimensions: [
@@ -74,17 +74,15 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  *     ],
  *     Stat: "STRING_VALUE",
  *   },
- *   MetricMathAnomalyDetector: {
- *     MetricDataQueries: [
- *       {
+ *   MetricMathAnomalyDetector: { // MetricMathAnomalyDetector
+ *     MetricDataQueries: [ // MetricDataQueries
+ *       { // MetricDataQuery
  *         Id: "STRING_VALUE", // required
- *         MetricStat: {
- *           Metric: {
+ *         MetricStat: { // MetricStat
+ *           Metric: { // Metric
  *             Namespace: "STRING_VALUE",
  *             MetricName: "STRING_VALUE",
- *             Dimensions: [
- *               "<Dimensions>",
- *             ],
+ *             Dimensions: "<Dimensions>",
  *           },
  *           Period: Number("int"), // required
  *           Stat: "STRING_VALUE", // required

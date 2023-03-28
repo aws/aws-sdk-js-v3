@@ -44,8 +44,8 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * import { CodeBuildClient, BatchGetReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
- *   reportGroupArns: [ // required
+ * const input = { // BatchGetReportGroupsInput
+ *   reportGroupArns: [ // ReportGroupArns // required
  *     "STRING_VALUE",
  *   ],
  * };

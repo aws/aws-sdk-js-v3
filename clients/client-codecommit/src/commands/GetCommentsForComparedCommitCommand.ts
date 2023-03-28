@@ -48,7 +48,7 @@ export interface GetCommentsForComparedCommitCommandOutput
  * import { CodeCommitClient, GetCommentsForComparedCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommentsForComparedCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetCommentsForComparedCommitInput
  *   repositoryName: "STRING_VALUE", // required
  *   beforeCommitId: "STRING_VALUE",
  *   afterCommitId: "STRING_VALUE", // required

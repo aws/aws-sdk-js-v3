@@ -48,7 +48,7 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * import { ServiceDiscoveryClient, UpdateInstanceCustomHealthStatusCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdateInstanceCustomHealthStatusCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // UpdateInstanceCustomHealthStatusRequest
  *   ServiceId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  *   Status: "HEALTHY" || "UNHEALTHY", // required

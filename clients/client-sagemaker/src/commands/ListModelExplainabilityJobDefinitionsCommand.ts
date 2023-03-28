@@ -48,7 +48,7 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  * import { SageMakerClient, ListModelExplainabilityJobDefinitionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelExplainabilityJobDefinitionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListModelExplainabilityJobDefinitionsRequest
  *   EndpointName: "STRING_VALUE",
  *   SortBy: "Name" || "CreationTime",
  *   SortOrder: "Ascending" || "Descending",

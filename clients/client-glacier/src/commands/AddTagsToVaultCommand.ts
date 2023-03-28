@@ -47,10 +47,10 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, AddTagsToVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, AddTagsToVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
- * const input = {
+ * const input = { // AddTagsToVaultInput
  *   accountId: "STRING_VALUE", // required
  *   vaultName: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

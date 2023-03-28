@@ -42,7 +42,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * import { IoTAnalyticsClient, ListPipelinesCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, ListPipelinesCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // ListPipelinesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

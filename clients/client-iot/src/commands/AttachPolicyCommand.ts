@@ -44,7 +44,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * import { IoTClient, AttachPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // AttachPolicyRequest
  *   policyName: "STRING_VALUE", // required
  *   target: "STRING_VALUE", // required
  * };

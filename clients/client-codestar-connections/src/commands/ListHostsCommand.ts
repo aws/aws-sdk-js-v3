@@ -43,7 +43,7 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * import { CodeStarConnectionsClient, ListHostsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListHostsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
- * const input = {
+ * const input = { // ListHostsInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

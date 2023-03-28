@@ -68,10 +68,10 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * import { RekognitionClient, RecognizeCelebritiesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, RecognizeCelebritiesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   Image: {
+ * const input = { // RecognizeCelebritiesRequest
+ *   Image: { // Image
  *     Bytes: "BLOB_VALUE",
- *     S3Object: {
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",

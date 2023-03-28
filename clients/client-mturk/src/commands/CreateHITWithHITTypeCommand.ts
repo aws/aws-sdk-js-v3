@@ -59,23 +59,23 @@ export interface CreateHITWithHITTypeCommandOutput extends CreateHITWithHITTypeR
  * import { MTurkClient, CreateHITWithHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITWithHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // CreateHITWithHITTypeRequest
  *   HITTypeId: "STRING_VALUE", // required
  *   MaxAssignments: Number("int"),
  *   LifetimeInSeconds: Number("long"), // required
  *   Question: "STRING_VALUE",
  *   RequesterAnnotation: "STRING_VALUE",
  *   UniqueRequestToken: "STRING_VALUE",
- *   AssignmentReviewPolicy: {
+ *   AssignmentReviewPolicy: { // ReviewPolicy
  *     PolicyName: "STRING_VALUE", // required
- *     Parameters: [
- *       {
+ *     Parameters: [ // PolicyParameterList
+ *       { // PolicyParameter
  *         Key: "STRING_VALUE",
- *         Values: [
+ *         Values: [ // StringList
  *           "STRING_VALUE",
  *         ],
- *         MapEntries: [
- *           {
+ *         MapEntries: [ // ParameterMapEntryList
+ *           { // ParameterMapEntry
  *             Key: "STRING_VALUE",
  *             Values: [
  *               "STRING_VALUE",
@@ -105,8 +105,8 @@ export interface CreateHITWithHITTypeCommandOutput extends CreateHITWithHITTypeR
  *     ],
  *   },
  *   HITLayoutId: "STRING_VALUE",
- *   HITLayoutParameters: [
- *     {
+ *   HITLayoutParameters: [ // HITLayoutParameterList
+ *     { // HITLayoutParameter
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -46,12 +46,12 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * import { IoTClient, CreateCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateCustomMetricRequest
  *   metricName: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE",
  *   metricType: "string-list" || "ip-address-list" || "number-list" || "number", // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

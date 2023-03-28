@@ -45,7 +45,7 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  * import { SMSClient, DeleteReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // DeleteReplicationJobRequest
  *   replicationJobId: "STRING_VALUE", // required
  * };
  * const command = new DeleteReplicationJobCommand(input);

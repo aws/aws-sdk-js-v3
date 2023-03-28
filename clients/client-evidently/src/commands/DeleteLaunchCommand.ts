@@ -43,7 +43,7 @@ export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __Metad
  * import { EvidentlyClient, DeleteLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, DeleteLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // DeleteLaunchRequest
  *   project: "STRING_VALUE", // required
  *   launch: "STRING_VALUE", // required
  * };

@@ -47,10 +47,10 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  * import { KinesisVideoClient, UpdateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // UpdateSignalingChannelInput
  *   ChannelARN: "STRING_VALUE", // required
  *   CurrentVersion: "STRING_VALUE", // required
- *   SingleMasterConfiguration: {
+ *   SingleMasterConfiguration: { // SingleMasterConfiguration
  *     MessageTtlSeconds: Number("int"),
  *   },
  * };

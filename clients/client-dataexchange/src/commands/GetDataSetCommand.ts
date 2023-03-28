@@ -42,7 +42,7 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  * import { DataExchangeClient, GetDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, GetDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // GetDataSetRequest
  *   DataSetId: "STRING_VALUE", // required
  * };
  * const command = new GetDataSetCommand(input);

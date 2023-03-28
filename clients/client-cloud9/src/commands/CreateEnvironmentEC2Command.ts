@@ -47,7 +47,7 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * import { Cloud9Client, CreateEnvironmentEC2Command } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, CreateEnvironmentEC2Command } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
- * const input = {
+ * const input = { // CreateEnvironmentEC2Request
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   clientRequestToken: "STRING_VALUE",
@@ -56,8 +56,8 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *   imageId: "STRING_VALUE",
  *   automaticStopTimeMinutes: Number("int"),
  *   ownerArn: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

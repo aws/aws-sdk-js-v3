@@ -42,9 +42,9 @@ export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataB
  * import { NetworkManagerClient, GetDevicesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetDevicesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetDevicesRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
- *   DeviceIds: [
+ *   DeviceIds: [ // DeviceIdList
  *     "STRING_VALUE",
  *   ],
  *   SiteId: "STRING_VALUE",

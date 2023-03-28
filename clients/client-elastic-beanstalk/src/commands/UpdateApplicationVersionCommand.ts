@@ -46,7 +46,7 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  * import { ElasticBeanstalkClient, UpdateApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // UpdateApplicationVersionMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   VersionLabel: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

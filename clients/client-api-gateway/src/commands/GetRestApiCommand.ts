@@ -42,7 +42,7 @@ export interface GetRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * import { APIGatewayClient, GetRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetRestApiRequest
  *   restApiId: "STRING_VALUE", // required
  * };
  * const command = new GetRestApiCommand(input);

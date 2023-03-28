@@ -48,9 +48,9 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  * import { ChimeClient, BatchUpdatePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchUpdatePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
- *   UpdatePhoneNumberRequestItems: [ // required
- *     {
+ * const input = { // BatchUpdatePhoneNumberRequest
+ *   UpdatePhoneNumberRequestItems: [ // UpdatePhoneNumberRequestItemList // required
+ *     { // UpdatePhoneNumberRequestItem
  *       PhoneNumberId: "STRING_VALUE", // required
  *       ProductType: "STRING_VALUE",
  *       CallingName: "STRING_VALUE",

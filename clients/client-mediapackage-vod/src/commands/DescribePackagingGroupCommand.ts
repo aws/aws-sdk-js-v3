@@ -42,7 +42,7 @@ export interface DescribePackagingGroupCommandOutput extends DescribePackagingGr
  * import { MediaPackageVodClient, DescribePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DescribePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // DescribePackagingGroupRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DescribePackagingGroupCommand(input);

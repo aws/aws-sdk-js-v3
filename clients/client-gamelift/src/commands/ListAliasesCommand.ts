@@ -53,7 +53,7 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * import { GameLiftClient, ListAliasesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListAliasesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // ListAliasesInput
  *   RoutingStrategyType: "SIMPLE" || "TERMINAL",
  *   Name: "STRING_VALUE",
  *   Limit: Number("int"),

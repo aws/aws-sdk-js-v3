@@ -45,10 +45,10 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  * import { HoneycodeClient, BatchDeleteTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchDeleteTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // BatchDeleteTableRowsRequest
  *   workbookId: "STRING_VALUE", // required
  *   tableId: "STRING_VALUE", // required
- *   rowIds: [ // required
+ *   rowIds: [ // RowIdList // required
  *     "STRING_VALUE",
  *   ],
  *   clientRequestToken: "STRING_VALUE",

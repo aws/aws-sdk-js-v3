@@ -42,7 +42,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * import { ComprehendClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DeleteResourcePolicyRequest
  *   ResourceArn: "STRING_VALUE", // required
  *   PolicyRevisionId: "STRING_VALUE",
  * };

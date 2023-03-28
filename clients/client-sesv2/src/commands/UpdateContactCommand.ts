@@ -44,11 +44,11 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * import { SESv2Client, UpdateContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // UpdateContactRequest
  *   ContactListName: "STRING_VALUE", // required
  *   EmailAddress: "STRING_VALUE", // required
- *   TopicPreferences: [
- *     {
+ *   TopicPreferences: [ // TopicPreferenceList
+ *     { // TopicPreference
  *       TopicName: "STRING_VALUE", // required
  *       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
  *     },

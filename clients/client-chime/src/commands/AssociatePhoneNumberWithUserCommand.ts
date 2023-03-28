@@ -48,7 +48,7 @@ export interface AssociatePhoneNumberWithUserCommandOutput
  * import { ChimeClient, AssociatePhoneNumberWithUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, AssociatePhoneNumberWithUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // AssociatePhoneNumberWithUserRequest
  *   AccountId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  *   E164PhoneNumber: "STRING_VALUE", // required

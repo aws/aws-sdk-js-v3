@@ -46,11 +46,11 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * import { IAMClient, CreateInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // CreateInstanceProfileRequest
  *   InstanceProfileName: "STRING_VALUE", // required
  *   Path: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // tagListType
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

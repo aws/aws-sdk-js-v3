@@ -42,13 +42,13 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * import { ConnectCampaignsClient, UpdateCampaignDialerConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, UpdateCampaignDialerConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
- * const input = {
+ * const input = { // UpdateCampaignDialerConfigRequest
  *   id: "STRING_VALUE", // required
- *   dialerConfig: { // Union: only one key present
- *     progressiveDialerConfig: {
+ *   dialerConfig: { // DialerConfig Union: only one key present
+ *     progressiveDialerConfig: { // ProgressiveDialerConfig
  *       bandwidthAllocation: Number("double"), // required
  *     },
- *     predictiveDialerConfig: {
+ *     predictiveDialerConfig: { // PredictiveDialerConfig
  *       bandwidthAllocation: Number("double"), // required
  *     },
  *   },

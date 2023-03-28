@@ -47,9 +47,9 @@ export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedS
  * import { DrsClient, CreateExtendedSourceServerCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, CreateExtendedSourceServerCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // CreateExtendedSourceServerRequest
  *   sourceServerArn: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

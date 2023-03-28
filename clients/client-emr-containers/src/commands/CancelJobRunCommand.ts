@@ -43,7 +43,7 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * import { EMRContainersClient, CancelJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CancelJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
- * const input = {
+ * const input = { // CancelJobRunRequest
  *   id: "STRING_VALUE", // required
  *   virtualClusterId: "STRING_VALUE", // required
  * };

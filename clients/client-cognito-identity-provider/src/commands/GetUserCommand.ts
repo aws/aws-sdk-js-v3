@@ -48,7 +48,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * import { CognitoIdentityProviderClient, GetUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // GetUserRequest
  *   AccessToken: "STRING_VALUE", // required
  * };
  * const command = new GetUserCommand(input);

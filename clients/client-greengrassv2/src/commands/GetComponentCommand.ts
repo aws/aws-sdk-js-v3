@@ -42,7 +42,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * import { GreengrassV2Client, GetComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, GetComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // GetComponentRequest
  *   recipeOutputFormat: "JSON" || "YAML",
  *   arn: "STRING_VALUE", // required
  * };

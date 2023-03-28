@@ -45,10 +45,10 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * import { ECRClient, StartImageScanCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, StartImageScanCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // StartImageScanRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
- *   imageId: {
+ *   imageId: { // ImageIdentifier
  *     imageDigest: "STRING_VALUE",
  *     imageTag: "STRING_VALUE",
  *   },

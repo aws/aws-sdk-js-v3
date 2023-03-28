@@ -42,17 +42,17 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
  * import { EC2Client, DescribeExportImageTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeExportImageTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeExportImageTasksRequest
  *   DryRun: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   ExportImageTaskIds: [
+ *   ExportImageTaskIds: [ // ExportImageTaskIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

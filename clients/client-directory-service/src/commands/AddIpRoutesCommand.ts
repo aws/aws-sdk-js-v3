@@ -49,10 +49,10 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * import { DirectoryServiceClient, AddIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, AddIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // AddIpRoutesRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   IpRoutes: [ // required
- *     {
+ *   IpRoutes: [ // IpRoutes // required
+ *     { // IpRoute
  *       CidrIp: "STRING_VALUE",
  *       Description: "STRING_VALUE",
  *     },

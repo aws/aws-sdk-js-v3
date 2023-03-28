@@ -47,16 +47,16 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * import { NetworkManagerClient, CreateSiteCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateSiteCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // CreateSiteRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Location: {
+ *   Location: { // Location
  *     Address: "STRING_VALUE",
  *     Latitude: "STRING_VALUE",
  *     Longitude: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

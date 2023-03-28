@@ -46,7 +46,7 @@ export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, _
  * import { MigrationHubOrchestratorClient, GetWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // GetWorkflowStepRequest
  *   workflowId: "STRING_VALUE", // required
  *   stepGroupId: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required

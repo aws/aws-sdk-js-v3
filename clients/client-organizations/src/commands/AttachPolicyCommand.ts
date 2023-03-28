@@ -67,7 +67,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, AttachPolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, AttachPolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // AttachPolicyRequest
  *   PolicyId: "STRING_VALUE", // required
  *   TargetId: "STRING_VALUE", // required
  * };

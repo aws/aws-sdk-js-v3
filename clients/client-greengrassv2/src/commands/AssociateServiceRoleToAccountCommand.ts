@@ -48,7 +48,7 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * import { GreengrassV2Client, AssociateServiceRoleToAccountCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, AssociateServiceRoleToAccountCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // AssociateServiceRoleToAccountRequest
  *   roleArn: "STRING_VALUE", // required
  * };
  * const command = new AssociateServiceRoleToAccountCommand(input);

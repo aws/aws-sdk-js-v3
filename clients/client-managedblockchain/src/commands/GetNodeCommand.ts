@@ -47,7 +47,7 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  * import { ManagedBlockchainClient, GetNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // GetNodeInput
  *   NetworkId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE",
  *   NodeId: "STRING_VALUE", // required

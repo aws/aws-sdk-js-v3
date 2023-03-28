@@ -49,15 +49,15 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * import { SESv2Client, PutDeliverabilityDashboardOptionCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutDeliverabilityDashboardOptionCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // PutDeliverabilityDashboardOptionRequest
  *   DashboardEnabled: true || false, // required
- *   SubscribedDomains: [
- *     {
+ *   SubscribedDomains: [ // DomainDeliverabilityTrackingOptions
+ *     { // DomainDeliverabilityTrackingOption
  *       Domain: "STRING_VALUE",
  *       SubscriptionStartDate: new Date("TIMESTAMP"),
- *       InboxPlacementTrackingOption: {
+ *       InboxPlacementTrackingOption: { // InboxPlacementTrackingOption
  *         Global: true || false,
- *         TrackedIsps: [
+ *         TrackedIsps: [ // IspNameList
  *           "STRING_VALUE",
  *         ],
  *       },

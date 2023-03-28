@@ -50,11 +50,11 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * import { EC2Client, PurchaseScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, PurchaseScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // PurchaseScheduledInstancesRequest
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
- *   PurchaseRequests: [ // required
- *     {
+ *   PurchaseRequests: [ // PurchaseRequestSet // required
+ *     { // PurchaseRequest
  *       InstanceCount: Number("int"), // required
  *       PurchaseToken: "STRING_VALUE", // required
  *     },

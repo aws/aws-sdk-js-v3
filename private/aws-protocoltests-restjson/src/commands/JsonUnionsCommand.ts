@@ -41,24 +41,24 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * import { RestJsonProtocolClient, JsonUnionsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonUnionsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
- *   contents: { // Union: only one key present
+ * const input = { // UnionInputOutput
+ *   contents: { // MyUnion Union: only one key present
  *     stringValue: "STRING_VALUE",
  *     booleanValue: true || false,
  *     numberValue: Number("int"),
  *     blobValue: "BLOB_VALUE",
  *     timestampValue: new Date("TIMESTAMP"),
  *     enumValue: "Foo" || "Baz" || "Bar" || "1" || "0",
- *     listValue: [
+ *     listValue: [ // StringList
  *       "STRING_VALUE",
  *     ],
- *     mapValue: {
+ *     mapValue: { // StringMap
  *       "<keys>": "STRING_VALUE",
  *     },
- *     structureValue: {
+ *     structureValue: { // GreetingStruct
  *       hi: "STRING_VALUE",
  *     },
- *     renamedStructureValue: {
+ *     renamedStructureValue: { // GreetingStruct
  *       salutation: "STRING_VALUE",
  *     },
  *   },

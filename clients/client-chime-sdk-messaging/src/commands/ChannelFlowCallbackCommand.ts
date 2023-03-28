@@ -62,22 +62,22 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * import { ChimeSDKMessagingClient, ChannelFlowCallbackCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ChannelFlowCallbackCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // ChannelFlowCallbackRequest
  *   CallbackId: "STRING_VALUE", // required
  *   ChannelArn: "STRING_VALUE", // required
  *   DeleteResource: true || false,
- *   ChannelMessage: {
+ *   ChannelMessage: { // ChannelMessageCallback
  *     MessageId: "STRING_VALUE", // required
  *     Content: "STRING_VALUE",
  *     Metadata: "STRING_VALUE",
- *     PushNotification: {
+ *     PushNotification: { // PushNotificationConfiguration
  *       Title: "STRING_VALUE",
  *       Body: "STRING_VALUE",
  *       Type: "DEFAULT" || "VOIP",
  *     },
- *     MessageAttributes: {
- *       "<keys>": {
- *         StringValues: [
+ *     MessageAttributes: { // MessageAttributeMap
+ *       "<keys>": { // MessageAttributeValue
+ *         StringValues: [ // MessageAttributeStringValues
  *           "STRING_VALUE",
  *         ],
  *       },

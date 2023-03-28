@@ -42,7 +42,7 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, ResumeResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ResumeResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // ResumeResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ResumeResourceCommand(input);

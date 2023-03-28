@@ -45,7 +45,7 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * import { FSxClient, DeleteStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // DeleteStorageVirtualMachineRequest
  *   ClientRequestToken: "STRING_VALUE",
  *   StorageVirtualMachineId: "STRING_VALUE", // required
  * };

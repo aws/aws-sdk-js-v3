@@ -43,9 +43,9 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
  * import { PrivateNetworksClient, ListNetworkSitesCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListNetworkSitesCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
- *   filters: {
- *     "<keys>": [
+ * const input = { // ListNetworkSitesRequest
+ *   filters: { // NetworkSiteFilters
+ *     "<keys>": [ // NetworkSiteFilterValues
  *       "STRING_VALUE",
  *     ],
  *   },

@@ -43,7 +43,7 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * import { EC2Client, DisableVgwRoutePropagationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVgwRoutePropagationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DisableVgwRoutePropagationRequest
  *   GatewayId: "STRING_VALUE", // required
  *   RouteTableId: "STRING_VALUE", // required
  *   DryRun: true || false,

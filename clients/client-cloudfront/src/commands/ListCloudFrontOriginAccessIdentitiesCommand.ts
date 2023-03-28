@@ -47,7 +47,7 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * import { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListCloudFrontOriginAccessIdentitiesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListCloudFrontOriginAccessIdentitiesRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };

@@ -42,13 +42,13 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * import { ServiceDiscoveryClient, ListOperationsCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListOperationsCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // ListOperationsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // OperationFilters
+ *     { // OperationFilter
  *       Name: "NAMESPACE_ID" || "SERVICE_ID" || "STATUS" || "TYPE" || "UPDATE_DATE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",

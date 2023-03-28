@@ -49,9 +49,9 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * import { ConfigServiceClient, DescribeConfigurationAggregatorSourcesStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigurationAggregatorSourcesStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DescribeConfigurationAggregatorSourcesStatusRequest
  *   ConfigurationAggregatorName: "STRING_VALUE", // required
- *   UpdateStatus: [
+ *   UpdateStatus: [ // AggregatedSourceStatusTypeList
  *     "FAILED" || "SUCCEEDED" || "OUTDATED",
  *   ],
  *   NextToken: "STRING_VALUE",

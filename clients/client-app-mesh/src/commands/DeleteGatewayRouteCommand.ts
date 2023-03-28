@@ -42,7 +42,7 @@ export interface DeleteGatewayRouteCommandOutput extends DeleteGatewayRouteOutpu
  * import { AppMeshClient, DeleteGatewayRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteGatewayRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // DeleteGatewayRouteInput
  *   gatewayRouteName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
  *   virtualGatewayName: "STRING_VALUE", // required

@@ -68,39 +68,39 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * import { DynamoDBClient, UpdateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
- *   AttributeDefinitions: [
- *     {
+ * const input = { // UpdateTableInput
+ *   AttributeDefinitions: [ // AttributeDefinitions
+ *     { // AttributeDefinition
  *       AttributeName: "STRING_VALUE", // required
  *       AttributeType: "S" || "N" || "B", // required
  *     },
  *   ],
  *   TableName: "STRING_VALUE", // required
  *   BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
- *   ProvisionedThroughput: {
+ *   ProvisionedThroughput: { // ProvisionedThroughput
  *     ReadCapacityUnits: Number("long"), // required
  *     WriteCapacityUnits: Number("long"), // required
  *   },
- *   GlobalSecondaryIndexUpdates: [
- *     {
- *       Update: {
+ *   GlobalSecondaryIndexUpdates: [ // GlobalSecondaryIndexUpdateList
+ *     { // GlobalSecondaryIndexUpdate
+ *       Update: { // UpdateGlobalSecondaryIndexAction
  *         IndexName: "STRING_VALUE", // required
  *         ProvisionedThroughput: {
  *           ReadCapacityUnits: Number("long"), // required
  *           WriteCapacityUnits: Number("long"), // required
  *         },
  *       },
- *       Create: {
+ *       Create: { // CreateGlobalSecondaryIndexAction
  *         IndexName: "STRING_VALUE", // required
- *         KeySchema: [ // required
- *           {
+ *         KeySchema: [ // KeySchema // required
+ *           { // KeySchemaElement
  *             AttributeName: "STRING_VALUE", // required
  *             KeyType: "HASH" || "RANGE", // required
  *           },
  *         ],
- *         Projection: {
+ *         Projection: { // Projection
  *           ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
- *           NonKeyAttributes: [
+ *           NonKeyAttributes: [ // NonKeyAttributeNameList
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -109,23 +109,39 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *           WriteCapacityUnits: Number("long"), // required
  *         },
  *       },
- *       Delete: {
+ *       Delete: { // DeleteGlobalSecondaryIndexAction
  *         IndexName: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
- *   StreamSpecification: {
+ *   StreamSpecification: { // StreamSpecification
  *     StreamEnabled: true || false, // required
  *     StreamViewType: "NEW_IMAGE" || "OLD_IMAGE" || "NEW_AND_OLD_IMAGES" || "KEYS_ONLY",
  *   },
- *   SSESpecification: {
+ *   SSESpecification: { // SSESpecification
  *     Enabled: true || false,
  *     SSEType: "AES256" || "KMS",
  *     KMSMasterKeyId: "STRING_VALUE",
  *   },
- *   ReplicaUpdates: [
- *     {
- *       Create: {
+ *   ReplicaUpdates: [ // ReplicationGroupUpdateList
+ *     { // ReplicationGroupUpdate
+ *       Create: { // CreateReplicationGroupMemberAction
+ *         RegionName: "STRING_VALUE", // required
+ *         KMSMasterKeyId: "STRING_VALUE",
+ *         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
+ *           ReadCapacityUnits: Number("long"),
+ *         },
+ *         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexList
+ *           { // ReplicaGlobalSecondaryIndex
+ *             IndexName: "STRING_VALUE", // required
+ *             ProvisionedThroughputOverride: {
+ *               ReadCapacityUnits: Number("long"),
+ *             },
+ *           },
+ *         ],
+ *         TableClassOverride: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *       },
+ *       Update: { // UpdateReplicationGroupMemberAction
  *         RegionName: "STRING_VALUE", // required
  *         KMSMasterKeyId: "STRING_VALUE",
  *         ProvisionedThroughputOverride: {
@@ -141,23 +157,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *         ],
  *         TableClassOverride: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  *       },
- *       Update: {
- *         RegionName: "STRING_VALUE", // required
- *         KMSMasterKeyId: "STRING_VALUE",
- *         ProvisionedThroughputOverride: {
- *           ReadCapacityUnits: Number("long"),
- *         },
- *         GlobalSecondaryIndexes: [
- *           {
- *             IndexName: "STRING_VALUE", // required
- *             ProvisionedThroughputOverride: {
- *               ReadCapacityUnits: Number("long"),
- *             },
- *           },
- *         ],
- *         TableClassOverride: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
- *       },
- *       Delete: {
+ *       Delete: { // DeleteReplicationGroupMemberAction
  *         RegionName: "STRING_VALUE", // required
  *       },
  *     },

@@ -54,7 +54,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * import { RDSClient, FailoverGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, FailoverGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // FailoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   TargetDbClusterIdentifier: "STRING_VALUE", // required
  * };

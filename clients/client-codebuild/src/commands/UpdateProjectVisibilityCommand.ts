@@ -79,7 +79,7 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * import { CodeBuildClient, UpdateProjectVisibilityCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, UpdateProjectVisibilityCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // UpdateProjectVisibilityInput
  *   projectArn: "STRING_VALUE", // required
  *   projectVisibility: "STRING_VALUE", // required
  *   resourceAccessRole: "STRING_VALUE",

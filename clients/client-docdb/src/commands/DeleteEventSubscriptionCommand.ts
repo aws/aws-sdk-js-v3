@@ -42,7 +42,7 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * import { DocDBClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // DeleteEventSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventSubscriptionCommand(input);

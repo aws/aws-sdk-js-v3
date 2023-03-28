@@ -48,7 +48,7 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * import { EC2Client, AssociateRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AssociateRouteTableRequest
  *   DryRun: true || false,
  *   RouteTableId: "STRING_VALUE", // required
  *   SubnetId: "STRING_VALUE",

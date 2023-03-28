@@ -42,39 +42,39 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  * import { LexModelsV2Client, UpdateBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // UpdateBotAliasRequest
  *   botAliasId: "STRING_VALUE", // required
  *   botAliasName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   botVersion: "STRING_VALUE",
- *   botAliasLocaleSettings: {
- *     "<keys>": {
+ *   botAliasLocaleSettings: { // BotAliasLocaleSettingsMap
+ *     "<keys>": { // BotAliasLocaleSettings
  *       enabled: true || false, // required
- *       codeHookSpecification: {
- *         lambdaCodeHook: {
+ *       codeHookSpecification: { // CodeHookSpecification
+ *         lambdaCodeHook: { // LambdaCodeHook
  *           lambdaARN: "STRING_VALUE", // required
  *           codeHookInterfaceVersion: "STRING_VALUE", // required
  *         },
  *       },
  *     },
  *   },
- *   conversationLogSettings: {
- *     textLogSettings: [
- *       {
+ *   conversationLogSettings: { // ConversationLogSettings
+ *     textLogSettings: [ // TextLogSettingsList
+ *       { // TextLogSetting
  *         enabled: true || false, // required
- *         destination: {
- *           cloudWatch: {
+ *         destination: { // TextLogDestination
+ *           cloudWatch: { // CloudWatchLogGroupLogDestination
  *             cloudWatchLogGroupArn: "STRING_VALUE", // required
  *             logPrefix: "STRING_VALUE", // required
  *           },
  *         },
  *       },
  *     ],
- *     audioLogSettings: [
- *       {
+ *     audioLogSettings: [ // AudioLogSettingsList
+ *       { // AudioLogSetting
  *         enabled: true || false, // required
- *         destination: {
- *           s3Bucket: {
+ *         destination: { // AudioLogDestination
+ *           s3Bucket: { // S3BucketLogDestination
  *             kmsKeyArn: "STRING_VALUE",
  *             s3BucketArn: "STRING_VALUE", // required
  *             logPrefix: "STRING_VALUE", // required
@@ -83,7 +83,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  *       },
  *     ],
  *   },
- *   sentimentAnalysisSettings: {
+ *   sentimentAnalysisSettings: { // SentimentAnalysisSettings
  *     detectSentiment: true || false, // required
  *   },
  *   botId: "STRING_VALUE", // required

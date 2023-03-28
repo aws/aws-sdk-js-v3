@@ -46,7 +46,7 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  * import { SSMClient, DisassociateOpsItemRelatedItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DisassociateOpsItemRelatedItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DisassociateOpsItemRelatedItemRequest
  *   OpsItemId: "STRING_VALUE", // required
  *   AssociationId: "STRING_VALUE", // required
  * };

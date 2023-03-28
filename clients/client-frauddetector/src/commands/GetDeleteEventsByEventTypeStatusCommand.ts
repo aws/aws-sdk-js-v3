@@ -44,7 +44,7 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
  * import { FraudDetectorClient, GetDeleteEventsByEventTypeStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetDeleteEventsByEventTypeStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // GetDeleteEventsByEventTypeStatusRequest
  *   eventTypeName: "STRING_VALUE", // required
  * };
  * const command = new GetDeleteEventsByEventTypeStatusCommand(input);

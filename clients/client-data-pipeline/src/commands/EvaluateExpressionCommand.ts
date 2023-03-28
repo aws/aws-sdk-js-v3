@@ -72,7 +72,7 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  * import { DataPipelineClient, EvaluateExpressionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, EvaluateExpressionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // EvaluateExpressionInput
  *   pipelineId: "STRING_VALUE", // required
  *   objectId: "STRING_VALUE", // required
  *   expression: "STRING_VALUE", // required

@@ -49,20 +49,20 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * import { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // CreatePrivateDnsNamespaceRequest
  *   Name: "STRING_VALUE", // required
  *   CreatorRequestId: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Vpc: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   Properties: {
- *     DnsProperties: {
- *       SOA: {
+ *   Properties: { // PrivateDnsNamespaceProperties
+ *     DnsProperties: { // PrivateDnsPropertiesMutable
+ *       SOA: { // SOA
  *         TTL: Number("long"), // required
  *       },
  *     },

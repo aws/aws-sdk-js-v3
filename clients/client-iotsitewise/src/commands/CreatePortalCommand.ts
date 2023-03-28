@@ -48,22 +48,22 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * import { IoTSiteWiseClient, CreatePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreatePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // CreatePortalRequest
  *   portalName: "STRING_VALUE", // required
  *   portalDescription: "STRING_VALUE",
  *   portalContactEmail: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   portalLogoImageFile: {
+ *   portalLogoImageFile: { // ImageFile
  *     data: "BLOB_VALUE", // required
  *     type: "PNG", // required
  *   },
  *   roleArn: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   portalAuthMode: "IAM" || "SSO",
  *   notificationSenderEmail: "STRING_VALUE",
- *   alarms: {
+ *   alarms: { // Alarms
  *     alarmRoleArn: "STRING_VALUE", // required
  *     notificationLambdaArn: "STRING_VALUE",
  *   },

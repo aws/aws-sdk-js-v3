@@ -44,7 +44,7 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  * import { OpenSearchClient, DeleteOutboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DeleteOutboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // DeleteOutboundConnectionRequest
  *   ConnectionId: "STRING_VALUE", // required
  * };
  * const command = new DeleteOutboundConnectionCommand(input);

@@ -42,10 +42,10 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  * import { Route53ResolverClient, UpdateFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // UpdateFirewallDomainsRequest
  *   FirewallDomainListId: "STRING_VALUE", // required
  *   Operation: "ADD" || "REMOVE" || "REPLACE", // required
- *   Domains: [ // required
+ *   Domains: [ // FirewallDomains // required
  *     "STRING_VALUE",
  *   ],
  * };

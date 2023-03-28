@@ -46,11 +46,11 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { ServerlessApplicationRepositoryClient, CreateApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
- * const input = {
+ * const input = { // CreateApplicationRequest
  *   Author: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
  *   HomePageUrl: "STRING_VALUE",
- *   Labels: [
+ *   Labels: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  *   LicenseBody: "STRING_VALUE",

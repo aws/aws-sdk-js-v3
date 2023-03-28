@@ -47,7 +47,7 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * import { WorkSpacesWebClient, UpdateBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // UpdateBrowserSettingsRequest
  *   browserSettingsArn: "STRING_VALUE", // required
  *   browserPolicy: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",

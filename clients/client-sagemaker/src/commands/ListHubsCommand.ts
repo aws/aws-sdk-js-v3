@@ -42,7 +42,7 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  * import { SageMakerClient, ListHubsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHubsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListHubsRequest
  *   NameContains: "STRING_VALUE",
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   CreationTimeAfter: new Date("TIMESTAMP"),

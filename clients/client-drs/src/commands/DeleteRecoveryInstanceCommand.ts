@@ -42,7 +42,7 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  * import { DrsClient, DeleteRecoveryInstanceCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DeleteRecoveryInstanceCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // DeleteRecoveryInstanceRequest
  *   recoveryInstanceID: "STRING_VALUE", // required
  * };
  * const command = new DeleteRecoveryInstanceCommand(input);

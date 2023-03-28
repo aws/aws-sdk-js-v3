@@ -60,7 +60,7 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * import { ChimeClient, CreateAppInstanceAdminCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAppInstanceAdminCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateAppInstanceAdminRequest
  *   AppInstanceAdminArn: "STRING_VALUE", // required
  *   AppInstanceArn: "STRING_VALUE", // required
  * };

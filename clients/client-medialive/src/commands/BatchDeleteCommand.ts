@@ -42,8 +42,8 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  * import { MediaLiveClient, BatchDeleteCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, BatchDeleteCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
- *   ChannelIds: [
+ * const input = { // BatchDeleteRequest
+ *   ChannelIds: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  *   InputIds: [

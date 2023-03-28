@@ -51,7 +51,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * import { LightsailClient, CopySnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CopySnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // CopySnapshotRequest
  *   sourceSnapshotName: "STRING_VALUE",
  *   sourceResourceName: "STRING_VALUE",
  *   restoreDate: "STRING_VALUE",

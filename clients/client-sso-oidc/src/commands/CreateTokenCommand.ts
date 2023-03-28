@@ -44,14 +44,14 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * import { SSOOIDCClient, CreateTokenCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, CreateTokenCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
  * const client = new SSOOIDCClient(config);
- * const input = {
+ * const input = { // CreateTokenRequest
  *   clientId: "STRING_VALUE", // required
  *   clientSecret: "STRING_VALUE", // required
  *   grantType: "STRING_VALUE", // required
  *   deviceCode: "STRING_VALUE",
  *   code: "STRING_VALUE",
  *   refreshToken: "STRING_VALUE",
- *   scope: [
+ *   scope: [ // Scopes
  *     "STRING_VALUE",
  *   ],
  *   redirectUri: "STRING_VALUE",

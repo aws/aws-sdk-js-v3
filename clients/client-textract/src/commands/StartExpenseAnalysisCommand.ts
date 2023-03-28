@@ -56,9 +56,9 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  * import { TextractClient, StartExpenseAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartExpenseAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
- * const input = {
- *   DocumentLocation: {
- *     S3Object: {
+ * const input = { // StartExpenseAnalysisRequest
+ *   DocumentLocation: { // DocumentLocation
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
@@ -66,11 +66,11 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  *   },
  *   ClientRequestToken: "STRING_VALUE",
  *   JobTag: "STRING_VALUE",
- *   NotificationChannel: {
+ *   NotificationChannel: { // NotificationChannel
  *     SNSTopicArn: "STRING_VALUE", // required
  *     RoleArn: "STRING_VALUE", // required
  *   },
- *   OutputConfig: {
+ *   OutputConfig: { // OutputConfig
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Prefix: "STRING_VALUE",
  *   },

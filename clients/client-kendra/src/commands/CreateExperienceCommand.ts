@@ -45,21 +45,21 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
  * import { KendraClient, CreateExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // CreateExperienceRequest
  *   Name: "STRING_VALUE", // required
  *   IndexId: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE",
- *   Configuration: {
- *     ContentSourceConfiguration: {
- *       DataSourceIds: [
+ *   Configuration: { // ExperienceConfiguration
+ *     ContentSourceConfiguration: { // ContentSourceConfiguration
+ *       DataSourceIds: [ // DataSourceIdList
  *         "STRING_VALUE",
  *       ],
- *       FaqIds: [
+ *       FaqIds: [ // FaqIdsList
  *         "STRING_VALUE",
  *       ],
  *       DirectPutContent: true || false,
  *     },
- *     UserIdentityConfiguration: {
+ *     UserIdentityConfiguration: { // UserIdentityConfiguration
  *       IdentityAttributeName: "STRING_VALUE",
  *     },
  *   },

@@ -47,7 +47,7 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * import { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
- * const input = {
+ * const input = { // ClaimDevicesByClaimCodeRequest
  *   ClaimCode: "STRING_VALUE", // required
  * };
  * const command = new ClaimDevicesByClaimCodeCommand(input);

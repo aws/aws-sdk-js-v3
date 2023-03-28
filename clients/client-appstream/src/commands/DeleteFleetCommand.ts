@@ -42,7 +42,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  * import { AppStreamClient, DeleteFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // DeleteFleetRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteFleetCommand(input);

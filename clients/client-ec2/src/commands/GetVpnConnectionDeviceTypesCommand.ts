@@ -45,7 +45,7 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  * import { EC2Client, GetVpnConnectionDeviceTypesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetVpnConnectionDeviceTypesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // GetVpnConnectionDeviceTypesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   DryRun: true || false,

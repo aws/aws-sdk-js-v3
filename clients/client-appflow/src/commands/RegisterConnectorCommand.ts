@@ -44,12 +44,12 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * import { AppflowClient, RegisterConnectorCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, RegisterConnectorCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
- * const input = {
+ * const input = { // RegisterConnectorRequest
  *   connectorLabel: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   connectorProvisioningType: "LAMBDA",
- *   connectorProvisioningConfig: {
- *     lambda: {
+ *   connectorProvisioningConfig: { // ConnectorProvisioningConfig
+ *     lambda: { // LambdaConnectorProvisioningConfig
  *       lambdaArn: "STRING_VALUE", // required
  *     },
  *   },

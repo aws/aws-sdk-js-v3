@@ -43,7 +43,7 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  * import { NetworkManagerClient, DeleteLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // DeleteLinkRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   LinkId: "STRING_VALUE", // required
  * };

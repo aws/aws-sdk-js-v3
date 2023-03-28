@@ -50,7 +50,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * import { SFNClient, ListExecutionsCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListExecutionsCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // ListExecutionsInput
  *   stateMachineArn: "STRING_VALUE",
  *   statusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED",
  *   maxResults: Number("int"),

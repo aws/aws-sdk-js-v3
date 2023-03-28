@@ -42,9 +42,9 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
  * import { ConfigServiceClient, GetAggregateResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetAggregateResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // GetAggregateResourceConfigRequest
  *   ConfigurationAggregatorName: "STRING_VALUE", // required
- *   ResourceIdentifier: {
+ *   ResourceIdentifier: { // AggregateResourceIdentifier
  *     SourceAccountId: "STRING_VALUE", // required
  *     SourceRegion: "STRING_VALUE", // required
  *     ResourceId: "STRING_VALUE", // required

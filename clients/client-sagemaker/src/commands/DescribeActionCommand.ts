@@ -42,7 +42,7 @@ export interface DescribeActionCommandOutput extends DescribeActionResponse, __M
  * import { SageMakerClient, DescribeActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeActionRequest
  *   ActionName: "STRING_VALUE", // required
  * };
  * const command = new DescribeActionCommand(input);

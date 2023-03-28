@@ -55,7 +55,7 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  * import { DirectConnectClient, AssociateConnectionWithLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateConnectionWithLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // AssociateConnectionWithLagRequest
  *   connectionId: "STRING_VALUE", // required
  *   lagId: "STRING_VALUE", // required
  * };

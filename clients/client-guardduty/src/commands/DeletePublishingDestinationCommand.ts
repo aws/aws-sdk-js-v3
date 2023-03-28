@@ -44,7 +44,7 @@ export interface DeletePublishingDestinationCommandOutput
  * import { GuardDutyClient, DeletePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeletePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // DeletePublishingDestinationRequest
  *   DetectorId: "STRING_VALUE", // required
  *   DestinationId: "STRING_VALUE", // required
  * };

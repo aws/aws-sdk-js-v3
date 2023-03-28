@@ -46,34 +46,34 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * import { KafkaConnectClient, CreateConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, CreateConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = {
- *   capacity: {
- *     autoScaling: {
+ * const input = { // CreateConnectorRequest
+ *   capacity: { // Capacity
+ *     autoScaling: { // AutoScaling
  *       maxWorkerCount: Number("int"), // required
  *       mcuCount: Number("int"), // required
  *       minWorkerCount: Number("int"), // required
- *       scaleInPolicy: {
+ *       scaleInPolicy: { // ScaleInPolicy
  *         cpuUtilizationPercentage: Number("int"), // required
  *       },
- *       scaleOutPolicy: {
+ *       scaleOutPolicy: { // ScaleOutPolicy
  *         cpuUtilizationPercentage: Number("int"), // required
  *       },
  *     },
- *     provisionedCapacity: {
+ *     provisionedCapacity: { // ProvisionedCapacity
  *       mcuCount: Number("int"), // required
  *       workerCount: Number("int"), // required
  *     },
  *   },
- *   connectorConfiguration: { // required
+ *   connectorConfiguration: { // __sensitive__mapOf__string // required
  *     "<keys>": "STRING_VALUE",
  *   },
  *   connectorDescription: "STRING_VALUE",
  *   connectorName: "STRING_VALUE", // required
- *   kafkaCluster: {
- *     apacheKafkaCluster: {
+ *   kafkaCluster: { // KafkaCluster
+ *     apacheKafkaCluster: { // ApacheKafkaCluster
  *       bootstrapServers: "STRING_VALUE", // required
- *       vpc: {
- *         securityGroups: [
+ *       vpc: { // Vpc
+ *         securityGroups: [ // __listOf__string
  *           "STRING_VALUE",
  *         ],
  *         subnets: [ // required
@@ -82,40 +82,40 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *       },
  *     },
  *   },
- *   kafkaClusterClientAuthentication: {
+ *   kafkaClusterClientAuthentication: { // KafkaClusterClientAuthentication
  *     authenticationType: "STRING_VALUE", // required
  *   },
- *   kafkaClusterEncryptionInTransit: {
+ *   kafkaClusterEncryptionInTransit: { // KafkaClusterEncryptionInTransit
  *     encryptionType: "STRING_VALUE", // required
  *   },
  *   kafkaConnectVersion: "STRING_VALUE", // required
- *   logDelivery: {
- *     workerLogDelivery: {
- *       cloudWatchLogs: {
+ *   logDelivery: { // LogDelivery
+ *     workerLogDelivery: { // WorkerLogDelivery
+ *       cloudWatchLogs: { // CloudWatchLogsLogDelivery
  *         enabled: true || false, // required
  *         logGroup: "STRING_VALUE",
  *       },
- *       firehose: {
+ *       firehose: { // FirehoseLogDelivery
  *         deliveryStream: "STRING_VALUE",
  *         enabled: true || false, // required
  *       },
- *       s3: {
+ *       s3: { // S3LogDelivery
  *         bucket: "STRING_VALUE",
  *         enabled: true || false, // required
  *         prefix: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   plugins: [ // required
- *     {
- *       customPlugin: {
+ *   plugins: [ // __listOfPlugin // required
+ *     { // Plugin
+ *       customPlugin: { // CustomPlugin
  *         customPluginArn: "STRING_VALUE", // required
  *         revision: Number("long"), // required
  *       },
  *     },
  *   ],
  *   serviceExecutionRoleArn: "STRING_VALUE", // required
- *   workerConfiguration: {
+ *   workerConfiguration: { // WorkerConfiguration
  *     revision: Number("long"), // required
  *     workerConfigurationArn: "STRING_VALUE", // required
  *   },

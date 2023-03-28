@@ -45,16 +45,16 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  * import { OutpostsClient, ListOutpostsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListOutpostsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // ListOutpostsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   LifeCycleStatusFilter: [
+ *   LifeCycleStatusFilter: [ // LifeCycleStatusList
  *     "STRING_VALUE",
  *   ],
- *   AvailabilityZoneFilter: [
+ *   AvailabilityZoneFilter: [ // AvailabilityZoneList
  *     "STRING_VALUE",
  *   ],
- *   AvailabilityZoneIdFilter: [
+ *   AvailabilityZoneIdFilter: [ // AvailabilityZoneIdList
  *     "STRING_VALUE",
  *   ],
  * };

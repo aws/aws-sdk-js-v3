@@ -164,35 +164,35 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * import { ECSClient, UpdateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // UpdateServiceRequest
  *   cluster: "STRING_VALUE",
  *   service: "STRING_VALUE", // required
  *   desiredCount: Number("int"),
  *   taskDefinition: "STRING_VALUE",
- *   capacityProviderStrategy: [
- *     {
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
  *       weight: Number("int"),
  *       base: Number("int"),
  *     },
  *   ],
- *   deploymentConfiguration: {
- *     deploymentCircuitBreaker: {
+ *   deploymentConfiguration: { // DeploymentConfiguration
+ *     deploymentCircuitBreaker: { // DeploymentCircuitBreaker
  *       enable: true || false, // required
  *       rollback: true || false, // required
  *     },
  *     maximumPercent: Number("int"),
  *     minimumHealthyPercent: Number("int"),
- *     alarms: {
- *       alarmNames: [ // required
+ *     alarms: { // DeploymentAlarms
+ *       alarmNames: [ // StringList // required
  *         "STRING_VALUE",
  *       ],
  *       enable: true || false, // required
  *       rollback: true || false, // required
  *     },
  *   },
- *   networkConfiguration: {
- *     awsvpcConfiguration: {
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
  *       subnets: [ // required
  *         "STRING_VALUE",
  *       ],
@@ -202,14 +202,14 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       assignPublicIp: "ENABLED" || "DISABLED",
  *     },
  *   },
- *   placementConstraints: [
- *     {
+ *   placementConstraints: [ // PlacementConstraints
+ *     { // PlacementConstraint
  *       type: "distinctInstance" || "memberOf",
  *       expression: "STRING_VALUE",
  *     },
  *   ],
- *   placementStrategy: [
- *     {
+ *   placementStrategy: [ // PlacementStrategies
+ *     { // PlacementStrategy
  *       type: "random" || "spread" || "binpack",
  *       field: "STRING_VALUE",
  *     },
@@ -219,8 +219,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *   healthCheckGracePeriodSeconds: Number("int"),
  *   enableExecuteCommand: true || false,
  *   enableECSManagedTags: true || false,
- *   loadBalancers: [
- *     {
+ *   loadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
  *       targetGroupArn: "STRING_VALUE",
  *       loadBalancerName: "STRING_VALUE",
  *       containerName: "STRING_VALUE",
@@ -228,23 +228,23 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *     },
  *   ],
  *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
- *   serviceRegistries: [
- *     {
+ *   serviceRegistries: [ // ServiceRegistries
+ *     { // ServiceRegistry
  *       registryArn: "STRING_VALUE",
  *       port: Number("int"),
  *       containerName: "STRING_VALUE",
  *       containerPort: Number("int"),
  *     },
  *   ],
- *   serviceConnectConfiguration: {
+ *   serviceConnectConfiguration: { // ServiceConnectConfiguration
  *     enabled: true || false, // required
  *     namespace: "STRING_VALUE",
- *     services: [
- *       {
+ *     services: [ // ServiceConnectServiceList
+ *       { // ServiceConnectService
  *         portName: "STRING_VALUE", // required
  *         discoveryName: "STRING_VALUE",
- *         clientAliases: [
- *           {
+ *         clientAliases: [ // ServiceConnectClientAliasList
+ *           { // ServiceConnectClientAlias
  *             port: Number("int"), // required
  *             dnsName: "STRING_VALUE",
  *           },
@@ -252,13 +252,13 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *         ingressPortOverride: Number("int"),
  *       },
  *     ],
- *     logConfiguration: {
+ *     logConfiguration: { // LogConfiguration
  *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
- *       options: {
+ *       options: { // LogConfigurationOptionsMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       secretOptions: [
- *         {
+ *       secretOptions: [ // SecretList
+ *         { // Secret
  *           name: "STRING_VALUE", // required
  *           valueFrom: "STRING_VALUE", // required
  *         },

@@ -42,12 +42,12 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  * import { LocationClient, CreateGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // CreateGeofenceCollectionRequest
  *   CollectionName: "STRING_VALUE", // required
  *   PricingPlan: "STRING_VALUE",
  *   PricingPlanDataSource: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   KmsKeyId: "STRING_VALUE",

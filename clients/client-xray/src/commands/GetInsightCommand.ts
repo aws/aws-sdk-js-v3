@@ -44,7 +44,7 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  * import { XRayClient, GetInsightCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetInsightCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
+ * const input = { // GetInsightRequest
  *   InsightId: "STRING_VALUE", // required
  * };
  * const command = new GetInsightCommand(input);

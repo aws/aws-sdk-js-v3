@@ -46,7 +46,7 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  * import { Route53RecoveryReadinessClient, GetCellCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetCellCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // GetCellRequest
  *   CellName: "STRING_VALUE", // required
  * };
  * const command = new GetCellCommand(input);

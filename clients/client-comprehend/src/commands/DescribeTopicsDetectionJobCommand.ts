@@ -43,7 +43,7 @@ export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsD
  * import { ComprehendClient, DescribeTopicsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeTopicsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DescribeTopicsDetectionJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeTopicsDetectionJobCommand(input);

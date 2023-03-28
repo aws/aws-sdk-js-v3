@@ -42,9 +42,9 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * import { CodeStarClient, TagProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, TagProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
- * const input = {
+ * const input = { // TagProjectRequest
  *   id: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // Tags // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

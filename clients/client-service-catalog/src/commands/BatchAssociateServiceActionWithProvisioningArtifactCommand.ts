@@ -48,9 +48,9 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
  * import { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
- *   ServiceActionAssociations: [ // required
- *     {
+ * const input = { // BatchAssociateServiceActionWithProvisioningArtifactInput
+ *   ServiceActionAssociations: [ // ServiceActionAssociations // required
+ *     { // ServiceActionAssociation
  *       ServiceActionId: "STRING_VALUE", // required
  *       ProductId: "STRING_VALUE", // required
  *       ProvisioningArtifactId: "STRING_VALUE", // required

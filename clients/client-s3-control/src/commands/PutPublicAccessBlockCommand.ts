@@ -59,8 +59,8 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutPublicAccessBlockCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutPublicAccessBlockCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
- *   PublicAccessBlockConfiguration: {
+ * const input = { // PutPublicAccessBlockRequest
+ *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
  *     BlockPublicAcls: true || false,
  *     IgnorePublicAcls: true || false,
  *     BlockPublicPolicy: true || false,

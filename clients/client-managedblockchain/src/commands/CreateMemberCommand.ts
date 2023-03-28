@@ -47,29 +47,29 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * import { ManagedBlockchainClient, CreateMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // CreateMemberInput
  *   ClientRequestToken: "STRING_VALUE", // required
  *   InvitationId: "STRING_VALUE", // required
  *   NetworkId: "STRING_VALUE", // required
- *   MemberConfiguration: {
+ *   MemberConfiguration: { // MemberConfiguration
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
- *     FrameworkConfiguration: {
- *       Fabric: {
+ *     FrameworkConfiguration: { // MemberFrameworkConfiguration
+ *       Fabric: { // MemberFabricConfiguration
  *         AdminUsername: "STRING_VALUE", // required
  *         AdminPassword: "STRING_VALUE", // required
  *       },
  *     },
- *     LogPublishingConfiguration: {
- *       Fabric: {
- *         CaLogs: {
- *           Cloudwatch: {
+ *     LogPublishingConfiguration: { // MemberLogPublishingConfiguration
+ *       Fabric: { // MemberFabricLogPublishingConfiguration
+ *         CaLogs: { // LogConfigurations
+ *           Cloudwatch: { // LogConfiguration
  *             Enabled: true || false,
  *           },
  *         },
  *       },
  *     },
- *     Tags: {
+ *     Tags: { // InputTagMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     KmsKeyArn: "STRING_VALUE",

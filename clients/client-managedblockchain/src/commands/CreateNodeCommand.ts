@@ -47,17 +47,17 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * import { ManagedBlockchainClient, CreateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // CreateNodeInput
  *   ClientRequestToken: "STRING_VALUE", // required
  *   NetworkId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE",
- *   NodeConfiguration: {
+ *   NodeConfiguration: { // NodeConfiguration
  *     InstanceType: "STRING_VALUE", // required
  *     AvailabilityZone: "STRING_VALUE",
- *     LogPublishingConfiguration: {
- *       Fabric: {
- *         ChaincodeLogs: {
- *           Cloudwatch: {
+ *     LogPublishingConfiguration: { // NodeLogPublishingConfiguration
+ *       Fabric: { // NodeFabricLogPublishingConfiguration
+ *         ChaincodeLogs: { // LogConfigurations
+ *           Cloudwatch: { // LogConfiguration
  *             Enabled: true || false,
  *           },
  *         },
@@ -70,7 +70,7 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  *     },
  *     StateDB: "LevelDB" || "CouchDB",
  *   },
- *   Tags: {
+ *   Tags: { // InputTagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

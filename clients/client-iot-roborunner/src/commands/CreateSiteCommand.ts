@@ -42,7 +42,7 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * import { IoTRoboRunnerClient, CreateSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, CreateSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // CreateSiteRequest
  *   clientToken: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   countryCode: "STRING_VALUE", // required

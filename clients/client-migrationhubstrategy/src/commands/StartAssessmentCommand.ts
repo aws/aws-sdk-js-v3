@@ -46,14 +46,14 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * import { MigrationHubStrategyClient, StartAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StartAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // StartAssessmentRequest
  *   s3bucketForAnalysisData: "STRING_VALUE",
  *   s3bucketForReportData: "STRING_VALUE",
- *   assessmentTargets: [
- *     {
+ *   assessmentTargets: [ // AssessmentTargets
+ *     { // AssessmentTarget
  *       condition: "STRING_VALUE", // required
  *       name: "STRING_VALUE", // required
- *       values: [ // required
+ *       values: [ // AssessmentTargetValues // required
  *         "STRING_VALUE",
  *       ],
  *     },

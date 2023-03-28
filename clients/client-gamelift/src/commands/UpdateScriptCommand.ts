@@ -63,11 +63,11 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  * import { GameLiftClient, UpdateScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // UpdateScriptInput
  *   ScriptId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Version: "STRING_VALUE",
- *   StorageLocation: {
+ *   StorageLocation: { // S3Location
  *     Bucket: "STRING_VALUE",
  *     Key: "STRING_VALUE",
  *     RoleArn: "STRING_VALUE",

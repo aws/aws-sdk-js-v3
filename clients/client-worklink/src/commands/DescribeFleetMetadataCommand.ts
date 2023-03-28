@@ -45,7 +45,7 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  * import { WorkLinkClient, DescribeFleetMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeFleetMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // DescribeFleetMetadataRequest
  *   FleetArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeFleetMetadataCommand(input);

@@ -46,7 +46,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * import { Route53RecoveryControlConfigClient, DescribeClusterCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DescribeClusterCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
+ * const input = { // DescribeClusterRequest
  *   ClusterArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeClusterCommand(input);

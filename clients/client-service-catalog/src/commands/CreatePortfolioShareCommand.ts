@@ -60,11 +60,11 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  * import { ServiceCatalogClient, CreatePortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreatePortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // CreatePortfolioShareInput
  *   AcceptLanguage: "STRING_VALUE",
  *   PortfolioId: "STRING_VALUE", // required
  *   AccountId: "STRING_VALUE",
- *   OrganizationNode: {
+ *   OrganizationNode: { // OrganizationNode
  *     Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
  *     Value: "STRING_VALUE",
  *   },

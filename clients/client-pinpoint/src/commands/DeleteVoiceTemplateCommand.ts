@@ -42,7 +42,7 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
  * import { PinpointClient, DeleteVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // DeleteVoiceTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  *   Version: "STRING_VALUE",
  * };

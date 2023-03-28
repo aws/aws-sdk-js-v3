@@ -44,7 +44,7 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * import { SSMClient, DescribeDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeDocumentPermissionRequest
  *   Name: "STRING_VALUE", // required
  *   PermissionType: "Share", // required
  *   MaxResults: Number("int"),

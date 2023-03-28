@@ -61,13 +61,13 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  * import { LexModelBuildingServiceClient, PutSlotTypeCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutSlotTypeCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // PutSlotTypeRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   enumerationValues: [
- *     {
+ *   enumerationValues: [ // EnumerationValues
+ *     { // EnumerationValue
  *       value: "STRING_VALUE", // required
- *       synonyms: [
+ *       synonyms: [ // SynonymList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -76,9 +76,9 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  *   valueSelectionStrategy: "STRING_VALUE",
  *   createVersion: true || false,
  *   parentSlotTypeSignature: "STRING_VALUE",
- *   slotTypeConfigurations: [
- *     {
- *       regexConfiguration: {
+ *   slotTypeConfigurations: [ // SlotTypeConfigurations
+ *     { // SlotTypeConfiguration
+ *       regexConfiguration: { // SlotTypeRegexConfiguration
  *         pattern: "STRING_VALUE", // required
  *       },
  *     },

@@ -42,7 +42,7 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteUseCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteUseCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DeleteUseCaseRequest
  *   InstanceId: "STRING_VALUE", // required
  *   IntegrationAssociationId: "STRING_VALUE", // required
  *   UseCaseId: "STRING_VALUE", // required

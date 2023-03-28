@@ -47,7 +47,7 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * import { OpenSearchServerlessClient, DeleteAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // DeleteAccessPolicyRequest
  *   type: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",

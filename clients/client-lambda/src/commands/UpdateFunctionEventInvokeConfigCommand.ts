@@ -43,16 +43,16 @@ export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEv
  * import { LambdaClient, UpdateFunctionEventInvokeConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateFunctionEventInvokeConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // UpdateFunctionEventInvokeConfigRequest
  *   FunctionName: "STRING_VALUE", // required
  *   Qualifier: "STRING_VALUE",
  *   MaximumRetryAttempts: Number("int"),
  *   MaximumEventAgeInSeconds: Number("int"),
- *   DestinationConfig: {
- *     OnSuccess: {
+ *   DestinationConfig: { // DestinationConfig
+ *     OnSuccess: { // OnSuccess
  *       Destination: "STRING_VALUE",
  *     },
- *     OnFailure: {
+ *     OnFailure: { // OnFailure
  *       Destination: "STRING_VALUE",
  *     },
  *   },

@@ -50,7 +50,7 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, DeleteConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeleteConfigRuleRequest
  *   ConfigRuleName: "STRING_VALUE", // required
  * };
  * const command = new DeleteConfigRuleCommand(input);

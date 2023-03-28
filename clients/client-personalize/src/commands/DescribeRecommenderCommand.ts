@@ -59,7 +59,7 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * import { PersonalizeClient, DescribeRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeRecommenderRequest
  *   recommenderArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeRecommenderCommand(input);

@@ -42,7 +42,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * import { WorkMailClient, DescribeGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // DescribeGroupRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   GroupId: "STRING_VALUE", // required
  * };

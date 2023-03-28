@@ -44,7 +44,7 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
  * import { IoTThingsGraphClient, GetSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
+ * const input = { // GetSystemInstanceRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetSystemInstanceCommand(input);

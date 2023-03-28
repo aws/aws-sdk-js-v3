@@ -42,27 +42,27 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  * import { PinpointClient, UpdateSegmentCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateSegmentCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateSegmentRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   SegmentId: "STRING_VALUE", // required
- *   WriteSegmentRequest: {
- *     Dimensions: {
- *       Attributes: {
- *         "<keys>": {
+ *   WriteSegmentRequest: { // WriteSegmentRequest
+ *     Dimensions: { // SegmentDimensions
+ *       Attributes: { // MapOfAttributeDimension
+ *         "<keys>": { // AttributeDimension
  *           AttributeType: "STRING_VALUE",
- *           Values: [ // required
+ *           Values: [ // ListOf__string // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *       },
- *       Behavior: {
- *         Recency: {
+ *       Behavior: { // SegmentBehaviors
+ *         Recency: { // RecencyDimension
  *           Duration: "STRING_VALUE", // required
  *           RecencyType: "STRING_VALUE", // required
  *         },
  *       },
- *       Demographic: {
- *         AppVersion: {
+ *       Demographic: { // SegmentDemographics
+ *         AppVersion: { // SetDimension
  *           DimensionType: "STRING_VALUE",
  *           Values: [ // required
  *             "STRING_VALUE",
@@ -88,34 +88,22 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  *         },
  *         Model: {
  *           DimensionType: "STRING_VALUE",
- *           Values: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Values: "<ListOf__string>", // required
  *         },
- *         Platform: {
- *           DimensionType: "STRING_VALUE",
- *           Values: [ // required
- *             "STRING_VALUE",
- *           ],
- *         },
+ *         Platform: "<SetDimension>",
  *       },
- *       Location: {
- *         Country: {
- *           DimensionType: "STRING_VALUE",
- *           Values: [ // required
- *             "STRING_VALUE",
- *           ],
- *         },
- *         GPSPoint: {
- *           Coordinates: {
+ *       Location: { // SegmentLocation
+ *         Country: "<SetDimension>",
+ *         GPSPoint: { // GPSPointDimension
+ *           Coordinates: { // GPSCoordinates
  *             Latitude: Number("double"), // required
  *             Longitude: Number("double"), // required
  *           },
  *           RangeInKilometers: Number("double"),
  *         },
  *       },
- *       Metrics: {
- *         "<keys>": {
+ *       Metrics: { // MapOfMetricDimension
+ *         "<keys>": { // MetricDimension
  *           ComparisonOperator: "STRING_VALUE", // required
  *           Value: Number("double"), // required
  *         },
@@ -123,24 +111,20 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  *       UserAttributes: {
  *         "<keys>": {
  *           AttributeType: "STRING_VALUE",
- *           Values: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Values: "<ListOf__string>", // required
  *         },
  *       },
  *     },
  *     Name: "STRING_VALUE",
- *     SegmentGroups: {
- *       Groups: [
- *         {
- *           Dimensions: [
+ *     SegmentGroups: { // SegmentGroupList
+ *       Groups: [ // ListOfSegmentGroup
+ *         { // SegmentGroup
+ *           Dimensions: [ // ListOfSegmentDimensions
  *             {
  *               Attributes: {
  *                 "<keys>": {
  *                   AttributeType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
+ *                   Values: "<ListOf__string>", // required
  *                 },
  *               },
  *               Behavior: {
@@ -150,50 +134,15 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  *                 },
  *               },
  *               Demographic: {
- *                 AppVersion: {
- *                   DimensionType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
- *                 },
- *                 Channel: {
- *                   DimensionType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
- *                 },
- *                 DeviceType: {
- *                   DimensionType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
- *                 },
- *                 Make: {
- *                   DimensionType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
- *                 },
- *                 Model: {
- *                   DimensionType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
- *                 },
- *                 Platform: {
- *                   DimensionType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
- *                 },
+ *                 AppVersion: "<SetDimension>",
+ *                 Channel: "<SetDimension>",
+ *                 DeviceType: "<SetDimension>",
+ *                 Make: "<SetDimension>",
+ *                 Model: "<SetDimension>",
+ *                 Platform: "<SetDimension>",
  *               },
  *               Location: {
- *                 Country: {
- *                   DimensionType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
- *                 },
+ *                 Country: "<SetDimension>",
  *                 GPSPoint: {
  *                   Coordinates: {
  *                     Latitude: Number("double"), // required
@@ -211,15 +160,13 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  *               UserAttributes: {
  *                 "<keys>": {
  *                   AttributeType: "STRING_VALUE",
- *                   Values: [ // required
- *                     "STRING_VALUE",
- *                   ],
+ *                   Values: "<ListOf__string>", // required
  *                 },
  *               },
  *             },
  *           ],
- *           SourceSegments: [
- *             {
+ *           SourceSegments: [ // ListOfSegmentReference
+ *             { // SegmentReference
  *               Id: "STRING_VALUE", // required
  *               Version: Number("int"),
  *             },
@@ -230,7 +177,7 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  *       ],
  *       Include: "STRING_VALUE",
  *     },
- *     tags: {
+ *     tags: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

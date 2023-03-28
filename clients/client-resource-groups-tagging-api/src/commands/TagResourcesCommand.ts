@@ -95,11 +95,11 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * import { ResourceGroupsTaggingAPIClient, TagResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, TagResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
- * const input = {
- *   ResourceARNList: [ // required
+ * const input = { // TagResourcesInput
+ *   ResourceARNList: [ // ResourceARNListForTagUntag // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

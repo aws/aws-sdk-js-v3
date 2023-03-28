@@ -52,7 +52,7 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  * import { CognitoIdentityProviderClient, DescribeRiskConfigurationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DescribeRiskConfigurationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // DescribeRiskConfigurationRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE",
  * };

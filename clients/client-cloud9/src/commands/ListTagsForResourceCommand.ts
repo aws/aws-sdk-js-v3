@@ -46,7 +46,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { Cloud9Client, ListTagsForResourceCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, ListTagsForResourceCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

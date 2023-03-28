@@ -47,7 +47,7 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  * import { ChimeClient, ListAppInstancesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListAppInstancesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListAppInstancesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

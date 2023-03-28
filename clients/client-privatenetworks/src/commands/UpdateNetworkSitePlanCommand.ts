@@ -46,14 +46,14 @@ export interface UpdateNetworkSitePlanCommandOutput extends UpdateNetworkSiteRes
  * import { PrivateNetworksClient, UpdateNetworkSitePlanCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, UpdateNetworkSitePlanCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // UpdateNetworkSitePlanRequest
  *   networkSiteArn: "STRING_VALUE", // required
- *   pendingPlan: {
- *     resourceDefinitions: [
- *       {
+ *   pendingPlan: { // SitePlan
+ *     resourceDefinitions: [ // NetworkResourceDefinitions
+ *       { // NetworkResourceDefinition
  *         type: "STRING_VALUE", // required
- *         options: [
- *           {
+ *         options: [ // Options
+ *           { // NameValuePair
  *             name: "STRING_VALUE", // required
  *             value: "STRING_VALUE",
  *           },

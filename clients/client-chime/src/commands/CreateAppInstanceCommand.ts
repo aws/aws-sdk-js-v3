@@ -47,12 +47,12 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  * import { ChimeClient, CreateAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateAppInstanceRequest
  *   Name: "STRING_VALUE", // required
  *   Metadata: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

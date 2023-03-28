@@ -44,32 +44,32 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * import { KeyspacesClient, UpdateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, UpdateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = {
+ * const input = { // UpdateTableRequest
  *   keyspaceName: "STRING_VALUE", // required
  *   tableName: "STRING_VALUE", // required
- *   addColumns: [
- *     {
+ *   addColumns: [ // ColumnDefinitionList
+ *     { // ColumnDefinition
  *       name: "STRING_VALUE", // required
  *       type: "STRING_VALUE", // required
  *     },
  *   ],
- *   capacitySpecification: {
+ *   capacitySpecification: { // CapacitySpecification
  *     throughputMode: "STRING_VALUE", // required
  *     readCapacityUnits: Number("long"),
  *     writeCapacityUnits: Number("long"),
  *   },
- *   encryptionSpecification: {
+ *   encryptionSpecification: { // EncryptionSpecification
  *     type: "STRING_VALUE", // required
  *     kmsKeyIdentifier: "STRING_VALUE",
  *   },
- *   pointInTimeRecovery: {
+ *   pointInTimeRecovery: { // PointInTimeRecovery
  *     status: "STRING_VALUE", // required
  *   },
- *   ttl: {
+ *   ttl: { // TimeToLive
  *     status: "STRING_VALUE", // required
  *   },
  *   defaultTimeToLive: Number("int"),
- *   clientSideTimestamps: {
+ *   clientSideTimestamps: { // ClientSideTimestamps
  *     status: "STRING_VALUE", // required
  *   },
  * };

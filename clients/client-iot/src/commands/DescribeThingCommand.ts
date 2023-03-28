@@ -43,7 +43,7 @@ export interface DescribeThingCommandOutput extends DescribeThingResponse, __Met
  * import { IoTClient, DescribeThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DescribeThingRequest
  *   thingName: "STRING_VALUE", // required
  * };
  * const command = new DescribeThingCommand(input);

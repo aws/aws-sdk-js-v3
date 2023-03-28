@@ -43,8 +43,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * import { GlueClient, ListSchemasCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListSchemasCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   RegistryId: {
+ * const input = { // ListSchemasInput
+ *   RegistryId: { // RegistryId
  *     RegistryName: "STRING_VALUE",
  *     RegistryArn: "STRING_VALUE",
  *   },

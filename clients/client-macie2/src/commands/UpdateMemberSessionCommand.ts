@@ -42,7 +42,7 @@ export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionRes
  * import { Macie2Client, UpdateMemberSessionCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateMemberSessionCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // UpdateMemberSessionRequest
  *   id: "STRING_VALUE", // required
  *   status: "PAUSED" || "ENABLED", // required
  * };

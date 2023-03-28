@@ -46,7 +46,7 @@ export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInference
  * import { ComprehendMedicalClient, StopRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StopRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
+ * const input = { // StopRxNormInferenceJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new StopRxNormInferenceJobCommand(input);

@@ -45,9 +45,9 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { ProtonClient, UntagResourceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UntagResourceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

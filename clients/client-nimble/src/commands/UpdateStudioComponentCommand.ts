@@ -47,12 +47,12 @@ export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponen
  * import { NimbleClient, UpdateStudioComponentCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateStudioComponentCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // UpdateStudioComponentRequest
  *   clientToken: "STRING_VALUE",
- *   configuration: {
- *     activeDirectoryConfiguration: {
- *       computerAttributes: [
- *         {
+ *   configuration: { // StudioComponentConfiguration
+ *     activeDirectoryConfiguration: { // ActiveDirectoryConfiguration
+ *       computerAttributes: [ // ActiveDirectoryComputerAttributeList
+ *         { // ActiveDirectoryComputerAttribute
  *           name: "STRING_VALUE",
  *           value: "STRING_VALUE",
  *         },
@@ -60,14 +60,14 @@ export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponen
  *       directoryId: "STRING_VALUE",
  *       organizationalUnitDistinguishedName: "STRING_VALUE",
  *     },
- *     computeFarmConfiguration: {
+ *     computeFarmConfiguration: { // ComputeFarmConfiguration
  *       activeDirectoryUser: "STRING_VALUE",
  *       endpoint: "STRING_VALUE",
  *     },
- *     licenseServiceConfiguration: {
+ *     licenseServiceConfiguration: { // LicenseServiceConfiguration
  *       endpoint: "STRING_VALUE",
  *     },
- *     sharedFileSystemConfiguration: {
+ *     sharedFileSystemConfiguration: { // SharedFileSystemConfiguration
  *       endpoint: "STRING_VALUE",
  *       fileSystemId: "STRING_VALUE",
  *       linuxMountPoint: "STRING_VALUE",
@@ -76,11 +76,11 @@ export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponen
  *     },
  *   },
  *   description: "STRING_VALUE",
- *   ec2SecurityGroupIds: [
+ *   ec2SecurityGroupIds: [ // StudioComponentSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   initializationScripts: [
- *     {
+ *   initializationScripts: [ // StudioComponentInitializationScriptList
+ *     { // StudioComponentInitializationScript
  *       launchProfileProtocolVersion: "STRING_VALUE",
  *       platform: "LINUX" || "WINDOWS",
  *       runContext: "SYSTEM_INITIALIZATION" || "USER_INITIALIZATION",
@@ -88,8 +88,8 @@ export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponen
  *     },
  *   ],
  *   name: "STRING_VALUE",
- *   scriptParameters: [
- *     {
+ *   scriptParameters: [ // StudioComponentScriptParameterKeyValueList
+ *     { // ScriptParameterKeyValue
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

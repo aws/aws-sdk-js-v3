@@ -42,7 +42,7 @@ export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGa
  * import { IoTWirelessClient, CreateWirelessGatewayTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessGatewayTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CreateWirelessGatewayTaskRequest
  *   Id: "STRING_VALUE", // required
  *   WirelessGatewayTaskDefinitionId: "STRING_VALUE", // required
  * };

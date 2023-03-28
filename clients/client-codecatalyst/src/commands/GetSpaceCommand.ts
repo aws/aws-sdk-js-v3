@@ -42,7 +42,7 @@ export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBeare
  * import { CodeCatalystClient, GetSpaceCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetSpaceCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // GetSpaceRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new GetSpaceCommand(input);

@@ -42,8 +42,8 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  * import { Inspector2Client, BatchGetFreeTrialInfoCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, BatchGetFreeTrialInfoCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
- *   accountIds: [ // required
+ * const input = { // BatchGetFreeTrialInfoRequest
+ *   accountIds: [ // MeteringAccountIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

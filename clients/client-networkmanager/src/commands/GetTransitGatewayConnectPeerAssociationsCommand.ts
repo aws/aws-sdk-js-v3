@@ -48,9 +48,9 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  * import { NetworkManagerClient, GetTransitGatewayConnectPeerAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetTransitGatewayConnectPeerAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetTransitGatewayConnectPeerAssociationsRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
- *   TransitGatewayConnectPeerArns: [
+ *   TransitGatewayConnectPeerArns: [ // TransitGatewayConnectPeerArnList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

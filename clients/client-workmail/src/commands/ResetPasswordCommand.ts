@@ -46,7 +46,7 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  * import { WorkMailClient, ResetPasswordCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ResetPasswordCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // ResetPasswordRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  *   Password: "STRING_VALUE", // required

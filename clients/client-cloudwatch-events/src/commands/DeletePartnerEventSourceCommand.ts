@@ -46,7 +46,7 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * import { CloudWatchEventsClient, DeletePartnerEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeletePartnerEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // DeletePartnerEventSourceRequest
  *   Name: "STRING_VALUE", // required
  *   Account: "STRING_VALUE", // required
  * };

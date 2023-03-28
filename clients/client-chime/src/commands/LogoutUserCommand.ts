@@ -42,7 +42,7 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
  * import { ChimeClient, LogoutUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, LogoutUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // LogoutUserRequest
  *   AccountId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  * };

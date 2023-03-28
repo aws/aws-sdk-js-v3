@@ -57,16 +57,16 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * import { IoTFleetWiseClient, CreateDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // CreateDecoderManifestRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   modelManifestArn: "STRING_VALUE", // required
- *   signalDecoders: [
- *     {
+ *   signalDecoders: [ // SignalDecoders
+ *     { // SignalDecoder
  *       fullyQualifiedName: "STRING_VALUE", // required
  *       type: "STRING_VALUE", // required
  *       interfaceId: "STRING_VALUE", // required
- *       canSignal: {
+ *       canSignal: { // CanSignal
  *         messageId: Number("int"), // required
  *         isBigEndian: true || false, // required
  *         isSigned: true || false, // required
@@ -76,7 +76,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         length: Number("int"), // required
  *         name: "STRING_VALUE",
  *       },
- *       obdSignal: {
+ *       obdSignal: { // ObdSignal
  *         pidResponseLength: Number("int"), // required
  *         serviceMode: Number("int"), // required
  *         pid: Number("int"), // required
@@ -89,16 +89,16 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *       },
  *     },
  *   ],
- *   networkInterfaces: [
- *     {
+ *   networkInterfaces: [ // NetworkInterfaces
+ *     { // NetworkInterface
  *       interfaceId: "STRING_VALUE", // required
  *       type: "STRING_VALUE", // required
- *       canInterface: {
+ *       canInterface: { // CanInterface
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
  *         protocolVersion: "STRING_VALUE",
  *       },
- *       obdInterface: {
+ *       obdInterface: { // ObdInterface
  *         name: "STRING_VALUE", // required
  *         requestMessageId: Number("int"), // required
  *         obdStandard: "STRING_VALUE",
@@ -109,8 +109,8 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *       },
  *     },
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

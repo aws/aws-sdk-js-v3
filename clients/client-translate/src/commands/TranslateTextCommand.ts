@@ -43,14 +43,14 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * import { TranslateClient, TranslateTextCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
- * const input = {
+ * const input = { // TranslateTextRequest
  *   Text: "STRING_VALUE", // required
- *   TerminologyNames: [
+ *   TerminologyNames: [ // ResourceNameList
  *     "STRING_VALUE",
  *   ],
  *   SourceLanguageCode: "STRING_VALUE", // required
  *   TargetLanguageCode: "STRING_VALUE", // required
- *   Settings: {
+ *   Settings: { // TranslationSettings
  *     Formality: "FORMAL" || "INFORMAL",
  *     Profanity: "MASK",
  *   },

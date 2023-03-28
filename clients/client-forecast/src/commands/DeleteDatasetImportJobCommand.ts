@@ -45,7 +45,7 @@ export interface DeleteDatasetImportJobCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DeleteDatasetImportJobRequest
  *   DatasetImportJobArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteDatasetImportJobCommand(input);

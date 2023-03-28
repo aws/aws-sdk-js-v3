@@ -48,12 +48,12 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  * import { SSMClient, RegisterTaskWithMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RegisterTaskWithMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // RegisterTaskWithMaintenanceWindowRequest
  *   WindowId: "STRING_VALUE", // required
- *   Targets: [
- *     {
+ *   Targets: [ // Targets
+ *     { // Target
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // TargetValues
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -61,53 +61,53 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  *   TaskArn: "STRING_VALUE", // required
  *   ServiceRoleArn: "STRING_VALUE",
  *   TaskType: "RUN_COMMAND" || "AUTOMATION" || "STEP_FUNCTIONS" || "LAMBDA", // required
- *   TaskParameters: {
- *     "<keys>": {
- *       Values: [
+ *   TaskParameters: { // MaintenanceWindowTaskParameters
+ *     "<keys>": { // MaintenanceWindowTaskParameterValueExpression
+ *       Values: [ // MaintenanceWindowTaskParameterValueList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
- *   TaskInvocationParameters: {
- *     RunCommand: {
+ *   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
+ *     RunCommand: { // MaintenanceWindowRunCommandParameters
  *       Comment: "STRING_VALUE",
- *       CloudWatchOutputConfig: {
+ *       CloudWatchOutputConfig: { // CloudWatchOutputConfig
  *         CloudWatchLogGroupName: "STRING_VALUE",
  *         CloudWatchOutputEnabled: true || false,
  *       },
  *       DocumentHash: "STRING_VALUE",
  *       DocumentHashType: "Sha256" || "Sha1",
  *       DocumentVersion: "STRING_VALUE",
- *       NotificationConfig: {
+ *       NotificationConfig: { // NotificationConfig
  *         NotificationArn: "STRING_VALUE",
- *         NotificationEvents: [
+ *         NotificationEvents: [ // NotificationEventList
  *           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
  *         ],
  *         NotificationType: "Command" || "Invocation",
  *       },
  *       OutputS3BucketName: "STRING_VALUE",
  *       OutputS3KeyPrefix: "STRING_VALUE",
- *       Parameters: {
- *         "<keys>": [
+ *       Parameters: { // Parameters
+ *         "<keys>": [ // ParameterValueList
  *           "STRING_VALUE",
  *         ],
  *       },
  *       ServiceRoleArn: "STRING_VALUE",
  *       TimeoutSeconds: Number("int"),
  *     },
- *     Automation: {
+ *     Automation: { // MaintenanceWindowAutomationParameters
  *       DocumentVersion: "STRING_VALUE",
- *       Parameters: {
- *         "<keys>": [
+ *       Parameters: { // AutomationParameterMap
+ *         "<keys>": [ // AutomationParameterValueList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     StepFunctions: {
+ *     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
  *       Input: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *     },
- *     Lambda: {
+ *     Lambda: { // MaintenanceWindowLambdaParameters
  *       ClientContext: "STRING_VALUE",
  *       Qualifier: "STRING_VALUE",
  *       Payload: "BLOB_VALUE",
@@ -116,7 +116,7 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  *   Priority: Number("int"),
  *   MaxConcurrency: "STRING_VALUE",
  *   MaxErrors: "STRING_VALUE",
- *   LoggingInfo: {
+ *   LoggingInfo: { // LoggingInfo
  *     S3BucketName: "STRING_VALUE", // required
  *     S3KeyPrefix: "STRING_VALUE",
  *     S3Region: "STRING_VALUE", // required
@@ -125,10 +125,10 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  *   Description: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   CutoffBehavior: "CONTINUE_TASK" || "CANCEL_TASK",
- *   AlarmConfiguration: {
+ *   AlarmConfiguration: { // AlarmConfiguration
  *     IgnorePollAlarmFailure: true || false,
- *     Alarms: [ // required
- *       {
+ *     Alarms: [ // AlarmList // required
+ *       { // Alarm
  *         Name: "STRING_VALUE", // required
  *       },
  *     ],

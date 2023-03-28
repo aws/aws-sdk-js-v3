@@ -47,7 +47,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { SESv2Client, ListTagsForResourceCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListTagsForResourceCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

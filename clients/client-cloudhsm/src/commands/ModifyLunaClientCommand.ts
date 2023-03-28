@@ -54,7 +54,7 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  * import { CloudHSMClient, ModifyLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ModifyLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
- * const input = {
+ * const input = { // ModifyLunaClientRequest
  *   ClientArn: "STRING_VALUE", // required
  *   Certificate: "STRING_VALUE", // required
  * };

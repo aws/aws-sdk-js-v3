@@ -48,7 +48,7 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  * import { AthenaClient, ListQueryExecutionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListQueryExecutionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // ListQueryExecutionsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   WorkGroup: "STRING_VALUE",

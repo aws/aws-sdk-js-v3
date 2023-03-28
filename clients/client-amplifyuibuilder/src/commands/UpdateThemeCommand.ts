@@ -42,36 +42,32 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * import { AmplifyUIBuilderClient, UpdateThemeCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, UpdateThemeCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
- * const input = {
+ * const input = { // UpdateThemeRequest
  *   appId: "STRING_VALUE", // required
  *   environmentName: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   updatedTheme: {
+ *   updatedTheme: { // UpdateThemeData
  *     id: "STRING_VALUE",
  *     name: "STRING_VALUE",
- *     values: [ // required
- *       {
+ *     values: [ // ThemeValuesList // required
+ *       { // ThemeValues
  *         key: "STRING_VALUE",
- *         value: {
+ *         value: { // ThemeValue
  *           value: "STRING_VALUE",
  *           children: [
  *             {
  *               key: "STRING_VALUE",
  *               value: {
  *                 value: "STRING_VALUE",
- *                 children: [
- *                   "<ThemeValuesList>",
- *                 ],
+ *                 children: "<ThemeValuesList>",
  *               },
  *             },
  *           ],
  *         },
  *       },
  *     ],
- *     overrides: [
- *       "<ThemeValuesList>",
- *     ],
+ *     overrides: "<ThemeValuesList>",
  *   },
  * };
  * const command = new UpdateThemeCommand(input);

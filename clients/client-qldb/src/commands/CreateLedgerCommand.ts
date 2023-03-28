@@ -42,9 +42,9 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * import { QLDBClient, CreateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, CreateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
- * const input = {
+ * const input = { // CreateLedgerRequest
  *   Name: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  *   PermissionsMode: "STRING_VALUE", // required

@@ -60,21 +60,21 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { MigrationHubRefactorSpacesClient, CreateServiceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, CreateServiceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
- * const input = {
+ * const input = { // CreateServiceRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   EnvironmentIdentifier: "STRING_VALUE", // required
  *   ApplicationIdentifier: "STRING_VALUE", // required
  *   VpcId: "STRING_VALUE",
  *   EndpointType: "STRING_VALUE", // required
- *   UrlEndpoint: {
+ *   UrlEndpoint: { // UrlEndpointInput
  *     Url: "STRING_VALUE", // required
  *     HealthUrl: "STRING_VALUE",
  *   },
- *   LambdaEndpoint: {
+ *   LambdaEndpoint: { // LambdaEndpointInput
  *     Arn: "STRING_VALUE", // required
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ClientToken: "STRING_VALUE",

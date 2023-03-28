@@ -47,12 +47,12 @@ export interface CreateStudioComponentCommandOutput extends CreateStudioComponen
  * import { NimbleClient, CreateStudioComponentCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStudioComponentCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // CreateStudioComponentRequest
  *   clientToken: "STRING_VALUE",
- *   configuration: {
- *     activeDirectoryConfiguration: {
- *       computerAttributes: [
- *         {
+ *   configuration: { // StudioComponentConfiguration
+ *     activeDirectoryConfiguration: { // ActiveDirectoryConfiguration
+ *       computerAttributes: [ // ActiveDirectoryComputerAttributeList
+ *         { // ActiveDirectoryComputerAttribute
  *           name: "STRING_VALUE",
  *           value: "STRING_VALUE",
  *         },
@@ -60,14 +60,14 @@ export interface CreateStudioComponentCommandOutput extends CreateStudioComponen
  *       directoryId: "STRING_VALUE",
  *       organizationalUnitDistinguishedName: "STRING_VALUE",
  *     },
- *     computeFarmConfiguration: {
+ *     computeFarmConfiguration: { // ComputeFarmConfiguration
  *       activeDirectoryUser: "STRING_VALUE",
  *       endpoint: "STRING_VALUE",
  *     },
- *     licenseServiceConfiguration: {
+ *     licenseServiceConfiguration: { // LicenseServiceConfiguration
  *       endpoint: "STRING_VALUE",
  *     },
- *     sharedFileSystemConfiguration: {
+ *     sharedFileSystemConfiguration: { // SharedFileSystemConfiguration
  *       endpoint: "STRING_VALUE",
  *       fileSystemId: "STRING_VALUE",
  *       linuxMountPoint: "STRING_VALUE",
@@ -76,11 +76,11 @@ export interface CreateStudioComponentCommandOutput extends CreateStudioComponen
  *     },
  *   },
  *   description: "STRING_VALUE",
- *   ec2SecurityGroupIds: [
+ *   ec2SecurityGroupIds: [ // StudioComponentSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   initializationScripts: [
- *     {
+ *   initializationScripts: [ // StudioComponentInitializationScriptList
+ *     { // StudioComponentInitializationScript
  *       launchProfileProtocolVersion: "STRING_VALUE",
  *       platform: "LINUX" || "WINDOWS",
  *       runContext: "SYSTEM_INITIALIZATION" || "USER_INITIALIZATION",
@@ -88,15 +88,15 @@ export interface CreateStudioComponentCommandOutput extends CreateStudioComponen
  *     },
  *   ],
  *   name: "STRING_VALUE", // required
- *   scriptParameters: [
- *     {
+ *   scriptParameters: [ // StudioComponentScriptParameterKeyValueList
+ *     { // ScriptParameterKeyValue
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
  *   ],
  *   studioId: "STRING_VALUE", // required
  *   subtype: "AWS_MANAGED_MICROSOFT_AD" || "AMAZON_FSX_FOR_WINDOWS" || "AMAZON_FSX_FOR_LUSTRE" || "CUSTOM",
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  *   type: "ACTIVE_DIRECTORY" || "SHARED_FILE_SYSTEM" || "COMPUTE_FARM" || "LICENSE_SERVICE" || "CUSTOM", // required

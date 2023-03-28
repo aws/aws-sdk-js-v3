@@ -46,10 +46,10 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  * import { FinspaceDataClient, CreatePermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreatePermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // CreatePermissionGroupRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   applicationPermissions: [ // required
+ *   applicationPermissions: [ // ApplicationPermissionList // required
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",

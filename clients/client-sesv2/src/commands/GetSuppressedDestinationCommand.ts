@@ -43,7 +43,7 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * import { SESv2Client, GetSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // GetSuppressedDestinationRequest
  *   EmailAddress: "STRING_VALUE", // required
  * };
  * const command = new GetSuppressedDestinationCommand(input);

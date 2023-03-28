@@ -42,14 +42,14 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  * import { CodeGuruProfilerClient, CreateProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, CreateProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // CreateProfilingGroupRequest
  *   profilingGroupName: "STRING_VALUE", // required
  *   computePlatform: "STRING_VALUE",
  *   clientToken: "STRING_VALUE", // required
- *   agentOrchestrationConfig: {
+ *   agentOrchestrationConfig: { // AgentOrchestrationConfig
  *     profilingEnabled: true || false, // required
  *   },
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

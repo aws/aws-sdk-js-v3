@@ -42,7 +42,7 @@ export interface UpdateClassificationJobCommandOutput extends UpdateClassificati
  * import { Macie2Client, UpdateClassificationJobCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateClassificationJobCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // UpdateClassificationJobRequest
  *   jobId: "STRING_VALUE", // required
  *   jobStatus: "RUNNING" || "PAUSED" || "CANCELLED" || "COMPLETE" || "IDLE" || "USER_PAUSED", // required
  * };

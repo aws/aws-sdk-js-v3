@@ -77,10 +77,10 @@ export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // TagInstanceProfileRequest
  *   InstanceProfileName: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // tagListType // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

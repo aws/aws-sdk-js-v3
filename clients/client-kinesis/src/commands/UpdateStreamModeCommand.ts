@@ -45,9 +45,9 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, UpdateStreamModeCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, UpdateStreamModeCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
+ * const input = { // UpdateStreamModeInput
  *   StreamARN: "STRING_VALUE", // required
- *   StreamModeDetails: {
+ *   StreamModeDetails: { // StreamModeDetails
  *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
  *   },
  * };

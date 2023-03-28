@@ -53,7 +53,7 @@ export interface DeleteServiceTemplateVersionCommandOutput
  * import { ProtonClient, DeleteServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // DeleteServiceTemplateVersionInput
  *   templateName: "STRING_VALUE", // required
  *   majorVersion: "STRING_VALUE", // required
  *   minorVersion: "STRING_VALUE", // required

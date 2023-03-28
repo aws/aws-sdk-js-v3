@@ -43,30 +43,30 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * import { IoTClient, CreateJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateJobTemplateRequest
  *   jobTemplateId: "STRING_VALUE", // required
  *   jobArn: "STRING_VALUE",
  *   documentSource: "STRING_VALUE",
  *   document: "STRING_VALUE",
  *   description: "STRING_VALUE", // required
- *   presignedUrlConfig: {
+ *   presignedUrlConfig: { // PresignedUrlConfig
  *     roleArn: "STRING_VALUE",
  *     expiresInSec: Number("long"),
  *   },
- *   jobExecutionsRolloutConfig: {
+ *   jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
  *     maximumPerMinute: Number("int"),
- *     exponentialRate: {
+ *     exponentialRate: { // ExponentialRolloutRate
  *       baseRatePerMinute: Number("int"), // required
  *       incrementFactor: Number("double"), // required
- *       rateIncreaseCriteria: {
+ *       rateIncreaseCriteria: { // RateIncreaseCriteria
  *         numberOfNotifiedThings: Number("int"),
  *         numberOfSucceededThings: Number("int"),
  *       },
  *     },
  *   },
- *   abortConfig: {
- *     criteriaList: [ // required
- *       {
+ *   abortConfig: { // AbortConfig
+ *     criteriaList: [ // AbortCriteriaList // required
+ *       { // AbortCriteria
  *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
  *         action: "CANCEL", // required
  *         thresholdPercentage: Number("double"), // required
@@ -74,25 +74,25 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *       },
  *     ],
  *   },
- *   timeoutConfig: {
+ *   timeoutConfig: { // TimeoutConfig
  *     inProgressTimeoutInMinutes: Number("long"),
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   jobExecutionsRetryConfig: {
- *     criteriaList: [ // required
- *       {
+ *   jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
+ *     criteriaList: [ // RetryCriteriaList // required
+ *       { // RetryCriteria
  *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
  *         numberOfRetries: Number("int"), // required
  *       },
  *     ],
  *   },
- *   maintenanceWindows: [
- *     {
+ *   maintenanceWindows: [ // MaintenanceWindows
+ *     { // MaintenanceWindow
  *       startTime: "STRING_VALUE", // required
  *       durationInMinutes: Number("int"), // required
  *     },

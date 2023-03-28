@@ -46,7 +46,7 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * import { EC2Client, CreateNetworkInterfacePermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateNetworkInterfacePermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateNetworkInterfacePermissionRequest
  *   NetworkInterfaceId: "STRING_VALUE", // required
  *   AwsAccountId: "STRING_VALUE",
  *   AwsService: "STRING_VALUE",

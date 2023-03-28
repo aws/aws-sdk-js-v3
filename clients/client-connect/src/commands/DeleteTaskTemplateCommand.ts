@@ -42,7 +42,7 @@ export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateRespo
  * import { ConnectClient, DeleteTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DeleteTaskTemplateRequest
  *   InstanceId: "STRING_VALUE", // required
  *   TaskTemplateId: "STRING_VALUE", // required
  * };

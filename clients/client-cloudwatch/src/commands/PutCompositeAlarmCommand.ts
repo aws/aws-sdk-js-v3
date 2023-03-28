@@ -80,9 +80,9 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, PutCompositeAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutCompositeAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // PutCompositeAlarmInput
  *   ActionsEnabled: true || false,
- *   AlarmActions: [
+ *   AlarmActions: [ // ResourceList
  *     "STRING_VALUE",
  *   ],
  *   AlarmDescription: "STRING_VALUE",
@@ -94,8 +94,8 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  *   OKActions: [
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

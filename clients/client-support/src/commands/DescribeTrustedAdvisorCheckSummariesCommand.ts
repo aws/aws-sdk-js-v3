@@ -68,8 +68,8 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  * import { SupportClient, DescribeTrustedAdvisorCheckSummariesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeTrustedAdvisorCheckSummariesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
- * const input = {
- *   checkIds: [ // required
+ * const input = { // DescribeTrustedAdvisorCheckSummariesRequest
+ *   checkIds: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  * };

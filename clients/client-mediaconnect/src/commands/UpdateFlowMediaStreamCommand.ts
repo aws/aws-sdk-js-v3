@@ -42,9 +42,9 @@ export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStrea
  * import { MediaConnectClient, UpdateFlowMediaStreamCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowMediaStreamCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
- *   Attributes: {
- *     Fmtp: {
+ * const input = { // UpdateFlowMediaStreamRequest
+ *   Attributes: { // MediaStreamAttributesRequest
+ *     Fmtp: { // FmtpRequest
  *       ChannelOrder: "STRING_VALUE",
  *       Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
  *       ExactFramerate: "STRING_VALUE",

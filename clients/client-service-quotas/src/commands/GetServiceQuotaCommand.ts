@@ -44,7 +44,7 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * import { ServiceQuotasClient, GetServiceQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetServiceQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // GetServiceQuotaRequest
  *   ServiceCode: "STRING_VALUE", // required
  *   QuotaCode: "STRING_VALUE", // required
  * };

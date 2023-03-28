@@ -42,7 +42,7 @@ export interface DeletePredictorBacktestExportJobCommandOutput extends __Metadat
  * import { ForecastClient, DeletePredictorBacktestExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeletePredictorBacktestExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DeletePredictorBacktestExportJobRequest
  *   PredictorBacktestExportJobArn: "STRING_VALUE", // required
  * };
  * const command = new DeletePredictorBacktestExportJobCommand(input);

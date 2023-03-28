@@ -45,7 +45,7 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  * import { IoTClient, DescribeCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DescribeCustomMetricRequest
  *   metricName: "STRING_VALUE", // required
  * };
  * const command = new DescribeCustomMetricCommand(input);

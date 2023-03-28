@@ -77,9 +77,9 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * import { SWFClient, PollForActivityTaskCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, PollForActivityTaskCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // PollForActivityTaskInput
  *   domain: "STRING_VALUE", // required
- *   taskList: {
+ *   taskList: { // TaskList
  *     name: "STRING_VALUE", // required
  *   },
  *   identity: "STRING_VALUE",

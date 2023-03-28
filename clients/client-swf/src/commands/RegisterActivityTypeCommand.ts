@@ -88,14 +88,14 @@ export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
  * import { SWFClient, RegisterActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RegisterActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // RegisterActivityTypeInput
  *   domain: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   defaultTaskStartToCloseTimeout: "STRING_VALUE",
  *   defaultTaskHeartbeatTimeout: "STRING_VALUE",
- *   defaultTaskList: {
+ *   defaultTaskList: { // TaskList
  *     name: "STRING_VALUE", // required
  *   },
  *   defaultTaskPriority: "STRING_VALUE",

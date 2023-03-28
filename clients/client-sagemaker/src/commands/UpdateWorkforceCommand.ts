@@ -71,14 +71,14 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * import { SageMakerClient, UpdateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateWorkforceRequest
  *   WorkforceName: "STRING_VALUE", // required
- *   SourceIpConfig: {
- *     Cidrs: [ // required
+ *   SourceIpConfig: { // SourceIpConfig
+ *     Cidrs: [ // Cidrs // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   OidcConfig: {
+ *   OidcConfig: { // OidcConfig
  *     ClientId: "STRING_VALUE", // required
  *     ClientSecret: "STRING_VALUE", // required
  *     Issuer: "STRING_VALUE", // required
@@ -88,12 +88,12 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *     LogoutEndpoint: "STRING_VALUE", // required
  *     JwksUri: "STRING_VALUE", // required
  *   },
- *   WorkforceVpcConfig: {
+ *   WorkforceVpcConfig: { // WorkforceVpcConfigRequest
  *     VpcId: "STRING_VALUE",
- *     SecurityGroupIds: [
+ *     SecurityGroupIds: [ // WorkforceSecurityGroupIds
  *       "STRING_VALUE",
  *     ],
- *     Subnets: [
+ *     Subnets: [ // WorkforceSubnets
  *       "STRING_VALUE",
  *     ],
  *   },

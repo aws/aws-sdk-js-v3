@@ -42,12 +42,12 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
- *   Entries: [ // required
- *     {
+ * const input = { // PutEventsRequest
+ *   Entries: [ // PutEventsRequestEntryList // required
+ *     { // PutEventsRequestEntry
  *       Time: new Date("TIMESTAMP"),
  *       Source: "STRING_VALUE",
- *       Resources: [
+ *       Resources: [ // EventResourceList
  *         "STRING_VALUE",
  *       ],
  *       DetailType: "STRING_VALUE",

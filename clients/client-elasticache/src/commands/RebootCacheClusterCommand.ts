@@ -52,9 +52,9 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * import { ElastiCacheClient, RebootCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, RebootCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // RebootCacheClusterMessage
  *   CacheClusterId: "STRING_VALUE", // required
- *   CacheNodeIdsToReboot: [ // required
+ *   CacheNodeIdsToReboot: [ // CacheNodeIdsList // required
  *     "STRING_VALUE",
  *   ],
  * };

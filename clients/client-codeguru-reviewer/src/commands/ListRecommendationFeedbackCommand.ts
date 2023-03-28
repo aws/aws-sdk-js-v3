@@ -43,14 +43,14 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  * import { CodeGuruReviewerClient, ListRecommendationFeedbackCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
+ * const input = { // ListRecommendationFeedbackRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CodeReviewArn: "STRING_VALUE", // required
- *   UserIds: [
+ *   UserIds: [ // UserIds
  *     "STRING_VALUE",
  *   ],
- *   RecommendationIds: [
+ *   RecommendationIds: [ // RecommendationIds
  *     "STRING_VALUE",
  *   ],
  * };

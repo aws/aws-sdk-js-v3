@@ -49,12 +49,12 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * import { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // CreateDirectConnectGatewayAssociationProposalRequest
  *   directConnectGatewayId: "STRING_VALUE", // required
  *   directConnectGatewayOwnerAccount: "STRING_VALUE", // required
  *   gatewayId: "STRING_VALUE", // required
- *   addAllowedPrefixesToDirectConnectGateway: [
- *     {
+ *   addAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ *     { // RouteFilterPrefix
  *       cidr: "STRING_VALUE",
  *     },
  *   ],

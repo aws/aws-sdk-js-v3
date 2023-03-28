@@ -43,33 +43,33 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * import { AppStreamClient, CreateImageBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateImageBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // CreateImageBuilderRequest
  *   Name: "STRING_VALUE", // required
  *   ImageName: "STRING_VALUE",
  *   ImageArn: "STRING_VALUE",
  *   InstanceType: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE",
- *   VpcConfig: {
- *     SubnetIds: [
+ *   VpcConfig: { // VpcConfig
+ *     SubnetIds: [ // SubnetIdList
  *       "STRING_VALUE",
  *     ],
- *     SecurityGroupIds: [
+ *     SecurityGroupIds: [ // SecurityGroupIdList
  *       "STRING_VALUE",
  *     ],
  *   },
  *   IamRoleArn: "STRING_VALUE",
  *   EnableDefaultInternetAccess: true || false,
- *   DomainJoinInfo: {
+ *   DomainJoinInfo: { // DomainJoinInfo
  *     DirectoryName: "STRING_VALUE",
  *     OrganizationalUnitDistinguishedName: "STRING_VALUE",
  *   },
  *   AppstreamAgentVersion: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AccessEndpoints: [
- *     {
+ *   AccessEndpoints: [ // AccessEndpointList
+ *     { // AccessEndpoint
  *       EndpointType: "STREAMING", // required
  *       VpceId: "STRING_VALUE",
  *     },

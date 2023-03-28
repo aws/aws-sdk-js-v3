@@ -43,12 +43,12 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  * import { IoTClient, UpdateDynamicThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateDynamicThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateDynamicThingGroupRequest
  *   thingGroupName: "STRING_VALUE", // required
- *   thingGroupProperties: {
+ *   thingGroupProperties: { // ThingGroupProperties
  *     thingGroupDescription: "STRING_VALUE",
- *     attributePayload: {
- *       attributes: {
+ *     attributePayload: { // AttributePayload
+ *       attributes: { // Attributes
  *         "<keys>": "STRING_VALUE",
  *       },
  *       merge: true || false,

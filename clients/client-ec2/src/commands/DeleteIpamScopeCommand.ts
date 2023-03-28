@@ -41,7 +41,7 @@ export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __M
  * import { EC2Client, DeleteIpamScopeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteIpamScopeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteIpamScopeRequest
  *   DryRun: true || false,
  *   IpamScopeId: "STRING_VALUE", // required
  * };

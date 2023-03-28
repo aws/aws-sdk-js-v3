@@ -44,7 +44,7 @@ export interface GetTypedLinkFacetInformationCommandOutput
  * import { CloudDirectoryClient, GetTypedLinkFacetInformationCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetTypedLinkFacetInformationCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // GetTypedLinkFacetInformationRequest
  *   SchemaArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  * };

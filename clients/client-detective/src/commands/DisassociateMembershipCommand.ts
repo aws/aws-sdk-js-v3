@@ -48,7 +48,7 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * import { DetectiveClient, DisassociateMembershipCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, DisassociateMembershipCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
- * const input = {
+ * const input = { // DisassociateMembershipRequest
  *   GraphArn: "STRING_VALUE", // required
  * };
  * const command = new DisassociateMembershipCommand(input);

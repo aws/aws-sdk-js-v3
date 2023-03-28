@@ -42,7 +42,7 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * import { DeviceFarmClient, UpdateVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // UpdateVPCEConfigurationRequest
  *   arn: "STRING_VALUE", // required
  *   vpceConfigurationName: "STRING_VALUE",
  *   vpceServiceName: "STRING_VALUE",

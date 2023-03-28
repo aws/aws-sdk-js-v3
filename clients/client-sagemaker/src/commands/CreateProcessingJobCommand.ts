@@ -42,12 +42,12 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  * import { SageMakerClient, CreateProcessingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateProcessingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
- *   ProcessingInputs: [
- *     {
+ * const input = { // CreateProcessingJobRequest
+ *   ProcessingInputs: [ // ProcessingInputs
+ *     { // ProcessingInput
  *       InputName: "STRING_VALUE", // required
  *       AppManaged: true || false,
- *       S3Input: {
+ *       S3Input: { // ProcessingS3Input
  *         S3Uri: "STRING_VALUE", // required
  *         LocalPath: "STRING_VALUE",
  *         S3DataType: "ManifestFile" || "S3Prefix", // required
@@ -55,8 +55,8 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  *         S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
  *         S3CompressionType: "None" || "Gzip",
  *       },
- *       DatasetDefinition: {
- *         AthenaDatasetDefinition: {
+ *       DatasetDefinition: { // DatasetDefinition
+ *         AthenaDatasetDefinition: { // AthenaDatasetDefinition
  *           Catalog: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           QueryString: "STRING_VALUE", // required
@@ -66,7 +66,7 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  *           OutputFormat: "PARQUET" || "ORC" || "AVRO" || "JSON" || "TEXTFILE", // required
  *           OutputCompression: "GZIP" || "SNAPPY" || "ZLIB",
  *         },
- *         RedshiftDatasetDefinition: {
+ *         RedshiftDatasetDefinition: { // RedshiftDatasetDefinition
  *           ClusterId: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           DbUser: "STRING_VALUE", // required
@@ -83,16 +83,16 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  *       },
  *     },
  *   ],
- *   ProcessingOutputConfig: {
- *     Outputs: [ // required
- *       {
+ *   ProcessingOutputConfig: { // ProcessingOutputConfig
+ *     Outputs: [ // ProcessingOutputs // required
+ *       { // ProcessingOutput
  *         OutputName: "STRING_VALUE", // required
- *         S3Output: {
+ *         S3Output: { // ProcessingS3Output
  *           S3Uri: "STRING_VALUE", // required
  *           LocalPath: "STRING_VALUE", // required
  *           S3UploadMode: "Continuous" || "EndOfJob", // required
  *         },
- *         FeatureStoreOutput: {
+ *         FeatureStoreOutput: { // ProcessingFeatureStoreOutput
  *           FeatureGroupName: "STRING_VALUE", // required
  *         },
  *         AppManaged: true || false,
@@ -101,49 +101,49 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  *     KmsKeyId: "STRING_VALUE",
  *   },
  *   ProcessingJobName: "STRING_VALUE", // required
- *   ProcessingResources: {
- *     ClusterConfig: {
+ *   ProcessingResources: { // ProcessingResources
+ *     ClusterConfig: { // ProcessingClusterConfig
  *       InstanceCount: Number("int"), // required
  *       InstanceType: "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge", // required
  *       VolumeSizeInGB: Number("int"), // required
  *       VolumeKmsKeyId: "STRING_VALUE",
  *     },
  *   },
- *   StoppingCondition: {
+ *   StoppingCondition: { // ProcessingStoppingCondition
  *     MaxRuntimeInSeconds: Number("int"), // required
  *   },
- *   AppSpecification: {
+ *   AppSpecification: { // AppSpecification
  *     ImageUri: "STRING_VALUE", // required
- *     ContainerEntrypoint: [
+ *     ContainerEntrypoint: [ // ContainerEntrypoint
  *       "STRING_VALUE",
  *     ],
- *     ContainerArguments: [
+ *     ContainerArguments: [ // ContainerArguments
  *       "STRING_VALUE",
  *     ],
  *   },
- *   Environment: {
+ *   Environment: { // ProcessingEnvironmentMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   NetworkConfig: {
+ *   NetworkConfig: { // NetworkConfig
  *     EnableInterContainerTrafficEncryption: true || false,
  *     EnableNetworkIsolation: true || false,
- *     VpcConfig: {
- *       SecurityGroupIds: [ // required
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // VpcSecurityGroupIds // required
  *         "STRING_VALUE",
  *       ],
- *       Subnets: [ // required
+ *       Subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   ExperimentConfig: {
+ *   ExperimentConfig: { // ExperimentConfig
  *     ExperimentName: "STRING_VALUE",
  *     TrialName: "STRING_VALUE",
  *     TrialComponentDisplayName: "STRING_VALUE",

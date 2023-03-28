@@ -51,7 +51,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * import { WorkDocsClient, DescribeUsersCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeUsersCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DescribeUsersRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   OrganizationId: "STRING_VALUE",
  *   UserIds: "STRING_VALUE",

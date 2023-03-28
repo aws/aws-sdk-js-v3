@@ -51,25 +51,25 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetAutoScalingGroupRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetAutoScalingGroupRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const input = {
- *   accountIds: [
+ * const input = { // GetAutoScalingGroupRecommendationsRequest
+ *   accountIds: [ // AccountIds
  *     "STRING_VALUE",
  *   ],
- *   autoScalingGroupArns: [
+ *   autoScalingGroupArns: [ // AutoScalingGroupArns
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filters: [
- *     {
+ *   filters: [ // Filters
+ *     { // Filter
  *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   recommendationPreferences: {
- *     cpuVendorArchitectures: [
+ *   recommendationPreferences: { // RecommendationPreferences
+ *     cpuVendorArchitectures: [ // CpuVendorArchitectures
  *       "AWS_ARM64" || "CURRENT",
  *     ],
  *   },

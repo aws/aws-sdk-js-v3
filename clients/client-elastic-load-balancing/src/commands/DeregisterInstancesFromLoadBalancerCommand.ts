@@ -51,10 +51,10 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * import { ElasticLoadBalancingClient, DeregisterInstancesFromLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DeregisterInstancesFromLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // DeregisterEndPointsInput
  *   LoadBalancerName: "STRING_VALUE", // required
- *   Instances: [ // required
- *     {
+ *   Instances: [ // Instances // required
+ *     { // Instance
  *       InstanceId: "STRING_VALUE",
  *     },
  *   ],

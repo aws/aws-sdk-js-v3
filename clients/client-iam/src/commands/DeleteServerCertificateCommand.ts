@@ -56,7 +56,7 @@ export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {
  * import { IAMClient, DeleteServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // DeleteServerCertificateRequest
  *   ServerCertificateName: "STRING_VALUE", // required
  * };
  * const command = new DeleteServerCertificateCommand(input);

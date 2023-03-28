@@ -43,19 +43,19 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * import { FMSClient, PutResourceSetCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutResourceSetCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
- *   ResourceSet: {
+ * const input = { // PutResourceSetRequest
+ *   ResourceSet: { // ResourceSet
  *     Id: "STRING_VALUE",
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
  *     UpdateToken: "STRING_VALUE",
- *     ResourceTypeList: [ // required
+ *     ResourceTypeList: [ // ResourceTypeList // required
  *       "STRING_VALUE",
  *     ],
  *     LastUpdateTime: new Date("TIMESTAMP"),
  *   },
- *   TagList: [
- *     {
+ *   TagList: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

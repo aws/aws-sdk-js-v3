@@ -65,12 +65,12 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * import { SWFClient, RegisterDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RegisterDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // RegisterDomainInput
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   workflowExecutionRetentionPeriodInDays: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // ResourceTagList
+ *     { // ResourceTag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },

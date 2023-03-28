@@ -43,32 +43,32 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  * import { IoTWirelessClient, GetPositionEstimateCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetPositionEstimateCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
- *   WiFiAccessPoints: [
- *     {
+ * const input = { // GetPositionEstimateRequest
+ *   WiFiAccessPoints: [ // WiFiAccessPoints
+ *     { // WiFiAccessPoint
  *       MacAddress: "STRING_VALUE", // required
  *       Rss: Number("int"), // required
  *     },
  *   ],
- *   CellTowers: {
- *     Gsm: [
- *       {
+ *   CellTowers: { // CellTowers
+ *     Gsm: [ // GsmList
+ *       { // GsmObj
  *         Mcc: Number("int"), // required
  *         Mnc: Number("int"), // required
  *         Lac: Number("int"), // required
  *         GeranCid: Number("int"), // required
- *         GsmLocalId: {
+ *         GsmLocalId: { // GsmLocalId
  *           Bsic: Number("int"), // required
  *           Bcch: Number("int"), // required
  *         },
  *         GsmTimingAdvance: Number("int"),
  *         RxLevel: Number("int"),
- *         GsmNmr: [
- *           {
+ *         GsmNmr: [ // GsmNmrList
+ *           { // GsmNmrObj
  *             Bsic: Number("int"), // required
  *             Bcch: Number("int"), // required
  *             RxLevel: Number("int"),
- *             GlobalIdentity: {
+ *             GlobalIdentity: { // GlobalIdentity
  *               Lac: Number("int"), // required
  *               GeranCid: Number("int"), // required
  *             },
@@ -76,20 +76,20 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  *         ],
  *       },
  *     ],
- *     Wcdma: [
- *       {
+ *     Wcdma: [ // WcdmaList
+ *       { // WcdmaObj
  *         Mcc: Number("int"), // required
  *         Mnc: Number("int"), // required
  *         Lac: Number("int"),
  *         UtranCid: Number("int"), // required
- *         WcdmaLocalId: {
+ *         WcdmaLocalId: { // WcdmaLocalId
  *           Uarfcndl: Number("int"), // required
  *           Psc: Number("int"), // required
  *         },
  *         Rscp: Number("int"),
  *         PathLoss: Number("int"),
- *         WcdmaNmr: [
- *           {
+ *         WcdmaNmr: [ // WcdmaNmrList
+ *           { // WcdmaNmrObj
  *             Uarfcndl: Number("int"), // required
  *             Psc: Number("int"), // required
  *             UtranCid: Number("int"), // required
@@ -99,21 +99,21 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  *         ],
  *       },
  *     ],
- *     Tdscdma: [
- *       {
+ *     Tdscdma: [ // TdscdmaList
+ *       { // TdscdmaObj
  *         Mcc: Number("int"), // required
  *         Mnc: Number("int"), // required
  *         Lac: Number("int"),
  *         UtranCid: Number("int"), // required
- *         TdscdmaLocalId: {
+ *         TdscdmaLocalId: { // TdscdmaLocalId
  *           Uarfcn: Number("int"), // required
  *           CellParams: Number("int"), // required
  *         },
  *         TdscdmaTimingAdvance: Number("int"),
  *         Rscp: Number("int"),
  *         PathLoss: Number("int"),
- *         TdscdmaNmr: [
- *           {
+ *         TdscdmaNmr: [ // TdscdmaNmrList
+ *           { // TdscdmaNmrObj
  *             Uarfcn: Number("int"), // required
  *             CellParams: Number("int"), // required
  *             UtranCid: Number("int"),
@@ -123,13 +123,13 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  *         ],
  *       },
  *     ],
- *     Lte: [
- *       {
+ *     Lte: [ // LteList
+ *       { // LteObj
  *         Mcc: Number("int"), // required
  *         Mnc: Number("int"), // required
  *         EutranCid: Number("int"), // required
  *         Tac: Number("int"),
- *         LteLocalId: {
+ *         LteLocalId: { // LteLocalId
  *           Pci: Number("int"), // required
  *           Earfcn: Number("int"), // required
  *         },
@@ -137,8 +137,8 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  *         Rsrp: Number("int"),
  *         Rsrq: Number("float"),
  *         NrCapable: true || false,
- *         LteNmr: [
- *           {
+ *         LteNmr: [ // LteNmrList
+ *           { // LteNmrObj
  *             Pci: Number("int"), // required
  *             Earfcn: Number("int"), // required
  *             EutranCid: Number("int"), // required
@@ -148,21 +148,21 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  *         ],
  *       },
  *     ],
- *     Cdma: [
- *       {
+ *     Cdma: [ // CdmaList
+ *       { // CdmaObj
  *         SystemId: Number("int"), // required
  *         NetworkId: Number("int"), // required
  *         BaseStationId: Number("int"), // required
  *         RegistrationZone: Number("int"),
- *         CdmaLocalId: {
+ *         CdmaLocalId: { // CdmaLocalId
  *           PnOffset: Number("int"), // required
  *           CdmaChannel: Number("int"), // required
  *         },
  *         PilotPower: Number("int"),
  *         BaseLat: Number("float"),
  *         BaseLng: Number("float"),
- *         CdmaNmr: [
- *           {
+ *         CdmaNmr: [ // CdmaNmrList
+ *           { // CdmaNmrObj
  *             PnOffset: Number("int"), // required
  *             CdmaChannel: Number("int"), // required
  *             PilotPower: Number("int"),
@@ -172,14 +172,14 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  *       },
  *     ],
  *   },
- *   Ip: {
+ *   Ip: { // Ip
  *     IpAddress: "STRING_VALUE", // required
  *   },
- *   Gnss: {
+ *   Gnss: { // Gnss
  *     Payload: "STRING_VALUE", // required
  *     CaptureTime: Number("float"),
  *     CaptureTimeAccuracy: Number("float"),
- *     AssistPosition: [
+ *     AssistPosition: [ // AssistPosition
  *       Number("float"),
  *     ],
  *     AssistAltitude: Number("float"),

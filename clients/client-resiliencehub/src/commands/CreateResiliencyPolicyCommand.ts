@@ -47,19 +47,19 @@ export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPol
  * import { ResiliencehubClient, CreateResiliencyPolicyCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, CreateResiliencyPolicyCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // CreateResiliencyPolicyRequest
  *   policyName: "STRING_VALUE", // required
  *   policyDescription: "STRING_VALUE",
  *   dataLocationConstraint: "STRING_VALUE",
  *   tier: "STRING_VALUE", // required
- *   policy: { // required
- *     "<keys>": {
+ *   policy: { // DisruptionPolicy // required
+ *     "<keys>": { // FailurePolicy
  *       rtoInSecs: Number("int"), // required
  *       rpoInSecs: Number("int"), // required
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

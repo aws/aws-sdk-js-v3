@@ -47,7 +47,7 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopTransformJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopTransformJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // StopTransformJobRequest
  *   TransformJobName: "STRING_VALUE", // required
  * };
  * const command = new StopTransformJobCommand(input);

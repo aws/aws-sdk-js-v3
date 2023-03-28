@@ -55,7 +55,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * import { DatabaseMigrationServiceClient, DeleteEndpointCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteEndpointCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DeleteEndpointMessage
  *   EndpointArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteEndpointCommand(input);

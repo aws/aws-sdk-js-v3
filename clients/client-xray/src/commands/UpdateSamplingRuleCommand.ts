@@ -42,8 +42,8 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  * import { XRayClient, UpdateSamplingRuleCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, UpdateSamplingRuleCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
- * const input = {
- *   SamplingRuleUpdate: {
+ * const input = { // UpdateSamplingRuleRequest
+ *   SamplingRuleUpdate: { // SamplingRuleUpdate
  *     RuleName: "STRING_VALUE",
  *     RuleARN: "STRING_VALUE",
  *     ResourceARN: "STRING_VALUE",
@@ -55,7 +55,7 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  *     ServiceType: "STRING_VALUE",
  *     HTTPMethod: "STRING_VALUE",
  *     URLPath: "STRING_VALUE",
- *     Attributes: {
+ *     Attributes: { // AttributeMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

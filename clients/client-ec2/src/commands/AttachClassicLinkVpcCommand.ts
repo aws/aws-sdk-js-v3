@@ -51,9 +51,9 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
  * import { EC2Client, AttachClassicLinkVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachClassicLinkVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AttachClassicLinkVpcRequest
  *   DryRun: true || false,
- *   Groups: [ // required
+ *   Groups: [ // GroupIdStringList // required
  *     "STRING_VALUE",
  *   ],
  *   InstanceId: "STRING_VALUE", // required

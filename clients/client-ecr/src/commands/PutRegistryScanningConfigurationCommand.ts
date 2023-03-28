@@ -44,13 +44,13 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * import { ECRClient, PutRegistryScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutRegistryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // PutRegistryScanningConfigurationRequest
  *   scanType: "STRING_VALUE",
- *   rules: [
- *     {
+ *   rules: [ // RegistryScanningRuleList
+ *     { // RegistryScanningRule
  *       scanFrequency: "STRING_VALUE", // required
- *       repositoryFilters: [ // required
- *         {
+ *       repositoryFilters: [ // ScanningRepositoryFilterList // required
+ *         { // ScanningRepositoryFilter
  *           filter: "STRING_VALUE", // required
  *           filterType: "STRING_VALUE", // required
  *         },

@@ -75,7 +75,7 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * import { SQSClient, ChangeMessageVisibilityCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ChangeMessageVisibilityCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // ChangeMessageVisibilityRequest
  *   QueueUrl: "STRING_VALUE", // required
  *   ReceiptHandle: "STRING_VALUE", // required
  *   VisibilityTimeout: Number("int"), // required

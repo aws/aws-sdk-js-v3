@@ -40,7 +40,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * import { GlueClient, GetTablesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTablesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetTablesRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   Expression: "STRING_VALUE",

@@ -49,36 +49,36 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  * import { S3ControlClient, PutStorageLensConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutStorageLensConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // PutStorageLensConfigurationRequest
  *   ConfigId: "STRING_VALUE", // required
  *   AccountId: "STRING_VALUE",
- *   StorageLensConfiguration: {
+ *   StorageLensConfiguration: { // StorageLensConfiguration
  *     Id: "STRING_VALUE", // required
- *     AccountLevel: {
- *       ActivityMetrics: {
+ *     AccountLevel: { // AccountLevel
+ *       ActivityMetrics: { // ActivityMetrics
  *         IsEnabled: true || false,
  *       },
- *       BucketLevel: {
+ *       BucketLevel: { // BucketLevel
  *         ActivityMetrics: {
  *           IsEnabled: true || false,
  *         },
- *         PrefixLevel: {
- *           StorageMetrics: {
+ *         PrefixLevel: { // PrefixLevel
+ *           StorageMetrics: { // PrefixLevelStorageMetrics
  *             IsEnabled: true || false,
- *             SelectionCriteria: {
+ *             SelectionCriteria: { // SelectionCriteria
  *               Delimiter: "STRING_VALUE",
  *               MaxDepth: Number("int"),
  *               MinStorageBytesPercentage: Number("double"),
  *             },
  *           },
  *         },
- *         AdvancedCostOptimizationMetrics: {
+ *         AdvancedCostOptimizationMetrics: { // AdvancedCostOptimizationMetrics
  *           IsEnabled: true || false,
  *         },
- *         AdvancedDataProtectionMetrics: {
+ *         AdvancedDataProtectionMetrics: { // AdvancedDataProtectionMetrics
  *           IsEnabled: true || false,
  *         },
- *         DetailedStatusCodesMetrics: {
+ *         DetailedStatusCodesMetrics: { // DetailedStatusCodesMetrics
  *           IsEnabled: true || false,
  *         },
  *       },
@@ -92,7 +92,15 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  *         IsEnabled: true || false,
  *       },
  *     },
- *     Include: {
+ *     Include: { // Include
+ *       Buckets: [ // Buckets
+ *         "STRING_VALUE",
+ *       ],
+ *       Regions: [ // Regions
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Exclude: { // Exclude
  *       Buckets: [
  *         "STRING_VALUE",
  *       ],
@@ -100,40 +108,32 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  *         "STRING_VALUE",
  *       ],
  *     },
- *     Exclude: {
- *       Buckets: [
- *         "STRING_VALUE",
- *       ],
- *       Regions: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     DataExport: {
- *       S3BucketDestination: {
+ *     DataExport: { // StorageLensDataExport
+ *       S3BucketDestination: { // S3BucketDestination
  *         Format: "CSV" || "Parquet", // required
  *         OutputSchemaVersion: "V_1", // required
  *         AccountId: "STRING_VALUE",
  *         Arn: "STRING_VALUE", // required
  *         Prefix: "STRING_VALUE",
- *         Encryption: {
+ *         Encryption: { // StorageLensDataExportEncryption
  *           SSES3: {},
- *           SSEKMS: {
+ *           SSEKMS: { // SSEKMS
  *             KeyId: "STRING_VALUE", // required
  *           },
  *         },
  *       },
- *       CloudWatchMetrics: {
+ *       CloudWatchMetrics: { // CloudWatchMetrics
  *         IsEnabled: true || false, // required
  *       },
  *     },
  *     IsEnabled: true || false, // required
- *     AwsOrg: {
+ *     AwsOrg: { // StorageLensAwsOrg
  *       Arn: "STRING_VALUE", // required
  *     },
  *     StorageLensArn: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // StorageLensTags
+ *     { // StorageLensTag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

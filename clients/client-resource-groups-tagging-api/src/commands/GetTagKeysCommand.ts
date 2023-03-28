@@ -53,7 +53,7 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  * import { ResourceGroupsTaggingAPIClient, GetTagKeysCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetTagKeysCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
- * const input = {
+ * const input = { // GetTagKeysInput
  *   PaginationToken: "STRING_VALUE",
  * };
  * const command = new GetTagKeysCommand(input);

@@ -47,43 +47,43 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  * import { AppMeshClient, CreateVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // CreateVirtualGatewayInput
  *   virtualGatewayName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
- *   spec: {
- *     backendDefaults: {
- *       clientPolicy: {
- *         tls: {
+ *   spec: { // VirtualGatewaySpec
+ *     backendDefaults: { // VirtualGatewayBackendDefaults
+ *       clientPolicy: { // VirtualGatewayClientPolicy
+ *         tls: { // VirtualGatewayClientPolicyTls
  *           enforce: true || false,
- *           ports: [
+ *           ports: [ // PortSet
  *             Number("int"),
  *           ],
- *           certificate: { // Union: only one key present
- *             file: {
+ *           certificate: { // VirtualGatewayClientTlsCertificate Union: only one key present
+ *             file: { // VirtualGatewayListenerTlsFileCertificate
  *               certificateChain: "STRING_VALUE", // required
  *               privateKey: "STRING_VALUE", // required
  *             },
- *             sds: {
+ *             sds: { // VirtualGatewayListenerTlsSdsCertificate
  *               secretName: "STRING_VALUE", // required
  *             },
  *           },
- *           validation: {
- *             trust: { // Union: only one key present
- *               acm: {
- *                 certificateAuthorityArns: [ // required
+ *           validation: { // VirtualGatewayTlsValidationContext
+ *             trust: { // VirtualGatewayTlsValidationContextTrust Union: only one key present
+ *               acm: { // VirtualGatewayTlsValidationContextAcmTrust
+ *                 certificateAuthorityArns: [ // VirtualGatewayCertificateAuthorityArns // required
  *                   "STRING_VALUE",
  *                 ],
  *               },
- *               file: {
+ *               file: { // VirtualGatewayTlsValidationContextFileTrust
  *                 certificateChain: "STRING_VALUE", // required
  *               },
- *               sds: {
+ *               sds: { // VirtualGatewayTlsValidationContextSdsTrust
  *                 secretName: "STRING_VALUE", // required
  *               },
  *             },
- *             subjectAlternativeNames: {
- *               match: {
- *                 exact: [ // required
+ *             subjectAlternativeNames: { // SubjectAlternativeNames
+ *               match: { // SubjectAlternativeNameMatchers
+ *                 exact: [ // SubjectAlternativeNameList // required
  *                   "STRING_VALUE",
  *                 ],
  *               },
@@ -92,9 +92,9 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *         },
  *       },
  *     },
- *     listeners: [ // required
- *       {
- *         healthCheck: {
+ *     listeners: [ // VirtualGatewayListeners // required
+ *       { // VirtualGatewayListener
+ *         healthCheck: { // VirtualGatewayHealthCheckPolicy
  *           timeoutMillis: Number("long"), // required
  *           intervalMillis: Number("long"), // required
  *           protocol: "STRING_VALUE", // required
@@ -103,14 +103,14 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *           healthyThreshold: Number("int"), // required
  *           unhealthyThreshold: Number("int"), // required
  *         },
- *         portMapping: {
+ *         portMapping: { // VirtualGatewayPortMapping
  *           port: Number("int"), // required
  *           protocol: "STRING_VALUE", // required
  *         },
- *         tls: {
+ *         tls: { // VirtualGatewayListenerTls
  *           mode: "STRING_VALUE", // required
- *           validation: {
- *             trust: { // Union: only one key present
+ *           validation: { // VirtualGatewayListenerTlsValidationContext
+ *             trust: { // VirtualGatewayListenerTlsValidationContextTrust Union: only one key present
  *               file: {
  *                 certificateChain: "STRING_VALUE", // required
  *               },
@@ -126,8 +126,8 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *               },
  *             },
  *           },
- *           certificate: { // Union: only one key present
- *             acm: {
+ *           certificate: { // VirtualGatewayListenerTlsCertificate Union: only one key present
+ *             acm: { // VirtualGatewayListenerTlsAcmCertificate
  *               certificateArn: "STRING_VALUE", // required
  *             },
  *             file: {
@@ -139,28 +139,28 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *             },
  *           },
  *         },
- *         connectionPool: { // Union: only one key present
- *           http: {
+ *         connectionPool: { // VirtualGatewayConnectionPool Union: only one key present
+ *           http: { // VirtualGatewayHttpConnectionPool
  *             maxConnections: Number("int"), // required
  *             maxPendingRequests: Number("int"),
  *           },
- *           http2: {
+ *           http2: { // VirtualGatewayHttp2ConnectionPool
  *             maxRequests: Number("int"), // required
  *           },
- *           grpc: {
+ *           grpc: { // VirtualGatewayGrpcConnectionPool
  *             maxRequests: Number("int"), // required
  *           },
  *         },
  *       },
  *     ],
- *     logging: {
- *       accessLog: { // Union: only one key present
- *         file: {
+ *     logging: { // VirtualGatewayLogging
+ *       accessLog: { // VirtualGatewayAccessLog Union: only one key present
+ *         file: { // VirtualGatewayFileAccessLog
  *           path: "STRING_VALUE", // required
- *           format: { // Union: only one key present
+ *           format: { // LoggingFormat Union: only one key present
  *             text: "STRING_VALUE",
- *             json: [
- *               {
+ *             json: [ // JsonFormat
+ *               { // JsonFormatRef
  *                 key: "STRING_VALUE", // required
  *                 value: "STRING_VALUE", // required
  *               },
@@ -170,8 +170,8 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *       },
  *     },
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // TagRef
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

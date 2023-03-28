@@ -44,14 +44,14 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * import { WorkSpacesClient, ModifySamlPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifySamlPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // ModifySamlPropertiesRequest
  *   ResourceId: "STRING_VALUE", // required
- *   SamlProperties: {
+ *   SamlProperties: { // SamlProperties
  *     Status: "DISABLED" || "ENABLED" || "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
  *     UserAccessUrl: "STRING_VALUE",
  *     RelayStateParameterName: "STRING_VALUE",
  *   },
- *   PropertiesToDelete: [
+ *   PropertiesToDelete: [ // DeletableSamlPropertiesList
  *     "SAML_PROPERTIES_USER_ACCESS_URL" || "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
  *   ],
  * };

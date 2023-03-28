@@ -43,7 +43,7 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * import { SSOOIDCClient, StartDeviceAuthorizationCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, StartDeviceAuthorizationCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
  * const client = new SSOOIDCClient(config);
- * const input = {
+ * const input = { // StartDeviceAuthorizationRequest
  *   clientId: "STRING_VALUE", // required
  *   clientSecret: "STRING_VALUE", // required
  *   startUrl: "STRING_VALUE", // required

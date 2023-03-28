@@ -42,15 +42,15 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * import { EC2Client, DescribeVpcEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeVpcEndpointsRequest
  *   DryRun: true || false,
- *   VpcEndpointIds: [
+ *   VpcEndpointIds: [ // VpcEndpointIdList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

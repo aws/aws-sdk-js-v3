@@ -42,7 +42,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * import { ProtonClient, DeleteRepositoryCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteRepositoryCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // DeleteRepositoryInput
  *   provider: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  * };

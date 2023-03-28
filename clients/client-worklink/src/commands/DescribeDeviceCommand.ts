@@ -44,7 +44,7 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * import { WorkLinkClient, DescribeDeviceCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeDeviceCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // DescribeDeviceRequest
  *   FleetArn: "STRING_VALUE", // required
  *   DeviceId: "STRING_VALUE", // required
  * };

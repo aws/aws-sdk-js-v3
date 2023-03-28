@@ -45,15 +45,15 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * import { InspectorClient, CreateAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, CreateAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
+ * const input = { // CreateAssessmentTemplateRequest
  *   assessmentTargetArn: "STRING_VALUE", // required
  *   assessmentTemplateName: "STRING_VALUE", // required
  *   durationInSeconds: Number("int"), // required
- *   rulesPackageArns: [ // required
+ *   rulesPackageArns: [ // AssessmentTemplateRulesPackageArnList // required
  *     "STRING_VALUE",
  *   ],
- *   userAttributesForFindings: [
- *     {
+ *   userAttributesForFindings: [ // UserAttributeList
+ *     { // Attribute
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },

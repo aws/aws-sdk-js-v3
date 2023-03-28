@@ -42,31 +42,31 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * import { GlueClient, CreateDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateDatabaseRequest
  *   CatalogId: "STRING_VALUE",
- *   DatabaseInput: {
+ *   DatabaseInput: { // DatabaseInput
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
  *     LocationUri: "STRING_VALUE",
- *     Parameters: {
+ *     Parameters: { // ParametersMap
  *       "<keys>": "STRING_VALUE",
  *     },
- *     CreateTableDefaultPermissions: [
- *       {
- *         Principal: {
+ *     CreateTableDefaultPermissions: [ // PrincipalPermissionsList
+ *       { // PrincipalPermissions
+ *         Principal: { // DataLakePrincipal
  *           DataLakePrincipalIdentifier: "STRING_VALUE",
  *         },
- *         Permissions: [
+ *         Permissions: [ // PermissionList
  *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
  *         ],
  *       },
  *     ],
- *     TargetDatabase: {
+ *     TargetDatabase: { // DatabaseIdentifier
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
  *     },
  *   },
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -41,8 +41,8 @@ export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayl
  * import { RestXmlProtocolClient, XmlAttributesOnPayloadCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlAttributesOnPayloadCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
- *   payload: {
+ * const input = { // XmlAttributesOnPayloadInputOutput
+ *   payload: { // XmlAttributesInputOutput
  *     foo: "STRING_VALUE",
  *     attr: "STRING_VALUE",
  *   },

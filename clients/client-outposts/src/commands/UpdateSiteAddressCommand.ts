@@ -46,10 +46,10 @@ export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput,
  * import { OutpostsClient, UpdateSiteAddressCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateSiteAddressCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // UpdateSiteAddressInput
  *   SiteId: "STRING_VALUE", // required
  *   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS", // required
- *   Address: {
+ *   Address: { // Address
  *     ContactName: "STRING_VALUE",
  *     ContactPhoneNumber: "STRING_VALUE",
  *     AddressLine1: "STRING_VALUE", // required

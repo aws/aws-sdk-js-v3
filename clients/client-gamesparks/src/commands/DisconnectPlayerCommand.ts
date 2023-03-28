@@ -45,7 +45,7 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  * import { GameSparksClient, DisconnectPlayerCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, DisconnectPlayerCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // DisconnectPlayerRequest
  *   PlayerId: "STRING_VALUE", // required
  *   GameName: "STRING_VALUE", // required
  *   StageName: "STRING_VALUE", // required

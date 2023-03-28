@@ -42,7 +42,7 @@ export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAler
  * import { SageMakerClient, UpdateMonitoringAlertCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateMonitoringAlertCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateMonitoringAlertRequest
  *   MonitoringScheduleName: "STRING_VALUE", // required
  *   MonitoringAlertName: "STRING_VALUE", // required
  *   DatapointsToAlert: Number("int"), // required

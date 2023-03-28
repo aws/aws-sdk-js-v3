@@ -44,7 +44,7 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  * import { PinpointEmailClient, PutDedicatedIpWarmupAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutDedicatedIpWarmupAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // PutDedicatedIpWarmupAttributesRequest
  *   Ip: "STRING_VALUE", // required
  *   WarmupPercentage: Number("int"), // required
  * };

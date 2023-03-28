@@ -62,9 +62,9 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * import { GlobalAcceleratorClient, RemoveEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, RemoveEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
- *   EndpointIdentifiers: [ // required
- *     {
+ * const input = { // RemoveEndpointsRequest
+ *   EndpointIdentifiers: [ // EndpointIdentifiers // required
+ *     { // EndpointIdentifier
  *       EndpointId: "STRING_VALUE", // required
  *       ClientIPPreservationEnabled: true || false,
  *     },

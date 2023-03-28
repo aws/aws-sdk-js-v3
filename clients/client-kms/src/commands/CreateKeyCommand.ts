@@ -205,7 +205,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * import { KMSClient, CreateKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // CreateKeyRequest
  *   Policy: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
@@ -214,8 +214,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *   Origin: "AWS_KMS" || "EXTERNAL" || "AWS_CLOUDHSM" || "EXTERNAL_KEY_STORE",
  *   CustomKeyStoreId: "STRING_VALUE",
  *   BypassPolicyLockoutSafetyCheck: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       TagKey: "STRING_VALUE", // required
  *       TagValue: "STRING_VALUE", // required
  *     },

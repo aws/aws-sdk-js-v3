@@ -44,7 +44,7 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * import { ECSClient, ListTaskDefinitionsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListTaskDefinitionsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // ListTaskDefinitionsRequest
  *   familyPrefix: "STRING_VALUE",
  *   status: "ACTIVE" || "INACTIVE" || "DELETE_IN_PROGRESS",
  *   sort: "ASC" || "DESC",

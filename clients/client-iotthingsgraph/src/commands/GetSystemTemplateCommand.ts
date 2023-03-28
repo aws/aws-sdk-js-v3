@@ -44,7 +44,7 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * import { IoTThingsGraphClient, GetSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
+ * const input = { // GetSystemTemplateRequest
  *   id: "STRING_VALUE", // required
  *   revisionNumber: Number("long"),
  * };

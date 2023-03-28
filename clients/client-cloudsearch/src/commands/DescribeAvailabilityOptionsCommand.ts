@@ -44,7 +44,7 @@ export interface DescribeAvailabilityOptionsCommandOutput
  * import { CloudSearchClient, DescribeAvailabilityOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeAvailabilityOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DescribeAvailabilityOptionsRequest
  *   DomainName: "STRING_VALUE", // required
  *   Deployed: true || false,
  * };

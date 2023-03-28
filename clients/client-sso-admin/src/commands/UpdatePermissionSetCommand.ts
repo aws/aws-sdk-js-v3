@@ -42,7 +42,7 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * import { SSOAdminClient, UpdatePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, UpdatePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // UpdatePermissionSetRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   PermissionSetArn: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

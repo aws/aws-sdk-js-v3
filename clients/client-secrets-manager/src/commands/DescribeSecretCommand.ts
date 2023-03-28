@@ -50,7 +50,7 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * import { SecretsManagerClient, DescribeSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, DescribeSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // DescribeSecretRequest
  *   SecretId: "STRING_VALUE", // required
  * };
  * const command = new DescribeSecretCommand(input);

@@ -43,40 +43,40 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  * import { AppMeshClient, UpdateGatewayRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateGatewayRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // UpdateGatewayRouteInput
  *   gatewayRouteName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
  *   virtualGatewayName: "STRING_VALUE", // required
- *   spec: {
+ *   spec: { // GatewayRouteSpec
  *     priority: Number("int"),
- *     httpRoute: {
- *       match: {
+ *     httpRoute: { // HttpGatewayRoute
+ *       match: { // HttpGatewayRouteMatch
  *         prefix: "STRING_VALUE",
- *         path: {
+ *         path: { // HttpPathMatch
  *           exact: "STRING_VALUE",
  *           regex: "STRING_VALUE",
  *         },
- *         queryParameters: [
- *           {
+ *         queryParameters: [ // HttpQueryParameters
+ *           { // HttpQueryParameter
  *             name: "STRING_VALUE", // required
- *             match: {
+ *             match: { // QueryParameterMatch
  *               exact: "STRING_VALUE",
  *             },
  *           },
  *         ],
  *         method: "STRING_VALUE",
- *         hostname: {
+ *         hostname: { // GatewayRouteHostnameMatch
  *           exact: "STRING_VALUE",
  *           suffix: "STRING_VALUE",
  *         },
- *         headers: [
- *           {
+ *         headers: [ // HttpGatewayRouteHeaders
+ *           { // HttpGatewayRouteHeader
  *             name: "STRING_VALUE", // required
  *             invert: true || false,
- *             match: { // Union: only one key present
+ *             match: { // HeaderMatchMethod Union: only one key present
  *               exact: "STRING_VALUE",
  *               regex: "STRING_VALUE",
- *               range: {
+ *               range: { // MatchRange
  *                 start: Number("long"), // required
  *                 end: Number("long"), // required
  *               },
@@ -87,22 +87,22 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  *         ],
  *         port: Number("int"),
  *       },
- *       action: {
- *         target: {
- *           virtualService: {
+ *       action: { // HttpGatewayRouteAction
+ *         target: { // GatewayRouteTarget
+ *           virtualService: { // GatewayRouteVirtualService
  *             virtualServiceName: "STRING_VALUE", // required
  *           },
  *           port: Number("int"),
  *         },
- *         rewrite: {
- *           prefix: {
+ *         rewrite: { // HttpGatewayRouteRewrite
+ *           prefix: { // HttpGatewayRoutePrefixRewrite
  *             defaultPrefix: "STRING_VALUE",
  *             value: "STRING_VALUE",
  *           },
- *           path: {
+ *           path: { // HttpGatewayRoutePathRewrite
  *             exact: "STRING_VALUE",
  *           },
- *           hostname: {
+ *           hostname: { // GatewayRouteHostnameRewrite
  *             defaultTargetHostname: "STRING_VALUE",
  *           },
  *         },
@@ -132,7 +132,7 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  *           {
  *             name: "STRING_VALUE", // required
  *             invert: true || false,
- *             match: { // Union: only one key present
+ *             match: {//  Union: only one key present
  *               exact: "STRING_VALUE",
  *               regex: "STRING_VALUE",
  *               range: {
@@ -167,18 +167,18 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  *         },
  *       },
  *     },
- *     grpcRoute: {
- *       match: {
+ *     grpcRoute: { // GrpcGatewayRoute
+ *       match: { // GrpcGatewayRouteMatch
  *         serviceName: "STRING_VALUE",
  *         hostname: {
  *           exact: "STRING_VALUE",
  *           suffix: "STRING_VALUE",
  *         },
- *         metadata: [
- *           {
+ *         metadata: [ // GrpcGatewayRouteMetadataList
+ *           { // GrpcGatewayRouteMetadata
  *             name: "STRING_VALUE", // required
  *             invert: true || false,
- *             match: { // Union: only one key present
+ *             match: { // GrpcMetadataMatchMethod Union: only one key present
  *               exact: "STRING_VALUE",
  *               regex: "STRING_VALUE",
  *               range: {
@@ -192,14 +192,14 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  *         ],
  *         port: Number("int"),
  *       },
- *       action: {
+ *       action: { // GrpcGatewayRouteAction
  *         target: {
  *           virtualService: {
  *             virtualServiceName: "STRING_VALUE", // required
  *           },
  *           port: Number("int"),
  *         },
- *         rewrite: {
+ *         rewrite: { // GrpcGatewayRouteRewrite
  *           hostname: {
  *             defaultTargetHostname: "STRING_VALUE",
  *           },

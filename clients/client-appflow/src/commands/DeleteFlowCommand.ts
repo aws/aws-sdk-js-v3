@@ -43,7 +43,7 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * import { AppflowClient, DeleteFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DeleteFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
- * const input = {
+ * const input = { // DeleteFlowRequest
  *   flowName: "STRING_VALUE", // required
  *   forceDelete: true || false,
  * };

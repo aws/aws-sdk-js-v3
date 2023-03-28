@@ -47,7 +47,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * import { ApplicationInsightsClient, DeleteApplicationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DeleteApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // DeleteApplicationRequest
  *   ResourceGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteApplicationCommand(input);

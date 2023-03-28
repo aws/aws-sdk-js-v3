@@ -61,7 +61,7 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  * import { StorageGatewayClient, UpdateSMBFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSMBFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // UpdateSMBFileShareInput
  *   FileShareARN: "STRING_VALUE", // required
  *   KMSEncrypted: true || false,
  *   KMSKey: "STRING_VALUE",
@@ -72,7 +72,7 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *   RequesterPays: true || false,
  *   SMBACLEnabled: true || false,
  *   AccessBasedEnumeration: true || false,
- *   AdminUserList: [
+ *   AdminUserList: [ // UserList
  *     "STRING_VALUE",
  *   ],
  *   ValidUserList: [
@@ -84,7 +84,7 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *   AuditDestinationARN: "STRING_VALUE",
  *   CaseSensitivity: "STRING_VALUE",
  *   FileShareName: "STRING_VALUE",
- *   CacheAttributes: {
+ *   CacheAttributes: { // CacheAttributes
  *     CacheStaleTimeoutInSeconds: Number("int"),
  *   },
  *   NotificationPolicy: "STRING_VALUE",

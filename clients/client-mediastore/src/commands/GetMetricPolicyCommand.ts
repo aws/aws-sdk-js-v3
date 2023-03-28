@@ -42,7 +42,7 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * import { MediaStoreClient, GetMetricPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, GetMetricPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
- * const input = {
+ * const input = { // GetMetricPolicyInput
  *   ContainerName: "STRING_VALUE", // required
  * };
  * const command = new GetMetricPolicyCommand(input);

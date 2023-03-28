@@ -42,7 +42,7 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * import { SageMakerClient, DescribeAlgorithmCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeAlgorithmCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeAlgorithmInput
  *   AlgorithmName: "STRING_VALUE", // required
  * };
  * const command = new DescribeAlgorithmCommand(input);

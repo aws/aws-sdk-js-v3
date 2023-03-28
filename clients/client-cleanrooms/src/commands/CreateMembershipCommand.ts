@@ -43,10 +43,10 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * import { CleanRoomsClient, CreateMembershipCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateMembershipCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // CreateMembershipInput
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   queryLogStatus: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

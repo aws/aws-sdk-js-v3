@@ -49,7 +49,7 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * import { CodeCatalystClient, CreateAccessTokenCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateAccessTokenCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // CreateAccessTokenRequest
  *   name: "STRING_VALUE", // required
  *   expiresTime: new Date("TIMESTAMP"),
  * };

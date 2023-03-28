@@ -46,13 +46,13 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * import { ElastiCacheClient, CreateSnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateSnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // CreateSnapshotMessage
  *   ReplicationGroupId: "STRING_VALUE",
  *   CacheClusterId: "STRING_VALUE",
  *   SnapshotName: "STRING_VALUE", // required
  *   KmsKeyId: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

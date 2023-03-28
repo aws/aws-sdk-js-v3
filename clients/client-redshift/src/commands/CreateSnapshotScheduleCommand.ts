@@ -42,14 +42,14 @@ export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * import { RedshiftClient, CreateSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
- *   ScheduleDefinitions: [
+ * const input = { // CreateSnapshotScheduleMessage
+ *   ScheduleDefinitions: [ // ScheduleDefinitionList
  *     "STRING_VALUE",
  *   ],
  *   ScheduleIdentifier: "STRING_VALUE",
  *   ScheduleDescription: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

@@ -42,7 +42,7 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  * import { AppflowClient, DeleteConnectorProfileCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DeleteConnectorProfileCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
- * const input = {
+ * const input = { // DeleteConnectorProfileRequest
  *   connectorProfileName: "STRING_VALUE", // required
  *   forceDelete: true || false,
  * };

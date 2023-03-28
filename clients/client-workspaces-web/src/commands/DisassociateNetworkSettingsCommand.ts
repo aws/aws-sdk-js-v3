@@ -44,7 +44,7 @@ export interface DisassociateNetworkSettingsCommandOutput
  * import { WorkSpacesWebClient, DisassociateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // DisassociateNetworkSettingsRequest
  *   portalArn: "STRING_VALUE", // required
  * };
  * const command = new DisassociateNetworkSettingsCommand(input);

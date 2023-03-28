@@ -42,7 +42,7 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
  * import { PinpointClient, GetVoiceChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetVoiceChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetVoiceChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new GetVoiceChannelCommand(input);

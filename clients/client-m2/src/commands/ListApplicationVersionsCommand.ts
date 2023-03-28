@@ -42,7 +42,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * import { M2Client, ListApplicationVersionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListApplicationVersionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // ListApplicationVersionsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   applicationId: "STRING_VALUE", // required

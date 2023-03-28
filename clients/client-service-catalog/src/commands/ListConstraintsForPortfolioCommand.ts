@@ -42,7 +42,7 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * import { ServiceCatalogClient, ListConstraintsForPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListConstraintsForPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListConstraintsForPortfolioInput
  *   AcceptLanguage: "STRING_VALUE",
  *   PortfolioId: "STRING_VALUE", // required
  *   ProductId: "STRING_VALUE",

@@ -48,7 +48,7 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
  * import { IoTWirelessClient, DisassociateWirelessDeviceFromFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateWirelessDeviceFromFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // DisassociateWirelessDeviceFromFuotaTaskRequest
  *   Id: "STRING_VALUE", // required
  *   WirelessDeviceId: "STRING_VALUE", // required
  * };

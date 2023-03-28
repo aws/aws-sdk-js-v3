@@ -47,7 +47,7 @@ export interface ListEnvironmentProvisionedResourcesCommandOutput
  * import { ProtonClient, ListEnvironmentProvisionedResourcesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentProvisionedResourcesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // ListEnvironmentProvisionedResourcesInput
  *   environmentName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  * };

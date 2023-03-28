@@ -50,7 +50,7 @@ export interface StopInstanceCommandOutput extends StopInstanceResult, __Metadat
  * import { LightsailClient, StopInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StopInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // StopInstanceRequest
  *   instanceName: "STRING_VALUE", // required
  *   force: true || false,
  * };

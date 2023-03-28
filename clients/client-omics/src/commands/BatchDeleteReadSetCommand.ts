@@ -42,8 +42,8 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * import { OmicsClient, BatchDeleteReadSetCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, BatchDeleteReadSetCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
- *   ids: [ // required
+ * const input = { // BatchDeleteReadSetRequest
+ *   ids: [ // ReadSetIdList // required
  *     "STRING_VALUE",
  *   ],
  *   sequenceStoreId: "STRING_VALUE", // required

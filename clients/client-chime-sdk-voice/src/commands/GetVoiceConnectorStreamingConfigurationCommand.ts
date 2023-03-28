@@ -51,7 +51,7 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * import { ChimeSDKVoiceClient, GetVoiceConnectorStreamingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetVoiceConnectorStreamingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // GetVoiceConnectorStreamingConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  * };
  * const command = new GetVoiceConnectorStreamingConfigurationCommand(input);

@@ -42,7 +42,7 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * import { PersonalizeClient, DeleteMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DeleteMetricAttributionRequest
  *   metricAttributionArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteMetricAttributionCommand(input);

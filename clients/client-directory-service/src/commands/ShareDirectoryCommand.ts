@@ -58,10 +58,10 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * import { DirectoryServiceClient, ShareDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ShareDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // ShareDirectoryRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   ShareNotes: "STRING_VALUE",
- *   ShareTarget: {
+ *   ShareTarget: { // ShareTarget
  *     Id: "STRING_VALUE", // required
  *     Type: "ACCOUNT", // required
  *   },

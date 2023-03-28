@@ -54,7 +54,7 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * import { KMSClient, CancelKeyDeletionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CancelKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // CancelKeyDeletionRequest
  *   KeyId: "STRING_VALUE", // required
  * };
  * const command = new CancelKeyDeletionCommand(input);

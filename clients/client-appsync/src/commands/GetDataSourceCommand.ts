@@ -42,7 +42,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * import { AppSyncClient, GetDataSourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // GetDataSourceRequest
  *   apiId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  * };

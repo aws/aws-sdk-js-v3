@@ -48,7 +48,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * import { ConnectClient, UpdatePhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdatePhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdatePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required
  *   TargetArn: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",

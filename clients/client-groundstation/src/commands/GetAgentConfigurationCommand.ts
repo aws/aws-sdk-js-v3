@@ -42,7 +42,7 @@ export interface GetAgentConfigurationCommandOutput extends GetAgentConfiguratio
  * import { GroundStationClient, GetAgentConfigurationCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetAgentConfigurationCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // GetAgentConfigurationRequest
  *   agentId: "STRING_VALUE", // required
  * };
  * const command = new GetAgentConfigurationCommand(input);

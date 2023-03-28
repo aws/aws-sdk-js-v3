@@ -42,7 +42,7 @@ export interface ListContentsCommandOutput extends ListContentsResponse, __Metad
  * import { WisdomClient, ListContentsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListContentsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // ListContentsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   knowledgeBaseId: "STRING_VALUE", // required

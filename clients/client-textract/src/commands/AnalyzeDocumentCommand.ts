@@ -88,33 +88,33 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * import { TextractClient, AnalyzeDocumentCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeDocumentCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
- * const input = {
- *   Document: {
+ * const input = { // AnalyzeDocumentRequest
+ *   Document: { // Document
  *     Bytes: "BLOB_VALUE",
- *     S3Object: {
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
  *     },
  *   },
- *   FeatureTypes: [ // required
+ *   FeatureTypes: [ // FeatureTypes // required
  *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
  *   ],
- *   HumanLoopConfig: {
+ *   HumanLoopConfig: { // HumanLoopConfig
  *     HumanLoopName: "STRING_VALUE", // required
  *     FlowDefinitionArn: "STRING_VALUE", // required
- *     DataAttributes: {
- *       ContentClassifiers: [
+ *     DataAttributes: { // HumanLoopDataAttributes
+ *       ContentClassifiers: [ // ContentClassifiers
  *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
  *       ],
  *     },
  *   },
- *   QueriesConfig: {
- *     Queries: [ // required
- *       {
+ *   QueriesConfig: { // QueriesConfig
+ *     Queries: [ // Queries // required
+ *       { // Query
  *         Text: "STRING_VALUE", // required
  *         Alias: "STRING_VALUE",
- *         Pages: [
+ *         Pages: [ // QueryPages
  *           "STRING_VALUE",
  *         ],
  *       },

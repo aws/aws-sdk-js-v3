@@ -43,7 +43,7 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * import { WorkMailClient, RegisterMailDomainCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, RegisterMailDomainCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // RegisterMailDomainRequest
  *   ClientToken: "STRING_VALUE",
  *   OrganizationId: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required

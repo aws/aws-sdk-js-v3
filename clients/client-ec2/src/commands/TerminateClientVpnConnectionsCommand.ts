@@ -44,7 +44,7 @@ export interface TerminateClientVpnConnectionsCommandOutput
  * import { EC2Client, TerminateClientVpnConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, TerminateClientVpnConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // TerminateClientVpnConnectionsRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   ConnectionId: "STRING_VALUE",
  *   Username: "STRING_VALUE",

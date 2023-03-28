@@ -42,7 +42,7 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  * import { SnowballClient, DescribeReturnShippingLabelCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeReturnShippingLabelCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
+ * const input = { // DescribeReturnShippingLabelRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeReturnShippingLabelCommand(input);

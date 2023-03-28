@@ -47,10 +47,10 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * import { SsmSapClient, UpdateApplicationSettingsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, UpdateApplicationSettingsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = {
+ * const input = { // UpdateApplicationSettingsInput
  *   ApplicationId: "STRING_VALUE", // required
- *   CredentialsToAddOrUpdate: [
- *     {
+ *   CredentialsToAddOrUpdate: [ // ApplicationCredentialList
+ *     { // ApplicationCredential
  *       DatabaseName: "STRING_VALUE", // required
  *       CredentialType: "STRING_VALUE", // required
  *       SecretId: "STRING_VALUE", // required

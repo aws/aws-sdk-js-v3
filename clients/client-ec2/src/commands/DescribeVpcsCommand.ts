@@ -39,16 +39,16 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * import { EC2Client, DescribeVpcsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeVpcsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   VpcIds: [
+ *   VpcIds: [ // VpcIdStringList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

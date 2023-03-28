@@ -42,11 +42,11 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  * import { MediaConnectClient, AddFlowSourcesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowSourcesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // AddFlowSourcesRequest
  *   FlowArn: "STRING_VALUE", // required
- *   Sources: [ // required
- *     {
- *       Decryption: {
+ *   Sources: [ // __listOfSetSourceRequest // required
+ *     { // SetSourceRequest
+ *       Decryption: { // Encryption
  *         Algorithm: "aes128" || "aes192" || "aes256",
  *         ConstantInitializationVector: "STRING_VALUE",
  *         DeviceId: "STRING_VALUE",
@@ -63,13 +63,13 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  *       MaxBitrate: Number("int"),
  *       MaxLatency: Number("int"),
  *       MaxSyncBuffer: Number("int"),
- *       MediaStreamSourceConfigurations: [
- *         {
+ *       MediaStreamSourceConfigurations: [ // __listOfMediaStreamSourceConfigurationRequest
+ *         { // MediaStreamSourceConfigurationRequest
  *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *           InputConfigurations: [
- *             {
+ *           InputConfigurations: [ // __listOfInputConfigurationRequest
+ *             { // InputConfigurationRequest
  *               InputPort: Number("int"), // required
- *               Interface: {
+ *               Interface: { // InterfaceRequest
  *                 Name: "STRING_VALUE", // required
  *               },
  *             },

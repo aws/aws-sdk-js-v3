@@ -42,7 +42,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * import { IvschatClient, GetLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, GetLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
- * const input = {
+ * const input = { // GetLoggingConfigurationRequest
  *   identifier: "STRING_VALUE", // required
  * };
  * const command = new GetLoggingConfigurationCommand(input);

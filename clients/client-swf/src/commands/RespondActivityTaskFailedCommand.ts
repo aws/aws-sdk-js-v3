@@ -74,7 +74,7 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  * import { SWFClient, RespondActivityTaskFailedCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondActivityTaskFailedCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // RespondActivityTaskFailedInput
  *   taskToken: "STRING_VALUE", // required
  *   reason: "STRING_VALUE",
  *   details: "STRING_VALUE",

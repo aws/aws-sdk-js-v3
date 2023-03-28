@@ -49,7 +49,7 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * import { CloudSearchDomainClient, SuggestCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
  * // const { CloudSearchDomainClient, SuggestCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
- * const input = {
+ * const input = { // SuggestRequest
  *   query: "STRING_VALUE", // required
  *   suggester: "STRING_VALUE", // required
  *   size: Number("long"),

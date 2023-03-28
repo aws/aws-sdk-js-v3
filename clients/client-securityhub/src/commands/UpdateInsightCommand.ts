@@ -42,12 +42,12 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  * import { SecurityHubClient, UpdateInsightCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateInsightCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // UpdateInsightRequest
  *   InsightArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   Filters: {
- *     ProductArn: [
- *       {
+ *   Filters: { // AwsSecurityFindingFilters
+ *     ProductArn: [ // StringFilterList
+ *       { // StringFilter
  *         Value: "STRING_VALUE",
  *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
  *       },
@@ -76,17 +76,12 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
  *       },
  *     ],
- *     Type: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     FirstObservedAt: [
- *       {
+ *     Type: "<StringFilterList>",
+ *     FirstObservedAt: [ // DateFilterList
+ *       { // DateFilter
  *         Start: "STRING_VALUE",
  *         End: "STRING_VALUE",
- *         DateRange: {
+ *         DateRange: { // DateRange
  *           Value: Number("int"),
  *           Unit: "DAYS",
  *         },
@@ -122,8 +117,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         },
  *       },
  *     ],
- *     SeverityProduct: [
- *       {
+ *     SeverityProduct: [ // NumberFilterList
+ *       { // NumberFilter
  *         Gte: Number("double"),
  *         Lte: Number("double"),
  *         Eq: Number("double"),
@@ -136,12 +131,7 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         Eq: Number("double"),
  *       },
  *     ],
- *     SeverityLabel: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
+ *     SeverityLabel: "<StringFilterList>",
  *     Confidence: [
  *       {
  *         Gte: Number("double"),
@@ -156,49 +146,19 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         Eq: Number("double"),
  *       },
  *     ],
- *     Title: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     Description: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     RecommendationText: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     SourceUrl: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ProductFields: [
- *       {
+ *     Title: "<StringFilterList>",
+ *     Description: "<StringFilterList>",
+ *     RecommendationText: "<StringFilterList>",
+ *     SourceUrl: "<StringFilterList>",
+ *     ProductFields: [ // MapFilterList
+ *       { // MapFilter
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
  *         Comparison: "EQUALS" || "NOT_EQUALS",
  *       },
  *     ],
- *     ProductName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     CompanyName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
+ *     ProductName: "<StringFilterList>",
+ *     CompanyName: "<StringFilterList>",
  *     UserDefinedFields: [
  *       {
  *         Key: "STRING_VALUE",
@@ -206,44 +166,14 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         Comparison: "EQUALS" || "NOT_EQUALS",
  *       },
  *     ],
- *     MalwareName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     MalwareType: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     MalwarePath: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     MalwareState: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     NetworkDirection: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     NetworkProtocol: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     NetworkSourceIpV4: [
- *       {
+ *     MalwareName: "<StringFilterList>",
+ *     MalwareType: "<StringFilterList>",
+ *     MalwarePath: "<StringFilterList>",
+ *     MalwareState: "<StringFilterList>",
+ *     NetworkDirection: "<StringFilterList>",
+ *     NetworkProtocol: "<StringFilterList>",
+ *     NetworkSourceIpV4: [ // IpFilterList
+ *       { // IpFilter
  *         Cidr: "STRING_VALUE",
  *       },
  *     ],
@@ -259,18 +189,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         Eq: Number("double"),
  *       },
  *     ],
- *     NetworkSourceDomain: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     NetworkSourceMac: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
+ *     NetworkSourceDomain: "<StringFilterList>",
+ *     NetworkSourceMac: "<StringFilterList>",
  *     NetworkDestinationIpV4: [
  *       {
  *         Cidr: "STRING_VALUE",
@@ -281,45 +201,12 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         Cidr: "STRING_VALUE",
  *       },
  *     ],
- *     NetworkDestinationPort: [
- *       {
- *         Gte: Number("double"),
- *         Lte: Number("double"),
- *         Eq: Number("double"),
- *       },
- *     ],
- *     NetworkDestinationDomain: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ProcessName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ProcessPath: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ProcessPid: [
- *       {
- *         Gte: Number("double"),
- *         Lte: Number("double"),
- *         Eq: Number("double"),
- *       },
- *     ],
- *     ProcessParentPid: [
- *       {
- *         Gte: Number("double"),
- *         Lte: Number("double"),
- *         Eq: Number("double"),
- *       },
- *     ],
+ *     NetworkDestinationPort: "<NumberFilterList>",
+ *     NetworkDestinationDomain: "<StringFilterList>",
+ *     ProcessName: "<StringFilterList>",
+ *     ProcessPath: "<StringFilterList>",
+ *     ProcessPid: "<NumberFilterList>",
+ *     ProcessParentPid: "<NumberFilterList>",
  *     ProcessLaunchedAt: [
  *       {
  *         Start: "STRING_VALUE",
@@ -330,80 +217,17 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         },
  *       },
  *     ],
- *     ProcessTerminatedAt: [
- *       {
- *         Start: "STRING_VALUE",
- *         End: "STRING_VALUE",
- *         DateRange: {
- *           Value: Number("int"),
- *           Unit: "DAYS",
- *         },
- *       },
- *     ],
- *     ThreatIntelIndicatorType: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ThreatIntelIndicatorValue: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ThreatIntelIndicatorCategory: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ThreatIntelIndicatorLastObservedAt: [
- *       {
- *         Start: "STRING_VALUE",
- *         End: "STRING_VALUE",
- *         DateRange: {
- *           Value: Number("int"),
- *           Unit: "DAYS",
- *         },
- *       },
- *     ],
- *     ThreatIntelIndicatorSource: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ThreatIntelIndicatorSourceUrl: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceType: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourcePartition: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceRegion: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
+ *     ProcessTerminatedAt: "<DateFilterList>",
+ *     ThreatIntelIndicatorType: "<StringFilterList>",
+ *     ThreatIntelIndicatorValue: "<StringFilterList>",
+ *     ThreatIntelIndicatorCategory: "<StringFilterList>",
+ *     ThreatIntelIndicatorLastObservedAt: "<DateFilterList>",
+ *     ThreatIntelIndicatorSource: "<StringFilterList>",
+ *     ThreatIntelIndicatorSourceUrl: "<StringFilterList>",
+ *     ResourceType: "<StringFilterList>",
+ *     ResourceId: "<StringFilterList>",
+ *     ResourcePartition: "<StringFilterList>",
+ *     ResourceRegion: "<StringFilterList>",
  *     ResourceTags: [
  *       {
  *         Key: "STRING_VALUE",
@@ -411,136 +235,30 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         Comparison: "EQUALS" || "NOT_EQUALS",
  *       },
  *     ],
- *     ResourceAwsEc2InstanceType: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsEc2InstanceImageId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
+ *     ResourceAwsEc2InstanceType: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceImageId: "<StringFilterList>",
  *     ResourceAwsEc2InstanceIpV4Addresses: [
  *       {
  *         Cidr: "STRING_VALUE",
  *       },
  *     ],
- *     ResourceAwsEc2InstanceIpV6Addresses: [
- *       {
- *         Cidr: "STRING_VALUE",
- *       },
- *     ],
- *     ResourceAwsEc2InstanceKeyName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsEc2InstanceIamInstanceProfileArn: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsEc2InstanceVpcId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsEc2InstanceSubnetId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsEc2InstanceLaunchedAt: [
- *       {
- *         Start: "STRING_VALUE",
- *         End: "STRING_VALUE",
- *         DateRange: {
- *           Value: Number("int"),
- *           Unit: "DAYS",
- *         },
- *       },
- *     ],
- *     ResourceAwsS3BucketOwnerId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsS3BucketOwnerName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsIamAccessKeyUserName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsIamAccessKeyPrincipalName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsIamAccessKeyStatus: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceAwsIamAccessKeyCreatedAt: [
- *       {
- *         Start: "STRING_VALUE",
- *         End: "STRING_VALUE",
- *         DateRange: {
- *           Value: Number("int"),
- *           Unit: "DAYS",
- *         },
- *       },
- *     ],
- *     ResourceAwsIamUserUserName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceContainerName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceContainerImageId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceContainerImageName: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ResourceContainerLaunchedAt: [
- *       {
- *         Start: "STRING_VALUE",
- *         End: "STRING_VALUE",
- *         DateRange: {
- *           Value: Number("int"),
- *           Unit: "DAYS",
- *         },
- *       },
- *     ],
+ *     ResourceAwsEc2InstanceIpV6Addresses: "<IpFilterList>",
+ *     ResourceAwsEc2InstanceKeyName: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceIamInstanceProfileArn: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceVpcId: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceSubnetId: "<StringFilterList>",
+ *     ResourceAwsEc2InstanceLaunchedAt: "<DateFilterList>",
+ *     ResourceAwsS3BucketOwnerId: "<StringFilterList>",
+ *     ResourceAwsS3BucketOwnerName: "<StringFilterList>",
+ *     ResourceAwsIamAccessKeyUserName: "<StringFilterList>",
+ *     ResourceAwsIamAccessKeyPrincipalName: "<StringFilterList>",
+ *     ResourceAwsIamAccessKeyStatus: "<StringFilterList>",
+ *     ResourceAwsIamAccessKeyCreatedAt: "<DateFilterList>",
+ *     ResourceAwsIamUserUserName: "<StringFilterList>",
+ *     ResourceContainerName: "<StringFilterList>",
+ *     ResourceContainerImageId: "<StringFilterList>",
+ *     ResourceContainerImageName: "<StringFilterList>",
+ *     ResourceContainerLaunchedAt: "<DateFilterList>",
  *     ResourceDetailsOther: [
  *       {
  *         Key: "STRING_VALUE",
@@ -548,136 +266,35 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *         Comparison: "EQUALS" || "NOT_EQUALS",
  *       },
  *     ],
- *     ComplianceStatus: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     VerificationState: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     WorkflowState: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     WorkflowStatus: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     RecordState: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     RelatedFindingsProductArn: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     RelatedFindingsId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     NoteText: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     NoteUpdatedAt: [
- *       {
- *         Start: "STRING_VALUE",
- *         End: "STRING_VALUE",
- *         DateRange: {
- *           Value: Number("int"),
- *           Unit: "DAYS",
- *         },
- *       },
- *     ],
- *     NoteUpdatedBy: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     Keyword: [
- *       {
+ *     ComplianceStatus: "<StringFilterList>",
+ *     VerificationState: "<StringFilterList>",
+ *     WorkflowState: "<StringFilterList>",
+ *     WorkflowStatus: "<StringFilterList>",
+ *     RecordState: "<StringFilterList>",
+ *     RelatedFindingsProductArn: "<StringFilterList>",
+ *     RelatedFindingsId: "<StringFilterList>",
+ *     NoteText: "<StringFilterList>",
+ *     NoteUpdatedAt: "<DateFilterList>",
+ *     NoteUpdatedBy: "<StringFilterList>",
+ *     Keyword: [ // KeywordFilterList
+ *       { // KeywordFilter
  *         Value: "STRING_VALUE",
  *       },
  *     ],
- *     FindingProviderFieldsConfidence: [
- *       {
- *         Gte: Number("double"),
- *         Lte: Number("double"),
- *         Eq: Number("double"),
- *       },
- *     ],
- *     FindingProviderFieldsCriticality: [
- *       {
- *         Gte: Number("double"),
- *         Lte: Number("double"),
- *         Eq: Number("double"),
- *       },
- *     ],
- *     FindingProviderFieldsRelatedFindingsId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     FindingProviderFieldsRelatedFindingsProductArn: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     FindingProviderFieldsSeverityLabel: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     FindingProviderFieldsSeverityOriginal: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     FindingProviderFieldsTypes: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     Sample: [
- *       {
+ *     FindingProviderFieldsConfidence: "<NumberFilterList>",
+ *     FindingProviderFieldsCriticality: "<NumberFilterList>",
+ *     FindingProviderFieldsRelatedFindingsId: "<StringFilterList>",
+ *     FindingProviderFieldsRelatedFindingsProductArn: "<StringFilterList>",
+ *     FindingProviderFieldsSeverityLabel: "<StringFilterList>",
+ *     FindingProviderFieldsSeverityOriginal: "<StringFilterList>",
+ *     FindingProviderFieldsTypes: "<StringFilterList>",
+ *     Sample: [ // BooleanFilterList
+ *       { // BooleanFilter
  *         Value: true || false,
  *       },
  *     ],
- *     ComplianceSecurityControlId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
- *     ComplianceAssociatedStandardsId: [
- *       {
- *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
- *       },
- *     ],
+ *     ComplianceSecurityControlId: "<StringFilterList>",
+ *     ComplianceAssociatedStandardsId: "<StringFilterList>",
  *   },
  *   GroupByAttribute: "STRING_VALUE",
  * };

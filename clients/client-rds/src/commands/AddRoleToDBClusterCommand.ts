@@ -42,7 +42,7 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * import { RDSClient, AddRoleToDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, AddRoleToDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // AddRoleToDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
  *   FeatureName: "STRING_VALUE",

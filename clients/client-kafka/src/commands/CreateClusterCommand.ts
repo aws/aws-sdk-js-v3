@@ -42,87 +42,87 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { KafkaClient, CreateClusterCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, CreateClusterCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
- *   BrokerNodeGroupInfo: {
+ * const input = { // CreateClusterRequest
+ *   BrokerNodeGroupInfo: { // BrokerNodeGroupInfo
  *     BrokerAZDistribution: "DEFAULT",
- *     ClientSubnets: [ // required
+ *     ClientSubnets: [ // __listOf__string // required
  *       "STRING_VALUE",
  *     ],
  *     InstanceType: "STRING_VALUE", // required
  *     SecurityGroups: [
  *       "STRING_VALUE",
  *     ],
- *     StorageInfo: {
- *       EbsStorageInfo: {
- *         ProvisionedThroughput: {
+ *     StorageInfo: { // StorageInfo
+ *       EbsStorageInfo: { // EBSStorageInfo
+ *         ProvisionedThroughput: { // ProvisionedThroughput
  *           Enabled: true || false,
  *           VolumeThroughput: Number("int"),
  *         },
  *         VolumeSize: Number("int"),
  *       },
  *     },
- *     ConnectivityInfo: {
- *       PublicAccess: {
+ *     ConnectivityInfo: { // ConnectivityInfo
+ *       PublicAccess: { // PublicAccess
  *         Type: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   ClientAuthentication: {
- *     Sasl: {
- *       Scram: {
+ *   ClientAuthentication: { // ClientAuthentication
+ *     Sasl: { // Sasl
+ *       Scram: { // Scram
  *         Enabled: true || false,
  *       },
- *       Iam: {
+ *       Iam: { // Iam
  *         Enabled: true || false,
  *       },
  *     },
- *     Tls: {
+ *     Tls: { // Tls
  *       CertificateAuthorityArnList: [
  *         "STRING_VALUE",
  *       ],
  *       Enabled: true || false,
  *     },
- *     Unauthenticated: {
+ *     Unauthenticated: { // Unauthenticated
  *       Enabled: true || false,
  *     },
  *   },
  *   ClusterName: "STRING_VALUE", // required
- *   ConfigurationInfo: {
+ *   ConfigurationInfo: { // ConfigurationInfo
  *     Arn: "STRING_VALUE", // required
  *     Revision: Number("long"), // required
  *   },
- *   EncryptionInfo: {
- *     EncryptionAtRest: {
+ *   EncryptionInfo: { // EncryptionInfo
+ *     EncryptionAtRest: { // EncryptionAtRest
  *       DataVolumeKMSKeyId: "STRING_VALUE", // required
  *     },
- *     EncryptionInTransit: {
+ *     EncryptionInTransit: { // EncryptionInTransit
  *       ClientBroker: "TLS" || "TLS_PLAINTEXT" || "PLAINTEXT",
  *       InCluster: true || false,
  *     },
  *   },
  *   EnhancedMonitoring: "DEFAULT" || "PER_BROKER" || "PER_TOPIC_PER_BROKER" || "PER_TOPIC_PER_PARTITION",
- *   OpenMonitoring: {
- *     Prometheus: {
- *       JmxExporter: {
+ *   OpenMonitoring: { // OpenMonitoringInfo
+ *     Prometheus: { // PrometheusInfo
+ *       JmxExporter: { // JmxExporterInfo
  *         EnabledInBroker: true || false, // required
  *       },
- *       NodeExporter: {
+ *       NodeExporter: { // NodeExporterInfo
  *         EnabledInBroker: true || false, // required
  *       },
  *     },
  *   },
  *   KafkaVersion: "STRING_VALUE", // required
- *   LoggingInfo: {
- *     BrokerLogs: {
- *       CloudWatchLogs: {
+ *   LoggingInfo: { // LoggingInfo
+ *     BrokerLogs: { // BrokerLogs
+ *       CloudWatchLogs: { // CloudWatchLogs
  *         Enabled: true || false, // required
  *         LogGroup: "STRING_VALUE",
  *       },
- *       Firehose: {
+ *       Firehose: { // Firehose
  *         DeliveryStream: "STRING_VALUE",
  *         Enabled: true || false, // required
  *       },
- *       S3: {
+ *       S3: { // S3
  *         Bucket: "STRING_VALUE",
  *         Enabled: true || false, // required
  *         Prefix: "STRING_VALUE",
@@ -130,7 +130,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     },
  *   },
  *   NumberOfBrokerNodes: Number("int"), // required
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  *   StorageMode: "LOCAL" || "TIERED",

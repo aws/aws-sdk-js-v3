@@ -65,29 +65,29 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * import { SFNClient, CreateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, CreateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // CreateStateMachineInput
  *   name: "STRING_VALUE", // required
  *   definition: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
  *   type: "STANDARD" || "EXPRESS",
- *   loggingConfiguration: {
+ *   loggingConfiguration: { // LoggingConfiguration
  *     level: "ALL" || "ERROR" || "FATAL" || "OFF",
  *     includeExecutionData: true || false,
- *     destinations: [
- *       {
- *         cloudWatchLogsLogGroup: {
+ *     destinations: [ // LogDestinationList
+ *       { // LogDestination
+ *         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
  *           logGroupArn: "STRING_VALUE",
  *         },
  *       },
  *     ],
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   tracingConfiguration: {
+ *   tracingConfiguration: { // TracingConfiguration
  *     enabled: true || false,
  *   },
  * };

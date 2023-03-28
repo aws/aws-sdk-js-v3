@@ -54,14 +54,14 @@ export interface CreateCertificateCommandOutput extends CreateCertificateResult,
  * import { LightsailClient, CreateCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // CreateCertificateRequest
  *   certificateName: "STRING_VALUE", // required
  *   domainName: "STRING_VALUE", // required
- *   subjectAlternativeNames: [
+ *   subjectAlternativeNames: [ // SubjectAlternativeNameList
  *     "STRING_VALUE",
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

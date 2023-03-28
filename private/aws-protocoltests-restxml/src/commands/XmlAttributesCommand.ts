@@ -41,7 +41,7 @@ export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __
  * import { RestXmlProtocolClient, XmlAttributesCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlAttributesCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // XmlAttributesInputOutput
  *   foo: "STRING_VALUE",
  *   attr: "STRING_VALUE",
  * };

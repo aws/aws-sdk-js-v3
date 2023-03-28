@@ -49,20 +49,20 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * import { DirectoryServiceClient, CreateMicrosoftADCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateMicrosoftADCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // CreateMicrosoftADRequest
  *   Name: "STRING_VALUE", // required
  *   ShortName: "STRING_VALUE",
  *   Password: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   VpcSettings: {
+ *   VpcSettings: { // DirectoryVpcSettings
  *     VpcId: "STRING_VALUE", // required
- *     SubnetIds: [ // required
+ *     SubnetIds: [ // SubnetIds // required
  *       "STRING_VALUE",
  *     ],
  *   },
  *   Edition: "Enterprise" || "Standard",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

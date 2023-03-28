@@ -43,11 +43,11 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * import { ConnectClient, UpdateRoutingProfileConcurrencyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRoutingProfileConcurrencyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateRoutingProfileConcurrencyRequest
  *   InstanceId: "STRING_VALUE", // required
  *   RoutingProfileId: "STRING_VALUE", // required
- *   MediaConcurrencies: [ // required
- *     {
+ *   MediaConcurrencies: [ // MediaConcurrencies // required
+ *     { // MediaConcurrency
  *       Channel: "VOICE" || "CHAT" || "TASK", // required
  *       Concurrency: Number("int"), // required
  *     },

@@ -42,9 +42,9 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * import { DirectoryServiceClient, RemoveIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RemoveIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // RemoveIpRoutesRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   CidrIps: [ // required
+ *   CidrIps: [ // CidrIps // required
  *     "STRING_VALUE",
  *   ],
  * };

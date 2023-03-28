@@ -44,7 +44,7 @@ export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __Met
  * import { AthenaClient, ListExecutorsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListExecutorsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // ListExecutorsRequest
  *   SessionId: "STRING_VALUE", // required
  *   ExecutorStateFilter: "CREATING" || "CREATED" || "REGISTERED" || "TERMINATING" || "TERMINATED" || "FAILED",
  *   MaxResults: Number("int"),

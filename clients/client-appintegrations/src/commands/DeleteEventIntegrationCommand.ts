@@ -43,7 +43,7 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * import { AppIntegrationsClient, DeleteEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, DeleteEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
- * const input = {
+ * const input = { // DeleteEventIntegrationRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventIntegrationCommand(input);

@@ -66,7 +66,7 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  * import { SWFClient, ListWorkflowTypesCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListWorkflowTypesCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // ListWorkflowTypesInput
  *   domain: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   registrationStatus: "REGISTERED" || "DEPRECATED", // required

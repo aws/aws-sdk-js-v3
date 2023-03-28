@@ -47,11 +47,11 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * import { WorkDocsClient, CreateCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // CreateCustomMetadataRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   ResourceId: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE",
- *   CustomMetadata: { // required
+ *   CustomMetadata: { // CustomMetadataMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

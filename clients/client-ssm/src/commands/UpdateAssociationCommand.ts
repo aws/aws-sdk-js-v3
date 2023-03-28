@@ -66,27 +66,27 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  * import { SSMClient, UpdateAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // UpdateAssociationRequest
  *   AssociationId: "STRING_VALUE", // required
- *   Parameters: {
- *     "<keys>": [
+ *   Parameters: { // Parameters
+ *     "<keys>": [ // ParameterValueList
  *       "STRING_VALUE",
  *     ],
  *   },
  *   DocumentVersion: "STRING_VALUE",
  *   ScheduleExpression: "STRING_VALUE",
- *   OutputLocation: {
- *     S3Location: {
+ *   OutputLocation: { // InstanceAssociationOutputLocation
+ *     S3Location: { // S3OutputLocation
  *       OutputS3Region: "STRING_VALUE",
  *       OutputS3BucketName: "STRING_VALUE",
  *       OutputS3KeyPrefix: "STRING_VALUE",
  *     },
  *   },
  *   Name: "STRING_VALUE",
- *   Targets: [
- *     {
+ *   Targets: [ // Targets
+ *     { // Target
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // TargetValues
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -99,24 +99,24 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  *   ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
  *   SyncCompliance: "AUTO" || "MANUAL",
  *   ApplyOnlyAtCronInterval: true || false,
- *   CalendarNames: [
+ *   CalendarNames: [ // CalendarNameOrARNList
  *     "STRING_VALUE",
  *   ],
- *   TargetLocations: [
- *     {
- *       Accounts: [
+ *   TargetLocations: [ // TargetLocations
+ *     { // TargetLocation
+ *       Accounts: [ // Accounts
  *         "STRING_VALUE",
  *       ],
- *       Regions: [
+ *       Regions: [ // Regions
  *         "STRING_VALUE",
  *       ],
  *       TargetLocationMaxConcurrency: "STRING_VALUE",
  *       TargetLocationMaxErrors: "STRING_VALUE",
  *       ExecutionRoleName: "STRING_VALUE",
- *       TargetLocationAlarmConfiguration: {
+ *       TargetLocationAlarmConfiguration: { // AlarmConfiguration
  *         IgnorePollAlarmFailure: true || false,
- *         Alarms: [ // required
- *           {
+ *         Alarms: [ // AlarmList // required
+ *           { // Alarm
  *             Name: "STRING_VALUE", // required
  *           },
  *         ],
@@ -124,9 +124,9 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  *     },
  *   ],
  *   ScheduleOffset: Number("int"),
- *   TargetMaps: [
- *     {
- *       "<keys>": [
+ *   TargetMaps: [ // TargetMaps
+ *     { // TargetMap
+ *       "<keys>": [ // TargetMapValueList
  *         "STRING_VALUE",
  *       ],
  *     },

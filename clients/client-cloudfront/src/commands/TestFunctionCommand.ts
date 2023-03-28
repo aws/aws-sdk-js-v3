@@ -56,7 +56,7 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  * import { CloudFrontClient, TestFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, TestFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // TestFunctionRequest
  *   Name: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE", // required
  *   Stage: "DEVELOPMENT" || "LIVE",

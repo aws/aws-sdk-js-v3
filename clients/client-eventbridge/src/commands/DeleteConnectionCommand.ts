@@ -42,7 +42,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * import { EventBridgeClient, DeleteConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // DeleteConnectionRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteConnectionCommand(input);

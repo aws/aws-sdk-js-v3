@@ -44,15 +44,15 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
  * import { EC2Client, DescribeTrafficMirrorTargetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTrafficMirrorTargetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   TrafficMirrorTargetIds: [
+ * const input = { // DescribeTrafficMirrorTargetsRequest
+ *   TrafficMirrorTargetIds: [ // TrafficMirrorTargetIdList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

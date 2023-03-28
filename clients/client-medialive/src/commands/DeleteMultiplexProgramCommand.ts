@@ -42,7 +42,7 @@ export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProg
  * import { MediaLiveClient, DeleteMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // DeleteMultiplexProgramRequest
  *   MultiplexId: "STRING_VALUE", // required
  *   ProgramName: "STRING_VALUE", // required
  * };

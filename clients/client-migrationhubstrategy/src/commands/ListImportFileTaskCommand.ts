@@ -46,7 +46,7 @@ export interface ListImportFileTaskCommandOutput extends ListImportFileTaskRespo
  * import { MigrationHubStrategyClient, ListImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // ListImportFileTaskRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

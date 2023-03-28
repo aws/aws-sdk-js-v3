@@ -53,7 +53,7 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * import { ServiceCatalogAppRegistryClient, AssociateResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, AssociateResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
- * const input = {
+ * const input = { // AssociateResourceRequest
  *   application: "STRING_VALUE", // required
  *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
  *   resource: "STRING_VALUE", // required

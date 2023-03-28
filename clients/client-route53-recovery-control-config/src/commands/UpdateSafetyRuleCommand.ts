@@ -46,13 +46,13 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  * import { Route53RecoveryControlConfigClient, UpdateSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, UpdateSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
- *   AssertionRuleUpdate: {
+ * const input = { // UpdateSafetyRuleRequest
+ *   AssertionRuleUpdate: { // AssertionRuleUpdate
  *     Name: "STRING_VALUE", // required
  *     SafetyRuleArn: "STRING_VALUE", // required
  *     WaitPeriodMs: Number("int"), // required
  *   },
- *   GatingRuleUpdate: {
+ *   GatingRuleUpdate: { // GatingRuleUpdate
  *     Name: "STRING_VALUE", // required
  *     SafetyRuleArn: "STRING_VALUE", // required
  *     WaitPeriodMs: Number("int"), // required

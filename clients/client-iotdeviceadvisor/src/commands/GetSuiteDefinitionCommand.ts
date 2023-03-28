@@ -43,7 +43,7 @@ export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionRespo
  * import { IotDeviceAdvisorClient, GetSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, GetSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
- * const input = {
+ * const input = { // GetSuiteDefinitionRequest
  *   suiteDefinitionId: "STRING_VALUE", // required
  *   suiteDefinitionVersion: "STRING_VALUE",
  * };

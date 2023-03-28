@@ -42,23 +42,23 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * import { FinspaceDataClient, UpdateDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, UpdateDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // UpdateDatasetRequest
  *   clientToken: "STRING_VALUE",
  *   datasetId: "STRING_VALUE", // required
  *   datasetTitle: "STRING_VALUE", // required
  *   kind: "STRING_VALUE", // required
  *   datasetDescription: "STRING_VALUE",
  *   alias: "STRING_VALUE",
- *   schemaDefinition: {
- *     tabularSchemaConfig: {
- *       columns: [
- *         {
+ *   schemaDefinition: { // SchemaUnion
+ *     tabularSchemaConfig: { // SchemaDefinition
+ *       columns: [ // ColumnList
+ *         { // ColumnDefinition
  *           dataType: "STRING_VALUE",
  *           columnName: "STRING_VALUE",
  *           columnDescription: "STRING_VALUE",
  *         },
  *       ],
- *       primaryKeyColumns: [
+ *       primaryKeyColumns: [ // ColumnNameList
  *         "STRING_VALUE",
  *       ],
  *     },

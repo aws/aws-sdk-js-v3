@@ -43,7 +43,7 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * import { LightsailClient, GetInstancesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstancesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetInstancesRequest
  *   pageToken: "STRING_VALUE",
  * };
  * const command = new GetInstancesCommand(input);

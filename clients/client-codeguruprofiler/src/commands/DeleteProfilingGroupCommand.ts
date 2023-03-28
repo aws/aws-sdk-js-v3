@@ -42,7 +42,7 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  * import { CodeGuruProfilerClient, DeleteProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, DeleteProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // DeleteProfilingGroupRequest
  *   profilingGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteProfilingGroupCommand(input);

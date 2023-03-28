@@ -42,7 +42,7 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  * import { AuditManagerClient, GetDelegationsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetDelegationsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // GetDelegationsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

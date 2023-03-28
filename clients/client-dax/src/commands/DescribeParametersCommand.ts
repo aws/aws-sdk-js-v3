@@ -42,7 +42,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * import { DAXClient, DescribeParametersCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeParametersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
+ * const input = { // DescribeParametersRequest
  *   ParameterGroupName: "STRING_VALUE", // required
  *   Source: "STRING_VALUE",
  *   MaxResults: Number("int"),

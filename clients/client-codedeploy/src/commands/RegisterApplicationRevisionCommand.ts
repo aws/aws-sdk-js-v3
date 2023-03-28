@@ -42,27 +42,27 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * import { CodeDeployClient, RegisterApplicationRevisionCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, RegisterApplicationRevisionCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // RegisterApplicationRevisionInput
  *   applicationName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   revision: {
+ *   revision: { // RevisionLocation
  *     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
- *     s3Location: {
+ *     s3Location: { // S3Location
  *       bucket: "STRING_VALUE",
  *       key: "STRING_VALUE",
  *       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
  *       version: "STRING_VALUE",
  *       eTag: "STRING_VALUE",
  *     },
- *     gitHubLocation: {
+ *     gitHubLocation: { // GitHubLocation
  *       repository: "STRING_VALUE",
  *       commitId: "STRING_VALUE",
  *     },
- *     string: {
+ *     string: { // RawString
  *       content: "STRING_VALUE",
  *       sha256: "STRING_VALUE",
  *     },
- *     appSpecContent: {
+ *     appSpecContent: { // AppSpecContent
  *       content: "STRING_VALUE",
  *       sha256: "STRING_VALUE",
  *     },

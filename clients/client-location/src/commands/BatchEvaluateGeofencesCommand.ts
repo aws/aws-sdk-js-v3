@@ -74,19 +74,19 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * import { LocationClient, BatchEvaluateGeofencesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchEvaluateGeofencesCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // BatchEvaluateGeofencesRequest
  *   CollectionName: "STRING_VALUE", // required
- *   DevicePositionUpdates: [ // required
- *     {
+ *   DevicePositionUpdates: [ // DevicePositionUpdateList // required
+ *     { // DevicePositionUpdate
  *       DeviceId: "STRING_VALUE", // required
  *       SampleTime: new Date("TIMESTAMP"), // required
- *       Position: [ // required
+ *       Position: [ // Position // required
  *         Number("double"),
  *       ],
- *       Accuracy: {
+ *       Accuracy: { // PositionalAccuracy
  *         Horizontal: Number("double"), // required
  *       },
- *       PositionProperties: {
+ *       PositionProperties: { // PropertyMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

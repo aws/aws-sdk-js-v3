@@ -52,7 +52,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * import { CognitoIdentityProviderClient, ListDevicesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListDevicesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // ListDevicesRequest
  *   AccessToken: "STRING_VALUE", // required
  *   Limit: Number("int"),
  *   PaginationToken: "STRING_VALUE",

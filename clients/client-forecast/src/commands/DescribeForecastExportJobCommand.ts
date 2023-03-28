@@ -66,7 +66,7 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  * import { ForecastClient, DescribeForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DescribeForecastExportJobRequest
  *   ForecastExportJobArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeForecastExportJobCommand(input);

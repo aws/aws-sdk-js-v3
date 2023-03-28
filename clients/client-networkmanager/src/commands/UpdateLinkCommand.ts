@@ -43,12 +43,12 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  * import { NetworkManagerClient, UpdateLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // UpdateLinkRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   LinkId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Type: "STRING_VALUE",
- *   Bandwidth: {
+ *   Bandwidth: { // Bandwidth
  *     UploadSpeed: Number("int"),
  *     DownloadSpeed: Number("int"),
  *   },

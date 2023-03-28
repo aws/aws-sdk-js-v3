@@ -42,11 +42,11 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * import { SSMContactsClient, CreateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, CreateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = {
+ * const input = { // CreateContactChannelRequest
  *   ContactId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Type: "STRING_VALUE", // required
- *   DeliveryAddress: {
+ *   DeliveryAddress: { // ContactChannelAddress
  *     SimpleAddress: "STRING_VALUE",
  *   },
  *   DeferActivation: true || false,

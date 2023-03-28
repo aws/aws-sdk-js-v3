@@ -42,7 +42,7 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * import { KeyspacesClient, GetKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, GetKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = {
+ * const input = { // GetKeyspaceRequest
  *   keyspaceName: "STRING_VALUE", // required
  * };
  * const command = new GetKeyspaceCommand(input);

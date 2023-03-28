@@ -51,87 +51,87 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { KinesisAnalyticsClient, UpdateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, UpdateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
- * const input = {
+ * const input = { // UpdateApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   CurrentApplicationVersionId: Number("long"), // required
- *   ApplicationUpdate: {
- *     InputUpdates: [
- *       {
+ *   ApplicationUpdate: { // ApplicationUpdate
+ *     InputUpdates: [ // InputUpdates
+ *       { // InputUpdate
  *         InputId: "STRING_VALUE", // required
  *         NamePrefixUpdate: "STRING_VALUE",
- *         InputProcessingConfigurationUpdate: {
- *           InputLambdaProcessorUpdate: {
+ *         InputProcessingConfigurationUpdate: { // InputProcessingConfigurationUpdate
+ *           InputLambdaProcessorUpdate: { // InputLambdaProcessorUpdate
  *             ResourceARNUpdate: "STRING_VALUE",
  *             RoleARNUpdate: "STRING_VALUE",
  *           },
  *         },
- *         KinesisStreamsInputUpdate: {
+ *         KinesisStreamsInputUpdate: { // KinesisStreamsInputUpdate
  *           ResourceARNUpdate: "STRING_VALUE",
  *           RoleARNUpdate: "STRING_VALUE",
  *         },
- *         KinesisFirehoseInputUpdate: {
+ *         KinesisFirehoseInputUpdate: { // KinesisFirehoseInputUpdate
  *           ResourceARNUpdate: "STRING_VALUE",
  *           RoleARNUpdate: "STRING_VALUE",
  *         },
- *         InputSchemaUpdate: {
- *           RecordFormatUpdate: {
+ *         InputSchemaUpdate: { // InputSchemaUpdate
+ *           RecordFormatUpdate: { // RecordFormat
  *             RecordFormatType: "STRING_VALUE", // required
- *             MappingParameters: {
- *               JSONMappingParameters: {
+ *             MappingParameters: { // MappingParameters
+ *               JSONMappingParameters: { // JSONMappingParameters
  *                 RecordRowPath: "STRING_VALUE", // required
  *               },
- *               CSVMappingParameters: {
+ *               CSVMappingParameters: { // CSVMappingParameters
  *                 RecordRowDelimiter: "STRING_VALUE", // required
  *                 RecordColumnDelimiter: "STRING_VALUE", // required
  *               },
  *             },
  *           },
  *           RecordEncodingUpdate: "STRING_VALUE",
- *           RecordColumnUpdates: [
- *             {
+ *           RecordColumnUpdates: [ // RecordColumns
+ *             { // RecordColumn
  *               Name: "STRING_VALUE", // required
  *               Mapping: "STRING_VALUE",
  *               SqlType: "STRING_VALUE", // required
  *             },
  *           ],
  *         },
- *         InputParallelismUpdate: {
+ *         InputParallelismUpdate: { // InputParallelismUpdate
  *           CountUpdate: Number("int"),
  *         },
  *       },
  *     ],
  *     ApplicationCodeUpdate: "STRING_VALUE",
- *     OutputUpdates: [
- *       {
+ *     OutputUpdates: [ // OutputUpdates
+ *       { // OutputUpdate
  *         OutputId: "STRING_VALUE", // required
  *         NameUpdate: "STRING_VALUE",
- *         KinesisStreamsOutputUpdate: {
+ *         KinesisStreamsOutputUpdate: { // KinesisStreamsOutputUpdate
  *           ResourceARNUpdate: "STRING_VALUE",
  *           RoleARNUpdate: "STRING_VALUE",
  *         },
- *         KinesisFirehoseOutputUpdate: {
+ *         KinesisFirehoseOutputUpdate: { // KinesisFirehoseOutputUpdate
  *           ResourceARNUpdate: "STRING_VALUE",
  *           RoleARNUpdate: "STRING_VALUE",
  *         },
- *         LambdaOutputUpdate: {
+ *         LambdaOutputUpdate: { // LambdaOutputUpdate
  *           ResourceARNUpdate: "STRING_VALUE",
  *           RoleARNUpdate: "STRING_VALUE",
  *         },
- *         DestinationSchemaUpdate: {
+ *         DestinationSchemaUpdate: { // DestinationSchema
  *           RecordFormatType: "STRING_VALUE", // required
  *         },
  *       },
  *     ],
- *     ReferenceDataSourceUpdates: [
- *       {
+ *     ReferenceDataSourceUpdates: [ // ReferenceDataSourceUpdates
+ *       { // ReferenceDataSourceUpdate
  *         ReferenceId: "STRING_VALUE", // required
  *         TableNameUpdate: "STRING_VALUE",
- *         S3ReferenceDataSourceUpdate: {
+ *         S3ReferenceDataSourceUpdate: { // S3ReferenceDataSourceUpdate
  *           BucketARNUpdate: "STRING_VALUE",
  *           FileKeyUpdate: "STRING_VALUE",
  *           ReferenceRoleARNUpdate: "STRING_VALUE",
  *         },
- *         ReferenceSchemaUpdate: {
+ *         ReferenceSchemaUpdate: { // SourceSchema
  *           RecordFormat: {
  *             RecordFormatType: "STRING_VALUE", // required
  *             MappingParameters: {
@@ -155,8 +155,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *         },
  *       },
  *     ],
- *     CloudWatchLoggingOptionUpdates: [
- *       {
+ *     CloudWatchLoggingOptionUpdates: [ // CloudWatchLoggingOptionUpdates
+ *       { // CloudWatchLoggingOptionUpdate
  *         CloudWatchLoggingOptionId: "STRING_VALUE", // required
  *         LogStreamARNUpdate: "STRING_VALUE",
  *         RoleARNUpdate: "STRING_VALUE",

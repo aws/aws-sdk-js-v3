@@ -42,23 +42,23 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  * import { ElastiCacheClient, DescribeUpdateActionsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeUpdateActionsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DescribeUpdateActionsMessage
  *   ServiceUpdateName: "STRING_VALUE",
- *   ReplicationGroupIds: [
+ *   ReplicationGroupIds: [ // ReplicationGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   CacheClusterIds: [
+ *   CacheClusterIds: [ // CacheClusterIdList
  *     "STRING_VALUE",
  *   ],
  *   Engine: "STRING_VALUE",
- *   ServiceUpdateStatus: [
+ *   ServiceUpdateStatus: [ // ServiceUpdateStatusList
  *     "available" || "cancelled" || "expired",
  *   ],
- *   ServiceUpdateTimeRange: {
+ *   ServiceUpdateTimeRange: { // TimeRangeFilter
  *     StartTime: new Date("TIMESTAMP"),
  *     EndTime: new Date("TIMESTAMP"),
  *   },
- *   UpdateActionStatus: [
+ *   UpdateActionStatus: [ // UpdateActionStatusList
  *     "not-applied" || "waiting-to-start" || "in-progress" || "stopping" || "stopped" || "complete" || "scheduling" || "scheduled" || "not-applicable",
  *   ],
  *   ShowNodeLevelUpdateStatus: true || false,

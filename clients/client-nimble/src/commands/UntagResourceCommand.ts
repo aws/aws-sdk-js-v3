@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { NimbleClient, UntagResourceCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UntagResourceCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  * };

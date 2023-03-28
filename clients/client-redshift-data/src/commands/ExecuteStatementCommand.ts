@@ -59,7 +59,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * import { RedshiftDataClient, ExecuteStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
- * const input = {
+ * const input = { // ExecuteStatementInput
  *   Sql: "STRING_VALUE", // required
  *   ClusterIdentifier: "STRING_VALUE",
  *   SecretArn: "STRING_VALUE",
@@ -67,8 +67,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *   Database: "STRING_VALUE", // required
  *   WithEvent: true || false,
  *   StatementName: "STRING_VALUE",
- *   Parameters: [
- *     {
+ *   Parameters: [ // SqlParametersList
+ *     { // SqlParameter
  *       name: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

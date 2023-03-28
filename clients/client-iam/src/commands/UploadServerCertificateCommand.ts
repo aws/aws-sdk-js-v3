@@ -69,14 +69,14 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * import { IAMClient, UploadServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UploadServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UploadServerCertificateRequest
  *   Path: "STRING_VALUE",
  *   ServerCertificateName: "STRING_VALUE", // required
  *   CertificateBody: "STRING_VALUE", // required
  *   PrivateKey: "STRING_VALUE", // required
  *   CertificateChain: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // tagListType
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

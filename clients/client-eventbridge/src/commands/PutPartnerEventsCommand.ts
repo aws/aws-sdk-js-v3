@@ -43,12 +43,12 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * import { EventBridgeClient, PutPartnerEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutPartnerEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
- *   Entries: [ // required
- *     {
+ * const input = { // PutPartnerEventsRequest
+ *   Entries: [ // PutPartnerEventsRequestEntryList // required
+ *     { // PutPartnerEventsRequestEntry
  *       Time: new Date("TIMESTAMP"),
  *       Source: "STRING_VALUE",
- *       Resources: [
+ *       Resources: [ // EventResourceList
  *         "STRING_VALUE",
  *       ],
  *       DetailType: "STRING_VALUE",

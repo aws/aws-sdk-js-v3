@@ -63,7 +63,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * import { RDSClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // RestoreDBClusterToPointInTimeMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   RestoreType: "STRING_VALUE",
  *   SourceDBClusterIdentifier: "STRING_VALUE", // required
@@ -72,11 +72,11 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   Port: Number("int"),
  *   DBSubnetGroupName: "STRING_VALUE",
  *   OptionGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -84,7 +84,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   KmsKeyId: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
  *   BacktrackWindow: Number("long"),
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DBClusterParameterGroupName: "STRING_VALUE",
@@ -92,7 +92,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   CopyTagsToSnapshot: true || false,
  *   Domain: "STRING_VALUE",
  *   DomainIAMRoleName: "STRING_VALUE",
- *   ScalingConfiguration: {
+ *   ScalingConfiguration: { // ScalingConfiguration
  *     MinCapacity: Number("int"),
  *     MaxCapacity: Number("int"),
  *     AutoPause: true || false,
@@ -105,7 +105,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   StorageType: "STRING_VALUE",
  *   PubliclyAccessible: true || false,
  *   Iops: Number("int"),
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

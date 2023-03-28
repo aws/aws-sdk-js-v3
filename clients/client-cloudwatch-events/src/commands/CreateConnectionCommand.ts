@@ -43,39 +43,39 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * import { CloudWatchEventsClient, CreateConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreateConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // CreateConnectionRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   AuthorizationType: "STRING_VALUE", // required
- *   AuthParameters: {
- *     BasicAuthParameters: {
+ *   AuthParameters: { // CreateConnectionAuthRequestParameters
+ *     BasicAuthParameters: { // CreateConnectionBasicAuthRequestParameters
  *       Username: "STRING_VALUE", // required
  *       Password: "STRING_VALUE", // required
  *     },
- *     OAuthParameters: {
- *       ClientParameters: {
+ *     OAuthParameters: { // CreateConnectionOAuthRequestParameters
+ *       ClientParameters: { // CreateConnectionOAuthClientRequestParameters
  *         ClientID: "STRING_VALUE", // required
  *         ClientSecret: "STRING_VALUE", // required
  *       },
  *       AuthorizationEndpoint: "STRING_VALUE", // required
  *       HttpMethod: "STRING_VALUE", // required
- *       OAuthHttpParameters: {
- *         HeaderParameters: [
- *           {
+ *       OAuthHttpParameters: { // ConnectionHttpParameters
+ *         HeaderParameters: [ // ConnectionHeaderParametersList
+ *           { // ConnectionHeaderParameter
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *             IsValueSecret: true || false,
  *           },
  *         ],
- *         QueryStringParameters: [
- *           {
+ *         QueryStringParameters: [ // ConnectionQueryStringParametersList
+ *           { // ConnectionQueryStringParameter
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *             IsValueSecret: true || false,
  *           },
  *         ],
- *         BodyParameters: [
- *           {
+ *         BodyParameters: [ // ConnectionBodyParametersList
+ *           { // ConnectionBodyParameter
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *             IsValueSecret: true || false,
@@ -83,7 +83,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *         ],
  *       },
  *     },
- *     ApiKeyAuthParameters: {
+ *     ApiKeyAuthParameters: { // CreateConnectionApiKeyAuthRequestParameters
  *       ApiKeyName: "STRING_VALUE", // required
  *       ApiKeyValue: "STRING_VALUE", // required
  *     },

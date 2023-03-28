@@ -46,11 +46,11 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  * import { SageMakerGeospatialClient, ExportEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ExportEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // ExportEarthObservationJobInput
  *   Arn: "STRING_VALUE", // required
  *   ExecutionRoleArn: "STRING_VALUE", // required
- *   OutputConfig: {
- *     S3Data: {
+ *   OutputConfig: { // OutputConfigInput
+ *     S3Data: { // ExportS3DataInput
  *       S3Uri: "STRING_VALUE", // required
  *       KmsKeyId: "STRING_VALUE",
  *     },

@@ -47,25 +47,25 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * import { SSMClient, UpdateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // UpdateOpsItemRequest
  *   Description: "STRING_VALUE",
- *   OperationalData: {
- *     "<keys>": {
+ *   OperationalData: { // OpsItemOperationalData
+ *     "<keys>": { // OpsItemDataValue
  *       Value: "STRING_VALUE",
  *       Type: "SearchableString" || "String",
  *     },
  *   },
- *   OperationalDataToDelete: [
+ *   OperationalDataToDelete: [ // OpsItemOpsDataKeysList
  *     "STRING_VALUE",
  *   ],
- *   Notifications: [
- *     {
+ *   Notifications: [ // OpsItemNotifications
+ *     { // OpsItemNotification
  *       Arn: "STRING_VALUE",
  *     },
  *   ],
  *   Priority: Number("int"),
- *   RelatedOpsItems: [
- *     {
+ *   RelatedOpsItems: [ // RelatedOpsItems
+ *     { // RelatedOpsItem
  *       OpsItemId: "STRING_VALUE", // required
  *     },
  *   ],

@@ -71,10 +71,10 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * import { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // PutEmailIdentityDkimSigningAttributesRequest
  *   EmailIdentity: "STRING_VALUE", // required
  *   SigningAttributesOrigin: "AWS_SES" || "EXTERNAL", // required
- *   SigningAttributes: {
+ *   SigningAttributes: { // DkimSigningAttributes
  *     DomainSigningSelector: "STRING_VALUE",
  *     DomainSigningPrivateKey: "STRING_VALUE",
  *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",

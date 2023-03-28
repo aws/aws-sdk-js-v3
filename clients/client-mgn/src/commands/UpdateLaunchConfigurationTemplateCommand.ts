@@ -46,29 +46,29 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * import { MgnClient, UpdateLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // UpdateLaunchConfigurationTemplateRequest
  *   launchConfigurationTemplateID: "STRING_VALUE", // required
- *   postLaunchActions: {
+ *   postLaunchActions: { // PostLaunchActions
  *     deployment: "STRING_VALUE",
  *     s3LogBucket: "STRING_VALUE",
  *     s3OutputKeyPrefix: "STRING_VALUE",
  *     cloudWatchLogGroupName: "STRING_VALUE",
- *     ssmDocuments: [
- *       {
+ *     ssmDocuments: [ // SsmDocuments
+ *       { // SsmDocument
  *         actionName: "STRING_VALUE", // required
  *         ssmDocumentName: "STRING_VALUE", // required
  *         timeoutSeconds: Number("int"),
  *         mustSucceedForCutover: true || false,
- *         parameters: {
- *           "<keys>": [
- *             {
+ *         parameters: { // SsmDocumentParameters
+ *           "<keys>": [ // SsmParameterStoreParameters
+ *             { // SsmParameterStoreParameter
  *               parameterType: "STRING_VALUE", // required
  *               parameterName: "STRING_VALUE", // required
  *             },
  *           ],
  *         },
- *         externalParameters: {
- *           "<keys>": { // Union: only one key present
+ *         externalParameters: { // SsmDocumentExternalParameters
+ *           "<keys>": { // SsmExternalParameter Union: only one key present
  *             dynamicPath: "STRING_VALUE",
  *           },
  *         },
@@ -82,12 +82,12 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  *   copyPrivateIp: true || false,
  *   associatePublicIpAddress: true || false,
  *   copyTags: true || false,
- *   licensing: {
+ *   licensing: { // Licensing
  *     osByol: true || false,
  *   },
  *   bootMode: "STRING_VALUE",
  *   smallVolumeMaxSize: Number("long"),
- *   smallVolumeConf: {
+ *   smallVolumeConf: { // LaunchTemplateDiskConf
  *     volumeType: "STRING_VALUE",
  *     iops: Number("long"),
  *     throughput: Number("long"),

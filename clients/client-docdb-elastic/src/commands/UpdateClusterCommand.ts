@@ -43,12 +43,12 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * import { DocDBElasticClient, UpdateClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, UpdateClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
- * const input = {
+ * const input = { // UpdateClusterInput
  *   clusterArn: "STRING_VALUE", // required
  *   authType: "STRING_VALUE",
  *   shardCapacity: Number("int"),
  *   shardCount: Number("int"),
- *   vpcSecurityGroupIds: [
+ *   vpcSecurityGroupIds: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   subnetIds: [

@@ -42,7 +42,7 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  * import { FraudDetectorClient, CancelBatchImportJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CancelBatchImportJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // CancelBatchImportJobRequest
  *   jobId: "STRING_VALUE", // required
  * };
  * const command = new CancelBatchImportJobCommand(input);

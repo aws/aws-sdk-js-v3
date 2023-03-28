@@ -45,40 +45,40 @@ export interface CreateContainerServiceCommandOutput extends CreateContainerServ
  * import { LightsailClient, CreateContainerServiceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateContainerServiceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // CreateContainerServiceRequest
  *   serviceName: "STRING_VALUE", // required
  *   power: "nano" || "micro" || "small" || "medium" || "large" || "xlarge", // required
  *   scale: Number("int"), // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   publicDomainNames: {
- *     "<keys>": [
+ *   publicDomainNames: { // ContainerServicePublicDomains
+ *     "<keys>": [ // ContainerServicePublicDomainsList
  *       "STRING_VALUE",
  *     ],
  *   },
- *   deployment: {
- *     containers: {
- *       "<keys>": {
+ *   deployment: { // ContainerServiceDeploymentRequest
+ *     containers: { // ContainerMap
+ *       "<keys>": { // Container
  *         image: "STRING_VALUE",
- *         command: [
+ *         command: [ // StringList
  *           "STRING_VALUE",
  *         ],
- *         environment: {
+ *         environment: { // Environment
  *           "<keys>": "STRING_VALUE",
  *         },
- *         ports: {
+ *         ports: { // PortMap
  *           "<keys>": "HTTP" || "HTTPS" || "TCP" || "UDP",
  *         },
  *       },
  *     },
- *     publicEndpoint: {
+ *     publicEndpoint: { // EndpointRequest
  *       containerName: "STRING_VALUE", // required
  *       containerPort: Number("int"), // required
- *       healthCheck: {
+ *       healthCheck: { // ContainerServiceHealthCheckConfig
  *         healthyThreshold: Number("int"),
  *         unhealthyThreshold: Number("int"),
  *         timeoutSeconds: Number("int"),
@@ -88,8 +88,8 @@ export interface CreateContainerServiceCommandOutput extends CreateContainerServ
  *       },
  *     },
  *   },
- *   privateRegistryAccess: {
- *     ecrImagePullerRole: {
+ *   privateRegistryAccess: { // PrivateRegistryAccessRequest
+ *     ecrImagePullerRole: { // ContainerServiceECRImagePullerRoleRequest
  *       isActive: true || false,
  *     },
  *   },

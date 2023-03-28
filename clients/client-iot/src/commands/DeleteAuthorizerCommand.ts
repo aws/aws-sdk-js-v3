@@ -43,7 +43,7 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  * import { IoTClient, DeleteAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DeleteAuthorizerRequest
  *   authorizerName: "STRING_VALUE", // required
  * };
  * const command = new DeleteAuthorizerCommand(input);

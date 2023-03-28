@@ -47,7 +47,7 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * import { SESClient, UpdateConfigurationSetSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // UpdateConfigurationSetSendingEnabledRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   Enabled: true || false, // required
  * };

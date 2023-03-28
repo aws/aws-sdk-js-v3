@@ -47,13 +47,13 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  * import { LambdaClient, CreateAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // CreateAliasRequest
  *   FunctionName: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   FunctionVersion: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   RoutingConfig: {
- *     AdditionalVersionWeights: {
+ *   RoutingConfig: { // AliasRoutingConfiguration
+ *     AdditionalVersionWeights: { // AdditionalVersionWeights
  *       "<keys>": Number("double"),
  *     },
  *   },

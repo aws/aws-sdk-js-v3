@@ -43,17 +43,17 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  * import { AthenaClient, CreateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // CreateWorkGroupInput
  *   Name: "STRING_VALUE", // required
- *   Configuration: {
- *     ResultConfiguration: {
+ *   Configuration: { // WorkGroupConfiguration
+ *     ResultConfiguration: { // ResultConfiguration
  *       OutputLocation: "STRING_VALUE",
- *       EncryptionConfiguration: {
+ *       EncryptionConfiguration: { // EncryptionConfiguration
  *         EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
  *         KmsKey: "STRING_VALUE",
  *       },
  *       ExpectedBucketOwner: "STRING_VALUE",
- *       AclConfiguration: {
+ *       AclConfiguration: { // AclConfiguration
  *         S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
  *       },
  *     },
@@ -61,20 +61,20 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  *     PublishCloudWatchMetricsEnabled: true || false,
  *     BytesScannedCutoffPerQuery: Number("long"),
  *     RequesterPaysEnabled: true || false,
- *     EngineVersion: {
+ *     EngineVersion: { // EngineVersion
  *       SelectedEngineVersion: "STRING_VALUE",
  *       EffectiveEngineVersion: "STRING_VALUE",
  *     },
  *     AdditionalConfiguration: "STRING_VALUE",
  *     ExecutionRole: "STRING_VALUE",
- *     CustomerContentEncryptionConfiguration: {
+ *     CustomerContentEncryptionConfiguration: { // CustomerContentEncryptionConfiguration
  *       KmsKey: "STRING_VALUE", // required
  *     },
  *     EnableMinimumEncryptionConfiguration: true || false,
  *   },
  *   Description: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

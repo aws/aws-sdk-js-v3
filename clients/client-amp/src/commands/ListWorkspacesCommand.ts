@@ -42,7 +42,7 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * import { AmpClient, ListWorkspacesCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, ListWorkspacesCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
- * const input = {
+ * const input = { // ListWorkspacesRequest
  *   nextToken: "STRING_VALUE",
  *   alias: "STRING_VALUE",
  *   maxResults: Number("int"),

@@ -50,7 +50,7 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * import { RDSClient, StopActivityStreamCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StopActivityStreamCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // StopActivityStreamRequest
  *   ResourceArn: "STRING_VALUE", // required
  *   ApplyImmediately: true || false,
  * };

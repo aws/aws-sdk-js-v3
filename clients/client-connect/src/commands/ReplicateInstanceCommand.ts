@@ -49,7 +49,7 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  * import { ConnectClient, ReplicateInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ReplicateInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // ReplicateInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ReplicaRegion: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",

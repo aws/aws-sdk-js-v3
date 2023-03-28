@@ -54,7 +54,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * import { ChimeSDKVoiceClient, UpdatePhoneNumberCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, UpdatePhoneNumberCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // UpdatePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required
  *   ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
  *   CallingName: "STRING_VALUE",

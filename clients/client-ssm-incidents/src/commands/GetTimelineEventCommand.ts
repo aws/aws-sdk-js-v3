@@ -42,7 +42,7 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  * import { SSMIncidentsClient, GetTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, GetTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // GetTimelineEventInput
  *   incidentRecordArn: "STRING_VALUE", // required
  *   eventId: "STRING_VALUE", // required
  * };

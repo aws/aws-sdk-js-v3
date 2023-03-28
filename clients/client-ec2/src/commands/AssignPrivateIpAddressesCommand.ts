@@ -57,14 +57,14 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * import { EC2Client, AssignPrivateIpAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AssignPrivateIpAddressesRequest
  *   AllowReassignment: true || false,
  *   NetworkInterfaceId: "STRING_VALUE", // required
- *   PrivateIpAddresses: [
+ *   PrivateIpAddresses: [ // PrivateIpAddressStringList
  *     "STRING_VALUE",
  *   ],
  *   SecondaryPrivateIpAddressCount: Number("int"),
- *   Ipv4Prefixes: [
+ *   Ipv4Prefixes: [ // IpPrefixList
  *     "STRING_VALUE",
  *   ],
  *   Ipv4PrefixCount: Number("int"),

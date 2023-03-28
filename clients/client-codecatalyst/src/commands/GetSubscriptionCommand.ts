@@ -43,7 +43,7 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * import { CodeCatalystClient, GetSubscriptionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetSubscriptionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // GetSubscriptionRequest
  *   spaceName: "STRING_VALUE", // required
  * };
  * const command = new GetSubscriptionCommand(input);

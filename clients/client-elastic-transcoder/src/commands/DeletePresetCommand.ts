@@ -49,7 +49,7 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * import { ElasticTranscoderClient, DeletePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, DeletePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // DeletePresetRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DeletePresetCommand(input);

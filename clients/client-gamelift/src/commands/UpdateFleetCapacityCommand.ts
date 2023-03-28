@@ -86,7 +86,7 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * import { GameLiftClient, UpdateFleetCapacityCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateFleetCapacityCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // UpdateFleetCapacityInput
  *   FleetId: "STRING_VALUE", // required
  *   DesiredInstances: Number("int"),
  *   MinSize: Number("int"),

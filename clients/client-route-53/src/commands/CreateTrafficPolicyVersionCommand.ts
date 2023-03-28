@@ -49,7 +49,7 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * import { Route53Client, CreateTrafficPolicyVersionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateTrafficPolicyVersionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // CreateTrafficPolicyVersionRequest
  *   Id: "STRING_VALUE", // required
  *   Document: "STRING_VALUE", // required
  *   Comment: "STRING_VALUE",

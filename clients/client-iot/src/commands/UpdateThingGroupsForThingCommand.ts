@@ -43,9 +43,9 @@ export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroup
  * import { IoTClient, UpdateThingGroupsForThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateThingGroupsForThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateThingGroupsForThingRequest
  *   thingName: "STRING_VALUE",
- *   thingGroupsToAdd: [
+ *   thingGroupsToAdd: [ // ThingGroupList
  *     "STRING_VALUE",
  *   ],
  *   thingGroupsToRemove: [

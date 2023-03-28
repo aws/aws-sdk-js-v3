@@ -46,7 +46,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * import { DAXClient, DescribeEventsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeEventsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
+ * const input = { // DescribeEventsRequest
  *   SourceName: "STRING_VALUE",
  *   SourceType: "STRING_VALUE",
  *   StartTime: new Date("TIMESTAMP"),

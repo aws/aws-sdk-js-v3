@@ -46,10 +46,10 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  * import { MacieClient, DisassociateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, DisassociateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
- * const input = {
+ * const input = { // DisassociateS3ResourcesRequest
  *   memberAccountId: "STRING_VALUE",
- *   associatedS3Resources: [ // required
- *     {
+ *   associatedS3Resources: [ // S3Resources // required
+ *     { // S3Resource
  *       bucketName: "STRING_VALUE", // required
  *       prefix: "STRING_VALUE",
  *     },

@@ -44,7 +44,7 @@ export interface ListStreamingSessionBackupsCommandOutput
  * import { NimbleClient, ListStreamingSessionBackupsCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStreamingSessionBackupsCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // ListStreamingSessionBackupsRequest
  *   nextToken: "STRING_VALUE",
  *   ownedBy: "STRING_VALUE",
  *   studioId: "STRING_VALUE", // required

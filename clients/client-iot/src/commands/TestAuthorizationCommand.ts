@@ -45,19 +45,19 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  * import { IoTClient, TestAuthorizationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TestAuthorizationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // TestAuthorizationRequest
  *   principal: "STRING_VALUE",
  *   cognitoIdentityPoolId: "STRING_VALUE",
- *   authInfos: [ // required
- *     {
+ *   authInfos: [ // AuthInfos // required
+ *     { // AuthInfo
  *       actionType: "PUBLISH" || "SUBSCRIBE" || "RECEIVE" || "CONNECT",
- *       resources: [ // required
+ *       resources: [ // Resources // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   clientId: "STRING_VALUE",
- *   policyNamesToAdd: [
+ *   policyNamesToAdd: [ // PolicyNames
  *     "STRING_VALUE",
  *   ],
  *   policyNamesToSkip: [

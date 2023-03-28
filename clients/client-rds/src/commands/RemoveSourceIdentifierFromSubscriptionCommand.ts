@@ -48,7 +48,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * import { RDSClient, RemoveSourceIdentifierFromSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveSourceIdentifierFromSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // RemoveSourceIdentifierFromSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SourceIdentifier: "STRING_VALUE", // required
  * };

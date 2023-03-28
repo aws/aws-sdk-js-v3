@@ -43,14 +43,14 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  * import { SSMIncidentsClient, CreateReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, CreateReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
- *   regions: { // required
- *     "<keys>": {
+ * const input = { // CreateReplicationSetInput
+ *   regions: { // RegionMapInput // required
+ *     "<keys>": { // RegionMapInputValue
  *       sseKmsKeyId: "STRING_VALUE",
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

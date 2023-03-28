@@ -42,10 +42,10 @@ export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, UntagAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UntagAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // UntagAttendeeRequest
  *   MeetingId: "STRING_VALUE", // required
  *   AttendeeId: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // AttendeeTagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

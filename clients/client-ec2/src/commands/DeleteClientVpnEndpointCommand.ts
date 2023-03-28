@@ -43,7 +43,7 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * import { EC2Client, DeleteClientVpnEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteClientVpnEndpointRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

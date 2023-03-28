@@ -42,14 +42,14 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * import { CodeGuruReviewerClient, ListCodeReviewsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListCodeReviewsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
- *   ProviderTypes: [
+ * const input = { // ListCodeReviewsRequest
+ *   ProviderTypes: [ // ProviderTypes
  *     "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
  *   ],
- *   States: [
+ *   States: [ // JobStates
  *     "Completed" || "Pending" || "Failed" || "Deleting",
  *   ],
- *   RepositoryNames: [
+ *   RepositoryNames: [ // RepositoryNames
  *     "STRING_VALUE",
  *   ],
  *   Type: "PullRequest" || "RepositoryAnalysis", // required

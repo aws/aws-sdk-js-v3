@@ -47,7 +47,7 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  * import { CognitoIdentityProviderClient, DeleteUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // DeleteUserPoolDomainRequest
  *   Domain: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
  * };

@@ -42,7 +42,7 @@ export interface GetBlueprintCommandOutput extends GetBlueprintResponse, __Metad
  * import { GlueClient, GetBlueprintCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetBlueprintCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetBlueprintRequest
  *   Name: "STRING_VALUE", // required
  *   IncludeBlueprint: true || false,
  *   IncludeParameterSpec: true || false,

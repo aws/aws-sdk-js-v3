@@ -49,7 +49,7 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * import { KinesisVideoClient, DescribeMappedResourceConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeMappedResourceConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // DescribeMappedResourceConfigurationInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  *   MaxResults: Number("int"),

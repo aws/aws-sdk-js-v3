@@ -56,7 +56,7 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * import { WellArchitectedClient, CreateLensShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateLensShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // CreateLensShareInput
  *   LensAlias: "STRING_VALUE", // required
  *   SharedWith: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE", // required

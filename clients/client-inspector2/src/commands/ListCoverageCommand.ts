@@ -42,12 +42,12 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * import { Inspector2Client, ListCoverageCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListCoverageCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
+ * const input = { // ListCoverageRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filterCriteria: {
- *     scanStatusCode: [
- *       {
+ *   filterCriteria: { // CoverageFilterCriteria
+ *     scanStatusCode: [ // CoverageStringFilterList
+ *       { // CoverageStringFilter
  *         comparison: "STRING_VALUE", // required
  *         value: "STRING_VALUE", // required
  *       },
@@ -76,37 +76,17 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *         value: "STRING_VALUE", // required
  *       },
  *     ],
- *     scanType: [
- *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
- *       },
- *     ],
- *     ecrRepositoryName: [
- *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
- *       },
- *     ],
- *     ecrImageTags: [
- *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
- *       },
- *     ],
- *     ec2InstanceTags: [
- *       {
+ *     scanType: "<CoverageStringFilterList>",
+ *     ecrRepositoryName: "<CoverageStringFilterList>",
+ *     ecrImageTags: "<CoverageStringFilterList>",
+ *     ec2InstanceTags: [ // CoverageMapFilterList
+ *       { // CoverageMapFilter
  *         comparison: "STRING_VALUE", // required
  *         key: "STRING_VALUE", // required
  *         value: "STRING_VALUE",
  *       },
  *     ],
- *     lambdaFunctionName: [
- *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
- *       },
- *     ],
+ *     lambdaFunctionName: "<CoverageStringFilterList>",
  *     lambdaFunctionTags: [
  *       {
  *         comparison: "STRING_VALUE", // required
@@ -114,12 +94,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *         value: "STRING_VALUE",
  *       },
  *     ],
- *     lambdaFunctionRuntime: [
- *       {
- *         comparison: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
- *       },
- *     ],
+ *     lambdaFunctionRuntime: "<CoverageStringFilterList>",
  *   },
  * };
  * const command = new ListCoverageCommand(input);

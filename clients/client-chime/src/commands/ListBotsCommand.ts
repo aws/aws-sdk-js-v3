@@ -42,7 +42,7 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * import { ChimeClient, ListBotsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListBotsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListBotsRequest
  *   AccountId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

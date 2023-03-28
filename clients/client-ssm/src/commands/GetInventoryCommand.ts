@@ -44,27 +44,25 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * import { SSMClient, GetInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // GetInventoryRequest
+ *   Filters: [ // InventoryFilterList
+ *     { // InventoryFilter
  *       Key: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // InventoryFilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
  *     },
  *   ],
- *   Aggregators: [
- *     {
+ *   Aggregators: [ // InventoryAggregatorList
+ *     { // InventoryAggregator
  *       Expression: "STRING_VALUE",
  *       Aggregators: [
  *         {
  *           Expression: "STRING_VALUE",
- *           Aggregators: [
- *             "<InventoryAggregatorList>",
- *           ],
- *           Groups: [
- *             {
+ *           Aggregators: "<InventoryAggregatorList>",
+ *           Groups: [ // InventoryGroupList
+ *             { // InventoryGroup
  *               Name: "STRING_VALUE", // required
  *               Filters: [ // required
  *                 {
@@ -82,15 +80,13 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  *       Groups: [
  *         {
  *           Name: "STRING_VALUE", // required
- *           Filters: [ // required
- *             "<InventoryFilterList>",
- *           ],
+ *           Filters: "<InventoryFilterList>", // required
  *         },
  *       ],
  *     },
  *   ],
- *   ResultAttributes: [
- *     {
+ *   ResultAttributes: [ // ResultAttributeList
+ *     { // ResultAttribute
  *       TypeName: "STRING_VALUE", // required
  *     },
  *   ],

@@ -42,7 +42,7 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * import { OutpostsClient, GetOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // GetOutpostInput
  *   OutpostId: "STRING_VALUE", // required
  * };
  * const command = new GetOutpostCommand(input);

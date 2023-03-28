@@ -46,9 +46,9 @@ export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteRes
  * import { PrivateNetworksClient, ActivateNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ActivateNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // ActivateNetworkSiteRequest
  *   networkSiteArn: "STRING_VALUE", // required
- *   shippingAddress: {
+ *   shippingAddress: { // Address
  *     city: "STRING_VALUE", // required
  *     company: "STRING_VALUE",
  *     country: "STRING_VALUE", // required

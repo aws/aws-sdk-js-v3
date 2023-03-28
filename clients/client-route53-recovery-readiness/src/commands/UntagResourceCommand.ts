@@ -46,9 +46,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { Route53RecoveryReadinessClient, UntagResourceCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, UntagResourceCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
  * };

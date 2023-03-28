@@ -42,7 +42,7 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  * import { CloudFormationClient, SetStackPolicyCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, SetStackPolicyCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // SetStackPolicyInput
  *   StackName: "STRING_VALUE", // required
  *   StackPolicyBody: "STRING_VALUE",
  *   StackPolicyURL: "STRING_VALUE",

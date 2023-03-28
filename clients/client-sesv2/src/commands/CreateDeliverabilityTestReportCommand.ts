@@ -50,16 +50,16 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * import { SESv2Client, CreateDeliverabilityTestReportCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateDeliverabilityTestReportCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // CreateDeliverabilityTestReportRequest
  *   ReportName: "STRING_VALUE",
  *   FromEmailAddress: "STRING_VALUE", // required
- *   Content: {
- *     Simple: {
- *       Subject: {
+ *   Content: { // EmailContent
+ *     Simple: { // Message
+ *       Subject: { // Content
  *         Data: "STRING_VALUE", // required
  *         Charset: "STRING_VALUE",
  *       },
- *       Body: {
+ *       Body: { // Body
  *         Text: {
  *           Data: "STRING_VALUE", // required
  *           Charset: "STRING_VALUE",
@@ -70,17 +70,17 @@ export interface CreateDeliverabilityTestReportCommandOutput
  *         },
  *       },
  *     },
- *     Raw: {
+ *     Raw: { // RawMessage
  *       Data: "BLOB_VALUE", // required
  *     },
- *     Template: {
+ *     Template: { // Template
  *       TemplateName: "STRING_VALUE",
  *       TemplateArn: "STRING_VALUE",
  *       TemplateData: "STRING_VALUE",
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,8 +42,8 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * import { CodeCommitClient, BatchGetCommitsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchGetCommitsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
- *   commitIds: [ // required
+ * const input = { // BatchGetCommitsInput
+ *   commitIds: [ // CommitIdsInputList // required
  *     "STRING_VALUE",
  *   ],
  *   repositoryName: "STRING_VALUE", // required

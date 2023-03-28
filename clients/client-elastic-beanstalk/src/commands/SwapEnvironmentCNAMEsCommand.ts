@@ -42,7 +42,7 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, SwapEnvironmentCNAMEsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, SwapEnvironmentCNAMEsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // SwapEnvironmentCNAMEsMessage
  *   SourceEnvironmentId: "STRING_VALUE",
  *   SourceEnvironmentName: "STRING_VALUE",
  *   DestinationEnvironmentId: "STRING_VALUE",

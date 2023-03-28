@@ -42,7 +42,7 @@ export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopEdgePackagingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopEdgePackagingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // StopEdgePackagingJobRequest
  *   EdgePackagingJobName: "STRING_VALUE", // required
  * };
  * const command = new StopEdgePackagingJobCommand(input);

@@ -52,17 +52,17 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * import { SSMClient, DescribeInstanceInformationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstanceInformationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   InstanceInformationFilterList: [
- *     {
+ * const input = { // DescribeInstanceInformationRequest
+ *   InstanceInformationFilterList: [ // InstanceInformationFilterList
+ *     { // InstanceInformationFilter
  *       key: "InstanceIds" || "AgentVersion" || "PingStatus" || "PlatformTypes" || "ActivationIds" || "IamRole" || "ResourceType" || "AssociationStatus", // required
- *       valueSet: [ // required
+ *       valueSet: [ // InstanceInformationFilterValueSet // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // InstanceInformationStringFilterList
+ *     { // InstanceInformationStringFilter
  *       Key: "STRING_VALUE", // required
  *       Values: [ // required
  *         "STRING_VALUE",

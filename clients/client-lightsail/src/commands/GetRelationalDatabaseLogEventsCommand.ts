@@ -44,7 +44,7 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
  * import { LightsailClient, GetRelationalDatabaseLogEventsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseLogEventsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetRelationalDatabaseLogEventsRequest
  *   relationalDatabaseName: "STRING_VALUE", // required
  *   logStreamName: "STRING_VALUE", // required
  *   startTime: new Date("TIMESTAMP"),

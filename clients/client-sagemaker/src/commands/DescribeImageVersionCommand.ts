@@ -42,7 +42,7 @@ export interface DescribeImageVersionCommandOutput extends DescribeImageVersionR
  * import { SageMakerClient, DescribeImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeImageVersionRequest
  *   ImageName: "STRING_VALUE", // required
  *   Version: Number("int"),
  *   Alias: "STRING_VALUE",

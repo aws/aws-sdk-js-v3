@@ -42,9 +42,9 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  * import { CloudDirectoryClient, ListAttachedIndicesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListAttachedIndicesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // ListAttachedIndicesRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   TargetReference: {
+ *   TargetReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   NextToken: "STRING_VALUE",

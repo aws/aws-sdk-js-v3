@@ -42,42 +42,42 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * import { DeviceFarmClient, GetDevicePoolCompatibilityCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetDevicePoolCompatibilityCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // GetDevicePoolCompatibilityRequest
  *   devicePoolArn: "STRING_VALUE", // required
  *   appArn: "STRING_VALUE",
  *   testType: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY",
- *   test: {
+ *   test: { // ScheduleRunTest
  *     type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY", // required
  *     testPackageArn: "STRING_VALUE",
  *     testSpecArn: "STRING_VALUE",
  *     filter: "STRING_VALUE",
- *     parameters: {
+ *     parameters: { // TestParameters
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   configuration: {
+ *   configuration: { // ScheduleRunConfiguration
  *     extraDataPackageArn: "STRING_VALUE",
  *     networkProfileArn: "STRING_VALUE",
  *     locale: "STRING_VALUE",
- *     location: {
+ *     location: { // Location
  *       latitude: Number("double"), // required
  *       longitude: Number("double"), // required
  *     },
- *     vpceConfigurationArns: [
+ *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
- *     customerArtifactPaths: {
- *       iosPaths: [
+ *     customerArtifactPaths: { // CustomerArtifactPaths
+ *       iosPaths: [ // IosPaths
  *         "STRING_VALUE",
  *       ],
- *       androidPaths: [
+ *       androidPaths: [ // AndroidPaths
  *         "STRING_VALUE",
  *       ],
- *       deviceHostPaths: [
+ *       deviceHostPaths: [ // DeviceHostPaths
  *         "STRING_VALUE",
  *       ],
  *     },
- *     radios: {
+ *     radios: { // Radios
  *       wifi: true || false,
  *       bluetooth: true || false,
  *       nfc: true || false,

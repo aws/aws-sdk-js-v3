@@ -42,21 +42,21 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  * import { BackupClient, StartBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StartBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // StartBackupJobInput
  *   BackupVaultName: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
  *   IamRoleArn: "STRING_VALUE", // required
  *   IdempotencyToken: "STRING_VALUE",
  *   StartWindowMinutes: Number("long"),
  *   CompleteWindowMinutes: Number("long"),
- *   Lifecycle: {
+ *   Lifecycle: { // Lifecycle
  *     MoveToColdStorageAfterDays: Number("long"),
  *     DeleteAfterDays: Number("long"),
  *   },
- *   RecoveryPointTags: {
+ *   RecoveryPointTags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   BackupOptions: {
+ *   BackupOptions: { // BackupOptions
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

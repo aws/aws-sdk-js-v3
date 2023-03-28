@@ -43,10 +43,10 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  * import { SageMakerClient, ListModelMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
- *   SearchExpression: {
- *     Filters: [
- *       {
+ * const input = { // ListModelMetadataRequest
+ *   SearchExpression: { // ModelMetadataSearchExpression
+ *     Filters: [ // ModelMetadataFilters
+ *       { // ModelMetadataFilter
  *         Name: "Domain" || "Framework" || "Task" || "FrameworkVersion", // required
  *         Value: "STRING_VALUE", // required
  *       },

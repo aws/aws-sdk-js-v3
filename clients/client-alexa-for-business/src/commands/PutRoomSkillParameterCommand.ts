@@ -43,10 +43,10 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * import { AlexaForBusinessClient, PutRoomSkillParameterCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, PutRoomSkillParameterCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // PutRoomSkillParameterRequest
  *   RoomArn: "STRING_VALUE",
  *   SkillId: "STRING_VALUE", // required
- *   RoomSkillParameter: {
+ *   RoomSkillParameter: { // RoomSkillParameter
  *     ParameterKey: "STRING_VALUE", // required
  *     ParameterValue: "STRING_VALUE", // required
  *   },

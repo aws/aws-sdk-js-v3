@@ -49,11 +49,11 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * import { ECRPUBLICClient, DescribeImagesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, DescribeImagesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
- * const input = {
+ * const input = { // DescribeImagesRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
- *   imageIds: [
- *     {
+ *   imageIds: [ // ImageIdentifierList
+ *     { // ImageIdentifier
  *       imageDigest: "STRING_VALUE",
  *       imageTag: "STRING_VALUE",
  *     },

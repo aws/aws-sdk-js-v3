@@ -52,18 +52,18 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * import { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // DiscoverInputSchemaRequest
  *   ResourceARN: "STRING_VALUE",
  *   ServiceExecutionRole: "STRING_VALUE", // required
- *   InputStartingPositionConfiguration: {
+ *   InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
  *     InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
  *   },
- *   S3Configuration: {
+ *   S3Configuration: { // S3Configuration
  *     BucketARN: "STRING_VALUE", // required
  *     FileKey: "STRING_VALUE", // required
  *   },
- *   InputProcessingConfiguration: {
- *     InputLambdaProcessor: {
+ *   InputProcessingConfiguration: { // InputProcessingConfiguration
+ *     InputLambdaProcessor: { // InputLambdaProcessor
  *       ResourceARN: "STRING_VALUE", // required
  *     },
  *   },

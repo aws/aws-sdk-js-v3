@@ -42,7 +42,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * import { IoTRoboRunnerClient, UpdateDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, UpdateDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // UpdateDestinationRequest
  *   id: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   state: "STRING_VALUE",

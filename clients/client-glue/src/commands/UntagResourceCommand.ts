@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { GlueClient, UntagResourceCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UntagResourceCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagsToRemove: [ // required
+ *   TagsToRemove: [ // TagKeysList // required
  *     "STRING_VALUE",
  *   ],
  * };

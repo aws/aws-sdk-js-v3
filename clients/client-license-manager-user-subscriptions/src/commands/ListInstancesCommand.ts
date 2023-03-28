@@ -46,11 +46,11 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * import { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const input = {
+ * const input = { // ListInstancesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Attribute: "STRING_VALUE",
  *       Operation: "STRING_VALUE",
  *       Value: "STRING_VALUE",

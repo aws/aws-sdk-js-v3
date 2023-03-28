@@ -53,7 +53,7 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * import { GameLiftClient, DescribeBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DescribeBuildInput
  *   BuildId: "STRING_VALUE", // required
  * };
  * const command = new DescribeBuildCommand(input);

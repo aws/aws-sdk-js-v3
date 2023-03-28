@@ -51,13 +51,13 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * import { WorkSpacesClient, CopyWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CopyWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // CopyWorkspaceImageRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   SourceImageId: "STRING_VALUE", // required
  *   SourceRegion: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

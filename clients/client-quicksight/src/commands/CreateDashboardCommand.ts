@@ -54,56 +54,56 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * import { QuickSightClient, CreateDashboardCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateDashboardCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // CreateDashboardRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DashboardId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Parameters: {
- *     StringParameters: [
- *       {
+ *   Parameters: { // Parameters
+ *     StringParameters: [ // StringParameterList
+ *       { // StringParameter
  *         Name: "STRING_VALUE", // required
- *         Values: [ // required
+ *         Values: [ // SensitiveStringList // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     ],
- *     IntegerParameters: [
- *       {
+ *     IntegerParameters: [ // IntegerParameterList
+ *       { // IntegerParameter
  *         Name: "STRING_VALUE", // required
- *         Values: [ // required
+ *         Values: [ // SensitiveLongList // required
  *           Number("long"),
  *         ],
  *       },
  *     ],
- *     DecimalParameters: [
- *       {
+ *     DecimalParameters: [ // DecimalParameterList
+ *       { // DecimalParameter
  *         Name: "STRING_VALUE", // required
- *         Values: [ // required
+ *         Values: [ // SensitiveDoubleList // required
  *           Number("double"),
  *         ],
  *       },
  *     ],
- *     DateTimeParameters: [
- *       {
+ *     DateTimeParameters: [ // DateTimeParameterList
+ *       { // DateTimeParameter
  *         Name: "STRING_VALUE", // required
- *         Values: [ // required
+ *         Values: [ // SensitiveTimestampList // required
  *           new Date("TIMESTAMP"),
  *         ],
  *       },
  *     ],
  *   },
- *   Permissions: [
- *     {
+ *   Permissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
  *       Principal: "STRING_VALUE", // required
- *       Actions: [ // required
+ *       Actions: [ // ActionList // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   SourceEntity: {
- *     SourceTemplate: {
- *       DataSetReferences: [ // required
- *         {
+ *   SourceEntity: { // DashboardSourceEntity
+ *     SourceTemplate: { // DashboardSourceTemplate
+ *       DataSetReferences: [ // DataSetReferenceList // required
+ *         { // DataSetReference
  *           DataSetPlaceholder: "STRING_VALUE", // required
  *           DataSetArn: "STRING_VALUE", // required
  *         },
@@ -111,80 +111,80 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *       Arn: "STRING_VALUE", // required
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   VersionDescription: "STRING_VALUE",
- *   DashboardPublishOptions: {
- *     AdHocFilteringOption: {
+ *   DashboardPublishOptions: { // DashboardPublishOptions
+ *     AdHocFilteringOption: { // AdHocFilteringOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
- *     ExportToCSVOption: {
+ *     ExportToCSVOption: { // ExportToCSVOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
- *     SheetControlsOption: {
+ *     SheetControlsOption: { // SheetControlsOption
  *       VisibilityState: "EXPANDED" || "COLLAPSED",
  *     },
- *     VisualPublishOptions: {
- *       ExportHiddenFieldsOption: {
+ *     VisualPublishOptions: { // DashboardVisualPublishOptions
+ *       ExportHiddenFieldsOption: { // ExportHiddenFieldsOption
  *         AvailabilityStatus: "ENABLED" || "DISABLED",
  *       },
  *     },
- *     SheetLayoutElementMaximizationOption: {
+ *     SheetLayoutElementMaximizationOption: { // SheetLayoutElementMaximizationOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
- *     VisualMenuOption: {
+ *     VisualMenuOption: { // VisualMenuOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
- *     VisualAxisSortOption: {
+ *     VisualAxisSortOption: { // VisualAxisSortOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
- *     ExportWithHiddenFieldsOption: {
+ *     ExportWithHiddenFieldsOption: { // ExportWithHiddenFieldsOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
- *     DataPointDrillUpDownOption: {
+ *     DataPointDrillUpDownOption: { // DataPointDrillUpDownOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
- *     DataPointMenuLabelOption: {
+ *     DataPointMenuLabelOption: { // DataPointMenuLabelOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
- *     DataPointTooltipOption: {
+ *     DataPointTooltipOption: { // DataPointTooltipOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
  *   },
  *   ThemeArn: "STRING_VALUE",
- *   Definition: {
- *     DataSetIdentifierDeclarations: [ // required
- *       {
+ *   Definition: { // DashboardVersionDefinition
+ *     DataSetIdentifierDeclarations: [ // DataSetIdentifierDeclarationList // required
+ *       { // DataSetIdentifierDeclaration
  *         Identifier: "STRING_VALUE", // required
  *         DataSetArn: "STRING_VALUE", // required
  *       },
  *     ],
- *     Sheets: [
- *       {
+ *     Sheets: [ // SheetDefinitionList
+ *       { // SheetDefinition
  *         SheetId: "STRING_VALUE", // required
  *         Title: "STRING_VALUE",
  *         Description: "STRING_VALUE",
  *         Name: "STRING_VALUE",
- *         ParameterControls: [
- *           {
- *             DateTimePicker: {
+ *         ParameterControls: [ // ParameterControlList
+ *           { // ParameterControl
+ *             DateTimePicker: { // ParameterDateTimePickerControl
  *               ParameterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceParameterName: "STRING_VALUE", // required
- *               DisplayOptions: {
- *                 TitleOptions: {
+ *               DisplayOptions: { // DateTimePickerControlDisplayOptions
+ *                 TitleOptions: { // LabelOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
+ *                   FontConfiguration: { // FontConfiguration
+ *                     FontSize: { // FontSize
  *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
  *                     },
  *                     FontDecoration: "UNDERLINE" || "NONE",
  *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
+ *                     FontWeight: { // FontWeight
  *                       Name: "NORMAL" || "BOLD",
  *                     },
  *                     FontStyle: "NORMAL" || "ITALIC",
@@ -194,14 +194,60 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 DateTimeFormat: "STRING_VALUE",
  *               },
  *             },
- *             List: {
+ *             List: { // ParameterListControl
  *               ParameterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceParameterName: "STRING_VALUE", // required
- *               DisplayOptions: {
- *                 SearchOptions: {
+ *               DisplayOptions: { // ListControlDisplayOptions
+ *                 SearchOptions: { // ListControlSearchOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
+ *                 SelectAllOptions: { // ListControlSelectAllOptions
+ *                   Visibility: "HIDDEN" || "VISIBLE",
+ *                 },
+ *                 TitleOptions: {
+ *                   Visibility: "HIDDEN" || "VISIBLE",
+ *                   FontConfiguration: {
+ *                     FontSize: {
+ *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *                     },
+ *                     FontDecoration: "UNDERLINE" || "NONE",
+ *                     FontColor: "STRING_VALUE",
+ *                     FontWeight: {
+ *                       Name: "NORMAL" || "BOLD",
+ *                     },
+ *                     FontStyle: "NORMAL" || "ITALIC",
+ *                   },
+ *                   CustomLabel: "STRING_VALUE",
+ *                 },
+ *               },
+ *               Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ *               SelectableValues: { // ParameterSelectableValues
+ *                 Values: [ // ParameterSelectableValueList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 LinkToDataSetColumn: { // ColumnIdentifier
+ *                   DataSetIdentifier: "STRING_VALUE", // required
+ *                   ColumnName: "STRING_VALUE", // required
+ *                 },
+ *               },
+ *               CascadingControlConfiguration: { // CascadingControlConfiguration
+ *                 SourceControls: [ // CascadingControlSourceList
+ *                   { // CascadingControlSource
+ *                     SourceSheetControlId: "STRING_VALUE",
+ *                     ColumnToMatch: {
+ *                       DataSetIdentifier: "STRING_VALUE", // required
+ *                       ColumnName: "STRING_VALUE", // required
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *             Dropdown: { // ParameterDropDownControl
+ *               ParameterControlId: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE", // required
+ *               SourceParameterName: "STRING_VALUE", // required
+ *               DisplayOptions: { // DropDownControlDisplayOptions
  *                 SelectAllOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
@@ -243,14 +289,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 ],
  *               },
  *             },
- *             Dropdown: {
+ *             TextField: { // ParameterTextFieldControl
  *               ParameterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceParameterName: "STRING_VALUE", // required
- *               DisplayOptions: {
- *                 SelectAllOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                 },
+ *               DisplayOptions: { // TextFieldControlDisplayOptions
  *                 TitleOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   FontConfiguration: {
@@ -266,60 +309,17 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                   CustomLabel: "STRING_VALUE",
  *                 },
- *               },
- *               Type: "MULTI_SELECT" || "SINGLE_SELECT",
- *               SelectableValues: {
- *                 Values: [
- *                   "STRING_VALUE",
- *                 ],
- *                 LinkToDataSetColumn: {
- *                   DataSetIdentifier: "STRING_VALUE", // required
- *                   ColumnName: "STRING_VALUE", // required
- *                 },
- *               },
- *               CascadingControlConfiguration: {
- *                 SourceControls: [
- *                   {
- *                     SourceSheetControlId: "STRING_VALUE",
- *                     ColumnToMatch: {
- *                       DataSetIdentifier: "STRING_VALUE", // required
- *                       ColumnName: "STRING_VALUE", // required
- *                     },
- *                   },
- *                 ],
- *               },
- *             },
- *             TextField: {
- *               ParameterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
- *               SourceParameterName: "STRING_VALUE", // required
- *               DisplayOptions: {
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
- *                 PlaceholderOptions: {
+ *                 PlaceholderOptions: { // TextControlPlaceholderOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
  *               },
  *             },
- *             TextArea: {
+ *             TextArea: { // ParameterTextAreaControl
  *               ParameterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceParameterName: "STRING_VALUE", // required
  *               Delimiter: "STRING_VALUE",
- *               DisplayOptions: {
+ *               DisplayOptions: { // TextAreaControlDisplayOptions
  *                 TitleOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   FontConfiguration: {
@@ -340,26 +340,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *               },
  *             },
- *             Slider: {
+ *             Slider: { // ParameterSliderControl
  *               ParameterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceParameterName: "STRING_VALUE", // required
- *               DisplayOptions: {
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
+ *               DisplayOptions: { // SliderControlDisplayOptions
+ *                 TitleOptions: "<LabelOptions>",
  *               },
  *               MaximumValue: Number("double"), // required
  *               MinimumValue: Number("double"), // required
@@ -367,33 +353,19 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             },
  *           },
  *         ],
- *         FilterControls: [
- *           {
- *             DateTimePicker: {
+ *         FilterControls: [ // FilterControlList
+ *           { // FilterControl
+ *             DateTimePicker: { // FilterDateTimePickerControl
  *               FilterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
+ *                 TitleOptions: "<LabelOptions>",
  *                 DateTimeFormat: "STRING_VALUE",
  *               },
  *               Type: "SINGLE_VALUED" || "DATE_RANGE",
  *             },
- *             List: {
+ *             List: { // FilterListControl
  *               FilterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceFilterId: "STRING_VALUE", // required
@@ -404,24 +376,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 SelectAllOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
+ *                 TitleOptions: "<LabelOptions>",
  *               },
  *               Type: "MULTI_SELECT" || "SINGLE_SELECT",
- *               SelectableValues: {
+ *               SelectableValues: { // FilterSelectableValues
  *                 Values: [
  *                   "STRING_VALUE",
  *                 ],
@@ -438,7 +396,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 ],
  *               },
  *             },
- *             Dropdown: {
+ *             Dropdown: { // FilterDropDownControl
  *               FilterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceFilterId: "STRING_VALUE", // required
@@ -446,21 +404,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 SelectAllOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
+ *                 TitleOptions: "<LabelOptions>",
  *               },
  *               Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *               SelectableValues: {
@@ -472,170 +416,108 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 SourceControls: [
  *                   {
  *                     SourceSheetControlId: "STRING_VALUE",
- *                     ColumnToMatch: {
- *                       DataSetIdentifier: "STRING_VALUE", // required
- *                       ColumnName: "STRING_VALUE", // required
- *                     },
+ *                     ColumnToMatch: "<ColumnIdentifier>",
  *                   },
  *                 ],
  *               },
  *             },
- *             TextField: {
+ *             TextField: { // FilterTextFieldControl
  *               FilterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
+ *                 TitleOptions: "<LabelOptions>",
  *                 PlaceholderOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
  *               },
  *             },
- *             TextArea: {
+ *             TextArea: { // FilterTextAreaControl
  *               FilterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceFilterId: "STRING_VALUE", // required
  *               Delimiter: "STRING_VALUE",
  *               DisplayOptions: {
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
+ *                 TitleOptions: "<LabelOptions>",
  *                 PlaceholderOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
  *               },
  *             },
- *             Slider: {
+ *             Slider: { // FilterSliderControl
  *               FilterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
+ *                 TitleOptions: "<LabelOptions>",
  *               },
  *               Type: "SINGLE_POINT" || "RANGE",
  *               MaximumValue: Number("double"), // required
  *               MinimumValue: Number("double"), // required
  *               StepSize: Number("double"), // required
  *             },
- *             RelativeDateTime: {
+ *             RelativeDateTime: { // FilterRelativeDateTimeControl
  *               FilterControlId: "STRING_VALUE", // required
  *               Title: "STRING_VALUE", // required
  *               SourceFilterId: "STRING_VALUE", // required
- *               DisplayOptions: {
- *                 TitleOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   FontConfiguration: {
- *                     FontSize: {
- *                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                     },
- *                     FontDecoration: "UNDERLINE" || "NONE",
- *                     FontColor: "STRING_VALUE",
- *                     FontWeight: {
- *                       Name: "NORMAL" || "BOLD",
- *                     },
- *                     FontStyle: "NORMAL" || "ITALIC",
- *                   },
- *                   CustomLabel: "STRING_VALUE",
- *                 },
+ *               DisplayOptions: { // RelativeDateTimeControlDisplayOptions
+ *                 TitleOptions: "<LabelOptions>",
  *                 DateTimeFormat: "STRING_VALUE",
  *               },
  *             },
  *           },
  *         ],
- *         Visuals: [
- *           {
- *             TableVisual: {
+ *         Visuals: [ // VisualList
+ *           { // Visual
+ *             TableVisual: { // TableVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
+ *               Title: { // VisualTitleLabelOptions
  *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
+ *                 FormatText: { // ShortFormatText
  *                   PlainText: "STRING_VALUE",
  *                   RichText: "STRING_VALUE",
  *                 },
  *               },
- *               Subtitle: {
+ *               Subtitle: { // VisualSubtitleLabelOptions
  *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
+ *                 FormatText: { // LongFormatText
  *                   PlainText: "STRING_VALUE",
  *                   RichText: "STRING_VALUE",
  *                 },
  *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   TableAggregatedFieldWells: {
- *                     GroupBy: [
- *                       {
- *                         NumericalDimensionField: {
+ *               ChartConfiguration: { // TableConfiguration
+ *                 FieldWells: { // TableFieldWells
+ *                   TableAggregatedFieldWells: { // TableAggregatedFieldWells
+ *                     GroupBy: [ // DimensionFieldList
+ *                       { // DimensionField
+ *                         NumericalDimensionField: { // NumericalDimensionField
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
+ *                           FormatConfiguration: { // NumberFormatConfiguration
+ *                             FormatConfiguration: { // NumericFormatConfiguration
+ *                               NumberDisplayFormatConfiguration: { // NumberDisplayFormatConfiguration
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
+ *                                 SeparatorConfiguration: { // NumericSeparatorConfiguration
  *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
+ *                                   ThousandsSeparator: { // ThousandSeparatorOptions
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
  *                                   },
  *                                 },
- *                                 DecimalPlacesConfiguration: {
+ *                                 DecimalPlacesConfiguration: { // DecimalPlacesConfiguration
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
  *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
+ *                                 NegativeValueConfiguration: { // NegativeValueConfiguration
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
- *                                 NullValueFormatConfiguration: {
+ *                                 NullValueFormatConfiguration: { // NullValueFormatConfiguration
  *                                   NullString: "STRING_VALUE", // required
  *                                 },
  *                               },
- *                               CurrencyDisplayFormatConfiguration: {
+ *                               CurrencyDisplayFormatConfiguration: { // CurrencyDisplayFormatConfiguration
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
  *                                 SeparatorConfiguration: {
@@ -657,7 +539,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                   NullString: "STRING_VALUE", // required
  *                                 },
  *                               },
- *                               PercentageDisplayFormatConfiguration: {
+ *                               PercentageDisplayFormatConfiguration: { // PercentageDisplayFormatConfiguration
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
  *                                 SeparatorConfiguration: {
@@ -680,14 +562,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             },
  *                           },
  *                         },
- *                         CategoricalDimensionField: {
+ *                         CategoricalDimensionField: { // CategoricalDimensionField
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
+ *                           FormatConfiguration: { // StringFormatConfiguration
  *                             NullValueFormatConfiguration: {
  *                               NullString: "STRING_VALUE", // required
  *                             },
@@ -731,126 +610,68 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                 NegativeValueConfiguration: {
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                               PercentageDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                             },
  *                           },
  *                         },
- *                         DateDimensionField: {
+ *                         DateDimensionField: { // DateDimensionField
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
+ *                           FormatConfiguration: { // DateTimeFormatConfiguration
  *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                             NumericFormatConfiguration: {
  *                               NumberDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
  *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                               CurrencyDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
  *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                               PercentageDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                             },
  *                           },
  *                         },
  *                       },
  *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
+ *                     Values: [ // MeasureFieldList
+ *                       { // MeasureField
+ *                         NumericalMeasureField: { // NumericalMeasureField
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
+ *                           Column: "<ColumnIdentifier>", // required
+ *                           AggregationFunction: { // NumericalAggregationFunction
  *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: {
+ *                             PercentileAggregation: { // PercentileAggregation
  *                               PercentileValue: Number("double"),
  *                             },
  *                           },
@@ -859,469 +680,121 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                               NumberDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
  *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                               CurrencyDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
  *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                               PercentageDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                             },
  *                           },
  *                         },
- *                         CategoricalMeasureField: {
+ *                         CategoricalMeasureField: { // CategoricalMeasureField
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                             NumericFormatConfiguration: {
  *                               NumberDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
  *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                               CurrencyDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
  *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                               PercentageDisplayFormatConfiguration: {
  *                                 Prefix: "STRING_VALUE",
  *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
+ *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
+ *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
+ *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
+ *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
  *                             },
  *                           },
  *                         },
- *                         DateMeasureField: {
+ *                         DateMeasureField: { // DateMeasureField
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
  *                           FormatConfiguration: {
  *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                         },
- *                         CalculatedMeasureField: {
+ *                         CalculatedMeasureField: { // CalculatedMeasureField
  *                           FieldId: "STRING_VALUE", // required
  *                           Expression: "STRING_VALUE", // required
  *                         },
  *                       },
  *                     ],
  *                   },
- *                   TableUnaggregatedFieldWells: {
- *                     Values: [
- *                       {
+ *                   TableUnaggregatedFieldWells: { // TableUnaggregatedFieldWells
+ *                     Values: [ // UnaggregatedFieldList
+ *                       { // UnaggregatedField
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         FormatConfiguration: {
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         FormatConfiguration: { // FormatConfiguration
  *                           StringFormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                           NumberFormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             FormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                           DateTimeFormatConfiguration: {
  *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                         },
  *                       },
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   RowSort: [
- *                     {
- *                       FieldSort: {
+ *                 SortConfiguration: { // TableSortConfiguration
+ *                   RowSort: [ // RowSortList
+ *                     { // FieldSortOptions
+ *                       FieldSort: { // FieldSort
  *                         FieldId: "STRING_VALUE", // required
  *                         Direction: "ASC" || "DESC", // required
  *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                       ColumnSort: { // ColumnSort
+ *                         SortBy: "<ColumnIdentifier>", // required
  *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
+ *                         AggregationFunction: { // AggregationFunction
  *                           NumericalAggregationFunction: {
  *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
  *                             PercentileAggregation: {
@@ -1334,38 +807,28 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       },
  *                     },
  *                   ],
- *                   PaginationConfiguration: {
+ *                   PaginationConfiguration: { // PaginationConfiguration
  *                     PageSize: Number("long"), // required
  *                     PageNumber: Number("long"), // required
  *                   },
  *                 },
- *                 TableOptions: {
+ *                 TableOptions: { // TableOptions
  *                   Orientation: "VERTICAL" || "HORIZONTAL",
- *                   HeaderStyle: {
+ *                   HeaderStyle: { // TableCellStyle
  *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     FontConfiguration: {
- *                       FontSize: {
- *                         Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                       },
- *                       FontDecoration: "UNDERLINE" || "NONE",
- *                       FontColor: "STRING_VALUE",
- *                       FontWeight: {
- *                         Name: "NORMAL" || "BOLD",
- *                       },
- *                       FontStyle: "NORMAL" || "ITALIC",
- *                     },
+ *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
- *                     Border: {
- *                       UniformBorder: {
+ *                     Border: { // GlobalTableBorderOptions
+ *                       UniformBorder: { // TableBorderOptions
  *                         Color: "STRING_VALUE",
  *                         Thickness: Number("int"),
  *                         Style: "NONE" || "SOLID",
  *                       },
- *                       SideSpecificBorder: {
+ *                       SideSpecificBorder: { // TableSideBorderOptions
  *                         InnerVertical: {
  *                           Color: "STRING_VALUE",
  *                           Thickness: Number("int"),
@@ -1386,193 +849,103 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           Thickness: Number("int"),
  *                           Style: "NONE" || "SOLID",
  *                         },
- *                         Top: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Bottom: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
+ *                         Top: "<TableBorderOptions>",
+ *                         Bottom: "<TableBorderOptions>",
  *                       },
  *                     },
  *                   },
  *                   CellStyle: {
  *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     FontConfiguration: {
- *                       FontSize: {
- *                         Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                       },
- *                       FontDecoration: "UNDERLINE" || "NONE",
- *                       FontColor: "STRING_VALUE",
- *                       FontWeight: {
- *                         Name: "NORMAL" || "BOLD",
- *                       },
- *                       FontStyle: "NORMAL" || "ITALIC",
- *                     },
+ *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
- *                       UniformBorder: {
- *                         Color: "STRING_VALUE",
- *                         Thickness: Number("int"),
- *                         Style: "NONE" || "SOLID",
- *                       },
+ *                       UniformBorder: "<TableBorderOptions>",
  *                       SideSpecificBorder: {
- *                         InnerVertical: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         InnerHorizontal: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Left: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Right: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Top: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Bottom: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
+ *                         InnerVertical: "<TableBorderOptions>",
+ *                         InnerHorizontal: "<TableBorderOptions>",
+ *                         Left: "<TableBorderOptions>",
+ *                         Right: "<TableBorderOptions>",
+ *                         Top: "<TableBorderOptions>",
+ *                         Bottom: "<TableBorderOptions>",
  *                       },
  *                     },
  *                   },
- *                   RowAlternateColorOptions: {
+ *                   RowAlternateColorOptions: { // RowAlternateColorOptions
  *                     Status: "ENABLED" || "DISABLED",
- *                     RowAlternateColors: [
+ *                     RowAlternateColors: [ // RowAlternateColorList
  *                       "STRING_VALUE",
  *                     ],
  *                   },
  *                 },
- *                 TotalOptions: {
+ *                 TotalOptions: { // TotalOptions
  *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                   Placement: "START" || "END",
  *                   ScrollStatus: "PINNED" || "SCROLLED",
  *                   CustomLabel: "STRING_VALUE",
  *                   TotalCellStyle: {
  *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     FontConfiguration: {
- *                       FontSize: {
- *                         Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
- *                       },
- *                       FontDecoration: "UNDERLINE" || "NONE",
- *                       FontColor: "STRING_VALUE",
- *                       FontWeight: {
- *                         Name: "NORMAL" || "BOLD",
- *                       },
- *                       FontStyle: "NORMAL" || "ITALIC",
- *                     },
+ *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
- *                       UniformBorder: {
- *                         Color: "STRING_VALUE",
- *                         Thickness: Number("int"),
- *                         Style: "NONE" || "SOLID",
- *                       },
+ *                       UniformBorder: "<TableBorderOptions>",
  *                       SideSpecificBorder: {
- *                         InnerVertical: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         InnerHorizontal: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Left: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Right: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Top: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Bottom: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
+ *                         InnerVertical: "<TableBorderOptions>",
+ *                         InnerHorizontal: "<TableBorderOptions>",
+ *                         Left: "<TableBorderOptions>",
+ *                         Right: "<TableBorderOptions>",
+ *                         Top: "<TableBorderOptions>",
+ *                         Bottom: "<TableBorderOptions>",
  *                       },
  *                     },
  *                   },
  *                 },
- *                 FieldOptions: {
- *                   SelectedFieldOptions: [
- *                     {
+ *                 FieldOptions: { // TableFieldOptions
+ *                   SelectedFieldOptions: [ // TableFieldOptionList
+ *                     { // TableFieldOption
  *                       FieldId: "STRING_VALUE", // required
  *                       Width: "STRING_VALUE",
  *                       CustomLabel: "STRING_VALUE",
  *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       URLStyling: {
- *                         LinkConfiguration: {
+ *                       URLStyling: { // TableFieldURLConfiguration
+ *                         LinkConfiguration: { // TableFieldLinkConfiguration
  *                           Target: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                           Content: {
- *                             CustomTextContent: {
+ *                           Content: { // TableFieldLinkContentConfiguration
+ *                             CustomTextContent: { // TableFieldCustomTextContent
  *                               Value: "STRING_VALUE",
- *                               FontConfiguration: {
- *                                 FontSize: "<FontConfiguration>",
- *                                 FontDecoration: "<FontConfiguration>",
- *                                 FontColor: "<FontConfiguration>",
- *                                 FontWeight: "<FontConfiguration>",
- *                                 FontStyle: "<FontConfiguration>",
- *                               },
+ *                               FontConfiguration: "<FontConfiguration>", // required
  *                             },
- *                             CustomIconContent: {
+ *                             CustomIconContent: { // TableFieldCustomIconContent
  *                               Icon: "LINK",
  *                             },
  *                           },
  *                         },
- *                         ImageConfiguration: {
- *                           SizingOptions: {
+ *                         ImageConfiguration: { // TableFieldImageConfiguration
+ *                           SizingOptions: { // TableCellImageSizingConfiguration
  *                             TableCellImageScalingConfiguration: "FIT_TO_CELL_HEIGHT" || "FIT_TO_CELL_WIDTH" || "DO_NOT_SCALE",
  *                           },
  *                         },
  *                       },
  *                     },
  *                   ],
- *                   Order: [
+ *                   Order: [ // FieldOrderList
  *                     "STRING_VALUE",
  *                   ],
  *                 },
- *                 PaginatedReportOptions: {
+ *                 PaginatedReportOptions: { // TablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
  *                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
  *                 },
- *                 TableInlineVisualizations: [
- *                   {
- *                     DataBars: {
+ *                 TableInlineVisualizations: [ // TableInlineVisualizationList
+ *                   { // TableInlineVisualization
+ *                     DataBars: { // DataBarsOptions
  *                       FieldId: "STRING_VALUE", // required
  *                       PositiveColor: "STRING_VALUE",
  *                       NegativeColor: "STRING_VALUE",
@@ -1580,22 +953,22 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                 ],
  *               },
- *               ConditionalFormatting: {
- *                 ConditionalFormattingOptions: [
- *                   {
- *                     Cell: {
+ *               ConditionalFormatting: { // TableConditionalFormatting
+ *                 ConditionalFormattingOptions: [ // TableConditionalFormattingOptionList
+ *                   { // TableConditionalFormattingOption
+ *                     Cell: { // TableCellConditionalFormatting
  *                       FieldId: "STRING_VALUE", // required
- *                       TextFormat: {
- *                         BackgroundColor: {
- *                           Solid: {
+ *                       TextFormat: { // TextConditionalFormat
+ *                         BackgroundColor: { // ConditionalFormattingColor
+ *                           Solid: { // ConditionalFormattingSolidColor
  *                             Expression: "STRING_VALUE", // required
  *                             Color: "STRING_VALUE",
  *                           },
- *                           Gradient: {
+ *                           Gradient: { // ConditionalFormattingGradientColor
  *                             Expression: "STRING_VALUE", // required
- *                             Color: {
- *                               Stops: [
- *                                 {
+ *                             Color: { // GradientColor
+ *                               Stops: [ // GradientStopList
+ *                                 { // GradientStop
  *                                   GradientOffset: Number("double"), // required
  *                                   DataValue: Number("double"),
  *                                   Color: "STRING_VALUE",
@@ -1622,26 +995,26 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             },
  *                           },
  *                         },
- *                         Icon: {
- *                           IconSet: {
+ *                         Icon: { // ConditionalFormattingIcon
+ *                           IconSet: { // ConditionalFormattingIconSet
  *                             Expression: "STRING_VALUE", // required
  *                             IconSetType: "PLUS_MINUS" || "CHECK_X" || "THREE_COLOR_ARROW" || "THREE_GRAY_ARROW" || "CARET_UP_MINUS_DOWN" || "THREE_SHAPE" || "THREE_CIRCLE" || "FLAGS" || "BARS" || "FOUR_COLOR_ARROW" || "FOUR_GRAY_ARROW",
  *                           },
- *                           CustomCondition: {
+ *                           CustomCondition: { // ConditionalFormattingCustomIconCondition
  *                             Expression: "STRING_VALUE", // required
- *                             IconOptions: {
+ *                             IconOptions: { // ConditionalFormattingCustomIconOptions
  *                               Icon: "CARET_UP" || "CARET_DOWN" || "PLUS" || "MINUS" || "ARROW_UP" || "ARROW_DOWN" || "ARROW_LEFT" || "ARROW_UP_LEFT" || "ARROW_DOWN_LEFT" || "ARROW_RIGHT" || "ARROW_UP_RIGHT" || "ARROW_DOWN_RIGHT" || "FACE_UP" || "FACE_DOWN" || "FACE_FLAT" || "ONE_BAR" || "TWO_BAR" || "THREE_BAR" || "CIRCLE" || "TRIANGLE" || "SQUARE" || "FLAG" || "THUMBS_UP" || "THUMBS_DOWN" || "CHECKMARK" || "X",
  *                               UnicodeIcon: "STRING_VALUE",
  *                             },
  *                             Color: "STRING_VALUE",
- *                             DisplayConfiguration: {
+ *                             DisplayConfiguration: { // ConditionalFormattingIconDisplayConfiguration
  *                               IconDisplayOption: "ICON_ONLY",
  *                             },
  *                           },
  *                         },
  *                       },
  *                     },
- *                     Row: {
+ *                     Row: { // TableRowConditionalFormatting
  *                       BackgroundColor: {
  *                         Solid: {
  *                           Expression: "STRING_VALUE", // required
@@ -1682,57 +1055,57 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                 ],
  *               },
- *               Actions: [
- *                 {
+ *               Actions: [ // VisualCustomActionList
+ *                 { // VisualCustomAction
  *                   CustomActionId: "STRING_VALUE", // required
  *                   Name: "STRING_VALUE", // required
  *                   Status: "ENABLED" || "DISABLED",
  *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
+ *                   ActionOperations: [ // VisualCustomActionOperationList // required
+ *                     { // VisualCustomActionOperation
+ *                       FilterOperation: { // CustomActionFilterOperation
+ *                         SelectedFieldsConfiguration: { // FilterOperationSelectedFieldsConfiguration
+ *                           SelectedFields: [ // SelectedFieldList
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
  *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
+ *                         TargetVisualsConfiguration: { // FilterOperationTargetVisualsConfiguration
+ *                           SameSheetTargetVisualConfiguration: { // SameSheetTargetVisualConfiguration
+ *                             TargetVisuals: [ // TargetVisualList
  *                               "STRING_VALUE",
  *                             ],
  *                             TargetVisualOptions: "ALL_VISUALS",
  *                           },
  *                         },
  *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
+ *                       NavigationOperation: { // CustomActionNavigationOperation
+ *                         LocalNavigationConfiguration: { // LocalNavigationConfiguration
  *                           TargetSheetId: "STRING_VALUE", // required
  *                         },
  *                       },
- *                       URLOperation: {
+ *                       URLOperation: { // CustomActionURLOperation
  *                         URLTemplate: "STRING_VALUE", // required
  *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
  *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
+ *                       SetParametersOperation: { // CustomActionSetParametersOperation
+ *                         ParameterValueConfigurations: [ // SetParameterValueConfigurationList // required
+ *                           { // SetParameterValueConfiguration
  *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
+ *                             Value: { // DestinationParameterValueConfiguration
+ *                               CustomValuesConfiguration: { // CustomValuesConfiguration
  *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
+ *                                 CustomValues: { // CustomParameterValues
+ *                                   StringValues: [ // StringDefaultValueList
  *                                     "STRING_VALUE",
  *                                   ],
- *                                   IntegerValues: [
+ *                                   IntegerValues: [ // IntegerDefaultValueList
  *                                     Number("long"),
  *                                   ],
- *                                   DecimalValues: [
+ *                                   DecimalValues: [ // DecimalDefaultValueList
  *                                     Number("double"),
  *                                   ],
- *                                   DateTimeValues: [
+ *                                   DateTimeValues: [ // DateTimeDefaultValueList
  *                                     new Date("TIMESTAMP"),
  *                                   ],
  *                                 },
@@ -1749,7 +1122,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *               ],
  *             },
- *             PivotTableVisual: {
+ *             PivotTableVisual: { // PivotTableVisual
  *               VisualId: "STRING_VALUE", // required
  *               Title: {
  *                 Visibility: "HIDDEN" || "VISIBLE",
@@ -1765,242 +1138,37 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   RichText: "STRING_VALUE",
  *                 },
  *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   PivotTableAggregatedFieldWells: {
- *                     Rows: [
+ *               ChartConfiguration: { // PivotTableConfiguration
+ *                 FieldWells: { // PivotTableFieldWells
+ *                   PivotTableAggregatedFieldWells: { // PivotTableAggregatedFieldWells
+ *                     Rows: [ // PivotTableDimensionList
  *                       {
  *                         NumericalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
  *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             FormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                         },
  *                         CategoricalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
  *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                         },
  *                         DateDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                           HierarchyId: "STRING_VALUE",
  *                           FormatConfiguration: {
  *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                         },
  *                       },
@@ -2009,477 +1177,58 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       {
  *                         NumericalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
  *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             FormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                         },
  *                         CategoricalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
  *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                         },
  *                         DateDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                           HierarchyId: "STRING_VALUE",
  *                           FormatConfiguration: {
  *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
+ *                             NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
+ *                             NumericFormatConfiguration: "<NumericFormatConfiguration>",
  *                           },
  *                         },
  *                       },
  *                     ],
- *                     Values: [
+ *                     Values: [ // PivotMeasureFieldList
  *                       {
  *                         NumericalMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           AggregationFunction: {
  *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
  *                             PercentileAggregation: {
  *                               PercentileValue: Number("double"),
  *                             },
  *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<NumberFormatConfiguration>",
  *                         },
  *                         CategoricalMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<StringFormatConfiguration>",
  *                         },
  *                         DateMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<DateTimeFormatConfiguration>",
  *                         },
  *                         CalculatedMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
@@ -2489,20 +1238,17 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   FieldSortOptions: [
- *                     {
+ *                 SortConfiguration: { // PivotTableSortConfiguration
+ *                   FieldSortOptions: [ // PivotFieldSortOptionsList
+ *                     { // PivotFieldSortOptions
  *                       FieldId: "STRING_VALUE", // required
- *                       SortBy: {
+ *                       SortBy: { // PivotTableSortBy
  *                         Field: {
  *                           FieldId: "STRING_VALUE", // required
  *                           Direction: "ASC" || "DESC", // required
  *                         },
  *                         Column: {
- *                           SortBy: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           SortBy: "<ColumnIdentifier>", // required
  *                           Direction: "ASC" || "DESC", // required
  *                           AggregationFunction: {
  *                             NumericalAggregationFunction: {
@@ -2515,10 +1261,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
  *                           },
  *                         },
- *                         DataPath: {
+ *                         DataPath: { // DataPathSort
  *                           Direction: "ASC" || "DESC", // required
- *                           SortPaths: [ // required
- *                             {
+ *                           SortPaths: [ // DataPathValueList // required
+ *                             { // DataPathValue
  *                               FieldId: "STRING_VALUE", // required
  *                               FieldValue: "STRING_VALUE", // required
  *                             },
@@ -2528,227 +1274,53 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   ],
  *                 },
- *                 TableOptions: {
+ *                 TableOptions: { // PivotTableOptions
  *                   MetricPlacement: "ROW" || "COLUMN",
  *                   SingleMetricVisibility: "HIDDEN" || "VISIBLE",
  *                   ColumnNamesVisibility: "HIDDEN" || "VISIBLE",
  *                   ToggleButtonsVisibility: "HIDDEN" || "VISIBLE",
  *                   ColumnHeaderStyle: {
  *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     FontConfiguration: {
- *                       FontSize: "<FontConfiguration>",
- *                       FontDecoration: "<FontConfiguration>",
- *                       FontColor: "<FontConfiguration>",
- *                       FontWeight: "<FontConfiguration>",
- *                       FontStyle: "<FontConfiguration>",
- *                     },
+ *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
- *                       UniformBorder: {
- *                         Color: "STRING_VALUE",
- *                         Thickness: Number("int"),
- *                         Style: "NONE" || "SOLID",
- *                       },
+ *                       UniformBorder: "<TableBorderOptions>",
  *                       SideSpecificBorder: {
- *                         InnerVertical: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         InnerHorizontal: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Left: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Right: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Top: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Bottom: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
+ *                         InnerVertical: "<TableBorderOptions>",
+ *                         InnerHorizontal: "<TableBorderOptions>",
+ *                         Left: "<TableBorderOptions>",
+ *                         Right: "<TableBorderOptions>",
+ *                         Top: "<TableBorderOptions>",
+ *                         Bottom: "<TableBorderOptions>",
  *                       },
  *                     },
  *                   },
  *                   RowHeaderStyle: {
  *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     FontConfiguration: {
- *                       FontSize: "<FontConfiguration>",
- *                       FontDecoration: "<FontConfiguration>",
- *                       FontColor: "<FontConfiguration>",
- *                       FontWeight: "<FontConfiguration>",
- *                       FontStyle: "<FontConfiguration>",
- *                     },
+ *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
- *                       UniformBorder: {
- *                         Color: "STRING_VALUE",
- *                         Thickness: Number("int"),
- *                         Style: "NONE" || "SOLID",
- *                       },
+ *                       UniformBorder: "<TableBorderOptions>",
  *                       SideSpecificBorder: {
- *                         InnerVertical: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         InnerHorizontal: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Left: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Right: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Top: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Bottom: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
+ *                         InnerVertical: "<TableBorderOptions>",
+ *                         InnerHorizontal: "<TableBorderOptions>",
+ *                         Left: "<TableBorderOptions>",
+ *                         Right: "<TableBorderOptions>",
+ *                         Top: "<TableBorderOptions>",
+ *                         Bottom: "<TableBorderOptions>",
  *                       },
  *                     },
  *                   },
- *                   CellStyle: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     FontConfiguration: {
- *                       FontSize: "<FontConfiguration>",
- *                       FontDecoration: "<FontConfiguration>",
- *                       FontColor: "<FontConfiguration>",
- *                       FontWeight: "<FontConfiguration>",
- *                       FontStyle: "<FontConfiguration>",
- *                     },
- *                     TextWrap: "NONE" || "WRAP",
- *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                     BackgroundColor: "STRING_VALUE",
- *                     Height: Number("int"),
- *                     Border: {
- *                       UniformBorder: {
- *                         Color: "STRING_VALUE",
- *                         Thickness: Number("int"),
- *                         Style: "NONE" || "SOLID",
- *                       },
- *                       SideSpecificBorder: {
- *                         InnerVertical: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         InnerHorizontal: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Left: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Right: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Top: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Bottom: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                       },
- *                     },
- *                   },
- *                   RowFieldNamesStyle: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     FontConfiguration: {
- *                       FontSize: "<FontConfiguration>",
- *                       FontDecoration: "<FontConfiguration>",
- *                       FontColor: "<FontConfiguration>",
- *                       FontWeight: "<FontConfiguration>",
- *                       FontStyle: "<FontConfiguration>",
- *                     },
- *                     TextWrap: "NONE" || "WRAP",
- *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                     BackgroundColor: "STRING_VALUE",
- *                     Height: Number("int"),
- *                     Border: {
- *                       UniformBorder: {
- *                         Color: "STRING_VALUE",
- *                         Thickness: Number("int"),
- *                         Style: "NONE" || "SOLID",
- *                       },
- *                       SideSpecificBorder: {
- *                         InnerVertical: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         InnerHorizontal: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Left: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Right: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Top: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         Bottom: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                       },
- *                     },
- *                   },
+ *                   CellStyle: "<TableCellStyle>",
+ *                   RowFieldNamesStyle: "<TableCellStyle>",
  *                   RowAlternateColorOptions: {
  *                     Status: "ENABLED" || "DISABLED",
  *                     RowAlternateColors: [
@@ -2757,178 +1329,19 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                   CollapsedRowDimensionsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
- *                 TotalOptions: {
- *                   RowSubtotalOptions: {
+ *                 TotalOptions: { // PivotTableTotalOptions
+ *                   RowSubtotalOptions: { // SubtotalOptions
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                     CustomLabel: "STRING_VALUE",
  *                     FieldLevel: "ALL" || "CUSTOM" || "LAST",
- *                     FieldLevelOptions: [
- *                       {
+ *                     FieldLevelOptions: [ // PivotTableFieldSubtotalOptionsList
+ *                       { // PivotTableFieldSubtotalOptions
  *                         FieldId: "STRING_VALUE",
  *                       },
  *                     ],
- *                     TotalCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "STRING_VALUE",
- *                           Thickness: Number("int"),
- *                           Style: "NONE" || "SOLID",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
- *                     ValueCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
- *                     MetricHeaderCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
+ *                     TotalCellStyle: "<TableCellStyle>",
+ *                     ValueCellStyle: "<TableCellStyle>",
+ *                     MetricHeaderCellStyle: "<TableCellStyle>",
  *                   },
  *                   ColumnSubtotalOptions: {
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
@@ -2939,516 +1352,39 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         FieldId: "STRING_VALUE",
  *                       },
  *                     ],
- *                     TotalCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
- *                     ValueCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
- *                     MetricHeaderCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
+ *                     TotalCellStyle: "<TableCellStyle>",
+ *                     ValueCellStyle: "<TableCellStyle>",
+ *                     MetricHeaderCellStyle: "<TableCellStyle>",
  *                   },
- *                   RowTotalOptions: {
+ *                   RowTotalOptions: { // PivotTotalOptions
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                     Placement: "START" || "END",
  *                     ScrollStatus: "PINNED" || "SCROLLED",
  *                     CustomLabel: "STRING_VALUE",
- *                     TotalCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
- *                     ValueCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
- *                     MetricHeaderCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
+ *                     TotalCellStyle: "<TableCellStyle>",
+ *                     ValueCellStyle: "<TableCellStyle>",
+ *                     MetricHeaderCellStyle: "<TableCellStyle>",
  *                   },
  *                   ColumnTotalOptions: {
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                     Placement: "START" || "END",
  *                     ScrollStatus: "PINNED" || "SCROLLED",
  *                     CustomLabel: "STRING_VALUE",
- *                     TotalCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
- *                     ValueCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
- *                     MetricHeaderCellStyle: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       TextWrap: "NONE" || "WRAP",
- *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                       VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
- *                       BackgroundColor: "STRING_VALUE",
- *                       Height: Number("int"),
- *                       Border: {
- *                         UniformBorder: {
- *                           Color: "<TableBorderOptions>",
- *                           Thickness: "<TableBorderOptions>",
- *                           Style: "<TableBorderOptions>",
- *                         },
- *                         SideSpecificBorder: {
- *                           InnerVertical: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           InnerHorizontal: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Left: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Right: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Top: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                           Bottom: {
- *                             Color: "<TableBorderOptions>",
- *                             Thickness: "<TableBorderOptions>",
- *                             Style: "<TableBorderOptions>",
- *                           },
- *                         },
- *                       },
- *                     },
+ *                     TotalCellStyle: "<TableCellStyle>",
+ *                     ValueCellStyle: "<TableCellStyle>",
+ *                     MetricHeaderCellStyle: "<TableCellStyle>",
  *                   },
  *                 },
- *                 FieldOptions: {
- *                   SelectedFieldOptions: [
- *                     {
+ *                 FieldOptions: { // PivotTableFieldOptions
+ *                   SelectedFieldOptions: [ // PivotTableFieldOptionList
+ *                     { // PivotTableFieldOption
  *                       FieldId: "STRING_VALUE", // required
  *                       CustomLabel: "STRING_VALUE",
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   ],
- *                   DataPathOptions: [
- *                     {
+ *                   DataPathOptions: [ // PivotTableDataPathOptionList
+ *                     { // PivotTableDataPathOption
  *                       DataPathList: [ // required
  *                         {
  *                           FieldId: "STRING_VALUE", // required
@@ -3459,15 +1395,15 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   ],
  *                 },
- *                 PaginatedReportOptions: {
+ *                 PaginatedReportOptions: { // PivotTablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
  *                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *               },
- *               ConditionalFormatting: {
- *                 ConditionalFormattingOptions: [
- *                   {
- *                     Cell: {
+ *               ConditionalFormatting: { // PivotTableConditionalFormatting
+ *                 ConditionalFormattingOptions: [ // PivotTableConditionalFormattingOptionList
+ *                   { // PivotTableConditionalFormattingOption
+ *                     Cell: { // PivotTableCellConditionalFormatting
  *                       FieldId: "STRING_VALUE", // required
  *                       TextFormat: {
  *                         BackgroundColor: {
@@ -3488,24 +1424,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             },
  *                           },
  *                         },
- *                         TextColor: {
- *                           Solid: {
- *                             Expression: "STRING_VALUE", // required
- *                             Color: "STRING_VALUE",
- *                           },
- *                           Gradient: {
- *                             Expression: "STRING_VALUE", // required
- *                             Color: {
- *                               Stops: [
- *                                 {
- *                                   GradientOffset: Number("double"), // required
- *                                   DataValue: Number("double"),
- *                                   Color: "STRING_VALUE",
- *                                 },
- *                               ],
- *                             },
- *                           },
- *                         },
+ *                         TextColor: "<ConditionalFormattingColor>",
  *                         Icon: {
  *                           IconSet: {
  *                             Expression: "STRING_VALUE", // required
@@ -3524,7 +1443,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           },
  *                         },
  *                       },
- *                       Scope: {
+ *                       Scope: { // PivotTableConditionalFormattingScope
  *                         Role: "FIELD" || "FIELD_TOTAL" || "GRAND_TOTAL",
  *                       },
  *                     },
@@ -3598,7 +1517,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *               ],
  *             },
- *             BarChartVisual: {
+ *             BarChartVisual: { // BarChartVisual
  *               VisualId: "STRING_VALUE", // required
  *               Title: {
  *                 Visibility: "HIDDEN" || "VISIBLE",
@@ -3614,243 +1533,29 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   RichText: "STRING_VALUE",
  *                 },
  *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   BarChartAggregatedFieldWells: {
+ *               ChartConfiguration: { // BarChartConfiguration
+ *                 FieldWells: { // BarChartFieldWells
+ *                   BarChartAggregatedFieldWells: { // BarChartAggregatedFieldWells
  *                     Category: [
  *                       {
  *                         NumericalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<NumberFormatConfiguration>",
  *                         },
  *                         CategoricalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<StringFormatConfiguration>",
  *                         },
  *                         DateDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<DateTimeFormatConfiguration>",
  *                         },
  *                       },
  *                     ],
@@ -3858,240 +1563,26 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       {
  *                         NumericalMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           AggregationFunction: {
  *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
  *                             PercentileAggregation: {
  *                               PercentileValue: Number("double"),
  *                             },
  *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<NumberFormatConfiguration>",
  *                         },
  *                         CategoricalMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<StringFormatConfiguration>",
  *                         },
  *                         DateMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<DateTimeFormatConfiguration>",
  *                         },
  *                         CalculatedMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
@@ -4103,505 +1594,49 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       {
  *                         NumericalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<NumberFormatConfiguration>",
  *                         },
  *                         CategoricalDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<StringFormatConfiguration>",
  *                         },
  *                         DateDimensionField: {
  *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
+ *                           FormatConfiguration: "<DateTimeFormatConfiguration>",
  *                         },
  *                       },
  *                     ],
- *                     SmallMultiples: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               CurrencyDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 Symbol: "STRING_VALUE",
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                               PercentageDisplayFormatConfiguration: {
- *                                 Prefix: "STRING_VALUE",
- *                                 Suffix: "STRING_VALUE",
- *                                 SeparatorConfiguration: {
- *                                   DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                                   ThousandsSeparator: {
- *                                     Symbol: "COMMA" || "DOT" || "SPACE",
- *                                     Visibility: "HIDDEN" || "VISIBLE",
- *                                   },
- *                                 },
- *                                 DecimalPlacesConfiguration: {
- *                                   DecimalPlaces: Number("long"), // required
- *                                 },
- *                                 NegativeValueConfiguration: {
- *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                                 },
- *                                 NullValueFormatConfiguration: {
- *                                   NullString: "STRING_VALUE", // required
- *                                 },
- *                               },
- *                             },
- *                           },
- *                         },
- *                       },
+ *                     SmallMultiples: [ // SmallMultiplesDimensionFieldList
+ *                       "<DimensionField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategorySort: [
+ *                 SortConfiguration: { // BarChartSortConfiguration
+ *                   CategorySort: [ // FieldSortOptionsList
  *                     {
  *                       FieldSort: {
  *                         FieldId: "STRING_VALUE", // required
  *                         Direction: "ASC" || "DESC", // required
  *                       },
  *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         SortBy: "<ColumnIdentifier>", // required
  *                         Direction: "ASC" || "DESC", // required
  *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: {
- *                               PercentileValue: Number("double"),
- *                             },
- *                           },
+ *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
  *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
  *                         },
  *                       },
  *                     },
  *                   ],
- *                   CategoryItemsLimit: {
+ *                   CategoryItemsLimit: { // ItemsLimitConfiguration
  *                     ItemsLimit: Number("long"),
  *                     OtherCategories: "INCLUDE" || "EXCLUDE",
  *                   },
@@ -4612,18 +1647,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Direction: "ASC" || "DESC", // required
  *                       },
  *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         SortBy: "<ColumnIdentifier>", // required
  *                         Direction: "ASC" || "DESC", // required
  *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: {
- *                               PercentileValue: Number("double"),
- *                             },
- *                           },
+ *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
  *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
  *                         },
@@ -4641,18 +1668,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Direction: "ASC" || "DESC", // required
  *                       },
  *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         SortBy: "<ColumnIdentifier>", // required
  *                         Direction: "ASC" || "DESC", // required
  *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: {
- *                               PercentileValue: Number("double"),
- *                             },
- *                           },
+ *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
  *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
  *                         },
@@ -4666,32 +1685,23 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *                 Orientation: "HORIZONTAL" || "VERTICAL",
  *                 BarsArrangement: "CLUSTERED" || "STACKED" || "STACKED_PERCENT",
- *                 VisualPalette: {
+ *                 VisualPalette: { // VisualPalette
  *                   ChartColor: "STRING_VALUE",
- *                   ColorMap: [
- *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
+ *                   ColorMap: [ // DataPathColorList
+ *                     { // DataPathColor
+ *                       Element: "<DataPathValue>", // required
  *                       Color: "STRING_VALUE", // required
  *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                     },
  *                   ],
  *                 },
- *                 SmallMultiplesOptions: {
+ *                 SmallMultiplesOptions: { // SmallMultiplesOptions
  *                   MaxVisibleRows: Number("long"),
  *                   MaxVisibleColumns: Number("long"),
- *                   PanelConfiguration: {
- *                     Title: {
+ *                   PanelConfiguration: { // PanelConfiguration
+ *                     Title: { // PanelTitleOptions
  *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *                     },
  *                     BorderVisibility: "HIDDEN" || "VISIBLE",
@@ -4704,50 +1714,40 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     BackgroundColor: "STRING_VALUE",
  *                   },
  *                 },
- *                 CategoryAxis: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                     },
+ *                 CategoryAxis: { // AxisDisplayOptions
+ *                   TickLabelOptions: { // AxisTickLabelOptions
+ *                     LabelOptions: "<LabelOptions>",
  *                     RotationAngle: Number("double"),
  *                   },
  *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
  *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
+ *                   DataOptions: { // AxisDataOptions
+ *                     NumericAxisOptions: { // NumericAxisOptions
+ *                       Scale: { // AxisScale
+ *                         Linear: { // AxisLinearScale
  *                           StepCount: Number("int"),
  *                           StepSize: Number("double"),
  *                         },
- *                         Logarithmic: {
+ *                         Logarithmic: { // AxisLogarithmicScale
  *                           Base: Number("double"),
  *                         },
  *                       },
- *                       Range: {
- *                         MinMax: {
+ *                       Range: { // AxisDisplayRange
+ *                         MinMax: { // AxisDisplayMinMaxRange
  *                           Minimum: Number("double"),
  *                           Maximum: Number("double"),
  *                         },
  *                         DataDriven: {},
  *                       },
  *                     },
- *                     DateAxisOptions: {
+ *                     DateAxisOptions: { // DateAxisOptions
  *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
- *                   ScrollbarOptions: {
+ *                   ScrollbarOptions: { // ScrollBarOptions
  *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
+ *                     VisibleRange: { // VisibleRangeOptions
+ *                       PercentRange: { // PercentVisibleRange
  *                         From: Number("double"),
  *                         To: Number("double"),
  *                       },
@@ -4755,42 +1755,23 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                   AxisOffset: "STRING_VALUE",
  *                 },
- *                 CategoryLabelOptions: {
+ *                 CategoryLabelOptions: { // ChartAxisLabelOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                   AxisLabelOptions: [ // AxisLabelOptionsList
+ *                     { // AxisLabelOptions
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
+ *                       ApplyTo: { // AxisLabelReferenceOptions
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                       },
  *                     },
  *                   ],
  *                 },
  *                 ValueAxis: {
  *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                     },
+ *                     LabelOptions: "<LabelOptions>",
  *                     RotationAngle: Number("double"),
  *                   },
  *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
@@ -4834,20 +1815,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
  *                   AxisLabelOptions: [
  *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       CustomLabel: "STRING_VALUE",
  *                       ApplyTo: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                       },
  *                     },
  *                   ],
@@ -4857,234 +1829,115 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
  *                   AxisLabelOptions: [
  *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       CustomLabel: "STRING_VALUE",
  *                       ApplyTo: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                       },
  *                     },
  *                   ],
  *                 },
- *                 Legend: {
+ *                 Legend: { // LegendOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
+ *                   Title: "<LabelOptions>",
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
  *                 },
- *                 DataLabels: {
+ *                 DataLabels: { // DataLabelOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
  *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   DataLabelTypes: [
- *                     {
- *                       FieldLabelType: {
+ *                   DataLabelTypes: [ // DataLabelTypes
+ *                     { // DataLabelType
+ *                       FieldLabelType: { // FieldLabelType
  *                         FieldId: "STRING_VALUE",
  *                         Visibility: "HIDDEN" || "VISIBLE",
  *                       },
- *                       DataPathLabelType: {
+ *                       DataPathLabelType: { // DataPathLabelType
  *                         FieldId: "STRING_VALUE",
  *                         FieldValue: "STRING_VALUE",
  *                         Visibility: "HIDDEN" || "VISIBLE",
  *                       },
- *                       RangeEndsLabelType: {
+ *                       RangeEndsLabelType: { // RangeEndsLabelType
  *                         Visibility: "HIDDEN" || "VISIBLE",
  *                       },
- *                       MinimumLabelType: {
+ *                       MinimumLabelType: { // MinimumLabelType
  *                         Visibility: "HIDDEN" || "VISIBLE",
  *                       },
- *                       MaximumLabelType: {
+ *                       MaximumLabelType: { // MaximumLabelType
  *                         Visibility: "HIDDEN" || "VISIBLE",
  *                       },
  *                     },
  *                   ],
  *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
  *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
+ *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
  *                 },
- *                 Tooltip: {
+ *                 Tooltip: { // TooltipOptions
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
  *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
+ *                   FieldBasedTooltip: { // FieldBasedTooltip
  *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
  *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
+ *                     TooltipFields: [ // TooltipItemList
+ *                       { // TooltipItem
+ *                         FieldTooltipItem: { // FieldTooltipItem
  *                           FieldId: "STRING_VALUE", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                         ColumnTooltipItem: { // ColumnTooltipItem
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                               PercentileAggregation: {
- *                                 PercentileValue: Number("double"),
- *                               },
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
+ *                           Aggregation: "<AggregationFunction>",
  *                         },
  *                       },
  *                     ],
  *                   },
  *                 },
- *                 ReferenceLines: [
- *                   {
+ *                 ReferenceLines: [ // ReferenceLineList
+ *                   { // ReferenceLine
  *                     Status: "ENABLED" || "DISABLED",
- *                     DataConfiguration: {
- *                       StaticConfiguration: {
+ *                     DataConfiguration: { // ReferenceLineDataConfiguration
+ *                       StaticConfiguration: { // ReferenceLineStaticDataConfiguration
  *                         Value: Number("double"), // required
  *                       },
- *                       DynamicConfiguration: {
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         MeasureAggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: {
- *                               PercentileValue: Number("double"),
- *                             },
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                         Calculation: {
- *                           SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                           PercentileAggregation: "<NumericalAggregationFunction>",
- *                         },
+ *                       DynamicConfiguration: { // ReferenceLineDynamicDataConfiguration
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
  *                     },
- *                     StyleConfiguration: {
+ *                     StyleConfiguration: { // ReferenceLineStyleConfiguration
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
  *                       Color: "STRING_VALUE",
  *                     },
- *                     LabelConfiguration: {
- *                       ValueLabelConfiguration: {
+ *                     LabelConfiguration: { // ReferenceLineLabelConfiguration
+ *                       ValueLabelConfiguration: { // ReferenceLineValueLabelConfiguration
  *                         RelativePosition: "BEFORE_CUSTOM_LABEL" || "AFTER_CUSTOM_LABEL",
- *                         FormatConfiguration: {
- *                           NumberDisplayFormatConfiguration: {
- *                             Prefix: "STRING_VALUE",
- *                             Suffix: "STRING_VALUE",
- *                             SeparatorConfiguration: {
- *                               DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                               ThousandsSeparator: {
- *                                 Symbol: "COMMA" || "DOT" || "SPACE",
- *                                 Visibility: "HIDDEN" || "VISIBLE",
- *                               },
- *                             },
- *                             DecimalPlacesConfiguration: {
- *                               DecimalPlaces: Number("long"), // required
- *                             },
- *                             NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                             NegativeValueConfiguration: {
- *                               DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                             },
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                           },
- *                           CurrencyDisplayFormatConfiguration: {
- *                             Prefix: "STRING_VALUE",
- *                             Suffix: "STRING_VALUE",
- *                             SeparatorConfiguration: {
- *                               DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                               ThousandsSeparator: {
- *                                 Symbol: "COMMA" || "DOT" || "SPACE",
- *                                 Visibility: "HIDDEN" || "VISIBLE",
- *                               },
- *                             },
- *                             Symbol: "STRING_VALUE",
- *                             DecimalPlacesConfiguration: {
- *                               DecimalPlaces: Number("long"), // required
- *                             },
- *                             NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
- *                             NegativeValueConfiguration: {
- *                               DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                             },
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                           },
- *                           PercentageDisplayFormatConfiguration: {
- *                             Prefix: "STRING_VALUE",
- *                             Suffix: "STRING_VALUE",
- *                             SeparatorConfiguration: {
- *                               DecimalSeparator: "COMMA" || "DOT" || "SPACE",
- *                               ThousandsSeparator: {
- *                                 Symbol: "COMMA" || "DOT" || "SPACE",
- *                                 Visibility: "HIDDEN" || "VISIBLE",
- *                               },
- *                             },
- *                             DecimalPlacesConfiguration: {
- *                               DecimalPlaces: Number("long"), // required
- *                             },
- *                             NegativeValueConfiguration: {
- *                               DisplayMode: "POSITIVE" || "NEGATIVE", // required
- *                             },
- *                             NullValueFormatConfiguration: {
- *                               NullString: "STRING_VALUE", // required
- *                             },
- *                           },
- *                         },
+ *                         FormatConfiguration: "<NumericFormatConfiguration>",
  *                       },
- *                       CustomLabelConfiguration: {
+ *                       CustomLabelConfiguration: { // ReferenceLineCustomLabelConfiguration
  *                         CustomLabel: "STRING_VALUE", // required
  *                       },
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       FontColor: "STRING_VALUE",
  *                       HorizontalPosition: "LEFT" || "CENTER" || "RIGHT",
  *                       VerticalPosition: "ABOVE" || "BELOW",
  *                     },
  *                   },
  *                 ],
- *                 ContributionAnalysisDefaults: [
- *                   {
+ *                 ContributionAnalysisDefaults: [ // ContributionAnalysisDefaultList
+ *                   { // ContributionAnalysisDefault
  *                     MeasureFieldId: "STRING_VALUE", // required
- *                     ContributorDimensions: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                     ContributorDimensions: [ // ContributorDimensionList // required
+ *                       "<ColumnIdentifier>",
  *                     ],
  *                   },
  *                 ],
@@ -5155,39 +2008,27 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ],
  *                 },
  *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
+ *               ColumnHierarchies: [ // ColumnHierarchyList
+ *                 { // ColumnHierarchy
+ *                   ExplicitHierarchy: { // ExplicitHierarchy
  *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                     Columns: [ // ExplicitHierarchyColumnList // required
+ *                       "<ColumnIdentifier>",
  *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                     DrillDownFilters: [ // DrillDownFilterList
+ *                       { // DrillDownFilter
+ *                         NumericEqualityFilter: { // NumericEqualityDrillDownFilter
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Value: Number("double"), // required
  *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
+ *                         CategoryFilter: { // CategoryDrillDownFilter
+ *                           Column: "<ColumnIdentifier>", // required
+ *                           CategoryValues: [ // CategoryValueList // required
  *                             "STRING_VALUE",
  *                           ],
  *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                         TimeRangeFilter: { // TimeRangeDrillDownFilter
+ *                           Column: "<ColumnIdentifier>", // required
  *                           RangeMinimum: new Date("TIMESTAMP"), // required
  *                           RangeMaximum: new Date("TIMESTAMP"), // required
  *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
@@ -5195,31 +2036,22 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       },
  *                     ],
  *                   },
- *                   DateTimeHierarchy: {
+ *                   DateTimeHierarchy: { // DateTimeHierarchy
  *                     HierarchyId: "STRING_VALUE", // required
  *                     DrillDownFilters: [
  *                       {
  *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Value: Number("double"), // required
  *                         },
  *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           CategoryValues: [ // required
  *                             "STRING_VALUE",
  *                           ],
  *                         },
  *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           RangeMinimum: new Date("TIMESTAMP"), // required
  *                           RangeMaximum: new Date("TIMESTAMP"), // required
  *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
@@ -5227,37 +2059,25 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       },
  *                     ],
  *                   },
- *                   PredefinedHierarchy: {
+ *                   PredefinedHierarchy: { // PredefinedHierarchy
  *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                     Columns: [ // PredefinedHierarchyColumnList // required
+ *                       "<ColumnIdentifier>",
  *                     ],
  *                     DrillDownFilters: [
  *                       {
  *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Value: Number("double"), // required
  *                         },
  *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           CategoryValues: [ // required
  *                             "STRING_VALUE",
  *                           ],
  *                         },
  *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           RangeMinimum: new Date("TIMESTAMP"), // required
  *                           RangeMaximum: new Date("TIMESTAMP"), // required
  *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
@@ -5268,7 +2088,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *               ],
  *             },
- *             KPIVisual: {
+ *             KPIVisual: { // KPIVisual
  *               VisualId: "STRING_VALUE", // required
  *               Title: {
  *                 Visibility: "HIDDEN" || "VISIBLE",
@@ -5284,64 +2104,27 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   RichText: "STRING_VALUE",
  *                 },
  *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
+ *               ChartConfiguration: { // KPIConfiguration
+ *                 FieldWells: { // KPIFieldWells
  *                   Values: [
  *                     {
  *                       NumericalMeasureField: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         AggregationFunction: {
- *                           SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                           PercentileAggregation: "<NumericalAggregationFunction>",
- *                         },
- *                         FormatConfiguration: {
- *                           FormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         AggregationFunction: "<NumericalAggregationFunction>",
+ *                         FormatConfiguration: "<NumberFormatConfiguration>",
  *                       },
  *                       CategoricalMeasureField: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                         AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                         FormatConfiguration: {
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
+ *                         FormatConfiguration: "<StringFormatConfiguration>",
  *                       },
  *                       DateMeasureField: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                         AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         FormatConfiguration: {
- *                           DateTimeFormat: "STRING_VALUE",
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
+ *                         FormatConfiguration: "<DateTimeFormatConfiguration>",
  *                       },
  *                       CalculatedMeasureField: {
  *                         FieldId: "STRING_VALUE", // required
@@ -5353,58 +2136,21 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     {
  *                       NumericalMeasureField: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         AggregationFunction: {
- *                           SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                           PercentileAggregation: "<NumericalAggregationFunction>",
- *                         },
- *                         FormatConfiguration: {
- *                           FormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         AggregationFunction: "<NumericalAggregationFunction>",
+ *                         FormatConfiguration: "<NumberFormatConfiguration>",
  *                       },
  *                       CategoricalMeasureField: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                         AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                         FormatConfiguration: {
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
+ *                         FormatConfiguration: "<StringFormatConfiguration>",
  *                       },
  *                       DateMeasureField: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                         AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         FormatConfiguration: {
- *                           DateTimeFormat: "STRING_VALUE",
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
+ *                         FormatConfiguration: "<DateTimeFormatConfiguration>",
  *                       },
  *                       CalculatedMeasureField: {
  *                         FieldId: "STRING_VALUE", // required
@@ -5413,159 +2159,44 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   ],
  *                   TrendGroups: [
- *                     {
- *                       NumericalDimensionField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         HierarchyId: "STRING_VALUE",
- *                         FormatConfiguration: {
- *                           FormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                       CategoricalDimensionField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         HierarchyId: "STRING_VALUE",
- *                         FormatConfiguration: {
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                       DateDimensionField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                         HierarchyId: "STRING_VALUE",
- *                         FormatConfiguration: {
- *                           DateTimeFormat: "STRING_VALUE",
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                     },
+ *                     "<DimensionField>",
  *                   ],
  *                 },
- *                 SortConfiguration: {
+ *                 SortConfiguration: { // KPISortConfiguration
  *                   TrendGroupSort: [
  *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
+ *                       FieldSort: "<FieldSort>",
+ *                       ColumnSort: "<ColumnSort>",
  *                     },
  *                   ],
  *                 },
- *                 KPIOptions: {
- *                   ProgressBar: {
+ *                 KPIOptions: { // KPIOptions
+ *                   ProgressBar: { // ProgressBarOptions
  *                     Visibility: "HIDDEN" || "VISIBLE",
  *                   },
- *                   TrendArrows: {
+ *                   TrendArrows: { // TrendArrowOptions
  *                     Visibility: "HIDDEN" || "VISIBLE",
  *                   },
- *                   SecondaryValue: {
+ *                   SecondaryValue: { // SecondaryValueOptions
  *                     Visibility: "HIDDEN" || "VISIBLE",
  *                   },
- *                   Comparison: {
+ *                   Comparison: { // ComparisonConfiguration
  *                     ComparisonMethod: "DIFFERENCE" || "PERCENT_DIFFERENCE" || "PERCENT",
- *                     ComparisonFormat: {
- *                       NumberDisplayFormatConfiguration: {
- *                         Prefix: "<NumberDisplayFormatConfiguration>",
- *                         Suffix: "<NumberDisplayFormatConfiguration>",
- *                         SeparatorConfiguration: "<NumberDisplayFormatConfiguration>",
- *                         DecimalPlacesConfiguration: "<NumberDisplayFormatConfiguration>",
- *                         NumberScale: "<NumberDisplayFormatConfiguration>",
- *                         NegativeValueConfiguration: "<NumberDisplayFormatConfiguration>",
- *                         NullValueFormatConfiguration: "<NumberDisplayFormatConfiguration>",
- *                       },
- *                       PercentageDisplayFormatConfiguration: {
- *                         Prefix: "<PercentageDisplayFormatConfiguration>",
- *                         Suffix: "<PercentageDisplayFormatConfiguration>",
- *                         SeparatorConfiguration: "<PercentageDisplayFormatConfiguration>",
- *                         DecimalPlacesConfiguration: "<PercentageDisplayFormatConfiguration>",
- *                         NegativeValueConfiguration: "<PercentageDisplayFormatConfiguration>",
- *                         NullValueFormatConfiguration: "<PercentageDisplayFormatConfiguration>",
- *                       },
+ *                     ComparisonFormat: { // ComparisonFormatConfiguration
+ *                       NumberDisplayFormatConfiguration: "<NumberDisplayFormatConfiguration>",
+ *                       PercentageDisplayFormatConfiguration: "<PercentageDisplayFormatConfiguration>",
  *                     },
  *                   },
  *                   PrimaryValueDisplayType: "HIDDEN" || "COMPARISON" || "ACTUAL",
- *                   PrimaryValueFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
- *                   SecondaryValueFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
+ *                   PrimaryValueFontConfiguration: "<FontConfiguration>",
+ *                   SecondaryValueFontConfiguration: "<FontConfiguration>",
  *                 },
  *               },
- *               ConditionalFormatting: {
- *                 ConditionalFormattingOptions: [
- *                   {
- *                     PrimaryValue: {
- *                       TextColor: {
- *                         Solid: {
- *                           Expression: "STRING_VALUE", // required
- *                           Color: "STRING_VALUE",
- *                         },
- *                         Gradient: {
- *                           Expression: "STRING_VALUE", // required
- *                           Color: {
- *                             Stops: [
- *                               {
- *                                 GradientOffset: Number("double"), // required
- *                                 DataValue: Number("double"),
- *                                 Color: "STRING_VALUE",
- *                               },
- *                             ],
- *                           },
- *                         },
- *                       },
+ *               ConditionalFormatting: { // KPIConditionalFormatting
+ *                 ConditionalFormattingOptions: [ // KPIConditionalFormattingOptionList
+ *                   { // KPIConditionalFormattingOption
+ *                     PrimaryValue: { // KPIPrimaryValueConditionalFormatting
+ *                       TextColor: "<ConditionalFormattingColor>",
  *                       Icon: {
  *                         IconSet: {
  *                           Expression: "STRING_VALUE", // required
@@ -5584,25 +2215,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         },
  *                       },
  *                     },
- *                     ProgressBar: {
- *                       ForegroundColor: {
- *                         Solid: {
- *                           Expression: "STRING_VALUE", // required
- *                           Color: "STRING_VALUE",
- *                         },
- *                         Gradient: {
- *                           Expression: "STRING_VALUE", // required
- *                           Color: {
- *                             Stops: [
- *                               {
- *                                 GradientOffset: Number("double"), // required
- *                                 DataValue: Number("double"),
- *                                 Color: "STRING_VALUE",
- *                               },
- *                             ],
- *                           },
- *                         },
- *                       },
+ *                     ProgressBar: { // KPIProgressBarConditionalFormatting
+ *                       ForegroundColor: "<ConditionalFormattingColor>",
  *                     },
  *                   },
  *                 ],
@@ -5678,34 +2292,22 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ExplicitHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
  *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
  *                     DrillDownFilters: [
  *                       {
  *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Value: Number("double"), // required
  *                         },
  *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           CategoryValues: [ // required
  *                             "STRING_VALUE",
  *                           ],
  *                         },
  *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           RangeMinimum: new Date("TIMESTAMP"), // required
  *                           RangeMaximum: new Date("TIMESTAMP"), // required
  *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
@@ -5718,26 +2320,17 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     DrillDownFilters: [
  *                       {
  *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Value: Number("double"), // required
  *                         },
  *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           CategoryValues: [ // required
  *                             "STRING_VALUE",
  *                           ],
  *                         },
  *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           RangeMinimum: new Date("TIMESTAMP"), // required
  *                           RangeMaximum: new Date("TIMESTAMP"), // required
  *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
@@ -5748,45 +2341,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   PredefinedHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
  *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                 },
  *               ],
  *             },
- *             PieChartVisual: {
+ *             PieChartVisual: { // PieChartVisual
  *               VisualId: "STRING_VALUE", // required
  *               Title: {
  *                 Visibility: "HIDDEN" || "VISIBLE",
@@ -5802,249 +2364,39 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   RichText: "STRING_VALUE",
  *                 },
  *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   PieChartAggregatedFieldWells: {
+ *               ChartConfiguration: { // PieChartConfiguration
+ *                 FieldWells: { // PieChartFieldWells
+ *                   PieChartAggregatedFieldWells: { // PieChartAggregatedFieldWells
  *                     Category: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *                       "<DimensionField>",
  *                     ],
  *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       "<MeasureField>",
  *                     ],
  *                     SmallMultiples: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *                       "<DimensionField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
+ *                 SortConfiguration: { // PieChartSortConfiguration
  *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
+ *                     "<FieldSortOptions>",
  *                   ],
  *                   CategoryItemsLimit: {
  *                     ItemsLimit: Number("long"),
  *                     OtherCategories: "INCLUDE" || "EXCLUDE",
  *                   },
- *                   SmallMultiplesSort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
+ *                   SmallMultiplesSort: "<FieldSortOptionsList>",
  *                   SmallMultiplesLimitConfiguration: {
  *                     ItemsLimit: Number("long"),
  *                     OtherCategories: "INCLUDE" || "EXCLUDE",
  *                   },
  *                 },
- *                 DonutOptions: {
- *                   ArcOptions: {
+ *                 DonutOptions: { // DonutOptions
+ *                   ArcOptions: { // ArcOptions
  *                     ArcThickness: "SMALL" || "MEDIUM" || "LARGE" || "WHOLE",
  *                   },
- *                   DonutCenterOptions: {
+ *                   DonutCenterOptions: { // DonutCenterOptions
  *                     LabelVisibility: "HIDDEN" || "VISIBLE",
  *                   },
  *                 },
@@ -6054,13 +2406,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   PanelConfiguration: {
  *                     Title: {
  *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *                     },
  *                     BorderVisibility: "HIDDEN" || "VISIBLE",
@@ -6078,20 +2424,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
  *                   AxisLabelOptions: [
  *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       CustomLabel: "STRING_VALUE",
  *                       ApplyTo: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                       },
  *                     },
  *                   ],
@@ -6101,31 +2438,18 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
  *                   AxisLabelOptions: [
  *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       CustomLabel: "STRING_VALUE",
  *                       ApplyTo: {
  *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
  *                       },
  *                     },
  *                   ],
  *                 },
  *                 Legend: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
+ *                   Title: "<LabelOptions>",
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
@@ -6158,13 +2482,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ],
  *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
  *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
+ *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
  *                 },
@@ -6182,20 +2500,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                         },
  *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
+ *                           Aggregation: "<AggregationFunction>",
  *                         },
  *                       },
  *                     ],
@@ -6205,10 +2513,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ChartColor: "STRING_VALUE",
  *                   ColorMap: [
  *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
+ *                       Element: "<DataPathValue>", // required
  *                       Color: "STRING_VALUE", // required
  *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                     },
@@ -6218,10 +2523,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   {
  *                     MeasureFieldId: "STRING_VALUE", // required
  *                     ContributorDimensions: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
  *                   },
  *                 ],
@@ -6297,301 +2599,54 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ExplicitHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
  *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                   DateTimeHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                   PredefinedHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
  *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                 },
  *               ],
  *             },
- *             GaugeChartVisual: {
+ *             GaugeChartVisual: { // GaugeChartVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // GaugeChartConfiguration
+ *                 FieldWells: { // GaugeChartFieldWells
+ *                   Values: "<MeasureFieldList>",
+ *                   TargetValues: "<MeasureFieldList>",
  *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   Values: [
- *                     {
- *                       NumericalMeasureField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         AggregationFunction: {
- *                           SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                           PercentileAggregation: "<NumericalAggregationFunction>",
- *                         },
- *                         FormatConfiguration: {
- *                           FormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                       CategoricalMeasureField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                         FormatConfiguration: {
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                       DateMeasureField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         FormatConfiguration: {
- *                           DateTimeFormat: "STRING_VALUE",
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                       CalculatedMeasureField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Expression: "STRING_VALUE", // required
- *                       },
- *                     },
- *                   ],
- *                   TargetValues: [
- *                     {
- *                       NumericalMeasureField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         AggregationFunction: {
- *                           SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                           PercentileAggregation: "<NumericalAggregationFunction>",
- *                         },
- *                         FormatConfiguration: {
- *                           FormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                       CategoricalMeasureField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                         FormatConfiguration: {
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                       DateMeasureField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         FormatConfiguration: {
- *                           DateTimeFormat: "STRING_VALUE",
- *                           NullValueFormatConfiguration: {
- *                             NullString: "<NullValueFormatConfiguration>",
- *                           },
- *                           NumericFormatConfiguration: {
- *                             NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           },
- *                         },
- *                       },
- *                       CalculatedMeasureField: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Expression: "STRING_VALUE", // required
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 GaugeChartOptions: {
+ *                 GaugeChartOptions: { // GaugeChartOptions
  *                   PrimaryValueDisplayType: "HIDDEN" || "COMPARISON" || "ACTUAL",
  *                   Comparison: {
  *                     ComparisonMethod: "DIFFERENCE" || "PERCENT_DIFFERENCE" || "PERCENT",
  *                     ComparisonFormat: {
- *                       NumberDisplayFormatConfiguration: {
- *                         Prefix: "<NumberDisplayFormatConfiguration>",
- *                         Suffix: "<NumberDisplayFormatConfiguration>",
- *                         SeparatorConfiguration: "<NumberDisplayFormatConfiguration>",
- *                         DecimalPlacesConfiguration: "<NumberDisplayFormatConfiguration>",
- *                         NumberScale: "<NumberDisplayFormatConfiguration>",
- *                         NegativeValueConfiguration: "<NumberDisplayFormatConfiguration>",
- *                         NullValueFormatConfiguration: "<NumberDisplayFormatConfiguration>",
- *                       },
- *                       PercentageDisplayFormatConfiguration: {
- *                         Prefix: "<PercentageDisplayFormatConfiguration>",
- *                         Suffix: "<PercentageDisplayFormatConfiguration>",
- *                         SeparatorConfiguration: "<PercentageDisplayFormatConfiguration>",
- *                         DecimalPlacesConfiguration: "<PercentageDisplayFormatConfiguration>",
- *                         NegativeValueConfiguration: "<PercentageDisplayFormatConfiguration>",
- *                         NullValueFormatConfiguration: "<PercentageDisplayFormatConfiguration>",
- *                       },
+ *                       NumberDisplayFormatConfiguration: "<NumberDisplayFormatConfiguration>",
+ *                       PercentageDisplayFormatConfiguration: "<PercentageDisplayFormatConfiguration>",
  *                     },
  *                   },
- *                   ArcAxis: {
- *                     Range: {
+ *                   ArcAxis: { // ArcAxisConfiguration
+ *                     Range: { // ArcAxisDisplayRange
  *                       Min: Number("double"),
  *                       Max: Number("double"),
  *                     },
  *                     ReserveRange: Number("int"),
  *                   },
- *                   Arc: {
+ *                   Arc: { // ArcConfiguration
  *                     ArcAngle: Number("double"),
  *                     ArcThickness: "SMALL" || "MEDIUM" || "LARGE",
  *                   },
- *                   PrimaryValueFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
+ *                   PrimaryValueFontConfiguration: "<FontConfiguration>",
  *                 },
  *                 DataLabels: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
@@ -6621,13 +2676,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ],
  *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
  *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
+ *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
  *                 },
@@ -6645,20 +2694,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                         },
  *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
+ *                           Aggregation: "<AggregationFunction>",
  *                         },
  *                       },
  *                     ],
@@ -6668,38 +2707,18 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ChartColor: "STRING_VALUE",
  *                   ColorMap: [
  *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
+ *                       Element: "<DataPathValue>", // required
  *                       Color: "STRING_VALUE", // required
  *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                     },
  *                   ],
  *                 },
  *               },
- *               ConditionalFormatting: {
- *                 ConditionalFormattingOptions: [
- *                   {
- *                     PrimaryValue: {
- *                       TextColor: {
- *                         Solid: {
- *                           Expression: "STRING_VALUE", // required
- *                           Color: "STRING_VALUE",
- *                         },
- *                         Gradient: {
- *                           Expression: "STRING_VALUE", // required
- *                           Color: {
- *                             Stops: [
- *                               {
- *                                 GradientOffset: Number("double"), // required
- *                                 DataValue: Number("double"),
- *                                 Color: "STRING_VALUE",
- *                               },
- *                             ],
- *                           },
- *                         },
- *                       },
+ *               ConditionalFormatting: { // GaugeChartConditionalFormatting
+ *                 ConditionalFormattingOptions: [ // GaugeChartConditionalFormattingOptionList
+ *                   { // GaugeChartConditionalFormattingOption
+ *                     PrimaryValue: { // GaugeChartPrimaryValueConditionalFormatting
+ *                       TextColor: "<ConditionalFormattingColor>",
  *                       Icon: {
  *                         IconSet: {
  *                           Expression: "STRING_VALUE", // required
@@ -6718,414 +2737,39 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         },
  *                       },
  *                     },
- *                     Arc: {
- *                       ForegroundColor: {
- *                         Solid: {
- *                           Expression: "STRING_VALUE", // required
- *                           Color: "STRING_VALUE",
- *                         },
- *                         Gradient: {
- *                           Expression: "STRING_VALUE", // required
- *                           Color: {
- *                             Stops: [
- *                               {
- *                                 GradientOffset: Number("double"), // required
- *                                 DataValue: Number("double"),
- *                                 Color: "STRING_VALUE",
- *                               },
- *                             ],
- *                           },
- *                         },
- *                       },
+ *                     Arc: { // GaugeChartArcConditionalFormatting
+ *                       ForegroundColor: "<ConditionalFormattingColor>",
  *                     },
  *                   },
  *                 ],
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
  *             },
- *             LineChartVisual: {
+ *             LineChartVisual: { // LineChartVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   LineChartAggregatedFieldWells: {
- *                     Category: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                     Colors: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // LineChartConfiguration
+ *                 FieldWells: { // LineChartFieldWells
+ *                   LineChartAggregatedFieldWells: { // LineChartAggregatedFieldWells
+ *                     Category: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                     Colors: "<DimensionFieldList>",
  *                     SmallMultiples: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *                       "<DimensionField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   CategoryItemsLimitConfiguration: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
- *                   ColorItemsLimitConfiguration: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
- *                   SmallMultiplesSort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   SmallMultiplesLimitConfiguration: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
+ *                 SortConfiguration: { // LineChartSortConfiguration
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                   ColorItemsLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                   SmallMultiplesSort: "<FieldSortOptionsList>",
+ *                   SmallMultiplesLimitConfiguration: "<ItemsLimitConfiguration>",
  *                 },
- *                 ForecastConfigurations: [
- *                   {
- *                     ForecastProperties: {
+ *                 ForecastConfigurations: [ // ForecastConfigurationList
+ *                   { // ForecastConfiguration
+ *                     ForecastProperties: { // TimeBasedForecastProperties
  *                       PeriodsForward: Number("int"),
  *                       PeriodsBackward: Number("int"),
  *                       UpperBoundary: Number("double"),
@@ -7133,12 +2777,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       PredictionInterval: Number("int"),
  *                       Seasonality: Number("int"),
  *                     },
- *                     Scenario: {
- *                       WhatIfPointScenario: {
+ *                     Scenario: { // ForecastScenario
+ *                       WhatIfPointScenario: { // WhatIfPointScenario
  *                         Date: new Date("TIMESTAMP"), // required
  *                         Value: Number("double"), // required
  *                       },
- *                       WhatIfRangeScenario: {
+ *                       WhatIfRangeScenario: { // WhatIfRangeScenario
  *                         StartDate: new Date("TIMESTAMP"), // required
  *                         EndDate: new Date("TIMESTAMP"), // required
  *                         Value: Number("double"), // required
@@ -7153,13 +2797,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   PanelConfiguration: {
  *                     Title: {
  *                       Visibility: "HIDDEN" || "VISIBLE",
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *                     },
  *                     BorderVisibility: "HIDDEN" || "VISIBLE",
@@ -7174,11 +2812,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *                 XAxisDisplayOptions: {
  *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
+ *                     LabelOptions: "<LabelOptions>",
  *                     RotationAngle: Number("double"),
  *                   },
  *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
@@ -7217,37 +2851,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                   AxisOffset: "STRING_VALUE",
  *                 },
- *                 XAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 PrimaryYAxisDisplayOptions: {
+ *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 PrimaryYAxisDisplayOptions: { // LineSeriesAxisDisplayOptions
  *                   AxisOptions: {
  *                     TickLabelOptions: {
- *                       LabelOptions: {
- *                         Visibility: "<LabelOptions>",
- *                         FontConfiguration: "<LabelOptions>",
- *                         CustomLabel: "<LabelOptions>",
- *                       },
+ *                       LabelOptions: "<LabelOptions>",
  *                       RotationAngle: Number("double"),
  *                     },
  *                     AxisLineVisibility: "HIDDEN" || "VISIBLE",
@@ -7286,43 +2894,17 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                     AxisOffset: "STRING_VALUE",
  *                   },
- *                   MissingDataConfigurations: [
- *                     {
+ *                   MissingDataConfigurations: [ // MissingDataConfigurationList
+ *                     { // MissingDataConfiguration
  *                       TreatmentOption: "INTERPOLATE" || "SHOW_AS_ZERO" || "SHOW_AS_BLANK",
  *                     },
  *                   ],
  *                 },
- *                 PrimaryYAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
+ *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
  *                 SecondaryYAxisDisplayOptions: {
  *                   AxisOptions: {
  *                     TickLabelOptions: {
- *                       LabelOptions: {
- *                         Visibility: "<LabelOptions>",
- *                         FontConfiguration: "<LabelOptions>",
- *                         CustomLabel: "<LabelOptions>",
- *                       },
+ *                       LabelOptions: "<LabelOptions>",
  *                       RotationAngle: Number("double"),
  *                     },
  *                     AxisLineVisibility: "HIDDEN" || "VISIBLE",
@@ -7367,50 +2949,28 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   ],
  *                 },
- *                 SecondaryYAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 DefaultSeriesSettings: {
+ *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 DefaultSeriesSettings: { // LineChartDefaultSeriesSettings
  *                   AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
- *                   LineStyleSettings: {
+ *                   LineStyleSettings: { // LineChartLineStyleSettings
  *                     LineVisibility: "HIDDEN" || "VISIBLE",
  *                     LineInterpolation: "LINEAR" || "SMOOTH" || "STEPPED",
  *                     LineStyle: "SOLID" || "DOTTED" || "DASHED",
  *                     LineWidth: "STRING_VALUE",
  *                   },
- *                   MarkerStyleSettings: {
+ *                   MarkerStyleSettings: { // LineChartMarkerStyleSettings
  *                     MarkerVisibility: "HIDDEN" || "VISIBLE",
  *                     MarkerShape: "CIRCLE" || "TRIANGLE" || "SQUARE" || "DIAMOND" || "ROUNDED_SQUARE",
  *                     MarkerSize: "STRING_VALUE",
  *                     MarkerColor: "STRING_VALUE",
  *                   },
  *                 },
- *                 Series: [
- *                   {
- *                     FieldSeriesItem: {
+ *                 Series: [ // SeriesItemList
+ *                   { // SeriesItem
+ *                     FieldSeriesItem: { // FieldSeriesItem
  *                       FieldId: "STRING_VALUE", // required
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS", // required
- *                       Settings: {
+ *                       Settings: { // LineChartSeriesSettings
  *                         LineStyleSettings: {
  *                           LineVisibility: "HIDDEN" || "VISIBLE",
  *                           LineInterpolation: "LINEAR" || "SMOOTH" || "STEPPED",
@@ -7425,7 +2985,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         },
  *                       },
  *                     },
- *                     DataFieldSeriesItem: {
+ *                     DataFieldSeriesItem: { // DataFieldSeriesItem
  *                       FieldId: "STRING_VALUE", // required
  *                       FieldValue: "STRING_VALUE",
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS", // required
@@ -7448,11 +3008,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 ],
  *                 Legend: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
+ *                   Title: "<LabelOptions>",
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
@@ -7485,13 +3041,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ],
  *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
  *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
+ *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
  *                 },
@@ -7503,22 +3053,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Value: Number("double"), // required
  *                       },
  *                       DynamicConfiguration: {
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         MeasureAggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                         Calculation: {
- *                           SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                           PercentileAggregation: "<NumericalAggregationFunction>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
  *                     },
@@ -7529,22 +3066,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     LabelConfiguration: {
  *                       ValueLabelConfiguration: {
  *                         RelativePosition: "BEFORE_CUSTOM_LABEL" || "AFTER_CUSTOM_LABEL",
- *                         FormatConfiguration: {
- *                           NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                         },
+ *                         FormatConfiguration: "<NumericFormatConfiguration>",
  *                       },
  *                       CustomLabelConfiguration: {
  *                         CustomLabel: "STRING_VALUE", // required
  *                       },
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       FontColor: "STRING_VALUE",
  *                       HorizontalPosition: "LEFT" || "CENTER" || "RIGHT",
  *                       VerticalPosition: "ABOVE" || "BELOW",
@@ -7565,20 +3092,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                         },
  *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
+ *                           Aggregation: "<AggregationFunction>",
  *                         },
  *                       },
  *                     ],
@@ -7588,10 +3105,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   {
  *                     MeasureFieldId: "STRING_VALUE", // required
  *                     ContributorDimensions: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
  *                   },
  *                 ],
@@ -7599,498 +3113,66 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ChartColor: "STRING_VALUE",
  *                   ColorMap: [
  *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
+ *                       Element: "<DataPathValue>", // required
  *                       Color: "STRING_VALUE", // required
  *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                     },
  *                   ],
  *                 },
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: [
  *                 {
  *                   ExplicitHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
  *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                   DateTimeHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                   PredefinedHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
  *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                 },
  *               ],
  *             },
- *             HeatMapVisual: {
+ *             HeatMapVisual: { // HeatMapVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   HeatMapAggregatedFieldWells: {
- *                     Rows: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // HeatMapConfiguration
+ *                 FieldWells: { // HeatMapFieldWells
+ *                   HeatMapAggregatedFieldWells: { // HeatMapAggregatedFieldWells
+ *                     Rows: [ // HeatMapDimensionFieldList
+ *                       "<DimensionField>",
  *                     ],
  *                     Columns: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *                       "<DimensionField>",
  *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                     Values: [ // HeatMapMeasureFieldList
+ *                       "<MeasureField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   HeatMapRowSort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   HeatMapColumnSort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   HeatMapRowItemsLimitConfiguration: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
- *                   HeatMapColumnItemsLimitConfiguration: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
+ *                 SortConfiguration: { // HeatMapSortConfiguration
+ *                   HeatMapRowSort: "<FieldSortOptionsList>",
+ *                   HeatMapColumnSort: "<FieldSortOptionsList>",
+ *                   HeatMapRowItemsLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                   HeatMapColumnItemsLimitConfiguration: "<ItemsLimitConfiguration>",
  *                 },
- *                 RowLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 ColumnLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 ColorScale: {
- *                   Colors: [ // required
- *                     {
+ *                 RowLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColumnLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorScale: { // ColorScale
+ *                   Colors: [ // ColorScaleColorList // required
+ *                     { // DataColor
  *                       Color: "STRING_VALUE",
  *                       DataValue: Number("double"),
  *                     },
@@ -8103,11 +3185,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *                 Legend: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
+ *                   Title: "<LabelOptions>",
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
@@ -8140,13 +3218,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ],
  *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
  *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
+ *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
  *                 },
@@ -8164,20 +3236,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                         },
  *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
+ *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
+ *                           Aggregation: "<AggregationFunction>",
  *                         },
  *                       },
  *                     ],
@@ -8189,482 +3251,50 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ExplicitHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
  *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                   DateTimeHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                   PredefinedHierarchy: {
  *                     HierarchyId: "STRING_VALUE", // required
  *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
+ *                       "<ColumnIdentifier>",
  *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
+ *                     DrillDownFilters: "<DrillDownFilterList>",
  *                   },
  *                 },
  *               ],
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
  *             },
- *             TreeMapVisual: {
+ *             TreeMapVisual: { // TreeMapVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   TreeMapAggregatedFieldWells: {
- *                     Groups: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // TreeMapConfiguration
+ *                 FieldWells: { // TreeMapFieldWells
+ *                   TreeMapAggregatedFieldWells: { // TreeMapAggregatedFieldWells
+ *                     Groups: [ // TreeMapDimensionFieldList
+ *                       "<DimensionField>",
  *                     ],
- *                     Sizes: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                     Sizes: [ // TreeMapMeasureFieldList
+ *                       "<MeasureField>",
  *                     ],
  *                     Colors: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       "<MeasureField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   TreeMapSort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   TreeMapGroupItemsLimitConfiguration: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
+ *                 SortConfiguration: { // TreeMapSortConfiguration
+ *                   TreeMapSort: "<FieldSortOptionsList>",
+ *                   TreeMapGroupItemsLimitConfiguration: "<ItemsLimitConfiguration>",
  *                 },
- *                 GroupLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 SizeLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 ColorLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
+ *                 GroupLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SizeLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  *                 ColorScale: {
  *                   Colors: [ // required
  *                     {
@@ -8680,510 +3310,33 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *                 Legend: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
+ *                   Title: "<LabelOptions>",
  *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  *                   Width: "STRING_VALUE",
  *                   Height: "STRING_VALUE",
  *                 },
- *                 DataLabels: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   DataLabelTypes: [
- *                     {
- *                       FieldLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       DataPathLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         FieldValue: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       RangeEndsLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MinimumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MaximumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                     },
- *                   ],
- *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
- *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
- *                   LabelColor: "STRING_VALUE",
- *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
- *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
  *             },
- *             GeospatialMapVisual: {
+ *             GeospatialMapVisual: { // GeospatialMapVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   GeospatialMapAggregatedFieldWells: {
- *                     Geospatial: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                     Colors: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // GeospatialMapConfiguration
+ *                 FieldWells: { // GeospatialMapFieldWells
+ *                   GeospatialMapAggregatedFieldWells: { // GeospatialMapAggregatedFieldWells
+ *                     Geospatial: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                     Colors: "<DimensionFieldList>",
  *                   },
  *                 },
- *                 Legend: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
- *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
- *                   Width: "STRING_VALUE",
- *                   Height: "STRING_VALUE",
- *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *                 WindowOptions: {
- *                   Bounds: {
+ *                 Legend: "<LegendOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 WindowOptions: { // GeospatialWindowOptions
+ *                   Bounds: { // GeospatialCoordinateBounds
  *                     North: Number("double"), // required
  *                     South: Number("double"), // required
  *                     West: Number("double"), // required
@@ -9191,14 +3344,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                   MapZoomMode: "AUTO" || "MANUAL",
  *                 },
- *                 MapStyleOptions: {
+ *                 MapStyleOptions: { // GeospatialMapStyleOptions
  *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
  *                 },
- *                 PointStyleOptions: {
+ *                 PointStyleOptions: { // GeospatialPointStyleOptions
  *                   SelectedPointStyle: "POINT" || "CLUSTER",
- *                   ClusterMarkerConfiguration: {
- *                     ClusterMarker: {
- *                       SimpleClusterMarker: {
+ *                   ClusterMarkerConfiguration: { // ClusterMarkerConfiguration
+ *                     ClusterMarker: { // ClusterMarker
+ *                       SimpleClusterMarker: { // SimpleClusterMarker
  *                         Color: "STRING_VALUE",
  *                       },
  *                     },
@@ -9208,405 +3361,36 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ChartColor: "STRING_VALUE",
  *                   ColorMap: [
  *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
+ *                       Element: "<DataPathValue>", // required
  *                       Color: "STRING_VALUE", // required
  *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                     },
  *                   ],
  *                 },
  *               },
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               Actions: "<VisualCustomActionList>",
  *             },
- *             FilledMapVisual: {
+ *             FilledMapVisual: { // FilledMapVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   FilledMapAggregatedFieldWells: {
- *                     Geospatial: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // FilledMapConfiguration
+ *                 FieldWells: { // FilledMapFieldWells
+ *                   FilledMapAggregatedFieldWells: { // FilledMapAggregatedFieldWells
+ *                     Geospatial: [ // FilledMapDimensionFieldList
+ *                       "<DimensionField>",
  *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                     Values: [ // FilledMapMeasureFieldList
+ *                       "<MeasureField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
+ *                 SortConfiguration: { // FilledMapSortConfiguration
+ *                   CategorySort: "<FieldSortOptionsList>",
  *                 },
- *                 Legend: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
- *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
- *                   Width: "STRING_VALUE",
- *                   Height: "STRING_VALUE",
- *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
+ *                 Legend: "<LegendOptions>",
+ *                 Tooltip: "<TooltipOptions>",
  *                 WindowOptions: {
  *                   Bounds: {
  *                     North: Number("double"), // required
@@ -9620,2193 +3404,118 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
  *                 },
  *               },
- *               ConditionalFormatting: {
- *                 ConditionalFormattingOptions: [ // required
- *                   {
- *                     Shape: {
+ *               ConditionalFormatting: { // FilledMapConditionalFormatting
+ *                 ConditionalFormattingOptions: [ // FilledMapConditionalFormattingOptionList // required
+ *                   { // FilledMapConditionalFormattingOption
+ *                     Shape: { // FilledMapShapeConditionalFormatting
  *                       FieldId: "STRING_VALUE", // required
- *                       Format: {
- *                         BackgroundColor: {
- *                           Solid: {
- *                             Expression: "STRING_VALUE", // required
- *                             Color: "STRING_VALUE",
- *                           },
- *                           Gradient: {
- *                             Expression: "STRING_VALUE", // required
- *                             Color: {
- *                               Stops: [
- *                                 {
- *                                   GradientOffset: Number("double"), // required
- *                                   DataValue: Number("double"),
- *                                   Color: "STRING_VALUE",
- *                                 },
- *                               ],
- *                             },
- *                           },
- *                         },
+ *                       Format: { // ShapeConditionalFormat
+ *                         BackgroundColor: "<ConditionalFormattingColor>", // required
  *                       },
  *                     },
  *                   },
  *                 ],
  *               },
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
+ *               Actions: "<VisualCustomActionList>",
  *             },
- *             FunnelChartVisual: {
+ *             FunnelChartVisual: { // FunnelChartVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   FunnelChartAggregatedFieldWells: {
- *                     Category: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // FunnelChartConfiguration
+ *                 FieldWells: { // FunnelChartFieldWells
+ *                   FunnelChartAggregatedFieldWells: { // FunnelChartAggregatedFieldWells
+ *                     Category: [ // FunnelChartDimensionFieldList
+ *                       "<DimensionField>",
  *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                     Values: [ // FunnelChartMeasureFieldList
+ *                       "<MeasureField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   CategoryItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
+ *                 SortConfiguration: { // FunnelChartSortConfiguration
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
  *                 },
- *                 CategoryLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 ValueLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *                 DataLabelOptions: {
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ValueLabelOptions: "<ChartAxisLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 DataLabelOptions: { // FunnelChartDataLabelOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
  *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
  *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
+ *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   MeasureDataLabelStyle: "VALUE_ONLY" || "PERCENTAGE_BY_FIRST_STAGE" || "PERCENTAGE_BY_PREVIOUS_STAGE" || "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE" || "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
  *                 },
- *                 VisualPalette: {
- *                   ChartColor: "STRING_VALUE",
- *                   ColorMap: [
- *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
- *                       Color: "STRING_VALUE", // required
- *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                     },
- *                   ],
- *                 },
+ *                 VisualPalette: "<VisualPalette>",
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
  *             },
- *             ScatterPlotVisual: {
+ *             ScatterPlotVisual: { // ScatterPlotVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // ScatterPlotConfiguration
+ *                 FieldWells: { // ScatterPlotFieldWells
+ *                   ScatterPlotCategoricallyAggregatedFieldWells: { // ScatterPlotCategoricallyAggregatedFieldWells
+ *                     XAxis: "<MeasureFieldList>",
+ *                     YAxis: "<MeasureFieldList>",
+ *                     Category: "<DimensionFieldList>",
+ *                     Size: "<MeasureFieldList>",
+ *                   },
+ *                   ScatterPlotUnaggregatedFieldWells: { // ScatterPlotUnaggregatedFieldWells
+ *                     XAxis: "<DimensionFieldList>",
+ *                     YAxis: "<DimensionFieldList>",
+ *                     Size: "<MeasureFieldList>",
+ *                   },
  *                 },
+ *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 XAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 YAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 YAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 VisualPalette: "<VisualPalette>",
  *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   ScatterPlotCategoricallyAggregatedFieldWells: {
- *                     XAxis: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                     YAxis: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                     Category: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     Size: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   ScatterPlotUnaggregatedFieldWells: {
- *                     XAxis: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     YAxis: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     Size: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *                 XAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 XAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 YAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 YAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 Legend: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
- *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
- *                   Width: "STRING_VALUE",
- *                   Height: "STRING_VALUE",
- *                 },
- *                 DataLabels: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   DataLabelTypes: [
- *                     {
- *                       FieldLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       DataPathLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         FieldValue: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       RangeEndsLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MinimumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MaximumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                     },
- *                   ],
- *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
- *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
- *                   LabelColor: "STRING_VALUE",
- *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
- *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *                 VisualPalette: {
- *                   ChartColor: "STRING_VALUE",
- *                   ColorMap: [
- *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
- *                       Color: "STRING_VALUE", // required
- *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                     },
- *                   ],
- *                 },
- *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
  *             },
- *             ComboChartVisual: {
+ *             ComboChartVisual: { // ComboChartVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   ComboChartAggregatedFieldWells: {
- *                     Category: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     BarValues: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                     Colors: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     LineValues: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // ComboChartConfiguration
+ *                 FieldWells: { // ComboChartFieldWells
+ *                   ComboChartAggregatedFieldWells: { // ComboChartAggregatedFieldWells
+ *                     Category: "<DimensionFieldList>",
+ *                     BarValues: "<MeasureFieldList>",
+ *                     Colors: "<DimensionFieldList>",
+ *                     LineValues: "<MeasureFieldList>",
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   CategoryItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
- *                   ColorSort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   ColorItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
+ *                 SortConfiguration: { // ComboChartSortConfiguration
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                   ColorSort: "<FieldSortOptionsList>",
+ *                   ColorItemsLimit: "<ItemsLimitConfiguration>",
  *                 },
  *                 BarsArrangement: "CLUSTERED" || "STACKED" || "STACKED_PERCENT",
- *                 CategoryAxis: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 CategoryLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 PrimaryYAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 PrimaryYAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 SecondaryYAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 SecondaryYAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 ColorLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 Legend: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
- *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
- *                   Width: "STRING_VALUE",
- *                   Height: "STRING_VALUE",
- *                 },
- *                 BarDataLabels: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   DataLabelTypes: [
- *                     {
- *                       FieldLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       DataPathLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         FieldValue: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       RangeEndsLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MinimumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MaximumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                     },
- *                   ],
- *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
- *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
- *                   LabelColor: "STRING_VALUE",
- *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
- *                 },
- *                 LineDataLabels: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   DataLabelTypes: [
- *                     {
- *                       FieldLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       DataPathLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         FieldValue: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       RangeEndsLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MinimumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MaximumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                     },
- *                   ],
- *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
- *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
- *                   LabelColor: "STRING_VALUE",
- *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
- *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
+ *                 CategoryAxis: "<AxisDisplayOptions>",
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 PrimaryYAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SecondaryYAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 BarDataLabels: "<DataLabelOptions>",
+ *                 LineDataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
  *                 ReferenceLines: [
  *                   {
  *                     Status: "ENABLED" || "DISABLED",
@@ -11815,22 +3524,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Value: Number("double"), // required
  *                       },
  *                       DynamicConfiguration: {
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         MeasureAggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                         Calculation: {
- *                           SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                           PercentileAggregation: "<NumericalAggregationFunction>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
  *                     },
@@ -11841,578 +3537,58 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     LabelConfiguration: {
  *                       ValueLabelConfiguration: {
  *                         RelativePosition: "BEFORE_CUSTOM_LABEL" || "AFTER_CUSTOM_LABEL",
- *                         FormatConfiguration: {
- *                           NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                         },
+ *                         FormatConfiguration: "<NumericFormatConfiguration>",
  *                       },
  *                       CustomLabelConfiguration: {
  *                         CustomLabel: "STRING_VALUE", // required
  *                       },
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       FontColor: "STRING_VALUE",
  *                       HorizontalPosition: "LEFT" || "CENTER" || "RIGHT",
  *                       VerticalPosition: "ABOVE" || "BELOW",
  *                     },
  *                   },
  *                 ],
- *                 VisualPalette: {
- *                   ChartColor: "STRING_VALUE",
- *                   ColorMap: [
- *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
- *                       Color: "STRING_VALUE", // required
- *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                     },
- *                   ],
- *                 },
+ *                 VisualPalette: "<VisualPalette>",
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
  *             },
- *             BoxPlotVisual: {
+ *             BoxPlotVisual: { // BoxPlotVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   BoxPlotAggregatedFieldWells: {
- *                     GroupBy: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // BoxPlotChartConfiguration
+ *                 FieldWells: { // BoxPlotFieldWells
+ *                   BoxPlotAggregatedFieldWells: { // BoxPlotAggregatedFieldWells
+ *                     GroupBy: [ // BoxPlotDimensionFieldList
+ *                       "<DimensionField>",
  *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                     Values: [ // BoxPlotMeasureFieldList
+ *                       "<MeasureField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
+ *                 SortConfiguration: { // BoxPlotSortConfiguration
+ *                   CategorySort: "<FieldSortOptionsList>",
  *                   PaginationConfiguration: {
  *                     PageSize: Number("long"), // required
  *                     PageNumber: Number("long"), // required
  *                   },
  *                 },
- *                 BoxPlotOptions: {
- *                   StyleOptions: {
+ *                 BoxPlotOptions: { // BoxPlotOptions
+ *                   StyleOptions: { // BoxPlotStyleOptions
  *                     FillStyle: "SOLID" || "TRANSPARENT",
  *                   },
  *                   OutlierVisibility: "HIDDEN" || "VISIBLE",
  *                   AllDataPointsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
- *                 CategoryAxis: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 CategoryLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 PrimaryYAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 PrimaryYAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 Legend: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
- *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
- *                   Width: "STRING_VALUE",
- *                   Height: "STRING_VALUE",
- *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
+ *                 CategoryAxis: "<AxisDisplayOptions>",
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 PrimaryYAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 Tooltip: "<TooltipOptions>",
  *                 ReferenceLines: [
  *                   {
  *                     Status: "ENABLED" || "DISABLED",
@@ -12421,22 +3597,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Value: Number("double"), // required
  *                       },
  *                       DynamicConfiguration: {
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         MeasureAggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                         Calculation: {
- *                           SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                           PercentileAggregation: "<NumericalAggregationFunction>",
- *                         },
+ *                         Column: "<ColumnIdentifier>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
  *                     },
@@ -12447,1383 +3610,106 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     LabelConfiguration: {
  *                       ValueLabelConfiguration: {
  *                         RelativePosition: "BEFORE_CUSTOM_LABEL" || "AFTER_CUSTOM_LABEL",
- *                         FormatConfiguration: {
- *                           NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                           PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                         },
+ *                         FormatConfiguration: "<NumericFormatConfiguration>",
  *                       },
  *                       CustomLabelConfiguration: {
  *                         CustomLabel: "STRING_VALUE", // required
  *                       },
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
+ *                       FontConfiguration: "<FontConfiguration>",
  *                       FontColor: "STRING_VALUE",
  *                       HorizontalPosition: "LEFT" || "CENTER" || "RIGHT",
  *                       VerticalPosition: "ABOVE" || "BELOW",
  *                     },
  *                   },
  *                 ],
- *                 VisualPalette: {
- *                   ChartColor: "STRING_VALUE",
- *                   ColorMap: [
- *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
- *                       Color: "STRING_VALUE", // required
- *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                     },
- *                   ],
- *                 },
+ *                 VisualPalette: "<VisualPalette>",
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
  *             },
- *             WaterfallVisual: {
+ *             WaterfallVisual: { // WaterfallVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   WaterfallChartAggregatedFieldWells: {
- *                     Categories: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                     Breakdowns: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // WaterfallChartConfiguration
+ *                 FieldWells: { // WaterfallChartFieldWells
+ *                   WaterfallChartAggregatedFieldWells: { // WaterfallChartAggregatedFieldWells
+ *                     Categories: "<DimensionFieldList>",
+ *                     Values: "<MeasureFieldList>",
+ *                     Breakdowns: "<DimensionFieldList>",
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   BreakdownItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
+ *                 SortConfiguration: { // WaterfallChartSortConfiguration
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   BreakdownItemsLimit: "<ItemsLimitConfiguration>",
  *                 },
- *                 WaterfallChartOptions: {
+ *                 WaterfallChartOptions: { // WaterfallChartOptions
  *                   TotalBarLabel: "STRING_VALUE",
  *                 },
- *                 CategoryAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 CategoryAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 PrimaryYAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 PrimaryYAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 Legend: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
- *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
- *                   Width: "STRING_VALUE",
- *                   Height: "STRING_VALUE",
- *                 },
- *                 DataLabels: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   DataLabelTypes: [
- *                     {
- *                       FieldLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       DataPathLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         FieldValue: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       RangeEndsLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MinimumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MaximumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                     },
- *                   ],
- *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
- *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
- *                   LabelColor: "STRING_VALUE",
- *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
- *                 },
- *                 VisualPalette: {
- *                   ChartColor: "STRING_VALUE",
- *                   ColorMap: [
- *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
- *                       Color: "STRING_VALUE", // required
- *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                     },
- *                   ],
- *                 },
+ *                 CategoryAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 CategoryAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 PrimaryYAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 Legend: "<LegendOptions>",
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 VisualPalette: "<VisualPalette>",
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
  *             },
- *             HistogramVisual: {
+ *             HistogramVisual: { // HistogramVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   HistogramAggregatedFieldWells: {
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // HistogramConfiguration
+ *                 FieldWells: { // HistogramFieldWells
+ *                   HistogramAggregatedFieldWells: { // HistogramAggregatedFieldWells
+ *                     Values: [ // HistogramMeasureFieldList
+ *                       "<MeasureField>",
  *                     ],
  *                   },
  *                 },
- *                 XAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 XAxisLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 YAxisDisplayOptions: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 BinOptions: {
+ *                 XAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 YAxisDisplayOptions: "<AxisDisplayOptions>",
+ *                 BinOptions: { // HistogramBinOptions
  *                   SelectedBinType: "BIN_COUNT" || "BIN_WIDTH",
- *                   BinCount: {
+ *                   BinCount: { // BinCountOptions
  *                     Value: Number("int"),
  *                   },
- *                   BinWidth: {
+ *                   BinWidth: { // BinWidthOptions
  *                     Value: Number("double"),
  *                     BinCountLimit: Number("long"),
  *                   },
  *                   StartValue: Number("double"),
  *                 },
- *                 DataLabels: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   DataLabelTypes: [
- *                     {
- *                       FieldLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       DataPathLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         FieldValue: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       RangeEndsLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MinimumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MaximumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                     },
- *                   ],
- *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
- *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
- *                   LabelColor: "STRING_VALUE",
- *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
- *                 },
- *                 Tooltip: {
- *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
- *                   SelectedTooltipType: "BASIC" || "DETAILED",
- *                   FieldBasedTooltip: {
- *                     AggregationVisibility: "HIDDEN" || "VISIBLE",
- *                     TooltipTitleType: "NONE" || "PRIMARY_VALUE",
- *                     TooltipFields: [
- *                       {
- *                         FieldTooltipItem: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                         },
- *                         ColumnTooltipItem: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Label: "STRING_VALUE",
- *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                               PercentileAggregation: "<NumericalAggregationFunction>",
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           },
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *                 VisualPalette: {
- *                   ChartColor: "STRING_VALUE",
- *                   ColorMap: [
- *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
- *                       Color: "STRING_VALUE", // required
- *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                     },
- *                   ],
- *                 },
+ *                 DataLabels: "<DataLabelOptions>",
+ *                 Tooltip: "<TooltipOptions>",
+ *                 VisualPalette: "<VisualPalette>",
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
  *             },
- *             WordCloudVisual: {
+ *             WordCloudVisual: { // WordCloudVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   WordCloudAggregatedFieldWells: {
- *                     GroupBy: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // WordCloudChartConfiguration
+ *                 FieldWells: { // WordCloudFieldWells
+ *                   WordCloudAggregatedFieldWells: { // WordCloudAggregatedFieldWells
+ *                     GroupBy: [ // WordCloudDimensionFieldList
+ *                       "<DimensionField>",
  *                     ],
- *                     Size: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                     Size: [ // WordCloudMeasureFieldList
+ *                       "<MeasureField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategoryItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
- *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
+ *                 SortConfiguration: { // WordCloudSortConfiguration
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                   CategorySort: "<FieldSortOptionsList>",
  *                 },
- *                 CategoryLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 WordCloudOptions: {
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 WordCloudOptions: { // WordCloudOptions
  *                   WordOrientation: "HORIZONTAL" || "HORIZONTAL_AND_VERTICAL",
  *                   WordScaling: "EMPHASIZE" || "NORMAL",
  *                   CloudLayout: "FLUID" || "NORMAL",
@@ -13832,1411 +3718,83 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   MaximumStringLength: Number("int"),
  *                 },
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
  *             },
- *             InsightVisual: {
+ *             InsightVisual: { // InsightVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               InsightConfiguration: {
- *                 Computations: [
- *                   {
- *                     TopBottomRanked: {
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               InsightConfiguration: { // InsightConfiguration
+ *                 Computations: [ // ComputationList
+ *                   { // Computation
+ *                     TopBottomRanked: { // TopBottomRankedComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Category: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       Value: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Category: "<DimensionField>", // required
+ *                       Value: "<MeasureField>",
  *                       ResultSize: Number("int"),
  *                       Type: "TOP" || "BOTTOM", // required
  *                     },
- *                     TopBottomMovers: {
+ *                     TopBottomMovers: { // TopBottomMoversComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       Category: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       Value: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Time: "<DimensionField>", // required
+ *                       Category: "<DimensionField>", // required
+ *                       Value: "<MeasureField>",
  *                       MoverSize: Number("int"),
  *                       SortOrder: "PERCENT_DIFFERENCE" || "ABSOLUTE_DIFFERENCE",
  *                       Type: "TOP" || "BOTTOM", // required
  *                     },
- *                     TotalAggregation: {
+ *                     TotalAggregation: { // TotalAggregationComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Value: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Value: "<MeasureField>", // required
  *                     },
- *                     MaximumMinimum: {
+ *                     MaximumMinimum: { // MaximumMinimumComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       Value: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Time: "<DimensionField>", // required
+ *                       Value: "<MeasureField>",
  *                       Type: "MAXIMUM" || "MINIMUM", // required
  *                     },
- *                     MetricComparison: {
+ *                     MetricComparison: { // MetricComparisonComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       FromValue: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       TargetValue: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Time: "<DimensionField>", // required
+ *                       FromValue: "<MeasureField>", // required
+ *                       TargetValue: "<MeasureField>", // required
  *                     },
- *                     PeriodOverPeriod: {
+ *                     PeriodOverPeriod: { // PeriodOverPeriodComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       Value: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Time: "<DimensionField>", // required
+ *                       Value: "<MeasureField>",
  *                     },
- *                     PeriodToDate: {
+ *                     PeriodToDate: { // PeriodToDateComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       Value: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Time: "<DimensionField>", // required
+ *                       Value: "<MeasureField>",
  *                       PeriodTimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                     },
- *                     GrowthRate: {
+ *                     GrowthRate: { // GrowthRateComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       Value: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Time: "<DimensionField>", // required
+ *                       Value: "<MeasureField>",
  *                       PeriodSize: Number("int"),
  *                     },
- *                     UniqueValues: {
+ *                     UniqueValues: { // UniqueValuesComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Category: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *                       Category: "<DimensionField>", // required
  *                     },
- *                     Forecast: {
+ *                     Forecast: { // ForecastComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                       Value: {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                       Time: "<DimensionField>", // required
+ *                       Value: "<MeasureField>",
  *                       PeriodsForward: Number("int"),
  *                       PeriodsBackward: Number("int"),
  *                       UpperBoundary: Number("double"),
@@ -15247,1192 +3805,109 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   },
  *                 ],
- *                 CustomNarrative: {
+ *                 CustomNarrative: { // CustomNarrativeOptions
  *                   Narrative: "STRING_VALUE", // required
  *                 },
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
  *               DataSetIdentifier: "STRING_VALUE", // required
  *             },
- *             SankeyDiagramVisual: {
+ *             SankeyDiagramVisual: { // SankeyDiagramVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // SankeyDiagramChartConfiguration
+ *                 FieldWells: { // SankeyDiagramFieldWells
+ *                   SankeyDiagramAggregatedFieldWells: { // SankeyDiagramAggregatedFieldWells
+ *                     Source: "<DimensionFieldList>",
+ *                     Destination: "<DimensionFieldList>",
+ *                     Weight: "<MeasureFieldList>",
+ *                   },
  *                 },
+ *                 SortConfiguration: { // SankeyDiagramSortConfiguration
+ *                   WeightSort: "<FieldSortOptionsList>",
+ *                   SourceItemsLimit: "<ItemsLimitConfiguration>",
+ *                   DestinationItemsLimit: "<ItemsLimitConfiguration>",
+ *                 },
+ *                 DataLabels: "<DataLabelOptions>",
  *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   SankeyDiagramAggregatedFieldWells: {
- *                     Source: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     Destination: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
- *                     ],
- *                     Weight: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *                 SortConfiguration: {
- *                   WeightSort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   SourceItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
- *                   DestinationItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
- *                 },
- *                 DataLabels: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   CategoryLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   MeasureLabelVisibility: "HIDDEN" || "VISIBLE",
- *                   DataLabelTypes: [
- *                     {
- *                       FieldLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       DataPathLabelType: {
- *                         FieldId: "STRING_VALUE",
- *                         FieldValue: "STRING_VALUE",
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       RangeEndsLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MinimumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                       MaximumLabelType: {
- *                         Visibility: "HIDDEN" || "VISIBLE",
- *                       },
- *                     },
- *                   ],
- *                   Position: "INSIDE" || "OUTSIDE" || "LEFT" || "TOP" || "BOTTOM" || "RIGHT",
- *                   LabelContent: "VALUE" || "PERCENT" || "VALUE_AND_PERCENT",
- *                   LabelFontConfiguration: {
- *                     FontSize: "<FontConfiguration>",
- *                     FontDecoration: "<FontConfiguration>",
- *                     FontColor: "<FontConfiguration>",
- *                     FontWeight: "<FontConfiguration>",
- *                     FontStyle: "<FontConfiguration>",
- *                   },
- *                   LabelColor: "STRING_VALUE",
- *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
- *                 },
- *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
  *             },
- *             CustomContentVisual: {
+ *             CustomContentVisual: { // CustomContentVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // CustomContentConfiguration
  *                 ContentUrl: "STRING_VALUE",
  *                 ContentType: "IMAGE" || "OTHER_EMBEDDED_CONTENT",
  *                 ImageScaling: "FIT_TO_HEIGHT" || "FIT_TO_WIDTH" || "DO_NOT_SCALE" || "SCALE_TO_VISUAL",
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
  *               DataSetIdentifier: "STRING_VALUE", // required
  *             },
- *             EmptyVisual: {
+ *             EmptyVisual: { // EmptyVisual
  *               VisualId: "STRING_VALUE", // required
  *               DataSetIdentifier: "STRING_VALUE", // required
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
  *             },
- *             RadarChartVisual: {
+ *             RadarChartVisual: { // RadarChartVisual
  *               VisualId: "STRING_VALUE", // required
- *               Title: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               Subtitle: {
- *                 Visibility: "HIDDEN" || "VISIBLE",
- *                 FormatText: {
- *                   PlainText: "STRING_VALUE",
- *                   RichText: "STRING_VALUE",
- *                 },
- *               },
- *               ChartConfiguration: {
- *                 FieldWells: {
- *                   RadarChartAggregatedFieldWells: {
- *                     Category: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *               Title: "<VisualTitleLabelOptions>",
+ *               Subtitle: "<VisualSubtitleLabelOptions>",
+ *               ChartConfiguration: { // RadarChartConfiguration
+ *                 FieldWells: { // RadarChartFieldWells
+ *                   RadarChartAggregatedFieldWells: { // RadarChartAggregatedFieldWells
+ *                     Category: [ // RadarChartCategoryFieldList
+ *                       "<DimensionField>",
  *                     ],
- *                     Color: [
- *                       {
- *                         NumericalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateDimensionField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           DateGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                           HierarchyId: "STRING_VALUE",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                       },
+ *                     Color: [ // RadarChartColorFieldList
+ *                       "<DimensionField>",
  *                     ],
- *                     Values: [
- *                       {
- *                         NumericalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           FormatConfiguration: {
- *                             FormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CategoricalMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           FormatConfiguration: {
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         DateMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           AggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           FormatConfiguration: {
- *                             DateTimeFormat: "STRING_VALUE",
- *                             NullValueFormatConfiguration: {
- *                               NullString: "<NullValueFormatConfiguration>",
- *                             },
- *                             NumericFormatConfiguration: {
- *                               NumberDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               CurrencyDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                               PercentageDisplayFormatConfiguration: "<NumericFormatConfiguration>",
- *                             },
- *                           },
- *                         },
- *                         CalculatedMeasureField: {
- *                           FieldId: "STRING_VALUE", // required
- *                           Expression: "STRING_VALUE", // required
- *                         },
- *                       },
+ *                     Values: [ // RadarChartValuesFieldList
+ *                       "<MeasureField>",
  *                     ],
  *                   },
  *                 },
- *                 SortConfiguration: {
- *                   CategorySort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   CategoryItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
- *                   ColorSort: [
- *                     {
- *                       FieldSort: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Direction: "ASC" || "DESC", // required
- *                       },
- *                       ColumnSort: {
- *                         SortBy: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "<NumericalAggregationFunction>",
- *                             PercentileAggregation: "<NumericalAggregationFunction>",
- *                           },
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                   ColorItemsLimit: {
- *                     ItemsLimit: Number("long"),
- *                     OtherCategories: "INCLUDE" || "EXCLUDE",
- *                   },
+ *                 SortConfiguration: { // RadarChartSortConfiguration
+ *                   CategorySort: "<FieldSortOptionsList>",
+ *                   CategoryItemsLimit: "<ItemsLimitConfiguration>",
+ *                   ColorSort: "<FieldSortOptionsList>",
+ *                   ColorItemsLimit: "<ItemsLimitConfiguration>",
  *                 },
  *                 Shape: "CIRCLE" || "POLYGON",
- *                 BaseSeriesSettings: {
- *                   AreaStyleSettings: {
+ *                 BaseSeriesSettings: { // RadarChartSeriesSettings
+ *                   AreaStyleSettings: { // RadarChartAreaStyleSettings
  *                     Visibility: "HIDDEN" || "VISIBLE",
  *                   },
  *                 },
  *                 StartAngle: Number("double"),
- *                 VisualPalette: {
- *                   ChartColor: "STRING_VALUE",
- *                   ColorMap: [
- *                     {
- *                       Element: {
- *                         FieldId: "<DataPathValue>",
- *                         FieldValue: "<DataPathValue>",
- *                       },
- *                       Color: "STRING_VALUE", // required
- *                       TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *                     },
- *                   ],
- *                 },
+ *                 VisualPalette: "<VisualPalette>",
  *                 AlternateBandColorsVisibility: "HIDDEN" || "VISIBLE",
  *                 AlternateBandEvenColor: "STRING_VALUE",
  *                 AlternateBandOddColor: "STRING_VALUE",
- *                 CategoryAxis: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 CategoryLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 ColorAxis: {
- *                   TickLabelOptions: {
- *                     LabelOptions: {
- *                       Visibility: "<LabelOptions>",
- *                       FontConfiguration: "<LabelOptions>",
- *                       CustomLabel: "<LabelOptions>",
- *                     },
- *                     RotationAngle: Number("double"),
- *                   },
- *                   AxisLineVisibility: "HIDDEN" || "VISIBLE",
- *                   GridLineVisibility: "HIDDEN" || "VISIBLE",
- *                   DataOptions: {
- *                     NumericAxisOptions: {
- *                       Scale: {
- *                         Linear: {
- *                           StepCount: Number("int"),
- *                           StepSize: Number("double"),
- *                         },
- *                         Logarithmic: {
- *                           Base: Number("double"),
- *                         },
- *                       },
- *                       Range: {
- *                         MinMax: {
- *                           Minimum: Number("double"),
- *                           Maximum: Number("double"),
- *                         },
- *                         DataDriven: {},
- *                       },
- *                     },
- *                     DateAxisOptions: {
- *                       MissingDateVisibility: "HIDDEN" || "VISIBLE",
- *                     },
- *                   },
- *                   ScrollbarOptions: {
- *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     VisibleRange: {
- *                       PercentRange: {
- *                         From: Number("double"),
- *                         To: Number("double"),
- *                       },
- *                     },
- *                   },
- *                   AxisOffset: "STRING_VALUE",
- *                 },
- *                 ColorLabelOptions: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   SortIconVisibility: "HIDDEN" || "VISIBLE",
- *                   AxisLabelOptions: [
- *                     {
- *                       FontConfiguration: {
- *                         FontSize: "<FontConfiguration>",
- *                         FontDecoration: "<FontConfiguration>",
- *                         FontColor: "<FontConfiguration>",
- *                         FontWeight: "<FontConfiguration>",
- *                         FontStyle: "<FontConfiguration>",
- *                       },
- *                       CustomLabel: "STRING_VALUE",
- *                       ApplyTo: {
- *                         FieldId: "STRING_VALUE", // required
- *                         Column: {
- *                           DataSetIdentifier: "<ColumnIdentifier>",
- *                           ColumnName: "<ColumnIdentifier>",
- *                         },
- *                       },
- *                     },
- *                   ],
- *                 },
- *                 Legend: {
- *                   Visibility: "HIDDEN" || "VISIBLE",
- *                   Title: {
- *                     Visibility: "<LabelOptions>",
- *                     FontConfiguration: "<LabelOptions>",
- *                     CustomLabel: "<LabelOptions>",
- *                   },
- *                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
- *                   Width: "STRING_VALUE",
- *                   Height: "STRING_VALUE",
- *                 },
+ *                 CategoryAxis: "<AxisDisplayOptions>",
+ *                 CategoryLabelOptions: "<ChartAxisLabelOptions>",
+ *                 ColorAxis: "<AxisDisplayOptions>",
+ *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
+ *                 Legend: "<LegendOptions>",
  *               },
- *               Actions: [
- *                 {
- *                   CustomActionId: "STRING_VALUE", // required
- *                   Name: "STRING_VALUE", // required
- *                   Status: "ENABLED" || "DISABLED",
- *                   Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
- *                   ActionOperations: [ // required
- *                     {
- *                       FilterOperation: {
- *                         SelectedFieldsConfiguration: {
- *                           SelectedFields: [
- *                             "STRING_VALUE",
- *                           ],
- *                           SelectedFieldOptions: "ALL_FIELDS",
- *                         },
- *                         TargetVisualsConfiguration: {
- *                           SameSheetTargetVisualConfiguration: {
- *                             TargetVisuals: [
- *                               "STRING_VALUE",
- *                             ],
- *                             TargetVisualOptions: "ALL_VISUALS",
- *                           },
- *                         },
- *                       },
- *                       NavigationOperation: {
- *                         LocalNavigationConfiguration: {
- *                           TargetSheetId: "STRING_VALUE", // required
- *                         },
- *                       },
- *                       URLOperation: {
- *                         URLTemplate: "STRING_VALUE", // required
- *                         URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
- *                       },
- *                       SetParametersOperation: {
- *                         ParameterValueConfigurations: [ // required
- *                           {
- *                             DestinationParameterName: "STRING_VALUE", // required
- *                             Value: {
- *                               CustomValuesConfiguration: {
- *                                 IncludeNullValue: true || false,
- *                                 CustomValues: {
- *                                   StringValues: [
- *                                     "STRING_VALUE",
- *                                   ],
- *                                   IntegerValues: [
- *                                     Number("long"),
- *                                   ],
- *                                   DecimalValues: [
- *                                     Number("double"),
- *                                   ],
- *                                   DateTimeValues: [
- *                                     new Date("TIMESTAMP"),
- *                                   ],
- *                                 },
- *                               },
- *                               SelectAllValueOptions: "ALL_VALUES",
- *                               SourceParameterName: "STRING_VALUE",
- *                               SourceField: "STRING_VALUE",
- *                             },
- *                           },
- *                         ],
- *                       },
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ColumnHierarchies: [
- *                 {
- *                   ExplicitHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   DateTimeHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                   PredefinedHierarchy: {
- *                     HierarchyId: "STRING_VALUE", // required
- *                     Columns: [ // required
- *                       {
- *                         DataSetIdentifier: "<ColumnIdentifier>",
- *                         ColumnName: "<ColumnIdentifier>",
- *                       },
- *                     ],
- *                     DrillDownFilters: [
- *                       {
- *                         NumericEqualityFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           Value: Number("double"), // required
- *                         },
- *                         CategoryFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           CategoryValues: [ // required
- *                             "STRING_VALUE",
- *                           ],
- *                         },
- *                         TimeRangeFilter: {
- *                           Column: {
- *                             DataSetIdentifier: "<ColumnIdentifier>",
- *                             ColumnName: "<ColumnIdentifier>",
- *                           },
- *                           RangeMinimum: new Date("TIMESTAMP"), // required
- *                           RangeMaximum: new Date("TIMESTAMP"), // required
- *                           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
- *                         },
- *                       },
- *                     ],
- *                   },
- *                 },
- *               ],
+ *               Actions: "<VisualCustomActionList>",
+ *               ColumnHierarchies: "<ColumnHierarchyList>",
  *             },
  *           },
  *         ],
- *         TextBoxes: [
- *           {
+ *         TextBoxes: [ // SheetTextBoxList
+ *           { // SheetTextBox
  *             SheetTextBoxId: "STRING_VALUE", // required
  *             Content: "STRING_VALUE",
  *           },
  *         ],
- *         Layouts: [
- *           {
- *             Configuration: {
- *               GridLayout: {
- *                 Elements: [ // required
- *                   {
+ *         Layouts: [ // LayoutList
+ *           { // Layout
+ *             Configuration: { // LayoutConfiguration
+ *               GridLayout: { // GridLayoutConfiguration
+ *                 Elements: [ // GridLayoutElementList // required
+ *                   { // GridLayoutElement
  *                     ElementId: "STRING_VALUE", // required
  *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
  *                     ColumnIndex: Number("int"),
@@ -16441,16 +3916,16 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     RowSpan: Number("int"), // required
  *                   },
  *                 ],
- *                 CanvasSizeOptions: {
- *                   ScreenCanvasSizeOptions: {
+ *                 CanvasSizeOptions: { // GridLayoutCanvasSizeOptions
+ *                   ScreenCanvasSizeOptions: { // GridLayoutScreenCanvasSizeOptions
  *                     ResizeOption: "FIXED" || "RESPONSIVE", // required
  *                     OptimizedViewPortWidth: "STRING_VALUE",
  *                   },
  *                 },
  *               },
- *               FreeFormLayout: {
- *                 Elements: [ // required
- *                   {
+ *               FreeFormLayout: { // FreeFormLayoutConfiguration
+ *                 Elements: [ // FreeFromLayoutElementList // required
+ *                   { // FreeFormLayoutElement
  *                     ElementId: "STRING_VALUE", // required
  *                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
  *                     XAxisLocation: "STRING_VALUE", // required
@@ -16458,15 +3933,15 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     Width: "STRING_VALUE", // required
  *                     Height: "STRING_VALUE", // required
  *                     Visibility: "HIDDEN" || "VISIBLE",
- *                     RenderingRules: [
- *                       {
+ *                     RenderingRules: [ // SheetElementRenderingRuleList
+ *                       { // SheetElementRenderingRule
  *                         Expression: "STRING_VALUE", // required
- *                         ConfigurationOverrides: {
+ *                         ConfigurationOverrides: { // SheetElementConfigurationOverrides
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                         },
  *                       },
  *                     ],
- *                     BorderStyle: {
+ *                     BorderStyle: { // FreeFormLayoutElementBorderStyle
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                       Color: "STRING_VALUE",
  *                     },
@@ -16474,27 +3949,27 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                       Color: "STRING_VALUE",
  *                     },
- *                     BackgroundStyle: {
+ *                     BackgroundStyle: { // FreeFormLayoutElementBackgroundStyle
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                       Color: "STRING_VALUE",
  *                     },
- *                     LoadingAnimation: {
+ *                     LoadingAnimation: { // LoadingAnimation
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                 ],
- *                 CanvasSizeOptions: {
- *                   ScreenCanvasSizeOptions: {
+ *                 CanvasSizeOptions: { // FreeFormLayoutCanvasSizeOptions
+ *                   ScreenCanvasSizeOptions: { // FreeFormLayoutScreenCanvasSizeOptions
  *                     OptimizedViewPortWidth: "STRING_VALUE", // required
  *                   },
  *                 },
  *               },
- *               SectionBasedLayout: {
- *                 HeaderSections: [ // required
- *                   {
+ *               SectionBasedLayout: { // SectionBasedLayoutConfiguration
+ *                 HeaderSections: [ // HeaderFooterSectionConfigurationList // required
+ *                   { // HeaderFooterSectionConfiguration
  *                     SectionId: "STRING_VALUE", // required
- *                     Layout: {
- *                       FreeFormLayout: {
+ *                     Layout: { // SectionLayoutConfiguration
+ *                       FreeFormLayout: { // FreeFormSectionLayoutConfiguration
  *                         Elements: [ // required
  *                           {
  *                             ElementId: "STRING_VALUE", // required
@@ -16531,9 +4006,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         ],
  *                       },
  *                     },
- *                     Style: {
+ *                     Style: { // SectionStyle
  *                       Height: "STRING_VALUE",
- *                       Padding: {
+ *                       Padding: { // Spacing
  *                         Top: "STRING_VALUE",
  *                         Bottom: "STRING_VALUE",
  *                         Left: "STRING_VALUE",
@@ -16542,15 +4017,13 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   },
  *                 ],
- *                 BodySections: [ // required
- *                   {
+ *                 BodySections: [ // BodySectionConfigurationList // required
+ *                   { // BodySectionConfiguration
  *                     SectionId: "STRING_VALUE", // required
- *                     Content: {
+ *                     Content: { // BodySectionContent
  *                       Layout: {
  *                         FreeFormLayout: {
- *                           Elements: [ // required
- *                             "<FreeFromLayoutElementList>",
- *                           ],
+ *                           Elements: "<FreeFromLayoutElementList>", // required
  *                         },
  *                       },
  *                     },
@@ -16563,8 +4036,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Right: "STRING_VALUE",
  *                       },
  *                     },
- *                     PageBreakConfiguration: {
- *                       After: {
+ *                     PageBreakConfiguration: { // SectionPageBreakConfiguration
+ *                       After: { // SectionAfterPageBreak
  *                         Status: "ENABLED" || "DISABLED",
  *                       },
  *                     },
@@ -16575,9 +4048,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     SectionId: "STRING_VALUE", // required
  *                     Layout: {
  *                       FreeFormLayout: {
- *                         Elements: [ // required
- *                           "<FreeFromLayoutElementList>",
- *                         ],
+ *                         Elements: "<FreeFromLayoutElementList>", // required
  *                       },
  *                     },
  *                     Style: {
@@ -16591,8 +4062,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   },
  *                 ],
- *                 CanvasSizeOptions: {
- *                   PaperCanvasSizeOptions: {
+ *                 CanvasSizeOptions: { // SectionBasedLayoutCanvasSizeOptions
+ *                   PaperCanvasSizeOptions: { // SectionBasedLayoutPaperCanvasSizeOptions
  *                     PaperSize: "US_LETTER" || "US_LEGAL" || "US_TABLOID_LEDGER" || "A0" || "A1" || "A2" || "A3" || "A4" || "A5" || "JIS_B4" || "JIS_B5",
  *                     PaperOrientation: "PORTRAIT" || "LANDSCAPE",
  *                     PaperMargin: {
@@ -16607,9 +4078,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             },
  *           },
  *         ],
- *         SheetControlLayouts: [
- *           {
- *             Configuration: {
+ *         SheetControlLayouts: [ // SheetControlLayoutList
+ *           { // SheetControlLayout
+ *             Configuration: { // SheetControlLayoutConfiguration
  *               GridLayout: {
  *                 Elements: [ // required
  *                   {
@@ -16634,157 +4105,106 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *         ContentType: "PAGINATED" || "INTERACTIVE",
  *       },
  *     ],
- *     CalculatedFields: [
- *       {
+ *     CalculatedFields: [ // CalculatedFields
+ *       { // CalculatedField
  *         DataSetIdentifier: "STRING_VALUE", // required
  *         Name: "STRING_VALUE", // required
  *         Expression: "STRING_VALUE", // required
  *       },
  *     ],
- *     ParameterDeclarations: [
- *       {
- *         StringParameterDeclaration: {
+ *     ParameterDeclarations: [ // ParameterDeclarationList
+ *       { // ParameterDeclaration
+ *         StringParameterDeclaration: { // StringParameterDeclaration
  *           ParameterValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
  *           Name: "STRING_VALUE", // required
- *           DefaultValues: {
- *             DynamicValue: {
- *               UserNameColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               GroupNameColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               DefaultValueColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *           DefaultValues: { // StringDefaultValues
+ *             DynamicValue: { // DynamicDefaultValue
+ *               UserNameColumn: "<ColumnIdentifier>",
+ *               GroupNameColumn: "<ColumnIdentifier>",
+ *               DefaultValueColumn: "<ColumnIdentifier>", // required
  *             },
- *             StaticValues: [
- *               "STRING_VALUE",
- *             ],
+ *             StaticValues: "<StringDefaultValueList>",
  *           },
- *           ValueWhenUnset: {
+ *           ValueWhenUnset: { // StringValueWhenUnsetConfiguration
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: "STRING_VALUE",
  *           },
  *         },
- *         DecimalParameterDeclaration: {
+ *         DecimalParameterDeclaration: { // DecimalParameterDeclaration
  *           ParameterValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
  *           Name: "STRING_VALUE", // required
- *           DefaultValues: {
+ *           DefaultValues: { // DecimalDefaultValues
  *             DynamicValue: {
- *               UserNameColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               GroupNameColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               DefaultValueColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *               UserNameColumn: "<ColumnIdentifier>",
+ *               GroupNameColumn: "<ColumnIdentifier>",
+ *               DefaultValueColumn: "<ColumnIdentifier>", // required
  *             },
- *             StaticValues: [
- *               Number("double"),
- *             ],
+ *             StaticValues: "<DecimalDefaultValueList>",
  *           },
- *           ValueWhenUnset: {
+ *           ValueWhenUnset: { // DecimalValueWhenUnsetConfiguration
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: Number("double"),
  *           },
  *         },
- *         IntegerParameterDeclaration: {
+ *         IntegerParameterDeclaration: { // IntegerParameterDeclaration
  *           ParameterValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
  *           Name: "STRING_VALUE", // required
- *           DefaultValues: {
+ *           DefaultValues: { // IntegerDefaultValues
  *             DynamicValue: {
- *               UserNameColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               GroupNameColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               DefaultValueColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *               UserNameColumn: "<ColumnIdentifier>",
+ *               GroupNameColumn: "<ColumnIdentifier>",
+ *               DefaultValueColumn: "<ColumnIdentifier>", // required
  *             },
- *             StaticValues: [
- *               Number("long"),
- *             ],
+ *             StaticValues: "<IntegerDefaultValueList>",
  *           },
- *           ValueWhenUnset: {
+ *           ValueWhenUnset: { // IntegerValueWhenUnsetConfiguration
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: Number("long"),
  *           },
  *         },
- *         DateTimeParameterDeclaration: {
+ *         DateTimeParameterDeclaration: { // DateTimeParameterDeclaration
  *           Name: "STRING_VALUE", // required
- *           DefaultValues: {
+ *           DefaultValues: { // DateTimeDefaultValues
  *             DynamicValue: {
- *               UserNameColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               GroupNameColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               DefaultValueColumn: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *               UserNameColumn: "<ColumnIdentifier>",
+ *               GroupNameColumn: "<ColumnIdentifier>",
+ *               DefaultValueColumn: "<ColumnIdentifier>", // required
  *             },
- *             StaticValues: [
- *               new Date("TIMESTAMP"),
- *             ],
- *             RollingDate: {
+ *             StaticValues: "<DateTimeDefaultValueList>",
+ *             RollingDate: { // RollingDateConfiguration
  *               DataSetIdentifier: "STRING_VALUE",
  *               Expression: "STRING_VALUE", // required
  *             },
  *           },
  *           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
- *           ValueWhenUnset: {
+ *           ValueWhenUnset: { // DateTimeValueWhenUnsetConfiguration
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: new Date("TIMESTAMP"),
  *           },
  *         },
  *       },
  *     ],
- *     FilterGroups: [
- *       {
+ *     FilterGroups: [ // FilterGroupList
+ *       { // FilterGroup
  *         FilterGroupId: "STRING_VALUE", // required
- *         Filters: [ // required
- *           {
- *             CategoryFilter: {
+ *         Filters: [ // FilterList // required
+ *           { // Filter
+ *             CategoryFilter: { // CategoryFilter
  *               FilterId: "STRING_VALUE", // required
- *               Column: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               Configuration: {
- *                 FilterListConfiguration: {
+ *               Column: "<ColumnIdentifier>", // required
+ *               Configuration: { // CategoryFilterConfiguration
+ *                 FilterListConfiguration: { // FilterListConfiguration
  *                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
- *                   CategoryValues: [
- *                     "STRING_VALUE",
- *                   ],
+ *                   CategoryValues: "<CategoryValueList>",
  *                   SelectAllOptions: "FILTER_ALL_VALUES",
  *                 },
- *                 CustomFilterListConfiguration: {
+ *                 CustomFilterListConfiguration: { // CustomFilterListConfiguration
  *                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
- *                   CategoryValues: [
- *                     "STRING_VALUE",
- *                   ],
+ *                   CategoryValues: "<CategoryValueList>",
  *                   SelectAllOptions: "FILTER_ALL_VALUES",
  *                   NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
  *                 },
- *                 CustomFilterConfiguration: {
+ *                 CustomFilterConfiguration: { // CustomFilterConfiguration
  *                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
  *                   CategoryValue: "STRING_VALUE",
  *                   SelectAllOptions: "FILTER_ALL_VALUES",
@@ -16793,15 +4213,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *               },
  *             },
- *             NumericRangeFilter: {
+ *             NumericRangeFilter: { // NumericRangeFilter
  *               FilterId: "STRING_VALUE", // required
- *               Column: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *               Column: "<ColumnIdentifier>", // required
  *               IncludeMinimum: true || false,
  *               IncludeMaximum: true || false,
- *               RangeMinimum: {
+ *               RangeMinimum: { // NumericRangeFilterValue
  *                 StaticValue: Number("double"),
  *                 Parameter: "STRING_VALUE",
  *               },
@@ -16810,49 +4227,32 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 Parameter: "STRING_VALUE",
  *               },
  *               SelectAllOptions: "FILTER_ALL_VALUES",
- *               AggregationFunction: {
- *                 NumericalAggregationFunction: "<AggregationFunction>",
- *                 CategoricalAggregationFunction: "<AggregationFunction>",
- *                 DateAggregationFunction: "<AggregationFunction>",
- *               },
+ *               AggregationFunction: "<AggregationFunction>",
  *               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
  *             },
- *             NumericEqualityFilter: {
+ *             NumericEqualityFilter: { // NumericEqualityFilter
  *               FilterId: "STRING_VALUE", // required
- *               Column: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *               Column: "<ColumnIdentifier>", // required
  *               Value: Number("double"),
  *               SelectAllOptions: "FILTER_ALL_VALUES",
  *               MatchOperator: "EQUALS" || "DOES_NOT_EQUAL", // required
- *               AggregationFunction: {
- *                 NumericalAggregationFunction: "<AggregationFunction>",
- *                 CategoricalAggregationFunction: "<AggregationFunction>",
- *                 DateAggregationFunction: "<AggregationFunction>",
- *               },
+ *               AggregationFunction: "<AggregationFunction>",
  *               ParameterName: "STRING_VALUE",
  *               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
  *             },
- *             TimeEqualityFilter: {
+ *             TimeEqualityFilter: { // TimeEqualityFilter
  *               FilterId: "STRING_VALUE", // required
- *               Column: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *               Column: "<ColumnIdentifier>", // required
  *               Value: new Date("TIMESTAMP"),
  *               ParameterName: "STRING_VALUE",
  *               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *             },
- *             TimeRangeFilter: {
+ *             TimeRangeFilter: { // TimeRangeFilter
  *               FilterId: "STRING_VALUE", // required
- *               Column: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *               Column: "<ColumnIdentifier>", // required
  *               IncludeMinimum: true || false,
  *               IncludeMaximum: true || false,
- *               RangeMinimumValue: {
+ *               RangeMinimumValue: { // TimeRangeFilterValue
  *                 StaticValue: new Date("TIMESTAMP"),
  *                 RollingDate: {
  *                   DataSetIdentifier: "STRING_VALUE",
@@ -16869,20 +4269,17 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 Parameter: "STRING_VALUE",
  *               },
  *               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
- *               ExcludePeriodConfiguration: {
+ *               ExcludePeriodConfiguration: { // ExcludePeriodConfiguration
  *                 Amount: Number("int"), // required
  *                 Granularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND", // required
  *                 Status: "ENABLED" || "DISABLED",
  *               },
  *               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *             },
- *             RelativeDatesFilter: {
+ *             RelativeDatesFilter: { // RelativeDatesFilter
  *               FilterId: "STRING_VALUE", // required
- *               Column: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
- *               AnchorDateConfiguration: {
+ *               Column: "<ColumnIdentifier>", // required
+ *               AnchorDateConfiguration: { // AnchorDateConfiguration
  *                 AnchorOption: "NOW",
  *                 ParameterName: "STRING_VALUE",
  *               },
@@ -16898,25 +4295,15 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 Status: "ENABLED" || "DISABLED",
  *               },
  *             },
- *             TopBottomFilter: {
+ *             TopBottomFilter: { // TopBottomFilter
  *               FilterId: "STRING_VALUE", // required
- *               Column: {
- *                 DataSetIdentifier: "<ColumnIdentifier>",
- *                 ColumnName: "<ColumnIdentifier>",
- *               },
+ *               Column: "<ColumnIdentifier>", // required
  *               Limit: Number("int"),
- *               AggregationSortConfigurations: [ // required
- *                 {
- *                   Column: {
- *                     DataSetIdentifier: "<ColumnIdentifier>",
- *                     ColumnName: "<ColumnIdentifier>",
- *                   },
+ *               AggregationSortConfigurations: [ // AggregationSortConfigurationList // required
+ *                 { // AggregationSortConfiguration
+ *                   Column: "<ColumnIdentifier>", // required
  *                   SortDirection: "ASC" || "DESC", // required
- *                   AggregationFunction: {
- *                     NumericalAggregationFunction: "<AggregationFunction>",
- *                     CategoricalAggregationFunction: "<AggregationFunction>",
- *                     DateAggregationFunction: "<AggregationFunction>",
- *                   },
+ *                   AggregationFunction: "<AggregationFunction>", // required
  *                 },
  *               ],
  *               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
@@ -16924,13 +4311,13 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             },
  *           },
  *         ],
- *         ScopeConfiguration: {
- *           SelectedSheets: {
- *             SheetVisualScopingConfigurations: [
- *               {
+ *         ScopeConfiguration: { // FilterScopeConfiguration
+ *           SelectedSheets: { // SelectedSheetsFilterScopeConfiguration
+ *             SheetVisualScopingConfigurations: [ // SheetVisualScopingConfigurations
+ *               { // SheetVisualScopingConfiguration
  *                 SheetId: "STRING_VALUE", // required
  *                 Scope: "ALL_VISUALS" || "SELECTED_VISUALS", // required
- *                 VisualIds: [
+ *                 VisualIds: [ // FilteredVisualsList
  *                   "STRING_VALUE",
  *                 ],
  *               },
@@ -16941,33 +4328,21 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *         CrossDataset: "ALL_DATASETS" || "SINGLE_DATASET", // required
  *       },
  *     ],
- *     ColumnConfigurations: [
- *       {
- *         Column: {
- *           DataSetIdentifier: "<ColumnIdentifier>",
- *           ColumnName: "<ColumnIdentifier>",
- *         },
+ *     ColumnConfigurations: [ // ColumnConfigurationList
+ *       { // ColumnConfiguration
+ *         Column: "<ColumnIdentifier>", // required
  *         FormatConfiguration: {
- *           StringFormatConfiguration: {
- *             NullValueFormatConfiguration: "<StringFormatConfiguration>",
- *             NumericFormatConfiguration: "<StringFormatConfiguration>",
- *           },
- *           NumberFormatConfiguration: {
- *             FormatConfiguration: "<NumberFormatConfiguration>",
- *           },
- *           DateTimeFormatConfiguration: {
- *             DateTimeFormat: "<DateTimeFormatConfiguration>",
- *             NullValueFormatConfiguration: "<DateTimeFormatConfiguration>",
- *             NumericFormatConfiguration: "<DateTimeFormatConfiguration>",
- *           },
+ *           StringFormatConfiguration: "<StringFormatConfiguration>",
+ *           NumberFormatConfiguration: "<NumberFormatConfiguration>",
+ *           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
  *         },
  *         Role: "DIMENSION" || "MEASURE",
  *       },
  *     ],
- *     AnalysisDefaults: {
- *       DefaultNewSheetConfiguration: {
- *         InteractiveLayoutConfiguration: {
- *           Grid: {
+ *     AnalysisDefaults: { // AnalysisDefaults
+ *       DefaultNewSheetConfiguration: { // DefaultNewSheetConfiguration
+ *         InteractiveLayoutConfiguration: { // DefaultInteractiveLayoutConfiguration
+ *           Grid: { // DefaultGridLayoutConfiguration
  *             CanvasSizeOptions: {
  *               ScreenCanvasSizeOptions: {
  *                 ResizeOption: "FIXED" || "RESPONSIVE", // required
@@ -16975,7 +4350,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *               },
  *             },
  *           },
- *           FreeForm: {
+ *           FreeForm: { // DefaultFreeFormLayoutConfiguration
  *             CanvasSizeOptions: {
  *               ScreenCanvasSizeOptions: {
  *                 OptimizedViewPortWidth: "STRING_VALUE", // required
@@ -16983,18 +4358,13 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             },
  *           },
  *         },
- *         PaginatedLayoutConfiguration: {
- *           SectionBased: {
+ *         PaginatedLayoutConfiguration: { // DefaultPaginatedLayoutConfiguration
+ *           SectionBased: { // DefaultSectionBasedLayoutConfiguration
  *             CanvasSizeOptions: {
  *               PaperCanvasSizeOptions: {
  *                 PaperSize: "US_LETTER" || "US_LEGAL" || "US_TABLOID_LEDGER" || "A0" || "A1" || "A2" || "A3" || "A4" || "A5" || "JIS_B4" || "JIS_B5",
  *                 PaperOrientation: "PORTRAIT" || "LANDSCAPE",
- *                 PaperMargin: {
- *                   Top: "<Spacing>",
- *                   Bottom: "<Spacing>",
- *                   Left: "<Spacing>",
- *                   Right: "<Spacing>",
- *                 },
+ *                 PaperMargin: "<Spacing>",
  *               },
  *             },
  *           },

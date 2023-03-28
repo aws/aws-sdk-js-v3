@@ -44,7 +44,7 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * import { SESClient, ListIdentitiesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListIdentitiesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // ListIdentitiesRequest
  *   IdentityType: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxItems: Number("int"),

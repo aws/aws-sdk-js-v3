@@ -64,49 +64,49 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * import { FisClient, CreateExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, CreateExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
- * const input = {
+ * const input = { // CreateExperimentTemplateRequest
  *   clientToken: "STRING_VALUE", // required
  *   description: "STRING_VALUE", // required
- *   stopConditions: [ // required
- *     {
+ *   stopConditions: [ // CreateExperimentTemplateStopConditionInputList // required
+ *     { // CreateExperimentTemplateStopConditionInput
  *       source: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   targets: {
- *     "<keys>": {
+ *   targets: { // CreateExperimentTemplateTargetInputMap
+ *     "<keys>": { // CreateExperimentTemplateTargetInput
  *       resourceType: "STRING_VALUE", // required
- *       resourceArns: [
+ *       resourceArns: [ // ResourceArnList
  *         "STRING_VALUE",
  *       ],
- *       resourceTags: {
+ *       resourceTags: { // TagMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       filters: [
- *         {
+ *       filters: [ // ExperimentTemplateTargetFilterInputList
+ *         { // ExperimentTemplateTargetInputFilter
  *           path: "STRING_VALUE", // required
- *           values: [ // required
+ *           values: [ // ExperimentTemplateTargetFilterValues // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
  *       selectionMode: "STRING_VALUE", // required
- *       parameters: {
+ *       parameters: { // ExperimentTemplateTargetParameterMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
  *   },
- *   actions: { // required
- *     "<keys>": {
+ *   actions: { // CreateExperimentTemplateActionInputMap // required
+ *     "<keys>": { // CreateExperimentTemplateActionInput
  *       actionId: "STRING_VALUE", // required
  *       description: "STRING_VALUE",
- *       parameters: {
+ *       parameters: { // ExperimentTemplateActionParameterMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       targets: {
+ *       targets: { // ExperimentTemplateActionTargetMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       startAfter: [
+ *       startAfter: [ // ExperimentTemplateActionStartAfterList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -115,11 +115,11 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  *   tags: {
  *     "<keys>": "STRING_VALUE",
  *   },
- *   logConfiguration: {
- *     cloudWatchLogsConfiguration: {
+ *   logConfiguration: { // CreateExperimentTemplateLogConfigurationInput
+ *     cloudWatchLogsConfiguration: { // ExperimentTemplateCloudWatchLogsLogConfigurationInput
  *       logGroupArn: "STRING_VALUE", // required
  *     },
- *     s3Configuration: {
+ *     s3Configuration: { // ExperimentTemplateS3LogConfigurationInput
  *       bucketName: "STRING_VALUE", // required
  *       prefix: "STRING_VALUE",
  *     },

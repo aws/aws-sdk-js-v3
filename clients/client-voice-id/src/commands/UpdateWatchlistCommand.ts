@@ -48,7 +48,7 @@ export interface UpdateWatchlistCommandOutput extends UpdateWatchlistResponse, _
  * import { VoiceIDClient, UpdateWatchlistCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, UpdateWatchlistCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // UpdateWatchlistRequest
  *   DomainId: "STRING_VALUE", // required
  *   WatchlistId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",

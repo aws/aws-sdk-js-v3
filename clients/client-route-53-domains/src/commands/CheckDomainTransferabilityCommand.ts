@@ -46,7 +46,7 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * import { Route53DomainsClient, CheckDomainTransferabilityCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, CheckDomainTransferabilityCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // CheckDomainTransferabilityRequest
  *   DomainName: "STRING_VALUE", // required
  *   AuthCode: "STRING_VALUE",
  * };

@@ -61,11 +61,11 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * import { ApplicationDiscoveryServiceClient, DescribeTagsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeTagsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
- *   filters: [
- *     {
+ * const input = { // DescribeTagsRequest
+ *   filters: [ // TagFilters
+ *     { // TagFilter
  *       name: "STRING_VALUE", // required
- *       values: [ // required
+ *       values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *     },

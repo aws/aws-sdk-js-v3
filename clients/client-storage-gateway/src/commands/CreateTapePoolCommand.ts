@@ -43,13 +43,13 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  * import { StorageGatewayClient, CreateTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // CreateTapePoolInput
  *   PoolName: "STRING_VALUE", // required
  *   StorageClass: "STRING_VALUE", // required
  *   RetentionLockType: "STRING_VALUE",
  *   RetentionLockTimeInDays: Number("int"),
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

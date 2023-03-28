@@ -44,10 +44,10 @@ export interface ListTableRowsCommandOutput extends ListTableRowsResult, __Metad
  * import { HoneycodeClient, ListTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, ListTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // ListTableRowsRequest
  *   workbookId: "STRING_VALUE", // required
  *   tableId: "STRING_VALUE", // required
- *   rowIds: [
+ *   rowIds: [ // RowIdList
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

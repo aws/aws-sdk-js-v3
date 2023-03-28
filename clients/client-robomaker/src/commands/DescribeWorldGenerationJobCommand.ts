@@ -42,7 +42,7 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  * import { RoboMakerClient, DescribeWorldGenerationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeWorldGenerationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // DescribeWorldGenerationJobRequest
  *   job: "STRING_VALUE", // required
  * };
  * const command = new DescribeWorldGenerationJobCommand(input);

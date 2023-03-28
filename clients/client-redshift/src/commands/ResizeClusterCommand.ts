@@ -85,7 +85,7 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  * import { RedshiftClient, ResizeClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ResizeClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // ResizeClusterMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   ClusterType: "STRING_VALUE",
  *   NodeType: "STRING_VALUE",

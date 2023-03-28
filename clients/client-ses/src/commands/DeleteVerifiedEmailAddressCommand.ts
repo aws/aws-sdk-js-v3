@@ -43,7 +43,7 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * import { SESClient, DeleteVerifiedEmailAddressCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteVerifiedEmailAddressCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // DeleteVerifiedEmailAddressRequest
  *   EmailAddress: "STRING_VALUE", // required
  * };
  * const command = new DeleteVerifiedEmailAddressCommand(input);

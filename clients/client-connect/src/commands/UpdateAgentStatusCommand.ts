@@ -43,7 +43,7 @@ export interface UpdateAgentStatusCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateAgentStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateAgentStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateAgentStatusRequest
  *   InstanceId: "STRING_VALUE", // required
  *   AgentStatusId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",

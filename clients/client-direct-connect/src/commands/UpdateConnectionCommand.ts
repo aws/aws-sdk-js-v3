@@ -51,7 +51,7 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  * import { DirectConnectClient, UpdateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // UpdateConnectionRequest
  *   connectionId: "STRING_VALUE", // required
  *   connectionName: "STRING_VALUE",
  *   encryptionMode: "STRING_VALUE",

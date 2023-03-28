@@ -42,12 +42,12 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * import { ImagebuilderClient, ListImageBuildVersionsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImageBuildVersionsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // ListImageBuildVersionsRequest
  *   imageVersionArn: "STRING_VALUE", // required
- *   filters: [
- *     {
+ *   filters: [ // FilterList
+ *     { // Filter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

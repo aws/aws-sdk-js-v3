@@ -42,57 +42,57 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * import { SSMClient, StartAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // StartAutomationExecutionRequest
  *   DocumentName: "STRING_VALUE", // required
  *   DocumentVersion: "STRING_VALUE",
- *   Parameters: {
- *     "<keys>": [
+ *   Parameters: { // AutomationParameterMap
+ *     "<keys>": [ // AutomationParameterValueList
  *       "STRING_VALUE",
  *     ],
  *   },
  *   ClientToken: "STRING_VALUE",
  *   Mode: "Auto" || "Interactive",
  *   TargetParameterName: "STRING_VALUE",
- *   Targets: [
- *     {
+ *   Targets: [ // Targets
+ *     { // Target
  *       Key: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // TargetValues
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   TargetMaps: [
- *     {
- *       "<keys>": [
+ *   TargetMaps: [ // TargetMaps
+ *     { // TargetMap
+ *       "<keys>": [ // TargetMapValueList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   MaxConcurrency: "STRING_VALUE",
  *   MaxErrors: "STRING_VALUE",
- *   TargetLocations: [
- *     {
- *       Accounts: [
+ *   TargetLocations: [ // TargetLocations
+ *     { // TargetLocation
+ *       Accounts: [ // Accounts
  *         "STRING_VALUE",
  *       ],
- *       Regions: [
+ *       Regions: [ // Regions
  *         "STRING_VALUE",
  *       ],
  *       TargetLocationMaxConcurrency: "STRING_VALUE",
  *       TargetLocationMaxErrors: "STRING_VALUE",
  *       ExecutionRoleName: "STRING_VALUE",
- *       TargetLocationAlarmConfiguration: {
+ *       TargetLocationAlarmConfiguration: { // AlarmConfiguration
  *         IgnorePollAlarmFailure: true || false,
- *         Alarms: [ // required
- *           {
+ *         Alarms: [ // AlarmList // required
+ *           { // Alarm
  *             Name: "STRING_VALUE", // required
  *           },
  *         ],
  *       },
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

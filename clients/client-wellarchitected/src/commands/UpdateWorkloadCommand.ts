@@ -42,21 +42,21 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * import { WellArchitectedClient, UpdateWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // UpdateWorkloadInput
  *   WorkloadId: "STRING_VALUE", // required
  *   WorkloadName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Environment: "PRODUCTION" || "PREPRODUCTION",
- *   AccountIds: [
+ *   AccountIds: [ // WorkloadAccountIds
  *     "STRING_VALUE",
  *   ],
- *   AwsRegions: [
+ *   AwsRegions: [ // WorkloadAwsRegions
  *     "STRING_VALUE",
  *   ],
- *   NonAwsRegions: [
+ *   NonAwsRegions: [ // WorkloadNonAwsRegions
  *     "STRING_VALUE",
  *   ],
- *   PillarPriorities: [
+ *   PillarPriorities: [ // WorkloadPillarPriorities
  *     "STRING_VALUE",
  *   ],
  *   ArchitecturalDesign: "STRING_VALUE",
@@ -66,10 +66,10 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  *   Industry: "STRING_VALUE",
  *   Notes: "STRING_VALUE",
  *   ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
- *   DiscoveryConfig: {
+ *   DiscoveryConfig: { // WorkloadDiscoveryConfig
  *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
  *   },
- *   Applications: [
+ *   Applications: [ // WorkloadApplications
  *     "STRING_VALUE",
  *   ],
  * };

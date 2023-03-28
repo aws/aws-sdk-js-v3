@@ -45,71 +45,71 @@ export interface UpdateDistributionConfigurationCommandOutput
  * import { ImagebuilderClient, UpdateDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // UpdateDistributionConfigurationRequest
  *   distributionConfigurationArn: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   distributions: [ // required
- *     {
+ *   distributions: [ // DistributionList // required
+ *     { // Distribution
  *       region: "STRING_VALUE", // required
- *       amiDistributionConfiguration: {
+ *       amiDistributionConfiguration: { // AmiDistributionConfiguration
  *         name: "STRING_VALUE",
  *         description: "STRING_VALUE",
- *         targetAccountIds: [
+ *         targetAccountIds: [ // AccountList
  *           "STRING_VALUE",
  *         ],
- *         amiTags: {
+ *         amiTags: { // TagMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         kmsKeyId: "STRING_VALUE",
- *         launchPermission: {
+ *         launchPermission: { // LaunchPermissionConfiguration
  *           userIds: [
  *             "STRING_VALUE",
  *           ],
- *           userGroups: [
+ *           userGroups: [ // StringList
  *             "STRING_VALUE",
  *           ],
- *           organizationArns: [
+ *           organizationArns: [ // OrganizationArnList
  *             "STRING_VALUE",
  *           ],
- *           organizationalUnitArns: [
+ *           organizationalUnitArns: [ // OrganizationalUnitArnList
  *             "STRING_VALUE",
  *           ],
  *         },
  *       },
- *       containerDistributionConfiguration: {
+ *       containerDistributionConfiguration: { // ContainerDistributionConfiguration
  *         description: "STRING_VALUE",
  *         containerTags: [
  *           "STRING_VALUE",
  *         ],
- *         targetRepository: {
+ *         targetRepository: { // TargetContainerRepository
  *           service: "ECR", // required
  *           repositoryName: "STRING_VALUE", // required
  *         },
  *       },
- *       licenseConfigurationArns: [
+ *       licenseConfigurationArns: [ // LicenseConfigurationArnList
  *         "STRING_VALUE",
  *       ],
- *       launchTemplateConfigurations: [
- *         {
+ *       launchTemplateConfigurations: [ // LaunchTemplateConfigurationList
+ *         { // LaunchTemplateConfiguration
  *           launchTemplateId: "STRING_VALUE", // required
  *           accountId: "STRING_VALUE",
  *           setDefaultVersion: true || false,
  *         },
  *       ],
- *       s3ExportConfiguration: {
+ *       s3ExportConfiguration: { // S3ExportConfiguration
  *         roleName: "STRING_VALUE", // required
  *         diskImageFormat: "VMDK" || "RAW" || "VHD", // required
  *         s3Bucket: "STRING_VALUE", // required
  *         s3Prefix: "STRING_VALUE",
  *       },
- *       fastLaunchConfigurations: [
- *         {
+ *       fastLaunchConfigurations: [ // FastLaunchConfigurationList
+ *         { // FastLaunchConfiguration
  *           enabled: true || false, // required
- *           snapshotConfiguration: {
+ *           snapshotConfiguration: { // FastLaunchSnapshotConfiguration
  *             targetResourceCount: Number("int"),
  *           },
  *           maxParallelLaunches: Number("int"),
- *           launchTemplate: {
+ *           launchTemplate: { // FastLaunchLaunchTemplateSpecification
  *             launchTemplateId: "STRING_VALUE",
  *             launchTemplateName: "STRING_VALUE",
  *             launchTemplateVersion: "STRING_VALUE",

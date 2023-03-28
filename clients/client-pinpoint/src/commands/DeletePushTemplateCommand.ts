@@ -42,7 +42,7 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  * import { PinpointClient, DeletePushTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeletePushTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // DeletePushTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  *   Version: "STRING_VALUE",
  * };

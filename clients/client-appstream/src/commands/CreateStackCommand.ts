@@ -42,44 +42,44 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * import { AppStreamClient, CreateStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // CreateStackRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE",
- *   StorageConnectors: [
- *     {
+ *   StorageConnectors: [ // StorageConnectorList
+ *     { // StorageConnector
  *       ConnectorType: "HOMEFOLDERS" || "GOOGLE_DRIVE" || "ONE_DRIVE", // required
  *       ResourceIdentifier: "STRING_VALUE",
- *       Domains: [
+ *       Domains: [ // DomainList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   RedirectURL: "STRING_VALUE",
  *   FeedbackURL: "STRING_VALUE",
- *   UserSettings: [
- *     {
+ *   UserSettings: [ // UserSettingList
+ *     { // UserSetting
  *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
  *       Permission: "ENABLED" || "DISABLED", // required
  *     },
  *   ],
- *   ApplicationSettings: {
+ *   ApplicationSettings: { // ApplicationSettings
  *     Enabled: true || false, // required
  *     SettingsGroup: "STRING_VALUE",
  *   },
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AccessEndpoints: [
- *     {
+ *   AccessEndpoints: [ // AccessEndpointList
+ *     { // AccessEndpoint
  *       EndpointType: "STREAMING", // required
  *       VpceId: "STRING_VALUE",
  *     },
  *   ],
- *   EmbedHostDomains: [
+ *   EmbedHostDomains: [ // EmbedHostDomains
  *     "STRING_VALUE",
  *   ],
- *   StreamingExperienceSettings: {
+ *   StreamingExperienceSettings: { // StreamingExperienceSettings
  *     PreferredProtocol: "TCP" || "UDP",
  *   },
  * };

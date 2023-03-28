@@ -44,7 +44,7 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  * import { CloudFormationClient, ListStackResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // ListStackResourcesInput
  *   StackName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  * };

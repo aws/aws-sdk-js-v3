@@ -42,7 +42,7 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  * import { MediaLiveClient, AcceptInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, AcceptInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // AcceptInputDeviceTransferRequest
  *   InputDeviceId: "STRING_VALUE", // required
  * };
  * const command = new AcceptInputDeviceTransferCommand(input);

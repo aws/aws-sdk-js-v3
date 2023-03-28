@@ -46,14 +46,14 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ReportInstanceStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReportInstanceStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ReportInstanceStatusRequest
  *   Description: "STRING_VALUE",
  *   DryRun: true || false,
  *   EndTime: new Date("TIMESTAMP"),
- *   Instances: [ // required
+ *   Instances: [ // InstanceIdStringList // required
  *     "STRING_VALUE",
  *   ],
- *   ReasonCodes: [ // required
+ *   ReasonCodes: [ // ReasonCodesList // required
  *     "instance-stuck-in-state" || "unresponsive" || "not-accepting-credentials" || "password-not-available" || "performance-network" || "performance-instance-store" || "performance-ebs-volume" || "performance-other" || "other",
  *   ],
  *   StartTime: new Date("TIMESTAMP"),

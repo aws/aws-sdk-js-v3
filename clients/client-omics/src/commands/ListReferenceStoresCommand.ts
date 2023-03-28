@@ -42,10 +42,10 @@ export interface ListReferenceStoresCommandOutput extends ListReferenceStoresRes
  * import { OmicsClient, ListReferenceStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReferenceStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // ListReferenceStoresRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filter: {
+ *   filter: { // ReferenceStoreFilter
  *     name: "STRING_VALUE",
  *     createdAfter: new Date("TIMESTAMP"),
  *     createdBefore: new Date("TIMESTAMP"),

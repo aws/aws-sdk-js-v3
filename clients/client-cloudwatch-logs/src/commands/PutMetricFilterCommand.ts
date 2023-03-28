@@ -64,17 +64,17 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, PutMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // PutMetricFilterRequest
  *   logGroupName: "STRING_VALUE", // required
  *   filterName: "STRING_VALUE", // required
  *   filterPattern: "STRING_VALUE", // required
- *   metricTransformations: [ // required
- *     {
+ *   metricTransformations: [ // MetricTransformations // required
+ *     { // MetricTransformation
  *       metricName: "STRING_VALUE", // required
  *       metricNamespace: "STRING_VALUE", // required
  *       metricValue: "STRING_VALUE", // required
  *       defaultValue: Number("double"),
- *       dimensions: {
+ *       dimensions: { // Dimensions
  *         "<keys>": "STRING_VALUE",
  *       },
  *       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",

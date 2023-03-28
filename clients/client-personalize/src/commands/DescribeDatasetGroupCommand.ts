@@ -43,7 +43,7 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * import { PersonalizeClient, DescribeDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeDatasetGroupRequest
  *   datasetGroupArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeDatasetGroupCommand(input);

@@ -50,10 +50,10 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * import { ChimeSDKVoiceClient, UpdateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, UpdateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // UpdateSipMediaApplicationCallRequest
  *   SipMediaApplicationId: "STRING_VALUE", // required
  *   TransactionId: "STRING_VALUE", // required
- *   Arguments: { // required
+ *   Arguments: { // SMAUpdateCallArgumentsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -48,28 +48,28 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  * import { IoTWirelessClient, UpdateEventConfigurationByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateEventConfigurationByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
- *   DeviceRegistrationState: {
+ * const input = { // UpdateEventConfigurationByResourceTypesRequest
+ *   DeviceRegistrationState: { // DeviceRegistrationStateResourceTypeEventConfiguration
+ *     Sidewalk: { // SidewalkResourceTypeEventConfiguration
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   Proximity: { // ProximityResourceTypeEventConfiguration
  *     Sidewalk: {
  *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
  *     },
  *   },
- *   Proximity: {
- *     Sidewalk: {
+ *   Join: { // JoinResourceTypeEventConfiguration
+ *     LoRaWAN: { // LoRaWANJoinResourceTypeEventConfiguration
  *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
  *     },
  *   },
- *   Join: {
- *     LoRaWAN: {
- *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
- *     },
- *   },
- *   ConnectionStatus: {
- *     LoRaWAN: {
+ *   ConnectionStatus: { // ConnectionStatusResourceTypeEventConfiguration
+ *     LoRaWAN: { // LoRaWANConnectionStatusResourceTypeEventConfiguration
  *       WirelessGatewayEventTopic: "Enabled" || "Disabled",
  *     },
  *   },
- *   MessageDeliveryStatus: {
+ *   MessageDeliveryStatus: { // MessageDeliveryStatusResourceTypeEventConfiguration
  *     Sidewalk: {
  *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
  *     },

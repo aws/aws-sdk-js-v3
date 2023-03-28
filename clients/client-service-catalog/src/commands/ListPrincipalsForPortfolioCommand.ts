@@ -42,7 +42,7 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * import { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListPrincipalsForPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListPrincipalsForPortfolioInput
  *   AcceptLanguage: "STRING_VALUE",
  *   PortfolioId: "STRING_VALUE", // required
  *   PageSize: Number("int"),

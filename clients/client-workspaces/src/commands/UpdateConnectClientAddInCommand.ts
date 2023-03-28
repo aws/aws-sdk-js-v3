@@ -43,7 +43,7 @@ export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClie
  * import { WorkSpacesClient, UpdateConnectClientAddInCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateConnectClientAddInCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // UpdateConnectClientAddInRequest
  *   AddInId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",

@@ -43,17 +43,17 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * import { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
- *   ProviderTypes: [
+ * const input = { // ListRepositoryAssociationsRequest
+ *   ProviderTypes: [ // ProviderTypes
  *     "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
  *   ],
- *   States: [
+ *   States: [ // RepositoryAssociationStates
  *     "Associated" || "Associating" || "Failed" || "Disassociating" || "Disassociated",
  *   ],
- *   Names: [
+ *   Names: [ // Names
  *     "STRING_VALUE",
  *   ],
- *   Owners: [
+ *   Owners: [ // Owners
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

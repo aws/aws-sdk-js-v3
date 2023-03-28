@@ -46,7 +46,7 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * import { EC2Client, ModifySnapshotTierCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifySnapshotTierCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifySnapshotTierRequest
  *   SnapshotId: "STRING_VALUE", // required
  *   StorageTier: "archive",
  *   DryRun: true || false,

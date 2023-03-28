@@ -42,8 +42,8 @@ export interface DescribeAddressesAttributeCommandOutput extends DescribeAddress
  * import { EC2Client, DescribeAddressesAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAddressesAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   AllocationIds: [
+ * const input = { // DescribeAddressesAttributeRequest
+ *   AllocationIds: [ // AllocationIds
  *     "STRING_VALUE",
  *   ],
  *   Attribute: "domain-name",

@@ -42,7 +42,7 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  * import { LightsailClient, DeleteContainerServiceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteContainerServiceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DeleteContainerServiceRequest
  *   serviceName: "STRING_VALUE", // required
  * };
  * const command = new DeleteContainerServiceCommand(input);

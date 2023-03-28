@@ -48,37 +48,37 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * import { RDSDataClient, ExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
- * const input = {
+ * const input = { // ExecuteStatementRequest
  *   resourceArn: "STRING_VALUE", // required
  *   secretArn: "STRING_VALUE", // required
  *   sql: "STRING_VALUE", // required
  *   database: "STRING_VALUE",
  *   schema: "STRING_VALUE",
- *   parameters: [
- *     {
+ *   parameters: [ // SqlParametersList
+ *     { // SqlParameter
  *       name: "STRING_VALUE",
- *       value: { // Union: only one key present
+ *       value: { // Field Union: only one key present
  *         isNull: true || false,
  *         booleanValue: true || false,
  *         longValue: Number("long"),
  *         doubleValue: Number("double"),
  *         stringValue: "STRING_VALUE",
  *         blobValue: "BLOB_VALUE",
- *         arrayValue: { // Union: only one key present
- *           booleanValues: [
+ *         arrayValue: { // ArrayValue Union: only one key present
+ *           booleanValues: [ // BooleanArray
  *             true || false,
  *           ],
- *           longValues: [
+ *           longValues: [ // LongArray
  *             Number("long"),
  *           ],
- *           doubleValues: [
+ *           doubleValues: [ // DoubleArray
  *             Number("double"),
  *           ],
- *           stringValues: [
+ *           stringValues: [ // StringArray
  *             "STRING_VALUE",
  *           ],
- *           arrayValues: [
- *             { // Union: only one key present
+ *           arrayValues: [ // ArrayOfArray
+ *             {//  Union: only one key present
  *               booleanValues: [
  *                 true || false,
  *               ],
@@ -92,13 +92,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *                 "STRING_VALUE",
  *               ],
  *               arrayValues: [
- *                 { // Union: only one key present
- *                   booleanValues: "<ArrayValue>",
- *                   longValues: "<ArrayValue>",
- *                   doubleValues: "<ArrayValue>",
- *                   stringValues: "<ArrayValue>",
- *                   arrayValues: "<ArrayValue>",
- *                 },
+ *                 "<ArrayValue>",
  *               ],
  *             },
  *           ],
@@ -110,7 +104,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *   transactionId: "STRING_VALUE",
  *   includeResultMetadata: true || false,
  *   continueAfterTimeout: true || false,
- *   resultSetOptions: {
+ *   resultSetOptions: { // ResultSetOptions
  *     decimalReturnType: "STRING_VALUE",
  *     longReturnType: "STRING_VALUE",
  *   },

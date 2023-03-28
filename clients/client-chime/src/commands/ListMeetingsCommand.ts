@@ -45,7 +45,7 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  * import { ChimeClient, ListMeetingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListMeetingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListMeetingsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

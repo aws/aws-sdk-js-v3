@@ -48,7 +48,7 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  * import { StorageGatewayClient, DescribeTapeRecoveryPointsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeTapeRecoveryPointsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DescribeTapeRecoveryPointsInput
  *   GatewayARN: "STRING_VALUE", // required
  *   Marker: "STRING_VALUE",
  *   Limit: Number("int"),

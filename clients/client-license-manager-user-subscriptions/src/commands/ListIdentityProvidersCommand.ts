@@ -46,7 +46,7 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * import { LicenseManagerUserSubscriptionsClient, ListIdentityProvidersCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const input = {
+ * const input = { // ListIdentityProvidersRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

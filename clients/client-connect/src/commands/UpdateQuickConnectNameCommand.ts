@@ -42,7 +42,7 @@ export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateQuickConnectNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQuickConnectNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateQuickConnectNameRequest
  *   InstanceId: "STRING_VALUE", // required
  *   QuickConnectId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",

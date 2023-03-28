@@ -44,8 +44,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * import { SecurityHubClient, DeleteMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   AccountIds: [ // required
+ * const input = { // DeleteMembersRequest
+ *   AccountIds: [ // AccountIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

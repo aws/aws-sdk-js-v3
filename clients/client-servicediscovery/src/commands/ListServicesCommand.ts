@@ -43,13 +43,13 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { ServiceDiscoveryClient, ListServicesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListServicesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // ListServicesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // ServiceFilters
+ *     { // ServiceFilter
  *       Name: "NAMESPACE_ID", // required
- *       Values: [ // required
+ *       Values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",

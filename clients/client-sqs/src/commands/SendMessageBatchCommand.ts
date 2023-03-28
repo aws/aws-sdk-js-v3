@@ -61,28 +61,28 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * import { SQSClient, SendMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SendMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // SendMessageBatchRequest
  *   QueueUrl: "STRING_VALUE", // required
- *   Entries: [ // required
- *     {
+ *   Entries: [ // SendMessageBatchRequestEntryList // required
+ *     { // SendMessageBatchRequestEntry
  *       Id: "STRING_VALUE", // required
  *       MessageBody: "STRING_VALUE", // required
  *       DelaySeconds: Number("int"),
- *       MessageAttributes: {
- *         "<keys>": {
+ *       MessageAttributes: { // MessageBodyAttributeMap
+ *         "<keys>": { // MessageAttributeValue
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
- *           StringListValues: [
+ *           StringListValues: [ // StringList
  *             "STRING_VALUE",
  *           ],
- *           BinaryListValues: [
+ *           BinaryListValues: [ // BinaryList
  *             "BLOB_VALUE",
  *           ],
  *           DataType: "STRING_VALUE", // required
  *         },
  *       },
- *       MessageSystemAttributes: {
- *         "<keys>": {
+ *       MessageSystemAttributes: { // MessageBodySystemAttributeMap
+ *         "<keys>": { // MessageSystemAttributeValue
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           StringListValues: [

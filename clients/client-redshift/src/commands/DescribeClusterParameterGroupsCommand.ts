@@ -58,14 +58,14 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * import { RedshiftClient, DescribeClusterParameterGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterParameterGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeClusterParameterGroupsMessage
  *   ParameterGroupName: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",
- *   TagKeys: [
+ *   TagKeys: [ // TagKeyList
  *     "STRING_VALUE",
  *   ],
- *   TagValues: [
+ *   TagValues: [ // TagValueList
  *     "STRING_VALUE",
  *   ],
  * };

@@ -46,7 +46,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * import { PanoramaClient, DeletePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DeletePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // DeletePackageRequest
  *   PackageId: "STRING_VALUE", // required
  *   ForceDelete: true || false,
  * };

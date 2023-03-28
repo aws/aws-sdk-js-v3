@@ -42,13 +42,13 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  * import { BraketClient, SearchQuantumTasksCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, SearchQuantumTasksCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
- * const input = {
+ * const input = { // SearchQuantumTasksRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filters: [ // required
- *     {
+ *   filters: [ // SearchQuantumTasksFilterList // required
+ *     { // SearchQuantumTasksFilter
  *       name: "STRING_VALUE", // required
- *       values: [ // required
+ *       values: [ // String256List // required
  *         "STRING_VALUE",
  *       ],
  *       operator: "STRING_VALUE", // required

@@ -42,7 +42,7 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * import { TransferClient, DescribeAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // DescribeAgreementRequest
  *   AgreementId: "STRING_VALUE", // required
  *   ServerId: "STRING_VALUE", // required
  * };

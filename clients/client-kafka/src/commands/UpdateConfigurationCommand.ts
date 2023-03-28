@@ -42,7 +42,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * import { KafkaClient, UpdateConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // UpdateConfigurationRequest
  *   Arn: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ServerProperties: "BLOB_VALUE", // required

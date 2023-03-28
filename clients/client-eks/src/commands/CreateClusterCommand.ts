@@ -62,12 +62,12 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { EKSClient, CreateClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = {
+ * const input = { // CreateClusterRequest
  *   name: "STRING_VALUE", // required
  *   version: "STRING_VALUE",
  *   roleArn: "STRING_VALUE", // required
- *   resourcesVpcConfig: {
- *     subnetIds: [
+ *   resourcesVpcConfig: { // VpcConfigRequest
+ *     subnetIds: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     securityGroupIds: [
@@ -79,14 +79,14 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       "STRING_VALUE",
  *     ],
  *   },
- *   kubernetesNetworkConfig: {
+ *   kubernetesNetworkConfig: { // KubernetesNetworkConfigRequest
  *     serviceIpv4Cidr: "STRING_VALUE",
  *     ipFamily: "ipv4" || "ipv6",
  *   },
- *   logging: {
- *     clusterLogging: [
- *       {
- *         types: [
+ *   logging: { // Logging
+ *     clusterLogging: [ // LogSetups
+ *       { // LogSetup
+ *         types: [ // LogTypes
  *           "api" || "audit" || "authenticator" || "controllerManager" || "scheduler",
  *         ],
  *         enabled: true || false,
@@ -94,25 +94,25 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     ],
  *   },
  *   clientRequestToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   encryptionConfig: [
- *     {
+ *   encryptionConfig: [ // EncryptionConfigList
+ *     { // EncryptionConfig
  *       resources: [
  *         "STRING_VALUE",
  *       ],
- *       provider: {
+ *       provider: { // Provider
  *         keyArn: "STRING_VALUE",
  *       },
  *     },
  *   ],
- *   outpostConfig: {
+ *   outpostConfig: { // OutpostConfigRequest
  *     outpostArns: [ // required
  *       "STRING_VALUE",
  *     ],
  *     controlPlaneInstanceType: "STRING_VALUE", // required
- *     controlPlanePlacement: {
+ *     controlPlanePlacement: { // ControlPlanePlacementRequest
  *       groupName: "STRING_VALUE",
  *     },
  *   },

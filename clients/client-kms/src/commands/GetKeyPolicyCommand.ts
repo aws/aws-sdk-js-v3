@@ -49,7 +49,7 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * import { KMSClient, GetKeyPolicyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetKeyPolicyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // GetKeyPolicyRequest
  *   KeyId: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  * };

@@ -148,13 +148,13 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * import { KMSClient, EncryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, EncryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // EncryptRequest
  *   KeyId: "STRING_VALUE", // required
  *   Plaintext: "BLOB_VALUE", // required
- *   EncryptionContext: {
+ *   EncryptionContext: { // EncryptionContextType
  *     "<keys>": "STRING_VALUE",
  *   },
- *   GrantTokens: [
+ *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
  *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",

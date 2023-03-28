@@ -51,7 +51,7 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * import { CloudTrailClient, DeleteEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // DeleteEventDataStoreRequest
  *   EventDataStore: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventDataStoreCommand(input);

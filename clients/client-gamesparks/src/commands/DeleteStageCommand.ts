@@ -42,7 +42,7 @@ export interface DeleteStageCommandOutput extends DeleteStageResult, __MetadataB
  * import { GameSparksClient, DeleteStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, DeleteStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // DeleteStageRequest
  *   GameName: "STRING_VALUE", // required
  *   StageName: "STRING_VALUE", // required
  * };

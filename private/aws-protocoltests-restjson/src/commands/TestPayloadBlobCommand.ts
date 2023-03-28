@@ -48,7 +48,7 @@ export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput
  * import { RestJsonProtocolClient, TestPayloadBlobCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, TestPayloadBlobCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
+ * const input = { // TestPayloadBlobInputOutput
  *   contentType: "STRING_VALUE",
  *   data: "BLOB_VALUE",
  * };

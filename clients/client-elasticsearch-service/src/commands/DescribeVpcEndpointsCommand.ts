@@ -46,8 +46,8 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * import { ElasticsearchServiceClient, DescribeVpcEndpointsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeVpcEndpointsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
- *   VpcEndpointIds: [ // required
+ * const input = { // DescribeVpcEndpointsRequest
+ *   VpcEndpointIds: [ // VpcEndpointIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

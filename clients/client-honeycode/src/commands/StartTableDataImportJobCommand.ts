@@ -50,24 +50,24 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  * import { HoneycodeClient, StartTableDataImportJobCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, StartTableDataImportJobCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // StartTableDataImportJobRequest
  *   workbookId: "STRING_VALUE", // required
- *   dataSource: {
- *     dataSourceConfig: {
+ *   dataSource: { // ImportDataSource
+ *     dataSourceConfig: { // ImportDataSourceConfig
  *       dataSourceUrl: "STRING_VALUE",
  *     },
  *   },
  *   dataFormat: "STRING_VALUE", // required
  *   destinationTableId: "STRING_VALUE", // required
- *   importOptions: {
- *     destinationOptions: {
- *       columnMap: {
- *         "<keys>": {
+ *   importOptions: { // ImportOptions
+ *     destinationOptions: { // DestinationOptions
+ *       columnMap: { // ImportColumnMap
+ *         "<keys>": { // SourceDataColumnProperties
  *           columnIndex: Number("int"),
  *         },
  *       },
  *     },
- *     delimitedTextOptions: {
+ *     delimitedTextOptions: { // DelimitedTextImportOptions
  *       delimiter: "STRING_VALUE", // required
  *       hasHeaderRow: true || false,
  *       ignoreEmptyRows: true || false,

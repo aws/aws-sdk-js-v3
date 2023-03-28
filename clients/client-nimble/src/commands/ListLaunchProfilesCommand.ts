@@ -46,11 +46,11 @@ export interface ListLaunchProfilesCommandOutput extends ListLaunchProfilesRespo
  * import { NimbleClient, ListLaunchProfilesCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListLaunchProfilesCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // ListLaunchProfilesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   principalId: "STRING_VALUE",
- *   states: [
+ *   states: [ // LaunchProfileStateList
  *     "CREATE_IN_PROGRESS" || "READY" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DELETE_FAILED" || "CREATE_FAILED" || "UPDATE_FAILED",
  *   ],
  *   studioId: "STRING_VALUE", // required

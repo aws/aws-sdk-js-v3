@@ -51,7 +51,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * import { RekognitionClient, DeleteDatasetCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteDatasetCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // DeleteDatasetRequest
  *   DatasetArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteDatasetCommand(input);

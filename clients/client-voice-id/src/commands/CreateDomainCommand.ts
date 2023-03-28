@@ -48,15 +48,15 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * import { VoiceIDClient, CreateDomainCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, CreateDomainCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // CreateDomainRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   ServerSideEncryptionConfiguration: {
+ *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     KmsKeyId: "STRING_VALUE", // required
  *   },
  *   ClientToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

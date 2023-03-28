@@ -43,7 +43,7 @@ export interface StartLaunchCommandOutput extends StartLaunchResponse, __Metadat
  * import { EvidentlyClient, StartLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, StartLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // StartLaunchRequest
  *   project: "STRING_VALUE", // required
  *   launch: "STRING_VALUE", // required
  * };

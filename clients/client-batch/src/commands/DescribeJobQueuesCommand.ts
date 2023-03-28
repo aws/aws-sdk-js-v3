@@ -42,8 +42,8 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * import { BatchClient, DescribeJobQueuesCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeJobQueuesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
- *   jobQueues: [
+ * const input = { // DescribeJobQueuesRequest
+ *   jobQueues: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

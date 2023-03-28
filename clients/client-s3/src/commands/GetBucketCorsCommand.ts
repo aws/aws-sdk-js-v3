@@ -61,7 +61,7 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * import { S3Client, GetBucketCorsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketCorsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // GetBucketCorsRequest
  *   Bucket: "STRING_VALUE", // required
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };

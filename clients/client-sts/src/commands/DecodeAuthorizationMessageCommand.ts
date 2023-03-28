@@ -78,7 +78,7 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * import { STSClient, DecodeAuthorizationMessageCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, DecodeAuthorizationMessageCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
- * const input = {
+ * const input = { // DecodeAuthorizationMessageRequest
  *   EncodedMessage: "STRING_VALUE", // required
  * };
  * const command = new DecodeAuthorizationMessageCommand(input);

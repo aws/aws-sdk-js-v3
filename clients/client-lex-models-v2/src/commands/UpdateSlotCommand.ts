@@ -42,46 +42,46 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  * import { LexModelsV2Client, UpdateSlotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateSlotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // UpdateSlotRequest
  *   slotId: "STRING_VALUE", // required
  *   slotName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   slotTypeId: "STRING_VALUE",
- *   valueElicitationSetting: {
- *     defaultValueSpecification: {
- *       defaultValueList: [ // required
- *         {
+ *   valueElicitationSetting: { // SlotValueElicitationSetting
+ *     defaultValueSpecification: { // SlotDefaultValueSpecification
+ *       defaultValueList: [ // SlotDefaultValueList // required
+ *         { // SlotDefaultValue
  *           defaultValue: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
  *     slotConstraint: "Required" || "Optional", // required
- *     promptSpecification: {
- *       messageGroups: [ // required
- *         {
- *           message: {
- *             plainTextMessage: {
+ *     promptSpecification: { // PromptSpecification
+ *       messageGroups: [ // MessageGroupsList // required
+ *         { // MessageGroup
+ *           message: { // Message
+ *             plainTextMessage: { // PlainTextMessage
  *               value: "STRING_VALUE", // required
  *             },
- *             customPayload: {
+ *             customPayload: { // CustomPayload
  *               value: "STRING_VALUE", // required
  *             },
- *             ssmlMessage: {
+ *             ssmlMessage: { // SSMLMessage
  *               value: "STRING_VALUE", // required
  *             },
- *             imageResponseCard: {
+ *             imageResponseCard: { // ImageResponseCard
  *               title: "STRING_VALUE", // required
  *               subtitle: "STRING_VALUE",
  *               imageUrl: "STRING_VALUE",
- *               buttons: [
- *                 {
+ *               buttons: [ // ButtonsList
+ *                 { // Button
  *                   text: "STRING_VALUE", // required
  *                   value: "STRING_VALUE", // required
  *                 },
  *               ],
  *             },
  *           },
- *           variations: [
+ *           variations: [ // MessageVariationsList
  *             {
  *               plainTextMessage: {
  *                 value: "STRING_VALUE", // required
@@ -110,39 +110,39 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *       maxRetries: Number("int"), // required
  *       allowInterrupt: true || false,
  *       messageSelectionStrategy: "Random" || "Ordered",
- *       promptAttemptsSpecification: {
- *         "<keys>": {
+ *       promptAttemptsSpecification: { // PromptAttemptsSpecificationMap
+ *         "<keys>": { // PromptAttemptSpecification
  *           allowInterrupt: true || false,
- *           allowedInputTypes: {
+ *           allowedInputTypes: { // AllowedInputTypes
  *             allowAudioInput: true || false, // required
  *             allowDTMFInput: true || false, // required
  *           },
- *           audioAndDTMFInputSpecification: {
+ *           audioAndDTMFInputSpecification: { // AudioAndDTMFInputSpecification
  *             startTimeoutMs: Number("int"), // required
- *             audioSpecification: {
+ *             audioSpecification: { // AudioSpecification
  *               maxLengthMs: Number("int"), // required
  *               endTimeoutMs: Number("int"), // required
  *             },
- *             dtmfSpecification: {
+ *             dtmfSpecification: { // DTMFSpecification
  *               maxLength: Number("int"), // required
  *               endTimeoutMs: Number("int"), // required
  *               deletionCharacter: "STRING_VALUE", // required
  *               endCharacter: "STRING_VALUE", // required
  *             },
  *           },
- *           textInputSpecification: {
+ *           textInputSpecification: { // TextInputSpecification
  *             startTimeoutMs: Number("int"), // required
  *           },
  *         },
  *       },
  *     },
- *     sampleUtterances: [
- *       {
+ *     sampleUtterances: [ // SampleUtterancesList
+ *       { // SampleUtterance
  *         utterance: "STRING_VALUE", // required
  *       },
  *     ],
- *     waitAndContinueSpecification: {
- *       waitingResponse: {
+ *     waitAndContinueSpecification: { // WaitAndContinueSpecification
+ *       waitingResponse: { // ResponseSpecification
  *         messageGroups: [ // required
  *           {
  *             message: {
@@ -168,12 +168,7 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *               },
  *             },
  *             variations: [
- *               {
- *                 plainTextMessage: "<Message>",
- *                 customPayload: "<Message>",
- *                 ssmlMessage: "<Message>",
- *                 imageResponseCard: "<Message>",
- *               },
+ *               "<Message>",
  *             ],
  *           },
  *         ],
@@ -182,40 +177,20 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *       continueResponse: {
  *         messageGroups: [ // required
  *           {
- *             message: {
- *               plainTextMessage: "<Message>",
- *               customPayload: "<Message>",
- *               ssmlMessage: "<Message>",
- *               imageResponseCard: "<Message>",
- *             },
+ *             message: "<Message>", // required
  *             variations: [
- *               {
- *                 plainTextMessage: "<Message>",
- *                 customPayload: "<Message>",
- *                 ssmlMessage: "<Message>",
- *                 imageResponseCard: "<Message>",
- *               },
+ *               "<Message>",
  *             ],
  *           },
  *         ],
  *         allowInterrupt: true || false,
  *       },
- *       stillWaitingResponse: {
+ *       stillWaitingResponse: { // StillWaitingResponseSpecification
  *         messageGroups: [ // required
  *           {
- *             message: {
- *               plainTextMessage: "<Message>",
- *               customPayload: "<Message>",
- *               ssmlMessage: "<Message>",
- *               imageResponseCard: "<Message>",
- *             },
+ *             message: "<Message>", // required
  *             variations: [
- *               {
- *                 plainTextMessage: "<Message>",
- *                 customPayload: "<Message>",
- *                 ssmlMessage: "<Message>",
- *                 imageResponseCard: "<Message>",
- *               },
+ *               "<Message>",
  *             ],
  *           },
  *         ],
@@ -225,70 +200,56 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *       },
  *       active: true || false,
  *     },
- *     slotCaptureSetting: {
+ *     slotCaptureSetting: { // SlotCaptureSetting
  *       captureResponse: {
  *         messageGroups: [ // required
  *           {
- *             message: {
- *               plainTextMessage: "<Message>",
- *               customPayload: "<Message>",
- *               ssmlMessage: "<Message>",
- *               imageResponseCard: "<Message>",
- *             },
+ *             message: "<Message>", // required
  *             variations: [
- *               {
- *                 plainTextMessage: "<Message>",
- *                 customPayload: "<Message>",
- *                 ssmlMessage: "<Message>",
- *                 imageResponseCard: "<Message>",
- *               },
+ *               "<Message>",
  *             ],
  *           },
  *         ],
  *         allowInterrupt: true || false,
  *       },
- *       captureNextStep: {
- *         dialogAction: {
+ *       captureNextStep: { // DialogState
+ *         dialogAction: { // DialogAction
  *           type: "ElicitIntent" || "StartIntent" || "ElicitSlot" || "EvaluateConditional" || "InvokeDialogCodeHook" || "ConfirmIntent" || "FulfillIntent" || "CloseIntent" || "EndConversation", // required
  *           slotToElicit: "STRING_VALUE",
  *           suppressNextMessage: true || false,
  *         },
- *         intent: {
+ *         intent: { // IntentOverride
  *           name: "STRING_VALUE",
- *           slots: {
- *             "<keys>": {
+ *           slots: { // SlotValueOverrideMap
+ *             "<keys>": { // SlotValueOverride
  *               shape: "Scalar" || "List",
- *               value: {
+ *               value: { // SlotValue
  *                 interpretedValue: "STRING_VALUE",
  *               },
- *               values: [
+ *               values: [ // SlotValues
  *                 {
  *                   shape: "Scalar" || "List",
  *                   value: {
  *                     interpretedValue: "STRING_VALUE",
  *                   },
  *                   values: [
- *                     {
- *                       shape: "<SlotValueOverride>",
- *                       value: "<SlotValueOverride>",
- *                       values: "<SlotValueOverride>",
- *                     },
+ *                     "<SlotValueOverride>",
  *                   ],
  *                 },
  *               ],
  *             },
  *           },
  *         },
- *         sessionAttributes: {
+ *         sessionAttributes: { // StringMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
- *       captureConditional: {
+ *       captureConditional: { // ConditionalSpecification
  *         active: true || false, // required
- *         conditionalBranches: [ // required
- *           {
+ *         conditionalBranches: [ // ConditionalBranches // required
+ *           { // ConditionalBranch
  *             name: "STRING_VALUE", // required
- *             condition: {
+ *             condition: { // Condition
  *               expressionString: "STRING_VALUE", // required
  *             },
  *             nextStep: {
@@ -300,11 +261,7 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *               intent: {
  *                 name: "STRING_VALUE",
  *                 slots: {
- *                   "<keys>": {
- *                     shape: "<SlotValueOverride>",
- *                     value: "<SlotValueOverride>",
- *                     values: "<SlotValueOverride>",
- *                   },
+ *                   "<keys>": "<SlotValueOverride>",
  *                 },
  *               },
  *               sessionAttributes: {
@@ -312,34 +269,18 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *               },
  *             },
  *             response: {
- *               messageGroups: [ // required
- *                 "<MessageGroupsList>",
- *               ],
+ *               messageGroups: "<MessageGroupsList>", // required
  *               allowInterrupt: true || false,
  *             },
  *           },
  *         ],
- *         defaultBranch: {
- *           nextStep: {
- *             dialogAction: "<DialogState>",
- *             intent: "<DialogState>",
- *             sessionAttributes: "<DialogState>",
- *           },
- *           response: {
- *             messageGroups: "<ResponseSpecification>",
- *             allowInterrupt: "<ResponseSpecification>",
- *           },
+ *         defaultBranch: { // DefaultConditionalBranch
+ *           nextStep: "<DialogState>",
+ *           response: "<ResponseSpecification>",
  *         },
  *       },
- *       failureResponse: {
- *         messageGroups: "<ResponseSpecification>",
- *         allowInterrupt: "<ResponseSpecification>",
- *       },
- *       failureNextStep: {
- *         dialogAction: "<DialogState>",
- *         intent: "<DialogState>",
- *         sessionAttributes: "<DialogState>",
- *       },
+ *       failureResponse: "<ResponseSpecification>",
+ *       failureNextStep: "<DialogState>",
  *       failureConditional: {
  *         active: true || false, // required
  *         conditionalBranches: [ // required
@@ -348,43 +289,22 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *             condition: {
  *               expressionString: "STRING_VALUE", // required
  *             },
- *             nextStep: {
- *               dialogAction: "<DialogState>",
- *               intent: "<DialogState>",
- *               sessionAttributes: "<DialogState>",
- *             },
- *             response: {
- *               messageGroups: "<ResponseSpecification>",
- *               allowInterrupt: "<ResponseSpecification>",
- *             },
+ *             nextStep: "<DialogState>", // required
+ *             response: "<ResponseSpecification>",
  *           },
  *         ],
  *         defaultBranch: {
- *           nextStep: {
- *             dialogAction: "<DialogState>",
- *             intent: "<DialogState>",
- *             sessionAttributes: "<DialogState>",
- *           },
- *           response: {
- *             messageGroups: "<ResponseSpecification>",
- *             allowInterrupt: "<ResponseSpecification>",
- *           },
+ *           nextStep: "<DialogState>",
+ *           response: "<ResponseSpecification>",
  *         },
  *       },
- *       codeHook: {
+ *       codeHook: { // DialogCodeHookInvocationSetting
  *         enableCodeHookInvocation: true || false, // required
  *         active: true || false, // required
  *         invocationLabel: "STRING_VALUE",
- *         postCodeHookSpecification: {
- *           successResponse: {
- *             messageGroups: "<ResponseSpecification>",
- *             allowInterrupt: "<ResponseSpecification>",
- *           },
- *           successNextStep: {
- *             dialogAction: "<DialogState>",
- *             intent: "<DialogState>",
- *             sessionAttributes: "<DialogState>",
- *           },
+ *         postCodeHookSpecification: { // PostDialogCodeHookInvocationSpecification
+ *           successResponse: "<ResponseSpecification>",
+ *           successNextStep: "<DialogState>",
  *           successConditional: {
  *             active: true || false, // required
  *             conditionalBranches: [ // required
@@ -393,38 +313,17 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *                 condition: {
  *                   expressionString: "STRING_VALUE", // required
  *                 },
- *                 nextStep: {
- *                   dialogAction: "<DialogState>",
- *                   intent: "<DialogState>",
- *                   sessionAttributes: "<DialogState>",
- *                 },
- *                 response: {
- *                   messageGroups: "<ResponseSpecification>",
- *                   allowInterrupt: "<ResponseSpecification>",
- *                 },
+ *                 nextStep: "<DialogState>", // required
+ *                 response: "<ResponseSpecification>",
  *               },
  *             ],
  *             defaultBranch: {
- *               nextStep: {
- *                 dialogAction: "<DialogState>",
- *                 intent: "<DialogState>",
- *                 sessionAttributes: "<DialogState>",
- *               },
- *               response: {
- *                 messageGroups: "<ResponseSpecification>",
- *                 allowInterrupt: "<ResponseSpecification>",
- *               },
+ *               nextStep: "<DialogState>",
+ *               response: "<ResponseSpecification>",
  *             },
  *           },
- *           failureResponse: {
- *             messageGroups: "<ResponseSpecification>",
- *             allowInterrupt: "<ResponseSpecification>",
- *           },
- *           failureNextStep: {
- *             dialogAction: "<DialogState>",
- *             intent: "<DialogState>",
- *             sessionAttributes: "<DialogState>",
- *           },
+ *           failureResponse: "<ResponseSpecification>",
+ *           failureNextStep: "<DialogState>",
  *           failureConditional: {
  *             active: true || false, // required
  *             conditionalBranches: [ // required
@@ -433,38 +332,17 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *                 condition: {
  *                   expressionString: "STRING_VALUE", // required
  *                 },
- *                 nextStep: {
- *                   dialogAction: "<DialogState>",
- *                   intent: "<DialogState>",
- *                   sessionAttributes: "<DialogState>",
- *                 },
- *                 response: {
- *                   messageGroups: "<ResponseSpecification>",
- *                   allowInterrupt: "<ResponseSpecification>",
- *                 },
+ *                 nextStep: "<DialogState>", // required
+ *                 response: "<ResponseSpecification>",
  *               },
  *             ],
  *             defaultBranch: {
- *               nextStep: {
- *                 dialogAction: "<DialogState>",
- *                 intent: "<DialogState>",
- *                 sessionAttributes: "<DialogState>",
- *               },
- *               response: {
- *                 messageGroups: "<ResponseSpecification>",
- *                 allowInterrupt: "<ResponseSpecification>",
- *               },
+ *               nextStep: "<DialogState>",
+ *               response: "<ResponseSpecification>",
  *             },
  *           },
- *           timeoutResponse: {
- *             messageGroups: "<ResponseSpecification>",
- *             allowInterrupt: "<ResponseSpecification>",
- *           },
- *           timeoutNextStep: {
- *             dialogAction: "<DialogState>",
- *             intent: "<DialogState>",
- *             sessionAttributes: "<DialogState>",
- *           },
+ *           timeoutResponse: "<ResponseSpecification>",
+ *           timeoutNextStep: "<DialogState>",
  *           timeoutConditional: {
  *             active: true || false, // required
  *             conditionalBranches: [ // required
@@ -473,53 +351,39 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *                 condition: {
  *                   expressionString: "STRING_VALUE", // required
  *                 },
- *                 nextStep: {
- *                   dialogAction: "<DialogState>",
- *                   intent: "<DialogState>",
- *                   sessionAttributes: "<DialogState>",
- *                 },
- *                 response: {
- *                   messageGroups: "<ResponseSpecification>",
- *                   allowInterrupt: "<ResponseSpecification>",
- *                 },
+ *                 nextStep: "<DialogState>", // required
+ *                 response: "<ResponseSpecification>",
  *               },
  *             ],
  *             defaultBranch: {
- *               nextStep: {
- *                 dialogAction: "<DialogState>",
- *                 intent: "<DialogState>",
- *                 sessionAttributes: "<DialogState>",
- *               },
- *               response: {
- *                 messageGroups: "<ResponseSpecification>",
- *                 allowInterrupt: "<ResponseSpecification>",
- *               },
+ *               nextStep: "<DialogState>",
+ *               response: "<ResponseSpecification>",
  *             },
  *           },
  *         },
  *       },
- *       elicitationCodeHook: {
+ *       elicitationCodeHook: { // ElicitationCodeHookInvocationSetting
  *         enableCodeHookInvocation: true || false, // required
  *         invocationLabel: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   obfuscationSetting: {
+ *   obfuscationSetting: { // ObfuscationSetting
  *     obfuscationSettingType: "None" || "DefaultObfuscation", // required
  *   },
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE", // required
  *   intentId: "STRING_VALUE", // required
- *   multipleValuesSetting: {
+ *   multipleValuesSetting: { // MultipleValuesSetting
  *     allowMultipleValues: true || false,
  *   },
- *   subSlotSetting: {
+ *   subSlotSetting: { // SubSlotSetting
  *     expression: "STRING_VALUE",
- *     slotSpecifications: {
- *       "<keys>": {
+ *     slotSpecifications: { // SubSlotSpecificationMap
+ *       "<keys>": { // Specifications
  *         slotTypeId: "STRING_VALUE", // required
- *         valueElicitationSetting: {
+ *         valueElicitationSetting: { // SubSlotValueElicitationSetting
  *           defaultValueSpecification: {
  *             defaultValueList: [ // required
  *               {
@@ -528,9 +392,7 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *             ],
  *           },
  *           promptSpecification: {
- *             messageGroups: [ // required
- *               "<MessageGroupsList>",
- *             ],
+ *             messageGroups: "<MessageGroupsList>", // required
  *             maxRetries: Number("int"), // required
  *             allowInterrupt: true || false,
  *             messageSelectionStrategy: "Random" || "Ordered",
@@ -566,18 +428,10 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *             },
  *           ],
  *           waitAndContinueSpecification: {
- *             waitingResponse: {
- *               messageGroups: "<ResponseSpecification>",
- *               allowInterrupt: "<ResponseSpecification>",
- *             },
- *             continueResponse: {
- *               messageGroups: "<ResponseSpecification>",
- *               allowInterrupt: "<ResponseSpecification>",
- *             },
+ *             waitingResponse: "<ResponseSpecification>", // required
+ *             continueResponse: "<ResponseSpecification>", // required
  *             stillWaitingResponse: {
- *               messageGroups: [ // required
- *                 "<MessageGroupsList>",
- *               ],
+ *               messageGroups: "<MessageGroupsList>", // required
  *               frequencyInSeconds: Number("int"), // required
  *               timeoutInSeconds: Number("int"), // required
  *               allowInterrupt: true || false,

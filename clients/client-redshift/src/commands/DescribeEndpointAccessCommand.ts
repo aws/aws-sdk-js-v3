@@ -42,7 +42,7 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * import { RedshiftClient, DescribeEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeEndpointAccessMessage
  *   ClusterIdentifier: "STRING_VALUE",
  *   ResourceOwner: "STRING_VALUE",
  *   EndpointName: "STRING_VALUE",

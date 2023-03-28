@@ -54,14 +54,14 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * import { ApplicationDiscoveryServiceClient, StartExportTaskCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartExportTaskCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
- *   exportDataFormat: [
+ * const input = { // StartExportTaskRequest
+ *   exportDataFormat: [ // ExportDataFormats
  *     "CSV" || "GRAPHML",
  *   ],
- *   filters: [
- *     {
+ *   filters: [ // ExportFilters
+ *     { // ExportFilter
  *       name: "STRING_VALUE", // required
- *       values: [ // required
+ *       values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       condition: "STRING_VALUE", // required

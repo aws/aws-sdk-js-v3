@@ -61,7 +61,7 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  * import { Route53ResolverClient, DisassociateResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DisassociateResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // DisassociateResolverQueryLogConfigRequest
  *   ResolverQueryLogConfigId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  * };

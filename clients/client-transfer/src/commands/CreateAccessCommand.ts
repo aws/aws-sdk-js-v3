@@ -47,20 +47,20 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  * import { TransferClient, CreateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // CreateAccessRequest
  *   HomeDirectory: "STRING_VALUE",
  *   HomeDirectoryType: "PATH" || "LOGICAL",
- *   HomeDirectoryMappings: [
- *     {
+ *   HomeDirectoryMappings: [ // HomeDirectoryMappings
+ *     { // HomeDirectoryMapEntry
  *       Entry: "STRING_VALUE", // required
  *       Target: "STRING_VALUE", // required
  *     },
  *   ],
  *   Policy: "STRING_VALUE",
- *   PosixProfile: {
+ *   PosixProfile: { // PosixProfile
  *     Uid: Number("long"), // required
  *     Gid: Number("long"), // required
- *     SecondaryGids: [
+ *     SecondaryGids: [ // SecondaryGids
  *       Number("long"),
  *     ],
  *   },

@@ -42,7 +42,7 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * import { ServiceCatalogClient, DeleteServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DeleteServiceActionInput
  *   Id: "STRING_VALUE", // required
  *   AcceptLanguage: "STRING_VALUE",
  * };

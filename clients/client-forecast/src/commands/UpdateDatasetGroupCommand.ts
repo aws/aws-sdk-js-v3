@@ -47,9 +47,9 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  * import { ForecastClient, UpdateDatasetGroupCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, UpdateDatasetGroupCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // UpdateDatasetGroupRequest
  *   DatasetGroupArn: "STRING_VALUE", // required
- *   DatasetArns: [ // required
+ *   DatasetArns: [ // ArnList // required
  *     "STRING_VALUE",
  *   ],
  * };

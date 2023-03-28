@@ -42,7 +42,7 @@ export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput,
  * import { BackupClient, DescribeBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DescribeBackupJobInput
  *   BackupJobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeBackupJobCommand(input);

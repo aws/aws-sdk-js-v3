@@ -42,18 +42,18 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  * import { IoTTwinMakerClient, CreateSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // CreateSceneRequest
  *   workspaceId: "STRING_VALUE", // required
  *   sceneId: "STRING_VALUE", // required
  *   contentLocation: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   capabilities: [
+ *   capabilities: [ // SceneCapabilities
  *     "STRING_VALUE",
  *   ],
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   sceneMetadata: {
+ *   sceneMetadata: { // SceneMetadataMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

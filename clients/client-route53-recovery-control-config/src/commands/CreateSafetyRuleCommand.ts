@@ -46,14 +46,14 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * import { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
- * const input = {
- *   AssertionRule: {
- *     AssertedControls: [ // required
+ * const input = { // CreateSafetyRuleRequest
+ *   AssertionRule: { // NewAssertionRule
+ *     AssertedControls: [ // __listOf__stringMin1Max256PatternAZaZ09 // required
  *       "STRING_VALUE",
  *     ],
  *     ControlPanelArn: "STRING_VALUE", // required
  *     Name: "STRING_VALUE", // required
- *     RuleConfig: {
+ *     RuleConfig: { // RuleConfig
  *       Inverted: true || false, // required
  *       Threshold: Number("int"), // required
  *       Type: "ATLEAST" || "AND" || "OR", // required
@@ -61,7 +61,7 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  *     WaitPeriodMs: Number("int"), // required
  *   },
  *   ClientToken: "STRING_VALUE",
- *   GatingRule: {
+ *   GatingRule: { // NewGatingRule
  *     ControlPanelArn: "STRING_VALUE", // required
  *     GatingControls: [ // required
  *       "STRING_VALUE",
@@ -77,7 +77,7 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  *     ],
  *     WaitPeriodMs: Number("int"), // required
  *   },
- *   Tags: {
+ *   Tags: { // __mapOf__stringMin0Max256PatternS
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

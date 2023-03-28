@@ -42,10 +42,10 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * import { GlueClient, GetConnectionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetConnectionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetConnectionsRequest
  *   CatalogId: "STRING_VALUE",
- *   Filter: {
- *     MatchCriteria: [
+ *   Filter: { // GetConnectionsFilter
+ *     MatchCriteria: [ // MatchCriteria
  *       "STRING_VALUE",
  *     ],
  *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM",

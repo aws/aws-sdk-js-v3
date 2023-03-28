@@ -42,9 +42,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * import { FraudDetectorClient, UntagResourceCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UntagResourceCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   resourceARN: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // tagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

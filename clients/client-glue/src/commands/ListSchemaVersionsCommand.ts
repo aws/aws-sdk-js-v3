@@ -42,8 +42,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * import { GlueClient, ListSchemaVersionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListSchemaVersionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   SchemaId: {
+ * const input = { // ListSchemaVersionsInput
+ *   SchemaId: { // SchemaId
  *     SchemaArn: "STRING_VALUE",
  *     SchemaName: "STRING_VALUE",
  *     RegistryName: "STRING_VALUE",

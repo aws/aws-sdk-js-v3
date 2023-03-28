@@ -42,18 +42,18 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * import { AmplifyUIBuilderClient, CreateComponentCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, CreateComponentCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
- * const input = {
+ * const input = { // CreateComponentRequest
  *   appId: "STRING_VALUE", // required
  *   environmentName: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   componentToCreate: {
+ *   componentToCreate: { // CreateComponentData
  *     name: "STRING_VALUE", // required
  *     sourceId: "STRING_VALUE",
  *     componentType: "STRING_VALUE", // required
- *     properties: { // required
- *       "<keys>": {
+ *     properties: { // ComponentProperties // required
+ *       "<keys>": { // ComponentProperty
  *         value: "STRING_VALUE",
- *         bindingProperties: {
+ *         bindingProperties: { // ComponentPropertyBindingProperties
  *           property: "STRING_VALUE", // required
  *           field: "STRING_VALUE",
  *         },
@@ -63,15 +63,15 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *         },
  *         defaultValue: "STRING_VALUE",
  *         model: "STRING_VALUE",
- *         bindings: {
- *           "<keys>": {
+ *         bindings: { // FormBindings
+ *           "<keys>": { // FormBindingElement
  *             element: "STRING_VALUE", // required
  *             property: "STRING_VALUE", // required
  *           },
  *         },
  *         event: "STRING_VALUE",
  *         userAttribute: "STRING_VALUE",
- *         concat: [
+ *         concat: [ // ComponentPropertyList
  *           {
  *             value: "STRING_VALUE",
  *             bindingProperties: {
@@ -93,283 +93,69 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *             event: "STRING_VALUE",
  *             userAttribute: "STRING_VALUE",
  *             concat: [
- *               {
- *                 value: "<ComponentProperty>",
- *                 bindingProperties: "<ComponentProperty>",
- *                 collectionBindingProperties: "<ComponentProperty>",
- *                 defaultValue: "<ComponentProperty>",
- *                 model: "<ComponentProperty>",
- *                 bindings: "<ComponentProperty>",
- *                 event: "<ComponentProperty>",
- *                 userAttribute: "<ComponentProperty>",
- *                 concat: "<ComponentProperty>",
- *                 condition: {
- *                   property: "STRING_VALUE",
- *                   field: "STRING_VALUE",
- *                   operator: "STRING_VALUE",
- *                   operand: "STRING_VALUE",
- *                   then: {
- *                     value: "<ComponentProperty>",
- *                     bindingProperties: "<ComponentProperty>",
- *                     collectionBindingProperties: "<ComponentProperty>",
- *                     defaultValue: "<ComponentProperty>",
- *                     model: "<ComponentProperty>",
- *                     bindings: "<ComponentProperty>",
- *                     event: "<ComponentProperty>",
- *                     userAttribute: "<ComponentProperty>",
- *                     concat: "<ComponentProperty>",
- *                     condition: {
- *                       property: "STRING_VALUE",
- *                       field: "STRING_VALUE",
- *                       operator: "STRING_VALUE",
- *                       operand: "STRING_VALUE",
- *                       then: {
- *                         value: "<ComponentProperty>",
- *                         bindingProperties: "<ComponentProperty>",
- *                         collectionBindingProperties: "<ComponentProperty>",
- *                         defaultValue: "<ComponentProperty>",
- *                         model: "<ComponentProperty>",
- *                         bindings: "<ComponentProperty>",
- *                         event: "<ComponentProperty>",
- *                         userAttribute: "<ComponentProperty>",
- *                         concat: "<ComponentProperty>",
- *                         condition: "<ComponentProperty>",
- *                         configured: true || false,
- *                         type: "STRING_VALUE",
- *                         importedValue: "STRING_VALUE",
- *                         componentName: "STRING_VALUE",
- *                         property: "STRING_VALUE",
- *                       },
- *                       else: {
- *                         value: "<ComponentProperty>",
- *                         bindingProperties: "<ComponentProperty>",
- *                         collectionBindingProperties: "<ComponentProperty>",
- *                         defaultValue: "<ComponentProperty>",
- *                         model: "<ComponentProperty>",
- *                         bindings: "<ComponentProperty>",
- *                         event: "<ComponentProperty>",
- *                         userAttribute: "<ComponentProperty>",
- *                         concat: "<ComponentProperty>",
- *                         condition: "<ComponentProperty>",
- *                         configured: true || false,
- *                         type: "STRING_VALUE",
- *                         importedValue: "STRING_VALUE",
- *                         componentName: "STRING_VALUE",
- *                         property: "STRING_VALUE",
- *                       },
- *                       operandType: "STRING_VALUE",
- *                     },
- *                     configured: true || false,
- *                     type: "STRING_VALUE",
- *                     importedValue: "STRING_VALUE",
- *                     componentName: "STRING_VALUE",
- *                     property: "STRING_VALUE",
- *                   },
- *                   else: {
- *                     value: "<ComponentProperty>",
- *                     bindingProperties: "<ComponentProperty>",
- *                     collectionBindingProperties: "<ComponentProperty>",
- *                     defaultValue: "<ComponentProperty>",
- *                     model: "<ComponentProperty>",
- *                     bindings: "<ComponentProperty>",
- *                     event: "<ComponentProperty>",
- *                     userAttribute: "<ComponentProperty>",
- *                     concat: "<ComponentProperty>",
- *                     condition: "<ComponentProperty>",
- *                     configured: true || false,
- *                     type: "STRING_VALUE",
- *                     importedValue: "STRING_VALUE",
- *                     componentName: "STRING_VALUE",
- *                     property: "STRING_VALUE",
- *                   },
- *                   operandType: "STRING_VALUE",
- *                 },
- *                 configured: "<ComponentProperty>",
- *                 type: "<ComponentProperty>",
- *                 importedValue: "<ComponentProperty>",
- *                 componentName: "<ComponentProperty>",
- *                 property: "<ComponentProperty>",
- *               },
+ *               "<ComponentProperty>",
  *             ],
- *             condition: "<ComponentProperty>",
- *             configured: "<ComponentProperty>",
- *             type: "<ComponentProperty>",
- *             importedValue: "<ComponentProperty>",
- *             componentName: "<ComponentProperty>",
- *             property: "<ComponentProperty>",
+ *             condition: { // ComponentConditionProperty
+ *               property: "STRING_VALUE",
+ *               field: "STRING_VALUE",
+ *               operator: "STRING_VALUE",
+ *               operand: "STRING_VALUE",
+ *               then: "<ComponentProperty>",
+ *               else: "<ComponentProperty>",
+ *               operandType: "STRING_VALUE",
+ *             },
+ *             configured: true || false,
+ *             type: "STRING_VALUE",
+ *             importedValue: "STRING_VALUE",
+ *             componentName: "STRING_VALUE",
+ *             property: "STRING_VALUE",
  *           },
  *         ],
- *         condition: "<ComponentProperty>",
- *         configured: "<ComponentProperty>",
- *         type: "<ComponentProperty>",
- *         importedValue: "<ComponentProperty>",
- *         componentName: "<ComponentProperty>",
- *         property: "<ComponentProperty>",
+ *         condition: {
+ *           property: "STRING_VALUE",
+ *           field: "STRING_VALUE",
+ *           operator: "STRING_VALUE",
+ *           operand: "STRING_VALUE",
+ *           then: "<ComponentProperty>",
+ *           else: "<ComponentProperty>",
+ *           operandType: "STRING_VALUE",
+ *         },
+ *         configured: true || false,
+ *         type: "STRING_VALUE",
+ *         importedValue: "STRING_VALUE",
+ *         componentName: "STRING_VALUE",
+ *         property: "STRING_VALUE",
  *       },
  *     },
- *     children: [
- *       {
+ *     children: [ // ComponentChildList
+ *       { // ComponentChild
  *         componentType: "STRING_VALUE", // required
  *         name: "STRING_VALUE", // required
  *         properties: { // required
- *           "<keys>": {
- *             value: "<ComponentProperty>",
- *             bindingProperties: "<ComponentProperty>",
- *             collectionBindingProperties: "<ComponentProperty>",
- *             defaultValue: "<ComponentProperty>",
- *             model: "<ComponentProperty>",
- *             bindings: "<ComponentProperty>",
- *             event: "<ComponentProperty>",
- *             userAttribute: "<ComponentProperty>",
- *             concat: "<ComponentProperty>",
- *             condition: "<ComponentProperty>",
- *             configured: "<ComponentProperty>",
- *             type: "<ComponentProperty>",
- *             importedValue: "<ComponentProperty>",
- *             componentName: "<ComponentProperty>",
- *             property: "<ComponentProperty>",
- *           },
+ *           "<keys>": "<ComponentProperty>",
  *         },
  *         children: [
  *           {
  *             componentType: "STRING_VALUE", // required
  *             name: "STRING_VALUE", // required
- *             properties: { // required
- *               "<keys>": "<ComponentProperty>",
- *             },
- *             children: [
- *               "<ComponentChildList>",
- *             ],
- *             events: {
- *               "<keys>": {
+ *             properties: "<ComponentProperties>", // required
+ *             children: "<ComponentChildList>",
+ *             events: { // ComponentEvents
+ *               "<keys>": { // ComponentEvent
  *                 action: "STRING_VALUE",
- *                 parameters: {
- *                   type: {
- *                     value: "<ComponentProperty>",
- *                     bindingProperties: "<ComponentProperty>",
- *                     collectionBindingProperties: "<ComponentProperty>",
- *                     defaultValue: "<ComponentProperty>",
- *                     model: "<ComponentProperty>",
- *                     bindings: "<ComponentProperty>",
- *                     event: "<ComponentProperty>",
- *                     userAttribute: "<ComponentProperty>",
- *                     concat: "<ComponentProperty>",
- *                     condition: "<ComponentProperty>",
- *                     configured: "<ComponentProperty>",
- *                     type: "<ComponentProperty>",
- *                     importedValue: "<ComponentProperty>",
- *                     componentName: "<ComponentProperty>",
- *                     property: "<ComponentProperty>",
- *                   },
- *                   url: {
- *                     value: "<ComponentProperty>",
- *                     bindingProperties: "<ComponentProperty>",
- *                     collectionBindingProperties: "<ComponentProperty>",
- *                     defaultValue: "<ComponentProperty>",
- *                     model: "<ComponentProperty>",
- *                     bindings: "<ComponentProperty>",
- *                     event: "<ComponentProperty>",
- *                     userAttribute: "<ComponentProperty>",
- *                     concat: "<ComponentProperty>",
- *                     condition: "<ComponentProperty>",
- *                     configured: "<ComponentProperty>",
- *                     type: "<ComponentProperty>",
- *                     importedValue: "<ComponentProperty>",
- *                     componentName: "<ComponentProperty>",
- *                     property: "<ComponentProperty>",
- *                   },
- *                   anchor: {
- *                     value: "<ComponentProperty>",
- *                     bindingProperties: "<ComponentProperty>",
- *                     collectionBindingProperties: "<ComponentProperty>",
- *                     defaultValue: "<ComponentProperty>",
- *                     model: "<ComponentProperty>",
- *                     bindings: "<ComponentProperty>",
- *                     event: "<ComponentProperty>",
- *                     userAttribute: "<ComponentProperty>",
- *                     concat: "<ComponentProperty>",
- *                     condition: "<ComponentProperty>",
- *                     configured: "<ComponentProperty>",
- *                     type: "<ComponentProperty>",
- *                     importedValue: "<ComponentProperty>",
- *                     componentName: "<ComponentProperty>",
- *                     property: "<ComponentProperty>",
- *                   },
- *                   target: {
- *                     value: "<ComponentProperty>",
- *                     bindingProperties: "<ComponentProperty>",
- *                     collectionBindingProperties: "<ComponentProperty>",
- *                     defaultValue: "<ComponentProperty>",
- *                     model: "<ComponentProperty>",
- *                     bindings: "<ComponentProperty>",
- *                     event: "<ComponentProperty>",
- *                     userAttribute: "<ComponentProperty>",
- *                     concat: "<ComponentProperty>",
- *                     condition: "<ComponentProperty>",
- *                     configured: "<ComponentProperty>",
- *                     type: "<ComponentProperty>",
- *                     importedValue: "<ComponentProperty>",
- *                     componentName: "<ComponentProperty>",
- *                     property: "<ComponentProperty>",
- *                   },
- *                   global: {
- *                     value: "<ComponentProperty>",
- *                     bindingProperties: "<ComponentProperty>",
- *                     collectionBindingProperties: "<ComponentProperty>",
- *                     defaultValue: "<ComponentProperty>",
- *                     model: "<ComponentProperty>",
- *                     bindings: "<ComponentProperty>",
- *                     event: "<ComponentProperty>",
- *                     userAttribute: "<ComponentProperty>",
- *                     concat: "<ComponentProperty>",
- *                     condition: "<ComponentProperty>",
- *                     configured: "<ComponentProperty>",
- *                     type: "<ComponentProperty>",
- *                     importedValue: "<ComponentProperty>",
- *                     componentName: "<ComponentProperty>",
- *                     property: "<ComponentProperty>",
- *                   },
+ *                 parameters: { // ActionParameters
+ *                   type: "<ComponentProperty>",
+ *                   url: "<ComponentProperty>",
+ *                   anchor: "<ComponentProperty>",
+ *                   target: "<ComponentProperty>",
+ *                   global: "<ComponentProperty>",
  *                   model: "STRING_VALUE",
- *                   id: {
- *                     value: "<ComponentProperty>",
- *                     bindingProperties: "<ComponentProperty>",
- *                     collectionBindingProperties: "<ComponentProperty>",
- *                     defaultValue: "<ComponentProperty>",
- *                     model: "<ComponentProperty>",
- *                     bindings: "<ComponentProperty>",
- *                     event: "<ComponentProperty>",
- *                     userAttribute: "<ComponentProperty>",
- *                     concat: "<ComponentProperty>",
- *                     condition: "<ComponentProperty>",
- *                     configured: "<ComponentProperty>",
- *                     type: "<ComponentProperty>",
- *                     importedValue: "<ComponentProperty>",
- *                     componentName: "<ComponentProperty>",
- *                     property: "<ComponentProperty>",
- *                   },
- *                   fields: {
- *                     "<keys>": "<ComponentProperty>",
- *                   },
- *                   state: {
+ *                   id: "<ComponentProperty>",
+ *                   fields: "<ComponentProperties>",
+ *                   state: { // MutationActionSetStateParameter
  *                     componentName: "STRING_VALUE", // required
  *                     property: "STRING_VALUE", // required
- *                     set: {
- *                       value: "<ComponentProperty>",
- *                       bindingProperties: "<ComponentProperty>",
- *                       collectionBindingProperties: "<ComponentProperty>",
- *                       defaultValue: "<ComponentProperty>",
- *                       model: "<ComponentProperty>",
- *                       bindings: "<ComponentProperty>",
- *                       event: "<ComponentProperty>",
- *                       userAttribute: "<ComponentProperty>",
- *                       concat: "<ComponentProperty>",
- *                       condition: "<ComponentProperty>",
- *                       configured: "<ComponentProperty>",
- *                       type: "<ComponentProperty>",
- *                       importedValue: "<ComponentProperty>",
- *                       componentName: "<ComponentProperty>",
- *                       property: "<ComponentProperty>",
- *                     },
+ *                     set: "<ComponentProperty>", // required
  *                   },
  *                 },
  *                 bindingEvent: "STRING_VALUE",
@@ -382,132 +168,18 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *           "<keys>": {
  *             action: "STRING_VALUE",
  *             parameters: {
- *               type: {
- *                 value: "<ComponentProperty>",
- *                 bindingProperties: "<ComponentProperty>",
- *                 collectionBindingProperties: "<ComponentProperty>",
- *                 defaultValue: "<ComponentProperty>",
- *                 model: "<ComponentProperty>",
- *                 bindings: "<ComponentProperty>",
- *                 event: "<ComponentProperty>",
- *                 userAttribute: "<ComponentProperty>",
- *                 concat: "<ComponentProperty>",
- *                 condition: "<ComponentProperty>",
- *                 configured: "<ComponentProperty>",
- *                 type: "<ComponentProperty>",
- *                 importedValue: "<ComponentProperty>",
- *                 componentName: "<ComponentProperty>",
- *                 property: "<ComponentProperty>",
- *               },
- *               url: {
- *                 value: "<ComponentProperty>",
- *                 bindingProperties: "<ComponentProperty>",
- *                 collectionBindingProperties: "<ComponentProperty>",
- *                 defaultValue: "<ComponentProperty>",
- *                 model: "<ComponentProperty>",
- *                 bindings: "<ComponentProperty>",
- *                 event: "<ComponentProperty>",
- *                 userAttribute: "<ComponentProperty>",
- *                 concat: "<ComponentProperty>",
- *                 condition: "<ComponentProperty>",
- *                 configured: "<ComponentProperty>",
- *                 type: "<ComponentProperty>",
- *                 importedValue: "<ComponentProperty>",
- *                 componentName: "<ComponentProperty>",
- *                 property: "<ComponentProperty>",
- *               },
- *               anchor: {
- *                 value: "<ComponentProperty>",
- *                 bindingProperties: "<ComponentProperty>",
- *                 collectionBindingProperties: "<ComponentProperty>",
- *                 defaultValue: "<ComponentProperty>",
- *                 model: "<ComponentProperty>",
- *                 bindings: "<ComponentProperty>",
- *                 event: "<ComponentProperty>",
- *                 userAttribute: "<ComponentProperty>",
- *                 concat: "<ComponentProperty>",
- *                 condition: "<ComponentProperty>",
- *                 configured: "<ComponentProperty>",
- *                 type: "<ComponentProperty>",
- *                 importedValue: "<ComponentProperty>",
- *                 componentName: "<ComponentProperty>",
- *                 property: "<ComponentProperty>",
- *               },
- *               target: {
- *                 value: "<ComponentProperty>",
- *                 bindingProperties: "<ComponentProperty>",
- *                 collectionBindingProperties: "<ComponentProperty>",
- *                 defaultValue: "<ComponentProperty>",
- *                 model: "<ComponentProperty>",
- *                 bindings: "<ComponentProperty>",
- *                 event: "<ComponentProperty>",
- *                 userAttribute: "<ComponentProperty>",
- *                 concat: "<ComponentProperty>",
- *                 condition: "<ComponentProperty>",
- *                 configured: "<ComponentProperty>",
- *                 type: "<ComponentProperty>",
- *                 importedValue: "<ComponentProperty>",
- *                 componentName: "<ComponentProperty>",
- *                 property: "<ComponentProperty>",
- *               },
- *               global: {
- *                 value: "<ComponentProperty>",
- *                 bindingProperties: "<ComponentProperty>",
- *                 collectionBindingProperties: "<ComponentProperty>",
- *                 defaultValue: "<ComponentProperty>",
- *                 model: "<ComponentProperty>",
- *                 bindings: "<ComponentProperty>",
- *                 event: "<ComponentProperty>",
- *                 userAttribute: "<ComponentProperty>",
- *                 concat: "<ComponentProperty>",
- *                 condition: "<ComponentProperty>",
- *                 configured: "<ComponentProperty>",
- *                 type: "<ComponentProperty>",
- *                 importedValue: "<ComponentProperty>",
- *                 componentName: "<ComponentProperty>",
- *                 property: "<ComponentProperty>",
- *               },
+ *               type: "<ComponentProperty>",
+ *               url: "<ComponentProperty>",
+ *               anchor: "<ComponentProperty>",
+ *               target: "<ComponentProperty>",
+ *               global: "<ComponentProperty>",
  *               model: "STRING_VALUE",
- *               id: {
- *                 value: "<ComponentProperty>",
- *                 bindingProperties: "<ComponentProperty>",
- *                 collectionBindingProperties: "<ComponentProperty>",
- *                 defaultValue: "<ComponentProperty>",
- *                 model: "<ComponentProperty>",
- *                 bindings: "<ComponentProperty>",
- *                 event: "<ComponentProperty>",
- *                 userAttribute: "<ComponentProperty>",
- *                 concat: "<ComponentProperty>",
- *                 condition: "<ComponentProperty>",
- *                 configured: "<ComponentProperty>",
- *                 type: "<ComponentProperty>",
- *                 importedValue: "<ComponentProperty>",
- *                 componentName: "<ComponentProperty>",
- *                 property: "<ComponentProperty>",
- *               },
- *               fields: {
- *                 "<keys>": "<ComponentProperty>",
- *               },
+ *               id: "<ComponentProperty>",
+ *               fields: "<ComponentProperties>",
  *               state: {
  *                 componentName: "STRING_VALUE", // required
  *                 property: "STRING_VALUE", // required
- *                 set: {
- *                   value: "<ComponentProperty>",
- *                   bindingProperties: "<ComponentProperty>",
- *                   collectionBindingProperties: "<ComponentProperty>",
- *                   defaultValue: "<ComponentProperty>",
- *                   model: "<ComponentProperty>",
- *                   bindings: "<ComponentProperty>",
- *                   event: "<ComponentProperty>",
- *                   userAttribute: "<ComponentProperty>",
- *                   concat: "<ComponentProperty>",
- *                   condition: "<ComponentProperty>",
- *                   configured: "<ComponentProperty>",
- *                   type: "<ComponentProperty>",
- *                   importedValue: "<ComponentProperty>",
- *                   componentName: "<ComponentProperty>",
- *                   property: "<ComponentProperty>",
- *                 },
+ *                 set: "<ComponentProperty>", // required
  *               },
  *             },
  *             bindingEvent: "STRING_VALUE",
@@ -516,13 +188,13 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *         sourceId: "STRING_VALUE",
  *       },
  *     ],
- *     variants: [ // required
- *       {
- *         variantValues: {
+ *     variants: [ // ComponentVariants // required
+ *       { // ComponentVariant
+ *         variantValues: { // ComponentVariantValues
  *           "<keys>": "STRING_VALUE",
  *         },
- *         overrides: {
- *           "<keys>": {
+ *         overrides: { // ComponentOverrides
+ *           "<keys>": { // ComponentOverridesValue
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
@@ -530,33 +202,27 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *     ],
  *     overrides: { // required
  *       "<keys>": {
- *         "<keys>": "<String>",
+ *         "<keys>": "STRING_VALUE",
  *       },
  *     },
- *     bindingProperties: { // required
- *       "<keys>": {
+ *     bindingProperties: { // ComponentBindingProperties // required
+ *       "<keys>": { // ComponentBindingPropertiesValue
  *         type: "STRING_VALUE",
- *         bindingProperties: {
+ *         bindingProperties: { // ComponentBindingPropertiesValueProperties
  *           model: "STRING_VALUE",
  *           field: "STRING_VALUE",
- *           predicates: [
- *             {
+ *           predicates: [ // PredicateList
+ *             { // Predicate
  *               or: [
  *                 {
- *                   or: [
- *                     "<PredicateList>",
- *                   ],
- *                   and: [
- *                     "<PredicateList>",
- *                   ],
+ *                   or: "<PredicateList>",
+ *                   and: "<PredicateList>",
  *                   field: "STRING_VALUE",
  *                   operator: "STRING_VALUE",
  *                   operand: "STRING_VALUE",
  *                 },
  *               ],
- *               and: [
- *                 "<PredicateList>",
- *               ],
+ *               and: "<PredicateList>",
  *               field: "STRING_VALUE",
  *               operator: "STRING_VALUE",
  *               operand: "STRING_VALUE",
@@ -571,33 +237,25 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *         defaultValue: "STRING_VALUE",
  *       },
  *     },
- *     collectionProperties: {
- *       "<keys>": {
+ *     collectionProperties: { // ComponentCollectionProperties
+ *       "<keys>": { // ComponentDataConfiguration
  *         model: "STRING_VALUE", // required
- *         sort: [
- *           {
+ *         sort: [ // SortPropertyList
+ *           { // SortProperty
  *             field: "STRING_VALUE", // required
  *             direction: "STRING_VALUE", // required
  *           },
  *         ],
- *         predicate: {
- *           or: "<Predicate>",
- *           and: "<Predicate>",
- *           field: "<Predicate>",
- *           operator: "<Predicate>",
- *           operand: "<Predicate>",
- *         },
- *         identifiers: [
+ *         predicate: "<Predicate>",
+ *         identifiers: [ // IdentifierList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     tags: {
+ *     tags: { // Tags
  *       "<keys>": "STRING_VALUE",
  *     },
- *     events: {
- *       "<keys>": "<ComponentEvent>",
- *     },
+ *     events: "<ComponentEvents>",
  *     schemaVersion: "STRING_VALUE",
  *   },
  * };

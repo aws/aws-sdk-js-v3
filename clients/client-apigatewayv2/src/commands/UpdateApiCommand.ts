@@ -42,18 +42,18 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  * import { ApiGatewayV2Client, UpdateApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // UpdateApiRequest
  *   ApiId: "STRING_VALUE", // required
  *   ApiKeySelectionExpression: "STRING_VALUE",
- *   CorsConfiguration: {
+ *   CorsConfiguration: { // Cors
  *     AllowCredentials: true || false,
- *     AllowHeaders: [
+ *     AllowHeaders: [ // CorsHeaderList
  *       "STRING_VALUE",
  *     ],
- *     AllowMethods: [
+ *     AllowMethods: [ // CorsMethodList
  *       "STRING_VALUE",
  *     ],
- *     AllowOrigins: [
+ *     AllowOrigins: [ // CorsOriginList
  *       "STRING_VALUE",
  *     ],
  *     ExposeHeaders: [

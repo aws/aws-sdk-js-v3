@@ -45,10 +45,10 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * import { SSMClient, ModifyDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ModifyDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // ModifyDocumentPermissionRequest
  *   Name: "STRING_VALUE", // required
  *   PermissionType: "Share", // required
- *   AccountIdsToAdd: [
+ *   AccountIdsToAdd: [ // AccountIdList
  *     "STRING_VALUE",
  *   ],
  *   AccountIdsToRemove: [

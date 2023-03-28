@@ -50,10 +50,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { SESv2Client, TagResourceCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, TagResourceCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -52,7 +52,7 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  * import { VoiceIDClient, OptOutSpeakerCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, OptOutSpeakerCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // OptOutSpeakerRequest
  *   DomainId: "STRING_VALUE", // required
  *   SpeakerId: "STRING_VALUE", // required
  * };

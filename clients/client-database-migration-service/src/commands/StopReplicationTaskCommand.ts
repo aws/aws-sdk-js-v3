@@ -46,7 +46,7 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
  * import { DatabaseMigrationServiceClient, StopReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StopReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // StopReplicationTaskMessage
  *   ReplicationTaskArn: "STRING_VALUE", // required
  * };
  * const command = new StopReplicationTaskCommand(input);

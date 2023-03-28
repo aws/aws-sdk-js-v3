@@ -57,7 +57,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, DeleteGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DeleteGlobalReplicationGroupMessage
  *   GlobalReplicationGroupId: "STRING_VALUE", // required
  *   RetainPrimaryReplicationGroup: true || false, // required
  * };

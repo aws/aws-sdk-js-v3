@@ -45,14 +45,14 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  * import { EKSClient, AssociateEncryptionConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, AssociateEncryptionConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = {
+ * const input = { // AssociateEncryptionConfigRequest
  *   clusterName: "STRING_VALUE", // required
- *   encryptionConfig: [ // required
- *     {
- *       resources: [
+ *   encryptionConfig: [ // EncryptionConfigList // required
+ *     { // EncryptionConfig
+ *       resources: [ // StringList
  *         "STRING_VALUE",
  *       ],
- *       provider: {
+ *       provider: { // Provider
  *         keyArn: "STRING_VALUE",
  *       },
  *     },

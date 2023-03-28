@@ -66,17 +66,17 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  * import { EC2Client, DescribeInstanceCreditSpecificationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceCreditSpecificationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeInstanceCreditSpecificationsRequest
  *   DryRun: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   InstanceIds: [
+ *   InstanceIds: [ // InstanceIdStringList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

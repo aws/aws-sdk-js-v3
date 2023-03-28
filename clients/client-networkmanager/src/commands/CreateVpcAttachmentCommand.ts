@@ -42,18 +42,18 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  * import { NetworkManagerClient, CreateVpcAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateVpcAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // CreateVpcAttachmentRequest
  *   CoreNetworkId: "STRING_VALUE", // required
  *   VpcArn: "STRING_VALUE", // required
- *   SubnetArns: [ // required
+ *   SubnetArns: [ // SubnetArnList // required
  *     "STRING_VALUE",
  *   ],
- *   Options: {
+ *   Options: { // VpcOptions
  *     Ipv6Support: true || false,
  *     ApplianceModeSupport: true || false,
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

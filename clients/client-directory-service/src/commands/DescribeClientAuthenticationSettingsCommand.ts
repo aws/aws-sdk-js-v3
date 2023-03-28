@@ -48,7 +48,7 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
  * import { DirectoryServiceClient, DescribeClientAuthenticationSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeClientAuthenticationSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DescribeClientAuthenticationSettingsRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   Type: "SmartCard" || "SmartCardOrPassword",
  *   NextToken: "STRING_VALUE",

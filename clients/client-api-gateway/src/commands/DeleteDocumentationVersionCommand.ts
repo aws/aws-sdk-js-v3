@@ -42,7 +42,7 @@ export interface DeleteDocumentationVersionCommandOutput extends __MetadataBeare
  * import { APIGatewayClient, DeleteDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // DeleteDocumentationVersionRequest
  *   restApiId: "STRING_VALUE", // required
  *   documentationVersion: "STRING_VALUE", // required
  * };

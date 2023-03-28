@@ -46,7 +46,7 @@ export interface AcceptReservedNodeExchangeCommandOutput
  * import { RedshiftClient, AcceptReservedNodeExchangeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AcceptReservedNodeExchangeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // AcceptReservedNodeExchangeInputMessage
  *   ReservedNodeId: "STRING_VALUE", // required
  *   TargetReservedNodeOfferingId: "STRING_VALUE", // required
  * };

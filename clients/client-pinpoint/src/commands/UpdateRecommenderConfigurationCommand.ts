@@ -44,10 +44,10 @@ export interface UpdateRecommenderConfigurationCommandOutput
  * import { PinpointClient, UpdateRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateRecommenderConfigurationRequest
  *   RecommenderId: "STRING_VALUE", // required
- *   UpdateRecommenderConfiguration: {
- *     Attributes: {
+ *   UpdateRecommenderConfiguration: { // UpdateRecommenderConfigurationShape
+ *     Attributes: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *     Description: "STRING_VALUE",

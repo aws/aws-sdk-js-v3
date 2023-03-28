@@ -70,16 +70,16 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * import { ApplicationAutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
- * const input = {
+ * const input = { // PutScalingPolicyRequest
  *   PolicyName: "STRING_VALUE", // required
  *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
  *   ResourceId: "STRING_VALUE", // required
  *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
  *   PolicyType: "StepScaling" || "TargetTrackingScaling",
- *   StepScalingPolicyConfiguration: {
+ *   StepScalingPolicyConfiguration: { // StepScalingPolicyConfiguration
  *     AdjustmentType: "ChangeInCapacity" || "PercentChangeInCapacity" || "ExactCapacity",
- *     StepAdjustments: [
- *       {
+ *     StepAdjustments: [ // StepAdjustments
+ *       { // StepAdjustment
  *         MetricIntervalLowerBound: Number("double"),
  *         MetricIntervalUpperBound: Number("double"),
  *         ScalingAdjustment: Number("int"), // required
@@ -89,32 +89,32 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *     Cooldown: Number("int"),
  *     MetricAggregationType: "Average" || "Minimum" || "Maximum",
  *   },
- *   TargetTrackingScalingPolicyConfiguration: {
+ *   TargetTrackingScalingPolicyConfiguration: { // TargetTrackingScalingPolicyConfiguration
  *     TargetValue: Number("double"), // required
- *     PredefinedMetricSpecification: {
+ *     PredefinedMetricSpecification: { // PredefinedMetricSpecification
  *       PredefinedMetricType: "DynamoDBReadCapacityUtilization" || "DynamoDBWriteCapacityUtilization" || "ALBRequestCountPerTarget" || "RDSReaderAverageCPUUtilization" || "RDSReaderAverageDatabaseConnections" || "EC2SpotFleetRequestAverageCPUUtilization" || "EC2SpotFleetRequestAverageNetworkIn" || "EC2SpotFleetRequestAverageNetworkOut" || "SageMakerVariantInvocationsPerInstance" || "ECSServiceAverageCPUUtilization" || "ECSServiceAverageMemoryUtilization" || "AppStreamAverageCapacityUtilization" || "ComprehendInferenceUtilization" || "LambdaProvisionedConcurrencyUtilization" || "CassandraReadCapacityUtilization" || "CassandraWriteCapacityUtilization" || "KafkaBrokerStorageUtilization" || "ElastiCachePrimaryEngineCPUUtilization" || "ElastiCacheReplicaEngineCPUUtilization" || "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage" || "NeptuneReaderAverageCPUUtilization", // required
  *       ResourceLabel: "STRING_VALUE",
  *     },
- *     CustomizedMetricSpecification: {
+ *     CustomizedMetricSpecification: { // CustomizedMetricSpecification
  *       MetricName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
- *       Dimensions: [
- *         {
+ *       Dimensions: [ // MetricDimensions
+ *         { // MetricDimension
  *           Name: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
  *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
  *       Unit: "STRING_VALUE",
- *       Metrics: [
- *         {
+ *       Metrics: [ // TargetTrackingMetricDataQueries
+ *         { // TargetTrackingMetricDataQuery
  *           Expression: "STRING_VALUE",
  *           Id: "STRING_VALUE", // required
  *           Label: "STRING_VALUE",
- *           MetricStat: {
- *             Metric: {
- *               Dimensions: [
- *                 {
+ *           MetricStat: { // TargetTrackingMetricStat
+ *             Metric: { // TargetTrackingMetric
+ *               Dimensions: [ // TargetTrackingMetricDimensions
+ *                 { // TargetTrackingMetricDimension
  *                   Name: "STRING_VALUE", // required
  *                   Value: "STRING_VALUE", // required
  *                 },

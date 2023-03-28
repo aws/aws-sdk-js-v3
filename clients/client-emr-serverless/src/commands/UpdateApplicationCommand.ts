@@ -43,45 +43,45 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { EMRServerlessClient, UpdateApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, UpdateApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
- * const input = {
+ * const input = { // UpdateApplicationRequest
  *   applicationId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE", // required
- *   initialCapacity: {
- *     "<keys>": {
+ *   initialCapacity: { // InitialCapacityConfigMap
+ *     "<keys>": { // InitialCapacityConfig
  *       workerCount: Number("long"), // required
- *       workerConfiguration: {
+ *       workerConfiguration: { // WorkerResourceConfig
  *         cpu: "STRING_VALUE", // required
  *         memory: "STRING_VALUE", // required
  *         disk: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   maximumCapacity: {
+ *   maximumCapacity: { // MaximumAllowedResources
  *     cpu: "STRING_VALUE", // required
  *     memory: "STRING_VALUE", // required
  *     disk: "STRING_VALUE",
  *   },
- *   autoStartConfiguration: {
+ *   autoStartConfiguration: { // AutoStartConfig
  *     enabled: true || false,
  *   },
- *   autoStopConfiguration: {
+ *   autoStopConfiguration: { // AutoStopConfig
  *     enabled: true || false,
  *     idleTimeoutMinutes: Number("int"),
  *   },
- *   networkConfiguration: {
- *     subnetIds: [
+ *   networkConfiguration: { // NetworkConfiguration
+ *     subnetIds: [ // SubnetIds
  *       "STRING_VALUE",
  *     ],
- *     securityGroupIds: [
+ *     securityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
  *   },
  *   architecture: "STRING_VALUE",
- *   imageConfiguration: {
+ *   imageConfiguration: { // ImageConfigurationInput
  *     imageUri: "STRING_VALUE",
  *   },
- *   workerTypeSpecifications: {
- *     "<keys>": {
+ *   workerTypeSpecifications: { // WorkerTypeSpecificationInputMap
+ *     "<keys>": { // WorkerTypeSpecificationInput
  *       imageConfiguration: {
  *         imageUri: "STRING_VALUE",
  *       },

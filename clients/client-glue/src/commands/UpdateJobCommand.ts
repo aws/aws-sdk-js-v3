@@ -39,28 +39,28 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * import { GlueClient, UpdateJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // UpdateJobRequest
  *   JobName: "STRING_VALUE", // required
- *   JobUpdate: {
+ *   JobUpdate: { // JobUpdate
  *     Description: "STRING_VALUE",
  *     LogUri: "STRING_VALUE",
  *     Role: "STRING_VALUE",
- *     ExecutionProperty: {
+ *     ExecutionProperty: { // ExecutionProperty
  *       MaxConcurrentRuns: Number("int"),
  *     },
- *     Command: {
+ *     Command: { // JobCommand
  *       Name: "STRING_VALUE",
  *       ScriptLocation: "STRING_VALUE",
  *       PythonVersion: "STRING_VALUE",
  *     },
- *     DefaultArguments: {
+ *     DefaultArguments: { // GenericMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     NonOverridableArguments: {
  *       "<keys>": "STRING_VALUE",
  *     },
- *     Connections: {
- *       Connections: [
+ *     Connections: { // ConnectionsList
+ *       Connections: [ // OrchestrationStringList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -71,23 +71,23 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *     WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
  *     NumberOfWorkers: Number("int"),
  *     SecurityConfiguration: "STRING_VALUE",
- *     NotificationProperty: {
+ *     NotificationProperty: { // NotificationProperty
  *       NotifyDelayAfter: Number("int"),
  *     },
  *     GlueVersion: "STRING_VALUE",
- *     CodeGenConfigurationNodes: {
- *       "<keys>": {
- *         AthenaConnectorSource: {
+ *     CodeGenConfigurationNodes: { // CodeGenConfigurationNodes
+ *       "<keys>": { // CodeGenConfigurationNode
+ *         AthenaConnectorSource: { // AthenaConnectorSource
  *           Name: "STRING_VALUE", // required
  *           ConnectionName: "STRING_VALUE", // required
  *           ConnectorName: "STRING_VALUE", // required
  *           ConnectionType: "STRING_VALUE", // required
  *           ConnectionTable: "STRING_VALUE",
  *           SchemaName: "STRING_VALUE", // required
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
+ *           OutputSchemas: [ // GlueSchemas
+ *             { // GlueSchema
+ *               Columns: [ // GlueStudioSchemaColumnList
+ *                 { // GlueStudioSchemaColumn
  *                   Name: "STRING_VALUE", // required
  *                   Type: "STRING_VALUE",
  *                 },
@@ -95,22 +95,22 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             },
  *           ],
  *         },
- *         JDBCConnectorSource: {
+ *         JDBCConnectorSource: { // JDBCConnectorSource
  *           Name: "STRING_VALUE", // required
  *           ConnectionName: "STRING_VALUE", // required
  *           ConnectorName: "STRING_VALUE", // required
  *           ConnectionType: "STRING_VALUE", // required
- *           AdditionalOptions: {
+ *           AdditionalOptions: { // JDBCConnectorOptions
  *             FilterPredicate: "STRING_VALUE",
  *             PartitionColumn: "STRING_VALUE",
  *             LowerBound: Number("long"),
  *             UpperBound: Number("long"),
  *             NumPartitions: Number("long"),
- *             JobBookmarkKeys: [
+ *             JobBookmarkKeys: [ // EnclosedInStringProperties
  *               "STRING_VALUE",
  *             ],
  *             JobBookmarkKeysSortOrder: "STRING_VALUE",
- *             DataTypeMapping: {
+ *             DataTypeMapping: { // JDBCDataTypeMapping
  *               "<keys>": "DATE" || "STRING" || "TIMESTAMP" || "INT" || "FLOAT" || "LONG" || "BIGDECIMAL" || "BYTE" || "SHORT" || "DOUBLE",
  *             },
  *           },
@@ -127,12 +127,12 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             },
  *           ],
  *         },
- *         SparkConnectorSource: {
+ *         SparkConnectorSource: { // SparkConnectorSource
  *           Name: "STRING_VALUE", // required
  *           ConnectionName: "STRING_VALUE", // required
  *           ConnectorName: "STRING_VALUE", // required
  *           ConnectionType: "STRING_VALUE", // required
- *           AdditionalOptions: {
+ *           AdditionalOptions: { // AdditionalOptions
  *             "<keys>": "STRING_VALUE",
  *           },
  *           OutputSchemas: [
@@ -146,29 +146,29 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             },
  *           ],
  *         },
- *         CatalogSource: {
+ *         CatalogSource: { // CatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         RedshiftSource: {
+ *         RedshiftSource: { // RedshiftSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *           RedshiftTmpDir: "STRING_VALUE",
  *           TmpDirIAMRole: "STRING_VALUE",
  *         },
- *         S3CatalogSource: {
+ *         S3CatalogSource: { // S3CatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *           PartitionPredicate: "STRING_VALUE",
- *           AdditionalOptions: {
+ *           AdditionalOptions: { // S3SourceAdditionalOptions
  *             BoundedSize: Number("long"),
  *             BoundedFiles: Number("long"),
  *           },
  *         },
- *         S3CsvSource: {
+ *         S3CsvSource: { // S3CsvSource
  *           Name: "STRING_VALUE", // required
  *           Paths: [ // required
  *             "STRING_VALUE",
@@ -182,7 +182,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Recurse: true || false,
  *           MaxBand: Number("int"),
  *           MaxFilesInBand: Number("int"),
- *           AdditionalOptions: {
+ *           AdditionalOptions: { // S3DirectSourceAdditionalOptions
  *             BoundedSize: Number("long"),
  *             BoundedFiles: Number("long"),
  *             EnableSamplePath: true || false,
@@ -207,7 +207,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             },
  *           ],
  *         },
- *         S3JsonSource: {
+ *         S3JsonSource: { // S3JsonSource
  *           Name: "STRING_VALUE", // required
  *           Paths: [ // required
  *             "STRING_VALUE",
@@ -240,15 +240,11 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             },
  *           ],
  *         },
- *         S3ParquetSource: {
+ *         S3ParquetSource: { // S3ParquetSource
  *           Name: "STRING_VALUE", // required
- *           Paths: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Paths: "<EnclosedInStringProperties>", // required
  *           CompressionType: "snappy" || "lzo" || "gzip" || "uncompressed" || "none",
- *           Exclusions: [
- *             "STRING_VALUE",
- *           ],
+ *           Exclusions: "<EnclosedInStringProperties>",
  *           GroupSize: "STRING_VALUE",
  *           GroupFiles: "STRING_VALUE",
  *           Recurse: true || false,
@@ -260,30 +256,21 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             EnableSamplePath: true || false,
  *             SamplePath: "STRING_VALUE",
  *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         RelationalCatalogSource: {
+ *         RelationalCatalogSource: { // RelationalCatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         DynamoDBCatalogSource: {
+ *         DynamoDBCatalogSource: { // DynamoDBCatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         JDBCConnectorTarget: {
+ *         JDBCConnectorTarget: { // JDBCConnectorTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
+ *           Inputs: [ // OneInput // required
  *             "STRING_VALUE",
  *           ],
  *           ConnectionName: "STRING_VALUE", // required
@@ -293,18 +280,9 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           AdditionalOptions: {
  *             "<keys>": "STRING_VALUE",
  *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         SparkConnectorTarget: {
+ *         SparkConnectorTarget: { // SparkConnectorTarget
  *           Name: "STRING_VALUE", // required
  *           Inputs: [ // required
  *             "STRING_VALUE",
@@ -315,18 +293,9 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           AdditionalOptions: {
  *             "<keys>": "STRING_VALUE",
  *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         CatalogTarget: {
+ *         CatalogTarget: { // BasicCatalogTarget
  *           Name: "STRING_VALUE", // required
  *           Inputs: [ // required
  *             "STRING_VALUE",
@@ -334,7 +303,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         RedshiftTarget: {
+ *         RedshiftTarget: { // RedshiftTarget
  *           Name: "STRING_VALUE", // required
  *           Inputs: [ // required
  *             "STRING_VALUE",
@@ -343,59 +312,49 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Table: "STRING_VALUE", // required
  *           RedshiftTmpDir: "STRING_VALUE",
  *           TmpDirIAMRole: "STRING_VALUE",
- *           UpsertRedshiftOptions: {
+ *           UpsertRedshiftOptions: { // UpsertRedshiftTargetOptions
  *             TableLocation: "STRING_VALUE",
  *             ConnectionName: "STRING_VALUE",
- *             UpsertKeys: [
+ *             UpsertKeys: [ // EnclosedInStringPropertiesMinOne
  *               "STRING_VALUE",
  *             ],
  *           },
  *         },
- *         S3CatalogTarget: {
+ *         S3CatalogTarget: { // S3CatalogTarget
  *           Name: "STRING_VALUE", // required
  *           Inputs: [ // required
  *             "STRING_VALUE",
  *           ],
- *           PartitionKeys: [
- *             [
- *               "STRING_VALUE",
- *             ],
+ *           PartitionKeys: [ // GlueStudioPathList
+ *             "<EnclosedInStringProperties>",
  *           ],
  *           Table: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
- *           SchemaChangePolicy: {
+ *           SchemaChangePolicy: { // CatalogSchemaChangePolicy
  *             EnableUpdateCatalog: true || false,
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *           },
  *         },
- *         S3GlueParquetTarget: {
+ *         S3GlueParquetTarget: { // S3GlueParquetTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           PartitionKeys: [
- *             [
- *               "STRING_VALUE",
- *             ],
+ *             "<EnclosedInStringProperties>",
  *           ],
  *           Path: "STRING_VALUE", // required
  *           Compression: "snappy" || "lzo" || "gzip" || "uncompressed" || "none",
- *           SchemaChangePolicy: {
+ *           SchemaChangePolicy: { // DirectSchemaChangePolicy
  *             EnableUpdateCatalog: true || false,
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *             Table: "STRING_VALUE",
  *             Database: "STRING_VALUE",
  *           },
  *         },
- *         S3DirectTarget: {
+ *         S3DirectTarget: { // S3DirectTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           PartitionKeys: [
- *             [
- *               "STRING_VALUE",
- *             ],
+ *             "<EnclosedInStringProperties>",
  *           ],
  *           Path: "STRING_VALUE", // required
  *           Compression: "STRING_VALUE",
@@ -407,190 +366,130 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             Database: "STRING_VALUE",
  *           },
  *         },
- *         ApplyMapping: {
+ *         ApplyMapping: { // ApplyMapping
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           Mapping: [ // required
- *             {
+ *           Inputs: "<OneInput>", // required
+ *           Mapping: [ // Mappings // required
+ *             { // Mapping
  *               ToKey: "STRING_VALUE",
- *               FromPath: [
- *                 "<EnclosedInStringProperties>",
- *               ],
+ *               FromPath: "<EnclosedInStringProperties>",
  *               FromType: "STRING_VALUE",
  *               ToType: "STRING_VALUE",
  *               Dropped: true || false,
  *               Children: [
  *                 {
  *                   ToKey: "STRING_VALUE",
- *                   FromPath: [
- *                     "<EnclosedInStringProperties>",
- *                   ],
+ *                   FromPath: "<EnclosedInStringProperties>",
  *                   FromType: "STRING_VALUE",
  *                   ToType: "STRING_VALUE",
  *                   Dropped: true || false,
- *                   Children: [
- *                     "<Mappings>",
- *                   ],
+ *                   Children: "<Mappings>",
  *                 },
  *               ],
  *             },
  *           ],
  *         },
- *         SelectFields: {
+ *         SelectFields: { // SelectFields
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           Paths: [ // required
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
- *         },
- *         DropFields: {
- *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           Paths: [ // required
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
- *         },
- *         RenameField: {
- *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           SourcePath: [ // required
- *             "<EnclosedInStringProperties>",
- *           ],
- *           TargetPath: [ // required
  *             "<EnclosedInStringProperties>",
  *           ],
  *         },
- *         Spigot: {
+ *         DropFields: { // DropFields
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
+ *           Inputs: "<OneInput>", // required
+ *           Paths: [ // required
+ *             "<EnclosedInStringProperties>",
  *           ],
+ *         },
+ *         RenameField: { // RenameField
+ *           Name: "STRING_VALUE", // required
+ *           Inputs: "<OneInput>", // required
+ *           SourcePath: "<EnclosedInStringProperties>", // required
+ *           TargetPath: "<EnclosedInStringProperties>", // required
+ *         },
+ *         Spigot: { // Spigot
+ *           Name: "STRING_VALUE", // required
+ *           Inputs: "<OneInput>", // required
  *           Path: "STRING_VALUE", // required
  *           Topk: Number("int"),
  *           Prob: Number("double"),
  *         },
- *         Join: {
+ *         Join: { // Join
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
+ *           Inputs: [ // TwoInputs // required
  *             "STRING_VALUE",
  *           ],
  *           JoinType: "equijoin" || "left" || "right" || "outer" || "leftsemi" || "leftanti", // required
- *           Columns: [ // required
- *             {
+ *           Columns: [ // JoinColumns // required
+ *             { // JoinColumn
  *               From: "STRING_VALUE", // required
- *               Keys: [ // required
- *                 [
- *                   "<EnclosedInStringProperties>",
- *                 ],
- *               ],
+ *               Keys: "<GlueStudioPathList>", // required
  *             },
  *           ],
  *         },
- *         SplitFields: {
+ *         SplitFields: { // SplitFields
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           Paths: [ // required
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
+ *           Inputs: "<OneInput>", // required
+ *           Paths: "<GlueStudioPathList>", // required
  *         },
- *         SelectFromCollection: {
+ *         SelectFromCollection: { // SelectFromCollection
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           Index: Number("int"), // required
  *         },
- *         FillMissingValues: {
+ *         FillMissingValues: { // FillMissingValues
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           ImputedPath: "STRING_VALUE", // required
  *           FilledPath: "STRING_VALUE",
  *         },
- *         Filter: {
+ *         Filter: { // Filter
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           LogicalOperator: "AND" || "OR", // required
- *           Filters: [ // required
- *             {
+ *           Filters: [ // FilterExpressions // required
+ *             { // FilterExpression
  *               Operation: "EQ" || "LT" || "GT" || "LTE" || "GTE" || "REGEX" || "ISNULL", // required
  *               Negated: true || false,
- *               Values: [ // required
- *                 {
+ *               Values: [ // FilterValues // required
+ *                 { // FilterValue
  *                   Type: "COLUMNEXTRACTED" || "CONSTANT", // required
- *                   Value: [ // required
- *                     "<EnclosedInStringProperties>",
- *                   ],
+ *                   Value: "<EnclosedInStringProperties>", // required
  *                 },
  *               ],
  *             },
  *           ],
  *         },
- *         CustomCode: {
+ *         CustomCode: { // CustomCode
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
+ *           Inputs: [ // ManyInputs // required
  *             "STRING_VALUE",
  *           ],
  *           Code: "STRING_VALUE", // required
  *           ClassName: "STRING_VALUE", // required
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         SparkSQL: {
+ *         SparkSQL: { // SparkSQL
  *           Name: "STRING_VALUE", // required
  *           Inputs: [ // required
  *             "STRING_VALUE",
  *           ],
  *           SqlQuery: "STRING_VALUE", // required
- *           SqlAliases: [ // required
- *             {
+ *           SqlAliases: [ // SqlAliases // required
+ *             { // SqlAlias
  *               From: "STRING_VALUE", // required
  *               Alias: "STRING_VALUE", // required
  *             },
  *           ],
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         DirectKinesisSource: {
+ *         DirectKinesisSource: { // DirectKinesisSource
  *           Name: "STRING_VALUE", // required
  *           WindowSize: Number("int"),
  *           DetectSchema: true || false,
- *           StreamingOptions: {
+ *           StreamingOptions: { // KinesisStreamingSourceOptions
  *             EndpointUrl: "STRING_VALUE",
  *             StreamName: "STRING_VALUE",
  *             Classification: "STRING_VALUE",
@@ -612,14 +511,14 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             AddRecordTimestamp: "STRING_VALUE",
  *             EmitConsumerLagMetrics: "STRING_VALUE",
  *           },
- *           DataPreviewOptions: {
+ *           DataPreviewOptions: { // StreamingDataPreviewOptions
  *             PollingTime: Number("long"),
  *             RecordPollingLimit: Number("long"),
  *           },
  *         },
- *         DirectKafkaSource: {
+ *         DirectKafkaSource: { // DirectKafkaSource
  *           Name: "STRING_VALUE", // required
- *           StreamingOptions: {
+ *           StreamingOptions: { // KafkaStreamingSourceOptions
  *             BootstrapServers: "STRING_VALUE",
  *             SecurityProtocol: "STRING_VALUE",
  *             ConnectionName: "STRING_VALUE",
@@ -646,7 +545,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             RecordPollingLimit: Number("long"),
  *           },
  *         },
- *         CatalogKinesisSource: {
+ *         CatalogKinesisSource: { // CatalogKinesisSource
  *           Name: "STRING_VALUE", // required
  *           WindowSize: Number("int"),
  *           DetectSchema: true || false,
@@ -679,7 +578,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             RecordPollingLimit: Number("long"),
  *           },
  *         },
- *         CatalogKafkaSource: {
+ *         CatalogKafkaSource: { // CatalogKafkaSource
  *           Name: "STRING_VALUE", // required
  *           WindowSize: Number("int"),
  *           DetectSchema: true || false,
@@ -710,99 +609,73 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             RecordPollingLimit: Number("long"),
  *           },
  *         },
- *         DropNullFields: {
+ *         DropNullFields: { // DropNullFields
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           NullCheckBoxList: {
+ *           Inputs: "<OneInput>", // required
+ *           NullCheckBoxList: { // NullCheckBoxList
  *             IsEmpty: true || false,
  *             IsNullString: true || false,
  *             IsNegOne: true || false,
  *           },
- *           NullTextList: [
- *             {
+ *           NullTextList: [ // NullValueFields
+ *             { // NullValueField
  *               Value: "STRING_VALUE", // required
- *               Datatype: {
+ *               Datatype: { // Datatype
  *                 Id: "STRING_VALUE", // required
  *                 Label: "STRING_VALUE", // required
  *               },
  *             },
  *           ],
  *         },
- *         Merge: {
+ *         Merge: { // Merge
  *           Name: "STRING_VALUE", // required
  *           Inputs: [ // required
  *             "STRING_VALUE",
  *           ],
  *           Source: "STRING_VALUE", // required
- *           PrimaryKeys: [ // required
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
+ *           PrimaryKeys: "<GlueStudioPathList>", // required
  *         },
- *         Union: {
+ *         Union: { // Union
  *           Name: "STRING_VALUE", // required
  *           Inputs: [ // required
  *             "STRING_VALUE",
  *           ],
  *           UnionType: "ALL" || "DISTINCT", // required
  *         },
- *         PIIDetection: {
+ *         PIIDetection: { // PIIDetection
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           PiiType: "RowAudit" || "RowMasking" || "ColumnAudit" || "ColumnMasking", // required
- *           EntityTypesToDetect: [ // required
- *             "<EnclosedInStringProperties>",
- *           ],
+ *           EntityTypesToDetect: "<EnclosedInStringProperties>", // required
  *           OutputColumnName: "STRING_VALUE",
  *           SampleFraction: Number("double"),
  *           ThresholdFraction: Number("double"),
  *           MaskValue: "STRING_VALUE",
  *         },
- *         Aggregate: {
+ *         Aggregate: { // Aggregate
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           Groups: [ // required
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
- *           Aggs: [ // required
- *             {
- *               Column: [ // required
- *                 "<EnclosedInStringProperties>",
- *               ],
+ *           Inputs: "<OneInput>", // required
+ *           Groups: "<GlueStudioPathList>", // required
+ *           Aggs: [ // AggregateOperations // required
+ *             { // AggregateOperation
+ *               Column: "<EnclosedInStringProperties>", // required
  *               AggFunc: "avg" || "countDistinct" || "count" || "first" || "last" || "kurtosis" || "max" || "min" || "skewness" || "stddev_samp" || "stddev_pop" || "sum" || "sumDistinct" || "var_samp" || "var_pop", // required
  *             },
  *           ],
  *         },
- *         DropDuplicates: {
+ *         DropDuplicates: { // DropDuplicates
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           Columns: [
- *             [
+ *           Inputs: "<OneInput>", // required
+ *           Columns: [ // LimitedPathList
+ *             [ // LimitedStringList
  *               "STRING_VALUE",
  *             ],
  *           ],
  *         },
- *         GovernedCatalogTarget: {
+ *         GovernedCatalogTarget: { // GovernedCatalogTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           PartitionKeys: [
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
+ *           Inputs: "<OneInput>", // required
+ *           PartitionKeys: "<GlueStudioPathList>",
  *           Table: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           SchemaChangePolicy: {
@@ -810,7 +683,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *           },
  *         },
- *         GovernedCatalogSource: {
+ *         GovernedCatalogSource: { // GovernedCatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
@@ -820,73 +693,61 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             BoundedFiles: Number("long"),
  *           },
  *         },
- *         MicrosoftSQLServerCatalogSource: {
+ *         MicrosoftSQLServerCatalogSource: { // MicrosoftSQLServerCatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         MySQLCatalogSource: {
+ *         MySQLCatalogSource: { // MySQLCatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         OracleSQLCatalogSource: {
+ *         OracleSQLCatalogSource: { // OracleSQLCatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         PostgreSQLCatalogSource: {
+ *         PostgreSQLCatalogSource: { // PostgreSQLCatalogSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         MicrosoftSQLServerCatalogTarget: {
+ *         MicrosoftSQLServerCatalogTarget: { // MicrosoftSQLServerCatalogTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         MySQLCatalogTarget: {
+ *         MySQLCatalogTarget: { // MySQLCatalogTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         OracleSQLCatalogTarget: {
+ *         OracleSQLCatalogTarget: { // OracleSQLCatalogTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         PostgreSQLCatalogTarget: {
+ *         PostgreSQLCatalogTarget: { // PostgreSQLCatalogTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
- *         DynamicTransform: {
+ *         DynamicTransform: { // DynamicTransform
  *           Name: "STRING_VALUE", // required
  *           TransformName: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           Parameters: [
- *             {
+ *           Inputs: "<OneInput>", // required
+ *           Parameters: [ // TransformConfigParameterList
+ *             { // TransformConfigParameter
  *               Name: "STRING_VALUE", // required
  *               Type: "str" || "int" || "float" || "complex" || "bool" || "list" || "null", // required
  *               ValidationRule: "STRING_VALUE",
  *               ValidationMessage: "STRING_VALUE",
- *               Value: [
- *                 "<EnclosedInStringProperties>",
- *               ],
+ *               Value: "<EnclosedInStringProperties>",
  *               ListType: "str" || "int" || "float" || "complex" || "bool" || "list" || "null",
  *               IsOptional: true || false,
  *             },
@@ -895,120 +756,71 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Path: "STRING_VALUE", // required
  *           Version: "STRING_VALUE",
  *         },
- *         EvaluateDataQuality: {
+ *         EvaluateDataQuality: { // EvaluateDataQuality
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           Ruleset: "STRING_VALUE", // required
  *           Output: "PrimaryInput" || "EvaluationResults",
- *           PublishingOptions: {
+ *           PublishingOptions: { // DQResultsPublishingOptions
  *             EvaluationContext: "STRING_VALUE",
  *             ResultsS3Prefix: "STRING_VALUE",
  *             CloudWatchMetricsEnabled: true || false,
  *             ResultsPublishingEnabled: true || false,
  *           },
- *           StopJobOnFailureOptions: {
+ *           StopJobOnFailureOptions: { // DQStopJobOnFailureOptions
  *             StopJobOnFailureTiming: "Immediate" || "AfterDataLoad",
  *           },
  *         },
- *         S3CatalogHudiSource: {
+ *         S3CatalogHudiSource: { // S3CatalogHudiSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *           AdditionalHudiOptions: {
  *             "<keys>": "STRING_VALUE",
  *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         CatalogHudiSource: {
+ *         CatalogHudiSource: { // CatalogHudiSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *           AdditionalHudiOptions: {
  *             "<keys>": "STRING_VALUE",
  *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         S3HudiSource: {
+ *         S3HudiSource: { // S3HudiSource
  *           Name: "STRING_VALUE", // required
- *           Paths: [ // required
- *             "<EnclosedInStringProperties>",
- *           ],
- *           AdditionalHudiOptions: {
- *             "<keys>": "STRING_VALUE",
- *           },
+ *           Paths: "<EnclosedInStringProperties>", // required
+ *           AdditionalHudiOptions: "<AdditionalOptions>",
  *           AdditionalOptions: {
  *             BoundedSize: Number("long"),
  *             BoundedFiles: Number("long"),
  *             EnableSamplePath: true || false,
  *             SamplePath: "STRING_VALUE",
  *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         S3HudiCatalogTarget: {
+ *         S3HudiCatalogTarget: { // S3HudiCatalogTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           PartitionKeys: [
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
+ *           Inputs: "<OneInput>", // required
+ *           PartitionKeys: "<GlueStudioPathList>",
  *           Table: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
- *           AdditionalOptions: { // required
- *             "<keys>": "STRING_VALUE",
- *           },
+ *           AdditionalOptions: "<AdditionalOptions>", // required
  *           SchemaChangePolicy: {
  *             EnableUpdateCatalog: true || false,
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *           },
  *         },
- *         S3HudiDirectTarget: {
+ *         S3HudiDirectTarget: { // S3HudiDirectTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
+ *           Inputs: "<OneInput>", // required
  *           Path: "STRING_VALUE", // required
  *           Compression: "gzip" || "lzo" || "uncompressed" || "snappy", // required
- *           PartitionKeys: [
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
+ *           PartitionKeys: "<GlueStudioPathList>",
  *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta", // required
- *           AdditionalOptions: { // required
- *             "<keys>": "STRING_VALUE",
- *           },
+ *           AdditionalOptions: "<AdditionalOptions>", // required
  *           SchemaChangePolicy: {
  *             EnableUpdateCatalog: true || false,
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
@@ -1016,7 +828,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             Database: "STRING_VALUE",
  *           },
  *         },
- *         DirectJDBCSource: {
+ *         DirectJDBCSource: { // DirectJDBCSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
@@ -1024,103 +836,52 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           ConnectionType: "sqlserver" || "mysql" || "oracle" || "postgresql" || "redshift", // required
  *           RedshiftTmpDir: "STRING_VALUE",
  *         },
- *         S3CatalogDeltaSource: {
+ *         S3CatalogDeltaSource: { // S3CatalogDeltaSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
- *           AdditionalDeltaOptions: {
- *             "<keys>": "STRING_VALUE",
- *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           AdditionalDeltaOptions: "<AdditionalOptions>",
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         CatalogDeltaSource: {
+ *         CatalogDeltaSource: { // CatalogDeltaSource
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
- *           AdditionalDeltaOptions: {
- *             "<keys>": "STRING_VALUE",
- *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           AdditionalDeltaOptions: "<AdditionalOptions>",
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         S3DeltaSource: {
+ *         S3DeltaSource: { // S3DeltaSource
  *           Name: "STRING_VALUE", // required
- *           Paths: [ // required
- *             "<EnclosedInStringProperties>",
- *           ],
- *           AdditionalDeltaOptions: {
- *             "<keys>": "STRING_VALUE",
- *           },
+ *           Paths: "<EnclosedInStringProperties>", // required
+ *           AdditionalDeltaOptions: "<AdditionalOptions>",
  *           AdditionalOptions: {
  *             BoundedSize: Number("long"),
  *             BoundedFiles: Number("long"),
  *             EnableSamplePath: true || false,
  *             SamplePath: "STRING_VALUE",
  *           },
- *           OutputSchemas: [
- *             {
- *               Columns: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Type: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
+ *           OutputSchemas: "<GlueSchemas>",
  *         },
- *         S3DeltaCatalogTarget: {
+ *         S3DeltaCatalogTarget: { // S3DeltaCatalogTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           PartitionKeys: [
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
+ *           Inputs: "<OneInput>", // required
+ *           PartitionKeys: "<GlueStudioPathList>",
  *           Table: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
- *           AdditionalOptions: {
- *             "<keys>": "STRING_VALUE",
- *           },
+ *           AdditionalOptions: "<AdditionalOptions>",
  *           SchemaChangePolicy: {
  *             EnableUpdateCatalog: true || false,
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *           },
  *         },
- *         S3DeltaDirectTarget: {
+ *         S3DeltaDirectTarget: { // S3DeltaDirectTarget
  *           Name: "STRING_VALUE", // required
- *           Inputs: [ // required
- *             "STRING_VALUE",
- *           ],
- *           PartitionKeys: [
- *             [
- *               "<EnclosedInStringProperties>",
- *             ],
- *           ],
+ *           Inputs: "<OneInput>", // required
+ *           PartitionKeys: "<GlueStudioPathList>",
  *           Path: "STRING_VALUE", // required
  *           Compression: "uncompressed" || "snappy", // required
  *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta", // required
- *           AdditionalOptions: {
- *             "<keys>": "STRING_VALUE",
- *           },
+ *           AdditionalOptions: "<AdditionalOptions>",
  *           SchemaChangePolicy: {
  *             EnableUpdateCatalog: true || false,
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
@@ -1131,7 +892,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *       },
  *     },
  *     ExecutionClass: "FLEX" || "STANDARD",
- *     SourceControlDetails: {
+ *     SourceControlDetails: { // SourceControlDetails
  *       Provider: "GITHUB" || "AWS_CODE_COMMIT",
  *       Repository: "STRING_VALUE",
  *       Owner: "STRING_VALUE",

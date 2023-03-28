@@ -42,12 +42,12 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * import { ConnectClient, UpdateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateRoutingProfileQueuesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   RoutingProfileId: "STRING_VALUE", // required
- *   QueueConfigs: [ // required
- *     {
- *       QueueReference: {
+ *   QueueConfigs: [ // RoutingProfileQueueConfigList // required
+ *     { // RoutingProfileQueueConfig
+ *       QueueReference: { // RoutingProfileQueueReference
  *         QueueId: "STRING_VALUE", // required
  *         Channel: "VOICE" || "CHAT" || "TASK", // required
  *       },

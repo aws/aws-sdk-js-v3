@@ -58,18 +58,18 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * import { KendraClient, CreateQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // CreateQuerySuggestionsBlockListRequest
  *   IndexId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   SourceS3Path: {
+ *   SourceS3Path: { // S3Path
  *     Bucket: "STRING_VALUE", // required
  *     Key: "STRING_VALUE", // required
  *   },
  *   ClientToken: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

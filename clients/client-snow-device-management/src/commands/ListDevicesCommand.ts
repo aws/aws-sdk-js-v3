@@ -47,7 +47,7 @@ export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataB
  * import { SnowDeviceManagementClient, ListDevicesCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, ListDevicesCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
- * const input = {
+ * const input = { // ListDevicesInput
  *   jobId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

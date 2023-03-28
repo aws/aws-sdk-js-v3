@@ -48,7 +48,7 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * import { ServiceCatalogClient, ListStackInstancesForProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListStackInstancesForProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListStackInstancesForProvisionedProductInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProvisionedProductId: "STRING_VALUE", // required
  *   PageToken: "STRING_VALUE",

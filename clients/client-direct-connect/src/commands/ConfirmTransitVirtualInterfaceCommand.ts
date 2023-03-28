@@ -45,7 +45,7 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * import { DirectConnectClient, ConfirmTransitVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmTransitVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // ConfirmTransitVirtualInterfaceRequest
  *   virtualInterfaceId: "STRING_VALUE", // required
  *   directConnectGatewayId: "STRING_VALUE", // required
  * };

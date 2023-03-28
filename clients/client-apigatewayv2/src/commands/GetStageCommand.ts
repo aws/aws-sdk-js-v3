@@ -42,7 +42,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * import { ApiGatewayV2Client, GetStageCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetStageCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // GetStageRequest
  *   ApiId: "STRING_VALUE", // required
  *   StageName: "STRING_VALUE", // required
  * };

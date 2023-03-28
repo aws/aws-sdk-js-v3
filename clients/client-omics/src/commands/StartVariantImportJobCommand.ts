@@ -42,11 +42,11 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * import { OmicsClient, StartVariantImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartVariantImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // StartVariantImportRequest
  *   destinationName: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
- *   items: [ // required
- *     {
+ *   items: [ // VariantImportItemSources // required
+ *     { // VariantImportItemSource
  *       source: "STRING_VALUE", // required
  *     },
  *   ],

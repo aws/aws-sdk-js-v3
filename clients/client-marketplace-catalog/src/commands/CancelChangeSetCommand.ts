@@ -49,7 +49,7 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  * import { MarketplaceCatalogClient, CancelChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, CancelChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
- * const input = {
+ * const input = { // CancelChangeSetRequest
  *   Catalog: "STRING_VALUE", // required
  *   ChangeSetId: "STRING_VALUE", // required
  * };

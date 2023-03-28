@@ -42,7 +42,7 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
  * import { ImagebuilderClient, GetContainerRecipePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetContainerRecipePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // GetContainerRecipePolicyRequest
  *   containerRecipeArn: "STRING_VALUE", // required
  * };
  * const command = new GetContainerRecipePolicyCommand(input);

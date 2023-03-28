@@ -43,27 +43,27 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  * import { IoTClient, UpdateJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateJobRequest
  *   jobId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   presignedUrlConfig: {
+ *   presignedUrlConfig: { // PresignedUrlConfig
  *     roleArn: "STRING_VALUE",
  *     expiresInSec: Number("long"),
  *   },
- *   jobExecutionsRolloutConfig: {
+ *   jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
  *     maximumPerMinute: Number("int"),
- *     exponentialRate: {
+ *     exponentialRate: { // ExponentialRolloutRate
  *       baseRatePerMinute: Number("int"), // required
  *       incrementFactor: Number("double"), // required
- *       rateIncreaseCriteria: {
+ *       rateIncreaseCriteria: { // RateIncreaseCriteria
  *         numberOfNotifiedThings: Number("int"),
  *         numberOfSucceededThings: Number("int"),
  *       },
  *     },
  *   },
- *   abortConfig: {
- *     criteriaList: [ // required
- *       {
+ *   abortConfig: { // AbortConfig
+ *     criteriaList: [ // AbortCriteriaList // required
+ *       { // AbortCriteria
  *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
  *         action: "CANCEL", // required
  *         thresholdPercentage: Number("double"), // required
@@ -71,13 +71,13 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  *       },
  *     ],
  *   },
- *   timeoutConfig: {
+ *   timeoutConfig: { // TimeoutConfig
  *     inProgressTimeoutInMinutes: Number("long"),
  *   },
  *   namespaceId: "STRING_VALUE",
- *   jobExecutionsRetryConfig: {
- *     criteriaList: [ // required
- *       {
+ *   jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
+ *     criteriaList: [ // RetryCriteriaList // required
+ *       { // RetryCriteria
  *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
  *         numberOfRetries: Number("int"), // required
  *       },

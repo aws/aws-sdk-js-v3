@@ -42,11 +42,11 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * import { GlueClient, BatchDeleteTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeleteTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // BatchDeleteTableVersionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   VersionIds: [ // required
+ *   VersionIds: [ // BatchDeleteTableVersionList // required
  *     "STRING_VALUE",
  *   ],
  * };

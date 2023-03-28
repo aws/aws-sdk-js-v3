@@ -42,9 +42,9 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  * import { CognitoSyncClient, SetCognitoEventsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, SetCognitoEventsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
- * const input = {
+ * const input = { // SetCognitoEventsRequest
  *   IdentityPoolId: "STRING_VALUE", // required
- *   Events: { // required
+ *   Events: { // Events // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

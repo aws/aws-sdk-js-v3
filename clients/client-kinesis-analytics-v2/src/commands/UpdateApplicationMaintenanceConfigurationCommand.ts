@@ -67,9 +67,9 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  * import { KinesisAnalyticsV2Client, UpdateApplicationMaintenanceConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, UpdateApplicationMaintenanceConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // UpdateApplicationMaintenanceConfigurationRequest
  *   ApplicationName: "STRING_VALUE", // required
- *   ApplicationMaintenanceConfigurationUpdate: {
+ *   ApplicationMaintenanceConfigurationUpdate: { // ApplicationMaintenanceConfigurationUpdate
  *     ApplicationMaintenanceWindowStartTimeUpdate: "STRING_VALUE", // required
  *   },
  * };

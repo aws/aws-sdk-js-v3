@@ -46,7 +46,7 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // DeleteUserRequest
  *   ServerId: "STRING_VALUE", // required
  *   UserName: "STRING_VALUE", // required
  * };

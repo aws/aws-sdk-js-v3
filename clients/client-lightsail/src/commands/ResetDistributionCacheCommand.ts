@@ -45,7 +45,7 @@ export interface ResetDistributionCacheCommandOutput extends ResetDistributionCa
  * import { LightsailClient, ResetDistributionCacheCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, ResetDistributionCacheCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // ResetDistributionCacheRequest
  *   distributionName: "STRING_VALUE",
  * };
  * const command = new ResetDistributionCacheCommand(input);

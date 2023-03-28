@@ -42,19 +42,19 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  * import { ComprehendClient, StartEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
- *   InputDataConfig: {
+ * const input = { // StartEventsDetectionJobRequest
+ *   InputDataConfig: { // InputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
- *     DocumentReaderConfig: {
+ *     DocumentReaderConfig: { // DocumentReaderConfig
  *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
  *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
- *       FeatureTypes: [
+ *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
  *         "TABLES" || "FORMS",
  *       ],
  *     },
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // OutputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     KmsKeyId: "STRING_VALUE",
  *   },
@@ -62,11 +62,11 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  *   JobName: "STRING_VALUE",
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   TargetEventTypes: [ // required
+ *   TargetEventTypes: [ // TargetEventTypes // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

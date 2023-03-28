@@ -88,21 +88,21 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  * import { S3Client, PutBucketMetricsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketMetricsConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
- *   MetricsConfiguration: {
+ *   MetricsConfiguration: { // MetricsConfiguration
  *     Id: "STRING_VALUE", // required
- *     Filter: { // Union: only one key present
+ *     Filter: { // MetricsFilter Union: only one key present
  *       Prefix: "STRING_VALUE",
- *       Tag: {
+ *       Tag: { // Tag
  *         Key: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *       AccessPointArn: "STRING_VALUE",
- *       And: {
+ *       And: { // MetricsAndOperator
  *         Prefix: "STRING_VALUE",
- *         Tags: [
+ *         Tags: [ // TagSet
  *           {
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required

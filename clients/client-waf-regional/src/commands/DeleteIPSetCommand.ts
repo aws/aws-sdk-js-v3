@@ -65,7 +65,7 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * import { WAFRegionalClient, DeleteIPSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteIPSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // DeleteIPSetRequest
  *   IPSetId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

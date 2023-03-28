@@ -46,23 +46,23 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * import { EMRClient, AddInstanceFleetCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, AddInstanceFleetCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // AddInstanceFleetInput
  *   ClusterId: "STRING_VALUE", // required
- *   InstanceFleet: {
+ *   InstanceFleet: { // InstanceFleetConfig
  *     Name: "STRING_VALUE",
  *     InstanceFleetType: "MASTER" || "CORE" || "TASK", // required
  *     TargetOnDemandCapacity: Number("int"),
  *     TargetSpotCapacity: Number("int"),
- *     InstanceTypeConfigs: [
- *       {
+ *     InstanceTypeConfigs: [ // InstanceTypeConfigList
+ *       { // InstanceTypeConfig
  *         InstanceType: "STRING_VALUE", // required
  *         WeightedCapacity: Number("int"),
  *         BidPrice: "STRING_VALUE",
  *         BidPriceAsPercentageOfOnDemandPrice: Number("double"),
- *         EbsConfiguration: {
- *           EbsBlockDeviceConfigs: [
- *             {
- *               VolumeSpecification: {
+ *         EbsConfiguration: { // EbsConfiguration
+ *           EbsBlockDeviceConfigs: [ // EbsBlockDeviceConfigList
+ *             { // EbsBlockDeviceConfig
+ *               VolumeSpecification: { // VolumeSpecification
  *                 VolumeType: "STRING_VALUE", // required
  *                 Iops: Number("int"),
  *                 SizeInGB: Number("int"), // required
@@ -73,16 +73,14 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  *           ],
  *           EbsOptimized: true || false,
  *         },
- *         Configurations: [
- *           {
+ *         Configurations: [ // ConfigurationList
+ *           { // Configuration
  *             Classification: "STRING_VALUE",
  *             Configurations: [
  *               {
  *                 Classification: "STRING_VALUE",
- *                 Configurations: [
- *                   "<ConfigurationList>",
- *                 ],
- *                 Properties: {
+ *                 Configurations: "<ConfigurationList>",
+ *                 Properties: { // StringMap
  *                   "<keys>": "STRING_VALUE",
  *                 },
  *               },
@@ -95,27 +93,27 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  *         CustomAmiId: "STRING_VALUE",
  *       },
  *     ],
- *     LaunchSpecifications: {
- *       SpotSpecification: {
+ *     LaunchSpecifications: { // InstanceFleetProvisioningSpecifications
+ *       SpotSpecification: { // SpotProvisioningSpecification
  *         TimeoutDurationMinutes: Number("int"), // required
  *         TimeoutAction: "SWITCH_TO_ON_DEMAND" || "TERMINATE_CLUSTER", // required
  *         BlockDurationMinutes: Number("int"),
  *         AllocationStrategy: "capacity-optimized",
  *       },
- *       OnDemandSpecification: {
+ *       OnDemandSpecification: { // OnDemandProvisioningSpecification
  *         AllocationStrategy: "lowest-price", // required
- *         CapacityReservationOptions: {
+ *         CapacityReservationOptions: { // OnDemandCapacityReservationOptions
  *           UsageStrategy: "use-capacity-reservations-first",
  *           CapacityReservationPreference: "open" || "none",
  *           CapacityReservationResourceGroupArn: "STRING_VALUE",
  *         },
  *       },
  *     },
- *     ResizeSpecifications: {
- *       SpotResizeSpecification: {
+ *     ResizeSpecifications: { // InstanceFleetResizingSpecifications
+ *       SpotResizeSpecification: { // SpotResizingSpecification
  *         TimeoutDurationMinutes: Number("int"), // required
  *       },
- *       OnDemandResizeSpecification: {
+ *       OnDemandResizeSpecification: { // OnDemandResizingSpecification
  *         TimeoutDurationMinutes: Number("int"), // required
  *       },
  *     },

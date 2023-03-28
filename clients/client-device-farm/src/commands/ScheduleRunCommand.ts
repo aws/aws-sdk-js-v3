@@ -42,16 +42,16 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * import { DeviceFarmClient, ScheduleRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ScheduleRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // ScheduleRunRequest
  *   projectArn: "STRING_VALUE", // required
  *   appArn: "STRING_VALUE",
  *   devicePoolArn: "STRING_VALUE",
- *   deviceSelectionConfiguration: {
- *     filters: [ // required
- *       {
+ *   deviceSelectionConfiguration: { // DeviceSelectionConfiguration
+ *     filters: [ // DeviceFilters // required
+ *       { // DeviceFilter
  *         attribute: "ARN" || "PLATFORM" || "OS_VERSION" || "MODEL" || "AVAILABILITY" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE", // required
  *         operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS", // required
- *         values: [ // required
+ *         values: [ // DeviceFilterValues // required
  *           "STRING_VALUE",
  *         ],
  *       },
@@ -59,38 +59,38 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *     maxDevices: Number("int"), // required
  *   },
  *   name: "STRING_VALUE",
- *   test: {
+ *   test: { // ScheduleRunTest
  *     type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY", // required
  *     testPackageArn: "STRING_VALUE",
  *     testSpecArn: "STRING_VALUE",
  *     filter: "STRING_VALUE",
- *     parameters: {
+ *     parameters: { // TestParameters
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   configuration: {
+ *   configuration: { // ScheduleRunConfiguration
  *     extraDataPackageArn: "STRING_VALUE",
  *     networkProfileArn: "STRING_VALUE",
  *     locale: "STRING_VALUE",
- *     location: {
+ *     location: { // Location
  *       latitude: Number("double"), // required
  *       longitude: Number("double"), // required
  *     },
- *     vpceConfigurationArns: [
+ *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
- *     customerArtifactPaths: {
- *       iosPaths: [
+ *     customerArtifactPaths: { // CustomerArtifactPaths
+ *       iosPaths: [ // IosPaths
  *         "STRING_VALUE",
  *       ],
- *       androidPaths: [
+ *       androidPaths: [ // AndroidPaths
  *         "STRING_VALUE",
  *       ],
- *       deviceHostPaths: [
+ *       deviceHostPaths: [ // DeviceHostPaths
  *         "STRING_VALUE",
  *       ],
  *     },
- *     radios: {
+ *     radios: { // Radios
  *       wifi: true || false,
  *       bluetooth: true || false,
  *       nfc: true || false,
@@ -101,7 +101,7 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *     ],
  *     billingMethod: "METERED" || "UNMETERED",
  *   },
- *   executionConfiguration: {
+ *   executionConfiguration: { // ExecutionConfiguration
  *     jobTimeoutMinutes: Number("int"),
  *     accountsCleanup: true || false,
  *     appPackagesCleanup: true || false,

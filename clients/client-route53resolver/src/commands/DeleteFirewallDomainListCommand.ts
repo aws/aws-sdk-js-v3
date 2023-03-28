@@ -42,7 +42,7 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
  * import { Route53ResolverClient, DeleteFirewallDomainListCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteFirewallDomainListCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // DeleteFirewallDomainListRequest
  *   FirewallDomainListId: "STRING_VALUE", // required
  * };
  * const command = new DeleteFirewallDomainListCommand(input);

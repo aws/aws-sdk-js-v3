@@ -84,7 +84,7 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * import { AutoScalingClient, PutLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // PutLifecycleHookType
  *   LifecycleHookName: "STRING_VALUE", // required
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   LifecycleTransition: "STRING_VALUE",

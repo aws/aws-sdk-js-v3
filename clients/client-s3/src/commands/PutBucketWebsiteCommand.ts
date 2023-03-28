@@ -164,28 +164,28 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketWebsiteCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketWebsiteCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketWebsiteRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
  *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   WebsiteConfiguration: {
- *     ErrorDocument: {
+ *   WebsiteConfiguration: { // WebsiteConfiguration
+ *     ErrorDocument: { // ErrorDocument
  *       Key: "STRING_VALUE", // required
  *     },
- *     IndexDocument: {
+ *     IndexDocument: { // IndexDocument
  *       Suffix: "STRING_VALUE", // required
  *     },
- *     RedirectAllRequestsTo: {
+ *     RedirectAllRequestsTo: { // RedirectAllRequestsTo
  *       HostName: "STRING_VALUE", // required
  *       Protocol: "http" || "https",
  *     },
- *     RoutingRules: [
- *       {
- *         Condition: {
+ *     RoutingRules: [ // RoutingRules
+ *       { // RoutingRule
+ *         Condition: { // Condition
  *           HttpErrorCodeReturnedEquals: "STRING_VALUE",
  *           KeyPrefixEquals: "STRING_VALUE",
  *         },
- *         Redirect: {
+ *         Redirect: { // Redirect
  *           HostName: "STRING_VALUE",
  *           HttpRedirectCode: "STRING_VALUE",
  *           Protocol: "http" || "https",

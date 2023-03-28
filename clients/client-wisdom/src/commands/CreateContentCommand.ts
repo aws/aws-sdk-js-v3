@@ -47,17 +47,17 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  * import { WisdomClient, CreateContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // CreateContentRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   title: "STRING_VALUE",
  *   overrideLinkOutUri: "STRING_VALUE",
- *   metadata: {
+ *   metadata: { // ContentMetadata
  *     "<keys>": "STRING_VALUE",
  *   },
  *   uploadId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

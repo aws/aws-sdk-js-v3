@@ -50,7 +50,7 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * import { CloudFrontClient, ListDistributionsByCachePolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByCachePolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListDistributionsByCachePolicyIdRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  *   CachePolicyId: "STRING_VALUE", // required

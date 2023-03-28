@@ -45,7 +45,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * import { MachineLearningClient, DeleteDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // DeleteDataSourceInput
  *   DataSourceId: "STRING_VALUE", // required
  * };
  * const command = new DeleteDataSourceCommand(input);

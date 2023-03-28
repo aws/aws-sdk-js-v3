@@ -51,7 +51,7 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  * import { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ListVectorEnrichmentJobsCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // ListVectorEnrichmentJobInput
  *   StatusEquals: "STRING_VALUE",
  *   SortOrder: "STRING_VALUE",
  *   SortBy: "STRING_VALUE",

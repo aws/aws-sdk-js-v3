@@ -42,7 +42,7 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  * import { IoTTwinMakerClient, DeleteComponentTypeCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, DeleteComponentTypeCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // DeleteComponentTypeRequest
  *   workspaceId: "STRING_VALUE", // required
  *   componentTypeId: "STRING_VALUE", // required
  * };

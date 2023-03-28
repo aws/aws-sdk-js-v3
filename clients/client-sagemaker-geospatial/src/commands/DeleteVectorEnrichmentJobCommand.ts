@@ -46,7 +46,7 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  * import { SageMakerGeospatialClient, DeleteVectorEnrichmentJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, DeleteVectorEnrichmentJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // DeleteVectorEnrichmentJobInput
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new DeleteVectorEnrichmentJobCommand(input);

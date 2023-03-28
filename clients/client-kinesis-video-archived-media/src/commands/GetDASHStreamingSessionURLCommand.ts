@@ -192,15 +192,15 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * import { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetDASHStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
- * const input = {
+ * const input = { // GetDASHStreamingSessionURLInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  *   PlaybackMode: "STRING_VALUE",
  *   DisplayFragmentTimestamp: "STRING_VALUE",
  *   DisplayFragmentNumber: "STRING_VALUE",
- *   DASHFragmentSelector: {
+ *   DASHFragmentSelector: { // DASHFragmentSelector
  *     FragmentSelectorType: "STRING_VALUE",
- *     TimestampRange: {
+ *     TimestampRange: { // DASHTimestampRange
  *       StartTimestamp: new Date("TIMESTAMP"),
  *       EndTimestamp: new Date("TIMESTAMP"),
  *     },

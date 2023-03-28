@@ -47,7 +47,7 @@ export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBea
  * import { LightsailClient, DetachDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DetachDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // DetachDiskRequest
  *   diskName: "STRING_VALUE", // required
  * };
  * const command = new DetachDiskCommand(input);

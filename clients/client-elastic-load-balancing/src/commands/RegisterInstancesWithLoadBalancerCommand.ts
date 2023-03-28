@@ -64,10 +64,10 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * import { ElasticLoadBalancingClient, RegisterInstancesWithLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, RegisterInstancesWithLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // RegisterEndPointsInput
  *   LoadBalancerName: "STRING_VALUE", // required
- *   Instances: [ // required
- *     {
+ *   Instances: [ // Instances // required
+ *     { // Instance
  *       InstanceId: "STRING_VALUE",
  *     },
  *   ],

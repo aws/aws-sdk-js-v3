@@ -42,9 +42,9 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
  * import { NimbleClient, AcceptEulasCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, AcceptEulasCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // AcceptEulasRequest
  *   clientToken: "STRING_VALUE",
- *   eulaIds: [
+ *   eulaIds: [ // EulaIdList
  *     "STRING_VALUE",
  *   ],
  *   studioId: "STRING_VALUE", // required

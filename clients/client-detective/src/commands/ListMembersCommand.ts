@@ -47,7 +47,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * import { DetectiveClient, ListMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
- * const input = {
+ * const input = { // ListMembersRequest
  *   GraphArn: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

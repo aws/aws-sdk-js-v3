@@ -47,7 +47,7 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * import { LightsailClient, GetRelationalDatabaseBlueprintsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseBlueprintsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetRelationalDatabaseBlueprintsRequest
  *   pageToken: "STRING_VALUE",
  * };
  * const command = new GetRelationalDatabaseBlueprintsCommand(input);

@@ -54,9 +54,9 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  * import { Route53DomainsClient, AssociateDelegationSignerToDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, AssociateDelegationSignerToDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // AssociateDelegationSignerToDomainRequest
  *   DomainName: "STRING_VALUE", // required
- *   SigningAttributes: {
+ *   SigningAttributes: { // DnssecSigningAttributes
  *     Algorithm: Number("int"),
  *     Flags: Number("int"),
  *     PublicKey: "STRING_VALUE",

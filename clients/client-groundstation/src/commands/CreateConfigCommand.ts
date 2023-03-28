@@ -43,30 +43,30 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * import { GroundStationClient, CreateConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // CreateConfigRequest
  *   name: "STRING_VALUE", // required
- *   configData: { // Union: only one key present
- *     antennaDownlinkConfig: {
- *       spectrumConfig: {
- *         centerFrequency: {
+ *   configData: { // ConfigTypeData Union: only one key present
+ *     antennaDownlinkConfig: { // AntennaDownlinkConfig
+ *       spectrumConfig: { // SpectrumConfig
+ *         centerFrequency: { // Frequency
  *           value: Number("double"), // required
  *           units: "STRING_VALUE", // required
  *         },
- *         bandwidth: {
+ *         bandwidth: { // FrequencyBandwidth
  *           value: Number("double"), // required
  *           units: "STRING_VALUE", // required
  *         },
  *         polarization: "STRING_VALUE",
  *       },
  *     },
- *     trackingConfig: {
+ *     trackingConfig: { // TrackingConfig
  *       autotrack: "STRING_VALUE", // required
  *     },
- *     dataflowEndpointConfig: {
+ *     dataflowEndpointConfig: { // DataflowEndpointConfig
  *       dataflowEndpointName: "STRING_VALUE", // required
  *       dataflowEndpointRegion: "STRING_VALUE",
  *     },
- *     antennaDownlinkDemodDecodeConfig: {
+ *     antennaDownlinkDemodDecodeConfig: { // AntennaDownlinkDemodDecodeConfig
  *       spectrumConfig: {
  *         centerFrequency: {
  *           value: Number("double"), // required
@@ -78,38 +78,38 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *         },
  *         polarization: "STRING_VALUE",
  *       },
- *       demodulationConfig: {
+ *       demodulationConfig: { // DemodulationConfig
  *         unvalidatedJSON: "STRING_VALUE", // required
  *       },
- *       decodeConfig: {
+ *       decodeConfig: { // DecodeConfig
  *         unvalidatedJSON: "STRING_VALUE", // required
  *       },
  *     },
- *     antennaUplinkConfig: {
+ *     antennaUplinkConfig: { // AntennaUplinkConfig
  *       transmitDisabled: true || false,
- *       spectrumConfig: {
+ *       spectrumConfig: { // UplinkSpectrumConfig
  *         centerFrequency: {
  *           value: Number("double"), // required
  *           units: "STRING_VALUE", // required
  *         },
  *         polarization: "STRING_VALUE",
  *       },
- *       targetEirp: {
+ *       targetEirp: { // Eirp
  *         value: Number("double"), // required
  *         units: "STRING_VALUE", // required
  *       },
  *     },
- *     uplinkEchoConfig: {
+ *     uplinkEchoConfig: { // UplinkEchoConfig
  *       enabled: true || false, // required
  *       antennaUplinkConfigArn: "STRING_VALUE", // required
  *     },
- *     s3RecordingConfig: {
+ *     s3RecordingConfig: { // S3RecordingConfig
  *       bucketArn: "STRING_VALUE", // required
  *       roleArn: "STRING_VALUE", // required
  *       prefix: "STRING_VALUE",
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -46,7 +46,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { ApplicationInsightsClient, UpdateApplicationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UpdateApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // UpdateApplicationRequest
  *   ResourceGroupName: "STRING_VALUE", // required
  *   OpsCenterEnabled: true || false,
  *   CWEMonitorEnabled: true || false,

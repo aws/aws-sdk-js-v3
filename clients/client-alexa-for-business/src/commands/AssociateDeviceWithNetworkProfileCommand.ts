@@ -47,7 +47,7 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * import { AlexaForBusinessClient, AssociateDeviceWithNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateDeviceWithNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // AssociateDeviceWithNetworkProfileRequest
  *   DeviceArn: "STRING_VALUE", // required
  *   NetworkProfileArn: "STRING_VALUE", // required
  * };

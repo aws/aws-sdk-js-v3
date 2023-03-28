@@ -42,7 +42,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * import { CodeCatalystClient, CreateProjectCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateProjectCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // CreateProjectRequest
  *   spaceName: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",

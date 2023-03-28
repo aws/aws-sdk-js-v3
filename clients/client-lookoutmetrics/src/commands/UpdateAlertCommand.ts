@@ -42,29 +42,29 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  * import { LookoutMetricsClient, UpdateAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, UpdateAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
+ * const input = { // UpdateAlertRequest
  *   AlertArn: "STRING_VALUE", // required
  *   AlertDescription: "STRING_VALUE",
  *   AlertSensitivityThreshold: Number("int"),
- *   Action: {
- *     SNSConfiguration: {
+ *   Action: { // Action
+ *     SNSConfiguration: { // SNSConfiguration
  *       RoleArn: "STRING_VALUE", // required
  *       SnsTopicArn: "STRING_VALUE", // required
  *       SnsFormat: "STRING_VALUE",
  *     },
- *     LambdaConfiguration: {
+ *     LambdaConfiguration: { // LambdaConfiguration
  *       RoleArn: "STRING_VALUE", // required
  *       LambdaArn: "STRING_VALUE", // required
  *     },
  *   },
- *   AlertFilters: {
- *     MetricList: [
+ *   AlertFilters: { // AlertFilters
+ *     MetricList: [ // MetricNameList
  *       "STRING_VALUE",
  *     ],
- *     DimensionFilterList: [
- *       {
+ *     DimensionFilterList: [ // DimensionFilterList
+ *       { // DimensionFilter
  *         DimensionName: "STRING_VALUE",
- *         DimensionValueList: [
+ *         DimensionValueList: [ // DimensionValueList
  *           "STRING_VALUE",
  *         ],
  *       },

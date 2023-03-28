@@ -42,7 +42,7 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
  * import { AmpClient, DeleteWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
- * const input = {
+ * const input = { // DeleteWorkspaceRequest
  *   workspaceId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

@@ -44,17 +44,17 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  * import { CloudDirectoryClient, ListOutgoingTypedLinksCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListOutgoingTypedLinksCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // ListOutgoingTypedLinksRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   ObjectReference: {
+ *   ObjectReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
- *   FilterAttributeRanges: [
- *     {
+ *   FilterAttributeRanges: [ // TypedLinkAttributeRangeList
+ *     { // TypedLinkAttributeRange
  *       AttributeName: "STRING_VALUE",
- *       Range: {
+ *       Range: { // TypedAttributeValueRange
  *         StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
- *         StartValue: { // Union: only one key present
+ *         StartValue: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,
@@ -62,7 +62,7 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  *           DatetimeValue: new Date("TIMESTAMP"),
  *         },
  *         EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
- *         EndValue: { // Union: only one key present
+ *         EndValue: {//  Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,
@@ -72,7 +72,7 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  *       },
  *     },
  *   ],
- *   FilterTypedLink: {
+ *   FilterTypedLink: { // TypedLinkSchemaAndFacetName
  *     SchemaArn: "STRING_VALUE", // required
  *     TypedLinkName: "STRING_VALUE", // required
  *   },

@@ -83,16 +83,16 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * import { RUMClient, BatchCreateRumMetricDefinitionsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, BatchCreateRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // BatchCreateRumMetricDefinitionsRequest
  *   AppMonitorName: "STRING_VALUE", // required
  *   Destination: "STRING_VALUE", // required
  *   DestinationArn: "STRING_VALUE",
- *   MetricDefinitions: [ // required
- *     {
+ *   MetricDefinitions: [ // MetricDefinitionsRequest // required
+ *     { // MetricDefinitionRequest
  *       Name: "STRING_VALUE", // required
  *       ValueKey: "STRING_VALUE",
  *       UnitLabel: "STRING_VALUE",
- *       DimensionKeys: {
+ *       DimensionKeys: { // DimensionKeysMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *       EventPattern: "STRING_VALUE",

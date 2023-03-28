@@ -43,17 +43,17 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * import { Route53DomainsClient, ListDomainsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListDomainsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
- *   FilterConditions: [
- *     {
+ * const input = { // ListDomainsRequest
+ *   FilterConditions: [ // FilterConditions
+ *     { // FilterCondition
  *       Name: "DomainName" || "Expiry", // required
  *       Operator: "LE" || "GE" || "BEGINS_WITH", // required
- *       Values: [ // required
+ *       Values: [ // Values // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   SortCondition: {
+ *   SortCondition: { // SortCondition
  *     Name: "DomainName" || "Expiry", // required
  *     SortOrder: "ASC" || "DESC", // required
  *   },

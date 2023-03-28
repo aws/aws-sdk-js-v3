@@ -42,17 +42,17 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  * import { RoboMakerClient, CreateWorldExportJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateWorldExportJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CreateWorldExportJobRequest
  *   clientRequestToken: "STRING_VALUE",
- *   worlds: [ // required
+ *   worlds: [ // Arns // required
  *     "STRING_VALUE",
  *   ],
- *   outputLocation: {
+ *   outputLocation: { // OutputLocation
  *     s3Bucket: "STRING_VALUE",
  *     s3Prefix: "STRING_VALUE",
  *   },
  *   iamRole: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -43,7 +43,7 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
  * import { WAFV2Client, DescribeManagedRuleGroupCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DescribeManagedRuleGroupCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // DescribeManagedRuleGroupRequest
  *   VendorName: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required

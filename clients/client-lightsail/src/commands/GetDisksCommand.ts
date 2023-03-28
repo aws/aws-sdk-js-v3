@@ -39,7 +39,7 @@ export interface GetDisksCommandOutput extends GetDisksResult, __MetadataBearer 
  * import { LightsailClient, GetDisksCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDisksCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetDisksRequest
  *   pageToken: "STRING_VALUE",
  * };
  * const command = new GetDisksCommand(input);

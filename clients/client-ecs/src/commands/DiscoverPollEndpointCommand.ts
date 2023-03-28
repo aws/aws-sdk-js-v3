@@ -45,7 +45,7 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * import { ECSClient, DiscoverPollEndpointCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DiscoverPollEndpointCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // DiscoverPollEndpointRequest
  *   containerInstance: "STRING_VALUE",
  *   cluster: "STRING_VALUE",
  * };

@@ -42,7 +42,7 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  * import { OutpostsClient, CancelOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CancelOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // CancelOrderInput
  *   OrderId: "STRING_VALUE", // required
  * };
  * const command = new CancelOrderCommand(input);

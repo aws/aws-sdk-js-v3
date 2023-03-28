@@ -58,7 +58,7 @@ export interface DescribeConfigurationSettingsCommandOutput
  * import { ElasticBeanstalkClient, DescribeConfigurationSettingsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeConfigurationSettingsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DescribeConfigurationSettingsMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   TemplateName: "STRING_VALUE",
  *   EnvironmentName: "STRING_VALUE",

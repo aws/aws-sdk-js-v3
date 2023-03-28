@@ -42,7 +42,7 @@ export interface GetApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * import { APIGatewayClient, GetApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetApiKeyRequest
  *   apiKey: "STRING_VALUE", // required
  *   includeValue: true || false,
  * };

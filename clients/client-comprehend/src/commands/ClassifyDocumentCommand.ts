@@ -57,14 +57,14 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * import { ComprehendClient, ClassifyDocumentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ClassifyDocumentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // ClassifyDocumentRequest
  *   Text: "STRING_VALUE",
  *   EndpointArn: "STRING_VALUE", // required
  *   Bytes: "BLOB_VALUE",
- *   DocumentReaderConfig: {
+ *   DocumentReaderConfig: { // DocumentReaderConfig
  *     DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
  *     DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
- *     FeatureTypes: [
+ *     FeatureTypes: [ // ListOfDocumentReadFeatureTypes
  *       "TABLES" || "FORMS",
  *     ],
  *   },

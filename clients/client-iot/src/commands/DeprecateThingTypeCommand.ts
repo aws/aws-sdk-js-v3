@@ -44,7 +44,7 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  * import { IoTClient, DeprecateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeprecateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DeprecateThingTypeRequest
  *   thingTypeName: "STRING_VALUE", // required
  *   undoDeprecate: true || false,
  * };

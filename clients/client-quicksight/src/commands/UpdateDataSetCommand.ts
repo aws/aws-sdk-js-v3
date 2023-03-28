@@ -46,25 +46,25 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * import { QuickSightClient, UpdateDataSetCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDataSetCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // UpdateDataSetRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DataSetId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   PhysicalTableMap: { // required
- *     "<keys>": { // Union: only one key present
- *       RelationalTable: {
+ *   PhysicalTableMap: { // PhysicalTableMap // required
+ *     "<keys>": { // PhysicalTable Union: only one key present
+ *       RelationalTable: { // RelationalTable
  *         DataSourceArn: "STRING_VALUE", // required
  *         Catalog: "STRING_VALUE",
  *         Schema: "STRING_VALUE",
  *         Name: "STRING_VALUE", // required
- *         InputColumns: [ // required
- *           {
+ *         InputColumns: [ // InputColumnList // required
+ *           { // InputColumn
  *             Name: "STRING_VALUE", // required
  *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
  *           },
  *         ],
  *       },
- *       CustomSql: {
+ *       CustomSql: { // CustomSql
  *         DataSourceArn: "STRING_VALUE", // required
  *         Name: "STRING_VALUE", // required
  *         SqlQuery: "STRING_VALUE", // required
@@ -75,9 +75,9 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *           },
  *         ],
  *       },
- *       S3Source: {
+ *       S3Source: { // S3Source
  *         DataSourceArn: "STRING_VALUE", // required
- *         UploadSettings: {
+ *         UploadSettings: { // UploadSettings
  *           Format: "CSV" || "TSV" || "CLF" || "ELF" || "XLSX" || "JSON",
  *           StartFromRow: Number("int"),
  *           ContainsHeader: true || false,
@@ -93,61 +93,61 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *       },
  *     },
  *   },
- *   LogicalTableMap: {
- *     "<keys>": {
+ *   LogicalTableMap: { // LogicalTableMap
+ *     "<keys>": { // LogicalTable
  *       Alias: "STRING_VALUE", // required
- *       DataTransforms: [
- *         { // Union: only one key present
- *           ProjectOperation: {
- *             ProjectedColumns: [ // required
+ *       DataTransforms: [ // TransformOperationList
+ *         { // TransformOperation Union: only one key present
+ *           ProjectOperation: { // ProjectOperation
+ *             ProjectedColumns: [ // ProjectedColumnList // required
  *               "STRING_VALUE",
  *             ],
  *           },
- *           FilterOperation: {
+ *           FilterOperation: { // FilterOperation
  *             ConditionExpression: "STRING_VALUE", // required
  *           },
- *           CreateColumnsOperation: {
- *             Columns: [ // required
- *               {
+ *           CreateColumnsOperation: { // CreateColumnsOperation
+ *             Columns: [ // CalculatedColumnList // required
+ *               { // CalculatedColumn
  *                 ColumnName: "STRING_VALUE", // required
  *                 ColumnId: "STRING_VALUE", // required
  *                 Expression: "STRING_VALUE", // required
  *               },
  *             ],
  *           },
- *           RenameColumnOperation: {
+ *           RenameColumnOperation: { // RenameColumnOperation
  *             ColumnName: "STRING_VALUE", // required
  *             NewColumnName: "STRING_VALUE", // required
  *           },
- *           CastColumnTypeOperation: {
+ *           CastColumnTypeOperation: { // CastColumnTypeOperation
  *             ColumnName: "STRING_VALUE", // required
  *             NewColumnType: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME", // required
  *             Format: "STRING_VALUE",
  *           },
- *           TagColumnOperation: {
+ *           TagColumnOperation: { // TagColumnOperation
  *             ColumnName: "STRING_VALUE", // required
- *             Tags: [ // required
- *               {
+ *             Tags: [ // ColumnTagList // required
+ *               { // ColumnTag
  *                 ColumnGeographicRole: "COUNTRY" || "STATE" || "COUNTY" || "CITY" || "POSTCODE" || "LONGITUDE" || "LATITUDE",
- *                 ColumnDescription: {
+ *                 ColumnDescription: { // ColumnDescription
  *                   Text: "STRING_VALUE",
  *                 },
  *               },
  *             ],
  *           },
- *           UntagColumnOperation: {
+ *           UntagColumnOperation: { // UntagColumnOperation
  *             ColumnName: "STRING_VALUE", // required
- *             TagNames: [ // required
+ *             TagNames: [ // ColumnTagNames // required
  *               "COLUMN_GEOGRAPHIC_ROLE" || "COLUMN_DESCRIPTION",
  *             ],
  *           },
  *         },
  *       ],
- *       Source: {
- *         JoinInstruction: {
+ *       Source: { // LogicalTableSource
+ *         JoinInstruction: { // JoinInstruction
  *           LeftOperand: "STRING_VALUE", // required
  *           RightOperand: "STRING_VALUE", // required
- *           LeftJoinKeyProperties: {
+ *           LeftJoinKeyProperties: { // JoinKeyProperties
  *             UniqueKey: true || false,
  *           },
  *           RightJoinKeyProperties: {
@@ -162,36 +162,36 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *     },
  *   },
  *   ImportMode: "SPICE" || "DIRECT_QUERY", // required
- *   ColumnGroups: [
- *     {
- *       GeoSpatialColumnGroup: {
+ *   ColumnGroups: [ // ColumnGroupList
+ *     { // ColumnGroup
+ *       GeoSpatialColumnGroup: { // GeoSpatialColumnGroup
  *         Name: "STRING_VALUE", // required
  *         CountryCode: "US",
- *         Columns: [ // required
+ *         Columns: [ // ColumnList // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
  *   ],
- *   FieldFolders: {
- *     "<keys>": {
+ *   FieldFolders: { // FieldFolderMap
+ *     "<keys>": { // FieldFolder
  *       description: "STRING_VALUE",
- *       columns: [
+ *       columns: [ // FolderColumnList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
- *   RowLevelPermissionDataSet: {
+ *   RowLevelPermissionDataSet: { // RowLevelPermissionDataSet
  *     Namespace: "STRING_VALUE",
  *     Arn: "STRING_VALUE", // required
  *     PermissionPolicy: "GRANT_ACCESS" || "DENY_ACCESS", // required
  *     FormatVersion: "VERSION_1" || "VERSION_2",
  *     Status: "ENABLED" || "DISABLED",
  *   },
- *   RowLevelPermissionTagConfiguration: {
+ *   RowLevelPermissionTagConfiguration: { // RowLevelPermissionTagConfiguration
  *     Status: "ENABLED" || "DISABLED",
- *     TagRules: [ // required
- *       {
+ *     TagRules: [ // RowLevelPermissionTagRuleList // required
+ *       { // RowLevelPermissionTagRule
  *         TagKey: "STRING_VALUE", // required
  *         ColumnName: "STRING_VALUE", // required
  *         TagMultiValueDelimiter: "STRING_VALUE",
@@ -199,17 +199,17 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *       },
  *     ],
  *   },
- *   ColumnLevelPermissionRules: [
- *     {
- *       Principals: [
+ *   ColumnLevelPermissionRules: [ // ColumnLevelPermissionRuleList
+ *     { // ColumnLevelPermissionRule
+ *       Principals: [ // PrincipalList
  *         "STRING_VALUE",
  *       ],
- *       ColumnNames: [
+ *       ColumnNames: [ // ColumnNameList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   DataSetUsageConfiguration: {
+ *   DataSetUsageConfiguration: { // DataSetUsageConfiguration
  *     DisableUseAsDirectQuerySource: true || false,
  *     DisableUseAsImportedSource: true || false,
  *   },

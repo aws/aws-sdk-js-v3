@@ -42,10 +42,10 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  * import { EC2Client, ListSnapshotsInRecycleBinCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ListSnapshotsInRecycleBinCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ListSnapshotsInRecycleBinRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   SnapshotIds: [
+ *   SnapshotIds: [ // SnapshotIdStringList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

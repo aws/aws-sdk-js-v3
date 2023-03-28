@@ -44,7 +44,7 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * import { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DeleteDeviceUsageDataRequest
  *   DeviceArn: "STRING_VALUE", // required
  *   DeviceUsageType: "STRING_VALUE", // required
  * };

@@ -42,7 +42,7 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * import { RDSDataClient, RollbackTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, RollbackTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
- * const input = {
+ * const input = { // RollbackTransactionRequest
  *   resourceArn: "STRING_VALUE", // required
  *   secretArn: "STRING_VALUE", // required
  *   transactionId: "STRING_VALUE", // required

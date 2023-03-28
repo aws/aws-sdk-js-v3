@@ -45,8 +45,8 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  * import { SecurityHubClient, BatchDisableStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchDisableStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   StandardsSubscriptionArns: [ // required
+ * const input = { // BatchDisableStandardsRequest
+ *   StandardsSubscriptionArns: [ // StandardsSubscriptionArns // required
  *     "STRING_VALUE",
  *   ],
  * };

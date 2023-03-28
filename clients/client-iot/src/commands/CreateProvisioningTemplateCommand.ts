@@ -43,18 +43,18 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * import { IoTClient, CreateProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // CreateProvisioningTemplateRequest
  *   templateName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   templateBody: "STRING_VALUE", // required
  *   enabled: true || false,
  *   provisioningRoleArn: "STRING_VALUE", // required
- *   preProvisioningHook: {
+ *   preProvisioningHook: { // ProvisioningHook
  *     payloadVersion: "STRING_VALUE",
  *     targetArn: "STRING_VALUE", // required
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

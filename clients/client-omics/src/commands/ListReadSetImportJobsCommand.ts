@@ -42,11 +42,11 @@ export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJob
  * import { OmicsClient, ListReadSetImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReadSetImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // ListReadSetImportJobsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   sequenceStoreId: "STRING_VALUE", // required
- *   filter: {
+ *   filter: { // ImportReadSetFilter
  *     status: "STRING_VALUE",
  *     createdAfter: new Date("TIMESTAMP"),
  *     createdBefore: new Date("TIMESTAMP"),

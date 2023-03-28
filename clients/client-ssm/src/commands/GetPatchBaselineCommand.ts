@@ -46,7 +46,7 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
  * import { SSMClient, GetPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // GetPatchBaselineRequest
  *   BaselineId: "STRING_VALUE", // required
  * };
  * const command = new GetPatchBaselineCommand(input);

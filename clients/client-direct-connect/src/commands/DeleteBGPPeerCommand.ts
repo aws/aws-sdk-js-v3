@@ -43,7 +43,7 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * import { DirectConnectClient, DeleteBGPPeerCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteBGPPeerCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // DeleteBGPPeerRequest
  *   virtualInterfaceId: "STRING_VALUE",
  *   asn: Number("int"),
  *   customerAddress: "STRING_VALUE",

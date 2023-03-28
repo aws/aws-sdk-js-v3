@@ -42,7 +42,7 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * import { DeviceFarmClient, DeleteRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // DeleteRemoteAccessSessionRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new DeleteRemoteAccessSessionCommand(input);

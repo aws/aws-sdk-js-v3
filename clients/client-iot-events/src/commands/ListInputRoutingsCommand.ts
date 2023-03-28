@@ -44,13 +44,13 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * import { IoTEventsClient, ListInputRoutingsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListInputRoutingsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
- * const input = {
- *   inputIdentifier: {
- *     iotEventsInputIdentifier: {
+ * const input = { // ListInputRoutingsRequest
+ *   inputIdentifier: { // InputIdentifier
+ *     iotEventsInputIdentifier: { // IotEventsInputIdentifier
  *       inputName: "STRING_VALUE", // required
  *     },
- *     iotSiteWiseInputIdentifier: {
- *       iotSiteWiseAssetModelPropertyIdentifier: {
+ *     iotSiteWiseInputIdentifier: { // IotSiteWiseInputIdentifier
+ *       iotSiteWiseAssetModelPropertyIdentifier: { // IotSiteWiseAssetModelPropertyIdentifier
  *         assetModelId: "STRING_VALUE", // required
  *         propertyId: "STRING_VALUE", // required
  *       },

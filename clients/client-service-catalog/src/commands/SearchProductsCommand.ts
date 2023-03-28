@@ -42,10 +42,10 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * import { ServiceCatalogClient, SearchProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // SearchProductsInput
  *   AcceptLanguage: "STRING_VALUE",
- *   Filters: {
- *     "<keys>": [
+ *   Filters: { // ProductViewFilters
+ *     "<keys>": [ // ProductViewFilterValues
  *       "STRING_VALUE",
  *     ],
  *   },

@@ -44,19 +44,19 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * import { EC2Client, DescribePrefixListsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribePrefixListsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribePrefixListsRequest
  *   DryRun: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   PrefixListIds: [
+ *   PrefixListIds: [ // PrefixListResourceIdStringList
  *     "STRING_VALUE",
  *   ],
  * };

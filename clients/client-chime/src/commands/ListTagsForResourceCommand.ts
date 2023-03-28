@@ -47,7 +47,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { ChimeClient, ListTagsForResourceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

@@ -44,22 +44,22 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateResourceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateResourceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // CreateResourceDefinitionVersionRequest
  *   AmznClientToken: "STRING_VALUE",
  *   ResourceDefinitionId: "STRING_VALUE", // required
- *   Resources: [
- *     {
+ *   Resources: [ // __listOfResource
+ *     { // Resource
  *       Id: "STRING_VALUE", // required
  *       Name: "STRING_VALUE", // required
- *       ResourceDataContainer: {
- *         LocalDeviceResourceData: {
- *           GroupOwnerSetting: {
+ *       ResourceDataContainer: { // ResourceDataContainer
+ *         LocalDeviceResourceData: { // LocalDeviceResourceData
+ *           GroupOwnerSetting: { // GroupOwnerSetting
  *             AutoAddGroupOwner: true || false,
  *             GroupOwner: "STRING_VALUE",
  *           },
  *           SourcePath: "STRING_VALUE",
  *         },
- *         LocalVolumeResourceData: {
+ *         LocalVolumeResourceData: { // LocalVolumeResourceData
  *           DestinationPath: "STRING_VALUE",
  *           GroupOwnerSetting: {
  *             AutoAddGroupOwner: true || false,
@@ -67,15 +67,15 @@ export interface CreateResourceDefinitionVersionCommandOutput
  *           },
  *           SourcePath: "STRING_VALUE",
  *         },
- *         S3MachineLearningModelResourceData: {
+ *         S3MachineLearningModelResourceData: { // S3MachineLearningModelResourceData
  *           DestinationPath: "STRING_VALUE",
- *           OwnerSetting: {
+ *           OwnerSetting: { // ResourceDownloadOwnerSetting
  *             GroupOwner: "STRING_VALUE", // required
  *             GroupPermission: "ro" || "rw", // required
  *           },
  *           S3Uri: "STRING_VALUE",
  *         },
- *         SageMakerMachineLearningModelResourceData: {
+ *         SageMakerMachineLearningModelResourceData: { // SageMakerMachineLearningModelResourceData
  *           DestinationPath: "STRING_VALUE",
  *           OwnerSetting: {
  *             GroupOwner: "STRING_VALUE", // required
@@ -83,9 +83,9 @@ export interface CreateResourceDefinitionVersionCommandOutput
  *           },
  *           SageMakerJobArn: "STRING_VALUE",
  *         },
- *         SecretsManagerSecretResourceData: {
+ *         SecretsManagerSecretResourceData: { // SecretsManagerSecretResourceData
  *           ARN: "STRING_VALUE",
- *           AdditionalStagingLabelsToDownload: [
+ *           AdditionalStagingLabelsToDownload: [ // __listOf__string
  *             "STRING_VALUE",
  *           ],
  *         },

@@ -48,7 +48,7 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * import { DataSyncClient, CancelTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CancelTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // CancelTaskExecutionRequest
  *   TaskExecutionArn: "STRING_VALUE", // required
  * };
  * const command = new CancelTaskExecutionCommand(input);

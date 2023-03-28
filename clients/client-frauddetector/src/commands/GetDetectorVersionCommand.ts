@@ -42,7 +42,7 @@ export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResul
  * import { FraudDetectorClient, GetDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // GetDetectorVersionRequest
  *   detectorId: "STRING_VALUE", // required
  *   detectorVersionId: "STRING_VALUE", // required
  * };

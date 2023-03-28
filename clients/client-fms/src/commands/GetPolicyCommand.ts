@@ -39,7 +39,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * import { FMSClient, GetPolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetPolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // GetPolicyRequest
  *   PolicyId: "STRING_VALUE", // required
  * };
  * const command = new GetPolicyCommand(input);

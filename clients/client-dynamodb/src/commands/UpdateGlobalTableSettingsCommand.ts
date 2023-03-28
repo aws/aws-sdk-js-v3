@@ -54,18 +54,18 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * import { DynamoDBClient, UpdateGlobalTableSettingsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateGlobalTableSettingsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // UpdateGlobalTableSettingsInput
  *   GlobalTableName: "STRING_VALUE", // required
  *   GlobalTableBillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
  *   GlobalTableProvisionedWriteCapacityUnits: Number("long"),
- *   GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: {
+ *   GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: { // AutoScalingSettingsUpdate
  *     MinimumUnits: Number("long"),
  *     MaximumUnits: Number("long"),
  *     AutoScalingDisabled: true || false,
  *     AutoScalingRoleArn: "STRING_VALUE",
- *     ScalingPolicyUpdate: {
+ *     ScalingPolicyUpdate: { // AutoScalingPolicyUpdate
  *       PolicyName: "STRING_VALUE",
- *       TargetTrackingScalingPolicyConfiguration: {
+ *       TargetTrackingScalingPolicyConfiguration: { // AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
  *         DisableScaleIn: true || false,
  *         ScaleInCooldown: Number("int"),
  *         ScaleOutCooldown: Number("int"),
@@ -73,8 +73,8 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  *       },
  *     },
  *   },
- *   GlobalTableGlobalSecondaryIndexSettingsUpdate: [
- *     {
+ *   GlobalTableGlobalSecondaryIndexSettingsUpdate: [ // GlobalTableGlobalSecondaryIndexSettingsUpdateList
+ *     { // GlobalTableGlobalSecondaryIndexSettingsUpdate
  *       IndexName: "STRING_VALUE", // required
  *       ProvisionedWriteCapacityUnits: Number("long"),
  *       ProvisionedWriteCapacityAutoScalingSettingsUpdate: {
@@ -94,8 +94,8 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  *       },
  *     },
  *   ],
- *   ReplicaSettingsUpdate: [
- *     {
+ *   ReplicaSettingsUpdate: [ // ReplicaSettingsUpdateList
+ *     { // ReplicaSettingsUpdate
  *       RegionName: "STRING_VALUE", // required
  *       ReplicaProvisionedReadCapacityUnits: Number("long"),
  *       ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate: {
@@ -113,17 +113,11 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  *           },
  *         },
  *       },
- *       ReplicaGlobalSecondaryIndexSettingsUpdate: [
- *         {
+ *       ReplicaGlobalSecondaryIndexSettingsUpdate: [ // ReplicaGlobalSecondaryIndexSettingsUpdateList
+ *         { // ReplicaGlobalSecondaryIndexSettingsUpdate
  *           IndexName: "STRING_VALUE", // required
  *           ProvisionedReadCapacityUnits: Number("long"),
- *           ProvisionedReadCapacityAutoScalingSettingsUpdate: {
- *             MinimumUnits: "<AutoScalingSettingsUpdate>",
- *             MaximumUnits: "<AutoScalingSettingsUpdate>",
- *             AutoScalingDisabled: "<AutoScalingSettingsUpdate>",
- *             AutoScalingRoleArn: "<AutoScalingSettingsUpdate>",
- *             ScalingPolicyUpdate: "<AutoScalingSettingsUpdate>",
- *           },
+ *           ProvisionedReadCapacityAutoScalingSettingsUpdate: "<AutoScalingSettingsUpdate>",
  *         },
  *       ],
  *       ReplicaTableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",

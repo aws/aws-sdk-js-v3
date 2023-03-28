@@ -44,7 +44,7 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
  * import { CloudFrontClient, GetFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // GetFieldLevelEncryptionProfileRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetFieldLevelEncryptionProfileCommand(input);

@@ -45,8 +45,8 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * import { NetworkManagerClient, DescribeGlobalNetworksCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DescribeGlobalNetworksCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
- *   GlobalNetworkIds: [
+ * const input = { // DescribeGlobalNetworksRequest
+ *   GlobalNetworkIds: [ // GlobalNetworkIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

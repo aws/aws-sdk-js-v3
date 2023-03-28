@@ -43,19 +43,19 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * import { AlexaForBusinessClient, SearchProfilesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchProfilesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // SearchProfilesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Key: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   SortCriteria: [
- *     {
+ *   SortCriteria: [ // SortList
+ *     { // Sort
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

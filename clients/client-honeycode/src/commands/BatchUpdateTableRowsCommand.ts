@@ -55,16 +55,16 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  * import { HoneycodeClient, BatchUpdateTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchUpdateTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // BatchUpdateTableRowsRequest
  *   workbookId: "STRING_VALUE", // required
  *   tableId: "STRING_VALUE", // required
- *   rowsToUpdate: [ // required
- *     {
+ *   rowsToUpdate: [ // UpdateRowDataList // required
+ *     { // UpdateRowData
  *       rowId: "STRING_VALUE", // required
- *       cellsToUpdate: { // required
- *         "<keys>": {
+ *       cellsToUpdate: { // RowDataInput // required
+ *         "<keys>": { // CellInput
  *           fact: "STRING_VALUE",
- *           facts: [
+ *           facts: [ // FactList
  *             "STRING_VALUE",
  *           ],
  *         },

@@ -39,21 +39,21 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * import { SMSClient, UpdateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, UpdateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // UpdateAppRequest
  *   appId: "STRING_VALUE",
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   roleName: "STRING_VALUE",
- *   serverGroups: [
- *     {
+ *   serverGroups: [ // ServerGroups
+ *     { // ServerGroup
  *       serverGroupId: "STRING_VALUE",
  *       name: "STRING_VALUE",
- *       serverList: [
- *         {
+ *       serverList: [ // ServerList
+ *         { // Server
  *           serverId: "STRING_VALUE",
  *           serverType: "STRING_VALUE",
- *           vmServer: {
- *             vmServerAddress: {
+ *           vmServer: { // VmServer
+ *             vmServerAddress: { // VmServerAddress
  *               vmManagerId: "STRING_VALUE",
  *               vmId: "STRING_VALUE",
  *             },
@@ -68,8 +68,8 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  *       ],
  *     },
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

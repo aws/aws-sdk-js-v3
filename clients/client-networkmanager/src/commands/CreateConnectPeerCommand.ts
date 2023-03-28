@@ -43,18 +43,18 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * import { NetworkManagerClient, CreateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // CreateConnectPeerRequest
  *   ConnectAttachmentId: "STRING_VALUE", // required
  *   CoreNetworkAddress: "STRING_VALUE",
  *   PeerAddress: "STRING_VALUE", // required
- *   BgpOptions: {
+ *   BgpOptions: { // BgpOptions
  *     PeerAsn: Number("long"),
  *   },
- *   InsideCidrBlocks: [ // required
+ *   InsideCidrBlocks: [ // ConstrainedStringList // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

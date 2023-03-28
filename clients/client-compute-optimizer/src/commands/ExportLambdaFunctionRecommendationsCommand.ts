@@ -52,22 +52,22 @@ export interface ExportLambdaFunctionRecommendationsCommandOutput
  * import { ComputeOptimizerClient, ExportLambdaFunctionRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportLambdaFunctionRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const input = {
- *   accountIds: [
+ * const input = { // ExportLambdaFunctionRecommendationsRequest
+ *   accountIds: [ // AccountIds
  *     "STRING_VALUE",
  *   ],
- *   filters: [
- *     {
+ *   filters: [ // LambdaFunctionRecommendationFilters
+ *     { // LambdaFunctionRecommendationFilter
  *       name: "Finding" || "FindingReasonCode",
- *       values: [
+ *       values: [ // FilterValues
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   fieldsToExport: [
+ *   fieldsToExport: [ // ExportableLambdaFunctionFields
  *     "AccountId" || "FunctionArn" || "FunctionVersion" || "Finding" || "FindingReasonCodes" || "NumberOfInvocations" || "UtilizationMetricsDurationMaximum" || "UtilizationMetricsDurationAverage" || "UtilizationMetricsMemoryMaximum" || "UtilizationMetricsMemoryAverage" || "LookbackPeriodInDays" || "CurrentConfigurationMemorySize" || "CurrentConfigurationTimeout" || "CurrentCostTotal" || "CurrentCostAverage" || "RecommendationOptionsConfigurationMemorySize" || "RecommendationOptionsCostLow" || "RecommendationOptionsCostHigh" || "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound" || "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound" || "RecommendationOptionsProjectedUtilizationMetricsDurationExpected" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue",
  *   ],
- *   s3DestinationConfig: {
+ *   s3DestinationConfig: { // S3DestinationConfig
  *     bucket: "STRING_VALUE",
  *     keyPrefix: "STRING_VALUE",
  *   },

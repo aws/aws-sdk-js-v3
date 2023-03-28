@@ -47,13 +47,13 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * import { OpenSearchServerlessClient, CreateVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
+ * const input = { // CreateVpcEndpointRequest
  *   name: "STRING_VALUE", // required
  *   vpcId: "STRING_VALUE", // required
- *   subnetIds: [ // required
+ *   subnetIds: [ // SubnetIds // required
  *     "STRING_VALUE",
  *   ],
- *   securityGroupIds: [
+ *   securityGroupIds: [ // SecurityGroupIds
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",

@@ -44,7 +44,7 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * import { KendraClient, GetSnapshotsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, GetSnapshotsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // GetSnapshotsRequest
  *   IndexId: "STRING_VALUE", // required
  *   Interval: "THIS_MONTH" || "THIS_WEEK" || "ONE_WEEK_AGO" || "TWO_WEEKS_AGO" || "ONE_MONTH_AGO" || "TWO_MONTHS_AGO", // required
  *   MetricType: "QUERIES_BY_COUNT" || "QUERIES_BY_ZERO_CLICK_RATE" || "QUERIES_BY_ZERO_RESULT_RATE" || "DOCS_BY_CLICK_COUNT" || "AGG_QUERY_DOC_METRICS" || "TREND_QUERY_DOC_METRICS", // required

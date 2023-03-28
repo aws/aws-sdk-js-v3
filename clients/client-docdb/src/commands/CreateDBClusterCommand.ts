@@ -42,14 +42,14 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * import { DocDBClient, CreateDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
- *   AvailabilityZones: [
+ * const input = { // CreateDBClusterMessage
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
  *   BackupRetentionPeriod: Number("int"),
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   DBClusterParameterGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   DBSubnetGroupName: "STRING_VALUE",
@@ -60,8 +60,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   MasterUserPassword: "STRING_VALUE",
  *   PreferredBackupWindow: "STRING_VALUE",
  *   PreferredMaintenanceWindow: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -69,7 +69,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   StorageEncrypted: true || false,
  *   KmsKeyId: "STRING_VALUE",
  *   PreSignedUrl: "STRING_VALUE",
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,

@@ -42,7 +42,7 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  * import { ChimeClient, UpdateAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // UpdateAccountRequest
  *   AccountId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   DefaultLicense: "STRING_VALUE",

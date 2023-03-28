@@ -46,15 +46,15 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * import { ConnectClient, SearchUsersCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchUsersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // SearchUsersRequest
  *   InstanceId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   SearchFilter: {
- *     TagFilter: {
- *       OrConditions: [
- *         [
- *           {
+ *   SearchFilter: { // UserSearchFilter
+ *     TagFilter: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
  *             TagKey: "STRING_VALUE",
  *             TagValue: "STRING_VALUE",
  *           },
@@ -66,49 +66,41 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  *           TagValue: "STRING_VALUE",
  *         },
  *       ],
- *       TagCondition: {
- *         TagKey: "<TagCondition>",
- *         TagValue: "<TagCondition>",
- *       },
+ *       TagCondition: "<TagCondition>",
  *     },
  *   },
- *   SearchCriteria: {
- *     OrConditions: [
+ *   SearchCriteria: { // UserSearchCriteria
+ *     OrConditions: [ // UserSearchConditionList
  *       {
  *         OrConditions: [
- *           {
- *             OrConditions: "<UserSearchCriteria>",
- *             AndConditions: [
- *               "<UserSearchConditionList>",
- *             ],
- *             StringCondition: {
- *               FieldName: "STRING_VALUE",
- *               Value: "STRING_VALUE",
- *               ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
- *             },
- *             HierarchyGroupCondition: {
- *               Value: "STRING_VALUE",
- *               HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
- *             },
- *           },
+ *           "<UserSearchCriteria>",
  *         ],
  *         AndConditions: [
- *           "<UserSearchConditionList>",
+ *           "<UserSearchCriteria>",
  *         ],
- *         StringCondition: {
+ *         StringCondition: { // StringCondition
  *           FieldName: "STRING_VALUE",
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
- *         HierarchyGroupCondition: {
+ *         HierarchyGroupCondition: { // HierarchyGroupCondition
  *           Value: "STRING_VALUE",
  *           HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
  *         },
  *       },
  *     ],
- *     AndConditions: "<UserSearchCriteria>",
- *     StringCondition: "<UserSearchCriteria>",
- *     HierarchyGroupCondition: "<UserSearchCriteria>",
+ *     AndConditions: [
+ *       "<UserSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
+ *     HierarchyGroupCondition: {
+ *       Value: "STRING_VALUE",
+ *       HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *     },
  *   },
  * };
  * const command = new SearchUsersCommand(input);

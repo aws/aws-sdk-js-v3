@@ -42,27 +42,27 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * import { CodeDeployClient, CreateDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // CreateDeploymentInput
  *   applicationName: "STRING_VALUE", // required
  *   deploymentGroupName: "STRING_VALUE",
- *   revision: {
+ *   revision: { // RevisionLocation
  *     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
- *     s3Location: {
+ *     s3Location: { // S3Location
  *       bucket: "STRING_VALUE",
  *       key: "STRING_VALUE",
  *       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
  *       version: "STRING_VALUE",
  *       eTag: "STRING_VALUE",
  *     },
- *     gitHubLocation: {
+ *     gitHubLocation: { // GitHubLocation
  *       repository: "STRING_VALUE",
  *       commitId: "STRING_VALUE",
  *     },
- *     string: {
+ *     string: { // RawString
  *       content: "STRING_VALUE",
  *       sha256: "STRING_VALUE",
  *     },
- *     appSpecContent: {
+ *     appSpecContent: { // AppSpecContent
  *       content: "STRING_VALUE",
  *       sha256: "STRING_VALUE",
  *     },
@@ -70,19 +70,19 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *   deploymentConfigName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   ignoreApplicationStopFailures: true || false,
- *   targetInstances: {
- *     tagFilters: [
- *       {
+ *   targetInstances: { // TargetInstances
+ *     tagFilters: [ // EC2TagFilterList
+ *       { // EC2TagFilter
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
  *         Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
  *       },
  *     ],
- *     autoScalingGroups: [
+ *     autoScalingGroups: [ // AutoScalingGroupNameList
  *       "STRING_VALUE",
  *     ],
- *     ec2TagSet: {
- *       ec2TagSetList: [
+ *     ec2TagSet: { // EC2TagSet
+ *       ec2TagSetList: [ // EC2TagSetList
  *         [
  *           {
  *             Key: "STRING_VALUE",
@@ -93,19 +93,19 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *       ],
  *     },
  *   },
- *   autoRollbackConfiguration: {
+ *   autoRollbackConfiguration: { // AutoRollbackConfiguration
  *     enabled: true || false,
- *     events: [
+ *     events: [ // AutoRollbackEventsList
  *       "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
  *     ],
  *   },
  *   updateOutdatedInstancesOnly: true || false,
  *   fileExistsBehavior: "DISALLOW" || "OVERWRITE" || "RETAIN",
- *   overrideAlarmConfiguration: {
+ *   overrideAlarmConfiguration: { // AlarmConfiguration
  *     enabled: true || false,
  *     ignorePollAlarmFailure: true || false,
- *     alarms: [
- *       {
+ *     alarms: [ // AlarmList
+ *       { // Alarm
  *         name: "STRING_VALUE",
  *       },
  *     ],

@@ -42,7 +42,7 @@ export interface GetVariantStoreCommandOutput extends GetVariantStoreResponse, _
  * import { OmicsClient, GetVariantStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetVariantStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // GetVariantStoreRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new GetVariantStoreCommand(input);

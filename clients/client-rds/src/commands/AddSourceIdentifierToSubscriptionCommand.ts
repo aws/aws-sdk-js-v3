@@ -44,7 +44,7 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * import { RDSClient, AddSourceIdentifierToSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, AddSourceIdentifierToSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // AddSourceIdentifierToSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SourceIdentifier: "STRING_VALUE", // required
  * };

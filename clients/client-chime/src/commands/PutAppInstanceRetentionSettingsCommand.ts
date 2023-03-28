@@ -44,10 +44,10 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * import { ChimeClient, PutAppInstanceRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutAppInstanceRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // PutAppInstanceRetentionSettingsRequest
  *   AppInstanceArn: "STRING_VALUE", // required
- *   AppInstanceRetentionSettings: {
- *     ChannelRetentionSettings: {
+ *   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
+ *     ChannelRetentionSettings: { // ChannelRetentionSettings
  *       RetentionDays: Number("int"),
  *     },
  *   },

@@ -42,15 +42,15 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * import { IoTTwinMakerClient, UpdateSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, UpdateSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // UpdateSceneRequest
  *   workspaceId: "STRING_VALUE", // required
  *   sceneId: "STRING_VALUE", // required
  *   contentLocation: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   capabilities: [
+ *   capabilities: [ // SceneCapabilities
  *     "STRING_VALUE",
  *   ],
- *   sceneMetadata: {
+ *   sceneMetadata: { // SceneMetadataMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

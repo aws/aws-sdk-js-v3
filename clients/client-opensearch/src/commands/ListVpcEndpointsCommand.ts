@@ -42,7 +42,7 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * import { OpenSearchClient, ListVpcEndpointsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListVpcEndpointsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // ListVpcEndpointsRequest
  *   NextToken: "STRING_VALUE",
  * };
  * const command = new ListVpcEndpointsCommand(input);

@@ -46,23 +46,23 @@ export interface GetUnfilteredPartitionsMetadataCommandOutput
  * import { GlueClient, GetUnfilteredPartitionsMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUnfilteredPartitionsMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetUnfilteredPartitionsMetadataRequest
  *   CatalogId: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
  *   Expression: "STRING_VALUE",
- *   AuditContext: {
+ *   AuditContext: { // AuditContext
  *     AdditionalAuditContext: "STRING_VALUE",
- *     RequestedColumns: [
+ *     RequestedColumns: [ // AuditColumnNamesList
  *       "STRING_VALUE",
  *     ],
  *     AllColumnsRequested: true || false,
  *   },
- *   SupportedPermissionTypes: [ // required
+ *   SupportedPermissionTypes: [ // PermissionTypeList // required
  *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
  *   ],
  *   NextToken: "STRING_VALUE",
- *   Segment: {
+ *   Segment: { // Segment
  *     SegmentNumber: Number("int"), // required
  *     TotalSegments: Number("int"), // required
  *   },

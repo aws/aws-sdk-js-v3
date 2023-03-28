@@ -43,7 +43,7 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * import { SSMClient, TerminateSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, TerminateSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // TerminateSessionRequest
  *   SessionId: "STRING_VALUE", // required
  * };
  * const command = new TerminateSessionCommand(input);

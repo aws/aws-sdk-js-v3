@@ -42,7 +42,7 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * import { PanoramaClient, ListNodesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListNodesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // ListNodesRequest
  *   Category: "STRING_VALUE",
  *   OwnerAccount: "STRING_VALUE",
  *   PackageName: "STRING_VALUE",

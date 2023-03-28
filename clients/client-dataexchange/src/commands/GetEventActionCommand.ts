@@ -42,7 +42,7 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  * import { DataExchangeClient, GetEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, GetEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // GetEventActionRequest
  *   EventActionId: "STRING_VALUE", // required
  * };
  * const command = new GetEventActionCommand(input);

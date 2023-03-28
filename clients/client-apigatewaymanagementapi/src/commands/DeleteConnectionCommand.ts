@@ -46,7 +46,7 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayManagementApiClient, DeleteConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
  * // const { ApiGatewayManagementApiClient, DeleteConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
- * const input = {
+ * const input = { // DeleteConnectionRequest
  *   ConnectionId: "STRING_VALUE", // required
  * };
  * const command = new DeleteConnectionCommand(input);

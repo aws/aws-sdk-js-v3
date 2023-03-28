@@ -43,7 +43,7 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * import { TnbClient, ListSolNetworkOperationsCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolNetworkOperationsCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // ListSolNetworkOperationsInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

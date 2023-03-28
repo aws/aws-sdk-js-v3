@@ -42,7 +42,7 @@ export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotation
  * import { OmicsClient, CancelAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CancelAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // CancelAnnotationImportRequest
  *   jobId: "STRING_VALUE", // required
  * };
  * const command = new CancelAnnotationImportJobCommand(input);

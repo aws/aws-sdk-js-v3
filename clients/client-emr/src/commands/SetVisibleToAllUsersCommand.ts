@@ -55,8 +55,8 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  * import { EMRClient, SetVisibleToAllUsersCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, SetVisibleToAllUsersCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
- *   JobFlowIds: [ // required
+ * const input = { // SetVisibleToAllUsersInput
+ *   JobFlowIds: [ // XmlStringList // required
  *     "STRING_VALUE",
  *   ],
  *   VisibleToAllUsers: true || false, // required

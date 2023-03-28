@@ -50,7 +50,7 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * import { StorageGatewayClient, DisableGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DisableGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DisableGatewayInput
  *   GatewayARN: "STRING_VALUE", // required
  * };
  * const command = new DisableGatewayCommand(input);

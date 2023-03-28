@@ -89,16 +89,16 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * import { CloudWatchClient, GetMetricDataCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricDataCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
- *   MetricDataQueries: [ // required
- *     {
+ * const input = { // GetMetricDataInput
+ *   MetricDataQueries: [ // MetricDataQueries // required
+ *     { // MetricDataQuery
  *       Id: "STRING_VALUE", // required
- *       MetricStat: {
- *         Metric: {
+ *       MetricStat: { // MetricStat
+ *         Metric: { // Metric
  *           Namespace: "STRING_VALUE",
  *           MetricName: "STRING_VALUE",
- *           Dimensions: [
- *             {
+ *           Dimensions: [ // Dimensions
+ *             { // Dimension
  *               Name: "STRING_VALUE", // required
  *               Value: "STRING_VALUE", // required
  *             },
@@ -120,7 +120,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  *   NextToken: "STRING_VALUE",
  *   ScanBy: "TimestampDescending" || "TimestampAscending",
  *   MaxDatapoints: Number("int"),
- *   LabelOptions: {
+ *   LabelOptions: { // LabelOptions
  *     Timezone: "STRING_VALUE",
  *   },
  * };

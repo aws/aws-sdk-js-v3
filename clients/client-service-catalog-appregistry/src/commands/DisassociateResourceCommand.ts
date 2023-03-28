@@ -46,7 +46,7 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * import { ServiceCatalogAppRegistryClient, DisassociateResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DisassociateResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
- * const input = {
+ * const input = { // DisassociateResourceRequest
  *   application: "STRING_VALUE", // required
  *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
  *   resource: "STRING_VALUE", // required

@@ -45,7 +45,7 @@ export interface ListCustomMetricsCommandOutput extends ListCustomMetricsRespons
  * import { IoTClient, ListCustomMetricsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCustomMetricsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListCustomMetricsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

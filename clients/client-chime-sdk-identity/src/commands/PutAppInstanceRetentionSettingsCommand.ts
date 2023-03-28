@@ -45,10 +45,10 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * import { ChimeSDKIdentityClient, PutAppInstanceRetentionSettingsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, PutAppInstanceRetentionSettingsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
- * const input = {
+ * const input = { // PutAppInstanceRetentionSettingsRequest
  *   AppInstanceArn: "STRING_VALUE", // required
- *   AppInstanceRetentionSettings: {
- *     ChannelRetentionSettings: {
+ *   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
+ *     ChannelRetentionSettings: { // ChannelRetentionSettings
  *       RetentionDays: Number("int"),
  *     },
  *   },

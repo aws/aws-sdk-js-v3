@@ -48,11 +48,11 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  * import { GlueClient, DeleteColumnStatisticsForPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteColumnStatisticsForPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // DeleteColumnStatisticsForPartitionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   PartitionValues: [ // required
+ *   PartitionValues: [ // ValueStringList // required
  *     "STRING_VALUE",
  *   ],
  *   ColumnName: "STRING_VALUE", // required

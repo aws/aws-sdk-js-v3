@@ -46,7 +46,7 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  * import { DevOpsGuruClient, GetCostEstimationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, GetCostEstimationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
+ * const input = { // GetCostEstimationRequest
  *   NextToken: "STRING_VALUE",
  * };
  * const command = new GetCostEstimationCommand(input);

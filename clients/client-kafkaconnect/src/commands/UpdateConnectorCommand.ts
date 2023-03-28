@@ -42,20 +42,20 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * import { KafkaConnectClient, UpdateConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, UpdateConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = {
- *   capacity: {
- *     autoScaling: {
+ * const input = { // UpdateConnectorRequest
+ *   capacity: { // CapacityUpdate
+ *     autoScaling: { // AutoScalingUpdate
  *       maxWorkerCount: Number("int"), // required
  *       mcuCount: Number("int"), // required
  *       minWorkerCount: Number("int"), // required
- *       scaleInPolicy: {
+ *       scaleInPolicy: { // ScaleInPolicyUpdate
  *         cpuUtilizationPercentage: Number("int"), // required
  *       },
- *       scaleOutPolicy: {
+ *       scaleOutPolicy: { // ScaleOutPolicyUpdate
  *         cpuUtilizationPercentage: Number("int"), // required
  *       },
  *     },
- *     provisionedCapacity: {
+ *     provisionedCapacity: { // ProvisionedCapacityUpdate
  *       mcuCount: Number("int"), // required
  *       workerCount: Number("int"), // required
  *     },

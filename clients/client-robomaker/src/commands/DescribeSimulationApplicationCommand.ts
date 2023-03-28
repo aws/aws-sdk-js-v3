@@ -44,7 +44,7 @@ export interface DescribeSimulationApplicationCommandOutput
  * import { RoboMakerClient, DescribeSimulationApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeSimulationApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // DescribeSimulationApplicationRequest
  *   application: "STRING_VALUE", // required
  *   applicationVersion: "STRING_VALUE",
  * };

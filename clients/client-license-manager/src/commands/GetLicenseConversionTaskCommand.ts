@@ -42,7 +42,7 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * import { LicenseManagerClient, GetLicenseConversionTaskCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, GetLicenseConversionTaskCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // GetLicenseConversionTaskRequest
  *   LicenseConversionTaskId: "STRING_VALUE", // required
  * };
  * const command = new GetLicenseConversionTaskCommand(input);

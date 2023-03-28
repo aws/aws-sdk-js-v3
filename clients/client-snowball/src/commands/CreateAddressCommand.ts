@@ -45,8 +45,8 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * import { SnowballClient, CreateAddressCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateAddressCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
- *   Address: {
+ * const input = { // CreateAddressRequest
+ *   Address: { // Address
  *     AddressId: "STRING_VALUE",
  *     Name: "STRING_VALUE",
  *     Company: "STRING_VALUE",

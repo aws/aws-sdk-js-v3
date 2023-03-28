@@ -110,29 +110,29 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * import { GreengrassV2Client, CreateComponentVersionCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CreateComponentVersionCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // CreateComponentVersionRequest
  *   inlineRecipe: "BLOB_VALUE",
- *   lambdaFunction: {
+ *   lambdaFunction: { // LambdaFunctionRecipeSource
  *     lambdaArn: "STRING_VALUE", // required
  *     componentName: "STRING_VALUE",
  *     componentVersion: "STRING_VALUE",
- *     componentPlatforms: [
- *       {
+ *     componentPlatforms: [ // ComponentPlatformList
+ *       { // ComponentPlatform
  *         name: "STRING_VALUE",
- *         attributes: {
+ *         attributes: { // PlatformAttributesMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     ],
- *     componentDependencies: {
- *       "<keys>": {
+ *     componentDependencies: { // ComponentDependencyMap
+ *       "<keys>": { // ComponentDependencyRequirement
  *         versionRequirement: "STRING_VALUE",
  *         dependencyType: "HARD" || "SOFT",
  *       },
  *     },
- *     componentLambdaParameters: {
- *       eventSources: [
- *         {
+ *     componentLambdaParameters: { // LambdaExecutionParameters
+ *       eventSources: [ // LambdaEventSourceList
+ *         { // LambdaEventSource
  *           topic: "STRING_VALUE", // required
  *           type: "PUB_SUB" || "IOT_CORE", // required
  *         },
@@ -144,27 +144,27 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *       statusTimeoutInSeconds: Number("int"),
  *       pinned: true || false,
  *       inputPayloadEncodingType: "json" || "binary",
- *       execArgs: [
+ *       execArgs: [ // LambdaExecArgsList
  *         "STRING_VALUE",
  *       ],
- *       environmentVariables: {
+ *       environmentVariables: { // LambdaEnvironmentVariables
  *         "<keys>": "STRING_VALUE",
  *       },
- *       linuxProcessParams: {
+ *       linuxProcessParams: { // LambdaLinuxProcessParams
  *         isolationMode: "GreengrassContainer" || "NoContainer",
- *         containerParams: {
+ *         containerParams: { // LambdaContainerParams
  *           memorySizeInKB: Number("int"),
  *           mountROSysfs: true || false,
- *           volumes: [
- *             {
+ *           volumes: [ // LambdaVolumeList
+ *             { // LambdaVolumeMount
  *               sourcePath: "STRING_VALUE", // required
  *               destinationPath: "STRING_VALUE", // required
  *               permission: "ro" || "rw",
  *               addGroupOwner: true || false,
  *             },
  *           ],
- *           devices: [
- *             {
+ *           devices: [ // LambdaDeviceList
+ *             { // LambdaDeviceMount
  *               path: "STRING_VALUE", // required
  *               permission: "ro" || "rw",
  *               addGroupOwner: true || false,
@@ -174,7 +174,7 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *       },
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

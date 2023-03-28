@@ -54,10 +54,10 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * import { CloudHSMClient, AddTagsToResourceCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, AddTagsToResourceCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
- * const input = {
+ * const input = { // AddTagsToResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagList: [ // required
- *     {
+ *   TagList: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -43,7 +43,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * import { SageMakerClient, ListImagesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListImagesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListImagesRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   LastModifiedTimeAfter: new Date("TIMESTAMP"),

@@ -42,15 +42,15 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * import { AppStreamClient, UpdateStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // UpdateStackRequest
  *   DisplayName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
- *   StorageConnectors: [
- *     {
+ *   StorageConnectors: [ // StorageConnectorList
+ *     { // StorageConnector
  *       ConnectorType: "HOMEFOLDERS" || "GOOGLE_DRIVE" || "ONE_DRIVE", // required
  *       ResourceIdentifier: "STRING_VALUE",
- *       Domains: [
+ *       Domains: [ // DomainList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -58,29 +58,29 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *   DeleteStorageConnectors: true || false,
  *   RedirectURL: "STRING_VALUE",
  *   FeedbackURL: "STRING_VALUE",
- *   AttributesToDelete: [
+ *   AttributesToDelete: [ // StackAttributes
  *     "STORAGE_CONNECTORS" || "STORAGE_CONNECTOR_HOMEFOLDERS" || "STORAGE_CONNECTOR_GOOGLE_DRIVE" || "STORAGE_CONNECTOR_ONE_DRIVE" || "REDIRECT_URL" || "FEEDBACK_URL" || "THEME_NAME" || "USER_SETTINGS" || "EMBED_HOST_DOMAINS" || "IAM_ROLE_ARN" || "ACCESS_ENDPOINTS" || "STREAMING_EXPERIENCE_SETTINGS",
  *   ],
- *   UserSettings: [
- *     {
+ *   UserSettings: [ // UserSettingList
+ *     { // UserSetting
  *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
  *       Permission: "ENABLED" || "DISABLED", // required
  *     },
  *   ],
- *   ApplicationSettings: {
+ *   ApplicationSettings: { // ApplicationSettings
  *     Enabled: true || false, // required
  *     SettingsGroup: "STRING_VALUE",
  *   },
- *   AccessEndpoints: [
- *     {
+ *   AccessEndpoints: [ // AccessEndpointList
+ *     { // AccessEndpoint
  *       EndpointType: "STREAMING", // required
  *       VpceId: "STRING_VALUE",
  *     },
  *   ],
- *   EmbedHostDomains: [
+ *   EmbedHostDomains: [ // EmbedHostDomains
  *     "STRING_VALUE",
  *   ],
- *   StreamingExperienceSettings: {
+ *   StreamingExperienceSettings: { // StreamingExperienceSettings
  *     PreferredProtocol: "TCP" || "UDP",
  *   },
  * };

@@ -47,29 +47,29 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * import { DataSyncClient, CreateLocationFsxOntapCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxOntapCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
- *   Protocol: {
- *     NFS: {
- *       MountOptions: {
+ * const input = { // CreateLocationFsxOntapRequest
+ *   Protocol: { // FsxProtocol
+ *     NFS: { // FsxProtocolNfs
+ *       MountOptions: { // NfsMountOptions
  *         Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
  *       },
  *     },
- *     SMB: {
+ *     SMB: { // FsxProtocolSmb
  *       Domain: "STRING_VALUE",
- *       MountOptions: {
+ *       MountOptions: { // SmbMountOptions
  *         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
  *       },
  *       Password: "STRING_VALUE", // required
  *       User: "STRING_VALUE", // required
  *     },
  *   },
- *   SecurityGroupArns: [ // required
+ *   SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
  *     "STRING_VALUE",
  *   ],
  *   StorageVirtualMachineArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

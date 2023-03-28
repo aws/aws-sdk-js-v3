@@ -69,11 +69,11 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * import { KMSClient, GenerateMacCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateMacCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // GenerateMacRequest
  *   Message: "BLOB_VALUE", // required
  *   KeyId: "STRING_VALUE", // required
  *   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512", // required
- *   GrantTokens: [
+ *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
  * };

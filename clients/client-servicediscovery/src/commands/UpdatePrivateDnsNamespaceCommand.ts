@@ -43,14 +43,14 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * import { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // UpdatePrivateDnsNamespaceRequest
  *   Id: "STRING_VALUE", // required
  *   UpdaterRequestId: "STRING_VALUE",
- *   Namespace: {
+ *   Namespace: { // PrivateDnsNamespaceChange
  *     Description: "STRING_VALUE",
- *     Properties: {
- *       DnsProperties: {
- *         SOA: {
+ *     Properties: { // PrivateDnsNamespacePropertiesChange
+ *       DnsProperties: { // PrivateDnsPropertiesMutableChange
+ *         SOA: { // SOAChange
  *           TTL: Number("long"), // required
  *         },
  *       },

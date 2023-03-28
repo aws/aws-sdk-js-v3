@@ -42,27 +42,27 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  * import { M2Client, CreateDataSetImportTaskCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateDataSetImportTaskCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // CreateDataSetImportTaskRequest
  *   applicationId: "STRING_VALUE", // required
- *   importConfig: { // Union: only one key present
+ *   importConfig: { // DataSetImportConfig Union: only one key present
  *     s3Location: "STRING_VALUE",
- *     dataSets: [
- *       {
- *         dataSet: {
+ *     dataSets: [ // DataSetImportList
+ *       { // DataSetImportItem
+ *         dataSet: { // DataSet
  *           storageType: "STRING_VALUE",
  *           datasetName: "STRING_VALUE", // required
- *           datasetOrg: { // Union: only one key present
- *             vsam: {
+ *           datasetOrg: { // DatasetOrgAttributes Union: only one key present
+ *             vsam: { // VsamAttributes
  *               format: "STRING_VALUE", // required
  *               encoding: "STRING_VALUE",
  *               compressed: true || false,
- *               primaryKey: {
+ *               primaryKey: { // PrimaryKey
  *                 name: "STRING_VALUE",
  *                 offset: Number("int"), // required
  *                 length: Number("int"), // required
  *               },
- *               alternateKeys: [
- *                 {
+ *               alternateKeys: [ // AlternateKeyList
+ *                 { // AlternateKey
  *                   name: "STRING_VALUE",
  *                   offset: Number("int"), // required
  *                   length: Number("int"), // required
@@ -70,18 +70,18 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  *                 },
  *               ],
  *             },
- *             gdg: {
+ *             gdg: { // GdgAttributes
  *               limit: Number("int"),
  *               rollDisposition: "STRING_VALUE",
  *             },
  *           },
  *           relativePath: "STRING_VALUE",
- *           recordLength: {
+ *           recordLength: { // RecordLength
  *             min: Number("int"), // required
  *             max: Number("int"), // required
  *           },
  *         },
- *         externalLocation: { // Union: only one key present
+ *         externalLocation: { // ExternalLocation Union: only one key present
  *           s3Location: "STRING_VALUE",
  *         },
  *       },

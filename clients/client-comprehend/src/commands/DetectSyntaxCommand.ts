@@ -50,7 +50,7 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  * import { ComprehendClient, DetectSyntaxCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectSyntaxCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DetectSyntaxRequest
  *   Text: "STRING_VALUE", // required
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt", // required
  * };

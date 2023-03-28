@@ -44,7 +44,7 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * import { CustomerProfilesClient, ListProfileObjectTypeTemplatesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListProfileObjectTypeTemplatesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // ListProfileObjectTypeTemplatesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

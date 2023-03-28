@@ -53,7 +53,7 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * import { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEffectiveRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
- * const input = {
+ * const input = { // GetEffectiveRecommendationPreferencesRequest
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new GetEffectiveRecommendationPreferencesCommand(input);

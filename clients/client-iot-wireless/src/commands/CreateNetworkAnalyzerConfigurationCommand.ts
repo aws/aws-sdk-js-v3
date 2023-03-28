@@ -47,21 +47,21 @@ export interface CreateNetworkAnalyzerConfigurationCommandOutput
  * import { IoTWirelessClient, CreateNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CreateNetworkAnalyzerConfigurationRequest
  *   Name: "STRING_VALUE", // required
- *   TraceContent: {
+ *   TraceContent: { // TraceContent
  *     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
  *     LogLevel: "INFO" || "ERROR" || "DISABLED",
  *   },
- *   WirelessDevices: [
+ *   WirelessDevices: [ // WirelessDeviceList
  *     "STRING_VALUE",
  *   ],
- *   WirelessGateways: [
+ *   WirelessGateways: [ // WirelessGatewayList
  *     "STRING_VALUE",
  *   ],
  *   Description: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

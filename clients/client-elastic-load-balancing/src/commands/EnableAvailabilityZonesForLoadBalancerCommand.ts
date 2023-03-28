@@ -53,9 +53,9 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * import { ElasticLoadBalancingClient, EnableAvailabilityZonesForLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, EnableAvailabilityZonesForLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // AddAvailabilityZonesInput
  *   LoadBalancerName: "STRING_VALUE", // required
- *   AvailabilityZones: [ // required
+ *   AvailabilityZones: [ // AvailabilityZones // required
  *     "STRING_VALUE",
  *   ],
  * };

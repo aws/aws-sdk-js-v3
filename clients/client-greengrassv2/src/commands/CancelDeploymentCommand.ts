@@ -44,7 +44,7 @@ export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse,
  * import { GreengrassV2Client, CancelDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CancelDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // CancelDeploymentRequest
  *   deploymentId: "STRING_VALUE", // required
  * };
  * const command = new CancelDeploymentCommand(input);

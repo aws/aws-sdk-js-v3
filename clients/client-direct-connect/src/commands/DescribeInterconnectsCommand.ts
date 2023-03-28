@@ -42,7 +42,7 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * import { DirectConnectClient, DescribeInterconnectsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeInterconnectsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // DescribeInterconnectsRequest
  *   interconnectId: "STRING_VALUE",
  * };
  * const command = new DescribeInterconnectsCommand(input);

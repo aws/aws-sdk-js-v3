@@ -50,11 +50,11 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * import { ECRClient, CompleteLayerUploadCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, CompleteLayerUploadCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // CompleteLayerUploadRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
  *   uploadId: "STRING_VALUE", // required
- *   layerDigests: [ // required
+ *   layerDigests: [ // LayerDigestList // required
  *     "STRING_VALUE",
  *   ],
  * };

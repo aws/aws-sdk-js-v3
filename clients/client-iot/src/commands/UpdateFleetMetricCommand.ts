@@ -43,12 +43,12 @@ export interface UpdateFleetMetricCommandOutput extends __MetadataBearer {}
  * import { IoTClient, UpdateFleetMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateFleetMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateFleetMetricRequest
  *   metricName: "STRING_VALUE", // required
  *   queryString: "STRING_VALUE",
- *   aggregationType: {
+ *   aggregationType: { // AggregationType
  *     name: "Statistics" || "Percentiles" || "Cardinality", // required
- *     values: [
+ *     values: [ // AggregationTypeValues
  *       "STRING_VALUE",
  *     ],
  *   },

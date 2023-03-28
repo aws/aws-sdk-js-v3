@@ -42,7 +42,7 @@ export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositor
  * import { CodeCatalystClient, ListSourceRepositoriesCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, ListSourceRepositoriesCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
- * const input = {
+ * const input = { // ListSourceRepositoriesRequest
  *   spaceName: "STRING_VALUE", // required
  *   projectName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",

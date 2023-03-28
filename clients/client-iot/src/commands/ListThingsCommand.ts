@@ -50,7 +50,7 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * import { IoTClient, ListThingsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListThingsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   attributeName: "STRING_VALUE",

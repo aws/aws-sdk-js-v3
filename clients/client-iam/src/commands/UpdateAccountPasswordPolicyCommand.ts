@@ -52,7 +52,7 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * import { IAMClient, UpdateAccountPasswordPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateAccountPasswordPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UpdateAccountPasswordPolicyRequest
  *   MinimumPasswordLength: Number("int"),
  *   RequireSymbols: true || false,
  *   RequireNumbers: true || false,

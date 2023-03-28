@@ -43,7 +43,7 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * import { GlacierClient, ListProvisionedCapacityCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListProvisionedCapacityCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
- * const input = {
+ * const input = { // ListProvisionedCapacityInput
  *   accountId: "STRING_VALUE", // required
  * };
  * const command = new ListProvisionedCapacityCommand(input);

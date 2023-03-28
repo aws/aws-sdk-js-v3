@@ -42,7 +42,7 @@ export interface AssociateUserSettingsCommandOutput extends AssociateUserSetting
  * import { WorkSpacesWebClient, AssociateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // AssociateUserSettingsRequest
  *   portalArn: "STRING_VALUE", // required
  *   userSettingsArn: "STRING_VALUE", // required
  * };

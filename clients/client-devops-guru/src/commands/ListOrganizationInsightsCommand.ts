@@ -42,31 +42,31 @@ export interface ListOrganizationInsightsCommandOutput extends ListOrganizationI
  * import { DevOpsGuruClient, ListOrganizationInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListOrganizationInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
- *   StatusFilter: {
- *     Ongoing: {
+ * const input = { // ListOrganizationInsightsRequest
+ *   StatusFilter: { // ListInsightsStatusFilter
+ *     Ongoing: { // ListInsightsOngoingStatusFilter
  *       Type: "REACTIVE" || "PROACTIVE", // required
  *     },
- *     Closed: {
+ *     Closed: { // ListInsightsClosedStatusFilter
  *       Type: "REACTIVE" || "PROACTIVE", // required
- *       EndTimeRange: {
+ *       EndTimeRange: { // EndTimeRange
  *         FromTime: new Date("TIMESTAMP"),
  *         ToTime: new Date("TIMESTAMP"),
  *       },
  *     },
- *     Any: {
+ *     Any: { // ListInsightsAnyStatusFilter
  *       Type: "REACTIVE" || "PROACTIVE", // required
- *       StartTimeRange: {
+ *       StartTimeRange: { // StartTimeRange
  *         FromTime: new Date("TIMESTAMP"),
  *         ToTime: new Date("TIMESTAMP"),
  *       },
  *     },
  *   },
  *   MaxResults: Number("int"),
- *   AccountIds: [
+ *   AccountIds: [ // ListInsightsAccountIdList
  *     "STRING_VALUE",
  *   ],
- *   OrganizationalUnitIds: [
+ *   OrganizationalUnitIds: [ // ListInsightsOrganizationalUnitIdList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

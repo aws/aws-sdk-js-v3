@@ -43,7 +43,7 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  * import { OAMClient, GetSinkPolicyCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, GetSinkPolicyCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
- * const input = {
+ * const input = { // GetSinkPolicyInput
  *   SinkIdentifier: "STRING_VALUE", // required
  * };
  * const command = new GetSinkPolicyCommand(input);

@@ -63,7 +63,7 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * import { EC2Client, AttachVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AttachVolumeRequest
  *   Device: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  *   VolumeId: "STRING_VALUE", // required

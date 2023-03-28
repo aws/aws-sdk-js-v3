@@ -50,7 +50,7 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  * import { IAMClient, CreateServiceLinkedRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateServiceLinkedRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // CreateServiceLinkedRoleRequest
  *   AWSServiceName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   CustomSuffix: "STRING_VALUE",

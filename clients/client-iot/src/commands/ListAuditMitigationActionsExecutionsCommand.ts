@@ -49,7 +49,7 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * import { IoTClient, ListAuditMitigationActionsExecutionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAuditMitigationActionsExecutionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListAuditMitigationActionsExecutionsRequest
  *   taskId: "STRING_VALUE", // required
  *   actionStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED" || "SKIPPED" || "PENDING",
  *   findingId: "STRING_VALUE", // required

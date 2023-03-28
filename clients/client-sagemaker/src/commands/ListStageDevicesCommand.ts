@@ -42,7 +42,7 @@ export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse,
  * import { SageMakerClient, ListStageDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListStageDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListStageDevicesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   EdgeDeploymentPlanName: "STRING_VALUE", // required

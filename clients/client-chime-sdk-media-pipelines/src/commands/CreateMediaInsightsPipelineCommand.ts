@@ -53,17 +53,17 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * import { ChimeSDKMediaPipelinesClient, CreateMediaInsightsPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaInsightsPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
+ * const input = { // CreateMediaInsightsPipelineRequest
  *   MediaInsightsPipelineConfigurationArn: "STRING_VALUE", // required
- *   KinesisVideoStreamSourceRuntimeConfiguration: {
- *     Streams: [ // required
- *       {
+ *   KinesisVideoStreamSourceRuntimeConfiguration: { // KinesisVideoStreamSourceRuntimeConfiguration
+ *     Streams: [ // Streams // required
+ *       { // StreamConfiguration
  *         StreamArn: "STRING_VALUE", // required
  *         FragmentNumber: "STRING_VALUE",
- *         StreamChannelDefinition: {
+ *         StreamChannelDefinition: { // StreamChannelDefinition
  *           NumberOfChannels: Number("int"), // required
- *           ChannelDefinitions: [
- *             {
+ *           ChannelDefinitions: [ // ChannelDefinitions
+ *             { // ChannelDefinition
  *               ChannelId: Number("int"), // required
  *               ParticipantRole: "AGENT" || "CUSTOMER",
  *             },
@@ -74,29 +74,29 @@ export interface CreateMediaInsightsPipelineCommandOutput
  *     MediaEncoding: "pcm", // required
  *     MediaSampleRate: Number("int"), // required
  *   },
- *   MediaInsightsRuntimeMetadata: {
+ *   MediaInsightsRuntimeMetadata: { // MediaInsightsRuntimeMetadata
  *     "<keys>": "STRING_VALUE",
  *   },
- *   KinesisVideoStreamRecordingSourceRuntimeConfiguration: {
- *     Streams: [ // required
- *       {
+ *   KinesisVideoStreamRecordingSourceRuntimeConfiguration: { // KinesisVideoStreamRecordingSourceRuntimeConfiguration
+ *     Streams: [ // RecordingStreamList // required
+ *       { // RecordingStreamConfiguration
  *         StreamArn: "STRING_VALUE",
  *       },
  *     ],
- *     FragmentSelector: {
+ *     FragmentSelector: { // FragmentSelector
  *       FragmentSelectorType: "ProducerTimestamp" || "ServerTimestamp", // required
- *       TimestampRange: {
+ *       TimestampRange: { // TimestampRange
  *         StartTimestamp: new Date("TIMESTAMP"), // required
  *         EndTimestamp: new Date("TIMESTAMP"), // required
  *       },
  *     },
  *   },
- *   S3RecordingSinkRuntimeConfiguration: {
+ *   S3RecordingSinkRuntimeConfiguration: { // S3RecordingSinkRuntimeConfiguration
  *     Destination: "STRING_VALUE", // required
  *     RecordingFileFormat: "Wav" || "Opus", // required
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

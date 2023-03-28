@@ -42,7 +42,7 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  * import { MediaConvertClient, AssociateCertificateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, AssociateCertificateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // AssociateCertificateRequest
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new AssociateCertificateCommand(input);

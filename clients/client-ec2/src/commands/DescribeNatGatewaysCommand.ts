@@ -42,18 +42,18 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * import { EC2Client, DescribeNatGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNatGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeNatGatewaysRequest
  *   DryRun: true || false,
- *   Filter: [
- *     {
+ *   Filter: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   MaxResults: Number("int"),
- *   NatGatewayIds: [
+ *   NatGatewayIds: [ // NatGatewayIdStringList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

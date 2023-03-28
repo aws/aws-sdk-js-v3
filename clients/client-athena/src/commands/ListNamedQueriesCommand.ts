@@ -47,7 +47,7 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  * import { AthenaClient, ListNamedQueriesCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListNamedQueriesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // ListNamedQueriesInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   WorkGroup: "STRING_VALUE",

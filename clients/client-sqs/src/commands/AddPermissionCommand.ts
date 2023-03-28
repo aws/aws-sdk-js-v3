@@ -81,13 +81,13 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * import { SQSClient, AddPermissionCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, AddPermissionCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // AddPermissionRequest
  *   QueueUrl: "STRING_VALUE", // required
  *   Label: "STRING_VALUE", // required
- *   AWSAccountIds: [ // required
+ *   AWSAccountIds: [ // AWSAccountIdList // required
  *     "STRING_VALUE",
  *   ],
- *   Actions: [ // required
+ *   Actions: [ // ActionNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

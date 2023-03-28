@@ -93,14 +93,14 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * import { WAFClient, UpdateXssMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateXssMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // UpdateXssMatchSetRequest
  *   XssMatchSetId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
- *   Updates: [ // required
- *     {
+ *   Updates: [ // XssMatchSetUpdates // required
+ *     { // XssMatchSetUpdate
  *       Action: "STRING_VALUE", // required
- *       XssMatchTuple: {
- *         FieldToMatch: {
+ *       XssMatchTuple: { // XssMatchTuple
+ *         FieldToMatch: { // FieldToMatch
  *           Type: "STRING_VALUE", // required
  *           Data: "STRING_VALUE",
  *         },

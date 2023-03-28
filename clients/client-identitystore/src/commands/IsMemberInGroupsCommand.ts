@@ -46,12 +46,12 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * import { IdentitystoreClient, IsMemberInGroupsCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, IsMemberInGroupsCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
- * const input = {
+ * const input = { // IsMemberInGroupsRequest
  *   IdentityStoreId: "STRING_VALUE", // required
- *   MemberId: { // Union: only one key present
+ *   MemberId: { // MemberId Union: only one key present
  *     UserId: "STRING_VALUE",
  *   },
- *   GroupIds: [ // required
+ *   GroupIds: [ // GroupIds // required
  *     "STRING_VALUE",
  *   ],
  * };

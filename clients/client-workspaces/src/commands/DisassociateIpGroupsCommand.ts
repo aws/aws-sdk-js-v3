@@ -42,9 +42,9 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * import { WorkSpacesClient, DisassociateIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DisassociateIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // DisassociateIpGroupsRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   GroupIds: [ // required
+ *   GroupIds: [ // IpGroupIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

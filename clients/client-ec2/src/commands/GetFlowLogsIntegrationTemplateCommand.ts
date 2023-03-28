@@ -61,13 +61,13 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  * import { EC2Client, GetFlowLogsIntegrationTemplateCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetFlowLogsIntegrationTemplateCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // GetFlowLogsIntegrationTemplateRequest
  *   DryRun: true || false,
  *   FlowLogId: "STRING_VALUE", // required
  *   ConfigDeliveryS3DestinationArn: "STRING_VALUE", // required
- *   IntegrateServices: {
- *     AthenaIntegrations: [
- *       {
+ *   IntegrateServices: { // IntegrateServices
+ *     AthenaIntegrations: [ // AthenaIntegrationsSet
+ *       { // AthenaIntegration
  *         IntegrationResultS3DestinationArn: "STRING_VALUE", // required
  *         PartitionLoadFrequency: "none" || "daily" || "weekly" || "monthly", // required
  *         PartitionStartDate: new Date("TIMESTAMP"),

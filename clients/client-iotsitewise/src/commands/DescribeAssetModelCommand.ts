@@ -42,7 +42,7 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * import { IoTSiteWiseClient, DescribeAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DescribeAssetModelRequest
  *   assetModelId: "STRING_VALUE", // required
  *   excludeProperties: true || false,
  * };

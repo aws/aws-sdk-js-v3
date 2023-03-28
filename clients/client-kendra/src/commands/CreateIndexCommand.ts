@@ -51,24 +51,24 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * import { KendraClient, CreateIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // CreateIndexRequest
  *   Name: "STRING_VALUE", // required
  *   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
  *   RoleArn: "STRING_VALUE", // required
- *   ServerSideEncryptionConfiguration: {
+ *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     KmsKeyId: "STRING_VALUE",
  *   },
  *   Description: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   UserTokenConfigurations: [
- *     {
- *       JwtTokenTypeConfiguration: {
+ *   UserTokenConfigurations: [ // UserTokenConfigurationList
+ *     { // UserTokenConfiguration
+ *       JwtTokenTypeConfiguration: { // JwtTokenTypeConfiguration
  *         KeyLocation: "URL" || "SECRET_MANAGER", // required
  *         URL: "STRING_VALUE",
  *         SecretManagerArn: "STRING_VALUE",
@@ -77,14 +77,14 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *         Issuer: "STRING_VALUE",
  *         ClaimRegex: "STRING_VALUE",
  *       },
- *       JsonTokenTypeConfiguration: {
+ *       JsonTokenTypeConfiguration: { // JsonTokenTypeConfiguration
  *         UserNameAttributeField: "STRING_VALUE", // required
  *         GroupAttributeField: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
  *   UserContextPolicy: "ATTRIBUTE_FILTER" || "USER_TOKEN",
- *   UserGroupResolutionConfiguration: {
+ *   UserGroupResolutionConfiguration: { // UserGroupResolutionConfiguration
  *     UserGroupResolutionMode: "AWS_SSO" || "NONE", // required
  *   },
  * };

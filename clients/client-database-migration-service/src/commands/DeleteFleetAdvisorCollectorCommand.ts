@@ -46,7 +46,7 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * import { DatabaseMigrationServiceClient, DeleteFleetAdvisorCollectorCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteFleetAdvisorCollectorCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DeleteCollectorRequest
  *   CollectorReferencedId: "STRING_VALUE", // required
  * };
  * const command = new DeleteFleetAdvisorCollectorCommand(input);

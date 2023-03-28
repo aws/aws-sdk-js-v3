@@ -47,10 +47,10 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * import { CloudFrontClient, CreateMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // CreateMonitoringSubscriptionRequest
  *   DistributionId: "STRING_VALUE", // required
- *   MonitoringSubscription: {
- *     RealtimeMetricsSubscriptionConfig: {
+ *   MonitoringSubscription: { // MonitoringSubscription
+ *     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
  *       RealtimeMetricsSubscriptionStatus: "Enabled" || "Disabled", // required
  *     },
  *   },

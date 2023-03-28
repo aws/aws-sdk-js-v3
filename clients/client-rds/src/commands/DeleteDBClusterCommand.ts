@@ -50,7 +50,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * import { RDSClient, DeleteDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeleteDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   SkipFinalSnapshot: true || false,
  *   FinalDBSnapshotIdentifier: "STRING_VALUE",

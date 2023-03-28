@@ -43,7 +43,7 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * import { DataBrewClient, DescribeRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // DescribeRecipeRequest
  *   Name: "STRING_VALUE", // required
  *   RecipeVersion: "STRING_VALUE",
  * };

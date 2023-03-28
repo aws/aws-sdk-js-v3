@@ -59,10 +59,10 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * import { ElasticLoadBalancingClient, CreateLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
+ * const input = { // CreateAccessPointInput
  *   LoadBalancerName: "STRING_VALUE", // required
- *   Listeners: [ // required
- *     {
+ *   Listeners: [ // Listeners // required
+ *     { // Listener
  *       Protocol: "STRING_VALUE", // required
  *       LoadBalancerPort: Number("int"), // required
  *       InstanceProtocol: "STRING_VALUE",
@@ -70,18 +70,18 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  *       SSLCertificateId: "STRING_VALUE",
  *     },
  *   ],
- *   AvailabilityZones: [
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
- *   Subnets: [
+ *   Subnets: [ // Subnets
  *     "STRING_VALUE",
  *   ],
- *   SecurityGroups: [
+ *   SecurityGroups: [ // SecurityGroups
  *     "STRING_VALUE",
  *   ],
  *   Scheme: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

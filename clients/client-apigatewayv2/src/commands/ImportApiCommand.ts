@@ -42,7 +42,7 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  * import { ApiGatewayV2Client, ImportApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, ImportApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // ImportApiRequest
  *   Basepath: "STRING_VALUE",
  *   Body: "STRING_VALUE", // required
  *   FailOnWarnings: true || false,

@@ -45,7 +45,7 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * import { ServiceCatalogClient, DisassociateProductFromPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateProductFromPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DisassociateProductFromPortfolioInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProductId: "STRING_VALUE", // required
  *   PortfolioId: "STRING_VALUE", // required

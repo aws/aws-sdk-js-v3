@@ -42,7 +42,7 @@ export interface ListStoredQueriesCommandOutput extends ListStoredQueriesRespons
  * import { ConfigServiceClient, ListStoredQueriesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListStoredQueriesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // ListStoredQueriesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

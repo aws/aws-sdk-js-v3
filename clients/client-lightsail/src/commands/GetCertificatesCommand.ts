@@ -47,8 +47,8 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  * import { LightsailClient, GetCertificatesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetCertificatesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
- *   certificateStatuses: [
+ * const input = { // GetCertificatesRequest
+ *   certificateStatuses: [ // CertificateStatusList
  *     "PENDING_VALIDATION" || "ISSUED" || "INACTIVE" || "EXPIRED" || "VALIDATION_TIMED_OUT" || "REVOKED" || "FAILED",
  *   ],
  *   includeCertificateDetails: true || false,

@@ -42,7 +42,7 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * import { ServiceCatalogClient, UpdateConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // UpdateConstraintInput
  *   AcceptLanguage: "STRING_VALUE",
  *   Id: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

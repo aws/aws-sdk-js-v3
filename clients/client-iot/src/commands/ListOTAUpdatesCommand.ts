@@ -43,7 +43,7 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  * import { IoTClient, ListOTAUpdatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListOTAUpdatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListOTAUpdatesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   otaUpdateStatus: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED",

@@ -44,7 +44,7 @@ export interface DeleteWatchlistCommandOutput extends __MetadataBearer {}
  * import { VoiceIDClient, DeleteWatchlistCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DeleteWatchlistCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // DeleteWatchlistRequest
  *   DomainId: "STRING_VALUE", // required
  *   WatchlistId: "STRING_VALUE", // required
  * };

@@ -42,11 +42,11 @@ export interface ListWhatIfForecastExportsCommandOutput extends ListWhatIfForeca
  * import { ForecastClient, ListWhatIfForecastExportsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListWhatIfForecastExportsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // ListWhatIfForecastExportsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *       Condition: "IS" || "IS_NOT", // required

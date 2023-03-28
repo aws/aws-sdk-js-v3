@@ -44,7 +44,7 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * import { SQSClient, GetQueueUrlCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, GetQueueUrlCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // GetQueueUrlRequest
  *   QueueName: "STRING_VALUE", // required
  *   QueueOwnerAWSAccountId: "STRING_VALUE",
  * };

@@ -41,46 +41,46 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  * import { RestJsonProtocolClient, AllQueryStringTypesCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, AllQueryStringTypesCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
+ * const input = { // AllQueryStringTypesInput
  *   queryString: "STRING_VALUE",
- *   queryStringList: [
+ *   queryStringList: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   queryStringSet: [
+ *   queryStringSet: [ // StringSet
  *     "STRING_VALUE",
  *   ],
  *   queryByte: "BYTE_VALUE",
  *   queryShort: Number("short"),
  *   queryInteger: Number("int"),
- *   queryIntegerList: [
+ *   queryIntegerList: [ // IntegerList
  *     Number("int"),
  *   ],
- *   queryIntegerSet: [
+ *   queryIntegerSet: [ // IntegerSet
  *     Number("int"),
  *   ],
  *   queryLong: Number("long"),
  *   queryFloat: Number("float"),
  *   queryDouble: Number("double"),
- *   queryDoubleList: [
+ *   queryDoubleList: [ // DoubleList
  *     Number("double"),
  *   ],
  *   queryBoolean: true || false,
- *   queryBooleanList: [
+ *   queryBooleanList: [ // BooleanList
  *     true || false,
  *   ],
  *   queryTimestamp: new Date("TIMESTAMP"),
- *   queryTimestampList: [
+ *   queryTimestampList: [ // TimestampList
  *     new Date("TIMESTAMP"),
  *   ],
  *   queryEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
- *   queryEnumList: [
+ *   queryEnumList: [ // FooEnumList
  *     "Foo" || "Baz" || "Bar" || "1" || "0",
  *   ],
  *   queryIntegerEnum: 1 || 2 || 3,
- *   queryIntegerEnumList: [
+ *   queryIntegerEnumList: [ // IntegerEnumList
  *     1 || 2 || 3,
  *   ],
- *   queryParamsMapOfStringList: {
+ *   queryParamsMapOfStringList: { // StringListMap
  *     "<keys>": [
  *       "STRING_VALUE",
  *     ],

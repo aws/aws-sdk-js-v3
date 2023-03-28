@@ -42,7 +42,7 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  * import { CloudDirectoryClient, ListFacetAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListFacetAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // ListFacetAttributesRequest
  *   SchemaArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

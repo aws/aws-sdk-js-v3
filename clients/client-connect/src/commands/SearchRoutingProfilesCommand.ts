@@ -43,15 +43,15 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * import { ConnectClient, SearchRoutingProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchRoutingProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // SearchRoutingProfilesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   SearchFilter: {
- *     TagFilter: {
- *       OrConditions: [
- *         [
- *           {
+ *   SearchFilter: { // RoutingProfileSearchFilter
+ *     TagFilter: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
  *             TagKey: "STRING_VALUE",
  *             TagValue: "STRING_VALUE",
  *           },
@@ -63,40 +63,33 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  *           TagValue: "STRING_VALUE",
  *         },
  *       ],
- *       TagCondition: {
- *         TagKey: "<TagCondition>",
- *         TagValue: "<TagCondition>",
- *       },
+ *       TagCondition: "<TagCondition>",
  *     },
  *   },
- *   SearchCriteria: {
- *     OrConditions: [
+ *   SearchCriteria: { // RoutingProfileSearchCriteria
+ *     OrConditions: [ // RoutingProfileSearchConditionList
  *       {
  *         OrConditions: [
- *           {
- *             OrConditions: "<RoutingProfileSearchCriteria>",
- *             AndConditions: [
- *               "<RoutingProfileSearchConditionList>",
- *             ],
- *             StringCondition: {
- *               FieldName: "STRING_VALUE",
- *               Value: "STRING_VALUE",
- *               ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
- *             },
- *           },
+ *           "<RoutingProfileSearchCriteria>",
  *         ],
  *         AndConditions: [
- *           "<RoutingProfileSearchConditionList>",
+ *           "<RoutingProfileSearchCriteria>",
  *         ],
- *         StringCondition: {
+ *         StringCondition: { // StringCondition
  *           FieldName: "STRING_VALUE",
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
  *       },
  *     ],
- *     AndConditions: "<RoutingProfileSearchCriteria>",
- *     StringCondition: "<RoutingProfileSearchCriteria>",
+ *     AndConditions: [
+ *       "<RoutingProfileSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
  *   },
  * };
  * const command = new SearchRoutingProfilesCommand(input);

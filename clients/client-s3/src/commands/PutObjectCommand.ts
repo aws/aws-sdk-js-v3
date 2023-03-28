@@ -154,7 +154,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutObjectRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
  *   Body: "STREAMING_BLOB_VALUE",
  *   Bucket: "STRING_VALUE", // required
@@ -176,7 +176,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *   GrantReadACP: "STRING_VALUE",
  *   GrantWriteACP: "STRING_VALUE",
  *   Key: "STRING_VALUE", // required
- *   Metadata: {
+ *   Metadata: { // Metadata
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ServerSideEncryption: "AES256" || "aws:kms",

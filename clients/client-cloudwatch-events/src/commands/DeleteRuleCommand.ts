@@ -55,7 +55,7 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  * import { CloudWatchEventsClient, DeleteRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeleteRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // DeleteRuleRequest
  *   Name: "STRING_VALUE", // required
  *   EventBusName: "STRING_VALUE",
  *   Force: true || false,

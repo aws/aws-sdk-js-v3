@@ -71,9 +71,9 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  * import { SWFClient, GetWorkflowExecutionHistoryCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, GetWorkflowExecutionHistoryCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // GetWorkflowExecutionHistoryInput
  *   domain: "STRING_VALUE", // required
- *   execution: {
+ *   execution: { // WorkflowExecution
  *     workflowId: "STRING_VALUE", // required
  *     runId: "STRING_VALUE", // required
  *   },

@@ -44,14 +44,14 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * import { KinesisVideoClient, CreateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, CreateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // CreateSignalingChannelInput
  *   ChannelName: "STRING_VALUE", // required
  *   ChannelType: "SINGLE_MASTER" || "FULL_MESH",
- *   SingleMasterConfiguration: {
+ *   SingleMasterConfiguration: { // SingleMasterConfiguration
  *     MessageTtlSeconds: Number("int"),
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagOnCreateList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

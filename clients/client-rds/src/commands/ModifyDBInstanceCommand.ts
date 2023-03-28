@@ -46,15 +46,15 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * import { RDSClient, ModifyDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   AllocatedStorage: Number("int"),
  *   DBInstanceClass: "STRING_VALUE",
  *   DBSubnetGroupName: "STRING_VALUE",
- *   DBSecurityGroups: [
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   ApplyImmediately: true || false,
@@ -87,16 +87,16 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
- *   CloudwatchLogsExportConfiguration: {
- *     EnableLogTypes: [
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
  *       "STRING_VALUE",
  *     ],
  *     DisableLogTypes: [
  *       "STRING_VALUE",
  *     ],
  *   },
- *   ProcessorFeatures: [
- *     {
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

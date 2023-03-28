@@ -59,26 +59,26 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * import { ECSClient, RegisterTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RegisterTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // RegisterTaskDefinitionRequest
  *   family: "STRING_VALUE", // required
  *   taskRoleArn: "STRING_VALUE",
  *   executionRoleArn: "STRING_VALUE",
  *   networkMode: "bridge" || "host" || "awsvpc" || "none",
- *   containerDefinitions: [ // required
- *     {
+ *   containerDefinitions: [ // ContainerDefinitions // required
+ *     { // ContainerDefinition
  *       name: "STRING_VALUE",
  *       image: "STRING_VALUE",
- *       repositoryCredentials: {
+ *       repositoryCredentials: { // RepositoryCredentials
  *         credentialsParameter: "STRING_VALUE", // required
  *       },
  *       cpu: Number("int"),
  *       memory: Number("int"),
  *       memoryReservation: Number("int"),
- *       links: [
+ *       links: [ // StringList
  *         "STRING_VALUE",
  *       ],
- *       portMappings: [
- *         {
+ *       portMappings: [ // PortMappingList
+ *         { // PortMapping
  *           containerPort: Number("int"),
  *           hostPort: Number("int"),
  *           protocol: "tcp" || "udp",
@@ -94,33 +94,33 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *       command: [
  *         "STRING_VALUE",
  *       ],
- *       environment: [
- *         {
+ *       environment: [ // EnvironmentVariables
+ *         { // KeyValuePair
  *           name: "STRING_VALUE",
  *           value: "STRING_VALUE",
  *         },
  *       ],
- *       environmentFiles: [
- *         {
+ *       environmentFiles: [ // EnvironmentFiles
+ *         { // EnvironmentFile
  *           value: "STRING_VALUE", // required
  *           type: "s3", // required
  *         },
  *       ],
- *       mountPoints: [
- *         {
+ *       mountPoints: [ // MountPointList
+ *         { // MountPoint
  *           sourceVolume: "STRING_VALUE",
  *           containerPath: "STRING_VALUE",
  *           readOnly: true || false,
  *         },
  *       ],
- *       volumesFrom: [
- *         {
+ *       volumesFrom: [ // VolumeFromList
+ *         { // VolumeFrom
  *           sourceContainer: "STRING_VALUE",
  *           readOnly: true || false,
  *         },
  *       ],
- *       linuxParameters: {
- *         capabilities: {
+ *       linuxParameters: { // LinuxParameters
+ *         capabilities: { // KernelCapabilities
  *           add: [
  *             "STRING_VALUE",
  *           ],
@@ -128,37 +128,35 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *             "STRING_VALUE",
  *           ],
  *         },
- *         devices: [
- *           {
+ *         devices: [ // DevicesList
+ *           { // Device
  *             hostPath: "STRING_VALUE", // required
  *             containerPath: "STRING_VALUE",
- *             permissions: [
+ *             permissions: [ // DeviceCgroupPermissions
  *               "read" || "write" || "mknod",
  *             ],
  *           },
  *         ],
  *         initProcessEnabled: true || false,
  *         sharedMemorySize: Number("int"),
- *         tmpfs: [
- *           {
+ *         tmpfs: [ // TmpfsList
+ *           { // Tmpfs
  *             containerPath: "STRING_VALUE", // required
  *             size: Number("int"), // required
- *             mountOptions: [
- *               "<StringList>",
- *             ],
+ *             mountOptions: "<StringList>",
  *           },
  *         ],
  *         maxSwap: Number("int"),
  *         swappiness: Number("int"),
  *       },
- *       secrets: [
- *         {
+ *       secrets: [ // SecretList
+ *         { // Secret
  *           name: "STRING_VALUE", // required
  *           valueFrom: "STRING_VALUE", // required
  *         },
  *       ],
- *       dependsOn: [
- *         {
+ *       dependsOn: [ // ContainerDependencies
+ *         { // ContainerDependency
  *           containerName: "STRING_VALUE", // required
  *           condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
  *         },
@@ -171,36 +169,30 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *       disableNetworking: true || false,
  *       privileged: true || false,
  *       readonlyRootFilesystem: true || false,
- *       dnsServers: [
- *         "<StringList>",
- *       ],
- *       dnsSearchDomains: [
- *         "<StringList>",
- *       ],
- *       extraHosts: [
- *         {
+ *       dnsServers: "<StringList>",
+ *       dnsSearchDomains: "<StringList>",
+ *       extraHosts: [ // HostEntryList
+ *         { // HostEntry
  *           hostname: "STRING_VALUE", // required
  *           ipAddress: "STRING_VALUE", // required
  *         },
  *       ],
- *       dockerSecurityOptions: [
- *         "<StringList>",
- *       ],
+ *       dockerSecurityOptions: "<StringList>",
  *       interactive: true || false,
  *       pseudoTerminal: true || false,
- *       dockerLabels: {
+ *       dockerLabels: { // DockerLabelsMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       ulimits: [
- *         {
+ *       ulimits: [ // UlimitList
+ *         { // Ulimit
  *           name: "core" || "cpu" || "data" || "fsize" || "locks" || "memlock" || "msgqueue" || "nice" || "nofile" || "nproc" || "rss" || "rtprio" || "rttime" || "sigpending" || "stack", // required
  *           softLimit: Number("int"), // required
  *           hardLimit: Number("int"), // required
  *         },
  *       ],
- *       logConfiguration: {
+ *       logConfiguration: { // LogConfiguration
  *         logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
- *         options: {
+ *         options: { // LogConfigurationOptionsMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         secretOptions: [
@@ -210,111 +202,109 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *           },
  *         ],
  *       },
- *       healthCheck: {
- *         command: [ // required
- *           "<StringList>",
- *         ],
+ *       healthCheck: { // HealthCheck
+ *         command: "<StringList>", // required
  *         interval: Number("int"),
  *         timeout: Number("int"),
  *         retries: Number("int"),
  *         startPeriod: Number("int"),
  *       },
- *       systemControls: [
- *         {
+ *       systemControls: [ // SystemControls
+ *         { // SystemControl
  *           namespace: "STRING_VALUE",
  *           value: "STRING_VALUE",
  *         },
  *       ],
- *       resourceRequirements: [
- *         {
+ *       resourceRequirements: [ // ResourceRequirements
+ *         { // ResourceRequirement
  *           value: "STRING_VALUE", // required
  *           type: "GPU" || "InferenceAccelerator", // required
  *         },
  *       ],
- *       firelensConfiguration: {
+ *       firelensConfiguration: { // FirelensConfiguration
  *         type: "fluentd" || "fluentbit", // required
- *         options: {
+ *         options: { // FirelensConfigurationOptionsMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     },
  *   ],
- *   volumes: [
- *     {
+ *   volumes: [ // VolumeList
+ *     { // Volume
  *       name: "STRING_VALUE",
- *       host: {
+ *       host: { // HostVolumeProperties
  *         sourcePath: "STRING_VALUE",
  *       },
- *       dockerVolumeConfiguration: {
+ *       dockerVolumeConfiguration: { // DockerVolumeConfiguration
  *         scope: "task" || "shared",
  *         autoprovision: true || false,
  *         driver: "STRING_VALUE",
- *         driverOpts: {
+ *         driverOpts: { // StringMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         labels: {
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
- *       efsVolumeConfiguration: {
+ *       efsVolumeConfiguration: { // EFSVolumeConfiguration
  *         fileSystemId: "STRING_VALUE", // required
  *         rootDirectory: "STRING_VALUE",
  *         transitEncryption: "ENABLED" || "DISABLED",
  *         transitEncryptionPort: Number("int"),
- *         authorizationConfig: {
+ *         authorizationConfig: { // EFSAuthorizationConfig
  *           accessPointId: "STRING_VALUE",
  *           iam: "ENABLED" || "DISABLED",
  *         },
  *       },
- *       fsxWindowsFileServerVolumeConfiguration: {
+ *       fsxWindowsFileServerVolumeConfiguration: { // FSxWindowsFileServerVolumeConfiguration
  *         fileSystemId: "STRING_VALUE", // required
  *         rootDirectory: "STRING_VALUE", // required
- *         authorizationConfig: {
+ *         authorizationConfig: { // FSxWindowsFileServerAuthorizationConfig
  *           credentialsParameter: "STRING_VALUE", // required
  *           domain: "STRING_VALUE", // required
  *         },
  *       },
  *     },
  *   ],
- *   placementConstraints: [
- *     {
+ *   placementConstraints: [ // TaskDefinitionPlacementConstraints
+ *     { // TaskDefinitionPlacementConstraint
  *       type: "memberOf",
  *       expression: "STRING_VALUE",
  *     },
  *   ],
- *   requiresCompatibilities: [
+ *   requiresCompatibilities: [ // CompatibilityList
  *     "EC2" || "FARGATE" || "EXTERNAL",
  *   ],
  *   cpu: "STRING_VALUE",
  *   memory: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
  *   ],
  *   pidMode: "host" || "task",
  *   ipcMode: "host" || "task" || "none",
- *   proxyConfiguration: {
+ *   proxyConfiguration: { // ProxyConfiguration
  *     type: "APPMESH",
  *     containerName: "STRING_VALUE", // required
- *     properties: [
+ *     properties: [ // ProxyConfigurationProperties
  *       {
  *         name: "STRING_VALUE",
  *         value: "STRING_VALUE",
  *       },
  *     ],
  *   },
- *   inferenceAccelerators: [
- *     {
+ *   inferenceAccelerators: [ // InferenceAccelerators
+ *     { // InferenceAccelerator
  *       deviceName: "STRING_VALUE", // required
  *       deviceType: "STRING_VALUE", // required
  *     },
  *   ],
- *   ephemeralStorage: {
+ *   ephemeralStorage: { // EphemeralStorage
  *     sizeInGiB: Number("int"), // required
  *   },
- *   runtimePlatform: {
+ *   runtimePlatform: { // RuntimePlatform
  *     cpuArchitecture: "X86_64" || "ARM64",
  *     operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
  *   },

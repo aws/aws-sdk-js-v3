@@ -59,7 +59,7 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * import { RDSClient, ModifyCurrentDBClusterCapacityCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyCurrentDBClusterCapacityCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyCurrentDBClusterCapacityMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   Capacity: Number("int"),
  *   SecondsBeforeTimeout: Number("int"),

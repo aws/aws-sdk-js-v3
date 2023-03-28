@@ -43,9 +43,9 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  * import { CloudDirectoryClient, AttachPolicyCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachPolicyCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // AttachPolicyRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   PolicyReference: {
+ *   PolicyReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   ObjectReference: {

@@ -47,15 +47,15 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
  * import { GlueClient, ListDataQualityRulesetEvaluationRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityRulesetEvaluationRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   Filter: {
- *     DataSource: {
- *       GlueTable: {
+ * const input = { // ListDataQualityRulesetEvaluationRunsRequest
+ *   Filter: { // DataQualityRulesetEvaluationRunFilter
+ *     DataSource: { // DataSource
+ *       GlueTable: { // GlueTable
  *         DatabaseName: "STRING_VALUE", // required
  *         TableName: "STRING_VALUE", // required
  *         CatalogId: "STRING_VALUE",
  *         ConnectionName: "STRING_VALUE",
- *         AdditionalOptions: {
+ *         AdditionalOptions: { // GlueTableAdditionalOptions
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },

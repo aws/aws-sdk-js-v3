@@ -48,12 +48,12 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * import { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // RemoveDraftAppVersionResourceMappingsRequest
  *   appArn: "STRING_VALUE", // required
- *   resourceNames: [
+ *   resourceNames: [ // EntityNameList
  *     "STRING_VALUE",
  *   ],
- *   logicalStackNames: [
+ *   logicalStackNames: [ // String255List
  *     "STRING_VALUE",
  *   ],
  *   appRegistryAppNames: [

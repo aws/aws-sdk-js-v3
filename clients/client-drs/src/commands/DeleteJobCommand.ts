@@ -42,7 +42,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * import { DrsClient, DeleteJobCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DeleteJobCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // DeleteJobRequest
  *   jobID: "STRING_VALUE", // required
  * };
  * const command = new DeleteJobCommand(input);

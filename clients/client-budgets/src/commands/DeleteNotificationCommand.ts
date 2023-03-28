@@ -45,10 +45,10 @@ export interface DeleteNotificationCommandOutput extends DeleteNotificationRespo
  * import { BudgetsClient, DeleteNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DeleteNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
- * const input = {
+ * const input = { // DeleteNotificationRequest
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
- *   Notification: {
+ *   Notification: { // Notification
  *     NotificationType: "STRING_VALUE", // required
  *     ComparisonOperator: "STRING_VALUE", // required
  *     Threshold: Number("double"), // required

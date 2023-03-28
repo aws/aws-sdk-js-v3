@@ -42,11 +42,11 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * import { IoTTwinMakerClient, ListSyncResourcesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListSyncResourcesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // ListSyncResourcesRequest
  *   workspaceId: "STRING_VALUE", // required
  *   syncSource: "STRING_VALUE", // required
- *   filters: [
- *     { // Union: only one key present
+ *   filters: [ // SyncResourceFilters
+ *     { // SyncResourceFilter Union: only one key present
  *       state: "STRING_VALUE",
  *       resourceType: "STRING_VALUE",
  *       resourceId: "STRING_VALUE",

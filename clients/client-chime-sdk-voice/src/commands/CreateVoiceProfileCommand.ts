@@ -52,7 +52,7 @@ export interface CreateVoiceProfileCommandOutput extends CreateVoiceProfileRespo
  * import { ChimeSDKVoiceClient, CreateVoiceProfileCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreateVoiceProfileCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // CreateVoiceProfileRequest
  *   SpeakerSearchTaskId: "STRING_VALUE", // required
  * };
  * const command = new CreateVoiceProfileCommand(input);

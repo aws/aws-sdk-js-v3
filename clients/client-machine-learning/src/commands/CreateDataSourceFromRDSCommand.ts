@@ -53,16 +53,16 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * import { MachineLearningClient, CreateDataSourceFromRDSCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateDataSourceFromRDSCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // CreateDataSourceFromRDSInput
  *   DataSourceId: "STRING_VALUE", // required
  *   DataSourceName: "STRING_VALUE",
- *   RDSData: {
- *     DatabaseInformation: {
+ *   RDSData: { // RDSDataSpec
+ *     DatabaseInformation: { // RDSDatabase
  *       InstanceIdentifier: "STRING_VALUE", // required
  *       DatabaseName: "STRING_VALUE", // required
  *     },
  *     SelectSqlQuery: "STRING_VALUE", // required
- *     DatabaseCredentials: {
+ *     DatabaseCredentials: { // RDSDatabaseCredentials
  *       Username: "STRING_VALUE", // required
  *       Password: "STRING_VALUE", // required
  *     },
@@ -73,7 +73,7 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  *     ResourceRole: "STRING_VALUE", // required
  *     ServiceRole: "STRING_VALUE", // required
  *     SubnetId: "STRING_VALUE", // required
- *     SecurityGroupIds: [ // required
+ *     SecurityGroupIds: [ // EDPSecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
  *   },

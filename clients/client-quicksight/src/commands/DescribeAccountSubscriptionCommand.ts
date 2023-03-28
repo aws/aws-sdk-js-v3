@@ -44,7 +44,7 @@ export interface DescribeAccountSubscriptionCommandOutput
  * import { QuickSightClient, DescribeAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeAccountSubscriptionRequest
  *   AwsAccountId: "STRING_VALUE", // required
  * };
  * const command = new DescribeAccountSubscriptionCommand(input);

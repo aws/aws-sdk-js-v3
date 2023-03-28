@@ -44,13 +44,13 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * import { ComprehendClient, CreateEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // CreateEndpointRequest
  *   EndpointName: "STRING_VALUE", // required
  *   ModelArn: "STRING_VALUE",
  *   DesiredInferenceUnits: Number("int"), // required
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

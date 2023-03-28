@@ -42,8 +42,8 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  * import { MediaLiveClient, BatchStartCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, BatchStartCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
- *   ChannelIds: [
+ * const input = { // BatchStartRequest
+ *   ChannelIds: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  *   MultiplexIds: [

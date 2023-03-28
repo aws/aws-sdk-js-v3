@@ -43,7 +43,7 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * import { ConfigServiceClient, DeleteAggregationAuthorizationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteAggregationAuthorizationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeleteAggregationAuthorizationRequest
  *   AuthorizedAccountId: "STRING_VALUE", // required
  *   AuthorizedAwsRegion: "STRING_VALUE", // required
  * };

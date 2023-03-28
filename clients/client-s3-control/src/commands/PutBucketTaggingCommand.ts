@@ -126,12 +126,12 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutBucketTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutBucketTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // PutBucketTaggingRequest
  *   AccountId: "STRING_VALUE",
  *   Bucket: "STRING_VALUE", // required
- *   Tagging: {
- *     TagSet: [ // required
- *       {
+ *   Tagging: { // Tagging
+ *     TagSet: [ // S3TagSet // required
+ *       { // S3Tag
  *         Key: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },

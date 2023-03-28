@@ -43,7 +43,7 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResult, __M
  * import { AmplifyClient, StartDeploymentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, StartDeploymentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // StartDeploymentRequest
  *   appId: "STRING_VALUE", // required
  *   branchName: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE",

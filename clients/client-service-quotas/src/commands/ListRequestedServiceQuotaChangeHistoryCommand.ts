@@ -48,7 +48,7 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
  * import { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // ListRequestedServiceQuotaChangeHistoryRequest
  *   ServiceCode: "STRING_VALUE",
  *   Status: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

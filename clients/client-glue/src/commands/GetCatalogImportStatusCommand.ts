@@ -42,7 +42,7 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * import { GlueClient, GetCatalogImportStatusCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCatalogImportStatusCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetCatalogImportStatusRequest
  *   CatalogId: "STRING_VALUE",
  * };
  * const command = new GetCatalogImportStatusCommand(input);

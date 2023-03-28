@@ -43,7 +43,7 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  * import { Inspector2Client, ListDelegatedAdminAccountsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListDelegatedAdminAccountsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
+ * const input = { // ListDelegatedAdminAccountsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

@@ -42,7 +42,7 @@ export interface UpdateContactFlowMetadataCommandOutput extends UpdateContactFlo
  * import { ConnectClient, UpdateContactFlowMetadataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactFlowMetadataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateContactFlowMetadataRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactFlowId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",

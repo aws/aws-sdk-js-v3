@@ -42,7 +42,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * import { DocDBClient, ModifyDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // ModifyDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   DBInstanceClass: "STRING_VALUE",
  *   ApplyImmediately: true || false,

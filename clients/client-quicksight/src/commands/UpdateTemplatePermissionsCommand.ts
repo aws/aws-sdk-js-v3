@@ -42,13 +42,13 @@ export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePe
  * import { QuickSightClient, UpdateTemplatePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateTemplatePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // UpdateTemplatePermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   TemplateId: "STRING_VALUE", // required
- *   GrantPermissions: [
- *     {
+ *   GrantPermissions: [ // UpdateResourcePermissionList
+ *     { // ResourcePermission
  *       Principal: "STRING_VALUE", // required
- *       Actions: [ // required
+ *       Actions: [ // ActionList // required
  *         "STRING_VALUE",
  *       ],
  *     },

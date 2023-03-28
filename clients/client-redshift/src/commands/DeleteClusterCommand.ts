@@ -57,7 +57,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * import { RedshiftClient, DeleteClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DeleteClusterMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   SkipFinalClusterSnapshot: true || false,
  *   FinalClusterSnapshotIdentifier: "STRING_VALUE",

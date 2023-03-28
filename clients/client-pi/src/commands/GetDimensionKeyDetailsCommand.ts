@@ -45,12 +45,12 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * import { PIClient, GetDimensionKeyDetailsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetDimensionKeyDetailsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
- * const input = {
+ * const input = { // GetDimensionKeyDetailsRequest
  *   ServiceType: "RDS" || "DOCDB", // required
  *   Identifier: "STRING_VALUE", // required
  *   Group: "STRING_VALUE", // required
  *   GroupIdentifier: "STRING_VALUE", // required
- *   RequestedDimensions: [
+ *   RequestedDimensions: [ // RequestedDimensionList
  *     "STRING_VALUE",
  *   ],
  * };

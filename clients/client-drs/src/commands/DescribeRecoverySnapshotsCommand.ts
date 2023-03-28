@@ -42,9 +42,9 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * import { DrsClient, DescribeRecoverySnapshotsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeRecoverySnapshotsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // DescribeRecoverySnapshotsRequest
  *   sourceServerID: "STRING_VALUE", // required
- *   filters: {
+ *   filters: { // DescribeRecoverySnapshotsRequestFilters
  *     fromDateTime: "STRING_VALUE",
  *     toDateTime: "STRING_VALUE",
  *   },

@@ -42,7 +42,7 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * import { BackupGatewayClient, ListVirtualMachinesCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ListVirtualMachinesCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
- * const input = {
+ * const input = { // ListVirtualMachinesInput
  *   HypervisorArn: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

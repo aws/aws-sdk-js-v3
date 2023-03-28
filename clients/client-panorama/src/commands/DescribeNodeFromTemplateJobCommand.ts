@@ -48,7 +48,7 @@ export interface DescribeNodeFromTemplateJobCommandOutput
  * import { PanoramaClient, DescribeNodeFromTemplateJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeNodeFromTemplateJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // DescribeNodeFromTemplateJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeNodeFromTemplateJobCommand(input);

@@ -43,7 +43,7 @@ export interface DeletePredictorCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeletePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeletePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // DeletePredictorRequest
  *   PredictorArn: "STRING_VALUE", // required
  * };
  * const command = new DeletePredictorCommand(input);

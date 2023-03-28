@@ -44,7 +44,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * import { MemoryDBClient, DescribeEventsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeEventsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
- * const input = {
+ * const input = { // DescribeEventsRequest
  *   SourceName: "STRING_VALUE",
  *   SourceType: "node" || "parameter-group" || "subnet-group" || "cluster" || "user" || "acl",
  *   StartTime: new Date("TIMESTAMP"),

@@ -43,7 +43,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { StorageGatewayClient, ListTagsForResourceCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListTagsForResourceCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceInput
  *   ResourceARN: "STRING_VALUE", // required
  *   Marker: "STRING_VALUE",
  *   Limit: Number("int"),

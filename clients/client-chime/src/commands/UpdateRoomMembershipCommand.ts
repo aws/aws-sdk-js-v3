@@ -49,7 +49,7 @@ export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipR
  * import { ChimeClient, UpdateRoomMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateRoomMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // UpdateRoomMembershipRequest
  *   AccountId: "STRING_VALUE", // required
  *   RoomId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE", // required

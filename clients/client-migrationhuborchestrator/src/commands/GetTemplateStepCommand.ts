@@ -46,7 +46,7 @@ export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, _
  * import { MigrationHubOrchestratorClient, GetTemplateStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetTemplateStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // GetTemplateStepRequest
  *   id: "STRING_VALUE", // required
  *   templateId: "STRING_VALUE", // required
  *   stepGroupId: "STRING_VALUE", // required

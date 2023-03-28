@@ -59,17 +59,17 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * import { ConnectClient, StartOutboundVoiceContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartOutboundVoiceContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // StartOutboundVoiceContactRequest
  *   DestinationPhoneNumber: "STRING_VALUE", // required
  *   ContactFlowId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  *   SourcePhoneNumber: "STRING_VALUE",
  *   QueueId: "STRING_VALUE",
- *   Attributes: {
+ *   Attributes: { // Attributes
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AnswerMachineDetectionConfig: {
+ *   AnswerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  *     EnableAnswerMachineDetection: true || false,
  *     AwaitAnswerMachinePrompt: true || false,
  *   },

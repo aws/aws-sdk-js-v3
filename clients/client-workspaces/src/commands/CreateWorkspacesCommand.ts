@@ -49,27 +49,27 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * import { WorkSpacesClient, CreateWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
- *   Workspaces: [ // required
- *     {
+ * const input = { // CreateWorkspacesRequest
+ *   Workspaces: [ // WorkspaceRequestList // required
+ *     { // WorkspaceRequest
  *       DirectoryId: "STRING_VALUE", // required
  *       UserName: "STRING_VALUE", // required
  *       BundleId: "STRING_VALUE", // required
  *       VolumeEncryptionKey: "STRING_VALUE",
  *       UserVolumeEncryptionEnabled: true || false,
  *       RootVolumeEncryptionEnabled: true || false,
- *       WorkspaceProperties: {
+ *       WorkspaceProperties: { // WorkspaceProperties
  *         RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
  *         RunningModeAutoStopTimeoutInMinutes: Number("int"),
  *         RootVolumeSizeGib: Number("int"),
  *         UserVolumeSizeGib: Number("int"),
  *         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
- *         Protocols: [
+ *         Protocols: [ // ProtocolList
  *           "PCOIP" || "WSP",
  *         ],
  *       },
- *       Tags: [
- *         {
+ *       Tags: [ // TagList
+ *         { // Tag
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE",
  *         },

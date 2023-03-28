@@ -49,7 +49,7 @@ export interface DescribeEntitiesDetectionV2JobCommandOutput
  * import { ComprehendMedicalClient, DescribeEntitiesDetectionV2JobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribeEntitiesDetectionV2JobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
+ * const input = { // DescribeEntitiesDetectionV2JobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeEntitiesDetectionV2JobCommand(input);

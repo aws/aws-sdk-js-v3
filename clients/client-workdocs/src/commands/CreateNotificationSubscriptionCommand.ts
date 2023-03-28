@@ -47,7 +47,7 @@ export interface CreateNotificationSubscriptionCommandOutput
  * import { WorkDocsClient, CreateNotificationSubscriptionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateNotificationSubscriptionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // CreateNotificationSubscriptionRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   Endpoint: "STRING_VALUE", // required
  *   Protocol: "HTTPS" || "SQS", // required

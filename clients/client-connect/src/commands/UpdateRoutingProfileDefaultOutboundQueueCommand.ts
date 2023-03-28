@@ -43,7 +43,7 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  * import { ConnectClient, UpdateRoutingProfileDefaultOutboundQueueCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRoutingProfileDefaultOutboundQueueCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateRoutingProfileDefaultOutboundQueueRequest
  *   InstanceId: "STRING_VALUE", // required
  *   RoutingProfileId: "STRING_VALUE", // required
  *   DefaultOutboundQueueId: "STRING_VALUE", // required

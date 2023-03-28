@@ -42,7 +42,7 @@ export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __M
  * import { ImagebuilderClient, GetImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // GetImagePolicyRequest
  *   imageArn: "STRING_VALUE", // required
  * };
  * const command = new GetImagePolicyCommand(input);

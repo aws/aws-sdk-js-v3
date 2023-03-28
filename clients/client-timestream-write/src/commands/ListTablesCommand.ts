@@ -45,7 +45,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * import { TimestreamWriteClient, ListTablesCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, ListTablesCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const input = {
+ * const input = { // ListTablesRequest
  *   DatabaseName: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

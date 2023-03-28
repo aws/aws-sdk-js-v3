@@ -42,7 +42,7 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * import { RDSClient, DeleteDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // DeleteDBParameterGroupMessage
  *   DBParameterGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDBParameterGroupCommand(input);

@@ -44,7 +44,7 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
  * import { TranscribeClient, DeleteVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // DeleteVocabularyFilterRequest
  *   VocabularyFilterName: "STRING_VALUE", // required
  * };
  * const command = new DeleteVocabularyFilterCommand(input);

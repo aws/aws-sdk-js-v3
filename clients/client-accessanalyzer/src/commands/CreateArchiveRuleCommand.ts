@@ -44,12 +44,12 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, CreateArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, CreateArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // CreateArchiveRuleRequest
  *   analyzerName: "STRING_VALUE", // required
  *   ruleName: "STRING_VALUE", // required
- *   filter: { // required
- *     "<keys>": {
- *       eq: [
+ *   filter: { // FilterCriteriaMap // required
+ *     "<keys>": { // Criterion
+ *       eq: [ // ValueList
  *         "STRING_VALUE",
  *       ],
  *       neq: [

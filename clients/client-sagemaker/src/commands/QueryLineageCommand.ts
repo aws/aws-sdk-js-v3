@@ -44,24 +44,24 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * import { SageMakerClient, QueryLineageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, QueryLineageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
- *   StartArns: [
+ * const input = { // QueryLineageRequest
+ *   StartArns: [ // QueryLineageStartArns
  *     "STRING_VALUE",
  *   ],
  *   Direction: "Both" || "Ascendants" || "Descendants",
  *   IncludeEdges: true || false,
- *   Filters: {
- *     Types: [
+ *   Filters: { // QueryFilters
+ *     Types: [ // QueryTypes
  *       "STRING_VALUE",
  *     ],
- *     LineageTypes: [
+ *     LineageTypes: [ // QueryLineageTypes
  *       "TrialComponent" || "Artifact" || "Context" || "Action",
  *     ],
  *     CreatedBefore: new Date("TIMESTAMP"),
  *     CreatedAfter: new Date("TIMESTAMP"),
  *     ModifiedBefore: new Date("TIMESTAMP"),
  *     ModifiedAfter: new Date("TIMESTAMP"),
- *     Properties: {
+ *     Properties: { // QueryProperties
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

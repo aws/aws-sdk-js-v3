@@ -44,7 +44,7 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  * import { IoTClient, AttachSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // AttachSecurityProfileRequest
  *   securityProfileName: "STRING_VALUE", // required
  *   securityProfileTargetArn: "STRING_VALUE", // required
  * };

@@ -47,12 +47,12 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * import { RDSClient, PurchaseReservedDBInstancesOfferingCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, PurchaseReservedDBInstancesOfferingCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // PurchaseReservedDBInstancesOfferingMessage
  *   ReservedDBInstancesOfferingId: "STRING_VALUE", // required
  *   ReservedDBInstanceId: "STRING_VALUE",
  *   DBInstanceCount: Number("int"),
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

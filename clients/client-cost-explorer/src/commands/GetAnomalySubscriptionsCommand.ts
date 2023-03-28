@@ -43,8 +43,8 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  * import { CostExplorerClient, GetAnomalySubscriptionsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetAnomalySubscriptionsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const input = {
- *   SubscriptionArnList: [
+ * const input = { // GetAnomalySubscriptionsRequest
+ *   SubscriptionArnList: [ // Values
  *     "STRING_VALUE",
  *   ],
  *   MonitorArn: "STRING_VALUE",

@@ -51,17 +51,17 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  * import { GrafanaClient, UpdateWorkspaceAuthenticationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceAuthenticationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const input = {
+ * const input = { // UpdateWorkspaceAuthenticationRequest
  *   workspaceId: "STRING_VALUE", // required
- *   authenticationProviders: [ // required
+ *   authenticationProviders: [ // AuthenticationProviders // required
  *     "STRING_VALUE",
  *   ],
- *   samlConfiguration: {
- *     idpMetadata: { // Union: only one key present
+ *   samlConfiguration: { // SamlConfiguration
+ *     idpMetadata: { // IdpMetadata Union: only one key present
  *       url: "STRING_VALUE",
  *       xml: "STRING_VALUE",
  *     },
- *     assertionAttributes: {
+ *     assertionAttributes: { // AssertionAttributes
  *       name: "STRING_VALUE",
  *       login: "STRING_VALUE",
  *       email: "STRING_VALUE",
@@ -69,15 +69,15 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  *       role: "STRING_VALUE",
  *       org: "STRING_VALUE",
  *     },
- *     roleValues: {
- *       editor: [
+ *     roleValues: { // RoleValues
+ *       editor: [ // RoleValueList
  *         "STRING_VALUE",
  *       ],
  *       admin: [
  *         "STRING_VALUE",
  *       ],
  *     },
- *     allowedOrganizations: [
+ *     allowedOrganizations: [ // AllowedOrganizations
  *       "STRING_VALUE",
  *     ],
  *     loginValidityDuration: Number("int"),

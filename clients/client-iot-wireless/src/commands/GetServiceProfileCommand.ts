@@ -42,7 +42,7 @@ export interface GetServiceProfileCommandOutput extends GetServiceProfileRespons
  * import { IoTWirelessClient, GetServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // GetServiceProfileRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetServiceProfileCommand(input);

@@ -45,7 +45,7 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * import { IoTClient, RegisterCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RegisterCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // RegisterCertificateRequest
  *   certificatePem: "STRING_VALUE", // required
  *   caCertificatePem: "STRING_VALUE",
  *   setAsActive: true || false,

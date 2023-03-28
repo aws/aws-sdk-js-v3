@@ -46,24 +46,24 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  * import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, GetItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // GetItemInput
  *   TableName: "STRING_VALUE", // required
- *   Key: { // required
- *     "<keys>": { // Union: only one key present
+ *   Key: { // Key // required
+ *     "<keys>": { // AttributeValue Union: only one key present
  *       S: "STRING_VALUE",
  *       N: "STRING_VALUE",
  *       B: "BLOB_VALUE",
- *       SS: [
+ *       SS: [ // StringSetAttributeValue
  *         "STRING_VALUE",
  *       ],
- *       NS: [
+ *       NS: [ // NumberSetAttributeValue
  *         "STRING_VALUE",
  *       ],
- *       BS: [
+ *       BS: [ // BinarySetAttributeValue
  *         "BLOB_VALUE",
  *       ],
- *       M: {
- *         "<keys>": { // Union: only one key present
+ *       M: { // MapAttributeValue
+ *         "<keys>": {//  Union: only one key present
  *           S: "STRING_VALUE",
  *           N: "STRING_VALUE",
  *           B: "BLOB_VALUE",
@@ -79,49 +79,27 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  *           M: {
  *             "<keys>": "<AttributeValue>",
  *           },
- *           L: [
- *             { // Union: only one key present
- *               S: "<AttributeValue>",
- *               N: "<AttributeValue>",
- *               B: "<AttributeValue>",
- *               SS: "<AttributeValue>",
- *               NS: "<AttributeValue>",
- *               BS: "<AttributeValue>",
- *               M: "<AttributeValue>",
- *               L: [
- *                 { // Union: only one key present
- *                   S: "<AttributeValue>",
- *                   N: "<AttributeValue>",
- *                   B: "<AttributeValue>",
- *                   SS: "<AttributeValue>",
- *                   NS: "<AttributeValue>",
- *                   BS: "<AttributeValue>",
- *                   M: "<AttributeValue>",
- *                   L: "<AttributeValue>",
- *                   NULL: true || false,
- *                   BOOL: true || false,
- *                 },
- *               ],
- *               NULL: true || false,
- *               BOOL: true || false,
- *             },
+ *           L: [ // ListAttributeValue
+ *             "<AttributeValue>",
  *           ],
- *           NULL: "<AttributeValue>",
- *           BOOL: "<AttributeValue>",
+ *           NULL: true || false,
+ *           BOOL: true || false,
  *         },
  *       },
- *       L: "<AttributeValue>",
- *       NULL: "<AttributeValue>",
- *       BOOL: "<AttributeValue>",
+ *       L: [
+ *         "<AttributeValue>",
+ *       ],
+ *       NULL: true || false,
+ *       BOOL: true || false,
  *     },
  *   },
- *   AttributesToGet: [
+ *   AttributesToGet: [ // AttributeNameList
  *     "STRING_VALUE",
  *   ],
  *   ConsistentRead: true || false,
  *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
  *   ProjectionExpression: "STRING_VALUE",
- *   ExpressionAttributeNames: {
+ *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -43,7 +43,7 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * import { SESv2Client, GetDomainStatisticsReportCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetDomainStatisticsReportCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // GetDomainStatisticsReportRequest
  *   Domain: "STRING_VALUE", // required
  *   StartDate: new Date("TIMESTAMP"), // required
  *   EndDate: new Date("TIMESTAMP"), // required

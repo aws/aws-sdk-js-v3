@@ -47,7 +47,7 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * import { AppSyncClient, EvaluateMappingTemplateCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, EvaluateMappingTemplateCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // EvaluateMappingTemplateRequest
  *   template: "STRING_VALUE", // required
  *   context: "STRING_VALUE", // required
  * };

@@ -54,7 +54,7 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * import { StorageGatewayClient, DeleteVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DeleteVolumeInput
  *   VolumeARN: "STRING_VALUE", // required
  * };
  * const command = new DeleteVolumeCommand(input);

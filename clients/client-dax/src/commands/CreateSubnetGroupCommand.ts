@@ -42,10 +42,10 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * import { DAXClient, CreateSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, CreateSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
+ * const input = { // CreateSubnetGroupRequest
  *   SubnetGroupName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // SubnetIdentifierList // required
  *     "STRING_VALUE",
  *   ],
  * };

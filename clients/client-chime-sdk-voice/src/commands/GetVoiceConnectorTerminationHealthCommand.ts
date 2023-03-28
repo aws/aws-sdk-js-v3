@@ -49,7 +49,7 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  * import { ChimeSDKVoiceClient, GetVoiceConnectorTerminationHealthCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetVoiceConnectorTerminationHealthCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // GetVoiceConnectorTerminationHealthRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  * };
  * const command = new GetVoiceConnectorTerminationHealthCommand(input);

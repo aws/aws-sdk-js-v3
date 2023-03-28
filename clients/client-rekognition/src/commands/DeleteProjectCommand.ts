@@ -50,7 +50,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * import { RekognitionClient, DeleteProjectCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteProjectCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // DeleteProjectRequest
  *   ProjectArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteProjectCommand(input);

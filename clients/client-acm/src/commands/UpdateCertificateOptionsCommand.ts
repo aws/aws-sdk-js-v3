@@ -45,9 +45,9 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * import { ACMClient, UpdateCertificateOptionsCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, UpdateCertificateOptionsCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
- * const input = {
+ * const input = { // UpdateCertificateOptionsRequest
  *   CertificateArn: "STRING_VALUE", // required
- *   Options: {
+ *   Options: { // CertificateOptions
  *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
  *   },
  * };

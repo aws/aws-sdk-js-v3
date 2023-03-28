@@ -47,7 +47,7 @@ export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult,
  * import { CloudFrontClient, GetKeyGroupConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetKeyGroupConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // GetKeyGroupConfigRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetKeyGroupConfigCommand(input);

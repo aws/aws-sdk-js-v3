@@ -50,17 +50,17 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  * import { ChimeSDKVoiceClient, PutVoiceConnectorStreamingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, PutVoiceConnectorStreamingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // PutVoiceConnectorStreamingConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
- *   StreamingConfiguration: {
+ *   StreamingConfiguration: { // StreamingConfiguration
  *     DataRetentionInHours: Number("int"), // required
  *     Disabled: true || false, // required
- *     StreamingNotificationTargets: [
- *       {
+ *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
+ *       { // StreamingNotificationTarget
  *         NotificationTarget: "EventBridge" || "SNS" || "SQS",
  *       },
  *     ],
- *     MediaInsightsConfiguration: {
+ *     MediaInsightsConfiguration: { // MediaInsightsConfiguration
  *       Disabled: true || false,
  *       ConfigurationArn: "STRING_VALUE",
  *     },

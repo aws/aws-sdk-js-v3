@@ -43,30 +43,30 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * import { EMRContainersClient, StartJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, StartJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
- * const input = {
+ * const input = { // StartJobRunRequest
  *   name: "STRING_VALUE",
  *   virtualClusterId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE", // required
  *   executionRoleArn: "STRING_VALUE",
  *   releaseLabel: "STRING_VALUE",
- *   jobDriver: {
- *     sparkSubmitJobDriver: {
+ *   jobDriver: { // JobDriver
+ *     sparkSubmitJobDriver: { // SparkSubmitJobDriver
  *       entryPoint: "STRING_VALUE", // required
- *       entryPointArguments: [
+ *       entryPointArguments: [ // EntryPointArguments
  *         "STRING_VALUE",
  *       ],
  *       sparkSubmitParameters: "STRING_VALUE",
  *     },
- *     sparkSqlJobDriver: {
+ *     sparkSqlJobDriver: { // SparkSqlJobDriver
  *       entryPoint: "STRING_VALUE",
  *       sparkSqlParameters: "STRING_VALUE",
  *     },
  *   },
- *   configurationOverrides: {
- *     applicationConfiguration: [
- *       {
+ *   configurationOverrides: { // ConfigurationOverrides
+ *     applicationConfiguration: [ // ConfigurationList
+ *       { // Configuration
  *         classification: "STRING_VALUE", // required
- *         properties: {
+ *         properties: { // SensitivePropertiesMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         configurations: [
@@ -75,32 +75,30 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *             properties: {
  *               "<keys>": "STRING_VALUE",
  *             },
- *             configurations: [
- *               "<ConfigurationList>",
- *             ],
+ *             configurations: "<ConfigurationList>",
  *           },
  *         ],
  *       },
  *     ],
- *     monitoringConfiguration: {
+ *     monitoringConfiguration: { // MonitoringConfiguration
  *       persistentAppUI: "ENABLED" || "DISABLED",
- *       cloudWatchMonitoringConfiguration: {
+ *       cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
  *         logGroupName: "STRING_VALUE", // required
  *         logStreamNamePrefix: "STRING_VALUE",
  *       },
- *       s3MonitoringConfiguration: {
+ *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
  *         logUri: "STRING_VALUE", // required
  *       },
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   jobTemplateId: "STRING_VALUE",
- *   jobTemplateParameters: {
- *     "<keys>": "<String1024>",
+ *   jobTemplateParameters: { // TemplateParameterInputMap
+ *     "<keys>": "STRING_VALUE",
  *   },
- *   retryPolicyConfiguration: {
+ *   retryPolicyConfiguration: { // RetryPolicyConfiguration
  *     maxAttempts: Number("int"), // required
  *   },
  * };

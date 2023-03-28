@@ -42,15 +42,15 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * import { EC2Client, AttachNetworkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AttachNetworkInterfaceRequest
  *   DeviceIndex: Number("int"), // required
  *   DryRun: true || false,
  *   InstanceId: "STRING_VALUE", // required
  *   NetworkInterfaceId: "STRING_VALUE", // required
  *   NetworkCardIndex: Number("int"),
- *   EnaSrdSpecification: {
+ *   EnaSrdSpecification: { // EnaSrdSpecification
  *     EnaSrdEnabled: true || false,
- *     EnaSrdUdpSpecification: {
+ *     EnaSrdUdpSpecification: { // EnaSrdUdpSpecification
  *       EnaSrdUdpEnabled: true || false,
  *     },
  *   },

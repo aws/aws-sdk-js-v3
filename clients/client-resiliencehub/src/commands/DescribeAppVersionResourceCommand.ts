@@ -62,11 +62,11 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * import { ResiliencehubClient, DescribeAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // DescribeAppVersionResourceRequest
  *   appArn: "STRING_VALUE", // required
  *   appVersion: "STRING_VALUE", // required
  *   resourceName: "STRING_VALUE",
- *   logicalResourceId: {
+ *   logicalResourceId: { // LogicalResourceId
  *     identifier: "STRING_VALUE", // required
  *     logicalStackName: "STRING_VALUE",
  *     resourceGroupName: "STRING_VALUE",

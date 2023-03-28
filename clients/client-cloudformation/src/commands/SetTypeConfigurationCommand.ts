@@ -54,7 +54,7 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * import { CloudFormationClient, SetTypeConfigurationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, SetTypeConfigurationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // SetTypeConfigurationInput
  *   TypeArn: "STRING_VALUE",
  *   Configuration: "STRING_VALUE", // required
  *   ConfigurationAlias: "STRING_VALUE",

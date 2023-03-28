@@ -42,7 +42,7 @@ export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkRespons
  * import { NetworkManagerClient, UpdateCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // UpdateCoreNetworkRequest
  *   CoreNetworkId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  * };

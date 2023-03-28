@@ -79,7 +79,7 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * import { KMSClient, GetParametersForImportCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetParametersForImportCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // GetParametersForImportRequest
  *   KeyId: "STRING_VALUE", // required
  *   WrappingAlgorithm: "RSAES_PKCS1_V1_5" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256", // required
  *   WrappingKeySpec: "RSA_2048", // required

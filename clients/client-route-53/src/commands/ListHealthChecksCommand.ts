@@ -42,7 +42,7 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
  * import { Route53Client, ListHealthChecksCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListHealthChecksCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // ListHealthChecksRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };

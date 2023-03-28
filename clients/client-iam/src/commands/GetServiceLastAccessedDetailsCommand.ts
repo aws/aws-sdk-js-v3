@@ -95,7 +95,7 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * import { IAMClient, GetServiceLastAccessedDetailsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServiceLastAccessedDetailsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // GetServiceLastAccessedDetailsRequest
  *   JobId: "STRING_VALUE", // required
  *   MaxItems: Number("int"),
  *   Marker: "STRING_VALUE",

@@ -43,59 +43,59 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  * import { IoTClient, UpdateSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateSecurityProfileRequest
  *   securityProfileName: "STRING_VALUE", // required
  *   securityProfileDescription: "STRING_VALUE",
- *   behaviors: [
- *     {
+ *   behaviors: [ // Behaviors
+ *     { // Behavior
  *       name: "STRING_VALUE", // required
  *       metric: "STRING_VALUE",
- *       metricDimension: {
+ *       metricDimension: { // MetricDimension
  *         dimensionName: "STRING_VALUE", // required
  *         operator: "IN" || "NOT_IN",
  *       },
- *       criteria: {
+ *       criteria: { // BehaviorCriteria
  *         comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
- *         value: {
+ *         value: { // MetricValue
  *           count: Number("long"),
- *           cidrs: [
+ *           cidrs: [ // Cidrs
  *             "STRING_VALUE",
  *           ],
- *           ports: [
+ *           ports: [ // Ports
  *             Number("int"),
  *           ],
  *           number: Number("double"),
- *           numbers: [
+ *           numbers: [ // NumberList
  *             Number("double"),
  *           ],
- *           strings: [
+ *           strings: [ // StringList
  *             "STRING_VALUE",
  *           ],
  *         },
  *         durationSeconds: Number("int"),
  *         consecutiveDatapointsToAlarm: Number("int"),
  *         consecutiveDatapointsToClear: Number("int"),
- *         statisticalThreshold: {
+ *         statisticalThreshold: { // StatisticalThreshold
  *           statistic: "STRING_VALUE",
  *         },
- *         mlDetectionConfig: {
+ *         mlDetectionConfig: { // MachineLearningDetectionConfig
  *           confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
  *         },
  *       },
  *       suppressAlerts: true || false,
  *     },
  *   ],
- *   alertTargets: {
- *     "<keys>": {
+ *   alertTargets: { // AlertTargets
+ *     "<keys>": { // AlertTarget
  *       alertTargetArn: "STRING_VALUE", // required
  *       roleArn: "STRING_VALUE", // required
  *     },
  *   },
- *   additionalMetricsToRetain: [
+ *   additionalMetricsToRetain: [ // AdditionalMetricsToRetainList
  *     "STRING_VALUE",
  *   ],
- *   additionalMetricsToRetainV2: [
- *     {
+ *   additionalMetricsToRetainV2: [ // AdditionalMetricsToRetainV2List
+ *     { // MetricToRetain
  *       metric: "STRING_VALUE", // required
  *       metricDimension: {
  *         dimensionName: "STRING_VALUE", // required

@@ -43,7 +43,7 @@ export interface GetCallAnalyticsCategoryCommandOutput extends GetCallAnalyticsC
  * import { TranscribeClient, GetCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // GetCallAnalyticsCategoryRequest
  *   CategoryName: "STRING_VALUE", // required
  * };
  * const command = new GetCallAnalyticsCategoryCommand(input);

@@ -49,7 +49,7 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorLsaAnalysisCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorLsaAnalysisCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // DescribeFleetAdvisorLsaAnalysisRequest
  *   MaxRecords: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

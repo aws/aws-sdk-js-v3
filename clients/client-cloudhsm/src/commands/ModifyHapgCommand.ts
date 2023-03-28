@@ -52,10 +52,10 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * import { CloudHSMClient, ModifyHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ModifyHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
- * const input = {
+ * const input = { // ModifyHapgRequest
  *   HapgArn: "STRING_VALUE", // required
  *   Label: "STRING_VALUE",
- *   PartitionSerialList: [
+ *   PartitionSerialList: [ // PartitionSerialList
  *     "STRING_VALUE",
  *   ],
  * };

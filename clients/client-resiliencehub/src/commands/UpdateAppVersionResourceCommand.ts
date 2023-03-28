@@ -56,10 +56,10 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * import { ResiliencehubClient, UpdateAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, UpdateAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // UpdateAppVersionResourceRequest
  *   appArn: "STRING_VALUE", // required
  *   resourceName: "STRING_VALUE",
- *   logicalResourceId: {
+ *   logicalResourceId: { // LogicalResourceId
  *     identifier: "STRING_VALUE", // required
  *     logicalStackName: "STRING_VALUE",
  *     resourceGroupName: "STRING_VALUE",
@@ -70,11 +70,11 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  *   awsRegion: "STRING_VALUE",
  *   awsAccountId: "STRING_VALUE",
  *   resourceType: "STRING_VALUE",
- *   appComponents: [
+ *   appComponents: [ // AppComponentNameList
  *     "STRING_VALUE",
  *   ],
- *   additionalInfo: {
- *     "<keys>": [
+ *   additionalInfo: { // AdditionalInfoMap
+ *     "<keys>": [ // AdditionalInfoValueList
  *       "STRING_VALUE",
  *     ],
  *   },

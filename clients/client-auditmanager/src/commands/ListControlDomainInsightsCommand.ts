@@ -49,7 +49,7 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  * import { AuditManagerClient, ListControlDomainInsightsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListControlDomainInsightsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // ListControlDomainInsightsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

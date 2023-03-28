@@ -43,7 +43,7 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * import { DeviceFarmClient, ListDeviceInstancesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDeviceInstancesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // ListDeviceInstancesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

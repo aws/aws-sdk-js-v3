@@ -43,16 +43,16 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * import { BackupClient, CreateBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // CreateBackupSelectionInput
  *   BackupPlanId: "STRING_VALUE", // required
- *   BackupSelection: {
+ *   BackupSelection: { // BackupSelection
  *     SelectionName: "STRING_VALUE", // required
  *     IamRoleArn: "STRING_VALUE", // required
- *     Resources: [
+ *     Resources: [ // ResourceArns
  *       "STRING_VALUE",
  *     ],
- *     ListOfTags: [
- *       {
+ *     ListOfTags: [ // ListOfTags
+ *       { // Condition
  *         ConditionType: "STRINGEQUALS", // required
  *         ConditionKey: "STRING_VALUE", // required
  *         ConditionValue: "STRING_VALUE", // required
@@ -61,9 +61,9 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  *     NotResources: [
  *       "STRING_VALUE",
  *     ],
- *     Conditions: {
- *       StringEquals: [
- *         {
+ *     Conditions: { // Conditions
+ *       StringEquals: [ // ConditionParameters
+ *         { // ConditionParameter
  *           ConditionKey: "STRING_VALUE",
  *           ConditionValue: "STRING_VALUE",
  *         },

@@ -44,11 +44,11 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * import { CodeBuildClient, ListReportsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // ListReportsInput
  *   sortOrder: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   filter: {
+ *   filter: { // ReportFilter
  *     status: "STRING_VALUE",
  *   },
  * };

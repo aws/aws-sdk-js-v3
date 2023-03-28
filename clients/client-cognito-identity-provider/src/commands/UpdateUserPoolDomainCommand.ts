@@ -65,10 +65,10 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * import { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // UpdateUserPoolDomainRequest
  *   Domain: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
- *   CustomDomainConfig: {
+ *   CustomDomainConfig: { // CustomDomainConfigType
  *     CertificateArn: "STRING_VALUE", // required
  *   },
  * };

@@ -42,19 +42,19 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * import { ECSClient, UpdateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // UpdateClusterRequest
  *   cluster: "STRING_VALUE", // required
- *   settings: [
- *     {
+ *   settings: [ // ClusterSettings
+ *     { // ClusterSetting
  *       name: "containerInsights",
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   configuration: {
- *     executeCommandConfiguration: {
+ *   configuration: { // ClusterConfiguration
+ *     executeCommandConfiguration: { // ExecuteCommandConfiguration
  *       kmsKeyId: "STRING_VALUE",
  *       logging: "NONE" || "DEFAULT" || "OVERRIDE",
- *       logConfiguration: {
+ *       logConfiguration: { // ExecuteCommandLogConfiguration
  *         cloudWatchLogGroupName: "STRING_VALUE",
  *         cloudWatchEncryptionEnabled: true || false,
  *         s3BucketName: "STRING_VALUE",
@@ -63,7 +63,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       },
  *     },
  *   },
- *   serviceConnectDefaults: {
+ *   serviceConnectDefaults: { // ClusterServiceConnectDefaultsRequest
  *     namespace: "STRING_VALUE", // required
  *   },
  * };

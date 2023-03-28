@@ -42,7 +42,7 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * import { SimSpaceWeaverClient, StopAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StopAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
- * const input = {
+ * const input = { // StopAppInput
  *   Simulation: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE", // required
  *   App: "STRING_VALUE", // required

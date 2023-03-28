@@ -39,7 +39,7 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  * import { CodeCommitClient, PutFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PutFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // PutFileInput
  *   repositoryName: "STRING_VALUE", // required
  *   branchName: "STRING_VALUE", // required
  *   fileContent: "BLOB_VALUE", // required

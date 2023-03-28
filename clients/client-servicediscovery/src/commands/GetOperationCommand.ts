@@ -46,7 +46,7 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * import { ServiceDiscoveryClient, GetOperationCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetOperationCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // GetOperationRequest
  *   OperationId: "STRING_VALUE", // required
  * };
  * const command = new GetOperationCommand(input);

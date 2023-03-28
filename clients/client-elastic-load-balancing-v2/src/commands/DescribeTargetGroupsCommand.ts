@@ -49,12 +49,12 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  * import { ElasticLoadBalancingV2Client, DescribeTargetGroupsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeTargetGroupsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // DescribeTargetGroupsInput
  *   LoadBalancerArn: "STRING_VALUE",
- *   TargetGroupArns: [
+ *   TargetGroupArns: [ // TargetGroupArns
  *     "STRING_VALUE",
  *   ],
- *   Names: [
+ *   Names: [ // TargetGroupNames
  *     "STRING_VALUE",
  *   ],
  *   Marker: "STRING_VALUE",

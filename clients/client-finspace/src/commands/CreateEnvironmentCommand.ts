@@ -46,30 +46,30 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * import { FinspaceClient, CreateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = {
+ * const input = { // CreateEnvironmentRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   federationMode: "STRING_VALUE",
- *   federationParameters: {
+ *   federationParameters: { // FederationParameters
  *     samlMetadataDocument: "STRING_VALUE",
  *     samlMetadataURL: "STRING_VALUE",
  *     applicationCallBackURL: "STRING_VALUE",
  *     federationURN: "STRING_VALUE",
  *     federationProviderName: "STRING_VALUE",
- *     attributeMap: {
+ *     attributeMap: { // AttributeMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   superuserParameters: {
+ *   superuserParameters: { // SuperuserParameters
  *     emailAddress: "STRING_VALUE", // required
  *     firstName: "STRING_VALUE", // required
  *     lastName: "STRING_VALUE", // required
  *   },
- *   dataBundles: [
+ *   dataBundles: [ // DataBundleArns
  *     "STRING_VALUE",
  *   ],
  * };

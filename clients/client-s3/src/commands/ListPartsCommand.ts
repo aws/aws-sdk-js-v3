@@ -89,7 +89,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * import { S3Client, ListPartsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListPartsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // ListPartsRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
  *   MaxParts: Number("int"),

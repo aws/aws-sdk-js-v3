@@ -44,18 +44,18 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, _
  * import { CodeartifactClient, CreateRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, CreateRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const input = {
+ * const input = { // CreateRepositoryRequest
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   upstreams: [
- *     {
+ *   upstreams: [ // UpstreamRepositoryList
+ *     { // UpstreamRepository
  *       repositoryName: "STRING_VALUE", // required
  *     },
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

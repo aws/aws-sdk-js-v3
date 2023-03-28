@@ -42,7 +42,7 @@ export interface GetApnsSandboxChannelCommandOutput extends GetApnsSandboxChanne
  * import { PinpointClient, GetApnsSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetApnsSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetApnsSandboxChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new GetApnsSandboxChannelCommand(input);

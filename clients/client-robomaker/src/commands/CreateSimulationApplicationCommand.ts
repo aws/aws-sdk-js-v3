@@ -44,31 +44,31 @@ export interface CreateSimulationApplicationCommandOutput
  * import { RoboMakerClient, CreateSimulationApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateSimulationApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CreateSimulationApplicationRequest
  *   name: "STRING_VALUE", // required
- *   sources: [
- *     {
+ *   sources: [ // SourceConfigs
+ *     { // SourceConfig
  *       s3Bucket: "STRING_VALUE",
  *       s3Key: "STRING_VALUE",
  *       architecture: "STRING_VALUE",
  *     },
  *   ],
- *   simulationSoftwareSuite: {
+ *   simulationSoftwareSuite: { // SimulationSoftwareSuite
  *     name: "STRING_VALUE",
  *     version: "STRING_VALUE",
  *   },
- *   robotSoftwareSuite: {
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
  *     name: "STRING_VALUE",
  *     version: "STRING_VALUE",
  *   },
- *   renderingEngine: {
+ *   renderingEngine: { // RenderingEngine
  *     name: "STRING_VALUE",
  *     version: "STRING_VALUE",
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   environment: {
+ *   environment: { // Environment
  *     uri: "STRING_VALUE",
  *   },
  * };

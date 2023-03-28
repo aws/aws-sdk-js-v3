@@ -46,7 +46,7 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput extends __Me
  * import { SESClient, CreateCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // CreateCustomVerificationEmailTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  *   FromEmailAddress: "STRING_VALUE", // required
  *   TemplateSubject: "STRING_VALUE", // required

@@ -49,18 +49,18 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
  * import { DynamoDBClient, UpdateTableReplicaAutoScalingCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTableReplicaAutoScalingCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
- *   GlobalSecondaryIndexUpdates: [
- *     {
+ * const input = { // UpdateTableReplicaAutoScalingInput
+ *   GlobalSecondaryIndexUpdates: [ // GlobalSecondaryIndexAutoScalingUpdateList
+ *     { // GlobalSecondaryIndexAutoScalingUpdate
  *       IndexName: "STRING_VALUE",
- *       ProvisionedWriteCapacityAutoScalingUpdate: {
+ *       ProvisionedWriteCapacityAutoScalingUpdate: { // AutoScalingSettingsUpdate
  *         MinimumUnits: Number("long"),
  *         MaximumUnits: Number("long"),
  *         AutoScalingDisabled: true || false,
  *         AutoScalingRoleArn: "STRING_VALUE",
- *         ScalingPolicyUpdate: {
+ *         ScalingPolicyUpdate: { // AutoScalingPolicyUpdate
  *           PolicyName: "STRING_VALUE",
- *           TargetTrackingScalingPolicyConfiguration: {
+ *           TargetTrackingScalingPolicyConfiguration: { // AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
  *             DisableScaleIn: true || false,
  *             ScaleInCooldown: Number("int"),
  *             ScaleOutCooldown: Number("int"),
@@ -86,28 +86,16 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
  *       },
  *     },
  *   },
- *   ReplicaUpdates: [
- *     {
+ *   ReplicaUpdates: [ // ReplicaAutoScalingUpdateList
+ *     { // ReplicaAutoScalingUpdate
  *       RegionName: "STRING_VALUE", // required
- *       ReplicaGlobalSecondaryIndexUpdates: [
- *         {
+ *       ReplicaGlobalSecondaryIndexUpdates: [ // ReplicaGlobalSecondaryIndexAutoScalingUpdateList
+ *         { // ReplicaGlobalSecondaryIndexAutoScalingUpdate
  *           IndexName: "STRING_VALUE",
- *           ProvisionedReadCapacityAutoScalingUpdate: {
- *             MinimumUnits: "<AutoScalingSettingsUpdate>",
- *             MaximumUnits: "<AutoScalingSettingsUpdate>",
- *             AutoScalingDisabled: "<AutoScalingSettingsUpdate>",
- *             AutoScalingRoleArn: "<AutoScalingSettingsUpdate>",
- *             ScalingPolicyUpdate: "<AutoScalingSettingsUpdate>",
- *           },
+ *           ProvisionedReadCapacityAutoScalingUpdate: "<AutoScalingSettingsUpdate>",
  *         },
  *       ],
- *       ReplicaProvisionedReadCapacityAutoScalingUpdate: {
- *         MinimumUnits: "<AutoScalingSettingsUpdate>",
- *         MaximumUnits: "<AutoScalingSettingsUpdate>",
- *         AutoScalingDisabled: "<AutoScalingSettingsUpdate>",
- *         AutoScalingRoleArn: "<AutoScalingSettingsUpdate>",
- *         ScalingPolicyUpdate: "<AutoScalingSettingsUpdate>",
- *       },
+ *       ReplicaProvisionedReadCapacityAutoScalingUpdate: "<AutoScalingSettingsUpdate>",
  *     },
  *   ],
  * };

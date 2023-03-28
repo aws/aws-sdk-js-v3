@@ -46,13 +46,13 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * import { ServiceCatalogClient, CreateProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // CreateProvisioningArtifactInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProductId: "STRING_VALUE", // required
- *   Parameters: {
+ *   Parameters: { // ProvisioningArtifactProperties
  *     Name: "STRING_VALUE",
  *     Description: "STRING_VALUE",
- *     Info: {
+ *     Info: { // ProvisioningArtifactInfo
  *       "<keys>": "STRING_VALUE",
  *     },
  *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR",

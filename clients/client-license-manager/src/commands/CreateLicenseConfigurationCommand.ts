@@ -47,27 +47,27 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * import { LicenseManagerClient, CreateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // CreateLicenseConfigurationRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   LicenseCountingType: "vCPU" || "Instance" || "Core" || "Socket", // required
  *   LicenseCount: Number("long"),
  *   LicenseCountHardLimit: true || false,
- *   LicenseRules: [
+ *   LicenseRules: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   DisassociateWhenNotFound: true || false,
- *   ProductInformationList: [
- *     {
+ *   ProductInformationList: [ // ProductInformationList
+ *     { // ProductInformation
  *       ResourceType: "STRING_VALUE", // required
- *       ProductInformationFilterList: [ // required
- *         {
+ *       ProductInformationFilterList: [ // ProductInformationFilterList // required
+ *         { // ProductInformationFilter
  *           ProductInformationFilterName: "STRING_VALUE", // required
  *           ProductInformationFilterValue: [
  *             "STRING_VALUE",

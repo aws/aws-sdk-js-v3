@@ -52,7 +52,7 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * import { SESv2Client, GetCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // GetCustomVerificationEmailTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  * };
  * const command = new GetCustomVerificationEmailTemplateCommand(input);

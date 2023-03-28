@@ -49,9 +49,9 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * import { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // SetSecurityGroupsInput
  *   LoadBalancerArn: "STRING_VALUE", // required
- *   SecurityGroups: [ // required
+ *   SecurityGroups: [ // SecurityGroups // required
  *     "STRING_VALUE",
  *   ],
  * };

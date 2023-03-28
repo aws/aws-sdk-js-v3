@@ -42,7 +42,7 @@ export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse,
  * import { RUMClient, DeleteAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, DeleteAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // DeleteAppMonitorRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteAppMonitorCommand(input);

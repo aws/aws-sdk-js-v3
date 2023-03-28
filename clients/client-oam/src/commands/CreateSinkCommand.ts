@@ -48,9 +48,9 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * import { OAMClient, CreateSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, CreateSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
- * const input = {
+ * const input = { // CreateSinkInput
  *   Name: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMapInput
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -57,7 +57,7 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * import { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // StartMLLabelingSetGenerationTaskRunRequest
  *   TransformId: "STRING_VALUE", // required
  *   OutputS3Path: "STRING_VALUE", // required
  * };

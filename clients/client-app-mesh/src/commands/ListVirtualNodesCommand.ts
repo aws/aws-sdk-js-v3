@@ -42,7 +42,7 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
  * import { AppMeshClient, ListVirtualNodesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListVirtualNodesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // ListVirtualNodesInput
  *   meshName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),

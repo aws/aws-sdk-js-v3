@@ -45,7 +45,7 @@ export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutpu
  * import { DynamoDBClient, ListTagsOfResourceCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListTagsOfResourceCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // ListTagsOfResourceInput
  *   ResourceArn: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  * };

@@ -47,12 +47,12 @@ export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommend
  * import { LexModelsV2Client, UpdateBotRecommendationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateBotRecommendationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // UpdateBotRecommendationRequest
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE", // required
  *   botRecommendationId: "STRING_VALUE", // required
- *   encryptionSetting: {
+ *   encryptionSetting: { // EncryptionSetting
  *     kmsKeyArn: "STRING_VALUE",
  *     botLocaleExportPassword: "STRING_VALUE",
  *     associatedTranscriptsPassword: "STRING_VALUE",

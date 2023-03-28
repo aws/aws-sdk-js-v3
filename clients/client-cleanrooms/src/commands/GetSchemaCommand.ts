@@ -42,7 +42,7 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * import { CleanRoomsClient, GetSchemaCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetSchemaCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // GetSchemaInput
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  * };

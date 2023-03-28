@@ -56,7 +56,7 @@ export interface DeleteLensCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, DeleteLensCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DeleteLensCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // DeleteLensInput
  *   LensAlias: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE", // required
  *   LensStatus: "ALL" || "DRAFT" || "PUBLISHED", // required

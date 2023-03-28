@@ -46,10 +46,10 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * import { EMRClient, ListClustersCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListClustersCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // ListClustersInput
  *   CreatedAfter: new Date("TIMESTAMP"),
  *   CreatedBefore: new Date("TIMESTAMP"),
- *   ClusterStates: [
+ *   ClusterStates: [ // ClusterStateList
  *     "STARTING" || "BOOTSTRAPPING" || "RUNNING" || "WAITING" || "TERMINATING" || "TERMINATED" || "TERMINATED_WITH_ERRORS",
  *   ],
  *   Marker: "STRING_VALUE",

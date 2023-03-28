@@ -43,16 +43,16 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * import { EC2Client, DescribeVolumesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVolumesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeVolumesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   VolumeIds: [
+ *   VolumeIds: [ // VolumeIdStringList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

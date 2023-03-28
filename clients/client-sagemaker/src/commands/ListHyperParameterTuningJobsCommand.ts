@@ -46,7 +46,7 @@ export interface ListHyperParameterTuningJobsCommandOutput
  * import { SageMakerClient, ListHyperParameterTuningJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHyperParameterTuningJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListHyperParameterTuningJobsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   SortBy: "Name" || "Status" || "CreationTime",

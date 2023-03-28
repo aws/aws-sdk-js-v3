@@ -44,7 +44,7 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * import { EC2Client, AuthorizeClientVpnIngressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AuthorizeClientVpnIngressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AuthorizeClientVpnIngressRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   TargetNetworkCidr: "STRING_VALUE", // required
  *   AccessGroupId: "STRING_VALUE",

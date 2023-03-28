@@ -43,7 +43,7 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * import { EC2Client, CreateClientVpnRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateClientVpnRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateClientVpnRouteRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   DestinationCidrBlock: "STRING_VALUE", // required
  *   TargetVpcSubnetId: "STRING_VALUE", // required

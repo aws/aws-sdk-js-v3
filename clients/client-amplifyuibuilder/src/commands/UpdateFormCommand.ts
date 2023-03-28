@@ -42,28 +42,28 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  * import { AmplifyUIBuilderClient, UpdateFormCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, UpdateFormCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
- * const input = {
+ * const input = { // UpdateFormRequest
  *   appId: "STRING_VALUE", // required
  *   environmentName: "STRING_VALUE", // required
  *   id: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   updatedForm: {
+ *   updatedForm: { // UpdateFormData
  *     name: "STRING_VALUE",
- *     dataType: {
+ *     dataType: { // FormDataTypeConfig
  *       dataSourceType: "STRING_VALUE", // required
  *       dataTypeName: "STRING_VALUE", // required
  *     },
  *     formActionType: "STRING_VALUE",
- *     fields: {
- *       "<keys>": {
+ *     fields: { // FieldsMap
+ *       "<keys>": { // FieldConfig
  *         label: "STRING_VALUE",
- *         position: { // Union: only one key present
+ *         position: { // FieldPosition Union: only one key present
  *           fixed: "STRING_VALUE",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
  *         },
  *         excluded: true || false,
- *         inputType: {
+ *         inputType: { // FieldInputConfig
  *           type: "STRING_VALUE", // required
  *           required: true || false,
  *           readOnly: true || false,
@@ -72,10 +72,10 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *           descriptiveText: "STRING_VALUE",
  *           defaultChecked: true || false,
  *           defaultCountryCode: "STRING_VALUE",
- *           valueMappings: {
- *             values: [ // required
- *               {
- *                 displayValue: {
+ *           valueMappings: { // ValueMappings
+ *             values: [ // ValueMappingList // required
+ *               { // ValueMapping
+ *                 displayValue: { // FormInputValueProperty
  *                   value: "STRING_VALUE",
  *                 },
  *                 value: {
@@ -91,13 +91,13 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *           value: "STRING_VALUE",
  *           isArray: true || false,
  *         },
- *         validations: [
- *           {
+ *         validations: [ // ValidationsList
+ *           { // FieldValidationConfiguration
  *             type: "STRING_VALUE", // required
- *             strValues: [
+ *             strValues: [ // StrValues
  *               "STRING_VALUE",
  *             ],
- *             numValues: [
+ *             numValues: [ // NumValues
  *               Number("int"),
  *             ],
  *             validationMessage: "STRING_VALUE",
@@ -105,24 +105,24 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *         ],
  *       },
  *     },
- *     style: {
- *       horizontalGap: { // Union: only one key present
+ *     style: { // FormStyle
+ *       horizontalGap: { // FormStyleConfig Union: only one key present
  *         tokenReference: "STRING_VALUE",
  *         value: "STRING_VALUE",
  *       },
- *       verticalGap: { // Union: only one key present
+ *       verticalGap: {//  Union: only one key present
  *         tokenReference: "STRING_VALUE",
  *         value: "STRING_VALUE",
  *       },
- *       outerPadding: { // Union: only one key present
+ *       outerPadding: {//  Union: only one key present
  *         tokenReference: "STRING_VALUE",
  *         value: "STRING_VALUE",
  *       },
  *     },
- *     sectionalElements: {
- *       "<keys>": {
+ *     sectionalElements: { // SectionalElementMap
+ *       "<keys>": { // SectionalElement
  *         type: "STRING_VALUE", // required
- *         position: { // Union: only one key present
+ *         position: {//  Union: only one key present
  *           fixed: "STRING_VALUE",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
@@ -133,12 +133,12 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *       },
  *     },
  *     schemaVersion: "STRING_VALUE",
- *     cta: {
+ *     cta: { // FormCTA
  *       position: "STRING_VALUE",
- *       clear: {
+ *       clear: { // FormButton
  *         excluded: true || false,
  *         children: "STRING_VALUE",
- *         position: { // Union: only one key present
+ *         position: {//  Union: only one key present
  *           fixed: "STRING_VALUE",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
@@ -147,7 +147,7 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *       cancel: {
  *         excluded: true || false,
  *         children: "STRING_VALUE",
- *         position: { // Union: only one key present
+ *         position: {//  Union: only one key present
  *           fixed: "STRING_VALUE",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
@@ -156,7 +156,7 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *       submit: {
  *         excluded: true || false,
  *         children: "STRING_VALUE",
- *         position: { // Union: only one key present
+ *         position: {//  Union: only one key present
  *           fixed: "STRING_VALUE",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",

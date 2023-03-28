@@ -42,9 +42,9 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * import { ElastiCacheClient, DescribeServiceUpdatesCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeServiceUpdatesCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DescribeServiceUpdatesMessage
  *   ServiceUpdateName: "STRING_VALUE",
- *   ServiceUpdateStatus: [
+ *   ServiceUpdateStatus: [ // ServiceUpdateStatusList
  *     "available" || "cancelled" || "expired",
  *   ],
  *   MaxRecords: Number("int"),

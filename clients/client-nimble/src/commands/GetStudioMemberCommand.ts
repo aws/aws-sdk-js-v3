@@ -42,7 +42,7 @@ export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, _
  * import { NimbleClient, GetStudioMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStudioMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // GetStudioMemberRequest
  *   principalId: "STRING_VALUE", // required
  *   studioId: "STRING_VALUE", // required
  * };

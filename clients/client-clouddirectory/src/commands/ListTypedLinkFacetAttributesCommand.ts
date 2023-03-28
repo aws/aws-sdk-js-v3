@@ -44,7 +44,7 @@ export interface ListTypedLinkFacetAttributesCommandOutput
  * import { CloudDirectoryClient, ListTypedLinkFacetAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListTypedLinkFacetAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // ListTypedLinkFacetAttributesRequest
  *   SchemaArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

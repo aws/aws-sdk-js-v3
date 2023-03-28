@@ -42,7 +42,7 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * import { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
- * const input = {
+ * const input = { // DescribeJobExecutionRequest
  *   jobId: "STRING_VALUE", // required
  *   thingName: "STRING_VALUE", // required
  *   includeJobDocument: true || false,

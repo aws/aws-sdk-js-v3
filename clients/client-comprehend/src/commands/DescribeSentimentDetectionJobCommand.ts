@@ -45,7 +45,7 @@ export interface DescribeSentimentDetectionJobCommandOutput
  * import { ComprehendClient, DescribeSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DescribeSentimentDetectionJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeSentimentDetectionJobCommand(input);

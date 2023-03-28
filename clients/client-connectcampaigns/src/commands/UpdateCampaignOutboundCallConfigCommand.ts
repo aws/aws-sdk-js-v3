@@ -42,11 +42,11 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * import { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
- * const input = {
+ * const input = { // UpdateCampaignOutboundCallConfigRequest
  *   id: "STRING_VALUE", // required
  *   connectContactFlowId: "STRING_VALUE",
  *   connectSourcePhoneNumber: "STRING_VALUE",
- *   answerMachineDetectionConfig: {
+ *   answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  *     enableAnswerMachineDetection: true || false, // required
  *   },
  * };

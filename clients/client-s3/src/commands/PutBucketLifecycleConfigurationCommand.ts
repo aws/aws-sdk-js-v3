@@ -130,30 +130,30 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketLifecycleConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   LifecycleConfiguration: {
- *     Rules: [ // required
- *       {
- *         Expiration: {
+ *   LifecycleConfiguration: { // BucketLifecycleConfiguration
+ *     Rules: [ // LifecycleRules // required
+ *       { // LifecycleRule
+ *         Expiration: { // LifecycleExpiration
  *           Date: new Date("TIMESTAMP"),
  *           Days: Number("int"),
  *           ExpiredObjectDeleteMarker: true || false,
  *         },
  *         ID: "STRING_VALUE",
  *         Prefix: "STRING_VALUE",
- *         Filter: { // Union: only one key present
+ *         Filter: { // LifecycleRuleFilter Union: only one key present
  *           Prefix: "STRING_VALUE",
- *           Tag: {
+ *           Tag: { // Tag
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
  *           ObjectSizeGreaterThan: Number("long"),
  *           ObjectSizeLessThan: Number("long"),
- *           And: {
+ *           And: { // LifecycleRuleAndOperator
  *             Prefix: "STRING_VALUE",
- *             Tags: [
+ *             Tags: [ // TagSet
  *               {
  *                 Key: "STRING_VALUE", // required
  *                 Value: "STRING_VALUE", // required
@@ -164,25 +164,25 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *           },
  *         },
  *         Status: "Enabled" || "Disabled", // required
- *         Transitions: [
- *           {
+ *         Transitions: [ // TransitionList
+ *           { // Transition
  *             Date: new Date("TIMESTAMP"),
  *             Days: Number("int"),
  *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
  *           },
  *         ],
- *         NoncurrentVersionTransitions: [
- *           {
+ *         NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
+ *           { // NoncurrentVersionTransition
  *             NoncurrentDays: Number("int"),
  *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
  *             NewerNoncurrentVersions: Number("int"),
  *           },
  *         ],
- *         NoncurrentVersionExpiration: {
+ *         NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
  *           NoncurrentDays: Number("int"),
  *           NewerNoncurrentVersions: Number("int"),
  *         },
- *         AbortIncompleteMultipartUpload: {
+ *         AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
  *           DaysAfterInitiation: Number("int"),
  *         },
  *       },

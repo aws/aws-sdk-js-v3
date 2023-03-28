@@ -42,10 +42,10 @@ export interface RetryPipelineExecutionCommandOutput extends RetryPipelineExecut
  * import { SageMakerClient, RetryPipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, RetryPipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // RetryPipelineExecutionRequest
  *   PipelineExecutionArn: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE", // required
- *   ParallelismConfiguration: {
+ *   ParallelismConfiguration: { // ParallelismConfiguration
  *     MaxParallelExecutionSteps: Number("int"), // required
  *   },
  * };

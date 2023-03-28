@@ -43,7 +43,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * import { ServiceDiscoveryClient, DeleteNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, DeleteNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // DeleteNamespaceRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DeleteNamespaceCommand(input);

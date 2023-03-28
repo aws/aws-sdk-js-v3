@@ -43,30 +43,30 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * import { AlexaForBusinessClient, SendAnnouncementCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SendAnnouncementCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
- *   RoomFilters: [ // required
- *     {
+ * const input = { // SendAnnouncementRequest
+ *   RoomFilters: [ // FilterList // required
+ *     { // Filter
  *       Key: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   Content: {
- *     TextList: [
- *       {
+ *   Content: { // Content
+ *     TextList: [ // TextList
+ *       { // Text
  *         Locale: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
- *     SsmlList: [
- *       {
+ *     SsmlList: [ // SsmlList
+ *       { // Ssml
  *         Locale: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
- *     AudioList: [
- *       {
+ *     AudioList: [ // AudioList
+ *       { // Audio
  *         Locale: "STRING_VALUE", // required
  *         Location: "STRING_VALUE", // required
  *       },

@@ -42,7 +42,7 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  * import { GlueClient, CheckSchemaVersionValidityCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CheckSchemaVersionValidityCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CheckSchemaVersionValidityInput
  *   DataFormat: "AVRO" || "JSON" || "PROTOBUF", // required
  *   SchemaDefinition: "STRING_VALUE", // required
  * };

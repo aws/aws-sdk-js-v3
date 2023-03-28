@@ -45,7 +45,7 @@ export interface GetAppReplicationConfigurationCommandOutput
  * import { SMSClient, GetAppReplicationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // GetAppReplicationConfigurationRequest
  *   appId: "STRING_VALUE",
  * };
  * const command = new GetAppReplicationConfigurationCommand(input);

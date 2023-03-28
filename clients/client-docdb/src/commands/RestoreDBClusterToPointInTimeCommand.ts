@@ -48,7 +48,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * import { DocDBClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // RestoreDBClusterToPointInTimeMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   RestoreType: "STRING_VALUE",
  *   SourceDBClusterIdentifier: "STRING_VALUE", // required
@@ -56,17 +56,17 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   UseLatestRestorableTime: true || false,
  *   Port: Number("int"),
  *   DBSubnetGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   KmsKeyId: "STRING_VALUE",
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,

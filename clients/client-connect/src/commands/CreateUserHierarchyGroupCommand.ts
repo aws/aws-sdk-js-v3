@@ -42,11 +42,11 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  * import { ConnectClient, CreateUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // CreateUserHierarchyGroupRequest
  *   Name: "STRING_VALUE", // required
  *   ParentGroupId: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

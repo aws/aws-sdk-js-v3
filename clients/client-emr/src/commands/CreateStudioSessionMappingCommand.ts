@@ -46,7 +46,7 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  * import { EMRClient, CreateStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CreateStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // CreateStudioSessionMappingInput
  *   StudioId: "STRING_VALUE", // required
  *   IdentityId: "STRING_VALUE",
  *   IdentityName: "STRING_VALUE",

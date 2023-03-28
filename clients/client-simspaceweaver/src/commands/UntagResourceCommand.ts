@@ -43,9 +43,9 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { SimSpaceWeaverClient, UntagResourceCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, UntagResourceCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
- * const input = {
+ * const input = { // UntagResourceInput
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

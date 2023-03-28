@@ -58,7 +58,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  * import { ProtonClient, UpdateServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // UpdateServiceInput
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   spec: "STRING_VALUE",

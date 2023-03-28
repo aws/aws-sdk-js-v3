@@ -47,7 +47,7 @@ export interface DescribeImageGenerationConfigurationCommandOutput
  * import { KinesisVideoClient, DescribeImageGenerationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeImageGenerationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // DescribeImageGenerationConfigurationInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  * };

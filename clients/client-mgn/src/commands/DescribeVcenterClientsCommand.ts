@@ -46,7 +46,7 @@ export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClie
  * import { MgnClient, DescribeVcenterClientsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeVcenterClientsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // DescribeVcenterClientsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

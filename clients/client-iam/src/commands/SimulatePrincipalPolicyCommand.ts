@@ -74,27 +74,27 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  * import { IAMClient, SimulatePrincipalPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SimulatePrincipalPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // SimulatePrincipalPolicyRequest
  *   PolicySourceArn: "STRING_VALUE", // required
- *   PolicyInputList: [
+ *   PolicyInputList: [ // SimulationPolicyListType
  *     "STRING_VALUE",
  *   ],
  *   PermissionsBoundaryPolicyInputList: [
  *     "STRING_VALUE",
  *   ],
- *   ActionNames: [ // required
+ *   ActionNames: [ // ActionNameListType // required
  *     "STRING_VALUE",
  *   ],
- *   ResourceArns: [
+ *   ResourceArns: [ // ResourceNameListType
  *     "STRING_VALUE",
  *   ],
  *   ResourcePolicy: "STRING_VALUE",
  *   ResourceOwner: "STRING_VALUE",
  *   CallerArn: "STRING_VALUE",
- *   ContextEntries: [
- *     {
+ *   ContextEntries: [ // ContextEntryListType
+ *     { // ContextEntry
  *       ContextKeyName: "STRING_VALUE",
- *       ContextKeyValues: [
+ *       ContextKeyValues: [ // ContextKeyValueListType
  *         "STRING_VALUE",
  *       ],
  *       ContextKeyType: "string" || "stringList" || "numeric" || "numericList" || "boolean" || "booleanList" || "ip" || "ipList" || "binary" || "binaryList" || "date" || "dateList",

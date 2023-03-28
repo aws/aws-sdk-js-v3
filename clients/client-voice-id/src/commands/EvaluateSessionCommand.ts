@@ -47,7 +47,7 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  * import { VoiceIDClient, EvaluateSessionCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, EvaluateSessionCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // EvaluateSessionRequest
  *   DomainId: "STRING_VALUE", // required
  *   SessionNameOrId: "STRING_VALUE", // required
  * };

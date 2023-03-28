@@ -42,13 +42,13 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * import { ChimeClient, CreateSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateSipRuleRequest
  *   Name: "STRING_VALUE", // required
  *   TriggerType: "STRING_VALUE", // required
  *   TriggerValue: "STRING_VALUE", // required
  *   Disabled: true || false,
- *   TargetApplications: [ // required
- *     {
+ *   TargetApplications: [ // SipRuleTargetApplicationList // required
+ *     { // SipRuleTargetApplication
  *       SipMediaApplicationId: "STRING_VALUE",
  *       Priority: Number("int"),
  *       AwsRegion: "STRING_VALUE",

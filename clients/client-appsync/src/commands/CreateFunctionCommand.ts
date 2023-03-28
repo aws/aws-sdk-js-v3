@@ -43,7 +43,7 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __M
  * import { AppSyncClient, CreateFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // CreateFunctionRequest
  *   apiId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
@@ -51,15 +51,15 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __M
  *   requestMappingTemplate: "STRING_VALUE",
  *   responseMappingTemplate: "STRING_VALUE",
  *   functionVersion: "STRING_VALUE",
- *   syncConfig: {
+ *   syncConfig: { // SyncConfig
  *     conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
  *     conflictDetection: "VERSION" || "NONE",
- *     lambdaConflictHandlerConfig: {
+ *     lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
  *       lambdaConflictHandlerArn: "STRING_VALUE",
  *     },
  *   },
  *   maxBatchSize: Number("int"),
- *   runtime: {
+ *   runtime: { // AppSyncRuntime
  *     name: "APPSYNC_JS", // required
  *     runtimeVersion: "STRING_VALUE", // required
  *   },

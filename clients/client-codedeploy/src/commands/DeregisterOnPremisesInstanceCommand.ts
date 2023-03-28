@@ -42,7 +42,7 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * import { CodeDeployClient, DeregisterOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeregisterOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // DeregisterOnPremisesInstanceInput
  *   instanceName: "STRING_VALUE", // required
  * };
  * const command = new DeregisterOnPremisesInstanceCommand(input);

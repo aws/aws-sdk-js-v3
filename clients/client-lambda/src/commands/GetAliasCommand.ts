@@ -42,7 +42,7 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * import { LambdaClient, GetAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // GetAliasRequest
  *   FunctionName: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  * };

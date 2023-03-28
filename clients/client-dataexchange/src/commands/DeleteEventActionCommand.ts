@@ -42,7 +42,7 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // DeleteEventActionRequest
  *   EventActionId: "STRING_VALUE", // required
  * };
  * const command = new DeleteEventActionCommand(input);

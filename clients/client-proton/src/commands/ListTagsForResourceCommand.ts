@@ -43,7 +43,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { ProtonClient, ListTagsForResourceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListTagsForResourceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceInput
  *   resourceArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),

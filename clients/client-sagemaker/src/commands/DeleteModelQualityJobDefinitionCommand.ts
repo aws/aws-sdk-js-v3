@@ -42,7 +42,7 @@ export interface DeleteModelQualityJobDefinitionCommandOutput extends __Metadata
  * import { SageMakerClient, DeleteModelQualityJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelQualityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteModelQualityJobDefinitionRequest
  *   JobDefinitionName: "STRING_VALUE", // required
  * };
  * const command = new DeleteModelQualityJobDefinitionCommand(input);

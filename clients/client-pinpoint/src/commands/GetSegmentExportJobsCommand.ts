@@ -42,7 +42,7 @@ export interface GetSegmentExportJobsCommandOutput extends GetSegmentExportJobsR
  * import { PinpointClient, GetSegmentExportJobsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSegmentExportJobsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetSegmentExportJobsRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   PageSize: "STRING_VALUE",
  *   SegmentId: "STRING_VALUE", // required

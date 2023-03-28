@@ -42,7 +42,7 @@ export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGat
  * import { EC2Client, DeleteTransitGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTransitGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteTransitGatewayRouteRequest
  *   TransitGatewayRouteTableId: "STRING_VALUE", // required
  *   DestinationCidrBlock: "STRING_VALUE", // required
  *   DryRun: true || false,

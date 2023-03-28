@@ -42,7 +42,7 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * import { CodeBuildClient, InvalidateProjectCacheCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, InvalidateProjectCacheCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // InvalidateProjectCacheInput
  *   projectName: "STRING_VALUE", // required
  * };
  * const command = new InvalidateProjectCacheCommand(input);

@@ -46,10 +46,10 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * import { IoT1ClickProjectsClient, CreatePlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, CreatePlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
- * const input = {
+ * const input = { // CreatePlacementRequest
  *   placementName: "STRING_VALUE", // required
  *   projectName: "STRING_VALUE", // required
- *   attributes: {
+ *   attributes: { // PlacementAttributeMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,21 +42,21 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * import { ApiGatewayV2Client, CreateRouteCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateRouteCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // CreateRouteRequest
  *   ApiId: "STRING_VALUE", // required
  *   ApiKeyRequired: true || false,
- *   AuthorizationScopes: [
+ *   AuthorizationScopes: [ // AuthorizationScopes
  *     "STRING_VALUE",
  *   ],
  *   AuthorizationType: "STRING_VALUE",
  *   AuthorizerId: "STRING_VALUE",
  *   ModelSelectionExpression: "STRING_VALUE",
  *   OperationName: "STRING_VALUE",
- *   RequestModels: {
+ *   RequestModels: { // RouteModels
  *     "<keys>": "STRING_VALUE",
  *   },
- *   RequestParameters: {
- *     "<keys>": {
+ *   RequestParameters: { // RouteParameters
+ *     "<keys>": { // ParameterConstraints
  *       Required: true || false,
  *     },
  *   },

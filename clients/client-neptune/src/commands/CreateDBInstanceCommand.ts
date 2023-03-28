@@ -42,7 +42,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * import { NeptuneClient, CreateDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // CreateDBInstanceMessage
  *   DBName: "STRING_VALUE",
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   AllocatedStorage: Number("int"),
@@ -50,10 +50,10 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   Engine: "STRING_VALUE", // required
  *   MasterUsername: "STRING_VALUE",
  *   MasterUserPassword: "STRING_VALUE",
- *   DBSecurityGroups: [
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   AvailabilityZone: "STRING_VALUE",
@@ -71,8 +71,8 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   OptionGroupName: "STRING_VALUE",
  *   CharacterSetName: "STRING_VALUE",
  *   PubliclyAccessible: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -93,7 +93,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   EnableIAMDatabaseAuthentication: true || false,
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,

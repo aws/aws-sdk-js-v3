@@ -42,7 +42,7 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * import { MigrationHubClient, DescribeApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DescribeApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
- * const input = {
+ * const input = { // DescribeApplicationStateRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new DescribeApplicationStateCommand(input);

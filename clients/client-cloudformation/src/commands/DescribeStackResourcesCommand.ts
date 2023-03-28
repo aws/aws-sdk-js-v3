@@ -60,7 +60,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * import { CloudFormationClient, DescribeStackResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DescribeStackResourcesInput
  *   StackName: "STRING_VALUE",
  *   LogicalResourceId: "STRING_VALUE",
  *   PhysicalResourceId: "STRING_VALUE",

@@ -42,17 +42,17 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * import { NetworkManagerClient, GetNetworkRoutesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkRoutesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetNetworkRoutesRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
- *   RouteTableIdentifier: {
+ *   RouteTableIdentifier: { // RouteTableIdentifier
  *     TransitGatewayRouteTableArn: "STRING_VALUE",
- *     CoreNetworkSegmentEdge: {
+ *     CoreNetworkSegmentEdge: { // CoreNetworkSegmentEdgeIdentifier
  *       CoreNetworkId: "STRING_VALUE",
  *       SegmentName: "STRING_VALUE",
  *       EdgeLocation: "STRING_VALUE",
  *     },
  *   },
- *   ExactCidrMatches: [
+ *   ExactCidrMatches: [ // ConstrainedStringList
  *     "STRING_VALUE",
  *   ],
  *   LongestPrefixMatches: [
@@ -67,14 +67,14 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  *   PrefixListIds: [
  *     "STRING_VALUE",
  *   ],
- *   States: [
+ *   States: [ // RouteStateList
  *     "ACTIVE" || "BLACKHOLE",
  *   ],
- *   Types: [
+ *   Types: [ // RouteTypeList
  *     "PROPAGATED" || "STATIC",
  *   ],
- *   DestinationFilters: {
- *     "<keys>": [
+ *   DestinationFilters: { // FilterMap
+ *     "<keys>": [ // FilterValues
  *       "STRING_VALUE",
  *     ],
  *   },

@@ -42,18 +42,18 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * import { PinpointClient, UpdateEndpointCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEndpointCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateEndpointRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   EndpointId: "STRING_VALUE", // required
- *   EndpointRequest: {
+ *   EndpointRequest: { // EndpointRequest
  *     Address: "STRING_VALUE",
- *     Attributes: {
- *       "<keys>": [
+ *     Attributes: { // MapOfListOf__string
+ *       "<keys>": [ // ListOf__string
  *         "STRING_VALUE",
  *       ],
  *     },
  *     ChannelType: "STRING_VALUE",
- *     Demographic: {
+ *     Demographic: { // EndpointDemographic
  *       AppVersion: "STRING_VALUE",
  *       Locale: "STRING_VALUE",
  *       Make: "STRING_VALUE",
@@ -65,7 +65,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  *     },
  *     EffectiveDate: "STRING_VALUE",
  *     EndpointStatus: "STRING_VALUE",
- *     Location: {
+ *     Location: { // EndpointLocation
  *       City: "STRING_VALUE",
  *       Country: "STRING_VALUE",
  *       Latitude: Number("double"),
@@ -73,12 +73,12 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  *       PostalCode: "STRING_VALUE",
  *       Region: "STRING_VALUE",
  *     },
- *     Metrics: {
+ *     Metrics: { // MapOf__double
  *       "<keys>": Number("double"),
  *     },
  *     OptOut: "STRING_VALUE",
  *     RequestId: "STRING_VALUE",
- *     User: {
+ *     User: { // EndpointUser
  *       UserAttributes: {
  *         "<keys>": [
  *           "STRING_VALUE",

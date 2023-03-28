@@ -92,28 +92,28 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  * import { LookoutVisionClient, StartModelPackagingJobCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, StartModelPackagingJobCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
- * const input = {
+ * const input = { // StartModelPackagingJobRequest
  *   ProjectName: "STRING_VALUE", // required
  *   ModelVersion: "STRING_VALUE", // required
  *   JobName: "STRING_VALUE",
- *   Configuration: {
- *     Greengrass: {
+ *   Configuration: { // ModelPackagingConfiguration
+ *     Greengrass: { // GreengrassConfiguration
  *       CompilerOptions: "STRING_VALUE",
  *       TargetDevice: "jetson_xavier",
- *       TargetPlatform: {
+ *       TargetPlatform: { // TargetPlatform
  *         Os: "LINUX", // required
  *         Arch: "ARM64" || "X86_64", // required
  *         Accelerator: "NVIDIA",
  *       },
- *       S3OutputLocation: {
+ *       S3OutputLocation: { // S3Location
  *         Bucket: "STRING_VALUE", // required
  *         Prefix: "STRING_VALUE",
  *       },
  *       ComponentName: "STRING_VALUE", // required
  *       ComponentVersion: "STRING_VALUE",
  *       ComponentDescription: "STRING_VALUE",
- *       Tags: [
- *         {
+ *       Tags: [ // TagList
+ *         { // Tag
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *         },

@@ -42,7 +42,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * import { GlueClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // DeleteResourcePolicyRequest
  *   PolicyHashCondition: "STRING_VALUE",
  *   ResourceArn: "STRING_VALUE",
  * };

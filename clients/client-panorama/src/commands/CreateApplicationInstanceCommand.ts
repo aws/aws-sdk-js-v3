@@ -42,19 +42,19 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * import { PanoramaClient, CreateApplicationInstanceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreateApplicationInstanceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // CreateApplicationInstanceRequest
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   ManifestPayload: { // Union: only one key present
+ *   ManifestPayload: { // ManifestPayload Union: only one key present
  *     PayloadData: "STRING_VALUE",
  *   },
- *   ManifestOverridesPayload: { // Union: only one key present
+ *   ManifestOverridesPayload: { // ManifestOverridesPayload Union: only one key present
  *     PayloadData: "STRING_VALUE",
  *   },
  *   ApplicationInstanceIdToReplace: "STRING_VALUE",
  *   RuntimeRoleArn: "STRING_VALUE",
  *   DefaultRuntimeContextDevice: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

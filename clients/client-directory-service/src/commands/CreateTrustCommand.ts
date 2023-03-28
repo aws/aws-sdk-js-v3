@@ -48,13 +48,13 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * import { DirectoryServiceClient, CreateTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // CreateTrustRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   RemoteDomainName: "STRING_VALUE", // required
  *   TrustPassword: "STRING_VALUE", // required
  *   TrustDirection: "One-Way: Outgoing" || "One-Way: Incoming" || "Two-Way", // required
  *   TrustType: "Forest" || "External",
- *   ConditionalForwarderIpAddrs: [
+ *   ConditionalForwarderIpAddrs: [ // DnsIpAddrs
  *     "STRING_VALUE",
  *   ],
  *   SelectiveAuth: "Enabled" || "Disabled",

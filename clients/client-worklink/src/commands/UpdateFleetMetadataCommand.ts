@@ -44,7 +44,7 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * import { WorkLinkClient, UpdateFleetMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateFleetMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // UpdateFleetMetadataRequest
  *   FleetArn: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
  *   OptimizeForEndUserLocation: true || false,

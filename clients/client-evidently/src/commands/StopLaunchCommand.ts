@@ -46,7 +46,7 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * import { EvidentlyClient, StopLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, StopLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // StopLaunchRequest
  *   project: "STRING_VALUE", // required
  *   launch: "STRING_VALUE", // required
  *   desiredState: "STRING_VALUE",

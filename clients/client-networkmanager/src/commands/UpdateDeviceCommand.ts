@@ -48,10 +48,10 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * import { NetworkManagerClient, UpdateDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // UpdateDeviceRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   DeviceId: "STRING_VALUE", // required
- *   AWSLocation: {
+ *   AWSLocation: { // AWSLocation
  *     Zone: "STRING_VALUE",
  *     SubnetArn: "STRING_VALUE",
  *   },
@@ -60,7 +60,7 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  *   Vendor: "STRING_VALUE",
  *   Model: "STRING_VALUE",
  *   SerialNumber: "STRING_VALUE",
- *   Location: {
+ *   Location: { // Location
  *     Address: "STRING_VALUE",
  *     Latitude: "STRING_VALUE",
  *     Longitude: "STRING_VALUE",

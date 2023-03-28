@@ -46,7 +46,7 @@ export interface DeleteModelManifestCommandOutput extends DeleteModelManifestRes
  * import { IoTFleetWiseClient, DeleteModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // DeleteModelManifestRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeleteModelManifestCommand(input);

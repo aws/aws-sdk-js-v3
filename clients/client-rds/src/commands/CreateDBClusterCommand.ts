@@ -55,8 +55,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * import { RDSClient, CreateDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
- *   AvailabilityZones: [
+ * const input = { // CreateDBClusterMessage
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
  *   BackupRetentionPeriod: Number("int"),
@@ -64,7 +64,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   DatabaseName: "STRING_VALUE",
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   DBClusterParameterGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   DBSubnetGroupName: "STRING_VALUE",
@@ -77,8 +77,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   PreferredBackupWindow: "STRING_VALUE",
  *   PreferredMaintenanceWindow: "STRING_VALUE",
  *   ReplicationSourceIdentifier: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -88,11 +88,11 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   PreSignedUrl: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
  *   BacktrackWindow: Number("long"),
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   EngineMode: "STRING_VALUE",
- *   ScalingConfiguration: {
+ *   ScalingConfiguration: { // ScalingConfiguration
  *     MinCapacity: Number("int"),
  *     MaxCapacity: Number("int"),
  *     AutoPause: true || false,
@@ -118,7 +118,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

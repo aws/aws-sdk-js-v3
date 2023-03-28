@@ -42,12 +42,12 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * import { RbinClient, ListRulesCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, ListRulesCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
- * const input = {
+ * const input = { // ListRulesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE", // required
- *   ResourceTags: [
- *     {
+ *   ResourceTags: [ // ResourceTags
+ *     { // ResourceTag
  *       ResourceTagKey: "STRING_VALUE", // required
  *       ResourceTagValue: "STRING_VALUE",
  *     },

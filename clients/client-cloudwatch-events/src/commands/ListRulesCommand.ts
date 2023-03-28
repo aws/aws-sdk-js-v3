@@ -43,7 +43,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * import { CloudWatchEventsClient, ListRulesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListRulesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // ListRulesRequest
  *   NamePrefix: "STRING_VALUE",
  *   EventBusName: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

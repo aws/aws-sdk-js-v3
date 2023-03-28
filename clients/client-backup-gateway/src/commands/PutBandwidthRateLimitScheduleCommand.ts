@@ -47,16 +47,16 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
  * import { BackupGatewayClient, PutBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, PutBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
- * const input = {
+ * const input = { // PutBandwidthRateLimitScheduleInput
  *   GatewayArn: "STRING_VALUE", // required
- *   BandwidthRateLimitIntervals: [ // required
- *     {
+ *   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals // required
+ *     { // BandwidthRateLimitInterval
  *       AverageUploadRateLimitInBitsPerSec: Number("long"),
  *       StartHourOfDay: Number("int"), // required
  *       EndHourOfDay: Number("int"), // required
  *       StartMinuteOfHour: Number("int"), // required
  *       EndMinuteOfHour: Number("int"), // required
- *       DaysOfWeek: [ // required
+ *       DaysOfWeek: [ // DaysOfWeek // required
  *         Number("int"),
  *       ],
  *     },

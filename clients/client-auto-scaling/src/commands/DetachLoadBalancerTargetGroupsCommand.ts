@@ -53,9 +53,9 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  * import { AutoScalingClient, DetachLoadBalancerTargetGroupsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DetachLoadBalancerTargetGroupsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // DetachLoadBalancerTargetGroupsType
  *   AutoScalingGroupName: "STRING_VALUE", // required
- *   TargetGroupARNs: [ // required
+ *   TargetGroupARNs: [ // TargetGroupARNs // required
  *     "STRING_VALUE",
  *   ],
  * };

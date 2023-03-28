@@ -42,7 +42,7 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * import { DrsClient, DeleteSourceServerCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DeleteSourceServerCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // DeleteSourceServerRequest
  *   sourceServerID: "STRING_VALUE", // required
  * };
  * const command = new DeleteSourceServerCommand(input);

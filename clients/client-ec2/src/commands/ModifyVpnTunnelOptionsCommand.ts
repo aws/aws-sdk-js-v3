@@ -45,10 +45,10 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * import { EC2Client, ModifyVpnTunnelOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpnTunnelOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVpnTunnelOptionsRequest
  *   VpnConnectionId: "STRING_VALUE", // required
  *   VpnTunnelOutsideIpAddress: "STRING_VALUE", // required
- *   TunnelOptions: {
+ *   TunnelOptions: { // ModifyVpnTunnelOptionsSpecification
  *     TunnelInsideCidr: "STRING_VALUE",
  *     TunnelInsideIpv6Cidr: "STRING_VALUE",
  *     PreSharedKey: "STRING_VALUE",
@@ -59,44 +59,44 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  *     ReplayWindowSize: Number("int"),
  *     DPDTimeoutSeconds: Number("int"),
  *     DPDTimeoutAction: "STRING_VALUE",
- *     Phase1EncryptionAlgorithms: [
- *       {
+ *     Phase1EncryptionAlgorithms: [ // Phase1EncryptionAlgorithmsRequestList
+ *       { // Phase1EncryptionAlgorithmsRequestListValue
  *         Value: "STRING_VALUE",
  *       },
  *     ],
- *     Phase2EncryptionAlgorithms: [
- *       {
+ *     Phase2EncryptionAlgorithms: [ // Phase2EncryptionAlgorithmsRequestList
+ *       { // Phase2EncryptionAlgorithmsRequestListValue
  *         Value: "STRING_VALUE",
  *       },
  *     ],
- *     Phase1IntegrityAlgorithms: [
- *       {
+ *     Phase1IntegrityAlgorithms: [ // Phase1IntegrityAlgorithmsRequestList
+ *       { // Phase1IntegrityAlgorithmsRequestListValue
  *         Value: "STRING_VALUE",
  *       },
  *     ],
- *     Phase2IntegrityAlgorithms: [
- *       {
+ *     Phase2IntegrityAlgorithms: [ // Phase2IntegrityAlgorithmsRequestList
+ *       { // Phase2IntegrityAlgorithmsRequestListValue
  *         Value: "STRING_VALUE",
  *       },
  *     ],
- *     Phase1DHGroupNumbers: [
- *       {
+ *     Phase1DHGroupNumbers: [ // Phase1DHGroupNumbersRequestList
+ *       { // Phase1DHGroupNumbersRequestListValue
  *         Value: Number("int"),
  *       },
  *     ],
- *     Phase2DHGroupNumbers: [
- *       {
+ *     Phase2DHGroupNumbers: [ // Phase2DHGroupNumbersRequestList
+ *       { // Phase2DHGroupNumbersRequestListValue
  *         Value: Number("int"),
  *       },
  *     ],
- *     IKEVersions: [
- *       {
+ *     IKEVersions: [ // IKEVersionsRequestList
+ *       { // IKEVersionsRequestListValue
  *         Value: "STRING_VALUE",
  *       },
  *     ],
  *     StartupAction: "STRING_VALUE",
- *     LogOptions: {
- *       CloudWatchLogOptions: {
+ *     LogOptions: { // VpnTunnelLogOptionsSpecification
+ *       CloudWatchLogOptions: { // CloudWatchLogOptionsSpecification
  *         LogEnabled: true || false,
  *         LogGroupArn: "STRING_VALUE",
  *         LogOutputFormat: "STRING_VALUE",

@@ -56,8 +56,8 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * import { DirectoryServiceClient, DescribeDirectoriesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeDirectoriesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
- *   DirectoryIds: [
+ * const input = { // DescribeDirectoriesRequest
+ *   DirectoryIds: [ // DirectoryIds
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

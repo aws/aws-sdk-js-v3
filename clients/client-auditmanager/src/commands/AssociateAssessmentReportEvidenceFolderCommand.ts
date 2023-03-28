@@ -49,7 +49,7 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
  * import { AuditManagerClient, AssociateAssessmentReportEvidenceFolderCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, AssociateAssessmentReportEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // AssociateAssessmentReportEvidenceFolderRequest
  *   assessmentId: "STRING_VALUE", // required
  *   evidenceFolderId: "STRING_VALUE", // required
  * };

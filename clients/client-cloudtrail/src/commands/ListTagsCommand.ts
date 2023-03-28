@@ -39,8 +39,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * import { CloudTrailClient, ListTagsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListTagsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
- *   ResourceIdList: [ // required
+ * const input = { // ListTagsRequest
+ *   ResourceIdList: [ // ResourceIdList // required
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

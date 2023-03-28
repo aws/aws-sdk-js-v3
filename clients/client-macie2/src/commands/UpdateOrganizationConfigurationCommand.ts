@@ -44,7 +44,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * import { Macie2Client, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // UpdateOrganizationConfigurationRequest
  *   autoEnable: true || false, // required
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);

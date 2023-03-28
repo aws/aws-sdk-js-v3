@@ -50,13 +50,13 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  * import { ChimeSDKMessagingClient, UpdateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, UpdateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // UpdateChannelFlowRequest
  *   ChannelFlowArn: "STRING_VALUE", // required
- *   Processors: [ // required
- *     {
+ *   Processors: [ // ProcessorList // required
+ *     { // Processor
  *       Name: "STRING_VALUE", // required
- *       Configuration: {
- *         Lambda: {
+ *       Configuration: { // ProcessorConfiguration
+ *         Lambda: { // LambdaConfiguration
  *           ResourceArn: "STRING_VALUE", // required
  *           InvocationType: "ASYNC", // required
  *         },

@@ -49,7 +49,7 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * import { PinpointSMSVoiceV2Client, SetDefaultSenderIdCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SetDefaultSenderIdCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // SetDefaultSenderIdRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   SenderId: "STRING_VALUE", // required
  * };

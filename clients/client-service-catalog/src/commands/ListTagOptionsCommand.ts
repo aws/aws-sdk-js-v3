@@ -42,8 +42,8 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  * import { ServiceCatalogClient, ListTagOptionsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListTagOptionsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
- *   Filters: {
+ * const input = { // ListTagOptionsInput
+ *   Filters: { // ListTagOptionsFilters
  *     Key: "STRING_VALUE",
  *     Value: "STRING_VALUE",
  *     Active: true || false,

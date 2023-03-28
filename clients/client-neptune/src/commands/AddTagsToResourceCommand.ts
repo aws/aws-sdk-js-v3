@@ -44,10 +44,10 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * import { NeptuneClient, AddTagsToResourceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, AddTagsToResourceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // AddTagsToResourceMessage
  *   ResourceName: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

@@ -86,10 +86,10 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * import { IAMClient, ListPoliciesGrantingServiceAccessCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListPoliciesGrantingServiceAccessCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // ListPoliciesGrantingServiceAccessRequest
  *   Marker: "STRING_VALUE",
  *   Arn: "STRING_VALUE", // required
- *   ServiceNamespaces: [ // required
+ *   ServiceNamespaces: [ // serviceNamespaceListType // required
  *     "STRING_VALUE",
  *   ],
  * };

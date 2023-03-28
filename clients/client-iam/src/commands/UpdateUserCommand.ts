@@ -51,7 +51,7 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UpdateUserRequest
  *   UserName: "STRING_VALUE", // required
  *   NewPath: "STRING_VALUE",
  *   NewUserName: "STRING_VALUE",

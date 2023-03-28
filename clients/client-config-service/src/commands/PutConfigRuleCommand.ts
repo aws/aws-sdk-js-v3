@@ -84,31 +84,31 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, PutConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   ConfigRule: {
+ * const input = { // PutConfigRuleRequest
+ *   ConfigRule: { // ConfigRule
  *     ConfigRuleName: "STRING_VALUE",
  *     ConfigRuleArn: "STRING_VALUE",
  *     ConfigRuleId: "STRING_VALUE",
  *     Description: "STRING_VALUE",
- *     Scope: {
- *       ComplianceResourceTypes: [
+ *     Scope: { // Scope
+ *       ComplianceResourceTypes: [ // ComplianceResourceTypes
  *         "STRING_VALUE",
  *       ],
  *       TagKey: "STRING_VALUE",
  *       TagValue: "STRING_VALUE",
  *       ComplianceResourceId: "STRING_VALUE",
  *     },
- *     Source: {
+ *     Source: { // Source
  *       Owner: "CUSTOM_LAMBDA" || "AWS" || "CUSTOM_POLICY", // required
  *       SourceIdentifier: "STRING_VALUE",
- *       SourceDetails: [
- *         {
+ *       SourceDetails: [ // SourceDetails
+ *         { // SourceDetail
  *           EventSource: "aws.config",
  *           MessageType: "ConfigurationItemChangeNotification" || "ConfigurationSnapshotDeliveryCompleted" || "ScheduledNotification" || "OversizedConfigurationItemChangeNotification",
  *           MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
  *         },
  *       ],
- *       CustomPolicyDetails: {
+ *       CustomPolicyDetails: { // CustomPolicyDetails
  *         PolicyRuntime: "STRING_VALUE", // required
  *         PolicyText: "STRING_VALUE", // required
  *         EnableDebugLogDelivery: true || false,
@@ -118,14 +118,14 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
  *     ConfigRuleState: "ACTIVE" || "DELETING" || "DELETING_RESULTS" || "EVALUATING",
  *     CreatedBy: "STRING_VALUE",
- *     EvaluationModes: [
- *       {
+ *     EvaluationModes: [ // EvaluationModes
+ *       { // EvaluationModeConfiguration
  *         Mode: "DETECTIVE" || "PROACTIVE",
  *       },
  *     ],
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagsList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

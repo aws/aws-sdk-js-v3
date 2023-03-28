@@ -42,7 +42,7 @@ export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse,
  * import { FMSClient, ListResourceSetsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListResourceSetsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // ListResourceSetsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

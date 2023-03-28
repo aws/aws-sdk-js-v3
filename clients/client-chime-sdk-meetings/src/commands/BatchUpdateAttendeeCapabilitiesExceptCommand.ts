@@ -63,14 +63,14 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * import { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
- * const input = {
+ * const input = { // BatchUpdateAttendeeCapabilitiesExceptRequest
  *   MeetingId: "STRING_VALUE", // required
- *   ExcludedAttendeeIds: [ // required
- *     {
+ *   ExcludedAttendeeIds: [ // AttendeeIdsList // required
+ *     { // AttendeeIdItem
  *       AttendeeId: "STRING_VALUE", // required
  *     },
  *   ],
- *   Capabilities: {
+ *   Capabilities: { // AttendeeCapabilities
  *     Audio: "SendReceive" || "Send" || "Receive" || "None", // required
  *     Video: "SendReceive" || "Send" || "Receive" || "None", // required
  *     Content: "SendReceive" || "Send" || "Receive" || "None", // required

@@ -56,7 +56,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * import { NeptuneClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // RestoreDBClusterToPointInTimeMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   RestoreType: "STRING_VALUE",
  *   SourceDBClusterIdentifier: "STRING_VALUE", // required
@@ -65,23 +65,23 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   Port: Number("int"),
  *   DBSubnetGroupName: "STRING_VALUE",
  *   OptionGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   KmsKeyId: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DBClusterParameterGroupName: "STRING_VALUE",
  *   DeletionProtection: true || false,
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

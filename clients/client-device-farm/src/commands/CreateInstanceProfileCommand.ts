@@ -43,11 +43,11 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * import { DeviceFarmClient, CreateInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // CreateInstanceProfileRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   packageCleanup: true || false,
- *   excludeAppPackagesFromCleanup: [
+ *   excludeAppPackagesFromCleanup: [ // PackageIds
  *     "STRING_VALUE",
  *   ],
  *   rebootAfterUse: true || false,

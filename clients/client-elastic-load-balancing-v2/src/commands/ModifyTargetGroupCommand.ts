@@ -47,7 +47,7 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * import { ElasticLoadBalancingV2Client, ModifyTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // ModifyTargetGroupInput
  *   TargetGroupArn: "STRING_VALUE", // required
  *   HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
  *   HealthCheckPort: "STRING_VALUE",
@@ -57,7 +57,7 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  *   HealthCheckTimeoutSeconds: Number("int"),
  *   HealthyThresholdCount: Number("int"),
  *   UnhealthyThresholdCount: Number("int"),
- *   Matcher: {
+ *   Matcher: { // Matcher
  *     HttpCode: "STRING_VALUE",
  *     GrpcCode: "STRING_VALUE",
  *   },

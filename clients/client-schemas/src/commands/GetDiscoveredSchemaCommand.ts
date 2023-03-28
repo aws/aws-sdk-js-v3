@@ -42,8 +42,8 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  * import { SchemasClient, GetDiscoveredSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, GetDiscoveredSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
- *   Events: [ // required
+ * const input = { // GetDiscoveredSchemaRequest
+ *   Events: [ // __listOfGetDiscoveredSchemaVersionItemInput // required
  *     "STRING_VALUE",
  *   ],
  *   Type: "STRING_VALUE", // required

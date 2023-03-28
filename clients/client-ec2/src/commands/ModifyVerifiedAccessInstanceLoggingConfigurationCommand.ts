@@ -48,20 +48,20 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  * import { EC2Client, ModifyVerifiedAccessInstanceLoggingConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessInstanceLoggingConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVerifiedAccessInstanceLoggingConfigurationRequest
  *   VerifiedAccessInstanceId: "STRING_VALUE", // required
- *   AccessLogs: {
- *     S3: {
+ *   AccessLogs: { // VerifiedAccessLogOptions
+ *     S3: { // VerifiedAccessLogS3DestinationOptions
  *       Enabled: true || false, // required
  *       BucketName: "STRING_VALUE",
  *       Prefix: "STRING_VALUE",
  *       BucketOwner: "STRING_VALUE",
  *     },
- *     CloudWatchLogs: {
+ *     CloudWatchLogs: { // VerifiedAccessLogCloudWatchLogsDestinationOptions
  *       Enabled: true || false, // required
  *       LogGroup: "STRING_VALUE",
  *     },
- *     KinesisDataFirehose: {
+ *     KinesisDataFirehose: { // VerifiedAccessLogKinesisDataFirehoseDestinationOptions
  *       Enabled: true || false, // required
  *       DeliveryStream: "STRING_VALUE",
  *     },

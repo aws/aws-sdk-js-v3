@@ -53,20 +53,20 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * import { DataSyncClient, CreateAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // CreateAgentRequest
  *   ActivationKey: "STRING_VALUE", // required
  *   AgentName: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   VpcEndpointId: "STRING_VALUE",
- *   SubnetArns: [
+ *   SubnetArns: [ // PLSubnetArnList
  *     "STRING_VALUE",
  *   ],
- *   SecurityGroupArns: [
+ *   SecurityGroupArns: [ // PLSecurityGroupArnList
  *     "STRING_VALUE",
  *   ],
  * };

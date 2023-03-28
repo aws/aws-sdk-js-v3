@@ -97,7 +97,7 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * import { KMSClient, ScheduleKeyDeletionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ScheduleKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // ScheduleKeyDeletionRequest
  *   KeyId: "STRING_VALUE", // required
  *   PendingWindowInDays: Number("int"),
  * };

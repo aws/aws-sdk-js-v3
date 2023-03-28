@@ -44,7 +44,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * import { ChimeClient, ListAccountsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListAccountsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListAccountsRequest
  *   Name: "STRING_VALUE",
  *   UserEmail: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

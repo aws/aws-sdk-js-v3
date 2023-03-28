@@ -42,7 +42,7 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * import { RAMClient, ListResourceTypesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListResourceTypesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // ListResourceTypesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   resourceRegionScope: "ALL" || "REGIONAL" || "GLOBAL",

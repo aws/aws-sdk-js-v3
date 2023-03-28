@@ -45,7 +45,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteDatasetCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteDatasetCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DeleteDatasetRequest
  *   datasetArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteDatasetCommand(input);

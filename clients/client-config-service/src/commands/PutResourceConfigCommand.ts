@@ -51,13 +51,13 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, PutResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // PutResourceConfigRequest
  *   ResourceType: "STRING_VALUE", // required
  *   SchemaVersionId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  *   ResourceName: "STRING_VALUE",
  *   Configuration: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

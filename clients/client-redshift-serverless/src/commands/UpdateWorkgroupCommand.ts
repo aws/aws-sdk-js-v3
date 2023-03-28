@@ -47,21 +47,21 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * import { RedshiftServerlessClient, UpdateWorkgroupCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, UpdateWorkgroupCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // UpdateWorkgroupRequest
  *   workgroupName: "STRING_VALUE", // required
  *   baseCapacity: Number("int"),
  *   enhancedVpcRouting: true || false,
- *   configParameters: [
- *     {
+ *   configParameters: [ // ConfigParameterList
+ *     { // ConfigParameter
  *       parameterKey: "STRING_VALUE",
  *       parameterValue: "STRING_VALUE",
  *     },
  *   ],
  *   publiclyAccessible: true || false,
- *   subnetIds: [
+ *   subnetIds: [ // SubnetIdList
  *     "STRING_VALUE",
  *   ],
- *   securityGroupIds: [
+ *   securityGroupIds: [ // SecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   port: Number("int"),

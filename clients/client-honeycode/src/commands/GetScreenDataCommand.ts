@@ -51,12 +51,12 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  * import { HoneycodeClient, GetScreenDataCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, GetScreenDataCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // GetScreenDataRequest
  *   workbookId: "STRING_VALUE", // required
  *   appId: "STRING_VALUE", // required
  *   screenId: "STRING_VALUE", // required
- *   variables: {
- *     "<keys>": {
+ *   variables: { // VariableValueMap
+ *     "<keys>": { // VariableValue
  *       rawValue: "STRING_VALUE", // required
  *     },
  *   },

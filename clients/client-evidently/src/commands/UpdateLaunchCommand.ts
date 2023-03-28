@@ -44,21 +44,21 @@ export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __Metad
  * import { EvidentlyClient, UpdateLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // UpdateLaunchRequest
  *   project: "STRING_VALUE", // required
  *   launch: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   groups: [
- *     {
+ *   groups: [ // LaunchGroupConfigList
+ *     { // LaunchGroupConfig
  *       name: "STRING_VALUE", // required
  *       description: "STRING_VALUE",
  *       feature: "STRING_VALUE", // required
  *       variation: "STRING_VALUE", // required
  *     },
  *   ],
- *   metricMonitors: [
- *     {
- *       metricDefinition: {
+ *   metricMonitors: [ // MetricMonitorConfigList
+ *     { // MetricMonitorConfig
+ *       metricDefinition: { // MetricDefinitionConfig
  *         name: "STRING_VALUE", // required
  *         entityIdKey: "STRING_VALUE", // required
  *         valueKey: "STRING_VALUE", // required
@@ -68,15 +68,15 @@ export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __Metad
  *     },
  *   ],
  *   randomizationSalt: "STRING_VALUE",
- *   scheduledSplitsConfig: {
- *     steps: [ // required
- *       {
+ *   scheduledSplitsConfig: { // ScheduledSplitsLaunchConfig
+ *     steps: [ // ScheduledSplitConfigList // required
+ *       { // ScheduledSplitConfig
  *         startTime: new Date("TIMESTAMP"), // required
- *         groupWeights: { // required
+ *         groupWeights: { // GroupToWeightMap // required
  *           "<keys>": Number("long"),
  *         },
- *         segmentOverrides: [
- *           {
+ *         segmentOverrides: [ // SegmentOverridesList
+ *           { // SegmentOverride
  *             segment: "STRING_VALUE", // required
  *             evaluationOrder: Number("long"), // required
  *             weights: { // required

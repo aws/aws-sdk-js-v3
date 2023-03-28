@@ -49,12 +49,12 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * import { RDSClient, CopyDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // CopyDBSnapshotMessage
  *   SourceDBSnapshotIdentifier: "STRING_VALUE", // required
  *   TargetDBSnapshotIdentifier: "STRING_VALUE", // required
  *   KmsKeyId: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

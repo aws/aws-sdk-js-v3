@@ -43,10 +43,10 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * import { RekognitionClient, DescribeProjectsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeProjectsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // DescribeProjectsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   ProjectNames: [
+ *   ProjectNames: [ // ProjectNames
  *     "STRING_VALUE",
  *   ],
  * };

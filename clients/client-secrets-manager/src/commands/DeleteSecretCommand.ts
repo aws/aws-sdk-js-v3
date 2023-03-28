@@ -70,7 +70,7 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * import { SecretsManagerClient, DeleteSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, DeleteSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // DeleteSecretRequest
  *   SecretId: "STRING_VALUE", // required
  *   RecoveryWindowInDays: Number("long"),
  *   ForceDeleteWithoutRecovery: true || false,

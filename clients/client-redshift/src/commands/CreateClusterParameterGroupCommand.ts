@@ -50,12 +50,12 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  * import { RedshiftClient, CreateClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // CreateClusterParameterGroupMessage
  *   ParameterGroupName: "STRING_VALUE", // required
  *   ParameterGroupFamily: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

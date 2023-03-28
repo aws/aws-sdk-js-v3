@@ -42,13 +42,13 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * import { MediaConnectClient, CreateFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, CreateFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = {
+ * const input = { // CreateFlowRequest
  *   AvailabilityZone: "STRING_VALUE",
- *   Entitlements: [
- *     {
+ *   Entitlements: [ // __listOfGrantEntitlementRequest
+ *     { // GrantEntitlementRequest
  *       DataTransferSubscriberFeePercent: Number("int"),
  *       Description: "STRING_VALUE",
- *       Encryption: {
+ *       Encryption: { // Encryption
  *         Algorithm: "aes128" || "aes192" || "aes256",
  *         ConstantInitializationVector: "STRING_VALUE",
  *         DeviceId: "STRING_VALUE",
@@ -61,15 +61,15 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       },
  *       EntitlementStatus: "ENABLED" || "DISABLED",
  *       Name: "STRING_VALUE",
- *       Subscribers: [ // required
+ *       Subscribers: [ // __listOf__string // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   MediaStreams: [
- *     {
- *       Attributes: {
- *         Fmtp: {
+ *   MediaStreams: [ // __listOfAddMediaStreamRequest
+ *     { // AddMediaStreamRequest
+ *       Attributes: { // MediaStreamAttributesRequest
+ *         Fmtp: { // FmtpRequest
  *           ChannelOrder: "STRING_VALUE",
  *           Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
  *           ExactFramerate: "STRING_VALUE",
@@ -89,8 +89,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *     },
  *   ],
  *   Name: "STRING_VALUE", // required
- *   Outputs: [
- *     {
+ *   Outputs: [ // __listOfAddOutputRequest
+ *     { // AddOutputRequest
  *       CidrAllowList: [
  *         "STRING_VALUE",
  *       ],
@@ -108,19 +108,19 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *         Url: "STRING_VALUE",
  *       },
  *       MaxLatency: Number("int"),
- *       MediaStreamOutputConfigurations: [
- *         {
- *           DestinationConfigurations: [
- *             {
+ *       MediaStreamOutputConfigurations: [ // __listOfMediaStreamOutputConfigurationRequest
+ *         { // MediaStreamOutputConfigurationRequest
+ *           DestinationConfigurations: [ // __listOfDestinationConfigurationRequest
+ *             { // DestinationConfigurationRequest
  *               DestinationIp: "STRING_VALUE", // required
  *               DestinationPort: Number("int"), // required
- *               Interface: {
+ *               Interface: { // InterfaceRequest
  *                 Name: "STRING_VALUE", // required
  *               },
  *             },
  *           ],
  *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *           EncodingParameters: {
+ *           EncodingParameters: { // EncodingParametersRequest
  *             CompressionFactor: Number("double"), // required
  *             EncoderProfile: "main" || "high", // required
  *           },
@@ -135,12 +135,12 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       SenderControlPort: Number("int"),
  *       SmoothingLatency: Number("int"),
  *       StreamId: "STRING_VALUE",
- *       VpcInterfaceAttachment: {
+ *       VpcInterfaceAttachment: { // VpcInterfaceAttachment
  *         VpcInterfaceName: "STRING_VALUE",
  *       },
  *     },
  *   ],
- *   Source: {
+ *   Source: { // SetSourceRequest
  *     Decryption: {
  *       Algorithm: "aes128" || "aes192" || "aes256",
  *       ConstantInitializationVector: "STRING_VALUE",
@@ -158,11 +158,11 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *     MaxBitrate: Number("int"),
  *     MaxLatency: Number("int"),
  *     MaxSyncBuffer: Number("int"),
- *     MediaStreamSourceConfigurations: [
- *       {
+ *     MediaStreamSourceConfigurations: [ // __listOfMediaStreamSourceConfigurationRequest
+ *       { // MediaStreamSourceConfigurationRequest
  *         EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *         InputConfigurations: [
- *           {
+ *         InputConfigurations: [ // __listOfInputConfigurationRequest
+ *           { // InputConfigurationRequest
  *             InputPort: Number("int"), // required
  *             Interface: {
  *               Name: "STRING_VALUE", // required
@@ -183,15 +183,15 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *     VpcInterfaceName: "STRING_VALUE",
  *     WhitelistCidr: "STRING_VALUE",
  *   },
- *   SourceFailoverConfig: {
+ *   SourceFailoverConfig: { // FailoverConfig
  *     FailoverMode: "MERGE" || "FAILOVER",
  *     RecoveryWindow: Number("int"),
- *     SourcePriority: {
+ *     SourcePriority: { // SourcePriority
  *       PrimarySource: "STRING_VALUE",
  *     },
  *     State: "ENABLED" || "DISABLED",
  *   },
- *   Sources: [
+ *   Sources: [ // __listOfSetSourceRequest
  *     {
  *       Decryption: {
  *         Algorithm: "aes128" || "aes192" || "aes256",
@@ -236,8 +236,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       WhitelistCidr: "STRING_VALUE",
  *     },
  *   ],
- *   VpcInterfaces: [
- *     {
+ *   VpcInterfaces: [ // __listOfVpcInterfaceRequest
+ *     { // VpcInterfaceRequest
  *       Name: "STRING_VALUE", // required
  *       NetworkInterfaceType: "ena" || "efa",
  *       RoleArn: "STRING_VALUE", // required
@@ -247,7 +247,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       SubnetId: "STRING_VALUE", // required
  *     },
  *   ],
- *   Maintenance: {
+ *   Maintenance: { // AddMaintenance
  *     MaintenanceDay: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday", // required
  *     MaintenanceStartHour: "STRING_VALUE", // required
  *   },

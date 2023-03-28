@@ -42,17 +42,17 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * import { EC2Client, DescribeNetworkInterfacesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInterfacesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeNetworkInterfacesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   DryRun: true || false,
- *   NetworkInterfaceIds: [
+ *   NetworkInterfaceIds: [ // NetworkInterfaceIdList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

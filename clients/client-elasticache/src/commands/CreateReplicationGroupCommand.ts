@@ -66,7 +66,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * import { ElastiCacheClient, CreateReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // CreateReplicationGroupMessage
  *   ReplicationGroupId: "STRING_VALUE", // required
  *   ReplicationGroupDescription: "STRING_VALUE", // required
  *   GlobalReplicationGroupId: "STRING_VALUE",
@@ -74,13 +74,13 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *   AutomaticFailoverEnabled: true || false,
  *   MultiAZEnabled: true || false,
  *   NumCacheClusters: Number("int"),
- *   PreferredCacheClusterAZs: [
+ *   PreferredCacheClusterAZs: [ // AvailabilityZonesList
  *     "STRING_VALUE",
  *   ],
  *   NumNodeGroups: Number("int"),
  *   ReplicasPerNodeGroup: Number("int"),
- *   NodeGroupConfiguration: [
- *     {
+ *   NodeGroupConfiguration: [ // NodeGroupConfigurationList
+ *     { // NodeGroupConfiguration
  *       NodeGroupId: "STRING_VALUE",
  *       Slots: "STRING_VALUE",
  *       ReplicaCount: Number("int"),
@@ -89,7 +89,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *         "STRING_VALUE",
  *       ],
  *       PrimaryOutpostArn: "STRING_VALUE",
- *       ReplicaOutpostArns: [
+ *       ReplicaOutpostArns: [ // OutpostArnsList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -99,19 +99,19 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *   EngineVersion: "STRING_VALUE",
  *   CacheParameterGroupName: "STRING_VALUE",
  *   CacheSubnetGroupName: "STRING_VALUE",
- *   CacheSecurityGroupNames: [
+ *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
  *     "STRING_VALUE",
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   SnapshotArns: [
+ *   SnapshotArns: [ // SnapshotArnsList
  *     "STRING_VALUE",
  *   ],
  *   SnapshotName: "STRING_VALUE",
@@ -125,18 +125,18 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *   TransitEncryptionEnabled: true || false,
  *   AtRestEncryptionEnabled: true || false,
  *   KmsKeyId: "STRING_VALUE",
- *   UserGroupIds: [
+ *   UserGroupIds: [ // UserGroupIdListInput
  *     "STRING_VALUE",
  *   ],
- *   LogDeliveryConfigurations: [
- *     {
+ *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
+ *     { // LogDeliveryConfigurationRequest
  *       LogType: "slow-log" || "engine-log",
  *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
- *       DestinationDetails: {
- *         CloudWatchLogsDetails: {
+ *       DestinationDetails: { // DestinationDetails
+ *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
  *           LogGroup: "STRING_VALUE",
  *         },
- *         KinesisFirehoseDetails: {
+ *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
  *           DeliveryStream: "STRING_VALUE",
  *         },
  *       },

@@ -52,9 +52,9 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  * import { RekognitionClient, StartFaceSearchCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartFaceSearchCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   Video: {
- *     S3Object: {
+ * const input = { // StartFaceSearchRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
@@ -63,7 +63,7 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  *   ClientRequestToken: "STRING_VALUE",
  *   FaceMatchThreshold: Number("float"),
  *   CollectionId: "STRING_VALUE", // required
- *   NotificationChannel: {
+ *   NotificationChannel: { // NotificationChannel
  *     SNSTopicArn: "STRING_VALUE", // required
  *     RoleArn: "STRING_VALUE", // required
  *   },

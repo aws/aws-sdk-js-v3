@@ -47,15 +47,15 @@ export interface GetConformancePackComplianceDetailsCommandOutput
  * import { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // GetConformancePackComplianceDetailsRequest
  *   ConformancePackName: "STRING_VALUE", // required
- *   Filters: {
- *     ConfigRuleNames: [
+ *   Filters: { // ConformancePackEvaluationFilters
+ *     ConfigRuleNames: [ // ConformancePackConfigRuleNames
  *       "STRING_VALUE",
  *     ],
  *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
  *     ResourceType: "STRING_VALUE",
- *     ResourceIds: [
+ *     ResourceIds: [ // ConformancePackComplianceResourceIds
  *       "STRING_VALUE",
  *     ],
  *   },

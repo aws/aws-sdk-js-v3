@@ -69,10 +69,10 @@ export interface CreateMatchmakingConfigurationCommandOutput
  * import { GameLiftClient, CreateMatchmakingConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateMatchmakingConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // CreateMatchmakingConfigurationInput
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   GameSessionQueueArns: [
+ *   GameSessionQueueArns: [ // QueueArnsList
  *     "STRING_VALUE",
  *   ],
  *   RequestTimeoutSeconds: Number("int"), // required
@@ -82,8 +82,8 @@ export interface CreateMatchmakingConfigurationCommandOutput
  *   NotificationTarget: "STRING_VALUE",
  *   AdditionalPlayerCount: Number("int"),
  *   CustomEventData: "STRING_VALUE",
- *   GameProperties: [
- *     {
+ *   GameProperties: [ // GamePropertyList
+ *     { // GameProperty
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
@@ -91,8 +91,8 @@ export interface CreateMatchmakingConfigurationCommandOutput
  *   GameSessionData: "STRING_VALUE",
  *   BackfillMode: "AUTOMATIC" || "MANUAL",
  *   FlexMatchMode: "STANDALONE" || "WITH_QUEUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

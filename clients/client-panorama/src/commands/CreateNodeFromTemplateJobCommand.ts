@@ -46,19 +46,19 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * import { PanoramaClient, CreateNodeFromTemplateJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreateNodeFromTemplateJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // CreateNodeFromTemplateJobRequest
  *   TemplateType: "STRING_VALUE", // required
  *   OutputPackageName: "STRING_VALUE", // required
  *   OutputPackageVersion: "STRING_VALUE", // required
  *   NodeName: "STRING_VALUE", // required
  *   NodeDescription: "STRING_VALUE",
- *   TemplateParameters: { // required
+ *   TemplateParameters: { // TemplateParametersMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
- *   JobTags: [
- *     {
+ *   JobTags: [ // JobTagsList
+ *     { // JobResourceTags
  *       ResourceType: "STRING_VALUE", // required
- *       Tags: { // required
+ *       Tags: { // TagMap // required
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

@@ -42,10 +42,10 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * import { SSMClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // RemoveTagsFromResourceRequest
  *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required
  *   ResourceId: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // KeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

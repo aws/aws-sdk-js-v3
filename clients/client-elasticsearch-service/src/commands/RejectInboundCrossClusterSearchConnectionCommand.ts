@@ -52,7 +52,7 @@ export interface RejectInboundCrossClusterSearchConnectionCommandOutput
  * import { ElasticsearchServiceClient, RejectInboundCrossClusterSearchConnectionCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, RejectInboundCrossClusterSearchConnectionCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // RejectInboundCrossClusterSearchConnectionRequest
  *   CrossClusterSearchConnectionId: "STRING_VALUE", // required
  * };
  * const command = new RejectInboundCrossClusterSearchConnectionCommand(input);

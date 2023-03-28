@@ -42,7 +42,7 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  * import { CodeBuildClient, GetReportGroupTrendCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, GetReportGroupTrendCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // GetReportGroupTrendInput
  *   reportGroupArn: "STRING_VALUE", // required
  *   numOfReports: Number("int"),
  *   trendField: "STRING_VALUE", // required

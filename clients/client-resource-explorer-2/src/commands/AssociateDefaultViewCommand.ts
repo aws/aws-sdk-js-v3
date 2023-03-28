@@ -52,7 +52,7 @@ export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewO
  * import { ResourceExplorer2Client, AssociateDefaultViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, AssociateDefaultViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
- * const input = {
+ * const input = { // AssociateDefaultViewInput
  *   ViewArn: "STRING_VALUE", // required
  * };
  * const command = new AssociateDefaultViewCommand(input);

@@ -42,7 +42,7 @@ export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, _
  * import { TransferClient, DescribeHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // DescribeHostKeyRequest
  *   ServerId: "STRING_VALUE", // required
  *   HostKeyId: "STRING_VALUE", // required
  * };

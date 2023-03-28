@@ -54,16 +54,16 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { MigrationHubRefactorSpacesClient, CreateApplicationCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, CreateApplicationCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
- * const input = {
+ * const input = { // CreateApplicationRequest
  *   Name: "STRING_VALUE", // required
  *   EnvironmentIdentifier: "STRING_VALUE", // required
  *   VpcId: "STRING_VALUE", // required
  *   ProxyType: "STRING_VALUE", // required
- *   ApiGatewayProxy: {
+ *   ApiGatewayProxy: { // ApiGatewayProxyInput
  *     EndpointType: "STRING_VALUE",
  *     StageName: "STRING_VALUE",
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ClientToken: "STRING_VALUE",

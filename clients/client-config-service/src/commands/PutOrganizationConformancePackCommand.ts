@@ -63,19 +63,19 @@ export interface PutOrganizationConformancePackCommandOutput
  * import { ConfigServiceClient, PutOrganizationConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutOrganizationConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // PutOrganizationConformancePackRequest
  *   OrganizationConformancePackName: "STRING_VALUE", // required
  *   TemplateS3Uri: "STRING_VALUE",
  *   TemplateBody: "STRING_VALUE",
  *   DeliveryS3Bucket: "STRING_VALUE",
  *   DeliveryS3KeyPrefix: "STRING_VALUE",
- *   ConformancePackInputParameters: [
- *     {
+ *   ConformancePackInputParameters: [ // ConformancePackInputParameters
+ *     { // ConformancePackInputParameter
  *       ParameterName: "STRING_VALUE", // required
  *       ParameterValue: "STRING_VALUE", // required
  *     },
  *   ],
- *   ExcludedAccounts: [
+ *   ExcludedAccounts: [ // ExcludedAccounts
  *     "STRING_VALUE",
  *   ],
  * };

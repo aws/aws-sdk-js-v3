@@ -44,7 +44,7 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * import { RAMClient, DeleteResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, DeleteResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // DeleteResourceShareRequest
  *   resourceShareArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

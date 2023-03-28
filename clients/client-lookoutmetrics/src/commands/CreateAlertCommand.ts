@@ -42,33 +42,33 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  * import { LookoutMetricsClient, CreateAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
+ * const input = { // CreateAlertRequest
  *   AlertName: "STRING_VALUE", // required
  *   AlertSensitivityThreshold: Number("int"),
  *   AlertDescription: "STRING_VALUE",
  *   AnomalyDetectorArn: "STRING_VALUE", // required
- *   Action: {
- *     SNSConfiguration: {
+ *   Action: { // Action
+ *     SNSConfiguration: { // SNSConfiguration
  *       RoleArn: "STRING_VALUE", // required
  *       SnsTopicArn: "STRING_VALUE", // required
  *       SnsFormat: "STRING_VALUE",
  *     },
- *     LambdaConfiguration: {
+ *     LambdaConfiguration: { // LambdaConfiguration
  *       RoleArn: "STRING_VALUE", // required
  *       LambdaArn: "STRING_VALUE", // required
  *     },
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AlertFilters: {
- *     MetricList: [
+ *   AlertFilters: { // AlertFilters
+ *     MetricList: [ // MetricNameList
  *       "STRING_VALUE",
  *     ],
- *     DimensionFilterList: [
- *       {
+ *     DimensionFilterList: [ // DimensionFilterList
+ *       { // DimensionFilter
  *         DimensionName: "STRING_VALUE",
- *         DimensionValueList: [
+ *         DimensionValueList: [ // DimensionValueList
  *           "STRING_VALUE",
  *         ],
  *       },

@@ -43,9 +43,9 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { TnbClient, UntagResourceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, UntagResourceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // required
+ *   tagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

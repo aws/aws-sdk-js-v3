@@ -48,46 +48,46 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  * import { BudgetsClient, CreateBudgetActionCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateBudgetActionCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
- * const input = {
+ * const input = { // CreateBudgetActionRequest
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
  *   NotificationType: "STRING_VALUE", // required
  *   ActionType: "STRING_VALUE", // required
- *   ActionThreshold: {
+ *   ActionThreshold: { // ActionThreshold
  *     ActionThresholdValue: Number("double"), // required
  *     ActionThresholdType: "STRING_VALUE", // required
  *   },
- *   Definition: {
- *     IamActionDefinition: {
+ *   Definition: { // Definition
+ *     IamActionDefinition: { // IamActionDefinition
  *       PolicyArn: "STRING_VALUE", // required
- *       Roles: [
+ *       Roles: [ // Roles
  *         "STRING_VALUE",
  *       ],
- *       Groups: [
+ *       Groups: [ // Groups
  *         "STRING_VALUE",
  *       ],
- *       Users: [
+ *       Users: [ // Users
  *         "STRING_VALUE",
  *       ],
  *     },
- *     ScpActionDefinition: {
+ *     ScpActionDefinition: { // ScpActionDefinition
  *       PolicyId: "STRING_VALUE", // required
- *       TargetIds: [ // required
+ *       TargetIds: [ // TargetIds // required
  *         "STRING_VALUE",
  *       ],
  *     },
- *     SsmActionDefinition: {
+ *     SsmActionDefinition: { // SsmActionDefinition
  *       ActionSubType: "STRING_VALUE", // required
  *       Region: "STRING_VALUE", // required
- *       InstanceIds: [ // required
+ *       InstanceIds: [ // InstanceIds // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
  *   ExecutionRoleArn: "STRING_VALUE", // required
  *   ApprovalModel: "STRING_VALUE", // required
- *   Subscribers: [ // required
- *     {
+ *   Subscribers: [ // Subscribers // required
+ *     { // Subscriber
  *       SubscriptionType: "STRING_VALUE", // required
  *       Address: "STRING_VALUE", // required
  *     },

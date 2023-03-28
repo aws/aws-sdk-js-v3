@@ -46,7 +46,7 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  * import { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
- * const input = {
+ * const input = { // ListHumanLoopsRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   FlowDefinitionArn: "STRING_VALUE", // required

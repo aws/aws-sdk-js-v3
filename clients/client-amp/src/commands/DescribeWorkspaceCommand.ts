@@ -42,7 +42,7 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * import { AmpClient, DescribeWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DescribeWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
- * const input = {
+ * const input = { // DescribeWorkspaceRequest
  *   workspaceId: "STRING_VALUE", // required
  * };
  * const command = new DescribeWorkspaceCommand(input);

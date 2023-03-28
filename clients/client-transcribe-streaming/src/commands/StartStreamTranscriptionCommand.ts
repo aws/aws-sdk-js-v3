@@ -73,24 +73,24 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * import { TranscribeStreamingClient, StartStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
  * // const { TranscribeStreamingClient, StartStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
  * const client = new TranscribeStreamingClient(config);
- * const input = {
+ * const input = { // StartStreamTranscriptionRequest
  *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
  *   MediaSampleRateHertz: Number("int"), // required
  *   MediaEncoding: "pcm" || "ogg-opus" || "flac", // required
  *   VocabularyName: "STRING_VALUE",
  *   SessionId: "STRING_VALUE",
- *   AudioStream: { // Union: only one key present
- *     AudioEvent: {
+ *   AudioStream: { // AudioStream Union: only one key present
+ *     AudioEvent: { // AudioEvent
  *       AudioChunk: "BLOB_VALUE",
  *     },
- *     ConfigurationEvent: {
- *       ChannelDefinitions: [
- *         {
+ *     ConfigurationEvent: { // ConfigurationEvent
+ *       ChannelDefinitions: [ // ChannelDefinitions
+ *         { // ChannelDefinition
  *           ChannelId: Number("int"), // required
  *           ParticipantRole: "AGENT" || "CUSTOMER", // required
  *         },
  *       ],
- *       PostCallAnalyticsSettings: {
+ *       PostCallAnalyticsSettings: { // PostCallAnalyticsSettings
  *         OutputLocation: "STRING_VALUE", // required
  *         DataAccessRoleArn: "STRING_VALUE", // required
  *         ContentRedactionOutput: "redacted" || "redacted_and_unredacted",

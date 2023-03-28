@@ -50,10 +50,10 @@ export interface DescribeConformancePackComplianceCommandOutput
  * import { ConfigServiceClient, DescribeConformancePackComplianceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConformancePackComplianceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DescribeConformancePackComplianceRequest
  *   ConformancePackName: "STRING_VALUE", // required
- *   Filters: {
- *     ConfigRuleNames: [
+ *   Filters: { // ConformancePackComplianceFilters
+ *     ConfigRuleNames: [ // ConformancePackConfigRuleNames
  *       "STRING_VALUE",
  *     ],
  *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",

@@ -66,9 +66,9 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * import { ECSClient, RunTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RunTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
- *   capacityProviderStrategy: [
- *     {
+ * const input = { // RunTaskRequest
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
  *       weight: Number("int"),
  *       base: Number("int"),
@@ -80,9 +80,9 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *   enableExecuteCommand: true || false,
  *   group: "STRING_VALUE",
  *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
- *   networkConfiguration: {
- *     awsvpcConfiguration: {
- *       subnets: [ // required
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
+ *       subnets: [ // StringList // required
  *         "STRING_VALUE",
  *       ],
  *       securityGroups: [
@@ -91,21 +91,21 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *       assignPublicIp: "ENABLED" || "DISABLED",
  *     },
  *   },
- *   overrides: {
- *     containerOverrides: [
- *       {
+ *   overrides: { // TaskOverride
+ *     containerOverrides: [ // ContainerOverrides
+ *       { // ContainerOverride
  *         name: "STRING_VALUE",
  *         command: [
  *           "STRING_VALUE",
  *         ],
- *         environment: [
- *           {
+ *         environment: [ // EnvironmentVariables
+ *           { // KeyValuePair
  *             name: "STRING_VALUE",
  *             value: "STRING_VALUE",
  *           },
  *         ],
- *         environmentFiles: [
- *           {
+ *         environmentFiles: [ // EnvironmentFiles
+ *           { // EnvironmentFile
  *             value: "STRING_VALUE", // required
  *             type: "s3", // required
  *           },
@@ -113,8 +113,8 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *         cpu: Number("int"),
  *         memory: Number("int"),
  *         memoryReservation: Number("int"),
- *         resourceRequirements: [
- *           {
+ *         resourceRequirements: [ // ResourceRequirements
+ *           { // ResourceRequirement
  *             value: "STRING_VALUE", // required
  *             type: "GPU" || "InferenceAccelerator", // required
  *           },
@@ -122,8 +122,8 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *       },
  *     ],
  *     cpu: "STRING_VALUE",
- *     inferenceAcceleratorOverrides: [
- *       {
+ *     inferenceAcceleratorOverrides: [ // InferenceAcceleratorOverrides
+ *       { // InferenceAcceleratorOverride
  *         deviceName: "STRING_VALUE",
  *         deviceType: "STRING_VALUE",
  *       },
@@ -131,18 +131,18 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *     executionRoleArn: "STRING_VALUE",
  *     memory: "STRING_VALUE",
  *     taskRoleArn: "STRING_VALUE",
- *     ephemeralStorage: {
+ *     ephemeralStorage: { // EphemeralStorage
  *       sizeInGiB: Number("int"), // required
  *     },
  *   },
- *   placementConstraints: [
- *     {
+ *   placementConstraints: [ // PlacementConstraints
+ *     { // PlacementConstraint
  *       type: "distinctInstance" || "memberOf",
  *       expression: "STRING_VALUE",
  *     },
  *   ],
- *   placementStrategy: [
- *     {
+ *   placementStrategy: [ // PlacementStrategies
+ *     { // PlacementStrategy
  *       type: "random" || "spread" || "binpack",
  *       field: "STRING_VALUE",
  *     },
@@ -151,8 +151,8 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  *   referenceId: "STRING_VALUE",
  *   startedBy: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

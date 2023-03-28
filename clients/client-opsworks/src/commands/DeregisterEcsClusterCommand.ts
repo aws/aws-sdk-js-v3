@@ -50,7 +50,7 @@ export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeregisterEcsClusterCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterEcsClusterCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DeregisterEcsClusterRequest
  *   EcsClusterArn: "STRING_VALUE", // required
  * };
  * const command = new DeregisterEcsClusterCommand(input);

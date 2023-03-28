@@ -45,28 +45,28 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  * import { NetworkFirewallClient, CreateFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // CreateFirewallPolicyRequest
  *   FirewallPolicyName: "STRING_VALUE", // required
- *   FirewallPolicy: {
- *     StatelessRuleGroupReferences: [
- *       {
+ *   FirewallPolicy: { // FirewallPolicy
+ *     StatelessRuleGroupReferences: [ // StatelessRuleGroupReferences
+ *       { // StatelessRuleGroupReference
  *         ResourceArn: "STRING_VALUE", // required
  *         Priority: Number("int"), // required
  *       },
  *     ],
- *     StatelessDefaultActions: [ // required
+ *     StatelessDefaultActions: [ // StatelessActions // required
  *       "STRING_VALUE",
  *     ],
  *     StatelessFragmentDefaultActions: [ // required
  *       "STRING_VALUE",
  *     ],
- *     StatelessCustomActions: [
- *       {
+ *     StatelessCustomActions: [ // CustomActions
+ *       { // CustomAction
  *         ActionName: "STRING_VALUE", // required
- *         ActionDefinition: {
- *           PublishMetricAction: {
- *             Dimensions: [ // required
- *               {
+ *         ActionDefinition: { // ActionDefinition
+ *           PublishMetricAction: { // PublishMetricAction
+ *             Dimensions: [ // Dimensions // required
+ *               { // Dimension
  *                 Value: "STRING_VALUE", // required
  *               },
  *             ],
@@ -74,32 +74,32 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *         },
  *       },
  *     ],
- *     StatefulRuleGroupReferences: [
- *       {
+ *     StatefulRuleGroupReferences: [ // StatefulRuleGroupReferences
+ *       { // StatefulRuleGroupReference
  *         ResourceArn: "STRING_VALUE", // required
  *         Priority: Number("int"),
- *         Override: {
+ *         Override: { // StatefulRuleGroupOverride
  *           Action: "DROP_TO_ALERT",
  *         },
  *       },
  *     ],
- *     StatefulDefaultActions: [
+ *     StatefulDefaultActions: [ // StatefulActions
  *       "STRING_VALUE",
  *     ],
- *     StatefulEngineOptions: {
+ *     StatefulEngineOptions: { // StatefulEngineOptions
  *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
  *       StreamExceptionPolicy: "DROP" || "CONTINUE",
  *     },
  *   },
  *   Description: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   DryRun: true || false,
- *   EncryptionConfiguration: {
+ *   EncryptionConfiguration: { // EncryptionConfiguration
  *     KeyId: "STRING_VALUE",
  *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  *   },

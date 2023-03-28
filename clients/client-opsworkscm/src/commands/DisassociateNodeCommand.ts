@@ -53,11 +53,11 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  * import { OpsWorksCMClient, DisassociateNodeCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DisassociateNodeCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // DisassociateNodeRequest
  *   ServerName: "STRING_VALUE", // required
  *   NodeName: "STRING_VALUE", // required
- *   EngineAttributes: [
- *     {
+ *   EngineAttributes: [ // EngineAttributes
+ *     { // EngineAttribute
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

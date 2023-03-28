@@ -56,7 +56,7 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  * import { EC2Client, SendDiagnosticInterruptCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, SendDiagnosticInterruptCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // SendDiagnosticInterruptRequest
  *   InstanceId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

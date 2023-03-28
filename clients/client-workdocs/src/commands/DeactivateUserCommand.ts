@@ -43,7 +43,7 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeactivateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeactivateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DeactivateUserRequest
  *   UserId: "STRING_VALUE", // required
  *   AuthenticationToken: "STRING_VALUE",
  * };

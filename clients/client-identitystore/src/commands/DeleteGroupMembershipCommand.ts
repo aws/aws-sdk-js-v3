@@ -42,7 +42,7 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * import { IdentitystoreClient, DeleteGroupMembershipCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DeleteGroupMembershipCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
- * const input = {
+ * const input = { // DeleteGroupMembershipRequest
  *   IdentityStoreId: "STRING_VALUE", // required
  *   MembershipId: "STRING_VALUE", // required
  * };

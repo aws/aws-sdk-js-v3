@@ -46,13 +46,13 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  * import { RedshiftServerlessClient, CreateEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // CreateEndpointAccessRequest
  *   endpointName: "STRING_VALUE", // required
- *   subnetIds: [ // required
+ *   subnetIds: [ // SubnetIdList // required
  *     "STRING_VALUE",
  *   ],
  *   workgroupName: "STRING_VALUE", // required
- *   vpcSecurityGroupIds: [
+ *   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  * };

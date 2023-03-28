@@ -44,29 +44,29 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * import { CognitoIdentityClient, UpdateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UpdateIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
- * const input = {
+ * const input = { // IdentityPool
  *   IdentityPoolId: "STRING_VALUE", // required
  *   IdentityPoolName: "STRING_VALUE", // required
  *   AllowUnauthenticatedIdentities: true || false, // required
  *   AllowClassicFlow: true || false,
- *   SupportedLoginProviders: {
+ *   SupportedLoginProviders: { // IdentityProviders
  *     "<keys>": "STRING_VALUE",
  *   },
  *   DeveloperProviderName: "STRING_VALUE",
- *   OpenIdConnectProviderARNs: [
+ *   OpenIdConnectProviderARNs: [ // OIDCProviderList
  *     "STRING_VALUE",
  *   ],
- *   CognitoIdentityProviders: [
- *     {
+ *   CognitoIdentityProviders: [ // CognitoIdentityProviderList
+ *     { // CognitoIdentityProvider
  *       ProviderName: "STRING_VALUE",
  *       ClientId: "STRING_VALUE",
  *       ServerSideTokenCheck: true || false,
  *     },
  *   ],
- *   SamlProviderARNs: [
+ *   SamlProviderARNs: [ // SAMLProviderList
  *     "STRING_VALUE",
  *   ],
- *   IdentityPoolTags: {
+ *   IdentityPoolTags: { // IdentityPoolTagsType
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

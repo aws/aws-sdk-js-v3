@@ -42,51 +42,51 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { DataExchangeClient, CreateJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CreateJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
- *   Details: {
- *     ExportAssetToSignedUrl: {
+ * const input = { // CreateJobRequest
+ *   Details: { // RequestDetails
+ *     ExportAssetToSignedUrl: { // ExportAssetToSignedUrlRequestDetails
  *       AssetId: "STRING_VALUE", // required
  *       DataSetId: "STRING_VALUE", // required
  *       RevisionId: "STRING_VALUE", // required
  *     },
- *     ExportAssetsToS3: {
- *       AssetDestinations: [ // required
- *         {
+ *     ExportAssetsToS3: { // ExportAssetsToS3RequestDetails
+ *       AssetDestinations: [ // ListOfAssetDestinationEntry // required
+ *         { // AssetDestinationEntry
  *           AssetId: "STRING_VALUE", // required
  *           Bucket: "STRING_VALUE", // required
  *           Key: "STRING_VALUE",
  *         },
  *       ],
  *       DataSetId: "STRING_VALUE", // required
- *       Encryption: {
+ *       Encryption: { // ExportServerSideEncryption
  *         KmsKeyArn: "STRING_VALUE",
  *         Type: "STRING_VALUE", // required
  *       },
  *       RevisionId: "STRING_VALUE", // required
  *     },
- *     ExportRevisionsToS3: {
+ *     ExportRevisionsToS3: { // ExportRevisionsToS3RequestDetails
  *       DataSetId: "STRING_VALUE", // required
  *       Encryption: {
  *         KmsKeyArn: "STRING_VALUE",
  *         Type: "STRING_VALUE", // required
  *       },
- *       RevisionDestinations: [ // required
- *         {
+ *       RevisionDestinations: [ // ListOfRevisionDestinationEntry // required
+ *         { // RevisionDestinationEntry
  *           Bucket: "STRING_VALUE", // required
  *           KeyPattern: "STRING_VALUE",
  *           RevisionId: "STRING_VALUE", // required
  *         },
  *       ],
  *     },
- *     ImportAssetFromSignedUrl: {
+ *     ImportAssetFromSignedUrl: { // ImportAssetFromSignedUrlRequestDetails
  *       AssetName: "STRING_VALUE", // required
  *       DataSetId: "STRING_VALUE", // required
  *       Md5Hash: "STRING_VALUE", // required
  *       RevisionId: "STRING_VALUE", // required
  *     },
- *     ImportAssetsFromS3: {
- *       AssetSources: [ // required
- *         {
+ *     ImportAssetsFromS3: { // ImportAssetsFromS3RequestDetails
+ *       AssetSources: [ // ListOfAssetSourceEntry // required
+ *         { // AssetSourceEntry
  *           Bucket: "STRING_VALUE", // required
  *           Key: "STRING_VALUE", // required
  *         },
@@ -94,16 +94,16 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       DataSetId: "STRING_VALUE", // required
  *       RevisionId: "STRING_VALUE", // required
  *     },
- *     ImportAssetsFromRedshiftDataShares: {
- *       AssetSources: [ // required
- *         {
+ *     ImportAssetsFromRedshiftDataShares: { // ImportAssetsFromRedshiftDataSharesRequestDetails
+ *       AssetSources: [ // ListOfRedshiftDataShareAssetSourceEntry // required
+ *         { // RedshiftDataShareAssetSourceEntry
  *           DataShareArn: "STRING_VALUE", // required
  *         },
  *       ],
  *       DataSetId: "STRING_VALUE", // required
  *       RevisionId: "STRING_VALUE", // required
  *     },
- *     ImportAssetFromApiGatewayApi: {
+ *     ImportAssetFromApiGatewayApi: { // ImportAssetFromApiGatewayApiRequestDetails
  *       ApiDescription: "STRING_VALUE",
  *       ApiId: "STRING_VALUE", // required
  *       ApiKey: "STRING_VALUE",
@@ -114,17 +114,17 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       RevisionId: "STRING_VALUE", // required
  *       Stage: "STRING_VALUE", // required
  *     },
- *     CreateS3DataAccessFromS3Bucket: {
- *       AssetSource: {
+ *     CreateS3DataAccessFromS3Bucket: { // CreateS3DataAccessFromS3BucketRequestDetails
+ *       AssetSource: { // S3DataAccessAssetSourceEntry
  *         Bucket: "STRING_VALUE", // required
- *         KeyPrefixes: [
+ *         KeyPrefixes: [ // ListOf__string
  *           "STRING_VALUE",
  *         ],
  *         Keys: [
  *           "STRING_VALUE",
  *         ],
- *         KmsKeysToGrant: [
- *           {
+ *         KmsKeysToGrant: [ // ListOfKmsKeysToGrant
+ *           { // KmsKeyToGrant
  *             KmsKeyArn: "STRING_VALUE", // required
  *           },
  *         ],
@@ -132,22 +132,22 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *       DataSetId: "STRING_VALUE", // required
  *       RevisionId: "STRING_VALUE", // required
  *     },
- *     ImportAssetsFromLakeFormationTagPolicy: {
+ *     ImportAssetsFromLakeFormationTagPolicy: { // ImportAssetsFromLakeFormationTagPolicyRequestDetails
  *       CatalogId: "STRING_VALUE", // required
- *       Database: {
- *         Expression: [ // required
- *           {
+ *       Database: { // DatabaseLFTagPolicyAndPermissions
+ *         Expression: [ // ListOfLFTags // required
+ *           { // LFTag
  *             TagKey: "STRING_VALUE", // required
- *             TagValues: [ // required
+ *             TagValues: [ // ListOfLFTagValues // required
  *               "STRING_VALUE",
  *             ],
  *           },
  *         ],
- *         Permissions: [ // required
+ *         Permissions: [ // ListOfDatabaseLFTagPolicyPermissions // required
  *           "STRING_VALUE",
  *         ],
  *       },
- *       Table: {
+ *       Table: { // TableLFTagPolicyAndPermissions
  *         Expression: [ // required
  *           {
  *             TagKey: "STRING_VALUE", // required
@@ -156,7 +156,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             ],
  *           },
  *         ],
- *         Permissions: [ // required
+ *         Permissions: [ // ListOfTableTagPolicyLFPermissions // required
  *           "STRING_VALUE",
  *         ],
  *       },

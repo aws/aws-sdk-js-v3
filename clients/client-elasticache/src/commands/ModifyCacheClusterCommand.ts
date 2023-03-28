@@ -44,20 +44,20 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * import { ElastiCacheClient, ModifyCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // ModifyCacheClusterMessage
  *   CacheClusterId: "STRING_VALUE", // required
  *   NumCacheNodes: Number("int"),
- *   CacheNodeIdsToRemove: [
+ *   CacheNodeIdsToRemove: [ // CacheNodeIdsList
  *     "STRING_VALUE",
  *   ],
  *   AZMode: "single-az" || "cross-az",
- *   NewAvailabilityZones: [
+ *   NewAvailabilityZones: [ // PreferredAvailabilityZoneList
  *     "STRING_VALUE",
  *   ],
- *   CacheSecurityGroupNames: [
+ *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
  *     "STRING_VALUE",
  *   ],
  *   PreferredMaintenanceWindow: "STRING_VALUE",
@@ -72,15 +72,15 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *   CacheNodeType: "STRING_VALUE",
  *   AuthToken: "STRING_VALUE",
  *   AuthTokenUpdateStrategy: "SET" || "ROTATE" || "DELETE",
- *   LogDeliveryConfigurations: [
- *     {
+ *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
+ *     { // LogDeliveryConfigurationRequest
  *       LogType: "slow-log" || "engine-log",
  *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
- *       DestinationDetails: {
- *         CloudWatchLogsDetails: {
+ *       DestinationDetails: { // DestinationDetails
+ *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
  *           LogGroup: "STRING_VALUE",
  *         },
- *         KinesisFirehoseDetails: {
+ *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
  *           DeliveryStream: "STRING_VALUE",
  *         },
  *       },

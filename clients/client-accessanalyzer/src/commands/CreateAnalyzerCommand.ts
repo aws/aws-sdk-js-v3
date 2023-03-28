@@ -42,15 +42,15 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * import { AccessAnalyzerClient, CreateAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, CreateAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // CreateAnalyzerRequest
  *   analyzerName: "STRING_VALUE", // required
  *   type: "STRING_VALUE", // required
- *   archiveRules: [
- *     {
+ *   archiveRules: [ // InlineArchiveRulesList
+ *     { // InlineArchiveRule
  *       ruleName: "STRING_VALUE", // required
- *       filter: { // required
- *         "<keys>": {
- *           eq: [
+ *       filter: { // FilterCriteriaMap // required
+ *         "<keys>": { // Criterion
+ *           eq: [ // ValueList
  *             "STRING_VALUE",
  *           ],
  *           neq: [
@@ -64,7 +64,7 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *       },
  *     },
  *   ],
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

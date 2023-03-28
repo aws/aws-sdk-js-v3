@@ -46,7 +46,7 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * import { SnowDeviceManagementClient, ListDeviceResourcesCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, ListDeviceResourcesCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
- * const input = {
+ * const input = { // ListDeviceResourcesInput
  *   managedDeviceId: "STRING_VALUE", // required
  *   type: "STRING_VALUE",
  *   maxResults: Number("int"),

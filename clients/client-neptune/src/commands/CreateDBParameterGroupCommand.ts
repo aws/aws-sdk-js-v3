@@ -61,12 +61,12 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * import { NeptuneClient, CreateDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // CreateDBParameterGroupMessage
  *   DBParameterGroupName: "STRING_VALUE", // required
  *   DBParameterGroupFamily: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

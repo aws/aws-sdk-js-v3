@@ -46,10 +46,10 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * import { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // ModifyTargetGroupAttributesInput
  *   TargetGroupArn: "STRING_VALUE", // required
- *   Attributes: [ // required
- *     {
+ *   Attributes: [ // TargetGroupAttributes // required
+ *     { // TargetGroupAttribute
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

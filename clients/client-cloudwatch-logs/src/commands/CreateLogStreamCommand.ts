@@ -58,7 +58,7 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, CreateLogStreamCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateLogStreamCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // CreateLogStreamRequest
  *   logGroupName: "STRING_VALUE", // required
  *   logStreamName: "STRING_VALUE", // required
  * };

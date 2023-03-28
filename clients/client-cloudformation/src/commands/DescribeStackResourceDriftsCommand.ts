@@ -51,9 +51,9 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * import { CloudFormationClient, DescribeStackResourceDriftsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackResourceDriftsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DescribeStackResourceDriftsInput
  *   StackName: "STRING_VALUE", // required
- *   StackResourceDriftStatusFilters: [
+ *   StackResourceDriftStatusFilters: [ // StackResourceDriftStatusFilters
  *     "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED",
  *   ],
  *   NextToken: "STRING_VALUE",

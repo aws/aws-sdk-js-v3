@@ -50,10 +50,10 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * import { MgnClient, CreateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, CreateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // CreateReplicationConfigurationTemplateRequest
  *   stagingAreaSubnetId: "STRING_VALUE", // required
  *   associateDefaultSecurityGroup: true || false, // required
- *   replicationServersSecurityGroupsIDs: [ // required
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs // required
  *     "STRING_VALUE",
  *   ],
  *   replicationServerInstanceType: "STRING_VALUE", // required
@@ -64,7 +64,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  *   bandwidthThrottling: Number("long"), // required
  *   dataPlaneRouting: "STRING_VALUE", // required
  *   createPublicIP: true || false, // required
- *   stagingAreaTags: { // required
+ *   stagingAreaTags: { // TagsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  *   tags: {

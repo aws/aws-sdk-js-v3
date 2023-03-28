@@ -42,8 +42,8 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  * import { SESv2Client, GetBlacklistReportsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetBlacklistReportsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
- *   BlacklistItemNames: [ // required
+ * const input = { // GetBlacklistReportsRequest
+ *   BlacklistItemNames: [ // BlacklistItemNames // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -48,7 +48,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * import { TransferClient, ImportCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // ImportCertificateRequest
  *   Usage: "SIGNING" || "ENCRYPTION", // required
  *   Certificate: "STRING_VALUE", // required
  *   CertificateChain: "STRING_VALUE",
@@ -56,8 +56,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *   ActiveDate: new Date("TIMESTAMP"),
  *   InactiveDate: new Date("TIMESTAMP"),
  *   Description: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

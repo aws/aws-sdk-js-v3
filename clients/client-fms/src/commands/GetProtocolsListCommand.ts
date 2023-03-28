@@ -42,7 +42,7 @@ export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse,
  * import { FMSClient, GetProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // GetProtocolsListRequest
  *   ListId: "STRING_VALUE", // required
  *   DefaultList: true || false,
  * };

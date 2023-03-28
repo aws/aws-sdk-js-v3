@@ -44,7 +44,7 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * import { NetworkManagerClient, GetNetworkResourceRelationshipsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkResourceRelationshipsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetNetworkResourceRelationshipsRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   CoreNetworkId: "STRING_VALUE",
  *   RegisteredGatewayArn: "STRING_VALUE",

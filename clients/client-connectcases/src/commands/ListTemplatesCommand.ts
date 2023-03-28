@@ -43,11 +43,11 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * import { ConnectCasesClient, ListTemplatesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListTemplatesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = {
+ * const input = { // ListTemplatesRequest
  *   domainId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   status: [
+ *   status: [ // TemplateStatusFilters
  *     "STRING_VALUE",
  *   ],
  * };

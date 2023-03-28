@@ -51,8 +51,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * import { OpenSearchServerlessClient, ListCollectionsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListCollectionsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
- * const input = {
- *   collectionFilters: {
+ * const input = { // ListCollectionsRequest
+ *   collectionFilters: { // CollectionFilters
  *     name: "STRING_VALUE",
  *     status: "STRING_VALUE",
  *   },

@@ -46,7 +46,7 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * import { DirectConnectClient, DeleteInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // DeleteInterconnectRequest
  *   interconnectId: "STRING_VALUE", // required
  * };
  * const command = new DeleteInterconnectCommand(input);

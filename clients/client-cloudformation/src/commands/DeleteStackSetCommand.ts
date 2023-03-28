@@ -43,7 +43,7 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * import { CloudFormationClient, DeleteStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DeleteStackSetInput
  *   StackSetName: "STRING_VALUE", // required
  *   CallAs: "SELF" || "DELEGATED_ADMIN",
  * };

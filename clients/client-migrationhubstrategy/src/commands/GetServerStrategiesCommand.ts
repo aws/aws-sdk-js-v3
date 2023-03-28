@@ -46,7 +46,7 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * import { MigrationHubStrategyClient, GetServerStrategiesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetServerStrategiesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // GetServerStrategiesRequest
  *   serverId: "STRING_VALUE", // required
  * };
  * const command = new GetServerStrategiesCommand(input);

@@ -44,8 +44,8 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  * import { AutoScalingClient, ExitStandbyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, ExitStandbyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
- *   InstanceIds: [
+ * const input = { // ExitStandbyQuery
+ *   InstanceIds: [ // InstanceIds
  *     "STRING_VALUE",
  *   ],
  *   AutoScalingGroupName: "STRING_VALUE", // required

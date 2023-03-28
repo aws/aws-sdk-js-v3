@@ -46,7 +46,7 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * import { MigrationHubOrchestratorClient, StopWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, StopWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // StopMigrationWorkflowRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new StopWorkflowCommand(input);

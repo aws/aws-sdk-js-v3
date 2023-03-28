@@ -50,7 +50,7 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
  * import { CloudFrontClient, GetResponseHeadersPolicyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetResponseHeadersPolicyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // GetResponseHeadersPolicyConfigRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetResponseHeadersPolicyConfigCommand(input);

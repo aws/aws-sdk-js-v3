@@ -42,21 +42,21 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * import { LicenseManagerClient, UpdateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // UpdateLicenseConfigurationRequest
  *   LicenseConfigurationArn: "STRING_VALUE", // required
  *   LicenseConfigurationStatus: "AVAILABLE" || "DISABLED",
- *   LicenseRules: [
+ *   LicenseRules: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   LicenseCount: Number("long"),
  *   LicenseCountHardLimit: true || false,
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   ProductInformationList: [
- *     {
+ *   ProductInformationList: [ // ProductInformationList
+ *     { // ProductInformation
  *       ResourceType: "STRING_VALUE", // required
- *       ProductInformationFilterList: [ // required
- *         {
+ *       ProductInformationFilterList: [ // ProductInformationFilterList // required
+ *         { // ProductInformationFilter
  *           ProductInformationFilterName: "STRING_VALUE", // required
  *           ProductInformationFilterValue: [
  *             "STRING_VALUE",

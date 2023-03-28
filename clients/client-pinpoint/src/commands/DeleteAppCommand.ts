@@ -42,7 +42,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * import { PinpointClient, DeleteAppCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteAppCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // DeleteAppRequest
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new DeleteAppCommand(input);

@@ -53,7 +53,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * import { RDSClient, RestoreDBInstanceToPointInTimeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceToPointInTimeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // RestoreDBInstanceToPointInTimeMessage
  *   SourceDBInstanceIdentifier: "STRING_VALUE",
  *   TargetDBInstanceIdentifier: "STRING_VALUE", // required
  *   RestoreTime: new Date("TIMESTAMP"),
@@ -71,8 +71,8 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   Iops: Number("int"),
  *   OptionGroupName: "STRING_VALUE",
  *   CopyTagsToSnapshot: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -80,17 +80,17 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   StorageType: "STRING_VALUE",
  *   TdeCredentialArn: "STRING_VALUE",
  *   TdeCredentialPassword: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   Domain: "STRING_VALUE",
  *   DomainIAMRoleName: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
- *   ProcessorFeatures: [
- *     {
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

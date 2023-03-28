@@ -129,13 +129,13 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * import { ElastiCacheClient, CopySnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CopySnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // CopySnapshotMessage
  *   SourceSnapshotName: "STRING_VALUE", // required
  *   TargetSnapshotName: "STRING_VALUE", // required
  *   TargetBucket: "STRING_VALUE",
  *   KmsKeyId: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

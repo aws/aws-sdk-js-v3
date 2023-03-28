@@ -42,7 +42,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  * import { APIGatewayClient, PutIntegrationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutIntegrationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // PutIntegrationRequest
  *   restApiId: "STRING_VALUE", // required
  *   resourceId: "STRING_VALUE", // required
  *   httpMethod: "STRING_VALUE", // required
@@ -52,7 +52,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  *   connectionType: "INTERNET" || "VPC_LINK",
  *   connectionId: "STRING_VALUE",
  *   credentials: "STRING_VALUE",
- *   requestParameters: {
+ *   requestParameters: { // MapOfStringToString
  *     "<keys>": "STRING_VALUE",
  *   },
  *   requestTemplates: {
@@ -60,12 +60,12 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  *   },
  *   passthroughBehavior: "STRING_VALUE",
  *   cacheNamespace: "STRING_VALUE",
- *   cacheKeyParameters: [
+ *   cacheKeyParameters: [ // ListOfString
  *     "STRING_VALUE",
  *   ],
  *   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
  *   timeoutInMillis: Number("int"),
- *   tlsConfig: {
+ *   tlsConfig: { // TlsConfig
  *     insecureSkipVerification: true || false,
  *   },
  * };

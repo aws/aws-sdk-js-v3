@@ -47,13 +47,13 @@ export interface CreateStreamingImageCommandOutput extends CreateStreamingImageR
  * import { NimbleClient, CreateStreamingImageCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStreamingImageCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // CreateStreamingImageRequest
  *   clientToken: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   ec2ImageId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   studioId: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -44,7 +44,7 @@ export interface PutAccountSendingAttributesCommandOutput
  * import { SESv2Client, PutAccountSendingAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountSendingAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // PutAccountSendingAttributesRequest
  *   SendingEnabled: true || false,
  * };
  * const command = new PutAccountSendingAttributesCommand(input);

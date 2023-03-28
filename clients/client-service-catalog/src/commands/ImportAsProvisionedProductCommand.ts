@@ -83,7 +83,7 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  * import { ServiceCatalogClient, ImportAsProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ImportAsProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ImportAsProvisionedProductInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProductId: "STRING_VALUE", // required
  *   ProvisioningArtifactId: "STRING_VALUE", // required

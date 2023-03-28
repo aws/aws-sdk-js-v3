@@ -46,7 +46,7 @@ export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse,
  * import { RedshiftServerlessClient, GetRecoveryPointCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetRecoveryPointCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // GetRecoveryPointRequest
  *   recoveryPointId: "STRING_VALUE", // required
  * };
  * const command = new GetRecoveryPointCommand(input);

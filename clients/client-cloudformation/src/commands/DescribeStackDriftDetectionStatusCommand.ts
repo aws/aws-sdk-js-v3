@@ -56,7 +56,7 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  * import { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DescribeStackDriftDetectionStatusInput
  *   StackDriftDetectionId: "STRING_VALUE", // required
  * };
  * const command = new DescribeStackDriftDetectionStatusCommand(input);

@@ -42,7 +42,7 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * import { SimSpaceWeaverClient, DeleteAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, DeleteAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
- * const input = {
+ * const input = { // DeleteAppInput
  *   Simulation: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE", // required
  *   App: "STRING_VALUE", // required

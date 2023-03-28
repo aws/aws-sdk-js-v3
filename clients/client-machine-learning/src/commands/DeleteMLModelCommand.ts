@@ -47,7 +47,7 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * import { MachineLearningClient, DeleteMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // DeleteMLModelInput
  *   MLModelId: "STRING_VALUE", // required
  * };
  * const command = new DeleteMLModelCommand(input);

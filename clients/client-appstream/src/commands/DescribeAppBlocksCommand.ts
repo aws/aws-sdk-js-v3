@@ -42,8 +42,8 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  * import { AppStreamClient, DescribeAppBlocksCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeAppBlocksCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
- *   Arns: [
+ * const input = { // DescribeAppBlocksRequest
+ *   Arns: [ // ArnList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

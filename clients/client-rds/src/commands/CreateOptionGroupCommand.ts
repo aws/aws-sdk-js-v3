@@ -43,13 +43,13 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * import { RDSClient, CreateOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // CreateOptionGroupMessage
  *   OptionGroupName: "STRING_VALUE", // required
  *   EngineName: "STRING_VALUE", // required
  *   MajorEngineVersion: "STRING_VALUE", // required
  *   OptionGroupDescription: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

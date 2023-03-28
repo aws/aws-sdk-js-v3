@@ -42,7 +42,7 @@ export interface ListStageDeploymentsCommandOutput extends ListStageDeploymentsR
  * import { GameSparksClient, ListStageDeploymentsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListStageDeploymentsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // ListStageDeploymentsRequest
  *   GameName: "STRING_VALUE", // required
  *   StageName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

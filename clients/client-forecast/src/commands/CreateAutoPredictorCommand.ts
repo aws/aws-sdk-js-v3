@@ -94,54 +94,54 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * import { ForecastClient, CreateAutoPredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateAutoPredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // CreateAutoPredictorRequest
  *   PredictorName: "STRING_VALUE", // required
  *   ForecastHorizon: Number("int"),
- *   ForecastTypes: [
+ *   ForecastTypes: [ // ForecastTypes
  *     "STRING_VALUE",
  *   ],
- *   ForecastDimensions: [
+ *   ForecastDimensions: [ // ForecastDimensions
  *     "STRING_VALUE",
  *   ],
  *   ForecastFrequency: "STRING_VALUE",
- *   DataConfig: {
+ *   DataConfig: { // DataConfig
  *     DatasetGroupArn: "STRING_VALUE", // required
- *     AttributeConfigs: [
- *       {
+ *     AttributeConfigs: [ // AttributeConfigs
+ *       { // AttributeConfig
  *         AttributeName: "STRING_VALUE", // required
- *         Transformations: { // required
+ *         Transformations: { // Transformations // required
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     ],
- *     AdditionalDatasets: [
- *       {
+ *     AdditionalDatasets: [ // AdditionalDatasets
+ *       { // AdditionalDataset
  *         Name: "STRING_VALUE", // required
- *         Configuration: {
- *           "<keys>": [
+ *         Configuration: { // Configuration
+ *           "<keys>": [ // Values
  *             "STRING_VALUE",
  *           ],
  *         },
  *       },
  *     ],
  *   },
- *   EncryptionConfig: {
+ *   EncryptionConfig: { // EncryptionConfig
  *     RoleArn: "STRING_VALUE", // required
  *     KMSKeyArn: "STRING_VALUE", // required
  *   },
  *   ReferencePredictorArn: "STRING_VALUE",
  *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
  *   ExplainPredictor: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   MonitorConfig: {
+ *   MonitorConfig: { // MonitorConfig
  *     MonitorName: "STRING_VALUE", // required
  *   },
- *   TimeAlignmentBoundary: {
+ *   TimeAlignmentBoundary: { // TimeAlignmentBoundary
  *     Month: "JANUARY" || "FEBRUARY" || "MARCH" || "APRIL" || "MAY" || "JUNE" || "JULY" || "AUGUST" || "SEPTEMBER" || "OCTOBER" || "NOVEMBER" || "DECEMBER",
  *     DayOfMonth: Number("int"),
  *     DayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY",

@@ -56,18 +56,18 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * import { GreengrassV2Client, ResolveComponentCandidatesCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ResolveComponentCandidatesCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
- *   platform: {
+ * const input = { // ResolveComponentCandidatesRequest
+ *   platform: { // ComponentPlatform
  *     name: "STRING_VALUE",
- *     attributes: {
+ *     attributes: { // PlatformAttributesMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   componentCandidates: [
- *     {
+ *   componentCandidates: [ // ComponentCandidateList
+ *     { // ComponentCandidate
  *       componentName: "STRING_VALUE",
  *       componentVersion: "STRING_VALUE",
- *       versionRequirements: {
+ *       versionRequirements: { // ComponentVersionRequirementMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

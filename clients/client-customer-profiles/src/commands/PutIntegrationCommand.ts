@@ -47,47 +47,47 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * import { CustomerProfilesClient, PutIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, PutIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // PutIntegrationRequest
  *   DomainName: "STRING_VALUE", // required
  *   Uri: "STRING_VALUE",
  *   ObjectTypeName: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   FlowDefinition: {
+ *   FlowDefinition: { // FlowDefinition
  *     Description: "STRING_VALUE",
  *     FlowName: "STRING_VALUE", // required
  *     KmsArn: "STRING_VALUE", // required
- *     SourceFlowConfig: {
+ *     SourceFlowConfig: { // SourceFlowConfig
  *       ConnectorProfileName: "STRING_VALUE",
  *       ConnectorType: "Salesforce" || "Marketo" || "Zendesk" || "Servicenow" || "S3", // required
- *       IncrementalPullConfig: {
+ *       IncrementalPullConfig: { // IncrementalPullConfig
  *         DatetimeTypeFieldName: "STRING_VALUE",
  *       },
- *       SourceConnectorProperties: {
- *         Marketo: {
+ *       SourceConnectorProperties: { // SourceConnectorProperties
+ *         Marketo: { // MarketoSourceProperties
  *           Object: "STRING_VALUE", // required
  *         },
- *         S3: {
+ *         S3: { // S3SourceProperties
  *           BucketName: "STRING_VALUE", // required
  *           BucketPrefix: "STRING_VALUE",
  *         },
- *         Salesforce: {
+ *         Salesforce: { // SalesforceSourceProperties
  *           Object: "STRING_VALUE", // required
  *           EnableDynamicFieldUpdate: true || false,
  *           IncludeDeletedRecords: true || false,
  *         },
- *         ServiceNow: {
+ *         ServiceNow: { // ServiceNowSourceProperties
  *           Object: "STRING_VALUE", // required
  *         },
- *         Zendesk: {
+ *         Zendesk: { // ZendeskSourceProperties
  *           Object: "STRING_VALUE", // required
  *         },
  *       },
  *     },
- *     Tasks: [ // required
- *       {
- *         ConnectorOperator: {
+ *     Tasks: [ // Tasks // required
+ *       { // Task
+ *         ConnectorOperator: { // ConnectorOperator
  *           Marketo: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
  *           S3: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
  *           Salesforce: "PROJECTION" || "LESS_THAN" || "CONTAINS" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
@@ -95,19 +95,19 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *           Zendesk: "PROJECTION" || "GREATER_THAN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
  *         },
  *         DestinationField: "STRING_VALUE",
- *         SourceFields: [ // required
+ *         SourceFields: [ // SourceFields // required
  *           "STRING_VALUE",
  *         ],
- *         TaskProperties: {
+ *         TaskProperties: { // TaskPropertiesMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *         TaskType: "Arithmetic" || "Filter" || "Map" || "Mask" || "Merge" || "Truncate" || "Validate", // required
  *       },
  *     ],
- *     TriggerConfig: {
+ *     TriggerConfig: { // TriggerConfig
  *       TriggerType: "Scheduled" || "Event" || "OnDemand", // required
- *       TriggerProperties: {
- *         Scheduled: {
+ *       TriggerProperties: { // TriggerProperties
+ *         Scheduled: { // ScheduledTriggerProperties
  *           ScheduleExpression: "STRING_VALUE", // required
  *           DataPullMode: "Incremental" || "Complete",
  *           ScheduleStartTime: new Date("TIMESTAMP"),
@@ -119,7 +119,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *       },
  *     },
  *   },
- *   ObjectTypeNames: {
+ *   ObjectTypeNames: { // ObjectTypeNames
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

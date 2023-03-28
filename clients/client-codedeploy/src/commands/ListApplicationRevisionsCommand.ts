@@ -42,7 +42,7 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * import { CodeDeployClient, ListApplicationRevisionsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListApplicationRevisionsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // ListApplicationRevisionsInput
  *   applicationName: "STRING_VALUE", // required
  *   sortBy: "registerTime" || "firstUsedTime" || "lastUsedTime",
  *   sortOrder: "ascending" || "descending",

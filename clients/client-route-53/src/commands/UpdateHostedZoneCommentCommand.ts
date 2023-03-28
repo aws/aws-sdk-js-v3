@@ -43,7 +43,7 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
  * import { Route53Client, UpdateHostedZoneCommentCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, UpdateHostedZoneCommentCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // UpdateHostedZoneCommentRequest
  *   Id: "STRING_VALUE", // required
  *   Comment: "STRING_VALUE",
  * };

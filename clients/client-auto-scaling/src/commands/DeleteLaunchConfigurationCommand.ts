@@ -44,7 +44,7 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * import { AutoScalingClient, DeleteLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // LaunchConfigurationNameType
  *   LaunchConfigurationName: "STRING_VALUE", // required
  * };
  * const command = new DeleteLaunchConfigurationCommand(input);

@@ -42,7 +42,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * import { IoTFleetWiseClient, GetCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // GetCampaignRequest
  *   name: "STRING_VALUE", // required
  * };
  * const command = new GetCampaignCommand(input);

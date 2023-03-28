@@ -44,7 +44,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { IoTThingsGraphClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   maxResults: Number("int"),
  *   resourceArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",

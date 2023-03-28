@@ -42,7 +42,7 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * import { ElasticBeanstalkClient, DeletePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeletePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DeletePlatformVersionRequest
  *   PlatformArn: "STRING_VALUE",
  * };
  * const command = new DeletePlatformVersionCommand(input);

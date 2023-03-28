@@ -59,8 +59,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * import { RedshiftDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
- * const input = {
- *   Sqls: [ // required
+ * const input = { // BatchExecuteStatementInput
+ *   Sqls: [ // SqlList // required
  *     "STRING_VALUE",
  *   ],
  *   ClusterIdentifier: "STRING_VALUE",

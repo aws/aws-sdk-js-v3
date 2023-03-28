@@ -52,7 +52,7 @@ export interface DescribeStackProvisioningParametersCommandOutput
  * import { OpsWorksClient, DescribeStackProvisioningParametersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeStackProvisioningParametersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DescribeStackProvisioningParametersRequest
  *   StackId: "STRING_VALUE", // required
  * };
  * const command = new DescribeStackProvisioningParametersCommand(input);

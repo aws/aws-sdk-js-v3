@@ -46,12 +46,12 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput
  * import { EC2Client, CreateTrafficMirrorFilterRuleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTrafficMirrorFilterRuleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateTrafficMirrorFilterRuleRequest
  *   TrafficMirrorFilterId: "STRING_VALUE", // required
  *   TrafficDirection: "ingress" || "egress", // required
  *   RuleNumber: Number("int"), // required
  *   RuleAction: "accept" || "reject", // required
- *   DestinationPortRange: {
+ *   DestinationPortRange: { // TrafficMirrorPortRangeRequest
  *     FromPort: Number("int"),
  *     ToPort: Number("int"),
  *   },

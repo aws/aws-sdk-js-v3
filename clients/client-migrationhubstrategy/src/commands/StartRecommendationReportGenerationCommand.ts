@@ -51,10 +51,10 @@ export interface StartRecommendationReportGenerationCommandOutput
  * import { MigrationHubStrategyClient, StartRecommendationReportGenerationCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StartRecommendationReportGenerationCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
- * const input = {
+ * const input = { // StartRecommendationReportGenerationRequest
  *   outputFormat: "STRING_VALUE",
- *   groupIdFilter: [
- *     {
+ *   groupIdFilter: [ // GroupIds
+ *     { // Group
  *       name: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

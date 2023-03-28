@@ -45,7 +45,7 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * import { IAMClient, UpdateSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UpdateSAMLProviderRequest
  *   SAMLMetadataDocument: "STRING_VALUE", // required
  *   SAMLProviderArn: "STRING_VALUE", // required
  * };

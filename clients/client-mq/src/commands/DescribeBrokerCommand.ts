@@ -42,7 +42,7 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * import { MqClient, DescribeBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = {
+ * const input = { // DescribeBrokerRequest
  *   BrokerId: "STRING_VALUE", // required
  * };
  * const command = new DescribeBrokerCommand(input);

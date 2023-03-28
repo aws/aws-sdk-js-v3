@@ -65,24 +65,24 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  * import { CloudFrontClient, UpdateContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   ContinuousDeploymentPolicyConfig: {
- *     StagingDistributionDnsNames: {
+ * const input = { // UpdateContinuousDeploymentPolicyRequest
+ *   ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
+ *     StagingDistributionDnsNames: { // StagingDistributionDnsNames
  *       Quantity: Number("int"), // required
- *       Items: [
+ *       Items: [ // StagingDistributionDnsNameList
  *         "STRING_VALUE",
  *       ],
  *     },
  *     Enabled: true || false, // required
- *     TrafficConfig: {
- *       SingleWeightConfig: {
+ *     TrafficConfig: { // TrafficConfig
+ *       SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
  *         Weight: Number("float"), // required
- *         SessionStickinessConfig: {
+ *         SessionStickinessConfig: { // SessionStickinessConfig
  *           IdleTTL: Number("int"), // required
  *           MaximumTTL: Number("int"), // required
  *         },
  *       },
- *       SingleHeaderConfig: {
+ *       SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
  *         Header: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },

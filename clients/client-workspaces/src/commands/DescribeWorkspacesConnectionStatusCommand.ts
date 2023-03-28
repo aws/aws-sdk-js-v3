@@ -47,8 +47,8 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * import { WorkSpacesClient, DescribeWorkspacesConnectionStatusCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspacesConnectionStatusCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
- *   WorkspaceIds: [
+ * const input = { // DescribeWorkspacesConnectionStatusRequest
+ *   WorkspaceIds: [ // WorkspaceIdList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

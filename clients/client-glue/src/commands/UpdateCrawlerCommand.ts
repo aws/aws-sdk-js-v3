@@ -44,16 +44,16 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * import { GlueClient, UpdateCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // UpdateCrawlerRequest
  *   Name: "STRING_VALUE", // required
  *   Role: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   Targets: {
- *     S3Targets: [
- *       {
+ *   Targets: { // CrawlerTargets
+ *     S3Targets: [ // S3TargetList
+ *       { // S3Target
  *         Path: "STRING_VALUE",
- *         Exclusions: [
+ *         Exclusions: [ // PathList
  *           "STRING_VALUE",
  *         ],
  *         ConnectionName: "STRING_VALUE",
@@ -62,36 +62,36 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  *         DlqEventQueueArn: "STRING_VALUE",
  *       },
  *     ],
- *     JdbcTargets: [
- *       {
+ *     JdbcTargets: [ // JdbcTargetList
+ *       { // JdbcTarget
  *         ConnectionName: "STRING_VALUE",
  *         Path: "STRING_VALUE",
  *         Exclusions: [
  *           "STRING_VALUE",
  *         ],
- *         EnableAdditionalMetadata: [
+ *         EnableAdditionalMetadata: [ // EnableAdditionalMetadata
  *           "COMMENTS" || "RAWTYPES",
  *         ],
  *       },
  *     ],
- *     MongoDBTargets: [
- *       {
+ *     MongoDBTargets: [ // MongoDBTargetList
+ *       { // MongoDBTarget
  *         ConnectionName: "STRING_VALUE",
  *         Path: "STRING_VALUE",
  *         ScanAll: true || false,
  *       },
  *     ],
- *     DynamoDBTargets: [
- *       {
+ *     DynamoDBTargets: [ // DynamoDBTargetList
+ *       { // DynamoDBTarget
  *         Path: "STRING_VALUE",
  *         scanAll: true || false,
  *         scanRate: Number("double"),
  *       },
  *     ],
- *     CatalogTargets: [
- *       {
+ *     CatalogTargets: [ // CatalogTargetList
+ *       { // CatalogTarget
  *         DatabaseName: "STRING_VALUE", // required
- *         Tables: [ // required
+ *         Tables: [ // CatalogTablesList // required
  *           "STRING_VALUE",
  *         ],
  *         ConnectionName: "STRING_VALUE",
@@ -99,8 +99,8 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  *         DlqEventQueueArn: "STRING_VALUE",
  *       },
  *     ],
- *     DeltaTargets: [
- *       {
+ *     DeltaTargets: [ // DeltaTargetList
+ *       { // DeltaTarget
  *         DeltaTables: [
  *           "STRING_VALUE",
  *         ],
@@ -111,21 +111,21 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  *     ],
  *   },
  *   Schedule: "STRING_VALUE",
- *   Classifiers: [
+ *   Classifiers: [ // ClassifierNameList
  *     "STRING_VALUE",
  *   ],
  *   TablePrefix: "STRING_VALUE",
- *   SchemaChangePolicy: {
+ *   SchemaChangePolicy: { // SchemaChangePolicy
  *     UpdateBehavior: "LOG" || "UPDATE_IN_DATABASE",
  *     DeleteBehavior: "LOG" || "DELETE_FROM_DATABASE" || "DEPRECATE_IN_DATABASE",
  *   },
- *   RecrawlPolicy: {
+ *   RecrawlPolicy: { // RecrawlPolicy
  *     RecrawlBehavior: "CRAWL_EVERYTHING" || "CRAWL_NEW_FOLDERS_ONLY" || "CRAWL_EVENT_MODE",
  *   },
- *   LineageConfiguration: {
+ *   LineageConfiguration: { // LineageConfiguration
  *     CrawlerLineageSettings: "ENABLE" || "DISABLE",
  *   },
- *   LakeFormationConfiguration: {
+ *   LakeFormationConfiguration: { // LakeFormationConfiguration
  *     UseLakeFormationCredentials: true || false,
  *     AccountId: "STRING_VALUE",
  *   },

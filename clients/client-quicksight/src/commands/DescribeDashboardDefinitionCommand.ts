@@ -56,7 +56,7 @@ export interface DescribeDashboardDefinitionCommandOutput
  * import { QuickSightClient, DescribeDashboardDefinitionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDashboardDefinitionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // DescribeDashboardDefinitionRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DashboardId: "STRING_VALUE", // required
  *   VersionNumber: Number("long"),

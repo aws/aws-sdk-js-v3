@@ -42,13 +42,13 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  * import { AppStreamClient, UpdateEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // UpdateEntitlementRequest
  *   Name: "STRING_VALUE", // required
  *   StackName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   AppVisibility: "ALL" || "ASSOCIATED",
- *   Attributes: [
- *     {
+ *   Attributes: [ // EntitlementAttributeList
+ *     { // EntitlementAttribute
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface EnableClientAuthenticationCommandOutput extends EnableClientAut
  * import { DirectoryServiceClient, EnableClientAuthenticationCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableClientAuthenticationCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // EnableClientAuthenticationRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   Type: "SmartCard" || "SmartCardOrPassword", // required
  * };

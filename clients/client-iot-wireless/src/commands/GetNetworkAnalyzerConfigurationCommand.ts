@@ -44,7 +44,7 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  * import { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // GetNetworkAnalyzerConfigurationRequest
  *   ConfigurationName: "STRING_VALUE", // required
  * };
  * const command = new GetNetworkAnalyzerConfigurationCommand(input);

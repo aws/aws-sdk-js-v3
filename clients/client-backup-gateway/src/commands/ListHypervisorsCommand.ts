@@ -42,7 +42,7 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * import { BackupGatewayClient, ListHypervisorsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ListHypervisorsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
- * const input = {
+ * const input = { // ListHypervisorsInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

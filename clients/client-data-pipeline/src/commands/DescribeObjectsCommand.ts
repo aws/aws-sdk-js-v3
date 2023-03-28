@@ -100,9 +100,9 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * import { DataPipelineClient, DescribeObjectsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, DescribeObjectsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // DescribeObjectsInput
  *   pipelineId: "STRING_VALUE", // required
- *   objectIds: [ // required
+ *   objectIds: [ // idList // required
  *     "STRING_VALUE",
  *   ],
  *   evaluateExpressions: true || false,

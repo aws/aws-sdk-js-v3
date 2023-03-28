@@ -50,33 +50,33 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * import { RUMClient, CreateAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, CreateAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // CreateAppMonitorRequest
  *   Name: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AppMonitorConfiguration: {
+ *   AppMonitorConfiguration: { // AppMonitorConfiguration
  *     IdentityPoolId: "STRING_VALUE",
- *     ExcludedPages: [
+ *     ExcludedPages: [ // Pages
  *       "STRING_VALUE",
  *     ],
  *     IncludedPages: [
  *       "STRING_VALUE",
  *     ],
- *     FavoritePages: [
+ *     FavoritePages: [ // FavoritePages
  *       "STRING_VALUE",
  *     ],
  *     SessionSampleRate: Number("double"),
  *     GuestRoleArn: "STRING_VALUE",
  *     AllowCookies: true || false,
- *     Telemetries: [
+ *     Telemetries: [ // Telemetries
  *       "STRING_VALUE",
  *     ],
  *     EnableXRay: true || false,
  *   },
  *   CwLogEnabled: true || false,
- *   CustomEvents: {
+ *   CustomEvents: { // CustomEvents
  *     Status: "STRING_VALUE",
  *   },
  * };

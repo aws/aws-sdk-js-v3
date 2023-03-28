@@ -44,9 +44,9 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * import { CloudSearchClient, DescribeIndexFieldsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeIndexFieldsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DescribeIndexFieldsRequest
  *   DomainName: "STRING_VALUE", // required
- *   FieldNames: [
+ *   FieldNames: [ // DynamicFieldNameList
  *     "STRING_VALUE",
  *   ],
  *   Deployed: true || false,

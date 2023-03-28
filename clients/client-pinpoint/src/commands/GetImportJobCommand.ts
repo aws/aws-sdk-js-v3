@@ -42,7 +42,7 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * import { PinpointClient, GetImportJobCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetImportJobCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetImportJobRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   JobId: "STRING_VALUE", // required
  * };

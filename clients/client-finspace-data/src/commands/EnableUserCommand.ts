@@ -42,7 +42,7 @@ export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataB
  * import { FinspaceDataClient, EnableUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, EnableUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // EnableUserRequest
  *   userId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

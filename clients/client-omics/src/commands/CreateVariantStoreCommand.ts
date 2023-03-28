@@ -42,16 +42,16 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  * import { OmicsClient, CreateVariantStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateVariantStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
- *   reference: { // Union: only one key present
+ * const input = { // CreateVariantStoreRequest
+ *   reference: { // ReferenceItem Union: only one key present
  *     referenceArn: "STRING_VALUE",
  *   },
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   sseConfig: {
+ *   sseConfig: { // SseConfig
  *     type: "STRING_VALUE", // required
  *     keyArn: "STRING_VALUE",
  *   },

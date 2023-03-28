@@ -42,7 +42,7 @@ export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorD
  * import { GreengrassClient, UpdateConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // UpdateConnectorDefinitionRequest
  *   ConnectorDefinitionId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  * };

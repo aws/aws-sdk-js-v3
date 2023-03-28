@@ -84,13 +84,13 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  * import { WAFClient, UpdateRegexMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateRegexMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // UpdateRegexMatchSetRequest
  *   RegexMatchSetId: "STRING_VALUE", // required
- *   Updates: [ // required
- *     {
+ *   Updates: [ // RegexMatchSetUpdates // required
+ *     { // RegexMatchSetUpdate
  *       Action: "STRING_VALUE", // required
- *       RegexMatchTuple: {
- *         FieldToMatch: {
+ *       RegexMatchTuple: { // RegexMatchTuple
+ *         FieldToMatch: { // FieldToMatch
  *           Type: "STRING_VALUE", // required
  *           Data: "STRING_VALUE",
  *         },

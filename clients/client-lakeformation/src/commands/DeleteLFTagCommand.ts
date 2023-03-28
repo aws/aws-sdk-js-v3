@@ -42,7 +42,7 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * import { LakeFormationClient, DeleteLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeleteLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // DeleteLFTagRequest
  *   CatalogId: "STRING_VALUE",
  *   TagKey: "STRING_VALUE", // required
  * };

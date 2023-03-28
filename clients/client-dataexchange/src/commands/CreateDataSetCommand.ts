@@ -42,11 +42,11 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * import { DataExchangeClient, CreateDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CreateDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
- * const input = {
+ * const input = { // CreateDataSetRequest
  *   AssetType: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // MapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

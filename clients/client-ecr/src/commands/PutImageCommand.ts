@@ -47,7 +47,7 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * import { ECRClient, PutImageCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutImageCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // PutImageRequest
  *   registryId: "STRING_VALUE",
  *   repositoryName: "STRING_VALUE", // required
  *   imageManifest: "STRING_VALUE", // required

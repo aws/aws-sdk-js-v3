@@ -63,7 +63,7 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  * import { IoTSiteWiseClient, DeleteTimeSeriesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteTimeSeriesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DeleteTimeSeriesRequest
  *   alias: "STRING_VALUE",
  *   assetId: "STRING_VALUE",
  *   propertyId: "STRING_VALUE",

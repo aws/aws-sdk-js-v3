@@ -58,7 +58,7 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * import { LexModelBuildingServiceClient, CreateBotVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, CreateBotVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // CreateBotVersionRequest
  *   name: "STRING_VALUE", // required
  *   checksum: "STRING_VALUE",
  * };

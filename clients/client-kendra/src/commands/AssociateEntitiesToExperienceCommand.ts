@@ -48,11 +48,11 @@ export interface AssociateEntitiesToExperienceCommandOutput
  * import { KendraClient, AssociateEntitiesToExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, AssociateEntitiesToExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // AssociateEntitiesToExperienceRequest
  *   Id: "STRING_VALUE", // required
  *   IndexId: "STRING_VALUE", // required
- *   EntityList: [ // required
- *     {
+ *   EntityList: [ // AssociateEntityList // required
+ *     { // EntityConfiguration
  *       EntityId: "STRING_VALUE", // required
  *       EntityType: "USER" || "GROUP", // required
  *     },

@@ -45,7 +45,7 @@ export interface DescribeSecurityConfigurationCommandOutput
  * import { EMRClient, DescribeSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // DescribeSecurityConfigurationInput
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeSecurityConfigurationCommand(input);

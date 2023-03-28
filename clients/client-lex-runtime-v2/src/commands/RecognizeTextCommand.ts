@@ -77,41 +77,38 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  * import { LexRuntimeV2Client, RecognizeTextCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, RecognizeTextCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
- * const input = {
+ * const input = { // RecognizeTextRequest
  *   botId: "STRING_VALUE", // required
  *   botAliasId: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
  *   text: "STRING_VALUE", // required
- *   sessionState: {
- *     dialogAction: {
+ *   sessionState: { // SessionState
+ *     dialogAction: { // DialogAction
  *       type: "Close" || "ConfirmIntent" || "Delegate" || "ElicitIntent" || "ElicitSlot" || "None", // required
  *       slotToElicit: "STRING_VALUE",
  *       slotElicitationStyle: "Default" || "SpellByLetter" || "SpellByWord",
- *       subSlotToElicit: {
+ *       subSlotToElicit: { // ElicitSubSlot
  *         name: "STRING_VALUE", // required
  *         subSlotToElicit: {
  *           name: "STRING_VALUE", // required
- *           subSlotToElicit: {
- *             name: "<ElicitSubSlot>",
- *             subSlotToElicit: "<ElicitSubSlot>",
- *           },
+ *           subSlotToElicit: "<ElicitSubSlot>",
  *         },
  *       },
  *     },
- *     intent: {
+ *     intent: { // Intent
  *       name: "STRING_VALUE", // required
- *       slots: {
- *         "<keys>": {
- *           value: {
+ *       slots: { // Slots
+ *         "<keys>": { // Slot
+ *           value: { // Value
  *             originalValue: "STRING_VALUE",
  *             interpretedValue: "STRING_VALUE", // required
- *             resolvedValues: [
+ *             resolvedValues: [ // StringList
  *               "STRING_VALUE",
  *             ],
  *           },
  *           shape: "Scalar" || "List" || "Composite",
- *           values: [
+ *           values: [ // Values
  *             {
  *               value: {
  *                 originalValue: "STRING_VALUE",
@@ -122,53 +119,41 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  *               },
  *               shape: "Scalar" || "List" || "Composite",
  *               values: [
- *                 {
- *                   value: "<Slot>",
- *                   shape: "<Slot>",
- *                   values: "<Slot>",
- *                   subSlots: {
- *                     "<keys>": {
- *                       value: "<Slot>",
- *                       shape: "<Slot>",
- *                       values: "<Slot>",
- *                       subSlots: {
- *                         "<keys>": "<Slot>",
- *                       },
- *                     },
- *                   },
- *                 },
+ *                 "<Slot>",
  *               ],
- *               subSlots: "<Slot>",
+ *               subSlots: {
+ *                 "<keys>": "<Slot>",
+ *               },
  *             },
  *           ],
- *           subSlots: "<Slot>",
+ *           subSlots: "<Slots>",
  *         },
  *       },
  *       state: "Failed" || "Fulfilled" || "InProgress" || "ReadyForFulfillment" || "Waiting" || "FulfillmentInProgress",
  *       confirmationState: "Confirmed" || "Denied" || "None",
  *     },
- *     activeContexts: [
- *       {
+ *     activeContexts: [ // ActiveContextsList
+ *       { // ActiveContext
  *         name: "STRING_VALUE", // required
- *         timeToLive: {
+ *         timeToLive: { // ActiveContextTimeToLive
  *           timeToLiveInSeconds: Number("int"), // required
  *           turnsToLive: Number("int"), // required
  *         },
- *         contextAttributes: { // required
+ *         contextAttributes: { // ActiveContextParametersMap // required
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     ],
- *     sessionAttributes: {
+ *     sessionAttributes: { // StringMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     originatingRequestId: "STRING_VALUE",
- *     runtimeHints: {
- *       slotHints: {
- *         "<keys>": {
- *           "<keys>": {
- *             runtimeHintValues: [
- *               {
+ *     runtimeHints: { // RuntimeHints
+ *       slotHints: { // SlotHintsIntentMap
+ *         "<keys>": { // SlotHintsSlotMap
+ *           "<keys>": { // RuntimeHintDetails
+ *             runtimeHintValues: [ // RuntimeHintValuesList
+ *               { // RuntimeHintValue
  *                 phrase: "STRING_VALUE", // required
  *               },
  *             ],
@@ -179,9 +164,7 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  *                     phrase: "STRING_VALUE", // required
  *                   },
  *                 ],
- *                 subSlotHints: {
- *                   "<keys>": "<RuntimeHintDetails>",
- *                 },
+ *                 subSlotHints: "<SlotHintsSlotMap>",
  *               },
  *             },
  *           },

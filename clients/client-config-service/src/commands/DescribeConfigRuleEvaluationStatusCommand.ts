@@ -48,8 +48,8 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * import { ConfigServiceClient, DescribeConfigRuleEvaluationStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigRuleEvaluationStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   ConfigRuleNames: [
+ * const input = { // DescribeConfigRuleEvaluationStatusRequest
+ *   ConfigRuleNames: [ // ConfigRuleNames
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

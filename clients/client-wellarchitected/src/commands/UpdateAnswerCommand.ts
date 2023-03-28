@@ -42,15 +42,15 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  * import { WellArchitectedClient, UpdateAnswerCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateAnswerCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // UpdateAnswerInput
  *   WorkloadId: "STRING_VALUE", // required
  *   LensAlias: "STRING_VALUE", // required
  *   QuestionId: "STRING_VALUE", // required
- *   SelectedChoices: [
+ *   SelectedChoices: [ // SelectedChoices
  *     "STRING_VALUE",
  *   ],
- *   ChoiceUpdates: {
- *     "<keys>": {
+ *   ChoiceUpdates: { // ChoiceUpdates
+ *     "<keys>": { // ChoiceUpdate
  *       Status: "SELECTED" || "NOT_APPLICABLE" || "UNSELECTED", // required
  *       Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
  *       Notes: "STRING_VALUE",

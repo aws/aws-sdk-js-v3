@@ -59,7 +59,7 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * import { CognitoIdentityClient, LookupDeveloperIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, LookupDeveloperIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
- * const input = {
+ * const input = { // LookupDeveloperIdentityInput
  *   IdentityPoolId: "STRING_VALUE", // required
  *   IdentityId: "STRING_VALUE",
  *   DeveloperUserIdentifier: "STRING_VALUE",

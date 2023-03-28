@@ -42,7 +42,7 @@ export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOut
  * import { AppMeshClient, DescribeVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // DescribeVirtualNodeInput
  *   virtualNodeName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
  *   meshOwner: "STRING_VALUE",

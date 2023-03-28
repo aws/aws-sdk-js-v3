@@ -43,11 +43,11 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * import { IoTClient, UpdateAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateAuthorizerRequest
  *   authorizerName: "STRING_VALUE", // required
  *   authorizerFunctionArn: "STRING_VALUE",
  *   tokenKeyName: "STRING_VALUE",
- *   tokenSigningPublicKeys: {
+ *   tokenSigningPublicKeys: { // PublicKeyMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   status: "ACTIVE" || "INACTIVE",

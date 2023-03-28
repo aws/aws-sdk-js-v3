@@ -47,7 +47,7 @@ export interface AssociateResourceSharePermissionCommandOutput
  * import { RAMClient, AssociateResourceSharePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, AssociateResourceSharePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // AssociateResourceSharePermissionRequest
  *   resourceShareArn: "STRING_VALUE", // required
  *   permissionArn: "STRING_VALUE", // required
  *   replace: true || false,

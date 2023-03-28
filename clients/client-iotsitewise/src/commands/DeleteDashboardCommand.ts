@@ -42,7 +42,7 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  * import { IoTSiteWiseClient, DeleteDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DeleteDashboardRequest
  *   dashboardId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

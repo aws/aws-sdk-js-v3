@@ -42,7 +42,7 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  * import { CostExplorerClient, ProvideAnomalyFeedbackCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ProvideAnomalyFeedbackCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const input = {
+ * const input = { // ProvideAnomalyFeedbackRequest
  *   AnomalyId: "STRING_VALUE", // required
  *   Feedback: "YES" || "NO" || "PLANNED_ACTIVITY", // required
  * };

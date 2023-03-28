@@ -43,7 +43,7 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * import { IoTSiteWiseClient, DescribeBulkImportJobCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeBulkImportJobCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DescribeBulkImportJobRequest
  *   jobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeBulkImportJobCommand(input);

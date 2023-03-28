@@ -46,7 +46,7 @@ export interface GetRasterDataCollectionCommandOutput extends GetRasterDataColle
  * import { SageMakerGeospatialClient, GetRasterDataCollectionCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, GetRasterDataCollectionCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // GetRasterDataCollectionInput
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new GetRasterDataCollectionCommand(input);

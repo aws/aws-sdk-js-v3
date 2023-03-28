@@ -42,7 +42,7 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
  * import { RedshiftClient, DescribeEndpointAuthorizationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEndpointAuthorizationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeEndpointAuthorizationMessage
  *   ClusterIdentifier: "STRING_VALUE",
  *   Account: "STRING_VALUE",
  *   Grantee: true || false,

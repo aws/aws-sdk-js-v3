@@ -42,8 +42,8 @@ export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput
  * import { RestXmlProtocolClient, BodyWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, BodyWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
- *   nested: {
+ * const input = { // BodyWithXmlNameInputOutput
+ *   nested: { // PayloadWithXmlName
  *     name: "STRING_VALUE",
  *   },
  * };

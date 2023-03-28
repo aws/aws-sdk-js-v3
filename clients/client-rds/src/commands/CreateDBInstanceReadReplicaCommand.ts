@@ -54,7 +54,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * import { RDSClient, CreateDBInstanceReadReplicaCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBInstanceReadReplicaCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // CreateDBInstanceReadReplicaMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   SourceDBInstanceIdentifier: "STRING_VALUE", // required
  *   DBInstanceClass: "STRING_VALUE",
@@ -66,14 +66,14 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   OptionGroupName: "STRING_VALUE",
  *   DBParameterGroupName: "STRING_VALUE",
  *   PubliclyAccessible: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
  *   DBSubnetGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   StorageType: "STRING_VALUE",
@@ -86,11 +86,11 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
- *   ProcessorFeatures: [
- *     {
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

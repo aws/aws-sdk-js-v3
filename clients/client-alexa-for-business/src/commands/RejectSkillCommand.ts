@@ -44,7 +44,7 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
  * import { AlexaForBusinessClient, RejectSkillCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, RejectSkillCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // RejectSkillRequest
  *   SkillId: "STRING_VALUE", // required
  * };
  * const command = new RejectSkillCommand(input);

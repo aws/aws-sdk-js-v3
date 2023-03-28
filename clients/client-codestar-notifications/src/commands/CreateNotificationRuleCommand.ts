@@ -52,21 +52,21 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * import { CodestarNotificationsClient, CreateNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, CreateNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
- * const input = {
+ * const input = { // CreateNotificationRuleRequest
  *   Name: "STRING_VALUE", // required
- *   EventTypeIds: [ // required
+ *   EventTypeIds: [ // EventTypeIds // required
  *     "STRING_VALUE",
  *   ],
  *   Resource: "STRING_VALUE", // required
- *   Targets: [ // required
- *     {
+ *   Targets: [ // Targets // required
+ *     { // Target
  *       TargetType: "STRING_VALUE",
  *       TargetAddress: "STRING_VALUE",
  *     },
  *   ],
  *   DetailType: "BASIC" || "FULL", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Status: "ENABLED" || "DISABLED",

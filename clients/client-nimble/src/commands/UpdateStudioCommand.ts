@@ -49,7 +49,7 @@ export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __Metad
  * import { NimbleClient, UpdateStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // UpdateStudioRequest
  *   adminRoleArn: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   displayName: "STRING_VALUE",

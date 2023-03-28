@@ -42,7 +42,7 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * import { FisClient, GetExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, GetExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
- * const input = {
+ * const input = { // GetExperimentRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetExperimentCommand(input);

@@ -65,21 +65,21 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  * import { AppMeshClient, CreateVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // CreateVirtualNodeInput
  *   virtualNodeName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
- *   spec: {
- *     serviceDiscovery: { // Union: only one key present
- *       dns: {
+ *   spec: { // VirtualNodeSpec
+ *     serviceDiscovery: { // ServiceDiscovery Union: only one key present
+ *       dns: { // DnsServiceDiscovery
  *         hostname: "STRING_VALUE", // required
  *         responseType: "STRING_VALUE",
  *         ipPreference: "STRING_VALUE",
  *       },
- *       awsCloudMap: {
+ *       awsCloudMap: { // AwsCloudMapServiceDiscovery
  *         namespaceName: "STRING_VALUE", // required
  *         serviceName: "STRING_VALUE", // required
- *         attributes: [
- *           {
+ *         attributes: [ // AwsCloudMapInstanceAttributes
+ *           { // AwsCloudMapInstanceAttribute
  *             key: "STRING_VALUE", // required
  *             value: "STRING_VALUE", // required
  *           },
@@ -87,45 +87,45 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *         ipPreference: "STRING_VALUE",
  *       },
  *     },
- *     listeners: [
- *       {
- *         portMapping: {
+ *     listeners: [ // Listeners
+ *       { // Listener
+ *         portMapping: { // PortMapping
  *           port: Number("int"), // required
  *           protocol: "STRING_VALUE", // required
  *         },
- *         tls: {
+ *         tls: { // ListenerTls
  *           mode: "STRING_VALUE", // required
- *           certificate: { // Union: only one key present
- *             acm: {
+ *           certificate: { // ListenerTlsCertificate Union: only one key present
+ *             acm: { // ListenerTlsAcmCertificate
  *               certificateArn: "STRING_VALUE", // required
  *             },
- *             file: {
+ *             file: { // ListenerTlsFileCertificate
  *               certificateChain: "STRING_VALUE", // required
  *               privateKey: "STRING_VALUE", // required
  *             },
- *             sds: {
+ *             sds: { // ListenerTlsSdsCertificate
  *               secretName: "STRING_VALUE", // required
  *             },
  *           },
- *           validation: {
- *             trust: { // Union: only one key present
- *               file: {
+ *           validation: { // ListenerTlsValidationContext
+ *             trust: { // ListenerTlsValidationContextTrust Union: only one key present
+ *               file: { // TlsValidationContextFileTrust
  *                 certificateChain: "STRING_VALUE", // required
  *               },
- *               sds: {
+ *               sds: { // TlsValidationContextSdsTrust
  *                 secretName: "STRING_VALUE", // required
  *               },
  *             },
- *             subjectAlternativeNames: {
- *               match: {
- *                 exact: [ // required
+ *             subjectAlternativeNames: { // SubjectAlternativeNames
+ *               match: { // SubjectAlternativeNameMatchers
+ *                 exact: [ // SubjectAlternativeNameList // required
  *                   "STRING_VALUE",
  *                 ],
  *               },
  *             },
  *           },
  *         },
- *         healthCheck: {
+ *         healthCheck: { // HealthCheckPolicy
  *           timeoutMillis: Number("long"), // required
  *           intervalMillis: Number("long"), // required
  *           protocol: "STRING_VALUE", // required
@@ -134,14 +134,14 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *           healthyThreshold: Number("int"), // required
  *           unhealthyThreshold: Number("int"), // required
  *         },
- *         timeout: { // Union: only one key present
- *           tcp: {
- *             idle: {
+ *         timeout: { // ListenerTimeout Union: only one key present
+ *           tcp: { // TcpTimeout
+ *             idle: { // Duration
  *               value: Number("long"),
  *               unit: "STRING_VALUE",
  *             },
  *           },
- *           http: {
+ *           http: { // HttpTimeout
  *             perRequest: {
  *               value: Number("long"),
  *               unit: "STRING_VALUE",
@@ -161,57 +161,45 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *               unit: "STRING_VALUE",
  *             },
  *           },
- *           grpc: {
- *             perRequest: {
- *               value: Number("long"),
- *               unit: "STRING_VALUE",
- *             },
- *             idle: {
- *               value: Number("long"),
- *               unit: "STRING_VALUE",
- *             },
+ *           grpc: { // GrpcTimeout
+ *             perRequest: "<Duration>",
+ *             idle: "<Duration>",
  *           },
  *         },
- *         outlierDetection: {
+ *         outlierDetection: { // OutlierDetection
  *           maxServerErrors: Number("long"), // required
- *           interval: {
- *             value: Number("long"),
- *             unit: "STRING_VALUE",
- *           },
- *           baseEjectionDuration: {
- *             value: Number("long"),
- *             unit: "STRING_VALUE",
- *           },
+ *           interval: "<Duration>", // required
+ *           baseEjectionDuration: "<Duration>", // required
  *           maxEjectionPercent: Number("int"), // required
  *         },
- *         connectionPool: { // Union: only one key present
- *           tcp: {
+ *         connectionPool: { // VirtualNodeConnectionPool Union: only one key present
+ *           tcp: { // VirtualNodeTcpConnectionPool
  *             maxConnections: Number("int"), // required
  *           },
- *           http: {
+ *           http: { // VirtualNodeHttpConnectionPool
  *             maxConnections: Number("int"), // required
  *             maxPendingRequests: Number("int"),
  *           },
- *           http2: {
+ *           http2: { // VirtualNodeHttp2ConnectionPool
  *             maxRequests: Number("int"), // required
  *           },
- *           grpc: {
+ *           grpc: { // VirtualNodeGrpcConnectionPool
  *             maxRequests: Number("int"), // required
  *           },
  *         },
  *       },
  *     ],
- *     backends: [
- *       { // Union: only one key present
- *         virtualService: {
+ *     backends: [ // Backends
+ *       { // Backend Union: only one key present
+ *         virtualService: { // VirtualServiceBackend
  *           virtualServiceName: "STRING_VALUE", // required
- *           clientPolicy: {
- *             tls: {
+ *           clientPolicy: { // ClientPolicy
+ *             tls: { // ClientPolicyTls
  *               enforce: true || false,
- *               ports: [
+ *               ports: [ // PortSet
  *                 Number("int"),
  *               ],
- *               certificate: { // Union: only one key present
+ *               certificate: { // ClientTlsCertificate Union: only one key present
  *                 file: {
  *                   certificateChain: "STRING_VALUE", // required
  *                   privateKey: "STRING_VALUE", // required
@@ -220,10 +208,10 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *                   secretName: "STRING_VALUE", // required
  *                 },
  *               },
- *               validation: {
- *                 trust: { // Union: only one key present
- *                   acm: {
- *                     certificateAuthorityArns: [ // required
+ *               validation: { // TlsValidationContext
+ *                 trust: { // TlsValidationContextTrust Union: only one key present
+ *                   acm: { // TlsValidationContextAcmTrust
+ *                     certificateAuthorityArns: [ // CertificateAuthorityArns // required
  *                       "STRING_VALUE",
  *                     ],
  *                   },
@@ -247,14 +235,14 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *         },
  *       },
  *     ],
- *     backendDefaults: {
+ *     backendDefaults: { // BackendDefaults
  *       clientPolicy: {
  *         tls: {
  *           enforce: true || false,
  *           ports: [
  *             Number("int"),
  *           ],
- *           certificate: { // Union: only one key present
+ *           certificate: {//  Union: only one key present
  *             file: {
  *               certificateChain: "STRING_VALUE", // required
  *               privateKey: "STRING_VALUE", // required
@@ -264,7 +252,7 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *             },
  *           },
  *           validation: {
- *             trust: { // Union: only one key present
+ *             trust: {//  Union: only one key present
  *               acm: {
  *                 certificateAuthorityArns: [ // required
  *                   "STRING_VALUE",
@@ -288,14 +276,14 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *         },
  *       },
  *     },
- *     logging: {
- *       accessLog: { // Union: only one key present
- *         file: {
+ *     logging: { // Logging
+ *       accessLog: { // AccessLog Union: only one key present
+ *         file: { // FileAccessLog
  *           path: "STRING_VALUE", // required
- *           format: { // Union: only one key present
+ *           format: { // LoggingFormat Union: only one key present
  *             text: "STRING_VALUE",
- *             json: [
- *               {
+ *             json: [ // JsonFormat
+ *               { // JsonFormatRef
  *                 key: "STRING_VALUE", // required
  *                 value: "STRING_VALUE", // required
  *               },
@@ -305,8 +293,8 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *       },
  *     },
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // TagRef
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

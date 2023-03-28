@@ -50,13 +50,13 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  * import { ElasticBeanstalkClient, UpdateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // UpdateEnvironmentMessage
  *   ApplicationName: "STRING_VALUE",
  *   EnvironmentId: "STRING_VALUE",
  *   EnvironmentName: "STRING_VALUE",
  *   GroupName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   Tier: {
+ *   Tier: { // EnvironmentTier
  *     Name: "STRING_VALUE",
  *     Type: "STRING_VALUE",
  *     Version: "STRING_VALUE",
@@ -65,16 +65,16 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  *   TemplateName: "STRING_VALUE",
  *   SolutionStackName: "STRING_VALUE",
  *   PlatformArn: "STRING_VALUE",
- *   OptionSettings: [
- *     {
+ *   OptionSettings: [ // ConfigurationOptionSettingsList
+ *     { // ConfigurationOptionSetting
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   OptionsToRemove: [
- *     {
+ *   OptionsToRemove: [ // OptionsSpecifierList
+ *     { // OptionSpecification
  *       ResourceName: "STRING_VALUE",
  *       Namespace: "STRING_VALUE",
  *       OptionName: "STRING_VALUE",

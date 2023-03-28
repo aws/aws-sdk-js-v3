@@ -42,9 +42,9 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  * import { PinpointClient, UpdateEmailChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEmailChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateEmailChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   EmailChannelRequest: {
+ *   EmailChannelRequest: { // EmailChannelRequest
  *     ConfigurationSet: "STRING_VALUE",
  *     Enabled: true || false,
  *     FromAddress: "STRING_VALUE", // required

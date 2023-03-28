@@ -42,7 +42,7 @@ export interface ListLoggerDefinitionsCommandOutput extends ListLoggerDefinition
  * import { GreengrassClient, ListLoggerDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListLoggerDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // ListLoggerDefinitionsRequest
  *   MaxResults: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  * };

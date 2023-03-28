@@ -49,7 +49,7 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  * import { ChimeClient, ListVoiceConnectorTerminationCredentialsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListVoiceConnectorTerminationCredentialsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListVoiceConnectorTerminationCredentialsRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  * };
  * const command = new ListVoiceConnectorTerminationCredentialsCommand(input);

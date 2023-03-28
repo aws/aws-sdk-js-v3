@@ -43,7 +43,7 @@ export interface ListAlarmModelsCommandOutput extends ListAlarmModelsResponse, _
  * import { IoTEventsClient, ListAlarmModelsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListAlarmModelsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
- * const input = {
+ * const input = { // ListAlarmModelsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

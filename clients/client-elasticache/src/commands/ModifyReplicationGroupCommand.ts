@@ -57,7 +57,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * import { ElastiCacheClient, ModifyReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // ModifyReplicationGroupMessage
  *   ReplicationGroupId: "STRING_VALUE", // required
  *   ReplicationGroupDescription: "STRING_VALUE",
  *   PrimaryClusterId: "STRING_VALUE",
@@ -65,10 +65,10 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *   AutomaticFailoverEnabled: true || false,
  *   MultiAZEnabled: true || false,
  *   NodeGroupId: "STRING_VALUE",
- *   CacheSecurityGroupNames: [
+ *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
  *     "STRING_VALUE",
  *   ],
  *   PreferredMaintenanceWindow: "STRING_VALUE",
@@ -83,22 +83,22 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *   CacheNodeType: "STRING_VALUE",
  *   AuthToken: "STRING_VALUE",
  *   AuthTokenUpdateStrategy: "SET" || "ROTATE" || "DELETE",
- *   UserGroupIdsToAdd: [
+ *   UserGroupIdsToAdd: [ // UserGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   UserGroupIdsToRemove: [
  *     "STRING_VALUE",
  *   ],
  *   RemoveUserGroups: true || false,
- *   LogDeliveryConfigurations: [
- *     {
+ *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
+ *     { // LogDeliveryConfigurationRequest
  *       LogType: "slow-log" || "engine-log",
  *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
- *       DestinationDetails: {
- *         CloudWatchLogsDetails: {
+ *       DestinationDetails: { // DestinationDetails
+ *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
  *           LogGroup: "STRING_VALUE",
  *         },
- *         KinesisFirehoseDetails: {
+ *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
  *           DeliveryStream: "STRING_VALUE",
  *         },
  *       },

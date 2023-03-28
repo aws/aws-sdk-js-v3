@@ -43,14 +43,14 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  * import { IoTFleetWiseClient, ImportSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ImportSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // ImportSignalCatalogRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   vss: { // Union: only one key present
+ *   vss: { // FormattedVss Union: only one key present
  *     vssJson: "STRING_VALUE",
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

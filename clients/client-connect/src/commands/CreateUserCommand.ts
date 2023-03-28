@@ -45,30 +45,30 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { ConnectClient, CreateUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // CreateUserRequest
  *   Username: "STRING_VALUE", // required
  *   Password: "STRING_VALUE",
- *   IdentityInfo: {
+ *   IdentityInfo: { // UserIdentityInfo
  *     FirstName: "STRING_VALUE",
  *     LastName: "STRING_VALUE",
  *     Email: "STRING_VALUE",
  *     SecondaryEmail: "STRING_VALUE",
  *     Mobile: "STRING_VALUE",
  *   },
- *   PhoneConfig: {
+ *   PhoneConfig: { // UserPhoneConfig
  *     PhoneType: "SOFT_PHONE" || "DESK_PHONE", // required
  *     AutoAccept: true || false,
  *     AfterContactWorkTimeLimit: Number("int"),
  *     DeskPhoneNumber: "STRING_VALUE",
  *   },
  *   DirectoryUserId: "STRING_VALUE",
- *   SecurityProfileIds: [ // required
+ *   SecurityProfileIds: [ // SecurityProfileIds // required
  *     "STRING_VALUE",
  *   ],
  *   RoutingProfileId: "STRING_VALUE", // required
  *   HierarchyGroupId: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

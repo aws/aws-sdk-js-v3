@@ -44,15 +44,15 @@ export interface DescribeIpamResourceDiscoveriesCommandOutput
  * import { EC2Client, DescribeIpamResourceDiscoveriesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpamResourceDiscoveriesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeIpamResourceDiscoveriesRequest
  *   DryRun: true || false,
- *   IpamResourceDiscoveryIds: [
+ *   IpamResourceDiscoveryIds: [ // ValueStringList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
  *       Values: [
  *         "STRING_VALUE",

@@ -47,11 +47,11 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  * import { GlobalAcceleratorClient, CreateEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
+ * const input = { // CreateEndpointGroupRequest
  *   ListenerArn: "STRING_VALUE", // required
  *   EndpointGroupRegion: "STRING_VALUE", // required
- *   EndpointConfigurations: [
- *     {
+ *   EndpointConfigurations: [ // EndpointConfigurations
+ *     { // EndpointConfiguration
  *       EndpointId: "STRING_VALUE",
  *       Weight: Number("int"),
  *       ClientIPPreservationEnabled: true || false,
@@ -64,8 +64,8 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  *   HealthCheckIntervalSeconds: Number("int"),
  *   ThresholdCount: Number("int"),
  *   IdempotencyToken: "STRING_VALUE", // required
- *   PortOverrides: [
- *     {
+ *   PortOverrides: [ // PortOverrides
+ *     { // PortOverride
  *       ListenerPort: Number("int"),
  *       EndpointPort: Number("int"),
  *     },

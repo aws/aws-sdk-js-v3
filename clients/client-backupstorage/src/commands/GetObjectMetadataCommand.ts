@@ -51,7 +51,7 @@ export interface GetObjectMetadataCommandOutput
  * import { BackupStorageClient, GetObjectMetadataCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, GetObjectMetadataCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
- * const input = {
+ * const input = { // GetObjectMetadataInput
  *   StorageJobId: "STRING_VALUE", // required
  *   ObjectToken: "STRING_VALUE", // required
  * };

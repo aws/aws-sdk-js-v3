@@ -42,10 +42,10 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  * import { Macie2Client, CreateCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // CreateCustomDataIdentifierRequest
  *   clientToken: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   ignoreWords: [
+ *   ignoreWords: [ // __listOf__string
  *     "STRING_VALUE",
  *   ],
  *   keywords: [
@@ -54,13 +54,13 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  *   maximumMatchDistance: Number("int"),
  *   name: "STRING_VALUE", // required
  *   regex: "STRING_VALUE", // required
- *   severityLevels: [
- *     {
+ *   severityLevels: [ // SeverityLevelList
+ *     { // SeverityLevel
  *       occurrencesThreshold: Number("long"), // required
  *       severity: "LOW" || "MEDIUM" || "HIGH", // required
  *     },
  *   ],
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

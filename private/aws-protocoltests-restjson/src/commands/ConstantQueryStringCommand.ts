@@ -44,7 +44,7 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * import { RestJsonProtocolClient, ConstantQueryStringCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, ConstantQueryStringCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
+ * const input = { // ConstantQueryStringInput
  *   hello: "STRING_VALUE", // required
  * };
  * const command = new ConstantQueryStringCommand(input);

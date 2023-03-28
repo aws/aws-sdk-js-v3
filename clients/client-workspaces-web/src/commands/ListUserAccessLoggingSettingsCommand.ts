@@ -44,7 +44,7 @@ export interface ListUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, ListUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // ListUserAccessLoggingSettingsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

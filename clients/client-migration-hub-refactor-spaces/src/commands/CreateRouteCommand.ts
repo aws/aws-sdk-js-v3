@@ -102,23 +102,23 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  * import { MigrationHubRefactorSpacesClient, CreateRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, CreateRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
- * const input = {
+ * const input = { // CreateRouteRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required
  *   ApplicationIdentifier: "STRING_VALUE", // required
  *   ServiceIdentifier: "STRING_VALUE", // required
  *   RouteType: "STRING_VALUE", // required
- *   DefaultRoute: {
+ *   DefaultRoute: { // DefaultRouteInput
  *     ActivationState: "STRING_VALUE",
  *   },
- *   UriPathRoute: {
+ *   UriPathRoute: { // UriPathRouteInput
  *     SourcePath: "STRING_VALUE", // required
  *     ActivationState: "STRING_VALUE", // required
- *     Methods: [
+ *     Methods: [ // HttpMethods
  *       "STRING_VALUE",
  *     ],
  *     IncludeChildPaths: true || false,
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ClientToken: "STRING_VALUE",

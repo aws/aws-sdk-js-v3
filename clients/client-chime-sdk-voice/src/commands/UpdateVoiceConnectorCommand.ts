@@ -42,7 +42,7 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * import { ChimeSDKVoiceClient, UpdateVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, UpdateVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // UpdateVoiceConnectorRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   RequireEncryption: true || false, // required

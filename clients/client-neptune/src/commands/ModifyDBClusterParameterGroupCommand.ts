@@ -63,10 +63,10 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * import { NeptuneClient, ModifyDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ModifyDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required
- *   Parameters: [ // required
- *     {
+ *   Parameters: [ // ParametersList // required
+ *     { // Parameter
  *       ParameterName: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       Description: "STRING_VALUE",

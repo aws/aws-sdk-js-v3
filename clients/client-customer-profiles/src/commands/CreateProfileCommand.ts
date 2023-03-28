@@ -44,7 +44,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * import { CustomerProfilesClient, CreateProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // CreateProfileRequest
  *   DomainName: "STRING_VALUE", // required
  *   AccountNumber: "STRING_VALUE",
  *   AdditionalInformation: "STRING_VALUE",
@@ -62,7 +62,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *   EmailAddress: "STRING_VALUE",
  *   PersonalEmailAddress: "STRING_VALUE",
  *   BusinessEmailAddress: "STRING_VALUE",
- *   Address: {
+ *   Address: { // Address
  *     Address1: "STRING_VALUE",
  *     Address2: "STRING_VALUE",
  *     Address3: "STRING_VALUE",
@@ -110,7 +110,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *     Country: "STRING_VALUE",
  *     PostalCode: "STRING_VALUE",
  *   },
- *   Attributes: {
+ *   Attributes: { // Attributes
  *     "<keys>": "STRING_VALUE",
  *   },
  *   PartyTypeString: "STRING_VALUE",

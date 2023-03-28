@@ -42,8 +42,8 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * import { AppStreamClient, DescribeApplicationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeApplicationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
- *   Arns: [
+ * const input = { // DescribeApplicationsRequest
+ *   Arns: [ // ArnList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

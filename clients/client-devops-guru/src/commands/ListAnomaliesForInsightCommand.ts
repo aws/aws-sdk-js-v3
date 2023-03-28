@@ -43,18 +43,18 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  * import { DevOpsGuruClient, ListAnomaliesForInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListAnomaliesForInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
+ * const input = { // ListAnomaliesForInsightRequest
  *   InsightId: "STRING_VALUE", // required
- *   StartTimeRange: {
+ *   StartTimeRange: { // StartTimeRange
  *     FromTime: new Date("TIMESTAMP"),
  *     ToTime: new Date("TIMESTAMP"),
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   AccountId: "STRING_VALUE",
- *   Filters: {
- *     ServiceCollection: {
- *       ServiceNames: [
+ *   Filters: { // ListAnomaliesForInsightFilters
+ *     ServiceCollection: { // ServiceCollection
+ *       ServiceNames: [ // ServiceNames
  *         "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
  *       ],
  *     },

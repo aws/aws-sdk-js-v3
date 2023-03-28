@@ -43,7 +43,7 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  * import { SSMContactsClient, DescribeEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DescribeEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
- * const input = {
+ * const input = { // DescribeEngagementRequest
  *   EngagementId: "STRING_VALUE", // required
  * };
  * const command = new DescribeEngagementCommand(input);

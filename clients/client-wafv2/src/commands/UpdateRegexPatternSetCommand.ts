@@ -59,13 +59,13 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * import { WAFV2Client, UpdateRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, UpdateRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // UpdateRegexPatternSetRequest
  *   Name: "STRING_VALUE", // required
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required
  *   Id: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   RegularExpressionList: [ // required
- *     {
+ *   RegularExpressionList: [ // RegularExpressionList // required
+ *     { // Regex
  *       RegexString: "STRING_VALUE",
  *     },
  *   ],

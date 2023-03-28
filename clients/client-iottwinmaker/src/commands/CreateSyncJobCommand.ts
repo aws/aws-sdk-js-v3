@@ -42,11 +42,11 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  * import { IoTTwinMakerClient, CreateSyncJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateSyncJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // CreateSyncJobRequest
  *   workspaceId: "STRING_VALUE", // required
  *   syncSource: "STRING_VALUE", // required
  *   syncRole: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

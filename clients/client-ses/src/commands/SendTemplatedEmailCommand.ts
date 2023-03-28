@@ -91,10 +91,10 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * import { SESClient, SendTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // SendTemplatedEmailRequest
  *   Source: "STRING_VALUE", // required
- *   Destination: {
- *     ToAddresses: [
+ *   Destination: { // Destination
+ *     ToAddresses: [ // AddressList
  *       "STRING_VALUE",
  *     ],
  *     CcAddresses: [
@@ -110,8 +110,8 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  *   ReturnPath: "STRING_VALUE",
  *   SourceArn: "STRING_VALUE",
  *   ReturnPathArn: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // MessageTagList
+ *     { // MessageTag
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

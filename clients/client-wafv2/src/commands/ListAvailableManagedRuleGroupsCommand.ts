@@ -46,7 +46,7 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  * import { WAFV2Client, ListAvailableManagedRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListAvailableManagedRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // ListAvailableManagedRuleGroupsRequest
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required
  *   NextMarker: "STRING_VALUE",
  *   Limit: Number("int"),

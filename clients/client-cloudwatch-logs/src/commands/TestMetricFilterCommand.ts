@@ -43,9 +43,9 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * import { CloudWatchLogsClient, TestMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, TestMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // TestMetricFilterRequest
  *   filterPattern: "STRING_VALUE", // required
- *   logEventMessages: [ // required
+ *   logEventMessages: [ // TestEventMessages // required
  *     "STRING_VALUE",
  *   ],
  * };

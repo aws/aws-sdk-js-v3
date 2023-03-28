@@ -44,12 +44,12 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * import { EMRClient, ListStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // ListStepsInput
  *   ClusterId: "STRING_VALUE", // required
- *   StepStates: [
+ *   StepStates: [ // StepStateList
  *     "PENDING" || "CANCEL_PENDING" || "RUNNING" || "COMPLETED" || "CANCELLED" || "FAILED" || "INTERRUPTED",
  *   ],
- *   StepIds: [
+ *   StepIds: [ // XmlStringList
  *     "STRING_VALUE",
  *   ],
  *   Marker: "STRING_VALUE",

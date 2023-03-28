@@ -49,38 +49,38 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * import { DevOpsGuruClient, SearchOrganizationInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, SearchOrganizationInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
- * const input = {
- *   AccountIds: [ // required
+ * const input = { // SearchOrganizationInsightsRequest
+ *   AccountIds: [ // SearchInsightsAccountIdList // required
  *     "STRING_VALUE",
  *   ],
- *   StartTimeRange: {
+ *   StartTimeRange: { // StartTimeRange
  *     FromTime: new Date("TIMESTAMP"),
  *     ToTime: new Date("TIMESTAMP"),
  *   },
- *   Filters: {
- *     Severities: [
+ *   Filters: { // SearchOrganizationInsightsFilters
+ *     Severities: [ // InsightSeverities
  *       "LOW" || "MEDIUM" || "HIGH",
  *     ],
- *     Statuses: [
+ *     Statuses: [ // InsightStatuses
  *       "ONGOING" || "CLOSED",
  *     ],
- *     ResourceCollection: {
- *       CloudFormation: {
- *         StackNames: [
+ *     ResourceCollection: { // ResourceCollection
+ *       CloudFormation: { // CloudFormationCollection
+ *         StackNames: [ // StackNames
  *           "STRING_VALUE",
  *         ],
  *       },
- *       Tags: [
- *         {
+ *       Tags: [ // TagCollections
+ *         { // TagCollection
  *           AppBoundaryKey: "STRING_VALUE", // required
- *           TagValues: [ // required
+ *           TagValues: [ // TagValues // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
  *     },
- *     ServiceCollection: {
- *       ServiceNames: [
+ *     ServiceCollection: { // ServiceCollection
+ *       ServiceNames: [ // ServiceNames
  *         "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
  *       ],
  *     },

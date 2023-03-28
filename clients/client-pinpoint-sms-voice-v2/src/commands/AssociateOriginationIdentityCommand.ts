@@ -52,7 +52,7 @@ export interface AssociateOriginationIdentityCommandOutput
  * import { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, AssociateOriginationIdentityCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // AssociateOriginationIdentityRequest
  *   PoolId: "STRING_VALUE", // required
  *   OriginationIdentity: "STRING_VALUE", // required
  *   IsoCountryCode: "STRING_VALUE", // required

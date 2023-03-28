@@ -42,7 +42,7 @@ export interface GetLensCommandOutput extends GetLensOutput, __MetadataBearer {}
  * import { WellArchitectedClient, GetLensCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetLensCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // GetLensInput
  *   LensAlias: "STRING_VALUE", // required
  *   LensVersion: "STRING_VALUE",
  * };

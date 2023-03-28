@@ -51,7 +51,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * import { WAFRegionalClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // DeleteLoggingConfigurationRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);

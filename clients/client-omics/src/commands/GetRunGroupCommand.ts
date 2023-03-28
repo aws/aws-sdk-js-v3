@@ -42,7 +42,7 @@ export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __Metadat
  * import { OmicsClient, GetRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // GetRunGroupRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new GetRunGroupCommand(input);

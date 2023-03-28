@@ -47,19 +47,19 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * import { EC2Client, DescribeAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeAddressesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   PublicIps: [
+ *   PublicIps: [ // PublicIpStringList
  *     "STRING_VALUE",
  *   ],
- *   AllocationIds: [
+ *   AllocationIds: [ // AllocationIdList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,

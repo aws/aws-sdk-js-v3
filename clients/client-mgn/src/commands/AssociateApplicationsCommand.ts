@@ -42,9 +42,9 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * import { MgnClient, AssociateApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, AssociateApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // AssociateApplicationsRequest
  *   waveID: "STRING_VALUE", // required
- *   applicationIDs: [ // required
+ *   applicationIDs: [ // ApplicationIDs // required
  *     "STRING_VALUE",
  *   ],
  * };

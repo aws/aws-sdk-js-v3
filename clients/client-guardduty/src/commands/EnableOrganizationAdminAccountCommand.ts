@@ -45,7 +45,7 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * import { GuardDutyClient, EnableOrganizationAdminAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, EnableOrganizationAdminAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // EnableOrganizationAdminAccountRequest
  *   AdminAccountId: "STRING_VALUE", // required
  * };
  * const command = new EnableOrganizationAdminAccountCommand(input);

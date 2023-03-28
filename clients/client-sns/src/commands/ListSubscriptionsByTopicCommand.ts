@@ -46,7 +46,7 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  * import { SNSClient, ListSubscriptionsByTopicCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListSubscriptionsByTopicCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // ListSubscriptionsByTopicInput
  *   TopicArn: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  * };

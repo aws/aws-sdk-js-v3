@@ -90,12 +90,12 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * import { SQSClient, CreateQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, CreateQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // CreateQueueRequest
  *   QueueName: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Attributes: {
+ *   Attributes: { // QueueAttributeMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -58,7 +58,7 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * import { Route53Client, DeleteTrafficPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteTrafficPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // DeleteTrafficPolicyRequest
  *   Id: "STRING_VALUE", // required
  *   Version: Number("int"), // required
  * };

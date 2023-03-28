@@ -53,14 +53,14 @@ export interface DescribeDataRepositoryTasksCommandOutput
  * import { FSxClient, DescribeDataRepositoryTasksCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeDataRepositoryTasksCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
- *   TaskIds: [
+ * const input = { // DescribeDataRepositoryTasksRequest
+ *   TaskIds: [ // TaskIds
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // DataRepositoryTaskFilters
+ *     { // DataRepositoryTaskFilter
  *       Name: "file-system-id" || "task-lifecycle" || "data-repository-association-id" || "file-cache-id",
- *       Values: [
+ *       Values: [ // DataRepositoryTaskFilterValues
  *         "STRING_VALUE",
  *       ],
  *     },

@@ -42,12 +42,12 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * import { NeptuneClient, CopyDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CopyDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // CopyDBParameterGroupMessage
  *   SourceDBParameterGroupIdentifier: "STRING_VALUE", // required
  *   TargetDBParameterGroupIdentifier: "STRING_VALUE", // required
  *   TargetDBParameterGroupDescription: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

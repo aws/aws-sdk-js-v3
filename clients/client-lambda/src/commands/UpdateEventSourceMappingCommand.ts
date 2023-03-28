@@ -144,24 +144,24 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * import { LambdaClient, UpdateEventSourceMappingCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateEventSourceMappingCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // UpdateEventSourceMappingRequest
  *   UUID: "STRING_VALUE", // required
  *   FunctionName: "STRING_VALUE",
  *   Enabled: true || false,
  *   BatchSize: Number("int"),
- *   FilterCriteria: {
- *     Filters: [
- *       {
+ *   FilterCriteria: { // FilterCriteria
+ *     Filters: [ // FilterList
+ *       { // Filter
  *         Pattern: "STRING_VALUE",
  *       },
  *     ],
  *   },
  *   MaximumBatchingWindowInSeconds: Number("int"),
- *   DestinationConfig: {
- *     OnSuccess: {
+ *   DestinationConfig: { // DestinationConfig
+ *     OnSuccess: { // OnSuccess
  *       Destination: "STRING_VALUE",
  *     },
- *     OnFailure: {
+ *     OnFailure: { // OnFailure
  *       Destination: "STRING_VALUE",
  *     },
  *   },
@@ -169,20 +169,20 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *   BisectBatchOnFunctionError: true || false,
  *   MaximumRetryAttempts: Number("int"),
  *   ParallelizationFactor: Number("int"),
- *   SourceAccessConfigurations: [
- *     {
+ *   SourceAccessConfigurations: [ // SourceAccessConfigurations
+ *     { // SourceAccessConfiguration
  *       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
  *       URI: "STRING_VALUE",
  *     },
  *   ],
  *   TumblingWindowInSeconds: Number("int"),
- *   FunctionResponseTypes: [
+ *   FunctionResponseTypes: [ // FunctionResponseTypeList
  *     "ReportBatchItemFailures",
  *   ],
- *   ScalingConfig: {
+ *   ScalingConfig: { // ScalingConfig
  *     MaximumConcurrency: Number("int"),
  *   },
- *   DocumentDBEventSourceConfig: {
+ *   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
  *     DatabaseName: "STRING_VALUE",
  *     CollectionName: "STRING_VALUE",
  *     FullDocument: "UpdateLookup" || "Default",

@@ -100,18 +100,18 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * import { SecurityHubClient, BatchUpdateFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchUpdateFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   FindingIdentifiers: [ // required
- *     {
+ * const input = { // BatchUpdateFindingsRequest
+ *   FindingIdentifiers: [ // AwsSecurityFindingIdentifierList // required
+ *     { // AwsSecurityFindingIdentifier
  *       Id: "STRING_VALUE", // required
  *       ProductArn: "STRING_VALUE", // required
  *     },
  *   ],
- *   Note: {
+ *   Note: { // NoteUpdate
  *     Text: "STRING_VALUE", // required
  *     UpdatedBy: "STRING_VALUE", // required
  *   },
- *   Severity: {
+ *   Severity: { // SeverityUpdate
  *     Normalized: Number("int"),
  *     Product: Number("double"),
  *     Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
@@ -119,17 +119,17 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  *   VerificationState: "UNKNOWN" || "TRUE_POSITIVE" || "FALSE_POSITIVE" || "BENIGN_POSITIVE",
  *   Confidence: Number("int"),
  *   Criticality: Number("int"),
- *   Types: [
+ *   Types: [ // TypeList
  *     "STRING_VALUE",
  *   ],
- *   UserDefinedFields: {
+ *   UserDefinedFields: { // FieldMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Workflow: {
+ *   Workflow: { // WorkflowUpdate
  *     Status: "NEW" || "NOTIFIED" || "RESOLVED" || "SUPPRESSED",
  *   },
- *   RelatedFindings: [
- *     {
+ *   RelatedFindings: [ // RelatedFindingList
+ *     { // RelatedFinding
  *       ProductArn: "STRING_VALUE", // required
  *       Id: "STRING_VALUE", // required
  *     },

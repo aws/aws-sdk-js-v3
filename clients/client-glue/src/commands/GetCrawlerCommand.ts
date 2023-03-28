@@ -42,7 +42,7 @@ export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataB
  * import { GlueClient, GetCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetCrawlerRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new GetCrawlerCommand(input);

@@ -42,7 +42,7 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * import { CleanRoomsClient, DeleteConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // DeleteConfiguredTableInput
  *   configuredTableIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteConfiguredTableCommand(input);

@@ -43,7 +43,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * import { NetworkManagerClient, UpdateConnectionCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateConnectionCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // UpdateConnectionRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   ConnectionId: "STRING_VALUE", // required
  *   LinkId: "STRING_VALUE",

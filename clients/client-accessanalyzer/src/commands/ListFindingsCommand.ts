@@ -43,11 +43,11 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * import { AccessAnalyzerClient, ListFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // ListFindingsRequest
  *   analyzerArn: "STRING_VALUE", // required
- *   filter: {
- *     "<keys>": {
- *       eq: [
+ *   filter: { // FilterCriteriaMap
+ *     "<keys>": { // Criterion
+ *       eq: [ // ValueList
  *         "STRING_VALUE",
  *       ],
  *       neq: [
@@ -59,7 +59,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *       exists: true || false,
  *     },
  *   },
- *   sort: {
+ *   sort: { // SortCriteria
  *     attributeName: "STRING_VALUE",
  *     orderBy: "STRING_VALUE",
  *   },

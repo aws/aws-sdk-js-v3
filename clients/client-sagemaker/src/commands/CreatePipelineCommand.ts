@@ -42,11 +42,11 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * import { SageMakerClient, CreatePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreatePipelineRequest
  *   PipelineName: "STRING_VALUE", // required
  *   PipelineDisplayName: "STRING_VALUE",
  *   PipelineDefinition: "STRING_VALUE",
- *   PipelineDefinitionS3Location: {
+ *   PipelineDefinitionS3Location: { // PipelineDefinitionS3Location
  *     Bucket: "STRING_VALUE", // required
  *     ObjectKey: "STRING_VALUE", // required
  *     VersionId: "STRING_VALUE",
@@ -54,13 +54,13 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *   PipelineDescription: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   ParallelismConfiguration: {
+ *   ParallelismConfiguration: { // ParallelismConfiguration
  *     MaxParallelExecutionSteps: Number("int"), // required
  *   },
  * };

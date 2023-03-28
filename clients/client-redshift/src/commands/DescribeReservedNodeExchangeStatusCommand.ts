@@ -49,7 +49,7 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * import { RedshiftClient, DescribeReservedNodeExchangeStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeReservedNodeExchangeStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeReservedNodeExchangeStatusInputMessage
  *   ReservedNodeId: "STRING_VALUE",
  *   ReservedNodeExchangeRequestId: "STRING_VALUE",
  *   MaxRecords: Number("int"),

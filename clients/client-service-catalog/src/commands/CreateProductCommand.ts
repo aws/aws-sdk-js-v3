@@ -47,7 +47,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  * import { ServiceCatalogClient, CreateProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // CreateProductInput
  *   AcceptLanguage: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   Owner: "STRING_VALUE", // required
@@ -57,26 +57,26 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  *   SupportEmail: "STRING_VALUE",
  *   SupportUrl: "STRING_VALUE",
  *   ProductType: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // AddTags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   ProvisioningArtifactParameters: {
+ *   ProvisioningArtifactParameters: { // ProvisioningArtifactProperties
  *     Name: "STRING_VALUE",
  *     Description: "STRING_VALUE",
- *     Info: {
+ *     Info: { // ProvisioningArtifactInfo
  *       "<keys>": "STRING_VALUE",
  *     },
  *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR",
  *     DisableTemplateValidation: true || false,
  *   },
  *   IdempotencyToken: "STRING_VALUE", // required
- *   SourceConnection: {
+ *   SourceConnection: { // SourceConnection
  *     Type: "CODESTAR",
- *     ConnectionParameters: {
- *       CodeStar: {
+ *     ConnectionParameters: { // SourceConnectionParameters
+ *       CodeStar: { // CodeStarParameters
  *         ConnectionArn: "STRING_VALUE", // required
  *         Repository: "STRING_VALUE", // required
  *         Branch: "STRING_VALUE", // required

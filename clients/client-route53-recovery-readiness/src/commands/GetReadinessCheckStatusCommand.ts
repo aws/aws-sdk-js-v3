@@ -46,7 +46,7 @@ export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckS
  * import { Route53RecoveryReadinessClient, GetReadinessCheckStatusCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetReadinessCheckStatusCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // GetReadinessCheckStatusRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   ReadinessCheckName: "STRING_VALUE", // required

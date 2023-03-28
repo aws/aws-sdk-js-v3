@@ -44,7 +44,7 @@ export interface GetDeliverabilityTestReportCommandOutput
  * import { SESv2Client, GetDeliverabilityTestReportCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetDeliverabilityTestReportCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
- * const input = {
+ * const input = { // GetDeliverabilityTestReportRequest
  *   ReportId: "STRING_VALUE", // required
  * };
  * const command = new GetDeliverabilityTestReportCommand(input);

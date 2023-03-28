@@ -47,20 +47,20 @@ export interface AssociateInstanceEventWindowCommandOutput
  * import { EC2Client, AssociateInstanceEventWindowCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateInstanceEventWindowCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AssociateInstanceEventWindowRequest
  *   DryRun: true || false,
  *   InstanceEventWindowId: "STRING_VALUE", // required
- *   AssociationTarget: {
- *     InstanceIds: [
+ *   AssociationTarget: { // InstanceEventWindowAssociationRequest
+ *     InstanceIds: [ // InstanceIdList
  *       "STRING_VALUE",
  *     ],
- *     InstanceTags: [
- *       {
+ *     InstanceTags: [ // TagList
+ *       { // Tag
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
  *       },
  *     ],
- *     DedicatedHostIds: [
+ *     DedicatedHostIds: [ // DedicatedHostIdList
  *       "STRING_VALUE",
  *     ],
  *   },

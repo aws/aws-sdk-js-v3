@@ -43,7 +43,7 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  * import { ChimeSDKVoiceClient, ListVoiceConnectorsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, ListVoiceConnectorsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // ListVoiceConnectorsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

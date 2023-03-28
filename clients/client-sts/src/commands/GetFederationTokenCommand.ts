@@ -129,17 +129,17 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * import { STSClient, GetFederationTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetFederationTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
- * const input = {
+ * const input = { // GetFederationTokenRequest
  *   Name: "STRING_VALUE", // required
  *   Policy: "STRING_VALUE",
- *   PolicyArns: [
- *     {
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
  *       arn: "STRING_VALUE",
  *     },
  *   ],
  *   DurationSeconds: Number("int"),
- *   Tags: [
- *     {
+ *   Tags: [ // tagListType
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -43,28 +43,28 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * import { InspectorClient, ListFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
- *   assessmentRunArns: [
+ * const input = { // ListFindingsRequest
+ *   assessmentRunArns: [ // ListParentArnList
  *     "STRING_VALUE",
  *   ],
- *   filter: {
- *     agentIds: [
+ *   filter: { // FindingFilter
+ *     agentIds: [ // AgentIdList
  *       "STRING_VALUE",
  *     ],
- *     autoScalingGroups: [
+ *     autoScalingGroups: [ // AutoScalingGroupList
  *       "STRING_VALUE",
  *     ],
- *     ruleNames: [
+ *     ruleNames: [ // RuleNameList
  *       "STRING_VALUE",
  *     ],
- *     severities: [
+ *     severities: [ // SeverityList
  *       "STRING_VALUE",
  *     ],
- *     rulesPackageArns: [
+ *     rulesPackageArns: [ // FilterRulesPackageArnList
  *       "STRING_VALUE",
  *     ],
- *     attributes: [
- *       {
+ *     attributes: [ // AttributeList
+ *       { // Attribute
  *         key: "STRING_VALUE", // required
  *         value: "STRING_VALUE",
  *       },
@@ -75,7 +75,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *         value: "STRING_VALUE",
  *       },
  *     ],
- *     creationTimeRange: {
+ *     creationTimeRange: { // TimestampRange
  *       beginDate: new Date("TIMESTAMP"),
  *       endDate: new Date("TIMESTAMP"),
  *     },

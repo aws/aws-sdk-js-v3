@@ -42,8 +42,8 @@ export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, _
  * import { CodeBuildClient, ListBuildBatchesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildBatchesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
- *   filter: {
+ * const input = { // ListBuildBatchesInput
+ *   filter: { // BuildBatchFilter
  *     status: "STRING_VALUE",
  *   },
  *   maxResults: Number("int"),

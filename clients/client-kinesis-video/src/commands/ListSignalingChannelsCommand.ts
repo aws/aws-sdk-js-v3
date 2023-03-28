@@ -44,10 +44,10 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  * import { KinesisVideoClient, ListSignalingChannelsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListSignalingChannelsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // ListSignalingChannelsInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   ChannelNameCondition: {
+ *   ChannelNameCondition: { // ChannelNameCondition
  *     ComparisonOperator: "BEGINS_WITH",
  *     ComparisonValue: "STRING_VALUE",
  *   },

@@ -44,7 +44,7 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
  * import { WorkMailClient, GetMobileDeviceAccessOverrideCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetMobileDeviceAccessOverrideCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // GetMobileDeviceAccessOverrideRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  *   DeviceId: "STRING_VALUE", // required

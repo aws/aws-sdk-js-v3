@@ -44,9 +44,9 @@ export interface DescribePullThroughCacheRulesCommandOutput
  * import { ECRClient, DescribePullThroughCacheRulesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribePullThroughCacheRulesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // DescribePullThroughCacheRulesRequest
  *   registryId: "STRING_VALUE",
- *   ecrRepositoryPrefixes: [
+ *   ecrRepositoryPrefixes: [ // PullThroughCacheRuleRepositoryPrefixList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",

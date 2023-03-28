@@ -43,22 +43,22 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * import { ECRPUBLICClient, CreateRepositoryCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, CreateRepositoryCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
- * const input = {
+ * const input = { // CreateRepositoryRequest
  *   repositoryName: "STRING_VALUE", // required
- *   catalogData: {
+ *   catalogData: { // RepositoryCatalogDataInput
  *     description: "STRING_VALUE",
- *     architectures: [
+ *     architectures: [ // ArchitectureList
  *       "STRING_VALUE",
  *     ],
- *     operatingSystems: [
+ *     operatingSystems: [ // OperatingSystemList
  *       "STRING_VALUE",
  *     ],
  *     logoImageBlob: "BLOB_VALUE",
  *     aboutText: "STRING_VALUE",
  *     usageText: "STRING_VALUE",
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

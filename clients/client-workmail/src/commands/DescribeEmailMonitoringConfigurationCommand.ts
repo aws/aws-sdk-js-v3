@@ -47,7 +47,7 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * import { WorkMailClient, DescribeEmailMonitoringConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeEmailMonitoringConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // DescribeEmailMonitoringConfigurationRequest
  *   OrganizationId: "STRING_VALUE", // required
  * };
  * const command = new DescribeEmailMonitoringConfigurationCommand(input);

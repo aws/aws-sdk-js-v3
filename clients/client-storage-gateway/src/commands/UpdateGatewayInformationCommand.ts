@@ -50,7 +50,7 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * import { StorageGatewayClient, UpdateGatewayInformationCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateGatewayInformationCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // UpdateGatewayInformationInput
  *   GatewayARN: "STRING_VALUE", // required
  *   GatewayName: "STRING_VALUE",
  *   GatewayTimezone: "STRING_VALUE",

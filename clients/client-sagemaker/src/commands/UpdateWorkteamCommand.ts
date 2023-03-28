@@ -42,24 +42,24 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * import { SageMakerClient, UpdateWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateWorkteamRequest
  *   WorkteamName: "STRING_VALUE", // required
- *   MemberDefinitions: [
- *     {
- *       CognitoMemberDefinition: {
+ *   MemberDefinitions: [ // MemberDefinitions
+ *     { // MemberDefinition
+ *       CognitoMemberDefinition: { // CognitoMemberDefinition
  *         UserPool: "STRING_VALUE", // required
  *         UserGroup: "STRING_VALUE", // required
  *         ClientId: "STRING_VALUE", // required
  *       },
- *       OidcMemberDefinition: {
- *         Groups: [ // required
+ *       OidcMemberDefinition: { // OidcMemberDefinition
+ *         Groups: [ // Groups // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
  *   ],
  *   Description: "STRING_VALUE",
- *   NotificationConfiguration: {
+ *   NotificationConfiguration: { // NotificationConfiguration
  *     NotificationTopicArn: "STRING_VALUE",
  *   },
  * };

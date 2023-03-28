@@ -46,7 +46,7 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * import { WellArchitectedClient, CreateLensVersionCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateLensVersionCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // CreateLensVersionInput
  *   LensAlias: "STRING_VALUE", // required
  *   LensVersion: "STRING_VALUE", // required
  *   IsMajorVersion: true || false,

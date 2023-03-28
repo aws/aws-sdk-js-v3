@@ -42,7 +42,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * import { LakeFormationClient, DescribeResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DescribeResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // DescribeResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeResourceCommand(input);

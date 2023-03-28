@@ -47,7 +47,7 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
  * import { RedshiftClient, AuthorizeSnapshotAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AuthorizeSnapshotAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // AuthorizeSnapshotAccessMessage
  *   SnapshotIdentifier: "STRING_VALUE",
  *   SnapshotArn: "STRING_VALUE",
  *   SnapshotClusterIdentifier: "STRING_VALUE",

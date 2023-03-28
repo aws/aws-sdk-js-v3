@@ -48,9 +48,9 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * import { ElasticLoadBalancingV2Client, DescribeListenersCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeListenersCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // DescribeListenersInput
  *   LoadBalancerArn: "STRING_VALUE",
- *   ListenerArns: [
+ *   ListenerArns: [ // ListenerArns
  *     "STRING_VALUE",
  *   ],
  *   Marker: "STRING_VALUE",

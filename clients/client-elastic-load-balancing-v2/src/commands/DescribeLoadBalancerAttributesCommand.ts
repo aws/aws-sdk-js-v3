@@ -70,7 +70,7 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * import { ElasticLoadBalancingV2Client, DescribeLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // DescribeLoadBalancerAttributesInput
  *   LoadBalancerArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeLoadBalancerAttributesCommand(input);

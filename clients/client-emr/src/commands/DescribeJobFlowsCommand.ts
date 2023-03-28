@@ -64,13 +64,13 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  * import { EMRClient, DescribeJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // DescribeJobFlowsInput
  *   CreatedAfter: new Date("TIMESTAMP"),
  *   CreatedBefore: new Date("TIMESTAMP"),
- *   JobFlowIds: [
+ *   JobFlowIds: [ // XmlStringList
  *     "STRING_VALUE",
  *   ],
- *   JobFlowStates: [
+ *   JobFlowStates: [ // JobFlowExecutionStateList
  *     "STARTING" || "BOOTSTRAPPING" || "RUNNING" || "WAITING" || "SHUTTING_DOWN" || "TERMINATED" || "COMPLETED" || "FAILED",
  *   ],
  * };

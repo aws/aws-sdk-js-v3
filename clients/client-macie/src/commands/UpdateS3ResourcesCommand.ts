@@ -46,13 +46,13 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  * import { MacieClient, UpdateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, UpdateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
- * const input = {
+ * const input = { // UpdateS3ResourcesRequest
  *   memberAccountId: "STRING_VALUE",
- *   s3ResourcesUpdate: [ // required
- *     {
+ *   s3ResourcesUpdate: [ // S3ResourcesClassificationUpdate // required
+ *     { // S3ResourceClassificationUpdate
  *       bucketName: "STRING_VALUE", // required
  *       prefix: "STRING_VALUE",
- *       classificationTypeUpdate: {
+ *       classificationTypeUpdate: { // ClassificationTypeUpdate
  *         oneTime: "STRING_VALUE",
  *         continuous: "STRING_VALUE",
  *       },

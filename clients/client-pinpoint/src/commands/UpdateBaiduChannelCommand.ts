@@ -42,9 +42,9 @@ export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelRespo
  * import { PinpointClient, UpdateBaiduChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateBaiduChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateBaiduChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   BaiduChannelRequest: {
+ *   BaiduChannelRequest: { // BaiduChannelRequest
  *     ApiKey: "STRING_VALUE", // required
  *     Enabled: true || false,
  *     SecretKey: "STRING_VALUE", // required

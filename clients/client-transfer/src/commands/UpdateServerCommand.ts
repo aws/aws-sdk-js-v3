@@ -45,32 +45,32 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * import { TransferClient, UpdateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // UpdateServerRequest
  *   Certificate: "STRING_VALUE",
- *   ProtocolDetails: {
+ *   ProtocolDetails: { // ProtocolDetails
  *     PassiveIp: "STRING_VALUE",
  *     TlsSessionResumptionMode: "DISABLED" || "ENABLED" || "ENFORCED",
  *     SetStatOption: "DEFAULT" || "ENABLE_NO_OP",
- *     As2Transports: [
+ *     As2Transports: [ // As2Transports
  *       "HTTP",
  *     ],
  *   },
- *   EndpointDetails: {
- *     AddressAllocationIds: [
+ *   EndpointDetails: { // EndpointDetails
+ *     AddressAllocationIds: [ // AddressAllocationIds
  *       "STRING_VALUE",
  *     ],
- *     SubnetIds: [
+ *     SubnetIds: [ // SubnetIds
  *       "STRING_VALUE",
  *     ],
  *     VpcEndpointId: "STRING_VALUE",
  *     VpcId: "STRING_VALUE",
- *     SecurityGroupIds: [
+ *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
  *   },
  *   EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
  *   HostKey: "STRING_VALUE",
- *   IdentityProviderDetails: {
+ *   IdentityProviderDetails: { // IdentityProviderDetails
  *     Url: "STRING_VALUE",
  *     InvocationRole: "STRING_VALUE",
  *     DirectoryId: "STRING_VALUE",
@@ -79,19 +79,19 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *   LoggingRole: "STRING_VALUE",
  *   PostAuthenticationLoginBanner: "STRING_VALUE",
  *   PreAuthenticationLoginBanner: "STRING_VALUE",
- *   Protocols: [
+ *   Protocols: [ // Protocols
  *     "SFTP" || "FTP" || "FTPS" || "AS2",
  *   ],
  *   SecurityPolicyName: "STRING_VALUE",
  *   ServerId: "STRING_VALUE", // required
- *   WorkflowDetails: {
- *     OnUpload: [
- *       {
+ *   WorkflowDetails: { // WorkflowDetails
+ *     OnUpload: [ // OnUploadWorkflowDetails
+ *       { // WorkflowDetail
  *         WorkflowId: "STRING_VALUE", // required
  *         ExecutionRole: "STRING_VALUE", // required
  *       },
  *     ],
- *     OnPartialUpload: [
+ *     OnPartialUpload: [ // OnPartialUploadWorkflowDetails
  *       {
  *         WorkflowId: "STRING_VALUE", // required
  *         ExecutionRole: "STRING_VALUE", // required

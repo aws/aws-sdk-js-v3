@@ -47,12 +47,12 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * import { NetworkFirewallClient, AssociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, AssociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // AssociateSubnetsRequest
  *   UpdateToken: "STRING_VALUE",
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
- *   SubnetMappings: [ // required
- *     {
+ *   SubnetMappings: [ // SubnetMappings // required
+ *     { // SubnetMapping
  *       SubnetId: "STRING_VALUE", // required
  *       IPAddressType: "DUALSTACK" || "IPV4",
  *     },

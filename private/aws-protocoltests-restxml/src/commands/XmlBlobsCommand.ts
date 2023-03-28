@@ -38,7 +38,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBe
  * import { RestXmlProtocolClient, XmlBlobsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // XmlBlobsInputOutput
  *   data: "BLOB_VALUE",
  * };
  * const command = new XmlBlobsCommand(input);

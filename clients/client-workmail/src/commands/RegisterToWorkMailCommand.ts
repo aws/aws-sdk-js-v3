@@ -48,7 +48,7 @@ export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailRespo
  * import { WorkMailClient, RegisterToWorkMailCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, RegisterToWorkMailCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // RegisterToWorkMailRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   EntityId: "STRING_VALUE", // required
  *   Email: "STRING_VALUE", // required

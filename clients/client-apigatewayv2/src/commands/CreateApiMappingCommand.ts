@@ -42,7 +42,7 @@ export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse,
  * import { ApiGatewayV2Client, CreateApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // CreateApiMappingRequest
  *   ApiId: "STRING_VALUE", // required
  *   ApiMappingKey: "STRING_VALUE",
  *   DomainName: "STRING_VALUE", // required

@@ -42,9 +42,9 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  * import { PinpointClient, UpdateVoiceChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateVoiceChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateVoiceChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   VoiceChannelRequest: {
+ *   VoiceChannelRequest: { // VoiceChannelRequest
  *     Enabled: true || false,
  *   },
  * };

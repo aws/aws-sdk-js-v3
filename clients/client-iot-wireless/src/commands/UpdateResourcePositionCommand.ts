@@ -44,7 +44,7 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * import { IoTWirelessClient, UpdateResourcePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateResourcePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // UpdateResourcePositionRequest
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
  *   GeoJsonPayload: "BLOB_VALUE",

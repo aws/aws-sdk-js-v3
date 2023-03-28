@@ -42,7 +42,7 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  * import { PinpointClient, GetVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetVoiceTemplateRequest
  *   TemplateName: "STRING_VALUE", // required
  *   Version: "STRING_VALUE",
  * };

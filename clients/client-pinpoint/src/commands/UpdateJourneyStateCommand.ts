@@ -42,10 +42,10 @@ export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateRespo
  * import { PinpointClient, UpdateJourneyStateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateJourneyStateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // UpdateJourneyStateRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   JourneyId: "STRING_VALUE", // required
- *   JourneyStateRequest: {
+ *   JourneyStateRequest: { // JourneyStateRequest
  *     State: "STRING_VALUE",
  *   },
  * };

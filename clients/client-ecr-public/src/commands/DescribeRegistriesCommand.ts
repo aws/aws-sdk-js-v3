@@ -42,7 +42,7 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * import { ECRPUBLICClient, DescribeRegistriesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, DescribeRegistriesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
- * const input = {
+ * const input = { // DescribeRegistriesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

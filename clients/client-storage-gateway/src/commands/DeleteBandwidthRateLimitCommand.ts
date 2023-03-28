@@ -46,7 +46,7 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * import { StorageGatewayClient, DeleteBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DeleteBandwidthRateLimitInput
  *   GatewayARN: "STRING_VALUE", // required
  *   BandwidthType: "STRING_VALUE", // required
  * };

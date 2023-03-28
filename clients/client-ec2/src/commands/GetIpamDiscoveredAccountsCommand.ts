@@ -42,14 +42,14 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * import { EC2Client, GetIpamDiscoveredAccountsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetIpamDiscoveredAccountsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // GetIpamDiscoveredAccountsRequest
  *   DryRun: true || false,
  *   IpamResourceDiscoveryId: "STRING_VALUE", // required
  *   DiscoveryRegion: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

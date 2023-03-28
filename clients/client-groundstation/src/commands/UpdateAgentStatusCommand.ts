@@ -42,17 +42,17 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * import { GroundStationClient, UpdateAgentStatusCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UpdateAgentStatusCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // UpdateAgentStatusRequest
  *   agentId: "STRING_VALUE", // required
  *   taskId: "STRING_VALUE", // required
- *   aggregateStatus: {
+ *   aggregateStatus: { // AggregateStatus
  *     status: "STRING_VALUE", // required
- *     signatureMap: {
+ *     signatureMap: { // SignatureMap
  *       "<keys>": true || false,
  *     },
  *   },
- *   componentStatuses: [ // required
- *     {
+ *   componentStatuses: [ // ComponentStatusList // required
+ *     { // ComponentStatusData
  *       componentType: "STRING_VALUE", // required
  *       capabilityArn: "STRING_VALUE", // required
  *       status: "STRING_VALUE", // required

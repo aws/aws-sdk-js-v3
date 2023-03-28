@@ -57,7 +57,7 @@ export interface DescribeUserStackAssociationsCommandOutput
  * import { AppStreamClient, DescribeUserStackAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeUserStackAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // DescribeUserStackAssociationsRequest
  *   StackName: "STRING_VALUE",
  *   UserName: "STRING_VALUE",
  *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",

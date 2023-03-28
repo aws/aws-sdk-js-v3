@@ -54,7 +54,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * import { ConnectClient, StopContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StopContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // StopContactRequest
  *   ContactId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  * };

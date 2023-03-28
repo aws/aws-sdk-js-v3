@@ -43,22 +43,22 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { IoTAnalyticsClient, CreateChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreateChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
- * const input = {
+ * const input = { // CreateChannelRequest
  *   channelName: "STRING_VALUE", // required
- *   channelStorage: {
+ *   channelStorage: { // ChannelStorage
  *     serviceManagedS3: {},
- *     customerManagedS3: {
+ *     customerManagedS3: { // CustomerManagedChannelS3Storage
  *       bucket: "STRING_VALUE", // required
  *       keyPrefix: "STRING_VALUE",
  *       roleArn: "STRING_VALUE", // required
  *     },
  *   },
- *   retentionPeriod: {
+ *   retentionPeriod: { // RetentionPeriod
  *     unlimited: true || false,
  *     numberOfDays: Number("int"),
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

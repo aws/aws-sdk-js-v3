@@ -50,15 +50,15 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * import { WorkSpacesClient, ModifyWorkspacePropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspacePropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // ModifyWorkspacePropertiesRequest
  *   WorkspaceId: "STRING_VALUE", // required
- *   WorkspaceProperties: {
+ *   WorkspaceProperties: { // WorkspaceProperties
  *     RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
  *     RunningModeAutoStopTimeoutInMinutes: Number("int"),
  *     RootVolumeSizeGib: Number("int"),
  *     UserVolumeSizeGib: Number("int"),
  *     ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
- *     Protocols: [
+ *     Protocols: [ // ProtocolList
  *       "PCOIP" || "WSP",
  *     ],
  *   },

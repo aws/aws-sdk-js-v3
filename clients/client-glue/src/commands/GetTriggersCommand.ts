@@ -42,7 +42,7 @@ export interface GetTriggersCommandOutput extends GetTriggersResponse, __Metadat
  * import { GlueClient, GetTriggersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTriggersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetTriggersRequest
  *   NextToken: "STRING_VALUE",
  *   DependentJobName: "STRING_VALUE",
  *   MaxResults: Number("int"),

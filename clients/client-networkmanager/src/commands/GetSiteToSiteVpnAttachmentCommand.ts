@@ -42,7 +42,7 @@ export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVp
  * import { NetworkManagerClient, GetSiteToSiteVpnAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetSiteToSiteVpnAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetSiteToSiteVpnAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
  * };
  * const command = new GetSiteToSiteVpnAttachmentCommand(input);

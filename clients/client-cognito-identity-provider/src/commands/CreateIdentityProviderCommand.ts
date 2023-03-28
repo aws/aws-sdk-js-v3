@@ -47,17 +47,17 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * import { CognitoIdentityProviderClient, CreateIdentityProviderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateIdentityProviderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // CreateIdentityProviderRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   ProviderName: "STRING_VALUE", // required
  *   ProviderType: "SAML" || "Facebook" || "Google" || "LoginWithAmazon" || "SignInWithApple" || "OIDC", // required
- *   ProviderDetails: { // required
+ *   ProviderDetails: { // ProviderDetailsType // required
  *     "<keys>": "STRING_VALUE",
  *   },
- *   AttributeMapping: {
+ *   AttributeMapping: { // AttributeMappingType
  *     "<keys>": "STRING_VALUE",
  *   },
- *   IdpIdentifiers: [
+ *   IdpIdentifiers: [ // IdpIdentifiersListType
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,7 +42,7 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * import { IoTTwinMakerClient, DeleteWorkspaceCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, DeleteWorkspaceCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // DeleteWorkspaceRequest
  *   workspaceId: "STRING_VALUE", // required
  * };
  * const command = new DeleteWorkspaceCommand(input);

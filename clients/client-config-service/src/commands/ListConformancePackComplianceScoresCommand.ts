@@ -53,9 +53,9 @@ export interface ListConformancePackComplianceScoresCommandOutput
  * import { ConfigServiceClient, ListConformancePackComplianceScoresCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListConformancePackComplianceScoresCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   Filters: {
- *     ConformancePackNames: [ // required
+ * const input = { // ListConformancePackComplianceScoresRequest
+ *   Filters: { // ConformancePackComplianceScoresFilters
+ *     ConformancePackNames: [ // ConformancePackNameFilter // required
  *       "STRING_VALUE",
  *     ],
  *   },

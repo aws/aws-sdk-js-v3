@@ -45,7 +45,7 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  * import { KendraClient, GetQuerySuggestionsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, GetQuerySuggestionsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // GetQuerySuggestionsRequest
  *   IndexId: "STRING_VALUE", // required
  *   QueryText: "STRING_VALUE", // required
  *   MaxSuggestionsCount: Number("int"),

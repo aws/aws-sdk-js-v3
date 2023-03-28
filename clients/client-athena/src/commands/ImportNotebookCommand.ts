@@ -44,7 +44,7 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  * import { AthenaClient, ImportNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ImportNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // ImportNotebookInput
  *   WorkGroup: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Payload: "STRING_VALUE", // required

@@ -83,7 +83,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __M
  * import { S3ControlClient, GetBucketPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetBucketPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // GetBucketPolicyRequest
  *   AccountId: "STRING_VALUE",
  *   Bucket: "STRING_VALUE", // required
  * };

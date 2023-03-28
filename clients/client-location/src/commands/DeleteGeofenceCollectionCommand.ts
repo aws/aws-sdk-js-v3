@@ -46,7 +46,7 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * import { LocationClient, DeleteGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // DeleteGeofenceCollectionRequest
  *   CollectionName: "STRING_VALUE", // required
  * };
  * const command = new DeleteGeofenceCollectionCommand(input);

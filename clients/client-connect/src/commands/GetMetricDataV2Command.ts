@@ -52,34 +52,34 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * import { ConnectClient, GetMetricDataV2Command } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetMetricDataV2Command } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // GetMetricDataV2Request
  *   ResourceArn: "STRING_VALUE", // required
  *   StartTime: new Date("TIMESTAMP"), // required
  *   EndTime: new Date("TIMESTAMP"), // required
- *   Filters: [ // required
- *     {
+ *   Filters: [ // FiltersV2List // required
+ *     { // FilterV2
  *       FilterKey: "STRING_VALUE",
- *       FilterValues: [
+ *       FilterValues: [ // FilterValueList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   Groupings: [
+ *   Groupings: [ // GroupingsV2
  *     "STRING_VALUE",
  *   ],
- *   Metrics: [ // required
- *     {
+ *   Metrics: [ // MetricsV2 // required
+ *     { // MetricV2
  *       Name: "STRING_VALUE",
- *       Threshold: [
- *         {
+ *       Threshold: [ // ThresholdCollections
+ *         { // ThresholdV2
  *           Comparison: "STRING_VALUE",
  *           ThresholdValue: Number("double"),
  *         },
  *       ],
- *       MetricFilters: [
- *         {
+ *       MetricFilters: [ // MetricFiltersV2List
+ *         { // MetricFilterV2
  *           MetricFilterKey: "STRING_VALUE",
- *           MetricFilterValues: [
+ *           MetricFilterValues: [ // MetricFilterValueList
  *             "STRING_VALUE",
  *           ],
  *         },

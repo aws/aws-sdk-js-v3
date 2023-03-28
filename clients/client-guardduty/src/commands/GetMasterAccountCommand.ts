@@ -45,7 +45,7 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * import { GuardDutyClient, GetMasterAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetMasterAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // GetMasterAccountRequest
  *   DetectorId: "STRING_VALUE", // required
  * };
  * const command = new GetMasterAccountCommand(input);

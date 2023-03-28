@@ -42,7 +42,7 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  * import { RekognitionClient, ListStreamProcessorsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListStreamProcessorsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // ListStreamProcessorsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

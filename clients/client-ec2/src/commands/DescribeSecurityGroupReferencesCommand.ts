@@ -44,9 +44,9 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * import { EC2Client, DescribeSecurityGroupReferencesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSecurityGroupReferencesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeSecurityGroupReferencesRequest
  *   DryRun: true || false,
- *   GroupId: [ // required
+ *   GroupId: [ // GroupIds // required
  *     "STRING_VALUE",
  *   ],
  * };

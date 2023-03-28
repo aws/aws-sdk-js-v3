@@ -47,13 +47,13 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * import { ProtonClient, CreateRepositoryCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateRepositoryCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // CreateRepositoryInput
  *   provider: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   connectionArn: "STRING_VALUE", // required
  *   encryptionKey: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

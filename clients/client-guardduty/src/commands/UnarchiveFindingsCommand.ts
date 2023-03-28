@@ -42,9 +42,9 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  * import { GuardDutyClient, UnarchiveFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UnarchiveFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // UnarchiveFindingsRequest
  *   DetectorId: "STRING_VALUE", // required
- *   FindingIds: [ // required
+ *   FindingIds: [ // FindingIds // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -60,11 +60,11 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * import { ConnectClient, StartContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // StartContactRecordingRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   InitialContactId: "STRING_VALUE", // required
- *   VoiceRecordingConfiguration: {
+ *   VoiceRecordingConfiguration: { // VoiceRecordingConfiguration
  *     VoiceRecordingTrack: "FROM_AGENT" || "TO_AGENT" || "ALL",
  *   },
  * };

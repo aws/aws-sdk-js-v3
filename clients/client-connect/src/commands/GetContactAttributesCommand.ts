@@ -42,7 +42,7 @@ export interface GetContactAttributesCommandOutput extends GetContactAttributesR
  * import { ConnectClient, GetContactAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetContactAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // GetContactAttributesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   InitialContactId: "STRING_VALUE", // required
  * };

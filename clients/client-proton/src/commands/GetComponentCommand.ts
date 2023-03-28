@@ -45,7 +45,7 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * import { ProtonClient, GetComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // GetComponentInput
  *   name: "STRING_VALUE", // required
  * };
  * const command = new GetComponentCommand(input);

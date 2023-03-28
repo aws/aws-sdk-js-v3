@@ -51,7 +51,7 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  * import { CodeartifactClient, GetDomainPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetDomainPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const input = {
+ * const input = { // GetDomainPermissionsPolicyRequest
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  * };

@@ -42,9 +42,9 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  * import { MgnClient, ListWavesCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListWavesCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
- *   filters: {
- *     waveIDs: [
+ * const input = { // ListWavesRequest
+ *   filters: { // ListWavesRequestFilters
+ *     waveIDs: [ // WaveIDsFilter
  *       "STRING_VALUE",
  *     ],
  *     isArchived: true || false,

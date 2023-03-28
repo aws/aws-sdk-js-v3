@@ -54,7 +54,7 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * import { WAFRegionalClient, GetRateBasedRuleManagedKeysCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetRateBasedRuleManagedKeysCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // GetRateBasedRuleManagedKeysRequest
  *   RuleId: "STRING_VALUE", // required
  *   NextMarker: "STRING_VALUE",
  * };

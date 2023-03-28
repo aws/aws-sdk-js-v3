@@ -42,10 +42,10 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * import { LicenseManagerClient, UpdateServiceSettingsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateServiceSettingsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // UpdateServiceSettingsRequest
  *   S3BucketArn: "STRING_VALUE",
  *   SnsTopicArn: "STRING_VALUE",
- *   OrganizationConfiguration: {
+ *   OrganizationConfiguration: { // OrganizationConfiguration
  *     EnableIntegration: true || false, // required
  *   },
  *   EnableCrossAccountsDiscovery: true || false,

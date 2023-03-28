@@ -49,7 +49,7 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
  * import { EC2Client, DescribeInstanceEventNotificationAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceEventNotificationAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeInstanceEventNotificationAttributesRequest
  *   DryRun: true || false,
  * };
  * const command = new DescribeInstanceEventNotificationAttributesCommand(input);

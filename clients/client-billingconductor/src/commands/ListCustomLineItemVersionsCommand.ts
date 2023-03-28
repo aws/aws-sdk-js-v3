@@ -46,12 +46,12 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * import { BillingconductorClient, ListCustomLineItemVersionsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListCustomLineItemVersionsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // ListCustomLineItemVersionsInput
  *   Arn: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: {
- *     BillingPeriodRange: {
+ *   Filters: { // ListCustomLineItemVersionsFilter
+ *     BillingPeriodRange: { // ListCustomLineItemVersionsBillingPeriodRangeFilter
  *       StartBillingPeriod: "STRING_VALUE",
  *       EndBillingPeriod: "STRING_VALUE",
  *     },

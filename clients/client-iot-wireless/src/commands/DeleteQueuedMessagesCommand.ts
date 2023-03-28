@@ -42,7 +42,7 @@ export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesR
  * import { IoTWirelessClient, DeleteQueuedMessagesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteQueuedMessagesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // DeleteQueuedMessagesRequest
  *   Id: "STRING_VALUE", // required
  *   MessageId: "STRING_VALUE", // required
  *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",

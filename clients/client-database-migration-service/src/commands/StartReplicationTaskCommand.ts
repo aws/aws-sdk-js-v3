@@ -49,7 +49,7 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
  * import { DatabaseMigrationServiceClient, StartReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // StartReplicationTaskMessage
  *   ReplicationTaskArn: "STRING_VALUE", // required
  *   StartReplicationTaskType: "start-replication" || "resume-processing" || "reload-target", // required
  *   CdcStartTime: new Date("TIMESTAMP"),

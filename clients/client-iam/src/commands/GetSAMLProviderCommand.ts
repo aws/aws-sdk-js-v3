@@ -46,7 +46,7 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * import { IAMClient, GetSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // GetSAMLProviderRequest
  *   SAMLProviderArn: "STRING_VALUE", // required
  * };
  * const command = new GetSAMLProviderCommand(input);

@@ -42,7 +42,7 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * import { SyntheticsClient, DisassociateResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DisassociateResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const input = {
+ * const input = { // DisassociateResourceRequest
  *   GroupIdentifier: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
  * };

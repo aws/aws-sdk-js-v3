@@ -42,7 +42,7 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
  * import { GroundStationClient, ListDataflowEndpointGroupsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListDataflowEndpointGroupsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // ListDataflowEndpointGroupsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

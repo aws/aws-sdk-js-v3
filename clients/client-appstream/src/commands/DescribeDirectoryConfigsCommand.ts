@@ -48,8 +48,8 @@ export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectory
  * import { AppStreamClient, DescribeDirectoryConfigsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeDirectoryConfigsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
- *   DirectoryNames: [
+ * const input = { // DescribeDirectoryConfigsRequest
+ *   DirectoryNames: [ // DirectoryNameList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

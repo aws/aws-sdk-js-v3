@@ -47,9 +47,9 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * import { CloudWatchClient, DescribeAlarmHistoryCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmHistoryCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // DescribeAlarmHistoryInput
  *   AlarmName: "STRING_VALUE",
- *   AlarmTypes: [
+ *   AlarmTypes: [ // AlarmTypes
  *     "CompositeAlarm" || "MetricAlarm",
  *   ],
  *   HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",

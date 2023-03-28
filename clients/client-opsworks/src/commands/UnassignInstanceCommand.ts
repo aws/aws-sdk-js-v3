@@ -50,7 +50,7 @@ export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UnassignInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UnassignInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // UnassignInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
  * };
  * const command = new UnassignInstanceCommand(input);

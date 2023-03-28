@@ -52,7 +52,7 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  * import { WorkDocsClient, DescribeFolderContentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeFolderContentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DescribeFolderContentsRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   FolderId: "STRING_VALUE", // required
  *   Sort: "DATE" || "NAME",

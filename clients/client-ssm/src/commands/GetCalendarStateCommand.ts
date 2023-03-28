@@ -50,8 +50,8 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * import { SSMClient, GetCalendarStateCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetCalendarStateCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   CalendarNames: [ // required
+ * const input = { // GetCalendarStateRequest
+ *   CalendarNames: [ // CalendarNameOrARNList // required
  *     "STRING_VALUE",
  *   ],
  *   AtTime: "STRING_VALUE",

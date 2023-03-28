@@ -49,7 +49,7 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * import { ChimeClient, RedactChannelMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, RedactChannelMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // RedactChannelMessageRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   MessageId: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE",

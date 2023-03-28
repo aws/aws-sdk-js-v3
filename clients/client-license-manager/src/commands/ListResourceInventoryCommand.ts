@@ -42,11 +42,11 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * import { LicenseManagerClient, ListResourceInventoryCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListResourceInventoryCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // ListResourceInventoryRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // InventoryFilterList
+ *     { // InventoryFilter
  *       Name: "STRING_VALUE", // required
  *       Condition: "EQUALS" || "NOT_EQUALS" || "BEGINS_WITH" || "CONTAINS", // required
  *       Value: "STRING_VALUE",

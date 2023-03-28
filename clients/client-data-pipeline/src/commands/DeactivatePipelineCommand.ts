@@ -45,7 +45,7 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * import { DataPipelineClient, DeactivatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, DeactivatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
- * const input = {
+ * const input = { // DeactivatePipelineInput
  *   pipelineId: "STRING_VALUE", // required
  *   cancelActive: true || false,
  * };

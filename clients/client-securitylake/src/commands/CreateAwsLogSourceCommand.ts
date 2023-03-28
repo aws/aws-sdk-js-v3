@@ -56,13 +56,13 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * import { SecurityLakeClient, CreateAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {
- *   inputOrder: [ // required
+ * const input = { // CreateAwsLogSourceRequest
+ *   inputOrder: [ // DimensionSet // required
  *     "STRING_VALUE",
  *   ],
- *   enableAllDimensions: {
- *     "<keys>": {
- *       "<keys>": [
+ *   enableAllDimensions: { // AllDimensionsMap
+ *     "<keys>": { // TwoDimensionsMap
+ *       "<keys>": [ // ValueSet
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -72,7 +72,7 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  *       "STRING_VALUE",
  *     ],
  *   },
- *   enableSingleDimension: [
+ *   enableSingleDimension: [ // InputSet
  *     "STRING_VALUE",
  *   ],
  * };

@@ -47,7 +47,7 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  * import { RoboMakerClient, CancelDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CancelDeploymentJobRequest
  *   job: "STRING_VALUE", // required
  * };
  * const command = new CancelDeploymentJobCommand(input);

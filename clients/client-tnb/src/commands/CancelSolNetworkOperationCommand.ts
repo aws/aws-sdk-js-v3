@@ -43,7 +43,7 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * import { TnbClient, CancelSolNetworkOperationCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, CancelSolNetworkOperationCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // CancelSolNetworkOperationInput
  *   nsLcmOpOccId: "STRING_VALUE", // required
  * };
  * const command = new CancelSolNetworkOperationCommand(input);

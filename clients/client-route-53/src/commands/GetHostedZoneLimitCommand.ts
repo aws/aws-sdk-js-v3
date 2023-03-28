@@ -47,7 +47,7 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * import { Route53Client, GetHostedZoneLimitCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHostedZoneLimitCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // GetHostedZoneLimitRequest
  *   Type: "MAX_RRSETS_BY_ZONE" || "MAX_VPCS_ASSOCIATED_BY_ZONE", // required
  *   HostedZoneId: "STRING_VALUE", // required
  * };

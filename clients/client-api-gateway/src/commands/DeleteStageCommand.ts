@@ -42,7 +42,7 @@ export interface DeleteStageCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteStageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteStageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // DeleteStageRequest
  *   restApiId: "STRING_VALUE", // required
  *   stageName: "STRING_VALUE", // required
  * };

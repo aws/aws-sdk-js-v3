@@ -42,23 +42,23 @@ export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAt
  * import { EC2Client, ModifyFpgaImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyFpgaImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyFpgaImageAttributeRequest
  *   DryRun: true || false,
  *   FpgaImageId: "STRING_VALUE", // required
  *   Attribute: "description" || "name" || "loadPermission" || "productCodes",
  *   OperationType: "add" || "remove",
- *   UserIds: [
+ *   UserIds: [ // UserIdStringList
  *     "STRING_VALUE",
  *   ],
- *   UserGroups: [
+ *   UserGroups: [ // UserGroupStringList
  *     "STRING_VALUE",
  *   ],
- *   ProductCodes: [
+ *   ProductCodes: [ // ProductCodeStringList
  *     "STRING_VALUE",
  *   ],
- *   LoadPermission: {
- *     Add: [
- *       {
+ *   LoadPermission: { // LoadPermissionModifications
+ *     Add: [ // LoadPermissionListRequest
+ *       { // LoadPermissionRequest
  *         Group: "all",
  *         UserId: "STRING_VALUE",
  *       },

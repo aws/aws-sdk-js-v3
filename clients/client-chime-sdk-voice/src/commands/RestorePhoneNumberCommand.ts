@@ -47,7 +47,7 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * import { ChimeSDKVoiceClient, RestorePhoneNumberCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, RestorePhoneNumberCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // RestorePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required
  * };
  * const command = new RestorePhoneNumberCommand(input);

@@ -47,7 +47,7 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  * import { LocationClient, DeleteTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
- * const input = {
+ * const input = { // DeleteTrackerRequest
  *   TrackerName: "STRING_VALUE", // required
  * };
  * const command = new DeleteTrackerCommand(input);

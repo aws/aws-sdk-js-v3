@@ -42,15 +42,15 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
  * import { CloudDirectoryClient, UpdateTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // UpdateTypedLinkFacetRequest
  *   SchemaArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   AttributeUpdates: [ // required
- *     {
- *       Attribute: {
+ *   AttributeUpdates: [ // TypedLinkFacetAttributeUpdateList // required
+ *     { // TypedLinkFacetAttributeUpdate
+ *       Attribute: { // TypedLinkAttributeDefinition
  *         Name: "STRING_VALUE", // required
  *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
- *         DefaultValue: { // Union: only one key present
+ *         DefaultValue: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,
@@ -58,10 +58,10 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
  *           DatetimeValue: new Date("TIMESTAMP"),
  *         },
  *         IsImmutable: true || false,
- *         Rules: {
- *           "<keys>": {
+ *         Rules: { // RuleMap
+ *           "<keys>": { // Rule
  *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
- *             Parameters: {
+ *             Parameters: { // RuleParameterMap
  *               "<keys>": "STRING_VALUE",
  *             },
  *           },
@@ -71,7 +71,7 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
  *       Action: "CREATE_OR_UPDATE" || "DELETE", // required
  *     },
  *   ],
- *   IdentityAttributeOrder: [ // required
+ *   IdentityAttributeOrder: [ // AttributeNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

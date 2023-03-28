@@ -44,10 +44,10 @@ export interface AcceptVpcEndpointConnectionsCommandOutput
  * import { EC2Client, AcceptVpcEndpointConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AcceptVpcEndpointConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AcceptVpcEndpointConnectionsRequest
  *   DryRun: true || false,
  *   ServiceId: "STRING_VALUE", // required
- *   VpcEndpointIds: [ // required
+ *   VpcEndpointIds: [ // VpcEndpointIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

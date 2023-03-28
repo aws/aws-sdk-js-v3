@@ -88,9 +88,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { GameLiftClient, UntagResourceCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UntagResourceCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

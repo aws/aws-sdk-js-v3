@@ -42,13 +42,13 @@ export interface ListAnnotationStoresCommandOutput extends ListAnnotationStoresR
  * import { OmicsClient, ListAnnotationStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListAnnotationStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
- *   ids: [
+ * const input = { // ListAnnotationStoresRequest
+ *   ids: [ // IdList
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filter: {
+ *   filter: { // ListAnnotationStoresFilter
  *     status: "STRING_VALUE",
  *   },
  * };

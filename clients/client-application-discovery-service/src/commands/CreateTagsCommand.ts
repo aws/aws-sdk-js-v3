@@ -50,12 +50,12 @@ export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataB
  * import { ApplicationDiscoveryServiceClient, CreateTagsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, CreateTagsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
- * const input = {
- *   configurationIds: [ // required
+ * const input = { // CreateTagsRequest
+ *   configurationIds: [ // ConfigurationIdList // required
  *     "STRING_VALUE",
  *   ],
- *   tags: [ // required
- *     {
+ *   tags: [ // TagSet // required
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

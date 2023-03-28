@@ -49,7 +49,7 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * import { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // UpdateFirewallPolicyChangeProtectionRequest
  *   UpdateToken: "STRING_VALUE",
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",

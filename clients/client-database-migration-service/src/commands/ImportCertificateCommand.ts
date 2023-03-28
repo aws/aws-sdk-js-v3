@@ -50,12 +50,12 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * import { DatabaseMigrationServiceClient, ImportCertificateCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ImportCertificateCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
- * const input = {
+ * const input = { // ImportCertificateMessage
  *   CertificateIdentifier: "STRING_VALUE", // required
  *   CertificatePem: "STRING_VALUE",
  *   CertificateWallet: "BLOB_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       ResourceArn: "STRING_VALUE",

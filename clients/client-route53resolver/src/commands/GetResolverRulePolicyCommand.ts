@@ -43,7 +43,7 @@ export interface GetResolverRulePolicyCommandOutput extends GetResolverRulePolic
  * import { Route53ResolverClient, GetResolverRulePolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverRulePolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // GetResolverRulePolicyRequest
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new GetResolverRulePolicyCommand(input);

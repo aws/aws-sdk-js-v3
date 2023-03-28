@@ -42,21 +42,21 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * import { CloudDirectoryClient, UpdateObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // UpdateObjectAttributesRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   ObjectReference: {
+ *   ObjectReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
- *   AttributeUpdates: [ // required
- *     {
- *       ObjectAttributeKey: {
+ *   AttributeUpdates: [ // ObjectAttributeUpdateList // required
+ *     { // ObjectAttributeUpdate
+ *       ObjectAttributeKey: { // AttributeKey
  *         SchemaArn: "STRING_VALUE", // required
  *         FacetName: "STRING_VALUE", // required
  *         Name: "STRING_VALUE", // required
  *       },
- *       ObjectAttributeAction: {
+ *       ObjectAttributeAction: { // ObjectAttributeAction
  *         ObjectAttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
- *         ObjectAttributeUpdateValue: { // Union: only one key present
+ *         ObjectAttributeUpdateValue: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,

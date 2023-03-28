@@ -42,7 +42,7 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * import { AppSyncClient, GetTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // GetTypeRequest
  *   apiId: "STRING_VALUE", // required
  *   typeName: "STRING_VALUE", // required
  *   format: "SDL" || "JSON", // required

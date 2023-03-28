@@ -47,21 +47,21 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * import { AmplifyClient, UpdateAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UpdateAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // UpdateAppRequest
  *   appId: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE",
  *   iamServiceRoleArn: "STRING_VALUE",
- *   environmentVariables: {
+ *   environmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
  *   },
  *   enableBranchAutoBuild: true || false,
  *   enableBranchAutoDeletion: true || false,
  *   enableBasicAuth: true || false,
  *   basicAuthCredentials: "STRING_VALUE",
- *   customRules: [
- *     {
+ *   customRules: [ // CustomRules
+ *     { // CustomRule
  *       source: "STRING_VALUE", // required
  *       target: "STRING_VALUE", // required
  *       status: "STRING_VALUE",
@@ -71,10 +71,10 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *   buildSpec: "STRING_VALUE",
  *   customHeaders: "STRING_VALUE",
  *   enableAutoBranchCreation: true || false,
- *   autoBranchCreationPatterns: [
+ *   autoBranchCreationPatterns: [ // AutoBranchCreationPatterns
  *     "STRING_VALUE",
  *   ],
- *   autoBranchCreationConfig: {
+ *   autoBranchCreationConfig: { // AutoBranchCreationConfig
  *     stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
  *     framework: "STRING_VALUE",
  *     enableAutoBuild: true || false,

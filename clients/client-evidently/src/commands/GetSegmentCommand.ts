@@ -43,7 +43,7 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * import { EvidentlyClient, GetSegmentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetSegmentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // GetSegmentRequest
  *   segment: "STRING_VALUE", // required
  * };
  * const command = new GetSegmentCommand(input);

@@ -52,8 +52,8 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * import { SESClient, GetIdentityNotificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityNotificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
- *   Identities: [ // required
+ * const input = { // GetIdentityNotificationAttributesRequest
+ *   Identities: [ // IdentityList // required
  *     "STRING_VALUE",
  *   ],
  * };

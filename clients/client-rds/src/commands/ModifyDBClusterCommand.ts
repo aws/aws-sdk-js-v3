@@ -50,13 +50,13 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * import { RDSClient, ModifyDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   NewDBClusterIdentifier: "STRING_VALUE",
  *   ApplyImmediately: true || false,
  *   BackupRetentionPeriod: Number("int"),
  *   DBClusterParameterGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   Port: Number("int"),
@@ -66,8 +66,8 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   PreferredMaintenanceWindow: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
  *   BacktrackWindow: Number("long"),
- *   CloudwatchLogsExportConfiguration: {
- *     EnableLogTypes: [
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
  *       "STRING_VALUE",
  *     ],
  *     DisableLogTypes: [
@@ -79,7 +79,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   DBInstanceParameterGroupName: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
  *   DomainIAMRoleName: "STRING_VALUE",
- *   ScalingConfiguration: {
+ *   ScalingConfiguration: { // ScalingConfiguration
  *     MinCapacity: Number("int"),
  *     MaxCapacity: Number("int"),
  *     AutoPause: true || false,
@@ -101,7 +101,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

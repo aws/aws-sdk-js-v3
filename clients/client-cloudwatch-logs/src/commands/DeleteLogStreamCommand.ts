@@ -43,7 +43,7 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteLogStreamCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteLogStreamCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DeleteLogStreamRequest
  *   logGroupName: "STRING_VALUE", // required
  *   logStreamName: "STRING_VALUE", // required
  * };

@@ -45,14 +45,14 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
  * import { EC2Client, DescribeLocalGatewayRouteTablesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLocalGatewayRouteTablesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   LocalGatewayRouteTableIds: [
+ * const input = { // DescribeLocalGatewayRouteTablesRequest
+ *   LocalGatewayRouteTableIds: [ // LocalGatewayRouteTableIdSet
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

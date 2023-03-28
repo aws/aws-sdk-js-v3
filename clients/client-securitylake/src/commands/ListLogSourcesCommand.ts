@@ -42,13 +42,13 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * import { SecurityLakeClient, ListLogSourcesCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListLogSourcesCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {
- *   inputOrder: [
+ * const input = { // ListLogSourcesRequest
+ *   inputOrder: [ // DimensionSet
  *     "STRING_VALUE",
  *   ],
- *   listAllDimensions: {
- *     "<keys>": {
- *       "<keys>": [
+ *   listAllDimensions: { // AllDimensionsMap
+ *     "<keys>": { // TwoDimensionsMap
+ *       "<keys>": [ // ValueSet
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -58,7 +58,7 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  *       "STRING_VALUE",
  *     ],
  *   },
- *   listSingleDimension: [
+ *   listSingleDimension: [ // InputSet
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

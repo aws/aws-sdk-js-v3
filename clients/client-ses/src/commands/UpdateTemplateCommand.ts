@@ -45,8 +45,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * import { SESClient, UpdateTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
- *   Template: {
+ * const input = { // UpdateTemplateRequest
+ *   Template: { // Template
  *     TemplateName: "STRING_VALUE", // required
  *     SubjectPart: "STRING_VALUE",
  *     TextPart: "STRING_VALUE",

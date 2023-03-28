@@ -42,7 +42,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * import { Macie2Client, ListMembersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListMembersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // ListMembersRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   onlyAssociated: "STRING_VALUE",

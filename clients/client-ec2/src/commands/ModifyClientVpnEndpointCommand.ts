@@ -42,16 +42,16 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  * import { EC2Client, ModifyClientVpnEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyClientVpnEndpointRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   ServerCertificateArn: "STRING_VALUE",
- *   ConnectionLogOptions: {
+ *   ConnectionLogOptions: { // ConnectionLogOptions
  *     Enabled: true || false,
  *     CloudwatchLogGroup: "STRING_VALUE",
  *     CloudwatchLogStream: "STRING_VALUE",
  *   },
- *   DnsServers: {
- *     CustomDnsServers: [
+ *   DnsServers: { // DnsServersOptionsModifyStructure
+ *     CustomDnsServers: [ // ValueStringList
  *       "STRING_VALUE",
  *     ],
  *     Enabled: true || false,
@@ -60,17 +60,17 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  *   Description: "STRING_VALUE",
  *   SplitTunnel: true || false,
  *   DryRun: true || false,
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // ClientVpnSecurityGroupIdSet
  *     "STRING_VALUE",
  *   ],
  *   VpcId: "STRING_VALUE",
  *   SelfServicePortal: "enabled" || "disabled",
- *   ClientConnectOptions: {
+ *   ClientConnectOptions: { // ClientConnectOptions
  *     Enabled: true || false,
  *     LambdaFunctionArn: "STRING_VALUE",
  *   },
  *   SessionTimeoutHours: Number("int"),
- *   ClientLoginBannerOptions: {
+ *   ClientLoginBannerOptions: { // ClientLoginBannerOptions
  *     Enabled: true || false,
  *     BannerText: "STRING_VALUE",
  *   },

@@ -47,7 +47,7 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
  * import { EC2Client, DeleteNetworkInterfacePermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInterfacePermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteNetworkInterfacePermissionRequest
  *   NetworkInterfacePermissionId: "STRING_VALUE", // required
  *   Force: true || false,
  *   DryRun: true || false,

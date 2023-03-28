@@ -62,7 +62,7 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * import { EFSClient, DescribeMountTargetSecurityGroupsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeMountTargetSecurityGroupsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
- * const input = {
+ * const input = { // DescribeMountTargetSecurityGroupsRequest
  *   MountTargetId: "STRING_VALUE", // required
  * };
  * const command = new DescribeMountTargetSecurityGroupsCommand(input);

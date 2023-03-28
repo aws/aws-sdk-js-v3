@@ -47,8 +47,8 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * import { BatchClient, DescribeComputeEnvironmentsCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeComputeEnvironmentsCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
- *   computeEnvironments: [
+ * const input = { // DescribeComputeEnvironmentsRequest
+ *   computeEnvironments: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

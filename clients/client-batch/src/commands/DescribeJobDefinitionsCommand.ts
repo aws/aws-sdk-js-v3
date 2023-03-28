@@ -43,8 +43,8 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * import { BatchClient, DescribeJobDefinitionsCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeJobDefinitionsCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
- *   jobDefinitions: [
+ * const input = { // DescribeJobDefinitionsRequest
+ *   jobDefinitions: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),

@@ -44,7 +44,7 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * import { InspectorClient, CreateExclusionsPreviewCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, CreateExclusionsPreviewCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
+ * const input = { // CreateExclusionsPreviewRequest
  *   assessmentTemplateArn: "STRING_VALUE", // required
  * };
  * const command = new CreateExclusionsPreviewCommand(input);

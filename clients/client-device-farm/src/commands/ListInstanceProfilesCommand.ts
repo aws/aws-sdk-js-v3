@@ -42,7 +42,7 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * import { DeviceFarmClient, ListInstanceProfilesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListInstanceProfilesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // ListInstanceProfilesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

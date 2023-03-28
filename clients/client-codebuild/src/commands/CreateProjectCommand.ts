@@ -42,30 +42,30 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * import { CodeBuildClient, CreateProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, CreateProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // CreateProjectInput
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   source: {
+ *   source: { // ProjectSource
  *     type: "STRING_VALUE", // required
  *     location: "STRING_VALUE",
  *     gitCloneDepth: Number("int"),
- *     gitSubmodulesConfig: {
+ *     gitSubmodulesConfig: { // GitSubmodulesConfig
  *       fetchSubmodules: true || false, // required
  *     },
  *     buildspec: "STRING_VALUE",
- *     auth: {
+ *     auth: { // SourceAuth
  *       type: "STRING_VALUE", // required
  *       resource: "STRING_VALUE",
  *     },
  *     reportBuildStatus: true || false,
- *     buildStatusConfig: {
+ *     buildStatusConfig: { // BuildStatusConfig
  *       context: "STRING_VALUE",
  *       targetUrl: "STRING_VALUE",
  *     },
  *     insecureSsl: true || false,
  *     sourceIdentifier: "STRING_VALUE",
  *   },
- *   secondarySources: [
+ *   secondarySources: [ // ProjectSources
  *     {
  *       type: "STRING_VALUE", // required
  *       location: "STRING_VALUE",
@@ -88,13 +88,13 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *     },
  *   ],
  *   sourceVersion: "STRING_VALUE",
- *   secondarySourceVersions: [
- *     {
+ *   secondarySourceVersions: [ // ProjectSecondarySourceVersions
+ *     { // ProjectSourceVersion
  *       sourceIdentifier: "STRING_VALUE", // required
  *       sourceVersion: "STRING_VALUE", // required
  *     },
  *   ],
- *   artifacts: {
+ *   artifacts: { // ProjectArtifacts
  *     type: "STRING_VALUE", // required
  *     location: "STRING_VALUE",
  *     path: "STRING_VALUE",
@@ -106,7 +106,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *     artifactIdentifier: "STRING_VALUE",
  *     bucketOwnerAccess: "STRING_VALUE",
  *   },
- *   secondaryArtifacts: [
+ *   secondaryArtifacts: [ // ProjectArtifactsList
  *     {
  *       type: "STRING_VALUE", // required
  *       location: "STRING_VALUE",
@@ -120,19 +120,19 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *       bucketOwnerAccess: "STRING_VALUE",
  *     },
  *   ],
- *   cache: {
+ *   cache: { // ProjectCache
  *     type: "STRING_VALUE", // required
  *     location: "STRING_VALUE",
- *     modes: [
+ *     modes: [ // ProjectCacheModes
  *       "STRING_VALUE",
  *     ],
  *   },
- *   environment: {
+ *   environment: { // ProjectEnvironment
  *     type: "STRING_VALUE", // required
  *     image: "STRING_VALUE", // required
  *     computeType: "STRING_VALUE", // required
- *     environmentVariables: [
- *       {
+ *     environmentVariables: [ // EnvironmentVariables
+ *       { // EnvironmentVariable
  *         name: "STRING_VALUE", // required
  *         value: "STRING_VALUE", // required
  *         type: "STRING_VALUE",
@@ -140,7 +140,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *     ],
  *     privilegedMode: true || false,
  *     certificate: "STRING_VALUE",
- *     registryCredential: {
+ *     registryCredential: { // RegistryCredential
  *       credential: "STRING_VALUE", // required
  *       credentialProvider: "STRING_VALUE", // required
  *     },
@@ -150,37 +150,37 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   timeoutInMinutes: Number("int"),
  *   queuedTimeoutInMinutes: Number("int"),
  *   encryptionKey: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   vpcConfig: {
+ *   vpcConfig: { // VpcConfig
  *     vpcId: "STRING_VALUE",
- *     subnets: [
+ *     subnets: [ // Subnets
  *       "STRING_VALUE",
  *     ],
- *     securityGroupIds: [
+ *     securityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
  *   },
  *   badgeEnabled: true || false,
- *   logsConfig: {
- *     cloudWatchLogs: {
+ *   logsConfig: { // LogsConfig
+ *     cloudWatchLogs: { // CloudWatchLogsConfig
  *       status: "STRING_VALUE", // required
  *       groupName: "STRING_VALUE",
  *       streamName: "STRING_VALUE",
  *     },
- *     s3Logs: {
+ *     s3Logs: { // S3LogsConfig
  *       status: "STRING_VALUE", // required
  *       location: "STRING_VALUE",
  *       encryptionDisabled: true || false,
  *       bucketOwnerAccess: "STRING_VALUE",
  *     },
  *   },
- *   fileSystemLocations: [
- *     {
+ *   fileSystemLocations: [ // ProjectFileSystemLocations
+ *     { // ProjectFileSystemLocation
  *       type: "STRING_VALUE",
  *       location: "STRING_VALUE",
  *       mountPoint: "STRING_VALUE",
@@ -188,12 +188,12 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *       mountOptions: "STRING_VALUE",
  *     },
  *   ],
- *   buildBatchConfig: {
+ *   buildBatchConfig: { // ProjectBuildBatchConfig
  *     serviceRole: "STRING_VALUE",
  *     combineArtifacts: true || false,
- *     restrictions: {
+ *     restrictions: { // BatchRestrictions
  *       maximumBuildsAllowed: Number("int"),
- *       computeTypesAllowed: [
+ *       computeTypesAllowed: [ // ComputeTypesAllowed
  *         "STRING_VALUE",
  *       ],
  *     },

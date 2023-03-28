@@ -49,13 +49,13 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * import { LakeFormationClient, DeleteObjectsOnCancelCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeleteObjectsOnCancelCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // DeleteObjectsOnCancelRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
  *   TransactionId: "STRING_VALUE", // required
- *   Objects: [ // required
- *     {
+ *   Objects: [ // VirtualObjectList // required
+ *     { // VirtualObject
  *       Uri: "STRING_VALUE", // required
  *       ETag: "STRING_VALUE",
  *     },

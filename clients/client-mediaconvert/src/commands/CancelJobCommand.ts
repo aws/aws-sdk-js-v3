@@ -42,7 +42,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * import { MediaConvertClient, CancelJobCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CancelJobCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // CancelJobRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new CancelJobCommand(input);

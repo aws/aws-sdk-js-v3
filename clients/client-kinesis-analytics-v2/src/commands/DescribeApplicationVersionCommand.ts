@@ -49,7 +49,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * import { KinesisAnalyticsV2Client, DescribeApplicationVersionCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DescribeApplicationVersionCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // DescribeApplicationVersionRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   ApplicationVersionId: Number("long"), // required
  * };

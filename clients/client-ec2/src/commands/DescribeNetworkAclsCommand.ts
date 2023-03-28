@@ -44,17 +44,17 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * import { EC2Client, DescribeNetworkAclsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkAclsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeNetworkAclsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   DryRun: true || false,
- *   NetworkAclIds: [
+ *   NetworkAclIds: [ // NetworkAclIdStringList
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

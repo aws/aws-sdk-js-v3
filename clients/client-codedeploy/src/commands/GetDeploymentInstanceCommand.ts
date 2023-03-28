@@ -44,7 +44,7 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  * import { CodeDeployClient, GetDeploymentInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // GetDeploymentInstanceInput
  *   deploymentId: "STRING_VALUE", // required
  *   instanceId: "STRING_VALUE", // required
  * };

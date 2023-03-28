@@ -47,7 +47,7 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
  * import { IoTWirelessClient, AssociateMulticastGroupWithFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateMulticastGroupWithFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // AssociateMulticastGroupWithFuotaTaskRequest
  *   Id: "STRING_VALUE", // required
  *   MulticastGroupId: "STRING_VALUE", // required
  * };

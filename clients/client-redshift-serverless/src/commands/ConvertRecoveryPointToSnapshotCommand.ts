@@ -49,12 +49,12 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
  * import { RedshiftServerlessClient, ConvertRecoveryPointToSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ConvertRecoveryPointToSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // ConvertRecoveryPointToSnapshotRequest
  *   recoveryPointId: "STRING_VALUE", // required
  *   snapshotName: "STRING_VALUE", // required
  *   retentionPeriod: Number("int"),
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

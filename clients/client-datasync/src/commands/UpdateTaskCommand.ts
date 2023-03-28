@@ -42,9 +42,9 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * import { DataSyncClient, UpdateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // UpdateTaskRequest
  *   TaskArn: "STRING_VALUE", // required
- *   Options: {
+ *   Options: { // Options
  *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
  *     OverwriteMode: "ALWAYS" || "NEVER",
  *     Atime: "NONE" || "BEST_EFFORT",
@@ -61,13 +61,13 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
  *     ObjectTags: "PRESERVE" || "NONE",
  *   },
- *   Excludes: [
- *     {
+ *   Excludes: [ // FilterList
+ *     { // FilterRule
  *       FilterType: "SIMPLE_PATTERN",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   Schedule: {
+ *   Schedule: { // TaskSchedule
  *     ScheduleExpression: "STRING_VALUE", // required
  *   },
  *   Name: "STRING_VALUE",

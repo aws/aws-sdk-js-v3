@@ -45,9 +45,9 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * import { DirectoryServiceClient, DescribeEventTopicsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeEventTopicsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DescribeEventTopicsRequest
  *   DirectoryId: "STRING_VALUE",
- *   TopicNames: [
+ *   TopicNames: [ // TopicNames
  *     "STRING_VALUE",
  *   ],
  * };

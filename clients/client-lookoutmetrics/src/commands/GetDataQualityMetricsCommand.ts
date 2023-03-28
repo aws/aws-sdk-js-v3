@@ -42,7 +42,7 @@ export interface GetDataQualityMetricsCommandOutput extends GetDataQualityMetric
  * import { LookoutMetricsClient, GetDataQualityMetricsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, GetDataQualityMetricsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
+ * const input = { // GetDataQualityMetricsRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required
  *   MetricSetArn: "STRING_VALUE",
  * };

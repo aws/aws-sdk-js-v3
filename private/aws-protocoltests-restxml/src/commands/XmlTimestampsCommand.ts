@@ -43,7 +43,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * import { RestXmlProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // XmlTimestampsInputOutput
  *   normal: new Date("TIMESTAMP"),
  *   dateTime: new Date("TIMESTAMP"),
  *   dateTimeOnTarget: new Date("TIMESTAMP"),

@@ -43,7 +43,7 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  * import { WorkMailClient, UpdateMailboxQuotaCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdateMailboxQuotaCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // UpdateMailboxQuotaRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
  *   MailboxQuota: Number("int"), // required

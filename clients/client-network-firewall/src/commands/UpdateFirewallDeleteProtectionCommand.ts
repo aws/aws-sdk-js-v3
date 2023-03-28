@@ -47,7 +47,7 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
  * import { NetworkFirewallClient, UpdateFirewallDeleteProtectionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallDeleteProtectionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // UpdateFirewallDeleteProtectionRequest
  *   UpdateToken: "STRING_VALUE",
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",

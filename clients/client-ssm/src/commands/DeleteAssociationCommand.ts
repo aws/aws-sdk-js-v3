@@ -48,7 +48,7 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  * import { SSMClient, DeleteAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DeleteAssociationRequest
  *   Name: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE",
  *   AssociationId: "STRING_VALUE",

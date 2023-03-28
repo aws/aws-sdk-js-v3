@@ -42,7 +42,7 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  * import { DirectoryServiceClient, DeleteLogSubscriptionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteLogSubscriptionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DeleteLogSubscriptionRequest
  *   DirectoryId: "STRING_VALUE", // required
  * };
  * const command = new DeleteLogSubscriptionCommand(input);

@@ -42,15 +42,15 @@ export interface ListDataQualityResultsCommandOutput extends ListDataQualityResu
  * import { GlueClient, ListDataQualityResultsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityResultsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   Filter: {
- *     DataSource: {
- *       GlueTable: {
+ * const input = { // ListDataQualityResultsRequest
+ *   Filter: { // DataQualityResultFilterCriteria
+ *     DataSource: { // DataSource
+ *       GlueTable: { // GlueTable
  *         DatabaseName: "STRING_VALUE", // required
  *         TableName: "STRING_VALUE", // required
  *         CatalogId: "STRING_VALUE",
  *         ConnectionName: "STRING_VALUE",
- *         AdditionalOptions: {
+ *         AdditionalOptions: { // GlueTableAdditionalOptions
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },

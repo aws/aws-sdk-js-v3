@@ -42,23 +42,23 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * import { CloudDirectoryClient, UpdateLinkAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateLinkAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // UpdateLinkAttributesRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   TypedLinkSpecifier: {
- *     TypedLinkFacet: {
+ *   TypedLinkSpecifier: { // TypedLinkSpecifier
+ *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
  *       SchemaArn: "STRING_VALUE", // required
  *       TypedLinkName: "STRING_VALUE", // required
  *     },
- *     SourceObjectReference: {
+ *     SourceObjectReference: { // ObjectReference
  *       Selector: "STRING_VALUE",
  *     },
  *     TargetObjectReference: {
  *       Selector: "STRING_VALUE",
  *     },
- *     IdentityAttributeValues: [ // required
- *       {
+ *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *       { // AttributeNameAndValue
  *         AttributeName: "STRING_VALUE", // required
- *         Value: { // Union: only one key present
+ *         Value: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,
@@ -68,16 +68,16 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  *       },
  *     ],
  *   },
- *   AttributeUpdates: [ // required
- *     {
- *       AttributeKey: {
+ *   AttributeUpdates: [ // LinkAttributeUpdateList // required
+ *     { // LinkAttributeUpdate
+ *       AttributeKey: { // AttributeKey
  *         SchemaArn: "STRING_VALUE", // required
  *         FacetName: "STRING_VALUE", // required
  *         Name: "STRING_VALUE", // required
  *       },
- *       AttributeAction: {
+ *       AttributeAction: { // LinkAttributeAction
  *         AttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
- *         AttributeUpdateValue: { // Union: only one key present
+ *         AttributeUpdateValue: {//  Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,

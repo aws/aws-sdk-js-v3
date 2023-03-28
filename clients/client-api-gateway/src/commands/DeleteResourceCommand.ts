@@ -42,7 +42,7 @@ export interface DeleteResourceCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // DeleteResourceRequest
  *   restApiId: "STRING_VALUE", // required
  *   resourceId: "STRING_VALUE", // required
  * };

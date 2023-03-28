@@ -46,35 +46,35 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { FinspaceDataClient, CreateDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // CreateDatasetRequest
  *   clientToken: "STRING_VALUE",
  *   datasetTitle: "STRING_VALUE", // required
  *   kind: "STRING_VALUE", // required
  *   datasetDescription: "STRING_VALUE",
- *   ownerInfo: {
+ *   ownerInfo: { // DatasetOwnerInfo
  *     name: "STRING_VALUE",
  *     phoneNumber: "STRING_VALUE",
  *     email: "STRING_VALUE",
  *   },
- *   permissionGroupParams: {
+ *   permissionGroupParams: { // PermissionGroupParams
  *     permissionGroupId: "STRING_VALUE",
- *     datasetPermissions: [
- *       {
+ *     datasetPermissions: [ // ResourcePermissionsList
+ *       { // ResourcePermission
  *         permission: "STRING_VALUE",
  *       },
  *     ],
  *   },
  *   alias: "STRING_VALUE",
- *   schemaDefinition: {
- *     tabularSchemaConfig: {
- *       columns: [
- *         {
+ *   schemaDefinition: { // SchemaUnion
+ *     tabularSchemaConfig: { // SchemaDefinition
+ *       columns: [ // ColumnList
+ *         { // ColumnDefinition
  *           dataType: "STRING_VALUE",
  *           columnName: "STRING_VALUE",
  *           columnDescription: "STRING_VALUE",
  *         },
  *       ],
- *       primaryKeyColumns: [
+ *       primaryKeyColumns: [ // ColumnNameList
  *         "STRING_VALUE",
  *       ],
  *     },

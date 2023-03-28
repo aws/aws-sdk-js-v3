@@ -43,7 +43,7 @@ export interface AssociateHealthCheckCommandOutput extends AssociateHealthCheckR
  * import { ShieldClient, AssociateHealthCheckCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, AssociateHealthCheckCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
- * const input = {
+ * const input = { // AssociateHealthCheckRequest
  *   ProtectionId: "STRING_VALUE", // required
  *   HealthCheckArn: "STRING_VALUE", // required
  * };

@@ -42,18 +42,18 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  * import { LexModelsV2Client, ListSlotTypesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListSlotTypesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // ListSlotTypesRequest
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE", // required
- *   sortBy: {
+ *   sortBy: { // SlotTypeSortBy
  *     attribute: "SlotTypeName" || "LastUpdatedDateTime", // required
  *     order: "Ascending" || "Descending", // required
  *   },
- *   filters: [
- *     {
+ *   filters: [ // SlotTypeFilters
+ *     { // SlotTypeFilter
  *       name: "SlotTypeName" || "ExternalSourceType", // required
- *       values: [ // required
+ *       values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       operator: "CO" || "EQ", // required

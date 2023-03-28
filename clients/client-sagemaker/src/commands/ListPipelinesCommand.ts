@@ -42,7 +42,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * import { SageMakerClient, ListPipelinesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListPipelinesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListPipelinesRequest
  *   PipelineNamePrefix: "STRING_VALUE",
  *   CreatedAfter: new Date("TIMESTAMP"),
  *   CreatedBefore: new Date("TIMESTAMP"),

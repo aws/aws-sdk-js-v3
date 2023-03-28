@@ -42,7 +42,7 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * import { CodeCommitClient, MergeBranchesByFastForwardCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergeBranchesByFastForwardCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // MergeBranchesByFastForwardInput
  *   repositoryName: "STRING_VALUE", // required
  *   sourceCommitSpecifier: "STRING_VALUE", // required
  *   destinationCommitSpecifier: "STRING_VALUE", // required

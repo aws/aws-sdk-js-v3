@@ -42,12 +42,12 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  * import { WorkSpacesWebClient, UpdateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // UpdateTrustStoreRequest
  *   trustStoreArn: "STRING_VALUE", // required
- *   certificatesToAdd: [
+ *   certificatesToAdd: [ // CertificateList
  *     "BLOB_VALUE",
  *   ],
- *   certificatesToDelete: [
+ *   certificatesToDelete: [ // CertificateThumbprintList
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",

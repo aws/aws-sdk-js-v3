@@ -46,7 +46,7 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
  * import { ApplicationInsightsClient, CreateLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, CreateLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = {
+ * const input = { // CreateLogPatternRequest
  *   ResourceGroupName: "STRING_VALUE", // required
  *   PatternSetName: "STRING_VALUE", // required
  *   PatternName: "STRING_VALUE", // required

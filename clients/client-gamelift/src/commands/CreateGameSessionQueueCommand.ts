@@ -87,27 +87,27 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * import { GameLiftClient, CreateGameSessionQueueCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // CreateGameSessionQueueInput
  *   Name: "STRING_VALUE", // required
  *   TimeoutInSeconds: Number("int"),
- *   PlayerLatencyPolicies: [
- *     {
+ *   PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
+ *     { // PlayerLatencyPolicy
  *       MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
  *       PolicyDurationSeconds: Number("int"),
  *     },
  *   ],
- *   Destinations: [
- *     {
+ *   Destinations: [ // GameSessionQueueDestinationList
+ *     { // GameSessionQueueDestination
  *       DestinationArn: "STRING_VALUE",
  *     },
  *   ],
- *   FilterConfiguration: {
- *     AllowedLocations: [
+ *   FilterConfiguration: { // FilterConfiguration
+ *     AllowedLocations: [ // LocationList
  *       "STRING_VALUE",
  *     ],
  *   },
- *   PriorityConfiguration: {
- *     PriorityOrder: [
+ *   PriorityConfiguration: { // PriorityConfiguration
+ *     PriorityOrder: [ // PriorityTypeList
  *       "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
  *     ],
  *     LocationOrder: [
@@ -116,8 +116,8 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  *   },
  *   CustomEventData: "STRING_VALUE",
  *   NotificationTarget: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

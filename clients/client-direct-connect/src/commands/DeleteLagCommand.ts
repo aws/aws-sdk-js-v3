@@ -40,7 +40,7 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  * import { DirectConnectClient, DeleteLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // DeleteLagRequest
  *   lagId: "STRING_VALUE", // required
  * };
  * const command = new DeleteLagCommand(input);

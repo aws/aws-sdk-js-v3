@@ -48,7 +48,7 @@ export interface ListSuggestedResiliencyPoliciesCommandOutput
  * import { ResiliencehubClient, ListSuggestedResiliencyPoliciesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListSuggestedResiliencyPoliciesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // ListSuggestedResiliencyPoliciesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

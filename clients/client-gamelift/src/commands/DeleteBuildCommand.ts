@@ -55,7 +55,7 @@ export interface DeleteBuildCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeleteBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DeleteBuildInput
  *   BuildId: "STRING_VALUE", // required
  * };
  * const command = new DeleteBuildCommand(input);

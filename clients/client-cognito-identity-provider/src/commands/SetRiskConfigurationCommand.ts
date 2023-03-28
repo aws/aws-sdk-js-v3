@@ -56,23 +56,23 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  * import { CognitoIdentityProviderClient, SetRiskConfigurationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetRiskConfigurationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // SetRiskConfigurationRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE",
- *   CompromisedCredentialsRiskConfiguration: {
- *     EventFilter: [
+ *   CompromisedCredentialsRiskConfiguration: { // CompromisedCredentialsRiskConfigurationType
+ *     EventFilter: [ // EventFiltersType
  *       "SIGN_IN" || "PASSWORD_CHANGE" || "SIGN_UP",
  *     ],
- *     Actions: {
+ *     Actions: { // CompromisedCredentialsActionsType
  *       EventAction: "BLOCK" || "NO_ACTION", // required
  *     },
  *   },
- *   AccountTakeoverRiskConfiguration: {
- *     NotifyConfiguration: {
+ *   AccountTakeoverRiskConfiguration: { // AccountTakeoverRiskConfigurationType
+ *     NotifyConfiguration: { // NotifyConfigurationType
  *       From: "STRING_VALUE",
  *       ReplyTo: "STRING_VALUE",
  *       SourceArn: "STRING_VALUE", // required
- *       BlockEmail: {
+ *       BlockEmail: { // NotifyEmailType
  *         Subject: "STRING_VALUE", // required
  *         HtmlBody: "STRING_VALUE",
  *         TextBody: "STRING_VALUE",
@@ -88,8 +88,8 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  *         TextBody: "STRING_VALUE",
  *       },
  *     },
- *     Actions: {
- *       LowAction: {
+ *     Actions: { // AccountTakeoverActionsType
+ *       LowAction: { // AccountTakeoverActionType
  *         Notify: true || false, // required
  *         EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
  *       },
@@ -103,11 +103,11 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  *       },
  *     },
  *   },
- *   RiskExceptionConfiguration: {
- *     BlockedIPRangeList: [
+ *   RiskExceptionConfiguration: { // RiskExceptionConfigurationType
+ *     BlockedIPRangeList: [ // BlockedIPRangeListType
  *       "STRING_VALUE",
  *     ],
- *     SkippedIPRangeList: [
+ *     SkippedIPRangeList: [ // SkippedIPRangeListType
  *       "STRING_VALUE",
  *     ],
  *   },

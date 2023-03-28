@@ -52,14 +52,14 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  * import { ResourceExplorer2Client, UpdateViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, UpdateViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
- * const input = {
+ * const input = { // UpdateViewInput
  *   ViewArn: "STRING_VALUE", // required
- *   IncludedProperties: [
- *     {
+ *   IncludedProperties: [ // IncludedPropertyList
+ *     { // IncludedProperty
  *       Name: "STRING_VALUE", // required
  *     },
  *   ],
- *   Filters: {
+ *   Filters: { // SearchFilter
  *     FilterString: "STRING_VALUE", // required
  *   },
  * };

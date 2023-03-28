@@ -42,7 +42,7 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  * import { DeviceFarmClient, StopRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, StopRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // StopRunRequest
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new StopRunCommand(input);

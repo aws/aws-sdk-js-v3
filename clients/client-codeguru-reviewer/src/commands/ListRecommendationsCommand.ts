@@ -42,7 +42,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * import { CodeGuruReviewerClient, ListRecommendationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListRecommendationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
+ * const input = { // ListRecommendationsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CodeReviewArn: "STRING_VALUE", // required

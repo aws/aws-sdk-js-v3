@@ -42,7 +42,7 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, DeleteAppInstanceAdminCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteAppInstanceAdminCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DeleteAppInstanceAdminRequest
  *   AppInstanceAdminArn: "STRING_VALUE", // required
  *   AppInstanceArn: "STRING_VALUE", // required
  * };

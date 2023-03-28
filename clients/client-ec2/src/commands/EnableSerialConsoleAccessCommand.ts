@@ -44,7 +44,7 @@ export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialCons
  * import { EC2Client, EnableSerialConsoleAccessCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableSerialConsoleAccessCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // EnableSerialConsoleAccessRequest
  *   DryRun: true || false,
  * };
  * const command = new EnableSerialConsoleAccessCommand(input);

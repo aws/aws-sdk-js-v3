@@ -43,10 +43,10 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * import { EvidentlyClient, PutProjectEventsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, PutProjectEventsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // PutProjectEventsRequest
  *   project: "STRING_VALUE", // required
- *   events: [ // required
- *     {
+ *   events: [ // EventList // required
+ *     { // Event
  *       timestamp: new Date("TIMESTAMP"), // required
  *       type: "STRING_VALUE", // required
  *       data: "STRING_VALUE", // required

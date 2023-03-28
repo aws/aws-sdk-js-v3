@@ -49,11 +49,11 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
  * import { EC2Client, ModifyVpcEndpointConnectionNotificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointConnectionNotificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVpcEndpointConnectionNotificationRequest
  *   DryRun: true || false,
  *   ConnectionNotificationId: "STRING_VALUE", // required
  *   ConnectionNotificationArn: "STRING_VALUE",
- *   ConnectionEvents: [
+ *   ConnectionEvents: [ // ValueStringList
  *     "STRING_VALUE",
  *   ],
  * };

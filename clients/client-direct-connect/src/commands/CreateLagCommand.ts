@@ -56,14 +56,14 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  * import { DirectConnectClient, CreateLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // CreateLagRequest
  *   numberOfConnections: Number("int"), // required
  *   location: "STRING_VALUE", // required
  *   connectionsBandwidth: "STRING_VALUE", // required
  *   lagName: "STRING_VALUE", // required
  *   connectionId: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *     },

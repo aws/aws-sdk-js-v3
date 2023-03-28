@@ -45,11 +45,11 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  * import { NetworkFirewallClient, DisassociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DisassociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // DisassociateSubnetsRequest
  *   UpdateToken: "STRING_VALUE",
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // AzSubnets // required
  *     "STRING_VALUE",
  *   ],
  * };

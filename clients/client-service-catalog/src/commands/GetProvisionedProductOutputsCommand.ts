@@ -44,11 +44,11 @@ export interface GetProvisionedProductOutputsCommandOutput
  * import { ServiceCatalogClient, GetProvisionedProductOutputsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, GetProvisionedProductOutputsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // GetProvisionedProductOutputsInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProvisionedProductId: "STRING_VALUE",
  *   ProvisionedProductName: "STRING_VALUE",
- *   OutputKeys: [
+ *   OutputKeys: [ // OutputKeys
  *     "STRING_VALUE",
  *   ],
  *   PageSize: Number("int"),

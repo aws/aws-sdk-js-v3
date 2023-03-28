@@ -45,7 +45,7 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * import { DeviceFarmClient, ListOfferingsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListOfferingsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // ListOfferingsRequest
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListOfferingsCommand(input);

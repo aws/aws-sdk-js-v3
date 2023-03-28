@@ -42,7 +42,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * import { ResiliencehubClient, DescribeAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // DescribeAppRequest
  *   appArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeAppCommand(input);

@@ -42,7 +42,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * import { EventBridgeClient, DeleteEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // DeleteEndpointRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteEndpointCommand(input);

@@ -46,34 +46,34 @@ export interface CreateWorkflowStepCommandOutput extends CreateWorkflowStepRespo
  * import { MigrationHubOrchestratorClient, CreateWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, CreateWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // CreateWorkflowStepRequest
  *   name: "STRING_VALUE", // required
  *   stepGroupId: "STRING_VALUE", // required
  *   workflowId: "STRING_VALUE", // required
  *   stepActionType: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   workflowStepAutomationConfiguration: {
+ *   workflowStepAutomationConfiguration: { // WorkflowStepAutomationConfiguration
  *     scriptLocationS3Bucket: "STRING_VALUE",
- *     scriptLocationS3Key: {
+ *     scriptLocationS3Key: { // PlatformScriptKey
  *       linux: "STRING_VALUE",
  *       windows: "STRING_VALUE",
  *     },
- *     command: {
+ *     command: { // PlatformCommand
  *       linux: "STRING_VALUE",
  *       windows: "STRING_VALUE",
  *     },
  *     runEnvironment: "STRING_VALUE",
  *     targetType: "STRING_VALUE",
  *   },
- *   stepTarget: [
+ *   stepTarget: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   outputs: [
- *     {
+ *   outputs: [ // WorkflowStepOutputList
+ *     { // WorkflowStepOutput
  *       name: "STRING_VALUE",
  *       dataType: "STRING_VALUE",
  *       required: true || false,
- *       value: { // Union: only one key present
+ *       value: { // WorkflowStepOutputUnion Union: only one key present
  *         integerValue: Number("int"),
  *         stringValue: "STRING_VALUE",
  *         listOfStringValue: [

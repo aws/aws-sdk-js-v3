@@ -51,21 +51,21 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * import { RedshiftServerlessClient, CreateNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // CreateNamespaceRequest
  *   namespaceName: "STRING_VALUE", // required
  *   adminUsername: "STRING_VALUE",
  *   adminUserPassword: "STRING_VALUE",
  *   dbName: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
  *   defaultIamRoleArn: "STRING_VALUE",
- *   iamRoles: [
+ *   iamRoles: [ // IamRoleArnList
  *     "STRING_VALUE",
  *   ],
- *   logExports: [
+ *   logExports: [ // LogExportList
  *     "STRING_VALUE",
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

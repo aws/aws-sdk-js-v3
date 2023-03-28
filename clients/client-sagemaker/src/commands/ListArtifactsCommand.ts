@@ -42,7 +42,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * import { SageMakerClient, ListArtifactsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListArtifactsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListArtifactsRequest
  *   SourceUri: "STRING_VALUE",
  *   ArtifactType: "STRING_VALUE",
  *   CreatedAfter: new Date("TIMESTAMP"),

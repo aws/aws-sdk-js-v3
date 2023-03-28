@@ -42,7 +42,7 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * import { WisdomClient, DeleteAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // DeleteAssistantAssociationRequest
  *   assistantAssociationId: "STRING_VALUE", // required
  *   assistantId: "STRING_VALUE", // required
  * };

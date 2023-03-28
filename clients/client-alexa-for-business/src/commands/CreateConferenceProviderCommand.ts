@@ -42,25 +42,25 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  * import { AlexaForBusinessClient, CreateConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // CreateConferenceProviderRequest
  *   ConferenceProviderName: "STRING_VALUE", // required
  *   ConferenceProviderType: "STRING_VALUE", // required
- *   IPDialIn: {
+ *   IPDialIn: { // IPDialIn
  *     Endpoint: "STRING_VALUE", // required
  *     CommsProtocol: "STRING_VALUE", // required
  *   },
- *   PSTNDialIn: {
+ *   PSTNDialIn: { // PSTNDialIn
  *     CountryCode: "STRING_VALUE", // required
  *     PhoneNumber: "STRING_VALUE", // required
  *     OneClickIdDelay: "STRING_VALUE", // required
  *     OneClickPinDelay: "STRING_VALUE", // required
  *   },
- *   MeetingSetting: {
+ *   MeetingSetting: { // MeetingSetting
  *     RequirePin: "STRING_VALUE", // required
  *   },
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

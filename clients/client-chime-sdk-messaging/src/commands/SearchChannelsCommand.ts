@@ -56,12 +56,12 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  * import { ChimeSDKMessagingClient, SearchChannelsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, SearchChannelsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const input = {
+ * const input = { // SearchChannelsRequest
  *   ChimeBearer: "STRING_VALUE",
- *   Fields: [ // required
- *     {
+ *   Fields: [ // SearchFields // required
+ *     { // SearchField
  *       Key: "MEMBERS", // required
- *       Values: [ // required
+ *       Values: [ // SearchFieldValues // required
  *         "STRING_VALUE",
  *       ],
  *       Operator: "EQUALS" || "INCLUDES", // required

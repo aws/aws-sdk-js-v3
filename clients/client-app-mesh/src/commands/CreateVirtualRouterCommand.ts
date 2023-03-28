@@ -48,21 +48,21 @@ export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOut
  * import { AppMeshClient, CreateVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // CreateVirtualRouterInput
  *   virtualRouterName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
- *   spec: {
- *     listeners: [
- *       {
- *         portMapping: {
+ *   spec: { // VirtualRouterSpec
+ *     listeners: [ // VirtualRouterListeners
+ *       { // VirtualRouterListener
+ *         portMapping: { // PortMapping
  *           port: Number("int"), // required
  *           protocol: "STRING_VALUE", // required
  *         },
  *       },
  *     ],
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // TagRef
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

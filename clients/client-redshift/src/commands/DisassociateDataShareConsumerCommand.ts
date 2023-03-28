@@ -44,7 +44,7 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * import { RedshiftClient, DisassociateDataShareConsumerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DisassociateDataShareConsumerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DisassociateDataShareConsumerMessage
  *   DataShareArn: "STRING_VALUE", // required
  *   DisassociateEntireAccount: true || false,
  *   ConsumerArn: "STRING_VALUE",

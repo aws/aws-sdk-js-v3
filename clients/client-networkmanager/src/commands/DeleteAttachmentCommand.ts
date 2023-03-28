@@ -42,7 +42,7 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  * import { NetworkManagerClient, DeleteAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // DeleteAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
  * };
  * const command = new DeleteAttachmentCommand(input);

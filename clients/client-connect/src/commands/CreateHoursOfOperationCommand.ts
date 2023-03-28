@@ -43,15 +43,15 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * import { ConnectClient, CreateHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // CreateHoursOfOperationRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   TimeZone: "STRING_VALUE", // required
- *   Config: [ // required
- *     {
+ *   Config: [ // HoursOfOperationConfigList // required
+ *     { // HoursOfOperationConfig
  *       Day: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
- *       StartTime: {
+ *       StartTime: { // HoursOfOperationTimeSlice
  *         Hours: Number("int"), // required
  *         Minutes: Number("int"), // required
  *       },
@@ -61,7 +61,7 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  *       },
  *     },
  *   ],
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -49,7 +49,7 @@ export interface DescribeDefaultClusterParametersCommandOutput
  * import { RedshiftClient, DescribeDefaultClusterParametersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDefaultClusterParametersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeDefaultClusterParametersMessage
  *   ParameterGroupFamily: "STRING_VALUE", // required
  *   MaxRecords: Number("int"),
  *   Marker: "STRING_VALUE",

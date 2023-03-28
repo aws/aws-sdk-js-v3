@@ -42,21 +42,21 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * import { FinspaceDataClient, CreateDataViewCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateDataViewCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
- * const input = {
+ * const input = { // CreateDataViewRequest
  *   clientToken: "STRING_VALUE",
  *   datasetId: "STRING_VALUE", // required
  *   autoUpdate: true || false,
- *   sortColumns: [
+ *   sortColumns: [ // SortColumnList
  *     "STRING_VALUE",
  *   ],
- *   partitionColumns: [
+ *   partitionColumns: [ // PartitionColumnList
  *     "STRING_VALUE",
  *   ],
  *   asOfTimestamp: Number("long"),
- *   destinationTypeParams: {
+ *   destinationTypeParams: { // DataViewDestinationTypeParams
  *     destinationType: "STRING_VALUE", // required
  *     s3DestinationExportFileFormat: "STRING_VALUE",
- *     s3DestinationExportFileFormatOptions: {
+ *     s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

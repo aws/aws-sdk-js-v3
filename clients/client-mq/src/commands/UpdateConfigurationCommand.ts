@@ -42,7 +42,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * import { MqClient, UpdateConfigurationCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, UpdateConfigurationCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = {
+ * const input = { // UpdateConfigurationRequest
  *   ConfigurationId: "STRING_VALUE", // required
  *   Data: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

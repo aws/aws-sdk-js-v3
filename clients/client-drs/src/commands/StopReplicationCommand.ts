@@ -46,7 +46,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * import { DrsClient, StopReplicationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StopReplicationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // StopReplicationRequest
  *   sourceServerID: "STRING_VALUE", // required
  * };
  * const command = new StopReplicationCommand(input);

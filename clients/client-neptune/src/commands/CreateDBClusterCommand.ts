@@ -49,8 +49,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * import { NeptuneClient, CreateDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
- *   AvailabilityZones: [
+ * const input = { // CreateDBClusterMessage
+ *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
  *   BackupRetentionPeriod: Number("int"),
@@ -59,7 +59,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   DatabaseName: "STRING_VALUE",
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   DBClusterParameterGroupName: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   DBSubnetGroupName: "STRING_VALUE",
@@ -72,8 +72,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   PreferredBackupWindow: "STRING_VALUE",
  *   PreferredMaintenanceWindow: "STRING_VALUE",
  *   ReplicationSourceIdentifier: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -82,11 +82,11 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   KmsKeyId: "STRING_VALUE",
  *   PreSignedUrl: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,
- *   ServerlessV2ScalingConfiguration: {
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },

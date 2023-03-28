@@ -48,7 +48,7 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * import { CodeGuruProfilerClient, ListProfilingGroupsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ListProfilingGroupsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // ListProfilingGroupsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   includeDescription: true || false,

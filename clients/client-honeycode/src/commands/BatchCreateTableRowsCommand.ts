@@ -55,16 +55,16 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  * import { HoneycodeClient, BatchCreateTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchCreateTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
- * const input = {
+ * const input = { // BatchCreateTableRowsRequest
  *   workbookId: "STRING_VALUE", // required
  *   tableId: "STRING_VALUE", // required
- *   rowsToCreate: [ // required
- *     {
+ *   rowsToCreate: [ // CreateRowDataList // required
+ *     { // CreateRowData
  *       batchItemId: "STRING_VALUE", // required
- *       cellsToCreate: { // required
- *         "<keys>": {
+ *       cellsToCreate: { // RowDataInput // required
+ *         "<keys>": { // CellInput
  *           fact: "STRING_VALUE",
- *           facts: [
+ *           facts: [ // FactList
  *             "STRING_VALUE",
  *           ],
  *         },

@@ -44,7 +44,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { HealthLakeClient, ListTagsForResourceCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
- * const input = {
+ * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

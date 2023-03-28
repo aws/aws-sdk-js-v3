@@ -43,7 +43,7 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * import { NeptuneClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // DeleteGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteGlobalClusterCommand(input);

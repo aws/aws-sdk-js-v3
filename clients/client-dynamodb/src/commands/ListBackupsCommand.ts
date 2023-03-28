@@ -48,7 +48,7 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  * import { DynamoDBClient, ListBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // ListBackupsInput
  *   TableName: "STRING_VALUE",
  *   Limit: Number("int"),
  *   TimeRangeLowerBound: new Date("TIMESTAMP"),

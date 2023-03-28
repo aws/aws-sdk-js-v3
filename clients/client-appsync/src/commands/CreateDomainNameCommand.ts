@@ -42,7 +42,7 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * import { AppSyncClient, CreateDomainNameCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateDomainNameCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // CreateDomainNameRequest
  *   domainName: "STRING_VALUE", // required
  *   certificateArn: "STRING_VALUE", // required
  *   description: "STRING_VALUE",

@@ -52,10 +52,10 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * import { GlueClient, BatchDeleteTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeleteTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // BatchDeleteTableRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
- *   TablesToDelete: [ // required
+ *   TablesToDelete: [ // BatchDeleteTableNameList // required
  *     "STRING_VALUE",
  *   ],
  *   TransactionId: "STRING_VALUE",

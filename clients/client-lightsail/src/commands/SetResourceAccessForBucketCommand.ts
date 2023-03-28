@@ -45,7 +45,7 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
  * import { LightsailClient, SetResourceAccessForBucketCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, SetResourceAccessForBucketCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // SetResourceAccessForBucketRequest
  *   resourceName: "STRING_VALUE", // required
  *   bucketName: "STRING_VALUE", // required
  *   access: "allow" || "deny", // required

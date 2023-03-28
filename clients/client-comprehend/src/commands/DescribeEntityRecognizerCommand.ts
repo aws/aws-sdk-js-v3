@@ -47,7 +47,7 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  * import { ComprehendClient, DescribeEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // DescribeEntityRecognizerRequest
  *   EntityRecognizerArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeEntityRecognizerCommand(input);

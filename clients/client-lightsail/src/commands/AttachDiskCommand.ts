@@ -46,7 +46,7 @@ export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBea
  * import { LightsailClient, AttachDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // AttachDiskRequest
  *   diskName: "STRING_VALUE", // required
  *   instanceName: "STRING_VALUE", // required
  *   diskPath: "STRING_VALUE", // required

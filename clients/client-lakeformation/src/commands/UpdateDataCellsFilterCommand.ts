@@ -42,20 +42,20 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * import { LakeFormationClient, UpdateDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
- *   TableData: {
+ * const input = { // UpdateDataCellsFilterRequest
+ *   TableData: { // DataCellsFilter
  *     TableCatalogId: "STRING_VALUE", // required
  *     DatabaseName: "STRING_VALUE", // required
  *     TableName: "STRING_VALUE", // required
  *     Name: "STRING_VALUE", // required
- *     RowFilter: {
+ *     RowFilter: { // RowFilter
  *       FilterExpression: "STRING_VALUE",
  *       AllRowsWildcard: {},
  *     },
- *     ColumnNames: [
+ *     ColumnNames: [ // ColumnNames
  *       "STRING_VALUE",
  *     ],
- *     ColumnWildcard: {
+ *     ColumnWildcard: { // ColumnWildcard
  *       ExcludedColumnNames: [
  *         "STRING_VALUE",
  *       ],

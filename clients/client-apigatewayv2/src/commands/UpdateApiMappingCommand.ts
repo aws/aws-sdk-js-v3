@@ -42,7 +42,7 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * import { ApiGatewayV2Client, UpdateApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // UpdateApiMappingRequest
  *   ApiId: "STRING_VALUE", // required
  *   ApiMappingId: "STRING_VALUE", // required
  *   ApiMappingKey: "STRING_VALUE",

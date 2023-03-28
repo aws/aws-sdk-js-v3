@@ -52,7 +52,7 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * import { RedshiftClient, DescribeOrderableClusterOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeOrderableClusterOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeOrderableClusterOptionsMessage
  *   ClusterVersion: "STRING_VALUE",
  *   NodeType: "STRING_VALUE",
  *   MaxRecords: Number("int"),

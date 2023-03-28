@@ -73,7 +73,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * import { S3Client, WriteGetObjectResponseCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, WriteGetObjectResponseCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // WriteGetObjectResponseRequest
  *   RequestRoute: "STRING_VALUE", // required
  *   RequestToken: "STRING_VALUE", // required
  *   Body: "STREAMING_BLOB_VALUE",
@@ -98,7 +98,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *   Expiration: "STRING_VALUE",
  *   LastModified: new Date("TIMESTAMP"),
  *   MissingMeta: Number("int"),
- *   Metadata: {
+ *   Metadata: { // Metadata
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",

@@ -42,7 +42,7 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * import { MediaPackageVodClient, ListAssetsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ListAssetsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // ListAssetsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   PackagingGroupId: "STRING_VALUE",

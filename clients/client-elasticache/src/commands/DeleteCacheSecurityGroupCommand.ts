@@ -45,7 +45,7 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * import { ElastiCacheClient, DeleteCacheSecurityGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteCacheSecurityGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DeleteCacheSecurityGroupMessage
  *   CacheSecurityGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteCacheSecurityGroupCommand(input);

@@ -42,28 +42,28 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * import { GuardDutyClient, GetFindingsStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetFindingsStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // GetFindingsStatisticsRequest
  *   DetectorId: "STRING_VALUE", // required
- *   FindingStatisticTypes: [ // required
+ *   FindingStatisticTypes: [ // FindingStatisticTypes // required
  *     "COUNT_BY_SEVERITY",
  *   ],
- *   FindingCriteria: {
- *     Criterion: {
- *       "<keys>": {
- *         Eq: [
+ *   FindingCriteria: { // FindingCriteria
+ *     Criterion: { // Criterion
+ *       "<keys>": { // Condition
+ *         Eq: [ // Eq
  *           "STRING_VALUE",
  *         ],
- *         Neq: [
+ *         Neq: [ // Neq
  *           "STRING_VALUE",
  *         ],
  *         Gt: Number("int"),
  *         Gte: Number("int"),
  *         Lt: Number("int"),
  *         Lte: Number("int"),
- *         Equals: [
+ *         Equals: [ // Equals
  *           "STRING_VALUE",
  *         ],
- *         NotEquals: [
+ *         NotEquals: [ // NotEquals
  *           "STRING_VALUE",
  *         ],
  *         GreaterThan: Number("long"),

@@ -42,10 +42,10 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * import { ApiGatewayV2Client, UpdateDomainNameCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateDomainNameCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // UpdateDomainNameRequest
  *   DomainName: "STRING_VALUE", // required
- *   DomainNameConfigurations: [
- *     {
+ *   DomainNameConfigurations: [ // DomainNameConfigurations
+ *     { // DomainNameConfiguration
  *       ApiGatewayDomainName: "STRING_VALUE",
  *       CertificateArn: "STRING_VALUE",
  *       CertificateName: "STRING_VALUE",
@@ -58,7 +58,7 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  *       OwnershipVerificationCertificateArn: "STRING_VALUE",
  *     },
  *   ],
- *   MutualTlsAuthentication: {
+ *   MutualTlsAuthentication: { // MutualTlsAuthenticationInput
  *     TruststoreUri: "STRING_VALUE",
  *     TruststoreVersion: "STRING_VALUE",
  *   },

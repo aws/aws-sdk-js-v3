@@ -49,10 +49,10 @@ export interface CreateCustomRoutingListenerCommandOutput
  * import { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
+ * const input = { // CreateCustomRoutingListenerRequest
  *   AcceleratorArn: "STRING_VALUE", // required
- *   PortRanges: [ // required
- *     {
+ *   PortRanges: [ // PortRanges // required
+ *     { // PortRange
  *       FromPort: Number("int"),
  *       ToPort: Number("int"),
  *     },

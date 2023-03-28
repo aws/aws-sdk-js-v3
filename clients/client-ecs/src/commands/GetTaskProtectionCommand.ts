@@ -42,9 +42,9 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * import { ECSClient, GetTaskProtectionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, GetTaskProtectionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // GetTaskProtectionRequest
  *   cluster: "STRING_VALUE", // required
- *   tasks: [
+ *   tasks: [ // StringList
  *     "STRING_VALUE",
  *   ],
  * };

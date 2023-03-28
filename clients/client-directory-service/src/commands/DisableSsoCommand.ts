@@ -42,7 +42,7 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  * import { DirectoryServiceClient, DisableSsoCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableSsoCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DisableSsoRequest
  *   DirectoryId: "STRING_VALUE", // required
  *   UserName: "STRING_VALUE",
  *   Password: "STRING_VALUE",

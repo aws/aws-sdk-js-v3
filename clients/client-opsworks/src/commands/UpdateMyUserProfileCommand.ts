@@ -47,7 +47,7 @@ export interface UpdateMyUserProfileCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateMyUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateMyUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // UpdateMyUserProfileRequest
  *   SshPublicKey: "STRING_VALUE",
  * };
  * const command = new UpdateMyUserProfileCommand(input);

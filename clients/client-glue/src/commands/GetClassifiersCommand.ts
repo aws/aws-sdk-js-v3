@@ -42,7 +42,7 @@ export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __M
  * import { GlueClient, GetClassifiersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetClassifiersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetClassifiersRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

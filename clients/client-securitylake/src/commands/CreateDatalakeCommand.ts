@@ -57,20 +57,20 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  * import { SecurityLakeClient, CreateDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {
- *   regions: [
+ * const input = { // CreateDatalakeRequest
+ *   regions: [ // RegionSet
  *     "STRING_VALUE",
  *   ],
- *   configurations: {
- *     "<keys>": {
+ *   configurations: { // LakeConfigurationRequestMap
+ *     "<keys>": { // LakeConfigurationRequest
  *       encryptionKey: "STRING_VALUE",
- *       retentionSettings: [
- *         {
+ *       retentionSettings: [ // RetentionSettingList
+ *         { // RetentionSetting
  *           storageClass: "STRING_VALUE",
  *           retentionPeriod: Number("int"),
  *         },
  *       ],
- *       tagsMap: {
+ *       tagsMap: { // TagsMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *       replicationDestinationRegions: [

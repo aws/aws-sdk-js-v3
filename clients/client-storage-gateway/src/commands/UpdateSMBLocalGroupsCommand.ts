@@ -43,10 +43,10 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  * import { StorageGatewayClient, UpdateSMBLocalGroupsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSMBLocalGroupsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // UpdateSMBLocalGroupsInput
  *   GatewayARN: "STRING_VALUE", // required
- *   SMBLocalGroups: {
- *     GatewayAdmins: [
+ *   SMBLocalGroups: { // SMBLocalGroups
+ *     GatewayAdmins: [ // UserList
  *       "STRING_VALUE",
  *     ],
  *   },

@@ -42,18 +42,18 @@ export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __M
  * import { ComprehendClient, UpdateFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, UpdateFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // UpdateFlywheelRequest
  *   FlywheelArn: "STRING_VALUE", // required
  *   ActiveModelArn: "STRING_VALUE",
  *   DataAccessRoleArn: "STRING_VALUE",
- *   DataSecurityConfig: {
+ *   DataSecurityConfig: { // UpdateDataSecurityConfig
  *     ModelKmsKeyId: "STRING_VALUE",
  *     VolumeKmsKeyId: "STRING_VALUE",
- *     VpcConfig: {
- *       SecurityGroupIds: [ // required
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // SecurityGroupIds // required
  *         "STRING_VALUE",
  *       ],
- *       Subnets: [ // required
+ *       Subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
  *     },

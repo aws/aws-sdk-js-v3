@@ -47,7 +47,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * import { MigrationHubRefactorSpacesClient, DeleteEnvironmentCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
- * const input = {
+ * const input = { // DeleteEnvironmentRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteEnvironmentCommand(input);

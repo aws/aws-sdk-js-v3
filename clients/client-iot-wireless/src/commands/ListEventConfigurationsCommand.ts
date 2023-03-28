@@ -42,7 +42,7 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * import { IoTWirelessClient, ListEventConfigurationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListEventConfigurationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // ListEventConfigurationsRequest
  *   ResourceType: "SidewalkAccount" || "WirelessDevice" || "WirelessGateway", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

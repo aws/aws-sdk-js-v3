@@ -47,7 +47,7 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * import { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // ValidateAssessmentReportIntegrityRequest
  *   s3RelativePath: "STRING_VALUE", // required
  * };
  * const command = new ValidateAssessmentReportIntegrityCommand(input);

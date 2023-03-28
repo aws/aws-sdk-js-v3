@@ -51,7 +51,7 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  * import { DirectConnectClient, DisassociateConnectionFromLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DisassociateConnectionFromLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // DisassociateConnectionFromLagRequest
  *   connectionId: "STRING_VALUE", // required
  *   lagId: "STRING_VALUE", // required
  * };

@@ -101,9 +101,9 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * import { KinesisClient, PutRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, PutRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
- *   Records: [ // required
- *     {
+ * const input = { // PutRecordsInput
+ *   Records: [ // PutRecordsRequestEntryList // required
+ *     { // PutRecordsRequestEntry
  *       Data: "BLOB_VALUE", // required
  *       ExplicitHashKey: "STRING_VALUE",
  *       PartitionKey: "STRING_VALUE", // required

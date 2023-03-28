@@ -42,10 +42,10 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  * import { ConfigServiceClient, ListResourceEvaluationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListResourceEvaluationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   Filters: {
+ * const input = { // ListResourceEvaluationsRequest
+ *   Filters: { // ResourceEvaluationFilters
  *     EvaluationMode: "DETECTIVE" || "PROACTIVE",
- *     TimeWindow: {
+ *     TimeWindow: { // TimeWindow
  *       StartTime: new Date("TIMESTAMP"),
  *       EndTime: new Date("TIMESTAMP"),
  *     },

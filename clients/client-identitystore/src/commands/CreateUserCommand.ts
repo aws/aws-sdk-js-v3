@@ -42,10 +42,10 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { IdentitystoreClient, CreateUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, CreateUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
- * const input = {
+ * const input = { // CreateUserRequest
  *   IdentityStoreId: "STRING_VALUE", // required
  *   UserName: "STRING_VALUE",
- *   Name: {
+ *   Name: { // Name
  *     Formatted: "STRING_VALUE",
  *     FamilyName: "STRING_VALUE",
  *     GivenName: "STRING_VALUE",
@@ -56,15 +56,15 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   DisplayName: "STRING_VALUE",
  *   NickName: "STRING_VALUE",
  *   ProfileUrl: "STRING_VALUE",
- *   Emails: [
- *     {
+ *   Emails: [ // Emails
+ *     { // Email
  *       Value: "STRING_VALUE",
  *       Type: "STRING_VALUE",
  *       Primary: true || false,
  *     },
  *   ],
- *   Addresses: [
- *     {
+ *   Addresses: [ // Addresses
+ *     { // Address
  *       StreetAddress: "STRING_VALUE",
  *       Locality: "STRING_VALUE",
  *       Region: "STRING_VALUE",
@@ -75,8 +75,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *       Primary: true || false,
  *     },
  *   ],
- *   PhoneNumbers: [
- *     {
+ *   PhoneNumbers: [ // PhoneNumbers
+ *     { // PhoneNumber
  *       Value: "STRING_VALUE",
  *       Type: "STRING_VALUE",
  *       Primary: true || false,

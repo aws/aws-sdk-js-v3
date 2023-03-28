@@ -42,14 +42,14 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * import { DocDBClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // DescribeDBEngineVersionsMessage
  *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   DBParameterGroupFamily: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

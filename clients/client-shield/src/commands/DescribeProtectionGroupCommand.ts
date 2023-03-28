@@ -42,7 +42,7 @@ export interface DescribeProtectionGroupCommandOutput extends DescribeProtection
  * import { ShieldClient, DescribeProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
- * const input = {
+ * const input = { // DescribeProtectionGroupRequest
  *   ProtectionGroupId: "STRING_VALUE", // required
  * };
  * const command = new DescribeProtectionGroupCommand(input);

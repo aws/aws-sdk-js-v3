@@ -67,7 +67,7 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * import { S3ControlClient, DeleteJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // DeleteJobTaggingRequest
  *   AccountId: "STRING_VALUE",
  *   JobId: "STRING_VALUE", // required
  * };

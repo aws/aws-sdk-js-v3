@@ -48,18 +48,18 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * import { CloudWatchClient, DescribeAnomalyDetectorsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAnomalyDetectorsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // DescribeAnomalyDetectorsInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   Namespace: "STRING_VALUE",
  *   MetricName: "STRING_VALUE",
- *   Dimensions: [
- *     {
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   AnomalyDetectorTypes: [
+ *   AnomalyDetectorTypes: [ // AnomalyDetectorTypes
  *     "SINGLE_METRIC" || "METRIC_MATH",
  *   ],
  * };

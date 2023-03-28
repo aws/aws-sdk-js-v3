@@ -48,7 +48,7 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * import { ChimeSDKVoiceClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // SearchAvailablePhoneNumbersRequest
  *   AreaCode: "STRING_VALUE",
  *   City: "STRING_VALUE",
  *   Country: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * import { DrsClient, StopFailbackCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StopFailbackCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // StopFailbackRequest
  *   recoveryInstanceID: "STRING_VALUE", // required
  * };
  * const command = new StopFailbackCommand(input);

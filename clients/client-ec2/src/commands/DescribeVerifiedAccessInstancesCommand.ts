@@ -44,16 +44,16 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  * import { EC2Client, DescribeVerifiedAccessInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVerifiedAccessInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   VerifiedAccessInstanceIds: [
+ * const input = { // DescribeVerifiedAccessInstancesRequest
+ *   VerifiedAccessInstanceIds: [ // VerifiedAccessInstanceIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

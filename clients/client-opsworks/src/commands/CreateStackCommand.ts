@@ -47,11 +47,11 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * import { OpsWorksClient, CreateStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // CreateStackRequest
  *   Name: "STRING_VALUE", // required
  *   Region: "STRING_VALUE", // required
  *   VpcId: "STRING_VALUE",
- *   Attributes: {
+ *   Attributes: { // StackAttributes
  *     "<keys>": "STRING_VALUE",
  *   },
  *   ServiceRoleArn: "STRING_VALUE", // required
@@ -61,17 +61,17 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *   DefaultAvailabilityZone: "STRING_VALUE",
  *   DefaultSubnetId: "STRING_VALUE",
  *   CustomJson: "STRING_VALUE",
- *   ConfigurationManager: {
+ *   ConfigurationManager: { // StackConfigurationManager
  *     Name: "STRING_VALUE",
  *     Version: "STRING_VALUE",
  *   },
- *   ChefConfiguration: {
+ *   ChefConfiguration: { // ChefConfiguration
  *     ManageBerkshelf: true || false,
  *     BerkshelfVersion: "STRING_VALUE",
  *   },
  *   UseCustomCookbooks: true || false,
  *   UseOpsworksSecurityGroups: true || false,
- *   CustomCookbooksSource: {
+ *   CustomCookbooksSource: { // Source
  *     Type: "STRING_VALUE",
  *     Url: "STRING_VALUE",
  *     Username: "STRING_VALUE",

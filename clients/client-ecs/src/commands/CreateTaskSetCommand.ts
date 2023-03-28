@@ -45,14 +45,14 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * import { ECSClient, CreateTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // CreateTaskSetRequest
  *   service: "STRING_VALUE", // required
  *   cluster: "STRING_VALUE", // required
  *   externalId: "STRING_VALUE",
  *   taskDefinition: "STRING_VALUE", // required
- *   networkConfiguration: {
- *     awsvpcConfiguration: {
- *       subnets: [ // required
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
+ *       subnets: [ // StringList // required
  *         "STRING_VALUE",
  *       ],
  *       securityGroups: [
@@ -61,16 +61,16 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  *       assignPublicIp: "ENABLED" || "DISABLED",
  *     },
  *   },
- *   loadBalancers: [
- *     {
+ *   loadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
  *       targetGroupArn: "STRING_VALUE",
  *       loadBalancerName: "STRING_VALUE",
  *       containerName: "STRING_VALUE",
  *       containerPort: Number("int"),
  *     },
  *   ],
- *   serviceRegistries: [
- *     {
+ *   serviceRegistries: [ // ServiceRegistries
+ *     { // ServiceRegistry
  *       registryArn: "STRING_VALUE",
  *       port: Number("int"),
  *       containerName: "STRING_VALUE",
@@ -78,21 +78,21 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  *     },
  *   ],
  *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
- *   capacityProviderStrategy: [
- *     {
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
  *       weight: Number("int"),
  *       base: Number("int"),
  *     },
  *   ],
  *   platformVersion: "STRING_VALUE",
- *   scale: {
+ *   scale: { // Scale
  *     value: Number("double"),
  *     unit: "PERCENT",
  *   },
  *   clientToken: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

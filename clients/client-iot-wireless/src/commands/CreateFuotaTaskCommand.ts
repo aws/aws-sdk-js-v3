@@ -42,17 +42,17 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  * import { IoTWirelessClient, CreateFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CreateFuotaTaskRequest
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE",
- *   LoRaWAN: {
+ *   LoRaWAN: { // LoRaWANFuotaTask
  *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
  *   },
  *   FirmwareUpdateImage: "STRING_VALUE", // required
  *   FirmwareUpdateRole: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

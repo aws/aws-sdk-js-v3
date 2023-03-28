@@ -44,7 +44,7 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * import { PinpointEmailClient, PutEmailIdentityDkimAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutEmailIdentityDkimAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // PutEmailIdentityDkimAttributesRequest
  *   EmailIdentity: "STRING_VALUE", // required
  *   SigningEnabled: true || false,
  * };

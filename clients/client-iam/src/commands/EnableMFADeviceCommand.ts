@@ -44,7 +44,7 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * import { IAMClient, EnableMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, EnableMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // EnableMFADeviceRequest
  *   UserName: "STRING_VALUE", // required
  *   SerialNumber: "STRING_VALUE", // required
  *   AuthenticationCode1: "STRING_VALUE", // required

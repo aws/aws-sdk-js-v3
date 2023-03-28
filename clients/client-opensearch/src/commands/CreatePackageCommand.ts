@@ -43,11 +43,11 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * import { OpenSearchClient, CreatePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, CreatePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // CreatePackageRequest
  *   PackageName: "STRING_VALUE", // required
  *   PackageType: "TXT-DICTIONARY", // required
  *   PackageDescription: "STRING_VALUE",
- *   PackageSource: {
+ *   PackageSource: { // PackageSource
  *     S3BucketName: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
  *   },

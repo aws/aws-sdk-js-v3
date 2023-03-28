@@ -42,7 +42,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * import { SSOAdminClient, ListInstancesCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListInstancesCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // ListInstancesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

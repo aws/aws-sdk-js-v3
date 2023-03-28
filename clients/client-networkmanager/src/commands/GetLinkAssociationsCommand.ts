@@ -43,7 +43,7 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  * import { NetworkManagerClient, GetLinkAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetLinkAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetLinkAssociationsRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   DeviceId: "STRING_VALUE",
  *   LinkId: "STRING_VALUE",

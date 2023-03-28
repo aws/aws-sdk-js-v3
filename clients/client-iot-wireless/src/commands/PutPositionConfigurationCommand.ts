@@ -48,11 +48,11 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  * import { IoTWirelessClient, PutPositionConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, PutPositionConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // PutPositionConfigurationRequest
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
- *   Solvers: {
- *     SemtechGnss: {
+ *   Solvers: { // PositionSolverConfigurations
+ *     SemtechGnss: { // SemtechGnssConfiguration
  *       Status: "Enabled" || "Disabled", // required
  *       Fec: "ROSE" || "NONE", // required
  *     },

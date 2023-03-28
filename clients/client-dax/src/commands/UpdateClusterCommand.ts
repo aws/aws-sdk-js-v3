@@ -44,14 +44,14 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * import { DAXClient, UpdateClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
- * const input = {
+ * const input = { // UpdateClusterRequest
  *   ClusterName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   PreferredMaintenanceWindow: "STRING_VALUE",
  *   NotificationTopicArn: "STRING_VALUE",
  *   NotificationTopicStatus: "STRING_VALUE",
  *   ParameterGroupName: "STRING_VALUE",
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // SecurityGroupIdentifierList
  *     "STRING_VALUE",
  *   ],
  * };

@@ -45,7 +45,7 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  * import { MobileClient, ExportBundleCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, ExportBundleCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
- * const input = {
+ * const input = { // ExportBundleRequest
  *   bundleId: "STRING_VALUE", // required
  *   projectId: "STRING_VALUE",
  *   platform: "STRING_VALUE",

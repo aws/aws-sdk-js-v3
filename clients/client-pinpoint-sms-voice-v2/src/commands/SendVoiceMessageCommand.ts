@@ -48,7 +48,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  * import { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // SendVoiceMessageRequest
  *   DestinationPhoneNumber: "STRING_VALUE", // required
  *   OriginationIdentity: "STRING_VALUE", // required
  *   MessageBody: "STRING_VALUE",
@@ -57,7 +57,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  *   ConfigurationSetName: "STRING_VALUE",
  *   MaxPricePerMinute: "STRING_VALUE",
  *   TimeToLive: Number("int"),
- *   Context: {
+ *   Context: { // ContextMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   DryRun: true || false,

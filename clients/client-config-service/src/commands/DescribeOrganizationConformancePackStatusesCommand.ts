@@ -55,8 +55,8 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  * import { ConfigServiceClient, DescribeOrganizationConformancePackStatusesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeOrganizationConformancePackStatusesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   OrganizationConformancePackNames: [
+ * const input = { // DescribeOrganizationConformancePackStatusesRequest
+ *   OrganizationConformancePackNames: [ // OrganizationConformancePackNames
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),

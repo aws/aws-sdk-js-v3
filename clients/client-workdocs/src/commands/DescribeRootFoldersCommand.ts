@@ -55,7 +55,7 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  * import { WorkDocsClient, DescribeRootFoldersCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeRootFoldersCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // DescribeRootFoldersRequest
  *   AuthenticationToken: "STRING_VALUE", // required
  *   Limit: Number("int"),
  *   Marker: "STRING_VALUE",

@@ -45,10 +45,10 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * import { CodeDeployClient, ListOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // ListOnPremisesInstancesInput
  *   registrationStatus: "Registered" || "Deregistered",
- *   tagFilters: [
- *     {
+ *   tagFilters: [ // TagFilterList
+ *     { // TagFilter
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",

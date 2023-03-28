@@ -42,10 +42,10 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  * import { LakeFormationClient, CreateLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CreateLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // CreateLFTagRequest
  *   CatalogId: "STRING_VALUE",
  *   TagKey: "STRING_VALUE", // required
- *   TagValues: [ // required
+ *   TagValues: [ // TagValueList // required
  *     "STRING_VALUE",
  *   ],
  * };

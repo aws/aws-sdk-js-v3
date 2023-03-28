@@ -44,7 +44,7 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  * import { MobileClient, ListBundlesCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, ListBundlesCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
- * const input = {
+ * const input = { // ListBundlesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

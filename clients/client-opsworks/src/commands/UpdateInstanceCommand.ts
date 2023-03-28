@@ -47,9 +47,9 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // UpdateInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
- *   LayerIds: [
+ *   LayerIds: [ // Strings
  *     "STRING_VALUE",
  *   ],
  *   InstanceType: "STRING_VALUE",

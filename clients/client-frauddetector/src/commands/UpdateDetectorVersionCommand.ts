@@ -42,22 +42,22 @@ export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersio
  * import { FraudDetectorClient, UpdateDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // UpdateDetectorVersionRequest
  *   detectorId: "STRING_VALUE", // required
  *   detectorVersionId: "STRING_VALUE", // required
- *   externalModelEndpoints: [ // required
+ *   externalModelEndpoints: [ // ListOfStrings // required
  *     "STRING_VALUE",
  *   ],
- *   rules: [ // required
- *     {
+ *   rules: [ // RuleList // required
+ *     { // Rule
  *       detectorId: "STRING_VALUE", // required
  *       ruleId: "STRING_VALUE", // required
  *       ruleVersion: "STRING_VALUE", // required
  *     },
  *   ],
  *   description: "STRING_VALUE",
- *   modelVersions: [
- *     {
+ *   modelVersions: [ // ListOfModelVersions
+ *     { // ModelVersion
  *       modelId: "STRING_VALUE", // required
  *       modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
  *       modelVersionNumber: "STRING_VALUE", // required

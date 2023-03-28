@@ -58,9 +58,9 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  * import { StorageGatewayClient, CreateNFSFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateNFSFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // CreateNFSFileShareInput
  *   ClientToken: "STRING_VALUE", // required
- *   NFSFileShareDefaults: {
+ *   NFSFileShareDefaults: { // NFSFileShareDefaults
  *     FileMode: "STRING_VALUE",
  *     DirectoryMode: "STRING_VALUE",
  *     GroupId: Number("long"),
@@ -73,21 +73,21 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  *   LocationARN: "STRING_VALUE", // required
  *   DefaultStorageClass: "STRING_VALUE",
  *   ObjectACL: "STRING_VALUE",
- *   ClientList: [
+ *   ClientList: [ // FileShareClientList
  *     "STRING_VALUE",
  *   ],
  *   Squash: "STRING_VALUE",
  *   ReadOnly: true || false,
  *   GuessMIMETypeEnabled: true || false,
  *   RequesterPays: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   FileShareName: "STRING_VALUE",
- *   CacheAttributes: {
+ *   CacheAttributes: { // CacheAttributes
  *     CacheStaleTimeoutInSeconds: Number("int"),
  *   },
  *   NotificationPolicy: "STRING_VALUE",

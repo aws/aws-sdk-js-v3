@@ -44,9 +44,9 @@ export interface DescribeImageReplicationStatusCommandOutput
  * import { ECRClient, DescribeImageReplicationStatusCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeImageReplicationStatusCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
- * const input = {
+ * const input = { // DescribeImageReplicationStatusRequest
  *   repositoryName: "STRING_VALUE", // required
- *   imageId: {
+ *   imageId: { // ImageIdentifier
  *     imageDigest: "STRING_VALUE",
  *     imageTag: "STRING_VALUE",
  *   },

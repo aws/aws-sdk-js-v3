@@ -42,24 +42,24 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  * import { DataBrewClient, UpdateRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // UpdateRulesetRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Rules: [ // required
- *     {
+ *   Rules: [ // RuleList // required
+ *     { // Rule
  *       Name: "STRING_VALUE", // required
  *       Disabled: true || false,
  *       CheckExpression: "STRING_VALUE", // required
- *       SubstitutionMap: {
+ *       SubstitutionMap: { // ValuesMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       Threshold: {
+ *       Threshold: { // Threshold
  *         Value: Number("double"), // required
  *         Type: "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN",
  *         Unit: "COUNT" || "PERCENTAGE",
  *       },
- *       ColumnSelectors: [
- *         {
+ *       ColumnSelectors: [ // ColumnSelectorList
+ *         { // ColumnSelector
  *           Regex: "STRING_VALUE",
  *           Name: "STRING_VALUE",
  *         },

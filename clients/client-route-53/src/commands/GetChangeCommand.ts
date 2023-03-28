@@ -54,7 +54,7 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * import { Route53Client, GetChangeCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetChangeCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // GetChangeRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetChangeCommand(input);

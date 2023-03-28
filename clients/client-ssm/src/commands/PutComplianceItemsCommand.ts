@@ -97,22 +97,22 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * import { SSMClient, PutComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // PutComplianceItemsRequest
  *   ResourceId: "STRING_VALUE", // required
  *   ResourceType: "STRING_VALUE", // required
  *   ComplianceType: "STRING_VALUE", // required
- *   ExecutionSummary: {
+ *   ExecutionSummary: { // ComplianceExecutionSummary
  *     ExecutionTime: new Date("TIMESTAMP"), // required
  *     ExecutionId: "STRING_VALUE",
  *     ExecutionType: "STRING_VALUE",
  *   },
- *   Items: [ // required
- *     {
+ *   Items: [ // ComplianceItemEntryList // required
+ *     { // ComplianceItemEntry
  *       Id: "STRING_VALUE",
  *       Title: "STRING_VALUE",
  *       Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED", // required
  *       Status: "COMPLIANT" || "NON_COMPLIANT", // required
- *       Details: {
+ *       Details: { // ComplianceItemDetails
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

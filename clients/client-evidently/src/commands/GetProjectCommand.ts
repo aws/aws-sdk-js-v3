@@ -43,7 +43,7 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  * import { EvidentlyClient, GetProjectCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetProjectCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // GetProjectRequest
  *   project: "STRING_VALUE", // required
  * };
  * const command = new GetProjectCommand(input);

@@ -70,8 +70,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  * import { ResourceGroupsClient, SearchResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, SearchResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = {
- *   ResourceQuery: {
+ * const input = { // SearchResourcesInput
+ *   ResourceQuery: { // ResourceQuery
  *     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
  *     Query: "STRING_VALUE", // required
  *   },

@@ -45,7 +45,7 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * import { IAMClient, AddClientIDToOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AddClientIDToOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // AddClientIDToOpenIDConnectProviderRequest
  *   OpenIDConnectProviderArn: "STRING_VALUE", // required
  *   ClientID: "STRING_VALUE", // required
  * };

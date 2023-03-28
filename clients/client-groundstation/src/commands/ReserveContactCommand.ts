@@ -42,13 +42,13 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * import { GroundStationClient, ReserveContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ReserveContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
- * const input = {
+ * const input = { // ReserveContactRequest
  *   missionProfileArn: "STRING_VALUE", // required
  *   satelliteArn: "STRING_VALUE", // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   groundStation: "STRING_VALUE", // required
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

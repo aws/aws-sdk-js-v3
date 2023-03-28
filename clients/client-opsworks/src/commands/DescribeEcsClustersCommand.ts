@@ -51,8 +51,8 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  * import { OpsWorksClient, DescribeEcsClustersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeEcsClustersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
- *   EcsClusterArns: [
+ * const input = { // DescribeEcsClustersRequest
+ *   EcsClusterArns: [ // Strings
  *     "STRING_VALUE",
  *   ],
  *   StackId: "STRING_VALUE",

@@ -45,8 +45,8 @@ export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsR
  * import { GlueClient, BatchGetDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   DevEndpointNames: [ // required
+ * const input = { // BatchGetDevEndpointsRequest
+ *   DevEndpointNames: [ // DevEndpointNames // required
  *     "STRING_VALUE",
  *   ],
  * };

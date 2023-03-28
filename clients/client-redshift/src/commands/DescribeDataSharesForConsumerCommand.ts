@@ -44,7 +44,7 @@ export interface DescribeDataSharesForConsumerCommandOutput
  * import { RedshiftClient, DescribeDataSharesForConsumerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDataSharesForConsumerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DescribeDataSharesForConsumerMessage
  *   ConsumerArn: "STRING_VALUE",
  *   Status: "ACTIVE" || "AVAILABLE",
  *   MaxRecords: Number("int"),

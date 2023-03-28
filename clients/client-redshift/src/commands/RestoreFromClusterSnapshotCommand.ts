@@ -53,7 +53,7 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * import { RedshiftClient, RestoreFromClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RestoreFromClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // RestoreFromClusterSnapshotMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   SnapshotIdentifier: "STRING_VALUE",
  *   SnapshotArn: "STRING_VALUE",
@@ -68,10 +68,10 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *   HsmConfigurationIdentifier: "STRING_VALUE",
  *   ElasticIp: "STRING_VALUE",
  *   ClusterParameterGroupName: "STRING_VALUE",
- *   ClusterSecurityGroups: [
+ *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   PreferredMaintenanceWindow: "STRING_VALUE",
@@ -81,7 +81,7 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *   NodeType: "STRING_VALUE",
  *   EnhancedVpcRouting: true || false,
  *   AdditionalInfo: "STRING_VALUE",
- *   IamRoles: [
+ *   IamRoles: [ // IamRoleArnList
  *     "STRING_VALUE",
  *   ],
  *   MaintenanceTrackName: "STRING_VALUE",

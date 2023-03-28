@@ -45,19 +45,19 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * import { PanoramaClient, ProvisionDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ProvisionDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // ProvisionDeviceRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   NetworkingConfiguration: {
- *     Ethernet0: {
+ *   NetworkingConfiguration: { // NetworkPayload
+ *     Ethernet0: { // EthernetPayload
  *       ConnectionType: "STRING_VALUE", // required
- *       StaticIpConnectionInfo: {
+ *       StaticIpConnectionInfo: { // StaticIpConnectionInfo
  *         IpAddress: "STRING_VALUE", // required
  *         Mask: "STRING_VALUE", // required
- *         Dns: [ // required
+ *         Dns: [ // DnsList // required
  *           "STRING_VALUE",
  *         ],
  *         DefaultGateway: "STRING_VALUE", // required
@@ -74,8 +74,8 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  *         DefaultGateway: "STRING_VALUE", // required
  *       },
  *     },
- *     Ntp: {
- *       NtpServers: [ // required
+ *     Ntp: { // NtpPayload
+ *       NtpServers: [ // NtpServerList // required
  *         "STRING_VALUE",
  *       ],
  *     },

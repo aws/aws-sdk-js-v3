@@ -55,9 +55,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { RUMClient, TagResourceCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, TagResourceCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -39,9 +39,9 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * import { OmicsClient, GetRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // GetRunRequest
  *   id: "STRING_VALUE", // required
- *   export: [
+ *   export: [ // RunExportList
  *     "STRING_VALUE",
  *   ],
  * };

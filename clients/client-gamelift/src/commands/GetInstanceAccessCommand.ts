@@ -74,7 +74,7 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * import { GameLiftClient, GetInstanceAccessCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, GetInstanceAccessCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // GetInstanceAccessInput
  *   FleetId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  * };

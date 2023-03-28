@@ -42,11 +42,11 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  * import { OmicsClient, ListReferenceImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReferenceImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // ListReferenceImportJobsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   referenceStoreId: "STRING_VALUE", // required
- *   filter: {
+ *   filter: { // ImportReferenceFilter
  *     status: "STRING_VALUE",
  *     createdAfter: new Date("TIMESTAMP"),
  *     createdBefore: new Date("TIMESTAMP"),

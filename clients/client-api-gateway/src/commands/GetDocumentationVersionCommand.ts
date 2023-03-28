@@ -42,7 +42,7 @@ export interface GetDocumentationVersionCommandOutput extends DocumentationVersi
  * import { APIGatewayClient, GetDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetDocumentationVersionRequest
  *   restApiId: "STRING_VALUE", // required
  *   documentationVersion: "STRING_VALUE", // required
  * };

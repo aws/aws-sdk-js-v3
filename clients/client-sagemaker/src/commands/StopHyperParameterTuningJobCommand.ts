@@ -48,7 +48,7 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  * import { SageMakerClient, StopHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // StopHyperParameterTuningJobRequest
  *   HyperParameterTuningJobName: "STRING_VALUE", // required
  * };
  * const command = new StopHyperParameterTuningJobCommand(input);

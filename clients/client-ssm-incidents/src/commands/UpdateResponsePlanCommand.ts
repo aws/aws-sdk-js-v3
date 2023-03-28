@@ -42,7 +42,7 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  * import { SSMIncidentsClient, UpdateResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // UpdateResponsePlanInput
  *   clientToken: "STRING_VALUE",
  *   arn: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE",
@@ -50,49 +50,49 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  *   incidentTemplateImpact: Number("int"),
  *   incidentTemplateSummary: "STRING_VALUE",
  *   incidentTemplateDedupeString: "STRING_VALUE",
- *   incidentTemplateNotificationTargets: [
- *     { // Union: only one key present
+ *   incidentTemplateNotificationTargets: [ // NotificationTargetSet
+ *     { // NotificationTargetItem Union: only one key present
  *       snsTopicArn: "STRING_VALUE",
  *     },
  *   ],
- *   chatChannel: { // Union: only one key present
+ *   chatChannel: { // ChatChannel Union: only one key present
  *     empty: {},
- *     chatbotSns: [
+ *     chatbotSns: [ // ChatbotSnsConfigurationSet
  *       "STRING_VALUE",
  *     ],
  *   },
- *   engagements: [
+ *   engagements: [ // EngagementSet
  *     "STRING_VALUE",
  *   ],
- *   actions: [
- *     { // Union: only one key present
- *       ssmAutomation: {
+ *   actions: [ // ActionsList
+ *     { // Action Union: only one key present
+ *       ssmAutomation: { // SsmAutomation
  *         roleArn: "STRING_VALUE", // required
  *         documentName: "STRING_VALUE", // required
  *         documentVersion: "STRING_VALUE",
  *         targetAccount: "STRING_VALUE",
- *         parameters: {
- *           "<keys>": [
+ *         parameters: { // SsmParameters
+ *           "<keys>": [ // SsmParameterValues
  *             "STRING_VALUE",
  *           ],
  *         },
- *         dynamicParameters: {
- *           "<keys>": { // Union: only one key present
+ *         dynamicParameters: { // DynamicSsmParameters
+ *           "<keys>": { // DynamicSsmParameterValue Union: only one key present
  *             variable: "STRING_VALUE",
  *           },
  *         },
  *       },
  *     },
  *   ],
- *   incidentTemplateTags: {
+ *   incidentTemplateTags: { // TagMapUpdate
  *     "<keys>": "STRING_VALUE",
  *   },
- *   integrations: [
- *     { // Union: only one key present
- *       pagerDutyConfiguration: {
+ *   integrations: [ // Integrations
+ *     { // Integration Union: only one key present
+ *       pagerDutyConfiguration: { // PagerDutyConfiguration
  *         name: "STRING_VALUE", // required
  *         secretId: "STRING_VALUE", // required
- *         pagerDutyIncidentConfiguration: {
+ *         pagerDutyIncidentConfiguration: { // PagerDutyIncidentConfiguration
  *           serviceId: "STRING_VALUE", // required
  *         },
  *       },

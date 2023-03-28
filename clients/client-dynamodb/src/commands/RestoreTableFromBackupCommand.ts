@@ -66,33 +66,33 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * import { DynamoDBClient, RestoreTableFromBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, RestoreTableFromBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // RestoreTableFromBackupInput
  *   TargetTableName: "STRING_VALUE", // required
  *   BackupArn: "STRING_VALUE", // required
  *   BillingModeOverride: "PROVISIONED" || "PAY_PER_REQUEST",
- *   GlobalSecondaryIndexOverride: [
- *     {
+ *   GlobalSecondaryIndexOverride: [ // GlobalSecondaryIndexList
+ *     { // GlobalSecondaryIndex
  *       IndexName: "STRING_VALUE", // required
- *       KeySchema: [ // required
- *         {
+ *       KeySchema: [ // KeySchema // required
+ *         { // KeySchemaElement
  *           AttributeName: "STRING_VALUE", // required
  *           KeyType: "HASH" || "RANGE", // required
  *         },
  *       ],
- *       Projection: {
+ *       Projection: { // Projection
  *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
- *         NonKeyAttributes: [
+ *         NonKeyAttributes: [ // NonKeyAttributeNameList
  *           "STRING_VALUE",
  *         ],
  *       },
- *       ProvisionedThroughput: {
+ *       ProvisionedThroughput: { // ProvisionedThroughput
  *         ReadCapacityUnits: Number("long"), // required
  *         WriteCapacityUnits: Number("long"), // required
  *       },
  *     },
  *   ],
- *   LocalSecondaryIndexOverride: [
- *     {
+ *   LocalSecondaryIndexOverride: [ // LocalSecondaryIndexList
+ *     { // LocalSecondaryIndex
  *       IndexName: "STRING_VALUE", // required
  *       KeySchema: [ // required
  *         {
@@ -112,7 +112,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  *     ReadCapacityUnits: Number("long"), // required
  *     WriteCapacityUnits: Number("long"), // required
  *   },
- *   SSESpecificationOverride: {
+ *   SSESpecificationOverride: { // SSESpecification
  *     Enabled: true || false,
  *     SSEType: "AES256" || "KMS",
  *     KMSMasterKeyId: "STRING_VALUE",

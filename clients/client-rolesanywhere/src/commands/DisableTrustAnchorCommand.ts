@@ -46,7 +46,7 @@ export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailRespon
  * import { RolesAnywhereClient, DisableTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DisableTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
- * const input = {
+ * const input = { // ScalarTrustAnchorRequest
  *   trustAnchorId: "STRING_VALUE", // required
  * };
  * const command = new DisableTrustAnchorCommand(input);

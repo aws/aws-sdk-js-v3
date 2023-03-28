@@ -42,7 +42,7 @@ export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // DeleteAgreementRequest
  *   AgreementId: "STRING_VALUE", // required
  *   ServerId: "STRING_VALUE", // required
  * };

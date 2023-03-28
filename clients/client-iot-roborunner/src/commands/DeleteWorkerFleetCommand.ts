@@ -42,7 +42,7 @@ export interface DeleteWorkerFleetCommandOutput extends DeleteWorkerFleetRespons
  * import { IoTRoboRunnerClient, DeleteWorkerFleetCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, DeleteWorkerFleetCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // DeleteWorkerFleetRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DeleteWorkerFleetCommand(input);

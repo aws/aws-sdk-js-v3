@@ -48,7 +48,7 @@ export interface GetTransitGatewayRouteTableAttachmentCommandOutput
  * import { NetworkManagerClient, GetTransitGatewayRouteTableAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetTransitGatewayRouteTableAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // GetTransitGatewayRouteTableAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
  * };
  * const command = new GetTransitGatewayRouteTableAttachmentCommand(input);

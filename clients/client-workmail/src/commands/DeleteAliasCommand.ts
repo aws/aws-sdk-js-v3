@@ -43,7 +43,7 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  * import { WorkMailClient, DeleteAliasCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteAliasCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // DeleteAliasRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   EntityId: "STRING_VALUE", // required
  *   Alias: "STRING_VALUE", // required

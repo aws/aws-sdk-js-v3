@@ -42,7 +42,7 @@ export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataB
  * import { EC2Client, ResetNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ResetNetworkInterfaceAttributeRequest
  *   DryRun: true || false,
  *   NetworkInterfaceId: "STRING_VALUE", // required
  *   SourceDestCheck: "STRING_VALUE",

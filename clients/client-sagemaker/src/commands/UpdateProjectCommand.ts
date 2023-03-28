@@ -49,20 +49,20 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * import { SageMakerClient, UpdateProjectCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateProjectCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateProjectInput
  *   ProjectName: "STRING_VALUE", // required
  *   ProjectDescription: "STRING_VALUE",
- *   ServiceCatalogProvisioningUpdateDetails: {
+ *   ServiceCatalogProvisioningUpdateDetails: { // ServiceCatalogProvisioningUpdateDetails
  *     ProvisioningArtifactId: "STRING_VALUE",
- *     ProvisioningParameters: [
- *       {
+ *     ProvisioningParameters: [ // ProvisioningParameters
+ *       { // ProvisioningParameter
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
  *       },
  *     ],
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

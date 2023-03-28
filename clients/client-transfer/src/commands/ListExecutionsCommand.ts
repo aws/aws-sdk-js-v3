@@ -42,7 +42,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * import { TransferClient, ListExecutionsCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListExecutionsCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // ListExecutionsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   WorkflowId: "STRING_VALUE", // required

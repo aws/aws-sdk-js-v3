@@ -43,7 +43,7 @@ export interface DescribeFleetMetricCommandOutput extends DescribeFleetMetricRes
  * import { IoTClient, DescribeFleetMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeFleetMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DescribeFleetMetricRequest
  *   metricName: "STRING_VALUE", // required
  * };
  * const command = new DescribeFleetMetricCommand(input);

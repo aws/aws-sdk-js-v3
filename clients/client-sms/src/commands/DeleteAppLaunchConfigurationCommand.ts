@@ -44,7 +44,7 @@ export interface DeleteAppLaunchConfigurationCommandOutput
  * import { SMSClient, DeleteAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // DeleteAppLaunchConfigurationRequest
  *   appId: "STRING_VALUE",
  * };
  * const command = new DeleteAppLaunchConfigurationCommand(input);

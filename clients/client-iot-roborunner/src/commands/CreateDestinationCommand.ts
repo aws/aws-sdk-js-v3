@@ -42,7 +42,7 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * import { IoTRoboRunnerClient, CreateDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, CreateDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // CreateDestinationRequest
  *   clientToken: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   site: "STRING_VALUE", // required

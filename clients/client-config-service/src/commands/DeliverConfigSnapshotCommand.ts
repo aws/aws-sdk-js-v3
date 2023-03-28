@@ -58,7 +58,7 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * import { ConfigServiceClient, DeliverConfigSnapshotCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeliverConfigSnapshotCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeliverConfigSnapshotRequest
  *   deliveryChannelName: "STRING_VALUE", // required
  * };
  * const command = new DeliverConfigSnapshotCommand(input);

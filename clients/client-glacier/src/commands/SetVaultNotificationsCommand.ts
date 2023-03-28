@@ -79,12 +79,12 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, SetVaultNotificationsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, SetVaultNotificationsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
- * const input = {
+ * const input = { // SetVaultNotificationsInput
  *   accountId: "STRING_VALUE", // required
  *   vaultName: "STRING_VALUE", // required
- *   vaultNotificationConfig: {
+ *   vaultNotificationConfig: { // VaultNotificationConfig
  *     SNSTopic: "STRING_VALUE",
- *     Events: [
+ *     Events: [ // NotificationEventList
  *       "STRING_VALUE",
  *     ],
  *   },

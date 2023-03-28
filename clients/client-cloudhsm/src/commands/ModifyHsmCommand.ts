@@ -55,7 +55,7 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * import { CloudHSMClient, ModifyHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ModifyHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
- * const input = {
+ * const input = { // ModifyHsmRequest
  *   HsmArn: "STRING_VALUE", // required
  *   SubnetId: "STRING_VALUE",
  *   EniIp: "STRING_VALUE",

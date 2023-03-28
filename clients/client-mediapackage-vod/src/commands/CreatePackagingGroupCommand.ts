@@ -42,16 +42,16 @@ export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupR
  * import { MediaPackageVodClient, CreatePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, CreatePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
- *   Authorization: {
+ * const input = { // CreatePackagingGroupRequest
+ *   Authorization: { // Authorization
  *     CdnIdentifierSecret: "STRING_VALUE", // required
  *     SecretsRoleArn: "STRING_VALUE", // required
  *   },
- *   EgressAccessLogs: {
+ *   EgressAccessLogs: { // EgressAccessLogs
  *     LogGroupName: "STRING_VALUE",
  *   },
  *   Id: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

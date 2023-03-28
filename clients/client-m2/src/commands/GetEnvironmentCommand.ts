@@ -42,7 +42,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * import { M2Client, GetEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
- * const input = {
+ * const input = { // GetEnvironmentRequest
  *   environmentId: "STRING_VALUE", // required
  * };
  * const command = new GetEnvironmentCommand(input);

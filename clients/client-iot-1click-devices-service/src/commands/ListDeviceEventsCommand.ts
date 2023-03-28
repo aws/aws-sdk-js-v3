@@ -47,7 +47,7 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * import { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
- * const input = {
+ * const input = { // ListDeviceEventsRequest
  *   DeviceId: "STRING_VALUE", // required
  *   FromTimeStamp: new Date("TIMESTAMP"), // required
  *   MaxResults: Number("int"),

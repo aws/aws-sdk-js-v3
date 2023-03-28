@@ -49,7 +49,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * import { NeptuneClient, FailoverDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, FailoverDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // FailoverDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE",
  *   TargetDBInstanceIdentifier: "STRING_VALUE",
  * };

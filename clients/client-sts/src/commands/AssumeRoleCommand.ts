@@ -127,23 +127,23 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
- * const input = {
+ * const input = { // AssumeRoleRequest
  *   RoleArn: "STRING_VALUE", // required
  *   RoleSessionName: "STRING_VALUE", // required
- *   PolicyArns: [
- *     {
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
  *       arn: "STRING_VALUE",
  *     },
  *   ],
  *   Policy: "STRING_VALUE",
  *   DurationSeconds: Number("int"),
- *   Tags: [
- *     {
+ *   Tags: [ // tagListType
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   TransitiveTagKeys: [
+ *   TransitiveTagKeys: [ // tagKeyListType
  *     "STRING_VALUE",
  *   ],
  *   ExternalId: "STRING_VALUE",

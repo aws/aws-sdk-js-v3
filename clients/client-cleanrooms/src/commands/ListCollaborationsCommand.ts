@@ -42,7 +42,7 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * import { CleanRoomsClient, ListCollaborationsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListCollaborationsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = {
+ * const input = { // ListCollaborationsInput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   memberStatus: "STRING_VALUE",

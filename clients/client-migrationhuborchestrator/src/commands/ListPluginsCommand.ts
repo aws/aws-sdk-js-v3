@@ -46,7 +46,7 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * import { MigrationHubOrchestratorClient, ListPluginsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListPluginsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = {
+ * const input = { // ListPluginsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

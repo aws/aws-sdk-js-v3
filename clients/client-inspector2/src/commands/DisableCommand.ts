@@ -43,11 +43,11 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * import { Inspector2Client, DisableCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, DisableCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
- *   accountIds: [
+ * const input = { // DisableRequest
+ *   accountIds: [ // AccountIdSet
  *     "STRING_VALUE",
  *   ],
- *   resourceTypes: [
+ *   resourceTypes: [ // DisableResourceTypeList
  *     "STRING_VALUE",
  *   ],
  * };

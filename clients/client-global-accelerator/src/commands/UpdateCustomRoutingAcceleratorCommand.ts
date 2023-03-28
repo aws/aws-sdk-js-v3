@@ -48,7 +48,7 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  * import { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
+ * const input = { // UpdateCustomRoutingAcceleratorRequest
  *   AcceleratorArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   IpAddressType: "IPV4" || "DUAL_STACK",

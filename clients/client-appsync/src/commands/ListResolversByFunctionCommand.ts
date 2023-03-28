@@ -42,7 +42,7 @@ export interface ListResolversByFunctionCommandOutput extends ListResolversByFun
  * import { AppSyncClient, ListResolversByFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListResolversByFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // ListResolversByFunctionRequest
  *   apiId: "STRING_VALUE", // required
  *   functionId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",

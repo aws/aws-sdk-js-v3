@@ -44,9 +44,9 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * import { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // ModifyWorkspaceCreationPropertiesRequest
  *   ResourceId: "STRING_VALUE", // required
- *   WorkspaceCreationProperties: {
+ *   WorkspaceCreationProperties: { // WorkspaceCreationProperties
  *     EnableWorkDocs: true || false,
  *     EnableInternetAccess: true || false,
  *     DefaultOu: "STRING_VALUE",

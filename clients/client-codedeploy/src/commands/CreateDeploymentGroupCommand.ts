@@ -42,90 +42,90 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  * import { CodeDeployClient, CreateDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // CreateDeploymentGroupInput
  *   applicationName: "STRING_VALUE", // required
  *   deploymentGroupName: "STRING_VALUE", // required
  *   deploymentConfigName: "STRING_VALUE",
- *   ec2TagFilters: [
- *     {
+ *   ec2TagFilters: [ // EC2TagFilterList
+ *     { // EC2TagFilter
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
  *     },
  *   ],
- *   onPremisesInstanceTagFilters: [
- *     {
+ *   onPremisesInstanceTagFilters: [ // TagFilterList
+ *     { // TagFilter
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
  *     },
  *   ],
- *   autoScalingGroups: [
+ *   autoScalingGroups: [ // AutoScalingGroupNameList
  *     "STRING_VALUE",
  *   ],
  *   serviceRoleArn: "STRING_VALUE", // required
- *   triggerConfigurations: [
- *     {
+ *   triggerConfigurations: [ // TriggerConfigList
+ *     { // TriggerConfig
  *       triggerName: "STRING_VALUE",
  *       triggerTargetArn: "STRING_VALUE",
- *       triggerEvents: [
+ *       triggerEvents: [ // TriggerEventTypeList
  *         "DeploymentStart" || "DeploymentSuccess" || "DeploymentFailure" || "DeploymentStop" || "DeploymentRollback" || "DeploymentReady" || "InstanceStart" || "InstanceSuccess" || "InstanceFailure" || "InstanceReady",
  *       ],
  *     },
  *   ],
- *   alarmConfiguration: {
+ *   alarmConfiguration: { // AlarmConfiguration
  *     enabled: true || false,
  *     ignorePollAlarmFailure: true || false,
- *     alarms: [
- *       {
+ *     alarms: [ // AlarmList
+ *       { // Alarm
  *         name: "STRING_VALUE",
  *       },
  *     ],
  *   },
- *   autoRollbackConfiguration: {
+ *   autoRollbackConfiguration: { // AutoRollbackConfiguration
  *     enabled: true || false,
- *     events: [
+ *     events: [ // AutoRollbackEventsList
  *       "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
  *     ],
  *   },
  *   outdatedInstancesStrategy: "UPDATE" || "IGNORE",
- *   deploymentStyle: {
+ *   deploymentStyle: { // DeploymentStyle
  *     deploymentType: "IN_PLACE" || "BLUE_GREEN",
  *     deploymentOption: "WITH_TRAFFIC_CONTROL" || "WITHOUT_TRAFFIC_CONTROL",
  *   },
- *   blueGreenDeploymentConfiguration: {
- *     terminateBlueInstancesOnDeploymentSuccess: {
+ *   blueGreenDeploymentConfiguration: { // BlueGreenDeploymentConfiguration
+ *     terminateBlueInstancesOnDeploymentSuccess: { // BlueInstanceTerminationOption
  *       action: "TERMINATE" || "KEEP_ALIVE",
  *       terminationWaitTimeInMinutes: Number("int"),
  *     },
- *     deploymentReadyOption: {
+ *     deploymentReadyOption: { // DeploymentReadyOption
  *       actionOnTimeout: "CONTINUE_DEPLOYMENT" || "STOP_DEPLOYMENT",
  *       waitTimeInMinutes: Number("int"),
  *     },
- *     greenFleetProvisioningOption: {
+ *     greenFleetProvisioningOption: { // GreenFleetProvisioningOption
  *       action: "DISCOVER_EXISTING" || "COPY_AUTO_SCALING_GROUP",
  *     },
  *   },
- *   loadBalancerInfo: {
- *     elbInfoList: [
- *       {
+ *   loadBalancerInfo: { // LoadBalancerInfo
+ *     elbInfoList: [ // ELBInfoList
+ *       { // ELBInfo
  *         name: "STRING_VALUE",
  *       },
  *     ],
- *     targetGroupInfoList: [
- *       {
+ *     targetGroupInfoList: [ // TargetGroupInfoList
+ *       { // TargetGroupInfo
  *         name: "STRING_VALUE",
  *       },
  *     ],
- *     targetGroupPairInfoList: [
- *       {
+ *     targetGroupPairInfoList: [ // TargetGroupPairInfoList
+ *       { // TargetGroupPairInfo
  *         targetGroups: [
  *           {
  *             name: "STRING_VALUE",
  *           },
  *         ],
- *         prodTrafficRoute: {
- *           listenerArns: [
+ *         prodTrafficRoute: { // TrafficRoute
+ *           listenerArns: [ // ListenerArnList
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -137,8 +137,8 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  *       },
  *     ],
  *   },
- *   ec2TagSet: {
- *     ec2TagSetList: [
+ *   ec2TagSet: { // EC2TagSet
+ *     ec2TagSetList: [ // EC2TagSetList
  *       [
  *         {
  *           Key: "STRING_VALUE",
@@ -148,14 +148,14 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  *       ],
  *     ],
  *   },
- *   ecsServices: [
- *     {
+ *   ecsServices: [ // ECSServiceList
+ *     { // ECSService
  *       serviceName: "STRING_VALUE",
  *       clusterName: "STRING_VALUE",
  *     },
  *   ],
- *   onPremisesTagSet: {
- *     onPremisesTagSetList: [
+ *   onPremisesTagSet: { // OnPremisesTagSet
+ *     onPremisesTagSetList: [ // OnPremisesTagSetList
  *       [
  *         {
  *           Key: "STRING_VALUE",
@@ -165,8 +165,8 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  *       ],
  *     ],
  *   },
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

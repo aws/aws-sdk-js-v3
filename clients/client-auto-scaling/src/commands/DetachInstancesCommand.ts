@@ -51,8 +51,8 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * import { AutoScalingClient, DetachInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DetachInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
- *   InstanceIds: [
+ * const input = { // DetachInstancesQuery
+ *   InstanceIds: [ // InstanceIds
  *     "STRING_VALUE",
  *   ],
  *   AutoScalingGroupName: "STRING_VALUE", // required

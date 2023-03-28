@@ -46,7 +46,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * import { NeptuneClient, StopDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, StopDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // StopDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  * };
  * const command = new StopDBClusterCommand(input);

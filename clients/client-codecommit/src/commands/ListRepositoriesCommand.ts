@@ -42,7 +42,7 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * import { CodeCommitClient, ListRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // ListRepositoriesInput
  *   nextToken: "STRING_VALUE",
  *   sortBy: "STRING_VALUE",
  *   order: "STRING_VALUE",

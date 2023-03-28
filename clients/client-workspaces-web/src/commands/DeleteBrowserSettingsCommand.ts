@@ -42,7 +42,7 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  * import { WorkSpacesWebClient, DeleteBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // DeleteBrowserSettingsRequest
  *   browserSettingsArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteBrowserSettingsCommand(input);

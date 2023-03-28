@@ -42,13 +42,13 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * import { CloudDirectoryClient, RemoveFacetFromObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, RemoveFacetFromObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // RemoveFacetFromObjectRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   SchemaFacet: {
+ *   SchemaFacet: { // SchemaFacet
  *     SchemaArn: "STRING_VALUE",
  *     FacetName: "STRING_VALUE",
  *   },
- *   ObjectReference: {
+ *   ObjectReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  * };

@@ -48,7 +48,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  * import { ServiceCatalogClient, DisassociateServiceActionFromProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateServiceActionFromProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DisassociateServiceActionFromProvisioningArtifactInput
  *   ProductId: "STRING_VALUE", // required
  *   ProvisioningArtifactId: "STRING_VALUE", // required
  *   ServiceActionId: "STRING_VALUE", // required

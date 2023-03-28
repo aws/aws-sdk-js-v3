@@ -80,9 +80,9 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  * import { S3Client, PutBucketAccelerateConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAccelerateConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketAccelerateConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
- *   AccelerateConfiguration: {
+ *   AccelerateConfiguration: { // AccelerateConfiguration
  *     Status: "Enabled" || "Suspended",
  *   },
  *   ExpectedBucketOwner: "STRING_VALUE",

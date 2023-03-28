@@ -42,7 +42,7 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  * import { CloudSearchClient, DeleteExpressionCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteExpressionCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DeleteExpressionRequest
  *   DomainName: "STRING_VALUE", // required
  *   ExpressionName: "STRING_VALUE", // required
  * };

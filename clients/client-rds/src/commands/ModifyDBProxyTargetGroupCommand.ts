@@ -42,14 +42,14 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * import { RDSClient, ModifyDBProxyTargetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyTargetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // ModifyDBProxyTargetGroupRequest
  *   TargetGroupName: "STRING_VALUE", // required
  *   DBProxyName: "STRING_VALUE", // required
- *   ConnectionPoolConfig: {
+ *   ConnectionPoolConfig: { // ConnectionPoolConfiguration
  *     MaxConnectionsPercent: Number("int"),
  *     MaxIdleConnectionsPercent: Number("int"),
  *     ConnectionBorrowTimeout: Number("int"),
- *     SessionPinningFilters: [
+ *     SessionPinningFilters: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     InitQuery: "STRING_VALUE",

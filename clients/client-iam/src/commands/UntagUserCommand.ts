@@ -40,9 +40,9 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UntagUserRequest
  *   UserName: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // tagKeyListType // required
  *     "STRING_VALUE",
  *   ],
  * };

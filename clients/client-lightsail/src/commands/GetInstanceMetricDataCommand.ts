@@ -46,14 +46,14 @@ export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDat
  * import { LightsailClient, GetInstanceMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetInstanceMetricDataRequest
  *   instanceName: "STRING_VALUE", // required
  *   metricName: "CPUUtilization" || "NetworkIn" || "NetworkOut" || "StatusCheckFailed" || "StatusCheckFailed_Instance" || "StatusCheckFailed_System" || "BurstCapacityTime" || "BurstCapacityPercentage" || "MetadataNoToken", // required
  *   period: Number("int"), // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None", // required
- *   statistics: [ // required
+ *   statistics: [ // MetricStatisticList // required
  *     "Minimum" || "Maximum" || "Sum" || "Average" || "SampleCount",
  *   ],
  * };

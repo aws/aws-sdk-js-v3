@@ -128,7 +128,7 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * import { KMSClient, ConnectCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ConnectCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // ConnectCustomKeyStoreRequest
  *   CustomKeyStoreId: "STRING_VALUE", // required
  * };
  * const command = new ConnectCustomKeyStoreCommand(input);

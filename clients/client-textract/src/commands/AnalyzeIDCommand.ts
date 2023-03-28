@@ -42,11 +42,11 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  * import { TextractClient, AnalyzeIDCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeIDCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
- * const input = {
- *   DocumentPages: [ // required
- *     {
+ * const input = { // AnalyzeIDRequest
+ *   DocumentPages: [ // DocumentPages // required
+ *     { // Document
  *       Bytes: "BLOB_VALUE",
- *       S3Object: {
+ *       S3Object: { // S3Object
  *         Bucket: "STRING_VALUE",
  *         Name: "STRING_VALUE",
  *         Version: "STRING_VALUE",

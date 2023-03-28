@@ -42,9 +42,9 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * import { MqClient, DeleteTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DeleteTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = {
+ * const input = { // DeleteTagsRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
  * };

@@ -43,7 +43,7 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  * import { FraudDetectorClient, DeleteDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
- * const input = {
+ * const input = { // DeleteDetectorRequest
  *   detectorId: "STRING_VALUE", // required
  * };
  * const command = new DeleteDetectorCommand(input);

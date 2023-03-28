@@ -53,9 +53,9 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  * import { ChimeSDKIdentityClient, PutAppInstanceUserExpirationSettingsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, PutAppInstanceUserExpirationSettingsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
- * const input = {
+ * const input = { // PutAppInstanceUserExpirationSettingsRequest
  *   AppInstanceUserArn: "STRING_VALUE", // required
- *   ExpirationSettings: {
+ *   ExpirationSettings: { // ExpirationSettings
  *     ExpirationDays: Number("int"), // required
  *     ExpirationCriterion: "CREATED_TIMESTAMP", // required
  *   },

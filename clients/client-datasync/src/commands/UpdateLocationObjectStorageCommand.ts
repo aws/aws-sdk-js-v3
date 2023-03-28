@@ -51,14 +51,14 @@ export interface UpdateLocationObjectStorageCommandOutput
  * import { DataSyncClient, UpdateLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // UpdateLocationObjectStorageRequest
  *   LocationArn: "STRING_VALUE", // required
  *   ServerPort: Number("int"),
  *   ServerProtocol: "HTTPS" || "HTTP",
  *   Subdirectory: "STRING_VALUE",
  *   AccessKey: "STRING_VALUE",
  *   SecretKey: "STRING_VALUE",
- *   AgentArns: [
+ *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
  *   ServerCertificate: "BLOB_VALUE",

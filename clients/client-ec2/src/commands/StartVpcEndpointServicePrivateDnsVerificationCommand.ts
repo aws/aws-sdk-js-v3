@@ -51,7 +51,7 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * import { EC2Client, StartVpcEndpointServicePrivateDnsVerificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, StartVpcEndpointServicePrivateDnsVerificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // StartVpcEndpointServicePrivateDnsVerificationRequest
  *   DryRun: true || false,
  *   ServiceId: "STRING_VALUE", // required
  * };

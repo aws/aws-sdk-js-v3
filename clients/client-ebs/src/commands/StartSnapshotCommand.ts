@@ -50,11 +50,11 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * import { EBSClient, StartSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, StartSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
- * const input = {
+ * const input = { // StartSnapshotRequest
  *   VolumeSize: Number("long"), // required
  *   ParentSnapshotId: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

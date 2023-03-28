@@ -42,7 +42,7 @@ export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {
  * import { SageMakerClient, DeleteModelPackageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelPackageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteModelPackageGroupInput
  *   ModelPackageGroupName: "STRING_VALUE", // required
  * };
  * const command = new DeleteModelPackageGroupCommand(input);

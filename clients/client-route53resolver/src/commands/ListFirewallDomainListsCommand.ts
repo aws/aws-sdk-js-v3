@@ -43,7 +43,7 @@ export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomain
  * import { Route53ResolverClient, ListFirewallDomainListsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallDomainListsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = {
+ * const input = { // ListFirewallDomainListsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

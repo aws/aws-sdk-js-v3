@@ -47,7 +47,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { ChimeClient, CreateUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateUserRequest
  *   AccountId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE",
  *   Email: "STRING_VALUE",

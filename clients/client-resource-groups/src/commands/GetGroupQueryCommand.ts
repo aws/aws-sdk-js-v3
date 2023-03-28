@@ -55,7 +55,7 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  * import { ResourceGroupsClient, GetGroupQueryCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetGroupQueryCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = {
+ * const input = { // GetGroupQueryInput
  *   GroupName: "STRING_VALUE",
  *   Group: "STRING_VALUE",
  * };

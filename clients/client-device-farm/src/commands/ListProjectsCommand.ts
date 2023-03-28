@@ -42,7 +42,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * import { DeviceFarmClient, ListProjectsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListProjectsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // ListProjectsRequest
  *   arn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  * };

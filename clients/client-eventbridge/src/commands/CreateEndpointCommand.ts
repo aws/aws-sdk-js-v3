@@ -44,24 +44,24 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * import { EventBridgeClient, CreateEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CreateEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // CreateEndpointRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   RoutingConfig: {
- *     FailoverConfig: {
- *       Primary: {
+ *   RoutingConfig: { // RoutingConfig
+ *     FailoverConfig: { // FailoverConfig
+ *       Primary: { // Primary
  *         HealthCheck: "STRING_VALUE", // required
  *       },
- *       Secondary: {
+ *       Secondary: { // Secondary
  *         Route: "STRING_VALUE", // required
  *       },
  *     },
  *   },
- *   ReplicationConfig: {
+ *   ReplicationConfig: { // ReplicationConfig
  *     State: "ENABLED" || "DISABLED",
  *   },
- *   EventBuses: [ // required
- *     {
+ *   EventBuses: [ // EndpointEventBusList // required
+ *     { // EndpointEventBus
  *       EventBusArn: "STRING_VALUE", // required
  *     },
  *   ],

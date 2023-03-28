@@ -133,9 +133,9 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * import { KMSClient, ReEncryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ReEncryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
- * const input = {
+ * const input = { // ReEncryptRequest
  *   CiphertextBlob: "BLOB_VALUE", // required
- *   SourceEncryptionContext: {
+ *   SourceEncryptionContext: { // EncryptionContextType
  *     "<keys>": "STRING_VALUE",
  *   },
  *   SourceKeyId: "STRING_VALUE",
@@ -145,7 +145,7 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *   },
  *   SourceEncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  *   DestinationEncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
- *   GrantTokens: [
+ *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
  * };

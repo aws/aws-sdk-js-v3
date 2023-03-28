@@ -43,7 +43,7 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  * import { CodeCommitClient, MergePullRequestBySquashCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergePullRequestBySquashCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // MergePullRequestBySquashInput
  *   pullRequestId: "STRING_VALUE", // required
  *   repositoryName: "STRING_VALUE", // required
  *   sourceCommitId: "STRING_VALUE",
@@ -53,22 +53,22 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  *   authorName: "STRING_VALUE",
  *   email: "STRING_VALUE",
  *   keepEmptyFolders: true || false,
- *   conflictResolution: {
- *     replaceContents: [
- *       {
+ *   conflictResolution: { // ConflictResolution
+ *     replaceContents: [ // ReplaceContentEntries
+ *       { // ReplaceContentEntry
  *         filePath: "STRING_VALUE", // required
  *         replacementType: "STRING_VALUE", // required
  *         content: "BLOB_VALUE",
  *         fileMode: "STRING_VALUE",
  *       },
  *     ],
- *     deleteFiles: [
- *       {
+ *     deleteFiles: [ // DeleteFileEntries
+ *       { // DeleteFileEntry
  *         filePath: "STRING_VALUE", // required
  *       },
  *     ],
- *     setFileModes: [
- *       {
+ *     setFileModes: [ // SetFileModeEntries
+ *       { // SetFileModeEntry
  *         filePath: "STRING_VALUE", // required
  *         fileMode: "STRING_VALUE", // required
  *       },

@@ -41,7 +41,7 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  * import { RestXmlProtocolClient, OmitsNullSerializesEmptyStringCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, OmitsNullSerializesEmptyStringCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = {
+ * const input = { // OmitsNullSerializesEmptyStringInput
  *   nullValue: "STRING_VALUE",
  *   emptyString: "STRING_VALUE",
  * };

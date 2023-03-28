@@ -43,10 +43,10 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  * import { ConnectClient, DisassociateQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // DisassociateQueueQuickConnectsRequest
  *   InstanceId: "STRING_VALUE", // required
  *   QueueId: "STRING_VALUE", // required
- *   QuickConnectIds: [ // required
+ *   QuickConnectIds: [ // QuickConnectsList // required
  *     "STRING_VALUE",
  *   ],
  * };

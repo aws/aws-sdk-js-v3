@@ -43,7 +43,7 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * import { ECSClient, ListTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // ListTasksRequest
  *   cluster: "STRING_VALUE",
  *   containerInstance: "STRING_VALUE",
  *   family: "STRING_VALUE",

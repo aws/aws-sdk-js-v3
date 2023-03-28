@@ -48,13 +48,13 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
  * import { ProtonClient, CreateEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = {
+ * const input = { // CreateEnvironmentAccountConnectionInput
  *   clientToken: "STRING_VALUE",
  *   managementAccountId: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE",
  *   environmentName: "STRING_VALUE", // required
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
  * import { AlexaForBusinessClient, DeleteAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DeleteAddressBookRequest
  *   AddressBookArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteAddressBookCommand(input);

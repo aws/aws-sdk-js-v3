@@ -44,7 +44,7 @@ export interface ListSlackChannelConfigurationsCommandOutput
  * import { SupportAppClient, ListSlackChannelConfigurationsCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, ListSlackChannelConfigurationsCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
- * const input = {
+ * const input = { // ListSlackChannelConfigurationsRequest
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListSlackChannelConfigurationsCommand(input);

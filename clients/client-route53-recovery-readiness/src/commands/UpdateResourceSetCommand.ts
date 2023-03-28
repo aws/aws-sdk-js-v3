@@ -46,28 +46,28 @@ export interface UpdateResourceSetCommandOutput extends UpdateResourceSetRespons
  * import { Route53RecoveryReadinessClient, UpdateResourceSetCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, UpdateResourceSetCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // UpdateResourceSetRequest
  *   ResourceSetName: "STRING_VALUE", // required
  *   ResourceSetType: "STRING_VALUE", // required
- *   Resources: [ // required
- *     {
+ *   Resources: [ // __listOfResource // required
+ *     { // Resource
  *       ComponentId: "STRING_VALUE",
- *       DnsTargetResource: {
+ *       DnsTargetResource: { // DNSTargetResource
  *         DomainName: "STRING_VALUE",
  *         HostedZoneArn: "STRING_VALUE",
  *         RecordSetId: "STRING_VALUE",
  *         RecordType: "STRING_VALUE",
- *         TargetResource: {
- *           NLBResource: {
+ *         TargetResource: { // TargetResource
+ *           NLBResource: { // NLBResource
  *             Arn: "STRING_VALUE",
  *           },
- *           R53Resource: {
+ *           R53Resource: { // R53ResourceRecord
  *             DomainName: "STRING_VALUE",
  *             RecordSetId: "STRING_VALUE",
  *           },
  *         },
  *       },
- *       ReadinessScopes: [
+ *       ReadinessScopes: [ // __listOf__string
  *         "STRING_VALUE",
  *       ],
  *       ResourceArn: "STRING_VALUE",

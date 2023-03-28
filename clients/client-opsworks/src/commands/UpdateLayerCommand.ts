@@ -47,17 +47,17 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateLayerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateLayerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // UpdateLayerRequest
  *   LayerId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Shortname: "STRING_VALUE",
- *   Attributes: {
+ *   Attributes: { // LayerAttributes
  *     "<keys>": "STRING_VALUE",
  *   },
- *   CloudWatchLogsConfiguration: {
+ *   CloudWatchLogsConfiguration: { // CloudWatchLogsConfiguration
  *     Enabled: true || false,
- *     LogStreams: [
- *       {
+ *     LogStreams: [ // CloudWatchLogsLogStreams
+ *       { // CloudWatchLogsLogStream
  *         LogGroupName: "STRING_VALUE",
  *         DatetimeFormat: "STRING_VALUE",
  *         TimeZone: "STRING_VALUE",
@@ -74,14 +74,14 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  *   },
  *   CustomInstanceProfileArn: "STRING_VALUE",
  *   CustomJson: "STRING_VALUE",
- *   CustomSecurityGroupIds: [
+ *   CustomSecurityGroupIds: [ // Strings
  *     "STRING_VALUE",
  *   ],
  *   Packages: [
  *     "STRING_VALUE",
  *   ],
- *   VolumeConfigurations: [
- *     {
+ *   VolumeConfigurations: [ // VolumeConfigurations
+ *     { // VolumeConfiguration
  *       MountPoint: "STRING_VALUE", // required
  *       RaidLevel: Number("int"),
  *       NumberOfDisks: Number("int"), // required
@@ -94,7 +94,7 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  *   EnableAutoHealing: true || false,
  *   AutoAssignElasticIps: true || false,
  *   AutoAssignPublicIps: true || false,
- *   CustomRecipes: {
+ *   CustomRecipes: { // Recipes
  *     Setup: [
  *       "STRING_VALUE",
  *     ],
@@ -104,17 +104,13 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  *     Deploy: [
  *       "STRING_VALUE",
  *     ],
- *     Undeploy: [
- *       "STRING_VALUE",
- *     ],
- *     Shutdown: [
- *       "STRING_VALUE",
- *     ],
+ *     Undeploy: "<Strings>",
+ *     Shutdown: "<Strings>",
  *   },
  *   InstallUpdatesOnBoot: true || false,
  *   UseEbsOptimizedInstances: true || false,
- *   LifecycleEventConfiguration: {
- *     Shutdown: {
+ *   LifecycleEventConfiguration: { // LifecycleEventConfiguration
+ *     Shutdown: { // ShutdownEventConfiguration
  *       ExecutionTimeout: Number("int"),
  *       DelayUntilElbConnectionsDrained: true || false,
  *     },

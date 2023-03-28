@@ -50,9 +50,9 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * import { ResourceGroupsClient, UntagCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UntagCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = {
+ * const input = { // UntagInput
  *   Arn: "STRING_VALUE", // required
- *   Keys: [ // required
+ *   Keys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

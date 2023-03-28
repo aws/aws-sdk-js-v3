@@ -42,17 +42,17 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * import { GlueClient, StartJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // StartJobRunRequest
  *   JobName: "STRING_VALUE", // required
  *   JobRunId: "STRING_VALUE",
- *   Arguments: {
+ *   Arguments: { // GenericMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   AllocatedCapacity: Number("int"),
  *   Timeout: Number("int"),
  *   MaxCapacity: Number("double"),
  *   SecurityConfiguration: "STRING_VALUE",
- *   NotificationProperty: {
+ *   NotificationProperty: { // NotificationProperty
  *     NotifyDelayAfter: Number("int"),
  *   },
  *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",

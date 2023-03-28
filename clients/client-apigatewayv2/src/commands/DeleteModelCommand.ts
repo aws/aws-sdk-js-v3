@@ -42,7 +42,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteModelCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteModelCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // DeleteModelRequest
  *   ApiId: "STRING_VALUE", // required
  *   ModelId: "STRING_VALUE", // required
  * };

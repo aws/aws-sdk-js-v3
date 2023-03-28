@@ -44,15 +44,15 @@ export interface DescribeClientVpnTargetNetworksCommandOutput
  * import { EC2Client, DescribeClientVpnTargetNetworksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeClientVpnTargetNetworksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeClientVpnTargetNetworksRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
- *   AssociationIds: [
+ *   AssociationIds: [ // ValueStringList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
  *       Values: [
  *         "STRING_VALUE",

@@ -68,7 +68,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { ChimeClient, ListChannelsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListChannelsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListChannelsRequest
  *   AppInstanceArn: "STRING_VALUE", // required
  *   Privacy: "STRING_VALUE",
  *   MaxResults: Number("int"),

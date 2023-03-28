@@ -43,7 +43,7 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
  * import { Route53Client, UpdateTrafficPolicyCommentCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, UpdateTrafficPolicyCommentCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // UpdateTrafficPolicyCommentRequest
  *   Id: "STRING_VALUE", // required
  *   Version: Number("int"), // required
  *   Comment: "STRING_VALUE", // required

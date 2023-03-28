@@ -47,7 +47,7 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * import { RoboMakerClient, RegisterRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, RegisterRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // RegisterRobotRequest
  *   fleet: "STRING_VALUE", // required
  *   robot: "STRING_VALUE", // required
  * };

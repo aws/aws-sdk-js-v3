@@ -46,7 +46,7 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeleteScalingPolicyCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteScalingPolicyCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DeleteScalingPolicyInput
  *   Name: "STRING_VALUE", // required
  *   FleetId: "STRING_VALUE", // required
  * };

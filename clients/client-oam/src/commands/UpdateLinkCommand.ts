@@ -45,9 +45,9 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * import { OAMClient, UpdateLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, UpdateLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
- * const input = {
+ * const input = { // UpdateLinkInput
  *   Identifier: "STRING_VALUE", // required
- *   ResourceTypes: [ // required
+ *   ResourceTypes: [ // ResourceTypesInput // required
  *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace",
  *   ],
  * };

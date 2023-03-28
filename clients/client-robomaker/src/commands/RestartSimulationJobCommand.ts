@@ -42,7 +42,7 @@ export interface RestartSimulationJobCommandOutput extends RestartSimulationJobR
  * import { RoboMakerClient, RestartSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, RestartSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // RestartSimulationJobRequest
  *   job: "STRING_VALUE", // required
  * };
  * const command = new RestartSimulationJobCommand(input);

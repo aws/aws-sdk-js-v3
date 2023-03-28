@@ -58,21 +58,21 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * import { SageMakerClient, UpdateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateEndpointInput
  *   EndpointName: "STRING_VALUE", // required
  *   EndpointConfigName: "STRING_VALUE", // required
  *   RetainAllVariantProperties: true || false,
- *   ExcludeRetainedVariantProperties: [
- *     {
+ *   ExcludeRetainedVariantProperties: [ // VariantPropertyList
+ *     { // VariantProperty
  *       VariantPropertyType: "DesiredInstanceCount" || "DesiredWeight" || "DataCaptureConfig", // required
  *     },
  *   ],
- *   DeploymentConfig: {
- *     BlueGreenUpdatePolicy: {
- *       TrafficRoutingConfiguration: {
+ *   DeploymentConfig: { // DeploymentConfig
+ *     BlueGreenUpdatePolicy: { // BlueGreenUpdatePolicy
+ *       TrafficRoutingConfiguration: { // TrafficRoutingConfig
  *         Type: "ALL_AT_ONCE" || "CANARY" || "LINEAR", // required
  *         WaitIntervalInSeconds: Number("int"), // required
- *         CanarySize: {
+ *         CanarySize: { // CapacitySize
  *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
  *           Value: Number("int"), // required
  *         },
@@ -84,9 +84,9 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *       TerminationWaitInSeconds: Number("int"),
  *       MaximumExecutionTimeoutInSeconds: Number("int"),
  *     },
- *     AutoRollbackConfiguration: {
- *       Alarms: [
- *         {
+ *     AutoRollbackConfiguration: { // AutoRollbackConfig
+ *       Alarms: [ // AlarmList
+ *         { // Alarm
  *           AlarmName: "STRING_VALUE",
  *         },
  *       ],

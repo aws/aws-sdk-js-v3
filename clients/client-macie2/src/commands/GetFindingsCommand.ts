@@ -42,11 +42,11 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * import { Macie2Client, GetFindingsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetFindingsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
- *   findingIds: [ // required
+ * const input = { // GetFindingsRequest
+ *   findingIds: [ // __listOf__string // required
  *     "STRING_VALUE",
  *   ],
- *   sortCriteria: {
+ *   sortCriteria: { // SortCriteria
  *     attributeName: "STRING_VALUE",
  *     orderBy: "ASC" || "DESC",
  *   },

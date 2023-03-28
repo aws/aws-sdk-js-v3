@@ -42,7 +42,7 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * import { CloudWatchClient, GetDashboardCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetDashboardCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // GetDashboardInput
  *   DashboardName: "STRING_VALUE", // required
  * };
  * const command = new GetDashboardCommand(input);

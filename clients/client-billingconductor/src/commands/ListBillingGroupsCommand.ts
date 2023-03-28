@@ -46,16 +46,16 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * import { BillingconductorClient, ListBillingGroupsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListBillingGroupsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // ListBillingGroupsInput
  *   BillingPeriod: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: {
- *     Arns: [
+ *   Filters: { // ListBillingGroupsFilter
+ *     Arns: [ // BillingGroupArnList
  *       "STRING_VALUE",
  *     ],
  *     PricingPlan: "STRING_VALUE",
- *     Statuses: [
+ *     Statuses: [ // BillingGroupStatusList
  *       "STRING_VALUE",
  *     ],
  *   },

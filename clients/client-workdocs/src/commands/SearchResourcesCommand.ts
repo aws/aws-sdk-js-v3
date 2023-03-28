@@ -47,48 +47,48 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * import { WorkDocsClient, SearchResourcesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, SearchResourcesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
- * const input = {
+ * const input = { // SearchResourcesRequest
  *   AuthenticationToken: "STRING_VALUE",
  *   QueryText: "STRING_VALUE",
- *   QueryScopes: [
+ *   QueryScopes: [ // SearchQueryScopeTypeList
  *     "NAME" || "CONTENT",
  *   ],
  *   OrganizationId: "STRING_VALUE",
- *   AdditionalResponseFields: [
+ *   AdditionalResponseFields: [ // AdditionalResponseFieldsList
  *     "WEBURL",
  *   ],
- *   Filters: {
- *     TextLocales: [
+ *   Filters: { // Filters
+ *     TextLocales: [ // TextLocaleTypeList
  *       "AR" || "BG" || "BN" || "DA" || "DE" || "CS" || "EL" || "EN" || "ES" || "FA" || "FI" || "FR" || "HI" || "HU" || "ID" || "IT" || "JA" || "KO" || "LT" || "LV" || "NL" || "NO" || "PT" || "RO" || "RU" || "SV" || "SW" || "TH" || "TR" || "ZH" || "DEFAULT",
  *     ],
- *     ContentCategories: [
+ *     ContentCategories: [ // SearchContentCategoryTypeList
  *       "IMAGE" || "DOCUMENT" || "PDF" || "SPREADSHEET" || "PRESENTATION" || "AUDIO" || "VIDEO" || "SOURCE_CODE" || "OTHER",
  *     ],
- *     ResourceTypes: [
+ *     ResourceTypes: [ // SearchResourceTypeList
  *       "FOLDER" || "DOCUMENT" || "COMMENT" || "DOCUMENT_VERSION",
  *     ],
- *     Labels: [
+ *     Labels: [ // SearchLabelList
  *       "STRING_VALUE",
  *     ],
- *     Principals: [
- *       {
+ *     Principals: [ // SearchPrincipalTypeList
+ *       { // SearchPrincipalType
  *         Id: "STRING_VALUE", // required
- *         Roles: [
+ *         Roles: [ // SearchPrincipalRoleList
  *           "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER",
  *         ],
  *       },
  *     ],
- *     AncestorIds: [
+ *     AncestorIds: [ // SearchAncestorIdList
  *       "STRING_VALUE",
  *     ],
- *     SearchCollectionTypes: [
+ *     SearchCollectionTypes: [ // SearchCollectionTypeList
  *       "OWNED" || "SHARED_WITH_ME",
  *     ],
- *     SizeRange: {
+ *     SizeRange: { // LongRangeType
  *       StartValue: Number("long"),
  *       EndValue: Number("long"),
  *     },
- *     CreatedRange: {
+ *     CreatedRange: { // DateRangeType
  *       StartValue: new Date("TIMESTAMP"),
  *       EndValue: new Date("TIMESTAMP"),
  *     },
@@ -97,8 +97,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  *       EndValue: new Date("TIMESTAMP"),
  *     },
  *   },
- *   OrderBy: [
- *     {
+ *   OrderBy: [ // SearchResultSortList
+ *     { // SearchSortResult
  *       Field: "RELEVANCE" || "NAME" || "SIZE" || "CREATED_TIMESTAMP" || "MODIFIED_TIMESTAMP",
  *       Order: "ASC" || "DESC",
  *     },

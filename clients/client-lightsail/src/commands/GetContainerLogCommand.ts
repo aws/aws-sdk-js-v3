@@ -51,7 +51,7 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  * import { LightsailClient, GetContainerLogCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerLogCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetContainerLogRequest
  *   serviceName: "STRING_VALUE", // required
  *   containerName: "STRING_VALUE", // required
  *   startTime: new Date("TIMESTAMP"),

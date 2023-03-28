@@ -42,7 +42,7 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
  * import { AppSyncClient, DeleteGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // DeleteGraphqlApiRequest
  *   apiId: "STRING_VALUE", // required
  * };
  * const command = new DeleteGraphqlApiCommand(input);

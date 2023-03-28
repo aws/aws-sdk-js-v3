@@ -44,7 +44,7 @@ export interface GetDeliverabilityTestReportCommandOutput
  * import { PinpointEmailClient, GetDeliverabilityTestReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetDeliverabilityTestReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // GetDeliverabilityTestReportRequest
  *   ReportId: "STRING_VALUE", // required
  * };
  * const command = new GetDeliverabilityTestReportCommand(input);

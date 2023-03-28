@@ -42,7 +42,7 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * import { CodeBuildClient, ListBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // ListBuildsInput
  *   sortOrder: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  * };

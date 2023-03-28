@@ -42,7 +42,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { ServiceQuotasClient, ListServicesCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListServicesCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
- * const input = {
+ * const input = { // ListServicesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

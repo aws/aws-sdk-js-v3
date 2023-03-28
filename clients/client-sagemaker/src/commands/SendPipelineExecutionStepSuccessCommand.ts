@@ -46,10 +46,10 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
  * import { SageMakerClient, SendPipelineExecutionStepSuccessCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, SendPipelineExecutionStepSuccessCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // SendPipelineExecutionStepSuccessRequest
  *   CallbackToken: "STRING_VALUE", // required
- *   OutputParameters: [
- *     {
+ *   OutputParameters: [ // OutputParameterList
+ *     { // OutputParameter
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

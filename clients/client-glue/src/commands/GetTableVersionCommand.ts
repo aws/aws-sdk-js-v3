@@ -42,7 +42,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * import { GlueClient, GetTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // GetTableVersionRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required

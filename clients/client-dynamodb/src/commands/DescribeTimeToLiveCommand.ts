@@ -42,7 +42,7 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  * import { DynamoDBClient, DescribeTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // DescribeTimeToLiveInput
  *   TableName: "STRING_VALUE", // required
  * };
  * const command = new DescribeTimeToLiveCommand(input);

@@ -48,7 +48,7 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  * import { DrsClient, DeleteReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DeleteReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // DeleteReplicationConfigurationTemplateRequest
  *   replicationConfigurationTemplateID: "STRING_VALUE", // required
  * };
  * const command = new DeleteReplicationConfigurationTemplateCommand(input);

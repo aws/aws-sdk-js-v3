@@ -46,7 +46,7 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  * import { PrivateNetworksClient, ActivateDeviceIdentifierCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ActivateDeviceIdentifierCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
- * const input = {
+ * const input = { // ActivateDeviceIdentifierRequest
  *   deviceIdentifierArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

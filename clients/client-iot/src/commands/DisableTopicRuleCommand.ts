@@ -43,7 +43,7 @@ export interface DisableTopicRuleCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DisableTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DisableTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DisableTopicRuleRequest
  *   ruleName: "STRING_VALUE", // required
  * };
  * const command = new DisableTopicRuleCommand(input);

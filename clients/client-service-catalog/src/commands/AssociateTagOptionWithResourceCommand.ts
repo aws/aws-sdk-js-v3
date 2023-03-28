@@ -44,7 +44,7 @@ export interface AssociateTagOptionWithResourceCommandOutput
  * import { ServiceCatalogClient, AssociateTagOptionWithResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AssociateTagOptionWithResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // AssociateTagOptionWithResourceInput
  *   ResourceId: "STRING_VALUE", // required
  *   TagOptionId: "STRING_VALUE", // required
  * };

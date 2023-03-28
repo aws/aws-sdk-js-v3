@@ -43,7 +43,7 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * import { InternetMonitorClient, GetMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, GetMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
- * const input = {
+ * const input = { // GetMonitorInput
  *   MonitorName: "STRING_VALUE", // required
  * };
  * const command = new GetMonitorCommand(input);

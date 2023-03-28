@@ -42,7 +42,7 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * import { Macie2Client, EnableMacieCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, EnableMacieCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
+ * const input = { // EnableMacieRequest
  *   clientToken: "STRING_VALUE",
  *   findingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
  *   status: "PAUSED" || "ENABLED",

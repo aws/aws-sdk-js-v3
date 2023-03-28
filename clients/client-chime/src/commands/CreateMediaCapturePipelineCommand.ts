@@ -47,32 +47,32 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * import { ChimeClient, CreateMediaCapturePipelineCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMediaCapturePipelineCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateMediaCapturePipelineRequest
  *   SourceType: "STRING_VALUE", // required
  *   SourceArn: "STRING_VALUE", // required
  *   SinkType: "STRING_VALUE", // required
  *   SinkArn: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   ChimeSdkMeetingConfiguration: {
- *     SourceConfiguration: {
- *       SelectedVideoStreams: {
- *         AttendeeIds: [
+ *   ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
+ *     SourceConfiguration: { // SourceConfiguration
+ *       SelectedVideoStreams: { // SelectedVideoStreams
+ *         AttendeeIds: [ // AttendeeIdList
  *           "STRING_VALUE",
  *         ],
- *         ExternalUserIds: [
+ *         ExternalUserIds: [ // ExternalUserIdList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     ArtifactsConfiguration: {
- *       Audio: {
+ *     ArtifactsConfiguration: { // ArtifactsConfiguration
+ *       Audio: { // AudioArtifactsConfiguration
  *         MuxType: "STRING_VALUE", // required
  *       },
- *       Video: {
+ *       Video: { // VideoArtifactsConfiguration
  *         State: "STRING_VALUE", // required
  *         MuxType: "STRING_VALUE",
  *       },
- *       Content: {
+ *       Content: { // ContentArtifactsConfiguration
  *         State: "STRING_VALUE", // required
  *         MuxType: "STRING_VALUE",
  *       },

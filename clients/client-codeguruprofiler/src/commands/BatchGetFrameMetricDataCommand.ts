@@ -44,17 +44,17 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  * import { CodeGuruProfilerClient, BatchGetFrameMetricDataCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, BatchGetFrameMetricDataCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // BatchGetFrameMetricDataRequest
  *   profilingGroupName: "STRING_VALUE", // required
  *   startTime: new Date("TIMESTAMP"),
  *   endTime: new Date("TIMESTAMP"),
  *   period: "STRING_VALUE",
  *   targetResolution: "STRING_VALUE",
- *   frameMetrics: [
- *     {
+ *   frameMetrics: [ // FrameMetrics
+ *     { // FrameMetric
  *       frameName: "STRING_VALUE", // required
  *       type: "STRING_VALUE", // required
- *       threadStates: [ // required
+ *       threadStates: [ // ThreadStates // required
  *         "STRING_VALUE",
  *       ],
  *     },

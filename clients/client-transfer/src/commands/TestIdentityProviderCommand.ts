@@ -84,7 +84,7 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * import { TransferClient, TestIdentityProviderCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, TestIdentityProviderCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // TestIdentityProviderRequest
  *   ServerId: "STRING_VALUE", // required
  *   ServerProtocol: "SFTP" || "FTP" || "FTPS" || "AS2",
  *   SourceIp: "STRING_VALUE",

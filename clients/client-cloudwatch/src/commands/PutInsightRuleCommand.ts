@@ -46,12 +46,12 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * import { CloudWatchClient, PutInsightRuleCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutInsightRuleCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // PutInsightRuleInput
  *   RuleName: "STRING_VALUE", // required
  *   RuleState: "STRING_VALUE",
  *   RuleDefinition: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

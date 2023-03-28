@@ -42,11 +42,11 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * import { SageMakerClient, RenderUiTemplateCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, RenderUiTemplateCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
- *   UiTemplate: {
+ * const input = { // RenderUiTemplateRequest
+ *   UiTemplate: { // UiTemplate
  *     Content: "STRING_VALUE", // required
  *   },
- *   Task: {
+ *   Task: { // RenderableTask
  *     Input: "STRING_VALUE", // required
  *   },
  *   RoleArn: "STRING_VALUE", // required

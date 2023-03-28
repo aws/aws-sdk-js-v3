@@ -43,8 +43,8 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  * import { InspectorClient, DescribeAssessmentRunsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeAssessmentRunsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
- *   assessmentRunArns: [ // required
+ * const input = { // DescribeAssessmentRunsRequest
+ *   assessmentRunArns: [ // BatchDescribeArnList // required
  *     "STRING_VALUE",
  *   ],
  * };

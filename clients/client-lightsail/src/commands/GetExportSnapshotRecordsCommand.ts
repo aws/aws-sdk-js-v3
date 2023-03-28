@@ -46,7 +46,7 @@ export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshot
  * import { LightsailClient, GetExportSnapshotRecordsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetExportSnapshotRecordsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetExportSnapshotRecordsRequest
  *   pageToken: "STRING_VALUE",
  * };
  * const command = new GetExportSnapshotRecordsCommand(input);

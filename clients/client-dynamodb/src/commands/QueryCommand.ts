@@ -89,33 +89,33 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  * import { DynamoDBClient, QueryCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // QueryInput
  *   TableName: "STRING_VALUE", // required
  *   IndexName: "STRING_VALUE",
  *   Select: "ALL_ATTRIBUTES" || "ALL_PROJECTED_ATTRIBUTES" || "SPECIFIC_ATTRIBUTES" || "COUNT",
- *   AttributesToGet: [
+ *   AttributesToGet: [ // AttributeNameList
  *     "STRING_VALUE",
  *   ],
  *   Limit: Number("int"),
  *   ConsistentRead: true || false,
- *   KeyConditions: {
- *     "<keys>": {
- *       AttributeValueList: [
- *         { // Union: only one key present
+ *   KeyConditions: { // KeyConditions
+ *     "<keys>": { // Condition
+ *       AttributeValueList: [ // AttributeValueList
+ *         { // AttributeValue Union: only one key present
  *           S: "STRING_VALUE",
  *           N: "STRING_VALUE",
  *           B: "BLOB_VALUE",
- *           SS: [
+ *           SS: [ // StringSetAttributeValue
  *             "STRING_VALUE",
  *           ],
- *           NS: [
+ *           NS: [ // NumberSetAttributeValue
  *             "STRING_VALUE",
  *           ],
- *           BS: [
+ *           BS: [ // BinarySetAttributeValue
  *             "BLOB_VALUE",
  *           ],
- *           M: {
- *             "<keys>": { // Union: only one key present
+ *           M: { // MapAttributeValue
+ *             "<keys>": {//  Union: only one key present
  *               S: "STRING_VALUE",
  *               N: "STRING_VALUE",
  *               B: "BLOB_VALUE",
@@ -129,90 +129,46 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  *                 "BLOB_VALUE",
  *               ],
  *               M: {
- *                 "<keys>": { // Union: only one key present
- *                   S: "<AttributeValue>",
- *                   N: "<AttributeValue>",
- *                   B: "<AttributeValue>",
- *                   SS: "<AttributeValue>",
- *                   NS: "<AttributeValue>",
- *                   BS: "<AttributeValue>",
- *                   M: "<AttributeValue>",
- *                   L: [
- *                     { // Union: only one key present
- *                       S: "<AttributeValue>",
- *                       N: "<AttributeValue>",
- *                       B: "<AttributeValue>",
- *                       SS: "<AttributeValue>",
- *                       NS: "<AttributeValue>",
- *                       BS: "<AttributeValue>",
- *                       M: "<AttributeValue>",
- *                       L: [
- *                         { // Union: only one key present
- *                           S: "<AttributeValue>",
- *                           N: "<AttributeValue>",
- *                           B: "<AttributeValue>",
- *                           SS: "<AttributeValue>",
- *                           NS: "<AttributeValue>",
- *                           BS: "<AttributeValue>",
- *                           M: "<AttributeValue>",
- *                           L: "<AttributeValue>",
- *                           NULL: true || false,
- *                           BOOL: true || false,
- *                         },
- *                       ],
- *                       NULL: true || false,
- *                       BOOL: true || false,
- *                     },
- *                   ],
- *                   NULL: "<AttributeValue>",
- *                   BOOL: "<AttributeValue>",
- *                 },
+ *                 "<keys>": "<AttributeValue>",
  *               },
- *               L: "<AttributeValue>",
- *               NULL: "<AttributeValue>",
- *               BOOL: "<AttributeValue>",
+ *               L: [ // ListAttributeValue
+ *                 "<AttributeValue>",
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
  *             },
  *           },
- *           L: "<AttributeValue>",
- *           NULL: "<AttributeValue>",
- *           BOOL: "<AttributeValue>",
+ *           L: [
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
  *         },
  *       ],
  *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH", // required
  *     },
  *   },
- *   QueryFilter: {
+ *   QueryFilter: { // FilterConditionMap
  *     "<keys>": {
  *       AttributeValueList: [
- *         { // Union: only one key present
- *           S: "<AttributeValue>",
- *           N: "<AttributeValue>",
- *           B: "<AttributeValue>",
- *           SS: "<AttributeValue>",
- *           NS: "<AttributeValue>",
- *           BS: "<AttributeValue>",
- *           M: "<AttributeValue>",
- *           L: "<AttributeValue>",
- *           NULL: "<AttributeValue>",
- *           BOOL: "<AttributeValue>",
- *         },
+ *         "<AttributeValue>",
  *       ],
  *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH", // required
  *     },
  *   },
  *   ConditionalOperator: "AND" || "OR",
  *   ScanIndexForward: true || false,
- *   ExclusiveStartKey: {
+ *   ExclusiveStartKey: { // Key
  *     "<keys>": "<AttributeValue>",
  *   },
  *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
  *   ProjectionExpression: "STRING_VALUE",
  *   FilterExpression: "STRING_VALUE",
  *   KeyConditionExpression: "STRING_VALUE",
- *   ExpressionAttributeNames: {
+ *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ExpressionAttributeValues: {
+ *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
  *     "<keys>": "<AttributeValue>",
  *   },
  * };

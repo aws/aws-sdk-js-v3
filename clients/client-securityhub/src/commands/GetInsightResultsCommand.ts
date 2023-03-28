@@ -42,7 +42,7 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  * import { SecurityHubClient, GetInsightResultsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetInsightResultsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // GetInsightResultsRequest
  *   InsightArn: "STRING_VALUE", // required
  * };
  * const command = new GetInsightResultsCommand(input);

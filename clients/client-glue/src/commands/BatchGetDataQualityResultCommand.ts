@@ -42,8 +42,8 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * import { GlueClient, BatchGetDataQualityResultCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetDataQualityResultCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   ResultIds: [ // required
+ * const input = { // BatchGetDataQualityResultRequest
+ *   ResultIds: [ // DataQualityResultIds // required
  *     "STRING_VALUE",
  *   ],
  * };

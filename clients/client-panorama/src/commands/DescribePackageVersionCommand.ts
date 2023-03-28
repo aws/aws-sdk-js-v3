@@ -42,7 +42,7 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * import { PanoramaClient, DescribePackageVersionCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribePackageVersionCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // DescribePackageVersionRequest
  *   OwnerAccount: "STRING_VALUE",
  *   PackageId: "STRING_VALUE", // required
  *   PackageVersion: "STRING_VALUE", // required

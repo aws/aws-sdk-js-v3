@@ -52,21 +52,21 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * import { GreengrassV2Client, CreateDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CreateDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // CreateDeploymentRequest
  *   targetArn: "STRING_VALUE", // required
  *   deploymentName: "STRING_VALUE",
- *   components: {
- *     "<keys>": {
+ *   components: { // ComponentDeploymentSpecifications
+ *     "<keys>": { // ComponentDeploymentSpecification
  *       componentVersion: "STRING_VALUE",
- *       configurationUpdate: {
+ *       configurationUpdate: { // ComponentConfigurationUpdate
  *         merge: "STRING_VALUE",
- *         reset: [
+ *         reset: [ // ComponentConfigurationPathList
  *           "STRING_VALUE",
  *         ],
  *       },
- *       runWith: {
+ *       runWith: { // ComponentRunWith
  *         posixUser: "STRING_VALUE",
- *         systemResourceLimits: {
+ *         systemResourceLimits: { // SystemResourceLimits
  *           memory: Number("long"),
  *           cpus: Number("double"),
  *         },
@@ -74,21 +74,21 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *       },
  *     },
  *   },
- *   iotJobConfiguration: {
- *     jobExecutionsRolloutConfig: {
- *       exponentialRate: {
+ *   iotJobConfiguration: { // DeploymentIoTJobConfiguration
+ *     jobExecutionsRolloutConfig: { // IoTJobExecutionsRolloutConfig
+ *       exponentialRate: { // IoTJobExponentialRolloutRate
  *         baseRatePerMinute: Number("int"), // required
  *         incrementFactor: Number("double"), // required
- *         rateIncreaseCriteria: {
+ *         rateIncreaseCriteria: { // IoTJobRateIncreaseCriteria
  *           numberOfNotifiedThings: Number("int"),
  *           numberOfSucceededThings: Number("int"),
  *         },
  *       },
  *       maximumPerMinute: Number("int"),
  *     },
- *     abortConfig: {
- *       criteriaList: [ // required
- *         {
+ *     abortConfig: { // IoTJobAbortConfig
+ *       criteriaList: [ // IoTJobAbortCriteriaList // required
+ *         { // IoTJobAbortCriteria
  *           failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
  *           action: "CANCEL", // required
  *           thresholdPercentage: Number("double"), // required
@@ -96,22 +96,22 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *         },
  *       ],
  *     },
- *     timeoutConfig: {
+ *     timeoutConfig: { // IoTJobTimeoutConfig
  *       inProgressTimeoutInMinutes: Number("long"),
  *     },
  *   },
- *   deploymentPolicies: {
+ *   deploymentPolicies: { // DeploymentPolicies
  *     failureHandlingPolicy: "ROLLBACK" || "DO_NOTHING",
- *     componentUpdatePolicy: {
+ *     componentUpdatePolicy: { // DeploymentComponentUpdatePolicy
  *       timeoutInSeconds: Number("int"),
  *       action: "NOTIFY_COMPONENTS" || "SKIP_NOTIFY_COMPONENTS",
  *     },
- *     configurationValidationPolicy: {
+ *     configurationValidationPolicy: { // DeploymentConfigurationValidationPolicy
  *       timeoutInSeconds: Number("int"),
  *     },
  *   },
  *   parentTargetArn: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",

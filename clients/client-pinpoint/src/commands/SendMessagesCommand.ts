@@ -42,19 +42,19 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  * import { PinpointClient, SendMessagesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, SendMessagesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // SendMessagesRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   MessageRequest: {
- *     Addresses: {
- *       "<keys>": {
+ *   MessageRequest: { // MessageRequest
+ *     Addresses: { // MapOfAddressConfiguration
+ *       "<keys>": { // AddressConfiguration
  *         BodyOverride: "STRING_VALUE",
  *         ChannelType: "STRING_VALUE",
- *         Context: {
+ *         Context: { // MapOf__string
  *           "<keys>": "STRING_VALUE",
  *         },
  *         RawContent: "STRING_VALUE",
- *         Substitutions: {
- *           "<keys>": [
+ *         Substitutions: { // MapOfListOf__string
+ *           "<keys>": [ // ListOf__string
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -64,8 +64,8 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *     Context: {
  *       "<keys>": "STRING_VALUE",
  *     },
- *     Endpoints: {
- *       "<keys>": {
+ *     Endpoints: { // MapOfEndpointSendConfiguration
+ *       "<keys>": { // EndpointSendConfiguration
  *         BodyOverride: "STRING_VALUE",
  *         Context: {
  *           "<keys>": "STRING_VALUE",
@@ -79,8 +79,8 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         TitleOverride: "STRING_VALUE",
  *       },
  *     },
- *     MessageConfiguration: {
- *       ADMMessage: {
+ *     MessageConfiguration: { // DirectMessageConfiguration
+ *       ADMMessage: { // ADMMessage
  *         Action: "STRING_VALUE",
  *         Body: "STRING_VALUE",
  *         ConsolidationKey: "STRING_VALUE",
@@ -104,7 +104,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         Title: "STRING_VALUE",
  *         Url: "STRING_VALUE",
  *       },
- *       APNSMessage: {
+ *       APNSMessage: { // APNSMessage
  *         APNSPushType: "STRING_VALUE",
  *         Action: "STRING_VALUE",
  *         Badge: Number("int"),
@@ -130,12 +130,10 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         Title: "STRING_VALUE",
  *         Url: "STRING_VALUE",
  *       },
- *       BaiduMessage: {
+ *       BaiduMessage: { // BaiduMessage
  *         Action: "STRING_VALUE",
  *         Body: "STRING_VALUE",
- *         Data: {
- *           "<keys>": "STRING_VALUE",
- *         },
+ *         Data: "<MapOf__string>",
  *         IconReference: "STRING_VALUE",
  *         ImageIconUrl: "STRING_VALUE",
  *         ImageUrl: "STRING_VALUE",
@@ -152,41 +150,29 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         Title: "STRING_VALUE",
  *         Url: "STRING_VALUE",
  *       },
- *       DefaultMessage: {
+ *       DefaultMessage: { // DefaultMessage
  *         Body: "STRING_VALUE",
- *         Substitutions: {
- *           "<keys>": [
- *             "STRING_VALUE",
- *           ],
- *         },
+ *         Substitutions: "<MapOfListOf__string>",
  *       },
- *       DefaultPushNotificationMessage: {
+ *       DefaultPushNotificationMessage: { // DefaultPushNotificationMessage
  *         Action: "STRING_VALUE",
  *         Body: "STRING_VALUE",
- *         Data: {
- *           "<keys>": "STRING_VALUE",
- *         },
+ *         Data: "<MapOf__string>",
  *         SilentPush: true || false,
- *         Substitutions: {
- *           "<keys>": [
- *             "STRING_VALUE",
- *           ],
- *         },
+ *         Substitutions: "<MapOfListOf__string>",
  *         Title: "STRING_VALUE",
  *         Url: "STRING_VALUE",
  *       },
- *       EmailMessage: {
+ *       EmailMessage: { // EmailMessage
  *         Body: "STRING_VALUE",
  *         FeedbackForwardingAddress: "STRING_VALUE",
  *         FromAddress: "STRING_VALUE",
- *         RawEmail: {
+ *         RawEmail: { // RawEmail
  *           Data: "BLOB_VALUE",
  *         },
- *         ReplyToAddresses: [
- *           "STRING_VALUE",
- *         ],
- *         SimpleEmail: {
- *           HtmlPart: {
+ *         ReplyToAddresses: "<ListOf__string>",
+ *         SimpleEmail: { // SimpleEmail
+ *           HtmlPart: { // SimpleEmailPart
  *             Charset: "STRING_VALUE",
  *             Data: "STRING_VALUE",
  *           },
@@ -199,19 +185,13 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *             Data: "STRING_VALUE",
  *           },
  *         },
- *         Substitutions: {
- *           "<keys>": [
- *             "STRING_VALUE",
- *           ],
- *         },
+ *         Substitutions: "<MapOfListOf__string>",
  *       },
- *       GCMMessage: {
+ *       GCMMessage: { // GCMMessage
  *         Action: "STRING_VALUE",
  *         Body: "STRING_VALUE",
  *         CollapseKey: "STRING_VALUE",
- *         Data: {
- *           "<keys>": "STRING_VALUE",
- *         },
+ *         Data: "<MapOf__string>",
  *         IconReference: "STRING_VALUE",
  *         ImageIconUrl: "STRING_VALUE",
  *         ImageUrl: "STRING_VALUE",
@@ -221,44 +201,32 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         SilentPush: true || false,
  *         SmallImageIconUrl: "STRING_VALUE",
  *         Sound: "STRING_VALUE",
- *         Substitutions: {
- *           "<keys>": [
- *             "STRING_VALUE",
- *           ],
- *         },
+ *         Substitutions: "<MapOfListOf__string>",
  *         TimeToLive: Number("int"),
  *         Title: "STRING_VALUE",
  *         Url: "STRING_VALUE",
  *       },
- *       SMSMessage: {
+ *       SMSMessage: { // SMSMessage
  *         Body: "STRING_VALUE",
  *         Keyword: "STRING_VALUE",
  *         MediaUrl: "STRING_VALUE",
  *         MessageType: "STRING_VALUE",
  *         OriginationNumber: "STRING_VALUE",
  *         SenderId: "STRING_VALUE",
- *         Substitutions: {
- *           "<keys>": [
- *             "STRING_VALUE",
- *           ],
- *         },
+ *         Substitutions: "<MapOfListOf__string>",
  *         EntityId: "STRING_VALUE",
  *         TemplateId: "STRING_VALUE",
  *       },
- *       VoiceMessage: {
+ *       VoiceMessage: { // VoiceMessage
  *         Body: "STRING_VALUE",
  *         LanguageCode: "STRING_VALUE",
  *         OriginationNumber: "STRING_VALUE",
- *         Substitutions: {
- *           "<keys>": [
- *             "STRING_VALUE",
- *           ],
- *         },
+ *         Substitutions: "<MapOfListOf__string>",
  *         VoiceId: "STRING_VALUE",
  *       },
  *     },
- *     TemplateConfiguration: {
- *       EmailTemplate: {
+ *     TemplateConfiguration: { // TemplateConfiguration
+ *       EmailTemplate: { // Template
  *         Name: "STRING_VALUE",
  *         Version: "STRING_VALUE",
  *       },

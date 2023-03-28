@@ -47,7 +47,7 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * import { LexRuntimeServiceClient, DeleteSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, DeleteSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
- * const input = {
+ * const input = { // DeleteSessionRequest
  *   botName: "STRING_VALUE", // required
  *   botAlias: "STRING_VALUE", // required
  *   userId: "STRING_VALUE", // required

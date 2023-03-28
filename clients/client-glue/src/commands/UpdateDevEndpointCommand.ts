@@ -42,24 +42,24 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  * import { GlueClient, UpdateDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // UpdateDevEndpointRequest
  *   EndpointName: "STRING_VALUE", // required
  *   PublicKey: "STRING_VALUE",
- *   AddPublicKeys: [
+ *   AddPublicKeys: [ // PublicKeysList
  *     "STRING_VALUE",
  *   ],
  *   DeletePublicKeys: [
  *     "STRING_VALUE",
  *   ],
- *   CustomLibraries: {
+ *   CustomLibraries: { // DevEndpointCustomLibraries
  *     ExtraPythonLibsS3Path: "STRING_VALUE",
  *     ExtraJarsS3Path: "STRING_VALUE",
  *   },
  *   UpdateEtlLibraries: true || false,
- *   DeleteArguments: [
+ *   DeleteArguments: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   AddArguments: {
+ *   AddArguments: { // MapValue
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

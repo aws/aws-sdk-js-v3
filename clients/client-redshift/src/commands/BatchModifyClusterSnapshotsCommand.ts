@@ -44,8 +44,8 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  * import { RedshiftClient, BatchModifyClusterSnapshotsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, BatchModifyClusterSnapshotsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
- *   SnapshotIdentifierList: [ // required
+ * const input = { // BatchModifyClusterSnapshotsMessage
+ *   SnapshotIdentifierList: [ // SnapshotIdentifierList // required
  *     "STRING_VALUE",
  *   ],
  *   ManualSnapshotRetentionPeriod: Number("int"),

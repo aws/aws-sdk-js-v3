@@ -69,10 +69,10 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * import { EKSClient, UpdateClusterConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateClusterConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = {
+ * const input = { // UpdateClusterConfigRequest
  *   name: "STRING_VALUE", // required
- *   resourcesVpcConfig: {
- *     subnetIds: [
+ *   resourcesVpcConfig: { // VpcConfigRequest
+ *     subnetIds: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     securityGroupIds: [
@@ -84,10 +84,10 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *       "STRING_VALUE",
  *     ],
  *   },
- *   logging: {
- *     clusterLogging: [
- *       {
- *         types: [
+ *   logging: { // Logging
+ *     clusterLogging: [ // LogSetups
+ *       { // LogSetup
+ *         types: [ // LogTypes
  *           "api" || "audit" || "authenticator" || "controllerManager" || "scheduler",
  *         ],
  *         enabled: true || false,

@@ -59,7 +59,7 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * import { SFNClient, StartSyncExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, StartSyncExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const input = {
+ * const input = { // StartSyncExecutionInput
  *   stateMachineArn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   input: "STRING_VALUE",

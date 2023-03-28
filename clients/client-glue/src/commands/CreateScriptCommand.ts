@@ -42,13 +42,13 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * import { GlueClient, CreateScriptCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateScriptCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   DagNodes: [
- *     {
+ * const input = { // CreateScriptRequest
+ *   DagNodes: [ // DagNodes
+ *     { // CodeGenNode
  *       Id: "STRING_VALUE", // required
  *       NodeType: "STRING_VALUE", // required
- *       Args: [ // required
- *         {
+ *       Args: [ // CodeGenNodeArgs // required
+ *         { // CodeGenNodeArg
  *           Name: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *           Param: true || false,
@@ -57,8 +57,8 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  *       LineNumber: Number("int"),
  *     },
  *   ],
- *   DagEdges: [
- *     {
+ *   DagEdges: [ // DagEdges
+ *     { // CodeGenEdge
  *       Source: "STRING_VALUE", // required
  *       Target: "STRING_VALUE", // required
  *       TargetParameter: "STRING_VALUE",

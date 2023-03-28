@@ -42,9 +42,9 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * import { MgnClient, ListExportsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListExportsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
- *   filters: {
- *     exportIDs: [
+ * const input = { // ListExportsRequest
+ *   filters: { // ListExportsRequestFilters
+ *     exportIDs: [ // ListExportsRequestFiltersExportIDs
  *       "STRING_VALUE",
  *     ],
  *   },

@@ -51,11 +51,11 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * import { NeptuneClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ResetDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required
  *   ResetAllParameters: true || false,
- *   Parameters: [
- *     {
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
  *       ParameterName: "STRING_VALUE",
  *       ParameterValue: "STRING_VALUE",
  *       Description: "STRING_VALUE",

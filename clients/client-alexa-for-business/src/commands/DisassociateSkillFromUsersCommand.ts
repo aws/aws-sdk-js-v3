@@ -43,7 +43,7 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * import { AlexaForBusinessClient, DisassociateSkillFromUsersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateSkillFromUsersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DisassociateSkillFromUsersRequest
  *   SkillId: "STRING_VALUE", // required
  * };
  * const command = new DisassociateSkillFromUsersCommand(input);

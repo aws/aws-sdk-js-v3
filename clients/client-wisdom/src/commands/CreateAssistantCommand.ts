@@ -42,15 +42,15 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * import { WisdomClient, CreateAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
- * const input = {
+ * const input = { // CreateAssistantRequest
  *   clientToken: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   type: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   serverSideEncryptionConfiguration: {
+ *   serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     kmsKeyId: "STRING_VALUE",
  *   },
  * };

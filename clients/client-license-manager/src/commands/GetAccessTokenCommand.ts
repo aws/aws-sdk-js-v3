@@ -43,9 +43,9 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * import { LicenseManagerClient, GetAccessTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, GetAccessTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // GetAccessTokenRequest
  *   Token: "STRING_VALUE", // required
- *   TokenProperties: [
+ *   TokenProperties: [ // MaxSize3StringList
  *     "STRING_VALUE",
  *   ],
  * };

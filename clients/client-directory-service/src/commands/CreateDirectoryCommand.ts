@@ -51,20 +51,20 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * import { DirectoryServiceClient, CreateDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // CreateDirectoryRequest
  *   Name: "STRING_VALUE", // required
  *   ShortName: "STRING_VALUE",
  *   Password: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Size: "Small" || "Large", // required
- *   VpcSettings: {
+ *   VpcSettings: { // DirectoryVpcSettings
  *     VpcId: "STRING_VALUE", // required
- *     SubnetIds: [ // required
+ *     SubnetIds: [ // SubnetIds // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

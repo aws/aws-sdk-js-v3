@@ -71,7 +71,7 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * import { WAFRegionalClient, CreateSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // CreateSqlInjectionMatchSetRequest
  *   Name: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

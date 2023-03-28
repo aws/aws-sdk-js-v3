@@ -52,9 +52,9 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  * import { RekognitionClient, StartContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   Video: {
- *     S3Object: {
+ * const input = { // StartContentModerationRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
@@ -62,7 +62,7 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *   },
  *   MinConfidence: Number("float"),
  *   ClientRequestToken: "STRING_VALUE",
- *   NotificationChannel: {
+ *   NotificationChannel: { // NotificationChannel
  *     SNSTopicArn: "STRING_VALUE", // required
  *     RoleArn: "STRING_VALUE", // required
  *   },

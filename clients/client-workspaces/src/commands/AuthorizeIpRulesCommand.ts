@@ -44,10 +44,10 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * import { WorkSpacesClient, AuthorizeIpRulesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, AuthorizeIpRulesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // AuthorizeIpRulesRequest
  *   GroupId: "STRING_VALUE", // required
- *   UserRules: [ // required
- *     {
+ *   UserRules: [ // IpRuleList // required
+ *     { // IpRuleItem
  *       ipRule: "STRING_VALUE",
  *       ruleDesc: "STRING_VALUE",
  *     },

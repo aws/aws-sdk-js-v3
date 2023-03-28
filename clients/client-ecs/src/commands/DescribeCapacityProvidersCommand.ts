@@ -42,11 +42,11 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * import { ECSClient, DescribeCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
- *   capacityProviders: [
+ * const input = { // DescribeCapacityProvidersRequest
+ *   capacityProviders: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   include: [
+ *   include: [ // CapacityProviderFieldList
  *     "TAGS",
  *   ],
  *   maxResults: Number("int"),

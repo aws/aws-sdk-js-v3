@@ -44,15 +44,15 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  * import { EMRClient, ListInstancesCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListInstancesCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // ListInstancesInput
  *   ClusterId: "STRING_VALUE", // required
  *   InstanceGroupId: "STRING_VALUE",
- *   InstanceGroupTypes: [
+ *   InstanceGroupTypes: [ // InstanceGroupTypeList
  *     "MASTER" || "CORE" || "TASK",
  *   ],
  *   InstanceFleetId: "STRING_VALUE",
  *   InstanceFleetType: "MASTER" || "CORE" || "TASK",
- *   InstanceStates: [
+ *   InstanceStates: [ // InstanceStateList
  *     "AWAITING_FULFILLMENT" || "PROVISIONING" || "BOOTSTRAPPING" || "RUNNING" || "TERMINATED",
  *   ],
  *   Marker: "STRING_VALUE",

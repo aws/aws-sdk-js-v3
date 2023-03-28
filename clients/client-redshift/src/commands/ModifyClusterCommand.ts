@@ -50,15 +50,15 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * import { RedshiftClient, ModifyClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // ModifyClusterMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   ClusterType: "STRING_VALUE",
  *   NodeType: "STRING_VALUE",
  *   NumberOfNodes: Number("int"),
- *   ClusterSecurityGroups: [
+ *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   MasterUserPassword: "STRING_VALUE",

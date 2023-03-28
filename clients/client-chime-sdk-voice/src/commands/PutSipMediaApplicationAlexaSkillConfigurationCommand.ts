@@ -50,11 +50,11 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
  * import { ChimeSDKVoiceClient, PutSipMediaApplicationAlexaSkillConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, PutSipMediaApplicationAlexaSkillConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // PutSipMediaApplicationAlexaSkillConfigurationRequest
  *   SipMediaApplicationId: "STRING_VALUE", // required
- *   SipMediaApplicationAlexaSkillConfiguration: {
+ *   SipMediaApplicationAlexaSkillConfiguration: { // SipMediaApplicationAlexaSkillConfiguration
  *     AlexaSkillStatus: "ACTIVE" || "INACTIVE", // required
- *     AlexaSkillIds: [ // required
+ *     AlexaSkillIds: [ // AlexaSkillIdList // required
  *       "STRING_VALUE",
  *     ],
  *   },

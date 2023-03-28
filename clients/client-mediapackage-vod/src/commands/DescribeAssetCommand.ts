@@ -42,7 +42,7 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * import { MediaPackageVodClient, DescribeAssetCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DescribeAssetCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
- * const input = {
+ * const input = { // DescribeAssetRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DescribeAssetCommand(input);

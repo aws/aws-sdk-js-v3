@@ -100,7 +100,7 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  * import { CognitoSyncClient, ListIdentityPoolUsageCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, ListIdentityPoolUsageCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
- * const input = {
+ * const input = { // ListIdentityPoolUsageRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

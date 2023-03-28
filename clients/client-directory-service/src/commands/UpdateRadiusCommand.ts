@@ -43,10 +43,10 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * import { DirectoryServiceClient, UpdateRadiusCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateRadiusCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // UpdateRadiusRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   RadiusSettings: {
- *     RadiusServers: [
+ *   RadiusSettings: { // RadiusSettings
+ *     RadiusServers: [ // Servers
  *       "STRING_VALUE",
  *     ],
  *     RadiusPort: Number("int"),

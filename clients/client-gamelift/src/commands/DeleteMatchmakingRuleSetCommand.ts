@@ -55,7 +55,7 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  * import { GameLiftClient, DeleteMatchmakingRuleSetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteMatchmakingRuleSetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DeleteMatchmakingRuleSetInput
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteMatchmakingRuleSetCommand(input);

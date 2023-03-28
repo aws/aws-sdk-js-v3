@@ -49,29 +49,29 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * import { ACMPCAClient, IssueCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, IssueCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
- *   ApiPassthrough: {
- *     Extensions: {
- *       CertificatePolicies: [
- *         {
+ * const input = { // IssueCertificateRequest
+ *   ApiPassthrough: { // ApiPassthrough
+ *     Extensions: { // Extensions
+ *       CertificatePolicies: [ // CertificatePolicyList
+ *         { // PolicyInformation
  *           CertPolicyId: "STRING_VALUE", // required
- *           PolicyQualifiers: [
- *             {
+ *           PolicyQualifiers: [ // PolicyQualifierInfoList
+ *             { // PolicyQualifierInfo
  *               PolicyQualifierId: "CPS", // required
- *               Qualifier: {
+ *               Qualifier: { // Qualifier
  *                 CpsUri: "STRING_VALUE", // required
  *               },
  *             },
  *           ],
  *         },
  *       ],
- *       ExtendedKeyUsage: [
- *         {
+ *       ExtendedKeyUsage: [ // ExtendedKeyUsageList
+ *         { // ExtendedKeyUsage
  *           ExtendedKeyUsageType: "SERVER_AUTH" || "CLIENT_AUTH" || "CODE_SIGNING" || "EMAIL_PROTECTION" || "TIME_STAMPING" || "OCSP_SIGNING" || "SMART_CARD_LOGIN" || "DOCUMENT_SIGNING" || "CERTIFICATE_TRANSPARENCY",
  *           ExtendedKeyUsageObjectIdentifier: "STRING_VALUE",
  *         },
  *       ],
- *       KeyUsage: {
+ *       KeyUsage: { // KeyUsage
  *         DigitalSignature: true || false,
  *         NonRepudiation: true || false,
  *         KeyEncipherment: true || false,
@@ -82,15 +82,15 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *         EncipherOnly: true || false,
  *         DecipherOnly: true || false,
  *       },
- *       SubjectAlternativeNames: [
- *         {
- *           OtherName: {
+ *       SubjectAlternativeNames: [ // GeneralNameList
+ *         { // GeneralName
+ *           OtherName: { // OtherName
  *             TypeId: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
  *           Rfc822Name: "STRING_VALUE",
  *           DnsName: "STRING_VALUE",
- *           DirectoryName: {
+ *           DirectoryName: { // ASN1Subject
  *             Country: "STRING_VALUE",
  *             Organization: "STRING_VALUE",
  *             OrganizationalUnit: "STRING_VALUE",
@@ -105,14 +105,14 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *             Initials: "STRING_VALUE",
  *             Pseudonym: "STRING_VALUE",
  *             GenerationQualifier: "STRING_VALUE",
- *             CustomAttributes: [
- *               {
+ *             CustomAttributes: [ // CustomAttributeList
+ *               { // CustomAttribute
  *                 ObjectIdentifier: "STRING_VALUE", // required
  *                 Value: "STRING_VALUE", // required
  *               },
  *             ],
  *           },
- *           EdiPartyName: {
+ *           EdiPartyName: { // EdiPartyName
  *             PartyName: "STRING_VALUE", // required
  *             NameAssigner: "STRING_VALUE",
  *           },
@@ -121,8 +121,8 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *           RegisteredId: "STRING_VALUE",
  *         },
  *       ],
- *       CustomExtensions: [
- *         {
+ *       CustomExtensions: [ // CustomExtensionList
+ *         { // CustomExtension
  *           ObjectIdentifier: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
  *           Critical: true || false,
@@ -156,7 +156,7 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *   Csr: "BLOB_VALUE", // required
  *   SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
  *   TemplateArn: "STRING_VALUE",
- *   Validity: {
+ *   Validity: { // Validity
  *     Value: Number("long"), // required
  *     Type: "END_DATE" || "ABSOLUTE" || "DAYS" || "MONTHS" || "YEARS", // required
  *   },

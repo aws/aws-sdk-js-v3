@@ -48,7 +48,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * import { CloudFormationClient, DescribeStackEventsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackEventsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // DescribeStackEventsInput
  *   StackName: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  * };

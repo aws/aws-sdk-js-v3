@@ -44,15 +44,15 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * import { IoTFleetWiseClient, UpdateDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // UpdateDecoderManifestRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   signalDecodersToAdd: [
- *     {
+ *   signalDecodersToAdd: [ // SignalDecoders
+ *     { // SignalDecoder
  *       fullyQualifiedName: "STRING_VALUE", // required
  *       type: "STRING_VALUE", // required
  *       interfaceId: "STRING_VALUE", // required
- *       canSignal: {
+ *       canSignal: { // CanSignal
  *         messageId: Number("int"), // required
  *         isBigEndian: true || false, // required
  *         isSigned: true || false, // required
@@ -62,7 +62,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         length: Number("int"), // required
  *         name: "STRING_VALUE",
  *       },
- *       obdSignal: {
+ *       obdSignal: { // ObdSignal
  *         pidResponseLength: Number("int"), // required
  *         serviceMode: Number("int"), // required
  *         pid: Number("int"), // required
@@ -103,19 +103,19 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *       },
  *     },
  *   ],
- *   signalDecodersToRemove: [
+ *   signalDecodersToRemove: [ // Fqns
  *     "STRING_VALUE",
  *   ],
- *   networkInterfacesToAdd: [
- *     {
+ *   networkInterfacesToAdd: [ // NetworkInterfaces
+ *     { // NetworkInterface
  *       interfaceId: "STRING_VALUE", // required
  *       type: "STRING_VALUE", // required
- *       canInterface: {
+ *       canInterface: { // CanInterface
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
  *         protocolVersion: "STRING_VALUE",
  *       },
- *       obdInterface: {
+ *       obdInterface: { // ObdInterface
  *         name: "STRING_VALUE", // required
  *         requestMessageId: Number("int"), // required
  *         obdStandard: "STRING_VALUE",
@@ -146,7 +146,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *       },
  *     },
  *   ],
- *   networkInterfacesToRemove: [
+ *   networkInterfacesToRemove: [ // InterfaceIds
  *     "STRING_VALUE",
  *   ],
  *   status: "STRING_VALUE",

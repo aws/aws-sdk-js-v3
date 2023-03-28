@@ -42,13 +42,13 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  * import { MediaLiveClient, UpdateInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // UpdateInputSecurityGroupRequest
  *   InputSecurityGroupId: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   WhitelistRules: [
- *     {
+ *   WhitelistRules: [ // __listOfInputWhitelistRuleCidr
+ *     { // InputWhitelistRuleCidr
  *       Cidr: "STRING_VALUE",
  *     },
  *   ],

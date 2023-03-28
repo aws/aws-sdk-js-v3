@@ -52,18 +52,18 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  * import { SageMakerClient, CreateTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateTrialRequest
  *   TrialName: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
  *   ExperimentName: "STRING_VALUE", // required
- *   MetadataProperties: {
+ *   MetadataProperties: { // MetadataProperties
  *     CommitId: "STRING_VALUE",
  *     Repository: "STRING_VALUE",
  *     GeneratedBy: "STRING_VALUE",
  *     ProjectId: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,9 +42,9 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * import { DirectoryServiceClient, DescribeDomainControllersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeDomainControllersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DescribeDomainControllersRequest
  *   DirectoryId: "STRING_VALUE", // required
- *   DomainControllerIds: [
+ *   DomainControllerIds: [ // DomainControllerIds
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

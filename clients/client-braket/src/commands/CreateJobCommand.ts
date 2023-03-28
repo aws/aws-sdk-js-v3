@@ -42,54 +42,54 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { BraketClient, CreateJobCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CreateJobCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
- * const input = {
+ * const input = { // CreateJobRequest
  *   clientToken: "STRING_VALUE", // required
- *   algorithmSpecification: {
- *     scriptModeConfig: {
+ *   algorithmSpecification: { // AlgorithmSpecification
+ *     scriptModeConfig: { // ScriptModeConfig
  *       entryPoint: "STRING_VALUE", // required
  *       s3Uri: "STRING_VALUE", // required
  *       compressionType: "STRING_VALUE",
  *     },
- *     containerImage: {
+ *     containerImage: { // ContainerImage
  *       uri: "STRING_VALUE", // required
  *     },
  *   },
- *   inputDataConfig: [
- *     {
+ *   inputDataConfig: [ // InputConfigList
+ *     { // InputFileConfig
  *       channelName: "STRING_VALUE", // required
  *       contentType: "STRING_VALUE",
- *       dataSource: {
- *         s3DataSource: {
+ *       dataSource: { // DataSource
+ *         s3DataSource: { // S3DataSource
  *           s3Uri: "STRING_VALUE", // required
  *         },
  *       },
  *     },
  *   ],
- *   outputDataConfig: {
+ *   outputDataConfig: { // JobOutputDataConfig
  *     kmsKeyId: "STRING_VALUE",
  *     s3Path: "STRING_VALUE", // required
  *   },
- *   checkpointConfig: {
+ *   checkpointConfig: { // JobCheckpointConfig
  *     localPath: "STRING_VALUE",
  *     s3Uri: "STRING_VALUE", // required
  *   },
  *   jobName: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
- *   stoppingCondition: {
+ *   stoppingCondition: { // JobStoppingCondition
  *     maxRuntimeInSeconds: Number("int"),
  *   },
- *   instanceConfig: {
+ *   instanceConfig: { // InstanceConfig
  *     instanceType: "STRING_VALUE", // required
  *     volumeSizeInGb: Number("int"), // required
  *     instanceCount: Number("int"),
  *   },
- *   hyperParameters: {
+ *   hyperParameters: { // HyperParameters
  *     "<keys>": "STRING_VALUE",
  *   },
- *   deviceConfig: {
+ *   deviceConfig: { // DeviceConfig
  *     device: "STRING_VALUE", // required
  *   },
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

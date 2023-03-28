@@ -50,13 +50,13 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  * import { EC2Client, EnableFastLaunchCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableFastLaunchCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // EnableFastLaunchRequest
  *   ImageId: "STRING_VALUE", // required
  *   ResourceType: "STRING_VALUE",
- *   SnapshotConfiguration: {
+ *   SnapshotConfiguration: { // FastLaunchSnapshotConfigurationRequest
  *     TargetResourceCount: Number("int"),
  *   },
- *   LaunchTemplate: {
+ *   LaunchTemplate: { // FastLaunchLaunchTemplateSpecificationRequest
  *     LaunchTemplateId: "STRING_VALUE",
  *     LaunchTemplateName: "STRING_VALUE",
  *     Version: "STRING_VALUE", // required

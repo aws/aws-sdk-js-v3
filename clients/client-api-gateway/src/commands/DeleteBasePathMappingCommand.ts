@@ -42,7 +42,7 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // DeleteBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
  *   basePath: "STRING_VALUE", // required
  * };

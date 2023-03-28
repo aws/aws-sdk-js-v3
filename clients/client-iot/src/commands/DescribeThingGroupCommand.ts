@@ -43,7 +43,7 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  * import { IoTClient, DescribeThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // DescribeThingGroupRequest
  *   thingGroupName: "STRING_VALUE", // required
  * };
  * const command = new DescribeThingGroupCommand(input);

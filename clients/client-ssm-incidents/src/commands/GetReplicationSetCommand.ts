@@ -42,7 +42,7 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  * import { SSMIncidentsClient, GetReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, GetReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // GetReplicationSetInput
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new GetReplicationSetCommand(input);

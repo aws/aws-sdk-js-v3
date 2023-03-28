@@ -42,17 +42,17 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * import { OmicsClient, StartAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // StartAnnotationImportRequest
  *   destinationName: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
- *   items: [ // required
- *     {
+ *   items: [ // AnnotationImportItemSources // required
+ *     { // AnnotationImportItemSource
  *       source: "STRING_VALUE", // required
  *     },
  *   ],
- *   formatOptions: { // Union: only one key present
- *     tsvOptions: {
- *       readOptions: {
+ *   formatOptions: { // FormatOptions Union: only one key present
+ *     tsvOptions: { // TsvOptions
+ *       readOptions: { // ReadOptions
  *         sep: "STRING_VALUE",
  *         encoding: "STRING_VALUE",
  *         quote: "STRING_VALUE",
@@ -64,7 +64,7 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  *         lineSep: "STRING_VALUE",
  *       },
  *     },
- *     vcfOptions: {
+ *     vcfOptions: { // VcfOptions
  *       ignoreQualField: true || false,
  *       ignoreFilterField: true || false,
  *     },

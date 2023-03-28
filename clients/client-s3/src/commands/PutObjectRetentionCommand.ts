@@ -48,10 +48,10 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  * import { S3Client, PutObjectRetentionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectRetentionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutObjectRetentionRequest
  *   Bucket: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
- *   Retention: {
+ *   Retention: { // ObjectLockRetention
  *     Mode: "GOVERNANCE" || "COMPLIANCE",
  *     RetainUntilDate: new Date("TIMESTAMP"),
  *   },

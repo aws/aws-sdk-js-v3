@@ -44,7 +44,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * import { WorkLinkClient, ListFleetsCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListFleetsCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
- * const input = {
+ * const input = { // ListFleetsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

@@ -42,16 +42,16 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * import { ECSClient, StartTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, StartTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // StartTaskRequest
  *   cluster: "STRING_VALUE",
- *   containerInstances: [ // required
+ *   containerInstances: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  *   enableECSManagedTags: true || false,
  *   enableExecuteCommand: true || false,
  *   group: "STRING_VALUE",
- *   networkConfiguration: {
- *     awsvpcConfiguration: {
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
  *       subnets: [ // required
  *         "STRING_VALUE",
  *       ],
@@ -61,21 +61,19 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *       assignPublicIp: "ENABLED" || "DISABLED",
  *     },
  *   },
- *   overrides: {
- *     containerOverrides: [
- *       {
+ *   overrides: { // TaskOverride
+ *     containerOverrides: [ // ContainerOverrides
+ *       { // ContainerOverride
  *         name: "STRING_VALUE",
- *         command: [
- *           "<StringList>",
- *         ],
- *         environment: [
- *           {
+ *         command: "<StringList>",
+ *         environment: [ // EnvironmentVariables
+ *           { // KeyValuePair
  *             name: "STRING_VALUE",
  *             value: "STRING_VALUE",
  *           },
  *         ],
- *         environmentFiles: [
- *           {
+ *         environmentFiles: [ // EnvironmentFiles
+ *           { // EnvironmentFile
  *             value: "STRING_VALUE", // required
  *             type: "s3", // required
  *           },
@@ -83,8 +81,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *         cpu: Number("int"),
  *         memory: Number("int"),
  *         memoryReservation: Number("int"),
- *         resourceRequirements: [
- *           {
+ *         resourceRequirements: [ // ResourceRequirements
+ *           { // ResourceRequirement
  *             value: "STRING_VALUE", // required
  *             type: "GPU" || "InferenceAccelerator", // required
  *           },
@@ -92,8 +90,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *       },
  *     ],
  *     cpu: "STRING_VALUE",
- *     inferenceAcceleratorOverrides: [
- *       {
+ *     inferenceAcceleratorOverrides: [ // InferenceAcceleratorOverrides
+ *       { // InferenceAcceleratorOverride
  *         deviceName: "STRING_VALUE",
  *         deviceType: "STRING_VALUE",
  *       },
@@ -101,15 +99,15 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *     executionRoleArn: "STRING_VALUE",
  *     memory: "STRING_VALUE",
  *     taskRoleArn: "STRING_VALUE",
- *     ephemeralStorage: {
+ *     ephemeralStorage: { // EphemeralStorage
  *       sizeInGiB: Number("int"), // required
  *     },
  *   },
  *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  *   referenceId: "STRING_VALUE",
  *   startedBy: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

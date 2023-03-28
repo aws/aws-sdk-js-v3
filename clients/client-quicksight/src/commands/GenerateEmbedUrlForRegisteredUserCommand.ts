@@ -68,39 +68,39 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * import { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GenerateEmbedUrlForRegisteredUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // GenerateEmbedUrlForRegisteredUserRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   SessionLifetimeInMinutes: Number("long"),
  *   UserArn: "STRING_VALUE", // required
- *   ExperienceConfiguration: {
- *     Dashboard: {
+ *   ExperienceConfiguration: { // RegisteredUserEmbeddingExperienceConfiguration
+ *     Dashboard: { // RegisteredUserDashboardEmbeddingConfiguration
  *       InitialDashboardId: "STRING_VALUE", // required
- *       FeatureConfigurations: {
- *         StatePersistence: {
+ *       FeatureConfigurations: { // RegisteredUserDashboardFeatureConfigurations
+ *         StatePersistence: { // StatePersistenceConfigurations
  *           Enabled: true || false, // required
  *         },
  *       },
  *     },
- *     QuickSightConsole: {
+ *     QuickSightConsole: { // RegisteredUserQuickSightConsoleEmbeddingConfiguration
  *       InitialPath: "STRING_VALUE",
- *       FeatureConfigurations: {
+ *       FeatureConfigurations: { // RegisteredUserConsoleFeatureConfigurations
  *         StatePersistence: {
  *           Enabled: true || false, // required
  *         },
  *       },
  *     },
- *     QSearchBar: {
+ *     QSearchBar: { // RegisteredUserQSearchBarEmbeddingConfiguration
  *       InitialTopicId: "STRING_VALUE",
  *     },
- *     DashboardVisual: {
- *       InitialDashboardVisualId: {
+ *     DashboardVisual: { // RegisteredUserDashboardVisualEmbeddingConfiguration
+ *       InitialDashboardVisualId: { // DashboardVisualId
  *         DashboardId: "STRING_VALUE", // required
  *         SheetId: "STRING_VALUE", // required
  *         VisualId: "STRING_VALUE", // required
  *       },
  *     },
  *   },
- *   AllowedDomains: [
+ *   AllowedDomains: [ // StringList
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,9 +42,9 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * import { DrsClient, DescribeJobsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeJobsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
- *   filters: {
- *     jobIDs: [
+ * const input = { // DescribeJobsRequest
+ *   filters: { // DescribeJobsRequestFilters
+ *     jobIDs: [ // DescribeJobsRequestFiltersJobIDs
  *       "STRING_VALUE",
  *     ],
  *     fromDate: "STRING_VALUE",

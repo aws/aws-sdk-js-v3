@@ -48,17 +48,17 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * import { RedshiftClient, CreateClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // CreateClusterMessage
  *   DBName: "STRING_VALUE",
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   ClusterType: "STRING_VALUE",
  *   NodeType: "STRING_VALUE", // required
  *   MasterUsername: "STRING_VALUE", // required
  *   MasterUserPassword: "STRING_VALUE", // required
- *   ClusterSecurityGroups: [
+ *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   ClusterSubnetGroupName: "STRING_VALUE",
@@ -76,8 +76,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   HsmClientCertificateIdentifier: "STRING_VALUE",
  *   HsmConfigurationIdentifier: "STRING_VALUE",
  *   ElasticIp: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -85,7 +85,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   KmsKeyId: "STRING_VALUE",
  *   EnhancedVpcRouting: true || false,
  *   AdditionalInfo: "STRING_VALUE",
- *   IamRoles: [
+ *   IamRoles: [ // IamRoleArnList
  *     "STRING_VALUE",
  *   ],
  *   MaintenanceTrackName: "STRING_VALUE",

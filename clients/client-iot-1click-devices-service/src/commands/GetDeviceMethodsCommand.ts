@@ -46,7 +46,7 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * import { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
- * const input = {
+ * const input = { // GetDeviceMethodsRequest
  *   DeviceId: "STRING_VALUE", // required
  * };
  * const command = new GetDeviceMethodsCommand(input);

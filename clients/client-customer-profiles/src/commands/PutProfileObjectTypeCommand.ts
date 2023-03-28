@@ -44,7 +44,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * import { CustomerProfilesClient, PutProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, PutProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // PutProfileObjectTypeRequest
  *   DomainName: "STRING_VALUE", // required
  *   ObjectTypeName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
@@ -53,26 +53,26 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  *   EncryptionKey: "STRING_VALUE",
  *   AllowProfileCreation: true || false,
  *   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
- *   Fields: {
- *     "<keys>": {
+ *   Fields: { // FieldMap
+ *     "<keys>": { // ObjectTypeField
  *       Source: "STRING_VALUE",
  *       Target: "STRING_VALUE",
  *       ContentType: "STRING" || "NUMBER" || "PHONE_NUMBER" || "EMAIL_ADDRESS" || "NAME",
  *     },
  *   },
- *   Keys: {
- *     "<keys>": [
- *       {
- *         StandardIdentifiers: [
+ *   Keys: { // KeyMap
+ *     "<keys>": [ // ObjectTypeKeyList
+ *       { // ObjectTypeKey
+ *         StandardIdentifiers: [ // StandardIdentifierList
  *           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
  *         ],
- *         FieldNames: [
+ *         FieldNames: [ // FieldNameList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     ],
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

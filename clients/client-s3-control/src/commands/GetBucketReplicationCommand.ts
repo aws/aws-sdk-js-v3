@@ -83,7 +83,7 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationR
  * import { S3ControlClient, GetBucketReplicationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetBucketReplicationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // GetBucketReplicationRequest
  *   AccountId: "STRING_VALUE",
  *   Bucket: "STRING_VALUE", // required
  * };

@@ -43,7 +43,7 @@ export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __Metad
  * import { IotDeviceAdvisorClient, StopSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, StopSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
- * const input = {
+ * const input = { // StopSuiteRunRequest
  *   suiteDefinitionId: "STRING_VALUE", // required
  *   suiteRunId: "STRING_VALUE", // required
  * };

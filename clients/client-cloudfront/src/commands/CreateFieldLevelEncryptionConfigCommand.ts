@@ -44,28 +44,28 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  * import { CloudFrontClient, CreateFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
- *   FieldLevelEncryptionConfig: {
+ * const input = { // CreateFieldLevelEncryptionConfigRequest
+ *   FieldLevelEncryptionConfig: { // FieldLevelEncryptionConfig
  *     CallerReference: "STRING_VALUE", // required
  *     Comment: "STRING_VALUE",
- *     QueryArgProfileConfig: {
+ *     QueryArgProfileConfig: { // QueryArgProfileConfig
  *       ForwardWhenQueryArgProfileIsUnknown: true || false, // required
- *       QueryArgProfiles: {
+ *       QueryArgProfiles: { // QueryArgProfiles
  *         Quantity: Number("int"), // required
- *         Items: [
- *           {
+ *         Items: [ // QueryArgProfileList
+ *           { // QueryArgProfile
  *             QueryArg: "STRING_VALUE", // required
  *             ProfileId: "STRING_VALUE", // required
  *           },
  *         ],
  *       },
  *     },
- *     ContentTypeProfileConfig: {
+ *     ContentTypeProfileConfig: { // ContentTypeProfileConfig
  *       ForwardWhenContentTypeIsUnknown: true || false, // required
- *       ContentTypeProfiles: {
+ *       ContentTypeProfiles: { // ContentTypeProfiles
  *         Quantity: Number("int"), // required
- *         Items: [
- *           {
+ *         Items: [ // ContentTypeProfileList
+ *           { // ContentTypeProfile
  *             Format: "URLEncoded", // required
  *             ProfileId: "STRING_VALUE",
  *             ContentType: "STRING_VALUE", // required

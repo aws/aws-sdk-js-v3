@@ -53,7 +53,7 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
  * import { KendraClient, DescribeQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // DescribeQuerySuggestionsBlockListRequest
  *   IndexId: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
  * };

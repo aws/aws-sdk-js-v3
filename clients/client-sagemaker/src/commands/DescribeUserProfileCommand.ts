@@ -42,7 +42,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * import { SageMakerClient, DescribeUserProfileCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeUserProfileCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeUserProfileRequest
  *   DomainId: "STRING_VALUE", // required
  *   UserProfileName: "STRING_VALUE", // required
  * };

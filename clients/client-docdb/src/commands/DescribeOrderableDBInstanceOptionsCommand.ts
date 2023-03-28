@@ -44,16 +44,16 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * import { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
- * const input = {
+ * const input = { // DescribeOrderableDBInstanceOptionsMessage
  *   Engine: "STRING_VALUE", // required
  *   EngineVersion: "STRING_VALUE",
  *   DBInstanceClass: "STRING_VALUE",
  *   LicenseModel: "STRING_VALUE",
  *   Vpc: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

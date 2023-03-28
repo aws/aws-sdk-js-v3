@@ -48,7 +48,7 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * import { RedshiftClient, DeleteClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DeleteClusterSnapshotMessage
  *   SnapshotIdentifier: "STRING_VALUE", // required
  *   SnapshotClusterIdentifier: "STRING_VALUE",
  * };

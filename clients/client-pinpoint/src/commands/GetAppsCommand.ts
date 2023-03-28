@@ -42,7 +42,7 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  * import { PinpointClient, GetAppsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetAppsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetAppsRequest
  *   PageSize: "STRING_VALUE",
  *   Token: "STRING_VALUE",
  * };

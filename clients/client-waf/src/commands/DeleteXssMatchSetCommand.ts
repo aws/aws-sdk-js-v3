@@ -66,7 +66,7 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * import { WAFClient, DeleteXssMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteXssMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // DeleteXssMatchSetRequest
  *   XssMatchSetId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

@@ -42,8 +42,8 @@ export interface UpdateApnsSandboxChannelCommandOutput extends UpdateApnsSandbox
  * import { PinpointClient, UpdateApnsSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApnsSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
- *   APNSSandboxChannelRequest: {
+ * const input = { // UpdateApnsSandboxChannelRequest
+ *   APNSSandboxChannelRequest: { // APNSSandboxChannelRequest
  *     BundleId: "STRING_VALUE",
  *     Certificate: "STRING_VALUE",
  *     DefaultAuthenticationMethod: "STRING_VALUE",

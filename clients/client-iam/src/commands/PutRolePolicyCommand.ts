@@ -61,7 +61,7 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, PutRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, PutRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // PutRolePolicyRequest
  *   RoleName: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  *   PolicyDocument: "STRING_VALUE", // required

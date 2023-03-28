@@ -43,7 +43,7 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * import { EMRClient, RemoveAutoScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveAutoScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // RemoveAutoScalingPolicyInput
  *   ClusterId: "STRING_VALUE", // required
  *   InstanceGroupId: "STRING_VALUE", // required
  * };

@@ -42,13 +42,13 @@ export interface ListVariantImportJobsCommandOutput extends ListVariantImportJob
  * import { OmicsClient, ListVariantImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListVariantImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // ListVariantImportJobsRequest
  *   maxResults: Number("int"),
- *   ids: [
+ *   ids: [ // IdList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",
- *   filter: {
+ *   filter: { // ListVariantImportJobsFilter
  *     status: "STRING_VALUE",
  *     storeName: "STRING_VALUE",
  *   },

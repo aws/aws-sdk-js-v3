@@ -82,7 +82,7 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, MergeShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, MergeShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
- * const input = {
+ * const input = { // MergeShardsInput
  *   StreamName: "STRING_VALUE",
  *   ShardToMerge: "STRING_VALUE", // required
  *   AdjacentShardToMerge: "STRING_VALUE", // required

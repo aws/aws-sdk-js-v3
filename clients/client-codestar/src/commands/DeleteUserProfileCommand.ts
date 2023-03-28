@@ -44,7 +44,7 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * import { CodeStarClient, DeleteUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DeleteUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
- * const input = {
+ * const input = { // DeleteUserProfileRequest
  *   userArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteUserProfileCommand(input);

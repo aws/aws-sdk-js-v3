@@ -42,18 +42,18 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  * import { CloudDirectoryClient, ListIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // ListIndexRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   RangesOnIndexedValues: [
- *     {
- *       AttributeKey: {
+ *   RangesOnIndexedValues: [ // ObjectAttributeRangeList
+ *     { // ObjectAttributeRange
+ *       AttributeKey: { // AttributeKey
  *         SchemaArn: "STRING_VALUE", // required
  *         FacetName: "STRING_VALUE", // required
  *         Name: "STRING_VALUE", // required
  *       },
- *       Range: {
+ *       Range: { // TypedAttributeValueRange
  *         StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
- *         StartValue: { // Union: only one key present
+ *         StartValue: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,
@@ -61,7 +61,7 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  *           DatetimeValue: new Date("TIMESTAMP"),
  *         },
  *         EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
- *         EndValue: { // Union: only one key present
+ *         EndValue: {//  Union: only one key present
  *           StringValue: "STRING_VALUE",
  *           BinaryValue: "BLOB_VALUE",
  *           BooleanValue: true || false,
@@ -71,7 +71,7 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  *       },
  *     },
  *   ],
- *   IndexReference: {
+ *   IndexReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   MaxResults: Number("int"),

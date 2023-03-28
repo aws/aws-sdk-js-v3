@@ -42,9 +42,9 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * import { CodeGuruProfilerClient, UpdateProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, UpdateProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
- * const input = {
+ * const input = { // UpdateProfilingGroupRequest
  *   profilingGroupName: "STRING_VALUE", // required
- *   agentOrchestrationConfig: {
+ *   agentOrchestrationConfig: { // AgentOrchestrationConfig
  *     profilingEnabled: true || false, // required
  *   },
  * };

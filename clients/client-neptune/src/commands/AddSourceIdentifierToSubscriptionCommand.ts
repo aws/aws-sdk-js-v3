@@ -44,7 +44,7 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * import { NeptuneClient, AddSourceIdentifierToSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, AddSourceIdentifierToSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // AddSourceIdentifierToSubscriptionMessage
  *   SubscriptionName: "STRING_VALUE", // required
  *   SourceIdentifier: "STRING_VALUE", // required
  * };

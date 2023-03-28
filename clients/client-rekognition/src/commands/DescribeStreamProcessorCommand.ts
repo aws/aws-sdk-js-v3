@@ -43,7 +43,7 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  * import { RekognitionClient, DescribeStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // DescribeStreamProcessorRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeStreamProcessorCommand(input);

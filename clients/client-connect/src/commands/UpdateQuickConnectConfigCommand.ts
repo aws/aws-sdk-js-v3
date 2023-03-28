@@ -42,20 +42,20 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * import { ConnectClient, UpdateQuickConnectConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQuickConnectConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateQuickConnectConfigRequest
  *   InstanceId: "STRING_VALUE", // required
  *   QuickConnectId: "STRING_VALUE", // required
- *   QuickConnectConfig: {
+ *   QuickConnectConfig: { // QuickConnectConfig
  *     QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
- *     UserConfig: {
+ *     UserConfig: { // UserQuickConnectConfig
  *       UserId: "STRING_VALUE", // required
  *       ContactFlowId: "STRING_VALUE", // required
  *     },
- *     QueueConfig: {
+ *     QueueConfig: { // QueueQuickConnectConfig
  *       QueueId: "STRING_VALUE", // required
  *       ContactFlowId: "STRING_VALUE", // required
  *     },
- *     PhoneConfig: {
+ *     PhoneConfig: { // PhoneNumberQuickConnectConfig
  *       PhoneNumber: "STRING_VALUE", // required
  *     },
  *   },

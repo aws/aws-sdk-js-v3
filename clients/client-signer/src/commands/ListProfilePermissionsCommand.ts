@@ -42,7 +42,7 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * import { SignerClient, ListProfilePermissionsCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListProfilePermissionsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
- * const input = {
+ * const input = { // ListProfilePermissionsRequest
  *   profileName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  * };

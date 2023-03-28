@@ -42,7 +42,7 @@ export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, _
  * import { BackupGatewayClient, DeleteHypervisorCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, DeleteHypervisorCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
- * const input = {
+ * const input = { // DeleteHypervisorInput
  *   HypervisorArn: "STRING_VALUE", // required
  * };
  * const command = new DeleteHypervisorCommand(input);

@@ -42,7 +42,7 @@ export interface UpdateWorkerFleetCommandOutput extends UpdateWorkerFleetRespons
  * import { IoTRoboRunnerClient, UpdateWorkerFleetCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, UpdateWorkerFleetCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
- * const input = {
+ * const input = { // UpdateWorkerFleetRequest
  *   id: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   additionalFixedProperties: "STRING_VALUE",

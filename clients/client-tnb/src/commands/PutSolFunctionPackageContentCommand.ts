@@ -45,7 +45,7 @@ export interface PutSolFunctionPackageContentCommandOutput
  * import { TnbClient, PutSolFunctionPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, PutSolFunctionPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // PutSolFunctionPackageContentInput
  *   vnfPkgId: "STRING_VALUE", // required
  *   contentType: "application/zip",
  *   file: "BLOB_VALUE", // required

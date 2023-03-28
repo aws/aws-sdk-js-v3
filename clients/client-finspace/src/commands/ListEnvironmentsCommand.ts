@@ -42,7 +42,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * import { FinspaceClient, ListEnvironmentsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, ListEnvironmentsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = {
+ * const input = { // ListEnvironmentsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

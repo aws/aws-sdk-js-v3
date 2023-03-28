@@ -44,17 +44,17 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * import { ImagebuilderClient, CreateImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // CreateImageRequest
  *   imageRecipeArn: "STRING_VALUE",
  *   containerRecipeArn: "STRING_VALUE",
  *   distributionConfigurationArn: "STRING_VALUE",
  *   infrastructureConfigurationArn: "STRING_VALUE", // required
- *   imageTestsConfiguration: {
+ *   imageTestsConfiguration: { // ImageTestsConfiguration
  *     imageTestsEnabled: true || false,
  *     timeoutMinutes: Number("int"),
  *   },
  *   enhancedImageMetadataEnabled: true || false,
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE", // required

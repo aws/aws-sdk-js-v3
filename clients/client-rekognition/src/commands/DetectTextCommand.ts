@@ -64,31 +64,31 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * import { RekognitionClient, DetectTextCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectTextCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   Image: {
+ * const input = { // DetectTextRequest
+ *   Image: { // Image
  *     Bytes: "BLOB_VALUE",
- *     S3Object: {
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
  *     },
  *   },
- *   Filters: {
- *     WordFilter: {
+ *   Filters: { // DetectTextFilters
+ *     WordFilter: { // DetectionFilter
  *       MinConfidence: Number("float"),
  *       MinBoundingBoxHeight: Number("float"),
  *       MinBoundingBoxWidth: Number("float"),
  *     },
- *     RegionsOfInterest: [
- *       {
- *         BoundingBox: {
+ *     RegionsOfInterest: [ // RegionsOfInterest
+ *       { // RegionOfInterest
+ *         BoundingBox: { // BoundingBox
  *           Width: Number("float"),
  *           Height: Number("float"),
  *           Left: Number("float"),
  *           Top: Number("float"),
  *         },
- *         Polygon: [
- *           {
+ *         Polygon: [ // Polygon
+ *           { // Point
  *             X: Number("float"),
  *             Y: Number("float"),
  *           },

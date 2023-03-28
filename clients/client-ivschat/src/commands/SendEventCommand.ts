@@ -44,10 +44,10 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * import { IvschatClient, SendEventCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, SendEventCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
- * const input = {
+ * const input = { // SendEventRequest
  *   roomIdentifier: "STRING_VALUE", // required
  *   eventName: "STRING_VALUE", // required
- *   attributes: {
+ *   attributes: { // EventAttributes
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

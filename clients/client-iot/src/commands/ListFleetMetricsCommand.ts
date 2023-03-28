@@ -43,7 +43,7 @@ export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse,
  * import { IoTClient, ListFleetMetricsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListFleetMetricsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListFleetMetricsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

@@ -42,10 +42,10 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * import { CodeCommitClient, CreateRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // CreateRepositoryInput
  *   repositoryName: "STRING_VALUE", // required
  *   repositoryDescription: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

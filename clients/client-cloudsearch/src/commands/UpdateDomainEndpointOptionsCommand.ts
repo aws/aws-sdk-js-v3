@@ -44,9 +44,9 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  * import { CloudSearchClient, UpdateDomainEndpointOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, UpdateDomainEndpointOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // UpdateDomainEndpointOptionsRequest
  *   DomainName: "STRING_VALUE", // required
- *   DomainEndpointOptions: {
+ *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
  *     TLSSecurityPolicy: "STRING_VALUE",
  *   },

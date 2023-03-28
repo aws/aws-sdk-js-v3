@@ -46,7 +46,7 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * import { SyntheticsClient, StopCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, StopCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
- * const input = {
+ * const input = { // StopCanaryRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new StopCanaryCommand(input);

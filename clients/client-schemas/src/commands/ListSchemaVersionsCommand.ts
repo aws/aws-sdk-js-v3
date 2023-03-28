@@ -42,7 +42,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * import { SchemasClient, ListSchemaVersionsCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ListSchemaVersionsCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // ListSchemaVersionsRequest
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   RegistryName: "STRING_VALUE", // required

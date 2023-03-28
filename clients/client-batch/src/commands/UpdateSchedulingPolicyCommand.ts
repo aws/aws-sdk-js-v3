@@ -42,13 +42,13 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  * import { BatchClient, UpdateSchedulingPolicyCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateSchedulingPolicyCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // UpdateSchedulingPolicyRequest
  *   arn: "STRING_VALUE", // required
- *   fairsharePolicy: {
+ *   fairsharePolicy: { // FairsharePolicy
  *     shareDecaySeconds: Number("int"),
  *     computeReservation: Number("int"),
- *     shareDistribution: [
- *       {
+ *     shareDistribution: [ // ShareAttributesList
+ *       { // ShareAttributes
  *         shareIdentifier: "STRING_VALUE", // required
  *         weightFactor: Number("float"),
  *       },

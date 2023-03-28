@@ -46,7 +46,7 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  * import { SSMClient, CancelMaintenanceWindowExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CancelMaintenanceWindowExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // CancelMaintenanceWindowExecutionRequest
  *   WindowExecutionId: "STRING_VALUE", // required
  * };
  * const command = new CancelMaintenanceWindowExecutionCommand(input);

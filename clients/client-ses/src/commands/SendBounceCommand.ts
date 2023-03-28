@@ -47,26 +47,26 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * import { SESClient, SendBounceCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendBounceCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // SendBounceRequest
  *   OriginalMessageId: "STRING_VALUE", // required
  *   BounceSender: "STRING_VALUE", // required
  *   Explanation: "STRING_VALUE",
- *   MessageDsn: {
+ *   MessageDsn: { // MessageDsn
  *     ReportingMta: "STRING_VALUE", // required
  *     ArrivalDate: new Date("TIMESTAMP"),
- *     ExtensionFields: [
- *       {
+ *     ExtensionFields: [ // ExtensionFieldList
+ *       { // ExtensionField
  *         Name: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
- *   BouncedRecipientInfoList: [ // required
- *     {
+ *   BouncedRecipientInfoList: [ // BouncedRecipientInfoList // required
+ *     { // BouncedRecipientInfo
  *       Recipient: "STRING_VALUE", // required
  *       RecipientArn: "STRING_VALUE",
  *       BounceType: "STRING_VALUE",
- *       RecipientDsnFields: {
+ *       RecipientDsnFields: { // RecipientDsnFields
  *         FinalRecipient: "STRING_VALUE",
  *         Action: "STRING_VALUE", // required
  *         RemoteMta: "STRING_VALUE",

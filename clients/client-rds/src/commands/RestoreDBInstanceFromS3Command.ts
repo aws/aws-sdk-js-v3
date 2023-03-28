@@ -50,7 +50,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * import { RDSClient, RestoreDBInstanceFromS3Command } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromS3Command } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // RestoreDBInstanceFromS3Message
  *   DBName: "STRING_VALUE",
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   AllocatedStorage: Number("int"),
@@ -58,10 +58,10 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   Engine: "STRING_VALUE", // required
  *   MasterUsername: "STRING_VALUE",
  *   MasterUserPassword: "STRING_VALUE",
- *   DBSecurityGroups: [
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   AvailabilityZone: "STRING_VALUE",
@@ -78,8 +78,8 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   Iops: Number("int"),
  *   OptionGroupName: "STRING_VALUE",
  *   PubliclyAccessible: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -99,11 +99,11 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
- *   ProcessorFeatures: [
- *     {
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

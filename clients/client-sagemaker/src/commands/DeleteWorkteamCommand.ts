@@ -42,7 +42,7 @@ export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __M
  * import { SageMakerClient, DeleteWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteWorkteamRequest
  *   WorkteamName: "STRING_VALUE", // required
  * };
  * const command = new DeleteWorkteamCommand(input);

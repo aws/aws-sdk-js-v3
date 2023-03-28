@@ -42,12 +42,12 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  * import { EC2Client, SearchTransitGatewayRoutesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, SearchTransitGatewayRoutesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // SearchTransitGatewayRoutesRequest
  *   TransitGatewayRouteTableId: "STRING_VALUE", // required
- *   Filters: [ // required
- *     {
+ *   Filters: [ // FilterList // required
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

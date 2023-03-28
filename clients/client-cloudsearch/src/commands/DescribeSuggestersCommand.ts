@@ -42,9 +42,9 @@ export interface DescribeSuggestersCommandOutput extends DescribeSuggestersRespo
  * import { CloudSearchClient, DescribeSuggestersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeSuggestersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DescribeSuggestersRequest
  *   DomainName: "STRING_VALUE", // required
- *   SuggesterNames: [
+ *   SuggesterNames: [ // StandardNameList
  *     "STRING_VALUE",
  *   ],
  *   Deployed: true || false,

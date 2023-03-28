@@ -44,7 +44,7 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * import { IoTClient, AttachThingPrincipalCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachThingPrincipalCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // AttachThingPrincipalRequest
  *   thingName: "STRING_VALUE", // required
  *   principal: "STRING_VALUE", // required
  * };

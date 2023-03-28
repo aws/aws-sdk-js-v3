@@ -47,7 +47,7 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * import { CloudFrontClient, ListOriginAccessControlsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListOriginAccessControlsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListOriginAccessControlsRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };

@@ -46,19 +46,19 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * import { EC2Client, ModifyManagedPrefixListCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyManagedPrefixListCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyManagedPrefixListRequest
  *   DryRun: true || false,
  *   PrefixListId: "STRING_VALUE", // required
  *   CurrentVersion: Number("long"),
  *   PrefixListName: "STRING_VALUE",
- *   AddEntries: [
- *     {
+ *   AddEntries: [ // AddPrefixListEntries
+ *     { // AddPrefixListEntry
  *       Cidr: "STRING_VALUE", // required
  *       Description: "STRING_VALUE",
  *     },
  *   ],
- *   RemoveEntries: [
- *     {
+ *   RemoveEntries: [ // RemovePrefixListEntries
+ *     { // RemovePrefixListEntry
  *       Cidr: "STRING_VALUE", // required
  *     },
  *   ],

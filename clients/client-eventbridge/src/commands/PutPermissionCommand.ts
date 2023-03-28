@@ -58,12 +58,12 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * import { EventBridgeClient, PutPermissionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutPermissionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // PutPermissionRequest
  *   EventBusName: "STRING_VALUE",
  *   Action: "STRING_VALUE",
  *   Principal: "STRING_VALUE",
  *   StatementId: "STRING_VALUE",
- *   Condition: {
+ *   Condition: { // Condition
  *     Type: "STRING_VALUE", // required
  *     Key: "STRING_VALUE", // required
  *     Value: "STRING_VALUE", // required

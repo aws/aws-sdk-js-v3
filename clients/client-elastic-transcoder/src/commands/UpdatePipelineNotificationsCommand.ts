@@ -49,9 +49,9 @@ export interface UpdatePipelineNotificationsCommandOutput
  * import { ElasticTranscoderClient, UpdatePipelineNotificationsCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, UpdatePipelineNotificationsCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // UpdatePipelineNotificationsRequest
  *   Id: "STRING_VALUE", // required
- *   Notifications: {
+ *   Notifications: { // Notifications
  *     Progressing: "STRING_VALUE",
  *     Completed: "STRING_VALUE",
  *     Warning: "STRING_VALUE",

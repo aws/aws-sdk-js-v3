@@ -42,7 +42,7 @@ export interface StartReplicationCommandOutput extends SourceServer, __MetadataB
  * import { MgnClient, StartReplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartReplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // StartReplicationRequest
  *   sourceServerID: "STRING_VALUE", // required
  * };
  * const command = new StartReplicationCommand(input);

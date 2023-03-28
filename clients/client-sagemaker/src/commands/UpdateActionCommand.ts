@@ -42,14 +42,14 @@ export interface UpdateActionCommandOutput extends UpdateActionResponse, __Metad
  * import { SageMakerClient, UpdateActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateActionRequest
  *   ActionName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *   Properties: {
+ *   Properties: { // LineageEntityParameters
  *     "<keys>": "STRING_VALUE",
  *   },
- *   PropertiesToRemove: [
+ *   PropertiesToRemove: [ // ListLineageEntityParameterKey
  *     "STRING_VALUE",
  *   ],
  * };

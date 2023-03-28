@@ -42,7 +42,7 @@ export interface CreateTransitGatewayRouteCommandOutput extends CreateTransitGat
  * import { EC2Client, CreateTransitGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTransitGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateTransitGatewayRouteRequest
  *   DestinationCidrBlock: "STRING_VALUE", // required
  *   TransitGatewayRouteTableId: "STRING_VALUE", // required
  *   TransitGatewayAttachmentId: "STRING_VALUE",

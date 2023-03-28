@@ -89,10 +89,10 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * import { WAFClient, UpdateRegexPatternSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateRegexPatternSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // UpdateRegexPatternSetRequest
  *   RegexPatternSetId: "STRING_VALUE", // required
- *   Updates: [ // required
- *     {
+ *   Updates: [ // RegexPatternSetUpdates // required
+ *     { // RegexPatternSetUpdate
  *       Action: "STRING_VALUE", // required
  *       RegexPatternString: "STRING_VALUE", // required
  *     },

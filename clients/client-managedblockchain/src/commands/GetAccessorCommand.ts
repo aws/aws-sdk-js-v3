@@ -47,7 +47,7 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * import { ManagedBlockchainClient, GetAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // GetAccessorInput
  *   AccessorId: "STRING_VALUE", // required
  * };
  * const command = new GetAccessorCommand(input);

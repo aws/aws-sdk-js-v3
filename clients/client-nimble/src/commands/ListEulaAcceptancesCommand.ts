@@ -42,8 +42,8 @@ export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesRes
  * import { NimbleClient, ListEulaAcceptancesCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListEulaAcceptancesCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
- *   eulaIds: [
+ * const input = { // ListEulaAcceptancesRequest
+ *   eulaIds: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",

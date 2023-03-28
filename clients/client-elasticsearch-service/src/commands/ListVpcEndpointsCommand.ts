@@ -46,7 +46,7 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * import { ElasticsearchServiceClient, ListVpcEndpointsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListVpcEndpointsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // ListVpcEndpointsRequest
  *   NextToken: "STRING_VALUE",
  * };
  * const command = new ListVpcEndpointsCommand(input);

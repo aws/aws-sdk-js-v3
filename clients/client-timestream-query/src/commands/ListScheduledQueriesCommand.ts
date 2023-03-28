@@ -43,7 +43,7 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * import { TimestreamQueryClient, ListScheduledQueriesCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, ListScheduledQueriesCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
- * const input = {
+ * const input = { // ListScheduledQueriesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

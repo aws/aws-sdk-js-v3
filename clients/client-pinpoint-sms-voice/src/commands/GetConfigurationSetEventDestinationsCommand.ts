@@ -47,7 +47,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * import { PinpointSMSVoiceClient, GetConfigurationSetEventDestinationsCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, GetConfigurationSetEventDestinationsCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
- * const input = {
+ * const input = { // GetConfigurationSetEventDestinationsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  * };
  * const command = new GetConfigurationSetEventDestinationsCommand(input);

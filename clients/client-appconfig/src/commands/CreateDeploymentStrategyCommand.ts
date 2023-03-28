@@ -45,7 +45,7 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * import { AppConfigClient, CreateDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // CreateDeploymentStrategyRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   DeploymentDurationInMinutes: Number("int"), // required
@@ -53,7 +53,7 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  *   GrowthFactor: Number("float"), // required
  *   GrowthType: "LINEAR" || "EXPONENTIAL",
  *   ReplicateTo: "NONE" || "SSM_DOCUMENT",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

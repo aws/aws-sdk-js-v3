@@ -50,12 +50,12 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * import { BillingconductorClient, BatchAssociateResourcesToCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, BatchAssociateResourcesToCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const input = {
+ * const input = { // BatchAssociateResourcesToCustomLineItemInput
  *   TargetArn: "STRING_VALUE", // required
- *   ResourceArns: [ // required
+ *   ResourceArns: [ // CustomLineItemBatchAssociationsList // required
  *     "STRING_VALUE",
  *   ],
- *   BillingPeriodRange: {
+ *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
  *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
  *     ExclusiveEndBillingPeriod: "STRING_VALUE",
  *   },

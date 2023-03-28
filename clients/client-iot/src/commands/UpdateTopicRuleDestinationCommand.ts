@@ -44,7 +44,7 @@ export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRule
  * import { IoTClient, UpdateTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // UpdateTopicRuleDestinationRequest
  *   arn: "STRING_VALUE", // required
  *   status: "ENABLED" || "IN_PROGRESS" || "DISABLED" || "ERROR" || "DELETING", // required
  * };

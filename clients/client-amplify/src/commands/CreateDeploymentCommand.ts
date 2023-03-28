@@ -43,10 +43,10 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * import { AmplifyClient, CreateDeploymentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateDeploymentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // CreateDeploymentRequest
  *   appId: "STRING_VALUE", // required
  *   branchName: "STRING_VALUE", // required
- *   fileMap: {
+ *   fileMap: { // FileMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

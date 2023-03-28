@@ -64,7 +64,7 @@ export interface AssociateQualificationWithWorkerCommandOutput
  * import { MTurkClient, AssociateQualificationWithWorkerCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, AssociateQualificationWithWorkerCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // AssociateQualificationWithWorkerRequest
  *   QualificationTypeId: "STRING_VALUE", // required
  *   WorkerId: "STRING_VALUE", // required
  *   IntegerValue: Number("int"),

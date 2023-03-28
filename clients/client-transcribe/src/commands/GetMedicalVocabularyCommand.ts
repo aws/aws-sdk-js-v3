@@ -47,7 +47,7 @@ export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyR
  * import { TranscribeClient, GetMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // GetMedicalVocabularyRequest
  *   VocabularyName: "STRING_VALUE", // required
  * };
  * const command = new GetMedicalVocabularyCommand(input);

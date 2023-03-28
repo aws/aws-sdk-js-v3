@@ -57,8 +57,8 @@ export interface GetAccountAuthorizationDetailsCommandOutput
  * import { IAMClient, GetAccountAuthorizationDetailsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetAccountAuthorizationDetailsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
- *   Filter: [
+ * const input = { // GetAccountAuthorizationDetailsRequest
+ *   Filter: [ // entityListType
  *     "User" || "Role" || "Group" || "LocalManagedPolicy" || "AWSManagedPolicy",
  *   ],
  *   MaxItems: Number("int"),

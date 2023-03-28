@@ -52,16 +52,16 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * import { GlobalAcceleratorClient, CreateAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
- * const input = {
+ * const input = { // CreateAcceleratorRequest
  *   Name: "STRING_VALUE", // required
  *   IpAddressType: "IPV4" || "DUAL_STACK",
- *   IpAddresses: [
+ *   IpAddresses: [ // IpAddresses
  *     "STRING_VALUE",
  *   ],
  *   Enabled: true || false,
  *   IdempotencyToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

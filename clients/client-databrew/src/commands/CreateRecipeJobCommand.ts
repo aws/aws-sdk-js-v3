@@ -42,7 +42,7 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * import { DataBrewClient, CreateRecipeJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateRecipeJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // CreateRecipeJobRequest
  *   DatasetName: "STRING_VALUE",
  *   EncryptionKeyArn: "STRING_VALUE",
  *   EncryptionMode: "SSE-KMS" || "SSE-S3",
@@ -50,40 +50,40 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  *   LogSubscription: "ENABLE" || "DISABLE",
  *   MaxCapacity: Number("int"),
  *   MaxRetries: Number("int"),
- *   Outputs: [
- *     {
+ *   Outputs: [ // OutputList
+ *     { // Output
  *       CompressionFormat: "GZIP" || "LZ4" || "SNAPPY" || "BZIP2" || "DEFLATE" || "LZO" || "BROTLI" || "ZSTD" || "ZLIB",
  *       Format: "CSV" || "JSON" || "PARQUET" || "GLUEPARQUET" || "AVRO" || "ORC" || "XML" || "TABLEAUHYPER",
- *       PartitionColumns: [
+ *       PartitionColumns: [ // ColumnNameList
  *         "STRING_VALUE",
  *       ],
- *       Location: {
+ *       Location: { // S3Location
  *         Bucket: "STRING_VALUE", // required
  *         Key: "STRING_VALUE",
  *         BucketOwner: "STRING_VALUE",
  *       },
  *       Overwrite: true || false,
- *       FormatOptions: {
- *         Csv: {
+ *       FormatOptions: { // OutputFormatOptions
+ *         Csv: { // CsvOutputOptions
  *           Delimiter: "STRING_VALUE",
  *         },
  *       },
  *       MaxOutputFiles: Number("int"),
  *     },
  *   ],
- *   DataCatalogOutputs: [
- *     {
+ *   DataCatalogOutputs: [ // DataCatalogOutputList
+ *     { // DataCatalogOutput
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE", // required
  *       TableName: "STRING_VALUE", // required
- *       S3Options: {
+ *       S3Options: { // S3TableOutputOptions
  *         Location: {
  *           Bucket: "STRING_VALUE", // required
  *           Key: "STRING_VALUE",
  *           BucketOwner: "STRING_VALUE",
  *         },
  *       },
- *       DatabaseOptions: {
+ *       DatabaseOptions: { // DatabaseTableOutputOptions
  *         TempDirectory: {
  *           Bucket: "STRING_VALUE", // required
  *           Key: "STRING_VALUE",
@@ -94,8 +94,8 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  *       Overwrite: true || false,
  *     },
  *   ],
- *   DatabaseOutputs: [
- *     {
+ *   DatabaseOutputs: [ // DatabaseOutputList
+ *     { // DatabaseOutput
  *       GlueConnectionName: "STRING_VALUE", // required
  *       DatabaseOptions: {
  *         TempDirectory: {
@@ -109,12 +109,12 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  *     },
  *   ],
  *   ProjectName: "STRING_VALUE",
- *   RecipeReference: {
+ *   RecipeReference: { // RecipeReference
  *     Name: "STRING_VALUE", // required
  *     RecipeVersion: "STRING_VALUE",
  *   },
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Timeout: Number("int"),

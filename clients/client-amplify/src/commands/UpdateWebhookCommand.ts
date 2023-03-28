@@ -42,7 +42,7 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __Metad
  * import { AmplifyClient, UpdateWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UpdateWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // UpdateWebhookRequest
  *   webhookId: "STRING_VALUE", // required
  *   branchName: "STRING_VALUE",
  *   description: "STRING_VALUE",

@@ -69,8 +69,8 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ModifySubnetAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifySubnetAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   AssignIpv6AddressOnCreation: {
+ * const input = { // ModifySubnetAttributeRequest
+ *   AssignIpv6AddressOnCreation: { // AttributeBooleanValue
  *     Value: true || false,
  *   },
  *   MapPublicIpOnLaunch: {
@@ -88,13 +88,9 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  *   EnableResourceNameDnsARecordOnLaunch: {
  *     Value: true || false,
  *   },
- *   EnableResourceNameDnsAAAARecordOnLaunch: {
- *     Value: true || false,
- *   },
+ *   EnableResourceNameDnsAAAARecordOnLaunch: "<AttributeBooleanValue>",
  *   EnableLniAtDeviceIndex: Number("int"),
- *   DisableLniAtDeviceIndex: {
- *     Value: true || false,
- *   },
+ *   DisableLniAtDeviceIndex: "<AttributeBooleanValue>",
  * };
  * const command = new ModifySubnetAttributeCommand(input);
  * const response = await client.send(command);

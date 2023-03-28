@@ -45,9 +45,9 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * import { SQSClient, UntagQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, UntagQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
- * const input = {
+ * const input = { // UntagQueueRequest
  *   QueueUrl: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

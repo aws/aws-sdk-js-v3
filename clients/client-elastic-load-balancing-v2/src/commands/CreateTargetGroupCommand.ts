@@ -69,7 +69,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * import { ElasticLoadBalancingV2Client, CreateTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, CreateTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // CreateTargetGroupInput
  *   Name: "STRING_VALUE", // required
  *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
  *   ProtocolVersion: "STRING_VALUE",
@@ -83,13 +83,13 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *   HealthCheckTimeoutSeconds: Number("int"),
  *   HealthyThresholdCount: Number("int"),
  *   UnhealthyThresholdCount: Number("int"),
- *   Matcher: {
+ *   Matcher: { // Matcher
  *     HttpCode: "STRING_VALUE",
  *     GrpcCode: "STRING_VALUE",
  *   },
  *   TargetType: "instance" || "ip" || "lambda" || "alb",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

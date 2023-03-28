@@ -42,7 +42,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, DeletePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DeletePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // DeletePipelineInput
  *   name: "STRING_VALUE", // required
  * };
  * const command = new DeletePipelineCommand(input);

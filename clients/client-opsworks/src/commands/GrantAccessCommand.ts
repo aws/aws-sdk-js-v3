@@ -45,7 +45,7 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * import { OpsWorksClient, GrantAccessCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, GrantAccessCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // GrantAccessRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ValidForInMinutes: Number("int"),
  * };

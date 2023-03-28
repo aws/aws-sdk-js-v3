@@ -51,7 +51,7 @@ export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobRes
  * import { TranscribeClient, GetTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // GetTranscriptionJobRequest
  *   TranscriptionJobName: "STRING_VALUE", // required
  * };
  * const command = new GetTranscriptionJobCommand(input);

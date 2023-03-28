@@ -45,7 +45,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * import { MachineLearningClient, GetDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, GetDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
+ * const input = { // GetDataSourceInput
  *   DataSourceId: "STRING_VALUE", // required
  *   Verbose: true || false,
  * };

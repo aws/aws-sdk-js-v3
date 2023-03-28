@@ -44,14 +44,14 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * import { GuardDutyClient, CreateThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // CreateThreatIntelSetRequest
  *   DetectorId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
  *   Location: "STRING_VALUE", // required
  *   Activate: true || false, // required
  *   ClientToken: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

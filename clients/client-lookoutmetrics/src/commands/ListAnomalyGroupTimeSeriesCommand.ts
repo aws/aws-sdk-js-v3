@@ -42,7 +42,7 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  * import { LookoutMetricsClient, ListAnomalyGroupTimeSeriesCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListAnomalyGroupTimeSeriesCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
- * const input = {
+ * const input = { // ListAnomalyGroupTimeSeriesRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required
  *   AnomalyGroupId: "STRING_VALUE", // required
  *   MetricName: "STRING_VALUE", // required

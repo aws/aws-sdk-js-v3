@@ -42,7 +42,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  * import { CodeBuildClient, GetResourcePolicyCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, GetResourcePolicyCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // GetResourcePolicyInput
  *   resourceArn: "STRING_VALUE", // required
  * };
  * const command = new GetResourcePolicyCommand(input);

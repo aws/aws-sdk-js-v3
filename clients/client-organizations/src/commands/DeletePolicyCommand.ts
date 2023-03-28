@@ -45,7 +45,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, DeletePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeletePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // DeletePolicyRequest
  *   PolicyId: "STRING_VALUE", // required
  * };
  * const command = new DeletePolicyCommand(input);

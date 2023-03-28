@@ -45,9 +45,9 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  * import { DirectConnectClient, CreatePublicVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreatePublicVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // CreatePublicVirtualInterfaceRequest
  *   connectionId: "STRING_VALUE", // required
- *   newPublicVirtualInterface: {
+ *   newPublicVirtualInterface: { // NewPublicVirtualInterface
  *     virtualInterfaceName: "STRING_VALUE", // required
  *     vlan: Number("int"), // required
  *     asn: Number("int"), // required
@@ -55,13 +55,13 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  *     amazonAddress: "STRING_VALUE",
  *     customerAddress: "STRING_VALUE",
  *     addressFamily: "ipv4" || "ipv6",
- *     routeFilterPrefixes: [
- *       {
+ *     routeFilterPrefixes: [ // RouteFilterPrefixList
+ *       { // RouteFilterPrefix
  *         cidr: "STRING_VALUE",
  *       },
  *     ],
- *     tags: [
- *       {
+ *     tags: [ // TagList
+ *       { // Tag
  *         key: "STRING_VALUE", // required
  *         value: "STRING_VALUE",
  *       },

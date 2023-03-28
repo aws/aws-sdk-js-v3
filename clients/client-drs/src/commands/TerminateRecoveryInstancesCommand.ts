@@ -46,8 +46,8 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * import { DrsClient, TerminateRecoveryInstancesCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, TerminateRecoveryInstancesCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
- *   recoveryInstanceIDs: [ // required
+ * const input = { // TerminateRecoveryInstancesRequest
+ *   recoveryInstanceIDs: [ // RecoveryInstancesForTerminationRequest // required
  *     "STRING_VALUE",
  *   ],
  * };

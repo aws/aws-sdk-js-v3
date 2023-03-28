@@ -48,7 +48,7 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UpdateLoginProfileRequest
  *   UserName: "STRING_VALUE", // required
  *   Password: "STRING_VALUE",
  *   PasswordResetRequired: true || false,

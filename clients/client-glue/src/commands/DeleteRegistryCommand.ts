@@ -42,8 +42,8 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  * import { GlueClient, DeleteRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   RegistryId: {
+ * const input = { // DeleteRegistryInput
+ *   RegistryId: { // RegistryId
  *     RegistryName: "STRING_VALUE",
  *     RegistryArn: "STRING_VALUE",
  *   },

@@ -42,7 +42,7 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, DeleteDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // DeleteDiscovererRequest
  *   DiscovererId: "STRING_VALUE", // required
  * };
  * const command = new DeleteDiscovererCommand(input);

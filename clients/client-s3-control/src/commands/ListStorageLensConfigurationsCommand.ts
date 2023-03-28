@@ -54,7 +54,7 @@ export interface ListStorageLensConfigurationsCommandOutput
  * import { S3ControlClient, ListStorageLensConfigurationsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListStorageLensConfigurationsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // ListStorageLensConfigurationsRequest
  *   AccountId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  * };

@@ -42,7 +42,7 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * import { PinpointClient, DeleteSegmentCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteSegmentCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // DeleteSegmentRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   SegmentId: "STRING_VALUE", // required
  * };

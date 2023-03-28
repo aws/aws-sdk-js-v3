@@ -47,7 +47,7 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * import { ManagedBlockchainClient, ListMembersCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListMembersCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
- * const input = {
+ * const input = { // ListMembersInput
  *   NetworkId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "INACCESSIBLE_ENCRYPTION_KEY",

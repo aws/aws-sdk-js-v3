@@ -43,7 +43,7 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  * import { OpenSearchClient, ListInstanceTypeDetailsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListInstanceTypeDetailsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // ListInstanceTypeDetailsRequest
  *   EngineVersion: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE",
  *   MaxResults: Number("int"),

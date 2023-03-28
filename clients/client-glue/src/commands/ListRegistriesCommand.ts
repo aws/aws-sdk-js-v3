@@ -42,7 +42,7 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * import { GlueClient, ListRegistriesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListRegistriesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // ListRegistriesInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

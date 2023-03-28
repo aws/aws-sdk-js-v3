@@ -52,10 +52,10 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * import { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // AddApplicationCloudWatchLoggingOptionRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   CurrentApplicationVersionId: Number("long"),
- *   CloudWatchLoggingOption: {
+ *   CloudWatchLoggingOption: { // CloudWatchLoggingOption
  *     LogStreamARN: "STRING_VALUE", // required
  *   },
  *   ConditionalToken: "STRING_VALUE",

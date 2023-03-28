@@ -43,7 +43,7 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  * import { MacieClient, ListMemberAccountsCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, ListMemberAccountsCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
- * const input = {
+ * const input = { // ListMemberAccountsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

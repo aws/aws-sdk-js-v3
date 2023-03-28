@@ -68,27 +68,27 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * import { S3ControlClient, PutBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
- * const input = {
+ * const input = { // PutBucketLifecycleConfigurationRequest
  *   AccountId: "STRING_VALUE",
  *   Bucket: "STRING_VALUE", // required
- *   LifecycleConfiguration: {
- *     Rules: [
- *       {
- *         Expiration: {
+ *   LifecycleConfiguration: { // LifecycleConfiguration
+ *     Rules: [ // LifecycleRules
+ *       { // LifecycleRule
+ *         Expiration: { // LifecycleExpiration
  *           Date: new Date("TIMESTAMP"),
  *           Days: Number("int"),
  *           ExpiredObjectDeleteMarker: true || false,
  *         },
  *         ID: "STRING_VALUE",
- *         Filter: {
+ *         Filter: { // LifecycleRuleFilter
  *           Prefix: "STRING_VALUE",
- *           Tag: {
+ *           Tag: { // S3Tag
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
- *           And: {
+ *           And: { // LifecycleRuleAndOperator
  *             Prefix: "STRING_VALUE",
- *             Tags: [
+ *             Tags: [ // S3TagSet
  *               {
  *                 Key: "STRING_VALUE", // required
  *                 Value: "STRING_VALUE", // required
@@ -101,24 +101,24 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *           ObjectSizeLessThan: Number("long"),
  *         },
  *         Status: "Enabled" || "Disabled", // required
- *         Transitions: [
- *           {
+ *         Transitions: [ // TransitionList
+ *           { // Transition
  *             Date: new Date("TIMESTAMP"),
  *             Days: Number("int"),
  *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE",
  *           },
  *         ],
- *         NoncurrentVersionTransitions: [
- *           {
+ *         NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
+ *           { // NoncurrentVersionTransition
  *             NoncurrentDays: Number("int"),
  *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE",
  *           },
  *         ],
- *         NoncurrentVersionExpiration: {
+ *         NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
  *           NoncurrentDays: Number("int"),
  *           NewerNoncurrentVersions: Number("int"),
  *         },
- *         AbortIncompleteMultipartUpload: {
+ *         AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
  *           DaysAfterInitiation: Number("int"),
  *         },
  *       },

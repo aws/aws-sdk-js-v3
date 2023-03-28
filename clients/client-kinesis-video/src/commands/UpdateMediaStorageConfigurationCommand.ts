@@ -55,9 +55,9 @@ export interface UpdateMediaStorageConfigurationCommandOutput
  * import { KinesisVideoClient, UpdateMediaStorageConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateMediaStorageConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // UpdateMediaStorageConfigurationInput
  *   ChannelARN: "STRING_VALUE", // required
- *   MediaStorageConfiguration: {
+ *   MediaStorageConfiguration: { // MediaStorageConfiguration
  *     StreamARN: "STRING_VALUE",
  *     Status: "ENABLED" || "DISABLED", // required
  *   },

@@ -47,19 +47,19 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * import { ChimeSDKIdentityClient, CreateAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, CreateAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
- * const input = {
+ * const input = { // CreateAppInstanceUserRequest
  *   AppInstanceArn: "STRING_VALUE", // required
  *   AppInstanceUserId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Metadata: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   ExpirationSettings: {
+ *   ExpirationSettings: { // ExpirationSettings
  *     ExpirationDays: Number("int"), // required
  *     ExpirationCriterion: "CREATED_TIMESTAMP", // required
  *   },

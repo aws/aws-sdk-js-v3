@@ -42,7 +42,7 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
  * import { ImagebuilderClient, GetImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = {
+ * const input = { // GetImageRecipeRequest
  *   imageRecipeArn: "STRING_VALUE", // required
  * };
  * const command = new GetImageRecipeCommand(input);

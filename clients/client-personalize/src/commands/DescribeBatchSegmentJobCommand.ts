@@ -44,7 +44,7 @@ export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegme
  * import { PersonalizeClient, DescribeBatchSegmentJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeBatchSegmentJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeBatchSegmentJobRequest
  *   batchSegmentJobArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeBatchSegmentJobCommand(input);

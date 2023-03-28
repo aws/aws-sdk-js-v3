@@ -42,17 +42,17 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  * import { IoTWirelessClient, SendDataToWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, SendDataToWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // SendDataToWirelessDeviceRequest
  *   Id: "STRING_VALUE", // required
  *   TransmitMode: Number("int"), // required
  *   PayloadData: "STRING_VALUE", // required
- *   WirelessMetadata: {
- *     LoRaWAN: {
+ *   WirelessMetadata: { // WirelessMetadata
+ *     LoRaWAN: { // LoRaWANSendDataToDevice
  *       FPort: Number("int"),
- *       ParticipatingGateways: {
+ *       ParticipatingGateways: { // ParticipatingGateways
  *         DownlinkMode: "SEQUENTIAL" || "CONCURRENT" || "USING_UPLINK_GATEWAY", // required
- *         GatewayList: [ // required
- *           {
+ *         GatewayList: [ // GatewayList // required
+ *           { // GatewayListItem
  *             GatewayId: "STRING_VALUE", // required
  *             DownlinkFrequency: Number("int"), // required
  *           },
@@ -60,7 +60,7 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  *         TransmissionInterval: Number("int"), // required
  *       },
  *     },
- *     Sidewalk: {
+ *     Sidewalk: { // SidewalkSendDataToDevice
  *       Seq: Number("int"),
  *       MessageType: "CUSTOM_COMMAND_ID_NOTIFY" || "CUSTOM_COMMAND_ID_GET" || "CUSTOM_COMMAND_ID_SET" || "CUSTOM_COMMAND_ID_RESP",
  *       AckModeRetryDurationSecs: Number("int"),

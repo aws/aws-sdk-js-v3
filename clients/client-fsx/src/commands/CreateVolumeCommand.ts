@@ -42,17 +42,17 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * import { FSxClient, CreateVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
- * const input = {
+ * const input = { // CreateVolumeRequest
  *   ClientRequestToken: "STRING_VALUE",
  *   VolumeType: "ONTAP" || "OPENZFS", // required
  *   Name: "STRING_VALUE", // required
- *   OntapConfiguration: {
+ *   OntapConfiguration: { // CreateOntapVolumeConfiguration
  *     JunctionPath: "STRING_VALUE",
  *     SecurityStyle: "UNIX" || "NTFS" || "MIXED",
  *     SizeInMegabytes: Number("int"), // required
  *     StorageEfficiencyEnabled: true || false,
  *     StorageVirtualMachineId: "STRING_VALUE", // required
- *     TieringPolicy: {
+ *     TieringPolicy: { // TieringPolicy
  *       CoolingPeriod: Number("int"),
  *       Name: "SNAPSHOT_ONLY" || "AUTO" || "ALL" || "NONE",
  *     },
@@ -60,38 +60,38 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  *     SnapshotPolicy: "STRING_VALUE",
  *     CopyTagsToBackups: true || false,
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   OpenZFSConfiguration: {
+ *   OpenZFSConfiguration: { // CreateOpenZFSVolumeConfiguration
  *     ParentVolumeId: "STRING_VALUE", // required
  *     StorageCapacityReservationGiB: Number("int"),
  *     StorageCapacityQuotaGiB: Number("int"),
  *     RecordSizeKiB: Number("int"),
  *     DataCompressionType: "NONE" || "ZSTD" || "LZ4",
  *     CopyTagsToSnapshots: true || false,
- *     OriginSnapshot: {
+ *     OriginSnapshot: { // CreateOpenZFSOriginSnapshotConfiguration
  *       SnapshotARN: "STRING_VALUE", // required
  *       CopyStrategy: "CLONE" || "FULL_COPY", // required
  *     },
  *     ReadOnly: true || false,
- *     NfsExports: [
- *       {
- *         ClientConfigurations: [ // required
- *           {
+ *     NfsExports: [ // OpenZFSNfsExports
+ *       { // OpenZFSNfsExport
+ *         ClientConfigurations: [ // OpenZFSClientConfigurations // required
+ *           { // OpenZFSClientConfiguration
  *             Clients: "STRING_VALUE", // required
- *             Options: [ // required
+ *             Options: [ // OpenZFSNfsExportOptions // required
  *               "STRING_VALUE",
  *             ],
  *           },
  *         ],
  *       },
  *     ],
- *     UserAndGroupQuotas: [
- *       {
+ *     UserAndGroupQuotas: [ // OpenZFSUserAndGroupQuotas
+ *       { // OpenZFSUserOrGroupQuota
  *         Type: "USER" || "GROUP", // required
  *         Id: Number("int"), // required
  *         StorageCapacityQuotaGiB: Number("int"), // required

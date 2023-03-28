@@ -43,7 +43,7 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * import { OpenSearchClient, ListVpcEndpointAccessCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListVpcEndpointAccessCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // ListVpcEndpointAccessRequest
  *   DomainName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  * };

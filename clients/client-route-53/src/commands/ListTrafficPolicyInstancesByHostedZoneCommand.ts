@@ -60,7 +60,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
  * import { Route53Client, ListTrafficPolicyInstancesByHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTrafficPolicyInstancesByHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // ListTrafficPolicyInstancesByHostedZoneRequest
  *   HostedZoneId: "STRING_VALUE", // required
  *   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
  *   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",

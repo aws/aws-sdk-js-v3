@@ -53,34 +53,34 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  * import { SageMakerClient, CreateAutoMLJobV2Command } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAutoMLJobV2Command } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateAutoMLJobV2Request
  *   AutoMLJobName: "STRING_VALUE", // required
- *   AutoMLJobInputDataConfig: [ // required
- *     {
+ *   AutoMLJobInputDataConfig: [ // AutoMLJobInputDataConfig // required
+ *     { // AutoMLJobChannel
  *       ChannelType: "training" || "validation",
  *       ContentType: "STRING_VALUE",
  *       CompressionType: "None" || "Gzip",
- *       DataSource: {
- *         S3DataSource: {
+ *       DataSource: { // AutoMLDataSource
+ *         S3DataSource: { // AutoMLS3DataSource
  *           S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
  *           S3Uri: "STRING_VALUE", // required
  *         },
  *       },
  *     },
  *   ],
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // AutoMLOutputDataConfig
  *     KmsKeyId: "STRING_VALUE",
  *     S3OutputPath: "STRING_VALUE", // required
  *   },
- *   AutoMLProblemTypeConfig: { // Union: only one key present
- *     ImageClassificationJobConfig: {
- *       CompletionCriteria: {
+ *   AutoMLProblemTypeConfig: { // AutoMLProblemTypeConfig Union: only one key present
+ *     ImageClassificationJobConfig: { // ImageClassificationJobConfig
+ *       CompletionCriteria: { // AutoMLJobCompletionCriteria
  *         MaxCandidates: Number("int"),
  *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
  *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
  *       },
  *     },
- *     TextClassificationJobConfig: {
+ *     TextClassificationJobConfig: { // TextClassificationJobConfig
  *       CompletionCriteria: {
  *         MaxCandidates: Number("int"),
  *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
@@ -91,32 +91,32 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   SecurityConfig: {
+ *   SecurityConfig: { // AutoMLSecurityConfig
  *     VolumeKmsKeyId: "STRING_VALUE",
  *     EnableInterContainerTrafficEncryption: true || false,
- *     VpcConfig: {
- *       SecurityGroupIds: [ // required
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // VpcSecurityGroupIds // required
  *         "STRING_VALUE",
  *       ],
- *       Subnets: [ // required
+ *       Subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
- *   AutoMLJobObjective: {
+ *   AutoMLJobObjective: { // AutoMLJobObjective
  *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
  *   },
- *   ModelDeployConfig: {
+ *   ModelDeployConfig: { // ModelDeployConfig
  *     AutoGenerateEndpointName: true || false,
  *     EndpointName: "STRING_VALUE",
  *   },
- *   DataSplitConfig: {
+ *   DataSplitConfig: { // AutoMLDataSplitConfig
  *     ValidationFraction: Number("float"),
  *   },
  * };

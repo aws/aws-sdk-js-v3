@@ -49,12 +49,12 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { ElasticLoadBalancingClient, AddTagsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, AddTagsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
- * const input = {
- *   LoadBalancerNames: [ // required
+ * const input = { // AddTagsInput
+ *   LoadBalancerNames: [ // LoadBalancerNames // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

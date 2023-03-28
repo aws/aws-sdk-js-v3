@@ -82,10 +82,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { SecretsManagerClient, TagResourceCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, TagResourceCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   SecretId: "STRING_VALUE", // required
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagListType // required
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

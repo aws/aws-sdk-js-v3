@@ -51,49 +51,49 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * import { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
+ * const input = { // CreateMediaCapturePipelineRequest
  *   SourceType: "ChimeSdkMeeting", // required
  *   SourceArn: "STRING_VALUE", // required
  *   SinkType: "S3Bucket", // required
  *   SinkArn: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   ChimeSdkMeetingConfiguration: {
- *     SourceConfiguration: {
- *       SelectedVideoStreams: {
- *         AttendeeIds: [
+ *   ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
+ *     SourceConfiguration: { // SourceConfiguration
+ *       SelectedVideoStreams: { // SelectedVideoStreams
+ *         AttendeeIds: [ // AttendeeIdList
  *           "STRING_VALUE",
  *         ],
- *         ExternalUserIds: [
+ *         ExternalUserIds: [ // ExternalUserIdList
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     ArtifactsConfiguration: {
- *       Audio: {
+ *     ArtifactsConfiguration: { // ArtifactsConfiguration
+ *       Audio: { // AudioArtifactsConfiguration
  *         MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo" || "AudioWithCompositedVideo", // required
  *       },
- *       Video: {
+ *       Video: { // VideoArtifactsConfiguration
  *         State: "Enabled" || "Disabled", // required
  *         MuxType: "VideoOnly",
  *       },
- *       Content: {
+ *       Content: { // ContentArtifactsConfiguration
  *         State: "Enabled" || "Disabled", // required
  *         MuxType: "ContentOnly",
  *       },
- *       CompositedVideo: {
+ *       CompositedVideo: { // CompositedVideoArtifactsConfiguration
  *         Layout: "GridView",
  *         Resolution: "HD" || "FHD",
- *         GridViewConfiguration: {
+ *         GridViewConfiguration: { // GridViewConfiguration
  *           ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
- *           PresenterOnlyConfiguration: {
+ *           PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
  *             PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
  *           },
  *         },
  *       },
  *     },
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

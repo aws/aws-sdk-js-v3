@@ -44,7 +44,7 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * import { SnowballClient, ListClustersCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListClustersCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
+ * const input = { // ListClustersRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

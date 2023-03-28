@@ -47,7 +47,7 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, SetDesiredCapacityCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetDesiredCapacityCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // SetDesiredCapacityType
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   DesiredCapacity: Number("int"), // required
  *   HonorCooldown: true || false,

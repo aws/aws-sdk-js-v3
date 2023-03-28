@@ -52,7 +52,7 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
  * import { ElasticsearchServiceClient, DeleteInboundCrossClusterSearchConnectionCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeleteInboundCrossClusterSearchConnectionCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
- * const input = {
+ * const input = { // DeleteInboundCrossClusterSearchConnectionRequest
  *   CrossClusterSearchConnectionId: "STRING_VALUE", // required
  * };
  * const command = new DeleteInboundCrossClusterSearchConnectionCommand(input);

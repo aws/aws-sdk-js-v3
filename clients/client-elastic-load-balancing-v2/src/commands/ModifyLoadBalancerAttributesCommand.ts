@@ -51,10 +51,10 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * import { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
- * const input = {
+ * const input = { // ModifyLoadBalancerAttributesInput
  *   LoadBalancerArn: "STRING_VALUE", // required
- *   Attributes: [ // required
- *     {
+ *   Attributes: [ // LoadBalancerAttributes // required
+ *     { // LoadBalancerAttribute
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

@@ -42,11 +42,11 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * import { ServiceCatalogClient, SearchProductsAsAdminCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProductsAsAdminCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // SearchProductsAsAdminInput
  *   AcceptLanguage: "STRING_VALUE",
  *   PortfolioId: "STRING_VALUE",
- *   Filters: {
- *     "<keys>": [
+ *   Filters: { // ProductViewFilters
+ *     "<keys>": [ // ProductViewFilterValues
  *       "STRING_VALUE",
  *     ],
  *   },

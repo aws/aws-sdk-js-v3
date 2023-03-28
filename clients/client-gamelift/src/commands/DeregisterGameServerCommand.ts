@@ -57,7 +57,7 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeregisterGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeregisterGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DeregisterGameServerInput
  *   GameServerGroupName: "STRING_VALUE", // required
  *   GameServerId: "STRING_VALUE", // required
  * };

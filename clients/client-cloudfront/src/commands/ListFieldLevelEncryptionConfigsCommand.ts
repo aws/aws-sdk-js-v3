@@ -45,7 +45,7 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
  * import { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListFieldLevelEncryptionConfigsRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };

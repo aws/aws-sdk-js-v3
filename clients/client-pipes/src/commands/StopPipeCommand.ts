@@ -42,7 +42,7 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * import { PipesClient, StopPipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, StopPipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
- * const input = {
+ * const input = { // StopPipeRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new StopPipeCommand(input);

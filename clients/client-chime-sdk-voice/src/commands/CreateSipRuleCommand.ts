@@ -43,13 +43,13 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * import { ChimeSDKVoiceClient, CreateSipRuleCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreateSipRuleCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // CreateSipRuleRequest
  *   Name: "STRING_VALUE", // required
  *   TriggerType: "ToPhoneNumber" || "RequestUriHostname", // required
  *   TriggerValue: "STRING_VALUE", // required
  *   Disabled: true || false,
- *   TargetApplications: [
- *     {
+ *   TargetApplications: [ // SipRuleTargetApplicationList
+ *     { // SipRuleTargetApplication
  *       SipMediaApplicationId: "STRING_VALUE",
  *       Priority: Number("int"),
  *       AwsRegion: "STRING_VALUE",

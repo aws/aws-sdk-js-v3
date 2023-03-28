@@ -42,7 +42,7 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * import { DataSyncClient, DescribeLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // DescribeLocationSmbRequest
  *   LocationArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeLocationSmbCommand(input);

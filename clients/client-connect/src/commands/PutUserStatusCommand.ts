@@ -45,7 +45,7 @@ export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __Met
  * import { ConnectClient, PutUserStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, PutUserStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // PutUserStatusRequest
  *   UserId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  *   AgentStatusId: "STRING_VALUE", // required

@@ -42,8 +42,8 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * import { IvsClient, BatchGetChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, BatchGetChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
- * const input = {
- *   arns: [ // required
+ * const input = { // BatchGetChannelRequest
+ *   arns: [ // ChannelArnList // required
  *     "STRING_VALUE",
  *   ],
  * };

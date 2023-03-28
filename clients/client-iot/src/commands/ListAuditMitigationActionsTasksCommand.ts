@@ -45,7 +45,7 @@ export interface ListAuditMitigationActionsTasksCommandOutput
  * import { IoTClient, ListAuditMitigationActionsTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAuditMitigationActionsTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListAuditMitigationActionsTasksRequest
  *   auditTaskId: "STRING_VALUE",
  *   findingId: "STRING_VALUE",
  *   taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",

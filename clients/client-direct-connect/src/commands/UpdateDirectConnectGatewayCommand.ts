@@ -42,7 +42,7 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  * import { DirectConnectClient, UpdateDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // UpdateDirectConnectGatewayRequest
  *   directConnectGatewayId: "STRING_VALUE", // required
  *   newDirectConnectGatewayName: "STRING_VALUE", // required
  * };

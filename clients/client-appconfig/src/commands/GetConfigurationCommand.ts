@@ -58,7 +58,7 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * import { AppConfigClient, GetConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const input = {
+ * const input = { // GetConfigurationRequest
  *   Application: "STRING_VALUE", // required
  *   Environment: "STRING_VALUE", // required
  *   Configuration: "STRING_VALUE", // required

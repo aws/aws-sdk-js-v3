@@ -42,7 +42,7 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * import { AppSyncClient, AssociateApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, AssociateApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const input = {
+ * const input = { // AssociateApiRequest
  *   domainName: "STRING_VALUE", // required
  *   apiId: "STRING_VALUE", // required
  * };

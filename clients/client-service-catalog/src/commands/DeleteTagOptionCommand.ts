@@ -43,7 +43,7 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * import { ServiceCatalogClient, DeleteTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DeleteTagOptionInput
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DeleteTagOptionCommand(input);

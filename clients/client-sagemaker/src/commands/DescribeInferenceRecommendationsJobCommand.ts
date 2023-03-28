@@ -48,7 +48,7 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * import { SageMakerClient, DescribeInferenceRecommendationsJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeInferenceRecommendationsJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DescribeInferenceRecommendationsJobRequest
  *   JobName: "STRING_VALUE", // required
  * };
  * const command = new DescribeInferenceRecommendationsJobCommand(input);

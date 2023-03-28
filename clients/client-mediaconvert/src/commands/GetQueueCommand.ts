@@ -42,7 +42,7 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * import { MediaConvertClient, GetQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
- * const input = {
+ * const input = { // GetQueueRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new GetQueueCommand(input);

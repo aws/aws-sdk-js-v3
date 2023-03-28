@@ -52,9 +52,9 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  * import { StorageGatewayClient, UpdateAutomaticTapeCreationPolicyCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateAutomaticTapeCreationPolicyCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
- *   AutomaticTapeCreationRules: [ // required
- *     {
+ * const input = { // UpdateAutomaticTapeCreationPolicyInput
+ *   AutomaticTapeCreationRules: [ // AutomaticTapeCreationRules // required
+ *     { // AutomaticTapeCreationRule
  *       TapeBarcodePrefix: "STRING_VALUE", // required
  *       PoolId: "STRING_VALUE", // required
  *       TapeSizeInBytes: Number("long"), // required

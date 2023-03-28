@@ -45,7 +45,7 @@ export interface DisassociateCustomDomainCommandOutput extends DisassociateCusto
  * import { AppRunnerClient, DisassociateCustomDomainCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DisassociateCustomDomainCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // DisassociateCustomDomainRequest
  *   ServiceArn: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  * };

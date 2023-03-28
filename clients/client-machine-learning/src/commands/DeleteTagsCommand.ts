@@ -43,8 +43,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * import { MachineLearningClient, DeleteTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
- * const input = {
- *   TagKeys: [ // required
+ * const input = { // DeleteTagsInput
+ *   TagKeys: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  *   ResourceId: "STRING_VALUE", // required

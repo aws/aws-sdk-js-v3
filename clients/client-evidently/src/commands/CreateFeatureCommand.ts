@@ -46,15 +46,15 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  * import { EvidentlyClient, CreateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
- * const input = {
+ * const input = { // CreateFeatureRequest
  *   project: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   evaluationStrategy: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   variations: [ // required
- *     {
+ *   variations: [ // VariationConfigsList // required
+ *     { // VariationConfig
  *       name: "STRING_VALUE", // required
- *       value: { // Union: only one key present
+ *       value: { // VariableValue Union: only one key present
  *         boolValue: true || false,
  *         stringValue: "STRING_VALUE",
  *         longValue: Number("long"),
@@ -63,10 +63,10 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  *     },
  *   ],
  *   defaultVariation: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   entityOverrides: {
+ *   entityOverrides: { // EntityOverrideMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

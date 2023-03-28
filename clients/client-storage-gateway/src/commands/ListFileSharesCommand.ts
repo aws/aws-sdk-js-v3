@@ -44,7 +44,7 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  * import { StorageGatewayClient, ListFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // ListFileSharesInput
  *   GatewayARN: "STRING_VALUE",
  *   Limit: Number("int"),
  *   Marker: "STRING_VALUE",

@@ -42,7 +42,7 @@ export interface DeleteRestApiCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // DeleteRestApiRequest
  *   restApiId: "STRING_VALUE", // required
  * };
  * const command = new DeleteRestApiCommand(input);

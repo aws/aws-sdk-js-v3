@@ -59,12 +59,12 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * import { WAFV2Client, UpdateIPSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, UpdateIPSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // UpdateIPSetRequest
  *   Name: "STRING_VALUE", // required
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required
  *   Id: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Addresses: [ // required
+ *   Addresses: [ // IPAddresses // required
  *     "STRING_VALUE",
  *   ],
  *   LockToken: "STRING_VALUE", // required

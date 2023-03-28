@@ -47,7 +47,7 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * import { WAFV2Client, AssociateWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, AssociateWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // AssociateWebACLRequest
  *   WebACLArn: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
  * };

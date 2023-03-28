@@ -45,19 +45,19 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * import { ECSClient, SubmitTaskStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitTaskStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // SubmitTaskStateChangeRequest
  *   cluster: "STRING_VALUE",
  *   task: "STRING_VALUE",
  *   status: "STRING_VALUE",
  *   reason: "STRING_VALUE",
- *   containers: [
- *     {
+ *   containers: [ // ContainerStateChanges
+ *     { // ContainerStateChange
  *       containerName: "STRING_VALUE",
  *       imageDigest: "STRING_VALUE",
  *       runtimeId: "STRING_VALUE",
  *       exitCode: Number("int"),
- *       networkBindings: [
- *         {
+ *       networkBindings: [ // NetworkBindings
+ *         { // NetworkBinding
  *           bindIP: "STRING_VALUE",
  *           containerPort: Number("int"),
  *           hostPort: Number("int"),
@@ -70,14 +70,14 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  *       status: "STRING_VALUE",
  *     },
  *   ],
- *   attachments: [
- *     {
+ *   attachments: [ // AttachmentStateChanges
+ *     { // AttachmentStateChange
  *       attachmentArn: "STRING_VALUE", // required
  *       status: "STRING_VALUE", // required
  *     },
  *   ],
- *   managedAgents: [
- *     {
+ *   managedAgents: [ // ManagedAgentStateChanges
+ *     { // ManagedAgentStateChange
  *       containerName: "STRING_VALUE", // required
  *       managedAgentName: "ExecuteCommandAgent", // required
  *       status: "STRING_VALUE", // required

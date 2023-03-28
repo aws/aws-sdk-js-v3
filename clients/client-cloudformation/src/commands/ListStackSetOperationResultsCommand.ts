@@ -44,14 +44,14 @@ export interface ListStackSetOperationResultsCommandOutput
  * import { CloudFormationClient, ListStackSetOperationResultsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackSetOperationResultsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // ListStackSetOperationResultsInput
  *   StackSetName: "STRING_VALUE", // required
  *   OperationId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CallAs: "SELF" || "DELEGATED_ADMIN",
- *   Filters: [
- *     {
+ *   Filters: [ // OperationResultFilters
+ *     { // OperationResultFilter
  *       Name: "OPERATION_RESULT_STATUS",
  *       Values: "STRING_VALUE",
  *     },

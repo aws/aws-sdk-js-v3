@@ -58,17 +58,17 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  * import { TranscribeClient, CreateLanguageModelCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateLanguageModelCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // CreateLanguageModelRequest
  *   LanguageCode: "en-US" || "hi-IN" || "es-US" || "en-GB" || "en-AU" || "de-DE" || "ja-JP", // required
  *   BaseModelName: "NarrowBand" || "WideBand", // required
  *   ModelName: "STRING_VALUE", // required
- *   InputDataConfig: {
+ *   InputDataConfig: { // InputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     TuningDataS3Uri: "STRING_VALUE",
  *     DataAccessRoleArn: "STRING_VALUE", // required
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

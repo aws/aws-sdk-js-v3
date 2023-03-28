@@ -42,7 +42,7 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * import { OmicsClient, DeleteSequenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteSequenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = {
+ * const input = { // DeleteSequenceStoreRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DeleteSequenceStoreCommand(input);

@@ -42,13 +42,13 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * import { AppflowClient, UpdateFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, UpdateFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
- * const input = {
+ * const input = { // UpdateFlowRequest
  *   flowName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   triggerConfig: {
+ *   triggerConfig: { // TriggerConfig
  *     triggerType: "Scheduled" || "Event" || "OnDemand", // required
- *     triggerProperties: {
- *       Scheduled: {
+ *     triggerProperties: { // TriggerProperties
+ *       Scheduled: { // ScheduledTriggerProperties
  *         scheduleExpression: "STRING_VALUE", // required
  *         dataPullMode: "Incremental" || "Complete",
  *         scheduleStartTime: new Date("TIMESTAMP"),
@@ -60,119 +60,119 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *       },
  *     },
  *   },
- *   sourceFlowConfig: {
+ *   sourceFlowConfig: { // SourceFlowConfig
  *     connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot", // required
  *     apiVersion: "STRING_VALUE",
  *     connectorProfileName: "STRING_VALUE",
- *     sourceConnectorProperties: {
- *       Amplitude: {
+ *     sourceConnectorProperties: { // SourceConnectorProperties
+ *       Amplitude: { // AmplitudeSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       Datadog: {
+ *       Datadog: { // DatadogSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       Dynatrace: {
+ *       Dynatrace: { // DynatraceSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       GoogleAnalytics: {
+ *       GoogleAnalytics: { // GoogleAnalyticsSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       InforNexus: {
+ *       InforNexus: { // InforNexusSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       Marketo: {
+ *       Marketo: { // MarketoSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       S3: {
+ *       S3: { // S3SourceProperties
  *         bucketName: "STRING_VALUE", // required
  *         bucketPrefix: "STRING_VALUE",
- *         s3InputFormatConfig: {
+ *         s3InputFormatConfig: { // S3InputFormatConfig
  *           s3InputFileType: "CSV" || "JSON",
  *         },
  *       },
- *       Salesforce: {
+ *       Salesforce: { // SalesforceSourceProperties
  *         object: "STRING_VALUE", // required
  *         enableDynamicFieldUpdate: true || false,
  *         includeDeletedRecords: true || false,
  *         dataTransferApi: "AUTOMATIC" || "BULKV2" || "REST_SYNC",
  *       },
- *       ServiceNow: {
+ *       ServiceNow: { // ServiceNowSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       Singular: {
+ *       Singular: { // SingularSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       Slack: {
+ *       Slack: { // SlackSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       Trendmicro: {
+ *       Trendmicro: { // TrendmicroSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       Veeva: {
+ *       Veeva: { // VeevaSourceProperties
  *         object: "STRING_VALUE", // required
  *         documentType: "STRING_VALUE",
  *         includeSourceFiles: true || false,
  *         includeRenditions: true || false,
  *         includeAllVersions: true || false,
  *       },
- *       Zendesk: {
+ *       Zendesk: { // ZendeskSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
- *       SAPOData: {
+ *       SAPOData: { // SAPODataSourceProperties
  *         objectPath: "STRING_VALUE",
  *       },
- *       CustomConnector: {
+ *       CustomConnector: { // CustomConnectorSourceProperties
  *         entityName: "STRING_VALUE", // required
- *         customProperties: {
+ *         customProperties: { // CustomProperties
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
- *       Pardot: {
+ *       Pardot: { // PardotSourceProperties
  *         object: "STRING_VALUE", // required
  *       },
  *     },
- *     incrementalPullConfig: {
+ *     incrementalPullConfig: { // IncrementalPullConfig
  *       datetimeTypeFieldName: "STRING_VALUE",
  *     },
  *   },
- *   destinationFlowConfigList: [ // required
- *     {
+ *   destinationFlowConfigList: [ // DestinationFlowConfigList // required
+ *     { // DestinationFlowConfig
  *       connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot", // required
  *       apiVersion: "STRING_VALUE",
  *       connectorProfileName: "STRING_VALUE",
- *       destinationConnectorProperties: {
- *         Redshift: {
+ *       destinationConnectorProperties: { // DestinationConnectorProperties
+ *         Redshift: { // RedshiftDestinationProperties
  *           object: "STRING_VALUE", // required
  *           intermediateBucketName: "STRING_VALUE", // required
  *           bucketPrefix: "STRING_VALUE",
- *           errorHandlingConfig: {
+ *           errorHandlingConfig: { // ErrorHandlingConfig
  *             failOnFirstDestinationError: true || false,
  *             bucketPrefix: "STRING_VALUE",
  *             bucketName: "STRING_VALUE",
  *           },
  *         },
- *         S3: {
+ *         S3: { // S3DestinationProperties
  *           bucketName: "STRING_VALUE", // required
  *           bucketPrefix: "STRING_VALUE",
- *           s3OutputFormatConfig: {
+ *           s3OutputFormatConfig: { // S3OutputFormatConfig
  *             fileType: "CSV" || "JSON" || "PARQUET",
- *             prefixConfig: {
+ *             prefixConfig: { // PrefixConfig
  *               prefixType: "FILENAME" || "PATH" || "PATH_AND_FILENAME",
  *               prefixFormat: "YEAR" || "MONTH" || "DAY" || "HOUR" || "MINUTE",
- *               pathPrefixHierarchy: [
+ *               pathPrefixHierarchy: [ // PathPrefixHierarchy
  *                 "EXECUTION_ID" || "SCHEMA_VERSION",
  *               ],
  *             },
- *             aggregationConfig: {
+ *             aggregationConfig: { // AggregationConfig
  *               aggregationType: "None" || "SingleFile",
  *               targetFileSize: Number("long"),
  *             },
  *             preserveSourceDataTyping: true || false,
  *           },
  *         },
- *         Salesforce: {
+ *         Salesforce: { // SalesforceDestinationProperties
  *           object: "STRING_VALUE", // required
- *           idFieldNames: [
+ *           idFieldNames: [ // IdFieldNameList
  *             "STRING_VALUE",
  *           ],
  *           errorHandlingConfig: {
@@ -183,7 +183,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *           writeOperationType: "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
  *           dataTransferApi: "AUTOMATIC" || "BULKV2" || "REST_SYNC",
  *         },
- *         Snowflake: {
+ *         Snowflake: { // SnowflakeDestinationProperties
  *           object: "STRING_VALUE", // required
  *           intermediateBucketName: "STRING_VALUE", // required
  *           bucketPrefix: "STRING_VALUE",
@@ -193,7 +193,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *             bucketName: "STRING_VALUE",
  *           },
  *         },
- *         EventBridge: {
+ *         EventBridge: { // EventBridgeDestinationProperties
  *           object: "STRING_VALUE", // required
  *           errorHandlingConfig: {
  *             failOnFirstDestinationError: true || false,
@@ -202,10 +202,10 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *           },
  *         },
  *         LookoutMetrics: {},
- *         Upsolver: {
+ *         Upsolver: { // UpsolverDestinationProperties
  *           bucketName: "STRING_VALUE", // required
  *           bucketPrefix: "STRING_VALUE",
- *           s3OutputFormatConfig: {
+ *           s3OutputFormatConfig: { // UpsolverS3OutputFormatConfig
  *             fileType: "CSV" || "JSON" || "PARQUET",
  *             prefixConfig: {
  *               prefixType: "FILENAME" || "PATH" || "PATH_AND_FILENAME",
@@ -220,7 +220,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *             },
  *           },
  *         },
- *         Honeycode: {
+ *         Honeycode: { // HoneycodeDestinationProperties
  *           object: "STRING_VALUE", // required
  *           errorHandlingConfig: {
  *             failOnFirstDestinationError: true || false,
@@ -228,37 +228,25 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *             bucketName: "STRING_VALUE",
  *           },
  *         },
- *         CustomerProfiles: {
+ *         CustomerProfiles: { // CustomerProfilesDestinationProperties
  *           domainName: "STRING_VALUE", // required
  *           objectTypeName: "STRING_VALUE",
  *         },
- *         Zendesk: {
+ *         Zendesk: { // ZendeskDestinationProperties
  *           object: "STRING_VALUE", // required
  *           idFieldNames: [
  *             "STRING_VALUE",
  *           ],
- *           errorHandlingConfig: {
- *             failOnFirstDestinationError: true || false,
- *             bucketPrefix: "STRING_VALUE",
- *             bucketName: "STRING_VALUE",
- *           },
+ *           errorHandlingConfig: "<ErrorHandlingConfig>",
  *           writeOperationType: "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
  *         },
- *         Marketo: {
+ *         Marketo: { // MarketoDestinationProperties
  *           object: "STRING_VALUE", // required
- *           errorHandlingConfig: {
- *             failOnFirstDestinationError: true || false,
- *             bucketPrefix: "STRING_VALUE",
- *             bucketName: "STRING_VALUE",
- *           },
+ *           errorHandlingConfig: "<ErrorHandlingConfig>",
  *         },
- *         CustomConnector: {
+ *         CustomConnector: { // CustomConnectorDestinationProperties
  *           entityName: "STRING_VALUE", // required
- *           errorHandlingConfig: {
- *             failOnFirstDestinationError: true || false,
- *             bucketPrefix: "STRING_VALUE",
- *             bucketName: "STRING_VALUE",
- *           },
+ *           errorHandlingConfig: "<ErrorHandlingConfig>",
  *           writeOperationType: "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
  *           idFieldNames: [
  *             "STRING_VALUE",
@@ -267,31 +255,27 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
- *         SAPOData: {
+ *         SAPOData: { // SAPODataDestinationProperties
  *           objectPath: "STRING_VALUE", // required
- *           successResponseHandlingConfig: {
+ *           successResponseHandlingConfig: { // SuccessResponseHandlingConfig
  *             bucketPrefix: "STRING_VALUE",
  *             bucketName: "STRING_VALUE",
  *           },
  *           idFieldNames: [
  *             "STRING_VALUE",
  *           ],
- *           errorHandlingConfig: {
- *             failOnFirstDestinationError: true || false,
- *             bucketPrefix: "STRING_VALUE",
- *             bucketName: "STRING_VALUE",
- *           },
+ *           errorHandlingConfig: "<ErrorHandlingConfig>",
  *           writeOperationType: "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
  *         },
  *       },
  *     },
  *   ],
- *   tasks: [ // required
- *     {
- *       sourceFields: [ // required
+ *   tasks: [ // Tasks // required
+ *     { // Task
+ *       sourceFields: [ // SourceFields // required
  *         "STRING_VALUE",
  *       ],
- *       connectorOperator: {
+ *       connectorOperator: { // ConnectorOperator
  *         Amplitude: "BETWEEN",
  *         Datadog: "PROJECTION" || "BETWEEN" || "EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
  *         Dynatrace: "PROJECTION" || "BETWEEN" || "EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
@@ -312,13 +296,13 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *       },
  *       destinationField: "STRING_VALUE",
  *       taskType: "Arithmetic" || "Filter" || "Map" || "Map_all" || "Mask" || "Merge" || "Passthrough" || "Truncate" || "Validate" || "Partition", // required
- *       taskProperties: {
+ *       taskProperties: { // TaskPropertiesMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },
  *   ],
- *   metadataCatalogConfig: {
- *     glueDataCatalog: {
+ *   metadataCatalogConfig: { // MetadataCatalogConfig
+ *     glueDataCatalog: { // GlueDataCatalogConfig
  *       roleArn: "STRING_VALUE", // required
  *       databaseName: "STRING_VALUE", // required
  *       tablePrefix: "STRING_VALUE", // required

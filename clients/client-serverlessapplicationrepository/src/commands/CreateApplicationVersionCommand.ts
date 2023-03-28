@@ -46,7 +46,7 @@ export interface CreateApplicationVersionCommandOutput extends CreateApplication
  * import { ServerlessApplicationRepositoryClient, CreateApplicationVersionCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateApplicationVersionCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
- * const input = {
+ * const input = { // CreateApplicationVersionRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   SemanticVersion: "STRING_VALUE", // required
  *   SourceCodeArchiveUrl: "STRING_VALUE",

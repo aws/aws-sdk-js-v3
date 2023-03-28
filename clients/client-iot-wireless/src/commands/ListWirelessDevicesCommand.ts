@@ -43,7 +43,7 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * import { IoTWirelessClient, ListWirelessDevicesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListWirelessDevicesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // ListWirelessDevicesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   DestinationName: "STRING_VALUE",

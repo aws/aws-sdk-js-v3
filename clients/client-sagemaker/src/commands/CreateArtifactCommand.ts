@@ -46,29 +46,29 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * import { SageMakerClient, CreateArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateArtifactRequest
  *   ArtifactName: "STRING_VALUE",
- *   Source: {
+ *   Source: { // ArtifactSource
  *     SourceUri: "STRING_VALUE", // required
- *     SourceTypes: [
- *       {
+ *     SourceTypes: [ // ArtifactSourceTypes
+ *       { // ArtifactSourceType
  *         SourceIdType: "MD5Hash" || "S3ETag" || "S3Version" || "Custom", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
  *   ArtifactType: "STRING_VALUE", // required
- *   Properties: {
+ *   Properties: { // LineageEntityParameters
  *     "<keys>": "STRING_VALUE",
  *   },
- *   MetadataProperties: {
+ *   MetadataProperties: { // MetadataProperties
  *     CommitId: "STRING_VALUE",
  *     Repository: "STRING_VALUE",
  *     GeneratedBy: "STRING_VALUE",
  *     ProjectId: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

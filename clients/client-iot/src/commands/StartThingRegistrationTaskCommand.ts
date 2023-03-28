@@ -43,7 +43,7 @@ export interface StartThingRegistrationTaskCommandOutput extends StartThingRegis
  * import { IoTClient, StartThingRegistrationTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartThingRegistrationTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // StartThingRegistrationTaskRequest
  *   templateBody: "STRING_VALUE", // required
  *   inputFileBucket: "STRING_VALUE", // required
  *   inputFileKey: "STRING_VALUE", // required

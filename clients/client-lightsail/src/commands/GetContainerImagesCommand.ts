@@ -48,7 +48,7 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  * import { LightsailClient, GetContainerImagesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerImagesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetContainerImagesRequest
  *   serviceName: "STRING_VALUE", // required
  * };
  * const command = new GetContainerImagesCommand(input);

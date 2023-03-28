@@ -43,10 +43,10 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * import { EC2Client, BundleInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, BundleInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // BundleInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
- *   Storage: {
- *     S3: {
+ *   Storage: { // Storage
+ *     S3: { // S3Storage
  *       AWSAccessKeyId: "STRING_VALUE",
  *       Bucket: "STRING_VALUE",
  *       Prefix: "STRING_VALUE",

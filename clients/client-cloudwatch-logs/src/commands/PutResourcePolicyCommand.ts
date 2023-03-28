@@ -44,7 +44,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { CloudWatchLogsClient, PutResourcePolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutResourcePolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyRequest
  *   policyName: "STRING_VALUE",
  *   policyDocument: "STRING_VALUE",
  * };

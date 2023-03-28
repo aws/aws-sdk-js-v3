@@ -44,7 +44,7 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  * import { PollyClient, ListSpeechSynthesisTasksCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, ListSpeechSynthesisTasksCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
- * const input = {
+ * const input = { // ListSpeechSynthesisTasksInput
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   Status: "scheduled" || "inProgress" || "completed" || "failed",

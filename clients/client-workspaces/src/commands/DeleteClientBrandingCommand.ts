@@ -47,9 +47,9 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * import { WorkSpacesClient, DeleteClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
+ * const input = { // DeleteClientBrandingRequest
  *   ResourceId: "STRING_VALUE", // required
- *   Platforms: [ // required
+ *   Platforms: [ // ClientDeviceTypeList // required
  *     "DeviceTypeWindows" || "DeviceTypeOsx" || "DeviceTypeAndroid" || "DeviceTypeIos" || "DeviceTypeLinux" || "DeviceTypeWeb",
  *   ],
  * };

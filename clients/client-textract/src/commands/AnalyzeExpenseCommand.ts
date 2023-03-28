@@ -59,10 +59,10 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  * import { TextractClient, AnalyzeExpenseCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeExpenseCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
- * const input = {
- *   Document: {
+ * const input = { // AnalyzeExpenseRequest
+ *   Document: { // Document
  *     Bytes: "BLOB_VALUE",
- *     S3Object: {
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",

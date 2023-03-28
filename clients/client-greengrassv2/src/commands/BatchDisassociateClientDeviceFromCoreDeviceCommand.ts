@@ -50,9 +50,9 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
  * import { GreengrassV2Client, BatchDisassociateClientDeviceFromCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, BatchDisassociateClientDeviceFromCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
- *   entries: [
- *     {
+ * const input = { // BatchDisassociateClientDeviceFromCoreDeviceRequest
+ *   entries: [ // DisassociateClientDeviceFromCoreDeviceEntryList
+ *     { // DisassociateClientDeviceFromCoreDeviceEntry
  *       thingName: "STRING_VALUE", // required
  *     },
  *   ],

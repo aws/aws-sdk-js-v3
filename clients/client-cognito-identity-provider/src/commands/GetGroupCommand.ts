@@ -45,7 +45,7 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * import { CognitoIdentityProviderClient, GetGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // GetGroupRequest
  *   GroupName: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
  * };

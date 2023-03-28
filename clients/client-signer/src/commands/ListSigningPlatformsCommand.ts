@@ -48,7 +48,7 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  * import { SignerClient, ListSigningPlatformsCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListSigningPlatformsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
- * const input = {
+ * const input = { // ListSigningPlatformsRequest
  *   category: "STRING_VALUE",
  *   partner: "STRING_VALUE",
  *   target: "STRING_VALUE",

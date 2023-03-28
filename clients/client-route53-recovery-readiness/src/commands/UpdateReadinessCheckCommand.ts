@@ -46,7 +46,7 @@ export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckR
  * import { Route53RecoveryReadinessClient, UpdateReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, UpdateReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
- * const input = {
+ * const input = { // UpdateReadinessCheckRequest
  *   ReadinessCheckName: "STRING_VALUE", // required
  *   ResourceSetName: "STRING_VALUE", // required
  * };

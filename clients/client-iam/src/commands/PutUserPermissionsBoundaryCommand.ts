@@ -52,7 +52,7 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  * import { IAMClient, PutUserPermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, PutUserPermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // PutUserPermissionsBoundaryRequest
  *   UserName: "STRING_VALUE", // required
  *   PermissionsBoundary: "STRING_VALUE", // required
  * };

@@ -61,7 +61,7 @@ export interface DescribeRuntimeConfigurationCommandOutput
  * import { GameLiftClient, DescribeRuntimeConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeRuntimeConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DescribeRuntimeConfigurationInput
  *   FleetId: "STRING_VALUE", // required
  * };
  * const command = new DescribeRuntimeConfigurationCommand(input);

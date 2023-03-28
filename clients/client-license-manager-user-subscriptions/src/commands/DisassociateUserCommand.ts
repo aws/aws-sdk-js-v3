@@ -46,11 +46,11 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * import { LicenseManagerUserSubscriptionsClient, DisassociateUserCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, DisassociateUserCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const input = {
+ * const input = { // DisassociateUserRequest
  *   Username: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
- *   IdentityProvider: { // Union: only one key present
- *     ActiveDirectoryIdentityProvider: {
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
  *     },
  *   },

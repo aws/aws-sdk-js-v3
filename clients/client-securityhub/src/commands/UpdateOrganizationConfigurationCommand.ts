@@ -45,7 +45,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * import { SecurityHubClient, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // UpdateOrganizationConfigurationRequest
  *   AutoEnable: true || false, // required
  *   AutoEnableStandards: "NONE" || "DEFAULT",
  * };

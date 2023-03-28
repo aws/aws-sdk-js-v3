@@ -42,9 +42,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { KafkaClient, TagResourceCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, TagResourceCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required
- *   Tags: { // required
+ *   Tags: { // __mapOf__string // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

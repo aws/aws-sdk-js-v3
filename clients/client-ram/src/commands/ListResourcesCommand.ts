@@ -43,14 +43,14 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * import { RAMClient, ListResourcesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListResourcesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // ListResourcesRequest
  *   resourceOwner: "SELF" || "OTHER-ACCOUNTS", // required
  *   principal: "STRING_VALUE",
  *   resourceType: "STRING_VALUE",
- *   resourceArns: [
+ *   resourceArns: [ // ResourceArnList
  *     "STRING_VALUE",
  *   ],
- *   resourceShareArns: [
+ *   resourceShareArns: [ // ResourceShareArnList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",

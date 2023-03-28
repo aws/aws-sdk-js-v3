@@ -44,7 +44,7 @@ export interface DescribeProvisionedProductPlanCommandOutput
  * import { ServiceCatalogClient, DescribeProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // DescribeProvisionedProductPlanInput
  *   AcceptLanguage: "STRING_VALUE",
  *   PlanId: "STRING_VALUE", // required
  *   PageSize: Number("int"),

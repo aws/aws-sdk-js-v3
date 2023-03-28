@@ -44,7 +44,7 @@ export interface DeleteVerifiedAccessTrustProviderCommandOutput
  * import { EC2Client, DeleteVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteVerifiedAccessTrustProviderRequest
  *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
  *   DryRun: true || false,
  *   ClientToken: "STRING_VALUE",

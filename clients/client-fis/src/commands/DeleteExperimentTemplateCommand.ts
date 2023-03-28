@@ -42,7 +42,7 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  * import { FisClient, DeleteExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, DeleteExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
- * const input = {
+ * const input = { // DeleteExperimentTemplateRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new DeleteExperimentTemplateCommand(input);

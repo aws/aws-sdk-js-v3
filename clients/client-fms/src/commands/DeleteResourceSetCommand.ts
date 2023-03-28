@@ -42,7 +42,7 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * import { FMSClient, DeleteResourceSetCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DeleteResourceSetCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // DeleteResourceSetRequest
  *   Identifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteResourceSetCommand(input);

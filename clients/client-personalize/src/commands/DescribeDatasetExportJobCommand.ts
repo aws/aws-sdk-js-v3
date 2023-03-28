@@ -42,7 +42,7 @@ export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetEx
  * import { PersonalizeClient, DescribeDatasetExportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDatasetExportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeDatasetExportJobRequest
  *   datasetExportJobArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeDatasetExportJobCommand(input);

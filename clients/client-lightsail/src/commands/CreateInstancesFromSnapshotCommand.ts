@@ -46,13 +46,13 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  * import { LightsailClient, CreateInstancesFromSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateInstancesFromSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
- *   instanceNames: [ // required
+ * const input = { // CreateInstancesFromSnapshotRequest
+ *   instanceNames: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
- *   attachedDiskMapping: {
- *     "<keys>": [
- *       {
+ *   attachedDiskMapping: { // AttachedDiskMap
+ *     "<keys>": [ // DiskMapList
+ *       { // DiskMap
  *         originalDiskPath: "STRING_VALUE",
  *         newDiskName: "STRING_VALUE",
  *       },
@@ -63,19 +63,19 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  *   bundleId: "STRING_VALUE", // required
  *   userData: "STRING_VALUE",
  *   keyPairName: "STRING_VALUE",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   addOns: [
- *     {
+ *   addOns: [ // AddOnRequestList
+ *     { // AddOnRequest
  *       addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
- *       autoSnapshotAddOnRequest: {
+ *       autoSnapshotAddOnRequest: { // AutoSnapshotAddOnRequest
  *         snapshotTimeOfDay: "STRING_VALUE",
  *       },
- *       stopInstanceOnIdleRequest: {
+ *       stopInstanceOnIdleRequest: { // StopInstanceOnIdleRequest
  *         threshold: "STRING_VALUE",
  *         duration: "STRING_VALUE",
  *       },

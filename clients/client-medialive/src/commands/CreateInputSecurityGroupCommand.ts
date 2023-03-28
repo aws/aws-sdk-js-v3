@@ -42,12 +42,12 @@ export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecuri
  * import { MediaLiveClient, CreateInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
- *   Tags: {
+ * const input = { // CreateInputSecurityGroupRequest
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   WhitelistRules: [
- *     {
+ *   WhitelistRules: [ // __listOfInputWhitelistRuleCidr
+ *     { // InputWhitelistRuleCidr
  *       Cidr: "STRING_VALUE",
  *     },
  *   ],

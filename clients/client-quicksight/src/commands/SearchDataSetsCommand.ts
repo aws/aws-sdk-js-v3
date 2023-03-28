@@ -42,10 +42,10 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * import { QuickSightClient, SearchDataSetsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchDataSetsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // SearchDataSetsRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Filters: [ // required
- *     {
+ *   Filters: [ // DataSetSearchFilterList // required
+ *     { // DataSetSearchFilter
  *       Operator: "StringEquals" || "StringLike", // required
  *       Name: "QUICKSIGHT_VIEWER_OR_OWNER" || "QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "DATASET_NAME", // required
  *       Value: "STRING_VALUE", // required

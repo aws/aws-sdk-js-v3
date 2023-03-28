@@ -42,20 +42,20 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * import { PinpointClient, PutEventsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, PutEventsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // PutEventsRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   EventsRequest: {
- *     BatchItem: { // required
- *       "<keys>": {
- *         Endpoint: {
+ *   EventsRequest: { // EventsRequest
+ *     BatchItem: { // MapOfEventsBatch // required
+ *       "<keys>": { // EventsBatch
+ *         Endpoint: { // PublicEndpoint
  *           Address: "STRING_VALUE",
- *           Attributes: {
- *             "<keys>": [
+ *           Attributes: { // MapOfListOf__string
+ *             "<keys>": [ // ListOf__string
  *               "STRING_VALUE",
  *             ],
  *           },
  *           ChannelType: "STRING_VALUE",
- *           Demographic: {
+ *           Demographic: { // EndpointDemographic
  *             AppVersion: "STRING_VALUE",
  *             Locale: "STRING_VALUE",
  *             Make: "STRING_VALUE",
@@ -67,7 +67,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *           },
  *           EffectiveDate: "STRING_VALUE",
  *           EndpointStatus: "STRING_VALUE",
- *           Location: {
+ *           Location: { // EndpointLocation
  *             City: "STRING_VALUE",
  *             Country: "STRING_VALUE",
  *             Latitude: Number("double"),
@@ -75,12 +75,12 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *             PostalCode: "STRING_VALUE",
  *             Region: "STRING_VALUE",
  *           },
- *           Metrics: {
+ *           Metrics: { // MapOf__double
  *             "<keys>": Number("double"),
  *           },
  *           OptOut: "STRING_VALUE",
  *           RequestId: "STRING_VALUE",
- *           User: {
+ *           User: { // EndpointUser
  *             UserAttributes: {
  *               "<keys>": [
  *                 "STRING_VALUE",
@@ -89,12 +89,12 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *             UserId: "STRING_VALUE",
  *           },
  *         },
- *         Events: { // required
- *           "<keys>": {
+ *         Events: { // MapOfEvent // required
+ *           "<keys>": { // Event
  *             AppPackageName: "STRING_VALUE",
  *             AppTitle: "STRING_VALUE",
  *             AppVersionCode: "STRING_VALUE",
- *             Attributes: {
+ *             Attributes: { // MapOf__string
  *               "<keys>": "STRING_VALUE",
  *             },
  *             ClientSdkVersion: "STRING_VALUE",
@@ -103,7 +103,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *               "<keys>": Number("double"),
  *             },
  *             SdkName: "STRING_VALUE",
- *             Session: {
+ *             Session: { // Session
  *               Duration: Number("int"),
  *               Id: "STRING_VALUE", // required
  *               StartTimestamp: "STRING_VALUE", // required

@@ -51,7 +51,7 @@ export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGrou
  * import { IAMClient, ListAttachedGroupPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListAttachedGroupPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // ListAttachedGroupPoliciesRequest
  *   GroupName: "STRING_VALUE", // required
  *   PathPrefix: "STRING_VALUE",
  *   Marker: "STRING_VALUE",

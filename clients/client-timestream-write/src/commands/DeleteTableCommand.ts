@@ -51,7 +51,7 @@ export interface DeleteTableCommandOutput extends __MetadataBearer {}
  * import { TimestreamWriteClient, DeleteTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DeleteTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const input = {
+ * const input = { // DeleteTableRequest
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
  * };

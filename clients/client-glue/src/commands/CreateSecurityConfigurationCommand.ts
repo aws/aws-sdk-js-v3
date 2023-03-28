@@ -44,20 +44,20 @@ export interface CreateSecurityConfigurationCommandOutput
  * import { GlueClient, CreateSecurityConfigurationCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateSecurityConfigurationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateSecurityConfigurationRequest
  *   Name: "STRING_VALUE", // required
- *   EncryptionConfiguration: {
- *     S3Encryption: [
- *       {
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     S3Encryption: [ // S3EncryptionList
+ *       { // S3Encryption
  *         S3EncryptionMode: "DISABLED" || "SSE-KMS" || "SSE-S3",
  *         KmsKeyArn: "STRING_VALUE",
  *       },
  *     ],
- *     CloudWatchEncryption: {
+ *     CloudWatchEncryption: { // CloudWatchEncryption
  *       CloudWatchEncryptionMode: "DISABLED" || "SSE-KMS",
  *       KmsKeyArn: "STRING_VALUE",
  *     },
- *     JobBookmarksEncryption: {
+ *     JobBookmarksEncryption: { // JobBookmarksEncryption
  *       JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
  *       KmsKeyArn: "STRING_VALUE",
  *     },

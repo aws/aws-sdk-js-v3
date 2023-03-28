@@ -42,7 +42,7 @@ export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsRespons
  * import { KafkaClient, ListKafkaVersionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListKafkaVersionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = {
+ * const input = { // ListKafkaVersionsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

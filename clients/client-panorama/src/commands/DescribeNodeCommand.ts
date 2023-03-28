@@ -42,7 +42,7 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * import { PanoramaClient, DescribeNodeCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeNodeCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
- * const input = {
+ * const input = { // DescribeNodeRequest
  *   NodeId: "STRING_VALUE", // required
  *   OwnerAccount: "STRING_VALUE",
  * };

@@ -51,11 +51,11 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * import { WAFV2Client, GetSampledRequestsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetSampledRequestsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
- * const input = {
+ * const input = { // GetSampledRequestsRequest
  *   WebAclArn: "STRING_VALUE", // required
  *   RuleMetricName: "STRING_VALUE", // required
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   TimeWindow: {
+ *   TimeWindow: { // TimeWindow
  *     StartTime: new Date("TIMESTAMP"), // required
  *     EndTime: new Date("TIMESTAMP"), // required
  *   },

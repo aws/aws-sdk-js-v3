@@ -64,7 +64,7 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * import { CloudFrontClient, ListConflictingAliasesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListConflictingAliasesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListConflictingAliasesRequest
  *   DistributionId: "STRING_VALUE", // required
  *   Alias: "STRING_VALUE", // required
  *   Marker: "STRING_VALUE",

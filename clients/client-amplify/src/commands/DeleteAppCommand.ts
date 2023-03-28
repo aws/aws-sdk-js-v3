@@ -42,7 +42,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
  * import { AmplifyClient, DeleteAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
- * const input = {
+ * const input = { // DeleteAppRequest
  *   appId: "STRING_VALUE", // required
  * };
  * const command = new DeleteAppCommand(input);

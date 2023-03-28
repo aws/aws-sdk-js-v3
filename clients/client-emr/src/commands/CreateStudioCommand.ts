@@ -42,12 +42,12 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * import { EMRClient, CreateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CreateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // CreateStudioInput
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   AuthMode: "SSO" || "IAM", // required
  *   VpcId: "STRING_VALUE", // required
- *   SubnetIds: [ // required
+ *   SubnetIds: [ // SubnetIdList // required
  *     "STRING_VALUE",
  *   ],
  *   ServiceRole: "STRING_VALUE", // required
@@ -57,8 +57,8 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  *   DefaultS3Location: "STRING_VALUE", // required
  *   IdpAuthUrl: "STRING_VALUE",
  *   IdpRelayStateParameterName: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

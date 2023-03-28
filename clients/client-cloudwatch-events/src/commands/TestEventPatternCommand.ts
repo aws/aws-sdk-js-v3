@@ -46,7 +46,7 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * import { CloudWatchEventsClient, TestEventPatternCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, TestEventPatternCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // TestEventPatternRequest
  *   EventPattern: "STRING_VALUE", // required
  *   Event: "STRING_VALUE", // required
  * };

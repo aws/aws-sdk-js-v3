@@ -39,7 +39,7 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  * import { CodeCommitClient, GetFolderCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetFolderCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // GetFolderInput
  *   repositoryName: "STRING_VALUE", // required
  *   commitSpecifier: "STRING_VALUE",
  *   folderPath: "STRING_VALUE", // required

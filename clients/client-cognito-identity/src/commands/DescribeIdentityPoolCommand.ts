@@ -45,7 +45,7 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  * import { CognitoIdentityClient, DescribeIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DescribeIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
- * const input = {
+ * const input = { // DescribeIdentityPoolInput
  *   IdentityPoolId: "STRING_VALUE", // required
  * };
  * const command = new DescribeIdentityPoolCommand(input);

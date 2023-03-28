@@ -55,7 +55,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * import { NeptuneClient, FailoverGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, FailoverGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // FailoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   TargetDbClusterIdentifier: "STRING_VALUE", // required
  * };

@@ -42,7 +42,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * import { AthenaClient, GetDatabaseCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetDatabaseCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = {
+ * const input = { // GetDatabaseInput
  *   CatalogName: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
  * };

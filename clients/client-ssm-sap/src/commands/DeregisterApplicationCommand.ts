@@ -43,7 +43,7 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * import { SsmSapClient, DeregisterApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, DeregisterApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = {
+ * const input = { // DeregisterApplicationInput
  *   ApplicationId: "STRING_VALUE", // required
  * };
  * const command = new DeregisterApplicationCommand(input);

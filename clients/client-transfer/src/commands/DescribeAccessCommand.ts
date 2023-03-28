@@ -46,7 +46,7 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * import { TransferClient, DescribeAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // DescribeAccessRequest
  *   ServerId: "STRING_VALUE", // required
  *   ExternalId: "STRING_VALUE", // required
  * };

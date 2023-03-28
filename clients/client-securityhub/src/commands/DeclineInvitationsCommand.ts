@@ -45,8 +45,8 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * import { SecurityHubClient, DeclineInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeclineInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   AccountIds: [ // required
+ * const input = { // DeclineInvitationsRequest
+ *   AccountIds: [ // AccountIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

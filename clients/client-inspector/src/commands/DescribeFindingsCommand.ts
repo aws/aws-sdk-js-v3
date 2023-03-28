@@ -42,8 +42,8 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * import { InspectorClient, DescribeFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
- * const input = {
- *   findingArns: [ // required
+ * const input = { // DescribeFindingsRequest
+ *   findingArns: [ // BatchDescribeArnList // required
  *     "STRING_VALUE",
  *   ],
  *   locale: "STRING_VALUE",

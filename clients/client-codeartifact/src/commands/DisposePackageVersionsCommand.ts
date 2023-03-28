@@ -53,17 +53,17 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * import { CodeartifactClient, DisposePackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DisposePackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const input = {
+ * const input = { // DisposePackageVersionsRequest
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
  *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
- *   versions: [ // required
+ *   versions: [ // PackageVersionList // required
  *     "STRING_VALUE",
  *   ],
- *   versionRevisions: {
+ *   versionRevisions: { // PackageVersionRevisionMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   expectedStatus: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",

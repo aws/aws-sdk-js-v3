@@ -48,7 +48,7 @@ export interface DescribeAccountAssignmentCreationStatusCommandOutput
  * import { SSOAdminClient, DescribeAccountAssignmentCreationStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribeAccountAssignmentCreationStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const input = {
+ * const input = { // DescribeAccountAssignmentCreationStatusRequest
  *   InstanceArn: "STRING_VALUE", // required
  *   AccountAssignmentCreationRequestId: "STRING_VALUE", // required
  * };

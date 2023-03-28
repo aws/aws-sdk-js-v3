@@ -42,22 +42,22 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * import { SavingsplansClient, DescribeSavingsPlansCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlansCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
- * const input = {
- *   savingsPlanArns: [
+ * const input = { // DescribeSavingsPlansRequest
+ *   savingsPlanArns: [ // SavingsPlanArnList
  *     "STRING_VALUE",
  *   ],
- *   savingsPlanIds: [
+ *   savingsPlanIds: [ // SavingsPlanIdList
  *     "STRING_VALUE",
  *   ],
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   states: [
+ *   states: [ // SavingsPlanStateList
  *     "STRING_VALUE",
  *   ],
- *   filters: [
- *     {
+ *   filters: [ // SavingsPlanFilterList
+ *     { // SavingsPlanFilter
  *       name: "STRING_VALUE",
- *       values: [
+ *       values: [ // ListOfStrings
  *         "STRING_VALUE",
  *       ],
  *     },

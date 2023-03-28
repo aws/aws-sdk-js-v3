@@ -48,16 +48,16 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * import { ConfigServiceClient, PutStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
- *   StoredQuery: {
+ * const input = { // PutStoredQueryRequest
+ *   StoredQuery: { // StoredQuery
  *     QueryId: "STRING_VALUE",
  *     QueryArn: "STRING_VALUE",
  *     QueryName: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
  *     Expression: "STRING_VALUE",
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagsList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

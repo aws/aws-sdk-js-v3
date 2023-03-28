@@ -52,7 +52,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * import { ConnectClient, CreateInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // CreateInstanceRequest
  *   ClientToken: "STRING_VALUE",
  *   IdentityManagementType: "SAML" || "CONNECT_MANAGED" || "EXISTING_DIRECTORY", // required
  *   InstanceAlias: "STRING_VALUE",

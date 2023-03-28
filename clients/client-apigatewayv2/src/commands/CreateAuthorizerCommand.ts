@@ -42,7 +42,7 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * import { ApiGatewayV2Client, CreateAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // CreateAuthorizerRequest
  *   ApiId: "STRING_VALUE", // required
  *   AuthorizerCredentialsArn: "STRING_VALUE",
  *   AuthorizerPayloadFormatVersion: "STRING_VALUE",
@@ -50,12 +50,12 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  *   AuthorizerType: "STRING_VALUE", // required
  *   AuthorizerUri: "STRING_VALUE",
  *   EnableSimpleResponses: true || false,
- *   IdentitySource: [ // required
+ *   IdentitySource: [ // IdentitySourceList // required
  *     "STRING_VALUE",
  *   ],
  *   IdentityValidationExpression: "STRING_VALUE",
- *   JwtConfiguration: {
- *     Audience: [
+ *   JwtConfiguration: { // JWTConfiguration
+ *     Audience: [ // __listOf__string
  *       "STRING_VALUE",
  *     ],
  *     Issuer: "STRING_VALUE",

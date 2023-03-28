@@ -46,17 +46,17 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * import { BudgetsClient, CreateSubscriberCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateSubscriberCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
- * const input = {
+ * const input = { // CreateSubscriberRequest
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
- *   Notification: {
+ *   Notification: { // Notification
  *     NotificationType: "STRING_VALUE", // required
  *     ComparisonOperator: "STRING_VALUE", // required
  *     Threshold: Number("double"), // required
  *     ThresholdType: "STRING_VALUE",
  *     NotificationState: "STRING_VALUE",
  *   },
- *   Subscriber: {
+ *   Subscriber: { // Subscriber
  *     SubscriptionType: "STRING_VALUE", // required
  *     Address: "STRING_VALUE", // required
  *   },

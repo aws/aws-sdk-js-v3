@@ -42,7 +42,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * import { DataBrewClient, DescribeDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
- * const input = {
+ * const input = { // DescribeDatasetRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeDatasetCommand(input);

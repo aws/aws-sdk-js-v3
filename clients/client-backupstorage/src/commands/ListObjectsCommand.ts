@@ -42,7 +42,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * import { BackupStorageClient, ListObjectsCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, ListObjectsCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
- * const input = {
+ * const input = { // ListObjectsInput
  *   StorageJobId: "STRING_VALUE", // required
  *   StartingObjectName: "STRING_VALUE",
  *   StartingObjectPrefix: "STRING_VALUE",

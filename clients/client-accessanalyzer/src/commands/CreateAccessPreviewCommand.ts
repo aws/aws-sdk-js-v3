@@ -43,41 +43,41 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * import { AccessAnalyzerClient, CreateAccessPreviewCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, CreateAccessPreviewCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = {
+ * const input = { // CreateAccessPreviewRequest
  *   analyzerArn: "STRING_VALUE", // required
- *   configurations: { // required
- *     "<keys>": { // Union: only one key present
- *       ebsSnapshot: {
- *         userIds: [
+ *   configurations: { // ConfigurationsMap // required
+ *     "<keys>": { // Configuration Union: only one key present
+ *       ebsSnapshot: { // EbsSnapshotConfiguration
+ *         userIds: [ // EbsUserIdList
  *           "STRING_VALUE",
  *         ],
- *         groups: [
+ *         groups: [ // EbsGroupList
  *           "STRING_VALUE",
  *         ],
  *         kmsKeyId: "STRING_VALUE",
  *       },
- *       ecrRepository: {
+ *       ecrRepository: { // EcrRepositoryConfiguration
  *         repositoryPolicy: "STRING_VALUE",
  *       },
- *       iamRole: {
+ *       iamRole: { // IamRoleConfiguration
  *         trustPolicy: "STRING_VALUE",
  *       },
- *       efsFileSystem: {
+ *       efsFileSystem: { // EfsFileSystemConfiguration
  *         fileSystemPolicy: "STRING_VALUE",
  *       },
- *       kmsKey: {
- *         keyPolicies: {
+ *       kmsKey: { // KmsKeyConfiguration
+ *         keyPolicies: { // KmsKeyPoliciesMap
  *           "<keys>": "STRING_VALUE",
  *         },
- *         grants: [
- *           {
- *             operations: [ // required
+ *         grants: [ // KmsGrantConfigurationsList
+ *           { // KmsGrantConfiguration
+ *             operations: [ // KmsGrantOperationsList // required
  *               "STRING_VALUE",
  *             ],
  *             granteePrincipal: "STRING_VALUE", // required
  *             retiringPrincipal: "STRING_VALUE",
- *             constraints: {
- *               encryptionContextEquals: {
+ *             constraints: { // KmsGrantConstraints
+ *               encryptionContextEquals: { // KmsConstraintsMap
  *                 "<keys>": "STRING_VALUE",
  *               },
  *               encryptionContextSubset: {
@@ -88,54 +88,54 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *           },
  *         ],
  *       },
- *       rdsDbClusterSnapshot: {
- *         attributes: {
- *           "<keys>": { // Union: only one key present
- *             accountIds: [
+ *       rdsDbClusterSnapshot: { // RdsDbClusterSnapshotConfiguration
+ *         attributes: { // RdsDbClusterSnapshotAttributesMap
+ *           "<keys>": { // RdsDbClusterSnapshotAttributeValue Union: only one key present
+ *             accountIds: [ // RdsDbClusterSnapshotAccountIdsList
  *               "STRING_VALUE",
  *             ],
  *           },
  *         },
  *         kmsKeyId: "STRING_VALUE",
  *       },
- *       rdsDbSnapshot: {
- *         attributes: {
- *           "<keys>": { // Union: only one key present
- *             accountIds: [
+ *       rdsDbSnapshot: { // RdsDbSnapshotConfiguration
+ *         attributes: { // RdsDbSnapshotAttributesMap
+ *           "<keys>": { // RdsDbSnapshotAttributeValue Union: only one key present
+ *             accountIds: [ // RdsDbSnapshotAccountIdsList
  *               "STRING_VALUE",
  *             ],
  *           },
  *         },
  *         kmsKeyId: "STRING_VALUE",
  *       },
- *       secretsManagerSecret: {
+ *       secretsManagerSecret: { // SecretsManagerSecretConfiguration
  *         kmsKeyId: "STRING_VALUE",
  *         secretPolicy: "STRING_VALUE",
  *       },
- *       s3Bucket: {
+ *       s3Bucket: { // S3BucketConfiguration
  *         bucketPolicy: "STRING_VALUE",
- *         bucketAclGrants: [
- *           {
+ *         bucketAclGrants: [ // S3BucketAclGrantConfigurationsList
+ *           { // S3BucketAclGrantConfiguration
  *             permission: "STRING_VALUE", // required
- *             grantee: { // Union: only one key present
+ *             grantee: { // AclGrantee Union: only one key present
  *               id: "STRING_VALUE",
  *               uri: "STRING_VALUE",
  *             },
  *           },
  *         ],
- *         bucketPublicAccessBlock: {
+ *         bucketPublicAccessBlock: { // S3PublicAccessBlockConfiguration
  *           ignorePublicAcls: true || false, // required
  *           restrictPublicBuckets: true || false, // required
  *         },
- *         accessPoints: {
- *           "<keys>": {
+ *         accessPoints: { // S3AccessPointConfigurationsMap
+ *           "<keys>": { // S3AccessPointConfiguration
  *             accessPointPolicy: "STRING_VALUE",
  *             publicAccessBlock: {
  *               ignorePublicAcls: true || false, // required
  *               restrictPublicBuckets: true || false, // required
  *             },
- *             networkOrigin: { // Union: only one key present
- *               vpcConfiguration: {
+ *             networkOrigin: { // NetworkOriginConfiguration Union: only one key present
+ *               vpcConfiguration: { // VpcConfiguration
  *                 vpcId: "STRING_VALUE", // required
  *               },
  *               internetConfiguration: {},
@@ -143,10 +143,10 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *           },
  *         },
  *       },
- *       snsTopic: {
+ *       snsTopic: { // SnsTopicConfiguration
  *         topicPolicy: "STRING_VALUE",
  *       },
- *       sqsQueue: {
+ *       sqsQueue: { // SqsQueueConfiguration
  *         queuePolicy: "STRING_VALUE",
  *       },
  *     },

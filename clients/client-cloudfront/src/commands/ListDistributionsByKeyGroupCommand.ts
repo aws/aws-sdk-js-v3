@@ -48,7 +48,7 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * import { CloudFrontClient, ListDistributionsByKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListDistributionsByKeyGroupRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  *   KeyGroupId: "STRING_VALUE", // required

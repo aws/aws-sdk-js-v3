@@ -42,7 +42,7 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * import { ServiceDiscoveryClient, GetServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
- * const input = {
+ * const input = { // GetServiceRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new GetServiceCommand(input);

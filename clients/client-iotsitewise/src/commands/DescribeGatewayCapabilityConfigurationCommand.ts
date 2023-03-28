@@ -52,7 +52,7 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  * import { IoTSiteWiseClient, DescribeGatewayCapabilityConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeGatewayCapabilityConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DescribeGatewayCapabilityConfigurationRequest
  *   gatewayId: "STRING_VALUE", // required
  *   capabilityNamespace: "STRING_VALUE", // required
  * };

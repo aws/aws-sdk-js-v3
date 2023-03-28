@@ -62,7 +62,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * import { CloudDirectoryClient, CreateSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // CreateSchemaRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new CreateSchemaCommand(input);

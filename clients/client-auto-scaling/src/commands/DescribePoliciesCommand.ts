@@ -42,12 +42,12 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * import { AutoScalingClient, DescribePoliciesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribePoliciesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // DescribePoliciesType
  *   AutoScalingGroupName: "STRING_VALUE",
- *   PolicyNames: [
+ *   PolicyNames: [ // PolicyNames
  *     "STRING_VALUE",
  *   ],
- *   PolicyTypes: [
+ *   PolicyTypes: [ // PolicyTypes
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

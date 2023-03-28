@@ -53,7 +53,7 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
  * import { TranscribeClient, GetCallAnalyticsJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetCallAnalyticsJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // GetCallAnalyticsJobRequest
  *   CallAnalyticsJobName: "STRING_VALUE", // required
  * };
  * const command = new GetCallAnalyticsJobCommand(input);

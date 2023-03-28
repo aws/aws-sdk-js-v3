@@ -43,7 +43,7 @@ export interface ListTransactionsCommandOutput extends ListTransactionsResponse,
  * import { LakeFormationClient, ListTransactionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListTransactionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // ListTransactionsRequest
  *   CatalogId: "STRING_VALUE",
  *   StatusFilter: "ALL" || "COMPLETED" || "ACTIVE" || "COMMITTED" || "ABORTED",
  *   MaxResults: Number("int"),

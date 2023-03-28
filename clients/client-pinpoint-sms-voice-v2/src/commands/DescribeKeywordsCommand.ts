@@ -53,15 +53,15 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * import { PinpointSMSVoiceV2Client, DescribeKeywordsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeKeywordsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // DescribeKeywordsRequest
  *   OriginationIdentity: "STRING_VALUE", // required
- *   Keywords: [
+ *   Keywords: [ // KeywordList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // KeywordFilterList
+ *     { // KeywordFilter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

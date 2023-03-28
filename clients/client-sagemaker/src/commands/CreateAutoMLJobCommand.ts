@@ -47,12 +47,12 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  * import { SageMakerClient, CreateAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // CreateAutoMLJobRequest
  *   AutoMLJobName: "STRING_VALUE", // required
- *   InputDataConfig: [ // required
- *     {
- *       DataSource: {
- *         S3DataSource: {
+ *   InputDataConfig: [ // AutoMLInputDataConfig // required
+ *     { // AutoMLChannel
+ *       DataSource: { // AutoMLDataSource
+ *         S3DataSource: { // AutoMLS3DataSource
  *           S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
  *           S3Uri: "STRING_VALUE", // required
  *         },
@@ -63,40 +63,40 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *       ChannelType: "training" || "validation",
  *     },
  *   ],
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // AutoMLOutputDataConfig
  *     KmsKeyId: "STRING_VALUE",
  *     S3OutputPath: "STRING_VALUE", // required
  *   },
  *   ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
- *   AutoMLJobObjective: {
+ *   AutoMLJobObjective: { // AutoMLJobObjective
  *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
  *   },
- *   AutoMLJobConfig: {
- *     CompletionCriteria: {
+ *   AutoMLJobConfig: { // AutoMLJobConfig
+ *     CompletionCriteria: { // AutoMLJobCompletionCriteria
  *       MaxCandidates: Number("int"),
  *       MaxRuntimePerTrainingJobInSeconds: Number("int"),
  *       MaxAutoMLJobRuntimeInSeconds: Number("int"),
  *     },
- *     SecurityConfig: {
+ *     SecurityConfig: { // AutoMLSecurityConfig
  *       VolumeKmsKeyId: "STRING_VALUE",
  *       EnableInterContainerTrafficEncryption: true || false,
- *       VpcConfig: {
- *         SecurityGroupIds: [ // required
+ *       VpcConfig: { // VpcConfig
+ *         SecurityGroupIds: [ // VpcSecurityGroupIds // required
  *           "STRING_VALUE",
  *         ],
- *         Subnets: [ // required
+ *         Subnets: [ // Subnets // required
  *           "STRING_VALUE",
  *         ],
  *       },
  *     },
- *     DataSplitConfig: {
+ *     DataSplitConfig: { // AutoMLDataSplitConfig
  *       ValidationFraction: Number("float"),
  *     },
- *     CandidateGenerationConfig: {
+ *     CandidateGenerationConfig: { // AutoMLCandidateGenerationConfig
  *       FeatureSpecificationS3Uri: "STRING_VALUE",
- *       AlgorithmsConfig: [
- *         {
- *           AutoMLAlgorithms: [ // required
+ *       AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
+ *         { // AutoMLAlgorithmConfig
+ *           AutoMLAlgorithms: [ // AutoMLAlgorithms // required
  *             "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
  *           ],
  *         },
@@ -106,13 +106,13 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *   },
  *   RoleArn: "STRING_VALUE", // required
  *   GenerateCandidateDefinitionsOnly: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   ModelDeployConfig: {
+ *   ModelDeployConfig: { // ModelDeployConfig
  *     AutoGenerateEndpointName: true || false,
  *     EndpointName: "STRING_VALUE",
  *   },

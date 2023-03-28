@@ -57,13 +57,13 @@ export interface PutClusterCapacityProvidersCommandOutput
  * import { ECSClient, PutClusterCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutClusterCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // PutClusterCapacityProvidersRequest
  *   cluster: "STRING_VALUE", // required
- *   capacityProviders: [ // required
+ *   capacityProviders: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
- *   defaultCapacityProviderStrategy: [ // required
- *     {
+ *   defaultCapacityProviderStrategy: [ // CapacityProviderStrategy // required
+ *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
  *       weight: Number("int"),
  *       base: Number("int"),

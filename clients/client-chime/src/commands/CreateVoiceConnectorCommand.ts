@@ -48,7 +48,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * import { ChimeClient, CreateVoiceConnectorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateVoiceConnectorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // CreateVoiceConnectorRequest
  *   Name: "STRING_VALUE", // required
  *   AwsRegion: "STRING_VALUE",
  *   RequireEncryption: true || false, // required

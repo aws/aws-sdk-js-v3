@@ -43,8 +43,8 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * import { WorkSpacesClient, DescribeWorkspaceBundlesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceBundlesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = {
- *   BundleIds: [
+ * const input = { // DescribeWorkspaceBundlesRequest
+ *   BundleIds: [ // BundleIdList
  *     "STRING_VALUE",
  *   ],
  *   Owner: "STRING_VALUE",

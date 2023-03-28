@@ -42,7 +42,7 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  * import { WorkSpacesWebClient, AssociateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // AssociateNetworkSettingsRequest
  *   portalArn: "STRING_VALUE", // required
  *   networkSettingsArn: "STRING_VALUE", // required
  * };

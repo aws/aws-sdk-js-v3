@@ -47,19 +47,19 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * import { MgnClient, UpdateReplicationConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateReplicationConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
+ * const input = { // UpdateReplicationConfigurationRequest
  *   sourceServerID: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   stagingAreaSubnetId: "STRING_VALUE",
  *   associateDefaultSecurityGroup: true || false,
- *   replicationServersSecurityGroupsIDs: [
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
  *     "STRING_VALUE",
  *   ],
  *   replicationServerInstanceType: "STRING_VALUE",
  *   useDedicatedReplicationServer: true || false,
  *   defaultLargeStagingDiskType: "STRING_VALUE",
- *   replicatedDisks: [
- *     {
+ *   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
+ *     { // ReplicationConfigurationReplicatedDisk
  *       deviceName: "STRING_VALUE",
  *       isBootDisk: true || false,
  *       stagingDiskType: "STRING_VALUE",
@@ -72,7 +72,7 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  *   bandwidthThrottling: Number("long"),
  *   dataPlaneRouting: "STRING_VALUE",
  *   createPublicIP: true || false,
- *   stagingAreaTags: {
+ *   stagingAreaTags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

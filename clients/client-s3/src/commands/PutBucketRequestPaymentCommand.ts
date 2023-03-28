@@ -60,11 +60,11 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * import { S3Client, PutBucketRequestPaymentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketRequestPaymentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // PutBucketRequestPaymentRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
  *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *   RequestPaymentConfiguration: {
+ *   RequestPaymentConfiguration: { // RequestPaymentConfiguration
  *     Payer: "Requester" || "BucketOwner", // required
  *   },
  *   ExpectedBucketOwner: "STRING_VALUE",

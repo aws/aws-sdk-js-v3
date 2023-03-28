@@ -44,7 +44,7 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * import { GrafanaClient, UpdateWorkspaceConfigurationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceConfigurationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const input = {
+ * const input = { // UpdateWorkspaceConfigurationRequest
  *   configuration: "STRING_VALUE", // required
  *   workspaceId: "STRING_VALUE", // required
  * };

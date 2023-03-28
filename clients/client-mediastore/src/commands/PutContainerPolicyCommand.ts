@@ -48,7 +48,7 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  * import { MediaStoreClient, PutContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, PutContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
- * const input = {
+ * const input = { // PutContainerPolicyInput
  *   ContainerName: "STRING_VALUE", // required
  *   Policy: "STRING_VALUE", // required
  * };

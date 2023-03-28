@@ -45,7 +45,7 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * import { TransferClient, ListProfilesCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListProfilesCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // ListProfilesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   ProfileType: "LOCAL" || "PARTNER",

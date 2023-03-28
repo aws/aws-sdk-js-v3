@@ -47,7 +47,7 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * import { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DeleteEnvironmentConfigurationMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   EnvironmentName: "STRING_VALUE", // required
  * };

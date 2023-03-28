@@ -46,7 +46,7 @@ export interface StopEarthObservationJobCommandOutput extends StopEarthObservati
  * import { SageMakerGeospatialClient, StopEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, StopEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
- * const input = {
+ * const input = { // StopEarthObservationJobInput
  *   Arn: "STRING_VALUE", // required
  * };
  * const command = new StopEarthObservationJobCommand(input);

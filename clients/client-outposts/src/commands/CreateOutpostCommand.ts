@@ -43,13 +43,13 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  * import { OutpostsClient, CreateOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const input = {
+ * const input = { // CreateOutpostInput
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   SiteId: "STRING_VALUE", // required
  *   AvailabilityZone: "STRING_VALUE",
  *   AvailabilityZoneId: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   SupportedHardwareType: "RACK" || "SERVER",

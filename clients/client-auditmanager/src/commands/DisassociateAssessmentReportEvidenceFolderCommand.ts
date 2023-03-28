@@ -48,7 +48,7 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
  * import { AuditManagerClient, DisassociateAssessmentReportEvidenceFolderCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DisassociateAssessmentReportEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // DisassociateAssessmentReportEvidenceFolderRequest
  *   assessmentId: "STRING_VALUE", // required
  *   evidenceFolderId: "STRING_VALUE", // required
  * };

@@ -43,7 +43,7 @@ export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, _
  * import { IoTClient, ListRoleAliasesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListRoleAliasesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = {
+ * const input = { // ListRoleAliasesRequest
  *   pageSize: Number("int"),
  *   marker: "STRING_VALUE",
  *   ascendingOrder: true || false,

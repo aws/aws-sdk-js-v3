@@ -44,7 +44,7 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * import { KinesisVideoClient, ListTagsForStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListTagsForStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const input = {
+ * const input = { // ListTagsForStreamInput
  *   NextToken: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  *   StreamName: "STRING_VALUE",

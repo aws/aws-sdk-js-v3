@@ -51,7 +51,7 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * import { WAFClient, DeleteRegexPatternSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteRegexPatternSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
- * const input = {
+ * const input = { // DeleteRegexPatternSetRequest
  *   RegexPatternSetId: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

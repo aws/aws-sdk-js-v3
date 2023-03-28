@@ -43,7 +43,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * import { Inspector2Client, ListMembersCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListMembersCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = {
+ * const input = { // ListMembersRequest
  *   onlyAssociated: true || false,
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

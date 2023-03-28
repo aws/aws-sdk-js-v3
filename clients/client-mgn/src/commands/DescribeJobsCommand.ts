@@ -42,9 +42,9 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * import { MgnClient, DescribeJobsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeJobsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const input = {
- *   filters: {
- *     jobIDs: [
+ * const input = { // DescribeJobsRequest
+ *   filters: { // DescribeJobsRequestFilters
+ *     jobIDs: [ // DescribeJobsRequestFiltersJobIDs
  *       "STRING_VALUE",
  *     ],
  *     fromDate: "STRING_VALUE",

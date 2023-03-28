@@ -48,7 +48,7 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * import { ChimeSDKVoiceClient, ListPhoneNumbersCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, ListPhoneNumbersCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // ListPhoneNumbersRequest
  *   Status: "STRING_VALUE",
  *   ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
  *   FilterName: "VoiceConnectorId" || "VoiceConnectorGroupId" || "SipRuleId",

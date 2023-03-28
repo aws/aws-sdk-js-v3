@@ -45,17 +45,17 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  * import { EC2Client, DescribeVpcClassicLinkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcClassicLinkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeVpcClassicLinkRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
  *   DryRun: true || false,
- *   VpcIds: [
+ *   VpcIds: [ // VpcClassicLinkIdList
  *     "STRING_VALUE",
  *   ],
  * };

@@ -42,7 +42,7 @@ export interface DeregisterWirelessDeviceCommandOutput extends DeregisterWireles
  * import { IoTWirelessClient, DeregisterWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeregisterWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // DeregisterWirelessDeviceRequest
  *   Identifier: "STRING_VALUE", // required
  *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",
  * };

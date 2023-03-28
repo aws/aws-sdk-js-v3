@@ -45,19 +45,19 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * import { TransferClient, CreateWorkflowCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateWorkflowCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // CreateWorkflowRequest
  *   Description: "STRING_VALUE",
- *   Steps: [ // required
- *     {
+ *   Steps: [ // WorkflowSteps // required
+ *     { // WorkflowStep
  *       Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
- *       CopyStepDetails: {
+ *       CopyStepDetails: { // CopyStepDetails
  *         Name: "STRING_VALUE",
- *         DestinationFileLocation: {
- *           S3FileLocation: {
+ *         DestinationFileLocation: { // InputFileLocation
+ *           S3FileLocation: { // S3InputFileLocation
  *             Bucket: "STRING_VALUE",
  *             Key: "STRING_VALUE",
  *           },
- *           EfsFileLocation: {
+ *           EfsFileLocation: { // EfsFileLocation
  *             FileSystemId: "STRING_VALUE",
  *             Path: "STRING_VALUE",
  *           },
@@ -65,27 +65,27 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *         OverwriteExisting: "TRUE" || "FALSE",
  *         SourceFileLocation: "STRING_VALUE",
  *       },
- *       CustomStepDetails: {
+ *       CustomStepDetails: { // CustomStepDetails
  *         Name: "STRING_VALUE",
  *         Target: "STRING_VALUE",
  *         TimeoutSeconds: Number("int"),
  *         SourceFileLocation: "STRING_VALUE",
  *       },
- *       DeleteStepDetails: {
+ *       DeleteStepDetails: { // DeleteStepDetails
  *         Name: "STRING_VALUE",
  *         SourceFileLocation: "STRING_VALUE",
  *       },
- *       TagStepDetails: {
+ *       TagStepDetails: { // TagStepDetails
  *         Name: "STRING_VALUE",
- *         Tags: [
- *           {
+ *         Tags: [ // S3Tags
+ *           { // S3Tag
  *             Key: "STRING_VALUE", // required
  *             Value: "STRING_VALUE", // required
  *           },
  *         ],
  *         SourceFileLocation: "STRING_VALUE",
  *       },
- *       DecryptStepDetails: {
+ *       DecryptStepDetails: { // DecryptStepDetails
  *         Name: "STRING_VALUE",
  *         Type: "PGP", // required
  *         SourceFileLocation: "STRING_VALUE",
@@ -159,8 +159,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *       },
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

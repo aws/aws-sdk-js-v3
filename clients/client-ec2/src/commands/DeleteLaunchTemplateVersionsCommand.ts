@@ -47,11 +47,11 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * import { EC2Client, DeleteLaunchTemplateVersionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLaunchTemplateVersionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DeleteLaunchTemplateVersionsRequest
  *   DryRun: true || false,
  *   LaunchTemplateId: "STRING_VALUE",
  *   LaunchTemplateName: "STRING_VALUE",
- *   Versions: [ // required
+ *   Versions: [ // VersionStringList // required
  *     "STRING_VALUE",
  *   ],
  * };

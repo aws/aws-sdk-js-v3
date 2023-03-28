@@ -58,7 +58,7 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * import { StorageGatewayClient, CreateSMBFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateSMBFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // CreateSMBFileShareInput
  *   ClientToken: "STRING_VALUE", // required
  *   GatewayARN: "STRING_VALUE", // required
  *   KMSEncrypted: true || false,
@@ -72,7 +72,7 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *   RequesterPays: true || false,
  *   SMBACLEnabled: true || false,
  *   AccessBasedEnumeration: true || false,
- *   AdminUserList: [
+ *   AdminUserList: [ // UserList
  *     "STRING_VALUE",
  *   ],
  *   ValidUserList: [
@@ -84,14 +84,14 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *   AuditDestinationARN: "STRING_VALUE",
  *   Authentication: "STRING_VALUE",
  *   CaseSensitivity: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  *   FileShareName: "STRING_VALUE",
- *   CacheAttributes: {
+ *   CacheAttributes: { // CacheAttributes
  *     CacheStaleTimeoutInSeconds: Number("int"),
  *   },
  *   NotificationPolicy: "STRING_VALUE",

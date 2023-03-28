@@ -46,7 +46,7 @@ export interface UpdateMediaInsightsPipelineStatusCommandOutput extends __Metada
  * import { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineStatusCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineStatusCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const input = {
+ * const input = { // UpdateMediaInsightsPipelineStatusRequest
  *   Identifier: "STRING_VALUE", // required
  *   UpdateStatus: "Pause" || "Resume", // required
  * };

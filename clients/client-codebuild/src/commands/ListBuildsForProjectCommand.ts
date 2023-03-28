@@ -43,7 +43,7 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * import { CodeBuildClient, ListBuildsForProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildsForProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
+ * const input = { // ListBuildsForProjectInput
  *   projectName: "STRING_VALUE", // required
  *   sortOrder: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

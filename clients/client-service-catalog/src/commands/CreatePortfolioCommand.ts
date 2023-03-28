@@ -43,13 +43,13 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
  * import { ServiceCatalogClient, CreatePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreatePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // CreatePortfolioInput
  *   AcceptLanguage: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ProviderName: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // AddTags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

@@ -42,7 +42,7 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
  * import { CodeCommitClient, UpdatePullRequestTitleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestTitleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // UpdatePullRequestTitleInput
  *   pullRequestId: "STRING_VALUE", // required
  *   title: "STRING_VALUE", // required
  * };

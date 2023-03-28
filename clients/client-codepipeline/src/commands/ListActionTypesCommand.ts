@@ -43,7 +43,7 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * import { CodePipelineClient, ListActionTypesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListActionTypesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = {
+ * const input = { // ListActionTypesInput
  *   actionOwnerFilter: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   regionFilter: "STRING_VALUE",

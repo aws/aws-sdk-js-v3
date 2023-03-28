@@ -51,10 +51,10 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * import { CloudFormationClient, ContinueUpdateRollbackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ContinueUpdateRollbackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
- * const input = {
+ * const input = { // ContinueUpdateRollbackInput
  *   StackName: "STRING_VALUE", // required
  *   RoleARN: "STRING_VALUE",
- *   ResourcesToSkip: [
+ *   ResourcesToSkip: [ // ResourcesToSkip
  *     "STRING_VALUE",
  *   ],
  *   ClientRequestToken: "STRING_VALUE",

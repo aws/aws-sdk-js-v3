@@ -46,7 +46,7 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * import { AppRunnerClient, DescribeServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // DescribeServiceRequest
  *   ServiceArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeServiceCommand(input);

@@ -46,7 +46,7 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * import { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
- * const input = {
+ * const input = { // ListApplicationSnapshotsRequest
  *   ApplicationName: "STRING_VALUE", // required
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",

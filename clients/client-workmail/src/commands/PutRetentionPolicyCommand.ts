@@ -46,13 +46,13 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  * import { WorkMailClient, PutRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // PutRetentionPolicyRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   Id: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   FolderConfigurations: [ // required
- *     {
+ *   FolderConfigurations: [ // FolderConfigurations // required
+ *     { // FolderConfiguration
  *       Name: "INBOX" || "DELETED_ITEMS" || "SENT_ITEMS" || "DRAFTS" || "JUNK_EMAIL", // required
  *       Action: "NONE" || "DELETE" || "PERMANENTLY_DELETE", // required
  *       Period: Number("int"),

@@ -43,16 +43,16 @@ export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateHoursOfOperationRequest
  *   InstanceId: "STRING_VALUE", // required
  *   HoursOfOperationId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   TimeZone: "STRING_VALUE",
- *   Config: [
- *     {
+ *   Config: [ // HoursOfOperationConfigList
+ *     { // HoursOfOperationConfig
  *       Day: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
- *       StartTime: {
+ *       StartTime: { // HoursOfOperationTimeSlice
  *         Hours: Number("int"), // required
  *         Minutes: Number("int"), // required
  *       },

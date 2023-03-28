@@ -43,7 +43,7 @@ export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __Metadat
  * import { BackupClient, GetLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // GetLegalHoldInput
  *   LegalHoldId: "STRING_VALUE", // required
  * };
  * const command = new GetLegalHoldCommand(input);

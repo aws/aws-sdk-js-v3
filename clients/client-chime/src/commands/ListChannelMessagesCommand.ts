@@ -57,7 +57,7 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * import { ChimeClient, ListChannelMessagesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListChannelMessagesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // ListChannelMessagesRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   SortOrder: "STRING_VALUE",
  *   NotBefore: new Date("TIMESTAMP"),

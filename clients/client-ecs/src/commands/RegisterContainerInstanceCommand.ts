@@ -46,44 +46,44 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  * import { ECSClient, RegisterContainerInstanceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RegisterContainerInstanceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // RegisterContainerInstanceRequest
  *   cluster: "STRING_VALUE",
  *   instanceIdentityDocument: "STRING_VALUE",
  *   instanceIdentityDocumentSignature: "STRING_VALUE",
- *   totalResources: [
- *     {
+ *   totalResources: [ // Resources
+ *     { // Resource
  *       name: "STRING_VALUE",
  *       type: "STRING_VALUE",
  *       doubleValue: Number("double"),
  *       longValue: Number("long"),
  *       integerValue: Number("int"),
- *       stringSetValue: [
+ *       stringSetValue: [ // StringList
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   versionInfo: {
+ *   versionInfo: { // VersionInfo
  *     agentVersion: "STRING_VALUE",
  *     agentHash: "STRING_VALUE",
  *     dockerVersion: "STRING_VALUE",
  *   },
  *   containerInstanceArn: "STRING_VALUE",
- *   attributes: [
- *     {
+ *   attributes: [ // Attributes
+ *     { // Attribute
  *       name: "STRING_VALUE", // required
  *       value: "STRING_VALUE",
  *       targetType: "container-instance",
  *       targetId: "STRING_VALUE",
  *     },
  *   ],
- *   platformDevices: [
- *     {
+ *   platformDevices: [ // PlatformDevices
+ *     { // PlatformDevice
  *       id: "STRING_VALUE", // required
  *       type: "GPU", // required
  *     },
  *   ],
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },

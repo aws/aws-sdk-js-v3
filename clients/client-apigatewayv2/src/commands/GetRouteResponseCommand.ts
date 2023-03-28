@@ -42,7 +42,7 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  * import { ApiGatewayV2Client, GetRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
- * const input = {
+ * const input = { // GetRouteResponseRequest
  *   ApiId: "STRING_VALUE", // required
  *   RouteId: "STRING_VALUE", // required
  *   RouteResponseId: "STRING_VALUE", // required

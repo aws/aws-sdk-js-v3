@@ -42,15 +42,15 @@ export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceO
  * import { AppMeshClient, UpdateVirtualServiceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualServiceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // UpdateVirtualServiceInput
  *   virtualServiceName: "STRING_VALUE", // required
  *   meshName: "STRING_VALUE", // required
- *   spec: {
- *     provider: { // Union: only one key present
- *       virtualNode: {
+ *   spec: { // VirtualServiceSpec
+ *     provider: { // VirtualServiceProvider Union: only one key present
+ *       virtualNode: { // VirtualNodeServiceProvider
  *         virtualNodeName: "STRING_VALUE", // required
  *       },
- *       virtualRouter: {
+ *       virtualRouter: { // VirtualRouterServiceProvider
  *         virtualRouterName: "STRING_VALUE", // required
  *       },
  *     },

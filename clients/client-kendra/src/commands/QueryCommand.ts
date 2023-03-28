@@ -59,241 +59,116 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * import { KendraClient, QueryCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, QueryCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = {
+ * const input = { // QueryRequest
  *   IndexId: "STRING_VALUE", // required
  *   QueryText: "STRING_VALUE",
- *   AttributeFilter: {
- *     AndAllFilters: [
+ *   AttributeFilter: { // AttributeFilter
+ *     AndAllFilters: [ // AttributeFilterList
  *       {
  *         AndAllFilters: [
- *           {
- *             AndAllFilters: "<AttributeFilter>",
- *             OrAllFilters: [
- *               "<AttributeFilterList>",
- *             ],
- *             NotFilter: {
- *               AndAllFilters: "<AttributeFilter>",
- *               OrAllFilters: [
- *                 "<AttributeFilterList>",
- *               ],
- *               NotFilter: {
- *                 AndAllFilters: "<AttributeFilter>",
- *                 OrAllFilters: "<AttributeFilter>",
- *                 NotFilter: "<AttributeFilter>",
- *                 EqualsTo: {
- *                   Key: "STRING_VALUE", // required
- *                   Value: {
- *                     StringValue: "STRING_VALUE",
- *                     StringListValue: [
- *                       "STRING_VALUE",
- *                     ],
- *                     LongValue: Number("long"),
- *                     DateValue: new Date("TIMESTAMP"),
- *                   },
- *                 },
- *                 ContainsAll: {
- *                   Key: "STRING_VALUE", // required
- *                   Value: {
- *                     StringValue: "STRING_VALUE",
- *                     StringListValue: [
- *                       "STRING_VALUE",
- *                     ],
- *                     LongValue: Number("long"),
- *                     DateValue: new Date("TIMESTAMP"),
- *                   },
- *                 },
- *                 ContainsAny: {
- *                   Key: "STRING_VALUE", // required
- *                   Value: {
- *                     StringValue: "STRING_VALUE",
- *                     StringListValue: [
- *                       "STRING_VALUE",
- *                     ],
- *                     LongValue: Number("long"),
- *                     DateValue: new Date("TIMESTAMP"),
- *                   },
- *                 },
- *                 GreaterThan: {
- *                   Key: "STRING_VALUE", // required
- *                   Value: {
- *                     StringValue: "STRING_VALUE",
- *                     StringListValue: [
- *                       "STRING_VALUE",
- *                     ],
- *                     LongValue: Number("long"),
- *                     DateValue: new Date("TIMESTAMP"),
- *                   },
- *                 },
- *                 GreaterThanOrEquals: {
- *                   Key: "STRING_VALUE", // required
- *                   Value: {
- *                     StringValue: "STRING_VALUE",
- *                     StringListValue: [
- *                       "STRING_VALUE",
- *                     ],
- *                     LongValue: Number("long"),
- *                     DateValue: new Date("TIMESTAMP"),
- *                   },
- *                 },
- *                 LessThan: {
- *                   Key: "STRING_VALUE", // required
- *                   Value: {
- *                     StringValue: "STRING_VALUE",
- *                     StringListValue: [
- *                       "STRING_VALUE",
- *                     ],
- *                     LongValue: Number("long"),
- *                     DateValue: new Date("TIMESTAMP"),
- *                   },
- *                 },
- *                 LessThanOrEquals: {
- *                   Key: "STRING_VALUE", // required
- *                   Value: {
- *                     StringValue: "STRING_VALUE",
- *                     StringListValue: [
- *                       "STRING_VALUE",
- *                     ],
- *                     LongValue: Number("long"),
- *                     DateValue: new Date("TIMESTAMP"),
- *                   },
- *                 },
- *               },
- *               EqualsTo: {
- *                 Key: "STRING_VALUE", // required
- *                 Value: {
- *                   StringValue: "STRING_VALUE",
- *                   StringListValue: [
- *                     "STRING_VALUE",
- *                   ],
- *                   LongValue: Number("long"),
- *                   DateValue: new Date("TIMESTAMP"),
- *                 },
- *               },
- *               ContainsAll: {
- *                 Key: "STRING_VALUE", // required
- *                 Value: {
- *                   StringValue: "STRING_VALUE",
- *                   StringListValue: [
- *                     "STRING_VALUE",
- *                   ],
- *                   LongValue: Number("long"),
- *                   DateValue: new Date("TIMESTAMP"),
- *                 },
- *               },
- *               ContainsAny: {
- *                 Key: "STRING_VALUE", // required
- *                 Value: {
- *                   StringValue: "STRING_VALUE",
- *                   StringListValue: [
- *                     "STRING_VALUE",
- *                   ],
- *                   LongValue: Number("long"),
- *                   DateValue: new Date("TIMESTAMP"),
- *                 },
- *               },
- *               GreaterThan: {
- *                 Key: "STRING_VALUE", // required
- *                 Value: {
- *                   StringValue: "STRING_VALUE",
- *                   StringListValue: [
- *                     "STRING_VALUE",
- *                   ],
- *                   LongValue: Number("long"),
- *                   DateValue: new Date("TIMESTAMP"),
- *                 },
- *               },
- *               GreaterThanOrEquals: {
- *                 Key: "STRING_VALUE", // required
- *                 Value: {
- *                   StringValue: "STRING_VALUE",
- *                   StringListValue: [
- *                     "STRING_VALUE",
- *                   ],
- *                   LongValue: Number("long"),
- *                   DateValue: new Date("TIMESTAMP"),
- *                 },
- *               },
- *               LessThan: {
- *                 Key: "STRING_VALUE", // required
- *                 Value: {
- *                   StringValue: "STRING_VALUE",
- *                   StringListValue: [
- *                     "STRING_VALUE",
- *                   ],
- *                   LongValue: Number("long"),
- *                   DateValue: new Date("TIMESTAMP"),
- *                 },
- *               },
- *               LessThanOrEquals: {
- *                 Key: "STRING_VALUE", // required
- *                 Value: {
- *                   StringValue: "STRING_VALUE",
- *                   StringListValue: [
- *                     "STRING_VALUE",
- *                   ],
- *                   LongValue: Number("long"),
- *                   DateValue: new Date("TIMESTAMP"),
- *                 },
- *               },
- *             },
- *             EqualsTo: "<AttributeFilter>",
- *             ContainsAll: "<AttributeFilter>",
- *             ContainsAny: "<AttributeFilter>",
- *             GreaterThan: "<AttributeFilter>",
- *             GreaterThanOrEquals: "<AttributeFilter>",
- *             LessThan: "<AttributeFilter>",
- *             LessThanOrEquals: "<AttributeFilter>",
- *           },
+ *           "<AttributeFilter>",
  *         ],
- *         OrAllFilters: "<AttributeFilter>",
+ *         OrAllFilters: [
+ *           "<AttributeFilter>",
+ *         ],
  *         NotFilter: "<AttributeFilter>",
- *         EqualsTo: "<AttributeFilter>",
- *         ContainsAll: "<AttributeFilter>",
- *         ContainsAny: "<AttributeFilter>",
- *         GreaterThan: "<AttributeFilter>",
- *         GreaterThanOrEquals: "<AttributeFilter>",
- *         LessThan: "<AttributeFilter>",
- *         LessThanOrEquals: "<AttributeFilter>",
+ *         EqualsTo: { // DocumentAttribute
+ *           Key: "STRING_VALUE", // required
+ *           Value: { // DocumentAttributeValue
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [ // DocumentAttributeStringListValue
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         ContainsAll: {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         ContainsAny: {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         GreaterThan: {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         GreaterThanOrEquals: {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         LessThan: "<DocumentAttribute>",
+ *         LessThanOrEquals: "<DocumentAttribute>",
  *       },
  *     ],
- *     OrAllFilters: "<AttributeFilter>",
+ *     OrAllFilters: [
+ *       "<AttributeFilter>",
+ *     ],
  *     NotFilter: "<AttributeFilter>",
- *     EqualsTo: "<AttributeFilter>",
- *     ContainsAll: "<AttributeFilter>",
- *     ContainsAny: "<AttributeFilter>",
- *     GreaterThan: "<AttributeFilter>",
- *     GreaterThanOrEquals: "<AttributeFilter>",
- *     LessThan: "<AttributeFilter>",
- *     LessThanOrEquals: "<AttributeFilter>",
+ *     EqualsTo: "<DocumentAttribute>",
+ *     ContainsAll: "<DocumentAttribute>",
+ *     ContainsAny: "<DocumentAttribute>",
+ *     GreaterThan: "<DocumentAttribute>",
+ *     GreaterThanOrEquals: "<DocumentAttribute>",
+ *     LessThan: "<DocumentAttribute>",
+ *     LessThanOrEquals: "<DocumentAttribute>",
  *   },
- *   Facets: [
- *     {
+ *   Facets: [ // FacetList
+ *     { // Facet
  *       DocumentAttributeKey: "STRING_VALUE",
  *       Facets: [
  *         {
  *           DocumentAttributeKey: "STRING_VALUE",
- *           Facets: [
- *             "<FacetList>",
- *           ],
+ *           Facets: "<FacetList>",
  *           MaxResults: Number("int"),
  *         },
  *       ],
  *       MaxResults: Number("int"),
  *     },
  *   ],
- *   RequestedDocumentAttributes: [
+ *   RequestedDocumentAttributes: [ // DocumentAttributeKeyList
  *     "STRING_VALUE",
  *   ],
  *   QueryResultTypeFilter: "DOCUMENT" || "QUESTION_ANSWER" || "ANSWER",
- *   DocumentRelevanceOverrideConfigurations: [
- *     {
+ *   DocumentRelevanceOverrideConfigurations: [ // DocumentRelevanceOverrideConfigurationList
+ *     { // DocumentRelevanceConfiguration
  *       Name: "STRING_VALUE", // required
- *       Relevance: {
+ *       Relevance: { // Relevance
  *         Freshness: true || false,
  *         Importance: Number("int"),
  *         Duration: "STRING_VALUE",
  *         RankOrder: "ASCENDING" || "DESCENDING",
- *         ValueImportanceMap: {
+ *         ValueImportanceMap: { // ValueImportanceMap
  *           "<keys>": Number("int"),
  *         },
  *       },
@@ -301,25 +176,25 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *   ],
  *   PageNumber: Number("int"),
  *   PageSize: Number("int"),
- *   SortingConfiguration: {
+ *   SortingConfiguration: { // SortingConfiguration
  *     DocumentAttributeKey: "STRING_VALUE", // required
  *     SortOrder: "DESC" || "ASC", // required
  *   },
- *   UserContext: {
+ *   UserContext: { // UserContext
  *     Token: "STRING_VALUE",
  *     UserId: "STRING_VALUE",
- *     Groups: [
+ *     Groups: [ // Groups
  *       "STRING_VALUE",
  *     ],
- *     DataSourceGroups: [
- *       {
+ *     DataSourceGroups: [ // DataSourceGroups
+ *       { // DataSourceGroup
  *         GroupId: "STRING_VALUE", // required
  *         DataSourceId: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
  *   VisitorId: "STRING_VALUE",
- *   SpellCorrectionConfiguration: {
+ *   SpellCorrectionConfiguration: { // SpellCorrectionConfiguration
  *     IncludeQuerySpellCheckSuggestions: true || false, // required
  *   },
  * };

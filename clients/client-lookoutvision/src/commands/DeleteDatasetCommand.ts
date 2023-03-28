@@ -56,7 +56,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * import { LookoutVisionClient, DeleteDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DeleteDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
- * const input = {
+ * const input = { // DeleteDatasetRequest
  *   ProjectName: "STRING_VALUE", // required
  *   DatasetType: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",

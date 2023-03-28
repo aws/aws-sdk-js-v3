@@ -42,14 +42,14 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { AlexaForBusinessClient, CreateUserCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateUserCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // CreateUserRequest
  *   UserId: "STRING_VALUE", // required
  *   FirstName: "STRING_VALUE",
  *   LastName: "STRING_VALUE",
  *   Email: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

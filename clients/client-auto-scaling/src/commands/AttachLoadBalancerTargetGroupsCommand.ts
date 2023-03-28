@@ -65,9 +65,9 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * import { AutoScalingClient, AttachLoadBalancerTargetGroupsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, AttachLoadBalancerTargetGroupsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
+ * const input = { // AttachLoadBalancerTargetGroupsType
  *   AutoScalingGroupName: "STRING_VALUE", // required
- *   TargetGroupARNs: [ // required
+ *   TargetGroupARNs: [ // TargetGroupARNs // required
  *     "STRING_VALUE",
  *   ],
  * };

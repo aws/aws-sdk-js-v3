@@ -41,8 +41,8 @@ export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, _
  * import { RestJsonProtocolClient, PostPlayerActionCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, PostPlayerActionCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
- *   action: { // Union: only one key present
+ * const input = { // PostPlayerActionInput
+ *   action: { // PlayerAction Union: only one key present
  *     quit: {},
  *   },
  * };

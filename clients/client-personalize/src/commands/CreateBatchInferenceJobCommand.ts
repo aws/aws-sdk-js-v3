@@ -45,31 +45,31 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * import { PersonalizeClient, CreateBatchInferenceJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateBatchInferenceJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // CreateBatchInferenceJobRequest
  *   jobName: "STRING_VALUE", // required
  *   solutionVersionArn: "STRING_VALUE", // required
  *   filterArn: "STRING_VALUE",
  *   numResults: Number("int"),
- *   jobInput: {
- *     s3DataSource: {
+ *   jobInput: { // BatchInferenceJobInput
+ *     s3DataSource: { // S3DataConfig
  *       path: "STRING_VALUE", // required
  *       kmsKeyArn: "STRING_VALUE",
  *     },
  *   },
- *   jobOutput: {
+ *   jobOutput: { // BatchInferenceJobOutput
  *     s3DataDestination: {
  *       path: "STRING_VALUE", // required
  *       kmsKeyArn: "STRING_VALUE",
  *     },
  *   },
  *   roleArn: "STRING_VALUE", // required
- *   batchInferenceJobConfig: {
- *     itemExplorationConfig: {
+ *   batchInferenceJobConfig: { // BatchInferenceJobConfig
+ *     itemExplorationConfig: { // HyperParameters
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       tagKey: "STRING_VALUE", // required
  *       tagValue: "STRING_VALUE", // required
  *     },

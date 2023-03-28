@@ -42,7 +42,7 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * import { WellArchitectedClient, GetWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = {
+ * const input = { // GetWorkloadInput
  *   WorkloadId: "STRING_VALUE", // required
  * };
  * const command = new GetWorkloadCommand(input);

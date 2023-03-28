@@ -43,7 +43,7 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  * import { SSMClient, DeleteParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DeleteParameterRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DeleteParameterCommand(input);

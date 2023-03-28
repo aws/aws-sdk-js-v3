@@ -44,34 +44,34 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * import { GlueClient, CreateClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   GrokClassifier: {
+ * const input = { // CreateClassifierRequest
+ *   GrokClassifier: { // CreateGrokClassifierRequest
  *     Classification: "STRING_VALUE", // required
  *     Name: "STRING_VALUE", // required
  *     GrokPattern: "STRING_VALUE", // required
  *     CustomPatterns: "STRING_VALUE",
  *   },
- *   XMLClassifier: {
+ *   XMLClassifier: { // CreateXMLClassifierRequest
  *     Classification: "STRING_VALUE", // required
  *     Name: "STRING_VALUE", // required
  *     RowTag: "STRING_VALUE",
  *   },
- *   JsonClassifier: {
+ *   JsonClassifier: { // CreateJsonClassifierRequest
  *     Name: "STRING_VALUE", // required
  *     JsonPath: "STRING_VALUE", // required
  *   },
- *   CsvClassifier: {
+ *   CsvClassifier: { // CreateCsvClassifierRequest
  *     Name: "STRING_VALUE", // required
  *     Delimiter: "STRING_VALUE",
  *     QuoteSymbol: "STRING_VALUE",
  *     ContainsHeader: "UNKNOWN" || "PRESENT" || "ABSENT",
- *     Header: [
+ *     Header: [ // CsvHeader
  *       "STRING_VALUE",
  *     ],
  *     DisableValueTrimming: true || false,
  *     AllowSingleColumn: true || false,
  *     CustomDatatypeConfigured: true || false,
- *     CustomDatatypes: [
+ *     CustomDatatypes: [ // CustomDatatypes
  *       "STRING_VALUE",
  *     ],
  *   },

@@ -80,7 +80,7 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  * import { S3Client, ListBucketMetricsConfigurationsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketMetricsConfigurationsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // ListBucketMetricsConfigurationsRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContinuationToken: "STRING_VALUE",
  *   ExpectedBucketOwner: "STRING_VALUE",

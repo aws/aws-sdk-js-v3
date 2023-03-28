@@ -43,17 +43,17 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * import { LexModelsV2Client, ListImportsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListImportsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // ListImportsRequest
  *   botId: "STRING_VALUE",
  *   botVersion: "STRING_VALUE",
- *   sortBy: {
+ *   sortBy: { // ImportSortBy
  *     attribute: "LastUpdatedDateTime", // required
  *     order: "Ascending" || "Descending", // required
  *   },
- *   filters: [
- *     {
+ *   filters: [ // ImportFilters
+ *     { // ImportFilter
  *       name: "ImportResourceType", // required
- *       values: [ // required
+ *       values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       operator: "CO" || "EQ", // required

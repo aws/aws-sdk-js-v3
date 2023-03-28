@@ -59,9 +59,9 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  * import { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, BatchAssociateClientDeviceWithCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
- *   entries: [
- *     {
+ * const input = { // BatchAssociateClientDeviceWithCoreDeviceRequest
+ *   entries: [ // AssociateClientDeviceWithCoreDeviceEntryList
+ *     { // AssociateClientDeviceWithCoreDeviceEntry
  *       thingName: "STRING_VALUE", // required
  *     },
  *   ],

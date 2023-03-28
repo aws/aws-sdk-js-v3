@@ -44,8 +44,8 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * import { SecurityHubClient, DisassociateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisassociateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
- *   AccountIds: [ // required
+ * const input = { // DisassociateMembersRequest
+ *   AccountIds: [ // AccountIdList // required
  *     "STRING_VALUE",
  *   ],
  * };

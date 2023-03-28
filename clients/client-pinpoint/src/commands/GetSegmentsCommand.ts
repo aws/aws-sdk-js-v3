@@ -42,7 +42,7 @@ export interface GetSegmentsCommandOutput extends GetSegmentsResponse, __Metadat
  * import { PinpointClient, GetSegmentsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSegmentsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetSegmentsRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   PageSize: "STRING_VALUE",
  *   Token: "STRING_VALUE",

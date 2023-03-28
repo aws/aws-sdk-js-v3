@@ -46,7 +46,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { RedshiftServerlessClient, PutResourcePolicyCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, PutResourcePolicyCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyRequest
  *   resourceArn: "STRING_VALUE", // required
  *   policy: "STRING_VALUE", // required
  * };

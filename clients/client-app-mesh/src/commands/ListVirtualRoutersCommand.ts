@@ -42,7 +42,7 @@ export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutpu
  * import { AppMeshClient, ListVirtualRoutersCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListVirtualRoutersCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
- * const input = {
+ * const input = { // ListVirtualRoutersInput
  *   meshName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),

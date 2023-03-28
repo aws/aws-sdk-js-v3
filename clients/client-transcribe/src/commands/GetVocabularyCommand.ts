@@ -48,7 +48,7 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
  * import { TranscribeClient, GetVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
- * const input = {
+ * const input = { // GetVocabularyRequest
  *   VocabularyName: "STRING_VALUE", // required
  * };
  * const command = new GetVocabularyCommand(input);

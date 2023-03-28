@@ -43,7 +43,7 @@ export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBea
  * import { StorageGatewayClient, DeleteTapeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteTapeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
+ * const input = { // DeleteTapeInput
  *   GatewayARN: "STRING_VALUE", // required
  *   TapeARN: "STRING_VALUE", // required
  *   BypassGovernanceRetention: true || false,

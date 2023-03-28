@@ -43,9 +43,9 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { TnbClient, TagResourceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, TagResourceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
- * const input = {
+ * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required
- *   tags: { // required
+ *   tags: { // TagMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

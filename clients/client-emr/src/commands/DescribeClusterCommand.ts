@@ -43,7 +43,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * import { EMRClient, DescribeClusterCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeClusterCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // DescribeClusterInput
  *   ClusterId: "STRING_VALUE", // required
  * };
  * const command = new DescribeClusterCommand(input);

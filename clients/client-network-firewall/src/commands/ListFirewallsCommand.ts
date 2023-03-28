@@ -45,9 +45,9 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * import { NetworkFirewallClient, ListFirewallsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListFirewallsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
- * const input = {
+ * const input = { // ListFirewallsRequest
  *   NextToken: "STRING_VALUE",
- *   VpcIds: [
+ *   VpcIds: [ // VpcIds
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),

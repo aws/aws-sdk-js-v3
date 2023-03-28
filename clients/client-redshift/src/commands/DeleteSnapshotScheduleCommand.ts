@@ -42,7 +42,7 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // DeleteSnapshotScheduleMessage
  *   ScheduleIdentifier: "STRING_VALUE", // required
  * };
  * const command = new DeleteSnapshotScheduleCommand(input);

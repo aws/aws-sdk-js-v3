@@ -47,9 +47,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * import { CodestarNotificationsClient, UntagResourceCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, UntagResourceCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
- * const input = {
+ * const input = { // UntagResourceRequest
  *   Arn: "STRING_VALUE", // required
- *   TagKeys: [ // required
+ *   TagKeys: [ // TagKeys // required
  *     "STRING_VALUE",
  *   ],
  * };

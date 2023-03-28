@@ -44,9 +44,9 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
  * import { SecurityHubClient, CreateFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
- * const input = {
+ * const input = { // CreateFindingAggregatorRequest
  *   RegionLinkingMode: "STRING_VALUE", // required
- *   Regions: [
+ *   Regions: [ // StringList
  *     "STRING_VALUE",
  *   ],
  * };

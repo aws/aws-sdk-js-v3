@@ -44,7 +44,7 @@ export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolu
  * import { CustomerProfilesClient, GetIdentityResolutionJobCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetIdentityResolutionJobCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // GetIdentityResolutionJobRequest
  *   DomainName: "STRING_VALUE", // required
  *   JobId: "STRING_VALUE", // required
  * };

@@ -42,17 +42,17 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  * import { SagemakerEdgeClient, SendHeartbeatCommand } from "@aws-sdk/client-sagemaker-edge"; // ES Modules import
  * // const { SagemakerEdgeClient, SendHeartbeatCommand } = require("@aws-sdk/client-sagemaker-edge"); // CommonJS import
  * const client = new SagemakerEdgeClient(config);
- * const input = {
- *   AgentMetrics: [
- *     {
+ * const input = { // SendHeartbeatRequest
+ *   AgentMetrics: [ // EdgeMetrics
+ *     { // EdgeMetric
  *       Dimension: "STRING_VALUE",
  *       MetricName: "STRING_VALUE",
  *       Value: Number("double"),
  *       Timestamp: new Date("TIMESTAMP"),
  *     },
  *   ],
- *   Models: [
- *     {
+ *   Models: [ // Models
+ *     { // Model
  *       ModelName: "STRING_VALUE",
  *       ModelVersion: "STRING_VALUE",
  *       LatestSampleTime: new Date("TIMESTAMP"),
@@ -70,14 +70,14 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  *   AgentVersion: "STRING_VALUE", // required
  *   DeviceName: "STRING_VALUE", // required
  *   DeviceFleetName: "STRING_VALUE", // required
- *   DeploymentResult: {
+ *   DeploymentResult: { // DeploymentResult
  *     DeploymentName: "STRING_VALUE",
  *     DeploymentStatus: "STRING_VALUE",
  *     DeploymentStatusMessage: "STRING_VALUE",
  *     DeploymentStartTime: new Date("TIMESTAMP"),
  *     DeploymentEndTime: new Date("TIMESTAMP"),
- *     DeploymentModels: [
- *       {
+ *     DeploymentModels: [ // DeploymentModels
+ *       { // DeploymentModel
  *         ModelHandle: "STRING_VALUE",
  *         ModelName: "STRING_VALUE",
  *         ModelVersion: "STRING_VALUE",

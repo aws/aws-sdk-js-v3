@@ -47,46 +47,46 @@ export interface UpdateLaunchProfileCommandOutput extends UpdateLaunchProfileRes
  * import { NimbleClient, UpdateLaunchProfileCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateLaunchProfileCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // UpdateLaunchProfileRequest
  *   clientToken: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   launchProfileId: "STRING_VALUE", // required
- *   launchProfileProtocolVersions: [
+ *   launchProfileProtocolVersions: [ // LaunchProfileProtocolVersionList
  *     "STRING_VALUE",
  *   ],
  *   name: "STRING_VALUE",
- *   streamConfiguration: {
+ *   streamConfiguration: { // StreamConfigurationCreate
  *     clipboardMode: "ENABLED" || "DISABLED", // required
- *     ec2InstanceTypes: [ // required
+ *     ec2InstanceTypes: [ // StreamingInstanceTypeList // required
  *       "g4dn.xlarge" || "g4dn.2xlarge" || "g4dn.4xlarge" || "g4dn.8xlarge" || "g4dn.12xlarge" || "g4dn.16xlarge" || "g3.4xlarge" || "g3s.xlarge" || "g5.xlarge" || "g5.2xlarge" || "g5.4xlarge" || "g5.8xlarge" || "g5.16xlarge",
  *     ],
  *     maxSessionLengthInMinutes: Number("int"),
- *     streamingImageIds: [ // required
+ *     streamingImageIds: [ // StreamingImageIdList // required
  *       "STRING_VALUE",
  *     ],
  *     maxStoppedSessionLengthInMinutes: Number("int"),
- *     sessionStorage: {
- *       root: {
+ *     sessionStorage: { // StreamConfigurationSessionStorage
+ *       root: { // StreamingSessionStorageRoot
  *         linux: "STRING_VALUE",
  *         windows: "STRING_VALUE",
  *       },
- *       mode: [ // required
+ *       mode: [ // StreamingSessionStorageModeList // required
  *         "UPLOAD",
  *       ],
  *     },
- *     sessionBackup: {
+ *     sessionBackup: { // StreamConfigurationSessionBackup
  *       mode: "AUTOMATIC" || "DEACTIVATED",
  *       maxBackupsToRetain: Number("int"),
  *     },
  *     sessionPersistenceMode: "DEACTIVATED" || "ACTIVATED",
- *     volumeConfiguration: {
+ *     volumeConfiguration: { // VolumeConfiguration
  *       size: Number("int"),
  *       throughput: Number("int"),
  *       iops: Number("int"),
  *     },
  *     automaticTerminationMode: "DEACTIVATED" || "ACTIVATED",
  *   },
- *   studioComponentIds: [
+ *   studioComponentIds: [ // LaunchProfileStudioComponentIdList
  *     "STRING_VALUE",
  *   ],
  *   studioId: "STRING_VALUE", // required

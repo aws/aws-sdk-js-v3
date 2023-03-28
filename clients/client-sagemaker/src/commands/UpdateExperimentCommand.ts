@@ -43,7 +43,7 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  * import { SageMakerClient, UpdateExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateExperimentRequest
  *   ExperimentName: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
  *   Description: "STRING_VALUE",

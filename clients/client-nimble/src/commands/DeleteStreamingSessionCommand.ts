@@ -46,7 +46,7 @@ export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSess
  * import { NimbleClient, DeleteStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // DeleteStreamingSessionRequest
  *   clientToken: "STRING_VALUE",
  *   sessionId: "STRING_VALUE", // required
  *   studioId: "STRING_VALUE", // required

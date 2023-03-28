@@ -51,21 +51,21 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * import { EC2Client, DescribeLaunchTemplateVersionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLaunchTemplateVersionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeLaunchTemplateVersionsRequest
  *   DryRun: true || false,
  *   LaunchTemplateId: "STRING_VALUE",
  *   LaunchTemplateName: "STRING_VALUE",
- *   Versions: [
+ *   Versions: [ // VersionStringList
  *     "STRING_VALUE",
  *   ],
  *   MinVersion: "STRING_VALUE",
  *   MaxVersion: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

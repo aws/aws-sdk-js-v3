@@ -49,7 +49,7 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * import { CloudFrontClient, ListCachePoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListCachePoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListCachePoliciesRequest
  *   Type: "managed" || "custom",
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),

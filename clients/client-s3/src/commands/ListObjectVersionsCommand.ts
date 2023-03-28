@@ -80,7 +80,7 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * import { S3Client, ListObjectVersionsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListObjectVersionsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // ListObjectVersionsRequest
  *   Bucket: "STRING_VALUE", // required
  *   Delimiter: "STRING_VALUE",
  *   EncodingType: "url",

@@ -43,7 +43,7 @@ export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
  * import { IoTSiteWiseClient, DisassociateAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DisassociateAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DisassociateAssetsRequest
  *   assetId: "STRING_VALUE", // required
  *   hierarchyId: "STRING_VALUE", // required
  *   childAssetId: "STRING_VALUE", // required

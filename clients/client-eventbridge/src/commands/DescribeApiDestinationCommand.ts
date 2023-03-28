@@ -42,7 +42,7 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * import { EventBridgeClient, DescribeApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // DescribeApiDestinationRequest
  *   Name: "STRING_VALUE", // required
  * };
  * const command = new DescribeApiDestinationCommand(input);

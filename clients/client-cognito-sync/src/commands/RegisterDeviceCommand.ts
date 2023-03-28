@@ -86,7 +86,7 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  * import { CognitoSyncClient, RegisterDeviceCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, RegisterDeviceCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
- * const input = {
+ * const input = { // RegisterDeviceRequest
  *   IdentityPoolId: "STRING_VALUE", // required
  *   IdentityId: "STRING_VALUE", // required
  *   Platform: "STRING_VALUE", // required

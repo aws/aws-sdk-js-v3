@@ -42,7 +42,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { NetworkManagerClient, PutResourcePolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, PutResourcePolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // PutResourcePolicyRequest
  *   PolicyDocument: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
  * };

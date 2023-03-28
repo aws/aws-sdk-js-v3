@@ -48,7 +48,7 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * import { PinpointEmailClient, PutConfigurationSetSendingOptionsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutConfigurationSetSendingOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
- * const input = {
+ * const input = { // PutConfigurationSetSendingOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   SendingEnabled: true || false,
  * };

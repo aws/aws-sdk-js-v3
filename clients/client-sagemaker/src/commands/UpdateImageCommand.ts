@@ -43,8 +43,8 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * import { SageMakerClient, UpdateImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
- *   DeleteProperties: [
+ * const input = { // UpdateImageRequest
+ *   DeleteProperties: [ // ImageDeletePropertyList
  *     "STRING_VALUE",
  *   ],
  *   Description: "STRING_VALUE",

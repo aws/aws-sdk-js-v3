@@ -47,7 +47,7 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * import { BackupClient, DeleteBackupVaultLockConfigurationCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultLockConfigurationCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DeleteBackupVaultLockConfigurationInput
  *   BackupVaultName: "STRING_VALUE", // required
  * };
  * const command = new DeleteBackupVaultLockConfigurationCommand(input);

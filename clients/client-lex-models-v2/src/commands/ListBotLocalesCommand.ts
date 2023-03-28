@@ -42,17 +42,17 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  * import { LexModelsV2Client, ListBotLocalesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotLocalesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // ListBotLocalesRequest
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
- *   sortBy: {
+ *   sortBy: { // BotLocaleSortBy
  *     attribute: "BotLocaleName", // required
  *     order: "Ascending" || "Descending", // required
  *   },
- *   filters: [
- *     {
+ *   filters: [ // BotLocaleFilters
+ *     { // BotLocaleFilter
  *       name: "BotLocaleName", // required
- *       values: [ // required
+ *       values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       operator: "CO" || "EQ", // required

@@ -42,35 +42,31 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * import { AmplifyUIBuilderClient, CreateThemeCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, CreateThemeCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
- * const input = {
+ * const input = { // CreateThemeRequest
  *   appId: "STRING_VALUE", // required
  *   environmentName: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   themeToCreate: {
+ *   themeToCreate: { // CreateThemeData
  *     name: "STRING_VALUE", // required
- *     values: [ // required
- *       {
+ *     values: [ // ThemeValuesList // required
+ *       { // ThemeValues
  *         key: "STRING_VALUE",
- *         value: {
+ *         value: { // ThemeValue
  *           value: "STRING_VALUE",
  *           children: [
  *             {
  *               key: "STRING_VALUE",
  *               value: {
  *                 value: "STRING_VALUE",
- *                 children: [
- *                   "<ThemeValuesList>",
- *                 ],
+ *                 children: "<ThemeValuesList>",
  *               },
  *             },
  *           ],
  *         },
  *       },
  *     ],
- *     overrides: [
- *       "<ThemeValuesList>",
- *     ],
- *     tags: {
+ *     overrides: "<ThemeValuesList>",
+ *     tags: { // Tags
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },

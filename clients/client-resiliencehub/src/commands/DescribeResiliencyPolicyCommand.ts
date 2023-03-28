@@ -48,7 +48,7 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  * import { ResiliencehubClient, DescribeResiliencyPolicyCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeResiliencyPolicyCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // DescribeResiliencyPolicyRequest
  *   policyArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeResiliencyPolicyCommand(input);

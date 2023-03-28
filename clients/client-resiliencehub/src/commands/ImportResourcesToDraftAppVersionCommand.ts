@@ -45,21 +45,21 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * import { ResiliencehubClient, ImportResourcesToDraftAppVersionCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ImportResourcesToDraftAppVersionCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // ImportResourcesToDraftAppVersionRequest
  *   appArn: "STRING_VALUE", // required
- *   sourceArns: [
+ *   sourceArns: [ // ArnList
  *     "STRING_VALUE",
  *   ],
- *   terraformSources: [
- *     {
+ *   terraformSources: [ // TerraformSourceList
+ *     { // TerraformSource
  *       s3StateFileUrl: "STRING_VALUE", // required
  *     },
  *   ],
  *   importStrategy: "STRING_VALUE",
- *   eksSources: [
- *     {
+ *   eksSources: [ // EksSourceList
+ *     { // EksSource
  *       eksClusterArn: "STRING_VALUE", // required
- *       namespaces: [ // required
+ *       namespaces: [ // EksNamespaceList // required
  *         "STRING_VALUE",
  *       ],
  *     },

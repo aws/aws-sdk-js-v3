@@ -47,9 +47,9 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  * import { GameSparksClient, ImportGameConfigurationCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ImportGameConfigurationCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
- * const input = {
+ * const input = { // ImportGameConfigurationRequest
  *   GameName: "STRING_VALUE", // required
- *   ImportSource: {
+ *   ImportSource: { // ImportGameConfigurationSource
  *     File: "BLOB_VALUE", // required
  *   },
  * };

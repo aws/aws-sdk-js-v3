@@ -47,7 +47,7 @@ export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {
  * import { OpsWorksClient, DeregisterRdsDbInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterRdsDbInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DeregisterRdsDbInstanceRequest
  *   RdsDbInstanceArn: "STRING_VALUE", // required
  * };
  * const command = new DeregisterRdsDbInstanceCommand(input);

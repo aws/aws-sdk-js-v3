@@ -47,7 +47,7 @@ export interface AcceptTransitGatewayVpcAttachmentCommandOutput
  * import { EC2Client, AcceptTransitGatewayVpcAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AcceptTransitGatewayVpcAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // AcceptTransitGatewayVpcAttachmentRequest
  *   TransitGatewayAttachmentId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };

@@ -58,12 +58,12 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * import { CloudTrailClient, StartImportCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StartImportCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
- *   Destinations: [
+ * const input = { // StartImportRequest
+ *   Destinations: [ // ImportDestinations
  *     "STRING_VALUE",
  *   ],
- *   ImportSource: {
- *     S3: {
+ *   ImportSource: { // ImportSource
+ *     S3: { // S3ImportSource
  *       S3LocationUri: "STRING_VALUE", // required
  *       S3BucketRegion: "STRING_VALUE", // required
  *       S3BucketAccessRoleArn: "STRING_VALUE", // required

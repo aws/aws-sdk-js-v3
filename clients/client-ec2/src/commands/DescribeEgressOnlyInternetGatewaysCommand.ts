@@ -47,17 +47,17 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput
  * import { EC2Client, DescribeEgressOnlyInternetGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeEgressOnlyInternetGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // DescribeEgressOnlyInternetGatewaysRequest
  *   DryRun: true || false,
- *   EgressOnlyInternetGatewayIds: [
+ *   EgressOnlyInternetGatewayIds: [ // EgressOnlyInternetGatewayIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

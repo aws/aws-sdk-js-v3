@@ -50,14 +50,14 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * import { ChimeSDKVoiceClient, CreateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // CreateSipMediaApplicationCallRequest
  *   FromPhoneNumber: "STRING_VALUE", // required
  *   ToPhoneNumber: "STRING_VALUE", // required
  *   SipMediaApplicationId: "STRING_VALUE", // required
- *   SipHeaders: {
+ *   SipHeaders: { // SipHeadersMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ArgumentsMap: {
+ *   ArgumentsMap: { // SMACreateCallArgumentsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

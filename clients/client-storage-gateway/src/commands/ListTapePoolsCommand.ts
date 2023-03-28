@@ -50,8 +50,8 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * import { StorageGatewayClient, ListTapePoolsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListTapePoolsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
- * const input = {
- *   PoolARNs: [
+ * const input = { // ListTapePoolsInput
+ *   PoolARNs: [ // PoolARNs
  *     "STRING_VALUE",
  *   ],
  *   Marker: "STRING_VALUE",

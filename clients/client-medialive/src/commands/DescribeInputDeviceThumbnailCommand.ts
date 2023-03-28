@@ -51,7 +51,7 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * import { MediaLiveClient, DescribeInputDeviceThumbnailCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeInputDeviceThumbnailCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // DescribeInputDeviceThumbnailRequest
  *   InputDeviceId: "STRING_VALUE", // required
  *   Accept: "image/jpeg", // required
  * };

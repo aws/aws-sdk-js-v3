@@ -47,23 +47,23 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * import { IoT1ClickProjectsClient, CreateProjectCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, CreateProjectCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
- * const input = {
+ * const input = { // CreateProjectRequest
  *   projectName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   placementTemplate: {
- *     defaultAttributes: {
+ *   placementTemplate: { // PlacementTemplate
+ *     defaultAttributes: { // DefaultPlacementAttributeMap
  *       "<keys>": "STRING_VALUE",
  *     },
- *     deviceTemplates: {
- *       "<keys>": {
+ *     deviceTemplates: { // DeviceTemplateMap
+ *       "<keys>": { // DeviceTemplate
  *         deviceType: "STRING_VALUE",
- *         callbackOverrides: {
+ *         callbackOverrides: { // DeviceCallbackOverrideMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     },
  *   },
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

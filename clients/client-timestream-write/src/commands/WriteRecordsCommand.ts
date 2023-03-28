@@ -81,12 +81,12 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * import { TimestreamWriteClient, WriteRecordsCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, WriteRecordsCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const input = {
+ * const input = { // WriteRecordsRequest
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   CommonAttributes: {
- *     Dimensions: [
- *       {
+ *   CommonAttributes: { // Record
+ *     Dimensions: [ // Dimensions
+ *       { // Dimension
  *         Name: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *         DimensionValueType: "VARCHAR",
@@ -98,15 +98,15 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  *     Time: "STRING_VALUE",
  *     TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
  *     Version: Number("long"),
- *     MeasureValues: [
- *       {
+ *     MeasureValues: [ // MeasureValues
+ *       { // MeasureValue
  *         Name: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *         Type: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI", // required
  *       },
  *     ],
  *   },
- *   Records: [ // required
+ *   Records: [ // Records // required
  *     {
  *       Dimensions: [
  *         {

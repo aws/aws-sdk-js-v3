@@ -49,7 +49,7 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * import { LexModelBuildingServiceClient, StartMigrationCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, StartMigrationCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
- * const input = {
+ * const input = { // StartMigrationRequest
  *   v1BotName: "STRING_VALUE", // required
  *   v1BotVersion: "STRING_VALUE", // required
  *   v2BotName: "STRING_VALUE", // required

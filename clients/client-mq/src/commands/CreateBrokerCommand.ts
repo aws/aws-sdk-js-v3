@@ -42,25 +42,25 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * import { MqClient, CreateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = {
+ * const input = { // CreateBrokerRequest
  *   AuthenticationStrategy: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false, // required
  *   BrokerName: "STRING_VALUE", // required
- *   Configuration: {
+ *   Configuration: { // ConfigurationId
  *     Id: "STRING_VALUE", // required
  *     Revision: Number("int"),
  *   },
  *   CreatorRequestId: "STRING_VALUE",
  *   DeploymentMode: "STRING_VALUE", // required
- *   EncryptionOptions: {
+ *   EncryptionOptions: { // EncryptionOptions
  *     KmsKeyId: "STRING_VALUE",
  *     UseAwsOwnedKey: true || false, // required
  *   },
  *   EngineType: "STRING_VALUE", // required
  *   EngineVersion: "STRING_VALUE", // required
  *   HostInstanceType: "STRING_VALUE", // required
- *   LdapServerMetadata: {
- *     Hosts: [ // required
+ *   LdapServerMetadata: { // LdapServerMetadataInput
+ *     Hosts: [ // __listOf__string // required
  *       "STRING_VALUE",
  *     ],
  *     RoleBase: "STRING_VALUE", // required
@@ -74,11 +74,11 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *     UserSearchMatching: "STRING_VALUE", // required
  *     UserSearchSubtree: true || false,
  *   },
- *   Logs: {
+ *   Logs: { // Logs
  *     Audit: true || false,
  *     General: true || false,
  *   },
- *   MaintenanceWindowStartTime: {
+ *   MaintenanceWindowStartTime: { // WeeklyStartTime
  *     DayOfWeek: "STRING_VALUE", // required
  *     TimeOfDay: "STRING_VALUE", // required
  *     TimeZone: "STRING_VALUE",
@@ -91,15 +91,13 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *   SubnetIds: [
  *     "STRING_VALUE",
  *   ],
- *   Tags: {
+ *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Users: [ // required
- *     {
+ *   Users: [ // __listOfUser // required
+ *     { // User
  *       ConsoleAccess: true || false,
- *       Groups: [
- *         "<__listOf__string>",
- *       ],
+ *       Groups: "<__listOf__string>",
  *       Password: "STRING_VALUE", // required
  *       Username: "STRING_VALUE", // required
  *     },

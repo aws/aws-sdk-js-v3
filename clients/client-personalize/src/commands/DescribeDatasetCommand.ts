@@ -43,7 +43,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * import { PersonalizeClient, DescribeDatasetCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDatasetCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeDatasetRequest
  *   datasetArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeDatasetCommand(input);

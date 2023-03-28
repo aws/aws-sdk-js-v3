@@ -42,9 +42,9 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * import { CloudDirectoryClient, AttachToIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachToIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
- * const input = {
+ * const input = { // AttachToIndexRequest
  *   DirectoryArn: "STRING_VALUE", // required
- *   IndexReference: {
+ *   IndexReference: { // ObjectReference
  *     Selector: "STRING_VALUE",
  *   },
  *   TargetReference: {

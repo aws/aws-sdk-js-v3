@@ -44,7 +44,7 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * import { AuditManagerClient, DeleteAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeleteAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // DeleteAssessmentFrameworkShareRequest
  *   requestId: "STRING_VALUE", // required
  *   requestType: "SENT" || "RECEIVED", // required
  * };

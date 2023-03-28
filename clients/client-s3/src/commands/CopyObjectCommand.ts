@@ -232,7 +232,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * import { S3Client, CopyObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CopyObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
- * const input = {
+ * const input = { // CopyObjectRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
  *   Bucket: "STRING_VALUE", // required
  *   CacheControl: "STRING_VALUE",
@@ -252,7 +252,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *   GrantReadACP: "STRING_VALUE",
  *   GrantWriteACP: "STRING_VALUE",
  *   Key: "STRING_VALUE", // required
- *   Metadata: {
+ *   Metadata: { // Metadata
  *     "<keys>": "STRING_VALUE",
  *   },
  *   MetadataDirective: "COPY" || "REPLACE",

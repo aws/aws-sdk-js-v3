@@ -42,14 +42,14 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * import { ConnectClient, CreateRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // CreateRoutingProfileRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
  *   DefaultOutboundQueueId: "STRING_VALUE", // required
- *   QueueConfigs: [
- *     {
- *       QueueReference: {
+ *   QueueConfigs: [ // RoutingProfileQueueConfigList
+ *     { // RoutingProfileQueueConfig
+ *       QueueReference: { // RoutingProfileQueueReference
  *         QueueId: "STRING_VALUE", // required
  *         Channel: "VOICE" || "CHAT" || "TASK", // required
  *       },
@@ -57,13 +57,13 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *       Delay: Number("int"), // required
  *     },
  *   ],
- *   MediaConcurrencies: [ // required
- *     {
+ *   MediaConcurrencies: [ // MediaConcurrencies // required
+ *     { // MediaConcurrency
  *       Channel: "VOICE" || "CHAT" || "TASK", // required
  *       Concurrency: Number("int"), // required
  *     },
  *   ],
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

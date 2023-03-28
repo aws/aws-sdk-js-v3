@@ -58,20 +58,20 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * import { ElasticBeanstalkClient, CreateApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // CreateApplicationVersionMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   VersionLabel: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   SourceBuildInformation: {
+ *   SourceBuildInformation: { // SourceBuildInformation
  *     SourceType: "Git" || "Zip", // required
  *     SourceRepository: "CodeCommit" || "S3", // required
  *     SourceLocation: "STRING_VALUE", // required
  *   },
- *   SourceBundle: {
+ *   SourceBundle: { // S3Location
  *     S3Bucket: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
  *   },
- *   BuildConfiguration: {
+ *   BuildConfiguration: { // BuildConfiguration
  *     ArtifactName: "STRING_VALUE",
  *     CodeBuildServiceRole: "STRING_VALUE", // required
  *     ComputeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE",
@@ -80,8 +80,8 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  *   },
  *   AutoCreateApplication: true || false,
  *   Process: true || false,
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

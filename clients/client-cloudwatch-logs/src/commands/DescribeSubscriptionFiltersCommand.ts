@@ -45,7 +45,7 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * import { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // DescribeSubscriptionFiltersRequest
  *   logGroupName: "STRING_VALUE", // required
  *   filterNamePrefix: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

@@ -46,7 +46,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * import { QuickSightClient, CreateGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // CreateGroupRequest
  *   GroupName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   AwsAccountId: "STRING_VALUE", // required

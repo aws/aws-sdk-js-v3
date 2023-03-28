@@ -42,7 +42,7 @@ export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __Met
  * import { LakeFormationClient, GetQueryStateCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetQueryStateCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // GetQueryStateRequest
  *   QueryId: "STRING_VALUE", // required
  * };
  * const command = new GetQueryStateCommand(input);

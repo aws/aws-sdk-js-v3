@@ -42,7 +42,7 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  * import { IVSRealTimeClient, ListStagesCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, ListStagesCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
- * const input = {
+ * const input = { // ListStagesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

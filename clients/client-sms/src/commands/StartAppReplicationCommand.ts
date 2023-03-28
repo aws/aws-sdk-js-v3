@@ -43,7 +43,7 @@ export interface StartAppReplicationCommandOutput extends StartAppReplicationRes
  * import { SMSClient, StartAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StartAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // StartAppReplicationRequest
  *   appId: "STRING_VALUE",
  * };
  * const command = new StartAppReplicationCommand(input);

@@ -64,7 +64,7 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * import { SupportAppClient, CreateSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, CreateSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
- * const input = {
+ * const input = { // CreateSlackChannelConfigurationRequest
  *   teamId: "STRING_VALUE", // required
  *   channelId: "STRING_VALUE", // required
  *   channelName: "STRING_VALUE",

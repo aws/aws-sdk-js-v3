@@ -42,7 +42,7 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  * import { MediaTailorClient, GetChannelScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, GetChannelScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // GetChannelScheduleRequest
  *   ChannelName: "STRING_VALUE", // required
  *   DurationMinutes: "STRING_VALUE",
  *   MaxResults: Number("int"),

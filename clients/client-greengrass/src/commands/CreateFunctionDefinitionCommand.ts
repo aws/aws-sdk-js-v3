@@ -42,39 +42,39 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  * import { GreengrassClient, CreateFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // CreateFunctionDefinitionRequest
  *   AmznClientToken: "STRING_VALUE",
- *   InitialVersion: {
- *     DefaultConfig: {
- *       Execution: {
+ *   InitialVersion: { // FunctionDefinitionVersion
+ *     DefaultConfig: { // FunctionDefaultConfig
+ *       Execution: { // FunctionDefaultExecutionConfig
  *         IsolationMode: "GreengrassContainer" || "NoContainer",
- *         RunAs: {
+ *         RunAs: { // FunctionRunAsConfig
  *           Gid: Number("int"),
  *           Uid: Number("int"),
  *         },
  *       },
  *     },
- *     Functions: [
- *       {
+ *     Functions: [ // __listOfFunction
+ *       { // Function
  *         FunctionArn: "STRING_VALUE",
- *         FunctionConfiguration: {
+ *         FunctionConfiguration: { // FunctionConfiguration
  *           EncodingType: "binary" || "json",
- *           Environment: {
+ *           Environment: { // FunctionConfigurationEnvironment
  *             AccessSysfs: true || false,
- *             Execution: {
+ *             Execution: { // FunctionExecutionConfig
  *               IsolationMode: "GreengrassContainer" || "NoContainer",
  *               RunAs: {
  *                 Gid: Number("int"),
  *                 Uid: Number("int"),
  *               },
  *             },
- *             ResourceAccessPolicies: [
- *               {
+ *             ResourceAccessPolicies: [ // __listOfResourceAccessPolicy
+ *               { // ResourceAccessPolicy
  *                 Permission: "ro" || "rw",
  *                 ResourceId: "STRING_VALUE", // required
  *               },
  *             ],
- *             Variables: {
+ *             Variables: { // __mapOf__string
  *               "<keys>": "STRING_VALUE",
  *             },
  *           },
@@ -90,7 +90,7 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  *     ],
  *   },
  *   Name: "STRING_VALUE",
- *   tags: {
+ *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

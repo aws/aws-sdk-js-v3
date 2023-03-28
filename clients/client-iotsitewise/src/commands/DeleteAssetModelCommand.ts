@@ -46,7 +46,7 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * import { IoTSiteWiseClient, DeleteAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = {
+ * const input = { // DeleteAssetModelRequest
  *   assetModelId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };

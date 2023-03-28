@@ -46,9 +46,9 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * import { ConnectClient, ListContactFlowsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListContactFlowsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // ListContactFlowsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowTypes: [
+ *   ContactFlowTypes: [ // ContactFlowTypes
  *     "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
  *   ],
  *   NextToken: "STRING_VALUE",

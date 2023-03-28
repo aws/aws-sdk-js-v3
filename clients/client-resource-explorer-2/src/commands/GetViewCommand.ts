@@ -46,7 +46,7 @@ export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
  * import { ResourceExplorer2Client, GetViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, GetViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
- * const input = {
+ * const input = { // GetViewInput
  *   ViewArn: "STRING_VALUE", // required
  * };
  * const command = new GetViewCommand(input);

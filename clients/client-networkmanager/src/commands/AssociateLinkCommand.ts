@@ -42,7 +42,7 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  * import { NetworkManagerClient, AssociateLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = {
+ * const input = { // AssociateLinkRequest
  *   GlobalNetworkId: "STRING_VALUE", // required
  *   DeviceId: "STRING_VALUE", // required
  *   LinkId: "STRING_VALUE", // required

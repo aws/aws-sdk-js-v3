@@ -42,13 +42,13 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  * import { SageMakerClient, UpdateArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateArtifactRequest
  *   ArtifactArn: "STRING_VALUE", // required
  *   ArtifactName: "STRING_VALUE",
- *   Properties: {
+ *   Properties: { // LineageEntityParameters
  *     "<keys>": "STRING_VALUE",
  *   },
- *   PropertiesToRemove: [
+ *   PropertiesToRemove: [ // ListLineageEntityParameterKey
  *     "STRING_VALUE",
  *   ],
  * };

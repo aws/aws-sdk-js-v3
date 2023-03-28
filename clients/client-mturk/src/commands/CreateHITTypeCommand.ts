@@ -47,22 +47,22 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * import { MTurkClient, CreateHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
- * const input = {
+ * const input = { // CreateHITTypeRequest
  *   AutoApprovalDelayInSeconds: Number("long"),
  *   AssignmentDurationInSeconds: Number("long"), // required
  *   Reward: "STRING_VALUE", // required
  *   Title: "STRING_VALUE", // required
  *   Keywords: "STRING_VALUE",
  *   Description: "STRING_VALUE", // required
- *   QualificationRequirements: [
- *     {
+ *   QualificationRequirements: [ // QualificationRequirementList
+ *     { // QualificationRequirement
  *       QualificationTypeId: "STRING_VALUE", // required
  *       Comparator: "STRING_VALUE", // required
- *       IntegerValues: [
+ *       IntegerValues: [ // IntegerList
  *         Number("int"),
  *       ],
- *       LocaleValues: [
- *         {
+ *       LocaleValues: [ // LocaleList
+ *         { // Locale
  *           Country: "STRING_VALUE", // required
  *           Subdivision: "STRING_VALUE",
  *         },

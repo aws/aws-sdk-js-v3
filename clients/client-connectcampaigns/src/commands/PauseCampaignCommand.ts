@@ -42,7 +42,7 @@ export interface PauseCampaignCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, PauseCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, PauseCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
- * const input = {
+ * const input = { // PauseCampaignRequest
  *   id: "STRING_VALUE", // required
  * };
  * const command = new PauseCampaignCommand(input);

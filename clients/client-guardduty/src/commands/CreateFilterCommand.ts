@@ -43,29 +43,29 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * import { GuardDutyClient, CreateFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // CreateFilterRequest
  *   DetectorId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Action: "NOOP" || "ARCHIVE",
  *   Rank: Number("int"),
- *   FindingCriteria: {
- *     Criterion: {
- *       "<keys>": {
- *         Eq: [
+ *   FindingCriteria: { // FindingCriteria
+ *     Criterion: { // Criterion
+ *       "<keys>": { // Condition
+ *         Eq: [ // Eq
  *           "STRING_VALUE",
  *         ],
- *         Neq: [
+ *         Neq: [ // Neq
  *           "STRING_VALUE",
  *         ],
  *         Gt: Number("int"),
  *         Gte: Number("int"),
  *         Lt: Number("int"),
  *         Lte: Number("int"),
- *         Equals: [
+ *         Equals: [ // Equals
  *           "STRING_VALUE",
  *         ],
- *         NotEquals: [
+ *         NotEquals: [ // NotEquals
  *           "STRING_VALUE",
  *         ],
  *         GreaterThan: Number("long"),
@@ -76,7 +76,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  *     },
  *   },
  *   ClientToken: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

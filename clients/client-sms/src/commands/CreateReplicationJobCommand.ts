@@ -44,7 +44,7 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * import { SMSClient, CreateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, CreateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // CreateReplicationJobRequest
  *   serverId: "STRING_VALUE", // required
  *   seedReplicationTime: new Date("TIMESTAMP"), // required
  *   frequency: Number("int"),

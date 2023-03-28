@@ -53,9 +53,9 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * import { SESClient, GetIdentityPoliciesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityPoliciesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // GetIdentityPoliciesRequest
  *   Identity: "STRING_VALUE", // required
- *   PolicyNames: [ // required
+ *   PolicyNames: [ // PolicyNameList // required
  *     "STRING_VALUE",
  *   ],
  * };

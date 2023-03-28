@@ -42,9 +42,9 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
  * import { AmplifyBackendClient, UpdateBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
- * const input = {
+ * const input = { // UpdateBackendConfigRequest
  *   AppId: "STRING_VALUE", // required
- *   LoginAuthConfig: {
+ *   LoginAuthConfig: { // LoginAuthConfigReqObj
  *     AwsCognitoIdentityPoolId: "STRING_VALUE",
  *     AwsCognitoRegion: "STRING_VALUE",
  *     AwsUserPoolsId: "STRING_VALUE",

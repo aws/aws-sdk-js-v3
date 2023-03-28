@@ -59,45 +59,45 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * import { CognitoIdentityProviderClient, UpdateUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = {
+ * const input = { // UpdateUserPoolClientRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE", // required
  *   ClientName: "STRING_VALUE",
  *   RefreshTokenValidity: Number("int"),
  *   AccessTokenValidity: Number("int"),
  *   IdTokenValidity: Number("int"),
- *   TokenValidityUnits: {
+ *   TokenValidityUnits: { // TokenValidityUnitsType
  *     AccessToken: "seconds" || "minutes" || "hours" || "days",
  *     IdToken: "seconds" || "minutes" || "hours" || "days",
  *     RefreshToken: "seconds" || "minutes" || "hours" || "days",
  *   },
- *   ReadAttributes: [
+ *   ReadAttributes: [ // ClientPermissionListType
  *     "STRING_VALUE",
  *   ],
  *   WriteAttributes: [
  *     "STRING_VALUE",
  *   ],
- *   ExplicitAuthFlows: [
+ *   ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
  *     "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH",
  *   ],
- *   SupportedIdentityProviders: [
+ *   SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
  *     "STRING_VALUE",
  *   ],
- *   CallbackURLs: [
+ *   CallbackURLs: [ // CallbackURLsListType
  *     "STRING_VALUE",
  *   ],
- *   LogoutURLs: [
+ *   LogoutURLs: [ // LogoutURLsListType
  *     "STRING_VALUE",
  *   ],
  *   DefaultRedirectURI: "STRING_VALUE",
- *   AllowedOAuthFlows: [
+ *   AllowedOAuthFlows: [ // OAuthFlowsType
  *     "code" || "implicit" || "client_credentials",
  *   ],
- *   AllowedOAuthScopes: [
+ *   AllowedOAuthScopes: [ // ScopeListType
  *     "STRING_VALUE",
  *   ],
  *   AllowedOAuthFlowsUserPoolClient: true || false,
- *   AnalyticsConfiguration: {
+ *   AnalyticsConfiguration: { // AnalyticsConfigurationType
  *     ApplicationId: "STRING_VALUE",
  *     ApplicationArn: "STRING_VALUE",
  *     RoleArn: "STRING_VALUE",

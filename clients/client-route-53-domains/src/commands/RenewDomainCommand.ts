@@ -48,7 +48,7 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * import { Route53DomainsClient, RenewDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, RenewDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // RenewDomainRequest
  *   DomainName: "STRING_VALUE", // required
  *   DurationInYears: Number("int"),
  *   CurrentExpiryYear: Number("int"), // required

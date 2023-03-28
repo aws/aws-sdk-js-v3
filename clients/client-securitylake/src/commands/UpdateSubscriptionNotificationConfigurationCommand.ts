@@ -49,7 +49,7 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  * import { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = {
+ * const input = { // UpdateSubscriptionNotificationConfigurationRequest
  *   subscriptionId: "STRING_VALUE", // required
  *   subscriptionEndpoint: "STRING_VALUE",
  *   httpsApiKeyName: "STRING_VALUE",

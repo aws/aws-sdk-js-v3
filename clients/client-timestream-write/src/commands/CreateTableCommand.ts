@@ -48,23 +48,23 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * import { TimestreamWriteClient, CreateTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, CreateTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
- * const input = {
+ * const input = { // CreateTableRequest
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
- *   RetentionProperties: {
+ *   RetentionProperties: { // RetentionProperties
  *     MemoryStoreRetentionPeriodInHours: Number("long"), // required
  *     MagneticStoreRetentionPeriodInDays: Number("long"), // required
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   MagneticStoreWriteProperties: {
+ *   MagneticStoreWriteProperties: { // MagneticStoreWriteProperties
  *     EnableMagneticStoreWrites: true || false, // required
- *     MagneticStoreRejectedDataLocation: {
- *       S3Configuration: {
+ *     MagneticStoreRejectedDataLocation: { // MagneticStoreRejectedDataLocation
+ *       S3Configuration: { // S3Configuration
  *         BucketName: "STRING_VALUE",
  *         ObjectKeyPrefix: "STRING_VALUE",
  *         EncryptionOption: "SSE_S3" || "SSE_KMS",

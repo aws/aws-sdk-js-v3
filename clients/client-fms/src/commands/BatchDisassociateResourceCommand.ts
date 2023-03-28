@@ -42,9 +42,9 @@ export interface BatchDisassociateResourceCommandOutput extends BatchDisassociat
  * import { FMSClient, BatchDisassociateResourceCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, BatchDisassociateResourceCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = {
+ * const input = { // BatchDisassociateResourceRequest
  *   ResourceSetIdentifier: "STRING_VALUE", // required
- *   Items: [ // required
+ *   Items: [ // IdentifierList // required
  *     "STRING_VALUE",
  *   ],
  * };

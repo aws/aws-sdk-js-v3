@@ -43,10 +43,10 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  * import { IoTFleetWiseClient, UpdateModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
- * const input = {
+ * const input = { // UpdateModelManifestRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   nodesToAdd: [
+ *   nodesToAdd: [ // NodePaths
  *     "STRING_VALUE",
  *   ],
  *   nodesToRemove: [

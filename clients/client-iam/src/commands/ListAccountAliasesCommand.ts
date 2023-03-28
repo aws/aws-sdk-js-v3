@@ -44,7 +44,7 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * import { IAMClient, ListAccountAliasesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListAccountAliasesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // ListAccountAliasesRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };

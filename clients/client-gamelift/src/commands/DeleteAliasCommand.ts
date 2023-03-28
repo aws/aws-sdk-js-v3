@@ -50,7 +50,7 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeleteAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // DeleteAliasInput
  *   AliasId: "STRING_VALUE", // required
  * };
  * const command = new DeleteAliasCommand(input);

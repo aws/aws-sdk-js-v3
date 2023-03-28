@@ -42,12 +42,12 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * import { LakeFormationClient, ListResourcesCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListResourcesCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
- *   FilterConditionList: [
- *     {
+ * const input = { // ListResourcesRequest
+ *   FilterConditionList: [ // FilterConditionList
+ *     { // FilterCondition
  *       Field: "RESOURCE_ARN" || "ROLE_ARN" || "LAST_MODIFIED",
  *       ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH" || "IN" || "BETWEEN",
- *       StringValueList: [
+ *       StringValueList: [ // StringValueList
  *         "STRING_VALUE",
  *       ],
  *     },

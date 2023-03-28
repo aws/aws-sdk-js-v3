@@ -61,7 +61,7 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, EnableAWSServiceAccessCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, EnableAWSServiceAccessCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const input = {
+ * const input = { // EnableAWSServiceAccessRequest
  *   ServicePrincipal: "STRING_VALUE", // required
  * };
  * const command = new EnableAWSServiceAccessCommand(input);

@@ -42,7 +42,7 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  * import { ResiliencehubClient, PutDraftAppVersionTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, PutDraftAppVersionTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
+ * const input = { // PutDraftAppVersionTemplateRequest
  *   appArn: "STRING_VALUE", // required
  *   appTemplateBody: "STRING_VALUE", // required
  * };

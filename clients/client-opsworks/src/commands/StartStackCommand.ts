@@ -47,7 +47,7 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, StartStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, StartStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // StartStackRequest
  *   StackId: "STRING_VALUE", // required
  * };
  * const command = new StartStackCommand(input);

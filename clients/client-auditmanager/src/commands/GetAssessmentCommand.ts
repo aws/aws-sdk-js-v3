@@ -42,7 +42,7 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  * import { AuditManagerClient, GetAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
- * const input = {
+ * const input = { // GetAssessmentRequest
  *   assessmentId: "STRING_VALUE", // required
  * };
  * const command = new GetAssessmentCommand(input);

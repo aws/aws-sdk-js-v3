@@ -48,10 +48,10 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * import { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // UpdateEndpointWeightsAndCapacitiesInput
  *   EndpointName: "STRING_VALUE", // required
- *   DesiredWeightsAndCapacities: [ // required
- *     {
+ *   DesiredWeightsAndCapacities: [ // DesiredWeightAndCapacityList // required
+ *     { // DesiredWeightAndCapacity
  *       VariantName: "STRING_VALUE", // required
  *       DesiredWeight: Number("float"),
  *       DesiredInstanceCount: Number("int"),

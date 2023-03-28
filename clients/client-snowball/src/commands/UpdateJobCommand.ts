@@ -41,59 +41,59 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * import { SnowballClient, UpdateJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = {
+ * const input = { // UpdateJobRequest
  *   JobId: "STRING_VALUE", // required
  *   RoleARN: "STRING_VALUE",
- *   Notification: {
+ *   Notification: { // Notification
  *     SnsTopicARN: "STRING_VALUE",
- *     JobStatesToNotify: [
+ *     JobStatesToNotify: [ // JobStateList
  *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  *     ],
  *     NotifyAll: true || false,
  *   },
- *   Resources: {
- *     S3Resources: [
- *       {
+ *   Resources: { // JobResource
+ *     S3Resources: [ // S3ResourceList
+ *       { // S3Resource
  *         BucketArn: "STRING_VALUE",
- *         KeyRange: {
+ *         KeyRange: { // KeyRange
  *           BeginMarker: "STRING_VALUE",
  *           EndMarker: "STRING_VALUE",
  *         },
- *         TargetOnDeviceServices: [
- *           {
+ *         TargetOnDeviceServices: [ // TargetOnDeviceServiceList
+ *           { // TargetOnDeviceService
  *             ServiceName: "NFS_ON_DEVICE_SERVICE" || "S3_ON_DEVICE_SERVICE",
  *             TransferOption: "IMPORT" || "EXPORT" || "LOCAL_USE",
  *           },
  *         ],
  *       },
  *     ],
- *     LambdaResources: [
- *       {
+ *     LambdaResources: [ // LambdaResourceList
+ *       { // LambdaResource
  *         LambdaArn: "STRING_VALUE",
- *         EventTriggers: [
- *           {
+ *         EventTriggers: [ // EventTriggerDefinitionList
+ *           { // EventTriggerDefinition
  *             EventResourceARN: "STRING_VALUE",
  *           },
  *         ],
  *       },
  *     ],
- *     Ec2AmiResources: [
- *       {
+ *     Ec2AmiResources: [ // Ec2AmiResourceList
+ *       { // Ec2AmiResource
  *         AmiId: "STRING_VALUE", // required
  *         SnowballAmiId: "STRING_VALUE",
  *       },
  *     ],
  *   },
- *   OnDeviceServiceConfiguration: {
- *     NFSOnDeviceService: {
+ *   OnDeviceServiceConfiguration: { // OnDeviceServiceConfiguration
+ *     NFSOnDeviceService: { // NFSOnDeviceServiceConfiguration
  *       StorageLimit: Number("int"),
  *       StorageUnit: "TB",
  *     },
- *     TGWOnDeviceService: {
+ *     TGWOnDeviceService: { // TGWOnDeviceServiceConfiguration
  *       StorageLimit: Number("int"),
  *       StorageUnit: "TB",
  *     },
- *     EKSOnDeviceService: {
+ *     EKSOnDeviceService: { // EKSOnDeviceServiceConfiguration
  *       KubernetesVersion: "STRING_VALUE",
  *       EKSAnywhereVersion: "STRING_VALUE",
  *     },

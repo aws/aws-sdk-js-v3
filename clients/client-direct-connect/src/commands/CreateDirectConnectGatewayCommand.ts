@@ -47,7 +47,7 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * import { DirectConnectClient, CreateDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // CreateDirectConnectGatewayRequest
  *   directConnectGatewayName: "STRING_VALUE", // required
  *   amazonSideAsn: Number("long"),
  * };

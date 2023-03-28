@@ -42,7 +42,7 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * import { AppStreamClient, ListAssociatedFleetsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ListAssociatedFleetsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // ListAssociatedFleetsRequest
  *   StackName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  * };

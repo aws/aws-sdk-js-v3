@@ -52,34 +52,34 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * import { AppRunnerClient, UpdateServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, UpdateServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // UpdateServiceRequest
  *   ServiceArn: "STRING_VALUE", // required
- *   SourceConfiguration: {
- *     CodeRepository: {
+ *   SourceConfiguration: { // SourceConfiguration
+ *     CodeRepository: { // CodeRepository
  *       RepositoryUrl: "STRING_VALUE", // required
- *       SourceCodeVersion: {
+ *       SourceCodeVersion: { // SourceCodeVersion
  *         Type: "BRANCH", // required
  *         Value: "STRING_VALUE", // required
  *       },
- *       CodeConfiguration: {
+ *       CodeConfiguration: { // CodeConfiguration
  *         ConfigurationSource: "REPOSITORY" || "API", // required
- *         CodeConfigurationValues: {
+ *         CodeConfigurationValues: { // CodeConfigurationValues
  *           Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31", // required
  *           BuildCommand: "STRING_VALUE",
  *           StartCommand: "STRING_VALUE",
  *           Port: "STRING_VALUE",
- *           RuntimeEnvironmentVariables: {
+ *           RuntimeEnvironmentVariables: { // RuntimeEnvironmentVariables
  *             "<keys>": "STRING_VALUE",
  *           },
- *           RuntimeEnvironmentSecrets: {
+ *           RuntimeEnvironmentSecrets: { // RuntimeEnvironmentSecrets
  *             "<keys>": "STRING_VALUE",
  *           },
  *         },
  *       },
  *     },
- *     ImageRepository: {
+ *     ImageRepository: { // ImageRepository
  *       ImageIdentifier: "STRING_VALUE", // required
- *       ImageConfiguration: {
+ *       ImageConfiguration: { // ImageConfiguration
  *         RuntimeEnvironmentVariables: {
  *           "<keys>": "STRING_VALUE",
  *         },
@@ -92,18 +92,18 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       ImageRepositoryType: "ECR" || "ECR_PUBLIC", // required
  *     },
  *     AutoDeploymentsEnabled: true || false,
- *     AuthenticationConfiguration: {
+ *     AuthenticationConfiguration: { // AuthenticationConfiguration
  *       ConnectionArn: "STRING_VALUE",
  *       AccessRoleArn: "STRING_VALUE",
  *     },
  *   },
- *   InstanceConfiguration: {
+ *   InstanceConfiguration: { // InstanceConfiguration
  *     Cpu: "STRING_VALUE",
  *     Memory: "STRING_VALUE",
  *     InstanceRoleArn: "STRING_VALUE",
  *   },
  *   AutoScalingConfigurationArn: "STRING_VALUE",
- *   HealthCheckConfiguration: {
+ *   HealthCheckConfiguration: { // HealthCheckConfiguration
  *     Protocol: "TCP" || "HTTP",
  *     Path: "STRING_VALUE",
  *     Interval: Number("int"),
@@ -111,16 +111,16 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *     HealthyThreshold: Number("int"),
  *     UnhealthyThreshold: Number("int"),
  *   },
- *   NetworkConfiguration: {
- *     EgressConfiguration: {
+ *   NetworkConfiguration: { // NetworkConfiguration
+ *     EgressConfiguration: { // EgressConfiguration
  *       EgressType: "DEFAULT" || "VPC",
  *       VpcConnectorArn: "STRING_VALUE",
  *     },
- *     IngressConfiguration: {
+ *     IngressConfiguration: { // IngressConfiguration
  *       IsPubliclyAccessible: true || false,
  *     },
  *   },
- *   ObservabilityConfiguration: {
+ *   ObservabilityConfiguration: { // ServiceObservabilityConfiguration
  *     ObservabilityEnabled: true || false, // required
  *     ObservabilityConfigurationArn: "STRING_VALUE",
  *   },

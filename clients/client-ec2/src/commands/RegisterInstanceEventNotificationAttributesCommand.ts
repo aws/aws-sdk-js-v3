@@ -50,11 +50,11 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  * import { EC2Client, RegisterInstanceEventNotificationAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RegisterInstanceEventNotificationAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // RegisterInstanceEventNotificationAttributesRequest
  *   DryRun: true || false,
- *   InstanceTagAttribute: {
+ *   InstanceTagAttribute: { // RegisterInstanceTagAttributeRequest
  *     IncludeAllTagsOfInstance: true || false,
- *     InstanceTagKeys: [
+ *     InstanceTagKeys: [ // InstanceTagKeySet
  *       "STRING_VALUE",
  *     ],
  *   },

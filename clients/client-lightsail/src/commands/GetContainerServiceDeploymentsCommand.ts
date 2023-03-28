@@ -54,7 +54,7 @@ export interface GetContainerServiceDeploymentsCommandOutput
  * import { LightsailClient, GetContainerServiceDeploymentsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerServiceDeploymentsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // GetContainerServiceDeploymentsRequest
  *   serviceName: "STRING_VALUE", // required
  * };
  * const command = new GetContainerServiceDeploymentsCommand(input);

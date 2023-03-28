@@ -45,14 +45,14 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * import { GlueClient, PutDataCatalogEncryptionSettingsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutDataCatalogEncryptionSettingsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // PutDataCatalogEncryptionSettingsRequest
  *   CatalogId: "STRING_VALUE",
- *   DataCatalogEncryptionSettings: {
- *     EncryptionAtRest: {
+ *   DataCatalogEncryptionSettings: { // DataCatalogEncryptionSettings
+ *     EncryptionAtRest: { // EncryptionAtRest
  *       CatalogEncryptionMode: "DISABLED" || "SSE-KMS", // required
  *       SseAwsKmsKeyId: "STRING_VALUE",
  *     },
- *     ConnectionPasswordEncryption: {
+ *     ConnectionPasswordEncryption: { // ConnectionPasswordEncryption
  *       ReturnConnectionPasswordEncrypted: true || false, // required
  *       AwsKmsKeyId: "STRING_VALUE",
  *     },

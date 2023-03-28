@@ -41,7 +41,7 @@ export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloa
  * import { RestJsonProtocolClient, DocumentTypeAsPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, DocumentTypeAsPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
+ * const input = { // DocumentTypeAsPayloadInputOutput
  *   documentValue: "DOCUMENT_VALUE",
  * };
  * const command = new DocumentTypeAsPayloadCommand(input);

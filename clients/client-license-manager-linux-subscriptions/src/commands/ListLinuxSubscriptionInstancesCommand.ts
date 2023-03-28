@@ -49,11 +49,11 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionInstancesCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // ListLinuxSubscriptionInstancesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // StringList
  *         "STRING_VALUE",
  *       ],
  *       Operator: "STRING_VALUE",

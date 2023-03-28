@@ -42,7 +42,7 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * import { AppStreamClient, DeleteDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // DeleteDirectoryConfigRequest
  *   DirectoryName: "STRING_VALUE", // required
  * };
  * const command = new DeleteDirectoryConfigCommand(input);

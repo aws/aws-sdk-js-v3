@@ -43,7 +43,7 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  * import { WorkMailClient, ListMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // ListMailboxPermissionsRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   EntityId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",

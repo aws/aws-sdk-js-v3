@@ -42,15 +42,15 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * import { BatchClient, UpdateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
+ * const input = { // UpdateComputeEnvironmentRequest
  *   computeEnvironment: "STRING_VALUE", // required
  *   state: "ENABLED" || "DISABLED",
  *   unmanagedvCpus: Number("int"),
- *   computeResources: {
+ *   computeResources: { // ComputeResourceUpdate
  *     minvCpus: Number("int"),
  *     maxvCpus: Number("int"),
  *     desiredvCpus: Number("int"),
- *     subnets: [
+ *     subnets: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     securityGroupIds: [
@@ -62,18 +62,18 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *     ],
  *     ec2KeyPair: "STRING_VALUE",
  *     instanceRole: "STRING_VALUE",
- *     tags: {
+ *     tags: { // TagsMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     placementGroup: "STRING_VALUE",
  *     bidPercentage: Number("int"),
- *     launchTemplate: {
+ *     launchTemplate: { // LaunchTemplateSpecification
  *       launchTemplateId: "STRING_VALUE",
  *       launchTemplateName: "STRING_VALUE",
  *       version: "STRING_VALUE",
  *     },
- *     ec2Configuration: [
- *       {
+ *     ec2Configuration: [ // Ec2ConfigurationList
+ *       { // Ec2Configuration
  *         imageType: "STRING_VALUE", // required
  *         imageIdOverride: "STRING_VALUE",
  *         imageKubernetesVersion: "STRING_VALUE",
@@ -84,7 +84,7 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *     imageId: "STRING_VALUE",
  *   },
  *   serviceRole: "STRING_VALUE",
- *   updatePolicy: {
+ *   updatePolicy: { // UpdatePolicy
  *     terminateJobsOnUpdate: true || false,
  *     jobExecutionTimeoutMinutes: Number("long"),
  *   },

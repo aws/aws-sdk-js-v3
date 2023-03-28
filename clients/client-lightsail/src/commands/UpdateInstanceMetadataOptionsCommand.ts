@@ -49,7 +49,7 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
  * import { LightsailClient, UpdateInstanceMetadataOptionsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateInstanceMetadataOptionsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
+ * const input = { // UpdateInstanceMetadataOptionsRequest
  *   instanceName: "STRING_VALUE", // required
  *   httpTokens: "optional" || "required",
  *   httpEndpoint: "disabled" || "enabled",

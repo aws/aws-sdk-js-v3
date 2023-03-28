@@ -53,15 +53,15 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * import { PinpointSMSVoiceV2Client, DescribeOptedOutNumbersCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeOptedOutNumbersCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // DescribeOptedOutNumbersRequest
  *   OptOutListName: "STRING_VALUE", // required
- *   OptedOutNumbers: [
+ *   OptedOutNumbers: [ // OptedOutNumberList
  *     "STRING_VALUE",
  *   ],
- *   Filters: [
- *     {
+ *   Filters: [ // OptedOutFilterList
+ *     { // OptedOutFilter
  *       Name: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // FilterValueList // required
  *         "STRING_VALUE",
  *       ],
  *     },

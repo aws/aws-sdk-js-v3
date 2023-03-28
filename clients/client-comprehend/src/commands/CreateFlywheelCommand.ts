@@ -52,21 +52,21 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * import { ComprehendClient, CreateFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
- * const input = {
+ * const input = { // CreateFlywheelRequest
  *   FlywheelName: "STRING_VALUE", // required
  *   ActiveModelArn: "STRING_VALUE",
  *   DataAccessRoleArn: "STRING_VALUE", // required
- *   TaskConfig: {
+ *   TaskConfig: { // TaskConfig
  *     LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
- *     DocumentClassificationConfig: {
+ *     DocumentClassificationConfig: { // DocumentClassificationConfig
  *       Mode: "MULTI_CLASS" || "MULTI_LABEL", // required
- *       Labels: [
+ *       Labels: [ // LabelsList
  *         "STRING_VALUE",
  *       ],
  *     },
- *     EntityRecognitionConfig: {
- *       EntityTypes: [ // required
- *         {
+ *     EntityRecognitionConfig: { // EntityRecognitionConfig
+ *       EntityTypes: [ // EntityTypesList // required
+ *         { // EntityTypesListItem
  *           Type: "STRING_VALUE", // required
  *         },
  *       ],
@@ -74,22 +74,22 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  *   },
  *   ModelType: "DOCUMENT_CLASSIFIER" || "ENTITY_RECOGNIZER",
  *   DataLakeS3Uri: "STRING_VALUE", // required
- *   DataSecurityConfig: {
+ *   DataSecurityConfig: { // DataSecurityConfig
  *     ModelKmsKeyId: "STRING_VALUE",
  *     VolumeKmsKeyId: "STRING_VALUE",
  *     DataLakeKmsKeyId: "STRING_VALUE",
- *     VpcConfig: {
- *       SecurityGroupIds: [ // required
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // SecurityGroupIds // required
  *         "STRING_VALUE",
  *       ],
- *       Subnets: [ // required
+ *       Subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
  *     },
  *   },
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE",
  *     },

@@ -43,15 +43,15 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  * import { RUMClient, UpdateRumMetricDefinitionCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, UpdateRumMetricDefinitionCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
- * const input = {
+ * const input = { // UpdateRumMetricDefinitionRequest
  *   AppMonitorName: "STRING_VALUE", // required
  *   Destination: "STRING_VALUE", // required
  *   DestinationArn: "STRING_VALUE",
- *   MetricDefinition: {
+ *   MetricDefinition: { // MetricDefinitionRequest
  *     Name: "STRING_VALUE", // required
  *     ValueKey: "STRING_VALUE",
  *     UnitLabel: "STRING_VALUE",
- *     DimensionKeys: {
+ *     DimensionKeys: { // DimensionKeysMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     EventPattern: "STRING_VALUE",

@@ -42,15 +42,15 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
  * import { GlueClient, CreateDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateDevEndpointRequest
  *   EndpointName: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
- *   SecurityGroupIds: [
+ *   SecurityGroupIds: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   SubnetId: "STRING_VALUE",
  *   PublicKey: "STRING_VALUE",
- *   PublicKeys: [
+ *   PublicKeys: [ // PublicKeysList
  *     "STRING_VALUE",
  *   ],
  *   NumberOfNodes: Number("int"),
@@ -60,10 +60,10 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
  *   ExtraPythonLibsS3Path: "STRING_VALUE",
  *   ExtraJarsS3Path: "STRING_VALUE",
  *   SecurityConfiguration: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Arguments: {
+ *   Arguments: { // MapValue
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

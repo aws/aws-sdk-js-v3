@@ -44,9 +44,9 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
  * import { Route53DomainsClient, DeleteTagsForDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, DeleteTagsForDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const input = {
+ * const input = { // DeleteTagsForDomainRequest
  *   DomainName: "STRING_VALUE", // required
- *   TagsToDelete: [ // required
+ *   TagsToDelete: [ // TagKeyList // required
  *     "STRING_VALUE",
  *   ],
  * };

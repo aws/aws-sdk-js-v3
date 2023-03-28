@@ -42,7 +42,7 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  * import { EC2Client, ModifyPrivateDnsNameOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyPrivateDnsNameOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyPrivateDnsNameOptionsRequest
  *   DryRun: true || false,
  *   InstanceId: "STRING_VALUE", // required
  *   PrivateDnsHostnameType: "ip-name" || "resource-name",

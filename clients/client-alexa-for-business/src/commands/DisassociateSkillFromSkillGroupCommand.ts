@@ -44,7 +44,7 @@ export interface DisassociateSkillFromSkillGroupCommandOutput
  * import { AlexaForBusinessClient, DisassociateSkillFromSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateSkillFromSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
- * const input = {
+ * const input = { // DisassociateSkillFromSkillGroupRequest
  *   SkillGroupArn: "STRING_VALUE",
  *   SkillId: "STRING_VALUE", // required
  * };

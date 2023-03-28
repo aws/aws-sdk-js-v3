@@ -47,9 +47,9 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * import { ChimeSDKVoiceClient, CreatePhoneNumberOrderCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreatePhoneNumberOrderCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // CreatePhoneNumberOrderRequest
  *   ProductType: "VoiceConnector" || "SipMediaApplicationDialIn", // required
- *   E164PhoneNumbers: [ // required
+ *   E164PhoneNumbers: [ // E164PhoneNumberList // required
  *     "STRING_VALUE",
  *   ],
  * };

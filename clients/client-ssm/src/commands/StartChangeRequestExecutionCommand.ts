@@ -44,20 +44,20 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * import { SSMClient, StartChangeRequestExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartChangeRequestExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // StartChangeRequestExecutionRequest
  *   ScheduledTime: new Date("TIMESTAMP"),
  *   DocumentName: "STRING_VALUE", // required
  *   DocumentVersion: "STRING_VALUE",
- *   Parameters: {
- *     "<keys>": [
+ *   Parameters: { // AutomationParameterMap
+ *     "<keys>": [ // AutomationParameterValueList
  *       "STRING_VALUE",
  *     ],
  *   },
  *   ChangeRequestName: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   AutoApprove: true || false,
- *   Runbooks: [ // required
- *     {
+ *   Runbooks: [ // Runbooks // required
+ *     { // Runbook
  *       DocumentName: "STRING_VALUE", // required
  *       DocumentVersion: "STRING_VALUE",
  *       Parameters: {
@@ -66,38 +66,38 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *         ],
  *       },
  *       TargetParameterName: "STRING_VALUE",
- *       Targets: [
- *         {
+ *       Targets: [ // Targets
+ *         { // Target
  *           Key: "STRING_VALUE",
- *           Values: [
+ *           Values: [ // TargetValues
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
- *       TargetMaps: [
- *         {
- *           "<keys>": [
+ *       TargetMaps: [ // TargetMaps
+ *         { // TargetMap
+ *           "<keys>": [ // TargetMapValueList
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
  *       MaxConcurrency: "STRING_VALUE",
  *       MaxErrors: "STRING_VALUE",
- *       TargetLocations: [
- *         {
- *           Accounts: [
+ *       TargetLocations: [ // TargetLocations
+ *         { // TargetLocation
+ *           Accounts: [ // Accounts
  *             "STRING_VALUE",
  *           ],
- *           Regions: [
+ *           Regions: [ // Regions
  *             "STRING_VALUE",
  *           ],
  *           TargetLocationMaxConcurrency: "STRING_VALUE",
  *           TargetLocationMaxErrors: "STRING_VALUE",
  *           ExecutionRoleName: "STRING_VALUE",
- *           TargetLocationAlarmConfiguration: {
+ *           TargetLocationAlarmConfiguration: { // AlarmConfiguration
  *             IgnorePollAlarmFailure: true || false,
- *             Alarms: [ // required
- *               {
+ *             Alarms: [ // AlarmList // required
+ *               { // Alarm
  *                 Name: "STRING_VALUE", // required
  *               },
  *             ],
@@ -106,8 +106,8 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *       ],
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

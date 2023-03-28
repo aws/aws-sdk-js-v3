@@ -52,9 +52,9 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  * import { SESClient, CreateConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
- * const input = {
+ * const input = { // CreateConfigurationSetTrackingOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
- *   TrackingOptions: {
+ *   TrackingOptions: { // TrackingOptions
  *     CustomRedirectDomain: "STRING_VALUE",
  *   },
  * };

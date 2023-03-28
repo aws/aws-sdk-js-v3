@@ -83,7 +83,7 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
  * import { GameLiftClient, ClaimGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ClaimGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // ClaimGameServerInput
  *   GameServerGroupName: "STRING_VALUE", // required
  *   GameServerId: "STRING_VALUE",
  *   GameServerData: "STRING_VALUE",

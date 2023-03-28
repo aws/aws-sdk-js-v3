@@ -42,7 +42,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * import { GreengrassV2Client, GetDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, GetDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // GetDeploymentRequest
  *   deploymentId: "STRING_VALUE", // required
  * };
  * const command = new GetDeploymentCommand(input);

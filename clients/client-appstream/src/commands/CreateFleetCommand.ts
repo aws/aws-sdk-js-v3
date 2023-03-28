@@ -42,20 +42,20 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * import { AppStreamClient, CreateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
- * const input = {
+ * const input = { // CreateFleetRequest
  *   Name: "STRING_VALUE", // required
  *   ImageName: "STRING_VALUE",
  *   ImageArn: "STRING_VALUE",
  *   InstanceType: "STRING_VALUE", // required
  *   FleetType: "ALWAYS_ON" || "ON_DEMAND" || "ELASTIC",
- *   ComputeCapacity: {
+ *   ComputeCapacity: { // ComputeCapacity
  *     DesiredInstances: Number("int"), // required
  *   },
- *   VpcConfig: {
- *     SubnetIds: [
+ *   VpcConfig: { // VpcConfig
+ *     SubnetIds: [ // SubnetIdList
  *       "STRING_VALUE",
  *     ],
- *     SecurityGroupIds: [
+ *     SecurityGroupIds: [ // SecurityGroupIdList
  *       "STRING_VALUE",
  *     ],
  *   },
@@ -64,11 +64,11 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *   Description: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE",
  *   EnableDefaultInternetAccess: true || false,
- *   DomainJoinInfo: {
+ *   DomainJoinInfo: { // DomainJoinInfo
  *     DirectoryName: "STRING_VALUE",
  *     OrganizationalUnitDistinguishedName: "STRING_VALUE",
  *   },
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
  *   IdleDisconnectTimeoutInSeconds: Number("int"),
@@ -76,10 +76,10 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *   StreamView: "APP" || "DESKTOP",
  *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
  *   MaxConcurrentSessions: Number("int"),
- *   UsbDeviceFilterStrings: [
+ *   UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  *     "STRING_VALUE",
  *   ],
- *   SessionScriptS3Location: {
+ *   SessionScriptS3Location: { // S3Location
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Key: "STRING_VALUE", // required
  *   },

@@ -48,18 +48,18 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * import { LicenseManagerClient, UpdateLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const input = {
+ * const input = { // UpdateLicenseManagerReportGeneratorRequest
  *   LicenseManagerReportGeneratorArn: "STRING_VALUE", // required
  *   ReportGeneratorName: "STRING_VALUE", // required
- *   Type: [ // required
+ *   Type: [ // ReportTypeList // required
  *     "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
  *   ],
- *   ReportContext: {
- *     licenseConfigurationArns: [ // required
+ *   ReportContext: { // ReportContext
+ *     licenseConfigurationArns: [ // ArnList // required
  *       "STRING_VALUE",
  *     ],
  *   },
- *   ReportFrequency: {
+ *   ReportFrequency: { // ReportFrequency
  *     value: Number("int"),
  *     period: "DAY" || "WEEK" || "MONTH",
  *   },

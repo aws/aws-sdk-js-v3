@@ -48,10 +48,10 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * import { GreengrassV2Client, UpdateConnectivityInfoCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, UpdateConnectivityInfoCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
- * const input = {
+ * const input = { // UpdateConnectivityInfoRequest
  *   thingName: "STRING_VALUE", // required
- *   connectivityInfo: [ // required
- *     {
+ *   connectivityInfo: [ // connectivityInfoList // required
+ *     { // ConnectivityInfo
  *       id: "STRING_VALUE",
  *       hostAddress: "STRING_VALUE",
  *       portNumber: Number("int"),

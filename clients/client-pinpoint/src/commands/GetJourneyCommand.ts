@@ -42,7 +42,7 @@ export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataB
  * import { PinpointClient, GetJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = {
+ * const input = { // GetJourneyRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   JourneyId: "STRING_VALUE", // required
  * };

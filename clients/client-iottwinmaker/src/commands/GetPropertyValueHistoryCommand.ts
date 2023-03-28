@@ -46,25 +46,25 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  * import { IoTTwinMakerClient, GetPropertyValueHistoryCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetPropertyValueHistoryCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
- * const input = {
+ * const input = { // GetPropertyValueHistoryRequest
  *   workspaceId: "STRING_VALUE", // required
  *   entityId: "STRING_VALUE",
  *   componentName: "STRING_VALUE",
  *   componentTypeId: "STRING_VALUE",
- *   selectedProperties: [ // required
+ *   selectedProperties: [ // SelectedPropertyList // required
  *     "STRING_VALUE",
  *   ],
- *   propertyFilters: [
- *     {
+ *   propertyFilters: [ // PropertyFilters
+ *     { // PropertyFilter
  *       propertyName: "STRING_VALUE",
  *       operator: "STRING_VALUE",
- *       value: {
+ *       value: { // DataValue
  *         booleanValue: true || false,
  *         doubleValue: Number("double"),
  *         integerValue: Number("int"),
  *         longValue: Number("long"),
  *         stringValue: "STRING_VALUE",
- *         listValue: [
+ *         listValue: [ // DataValueList
  *           {
  *             booleanValue: true || false,
  *             doubleValue: Number("double"),
@@ -72,62 +72,32 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  *             longValue: Number("long"),
  *             stringValue: "STRING_VALUE",
  *             listValue: [
- *               {
- *                 booleanValue: "<DataValue>",
- *                 doubleValue: "<DataValue>",
- *                 integerValue: "<DataValue>",
- *                 longValue: "<DataValue>",
- *                 stringValue: "<DataValue>",
- *                 listValue: "<DataValue>",
- *                 mapValue: {
- *                   "<keys>": {
- *                     booleanValue: "<DataValue>",
- *                     doubleValue: "<DataValue>",
- *                     integerValue: "<DataValue>",
- *                     longValue: "<DataValue>",
- *                     stringValue: "<DataValue>",
- *                     listValue: "<DataValue>",
- *                     mapValue: {
- *                       "<keys>": {
- *                         booleanValue: "<DataValue>",
- *                         doubleValue: "<DataValue>",
- *                         integerValue: "<DataValue>",
- *                         longValue: "<DataValue>",
- *                         stringValue: "<DataValue>",
- *                         listValue: "<DataValue>",
- *                         mapValue: "<DataValue>",
- *                         relationshipValue: {
- *                           targetEntityId: "STRING_VALUE",
- *                           targetComponentName: "STRING_VALUE",
- *                         },
- *                         expression: "STRING_VALUE",
- *                       },
- *                     },
- *                     relationshipValue: {
- *                       targetEntityId: "STRING_VALUE",
- *                       targetComponentName: "STRING_VALUE",
- *                     },
- *                     expression: "STRING_VALUE",
- *                   },
- *                 },
- *                 relationshipValue: "<DataValue>",
- *                 expression: "<DataValue>",
- *               },
+ *               "<DataValue>",
  *             ],
- *             mapValue: "<DataValue>",
- *             relationshipValue: "<DataValue>",
- *             expression: "<DataValue>",
+ *             mapValue: { // DataValueMap
+ *               "<keys>": "<DataValue>",
+ *             },
+ *             relationshipValue: { // RelationshipValue
+ *               targetEntityId: "STRING_VALUE",
+ *               targetComponentName: "STRING_VALUE",
+ *             },
+ *             expression: "STRING_VALUE",
  *           },
  *         ],
- *         mapValue: "<DataValue>",
- *         relationshipValue: "<DataValue>",
- *         expression: "<DataValue>",
+ *         mapValue: {
+ *           "<keys>": "<DataValue>",
+ *         },
+ *         relationshipValue: {
+ *           targetEntityId: "STRING_VALUE",
+ *           targetComponentName: "STRING_VALUE",
+ *         },
+ *         expression: "STRING_VALUE",
  *       },
  *     },
  *   ],
  *   startDateTime: new Date("TIMESTAMP"),
  *   endDateTime: new Date("TIMESTAMP"),
- *   interpolation: {
+ *   interpolation: { // InterpolationParameters
  *     interpolationType: "STRING_VALUE",
  *     intervalInSeconds: Number("long"),
  *   },

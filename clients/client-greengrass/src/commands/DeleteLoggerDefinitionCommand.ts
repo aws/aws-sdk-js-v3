@@ -42,7 +42,7 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * import { GreengrassClient, DeleteLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // DeleteLoggerDefinitionRequest
  *   LoggerDefinitionId: "STRING_VALUE", // required
  * };
  * const command = new DeleteLoggerDefinitionCommand(input);

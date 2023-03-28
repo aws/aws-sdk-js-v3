@@ -43,7 +43,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * import { IvsClient, UpdateChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, UpdateChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
- * const input = {
+ * const input = { // UpdateChannelRequest
  *   arn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   latencyMode: "STRING_VALUE",

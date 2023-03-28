@@ -53,12 +53,12 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * import { CloudWatchLogsClient, StartQueryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, StartQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // StartQueryRequest
  *   logGroupName: "STRING_VALUE",
- *   logGroupNames: [
+ *   logGroupNames: [ // LogGroupNames
  *     "STRING_VALUE",
  *   ],
- *   logGroupIdentifiers: [
+ *   logGroupIdentifiers: [ // LogGroupIdentifiers
  *     "STRING_VALUE",
  *   ],
  *   startTime: Number("long"), // required

@@ -42,7 +42,7 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  * import { CodeCommitClient, MergeBranchesByThreeWayCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergeBranchesByThreeWayCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = {
+ * const input = { // MergeBranchesByThreeWayInput
  *   repositoryName: "STRING_VALUE", // required
  *   sourceCommitSpecifier: "STRING_VALUE", // required
  *   destinationCommitSpecifier: "STRING_VALUE", // required
@@ -53,22 +53,22 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  *   email: "STRING_VALUE",
  *   commitMessage: "STRING_VALUE",
  *   keepEmptyFolders: true || false,
- *   conflictResolution: {
- *     replaceContents: [
- *       {
+ *   conflictResolution: { // ConflictResolution
+ *     replaceContents: [ // ReplaceContentEntries
+ *       { // ReplaceContentEntry
  *         filePath: "STRING_VALUE", // required
  *         replacementType: "STRING_VALUE", // required
  *         content: "BLOB_VALUE",
  *         fileMode: "STRING_VALUE",
  *       },
  *     ],
- *     deleteFiles: [
- *       {
+ *     deleteFiles: [ // DeleteFileEntries
+ *       { // DeleteFileEntry
  *         filePath: "STRING_VALUE", // required
  *       },
  *     ],
- *     setFileModes: [
- *       {
+ *     setFileModes: [ // SetFileModeEntries
+ *       { // SetFileModeEntry
  *         filePath: "STRING_VALUE", // required
  *         fileMode: "STRING_VALUE", // required
  *       },

@@ -47,7 +47,7 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
  * import { CloudFrontClient, ListRealtimeLogConfigsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListRealtimeLogConfigsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // ListRealtimeLogConfigsRequest
  *   MaxItems: Number("int"),
  *   Marker: "STRING_VALUE",
  * };

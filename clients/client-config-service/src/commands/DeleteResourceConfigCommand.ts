@@ -43,7 +43,7 @@ export interface DeleteResourceConfigCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, DeleteResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = {
+ * const input = { // DeleteResourceConfigRequest
  *   ResourceType: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  * };

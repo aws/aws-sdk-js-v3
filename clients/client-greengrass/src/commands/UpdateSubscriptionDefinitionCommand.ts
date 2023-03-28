@@ -44,7 +44,7 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  * import { GreengrassClient, UpdateSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // UpdateSubscriptionDefinitionRequest
  *   Name: "STRING_VALUE",
  *   SubscriptionDefinitionId: "STRING_VALUE", // required
  * };

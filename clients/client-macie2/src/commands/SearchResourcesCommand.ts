@@ -42,22 +42,22 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * import { Macie2Client, SearchResourcesCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, SearchResourcesCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = {
- *   bucketCriteria: {
- *     excludes: {
- *       and: [
- *         {
- *           simpleCriterion: {
+ * const input = { // SearchResourcesRequest
+ *   bucketCriteria: { // SearchResourcesBucketCriteria
+ *     excludes: { // SearchResourcesCriteriaBlock
+ *       and: [ // __listOfSearchResourcesCriteria
+ *         { // SearchResourcesCriteria
+ *           simpleCriterion: { // SearchResourcesSimpleCriterion
  *             comparator: "EQ" || "NE",
  *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
- *             values: [
+ *             values: [ // __listOf__string
  *               "STRING_VALUE",
  *             ],
  *           },
- *           tagCriterion: {
+ *           tagCriterion: { // SearchResourcesTagCriterion
  *             comparator: "EQ" || "NE",
- *             tagValues: [
- *               {
+ *             tagValues: [ // __listOfSearchResourcesTagCriterionPair
+ *               { // SearchResourcesTagCriterionPair
  *                 key: "STRING_VALUE",
  *                 value: "STRING_VALUE",
  *               },
@@ -91,7 +91,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   sortCriteria: {
+ *   sortCriteria: { // SearchResourcesSortCriteria
  *     attributeName: "ACCOUNT_ID" || "RESOURCE_NAME" || "S3_CLASSIFIABLE_OBJECT_COUNT" || "S3_CLASSIFIABLE_SIZE_IN_BYTES",
  *     orderBy: "ASC" || "DESC",
  *   },

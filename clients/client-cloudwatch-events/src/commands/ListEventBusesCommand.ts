@@ -43,7 +43,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * import { CloudWatchEventsClient, ListEventBusesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListEventBusesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
- * const input = {
+ * const input = { // ListEventBusesRequest
  *   NamePrefix: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),

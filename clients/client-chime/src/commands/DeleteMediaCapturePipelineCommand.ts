@@ -42,7 +42,7 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
  * import { ChimeClient, DeleteMediaCapturePipelineCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteMediaCapturePipelineCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
- * const input = {
+ * const input = { // DeleteMediaCapturePipelineRequest
  *   MediaPipelineId: "STRING_VALUE", // required
  * };
  * const command = new DeleteMediaCapturePipelineCommand(input);

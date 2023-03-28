@@ -42,7 +42,7 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  * import { DeviceFarmClient, GetTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
- * const input = {
+ * const input = { // GetTestGridProjectRequest
  *   projectArn: "STRING_VALUE", // required
  * };
  * const command = new GetTestGridProjectCommand(input);

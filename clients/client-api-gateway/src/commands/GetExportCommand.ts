@@ -42,11 +42,11 @@ export interface GetExportCommandOutput extends ExportResponse, __MetadataBearer
  * import { APIGatewayClient, GetExportCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetExportCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = {
+ * const input = { // GetExportRequest
  *   restApiId: "STRING_VALUE", // required
  *   stageName: "STRING_VALUE", // required
  *   exportType: "STRING_VALUE", // required
- *   parameters: {
+ *   parameters: { // MapOfStringToString
  *     "<keys>": "STRING_VALUE",
  *   },
  *   accepts: "STRING_VALUE",

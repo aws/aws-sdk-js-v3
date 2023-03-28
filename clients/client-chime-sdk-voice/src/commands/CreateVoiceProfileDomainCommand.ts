@@ -53,15 +53,15 @@ export interface CreateVoiceProfileDomainCommandOutput extends CreateVoiceProfil
  * import { ChimeSDKVoiceClient, CreateVoiceProfileDomainCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, CreateVoiceProfileDomainCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // CreateVoiceProfileDomainRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   ServerSideEncryptionConfiguration: {
+ *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     KmsKeyArn: "STRING_VALUE", // required
  *   },
  *   ClientRequestToken: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

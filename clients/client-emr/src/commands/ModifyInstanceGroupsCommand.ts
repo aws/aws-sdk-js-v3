@@ -44,19 +44,19 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * import { EMRClient, ModifyInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
- * const input = {
+ * const input = { // ModifyInstanceGroupsInput
  *   ClusterId: "STRING_VALUE",
- *   InstanceGroups: [
- *     {
+ *   InstanceGroups: [ // InstanceGroupModifyConfigList
+ *     { // InstanceGroupModifyConfig
  *       InstanceGroupId: "STRING_VALUE", // required
  *       InstanceCount: Number("int"),
- *       EC2InstanceIdsToTerminate: [
+ *       EC2InstanceIdsToTerminate: [ // EC2InstanceIdsToTerminateList
  *         "STRING_VALUE",
  *       ],
- *       ShrinkPolicy: {
+ *       ShrinkPolicy: { // ShrinkPolicy
  *         DecommissionTimeout: Number("int"),
- *         InstanceResizePolicy: {
- *           InstancesToTerminate: [
+ *         InstanceResizePolicy: { // InstanceResizePolicy
+ *           InstancesToTerminate: [ // EC2InstanceIdsList
  *             "STRING_VALUE",
  *           ],
  *           InstancesToProtect: [
@@ -66,16 +66,14 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  *         },
  *       },
  *       ReconfigurationType: "OVERWRITE" || "MERGE",
- *       Configurations: [
- *         {
+ *       Configurations: [ // ConfigurationList
+ *         { // Configuration
  *           Classification: "STRING_VALUE",
  *           Configurations: [
  *             {
  *               Classification: "STRING_VALUE",
- *               Configurations: [
- *                 "<ConfigurationList>",
- *               ],
- *               Properties: {
+ *               Configurations: "<ConfigurationList>",
+ *               Properties: { // StringMap
  *                 "<keys>": "STRING_VALUE",
  *               },
  *             },

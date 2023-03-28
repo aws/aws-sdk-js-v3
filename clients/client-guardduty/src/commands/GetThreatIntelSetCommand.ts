@@ -42,7 +42,7 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  * import { GuardDutyClient, GetThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // GetThreatIntelSetRequest
  *   DetectorId: "STRING_VALUE", // required
  *   ThreatIntelSetId: "STRING_VALUE", // required
  * };

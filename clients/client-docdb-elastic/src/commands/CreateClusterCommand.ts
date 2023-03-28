@@ -42,14 +42,14 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * import { DocDBElasticClient, CreateClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, CreateClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
- * const input = {
+ * const input = { // CreateClusterInput
  *   clusterName: "STRING_VALUE", // required
  *   authType: "STRING_VALUE", // required
  *   adminUserName: "STRING_VALUE", // required
  *   adminUserPassword: "STRING_VALUE", // required
  *   shardCapacity: Number("int"), // required
  *   shardCount: Number("int"), // required
- *   vpcSecurityGroupIds: [
+ *   vpcSecurityGroupIds: [ // StringList
  *     "STRING_VALUE",
  *   ],
  *   subnetIds: [
@@ -58,7 +58,7 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  *   kmsKeyId: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   preferredMaintenanceWindow: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

@@ -42,7 +42,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * import { EventBridgeClient, DescribeEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = {
+ * const input = { // DescribeEndpointRequest
  *   Name: "STRING_VALUE", // required
  *   HomeRegion: "STRING_VALUE",
  * };

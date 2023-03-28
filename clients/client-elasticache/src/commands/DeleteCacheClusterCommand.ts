@@ -70,7 +70,7 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * import { ElastiCacheClient, DeleteCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = {
+ * const input = { // DeleteCacheClusterMessage
  *   CacheClusterId: "STRING_VALUE", // required
  *   FinalSnapshotIdentifier: "STRING_VALUE",
  * };

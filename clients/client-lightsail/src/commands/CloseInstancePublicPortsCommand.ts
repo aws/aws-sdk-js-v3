@@ -45,12 +45,12 @@ export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePubl
  * import { LightsailClient, CloseInstancePublicPortsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CloseInstancePublicPortsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = {
- *   portInfo: {
+ * const input = { // CloseInstancePublicPortsRequest
+ *   portInfo: { // PortInfo
  *     fromPort: Number("int"),
  *     toPort: Number("int"),
  *     protocol: "tcp" || "all" || "udp" || "icmp",
- *     cidrs: [
+ *     cidrs: [ // StringList
  *       "STRING_VALUE",
  *     ],
  *     ipv6Cidrs: [

@@ -54,10 +54,10 @@ export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse,
  * import { OpsWorksCMClient, StartMaintenanceCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, StartMaintenanceCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
- * const input = {
+ * const input = { // StartMaintenanceRequest
  *   ServerName: "STRING_VALUE", // required
- *   EngineAttributes: [
- *     {
+ *   EngineAttributes: [ // EngineAttributes
+ *     { // EngineAttribute
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

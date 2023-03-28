@@ -50,12 +50,12 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * import { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeInstancePatchStatesForPatchGroupRequest
  *   PatchGroup: "STRING_VALUE", // required
- *   Filters: [
- *     {
+ *   Filters: [ // InstancePatchStateFilterList
+ *     { // InstancePatchStateFilter
  *       Key: "STRING_VALUE", // required
- *       Values: [ // required
+ *       Values: [ // InstancePatchStateFilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       Type: "Equal" || "NotEqual" || "LessThan" || "GreaterThan", // required

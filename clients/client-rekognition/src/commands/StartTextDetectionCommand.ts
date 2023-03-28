@@ -49,36 +49,36 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * import { RekognitionClient, StartTextDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartTextDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
- *   Video: {
- *     S3Object: {
+ * const input = { // StartTextDetectionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
  *       Version: "STRING_VALUE",
  *     },
  *   },
  *   ClientRequestToken: "STRING_VALUE",
- *   NotificationChannel: {
+ *   NotificationChannel: { // NotificationChannel
  *     SNSTopicArn: "STRING_VALUE", // required
  *     RoleArn: "STRING_VALUE", // required
  *   },
  *   JobTag: "STRING_VALUE",
- *   Filters: {
- *     WordFilter: {
+ *   Filters: { // StartTextDetectionFilters
+ *     WordFilter: { // DetectionFilter
  *       MinConfidence: Number("float"),
  *       MinBoundingBoxHeight: Number("float"),
  *       MinBoundingBoxWidth: Number("float"),
  *     },
- *     RegionsOfInterest: [
- *       {
- *         BoundingBox: {
+ *     RegionsOfInterest: [ // RegionsOfInterest
+ *       { // RegionOfInterest
+ *         BoundingBox: { // BoundingBox
  *           Width: Number("float"),
  *           Height: Number("float"),
  *           Left: Number("float"),
  *           Top: Number("float"),
  *         },
- *         Polygon: [
- *           {
+ *         Polygon: [ // Polygon
+ *           { // Point
  *             X: Number("float"),
  *             Y: Number("float"),
  *           },

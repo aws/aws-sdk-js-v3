@@ -42,7 +42,7 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  * import { GreengrassClient, GetGroupVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
- * const input = {
+ * const input = { // GetGroupVersionRequest
  *   GroupId: "STRING_VALUE", // required
  *   GroupVersionId: "STRING_VALUE", // required
  * };

@@ -42,7 +42,7 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  * import { RoboMakerClient, GetWorldTemplateBodyCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, GetWorldTemplateBodyCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // GetWorldTemplateBodyRequest
  *   template: "STRING_VALUE",
  *   generationJob: "STRING_VALUE",
  * };

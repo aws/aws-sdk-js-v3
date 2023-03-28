@@ -43,7 +43,7 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * import { PersonalizeClient, DescribeSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // DescribeSolutionRequest
  *   solutionArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeSolutionCommand(input);

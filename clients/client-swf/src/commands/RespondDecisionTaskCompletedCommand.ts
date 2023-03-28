@@ -61,13 +61,13 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * import { SWFClient, RespondDecisionTaskCompletedCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondDecisionTaskCompletedCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
- * const input = {
+ * const input = { // RespondDecisionTaskCompletedInput
  *   taskToken: "STRING_VALUE", // required
- *   decisions: [
- *     {
+ *   decisions: [ // DecisionList
+ *     { // Decision
  *       decisionType: "ScheduleActivityTask" || "RequestCancelActivityTask" || "CompleteWorkflowExecution" || "FailWorkflowExecution" || "CancelWorkflowExecution" || "ContinueAsNewWorkflowExecution" || "RecordMarker" || "StartTimer" || "CancelTimer" || "SignalExternalWorkflowExecution" || "RequestCancelExternalWorkflowExecution" || "StartChildWorkflowExecution" || "ScheduleLambdaFunction", // required
- *       scheduleActivityTaskDecisionAttributes: {
- *         activityType: {
+ *       scheduleActivityTaskDecisionAttributes: { // ScheduleActivityTaskDecisionAttributes
+ *         activityType: { // ActivityType
  *           name: "STRING_VALUE", // required
  *           version: "STRING_VALUE", // required
  *         },
@@ -75,7 +75,7 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  *         control: "STRING_VALUE",
  *         input: "STRING_VALUE",
  *         scheduleToCloseTimeout: "STRING_VALUE",
- *         taskList: {
+ *         taskList: { // TaskList
  *           name: "STRING_VALUE", // required
  *         },
  *         taskPriority: "STRING_VALUE",
@@ -83,20 +83,20 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  *         startToCloseTimeout: "STRING_VALUE",
  *         heartbeatTimeout: "STRING_VALUE",
  *       },
- *       requestCancelActivityTaskDecisionAttributes: {
+ *       requestCancelActivityTaskDecisionAttributes: { // RequestCancelActivityTaskDecisionAttributes
  *         activityId: "STRING_VALUE", // required
  *       },
- *       completeWorkflowExecutionDecisionAttributes: {
+ *       completeWorkflowExecutionDecisionAttributes: { // CompleteWorkflowExecutionDecisionAttributes
  *         result: "STRING_VALUE",
  *       },
- *       failWorkflowExecutionDecisionAttributes: {
+ *       failWorkflowExecutionDecisionAttributes: { // FailWorkflowExecutionDecisionAttributes
  *         reason: "STRING_VALUE",
  *         details: "STRING_VALUE",
  *       },
- *       cancelWorkflowExecutionDecisionAttributes: {
+ *       cancelWorkflowExecutionDecisionAttributes: { // CancelWorkflowExecutionDecisionAttributes
  *         details: "STRING_VALUE",
  *       },
- *       continueAsNewWorkflowExecutionDecisionAttributes: {
+ *       continueAsNewWorkflowExecutionDecisionAttributes: { // ContinueAsNewWorkflowExecutionDecisionAttributes
  *         input: "STRING_VALUE",
  *         executionStartToCloseTimeout: "STRING_VALUE",
  *         taskList: {
@@ -105,38 +105,38 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  *         taskPriority: "STRING_VALUE",
  *         taskStartToCloseTimeout: "STRING_VALUE",
  *         childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
- *         tagList: [
+ *         tagList: [ // TagList
  *           "STRING_VALUE",
  *         ],
  *         workflowTypeVersion: "STRING_VALUE",
  *         lambdaRole: "STRING_VALUE",
  *       },
- *       recordMarkerDecisionAttributes: {
+ *       recordMarkerDecisionAttributes: { // RecordMarkerDecisionAttributes
  *         markerName: "STRING_VALUE", // required
  *         details: "STRING_VALUE",
  *       },
- *       startTimerDecisionAttributes: {
+ *       startTimerDecisionAttributes: { // StartTimerDecisionAttributes
  *         timerId: "STRING_VALUE", // required
  *         control: "STRING_VALUE",
  *         startToFireTimeout: "STRING_VALUE", // required
  *       },
- *       cancelTimerDecisionAttributes: {
+ *       cancelTimerDecisionAttributes: { // CancelTimerDecisionAttributes
  *         timerId: "STRING_VALUE", // required
  *       },
- *       signalExternalWorkflowExecutionDecisionAttributes: {
+ *       signalExternalWorkflowExecutionDecisionAttributes: { // SignalExternalWorkflowExecutionDecisionAttributes
  *         workflowId: "STRING_VALUE", // required
  *         runId: "STRING_VALUE",
  *         signalName: "STRING_VALUE", // required
  *         input: "STRING_VALUE",
  *         control: "STRING_VALUE",
  *       },
- *       requestCancelExternalWorkflowExecutionDecisionAttributes: {
+ *       requestCancelExternalWorkflowExecutionDecisionAttributes: { // RequestCancelExternalWorkflowExecutionDecisionAttributes
  *         workflowId: "STRING_VALUE", // required
  *         runId: "STRING_VALUE",
  *         control: "STRING_VALUE",
  *       },
- *       startChildWorkflowExecutionDecisionAttributes: {
- *         workflowType: {
+ *       startChildWorkflowExecutionDecisionAttributes: { // StartChildWorkflowExecutionDecisionAttributes
+ *         workflowType: { // WorkflowType
  *           name: "STRING_VALUE", // required
  *           version: "STRING_VALUE", // required
  *         },
@@ -155,7 +155,7 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  *         ],
  *         lambdaRole: "STRING_VALUE",
  *       },
- *       scheduleLambdaFunctionDecisionAttributes: {
+ *       scheduleLambdaFunctionDecisionAttributes: { // ScheduleLambdaFunctionDecisionAttributes
  *         id: "STRING_VALUE", // required
  *         name: "STRING_VALUE", // required
  *         control: "STRING_VALUE",

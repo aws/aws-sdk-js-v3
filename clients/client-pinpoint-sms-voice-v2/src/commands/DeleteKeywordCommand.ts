@@ -52,7 +52,7 @@ export interface DeleteKeywordCommandOutput extends DeleteKeywordResult, __Metad
  * import { PinpointSMSVoiceV2Client, DeleteKeywordCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteKeywordCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = {
+ * const input = { // DeleteKeywordRequest
  *   OriginationIdentity: "STRING_VALUE", // required
  *   Keyword: "STRING_VALUE", // required
  * };

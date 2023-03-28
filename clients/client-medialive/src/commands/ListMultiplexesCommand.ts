@@ -42,7 +42,7 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * import { MediaLiveClient, ListMultiplexesCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListMultiplexesCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = {
+ * const input = { // ListMultiplexesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

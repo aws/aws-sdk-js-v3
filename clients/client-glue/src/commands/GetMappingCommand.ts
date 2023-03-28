@@ -42,20 +42,20 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * import { GlueClient, GetMappingCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMappingCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
- *   Source: {
+ * const input = { // GetMappingRequest
+ *   Source: { // CatalogEntry
  *     DatabaseName: "STRING_VALUE", // required
  *     TableName: "STRING_VALUE", // required
  *   },
- *   Sinks: [
+ *   Sinks: [ // CatalogEntries
  *     {
  *       DatabaseName: "STRING_VALUE", // required
  *       TableName: "STRING_VALUE", // required
  *     },
  *   ],
- *   Location: {
- *     Jdbc: [
- *       {
+ *   Location: { // Location
+ *     Jdbc: [ // CodeGenNodeArgs
+ *       { // CodeGenNodeArg
  *         Name: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *         Param: true || false,

@@ -42,7 +42,7 @@ export interface CancelSimulationJobCommandOutput extends CancelSimulationJobRes
  * import { RoboMakerClient, CancelSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
- * const input = {
+ * const input = { // CancelSimulationJobRequest
  *   job: "STRING_VALUE", // required
  * };
  * const command = new CancelSimulationJobCommand(input);

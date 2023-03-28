@@ -43,7 +43,7 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * import { CloudTrailClient, ListImportsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListImportsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // ListImportsRequest
  *   MaxResults: Number("int"),
  *   Destination: "STRING_VALUE",
  *   ImportStatus: "INITIALIZING" || "IN_PROGRESS" || "FAILED" || "STOPPED" || "COMPLETED",

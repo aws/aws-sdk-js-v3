@@ -44,9 +44,9 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * import { DirectoryServiceClient, DescribeTrustsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeTrustsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
- * const input = {
+ * const input = { // DescribeTrustsRequest
  *   DirectoryId: "STRING_VALUE",
- *   TrustIds: [
+ *   TrustIds: [ // TrustIds
  *     "STRING_VALUE",
  *   ],
  *   NextToken: "STRING_VALUE",

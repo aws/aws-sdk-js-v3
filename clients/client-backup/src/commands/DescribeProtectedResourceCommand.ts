@@ -44,7 +44,7 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * import { BackupClient, DescribeProtectedResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeProtectedResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = {
+ * const input = { // DescribeProtectedResourceInput
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeProtectedResourceCommand(input);

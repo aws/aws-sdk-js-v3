@@ -42,7 +42,7 @@ export interface GetScheduleCommandOutput extends GetScheduleOutput, __MetadataB
  * import { SchedulerClient, GetScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, GetScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
- * const input = {
+ * const input = { // GetScheduleInput
  *   Name: "STRING_VALUE", // required
  *   GroupName: "STRING_VALUE",
  * };

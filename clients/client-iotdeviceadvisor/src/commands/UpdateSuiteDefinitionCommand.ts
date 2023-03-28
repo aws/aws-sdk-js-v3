@@ -43,12 +43,12 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
  * import { IotDeviceAdvisorClient, UpdateSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, UpdateSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
- * const input = {
+ * const input = { // UpdateSuiteDefinitionRequest
  *   suiteDefinitionId: "STRING_VALUE", // required
- *   suiteDefinitionConfiguration: {
+ *   suiteDefinitionConfiguration: { // SuiteDefinitionConfiguration
  *     suiteDefinitionName: "STRING_VALUE", // required
- *     devices: [
- *       {
+ *     devices: [ // DeviceUnderTestList
+ *       { // DeviceUnderTest
  *         thingArn: "STRING_VALUE",
  *         certificateArn: "STRING_VALUE",
  *       },

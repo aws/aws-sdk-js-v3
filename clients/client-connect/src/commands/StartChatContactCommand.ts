@@ -62,25 +62,25 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * import { ConnectClient, StartChatContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartChatContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // StartChatContactRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactFlowId: "STRING_VALUE", // required
- *   Attributes: {
+ *   Attributes: { // Attributes
  *     "<keys>": "STRING_VALUE",
  *   },
- *   ParticipantDetails: {
+ *   ParticipantDetails: { // ParticipantDetails
  *     DisplayName: "STRING_VALUE", // required
  *   },
- *   InitialMessage: {
+ *   InitialMessage: { // ChatMessage
  *     ContentType: "STRING_VALUE", // required
  *     Content: "STRING_VALUE", // required
  *   },
  *   ClientToken: "STRING_VALUE",
  *   ChatDurationInMinutes: Number("int"),
- *   SupportedMessagingContentTypes: [
+ *   SupportedMessagingContentTypes: [ // SupportedMessagingContentTypes
  *     "STRING_VALUE",
  *   ],
- *   PersistentChat: {
+ *   PersistentChat: { // PersistentChat
  *     RehydrationType: "ENTIRE_PAST_SESSION" || "FROM_SEGMENT",
  *     SourceContactId: "STRING_VALUE",
  *   },

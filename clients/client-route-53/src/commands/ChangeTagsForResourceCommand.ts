@@ -44,16 +44,16 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * import { Route53Client, ChangeTagsForResourceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ChangeTagsForResourceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // ChangeTagsForResourceRequest
  *   ResourceType: "healthcheck" || "hostedzone", // required
  *   ResourceId: "STRING_VALUE", // required
- *   AddTags: [
- *     {
+ *   AddTags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
- *   RemoveTagKeys: [
+ *   RemoveTagKeys: [ // TagKeyList
  *     "STRING_VALUE",
  *   ],
  * };

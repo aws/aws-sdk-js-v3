@@ -47,7 +47,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * import { EC2Client, ModifyInstanceMaintenanceOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceMaintenanceOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyInstanceMaintenanceOptionsRequest
  *   InstanceId: "STRING_VALUE", // required
  *   AutoRecovery: "disabled" || "default",
  *   DryRun: true || false,

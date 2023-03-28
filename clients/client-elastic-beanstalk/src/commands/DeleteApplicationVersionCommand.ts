@@ -46,7 +46,7 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * import { ElasticBeanstalkClient, DeleteApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
- * const input = {
+ * const input = { // DeleteApplicationVersionMessage
  *   ApplicationName: "STRING_VALUE", // required
  *   VersionLabel: "STRING_VALUE", // required
  *   DeleteSourceBundle: true || false,

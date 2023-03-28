@@ -49,18 +49,18 @@ export interface CreateRecommendationTemplateCommandOutput
  * import { ResiliencehubClient, CreateRecommendationTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, CreateRecommendationTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = {
- *   recommendationIds: [
+ * const input = { // CreateRecommendationTemplateRequest
+ *   recommendationIds: [ // RecommendationIdList
  *     "STRING_VALUE",
  *   ],
  *   format: "STRING_VALUE",
- *   recommendationTypes: [
+ *   recommendationTypes: [ // RenderRecommendationTypeList
  *     "STRING_VALUE",
  *   ],
  *   assessmentArn: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
- *   tags: {
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   bucketName: "STRING_VALUE",

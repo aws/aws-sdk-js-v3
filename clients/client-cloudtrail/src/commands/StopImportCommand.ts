@@ -42,7 +42,7 @@ export interface StopImportCommandOutput extends StopImportResponse, __MetadataB
  * import { CloudTrailClient, StopImportCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StopImportCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const input = {
+ * const input = { // StopImportRequest
  *   ImportId: "STRING_VALUE", // required
  * };
  * const command = new StopImportCommand(input);

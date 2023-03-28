@@ -45,7 +45,7 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  * import { MediaStoreDataClient, GetObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, GetObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
- * const input = {
+ * const input = { // GetObjectRequest
  *   Path: "STRING_VALUE", // required
  *   Range: "STRING_VALUE",
  * };

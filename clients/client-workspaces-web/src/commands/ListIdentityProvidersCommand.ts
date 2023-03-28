@@ -46,7 +46,7 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * import { WorkSpacesWebClient, ListIdentityProvidersCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
- * const input = {
+ * const input = { // ListIdentityProvidersRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   portalArn: "STRING_VALUE", // required

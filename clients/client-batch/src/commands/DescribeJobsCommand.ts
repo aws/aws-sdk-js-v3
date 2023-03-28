@@ -42,8 +42,8 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * import { BatchClient, DescribeJobsCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeJobsCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
- * const input = {
- *   jobs: [ // required
+ * const input = { // DescribeJobsRequest
+ *   jobs: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
  * };

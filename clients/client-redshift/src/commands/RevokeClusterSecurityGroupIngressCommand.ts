@@ -48,7 +48,7 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  * import { RedshiftClient, RevokeClusterSecurityGroupIngressCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RevokeClusterSecurityGroupIngressCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
- * const input = {
+ * const input = { // RevokeClusterSecurityGroupIngressMessage
  *   ClusterSecurityGroupName: "STRING_VALUE", // required
  *   CIDRIP: "STRING_VALUE",
  *   EC2SecurityGroupName: "STRING_VALUE",

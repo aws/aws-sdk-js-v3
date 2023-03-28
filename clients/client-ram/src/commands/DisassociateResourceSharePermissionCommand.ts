@@ -49,7 +49,7 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * import { RAMClient, DisassociateResourceSharePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, DisassociateResourceSharePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
- * const input = {
+ * const input = { // DisassociateResourceSharePermissionRequest
  *   resourceShareArn: "STRING_VALUE", // required
  *   permissionArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",

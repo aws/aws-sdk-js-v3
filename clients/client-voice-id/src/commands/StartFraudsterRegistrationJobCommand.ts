@@ -49,22 +49,22 @@ export interface StartFraudsterRegistrationJobCommandOutput
  * import { VoiceIDClient, StartFraudsterRegistrationJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, StartFraudsterRegistrationJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
- * const input = {
+ * const input = { // StartFraudsterRegistrationJobRequest
  *   ClientToken: "STRING_VALUE",
  *   JobName: "STRING_VALUE",
  *   DomainId: "STRING_VALUE", // required
  *   DataAccessRoleArn: "STRING_VALUE", // required
- *   RegistrationConfig: {
+ *   RegistrationConfig: { // RegistrationConfig
  *     DuplicateRegistrationAction: "STRING_VALUE",
  *     FraudsterSimilarityThreshold: Number("int"),
- *     WatchlistIds: [
+ *     WatchlistIds: [ // RegistrationConfigWatchlistIds
  *       "STRING_VALUE",
  *     ],
  *   },
- *   InputDataConfig: {
+ *   InputDataConfig: { // InputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *   },
- *   OutputDataConfig: {
+ *   OutputDataConfig: { // OutputDataConfig
  *     S3Uri: "STRING_VALUE", // required
  *     KmsKeyId: "STRING_VALUE",
  *   },

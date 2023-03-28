@@ -42,22 +42,22 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * import { LakeFormationClient, UpdateTableObjectsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateTableObjectsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
+ * const input = { // UpdateTableObjectsRequest
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
  *   TransactionId: "STRING_VALUE",
- *   WriteOperations: [ // required
- *     {
- *       AddObject: {
+ *   WriteOperations: [ // WriteOperationList // required
+ *     { // WriteOperation
+ *       AddObject: { // AddObjectInput
  *         Uri: "STRING_VALUE", // required
  *         ETag: "STRING_VALUE", // required
  *         Size: Number("long"), // required
- *         PartitionValues: [
+ *         PartitionValues: [ // PartitionValuesList
  *           "STRING_VALUE",
  *         ],
  *       },
- *       DeleteObject: {
+ *       DeleteObject: { // DeleteObjectInput
  *         Uri: "STRING_VALUE", // required
  *         ETag: "STRING_VALUE",
  *         PartitionValues: [

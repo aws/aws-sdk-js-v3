@@ -42,16 +42,16 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * import { ConnectClient, StartTaskContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartTaskContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // StartTaskContactRequest
  *   InstanceId: "STRING_VALUE", // required
  *   PreviousContactId: "STRING_VALUE",
  *   ContactFlowId: "STRING_VALUE",
- *   Attributes: {
+ *   Attributes: { // Attributes
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Name: "STRING_VALUE", // required
- *   References: {
- *     "<keys>": {
+ *   References: { // ContactReferences
+ *     "<keys>": { // Reference
  *       Value: "STRING_VALUE", // required
  *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
  *     },

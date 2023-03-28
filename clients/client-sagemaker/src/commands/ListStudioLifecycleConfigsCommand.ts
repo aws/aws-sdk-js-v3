@@ -42,7 +42,7 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * import { SageMakerClient, ListStudioLifecycleConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListStudioLifecycleConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListStudioLifecycleConfigsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   NameContains: "STRING_VALUE",

@@ -54,7 +54,7 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * import { LambdaClient, AddPermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, AddPermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // AddPermissionRequest
  *   FunctionName: "STRING_VALUE", // required
  *   StatementId: "STRING_VALUE", // required
  *   Action: "STRING_VALUE", // required

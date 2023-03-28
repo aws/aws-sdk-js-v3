@@ -42,19 +42,19 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  * import { WorkMailClient, UpdateImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdateImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
- * const input = {
+ * const input = { // UpdateImpersonationRoleRequest
  *   OrganizationId: "STRING_VALUE", // required
  *   ImpersonationRoleId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Type: "FULL_ACCESS" || "READ_ONLY", // required
  *   Description: "STRING_VALUE",
- *   Rules: [ // required
- *     {
+ *   Rules: [ // ImpersonationRuleList // required
+ *     { // ImpersonationRule
  *       ImpersonationRuleId: "STRING_VALUE", // required
  *       Name: "STRING_VALUE",
  *       Description: "STRING_VALUE",
  *       Effect: "ALLOW" || "DENY", // required
- *       TargetUsers: [
+ *       TargetUsers: [ // TargetUsers
  *         "STRING_VALUE",
  *       ],
  *       NotTargetUsers: [

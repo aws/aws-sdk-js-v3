@@ -50,10 +50,10 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * import { DrsClient, CreateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, CreateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
- * const input = {
+ * const input = { // CreateReplicationConfigurationTemplateRequest
  *   stagingAreaSubnetId: "STRING_VALUE", // required
  *   associateDefaultSecurityGroup: true || false, // required
- *   replicationServersSecurityGroupsIDs: [ // required
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs // required
  *     "STRING_VALUE",
  *   ],
  *   replicationServerInstanceType: "STRING_VALUE", // required
@@ -64,11 +64,11 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  *   bandwidthThrottling: Number("long"), // required
  *   dataPlaneRouting: "STRING_VALUE", // required
  *   createPublicIP: true || false, // required
- *   stagingAreaTags: { // required
+ *   stagingAreaTags: { // TagsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
- *   pitPolicy: [ // required
- *     {
+ *   pitPolicy: [ // PITPolicy // required
+ *     { // PITPolicyRule
  *       ruleID: Number("long"),
  *       units: "STRING_VALUE", // required
  *       interval: Number("int"), // required

@@ -55,7 +55,7 @@ export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGateway
  * import { EC2Client, CreateLocalGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateLocalGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateLocalGatewayRouteRequest
  *   DestinationCidrBlock: "STRING_VALUE",
  *   LocalGatewayRouteTableId: "STRING_VALUE", // required
  *   LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",

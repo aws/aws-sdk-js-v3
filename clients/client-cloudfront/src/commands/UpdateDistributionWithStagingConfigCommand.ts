@@ -57,7 +57,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * import { CloudFrontClient, UpdateDistributionWithStagingConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateDistributionWithStagingConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // UpdateDistributionWithStagingConfigRequest
  *   Id: "STRING_VALUE", // required
  *   StagingDistributionId: "STRING_VALUE",
  *   IfMatch: "STRING_VALUE",

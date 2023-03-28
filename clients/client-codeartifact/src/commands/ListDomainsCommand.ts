@@ -44,7 +44,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataB
  * import { CodeartifactClient, ListDomainsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListDomainsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
- * const input = {
+ * const input = { // ListDomainsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

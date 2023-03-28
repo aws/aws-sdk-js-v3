@@ -60,7 +60,7 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * import { GameLiftClient, StopMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StopMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = {
+ * const input = { // StopMatchmakingInput
  *   TicketId: "STRING_VALUE", // required
  * };
  * const command = new StopMatchmakingCommand(input);

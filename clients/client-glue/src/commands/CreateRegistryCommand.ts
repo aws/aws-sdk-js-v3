@@ -42,10 +42,10 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * import { GlueClient, CreateRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateRegistryInput
  *   RegistryName: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

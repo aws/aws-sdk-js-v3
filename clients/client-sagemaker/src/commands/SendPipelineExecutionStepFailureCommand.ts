@@ -46,7 +46,7 @@ export interface SendPipelineExecutionStepFailureCommandOutput
  * import { SageMakerClient, SendPipelineExecutionStepFailureCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, SendPipelineExecutionStepFailureCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // SendPipelineExecutionStepFailureRequest
  *   CallbackToken: "STRING_VALUE", // required
  *   FailureReason: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE",

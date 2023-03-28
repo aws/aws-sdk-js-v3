@@ -43,7 +43,7 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * import { DynamoDBClient, DescribeContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = {
+ * const input = { // DescribeContributorInsightsInput
  *   TableName: "STRING_VALUE", // required
  *   IndexName: "STRING_VALUE",
  * };

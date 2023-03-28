@@ -47,7 +47,7 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
  * import { EC2Client, ModifyVerifiedAccessEndpointPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessEndpointPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // ModifyVerifiedAccessEndpointPolicyRequest
  *   VerifiedAccessEndpointId: "STRING_VALUE", // required
  *   PolicyEnabled: true || false, // required
  *   PolicyDocument: "STRING_VALUE",

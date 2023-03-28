@@ -42,7 +42,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * import { SageMakerClient, ListDomainsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListDomainsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // ListDomainsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

@@ -42,7 +42,7 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * import { SchemasClient, ListRegistriesCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ListRegistriesCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
- * const input = {
+ * const input = { // ListRegistriesRequest
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   RegistryNamePrefix: "STRING_VALUE",

@@ -48,7 +48,7 @@ export interface DescribeWorkerConfigurationCommandOutput
  * import { KafkaConnectClient, DescribeWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DescribeWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = {
+ * const input = { // DescribeWorkerConfigurationRequest
  *   workerConfigurationArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeWorkerConfigurationCommand(input);

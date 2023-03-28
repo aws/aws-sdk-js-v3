@@ -93,11 +93,11 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, PutMetricAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // PutMetricAlarmInput
  *   AlarmName: "STRING_VALUE", // required
  *   AlarmDescription: "STRING_VALUE",
  *   ActionsEnabled: true || false,
- *   OKActions: [
+ *   OKActions: [ // ResourceList
  *     "STRING_VALUE",
  *   ],
  *   AlarmActions: [
@@ -110,8 +110,8 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *   Namespace: "STRING_VALUE",
  *   Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
  *   ExtendedStatistic: "STRING_VALUE",
- *   Dimensions: [
- *     {
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },
@@ -124,11 +124,11 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold", // required
  *   TreatMissingData: "STRING_VALUE",
  *   EvaluateLowSampleCountPercentile: "STRING_VALUE",
- *   Metrics: [
- *     {
+ *   Metrics: [ // MetricDataQueries
+ *     { // MetricDataQuery
  *       Id: "STRING_VALUE", // required
- *       MetricStat: {
- *         Metric: {
+ *       MetricStat: { // MetricStat
+ *         Metric: { // Metric
  *           Namespace: "STRING_VALUE",
  *           MetricName: "STRING_VALUE",
  *           Dimensions: [
@@ -149,8 +149,8 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *       AccountId: "STRING_VALUE",
  *     },
  *   ],
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

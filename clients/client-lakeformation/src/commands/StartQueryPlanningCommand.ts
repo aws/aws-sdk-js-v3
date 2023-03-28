@@ -47,12 +47,12 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  * import { LakeFormationClient, StartQueryPlanningCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, StartQueryPlanningCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
- * const input = {
- *   QueryPlanningContext: {
+ * const input = { // StartQueryPlanningRequest
+ *   QueryPlanningContext: { // QueryPlanningContext
  *     CatalogId: "STRING_VALUE",
  *     DatabaseName: "STRING_VALUE", // required
  *     QueryAsOfTime: new Date("TIMESTAMP"),
- *     QueryParameters: {
+ *     QueryParameters: { // QueryParameterMap
  *       "<keys>": "STRING_VALUE",
  *     },
  *     TransactionId: "STRING_VALUE",

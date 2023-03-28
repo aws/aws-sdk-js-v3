@@ -50,40 +50,40 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * import { CustomerProfilesClient, UpdateDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = {
+ * const input = { // UpdateDomainRequest
  *   DomainName: "STRING_VALUE", // required
  *   DefaultExpirationDays: Number("int"),
  *   DefaultEncryptionKey: "STRING_VALUE",
  *   DeadLetterQueueUrl: "STRING_VALUE",
- *   Matching: {
+ *   Matching: { // MatchingRequest
  *     Enabled: true || false, // required
- *     JobSchedule: {
+ *     JobSchedule: { // JobSchedule
  *       DayOfTheWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
  *       Time: "STRING_VALUE", // required
  *     },
- *     AutoMerging: {
+ *     AutoMerging: { // AutoMerging
  *       Enabled: true || false, // required
- *       Consolidation: {
- *         MatchingAttributesList: [ // required
- *           [
+ *       Consolidation: { // Consolidation
+ *         MatchingAttributesList: [ // MatchingAttributesList // required
+ *           [ // MatchingAttributes
  *             "STRING_VALUE",
  *           ],
  *         ],
  *       },
- *       ConflictResolution: {
+ *       ConflictResolution: { // ConflictResolution
  *         ConflictResolvingModel: "RECENCY" || "SOURCE", // required
  *         SourceName: "STRING_VALUE",
  *       },
  *       MinAllowedConfidenceScoreForMerging: Number("double"),
  *     },
- *     ExportingConfig: {
- *       S3Exporting: {
+ *     ExportingConfig: { // ExportingConfig
+ *       S3Exporting: { // S3ExportingConfig
  *         S3BucketName: "STRING_VALUE", // required
  *         S3KeyName: "STRING_VALUE",
  *       },
  *     },
  *   },
- *   Tags: {
+ *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

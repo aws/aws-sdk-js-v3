@@ -46,10 +46,10 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
  * import { DirectConnectClient, AllocateTransitVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocateTransitVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
- * const input = {
+ * const input = { // AllocateTransitVirtualInterfaceRequest
  *   connectionId: "STRING_VALUE", // required
  *   ownerAccount: "STRING_VALUE", // required
- *   newTransitVirtualInterfaceAllocation: {
+ *   newTransitVirtualInterfaceAllocation: { // NewTransitVirtualInterfaceAllocation
  *     virtualInterfaceName: "STRING_VALUE",
  *     vlan: Number("int"),
  *     asn: Number("int"),
@@ -58,8 +58,8 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
  *     amazonAddress: "STRING_VALUE",
  *     customerAddress: "STRING_VALUE",
  *     addressFamily: "ipv4" || "ipv6",
- *     tags: [
- *       {
+ *     tags: [ // TagList
+ *       { // Tag
  *         key: "STRING_VALUE", // required
  *         value: "STRING_VALUE",
  *       },

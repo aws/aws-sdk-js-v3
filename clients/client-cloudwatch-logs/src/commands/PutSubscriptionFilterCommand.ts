@@ -69,7 +69,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, PutSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutSubscriptionFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const input = {
+ * const input = { // PutSubscriptionFilterRequest
  *   logGroupName: "STRING_VALUE", // required
  *   filterName: "STRING_VALUE", // required
  *   filterPattern: "STRING_VALUE", // required

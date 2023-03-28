@@ -42,12 +42,12 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  * import { ServiceCatalogClient, ListProvisionedProductPlansCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListProvisionedProductPlansCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = {
+ * const input = { // ListProvisionedProductPlansInput
  *   AcceptLanguage: "STRING_VALUE",
  *   ProvisionProductId: "STRING_VALUE",
  *   PageSize: Number("int"),
  *   PageToken: "STRING_VALUE",
- *   AccessLevelFilter: {
+ *   AccessLevelFilter: { // AccessLevelFilter
  *     Key: "Account" || "Role" || "User",
  *     Value: "STRING_VALUE",
  *   },

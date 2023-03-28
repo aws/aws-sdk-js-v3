@@ -42,7 +42,7 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * import { QuickSightClient, CancelIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CancelIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = {
+ * const input = { // CancelIngestionRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   DataSetId: "STRING_VALUE", // required
  *   IngestionId: "STRING_VALUE", // required

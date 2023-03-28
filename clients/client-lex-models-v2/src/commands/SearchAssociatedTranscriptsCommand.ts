@@ -45,16 +45,16 @@ export interface SearchAssociatedTranscriptsCommandOutput
  * import { LexModelsV2Client, SearchAssociatedTranscriptsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, SearchAssociatedTranscriptsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = {
+ * const input = { // SearchAssociatedTranscriptsRequest
  *   botId: "STRING_VALUE", // required
  *   botVersion: "STRING_VALUE", // required
  *   localeId: "STRING_VALUE", // required
  *   botRecommendationId: "STRING_VALUE", // required
  *   searchOrder: "Ascending" || "Descending",
- *   filters: [ // required
- *     {
+ *   filters: [ // AssociatedTranscriptFilters // required
+ *     { // AssociatedTranscriptFilter
  *       name: "IntentId" || "SlotTypeId", // required
- *       values: [ // required
+ *       values: [ // FilterValues // required
  *         "STRING_VALUE",
  *       ],
  *     },

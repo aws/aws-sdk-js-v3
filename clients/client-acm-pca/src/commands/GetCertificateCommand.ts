@@ -49,7 +49,7 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * import { ACMPCAClient, GetCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, GetCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
- * const input = {
+ * const input = { // GetCertificateRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required
  *   CertificateArn: "STRING_VALUE", // required
  * };

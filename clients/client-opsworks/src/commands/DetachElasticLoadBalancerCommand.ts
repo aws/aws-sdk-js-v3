@@ -47,7 +47,7 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * import { OpsWorksClient, DetachElasticLoadBalancerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DetachElasticLoadBalancerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DetachElasticLoadBalancerRequest
  *   ElasticLoadBalancerName: "STRING_VALUE", // required
  *   LayerId: "STRING_VALUE", // required
  * };

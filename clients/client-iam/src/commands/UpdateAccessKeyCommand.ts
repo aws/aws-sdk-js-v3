@@ -52,7 +52,7 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UpdateAccessKeyRequest
  *   UserName: "STRING_VALUE",
  *   AccessKeyId: "STRING_VALUE", // required
  *   Status: "Active" || "Inactive", // required

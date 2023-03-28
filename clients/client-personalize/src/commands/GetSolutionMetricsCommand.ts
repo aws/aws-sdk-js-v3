@@ -42,7 +42,7 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  * import { PersonalizeClient, GetSolutionMetricsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, GetSolutionMetricsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const input = {
+ * const input = { // GetSolutionMetricsRequest
  *   solutionVersionArn: "STRING_VALUE", // required
  * };
  * const command = new GetSolutionMetricsCommand(input);

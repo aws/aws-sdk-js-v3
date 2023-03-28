@@ -44,7 +44,7 @@ export interface DescribeConfigurationRevisionCommandOutput
  * import { MqClient, DescribeConfigurationRevisionCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeConfigurationRevisionCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
- * const input = {
+ * const input = { // DescribeConfigurationRevisionRequest
  *   ConfigurationId: "STRING_VALUE", // required
  *   ConfigurationRevision: "STRING_VALUE", // required
  * };

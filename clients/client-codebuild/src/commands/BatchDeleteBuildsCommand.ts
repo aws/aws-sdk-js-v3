@@ -42,8 +42,8 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
  * import { CodeBuildClient, BatchDeleteBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchDeleteBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
- * const input = {
- *   ids: [ // required
+ * const input = { // BatchDeleteBuildsInput
+ *   ids: [ // BuildIds // required
  *     "STRING_VALUE",
  *   ],
  * };

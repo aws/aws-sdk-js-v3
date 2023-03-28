@@ -42,7 +42,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * import { MediaPackageClient, UpdateChannelCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, UpdateChannelCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
- * const input = {
+ * const input = { // UpdateChannelRequest
  *   Description: "STRING_VALUE",
  *   Id: "STRING_VALUE", // required
  * };

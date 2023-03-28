@@ -42,7 +42,7 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  * import { CodeGuruReviewerClient, DescribeCodeReviewCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DescribeCodeReviewCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
- * const input = {
+ * const input = { // DescribeCodeReviewRequest
  *   CodeReviewArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeCodeReviewCommand(input);

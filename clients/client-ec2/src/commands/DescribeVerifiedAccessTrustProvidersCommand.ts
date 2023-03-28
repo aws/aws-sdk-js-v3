@@ -47,16 +47,16 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
  * import { EC2Client, DescribeVerifiedAccessTrustProvidersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVerifiedAccessTrustProvidersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   VerifiedAccessTrustProviderIds: [
+ * const input = { // DescribeVerifiedAccessTrustProvidersRequest
+ *   VerifiedAccessTrustProviderIds: [ // VerifiedAccessTrustProviderIdList
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

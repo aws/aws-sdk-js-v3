@@ -48,7 +48,7 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * import { Route53Client, DeleteKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // DeleteKeySigningKeyRequest
  *   HostedZoneId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  * };

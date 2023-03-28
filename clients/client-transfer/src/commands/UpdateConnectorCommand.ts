@@ -44,10 +44,10 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * import { TransferClient, UpdateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = {
+ * const input = { // UpdateConnectorRequest
  *   ConnectorId: "STRING_VALUE", // required
  *   Url: "STRING_VALUE",
- *   As2Config: {
+ *   As2Config: { // As2ConnectorConfig
  *     LocalProfileId: "STRING_VALUE",
  *     PartnerProfileId: "STRING_VALUE",
  *     MessageSubject: "STRING_VALUE",

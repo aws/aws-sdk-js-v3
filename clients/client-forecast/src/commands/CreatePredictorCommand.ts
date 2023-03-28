@@ -105,43 +105,43 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * import { ForecastClient, CreatePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreatePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
- * const input = {
+ * const input = { // CreatePredictorRequest
  *   PredictorName: "STRING_VALUE", // required
  *   AlgorithmArn: "STRING_VALUE",
  *   ForecastHorizon: Number("int"), // required
- *   ForecastTypes: [
+ *   ForecastTypes: [ // ForecastTypes
  *     "STRING_VALUE",
  *   ],
  *   PerformAutoML: true || false,
  *   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
  *   PerformHPO: true || false,
- *   TrainingParameters: {
+ *   TrainingParameters: { // TrainingParameters
  *     "<keys>": "STRING_VALUE",
  *   },
- *   EvaluationParameters: {
+ *   EvaluationParameters: { // EvaluationParameters
  *     NumberOfBacktestWindows: Number("int"),
  *     BackTestWindowOffset: Number("int"),
  *   },
- *   HPOConfig: {
- *     ParameterRanges: {
- *       CategoricalParameterRanges: [
- *         {
+ *   HPOConfig: { // HyperParameterTuningJobConfig
+ *     ParameterRanges: { // ParameterRanges
+ *       CategoricalParameterRanges: [ // CategoricalParameterRanges
+ *         { // CategoricalParameterRange
  *           Name: "STRING_VALUE", // required
- *           Values: [ // required
+ *           Values: [ // Values // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *       ],
- *       ContinuousParameterRanges: [
- *         {
+ *       ContinuousParameterRanges: [ // ContinuousParameterRanges
+ *         { // ContinuousParameterRange
  *           Name: "STRING_VALUE", // required
  *           MaxValue: Number("double"), // required
  *           MinValue: Number("double"), // required
  *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
  *         },
  *       ],
- *       IntegerParameterRanges: [
- *         {
+ *       IntegerParameterRanges: [ // IntegerParameterRanges
+ *         { // IntegerParameterRange
  *           Name: "STRING_VALUE", // required
  *           MaxValue: Number("int"), // required
  *           MinValue: Number("int"), // required
@@ -150,27 +150,27 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *       ],
  *     },
  *   },
- *   InputDataConfig: {
+ *   InputDataConfig: { // InputDataConfig
  *     DatasetGroupArn: "STRING_VALUE", // required
- *     SupplementaryFeatures: [
- *       {
+ *     SupplementaryFeatures: [ // SupplementaryFeatures
+ *       { // SupplementaryFeature
  *         Name: "STRING_VALUE", // required
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
- *   FeaturizationConfig: {
+ *   FeaturizationConfig: { // FeaturizationConfig
  *     ForecastFrequency: "STRING_VALUE", // required
- *     ForecastDimensions: [
+ *     ForecastDimensions: [ // ForecastDimensions
  *       "STRING_VALUE",
  *     ],
- *     Featurizations: [
- *       {
+ *     Featurizations: [ // Featurizations
+ *       { // Featurization
  *         AttributeName: "STRING_VALUE", // required
- *         FeaturizationPipeline: [
- *           {
+ *         FeaturizationPipeline: [ // FeaturizationPipeline
+ *           { // FeaturizationMethod
  *             FeaturizationMethodName: "filling", // required
- *             FeaturizationMethodParameters: {
+ *             FeaturizationMethodParameters: { // FeaturizationMethodParameters
  *               "<keys>": "STRING_VALUE",
  *             },
  *           },
@@ -178,12 +178,12 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *       },
  *     ],
  *   },
- *   EncryptionConfig: {
+ *   EncryptionConfig: { // EncryptionConfig
  *     RoleArn: "STRING_VALUE", // required
  *     KMSKeyArn: "STRING_VALUE", // required
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // Tags
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

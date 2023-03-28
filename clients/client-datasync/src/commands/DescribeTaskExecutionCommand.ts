@@ -42,7 +42,7 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * import { DataSyncClient, DescribeTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = {
+ * const input = { // DescribeTaskExecutionRequest
  *   TaskExecutionArn: "STRING_VALUE", // required
  * };
  * const command = new DescribeTaskExecutionCommand(input);

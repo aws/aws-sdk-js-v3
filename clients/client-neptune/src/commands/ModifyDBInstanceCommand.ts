@@ -44,15 +44,15 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * import { NeptuneClient, ModifyDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
- * const input = {
+ * const input = { // ModifyDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   AllocatedStorage: Number("int"),
  *   DBInstanceClass: "STRING_VALUE",
  *   DBSubnetGroupName: "STRING_VALUE",
- *   DBSecurityGroups: [
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   ApplyImmediately: true || false,
@@ -84,8 +84,8 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   EnableIAMDatabaseAuthentication: true || false,
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
- *   CloudwatchLogsExportConfiguration: {
- *     EnableLogTypes: [
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
  *       "STRING_VALUE",
  *     ],
  *     DisableLogTypes: [

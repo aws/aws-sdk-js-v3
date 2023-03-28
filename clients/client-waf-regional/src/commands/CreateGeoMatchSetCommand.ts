@@ -70,7 +70,7 @@ export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetRespons
  * import { WAFRegionalClient, CreateGeoMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateGeoMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // CreateGeoMatchSetRequest
  *   Name: "STRING_VALUE", // required
  *   ChangeToken: "STRING_VALUE", // required
  * };

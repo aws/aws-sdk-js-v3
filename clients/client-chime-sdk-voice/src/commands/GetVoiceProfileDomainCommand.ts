@@ -46,7 +46,7 @@ export interface GetVoiceProfileDomainCommandOutput extends GetVoiceProfileDomai
  * import { ChimeSDKVoiceClient, GetVoiceProfileDomainCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetVoiceProfileDomainCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = {
+ * const input = { // GetVoiceProfileDomainRequest
  *   VoiceProfileDomainId: "STRING_VALUE", // required
  * };
  * const command = new GetVoiceProfileDomainCommand(input);

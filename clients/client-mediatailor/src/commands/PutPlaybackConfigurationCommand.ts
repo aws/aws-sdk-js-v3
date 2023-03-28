@@ -42,35 +42,35 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * import { MediaTailorClient, PutPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, PutPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
- * const input = {
+ * const input = { // PutPlaybackConfigurationRequest
  *   AdDecisionServerUrl: "STRING_VALUE",
- *   AvailSuppression: {
+ *   AvailSuppression: { // AvailSuppression
  *     Mode: "OFF" || "BEHIND_LIVE_EDGE",
  *     Value: "STRING_VALUE",
  *   },
- *   Bumper: {
+ *   Bumper: { // Bumper
  *     EndUrl: "STRING_VALUE",
  *     StartUrl: "STRING_VALUE",
  *   },
- *   CdnConfiguration: {
+ *   CdnConfiguration: { // CdnConfiguration
  *     AdSegmentUrlPrefix: "STRING_VALUE",
  *     ContentSegmentUrlPrefix: "STRING_VALUE",
  *   },
- *   ConfigurationAliases: {
- *     "<keys>": {
+ *   ConfigurationAliases: { // ConfigurationAliasesRequest
+ *     "<keys>": { // __mapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   DashConfiguration: {
+ *   DashConfiguration: { // DashConfigurationForPut
  *     MpdLocation: "STRING_VALUE",
  *     OriginManifestType: "SINGLE_PERIOD" || "MULTI_PERIOD",
  *   },
- *   LivePreRollConfiguration: {
+ *   LivePreRollConfiguration: { // LivePreRollConfiguration
  *     AdDecisionServerUrl: "STRING_VALUE",
  *     MaxDurationSeconds: Number("int"),
  *   },
- *   ManifestProcessingRules: {
- *     AdMarkerPassthrough: {
+ *   ManifestProcessingRules: { // ManifestProcessingRules
+ *     AdMarkerPassthrough: { // AdMarkerPassthrough
  *       Enabled: true || false,
  *     },
  *   },

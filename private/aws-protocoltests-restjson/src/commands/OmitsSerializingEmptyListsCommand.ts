@@ -43,26 +43,26 @@ export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBeare
  * import { RestJsonProtocolClient, OmitsSerializingEmptyListsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, OmitsSerializingEmptyListsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const input = {
- *   queryStringList: [
+ * const input = { // OmitsSerializingEmptyListsInput
+ *   queryStringList: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   queryIntegerList: [
+ *   queryIntegerList: [ // IntegerList
  *     Number("int"),
  *   ],
- *   queryDoubleList: [
+ *   queryDoubleList: [ // DoubleList
  *     Number("double"),
  *   ],
- *   queryBooleanList: [
+ *   queryBooleanList: [ // BooleanList
  *     true || false,
  *   ],
- *   queryTimestampList: [
+ *   queryTimestampList: [ // TimestampList
  *     new Date("TIMESTAMP"),
  *   ],
- *   queryEnumList: [
+ *   queryEnumList: [ // FooEnumList
  *     "Foo" || "Baz" || "Bar" || "1" || "0",
  *   ],
- *   queryIntegerEnumList: [
+ *   queryIntegerEnumList: [ // IntegerEnumList
  *     1 || 2 || 3,
  *   ],
  * };

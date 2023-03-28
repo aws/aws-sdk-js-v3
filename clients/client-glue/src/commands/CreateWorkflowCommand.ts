@@ -42,13 +42,13 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * import { GlueClient, CreateWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const input = {
+ * const input = { // CreateWorkflowRequest
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   DefaultRunProperties: {
+ *   DefaultRunProperties: { // WorkflowRunProperties
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Tags: {
+ *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   MaxConcurrentRuns: Number("int"),

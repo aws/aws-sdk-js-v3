@@ -118,20 +118,20 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { ECSClient, CreateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // CreateServiceRequest
  *   cluster: "STRING_VALUE",
  *   serviceName: "STRING_VALUE", // required
  *   taskDefinition: "STRING_VALUE",
- *   loadBalancers: [
- *     {
+ *   loadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
  *       targetGroupArn: "STRING_VALUE",
  *       loadBalancerName: "STRING_VALUE",
  *       containerName: "STRING_VALUE",
  *       containerPort: Number("int"),
  *     },
  *   ],
- *   serviceRegistries: [
- *     {
+ *   serviceRegistries: [ // ServiceRegistries
+ *     { // ServiceRegistry
  *       registryArn: "STRING_VALUE",
  *       port: Number("int"),
  *       containerName: "STRING_VALUE",
@@ -141,8 +141,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   desiredCount: Number("int"),
  *   clientToken: "STRING_VALUE",
  *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
- *   capacityProviderStrategy: [
- *     {
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
  *       capacityProvider: "STRING_VALUE", // required
  *       weight: Number("int"),
  *       base: Number("int"),
@@ -150,35 +150,35 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   ],
  *   platformVersion: "STRING_VALUE",
  *   role: "STRING_VALUE",
- *   deploymentConfiguration: {
- *     deploymentCircuitBreaker: {
+ *   deploymentConfiguration: { // DeploymentConfiguration
+ *     deploymentCircuitBreaker: { // DeploymentCircuitBreaker
  *       enable: true || false, // required
  *       rollback: true || false, // required
  *     },
  *     maximumPercent: Number("int"),
  *     minimumHealthyPercent: Number("int"),
- *     alarms: {
- *       alarmNames: [ // required
+ *     alarms: { // DeploymentAlarms
+ *       alarmNames: [ // StringList // required
  *         "STRING_VALUE",
  *       ],
  *       enable: true || false, // required
  *       rollback: true || false, // required
  *     },
  *   },
- *   placementConstraints: [
- *     {
+ *   placementConstraints: [ // PlacementConstraints
+ *     { // PlacementConstraint
  *       type: "distinctInstance" || "memberOf",
  *       expression: "STRING_VALUE",
  *     },
  *   ],
- *   placementStrategy: [
- *     {
+ *   placementStrategy: [ // PlacementStrategies
+ *     { // PlacementStrategy
  *       type: "random" || "spread" || "binpack",
  *       field: "STRING_VALUE",
  *     },
  *   ],
- *   networkConfiguration: {
- *     awsvpcConfiguration: {
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
  *       subnets: [ // required
  *         "STRING_VALUE",
  *       ],
@@ -190,11 +190,11 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   },
  *   healthCheckGracePeriodSeconds: Number("int"),
  *   schedulingStrategy: "REPLICA" || "DAEMON",
- *   deploymentController: {
+ *   deploymentController: { // DeploymentController
  *     type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
  *   },
- *   tags: [
- *     {
+ *   tags: [ // Tags
+ *     { // Tag
  *       key: "STRING_VALUE",
  *       value: "STRING_VALUE",
  *     },
@@ -202,15 +202,15 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   enableECSManagedTags: true || false,
  *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  *   enableExecuteCommand: true || false,
- *   serviceConnectConfiguration: {
+ *   serviceConnectConfiguration: { // ServiceConnectConfiguration
  *     enabled: true || false, // required
  *     namespace: "STRING_VALUE",
- *     services: [
- *       {
+ *     services: [ // ServiceConnectServiceList
+ *       { // ServiceConnectService
  *         portName: "STRING_VALUE", // required
  *         discoveryName: "STRING_VALUE",
- *         clientAliases: [
- *           {
+ *         clientAliases: [ // ServiceConnectClientAliasList
+ *           { // ServiceConnectClientAlias
  *             port: Number("int"), // required
  *             dnsName: "STRING_VALUE",
  *           },
@@ -218,13 +218,13 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *         ingressPortOverride: Number("int"),
  *       },
  *     ],
- *     logConfiguration: {
+ *     logConfiguration: { // LogConfiguration
  *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
- *       options: {
+ *       options: { // LogConfigurationOptionsMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       secretOptions: [
- *         {
+ *       secretOptions: [ // SecretList
+ *         { // Secret
  *           name: "STRING_VALUE", // required
  *           valueFrom: "STRING_VALUE", // required
  *         },

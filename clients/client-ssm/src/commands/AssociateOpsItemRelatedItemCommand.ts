@@ -46,7 +46,7 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * import { SSMClient, AssociateOpsItemRelatedItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, AssociateOpsItemRelatedItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // AssociateOpsItemRelatedItemRequest
  *   OpsItemId: "STRING_VALUE", // required
  *   AssociationType: "STRING_VALUE", // required
  *   ResourceType: "STRING_VALUE", // required

@@ -58,7 +58,7 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  * import { IAMClient, GetRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // GetRolePolicyRequest
  *   RoleName: "STRING_VALUE", // required
  *   PolicyName: "STRING_VALUE", // required
  * };

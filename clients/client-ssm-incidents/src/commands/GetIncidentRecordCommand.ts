@@ -42,7 +42,7 @@ export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput,
  * import { SSMIncidentsClient, GetIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, GetIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
- * const input = {
+ * const input = { // GetIncidentRecordInput
  *   arn: "STRING_VALUE", // required
  * };
  * const command = new GetIncidentRecordCommand(input);

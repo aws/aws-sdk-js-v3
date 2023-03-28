@@ -57,7 +57,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * import { RDSClient, RestoreDBInstanceFromDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = {
+ * const input = { // RestoreDBInstanceFromDBSnapshotMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   DBSnapshotIdentifier: "STRING_VALUE",
  *   DBInstanceClass: "STRING_VALUE",
@@ -72,8 +72,8 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *   Engine: "STRING_VALUE",
  *   Iops: Number("int"),
  *   OptionGroupName: "STRING_VALUE",
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
@@ -81,18 +81,18 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *   StorageType: "STRING_VALUE",
  *   TdeCredentialArn: "STRING_VALUE",
  *   TdeCredentialPassword: "STRING_VALUE",
- *   VpcSecurityGroupIds: [
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   Domain: "STRING_VALUE",
  *   CopyTagsToSnapshot: true || false,
  *   DomainIAMRoleName: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
- *   EnableCloudwatchLogsExports: [
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
- *   ProcessorFeatures: [
- *     {
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
  *       Name: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

@@ -44,15 +44,15 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
  * import { EC2Client, DescribeTrafficMirrorSessionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTrafficMirrorSessionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
- *   TrafficMirrorSessionIds: [
+ * const input = { // DescribeTrafficMirrorSessionsRequest
+ *   TrafficMirrorSessionIds: [ // TrafficMirrorSessionIdList
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,
- *   Filters: [
- *     {
+ *   Filters: [ // FilterList
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // ValueStringList
  *         "STRING_VALUE",
  *       ],
  *     },

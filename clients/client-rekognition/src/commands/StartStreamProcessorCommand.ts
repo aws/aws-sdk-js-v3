@@ -45,15 +45,15 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * import { RekognitionClient, StartStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = {
+ * const input = { // StartStreamProcessorRequest
  *   Name: "STRING_VALUE", // required
- *   StartSelector: {
- *     KVSStreamStartSelector: {
+ *   StartSelector: { // StreamProcessingStartSelector
+ *     KVSStreamStartSelector: { // KinesisVideoStreamStartSelector
  *       ProducerTimestamp: Number("long"),
  *       FragmentNumber: "STRING_VALUE",
  *     },
  *   },
- *   StopSelector: {
+ *   StopSelector: { // StreamProcessingStopSelector
  *     MaxDurationInSeconds: Number("long"),
  *   },
  * };

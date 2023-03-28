@@ -43,7 +43,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * import { SageMakerClient, DeleteImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {
+ * const input = { // DeleteImageRequest
  *   ImageName: "STRING_VALUE", // required
  * };
  * const command = new DeleteImageCommand(input);

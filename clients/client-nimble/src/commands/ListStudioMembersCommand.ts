@@ -46,7 +46,7 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  * import { NimbleClient, ListStudioMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStudioMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const input = {
+ * const input = { // ListStudioMembersRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   studioId: "STRING_VALUE", // required

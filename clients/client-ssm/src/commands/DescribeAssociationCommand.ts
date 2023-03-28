@@ -48,7 +48,7 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * import { SSMClient, DescribeAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
+ * const input = { // DescribeAssociationRequest
  *   Name: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE",
  *   AssociationId: "STRING_VALUE",

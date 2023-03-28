@@ -50,7 +50,7 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * import { Route53Client, ListGeoLocationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListGeoLocationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
- * const input = {
+ * const input = { // ListGeoLocationsRequest
  *   StartContinentCode: "STRING_VALUE",
  *   StartCountryCode: "STRING_VALUE",
  *   StartSubdivisionCode: "STRING_VALUE",

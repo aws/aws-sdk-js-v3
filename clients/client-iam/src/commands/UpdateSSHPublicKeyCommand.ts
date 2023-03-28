@@ -48,7 +48,7 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
- * const input = {
+ * const input = { // UpdateSSHPublicKeyRequest
  *   UserName: "STRING_VALUE", // required
  *   SSHPublicKeyId: "STRING_VALUE", // required
  *   Status: "Active" || "Inactive", // required

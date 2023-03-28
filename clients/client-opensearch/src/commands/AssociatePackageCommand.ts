@@ -44,7 +44,7 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * import { OpenSearchClient, AssociatePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, AssociatePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = {
+ * const input = { // AssociatePackageRequest
  *   PackageID: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
  * };

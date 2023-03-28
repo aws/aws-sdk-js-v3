@@ -42,14 +42,14 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * import { IoTWirelessClient, CreateDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = {
+ * const input = { // CreateDestinationRequest
  *   Name: "STRING_VALUE", // required
  *   ExpressionType: "RuleName" || "MqttTopic", // required
  *   Expression: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE", // required
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

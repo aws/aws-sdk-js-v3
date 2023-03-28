@@ -47,13 +47,13 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * import { EC2Client, CreateTagsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTagsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const input = {
+ * const input = { // CreateTagsRequest
  *   DryRun: true || false,
- *   Resources: [ // required
+ *   Resources: [ // ResourceIdList // required
  *     "STRING_VALUE",
  *   ],
- *   Tags: [ // required
- *     {
+ *   Tags: [ // TagList // required
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

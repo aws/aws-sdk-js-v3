@@ -50,10 +50,10 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  * import { OpsWorksClient, DescribeElasticIpsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeElasticIpsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // DescribeElasticIpsRequest
  *   InstanceId: "STRING_VALUE",
  *   StackId: "STRING_VALUE",
- *   Ips: [
+ *   Ips: [ // Strings
  *     "STRING_VALUE",
  *   ],
  * };

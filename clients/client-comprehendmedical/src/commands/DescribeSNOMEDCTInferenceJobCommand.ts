@@ -50,7 +50,7 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput
  * import { ComprehendMedicalClient, DescribeSNOMEDCTInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribeSNOMEDCTInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
- * const input = {
+ * const input = { // DescribeSNOMEDCTInferenceJobRequest
  *   JobId: "STRING_VALUE", // required
  * };
  * const command = new DescribeSNOMEDCTInferenceJobCommand(input);

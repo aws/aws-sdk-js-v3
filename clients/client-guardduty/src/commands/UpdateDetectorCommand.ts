@@ -45,27 +45,27 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * import { GuardDutyClient, UpdateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = {
+ * const input = { // UpdateDetectorRequest
  *   DetectorId: "STRING_VALUE", // required
  *   Enable: true || false,
  *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
- *   DataSources: {
- *     S3Logs: {
+ *   DataSources: { // DataSourceConfigurations
+ *     S3Logs: { // S3LogsConfiguration
  *       Enable: true || false, // required
  *     },
- *     Kubernetes: {
- *       AuditLogs: {
+ *     Kubernetes: { // KubernetesConfiguration
+ *       AuditLogs: { // KubernetesAuditLogsConfiguration
  *         Enable: true || false, // required
  *       },
  *     },
- *     MalwareProtection: {
- *       ScanEc2InstanceWithFindings: {
+ *     MalwareProtection: { // MalwareProtectionConfiguration
+ *       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindings
  *         EbsVolumes: true || false,
  *       },
  *     },
  *   },
- *   Features: [
- *     {
+ *   Features: [ // DetectorFeatureConfigurations
+ *     { // DetectorFeatureConfiguration
  *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS",
  *       Status: "ENABLED" || "DISABLED",
  *     },

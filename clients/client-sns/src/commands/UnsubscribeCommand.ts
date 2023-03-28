@@ -50,7 +50,7 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  * import { SNSClient, UnsubscribeCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, UnsubscribeCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
- * const input = {
+ * const input = { // UnsubscribeInput
  *   SubscriptionArn: "STRING_VALUE", // required
  * };
  * const command = new UnsubscribeCommand(input);

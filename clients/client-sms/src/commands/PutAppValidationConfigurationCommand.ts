@@ -44,16 +44,16 @@ export interface PutAppValidationConfigurationCommandOutput
  * import { SMSClient, PutAppValidationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppValidationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
- * const input = {
+ * const input = { // PutAppValidationConfigurationRequest
  *   appId: "STRING_VALUE", // required
- *   appValidationConfigurations: [
- *     {
+ *   appValidationConfigurations: [ // AppValidationConfigurations
+ *     { // AppValidationConfiguration
  *       validationId: "STRING_VALUE",
  *       name: "STRING_VALUE",
  *       appValidationStrategy: "STRING_VALUE",
- *       ssmValidationParameters: {
- *         source: {
- *           s3Location: {
+ *       ssmValidationParameters: { // SSMValidationParameters
+ *         source: { // Source
+ *           s3Location: { // S3Location
  *             bucket: "STRING_VALUE",
  *             key: "STRING_VALUE",
  *           },
@@ -66,16 +66,16 @@ export interface PutAppValidationConfigurationCommandOutput
  *       },
  *     },
  *   ],
- *   serverGroupValidationConfigurations: [
- *     {
+ *   serverGroupValidationConfigurations: [ // ServerGroupValidationConfigurations
+ *     { // ServerGroupValidationConfiguration
  *       serverGroupId: "STRING_VALUE",
- *       serverValidationConfigurations: [
- *         {
- *           server: {
+ *       serverValidationConfigurations: [ // ServerValidationConfigurations
+ *         { // ServerValidationConfiguration
+ *           server: { // Server
  *             serverId: "STRING_VALUE",
  *             serverType: "STRING_VALUE",
- *             vmServer: {
- *               vmServerAddress: {
+ *             vmServer: { // VmServer
+ *               vmServerAddress: { // VmServerAddress
  *                 vmManagerId: "STRING_VALUE",
  *                 vmId: "STRING_VALUE",
  *               },
@@ -90,7 +90,7 @@ export interface PutAppValidationConfigurationCommandOutput
  *           validationId: "STRING_VALUE",
  *           name: "STRING_VALUE",
  *           serverValidationStrategy: "STRING_VALUE",
- *           userDataValidationParameters: {
+ *           userDataValidationParameters: { // UserDataValidationParameters
  *             source: {
  *               s3Location: {
  *                 bucket: "STRING_VALUE",

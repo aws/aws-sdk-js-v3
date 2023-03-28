@@ -46,13 +46,13 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * import { CloudWatchClient, DescribeAlarmsForMetricCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmsForMetricCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
- * const input = {
+ * const input = { // DescribeAlarmsForMetricInput
  *   MetricName: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required
  *   Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
  *   ExtendedStatistic: "STRING_VALUE",
- *   Dimensions: [
- *     {
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
  *     },

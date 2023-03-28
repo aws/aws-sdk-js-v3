@@ -52,7 +52,7 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * import { WAFRegionalClient, GetRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
- * const input = {
+ * const input = { // GetRateBasedRuleRequest
  *   RuleId: "STRING_VALUE", // required
  * };
  * const command = new GetRateBasedRuleCommand(input);

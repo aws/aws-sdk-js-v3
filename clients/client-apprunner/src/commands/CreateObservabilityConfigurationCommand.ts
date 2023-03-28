@@ -52,13 +52,13 @@ export interface CreateObservabilityConfigurationCommandOutput
  * import { AppRunnerClient, CreateObservabilityConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateObservabilityConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
- * const input = {
+ * const input = { // CreateObservabilityConfigurationRequest
  *   ObservabilityConfigurationName: "STRING_VALUE", // required
- *   TraceConfiguration: {
+ *   TraceConfiguration: { // TraceConfiguration
  *     Vendor: "AWSXRAY", // required
  *   },
- *   Tags: [
- *     {
+ *   Tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

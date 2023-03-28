@@ -44,39 +44,39 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = {
+ * const input = { // UpdateRuleRequest
  *   RuleId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Function: "STRING_VALUE", // required
- *   Actions: [ // required
- *     {
+ *   Actions: [ // RuleActions // required
+ *     { // RuleAction
  *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
- *       TaskAction: {
+ *       TaskAction: { // TaskActionDefinition
  *         Name: "STRING_VALUE", // required
  *         Description: "STRING_VALUE",
  *         ContactFlowId: "STRING_VALUE", // required
- *         References: {
- *           "<keys>": {
+ *         References: { // ContactReferences
+ *           "<keys>": { // Reference
  *             Value: "STRING_VALUE", // required
  *             Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
  *           },
  *         },
  *       },
- *       EventBridgeAction: {
+ *       EventBridgeAction: { // EventBridgeActionDefinition
  *         Name: "STRING_VALUE", // required
  *       },
  *       AssignContactCategoryAction: {},
- *       SendNotificationAction: {
+ *       SendNotificationAction: { // SendNotificationActionDefinition
  *         DeliveryMethod: "EMAIL", // required
  *         Subject: "STRING_VALUE",
  *         Content: "STRING_VALUE", // required
  *         ContentType: "PLAIN_TEXT", // required
- *         Recipient: {
- *           UserTags: {
+ *         Recipient: { // NotificationRecipientType
+ *           UserTags: { // UserTagMap
  *             "<keys>": "STRING_VALUE",
  *           },
- *           UserIds: [
+ *           UserIds: [ // UserIdList
  *             "STRING_VALUE",
  *           ],
  *         },

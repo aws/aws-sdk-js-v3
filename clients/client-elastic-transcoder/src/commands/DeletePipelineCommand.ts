@@ -49,7 +49,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * import { ElasticTranscoderClient, DeletePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, DeletePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
- * const input = {
+ * const input = { // DeletePipelineRequest
  *   Id: "STRING_VALUE", // required
  * };
  * const command = new DeletePipelineCommand(input);

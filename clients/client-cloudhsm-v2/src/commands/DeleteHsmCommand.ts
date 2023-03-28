@@ -41,7 +41,7 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * import { CloudHSMV2Client, DeleteHsmCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, DeleteHsmCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
- * const input = {
+ * const input = { // DeleteHsmRequest
  *   ClusterId: "STRING_VALUE", // required
  *   HsmId: "STRING_VALUE",
  *   EniId: "STRING_VALUE",

@@ -42,11 +42,11 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * import { CodeDeployClient, CreateApplicationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateApplicationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
- * const input = {
+ * const input = { // CreateApplicationInput
  *   applicationName: "STRING_VALUE", // required
  *   computePlatform: "Server" || "Lambda" || "ECS",
- *   tags: [
- *     {
+ *   tags: [ // TagList
+ *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },

@@ -42,7 +42,7 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * import { CloudFrontClient, GetInvalidationCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetInvalidationCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = {
+ * const input = { // GetInvalidationRequest
  *   DistributionId: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
  * };

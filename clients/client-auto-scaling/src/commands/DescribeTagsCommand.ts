@@ -47,11 +47,11 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * import { AutoScalingClient, DescribeTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // DescribeTagsType
+ *   Filters: [ // Filters
+ *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [
+ *       Values: [ // Values
  *         "STRING_VALUE",
  *       ],
  *     },

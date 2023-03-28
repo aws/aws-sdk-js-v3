@@ -43,11 +43,11 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * import { SSMClient, ListOpsItemEventsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListOpsItemEventsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const input = {
- *   Filters: [
- *     {
+ * const input = { // ListOpsItemEventsRequest
+ *   Filters: [ // OpsItemEventFilters
+ *     { // OpsItemEventFilter
  *       Key: "OpsItemId", // required
- *       Values: [ // required
+ *       Values: [ // OpsItemEventFilterValues // required
  *         "STRING_VALUE",
  *       ],
  *       Operator: "Equal", // required

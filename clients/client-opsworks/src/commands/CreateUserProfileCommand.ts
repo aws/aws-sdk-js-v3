@@ -46,7 +46,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * import { OpsWorksClient, CreateUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
- * const input = {
+ * const input = { // CreateUserProfileRequest
  *   IamUserArn: "STRING_VALUE", // required
  *   SshUsername: "STRING_VALUE",
  *   SshPublicKey: "STRING_VALUE",

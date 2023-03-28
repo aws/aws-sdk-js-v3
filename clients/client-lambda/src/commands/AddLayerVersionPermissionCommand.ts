@@ -47,7 +47,7 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  * import { LambdaClient, AddLayerVersionPermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, AddLayerVersionPermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
- * const input = {
+ * const input = { // AddLayerVersionPermissionRequest
  *   LayerName: "STRING_VALUE", // required
  *   VersionNumber: Number("long"), // required
  *   StatementId: "STRING_VALUE", // required

@@ -57,23 +57,23 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  * import { ResourceGroupsClient, CreateGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, CreateGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
- * const input = {
+ * const input = { // CreateGroupInput
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   ResourceQuery: {
+ *   ResourceQuery: { // ResourceQuery
  *     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
  *     Query: "STRING_VALUE", // required
  *   },
- *   Tags: {
+ *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Configuration: [
- *     {
+ *   Configuration: [ // GroupConfigurationList
+ *     { // GroupConfigurationItem
  *       Type: "STRING_VALUE", // required
- *       Parameters: [
- *         {
+ *       Parameters: [ // GroupParameterList
+ *         { // GroupConfigurationParameter
  *           Name: "STRING_VALUE", // required
- *           Values: [
+ *           Values: [ // GroupConfigurationParameterValueList
  *             "STRING_VALUE",
  *           ],
  *         },

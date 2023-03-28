@@ -42,7 +42,7 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * import { CloudSearchClient, DeleteSuggesterCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteSuggesterCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
- * const input = {
+ * const input = { // DeleteSuggesterRequest
  *   DomainName: "STRING_VALUE", // required
  *   SuggesterName: "STRING_VALUE", // required
  * };

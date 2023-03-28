@@ -44,11 +44,11 @@ export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __Met
  * import { ECSClient, UpdateTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const input = {
+ * const input = { // UpdateTaskSetRequest
  *   cluster: "STRING_VALUE", // required
  *   service: "STRING_VALUE", // required
  *   taskSet: "STRING_VALUE", // required
- *   scale: {
+ *   scale: { // Scale
  *     value: Number("double"),
  *     unit: "PERCENT",
  *   },
