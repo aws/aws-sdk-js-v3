@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.302.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.301.0...v3.302.0) (2023-03-29)
+
+
+### Features
+
+* **client-rds:** Add support for creating a read replica DB instance from a Multi-AZ DB cluster. ([fedf52a](https://github.com/aws/aws-sdk-js-v3/commit/fedf52ab8ee28163eac4a53d714b967318e4fa46))
+
+
+
+
+
 # [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

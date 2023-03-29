@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.302.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.301.0...v3.302.0) (2023-03-29)
+
+
+### Features
+
+* **client-opensearchserverless:** This release includes two new exception types "ServiceQuotaExceededException" and "OcuLimitExceededException". ([ca26c26](https://github.com/aws/aws-sdk-js-v3/commit/ca26c268e5f21206c1f454df92b94251d459befb))
+* **client-rds:** Add support for creating a read replica DB instance from a Multi-AZ DB cluster. ([fedf52a](https://github.com/aws/aws-sdk-js-v3/commit/fedf52ab8ee28163eac4a53d714b967318e4fa46))
+* **clients:** update client endpoints as of 2023-03-29 ([ae4ddf1](https://github.com/aws/aws-sdk-js-v3/commit/ae4ddf169da4b2ebba156aebdef0e6defba9abc7))
+
+
+
+
+
 # [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
 
 

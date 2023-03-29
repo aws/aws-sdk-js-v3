@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.302.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.301.0...v3.302.0) (2023-03-29)
+
+
+### Features
+
+* **client-opensearchserverless:** This release includes two new exception types "ServiceQuotaExceededException" and "OcuLimitExceededException". ([ca26c26](https://github.com/aws/aws-sdk-js-v3/commit/ca26c268e5f21206c1f454df92b94251d459befb))
+
+
+
+
+
 # [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearchserverless
