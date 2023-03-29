@@ -22,6 +22,14 @@ export interface AssumeRoleParams {
   RoleSessionName: string;
 
   /**
+   * Specifies the maximum duration of the role session, in seconds.
+   The value can range from 900 seconds (15 minutes) up to the maximum
+   session duration setting for the role (which can be a maximum of 43200).
+   This is an optional parameter and by default, the value is set to 3600 seconds.
+   */
+  DurationSeconds?: number;
+
+  /**
    * A unique identifier that is used by third parties when assuming roles in
    * their customers' accounts.
    */
@@ -100,6 +108,7 @@ export const resolveAssumeRoleCredentials = async (
     RoleArn: data.role_arn!,
     RoleSessionName: data.role_session_name || `aws-sdk-js-${Date.now()}`,
     ExternalId: data.external_id,
+    DurationSeconds: data.duration_seconds,
   };
 
   const { mfa_serial } = data;
