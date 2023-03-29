@@ -42,13 +42,14 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *             request creates a writer and two reader DB instances for you, each in a different
  *             Availability Zone.</p>
  *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
- *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
+ *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or
  *             PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User
- *                     Guide</i>.</p>
+ *             Guide</i>.</p>
  *          <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a
- *             Multi-AZ DB cluster read replica with an RDS for PostgreSQL DB instance as the source.
- *             For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB cluster deployments</a> in the <i>Amazon
- *                     RDS User Guide</i>.</p>
+ *             Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the
+ *             source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB
+ *                 cluster deployments</a> in the <i>Amazon RDS User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

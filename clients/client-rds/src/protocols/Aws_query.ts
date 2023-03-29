@@ -4353,6 +4353,9 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
@@ -4383,6 +4386,9 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
     case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
       throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
@@ -12983,6 +12989,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   if (input.AllocatedStorage != null) {
     entries["AllocatedStorage"] = input.AllocatedStorage;
   }
+  if (input.SourceDBClusterIdentifier != null) {
+    entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  }
   return entries;
 };
 
@@ -19457,6 +19466,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["CertificateDetails"] !== undefined) {
     contents.CertificateDetails = deserializeAws_queryCertificateDetails(output["CertificateDetails"], context);
+  }
+  if (output["ReadReplicaSourceDBClusterIdentifier"] !== undefined) {
+    contents.ReadReplicaSourceDBClusterIdentifier = __expectString(output["ReadReplicaSourceDBClusterIdentifier"]);
   }
   return contents;
 };

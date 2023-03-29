@@ -4048,7 +4048,7 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB
    *             cluster is created as a read replica.</p>
-   *          <p>Valid for: Aurora DB clusters and RDS for PostgreSQL Multi-AZ DB clusters</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   ReplicationSourceIdentifier?: string;
 
@@ -8193,6 +8193,12 @@ export interface DBInstance {
    * <p>The details of the DB instance's server certificate.</p>
    */
   CertificateDetails?: CertificateDetails;
+
+  /**
+   * <p>Contains the identifier of the source DB cluster if this DB instance is a read
+   *             replica.</p>
+   */
+  ReadReplicaSourceDBClusterIdentifier?: string;
 }
 
 /**
@@ -8324,7 +8330,8 @@ export interface CreateDBInstanceReadReplicaMessage {
 
   /**
    * <p>The identifier of the DB instance that will act as the source for the read replica.
-   *             Each DB instance can have up to five read replicas.</p>
+   *             Each DB instance can have up to 15 read replicas, with the exception of Oracle and SQL
+   *             Server, which can have up to five.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -8332,20 +8339,15 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                     instance.</p>
    *             </li>
    *             <li>
-   *                <p>Can specify a DB instance that is a MySQL read replica only if the source is running MySQL
-   *                     5.6 or later.</p>
+   *                <p>Can't be specified if the <code>SourceDBClusterIdentifier</code> parameter is
+   *                     also specified.</p>
    *             </li>
    *             <li>
-   *                <p>For the limitations of Oracle read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Read Replica Limitations with Oracle</a> in the
+   *                <p>For the limitations of Oracle read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.limitations.html#oracle-read-replicas.limitations.versions-and-licenses">Version and licensing considerations for RDS for Oracle replicas</a> in the
    *                   <i>Amazon RDS User Guide</i>.</p>
    *             </li>
    *             <li>
-   *                <p>For the limitations of SQL Server read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.Limitations.html">Read Replica
-   *                         Limitations with Microsoft SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can specify a PostgreSQL DB instance only if the source is running PostgreSQL 9.3.5 or
-   *                     later (9.4.7 and higher for cross-Region replication).</p>
+   *                <p>For the limitations of SQL Server read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.html#SQLServer.ReadReplicas.Limitations">Read replica limitations with SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>The specified DB instance must have automatic backups enabled, that is, its backup
@@ -8356,14 +8358,14 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                     instance identifier.</p>
    *             </li>
    *             <li>
-   *                <p>If the source DB instance is in a different Amazon Web Services Region from the read replica, specify a valid DB instance ARN.
-   *              For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">Constructing an ARN for Amazon RDS</a>
-   *              in the <i>Amazon RDS User Guide</i>. This doesn't apply to SQL Server or RDS Custom, which don't support
-   *              cross-Region replicas.</p>
+   *                <p>If the source DB instance is in a different Amazon Web Services Region from the read
+   *                     replica, specify a valid DB instance ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User
+   *                         Guide</i>. This doesn't apply to SQL Server or RDS Custom, which
+   *                     don't support cross-Region replicas.</p>
    *             </li>
    *          </ul>
    */
-  SourceDBInstanceIdentifier: string | undefined;
+  SourceDBInstanceIdentifier?: string;
 
   /**
    * <p>The compute and memory capacity of the read replica, for example
@@ -8393,10 +8395,10 @@ export interface CreateDBInstanceReadReplicaMessage {
 
   /**
    * <p>A value that indicates whether the read replica is in a Multi-AZ deployment.</p>
-   *          <p>You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of
-   *             your replica in another Availability Zone for failover support for the replica. Creating
-   *             your read replica as a Multi-AZ DB instance is independent of whether the source
-   *             database is a Multi-AZ DB instance.</p>
+   *          <p>You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of your
+   *             replica in another Availability Zone for failover support for the replica. Creating your
+   *             read replica as a Multi-AZ DB instance is independent of whether the source is a
+   *             Multi-AZ DB instance or a Multi-AZ DB cluster.</p>
    *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   MultiAZ?: boolean;
@@ -8415,10 +8417,10 @@ export interface CreateDBInstanceReadReplicaMessage {
   Iops?: number;
 
   /**
-   * <p>The option group the DB instance is associated with. If omitted, the option group associated with the source instance is used.</p>
+   * <p>The option group the DB instance is associated with. If omitted, the option group
+   *             associated with the source instance or cluster is used.</p>
    *          <note>
-   *             <p>For SQL Server, you must use the option group associated with the source
-   *                 instance.</p>
+   *             <p>For SQL Server, you must use the option group associated with the source.</p>
    *          </note>
    *          <p>This setting doesn't apply to RDS Custom.</p>
    */
@@ -8552,13 +8554,15 @@ export interface CreateDBInstanceReadReplicaMessage {
    * <p>The Amazon Web Services KMS key identifier for an encrypted read replica.</p>
    *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *          <p>If you create an encrypted read replica in the same Amazon Web Services Region as the source DB
-   *             instance, then do not specify a value for this parameter. A read replica in the same Amazon Web Services Region
-   *             is always encrypted with the same KMS key as the source DB instance.</p>
+   *             instance or Multi-AZ DB cluster, don't specify a value for this parameter. A read
+   *             replica in the same Amazon Web Services Region is always encrypted with the same KMS key as the source
+   *             DB instance or cluster.</p>
    *          <p>If you create an encrypted read replica in a different Amazon Web Services Region, then you must
    *             specify a KMS key identifier for the destination Amazon Web Services Region. KMS keys are specific to
    *             the Amazon Web Services Region that they are created in, and you can't use KMS keys from one
    *             Amazon Web Services Region in another Amazon Web Services Region.</p>
-   *          <p>You can't create an encrypted read replica from an unencrypted DB instance.</p>
+   *          <p>You can't create an encrypted read replica from an unencrypted DB instance or
+   *             Multi-AZ DB cluster.</p>
    *          <p>This setting doesn't apply to RDS Custom, which uses the same KMS key as the primary
    *             replica.</p>
    */
@@ -8571,6 +8575,8 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             source Amazon Web Services Region that contains the source DB instance.</p>
    *          <p>This setting applies only to Amazon Web Services GovCloud (US) Regions and
    *             China Amazon Web Services Regions. It's ignored in other Amazon Web Services Regions.</p>
+   *          <p>This setting applies only when replicating from a source DB
+   *                 <i>instance</i>. Source DB clusters aren't supported in Amazon Web Services GovCloud (US) Regions and China Amazon Web Services Regions.</p>
    *          <p>You must specify this parameter when you create an encrypted read replica from
    *             another Amazon Web Services Region by using the Amazon RDS API. Don't specify
    *                 <code>PreSignedUrl</code> when you are creating an encrypted read replica in the
@@ -8604,11 +8610,11 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SourceDBInstanceIdentifier</code> - The DB instance identifier for
-   *                     the encrypted DB instance to be replicated. This identifier must be in the
-   *                     Amazon Resource Name (ARN) format for the source Amazon Web Services Region. For example, if you
-   *                     are creating an encrypted read replica from a DB instance in the us-west-2 Amazon Web Services
-   *                     Region, then your <code>SourceDBInstanceIdentifier</code> looks like the
+   *                   <code>SourceDBInstanceIdentifier</code> - The DB instance identifier for the
+   *                     encrypted DB instance to be replicated. This identifier must be in the Amazon
+   *                     Resource Name (ARN) format for the source Amazon Web Services Region. For example, if you are
+   *                     creating an encrypted read replica from a DB instance in the us-west-2
+   *                     Amazon Web Services Region, then your <code>SourceDBInstanceIdentifier</code> looks like the
    *                     following example:
    *                         <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>.</p>
    *             </li>
@@ -8733,7 +8739,8 @@ export interface CreateDBInstanceReadReplicaMessage {
   Domain?: string;
 
   /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   * <p>The name of the IAM role to be used when making API calls to the Directory
+   *             Service.</p>
    *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   DomainIAMRoleName?: string;
@@ -8839,6 +8846,30 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          </note>
    */
   AllocatedStorage?: number;
+
+  /**
+   * <p>The identifier of the Multi-AZ DB cluster that will act as the source for the read
+   *             replica. Each DB cluster can have up to 15 read replicas.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be the identifier of an existing Multi-AZ DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be specified if the <code>SourceDBInstanceIdentifier</code> parameter is
+   *                     also specified.</p>
+   *             </li>
+   *             <li>
+   *                <p>The specified DB cluster must have automatic backups enabled, that is, its
+   *                     backup retention period must be greater than 0.</p>
+   *             </li>
+   *             <li>
+   *                <p>The source DB cluster must be in the same Amazon Web Services Region as the read replica.
+   *                     Cross-Region replication isn't supported.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceDBClusterIdentifier?: string;
 }
 
 /**

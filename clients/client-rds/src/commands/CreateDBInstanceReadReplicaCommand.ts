@@ -37,16 +37,17 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
 /**
  * @public
  * <p>Creates a new DB instance that acts as a read replica for an existing source DB
- *             instance. You can create a read replica for a DB instance running MySQL, MariaDB,
- *             Oracle, PostgreSQL, or SQL Server. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read
- *                 Replicas</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *             instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running
+ *             MySQL, MariaDB, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a
+ *             Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
+ *                 with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating from a Multi-AZ DB cluster to a DB instance using a read replica</a> in the <i>Amazon RDS User Guide</i>.</p>
  *          <p>Amazon Aurora doesn't support this operation. Call the <code>CreateDBInstance</code>
  *             operation to create a DB instance for an Aurora DB cluster.</p>
- *          <p>All read replica DB instances are created with backups disabled. All other DB
- *             instance attributes (including DB security groups and DB parameter groups) are inherited
- *             from the source DB instance, except as specified.</p>
+ *          <p>All read replica DB instances are created with backups disabled. All other attributes
+ *             (including DB security groups and DB parameter groups) are inherited from the source DB
+ *             instance or cluster, except as specified.</p>
  *          <important>
- *             <p>Your source DB instance must have backup retention enabled.</p>
+ *             <p>Your source DB instance or cluster must have backup retention enabled.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,7 +57,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * const client = new RDSClient(config);
  * const input = { // CreateDBInstanceReadReplicaMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required
- *   SourceDBInstanceIdentifier: "STRING_VALUE", // required
+ *   SourceDBInstanceIdentifier: "STRING_VALUE",
  *   DBInstanceClass: "STRING_VALUE",
  *   AvailabilityZone: "STRING_VALUE",
  *   Port: Number("int"),
@@ -106,6 +107,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   StorageThroughput: Number("int"),
  *   EnableCustomerOwnedIp: true || false,
  *   AllocatedStorage: Number("int"),
+ *   SourceDBClusterIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
@@ -116,6 +118,10 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @see {@link CreateDBInstanceReadReplicaCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB instance with the given identifier.</p>
@@ -155,6 +161,9 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
  *  <p>The specified DB instance class isn't available in the specified Availability
  *             Zone.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
