@@ -142,6 +142,7 @@ import {
   ListTagsForResourceResponse,
   ListVpcEndpointsRequest,
   ListVpcEndpointsResponse,
+  OcuLimitExceededException,
   ResourceNotFoundException,
   SamlConfigOptions,
   SecurityConfigDetail,
@@ -150,6 +151,7 @@ import {
   SecurityPolicyDetail,
   SecurityPolicyStats,
   SecurityPolicySummary,
+  ServiceQuotaExceededException,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -701,6 +703,9 @@ const deserializeAws_json1_0CreateAccessPolicyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -748,6 +753,12 @@ const deserializeAws_json1_0CreateCollectionCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "OcuLimitExceededException":
+    case "com.amazonaws.opensearchserverless#OcuLimitExceededException":
+      throw await deserializeAws_json1_0OcuLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -795,6 +806,9 @@ const deserializeAws_json1_0CreateSecurityConfigCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -842,6 +856,9 @@ const deserializeAws_json1_0CreateSecurityPolicyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -889,6 +906,9 @@ const deserializeAws_json1_0CreateVpcEndpointCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
       throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -1682,6 +1702,9 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -1973,6 +1996,9 @@ const deserializeAws_json1_0UpdateSecurityPolicyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
       throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
@@ -2060,6 +2086,19 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_0OcuLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OcuLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0OcuLimitExceededException(body, context);
+  const exception = new OcuLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2067,6 +2106,19 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ServiceQuotaExceededException(body, context);
+  const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2984,6 +3036,15 @@ const deserializeAws_json1_0ListVpcEndpointsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0OcuLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): OcuLimitExceededException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_0ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -3101,6 +3162,19 @@ const deserializeAws_json1_0SecurityPolicySummary = (output: any, context: __Ser
     name: __expectString(output.name),
     policyVersion: __expectString(output.policyVersion),
     type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_json1_0ServiceQuotaExceededException = (
+  output: any,
+  context: __SerdeContext
+): ServiceQuotaExceededException => {
+  return {
+    message: __expectString(output.message),
+    quotaCode: __expectString(output.quotaCode),
+    resourceId: __expectString(output.resourceId),
+    resourceType: __expectString(output.resourceType),
+    serviceCode: __expectString(output.serviceCode),
   } as any;
 };
 

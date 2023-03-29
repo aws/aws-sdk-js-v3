@@ -16,8 +16,8 @@ export enum AccessPolicyType {
 
 /**
  * @public
- * <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ * <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -140,6 +140,50 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * Identifier of the resource affected.
+   */
+  resourceId?: string;
+
+  /**
+   * Type of the resource affected.
+   */
+  resourceType?: string;
+
+  /**
+   * Service Quotas requirement to identify originating service.
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * Service Quotas requirement to identify originating quota.
+   */
+  quotaCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
+}
+
+/**
+ * @public
  * <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  */
@@ -239,7 +283,7 @@ export interface ListAccessPoliciesRequest {
   type: AccessPolicyType | string | undefined;
 
   /**
-   * <p>Resource filters (can be collection or indexes) that policies can apply to.</p>
+   * <p>Resource filters (can be collections or indexes) that policies can apply to.</p>
    */
   resource?: string[];
 
@@ -372,7 +416,8 @@ export interface AccessPolicyStats {
  * @public
  * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units
  *             (OCUs). These limits are used to scale your collections based on the current workload.
- *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
+ *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing
+ *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
  */
 export interface CapacityLimits {
   /**
@@ -394,7 +439,8 @@ export interface AccountSettingsDetail {
   /**
    * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units
    *             (OCUs). These limits are used to scale your collections based on the current workload.
-   *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing
+   *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
    */
   capacityLimits?: CapacityLimits;
 }
@@ -607,7 +653,7 @@ export interface VpcEndpointDetail {
   name?: string;
 
   /**
-   * <p>The ID of the VPC from which you access OpenSearch Serverless</p>
+   * <p>The ID of the VPC from which you access OpenSearch Serverless.</p>
    */
   vpcId?: string;
 
@@ -774,6 +820,26 @@ export interface CreateCollectionResponse {
    * <p>Details about the collection.</p>
    */
   createCollectionDetail?: CreateCollectionDetail;
+}
+
+/**
+ * @public
+ * OCU Limit Exceeded for service limits
+ */
+export class OcuLimitExceededException extends __BaseException {
+  readonly name: "OcuLimitExceededException" = "OcuLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OcuLimitExceededException, __BaseException>) {
+    super({
+      name: "OcuLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OcuLimitExceededException.prototype);
+  }
 }
 
 /**
@@ -1004,8 +1070,7 @@ export interface SamlConfigOptions {
   groupAttribute?: string;
 
   /**
-   * <p>The session timeout, in minutes. Minimum is 15 minutes and maximum is 1440 minutes (24
-   *             hours or 1 day). Default is 60 minutes.</p>
+   * <p>The session timeout, in minutes. Default is 60 minutes (12 hours).</p>
    */
   sessionTimeout?: number;
 }
@@ -1040,7 +1105,8 @@ export interface CreateSecurityConfigRequest {
   description?: string;
 
   /**
-   * <p>Describes SAML options in in the form of a key-value map.</p>
+   * <p>Describes SAML options in in the form of a key-value map. This field is required if
+   *             you specify <code>saml</code> for the <code>type</code> parameter.</p>
    */
   samlOptions?: SamlConfigOptions;
 
@@ -1870,7 +1936,8 @@ export interface UpdateAccountSettingsRequest {
   /**
    * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units
    *             (OCUs). These limits are used to scale your collections based on the current workload.
-   *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing
+   *                 capacity limits for Amazon OpenSearch Serverless</a>.</p>
    */
   capacityLimits?: CapacityLimits;
 }

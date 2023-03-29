@@ -41,10 +41,10 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @public
  * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
- *         <note>
+ *          <note>
  *             <p>Make sure to include an empty request body \{\} if you don't include any collection
  *                 filters in the request.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

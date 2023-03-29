@@ -158,12 +158,12 @@ import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
  * @public
  * <p>Use the Amazon OpenSearch Serverless API to create, configure, and manage OpenSearch Serverless collections and
  *             security policies.</p>
- *         <p>OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration for
+ *          <p>OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration for
  *             Amazon OpenSearch Service. OpenSearch Serverless removes the operational complexities of provisioning,
  *             configuring, and tuning your OpenSearch clusters. It enables you to easily search and
  *             analyze petabytes of data without having to worry about the underlying infrastructure
  *             and data management.</p>
- *         <p> To learn more about OpenSearch Serverless, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html">What is
+ *          <p> To learn more about OpenSearch Serverless, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html">What is
  *                 Amazon OpenSearch Serverless?</a>
  *          </p>
  */
@@ -793,10 +793,10 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
    * @public
    * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
    *                 managing Amazon OpenSearch Serverless collections</a>.</p>
-   *         <note>
+   *          <note>
    *             <p>Make sure to include an empty request body \{\} if you don't include any collection
    *                 filters in the request.</p>
-   *         </note>
+   *          </note>
    */
   public listCollections(
     args: ListCollectionsCommandInput,
@@ -1060,7 +1060,7 @@ export class OpenSearchServerless extends OpenSearchServerlessClient {
   /**
    * @public
    * <p>Update the OpenSearch Serverless settings for the current Amazon Web Services account. For more
-   *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing capacity limits for Amazon OpenSearch Serverless</a>.</p>
    */
   public updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
