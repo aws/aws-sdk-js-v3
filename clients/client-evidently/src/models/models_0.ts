@@ -294,13 +294,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -336,11 +342,17 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeDirectionEnum {
-  DECREASE = "DECREASE",
-  INCREASE = "INCREASE",
-}
+export const ChangeDirectionEnum = {
+  DECREASE: "DECREASE",
+  INCREASE: "INCREASE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeDirectionEnum = (typeof ChangeDirectionEnum)[keyof typeof ChangeDirectionEnum];
 
 /**
  * @public
@@ -683,14 +695,20 @@ export interface ExperimentSchedule {
 
 /**
  * @public
+ * @enum
  */
-export enum ExperimentStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+export const ExperimentStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentStatus = (typeof ExperimentStatus)[keyof typeof ExperimentStatus];
 
 /**
  * @public
@@ -717,10 +735,16 @@ export interface Treatment {
 
 /**
  * @public
+ * @enum
  */
-export enum ExperimentType {
-  ONLINE_AB_EXPERIMENT = "aws.evidently.onlineab",
-}
+export const ExperimentType = {
+  ONLINE_AB_EXPERIMENT: "aws.evidently.onlineab",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentType = (typeof ExperimentType)[keyof typeof ExperimentType];
 
 /**
  * @public
@@ -885,11 +909,17 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureEvaluationStrategy {
-  ALL_RULES = "ALL_RULES",
-  DEFAULT_VARIATION = "DEFAULT_VARIATION",
-}
+export const FeatureEvaluationStrategy = {
+  ALL_RULES: "ALL_RULES",
+  DEFAULT_VARIATION: "DEFAULT_VARIATION",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureEvaluationStrategy = (typeof FeatureEvaluationStrategy)[keyof typeof FeatureEvaluationStrategy];
 
 /**
  * @public
@@ -990,21 +1020,33 @@ export interface EvaluationRule {
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureStatus {
-  AVAILABLE = "AVAILABLE",
-  UPDATING = "UPDATING",
-}
+export const FeatureStatus = {
+  AVAILABLE: "AVAILABLE",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum VariationValueType {
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  LONG = "LONG",
-  STRING = "STRING",
-}
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VariationValueType = {
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type VariationValueType = (typeof VariationValueType)[keyof typeof VariationValueType];
 
 /**
  * @public
@@ -1391,21 +1433,33 @@ export interface ScheduledSplitsLaunchDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum LaunchStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+export const LaunchStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum LaunchType {
-  SCHEDULED_SPLITS_LAUNCH = "aws.evidently.splits",
-}
+export type LaunchStatus = (typeof LaunchStatus)[keyof typeof LaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchType = {
+  SCHEDULED_SPLITS_LAUNCH: "aws.evidently.splits",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
 
 /**
  * @public
@@ -1671,11 +1725,17 @@ export interface ProjectDataDelivery {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectStatus {
-  AVAILABLE = "AVAILABLE",
-  UPDATING = "UPDATING",
-}
+export const ProjectStatus = {
+  AVAILABLE: "AVAILABLE",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
 /**
  * @public
@@ -2062,11 +2122,17 @@ export interface EvaluateFeatureResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  CUSTOM = "aws.evidently.custom",
-  EVALUATION = "aws.evidently.evaluation",
-}
+export const EventType = {
+  CUSTOM: "aws.evidently.custom",
+  EVALUATION: "aws.evidently.evaluation",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -2141,27 +2207,46 @@ export interface GetExperimentResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExperimentBaseStat {
-  MEAN = "Mean",
-}
+export const ExperimentBaseStat = {
+  MEAN: "Mean",
+} as const;
 
 /**
  * @public
  */
-export enum ExperimentReportName {
-  BAYESIAN_INFERENCE = "BayesianInference",
-}
+export type ExperimentBaseStat = (typeof ExperimentBaseStat)[keyof typeof ExperimentBaseStat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentReportName = {
+  BAYESIAN_INFERENCE: "BayesianInference",
+} as const;
 
 /**
  * @public
  */
-export enum ExperimentResultRequestType {
-  BASE_STAT = "BaseStat",
-  CONFIDENCE_INTERVAL = "ConfidenceInterval",
-  P_VALUE = "PValue",
-  TREATMENT_EFFECT = "TreatmentEffect",
-}
+export type ExperimentReportName = (typeof ExperimentReportName)[keyof typeof ExperimentReportName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentResultRequestType = {
+  BASE_STAT: "BaseStat",
+  CONFIDENCE_INTERVAL: "ConfidenceInterval",
+  P_VALUE: "PValue",
+  TREATMENT_EFFECT: "TreatmentEffect",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentResultRequestType =
+  (typeof ExperimentResultRequestType)[keyof typeof ExperimentResultRequestType];
 
 /**
  * @public
@@ -2277,14 +2362,21 @@ export interface ExperimentReport {
 
 /**
  * @public
+ * @enum
  */
-export enum ExperimentResultResponseType {
-  CONFIDENCE_INTERVAL_LOWERBOUND = "ConfidenceIntervalLowerBound",
-  CONFIDENCE_INTERVAL_UPPERBOUND = "ConfidenceIntervalUpperBound",
-  MEAN = "Mean",
-  P_VALUE = "PValue",
-  TREATMENT_EFFECT = "TreatmentEffect",
-}
+export const ExperimentResultResponseType = {
+  CONFIDENCE_INTERVAL_LOWERBOUND: "ConfidenceIntervalLowerBound",
+  CONFIDENCE_INTERVAL_UPPERBOUND: "ConfidenceIntervalUpperBound",
+  MEAN: "Mean",
+  P_VALUE: "PValue",
+  TREATMENT_EFFECT: "TreatmentEffect",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentResultResponseType =
+  (typeof ExperimentResultResponseType)[keyof typeof ExperimentResultResponseType];
 
 /**
  * @public
@@ -2416,11 +2508,17 @@ export interface StartExperimentResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExperimentStopDesiredState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-}
+export const ExperimentStopDesiredState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentStopDesiredState = (typeof ExperimentStopDesiredState)[keyof typeof ExperimentStopDesiredState];
 
 /**
  * @public
@@ -2845,11 +2943,17 @@ export interface StartLaunchResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LaunchStopDesiredState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-}
+export const LaunchStopDesiredState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchStopDesiredState = (typeof LaunchStopDesiredState)[keyof typeof LaunchStopDesiredState];
 
 /**
  * @public
@@ -3185,11 +3289,18 @@ export interface GetSegmentResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SegmentReferenceResourceType {
-  EXPERIMENT = "EXPERIMENT",
-  LAUNCH = "LAUNCH",
-}
+export const SegmentReferenceResourceType = {
+  EXPERIMENT: "EXPERIMENT",
+  LAUNCH: "LAUNCH",
+} as const;
+
+/**
+ * @public
+ */
+export type SegmentReferenceResourceType =
+  (typeof SegmentReferenceResourceType)[keyof typeof SegmentReferenceResourceType];
 
 /**
  * @public

@@ -5,12 +5,18 @@ import { KMSServiceException as __BaseException } from "./KMSServiceException";
 
 /**
  * @public
+ * @enum
  */
-export enum AlgorithmSpec {
-  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
-  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  RSAES_PKCS1_V1_5 = "RSAES_PKCS1_V1_5",
-}
+export const AlgorithmSpec = {
+  RSAES_OAEP_SHA_1: "RSAES_OAEP_SHA_1",
+  RSAES_OAEP_SHA_256: "RSAES_OAEP_SHA_256",
+  RSAES_PKCS1_V1_5: "RSAES_PKCS1_V1_5",
+} as const;
+
+/**
+ * @public
+ */
+export type AlgorithmSpec = (typeof AlgorithmSpec)[keyof typeof AlgorithmSpec];
 
 /**
  * @public
@@ -457,38 +463,50 @@ export class CustomKeyStoreNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionErrorCodeType {
-  CLUSTER_NOT_FOUND = "CLUSTER_NOT_FOUND",
-  INSUFFICIENT_CLOUDHSM_HSMS = "INSUFFICIENT_CLOUDHSM_HSMS",
-  INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET = "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
-  NETWORK_ERRORS = "NETWORK_ERRORS",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
-  USER_LOCKED_OUT = "USER_LOCKED_OUT",
-  USER_LOGGED_IN = "USER_LOGGED_IN",
-  USER_NOT_FOUND = "USER_NOT_FOUND",
-  XKS_PROXY_ACCESS_DENIED = "XKS_PROXY_ACCESS_DENIED",
-  XKS_PROXY_INVALID_CONFIGURATION = "XKS_PROXY_INVALID_CONFIGURATION",
-  XKS_PROXY_INVALID_RESPONSE = "XKS_PROXY_INVALID_RESPONSE",
-  XKS_PROXY_INVALID_TLS_CONFIGURATION = "XKS_PROXY_INVALID_TLS_CONFIGURATION",
-  XKS_PROXY_NOT_REACHABLE = "XKS_PROXY_NOT_REACHABLE",
-  XKS_PROXY_TIMED_OUT = "XKS_PROXY_TIMED_OUT",
-  XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION = "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION",
-  XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND = "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND",
-}
+export const ConnectionErrorCodeType = {
+  CLUSTER_NOT_FOUND: "CLUSTER_NOT_FOUND",
+  INSUFFICIENT_CLOUDHSM_HSMS: "INSUFFICIENT_CLOUDHSM_HSMS",
+  INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET: "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_CREDENTIALS: "INVALID_CREDENTIALS",
+  NETWORK_ERRORS: "NETWORK_ERRORS",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  USER_LOCKED_OUT: "USER_LOCKED_OUT",
+  USER_LOGGED_IN: "USER_LOGGED_IN",
+  USER_NOT_FOUND: "USER_NOT_FOUND",
+  XKS_PROXY_ACCESS_DENIED: "XKS_PROXY_ACCESS_DENIED",
+  XKS_PROXY_INVALID_CONFIGURATION: "XKS_PROXY_INVALID_CONFIGURATION",
+  XKS_PROXY_INVALID_RESPONSE: "XKS_PROXY_INVALID_RESPONSE",
+  XKS_PROXY_INVALID_TLS_CONFIGURATION: "XKS_PROXY_INVALID_TLS_CONFIGURATION",
+  XKS_PROXY_NOT_REACHABLE: "XKS_PROXY_NOT_REACHABLE",
+  XKS_PROXY_TIMED_OUT: "XKS_PROXY_TIMED_OUT",
+  XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION: "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION",
+  XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND: "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND",
+} as const;
 
 /**
  * @public
  */
-export enum ConnectionStateType {
-  CONNECTED = "CONNECTED",
-  CONNECTING = "CONNECTING",
-  DISCONNECTED = "DISCONNECTED",
-  DISCONNECTING = "DISCONNECTING",
-  FAILED = "FAILED",
-}
+export type ConnectionErrorCodeType = (typeof ConnectionErrorCodeType)[keyof typeof ConnectionErrorCodeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionStateType = {
+  CONNECTED: "CONNECTED",
+  CONNECTING: "CONNECTING",
+  DISCONNECTED: "DISCONNECTED",
+  DISCONNECTING: "DISCONNECTING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStateType = (typeof ConnectionStateType)[keyof typeof ConnectionStateType];
 
 /**
  * @public
@@ -574,11 +592,17 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomKeyStoreType {
-  AWS_CLOUDHSM = "AWS_CLOUDHSM",
-  EXTERNAL_KEY_STORE = "EXTERNAL_KEY_STORE",
-}
+export const CustomKeyStoreType = {
+  AWS_CLOUDHSM: "AWS_CLOUDHSM",
+  EXTERNAL_KEY_STORE: "EXTERNAL_KEY_STORE",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomKeyStoreType = (typeof CustomKeyStoreType)[keyof typeof CustomKeyStoreType];
 
 /**
  * @public
@@ -602,11 +626,17 @@ export interface XksProxyAuthenticationCredentialType {
 
 /**
  * @public
+ * @enum
  */
-export enum XksProxyConnectivityType {
-  PUBLIC_ENDPOINT = "PUBLIC_ENDPOINT",
-  VPC_ENDPOINT_SERVICE = "VPC_ENDPOINT_SERVICE",
-}
+export const XksProxyConnectivityType = {
+  PUBLIC_ENDPOINT: "PUBLIC_ENDPOINT",
+  VPC_ENDPOINT_SERVICE: "VPC_ENDPOINT_SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type XksProxyConnectivityType = (typeof XksProxyConnectivityType)[keyof typeof XksProxyConnectivityType];
 
 /**
  * @public
@@ -1080,25 +1110,31 @@ export interface GrantConstraints {
 
 /**
  * @public
+ * @enum
  */
-export enum GrantOperation {
-  CreateGrant = "CreateGrant",
-  Decrypt = "Decrypt",
-  DescribeKey = "DescribeKey",
-  Encrypt = "Encrypt",
-  GenerateDataKey = "GenerateDataKey",
-  GenerateDataKeyPair = "GenerateDataKeyPair",
-  GenerateDataKeyPairWithoutPlaintext = "GenerateDataKeyPairWithoutPlaintext",
-  GenerateDataKeyWithoutPlaintext = "GenerateDataKeyWithoutPlaintext",
-  GenerateMac = "GenerateMac",
-  GetPublicKey = "GetPublicKey",
-  ReEncryptFrom = "ReEncryptFrom",
-  ReEncryptTo = "ReEncryptTo",
-  RetireGrant = "RetireGrant",
-  Sign = "Sign",
-  Verify = "Verify",
-  VerifyMac = "VerifyMac",
-}
+export const GrantOperation = {
+  CreateGrant: "CreateGrant",
+  Decrypt: "Decrypt",
+  DescribeKey: "DescribeKey",
+  Encrypt: "Encrypt",
+  GenerateDataKey: "GenerateDataKey",
+  GenerateDataKeyPair: "GenerateDataKeyPair",
+  GenerateDataKeyPairWithoutPlaintext: "GenerateDataKeyPairWithoutPlaintext",
+  GenerateDataKeyWithoutPlaintext: "GenerateDataKeyWithoutPlaintext",
+  GenerateMac: "GenerateMac",
+  GetPublicKey: "GetPublicKey",
+  ReEncryptFrom: "ReEncryptFrom",
+  ReEncryptTo: "ReEncryptTo",
+  RetireGrant: "RetireGrant",
+  Sign: "Sign",
+  Verify: "Verify",
+  VerifyMac: "VerifyMac",
+} as const;
+
+/**
+ * @public
+ */
+export type GrantOperation = (typeof GrantOperation)[keyof typeof GrantOperation];
 
 /**
  * @public
@@ -1270,60 +1306,84 @@ export class InvalidGrantTokenException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomerMasterKeySpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  HMAC_224 = "HMAC_224",
-  HMAC_256 = "HMAC_256",
-  HMAC_384 = "HMAC_384",
-  HMAC_512 = "HMAC_512",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
+export const CustomerMasterKeySpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  HMAC_224: "HMAC_224",
+  HMAC_256: "HMAC_256",
+  HMAC_384: "HMAC_384",
+  HMAC_512: "HMAC_512",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+} as const;
 
 /**
  * @public
  */
-export enum KeySpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  HMAC_224 = "HMAC_224",
-  HMAC_256 = "HMAC_256",
-  HMAC_384 = "HMAC_384",
-  HMAC_512 = "HMAC_512",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
+export type CustomerMasterKeySpec = (typeof CustomerMasterKeySpec)[keyof typeof CustomerMasterKeySpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeySpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  HMAC_224: "HMAC_224",
+  HMAC_256: "HMAC_256",
+  HMAC_384: "HMAC_384",
+  HMAC_512: "HMAC_512",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+} as const;
 
 /**
  * @public
  */
-export enum KeyUsageType {
-  ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT",
-  GENERATE_VERIFY_MAC = "GENERATE_VERIFY_MAC",
-  SIGN_VERIFY = "SIGN_VERIFY",
-}
+export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyUsageType = {
+  ENCRYPT_DECRYPT: "ENCRYPT_DECRYPT",
+  GENERATE_VERIFY_MAC: "GENERATE_VERIFY_MAC",
+  SIGN_VERIFY: "SIGN_VERIFY",
+} as const;
 
 /**
  * @public
  */
-export enum OriginType {
-  AWS_CLOUDHSM = "AWS_CLOUDHSM",
-  AWS_KMS = "AWS_KMS",
-  EXTERNAL = "EXTERNAL",
-  EXTERNAL_KEY_STORE = "EXTERNAL_KEY_STORE",
-}
+export type KeyUsageType = (typeof KeyUsageType)[keyof typeof KeyUsageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OriginType = {
+  AWS_CLOUDHSM: "AWS_CLOUDHSM",
+  AWS_KMS: "AWS_KMS",
+  EXTERNAL: "EXTERNAL",
+  EXTERNAL_KEY_STORE: "EXTERNAL_KEY_STORE",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginType = (typeof OriginType)[keyof typeof OriginType];
 
 /**
  * @public
@@ -1651,61 +1711,97 @@ export interface CreateKeyRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionAlgorithmSpec {
-  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
-  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  SM2PKE = "SM2PKE",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
+export const EncryptionAlgorithmSpec = {
+  RSAES_OAEP_SHA_1: "RSAES_OAEP_SHA_1",
+  RSAES_OAEP_SHA_256: "RSAES_OAEP_SHA_256",
+  SM2PKE: "SM2PKE",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+} as const;
 
 /**
  * @public
  */
-export enum ExpirationModelType {
-  KEY_MATERIAL_DOES_NOT_EXPIRE = "KEY_MATERIAL_DOES_NOT_EXPIRE",
-  KEY_MATERIAL_EXPIRES = "KEY_MATERIAL_EXPIRES",
-}
+export type EncryptionAlgorithmSpec = (typeof EncryptionAlgorithmSpec)[keyof typeof EncryptionAlgorithmSpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExpirationModelType = {
+  KEY_MATERIAL_DOES_NOT_EXPIRE: "KEY_MATERIAL_DOES_NOT_EXPIRE",
+  KEY_MATERIAL_EXPIRES: "KEY_MATERIAL_EXPIRES",
+} as const;
 
 /**
  * @public
  */
-export enum KeyManagerType {
-  AWS = "AWS",
-  CUSTOMER = "CUSTOMER",
-}
+export type ExpirationModelType = (typeof ExpirationModelType)[keyof typeof ExpirationModelType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyManagerType = {
+  AWS: "AWS",
+  CUSTOMER: "CUSTOMER",
+} as const;
 
 /**
  * @public
  */
-export enum KeyState {
-  Creating = "Creating",
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-  PendingDeletion = "PendingDeletion",
-  PendingImport = "PendingImport",
-  PendingReplicaDeletion = "PendingReplicaDeletion",
-  Unavailable = "Unavailable",
-  Updating = "Updating",
-}
+export type KeyManagerType = (typeof KeyManagerType)[keyof typeof KeyManagerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyState = {
+  Creating: "Creating",
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+  PendingDeletion: "PendingDeletion",
+  PendingImport: "PendingImport",
+  PendingReplicaDeletion: "PendingReplicaDeletion",
+  Unavailable: "Unavailable",
+  Updating: "Updating",
+} as const;
 
 /**
  * @public
  */
-export enum MacAlgorithmSpec {
-  HMAC_SHA_224 = "HMAC_SHA_224",
-  HMAC_SHA_256 = "HMAC_SHA_256",
-  HMAC_SHA_384 = "HMAC_SHA_384",
-  HMAC_SHA_512 = "HMAC_SHA_512",
-}
+export type KeyState = (typeof KeyState)[keyof typeof KeyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MacAlgorithmSpec = {
+  HMAC_SHA_224: "HMAC_SHA_224",
+  HMAC_SHA_256: "HMAC_SHA_256",
+  HMAC_SHA_384: "HMAC_SHA_384",
+  HMAC_SHA_512: "HMAC_SHA_512",
+} as const;
 
 /**
  * @public
  */
-export enum MultiRegionKeyType {
-  PRIMARY = "PRIMARY",
-  REPLICA = "REPLICA",
-}
+export type MacAlgorithmSpec = (typeof MacAlgorithmSpec)[keyof typeof MacAlgorithmSpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const MultiRegionKeyType = {
+  PRIMARY: "PRIMARY",
+  REPLICA: "REPLICA",
+} as const;
+
+/**
+ * @public
+ */
+export type MultiRegionKeyType = (typeof MultiRegionKeyType)[keyof typeof MultiRegionKeyType];
 
 /**
  * @public
@@ -1752,19 +1848,25 @@ export interface MultiRegionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SigningAlgorithmSpec {
-  ECDSA_SHA_256 = "ECDSA_SHA_256",
-  ECDSA_SHA_384 = "ECDSA_SHA_384",
-  ECDSA_SHA_512 = "ECDSA_SHA_512",
-  RSASSA_PKCS1_V1_5_SHA_256 = "RSASSA_PKCS1_V1_5_SHA_256",
-  RSASSA_PKCS1_V1_5_SHA_384 = "RSASSA_PKCS1_V1_5_SHA_384",
-  RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512",
-  RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256",
-  RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384",
-  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512",
-  SM2DSA = "SM2DSA",
-}
+export const SigningAlgorithmSpec = {
+  ECDSA_SHA_256: "ECDSA_SHA_256",
+  ECDSA_SHA_384: "ECDSA_SHA_384",
+  ECDSA_SHA_512: "ECDSA_SHA_512",
+  RSASSA_PKCS1_V1_5_SHA_256: "RSASSA_PKCS1_V1_5_SHA_256",
+  RSASSA_PKCS1_V1_5_SHA_384: "RSASSA_PKCS1_V1_5_SHA_384",
+  RSASSA_PKCS1_V1_5_SHA_512: "RSASSA_PKCS1_V1_5_SHA_512",
+  RSASSA_PSS_SHA_256: "RSASSA_PSS_SHA_256",
+  RSASSA_PSS_SHA_384: "RSASSA_PSS_SHA_384",
+  RSASSA_PSS_SHA_512: "RSASSA_PSS_SHA_512",
+  SM2DSA: "SM2DSA",
+} as const;
+
+/**
+ * @public
+ */
+export type SigningAlgorithmSpec = (typeof SigningAlgorithmSpec)[keyof typeof SigningAlgorithmSpec];
 
 /**
  * @public
@@ -2457,25 +2559,37 @@ export interface CustomKeyStoresListEntry {
 
 /**
  * @public
+ * @enum
  */
-export enum DataKeyPairSpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-}
+export const DataKeyPairSpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+} as const;
 
 /**
  * @public
  */
-export enum DataKeySpec {
-  AES_128 = "AES_128",
-  AES_256 = "AES_256",
-}
+export type DataKeyPairSpec = (typeof DataKeyPairSpec)[keyof typeof DataKeyPairSpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataKeySpec = {
+  AES_128: "AES_128",
+  AES_256: "AES_256",
+} as const;
+
+/**
+ * @public
+ */
+export type DataKeySpec = (typeof DataKeySpec)[keyof typeof DataKeySpec];
 
 /**
  * @public
@@ -3574,10 +3688,16 @@ export interface GetKeyRotationStatusResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum WrappingKeySpec {
-  RSA_2048 = "RSA_2048",
-}
+export const WrappingKeySpec = {
+  RSA_2048: "RSA_2048",
+} as const;
+
+/**
+ * @public
+ */
+export type WrappingKeySpec = (typeof WrappingKeySpec)[keyof typeof WrappingKeySpec];
 
 /**
  * @public
@@ -4353,11 +4473,17 @@ export interface ListRetirableGrantsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MessageType {
-  DIGEST = "DIGEST",
-  RAW = "RAW",
-}
+export const MessageType = {
+  DIGEST: "DIGEST",
+  RAW: "RAW",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * @public

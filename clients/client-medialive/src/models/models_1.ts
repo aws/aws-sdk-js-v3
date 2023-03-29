@@ -82,77 +82,131 @@ import {
 
 /**
  * @public
+ * @enum
  */
-export enum HlsMode {
-  LIVE = "LIVE",
-  VOD = "VOD",
-}
+export const HlsMode = {
+  LIVE: "LIVE",
+  VOD: "VOD",
+} as const;
 
 /**
  * @public
  */
-export enum HlsOutputSelection {
-  MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY = "SEGMENTS_ONLY",
-  VARIANT_MANIFESTS_AND_SEGMENTS = "VARIANT_MANIFESTS_AND_SEGMENTS",
-}
+export type HlsMode = (typeof HlsMode)[keyof typeof HlsMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsOutputSelection = {
+  MANIFESTS_AND_SEGMENTS: "MANIFESTS_AND_SEGMENTS",
+  SEGMENTS_ONLY: "SEGMENTS_ONLY",
+  VARIANT_MANIFESTS_AND_SEGMENTS: "VARIANT_MANIFESTS_AND_SEGMENTS",
+} as const;
 
 /**
  * @public
  */
-export enum HlsProgramDateTime {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export type HlsOutputSelection = (typeof HlsOutputSelection)[keyof typeof HlsOutputSelection];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsProgramDateTime = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsProgramDateTimeClock {
-  INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
-  SYSTEM_CLOCK = "SYSTEM_CLOCK",
-}
+export type HlsProgramDateTime = (typeof HlsProgramDateTime)[keyof typeof HlsProgramDateTime];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsProgramDateTimeClock = {
+  INITIALIZE_FROM_OUTPUT_TIMECODE: "INITIALIZE_FROM_OUTPUT_TIMECODE",
+  SYSTEM_CLOCK: "SYSTEM_CLOCK",
+} as const;
 
 /**
  * @public
  */
-export enum HlsRedundantManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type HlsProgramDateTimeClock = (typeof HlsProgramDateTimeClock)[keyof typeof HlsProgramDateTimeClock];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsRedundantManifest = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum HlsSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
+export type HlsRedundantManifest = (typeof HlsRedundantManifest)[keyof typeof HlsRedundantManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsSegmentationMode = {
+  USE_INPUT_SEGMENTATION: "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION: "USE_SEGMENT_DURATION",
+} as const;
 
 /**
  * @public
  */
-export enum HlsStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export type HlsSegmentationMode = (typeof HlsSegmentationMode)[keyof typeof HlsSegmentationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsStreamInfResolution = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
+export type HlsStreamInfResolution = (typeof HlsStreamInfResolution)[keyof typeof HlsStreamInfResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+} as const;
 
 /**
  * @public
  */
-export enum HlsTsFileMode {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
+export type HlsTimedMetadataId3Frame = (typeof HlsTimedMetadataId3Frame)[keyof typeof HlsTimedMetadataId3Frame];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTsFileMode = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsTsFileMode = (typeof HlsTsFileMode)[keyof typeof HlsTsFileMode];
 
 /**
  * @public
@@ -423,77 +477,137 @@ export interface MediaPackageGroupSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum SmoothGroupAudioOnlyTimecodeControl {
-  PASSTHROUGH = "PASSTHROUGH",
-  USE_CONFIGURED_CLOCK = "USE_CONFIGURED_CLOCK",
-}
+export const SmoothGroupAudioOnlyTimecodeControl = {
+  PASSTHROUGH: "PASSTHROUGH",
+  USE_CONFIGURED_CLOCK: "USE_CONFIGURED_CLOCK",
+} as const;
 
 /**
  * @public
  */
-export enum SmoothGroupCertificateMode {
-  SELF_SIGNED = "SELF_SIGNED",
-  VERIFY_AUTHENTICITY = "VERIFY_AUTHENTICITY",
-}
+export type SmoothGroupAudioOnlyTimecodeControl =
+  (typeof SmoothGroupAudioOnlyTimecodeControl)[keyof typeof SmoothGroupAudioOnlyTimecodeControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupCertificateMode = {
+  SELF_SIGNED: "SELF_SIGNED",
+  VERIFY_AUTHENTICITY: "VERIFY_AUTHENTICITY",
+} as const;
 
 /**
  * @public
  */
-export enum SmoothGroupEventIdMode {
-  NO_EVENT_ID = "NO_EVENT_ID",
-  USE_CONFIGURED = "USE_CONFIGURED",
-  USE_TIMESTAMP = "USE_TIMESTAMP",
-}
+export type SmoothGroupCertificateMode = (typeof SmoothGroupCertificateMode)[keyof typeof SmoothGroupCertificateMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupEventIdMode = {
+  NO_EVENT_ID: "NO_EVENT_ID",
+  USE_CONFIGURED: "USE_CONFIGURED",
+  USE_TIMESTAMP: "USE_TIMESTAMP",
+} as const;
 
 /**
  * @public
  */
-export enum SmoothGroupEventStopBehavior {
-  NONE = "NONE",
-  SEND_EOS = "SEND_EOS",
-}
+export type SmoothGroupEventIdMode = (typeof SmoothGroupEventIdMode)[keyof typeof SmoothGroupEventIdMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupEventStopBehavior = {
+  NONE: "NONE",
+  SEND_EOS: "SEND_EOS",
+} as const;
 
 /**
  * @public
  */
-export enum InputLossActionForMsSmoothOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
+export type SmoothGroupEventStopBehavior =
+  (typeof SmoothGroupEventStopBehavior)[keyof typeof SmoothGroupEventStopBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossActionForMsSmoothOut = {
+  EMIT_OUTPUT: "EMIT_OUTPUT",
+  PAUSE_OUTPUT: "PAUSE_OUTPUT",
+} as const;
 
 /**
  * @public
  */
-export enum SmoothGroupSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
+export type InputLossActionForMsSmoothOut =
+  (typeof InputLossActionForMsSmoothOut)[keyof typeof InputLossActionForMsSmoothOut];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupSegmentationMode = {
+  USE_INPUT_SEGMENTATION: "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION: "USE_SEGMENT_DURATION",
+} as const;
 
 /**
  * @public
  */
-export enum SmoothGroupSparseTrackType {
-  NONE = "NONE",
-  SCTE_35 = "SCTE_35",
-  SCTE_35_WITHOUT_SEGMENTATION = "SCTE_35_WITHOUT_SEGMENTATION",
-}
+export type SmoothGroupSegmentationMode =
+  (typeof SmoothGroupSegmentationMode)[keyof typeof SmoothGroupSegmentationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupSparseTrackType = {
+  NONE: "NONE",
+  SCTE_35: "SCTE_35",
+  SCTE_35_WITHOUT_SEGMENTATION: "SCTE_35_WITHOUT_SEGMENTATION",
+} as const;
 
 /**
  * @public
  */
-export enum SmoothGroupStreamManifestBehavior {
-  DO_NOT_SEND = "DO_NOT_SEND",
-  SEND = "SEND",
-}
+export type SmoothGroupSparseTrackType = (typeof SmoothGroupSparseTrackType)[keyof typeof SmoothGroupSparseTrackType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupStreamManifestBehavior = {
+  DO_NOT_SEND: "DO_NOT_SEND",
+  SEND: "SEND",
+} as const;
 
 /**
  * @public
  */
-export enum SmoothGroupTimestampOffsetMode {
-  USE_CONFIGURED_OFFSET = "USE_CONFIGURED_OFFSET",
-  USE_EVENT_START_DATE = "USE_EVENT_START_DATE",
-}
+export type SmoothGroupStreamManifestBehavior =
+  (typeof SmoothGroupStreamManifestBehavior)[keyof typeof SmoothGroupStreamManifestBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmoothGroupTimestampOffsetMode = {
+  USE_CONFIGURED_OFFSET: "USE_CONFIGURED_OFFSET",
+  USE_EVENT_START_DATE: "USE_EVENT_START_DATE",
+} as const;
+
+/**
+ * @public
+ */
+export type SmoothGroupTimestampOffsetMode =
+  (typeof SmoothGroupTimestampOffsetMode)[keyof typeof SmoothGroupTimestampOffsetMode];
 
 /**
  * @public
@@ -616,43 +730,73 @@ export interface MultiplexGroupSettings {}
 
 /**
  * @public
+ * @enum
  */
-export enum RtmpAdMarkers {
-  ON_CUE_POINT_SCTE35 = "ON_CUE_POINT_SCTE35",
-}
+export const RtmpAdMarkers = {
+  ON_CUE_POINT_SCTE35: "ON_CUE_POINT_SCTE35",
+} as const;
 
 /**
  * @public
  */
-export enum AuthenticationScheme {
-  AKAMAI = "AKAMAI",
-  COMMON = "COMMON",
-}
+export type RtmpAdMarkers = (typeof RtmpAdMarkers)[keyof typeof RtmpAdMarkers];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationScheme = {
+  AKAMAI: "AKAMAI",
+  COMMON: "COMMON",
+} as const;
 
 /**
  * @public
  */
-export enum RtmpCacheFullBehavior {
-  DISCONNECT_IMMEDIATELY = "DISCONNECT_IMMEDIATELY",
-  WAIT_FOR_SERVER = "WAIT_FOR_SERVER",
-}
+export type AuthenticationScheme = (typeof AuthenticationScheme)[keyof typeof AuthenticationScheme];
+
+/**
+ * @public
+ * @enum
+ */
+export const RtmpCacheFullBehavior = {
+  DISCONNECT_IMMEDIATELY: "DISCONNECT_IMMEDIATELY",
+  WAIT_FOR_SERVER: "WAIT_FOR_SERVER",
+} as const;
 
 /**
  * @public
  */
-export enum RtmpCaptionData {
-  ALL = "ALL",
-  FIELD1_608 = "FIELD1_608",
-  FIELD1_AND_FIELD2_608 = "FIELD1_AND_FIELD2_608",
-}
+export type RtmpCacheFullBehavior = (typeof RtmpCacheFullBehavior)[keyof typeof RtmpCacheFullBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const RtmpCaptionData = {
+  ALL: "ALL",
+  FIELD1_608: "FIELD1_608",
+  FIELD1_AND_FIELD2_608: "FIELD1_AND_FIELD2_608",
+} as const;
 
 /**
  * @public
  */
-export enum InputLossActionForRtmpOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
+export type RtmpCaptionData = (typeof RtmpCaptionData)[keyof typeof RtmpCaptionData];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossActionForRtmpOut = {
+  EMIT_OUTPUT: "EMIT_OUTPUT",
+  PAUSE_OUTPUT: "PAUSE_OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type InputLossActionForRtmpOut = (typeof InputLossActionForRtmpOut)[keyof typeof InputLossActionForRtmpOut];
 
 /**
  * @public
@@ -700,21 +844,33 @@ export interface RtmpGroupSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum InputLossActionForUdpOut {
-  DROP_PROGRAM = "DROP_PROGRAM",
-  DROP_TS = "DROP_TS",
-  EMIT_PROGRAM = "EMIT_PROGRAM",
-}
+export const InputLossActionForUdpOut = {
+  DROP_PROGRAM: "DROP_PROGRAM",
+  DROP_TS: "DROP_TS",
+  EMIT_PROGRAM: "EMIT_PROGRAM",
+} as const;
 
 /**
  * @public
  */
-export enum UdpTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
+export type InputLossActionForUdpOut = (typeof InputLossActionForUdpOut)[keyof typeof InputLossActionForUdpOut];
+
+/**
+ * @public
+ * @enum
+ */
+export const UdpTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+} as const;
+
+/**
+ * @public
+ */
+export type UdpTimedMetadataId3Frame = (typeof UdpTimedMetadataId3Frame)[keyof typeof UdpTimedMetadataId3Frame];
 
 /**
  * @public
@@ -837,11 +993,17 @@ export interface PipelineDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum PipelineId {
-  PIPELINE_0 = "PIPELINE_0",
-  PIPELINE_1 = "PIPELINE_1",
-}
+export const PipelineId = {
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineId = (typeof PipelineId)[keyof typeof PipelineId];
 
 /**
  * @public
@@ -856,12 +1018,19 @@ export interface PipelinePauseStateSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum ReservationAutomaticRenewal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const ReservationAutomaticRenewal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservationAutomaticRenewal =
+  (typeof ReservationAutomaticRenewal)[keyof typeof ReservationAutomaticRenewal];
 
 /**
  * @public
@@ -881,13 +1050,19 @@ export interface RenewalSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum ReservationState {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  DELETED = "DELETED",
-  EXPIRED = "EXPIRED",
-}
+export const ReservationState = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  DELETED: "DELETED",
+  EXPIRED: "EXPIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservationState = (typeof ReservationState)[keyof typeof ReservationState];
 
 /**
  * @public
@@ -1019,11 +1194,17 @@ export interface HlsTimedMetadataScheduleActionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum InputTimecodeSource {
-  EMBEDDED = "EMBEDDED",
-  ZEROBASED = "ZEROBASED",
-}
+export const InputTimecodeSource = {
+  EMBEDDED: "EMBEDDED",
+  ZEROBASED: "ZEROBASED",
+} as const;
+
+/**
+ * @public
+ */
+export type InputTimecodeSource = (typeof InputTimecodeSource)[keyof typeof InputTimecodeSource];
 
 /**
  * @public
@@ -1038,11 +1219,17 @@ export interface StartTimecode {
 
 /**
  * @public
+ * @enum
  */
-export enum LastFrameClippingBehavior {
-  EXCLUDE_LAST_FRAME = "EXCLUDE_LAST_FRAME",
-  INCLUDE_LAST_FRAME = "INCLUDE_LAST_FRAME",
-}
+export const LastFrameClippingBehavior = {
+  EXCLUDE_LAST_FRAME: "EXCLUDE_LAST_FRAME",
+  INCLUDE_LAST_FRAME: "INCLUDE_LAST_FRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type LastFrameClippingBehavior = (typeof LastFrameClippingBehavior)[keyof typeof LastFrameClippingBehavior];
 
 /**
  * @public
@@ -1168,11 +1355,17 @@ export interface PauseStateScheduleActionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum Scte35InputMode {
-  FIXED = "FIXED",
-  FOLLOW_ACTIVE = "FOLLOW_ACTIVE",
-}
+export const Scte35InputMode = {
+  FIXED: "FIXED",
+  FOLLOW_ACTIVE: "FOLLOW_ACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35InputMode = (typeof Scte35InputMode)[keyof typeof Scte35InputMode];
 
 /**
  * @public
@@ -1219,37 +1412,63 @@ export interface Scte35SpliceInsertScheduleActionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum Scte35ArchiveAllowedFlag {
-  ARCHIVE_ALLOWED = "ARCHIVE_ALLOWED",
-  ARCHIVE_NOT_ALLOWED = "ARCHIVE_NOT_ALLOWED",
-}
+export const Scte35ArchiveAllowedFlag = {
+  ARCHIVE_ALLOWED: "ARCHIVE_ALLOWED",
+  ARCHIVE_NOT_ALLOWED: "ARCHIVE_NOT_ALLOWED",
+} as const;
 
 /**
  * @public
  */
-export enum Scte35DeviceRestrictions {
-  NONE = "NONE",
-  RESTRICT_GROUP0 = "RESTRICT_GROUP0",
-  RESTRICT_GROUP1 = "RESTRICT_GROUP1",
-  RESTRICT_GROUP2 = "RESTRICT_GROUP2",
-}
+export type Scte35ArchiveAllowedFlag = (typeof Scte35ArchiveAllowedFlag)[keyof typeof Scte35ArchiveAllowedFlag];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35DeviceRestrictions = {
+  NONE: "NONE",
+  RESTRICT_GROUP0: "RESTRICT_GROUP0",
+  RESTRICT_GROUP1: "RESTRICT_GROUP1",
+  RESTRICT_GROUP2: "RESTRICT_GROUP2",
+} as const;
 
 /**
  * @public
  */
-export enum Scte35NoRegionalBlackoutFlag {
-  NO_REGIONAL_BLACKOUT = "NO_REGIONAL_BLACKOUT",
-  REGIONAL_BLACKOUT = "REGIONAL_BLACKOUT",
-}
+export type Scte35DeviceRestrictions = (typeof Scte35DeviceRestrictions)[keyof typeof Scte35DeviceRestrictions];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35NoRegionalBlackoutFlag = {
+  NO_REGIONAL_BLACKOUT: "NO_REGIONAL_BLACKOUT",
+  REGIONAL_BLACKOUT: "REGIONAL_BLACKOUT",
+} as const;
 
 /**
  * @public
  */
-export enum Scte35WebDeliveryAllowedFlag {
-  WEB_DELIVERY_ALLOWED = "WEB_DELIVERY_ALLOWED",
-  WEB_DELIVERY_NOT_ALLOWED = "WEB_DELIVERY_NOT_ALLOWED",
-}
+export type Scte35NoRegionalBlackoutFlag =
+  (typeof Scte35NoRegionalBlackoutFlag)[keyof typeof Scte35NoRegionalBlackoutFlag];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35WebDeliveryAllowedFlag = {
+  WEB_DELIVERY_ALLOWED: "WEB_DELIVERY_ALLOWED",
+  WEB_DELIVERY_NOT_ALLOWED: "WEB_DELIVERY_NOT_ALLOWED",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35WebDeliveryAllowedFlag =
+  (typeof Scte35WebDeliveryAllowedFlag)[keyof typeof Scte35WebDeliveryAllowedFlag];
 
 /**
  * @public
@@ -1279,11 +1498,18 @@ export interface Scte35DeliveryRestrictions {
 
 /**
  * @public
+ * @enum
  */
-export enum Scte35SegmentationCancelIndicator {
-  SEGMENTATION_EVENT_CANCELED = "SEGMENTATION_EVENT_CANCELED",
-  SEGMENTATION_EVENT_NOT_CANCELED = "SEGMENTATION_EVENT_NOT_CANCELED",
-}
+export const Scte35SegmentationCancelIndicator = {
+  SEGMENTATION_EVENT_CANCELED: "SEGMENTATION_EVENT_CANCELED",
+  SEGMENTATION_EVENT_NOT_CANCELED: "SEGMENTATION_EVENT_NOT_CANCELED",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35SegmentationCancelIndicator =
+  (typeof Scte35SegmentationCancelIndicator)[keyof typeof Scte35SegmentationCancelIndicator];
 
 /**
  * @public
@@ -1535,11 +1761,17 @@ export interface FixedModeScheduleActionStartSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum FollowPoint {
-  END = "END",
-  START = "START",
-}
+export const FollowPoint = {
+  END: "END",
+  START: "START",
+} as const;
+
+/**
+ * @public
+ */
+export type FollowPoint = (typeof FollowPoint)[keyof typeof FollowPoint];
 
 /**
  * @public
@@ -1607,11 +1839,17 @@ export interface ScheduleAction {
 
 /**
  * @public
+ * @enum
  */
-export enum InputDeviceTransferType {
-  INCOMING = "INCOMING",
-  OUTGOING = "OUTGOING",
-}
+export const InputDeviceTransferType = {
+  INCOMING: "INCOMING",
+  OUTGOING: "OUTGOING",
+} as const;
+
+/**
+ * @public
+ */
+export type InputDeviceTransferType = (typeof InputDeviceTransferType)[keyof typeof InputDeviceTransferType];
 
 /**
  * @public
@@ -1657,36 +1895,54 @@ export interface ValidationError {
 
 /**
  * @public
+ * @enum
  */
-export enum FrameCaptureIntervalUnit {
-  MILLISECONDS = "MILLISECONDS",
-  SECONDS = "SECONDS",
-}
+export const FrameCaptureIntervalUnit = {
+  MILLISECONDS: "MILLISECONDS",
+  SECONDS: "SECONDS",
+} as const;
 
 /**
  * @public
  */
-export enum TimecodeBurninFontSize {
-  EXTRA_SMALL_10 = "EXTRA_SMALL_10",
-  LARGE_48 = "LARGE_48",
-  MEDIUM_32 = "MEDIUM_32",
-  SMALL_16 = "SMALL_16",
-}
+export type FrameCaptureIntervalUnit = (typeof FrameCaptureIntervalUnit)[keyof typeof FrameCaptureIntervalUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeBurninFontSize = {
+  EXTRA_SMALL_10: "EXTRA_SMALL_10",
+  LARGE_48: "LARGE_48",
+  MEDIUM_32: "MEDIUM_32",
+  SMALL_16: "SMALL_16",
+} as const;
 
 /**
  * @public
  */
-export enum TimecodeBurninPosition {
-  BOTTOM_CENTER = "BOTTOM_CENTER",
-  BOTTOM_LEFT = "BOTTOM_LEFT",
-  BOTTOM_RIGHT = "BOTTOM_RIGHT",
-  MIDDLE_CENTER = "MIDDLE_CENTER",
-  MIDDLE_LEFT = "MIDDLE_LEFT",
-  MIDDLE_RIGHT = "MIDDLE_RIGHT",
-  TOP_CENTER = "TOP_CENTER",
-  TOP_LEFT = "TOP_LEFT",
-  TOP_RIGHT = "TOP_RIGHT",
-}
+export type TimecodeBurninFontSize = (typeof TimecodeBurninFontSize)[keyof typeof TimecodeBurninFontSize];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeBurninPosition = {
+  BOTTOM_CENTER: "BOTTOM_CENTER",
+  BOTTOM_LEFT: "BOTTOM_LEFT",
+  BOTTOM_RIGHT: "BOTTOM_RIGHT",
+  MIDDLE_CENTER: "MIDDLE_CENTER",
+  MIDDLE_LEFT: "MIDDLE_LEFT",
+  MIDDLE_RIGHT: "MIDDLE_RIGHT",
+  TOP_CENTER: "TOP_CENTER",
+  TOP_LEFT: "TOP_LEFT",
+  TOP_RIGHT: "TOP_RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeBurninPosition = (typeof TimecodeBurninPosition)[keyof typeof TimecodeBurninPosition];
 
 /**
  * @public
@@ -1732,33 +1988,51 @@ export interface FrameCaptureSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum H264AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+export const H264AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
  * @public
  */
-export enum AfdSignaling {
-  AUTO = "AUTO",
-  FIXED = "FIXED",
-  NONE = "NONE",
-}
+export type H264AdaptiveQuantization = (typeof H264AdaptiveQuantization)[keyof typeof H264AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const AfdSignaling = {
+  AUTO: "AUTO",
+  FIXED: "FIXED",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum H264ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
+export type AfdSignaling = (typeof AfdSignaling)[keyof typeof AfdSignaling];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+} as const;
+
+/**
+ * @public
+ */
+export type H264ColorMetadata = (typeof H264ColorMetadata)[keyof typeof H264ColorMetadata];
 
 /**
  * @public
@@ -1801,43 +2075,62 @@ export interface H264ColorSpaceSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum H264EntropyEncoding {
-  CABAC = "CABAC",
-  CAVLC = "CAVLC",
-}
+export const H264EntropyEncoding = {
+  CABAC: "CABAC",
+  CAVLC: "CAVLC",
+} as const;
 
 /**
  * @public
  */
-export enum TemporalFilterPostFilterSharpening {
-  AUTO = "AUTO",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type H264EntropyEncoding = (typeof H264EntropyEncoding)[keyof typeof H264EntropyEncoding];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemporalFilterPostFilterSharpening = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum TemporalFilterStrength {
-  AUTO = "AUTO",
-  STRENGTH_1 = "STRENGTH_1",
-  STRENGTH_10 = "STRENGTH_10",
-  STRENGTH_11 = "STRENGTH_11",
-  STRENGTH_12 = "STRENGTH_12",
-  STRENGTH_13 = "STRENGTH_13",
-  STRENGTH_14 = "STRENGTH_14",
-  STRENGTH_15 = "STRENGTH_15",
-  STRENGTH_16 = "STRENGTH_16",
-  STRENGTH_2 = "STRENGTH_2",
-  STRENGTH_3 = "STRENGTH_3",
-  STRENGTH_4 = "STRENGTH_4",
-  STRENGTH_5 = "STRENGTH_5",
-  STRENGTH_6 = "STRENGTH_6",
-  STRENGTH_7 = "STRENGTH_7",
-  STRENGTH_8 = "STRENGTH_8",
-  STRENGTH_9 = "STRENGTH_9",
-}
+export type TemporalFilterPostFilterSharpening =
+  (typeof TemporalFilterPostFilterSharpening)[keyof typeof TemporalFilterPostFilterSharpening];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemporalFilterStrength = {
+  AUTO: "AUTO",
+  STRENGTH_1: "STRENGTH_1",
+  STRENGTH_10: "STRENGTH_10",
+  STRENGTH_11: "STRENGTH_11",
+  STRENGTH_12: "STRENGTH_12",
+  STRENGTH_13: "STRENGTH_13",
+  STRENGTH_14: "STRENGTH_14",
+  STRENGTH_15: "STRENGTH_15",
+  STRENGTH_16: "STRENGTH_16",
+  STRENGTH_2: "STRENGTH_2",
+  STRENGTH_3: "STRENGTH_3",
+  STRENGTH_4: "STRENGTH_4",
+  STRENGTH_5: "STRENGTH_5",
+  STRENGTH_6: "STRENGTH_6",
+  STRENGTH_7: "STRENGTH_7",
+  STRENGTH_8: "STRENGTH_8",
+  STRENGTH_9: "STRENGTH_9",
+} as const;
+
+/**
+ * @public
+ */
+export type TemporalFilterStrength = (typeof TemporalFilterStrength)[keyof typeof TemporalFilterStrength];
 
 /**
  * @public
@@ -1870,186 +2163,301 @@ export interface H264FilterSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum FixedAfd {
-  AFD_0000 = "AFD_0000",
-  AFD_0010 = "AFD_0010",
-  AFD_0011 = "AFD_0011",
-  AFD_0100 = "AFD_0100",
-  AFD_1000 = "AFD_1000",
-  AFD_1001 = "AFD_1001",
-  AFD_1010 = "AFD_1010",
-  AFD_1011 = "AFD_1011",
-  AFD_1101 = "AFD_1101",
-  AFD_1110 = "AFD_1110",
-  AFD_1111 = "AFD_1111",
-}
+export const FixedAfd = {
+  AFD_0000: "AFD_0000",
+  AFD_0010: "AFD_0010",
+  AFD_0011: "AFD_0011",
+  AFD_0100: "AFD_0100",
+  AFD_1000: "AFD_1000",
+  AFD_1001: "AFD_1001",
+  AFD_1010: "AFD_1010",
+  AFD_1011: "AFD_1011",
+  AFD_1101: "AFD_1101",
+  AFD_1110: "AFD_1110",
+  AFD_1111: "AFD_1111",
+} as const;
 
 /**
  * @public
  */
-export enum H264FlickerAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type FixedAfd = (typeof FixedAfd)[keyof typeof FixedAfd];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264FlickerAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum H264ForceFieldPictures {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type H264FlickerAq = (typeof H264FlickerAq)[keyof typeof H264FlickerAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ForceFieldPictures = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum H264FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
+export type H264ForceFieldPictures = (typeof H264ForceFieldPictures)[keyof typeof H264ForceFieldPictures];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum H264GopBReference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type H264FramerateControl = (typeof H264FramerateControl)[keyof typeof H264FramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264GopBReference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum H264GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
+export type H264GopBReference = (typeof H264GopBReference)[keyof typeof H264GopBReference];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
 
 /**
  * @public
  */
-export enum H264Level {
-  H264_LEVEL_1 = "H264_LEVEL_1",
-  H264_LEVEL_1_1 = "H264_LEVEL_1_1",
-  H264_LEVEL_1_2 = "H264_LEVEL_1_2",
-  H264_LEVEL_1_3 = "H264_LEVEL_1_3",
-  H264_LEVEL_2 = "H264_LEVEL_2",
-  H264_LEVEL_2_1 = "H264_LEVEL_2_1",
-  H264_LEVEL_2_2 = "H264_LEVEL_2_2",
-  H264_LEVEL_3 = "H264_LEVEL_3",
-  H264_LEVEL_3_1 = "H264_LEVEL_3_1",
-  H264_LEVEL_3_2 = "H264_LEVEL_3_2",
-  H264_LEVEL_4 = "H264_LEVEL_4",
-  H264_LEVEL_4_1 = "H264_LEVEL_4_1",
-  H264_LEVEL_4_2 = "H264_LEVEL_4_2",
-  H264_LEVEL_5 = "H264_LEVEL_5",
-  H264_LEVEL_5_1 = "H264_LEVEL_5_1",
-  H264_LEVEL_5_2 = "H264_LEVEL_5_2",
-  H264_LEVEL_AUTO = "H264_LEVEL_AUTO",
-}
+export type H264GopSizeUnits = (typeof H264GopSizeUnits)[keyof typeof H264GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264Level = {
+  H264_LEVEL_1: "H264_LEVEL_1",
+  H264_LEVEL_1_1: "H264_LEVEL_1_1",
+  H264_LEVEL_1_2: "H264_LEVEL_1_2",
+  H264_LEVEL_1_3: "H264_LEVEL_1_3",
+  H264_LEVEL_2: "H264_LEVEL_2",
+  H264_LEVEL_2_1: "H264_LEVEL_2_1",
+  H264_LEVEL_2_2: "H264_LEVEL_2_2",
+  H264_LEVEL_3: "H264_LEVEL_3",
+  H264_LEVEL_3_1: "H264_LEVEL_3_1",
+  H264_LEVEL_3_2: "H264_LEVEL_3_2",
+  H264_LEVEL_4: "H264_LEVEL_4",
+  H264_LEVEL_4_1: "H264_LEVEL_4_1",
+  H264_LEVEL_4_2: "H264_LEVEL_4_2",
+  H264_LEVEL_5: "H264_LEVEL_5",
+  H264_LEVEL_5_1: "H264_LEVEL_5_1",
+  H264_LEVEL_5_2: "H264_LEVEL_5_2",
+  H264_LEVEL_AUTO: "H264_LEVEL_AUTO",
+} as const;
 
 /**
  * @public
  */
-export enum H264LookAheadRateControl {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export type H264Level = (typeof H264Level)[keyof typeof H264Level];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264LookAheadRateControl = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
 
 /**
  * @public
  */
-export enum H264ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
+export type H264LookAheadRateControl = (typeof H264LookAheadRateControl)[keyof typeof H264LookAheadRateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum H264Profile {
-  BASELINE = "BASELINE",
-  HIGH = "HIGH",
-  HIGH_10BIT = "HIGH_10BIT",
-  HIGH_422 = "HIGH_422",
-  HIGH_422_10BIT = "HIGH_422_10BIT",
-  MAIN = "MAIN",
-}
+export type H264ParControl = (typeof H264ParControl)[keyof typeof H264ParControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264Profile = {
+  BASELINE: "BASELINE",
+  HIGH: "HIGH",
+  HIGH_10BIT: "HIGH_10BIT",
+  HIGH_422: "HIGH_422",
+  HIGH_422_10BIT: "HIGH_422_10BIT",
+  MAIN: "MAIN",
+} as const;
 
 /**
  * @public
  */
-export enum H264QualityLevel {
-  ENHANCED_QUALITY = "ENHANCED_QUALITY",
-  STANDARD_QUALITY = "STANDARD_QUALITY",
-}
+export type H264Profile = (typeof H264Profile)[keyof typeof H264Profile];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264QualityLevel = {
+  ENHANCED_QUALITY: "ENHANCED_QUALITY",
+  STANDARD_QUALITY: "STANDARD_QUALITY",
+} as const;
 
 /**
  * @public
  */
-export enum H264RateControlMode {
-  CBR = "CBR",
-  MULTIPLEX = "MULTIPLEX",
-  QVBR = "QVBR",
-  VBR = "VBR",
-}
+export type H264QualityLevel = (typeof H264QualityLevel)[keyof typeof H264QualityLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264RateControlMode = {
+  CBR: "CBR",
+  MULTIPLEX: "MULTIPLEX",
+  QVBR: "QVBR",
+  VBR: "VBR",
+} as const;
 
 /**
  * @public
  */
-export enum H264ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
+export type H264RateControlMode = (typeof H264RateControlMode)[keyof typeof H264RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+} as const;
 
 /**
  * @public
  */
-export enum H264SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type H264ScanType = (typeof H264ScanType)[keyof typeof H264ScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum H264SpatialAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type H264SceneChangeDetect = (typeof H264SceneChangeDetect)[keyof typeof H264SceneChangeDetect];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SpatialAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum H264SubGopLength {
-  DYNAMIC = "DYNAMIC",
-  FIXED = "FIXED",
-}
+export type H264SpatialAq = (typeof H264SpatialAq)[keyof typeof H264SpatialAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264SubGopLength = {
+  DYNAMIC: "DYNAMIC",
+  FIXED: "FIXED",
+} as const;
 
 /**
  * @public
  */
-export enum H264Syntax {
-  DEFAULT = "DEFAULT",
-  RP2027 = "RP2027",
-}
+export type H264SubGopLength = (typeof H264SubGopLength)[keyof typeof H264SubGopLength];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264Syntax = {
+  DEFAULT: "DEFAULT",
+  RP2027: "RP2027",
+} as const;
 
 /**
  * @public
  */
-export enum H264TemporalAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type H264Syntax = (typeof H264Syntax)[keyof typeof H264Syntax];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264TemporalAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum H264TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  PIC_TIMING_SEI = "PIC_TIMING_SEI",
-}
+export type H264TemporalAq = (typeof H264TemporalAq)[keyof typeof H264TemporalAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const H264TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  PIC_TIMING_SEI: "PIC_TIMING_SEI",
+} as const;
+
+/**
+ * @public
+ */
+export type H264TimecodeInsertionBehavior =
+  (typeof H264TimecodeInsertionBehavior)[keyof typeof H264TimecodeInsertionBehavior];
 
 /**
  * @public
@@ -2300,32 +2708,51 @@ export interface H264Settings {
 
 /**
  * @public
+ * @enum
  */
-export enum H265AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+export const H265AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
  * @public
  */
-export enum H265AlternativeTransferFunction {
-  INSERT = "INSERT",
-  OMIT = "OMIT",
-}
+export type H265AdaptiveQuantization = (typeof H265AdaptiveQuantization)[keyof typeof H265AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265AlternativeTransferFunction = {
+  INSERT: "INSERT",
+  OMIT: "OMIT",
+} as const;
 
 /**
  * @public
  */
-export enum H265ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
+export type H265AlternativeTransferFunction =
+  (typeof H265AlternativeTransferFunction)[keyof typeof H265AlternativeTransferFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+} as const;
+
+/**
+ * @public
+ */
+export type H265ColorMetadata = (typeof H265ColorMetadata)[keyof typeof H265ColorMetadata];
 
 /**
  * @public
@@ -2377,97 +2804,158 @@ export interface H265FilterSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum H265FlickerAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H265FlickerAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum H265GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
+export type H265FlickerAq = (typeof H265FlickerAq)[keyof typeof H265FlickerAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
 
 /**
  * @public
  */
-export enum H265Level {
-  H265_LEVEL_1 = "H265_LEVEL_1",
-  H265_LEVEL_2 = "H265_LEVEL_2",
-  H265_LEVEL_2_1 = "H265_LEVEL_2_1",
-  H265_LEVEL_3 = "H265_LEVEL_3",
-  H265_LEVEL_3_1 = "H265_LEVEL_3_1",
-  H265_LEVEL_4 = "H265_LEVEL_4",
-  H265_LEVEL_4_1 = "H265_LEVEL_4_1",
-  H265_LEVEL_5 = "H265_LEVEL_5",
-  H265_LEVEL_5_1 = "H265_LEVEL_5_1",
-  H265_LEVEL_5_2 = "H265_LEVEL_5_2",
-  H265_LEVEL_6 = "H265_LEVEL_6",
-  H265_LEVEL_6_1 = "H265_LEVEL_6_1",
-  H265_LEVEL_6_2 = "H265_LEVEL_6_2",
-  H265_LEVEL_AUTO = "H265_LEVEL_AUTO",
-}
+export type H265GopSizeUnits = (typeof H265GopSizeUnits)[keyof typeof H265GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265Level = {
+  H265_LEVEL_1: "H265_LEVEL_1",
+  H265_LEVEL_2: "H265_LEVEL_2",
+  H265_LEVEL_2_1: "H265_LEVEL_2_1",
+  H265_LEVEL_3: "H265_LEVEL_3",
+  H265_LEVEL_3_1: "H265_LEVEL_3_1",
+  H265_LEVEL_4: "H265_LEVEL_4",
+  H265_LEVEL_4_1: "H265_LEVEL_4_1",
+  H265_LEVEL_5: "H265_LEVEL_5",
+  H265_LEVEL_5_1: "H265_LEVEL_5_1",
+  H265_LEVEL_5_2: "H265_LEVEL_5_2",
+  H265_LEVEL_6: "H265_LEVEL_6",
+  H265_LEVEL_6_1: "H265_LEVEL_6_1",
+  H265_LEVEL_6_2: "H265_LEVEL_6_2",
+  H265_LEVEL_AUTO: "H265_LEVEL_AUTO",
+} as const;
 
 /**
  * @public
  */
-export enum H265LookAheadRateControl {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export type H265Level = (typeof H265Level)[keyof typeof H265Level];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265LookAheadRateControl = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
 
 /**
  * @public
  */
-export enum H265Profile {
-  MAIN = "MAIN",
-  MAIN_10BIT = "MAIN_10BIT",
-}
+export type H265LookAheadRateControl = (typeof H265LookAheadRateControl)[keyof typeof H265LookAheadRateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265Profile = {
+  MAIN: "MAIN",
+  MAIN_10BIT: "MAIN_10BIT",
+} as const;
 
 /**
  * @public
  */
-export enum H265RateControlMode {
-  CBR = "CBR",
-  MULTIPLEX = "MULTIPLEX",
-  QVBR = "QVBR",
-}
+export type H265Profile = (typeof H265Profile)[keyof typeof H265Profile];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265RateControlMode = {
+  CBR: "CBR",
+  MULTIPLEX: "MULTIPLEX",
+  QVBR: "QVBR",
+} as const;
 
 /**
  * @public
  */
-export enum H265ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
+export type H265RateControlMode = (typeof H265RateControlMode)[keyof typeof H265RateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+} as const;
 
 /**
  * @public
  */
-export enum H265SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type H265ScanType = (typeof H265ScanType)[keyof typeof H265ScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum H265Tier {
-  HIGH = "HIGH",
-  MAIN = "MAIN",
-}
+export type H265SceneChangeDetect = (typeof H265SceneChangeDetect)[keyof typeof H265SceneChangeDetect];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265Tier = {
+  HIGH: "HIGH",
+  MAIN: "MAIN",
+} as const;
 
 /**
  * @public
  */
-export enum H265TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  PIC_TIMING_SEI = "PIC_TIMING_SEI",
-}
+export type H265Tier = (typeof H265Tier)[keyof typeof H265Tier];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  PIC_TIMING_SEI: "PIC_TIMING_SEI",
+} as const;
+
+/**
+ * @public
+ */
+export type H265TimecodeInsertionBehavior =
+  (typeof H265TimecodeInsertionBehavior)[keyof typeof H265TimecodeInsertionBehavior];
 
 /**
  * @public
@@ -2645,38 +3133,62 @@ export interface H265Settings {
 
 /**
  * @public
+ * @enum
  */
-export enum Mpeg2AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+export const Mpeg2AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
 
 /**
  * @public
  */
-export enum Mpeg2ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
+export type Mpeg2AdaptiveQuantization = (typeof Mpeg2AdaptiveQuantization)[keyof typeof Mpeg2AdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+} as const;
 
 /**
  * @public
  */
-export enum Mpeg2ColorSpace {
-  AUTO = "AUTO",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export type Mpeg2ColorMetadata = (typeof Mpeg2ColorMetadata)[keyof typeof Mpeg2ColorMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2ColorSpace = {
+  AUTO: "AUTO",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
 
 /**
  * @public
  */
-export enum Mpeg2DisplayRatio {
-  DISPLAYRATIO16X9 = "DISPLAYRATIO16X9",
-  DISPLAYRATIO4X3 = "DISPLAYRATIO4X3",
-}
+export type Mpeg2ColorSpace = (typeof Mpeg2ColorSpace)[keyof typeof Mpeg2ColorSpace];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2DisplayRatio = {
+  DISPLAYRATIO16X9: "DISPLAYRATIO16X9",
+  DISPLAYRATIO4X3: "DISPLAYRATIO4X3",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2DisplayRatio = (typeof Mpeg2DisplayRatio)[keyof typeof Mpeg2DisplayRatio];
 
 /**
  * @public
@@ -2691,35 +3203,60 @@ export interface Mpeg2FilterSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum Mpeg2GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
+export const Mpeg2GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
 
 /**
  * @public
  */
-export enum Mpeg2ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
+export type Mpeg2GopSizeUnits = (typeof Mpeg2GopSizeUnits)[keyof typeof Mpeg2GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+} as const;
 
 /**
  * @public
  */
-export enum Mpeg2SubGopLength {
-  DYNAMIC = "DYNAMIC",
-  FIXED = "FIXED",
-}
+export type Mpeg2ScanType = (typeof Mpeg2ScanType)[keyof typeof Mpeg2ScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2SubGopLength = {
+  DYNAMIC: "DYNAMIC",
+  FIXED: "FIXED",
+} as const;
 
 /**
  * @public
  */
-export enum Mpeg2TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  GOP_TIMECODE = "GOP_TIMECODE",
-}
+export type Mpeg2SubGopLength = (typeof Mpeg2SubGopLength)[keyof typeof Mpeg2SubGopLength];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mpeg2TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  GOP_TIMECODE: "GOP_TIMECODE",
+} as const;
+
+/**
+ * @public
+ */
+export type Mpeg2TimecodeInsertionBehavior =
+  (typeof Mpeg2TimecodeInsertionBehavior)[keyof typeof Mpeg2TimecodeInsertionBehavior];
 
 /**
  * @public
@@ -2853,20 +3390,34 @@ export interface VideoCodecSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum VideoDescriptionRespondToAfd {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-  RESPOND = "RESPOND",
-}
+export const VideoDescriptionRespondToAfd = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+  RESPOND: "RESPOND",
+} as const;
 
 /**
  * @public
  */
-export enum VideoDescriptionScalingBehavior {
-  DEFAULT = "DEFAULT",
-  STRETCH_TO_OUTPUT = "STRETCH_TO_OUTPUT",
-}
+export type VideoDescriptionRespondToAfd =
+  (typeof VideoDescriptionRespondToAfd)[keyof typeof VideoDescriptionRespondToAfd];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoDescriptionScalingBehavior = {
+  DEFAULT: "DEFAULT",
+  STRETCH_TO_OUTPUT: "STRETCH_TO_OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoDescriptionScalingBehavior =
+  (typeof VideoDescriptionScalingBehavior)[keyof typeof VideoDescriptionScalingBehavior];
 
 /**
  * @public
@@ -2914,10 +3465,16 @@ export interface VideoDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum AcceptHeader {
-  image_jpeg = "image/jpeg",
-}
+export const AcceptHeader = {
+  image_jpeg: "image/jpeg",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceptHeader = (typeof AcceptHeader)[keyof typeof AcceptHeader];
 
 /**
  * @public
@@ -3169,11 +3726,17 @@ export class UnprocessableEntityException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AvailBlankingState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AvailBlankingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AvailBlankingState = (typeof AvailBlankingState)[keyof typeof AvailBlankingState];
 
 /**
  * @public
@@ -3229,19 +3792,33 @@ export interface Esam {
 
 /**
  * @public
+ * @enum
  */
-export enum Scte35SpliceInsertNoRegionalBlackoutBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+export const Scte35SpliceInsertNoRegionalBlackoutBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
 
 /**
  * @public
  */
-export enum Scte35SpliceInsertWebDeliveryAllowedBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+export type Scte35SpliceInsertNoRegionalBlackoutBehavior =
+  (typeof Scte35SpliceInsertNoRegionalBlackoutBehavior)[keyof typeof Scte35SpliceInsertNoRegionalBlackoutBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35SpliceInsertWebDeliveryAllowedBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35SpliceInsertWebDeliveryAllowedBehavior =
+  (typeof Scte35SpliceInsertWebDeliveryAllowedBehavior)[keyof typeof Scte35SpliceInsertWebDeliveryAllowedBehavior];
 
 /**
  * @public
@@ -3266,19 +3843,33 @@ export interface Scte35SpliceInsert {
 
 /**
  * @public
+ * @enum
  */
-export enum Scte35AposNoRegionalBlackoutBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+export const Scte35AposNoRegionalBlackoutBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
 
 /**
  * @public
  */
-export enum Scte35AposWebDeliveryAllowedBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+export type Scte35AposNoRegionalBlackoutBehavior =
+  (typeof Scte35AposNoRegionalBlackoutBehavior)[keyof typeof Scte35AposNoRegionalBlackoutBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35AposWebDeliveryAllowedBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35AposWebDeliveryAllowedBehavior =
+  (typeof Scte35AposWebDeliveryAllowedBehavior)[keyof typeof Scte35AposWebDeliveryAllowedBehavior];
 
 /**
  * @public
@@ -3522,19 +4113,32 @@ export interface BatchUpdateScheduleResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum BlackoutSlateNetworkEndBlackout {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const BlackoutSlateNetworkEndBlackout = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum BlackoutSlateState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type BlackoutSlateNetworkEndBlackout =
+  (typeof BlackoutSlateNetworkEndBlackout)[keyof typeof BlackoutSlateNetworkEndBlackout];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlackoutSlateState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type BlackoutSlateState = (typeof BlackoutSlateState)[keyof typeof BlackoutSlateState];
 
 /**
  * @public
@@ -3586,11 +4190,18 @@ export interface CancelInputDeviceTransferResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureActivationsInputPrepareScheduleActions {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const FeatureActivationsInputPrepareScheduleActions = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureActivationsInputPrepareScheduleActions =
+  (typeof FeatureActivationsInputPrepareScheduleActions)[keyof typeof FeatureActivationsInputPrepareScheduleActions];
 
 /**
  * @public
@@ -3606,19 +4217,32 @@ export interface FeatureActivations {
 
 /**
  * @public
+ * @enum
  */
-export enum GlobalConfigurationInputEndAction {
-  NONE = "NONE",
-  SWITCH_AND_LOOP_INPUTS = "SWITCH_AND_LOOP_INPUTS",
-}
+export const GlobalConfigurationInputEndAction = {
+  NONE: "NONE",
+  SWITCH_AND_LOOP_INPUTS: "SWITCH_AND_LOOP_INPUTS",
+} as const;
 
 /**
  * @public
  */
-export enum InputLossImageType {
-  COLOR = "COLOR",
-  SLATE = "SLATE",
-}
+export type GlobalConfigurationInputEndAction =
+  (typeof GlobalConfigurationInputEndAction)[keyof typeof GlobalConfigurationInputEndAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputLossImageType = {
+  COLOR: "COLOR",
+  SLATE: "SLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputLossImageType = (typeof InputLossImageType)[keyof typeof InputLossImageType];
 
 /**
  * @public
@@ -3653,27 +4277,48 @@ export interface InputLossBehavior {
 
 /**
  * @public
+ * @enum
  */
-export enum GlobalConfigurationOutputLockingMode {
-  EPOCH_LOCKING = "EPOCH_LOCKING",
-  PIPELINE_LOCKING = "PIPELINE_LOCKING",
-}
+export const GlobalConfigurationOutputLockingMode = {
+  EPOCH_LOCKING: "EPOCH_LOCKING",
+  PIPELINE_LOCKING: "PIPELINE_LOCKING",
+} as const;
 
 /**
  * @public
  */
-export enum GlobalConfigurationOutputTimingSource {
-  INPUT_CLOCK = "INPUT_CLOCK",
-  SYSTEM_CLOCK = "SYSTEM_CLOCK",
-}
+export type GlobalConfigurationOutputLockingMode =
+  (typeof GlobalConfigurationOutputLockingMode)[keyof typeof GlobalConfigurationOutputLockingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationOutputTimingSource = {
+  INPUT_CLOCK: "INPUT_CLOCK",
+  SYSTEM_CLOCK: "SYSTEM_CLOCK",
+} as const;
 
 /**
  * @public
  */
-export enum GlobalConfigurationLowFramerateInputs {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type GlobalConfigurationOutputTimingSource =
+  (typeof GlobalConfigurationOutputTimingSource)[keyof typeof GlobalConfigurationOutputTimingSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationLowFramerateInputs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalConfigurationLowFramerateInputs =
+  (typeof GlobalConfigurationLowFramerateInputs)[keyof typeof GlobalConfigurationLowFramerateInputs];
 
 /**
  * @public
@@ -3716,11 +4361,17 @@ export interface GlobalConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum MotionGraphicsInsertion {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const MotionGraphicsInsertion = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MotionGraphicsInsertion = (typeof MotionGraphicsInsertion)[keyof typeof MotionGraphicsInsertion];
 
 /**
  * @public
@@ -3757,11 +4408,18 @@ export interface MotionGraphicsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum NielsenPcmToId3TaggingState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const NielsenPcmToId3TaggingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type NielsenPcmToId3TaggingState =
+  (typeof NielsenPcmToId3TaggingState)[keyof typeof NielsenPcmToId3TaggingState];
 
 /**
  * @public
@@ -3781,12 +4439,18 @@ export interface NielsenConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum TimecodeConfigSource {
-  EMBEDDED = "EMBEDDED",
-  SYSTEMCLOCK = "SYSTEMCLOCK",
-  ZEROBASED = "ZEROBASED",
-}
+export const TimecodeConfigSource = {
+  EMBEDDED: "EMBEDDED",
+  SYSTEMCLOCK: "SYSTEMCLOCK",
+  ZEROBASED: "ZEROBASED",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeConfigSource = (typeof TimecodeConfigSource)[keyof typeof TimecodeConfigSource];
 
 /**
  * @public
@@ -3990,10 +4654,16 @@ export interface ClaimDeviceResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum ContentType {
-  image_jpeg = "image/jpeg",
-}
+export const ContentType = {
+  image_jpeg: "image/jpeg",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
 /**
  * @public
@@ -4381,12 +5051,18 @@ export interface CreateMultiplexResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PreferredChannelPipeline {
-  CURRENTLY_ACTIVE = "CURRENTLY_ACTIVE",
-  PIPELINE_0 = "PIPELINE_0",
-  PIPELINE_1 = "PIPELINE_1",
-}
+export const PreferredChannelPipeline = {
+  CURRENTLY_ACTIVE: "CURRENTLY_ACTIVE",
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+} as const;
+
+/**
+ * @public
+ */
+export type PreferredChannelPipeline = (typeof PreferredChannelPipeline)[keyof typeof PreferredChannelPipeline];
 
 /**
  * @public
@@ -6285,11 +6961,17 @@ export interface PurchaseOfferingResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum RebootInputDeviceForce {
-  NO = "NO",
-  YES = "YES",
-}
+export const RebootInputDeviceForce = {
+  NO: "NO",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type RebootInputDeviceForce = (typeof RebootInputDeviceForce)[keyof typeof RebootInputDeviceForce];
 
 /**
  * @public

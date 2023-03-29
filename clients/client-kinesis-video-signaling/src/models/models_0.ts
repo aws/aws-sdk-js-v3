@@ -28,10 +28,16 @@ export class ClientLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Service {
-  TURN = "TURN",
-}
+export const Service = {
+  TURN: "TURN",
+} as const;
+
+/**
+ * @public
+ */
+export type Service = (typeof Service)[keyof typeof Service];
 
 /**
  * @public

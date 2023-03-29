@@ -27,12 +27,18 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ApplicationStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
 
 /**
  * @public
@@ -467,19 +473,25 @@ export interface DescribeMigrationTaskRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceAttributeType {
-  BIOS_ID = "BIOS_ID",
-  FQDN = "FQDN",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MAC_ADDRESS = "MAC_ADDRESS",
-  MOTHERBOARD_SERIAL_NUMBER = "MOTHERBOARD_SERIAL_NUMBER",
-  VM_MANAGED_OBJECT_REFERENCE = "VM_MANAGED_OBJECT_REFERENCE",
-  VM_MANAGER_ID = "VM_MANAGER_ID",
-  VM_NAME = "VM_NAME",
-  VM_PATH = "VM_PATH",
-}
+export const ResourceAttributeType = {
+  BIOS_ID: "BIOS_ID",
+  FQDN: "FQDN",
+  IPV4_ADDRESS: "IPV4_ADDRESS",
+  IPV6_ADDRESS: "IPV6_ADDRESS",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  MOTHERBOARD_SERIAL_NUMBER: "MOTHERBOARD_SERIAL_NUMBER",
+  VM_MANAGED_OBJECT_REFERENCE: "VM_MANAGED_OBJECT_REFERENCE",
+  VM_MANAGER_ID: "VM_MANAGER_ID",
+  VM_NAME: "VM_NAME",
+  VM_PATH: "VM_PATH",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceAttributeType = (typeof ResourceAttributeType)[keyof typeof ResourceAttributeType];
 
 /**
  * @public
@@ -535,13 +547,19 @@ export interface ResourceAttribute {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const Status = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public

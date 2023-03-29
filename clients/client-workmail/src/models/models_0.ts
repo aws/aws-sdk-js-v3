@@ -5,11 +5,17 @@ import { WorkMailServiceException as __BaseException } from "./WorkMailServiceEx
 
 /**
  * @public
+ * @enum
  */
-export enum AccessControlRuleEffect {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const AccessControlRuleEffect = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessControlRuleEffect = (typeof AccessControlRuleEffect)[keyof typeof AccessControlRuleEffect];
 
 /**
  * @public
@@ -88,11 +94,17 @@ export interface AccessControlRule {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessEffect {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const AccessEffect = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessEffect = (typeof AccessEffect)[keyof typeof AccessEffect];
 
 /**
  * @public
@@ -406,11 +418,17 @@ export interface LambdaAvailabilityProvider {
 
 /**
  * @public
+ * @enum
  */
-export enum AvailabilityProviderType {
-  EWS = "EWS",
-  LAMBDA = "LAMBDA",
-}
+export const AvailabilityProviderType = {
+  EWS: "EWS",
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type AvailabilityProviderType = (typeof AvailabilityProviderType)[keyof typeof AvailabilityProviderType];
 
 /**
  * @public
@@ -778,11 +796,17 @@ export interface ImpersonationRule {
 
 /**
  * @public
+ * @enum
  */
-export enum ImpersonationRoleType {
-  FULL_ACCESS = "FULL_ACCESS",
-  READ_ONLY = "READ_ONLY",
-}
+export const ImpersonationRoleType = {
+  FULL_ACCESS: "FULL_ACCESS",
+  READ_ONLY: "READ_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ImpersonationRoleType = (typeof ImpersonationRoleType)[keyof typeof ImpersonationRoleType];
 
 /**
  * @public
@@ -832,11 +856,18 @@ export interface CreateImpersonationRoleResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MobileDeviceAccessRuleEffect {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const MobileDeviceAccessRuleEffect = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type MobileDeviceAccessRuleEffect =
+  (typeof MobileDeviceAccessRuleEffect)[keyof typeof MobileDeviceAccessRuleEffect];
 
 /**
  * @public
@@ -1006,11 +1037,17 @@ export class DirectoryInUseException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  EQUIPMENT = "EQUIPMENT",
-  ROOM = "ROOM",
-}
+export const ResourceType = {
+  EQUIPMENT: "EQUIPMENT",
+  ROOM: "ROOM",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -1104,11 +1141,17 @@ export class InvalidPasswordException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum MemberType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const MemberType = {
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type MemberType = (typeof MemberType)[keyof typeof MemberType];
 
 /**
  * @public
@@ -1558,12 +1601,18 @@ export interface DescribeGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EntityState {
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EntityState = {
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityState = (typeof EntityState)[keyof typeof EntityState];
 
 /**
  * @public
@@ -1640,13 +1689,19 @@ export interface DescribeMailboxExportJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MailboxExportJobState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-}
+export const MailboxExportJobState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type MailboxExportJobState = (typeof MailboxExportJobState)[keyof typeof MailboxExportJobState];
 
 /**
  * @public
@@ -1859,12 +1914,18 @@ export interface DescribeUserRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UserRole {
-  RESOURCE = "RESOURCE",
-  SYSTEM_USER = "SYSTEM_USER",
-  USER = "USER",
-}
+export const UserRole = {
+  RESOURCE: "RESOURCE",
+  SYSTEM_USER: "SYSTEM_USER",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type UserRole = (typeof UserRole)[keyof typeof UserRole];
 
 /**
  * @public
@@ -1993,12 +2054,19 @@ export interface DnsRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum DnsRecordVerificationStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  VERIFIED = "VERIFIED",
-}
+export const DnsRecordVerificationStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  VERIFIED: "VERIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsRecordVerificationStatus =
+  (typeof DnsRecordVerificationStatus)[keyof typeof DnsRecordVerificationStatus];
 
 /**
  * @public
@@ -2025,23 +2093,35 @@ export class EntityAlreadyRegisteredException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RetentionAction {
-  DELETE = "DELETE",
-  NONE = "NONE",
-  PERMANENTLY_DELETE = "PERMANENTLY_DELETE",
-}
+export const RetentionAction = {
+  DELETE: "DELETE",
+  NONE: "NONE",
+  PERMANENTLY_DELETE: "PERMANENTLY_DELETE",
+} as const;
 
 /**
  * @public
  */
-export enum FolderName {
-  DELETED_ITEMS = "DELETED_ITEMS",
-  DRAFTS = "DRAFTS",
-  INBOX = "INBOX",
-  JUNK_EMAIL = "JUNK_EMAIL",
-  SENT_ITEMS = "SENT_ITEMS",
-}
+export type RetentionAction = (typeof RetentionAction)[keyof typeof RetentionAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const FolderName = {
+  DELETED_ITEMS: "DELETED_ITEMS",
+  DRAFTS: "DRAFTS",
+  INBOX: "INBOX",
+  JUNK_EMAIL: "JUNK_EMAIL",
+  SENT_ITEMS: "SENT_ITEMS",
+} as const;
+
+/**
+ * @public
+ */
+export type FolderName = (typeof FolderName)[keyof typeof FolderName];
 
 /**
  * @public
@@ -2943,12 +3023,18 @@ export interface ListMailboxPermissionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PermissionType {
-  FULL_ACCESS = "FULL_ACCESS",
-  SEND_AS = "SEND_AS",
-  SEND_ON_BEHALF = "SEND_ON_BEHALF",
-}
+export const PermissionType = {
+  FULL_ACCESS: "FULL_ACCESS",
+  SEND_AS: "SEND_AS",
+  SEND_ON_BEHALF: "SEND_ON_BEHALF",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 /**
  * @public

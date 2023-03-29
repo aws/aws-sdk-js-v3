@@ -214,11 +214,17 @@ export class ValidationError extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetStore {
-  OFFLINE_STORE = "OfflineStore",
-  ONLINE_STORE = "OnlineStore",
-}
+export const TargetStore = {
+  OFFLINE_STORE: "OfflineStore",
+  ONLINE_STORE: "OnlineStore",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetStore = (typeof TargetStore)[keyof typeof TargetStore];
 
 /**
  * @public

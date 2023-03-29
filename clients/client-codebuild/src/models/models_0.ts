@@ -25,37 +25,61 @@ export class AccountLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ArtifactNamespace {
-  BUILD_ID = "BUILD_ID",
-  NONE = "NONE",
-}
+export const ArtifactNamespace = {
+  BUILD_ID: "BUILD_ID",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum ArtifactPackaging {
-  NONE = "NONE",
-  ZIP = "ZIP",
-}
+export type ArtifactNamespace = (typeof ArtifactNamespace)[keyof typeof ArtifactNamespace];
+
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactPackaging = {
+  NONE: "NONE",
+  ZIP: "ZIP",
+} as const;
 
 /**
  * @public
  */
-export enum ArtifactsType {
-  CODEPIPELINE = "CODEPIPELINE",
-  NO_ARTIFACTS = "NO_ARTIFACTS",
-  S3 = "S3",
-}
+export type ArtifactPackaging = (typeof ArtifactPackaging)[keyof typeof ArtifactPackaging];
+
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactsType = {
+  CODEPIPELINE: "CODEPIPELINE",
+  NO_ARTIFACTS: "NO_ARTIFACTS",
+  S3: "S3",
+} as const;
 
 /**
  * @public
  */
-export enum AuthType {
-  BASIC_AUTH = "BASIC_AUTH",
-  OAUTH = "OAUTH",
-  PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
-}
+export type ArtifactsType = (typeof ArtifactsType)[keyof typeof ArtifactsType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthType = {
+  BASIC_AUTH: "BASIC_AUTH",
+  OAUTH: "OAUTH",
+  PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
 /**
  * @public
@@ -130,12 +154,18 @@ export interface BatchGetBuildBatchesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum BucketOwnerAccess {
-  FULL = "FULL",
-  NONE = "NONE",
-  READ_ONLY = "READ_ONLY",
-}
+export const BucketOwnerAccess = {
+  FULL: "FULL",
+  NONE: "NONE",
+  READ_ONLY: "READ_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type BucketOwnerAccess = (typeof BucketOwnerAccess)[keyof typeof BucketOwnerAccess];
 
 /**
  * @public
@@ -236,11 +266,17 @@ export interface BuildArtifacts {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchReportModeType {
-  REPORT_AGGREGATED_BATCH = "REPORT_AGGREGATED_BATCH",
-  REPORT_INDIVIDUAL_BUILDS = "REPORT_INDIVIDUAL_BUILDS",
-}
+export const BatchReportModeType = {
+  REPORT_AGGREGATED_BATCH: "REPORT_AGGREGATED_BATCH",
+  REPORT_INDIVIDUAL_BUILDS: "REPORT_INDIVIDUAL_BUILDS",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchReportModeType = (typeof BatchReportModeType)[keyof typeof BatchReportModeType];
 
 /**
  * @public
@@ -308,15 +344,21 @@ export interface ProjectBuildBatchConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusType {
-  FAILED = "FAILED",
-  FAULT = "FAULT",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const StatusType = {
+  FAILED: "FAILED",
+  FAULT: "FAULT",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * @public
@@ -437,21 +479,33 @@ export interface BuildGroup {
 
 /**
  * @public
+ * @enum
  */
-export enum CacheMode {
-  LOCAL_CUSTOM_CACHE = "LOCAL_CUSTOM_CACHE",
-  LOCAL_DOCKER_LAYER_CACHE = "LOCAL_DOCKER_LAYER_CACHE",
-  LOCAL_SOURCE_CACHE = "LOCAL_SOURCE_CACHE",
-}
+export const CacheMode = {
+  LOCAL_CUSTOM_CACHE: "LOCAL_CUSTOM_CACHE",
+  LOCAL_DOCKER_LAYER_CACHE: "LOCAL_DOCKER_LAYER_CACHE",
+  LOCAL_SOURCE_CACHE: "LOCAL_SOURCE_CACHE",
+} as const;
 
 /**
  * @public
  */
-export enum CacheType {
-  LOCAL = "LOCAL",
-  NO_CACHE = "NO_CACHE",
-  S3 = "S3",
-}
+export type CacheMode = (typeof CacheMode)[keyof typeof CacheMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CacheType = {
+  LOCAL: "LOCAL",
+  NO_CACHE: "NO_CACHE",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type CacheType = (typeof CacheType)[keyof typeof CacheType];
 
 /**
  * @public
@@ -558,22 +612,34 @@ export interface ProjectCache {
 
 /**
  * @public
+ * @enum
  */
-export enum ComputeType {
-  BUILD_GENERAL1_2XLARGE = "BUILD_GENERAL1_2XLARGE",
-  BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL",
-}
+export const ComputeType = {
+  BUILD_GENERAL1_2XLARGE: "BUILD_GENERAL1_2XLARGE",
+  BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
+  BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
+  BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
+} as const;
 
 /**
  * @public
  */
-export enum EnvironmentVariableType {
-  PARAMETER_STORE = "PARAMETER_STORE",
-  PLAINTEXT = "PLAINTEXT",
-  SECRETS_MANAGER = "SECRETS_MANAGER",
-}
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnvironmentVariableType = {
+  PARAMETER_STORE: "PARAMETER_STORE",
+  PLAINTEXT: "PLAINTEXT",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+
+/**
+ * @public
+ */
+export type EnvironmentVariableType = (typeof EnvironmentVariableType)[keyof typeof EnvironmentVariableType];
 
 /**
  * @public
@@ -626,18 +692,30 @@ export interface EnvironmentVariable {
 
 /**
  * @public
+ * @enum
  */
-export enum ImagePullCredentialsType {
-  CODEBUILD = "CODEBUILD",
-  SERVICE_ROLE = "SERVICE_ROLE",
-}
+export const ImagePullCredentialsType = {
+  CODEBUILD: "CODEBUILD",
+  SERVICE_ROLE: "SERVICE_ROLE",
+} as const;
 
 /**
  * @public
  */
-export enum CredentialProviderType {
-  SECRETS_MANAGER = "SECRETS_MANAGER",
-}
+export type ImagePullCredentialsType = (typeof ImagePullCredentialsType)[keyof typeof ImagePullCredentialsType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CredentialProviderType = {
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+
+/**
+ * @public
+ */
+export type CredentialProviderType = (typeof CredentialProviderType)[keyof typeof CredentialProviderType];
 
 /**
  * @public
@@ -675,14 +753,20 @@ export interface RegistryCredential {
 
 /**
  * @public
+ * @enum
  */
-export enum EnvironmentType {
-  ARM_CONTAINER = "ARM_CONTAINER",
-  LINUX_CONTAINER = "LINUX_CONTAINER",
-  LINUX_GPU_CONTAINER = "LINUX_GPU_CONTAINER",
-  WINDOWS_CONTAINER = "WINDOWS_CONTAINER",
-  WINDOWS_SERVER_2019_CONTAINER = "WINDOWS_SERVER_2019_CONTAINER",
-}
+export const EnvironmentType = {
+  ARM_CONTAINER: "ARM_CONTAINER",
+  LINUX_CONTAINER: "LINUX_CONTAINER",
+  LINUX_GPU_CONTAINER: "LINUX_GPU_CONTAINER",
+  WINDOWS_CONTAINER: "WINDOWS_CONTAINER",
+  WINDOWS_SERVER_2019_CONTAINER: "WINDOWS_SERVER_2019_CONTAINER",
+} as const;
+
+/**
+ * @public
+ */
+export type EnvironmentType = (typeof EnvironmentType)[keyof typeof EnvironmentType];
 
 /**
  * @public
@@ -864,10 +948,16 @@ export interface ProjectEnvironment {
 
 /**
  * @public
+ * @enum
  */
-export enum FileSystemType {
-  EFS = "EFS",
-}
+export const FileSystemType = {
+  EFS: "EFS",
+} as const;
+
+/**
+ * @public
+ */
+export type FileSystemType = (typeof FileSystemType)[keyof typeof FileSystemType];
 
 /**
  * @public
@@ -923,11 +1013,17 @@ export interface ProjectFileSystemLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum LogsConfigStatusType {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const LogsConfigStatusType = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type LogsConfigStatusType = (typeof LogsConfigStatusType)[keyof typeof LogsConfigStatusType];
 
 /**
  * @public
@@ -1082,16 +1178,22 @@ export interface PhaseContext {
 
 /**
  * @public
+ * @enum
  */
-export enum BuildBatchPhaseType {
-  COMBINE_ARTIFACTS = "COMBINE_ARTIFACTS",
-  DOWNLOAD_BATCHSPEC = "DOWNLOAD_BATCHSPEC",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  SUBMITTED = "SUBMITTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BuildBatchPhaseType = {
+  COMBINE_ARTIFACTS: "COMBINE_ARTIFACTS",
+  DOWNLOAD_BATCHSPEC: "DOWNLOAD_BATCHSPEC",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  SUBMITTED: "SUBMITTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BuildBatchPhaseType = (typeof BuildBatchPhaseType)[keyof typeof BuildBatchPhaseType];
 
 /**
  * @public
@@ -1190,10 +1292,16 @@ export interface BuildBatchPhase {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceAuthType {
-  OAUTH = "OAUTH",
-}
+export const SourceAuthType = {
+  OAUTH: "OAUTH",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceAuthType = (typeof SourceAuthType)[keyof typeof SourceAuthType];
 
 /**
  * @public
@@ -1275,16 +1383,22 @@ export interface GitSubmodulesConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  BITBUCKET = "BITBUCKET",
-  CODECOMMIT = "CODECOMMIT",
-  CODEPIPELINE = "CODEPIPELINE",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
-  NO_SOURCE = "NO_SOURCE",
-  S3 = "S3",
-}
+export const SourceType = {
+  BITBUCKET: "BITBUCKET",
+  CODECOMMIT: "CODECOMMIT",
+  CODEPIPELINE: "CODEPIPELINE",
+  GITHUB: "GITHUB",
+  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+  NO_SOURCE: "NO_SOURCE",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -1889,20 +2003,26 @@ export interface NetworkInterface {
 
 /**
  * @public
+ * @enum
  */
-export enum BuildPhaseType {
-  BUILD = "BUILD",
-  COMPLETED = "COMPLETED",
-  DOWNLOAD_SOURCE = "DOWNLOAD_SOURCE",
-  FINALIZING = "FINALIZING",
-  INSTALL = "INSTALL",
-  POST_BUILD = "POST_BUILD",
-  PRE_BUILD = "PRE_BUILD",
-  PROVISIONING = "PROVISIONING",
-  QUEUED = "QUEUED",
-  SUBMITTED = "SUBMITTED",
-  UPLOAD_ARTIFACTS = "UPLOAD_ARTIFACTS",
-}
+export const BuildPhaseType = {
+  BUILD: "BUILD",
+  COMPLETED: "COMPLETED",
+  DOWNLOAD_SOURCE: "DOWNLOAD_SOURCE",
+  FINALIZING: "FINALIZING",
+  INSTALL: "INSTALL",
+  POST_BUILD: "POST_BUILD",
+  PRE_BUILD: "PRE_BUILD",
+  PROVISIONING: "PROVISIONING",
+  QUEUED: "QUEUED",
+  SUBMITTED: "SUBMITTED",
+  UPLOAD_ARTIFACTS: "UPLOAD_ARTIFACTS",
+} as const;
+
+/**
+ * @public
+ */
+export type BuildPhaseType = (typeof BuildPhaseType)[keyof typeof BuildPhaseType];
 
 /**
  * @public
@@ -2582,11 +2702,17 @@ export interface ProjectBadge {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectVisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC_READ = "PUBLIC_READ",
-}
+export const ProjectVisibilityType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC_READ: "PUBLIC_READ",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectVisibilityType = (typeof ProjectVisibilityType)[keyof typeof ProjectVisibilityType];
 
 /**
  * @public
@@ -2607,23 +2733,35 @@ export interface Tag {
 
 /**
  * @public
+ * @enum
  */
-export enum WebhookBuildType {
-  BUILD = "BUILD",
-  BUILD_BATCH = "BUILD_BATCH",
-}
+export const WebhookBuildType = {
+  BUILD: "BUILD",
+  BUILD_BATCH: "BUILD_BATCH",
+} as const;
 
 /**
  * @public
  */
-export enum WebhookFilterType {
-  ACTOR_ACCOUNT_ID = "ACTOR_ACCOUNT_ID",
-  BASE_REF = "BASE_REF",
-  COMMIT_MESSAGE = "COMMIT_MESSAGE",
-  EVENT = "EVENT",
-  FILE_PATH = "FILE_PATH",
-  HEAD_REF = "HEAD_REF",
-}
+export type WebhookBuildType = (typeof WebhookBuildType)[keyof typeof WebhookBuildType];
+
+/**
+ * @public
+ * @enum
+ */
+export const WebhookFilterType = {
+  ACTOR_ACCOUNT_ID: "ACTOR_ACCOUNT_ID",
+  BASE_REF: "BASE_REF",
+  COMMIT_MESSAGE: "COMMIT_MESSAGE",
+  EVENT: "EVENT",
+  FILE_PATH: "FILE_PATH",
+  HEAD_REF: "HEAD_REF",
+} as const;
+
+/**
+ * @public
+ */
+export type WebhookFilterType = (typeof WebhookFilterType)[keyof typeof WebhookFilterType];
 
 /**
  * @public
@@ -3029,19 +3167,31 @@ export interface BatchGetReportGroupsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportExportConfigType {
-  NO_EXPORT = "NO_EXPORT",
-  S3 = "S3",
-}
+export const ReportExportConfigType = {
+  NO_EXPORT: "NO_EXPORT",
+  S3: "S3",
+} as const;
 
 /**
  * @public
  */
-export enum ReportPackagingType {
-  NONE = "NONE",
-  ZIP = "ZIP",
-}
+export type ReportExportConfigType = (typeof ReportExportConfigType)[keyof typeof ReportExportConfigType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportPackagingType = {
+  NONE: "NONE",
+  ZIP: "ZIP",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportPackagingType = (typeof ReportPackagingType)[keyof typeof ReportPackagingType];
 
 /**
  * @public
@@ -3121,19 +3271,31 @@ export interface ReportExportConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportGroupStatusType {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const ReportGroupStatusType = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
 
 /**
  * @public
  */
-export enum ReportType {
-  CODE_COVERAGE = "CODE_COVERAGE",
-  TEST = "TEST",
-}
+export type ReportGroupStatusType = (typeof ReportGroupStatusType)[keyof typeof ReportGroupStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportType = {
+  CODE_COVERAGE: "CODE_COVERAGE",
+  TEST: "TEST",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportType = (typeof ReportType)[keyof typeof ReportType];
 
 /**
  * @public
@@ -3283,14 +3445,20 @@ export interface CodeCoverageReportSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportStatusType {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  GENERATING = "GENERATING",
-  INCOMPLETE = "INCOMPLETE",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ReportStatusType = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  GENERATING: "GENERATING",
+  INCOMPLETE: "INCOMPLETE",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportStatusType = (typeof ReportStatusType)[keyof typeof ReportStatusType];
 
 /**
  * @public
@@ -3900,19 +4068,32 @@ export interface DeleteWebhookOutput {}
 
 /**
  * @public
+ * @enum
  */
-export enum ReportCodeCoverageSortByType {
-  FILE_PATH = "FILE_PATH",
-  LINE_COVERAGE_PERCENTAGE = "LINE_COVERAGE_PERCENTAGE",
-}
+export const ReportCodeCoverageSortByType = {
+  FILE_PATH: "FILE_PATH",
+  LINE_COVERAGE_PERCENTAGE: "LINE_COVERAGE_PERCENTAGE",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrderType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type ReportCodeCoverageSortByType =
+  (typeof ReportCodeCoverageSortByType)[keyof typeof ReportCodeCoverageSortByType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrderType = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrderType = (typeof SortOrderType)[keyof typeof SortOrderType];
 
 /**
  * @public
@@ -4206,18 +4387,24 @@ export interface DescribeTestCasesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportGroupTrendFieldType {
-  BRANCHES_COVERED = "BRANCHES_COVERED",
-  BRANCHES_MISSED = "BRANCHES_MISSED",
-  BRANCH_COVERAGE = "BRANCH_COVERAGE",
-  DURATION = "DURATION",
-  LINES_COVERED = "LINES_COVERED",
-  LINES_MISSED = "LINES_MISSED",
-  LINE_COVERAGE = "LINE_COVERAGE",
-  PASS_RATE = "PASS_RATE",
-  TOTAL = "TOTAL",
-}
+export const ReportGroupTrendFieldType = {
+  BRANCHES_COVERED: "BRANCHES_COVERED",
+  BRANCHES_MISSED: "BRANCHES_MISSED",
+  BRANCH_COVERAGE: "BRANCH_COVERAGE",
+  DURATION: "DURATION",
+  LINES_COVERED: "LINES_COVERED",
+  LINES_MISSED: "LINES_MISSED",
+  LINE_COVERAGE: "LINE_COVERAGE",
+  PASS_RATE: "PASS_RATE",
+  TOTAL: "TOTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportGroupTrendFieldType = (typeof ReportGroupTrendFieldType)[keyof typeof ReportGroupTrendFieldType];
 
 /**
  * @public
@@ -4375,12 +4562,18 @@ export interface GetResourcePolicyOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ServerType {
-  BITBUCKET = "BITBUCKET",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
-}
+export const ServerType = {
+  BITBUCKET: "BITBUCKET",
+  GITHUB: "GITHUB",
+  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerType = (typeof ServerType)[keyof typeof ServerType];
 
 /**
  * @public
@@ -4693,19 +4886,25 @@ export interface EnvironmentImage {
 
 /**
  * @public
+ * @enum
  */
-export enum LanguageType {
-  ANDROID = "ANDROID",
-  BASE = "BASE",
-  DOCKER = "DOCKER",
-  DOTNET = "DOTNET",
-  GOLANG = "GOLANG",
-  JAVA = "JAVA",
-  NODE_JS = "NODE_JS",
-  PHP = "PHP",
-  PYTHON = "PYTHON",
-  RUBY = "RUBY",
-}
+export const LanguageType = {
+  ANDROID: "ANDROID",
+  BASE: "BASE",
+  DOCKER: "DOCKER",
+  DOTNET: "DOTNET",
+  GOLANG: "GOLANG",
+  JAVA: "JAVA",
+  NODE_JS: "NODE_JS",
+  PHP: "PHP",
+  PYTHON: "PYTHON",
+  RUBY: "RUBY",
+} as const;
+
+/**
+ * @public
+ */
+export type LanguageType = (typeof LanguageType)[keyof typeof LanguageType];
 
 /**
  * @public
@@ -4727,13 +4926,19 @@ export interface EnvironmentLanguage {
 
 /**
  * @public
+ * @enum
  */
-export enum PlatformType {
-  AMAZON_LINUX = "AMAZON_LINUX",
-  DEBIAN = "DEBIAN",
-  UBUNTU = "UBUNTU",
-  WINDOWS_SERVER = "WINDOWS_SERVER",
-}
+export const PlatformType = {
+  AMAZON_LINUX: "AMAZON_LINUX",
+  DEBIAN: "DEBIAN",
+  UBUNTU: "UBUNTU",
+  WINDOWS_SERVER: "WINDOWS_SERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
 
 /**
  * @public
@@ -4765,12 +4970,18 @@ export interface ListCuratedEnvironmentImagesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectSortByType {
-  CREATED_TIME = "CREATED_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  NAME = "NAME",
-}
+export const ProjectSortByType = {
+  CREATED_TIME: "CREATED_TIME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+  NAME: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectSortByType = (typeof ProjectSortByType)[keyof typeof ProjectSortByType];
 
 /**
  * @public
@@ -4848,12 +5059,18 @@ export interface ListProjectsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportGroupSortByType {
-  CREATED_TIME = "CREATED_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  NAME = "NAME",
-}
+export const ReportGroupSortByType = {
+  CREATED_TIME: "CREATED_TIME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+  NAME: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportGroupSortByType = (typeof ReportGroupSortByType)[keyof typeof ReportGroupSortByType];
 
 /**
  * @public
@@ -5087,11 +5304,17 @@ export interface ListReportsForReportGroupOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum SharedResourceSortByType {
-  ARN = "ARN",
-  MODIFIED_TIME = "MODIFIED_TIME",
-}
+export const SharedResourceSortByType = {
+  ARN: "ARN",
+  MODIFIED_TIME: "MODIFIED_TIME",
+} as const;
+
+/**
+ * @public
+ */
+export type SharedResourceSortByType = (typeof SharedResourceSortByType)[keyof typeof SharedResourceSortByType];
 
 /**
  * @public
@@ -5344,11 +5567,17 @@ export interface RetryBuildOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum RetryBuildBatchType {
-  RETRY_ALL_BUILDS = "RETRY_ALL_BUILDS",
-  RETRY_FAILED_BUILDS = "RETRY_FAILED_BUILDS",
-}
+export const RetryBuildBatchType = {
+  RETRY_ALL_BUILDS: "RETRY_ALL_BUILDS",
+  RETRY_FAILED_BUILDS: "RETRY_FAILED_BUILDS",
+} as const;
+
+/**
+ * @public
+ */
+export type RetryBuildBatchType = (typeof RetryBuildBatchType)[keyof typeof RetryBuildBatchType];
 
 /**
  * @public

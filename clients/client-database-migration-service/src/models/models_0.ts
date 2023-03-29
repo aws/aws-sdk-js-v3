@@ -538,11 +538,17 @@ export interface DmsTransferSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum NestingLevelValue {
-  NONE = "none",
-  ONE = "one",
-}
+export const NestingLevelValue = {
+  NONE: "none",
+  ONE: "one",
+} as const;
+
+/**
+ * @public
+ */
+export type NestingLevelValue = (typeof NestingLevelValue)[keyof typeof NestingLevelValue];
 
 /**
  * @public
@@ -685,19 +691,32 @@ export interface ElasticsearchSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationEndpointTypeValue {
-  SOURCE = "source",
-  TARGET = "target",
-}
+export const ReplicationEndpointTypeValue = {
+  SOURCE: "source",
+  TARGET: "target",
+} as const;
 
 /**
  * @public
  */
-export enum TargetDbType {
-  MULTIPLE_DATABASES = "multiple-databases",
-  SPECIFIC_DATABASE = "specific-database",
-}
+export type ReplicationEndpointTypeValue =
+  (typeof ReplicationEndpointTypeValue)[keyof typeof ReplicationEndpointTypeValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetDbType = {
+  MULTIPLE_DATABASES: "multiple-databases",
+  SPECIFIC_DATABASE: "specific-database",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetDbType = (typeof TargetDbType)[keyof typeof TargetDbType];
 
 /**
  * @public
@@ -892,29 +911,47 @@ export interface IBMDb2Settings {
 
 /**
  * @public
+ * @enum
  */
-export enum MessageFormatValue {
-  JSON = "json",
-  JSON_UNFORMATTED = "json-unformatted",
-}
+export const MessageFormatValue = {
+  JSON: "json",
+  JSON_UNFORMATTED: "json-unformatted",
+} as const;
 
 /**
  * @public
  */
-export enum KafkaSaslMechanism {
-  PLAIN = "plain",
-  SCRAM_SHA_512 = "scram-sha-512",
-}
+export type MessageFormatValue = (typeof MessageFormatValue)[keyof typeof MessageFormatValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const KafkaSaslMechanism = {
+  PLAIN: "plain",
+  SCRAM_SHA_512: "scram-sha-512",
+} as const;
 
 /**
  * @public
  */
-export enum KafkaSecurityProtocol {
-  PLAINTEXT = "plaintext",
-  SASL_SSL = "sasl-ssl",
-  SSL_AUTHENTICATION = "ssl-authentication",
-  SSL_ENCRYPTION = "ssl-encryption",
-}
+export type KafkaSaslMechanism = (typeof KafkaSaslMechanism)[keyof typeof KafkaSaslMechanism];
+
+/**
+ * @public
+ * @enum
+ */
+export const KafkaSecurityProtocol = {
+  PLAINTEXT: "plaintext",
+  SASL_SSL: "sasl-ssl",
+  SSL_AUTHENTICATION: "ssl-authentication",
+  SSL_ENCRYPTION: "ssl-encryption",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaSecurityProtocol = (typeof KafkaSecurityProtocol)[keyof typeof KafkaSecurityProtocol];
 
 /**
  * @public
@@ -1134,22 +1171,34 @@ export interface KinesisSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum SafeguardPolicy {
-  EXCLUSIVE_AUTOMATIC_TRUNCATION = "exclusive-automatic-truncation",
-  RELY_ON_SQL_SERVER_REPLICATION_AGENT = "rely-on-sql-server-replication-agent",
-  SHARED_AUTOMATIC_TRUNCATION = "shared-automatic-truncation",
-}
+export const SafeguardPolicy = {
+  EXCLUSIVE_AUTOMATIC_TRUNCATION: "exclusive-automatic-truncation",
+  RELY_ON_SQL_SERVER_REPLICATION_AGENT: "rely-on-sql-server-replication-agent",
+  SHARED_AUTOMATIC_TRUNCATION: "shared-automatic-truncation",
+} as const;
 
 /**
  * @public
  */
-export enum TlogAccessMode {
-  BackupOnly = "BackupOnly",
-  PreferBackup = "PreferBackup",
-  PreferTlog = "PreferTlog",
-  TlogOnly = "TlogOnly",
-}
+export type SafeguardPolicy = (typeof SafeguardPolicy)[keyof typeof SafeguardPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const TlogAccessMode = {
+  BackupOnly: "BackupOnly",
+  PreferBackup: "PreferBackup",
+  PreferTlog: "PreferTlog",
+  TlogOnly: "TlogOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type TlogAccessMode = (typeof TlogAccessMode)[keyof typeof TlogAccessMode];
 
 /**
  * @public
@@ -1299,20 +1348,32 @@ export interface MicrosoftSQLServerSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthMechanismValue {
-  DEFAULT = "default",
-  MONGODB_CR = "mongodb_cr",
-  SCRAM_SHA_1 = "scram_sha_1",
-}
+export const AuthMechanismValue = {
+  DEFAULT: "default",
+  MONGODB_CR: "mongodb_cr",
+  SCRAM_SHA_1: "scram_sha_1",
+} as const;
 
 /**
  * @public
  */
-export enum AuthTypeValue {
-  NO = "no",
-  PASSWORD = "password",
-}
+export type AuthMechanismValue = (typeof AuthMechanismValue)[keyof typeof AuthMechanismValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthTypeValue = {
+  NO: "no",
+  PASSWORD: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthTypeValue = (typeof AuthTypeValue)[keyof typeof AuthTypeValue];
 
 /**
  * @public
@@ -1613,12 +1674,18 @@ export interface NeptuneSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CharLengthSemantics {
-  BYTE = "byte",
-  CHAR = "char",
-  DEFAULT = "default",
-}
+export const CharLengthSemantics = {
+  BYTE: "byte",
+  CHAR: "char",
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CharLengthSemantics = (typeof CharLengthSemantics)[keyof typeof CharLengthSemantics];
 
 /**
  * @public
@@ -2016,12 +2083,18 @@ export interface OracleSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum PluginNameValue {
-  NO_PREFERENCE = "no-preference",
-  PGLOGICAL = "pglogical",
-  TEST_DECODING = "test-decoding",
-}
+export const PluginNameValue = {
+  NO_PREFERENCE: "no-preference",
+  PGLOGICAL: "pglogical",
+  TEST_DECODING: "test-decoding",
+} as const;
+
+/**
+ * @public
+ */
+export type PluginNameValue = (typeof PluginNameValue)[keyof typeof PluginNameValue];
 
 /**
  * @public
@@ -2194,20 +2267,32 @@ export interface PostgreSQLSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum RedisAuthTypeValue {
-  AUTH_ROLE = "auth-role",
-  AUTH_TOKEN = "auth-token",
-  NONE = "none",
-}
+export const RedisAuthTypeValue = {
+  AUTH_ROLE: "auth-role",
+  AUTH_TOKEN: "auth-token",
+  NONE: "none",
+} as const;
 
 /**
  * @public
  */
-export enum SslSecurityProtocolValue {
-  PLAINTEXT = "plaintext",
-  SSL_ENCRYPTION = "ssl-encryption",
-}
+export type RedisAuthTypeValue = (typeof RedisAuthTypeValue)[keyof typeof RedisAuthTypeValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const SslSecurityProtocolValue = {
+  PLAINTEXT: "plaintext",
+  SSL_ENCRYPTION: "ssl-encryption",
+} as const;
+
+/**
+ * @public
+ */
+export type SslSecurityProtocolValue = (typeof SslSecurityProtocolValue)[keyof typeof SslSecurityProtocolValue];
 
 /**
  * @public
@@ -2267,11 +2352,17 @@ export interface RedisSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionModeValue {
-  SSE_KMS = "sse-kms",
-  SSE_S3 = "sse-s3",
-}
+export const EncryptionModeValue = {
+  SSE_KMS: "sse-kms",
+  SSE_S3: "sse-s3",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionModeValue = (typeof EncryptionModeValue)[keyof typeof EncryptionModeValue];
 
 /**
  * @public
@@ -2526,71 +2617,114 @@ export interface RedshiftSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CannedAclForObjectsValue {
-  AUTHENTICATED_READ = "authenticated-read",
-  AWS_EXEC_READ = "aws-exec-read",
-  BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control",
-  BUCKET_OWNER_READ = "bucket-owner-read",
-  NONE = "none",
-  PRIVATE = "private",
-  PUBLIC_READ = "public-read",
-  PUBLIC_READ_WRITE = "public-read-write",
-}
+export const CannedAclForObjectsValue = {
+  AUTHENTICATED_READ: "authenticated-read",
+  AWS_EXEC_READ: "aws-exec-read",
+  BUCKET_OWNER_FULL_CONTROL: "bucket-owner-full-control",
+  BUCKET_OWNER_READ: "bucket-owner-read",
+  NONE: "none",
+  PRIVATE: "private",
+  PUBLIC_READ: "public-read",
+  PUBLIC_READ_WRITE: "public-read-write",
+} as const;
 
 /**
  * @public
  */
-export enum CompressionTypeValue {
-  GZIP = "gzip",
-  NONE = "none",
-}
+export type CannedAclForObjectsValue = (typeof CannedAclForObjectsValue)[keyof typeof CannedAclForObjectsValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const CompressionTypeValue = {
+  GZIP: "gzip",
+  NONE: "none",
+} as const;
 
 /**
  * @public
  */
-export enum DataFormatValue {
-  CSV = "csv",
-  PARQUET = "parquet",
-}
+export type CompressionTypeValue = (typeof CompressionTypeValue)[keyof typeof CompressionTypeValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataFormatValue = {
+  CSV: "csv",
+  PARQUET: "parquet",
+} as const;
 
 /**
  * @public
  */
-export enum DatePartitionDelimiterValue {
-  DASH = "DASH",
-  NONE = "NONE",
-  SLASH = "SLASH",
-  UNDERSCORE = "UNDERSCORE",
-}
+export type DataFormatValue = (typeof DataFormatValue)[keyof typeof DataFormatValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatePartitionDelimiterValue = {
+  DASH: "DASH",
+  NONE: "NONE",
+  SLASH: "SLASH",
+  UNDERSCORE: "UNDERSCORE",
+} as const;
 
 /**
  * @public
  */
-export enum DatePartitionSequenceValue {
-  DDMMYYYY = "DDMMYYYY",
-  MMYYYYDD = "MMYYYYDD",
-  YYYYMM = "YYYYMM",
-  YYYYMMDD = "YYYYMMDD",
-  YYYYMMDDHH = "YYYYMMDDHH",
-}
+export type DatePartitionDelimiterValue =
+  (typeof DatePartitionDelimiterValue)[keyof typeof DatePartitionDelimiterValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatePartitionSequenceValue = {
+  DDMMYYYY: "DDMMYYYY",
+  MMYYYYDD: "MMYYYYDD",
+  YYYYMM: "YYYYMM",
+  YYYYMMDD: "YYYYMMDD",
+  YYYYMMDDHH: "YYYYMMDDHH",
+} as const;
 
 /**
  * @public
  */
-export enum EncodingTypeValue {
-  PLAIN = "plain",
-  PLAIN_DICTIONARY = "plain-dictionary",
-  RLE_DICTIONARY = "rle-dictionary",
-}
+export type DatePartitionSequenceValue = (typeof DatePartitionSequenceValue)[keyof typeof DatePartitionSequenceValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncodingTypeValue = {
+  PLAIN: "plain",
+  PLAIN_DICTIONARY: "plain-dictionary",
+  RLE_DICTIONARY: "rle-dictionary",
+} as const;
 
 /**
  * @public
  */
-export enum ParquetVersionValue {
-  PARQUET_1_0 = "parquet-1-0",
-  PARQUET_2_0 = "parquet-2-0",
-}
+export type EncodingTypeValue = (typeof EncodingTypeValue)[keyof typeof EncodingTypeValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParquetVersionValue = {
+  PARQUET_1_0: "parquet-1-0",
+  PARQUET_2_0: "parquet-2-0",
+} as const;
+
+/**
+ * @public
+ */
+export type ParquetVersionValue = (typeof ParquetVersionValue)[keyof typeof ParquetVersionValue];
 
 /**
  * @public
@@ -3163,13 +3297,19 @@ export interface S3Settings {
 
 /**
  * @public
+ * @enum
  */
-export enum DmsSslModeValue {
-  NONE = "none",
-  REQUIRE = "require",
-  VERIFY_CA = "verify-ca",
-  VERIFY_FULL = "verify-full",
-}
+export const DmsSslModeValue = {
+  NONE: "none",
+  REQUIRE: "require",
+  VERIFY_CA: "verify-ca",
+  VERIFY_FULL: "verify-full",
+} as const;
+
+/**
+ * @public
+ */
+export type DmsSslModeValue = (typeof DmsSslModeValue)[keyof typeof DmsSslModeValue];
 
 /**
  * @public
@@ -4850,12 +4990,18 @@ export interface CreateReplicationSubnetGroupResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MigrationTypeValue {
-  CDC = "cdc",
-  FULL_LOAD = "full-load",
-  FULL_LOAD_AND_CDC = "full-load-and-cdc",
-}
+export const MigrationTypeValue = {
+  CDC: "cdc",
+  FULL_LOAD: "full-load",
+  FULL_LOAD_AND_CDC: "full-load-and-cdc",
+} as const;
+
+/**
+ * @public
+ */
+export type MigrationTypeValue = (typeof MigrationTypeValue)[keyof typeof MigrationTypeValue];
 
 /**
  * @public
@@ -6012,13 +6158,19 @@ export interface DescribeEndpointSettingsMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointSettingTypeValue {
-  BOOLEAN = "boolean",
-  ENUM = "enum",
-  INTEGER = "integer",
-  STRING = "string",
-}
+export const EndpointSettingTypeValue = {
+  BOOLEAN: "boolean",
+  ENUM: "enum",
+  INTEGER: "integer",
+  STRING: "string",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointSettingTypeValue = (typeof EndpointSettingTypeValue)[keyof typeof EndpointSettingTypeValue];
 
 /**
  * @public
@@ -6228,10 +6380,16 @@ export interface DescribeEventCategoriesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  replication_instance = "replication-instance",
-}
+export const SourceType = {
+  replication_instance: "replication-instance",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -6434,11 +6592,17 @@ export interface DescribeFleetAdvisorCollectorsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CollectorStatus {
-  ACTIVE = "ACTIVE",
-  UNREGISTERED = "UNREGISTERED",
-}
+export const CollectorStatus = {
+  ACTIVE: "ACTIVE",
+  UNREGISTERED: "UNREGISTERED",
+} as const;
+
+/**
+ * @public
+ */
+export type CollectorStatus = (typeof CollectorStatus)[keyof typeof CollectorStatus];
 
 /**
  * @public
@@ -6485,12 +6649,18 @@ export interface InventoryData {
 
 /**
  * @public
+ * @enum
  */
-export enum VersionStatus {
-  OUTDATED = "OUTDATED",
-  UNSUPPORTED = "UNSUPPORTED",
-  UP_TO_DATE = "UP_TO_DATE",
-}
+export const VersionStatus = {
+  OUTDATED: "OUTDATED",
+  UNSUPPORTED: "UNSUPPORTED",
+  UP_TO_DATE: "UP_TO_DATE",
+} as const;
+
+/**
+ * @public
+ */
+export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
 
 /**
  * @public
@@ -7171,11 +7341,17 @@ export interface DescribeOrderableReplicationInstancesMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum ReleaseStatusValues {
-  BETA = "beta",
-  PROD = "prod",
-}
+export const ReleaseStatusValues = {
+  BETA: "beta",
+  PROD: "prod",
+} as const;
+
+/**
+ * @public
+ */
+export type ReleaseStatusValues = (typeof ReleaseStatusValues)[keyof typeof ReleaseStatusValues];
 
 /**
  * @public
@@ -7651,12 +7827,19 @@ export interface DescribeRefreshSchemasStatusMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum RefreshSchemasStatusTypeValue {
-  FAILED = "failed",
-  REFRESHING = "refreshing",
-  SUCCESSFUL = "successful",
-}
+export const RefreshSchemasStatusTypeValue = {
+  FAILED: "failed",
+  REFRESHING: "refreshing",
+  SUCCESSFUL: "successful",
+} as const;
+
+/**
+ * @public
+ */
+export type RefreshSchemasStatusTypeValue =
+  (typeof RefreshSchemasStatusTypeValue)[keyof typeof RefreshSchemasStatusTypeValue];
 
 /**
  * @public
@@ -9265,11 +9448,17 @@ export interface RefreshSchemasResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ReloadOptionValue {
-  DATA_RELOAD = "data-reload",
-  VALIDATE_ONLY = "validate-only",
-}
+export const ReloadOptionValue = {
+  DATA_RELOAD: "data-reload",
+  VALIDATE_ONLY: "validate-only",
+} as const;
+
+/**
+ * @public
+ */
+export type ReloadOptionValue = (typeof ReloadOptionValue)[keyof typeof ReloadOptionValue];
 
 /**
  * @public
@@ -9381,12 +9570,19 @@ export interface StartRecommendationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StartReplicationTaskTypeValue {
-  RELOAD_TARGET = "reload-target",
-  RESUME_PROCESSING = "resume-processing",
-  START_REPLICATION = "start-replication",
-}
+export const StartReplicationTaskTypeValue = {
+  RELOAD_TARGET: "reload-target",
+  RESUME_PROCESSING: "resume-processing",
+  START_REPLICATION: "start-replication",
+} as const;
+
+/**
+ * @public
+ */
+export type StartReplicationTaskTypeValue =
+  (typeof StartReplicationTaskTypeValue)[keyof typeof StartReplicationTaskTypeValue];
 
 /**
  * @public

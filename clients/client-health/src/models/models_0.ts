@@ -5,12 +5,18 @@ import { HealthServiceException as __BaseException } from "./HealthServiceExcept
 
 /**
  * @public
+ * @enum
  */
-export enum EntityStatusCode {
-  IMPAIRED = "IMPAIRED",
-  UNIMPAIRED = "UNIMPAIRED",
-  UNKNOWN = "UNKNOWN",
-}
+export const EntityStatusCode = {
+  IMPAIRED: "IMPAIRED",
+  UNIMPAIRED: "UNIMPAIRED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityStatusCode = (typeof EntityStatusCode)[keyof typeof EntityStatusCode];
 
 /**
  * @public
@@ -103,12 +109,18 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EventScopeCode {
-  ACCOUNT_SPECIFIC = "ACCOUNT_SPECIFIC",
-  NONE = "NONE",
-  PUBLIC = "PUBLIC",
-}
+export const EventScopeCode = {
+  ACCOUNT_SPECIFIC: "ACCOUNT_SPECIFIC",
+  NONE: "NONE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type EventScopeCode = (typeof EventScopeCode)[keyof typeof EventScopeCode];
 
 /**
  * @public
@@ -460,29 +472,47 @@ export interface DescribeEntityAggregatesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EventAggregateField {
-  EventTypeCategory = "eventTypeCategory",
-}
+export const EventAggregateField = {
+  EventTypeCategory: "eventTypeCategory",
+} as const;
 
 /**
  * @public
  */
-export enum EventStatusCode {
-  CLOSED = "closed",
-  OPEN = "open",
-  UPCOMING = "upcoming",
-}
+export type EventAggregateField = (typeof EventAggregateField)[keyof typeof EventAggregateField];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventStatusCode = {
+  CLOSED: "closed",
+  OPEN: "open",
+  UPCOMING: "upcoming",
+} as const;
 
 /**
  * @public
  */
-export enum EventTypeCategory {
-  ACCOUNT_NOTIFICATION = "accountNotification",
-  INVESTIGATION = "investigation",
-  ISSUE = "issue",
-  SCHEDULED_CHANGE = "scheduledChange",
-}
+export type EventStatusCode = (typeof EventStatusCode)[keyof typeof EventStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventTypeCategory = {
+  ACCOUNT_NOTIFICATION: "accountNotification",
+  INVESTIGATION: "investigation",
+  ISSUE: "issue",
+  SCHEDULED_CHANGE: "scheduledChange",
+} as const;
+
+/**
+ * @public
+ */
+export type EventTypeCategory = (typeof EventTypeCategory)[keyof typeof EventTypeCategory];
 
 /**
  * @public

@@ -398,32 +398,50 @@ export interface DescribeDBProxyTargetsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetRole {
-  READ_ONLY = "READ_ONLY",
-  READ_WRITE = "READ_WRITE",
-  UNKNOWN = "UNKNOWN",
-}
+export const TargetRole = {
+  READ_ONLY: "READ_ONLY",
+  READ_WRITE: "READ_WRITE",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
  * @public
  */
-export enum TargetHealthReason {
-  AUTH_FAILURE = "AUTH_FAILURE",
-  CONNECTION_FAILED = "CONNECTION_FAILED",
-  INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE",
-  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
-  UNREACHABLE = "UNREACHABLE",
-}
+export type TargetRole = (typeof TargetRole)[keyof typeof TargetRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetHealthReason = {
+  AUTH_FAILURE: "AUTH_FAILURE",
+  CONNECTION_FAILED: "CONNECTION_FAILED",
+  INVALID_REPLICATION_STATE: "INVALID_REPLICATION_STATE",
+  PENDING_PROXY_CAPACITY: "PENDING_PROXY_CAPACITY",
+  UNREACHABLE: "UNREACHABLE",
+} as const;
 
 /**
  * @public
  */
-export enum TargetState {
-  available = "AVAILABLE",
-  registering = "REGISTERING",
-  unavailable = "UNAVAILABLE",
-}
+export type TargetHealthReason = (typeof TargetHealthReason)[keyof typeof TargetHealthReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetState = {
+  available: "AVAILABLE",
+  registering: "REGISTERING",
+  unavailable: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetState = (typeof TargetState)[keyof typeof TargetState];
 
 /**
  * @public
@@ -453,12 +471,18 @@ export interface TargetHealth {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetType {
-  RDS_INSTANCE = "RDS_INSTANCE",
-  RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
-  TRACKED_CLUSTER = "TRACKED_CLUSTER",
-}
+export const TargetType = {
+  RDS_INSTANCE: "RDS_INSTANCE",
+  RDS_SERVERLESS_ENDPOINT: "RDS_SERVERLESS_ENDPOINT",
+  TRACKED_CLUSTER: "TRACKED_CLUSTER",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * @public
@@ -1270,18 +1294,24 @@ export interface EventCategoriesMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  blue_green_deployment = "blue-green-deployment",
-  custom_engine_version = "custom-engine-version",
-  db_cluster = "db-cluster",
-  db_cluster_snapshot = "db-cluster-snapshot",
-  db_instance = "db-instance",
-  db_parameter_group = "db-parameter-group",
-  db_proxy = "db-proxy",
-  db_security_group = "db-security-group",
-  db_snapshot = "db-snapshot",
-}
+export const SourceType = {
+  blue_green_deployment: "blue-green-deployment",
+  custom_engine_version: "custom-engine-version",
+  db_cluster: "db-cluster",
+  db_cluster_snapshot: "db-cluster-snapshot",
+  db_instance: "db-instance",
+  db_parameter_group: "db-parameter-group",
+  db_proxy: "db-proxy",
+  db_security_group: "db-security-group",
+  db_snapshot: "db-snapshot",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -3341,11 +3371,17 @@ export interface TagListMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditPolicyState {
-  LOCKED_POLICY = "locked",
-  UNLOCKED_POLICY = "unlocked",
-}
+export const AuditPolicyState = {
+  LOCKED_POLICY: "locked",
+  UNLOCKED_POLICY: "unlocked",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditPolicyState = (typeof AuditPolicyState)[keyof typeof AuditPolicyState];
 
 /**
  * @public
@@ -3538,12 +3574,18 @@ export interface ModifyCurrentDBClusterCapacityMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomEngineVersionStatus {
-  available = "available",
-  inactive = "inactive",
-  inactive_except_restore = "inactive-except-restore",
-}
+export const CustomEngineVersionStatus = {
+  available: "available",
+  inactive: "inactive",
+  inactive_except_restore: "inactive-except-restore",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomEngineVersionStatus = (typeof CustomEngineVersionStatus)[keyof typeof CustomEngineVersionStatus];
 
 /**
  * @public

@@ -112,18 +112,24 @@ export interface RecoveryPointCreator {
 
 /**
  * @public
+ * @enum
  */
-export enum BackupJobState {
-  ABORTED = "ABORTED",
-  ABORTING = "ABORTING",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PARTIAL = "PARTIAL",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const BackupJobState = {
+  ABORTED: "ABORTED",
+  ABORTING: "ABORTING",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PARTIAL: "PARTIAL",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupJobState = (typeof BackupJobState)[keyof typeof BackupJobState];
 
 /**
  * @public
@@ -676,10 +682,16 @@ export interface Conditions {
 
 /**
  * @public
+ * @enum
  */
-export enum ConditionType {
-  STRINGEQUALS = "STRINGEQUALS",
-}
+export const ConditionType = {
+  STRINGEQUALS: "STRINGEQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
 /**
  * @public
@@ -844,26 +856,32 @@ export interface BackupSelectionsListMember {
 
 /**
  * @public
+ * @enum
  */
-export enum BackupVaultEvent {
-  BACKUP_JOB_COMPLETED = "BACKUP_JOB_COMPLETED",
-  BACKUP_JOB_EXPIRED = "BACKUP_JOB_EXPIRED",
-  BACKUP_JOB_FAILED = "BACKUP_JOB_FAILED",
-  BACKUP_JOB_STARTED = "BACKUP_JOB_STARTED",
-  BACKUP_JOB_SUCCESSFUL = "BACKUP_JOB_SUCCESSFUL",
-  BACKUP_PLAN_CREATED = "BACKUP_PLAN_CREATED",
-  BACKUP_PLAN_MODIFIED = "BACKUP_PLAN_MODIFIED",
-  COPY_JOB_FAILED = "COPY_JOB_FAILED",
-  COPY_JOB_STARTED = "COPY_JOB_STARTED",
-  COPY_JOB_SUCCESSFUL = "COPY_JOB_SUCCESSFUL",
-  RECOVERY_POINT_MODIFIED = "RECOVERY_POINT_MODIFIED",
-  RESTORE_JOB_COMPLETED = "RESTORE_JOB_COMPLETED",
-  RESTORE_JOB_FAILED = "RESTORE_JOB_FAILED",
-  RESTORE_JOB_STARTED = "RESTORE_JOB_STARTED",
-  RESTORE_JOB_SUCCESSFUL = "RESTORE_JOB_SUCCESSFUL",
-  S3_BACKUP_OBJECT_FAILED = "S3_BACKUP_OBJECT_FAILED",
-  S3_RESTORE_OBJECT_FAILED = "S3_RESTORE_OBJECT_FAILED",
-}
+export const BackupVaultEvent = {
+  BACKUP_JOB_COMPLETED: "BACKUP_JOB_COMPLETED",
+  BACKUP_JOB_EXPIRED: "BACKUP_JOB_EXPIRED",
+  BACKUP_JOB_FAILED: "BACKUP_JOB_FAILED",
+  BACKUP_JOB_STARTED: "BACKUP_JOB_STARTED",
+  BACKUP_JOB_SUCCESSFUL: "BACKUP_JOB_SUCCESSFUL",
+  BACKUP_PLAN_CREATED: "BACKUP_PLAN_CREATED",
+  BACKUP_PLAN_MODIFIED: "BACKUP_PLAN_MODIFIED",
+  COPY_JOB_FAILED: "COPY_JOB_FAILED",
+  COPY_JOB_STARTED: "COPY_JOB_STARTED",
+  COPY_JOB_SUCCESSFUL: "COPY_JOB_SUCCESSFUL",
+  RECOVERY_POINT_MODIFIED: "RECOVERY_POINT_MODIFIED",
+  RESTORE_JOB_COMPLETED: "RESTORE_JOB_COMPLETED",
+  RESTORE_JOB_FAILED: "RESTORE_JOB_FAILED",
+  RESTORE_JOB_STARTED: "RESTORE_JOB_STARTED",
+  RESTORE_JOB_SUCCESSFUL: "RESTORE_JOB_SUCCESSFUL",
+  S3_BACKUP_OBJECT_FAILED: "S3_BACKUP_OBJECT_FAILED",
+  S3_RESTORE_OBJECT_FAILED: "S3_RESTORE_OBJECT_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupVaultEvent = (typeof BackupVaultEvent)[keyof typeof BackupVaultEvent];
 
 /**
  * @public
@@ -1287,14 +1305,20 @@ export interface ControlScope {
 
 /**
  * @public
+ * @enum
  */
-export enum CopyJobState {
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  PARTIAL = "PARTIAL",
-  RUNNING = "RUNNING",
-}
+export const CopyJobState = {
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PARTIAL: "PARTIAL",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type CopyJobState = (typeof CopyJobState)[keyof typeof CopyJobState];
 
 /**
  * @public
@@ -1807,13 +1831,19 @@ export interface CreateLegalHoldInput {
 
 /**
  * @public
+ * @enum
  */
-export enum LegalHoldStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  CANCELING = "CANCELING",
-  CREATING = "CREATING",
-}
+export const LegalHoldStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  CANCELING: "CANCELING",
+  CREATING: "CREATING",
+} as const;
+
+/**
+ * @public
+ */
+export type LegalHoldStatus = (typeof LegalHoldStatus)[keyof typeof LegalHoldStatus];
 
 /**
  * @public
@@ -2679,22 +2709,34 @@ export interface DescribeRecoveryPointInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RecoveryPointStatus {
-  COMPLETED = "COMPLETED",
-  DELETING = "DELETING",
-  EXPIRED = "EXPIRED",
-  PARTIAL = "PARTIAL",
-}
+export const RecoveryPointStatus = {
+  COMPLETED: "COMPLETED",
+  DELETING: "DELETING",
+  EXPIRED: "EXPIRED",
+  PARTIAL: "PARTIAL",
+} as const;
 
 /**
  * @public
  */
-export enum StorageClass {
-  COLD = "COLD",
-  DELETED = "DELETED",
-  WARM = "WARM",
-}
+export type RecoveryPointStatus = (typeof RecoveryPointStatus)[keyof typeof RecoveryPointStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageClass = {
+  COLD: "COLD",
+  DELETED: "DELETED",
+  WARM: "WARM",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
 
 /**
  * @public
@@ -3123,14 +3165,20 @@ export interface DescribeRestoreJobInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RestoreJobStatus {
-  ABORTED = "ABORTED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const RestoreJobStatus = {
+  ABORTED: "ABORTED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreJobStatus = (typeof RestoreJobStatus)[keyof typeof RestoreJobStatus];
 
 /**
  * @public

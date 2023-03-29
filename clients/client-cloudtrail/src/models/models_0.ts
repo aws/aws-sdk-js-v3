@@ -983,15 +983,21 @@ export interface CancelQueryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const QueryStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
 
 /**
  * @public
@@ -1265,11 +1271,17 @@ export class ChannelMaxLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DestinationType {
-  AWS_SERVICE = "AWS_SERVICE",
-  EVENT_DATA_STORE = "EVENT_DATA_STORE",
-}
+export const DestinationType = {
+  AWS_SERVICE: "AWS_SERVICE",
+  EVENT_DATA_STORE: "EVENT_DATA_STORE",
+} as const;
+
+/**
+ * @public
+ */
+export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
 
 /**
  * @public
@@ -1520,12 +1532,18 @@ export interface CreateEventDataStoreRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EventDataStoreStatus {
-  CREATED = "CREATED",
-  ENABLED = "ENABLED",
-  PENDING_DELETION = "PENDING_DELETION",
-}
+export const EventDataStoreStatus = {
+  CREATED: "CREATED",
+  ENABLED: "ENABLED",
+  PENDING_DELETION: "PENDING_DELETION",
+} as const;
+
+/**
+ * @public
+ */
+export type EventDataStoreStatus = (typeof EventDataStoreStatus)[keyof typeof EventDataStoreStatus];
 
 /**
  * @public
@@ -2791,18 +2809,24 @@ export interface DescribeQueryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliveryStatus {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ACCESS_DENIED_SIGNING_FILE = "ACCESS_DENIED_SIGNING_FILE",
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FAILED_SIGNING_FILE = "FAILED_SIGNING_FILE",
-  PENDING = "PENDING",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  SUCCESS = "SUCCESS",
-  UNKNOWN = "UNKNOWN",
-}
+export const DeliveryStatus = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ACCESS_DENIED_SIGNING_FILE: "ACCESS_DENIED_SIGNING_FILE",
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FAILED_SIGNING_FILE: "FAILED_SIGNING_FILE",
+  PENDING: "PENDING",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  SUCCESS: "SUCCESS",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryStatus = (typeof DeliveryStatus)[keyof typeof DeliveryStatus];
 
 /**
  * @public
@@ -3468,12 +3492,18 @@ export interface DataResource {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadWriteType {
-  All = "All",
-  ReadOnly = "ReadOnly",
-  WriteOnly = "WriteOnly",
-}
+export const ReadWriteType = {
+  All: "All",
+  ReadOnly: "ReadOnly",
+  WriteOnly: "WriteOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadWriteType = (typeof ReadWriteType)[keyof typeof ReadWriteType];
 
 /**
  * @public
@@ -3627,14 +3657,20 @@ export interface ImportStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZING = "INITIALIZING",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-}
+export const ImportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
 
 /**
  * @public
@@ -3754,11 +3790,17 @@ export interface GetInsightSelectorsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InsightType {
-  ApiCallRateInsight = "ApiCallRateInsight",
-  ApiErrorRateInsight = "ApiErrorRateInsight",
-}
+export const InsightType = {
+  ApiCallRateInsight: "ApiCallRateInsight",
+  ApiErrorRateInsight: "ApiErrorRateInsight",
+} as const;
+
+/**
+ * @public
+ */
+export type InsightType = (typeof InsightType)[keyof typeof InsightType];
 
 /**
  * @public
@@ -4309,12 +4351,18 @@ export interface ListImportFailuresRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportFailureStatus {
-  FAILED = "FAILED",
-  RETRY = "RETRY",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ImportFailureStatus = {
+  FAILED: "FAILED",
+  RETRY: "RETRY",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportFailureStatus = (typeof ImportFailureStatus)[keyof typeof ImportFailureStatus];
 
 /**
  * @public
@@ -4844,24 +4892,36 @@ export class InvalidLookupAttributesException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum EventCategory {
-  Insight = "insight",
-}
+export const EventCategory = {
+  Insight: "insight",
+} as const;
 
 /**
  * @public
  */
-export enum LookupAttributeKey {
-  ACCESS_KEY_ID = "AccessKeyId",
-  EVENT_ID = "EventId",
-  EVENT_NAME = "EventName",
-  EVENT_SOURCE = "EventSource",
-  READ_ONLY = "ReadOnly",
-  RESOURCE_NAME = "ResourceName",
-  RESOURCE_TYPE = "ResourceType",
-  USERNAME = "Username",
-}
+export type EventCategory = (typeof EventCategory)[keyof typeof EventCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const LookupAttributeKey = {
+  ACCESS_KEY_ID: "AccessKeyId",
+  EVENT_ID: "EventId",
+  EVENT_NAME: "EventName",
+  EVENT_SOURCE: "EventSource",
+  READ_ONLY: "ReadOnly",
+  RESOURCE_NAME: "ResourceName",
+  RESOURCE_TYPE: "ResourceType",
+  USERNAME: "Username",
+} as const;
+
+/**
+ * @public
+ */
+export type LookupAttributeKey = (typeof LookupAttributeKey)[keyof typeof LookupAttributeKey];
 
 /**
  * @public

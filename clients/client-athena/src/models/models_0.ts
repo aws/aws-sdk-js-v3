@@ -5,10 +5,16 @@ import { AthenaServiceException as __BaseException } from "./AthenaServiceExcept
 
 /**
  * @public
+ * @enum
  */
-export enum S3AclOption {
-  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
-}
+export const S3AclOption = {
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type S3AclOption = (typeof S3AclOption)[keyof typeof S3AclOption];
 
 /**
  * @public
@@ -323,12 +329,18 @@ export interface QueryExecutionContext {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionOption {
-  CSE_KMS = "CSE_KMS",
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const EncryptionOption = {
+  CSE_KMS: "CSE_KMS",
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionOption = (typeof EncryptionOption)[keyof typeof EncryptionOption];
 
 /**
  * @public
@@ -441,12 +453,18 @@ export interface ResultReuseConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum StatementType {
-  DDL = "DDL",
-  DML = "DML",
-  UTILITY = "UTILITY",
-}
+export const StatementType = {
+  DDL: "DDL",
+  DML: "DML",
+  UTILITY: "UTILITY",
+} as const;
+
+/**
+ * @public
+ */
+export type StatementType = (typeof StatementType)[keyof typeof StatementType];
 
 /**
  * @public
@@ -562,14 +580,20 @@ export interface AthenaError {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryExecutionState {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const QueryExecutionState = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryExecutionState = (typeof QueryExecutionState)[keyof typeof QueryExecutionState];
 
 /**
  * @public
@@ -760,12 +784,18 @@ export interface Tag {
 
 /**
  * @public
+ * @enum
  */
-export enum DataCatalogType {
-  GLUE = "GLUE",
-  HIVE = "HIVE",
-  LAMBDA = "LAMBDA",
-}
+export const DataCatalogType = {
+  GLUE: "GLUE",
+  HIVE: "HIVE",
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type DataCatalogType = (typeof DataCatalogType)[keyof typeof DataCatalogType];
 
 /**
  * @public
@@ -968,10 +998,16 @@ export interface CreateNotebookOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ThrottleReason {
-  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED",
-}
+export const ThrottleReason = {
+  CONCURRENT_QUERY_LIMIT_EXCEEDED: "CONCURRENT_QUERY_LIMIT_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ThrottleReason = (typeof ThrottleReason)[keyof typeof ThrottleReason];
 
 /**
  * @public
@@ -1315,10 +1351,16 @@ export interface ExportNotebookInput {
 
 /**
  * @public
+ * @enum
  */
-export enum NotebookType {
-  IPYNB = "IPYNB",
-}
+export const NotebookType = {
+  IPYNB: "IPYNB",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookType = (typeof NotebookType)[keyof typeof NotebookType];
 
 /**
  * @public
@@ -1428,17 +1470,23 @@ export interface CalculationStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum CalculationExecutionState {
-  CANCELED = "CANCELED",
-  CANCELING = "CANCELING",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+export const CalculationExecutionState = {
+  CANCELED: "CANCELED",
+  CANCELING: "CANCELING",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type CalculationExecutionState = (typeof CalculationExecutionState)[keyof typeof CalculationExecutionState];
 
 /**
  * @public
@@ -1871,12 +1919,18 @@ export interface GetQueryResultsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ColumnNullable {
-  NOT_NULL = "NOT_NULL",
-  NULLABLE = "NULLABLE",
-  UNKNOWN = "UNKNOWN",
-}
+export const ColumnNullable = {
+  NOT_NULL: "NOT_NULL",
+  NULLABLE: "NULLABLE",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnNullable = (typeof ColumnNullable)[keyof typeof ColumnNullable];
 
 /**
  * @public
@@ -2171,17 +2225,23 @@ export interface SessionStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum SessionState {
-  BUSY = "BUSY",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DEGRADED = "DEGRADED",
-  FAILED = "FAILED",
-  IDLE = "IDLE",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const SessionState = {
+  BUSY: "BUSY",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DEGRADED: "DEGRADED",
+  FAILED: "FAILED",
+  IDLE: "IDLE",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionState = (typeof SessionState)[keyof typeof SessionState];
 
 /**
  * @public
@@ -2422,11 +2482,17 @@ export interface GetWorkGroupInput {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkGroupState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const WorkGroupState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkGroupState = (typeof WorkGroupState)[keyof typeof WorkGroupState];
 
 /**
  * @public
@@ -2790,15 +2856,21 @@ export interface ListEngineVersionsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutorState {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  REGISTERED = "REGISTERED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const ExecutorState = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  REGISTERED: "REGISTERED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutorState = (typeof ExecutorState)[keyof typeof ExecutorState];
 
 /**
  * @public
@@ -2842,12 +2914,18 @@ export interface ListExecutorsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutorType {
-  COORDINATOR = "COORDINATOR",
-  GATEWAY = "GATEWAY",
-  WORKER = "WORKER",
-}
+export const ExecutorType = {
+  COORDINATOR: "COORDINATOR",
+  GATEWAY: "GATEWAY",
+  WORKER: "WORKER",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutorType = (typeof ExecutorType)[keyof typeof ExecutorType];
 
 /**
  * @public

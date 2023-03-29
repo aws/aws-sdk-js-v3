@@ -25,15 +25,21 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  SUSPENDED = "SUSPENDED",
-  SUSPENDING = "SUSPENDING",
-}
+export const Status = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  SUSPENDED: "SUSPENDED",
+  SUSPENDING: "SUSPENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -79,37 +85,61 @@ export interface Account {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregationFindingType {
-  NETWORK_REACHABILITY = "NETWORK_REACHABILITY",
-  PACKAGE_VULNERABILITY = "PACKAGE_VULNERABILITY",
-}
+export const AggregationFindingType = {
+  NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
+  PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
+} as const;
 
 /**
  * @public
  */
-export enum AggregationResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
+export type AggregationFindingType = (typeof AggregationFindingType)[keyof typeof AggregationFindingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregationResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+} as const;
 
 /**
  * @public
  */
-export enum AccountSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export type AggregationResourceType = (typeof AggregationResourceType)[keyof typeof AggregationResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export type AccountSortBy = (typeof AccountSortBy)[keyof typeof AccountSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -182,23 +212,29 @@ export interface AccountAggregationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ACCOUNT_IS_ISOLATED = "ACCOUNT_IS_ISOLATED",
-  ALREADY_ENABLED = "ALREADY_ENABLED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  DISASSOCIATE_ALL_MEMBERS = "DISASSOCIATE_ALL_MEMBERS",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-  EVENTBRIDGE_THROTTLED = "EVENTBRIDGE_THROTTLED",
-  EVENTBRIDGE_UNAVAILABLE = "EVENTBRIDGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  RESOURCE_SCAN_NOT_DISABLED = "RESOURCE_SCAN_NOT_DISABLED",
-  SSM_THROTTLED = "SSM_THROTTLED",
-  SSM_UNAVAILABLE = "SSM_UNAVAILABLE",
-  SUSPEND_IN_PROGRESS = "SUSPEND_IN_PROGRESS",
-}
+export const ErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ACCOUNT_IS_ISOLATED: "ACCOUNT_IS_ISOLATED",
+  ALREADY_ENABLED: "ALREADY_ENABLED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  DISASSOCIATE_ALL_MEMBERS: "DISASSOCIATE_ALL_MEMBERS",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+  EVENTBRIDGE_THROTTLED: "EVENTBRIDGE_THROTTLED",
+  EVENTBRIDGE_UNAVAILABLE: "EVENTBRIDGE_UNAVAILABLE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  RESOURCE_SCAN_NOT_DISABLED: "RESOURCE_SCAN_NOT_DISABLED",
+  SSM_THROTTLED: "SSM_THROTTLED",
+  SSM_UNAVAILABLE: "SSM_UNAVAILABLE",
+  SUSPEND_IN_PROGRESS: "SUSPEND_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -265,12 +301,18 @@ export interface AccountState {
 
 /**
  * @public
+ * @enum
  */
-export enum StringComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-  PREFIX = "PREFIX",
-}
+export const StringComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+  PREFIX: "PREFIX",
+} as const;
+
+/**
+ * @public
+ */
+export type StringComparison = (typeof StringComparison)[keyof typeof StringComparison];
 
 /**
  * @public
@@ -290,13 +332,19 @@ export interface StringFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum AmiSortBy {
-  AFFECTED_INSTANCES = "AFFECTED_INSTANCES",
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const AmiSortBy = {
+  AFFECTED_INSTANCES: "AFFECTED_INSTANCES",
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type AmiSortBy = (typeof AmiSortBy)[keyof typeof AmiSortBy];
 
 /**
  * @public
@@ -321,12 +369,18 @@ export interface AmiAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum AwsEcrContainerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const AwsEcrContainerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type AwsEcrContainerSortBy = (typeof AwsEcrContainerSortBy)[keyof typeof AwsEcrContainerSortBy];
 
 /**
  * @public
@@ -371,10 +425,16 @@ export interface AwsEcrContainerAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum MapComparison {
-  EQUALS = "EQUALS",
-}
+export const MapComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type MapComparison = (typeof MapComparison)[keyof typeof MapComparison];
 
 /**
  * @public
@@ -399,13 +459,19 @@ export interface MapFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum Ec2InstanceSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  NETWORK_FINDINGS = "NETWORK_FINDINGS",
-}
+export const Ec2InstanceSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  NETWORK_FINDINGS: "NETWORK_FINDINGS",
+} as const;
+
+/**
+ * @public
+ */
+export type Ec2InstanceSortBy = (typeof Ec2InstanceSortBy)[keyof typeof Ec2InstanceSortBy];
 
 /**
  * @public
@@ -447,12 +513,18 @@ export interface Ec2InstanceAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingTypeSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const FindingTypeSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingTypeSortBy = (typeof FindingTypeSortBy)[keyof typeof FindingTypeSortBy];
 
 /**
  * @public
@@ -482,12 +554,18 @@ export interface FindingTypeAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageLayerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const ImageLayerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageLayerSortBy = (typeof ImageLayerSortBy)[keyof typeof ImageLayerSortBy];
 
 /**
  * @public
@@ -522,12 +600,18 @@ export interface ImageLayerAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum LambdaFunctionSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const LambdaFunctionSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionSortBy = (typeof LambdaFunctionSortBy)[keyof typeof LambdaFunctionSortBy];
 
 /**
  * @public
@@ -567,12 +651,18 @@ export interface LambdaFunctionAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum LambdaLayerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const LambdaLayerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaLayerSortBy = (typeof LambdaLayerSortBy)[keyof typeof LambdaLayerSortBy];
 
 /**
  * @public
@@ -608,12 +698,18 @@ export interface LambdaLayerAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const PackageSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageSortBy = (typeof PackageSortBy)[keyof typeof PackageSortBy];
 
 /**
  * @public
@@ -638,13 +734,19 @@ export interface PackageAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum RepositorySortBy {
-  AFFECTED_IMAGES = "AFFECTED_IMAGES",
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const RepositorySortBy = {
+  AFFECTED_IMAGES: "AFFECTED_IMAGES",
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type RepositorySortBy = (typeof RepositorySortBy)[keyof typeof RepositorySortBy];
 
 /**
  * @public
@@ -669,12 +771,18 @@ export interface RepositoryAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum TitleSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const TitleSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type TitleSortBy = (typeof TitleSortBy)[keyof typeof TitleSortBy];
 
 /**
  * @public
@@ -1559,28 +1667,40 @@ export namespace AggregationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregationType {
-  ACCOUNT = "ACCOUNT",
-  AMI = "AMI",
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER = "AWS_ECR_CONTAINER",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-  FINDING_TYPE = "FINDING_TYPE",
-  IMAGE_LAYER = "IMAGE_LAYER",
-  LAMBDA_LAYER = "LAMBDA_LAYER",
-  PACKAGE = "PACKAGE",
-  REPOSITORY = "REPOSITORY",
-  TITLE = "TITLE",
-}
+export const AggregationType = {
+  ACCOUNT: "ACCOUNT",
+  AMI: "AMI",
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER: "AWS_ECR_CONTAINER",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  FINDING_TYPE: "FINDING_TYPE",
+  IMAGE_LAYER: "IMAGE_LAYER",
+  LAMBDA_LAYER: "LAMBDA_LAYER",
+  PACKAGE: "PACKAGE",
+  REPOSITORY: "REPOSITORY",
+  TITLE: "TITLE",
+} as const;
 
 /**
  * @public
  */
-export enum Architecture {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
+export type AggregationType = (typeof AggregationType)[keyof typeof AggregationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Architecture = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+} as const;
+
+/**
+ * @public
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 /**
  * @public
@@ -1676,12 +1796,18 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -1844,30 +1970,42 @@ export interface AwsEcrContainerImageDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageType {
-  IMAGE = "IMAGE",
-  ZIP = "ZIP",
-}
+export const PackageType = {
+  IMAGE: "IMAGE",
+  ZIP: "ZIP",
+} as const;
 
 /**
  * @public
  */
-export enum Runtime {
-  GO_1_X = "GO_1_X",
-  JAVA_11 = "JAVA_11",
-  JAVA_8 = "JAVA_8",
-  JAVA_8_AL2 = "JAVA_8_AL2",
-  NODEJS = "NODEJS",
-  NODEJS_12_X = "NODEJS_12_X",
-  NODEJS_14_X = "NODEJS_14_X",
-  NODEJS_16_X = "NODEJS_16_X",
-  NODEJS_18_X = "NODEJS_18_X",
-  PYTHON_3_7 = "PYTHON_3_7",
-  PYTHON_3_8 = "PYTHON_3_8",
-  PYTHON_3_9 = "PYTHON_3_9",
-  UNSUPPORTED = "UNSUPPORTED",
-}
+export type PackageType = (typeof PackageType)[keyof typeof PackageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Runtime = {
+  GO_1_X: "GO_1_X",
+  JAVA_11: "JAVA_11",
+  JAVA_8: "JAVA_8",
+  JAVA_8_AL2: "JAVA_8_AL2",
+  NODEJS: "NODEJS",
+  NODEJS_12_X: "NODEJS_12_X",
+  NODEJS_14_X: "NODEJS_14_X",
+  NODEJS_16_X: "NODEJS_16_X",
+  NODEJS_18_X: "NODEJS_18_X",
+  PYTHON_3_7: "PYTHON_3_7",
+  PYTHON_3_8: "PYTHON_3_8",
+  PYTHON_3_9: "PYTHON_3_9",
+  UNSUPPORTED: "UNSUPPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type Runtime = (typeof Runtime)[keyof typeof Runtime];
 
 /**
  * @public
@@ -2057,20 +2195,32 @@ export interface BatchGetFreeTrialInfoRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FreeTrialStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const FreeTrialStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
  * @public
  */
-export enum FreeTrialType {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+export type FreeTrialStatus = (typeof FreeTrialStatus)[keyof typeof FreeTrialStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FreeTrialType = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type FreeTrialType = (typeof FreeTrialType)[keyof typeof FreeTrialType];
 
 /**
  * @public
@@ -2116,11 +2266,17 @@ export interface FreeTrialAccountInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum FreeTrialInfoErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+export const FreeTrialInfoErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type FreeTrialInfoErrorCode = (typeof FreeTrialInfoErrorCode)[keyof typeof FreeTrialInfoErrorCode];
 
 /**
  * @public
@@ -2213,14 +2369,20 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum GroupKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  ECR_REPOSITORY_NAME = "ECR_REPOSITORY_NAME",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SCAN_STATUS_CODE = "SCAN_STATUS_CODE",
-  SCAN_STATUS_REASON = "SCAN_STATUS_REASON",
-}
+export const GroupKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  ECR_REPOSITORY_NAME: "ECR_REPOSITORY_NAME",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SCAN_STATUS_CODE: "SCAN_STATUS_CODE",
+  SCAN_STATUS_REASON: "SCAN_STATUS_REASON",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupKey = (typeof GroupKey)[keyof typeof GroupKey];
 
 /**
  * @public
@@ -2240,11 +2402,17 @@ export interface Counts {
 
 /**
  * @public
+ * @enum
  */
-export enum CoverageStringComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+export const CoverageStringComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type CoverageStringComparison = (typeof CoverageStringComparison)[keyof typeof CoverageStringComparison];
 
 /**
  * @public
@@ -2264,10 +2432,16 @@ export interface CoverageStringFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum CoverageMapComparison {
-  EQUALS = "EQUALS",
-}
+export const CoverageMapComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type CoverageMapComparison = (typeof CoverageMapComparison)[keyof typeof CoverageMapComparison];
 
 /**
  * @public
@@ -2358,22 +2532,34 @@ export interface CoverageFilterCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum CoverageResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_ECR_REPOSITORY = "AWS_ECR_REPOSITORY",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
+export const CoverageResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+} as const;
 
 /**
  * @public
  */
-export enum Ec2Platform {
-  LINUX = "LINUX",
-  UNKNOWN = "UNKNOWN",
-  WINDOWS = "WINDOWS",
-}
+export type CoverageResourceType = (typeof CoverageResourceType)[keyof typeof CoverageResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ec2Platform = {
+  LINUX: "LINUX",
+  UNKNOWN: "UNKNOWN",
+  WINDOWS: "WINDOWS",
+} as const;
+
+/**
+ * @public
+ */
+export type Ec2Platform = (typeof Ec2Platform)[keyof typeof Ec2Platform];
 
 /**
  * @public
@@ -2409,12 +2595,18 @@ export interface EcrContainerImageMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum EcrScanFrequency {
-  CONTINUOUS_SCAN = "CONTINUOUS_SCAN",
-  MANUAL = "MANUAL",
-  SCAN_ON_PUSH = "SCAN_ON_PUSH",
-}
+export const EcrScanFrequency = {
+  CONTINUOUS_SCAN: "CONTINUOUS_SCAN",
+  MANUAL: "MANUAL",
+  SCAN_ON_PUSH: "SCAN_ON_PUSH",
+} as const;
+
+/**
+ * @public
+ */
+export type EcrScanFrequency = (typeof EcrScanFrequency)[keyof typeof EcrScanFrequency];
 
 /**
  * @public
@@ -2486,35 +2678,47 @@ export interface ResourceScanMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanStatusReason {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  EC2_INSTANCE_STOPPED = "EC2_INSTANCE_STOPPED",
-  EXCLUDED_BY_TAG = "EXCLUDED_BY_TAG",
-  IMAGE_SIZE_EXCEEDED = "IMAGE_SIZE_EXCEEDED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NO_INVENTORY = "NO_INVENTORY",
-  NO_RESOURCES_FOUND = "NO_RESOURCES_FOUND",
-  PENDING_DISABLE = "PENDING_DISABLE",
-  PENDING_INITIAL_SCAN = "PENDING_INITIAL_SCAN",
-  RESOURCE_TERMINATED = "RESOURCE_TERMINATED",
-  SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED",
-  SCAN_FREQUENCY_MANUAL = "SCAN_FREQUENCY_MANUAL",
-  SCAN_FREQUENCY_SCAN_ON_PUSH = "SCAN_FREQUENCY_SCAN_ON_PUSH",
-  STALE_INVENTORY = "STALE_INVENTORY",
-  SUCCESSFUL = "SUCCESSFUL",
-  UNMANAGED_EC2_INSTANCE = "UNMANAGED_EC2_INSTANCE",
-  UNSUPPORTED_OS = "UNSUPPORTED_OS",
-  UNSUPPORTED_RUNTIME = "UNSUPPORTED_RUNTIME",
-}
+export const ScanStatusReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  EC2_INSTANCE_STOPPED: "EC2_INSTANCE_STOPPED",
+  EXCLUDED_BY_TAG: "EXCLUDED_BY_TAG",
+  IMAGE_SIZE_EXCEEDED: "IMAGE_SIZE_EXCEEDED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NO_INVENTORY: "NO_INVENTORY",
+  NO_RESOURCES_FOUND: "NO_RESOURCES_FOUND",
+  PENDING_DISABLE: "PENDING_DISABLE",
+  PENDING_INITIAL_SCAN: "PENDING_INITIAL_SCAN",
+  RESOURCE_TERMINATED: "RESOURCE_TERMINATED",
+  SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
+  SCAN_FREQUENCY_MANUAL: "SCAN_FREQUENCY_MANUAL",
+  SCAN_FREQUENCY_SCAN_ON_PUSH: "SCAN_FREQUENCY_SCAN_ON_PUSH",
+  STALE_INVENTORY: "STALE_INVENTORY",
+  SUCCESSFUL: "SUCCESSFUL",
+  UNMANAGED_EC2_INSTANCE: "UNMANAGED_EC2_INSTANCE",
+  UNSUPPORTED_OS: "UNSUPPORTED_OS",
+  UNSUPPORTED_RUNTIME: "UNSUPPORTED_RUNTIME",
+} as const;
 
 /**
  * @public
  */
-export enum ScanStatusCode {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export type ScanStatusReason = (typeof ScanStatusReason)[keyof typeof ScanStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanStatusCode = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanStatusCode = (typeof ScanStatusCode)[keyof typeof ScanStatusCode];
 
 /**
  * @public
@@ -2534,11 +2738,17 @@ export interface ScanStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanType {
-  NETWORK = "NETWORK",
-  PACKAGE = "PACKAGE",
-}
+export const ScanType = {
+  NETWORK: "NETWORK",
+  PACKAGE: "PACKAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanType = (typeof ScanType)[keyof typeof ScanType];
 
 /**
  * @public
@@ -2578,11 +2788,17 @@ export interface CoveredResource {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterAction {
-  NONE = "NONE",
-  SUPPRESS = "SUPPRESS",
-}
+export const FilterAction = {
+  NONE: "NONE",
+  SUPPRESS: "SUPPRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterAction = (typeof FilterAction)[keyof typeof FilterAction];
 
 /**
  * @public
@@ -2947,11 +3163,17 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportFormat {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const ReportFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
 
 /**
  * @public
@@ -3006,10 +3228,16 @@ export interface CreateFindingsReportResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Currency {
-  USD = "USD",
-}
+export const Currency = {
+  USD: "USD",
+} as const;
+
+/**
+ * @public
+ */
+export type Currency = (typeof Currency)[keyof typeof Currency];
 
 /**
  * @public
@@ -3091,21 +3319,27 @@ export interface CvssScoreDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum RelationshipStatus {
-  ACCOUNT_SUSPENDED = "ACCOUNT_SUSPENDED",
-  CANNOT_CREATE_DETECTOR_IN_ORG_MASTER = "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  EMAIL_VERIFICATION_FAILED = "EMAIL_VERIFICATION_FAILED",
-  EMAIL_VERIFICATION_IN_PROGRESS = "EMAIL_VERIFICATION_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  INVITED = "INVITED",
-  REGION_DISABLED = "REGION_DISABLED",
-  REMOVED = "REMOVED",
-  RESIGNED = "RESIGNED",
-}
+export const RelationshipStatus = {
+  ACCOUNT_SUSPENDED: "ACCOUNT_SUSPENDED",
+  CANNOT_CREATE_DETECTOR_IN_ORG_MASTER: "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  EMAIL_VERIFICATION_FAILED: "EMAIL_VERIFICATION_FAILED",
+  EMAIL_VERIFICATION_IN_PROGRESS: "EMAIL_VERIFICATION_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  INVITED: "INVITED",
+  REGION_DISABLED: "REGION_DISABLED",
+  REMOVED: "REMOVED",
+  RESIGNED: "RESIGNED",
+} as const;
+
+/**
+ * @public
+ */
+export type RelationshipStatus = (typeof RelationshipStatus)[keyof typeof RelationshipStatus];
 
 /**
  * @public
@@ -3125,11 +3359,17 @@ export interface DelegatedAdmin {
 
 /**
  * @public
+ * @enum
  */
-export enum DelegatedAdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+export const DelegatedAdminStatus = {
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DelegatedAdminStatus = (typeof DelegatedAdminStatus)[keyof typeof DelegatedAdminStatus];
 
 /**
  * @public
@@ -3189,12 +3429,18 @@ export interface DescribeOrganizationConfigurationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceScanType {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+export const ResourceScanType = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceScanType = (typeof ResourceScanType)[keyof typeof ResourceScanType];
 
 /**
  * @public
@@ -3270,12 +3516,18 @@ export interface DisassociateMemberResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EcrRescanDuration {
-  DAYS_180 = "DAYS_180",
-  DAYS_30 = "DAYS_30",
-  LIFETIME = "LIFETIME",
-}
+export const EcrRescanDuration = {
+  DAYS_180: "DAYS_180",
+  DAYS_30: "DAYS_30",
+  LIFETIME: "LIFETIME",
+} as const;
+
+/**
+ * @public
+ */
+export type EcrRescanDuration = (typeof EcrRescanDuration)[keyof typeof EcrRescanDuration];
 
 /**
  * @public
@@ -3290,12 +3542,18 @@ export interface EcrConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum EcrRescanDurationStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+export const EcrRescanDurationStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type EcrRescanDurationStatus = (typeof EcrRescanDurationStatus)[keyof typeof EcrRescanDurationStatus];
 
 /**
  * @public
@@ -3404,21 +3662,33 @@ export interface ExploitabilityDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ExploitAvailable {
-  NO = "NO",
-  YES = "YES",
-}
+export const ExploitAvailable = {
+  NO: "NO",
+  YES: "YES",
+} as const;
 
 /**
  * @public
  */
-export enum ExternalReportStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type ExploitAvailable = (typeof ExploitAvailable)[keyof typeof ExploitAvailable];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalReportStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalReportStatus = (typeof ExternalReportStatus)[keyof typeof ExternalReportStatus];
 
 /**
  * @public
@@ -3478,12 +3748,18 @@ export interface Filter {
 
 /**
  * @public
+ * @enum
  */
-export enum FixAvailable {
-  NO = "NO",
-  PARTIAL = "PARTIAL",
-  YES = "YES",
-}
+export const FixAvailable = {
+  NO: "NO",
+  PARTIAL: "PARTIAL",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type FixAvailable = (typeof FixAvailable)[keyof typeof FixAvailable];
 
 /**
  * @public
@@ -3541,11 +3817,17 @@ export interface PortRange {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const NetworkProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkProtocol = (typeof NetworkProtocol)[keyof typeof NetworkProtocol];
 
 /**
  * @public
@@ -3570,25 +3852,31 @@ export interface NetworkReachabilityDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageManager {
-  BUNDLER = "BUNDLER",
-  CARGO = "CARGO",
-  COMPOSER = "COMPOSER",
-  GOBINARY = "GOBINARY",
-  GOMOD = "GOMOD",
-  JAR = "JAR",
-  NODEPKG = "NODEPKG",
-  NPM = "NPM",
-  NUGET = "NUGET",
-  OS = "OS",
-  PIP = "PIP",
-  PIPENV = "PIPENV",
-  POETRY = "POETRY",
-  POM = "POM",
-  PYTHONPKG = "PYTHONPKG",
-  YARN = "YARN",
-}
+export const PackageManager = {
+  BUNDLER: "BUNDLER",
+  CARGO: "CARGO",
+  COMPOSER: "COMPOSER",
+  GOBINARY: "GOBINARY",
+  GOMOD: "GOMOD",
+  JAR: "JAR",
+  NODEPKG: "NODEPKG",
+  NPM: "NPM",
+  NUGET: "NUGET",
+  OS: "OS",
+  PIP: "PIP",
+  PIPENV: "PIPENV",
+  POETRY: "POETRY",
+  POM: "POM",
+  PYTHONPKG: "PYTHONPKG",
+  YARN: "YARN",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager];
 
 /**
  * @public
@@ -3757,13 +4045,19 @@ export interface ResourceDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_ECR_REPOSITORY = "AWS_ECR_REPOSITORY",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
+export const ResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -3803,32 +4097,50 @@ export interface Resource {
 
 /**
  * @public
+ * @enum
  */
-export enum Severity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  UNTRIAGED = "UNTRIAGED",
-}
+export const Severity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNTRIAGED: "UNTRIAGED",
+} as const;
 
 /**
  * @public
  */
-export enum FindingStatus {
-  ACTIVE = "ACTIVE",
-  CLOSED = "CLOSED",
-  SUPPRESSED = "SUPPRESSED",
-}
+export type Severity = (typeof Severity)[keyof typeof Severity];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingStatus = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  SUPPRESSED: "SUPPRESSED",
+} as const;
 
 /**
  * @public
  */
-export enum FindingType {
-  NETWORK_REACHABILITY = "NETWORK_REACHABILITY",
-  PACKAGE_VULNERABILITY = "PACKAGE_VULNERABILITY",
-}
+export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingType = {
+  NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
+  PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingType = (typeof FindingType)[keyof typeof FindingType];
 
 /**
  * @public
@@ -3973,15 +4285,21 @@ export interface GetFindingsReportStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportingErrorCode {
-  BUCKET_NOT_FOUND = "BUCKET_NOT_FOUND",
-  INCOMPATIBLE_BUCKET_REGION = "INCOMPATIBLE_BUCKET_REGION",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_PERMISSIONS = "INVALID_PERMISSIONS",
-  MALFORMED_KMS_KEY = "MALFORMED_KMS_KEY",
-  NO_FINDINGS_FOUND = "NO_FINDINGS_FOUND",
-}
+export const ReportingErrorCode = {
+  BUCKET_NOT_FOUND: "BUCKET_NOT_FOUND",
+  INCOMPATIBLE_BUCKET_REGION: "INCOMPATIBLE_BUCKET_REGION",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_PERMISSIONS: "INVALID_PERMISSIONS",
+  MALFORMED_KMS_KEY: "MALFORMED_KMS_KEY",
+  NO_FINDINGS_FOUND: "NO_FINDINGS_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportingErrorCode = (typeof ReportingErrorCode)[keyof typeof ReportingErrorCode];
 
 /**
  * @public
@@ -4066,12 +4384,18 @@ export interface GetMemberResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Service {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+export const Service = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type Service = (typeof Service)[keyof typeof Service];
 
 /**
  * @public
@@ -4098,13 +4422,19 @@ export interface ListAccountPermissionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Operation {
-  DISABLE_REPOSITORY = "DISABLE_REPOSITORY",
-  DISABLE_SCANNING = "DISABLE_SCANNING",
-  ENABLE_REPOSITORY = "ENABLE_REPOSITORY",
-  ENABLE_SCANNING = "ENABLE_SCANNING",
-}
+export const Operation = {
+  DISABLE_REPOSITORY: "DISABLE_REPOSITORY",
+  DISABLE_SCANNING: "DISABLE_SCANNING",
+  ENABLE_REPOSITORY: "ENABLE_REPOSITORY",
+  ENABLE_SCANNING: "ENABLE_SCANNING",
+} as const;
+
+/**
+ * @public
+ */
+export type Operation = (typeof Operation)[keyof typeof Operation];
 
 /**
  * @public
@@ -4369,25 +4699,31 @@ export interface ListFindingAggregationsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortField {
-  AWS_ACCOUNT_ID = "AWS_ACCOUNT_ID",
-  COMPONENT_TYPE = "COMPONENT_TYPE",
-  ECR_IMAGE_PUSHED_AT = "ECR_IMAGE_PUSHED_AT",
-  ECR_IMAGE_REGISTRY = "ECR_IMAGE_REGISTRY",
-  ECR_IMAGE_REPOSITORY_NAME = "ECR_IMAGE_REPOSITORY_NAME",
-  FINDING_STATUS = "FINDING_STATUS",
-  FINDING_TYPE = "FINDING_TYPE",
-  FIRST_OBSERVED_AT = "FIRST_OBSERVED_AT",
-  INSPECTOR_SCORE = "INSPECTOR_SCORE",
-  LAST_OBSERVED_AT = "LAST_OBSERVED_AT",
-  NETWORK_PROTOCOL = "NETWORK_PROTOCOL",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SEVERITY = "SEVERITY",
-  VENDOR_SEVERITY = "VENDOR_SEVERITY",
-  VULNERABILITY_ID = "VULNERABILITY_ID",
-  VULNERABILITY_SOURCE = "VULNERABILITY_SOURCE",
-}
+export const SortField = {
+  AWS_ACCOUNT_ID: "AWS_ACCOUNT_ID",
+  COMPONENT_TYPE: "COMPONENT_TYPE",
+  ECR_IMAGE_PUSHED_AT: "ECR_IMAGE_PUSHED_AT",
+  ECR_IMAGE_REGISTRY: "ECR_IMAGE_REGISTRY",
+  ECR_IMAGE_REPOSITORY_NAME: "ECR_IMAGE_REPOSITORY_NAME",
+  FINDING_STATUS: "FINDING_STATUS",
+  FINDING_TYPE: "FINDING_TYPE",
+  FIRST_OBSERVED_AT: "FIRST_OBSERVED_AT",
+  INSPECTOR_SCORE: "INSPECTOR_SCORE",
+  LAST_OBSERVED_AT: "LAST_OBSERVED_AT",
+  NETWORK_PROTOCOL: "NETWORK_PROTOCOL",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SEVERITY: "SEVERITY",
+  VENDOR_SEVERITY: "VENDOR_SEVERITY",
+  VULNERABILITY_ID: "VULNERABILITY_ID",
+  VULNERABILITY_SOURCE: "VULNERABILITY_SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type SortField = (typeof SortField)[keyof typeof SortField];
 
 /**
  * @public
@@ -4536,13 +4872,19 @@ export interface ListUsageTotalsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageType {
-  EC2_INSTANCE_HOURS = "EC2_INSTANCE_HOURS",
-  ECR_INITIAL_SCAN = "ECR_INITIAL_SCAN",
-  ECR_RESCAN = "ECR_RESCAN",
-  LAMBDA_FUNCTION_HOURS = "LAMBDA_FUNCTION_HOURS",
-}
+export const UsageType = {
+  EC2_INSTANCE_HOURS: "EC2_INSTANCE_HOURS",
+  ECR_INITIAL_SCAN: "ECR_INITIAL_SCAN",
+  ECR_RESCAN: "ECR_RESCAN",
+  LAMBDA_FUNCTION_HOURS: "LAMBDA_FUNCTION_HOURS",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageType = (typeof UsageType)[keyof typeof UsageType];
 
 /**
  * @public

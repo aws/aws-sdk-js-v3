@@ -246,16 +246,22 @@ export interface DataSourcesFreeTrial {
 
 /**
  * @public
+ * @enum
  */
-export enum FreeTrialFeatureResult {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  DNS_LOGS = "DNS_LOGS",
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  FLOW_LOGS = "FLOW_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const FreeTrialFeatureResult = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  FLOW_LOGS: "FLOW_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type FreeTrialFeatureResult = (typeof FreeTrialFeatureResult)[keyof typeof FreeTrialFeatureResult];
 
 /**
  * @public
@@ -785,11 +791,17 @@ export interface Action {
 
 /**
  * @public
+ * @enum
  */
-export enum AdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+export const AdminStatus = {
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
 
 /**
  * @public
@@ -857,12 +869,18 @@ export interface ArchiveFindingsResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum AutoEnableMembers {
-  ALL = "ALL",
-  NEW = "NEW",
-  NONE = "NONE",
-}
+export const AutoEnableMembers = {
+  ALL: "ALL",
+  NEW: "NEW",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoEnableMembers = (typeof AutoEnableMembers)[keyof typeof AutoEnableMembers];
 
 /**
  * @public
@@ -906,11 +924,17 @@ export interface BucketLevelPermissions {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DataSourceStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
 
 /**
  * @public
@@ -1161,21 +1185,33 @@ export interface DataSourceConfigurations {
 
 /**
  * @public
+ * @enum
  */
-export enum DetectorFeature {
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const DetectorFeature = {
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+} as const;
 
 /**
  * @public
  */
-export enum FeatureStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type DetectorFeature = (typeof DetectorFeature)[keyof typeof DetectorFeature];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * @public
@@ -1195,12 +1231,18 @@ export interface DetectorFeatureConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingPublishingFrequency {
-  FIFTEEN_MINUTES = "FIFTEEN_MINUTES",
-  ONE_HOUR = "ONE_HOUR",
-  SIX_HOURS = "SIX_HOURS",
-}
+export const FindingPublishingFrequency = {
+  FIFTEEN_MINUTES: "FIFTEEN_MINUTES",
+  ONE_HOUR: "ONE_HOUR",
+  SIX_HOURS: "SIX_HOURS",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingPublishingFrequency = (typeof FindingPublishingFrequency)[keyof typeof FindingPublishingFrequency];
 
 /**
  * @public
@@ -1314,11 +1356,17 @@ export interface CreateDetectorResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterAction {
-  ARCHIVE = "ARCHIVE",
-  NOOP = "NOOP",
-}
+export const FilterAction = {
+  ARCHIVE: "ARCHIVE",
+  NOOP: "NOOP",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterAction = (typeof FilterAction)[keyof typeof FilterAction];
 
 /**
  * @public
@@ -1564,15 +1612,21 @@ export interface CreateFilterResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum IpSetFormat {
-  ALIEN_VAULT = "ALIEN_VAULT",
-  FIRE_EYE = "FIRE_EYE",
-  OTX_CSV = "OTX_CSV",
-  PROOF_POINT = "PROOF_POINT",
-  STIX = "STIX",
-  TXT = "TXT",
-}
+export const IpSetFormat = {
+  ALIEN_VAULT: "ALIEN_VAULT",
+  FIRE_EYE: "FIRE_EYE",
+  OTX_CSV: "OTX_CSV",
+  PROOF_POINT: "PROOF_POINT",
+  STIX: "STIX",
+  TXT: "TXT",
+} as const;
+
+/**
+ * @public
+ */
+export type IpSetFormat = (typeof IpSetFormat)[keyof typeof IpSetFormat];
 
 /**
  * @public
@@ -1693,10 +1747,16 @@ export interface DestinationProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum DestinationType {
-  S3 = "S3",
-}
+export const DestinationType = {
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
 
 /**
  * @public
@@ -1757,15 +1817,21 @@ export interface CreateSampleFindingsResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum ThreatIntelSetFormat {
-  ALIEN_VAULT = "ALIEN_VAULT",
-  FIRE_EYE = "FIRE_EYE",
-  OTX_CSV = "OTX_CSV",
-  PROOF_POINT = "PROOF_POINT",
-  STIX = "STIX",
-  TXT = "TXT",
-}
+export const ThreatIntelSetFormat = {
+  ALIEN_VAULT: "ALIEN_VAULT",
+  FIRE_EYE: "FIRE_EYE",
+  OTX_CSV: "OTX_CSV",
+  PROOF_POINT: "PROOF_POINT",
+  STIX: "STIX",
+  TXT: "TXT",
+} as const;
+
+/**
+ * @public
+ */
+export type ThreatIntelSetFormat = (typeof ThreatIntelSetFormat)[keyof typeof ThreatIntelSetFormat];
 
 /**
  * @public
@@ -1822,27 +1888,39 @@ export interface CreateThreatIntelSetResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CriterionKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  EC2_INSTANCE_ARN = "EC2_INSTANCE_ARN",
-  GUARDDUTY_FINDING_ID = "GUARDDUTY_FINDING_ID",
-  SCAN_ID = "SCAN_ID",
-  SCAN_START_TIME = "SCAN_START_TIME",
-  SCAN_STATUS = "SCAN_STATUS",
-}
+export const CriterionKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  EC2_INSTANCE_ARN: "EC2_INSTANCE_ARN",
+  GUARDDUTY_FINDING_ID: "GUARDDUTY_FINDING_ID",
+  SCAN_ID: "SCAN_ID",
+  SCAN_START_TIME: "SCAN_START_TIME",
+  SCAN_STATUS: "SCAN_STATUS",
+} as const;
 
 /**
  * @public
  */
-export enum DataSource {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  DNS_LOGS = "DNS_LOGS",
-  EC2_MALWARE_SCAN = "EC2_MALWARE_SCAN",
-  FLOW_LOGS = "FLOW_LOGS",
-  KUBERNETES_AUDIT_LOGS = "KUBERNETES_AUDIT_LOGS",
-  S3_LOGS = "S3_LOGS",
-}
+export type CriterionKey = (typeof CriterionKey)[keyof typeof CriterionKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSource = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EC2_MALWARE_SCAN: "EC2_MALWARE_SCAN",
+  FLOW_LOGS: "FLOW_LOGS",
+  KUBERNETES_AUDIT_LOGS: "KUBERNETES_AUDIT_LOGS",
+  S3_LOGS: "S3_LOGS",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSource = (typeof DataSource)[keyof typeof DataSource];
 
 /**
  * @public
@@ -2179,11 +2257,17 @@ export interface FilterCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderBy {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const OrderBy = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderBy = (typeof OrderBy)[keyof typeof OrderBy];
 
 /**
  * @public
@@ -2292,11 +2376,17 @@ export interface ResourceDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanResult {
-  CLEAN = "CLEAN",
-  INFECTED = "INFECTED",
-}
+export const ScanResult = {
+  CLEAN: "CLEAN",
+  INFECTED: "INFECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanResult = (typeof ScanResult)[keyof typeof ScanResult];
 
 /**
  * @public
@@ -2311,12 +2401,18 @@ export interface ScanResultDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-}
+export const ScanStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanStatus = (typeof ScanStatus)[keyof typeof ScanStatus];
 
 /**
  * @public
@@ -2543,21 +2639,33 @@ export interface OrganizationDataSourceConfigurationsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum OrgFeatureStatus {
-  NEW = "NEW",
-  NONE = "NONE",
-}
+export const OrgFeatureStatus = {
+  NEW: "NEW",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum OrgFeature {
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export type OrgFeatureStatus = (typeof OrgFeatureStatus)[keyof typeof OrgFeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrgFeature = {
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type OrgFeature = (typeof OrgFeature)[keyof typeof OrgFeature];
 
 /**
  * @public
@@ -2656,13 +2764,19 @@ export interface DescribePublishingDestinationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PublishingStatus {
-  PENDING_VERIFICATION = "PENDING_VERIFICATION",
-  PUBLISHING = "PUBLISHING",
-  STOPPED = "STOPPED",
-  UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY = "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY",
-}
+export const PublishingStatus = {
+  PENDING_VERIFICATION: "PENDING_VERIFICATION",
+  PUBLISHING: "PUBLISHING",
+  STOPPED: "STOPPED",
+  UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY: "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY",
+} as const;
+
+/**
+ * @public
+ */
+export type PublishingStatus = (typeof PublishingStatus)[keyof typeof PublishingStatus];
 
 /**
  * @public
@@ -2722,16 +2836,22 @@ export interface Destination {
 
 /**
  * @public
+ * @enum
  */
-export enum DetectorFeatureResult {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  DNS_LOGS = "DNS_LOGS",
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  FLOW_LOGS = "FLOW_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const DetectorFeatureResult = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  FLOW_LOGS: "FLOW_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type DetectorFeatureResult = (typeof DetectorFeatureResult)[keyof typeof DetectorFeatureResult];
 
 /**
  * @public
@@ -2756,11 +2876,17 @@ export interface DetectorFeatureConfigurationResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DetectorStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DetectorStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DetectorStatus = (typeof DetectorStatus)[keyof typeof DetectorStatus];
 
 /**
  * @public
@@ -2838,11 +2964,17 @@ export interface DisassociateMembersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EbsSnapshotPreservation {
-  NO_RETENTION = "NO_RETENTION",
-  RETENTION_WITH_FINDING = "RETENTION_WITH_FINDING",
-}
+export const EbsSnapshotPreservation = {
+  NO_RETENTION: "NO_RETENTION",
+  RETENTION_WITH_FINDING: "RETENTION_WITH_FINDING",
+} as const;
+
+/**
+ * @public
+ */
+export type EbsSnapshotPreservation = (typeof EbsSnapshotPreservation)[keyof typeof EbsSnapshotPreservation];
 
 /**
  * @public
@@ -3281,11 +3413,17 @@ export interface Evidence {
 
 /**
  * @public
+ * @enum
  */
-export enum Feedback {
-  NOT_USEFUL = "NOT_USEFUL",
-  USEFUL = "USEFUL",
-}
+export const Feedback = {
+  NOT_USEFUL: "NOT_USEFUL",
+  USEFUL: "USEFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type Feedback = (typeof Feedback)[keyof typeof Feedback];
 
 /**
  * @public
@@ -3969,10 +4107,16 @@ export interface FindingStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingStatisticType {
-  COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY",
-}
+export const FindingStatisticType = {
+  COUNT_BY_SEVERITY: "COUNT_BY_SEVERITY",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingStatisticType = (typeof FindingStatisticType)[keyof typeof FindingStatisticType];
 
 /**
  * @public
@@ -4196,16 +4340,22 @@ export interface GetIPSetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IpSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEACTIVATING = "DEACTIVATING",
-  DELETED = "DELETED",
-  DELETE_PENDING = "DELETE_PENDING",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-}
+export const IpSetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEACTIVATING: "DEACTIVATING",
+  DELETED: "DELETED",
+  DELETE_PENDING: "DELETE_PENDING",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type IpSetStatus = (typeof IpSetStatus)[keyof typeof IpSetStatus];
 
 /**
  * @public
@@ -4249,10 +4399,16 @@ export interface GetMalwareScanSettingsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanCriterionKey {
-  EC2_INSTANCE_TAG = "EC2_INSTANCE_TAG",
-}
+export const ScanCriterionKey = {
+  EC2_INSTANCE_TAG: "EC2_INSTANCE_TAG",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanCriterionKey = (typeof ScanCriterionKey)[keyof typeof ScanCriterionKey];
 
 /**
  * @public
@@ -4563,16 +4719,22 @@ export interface GetThreatIntelSetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ThreatIntelSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEACTIVATING = "DEACTIVATING",
-  DELETED = "DELETED",
-  DELETE_PENDING = "DELETE_PENDING",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-}
+export const ThreatIntelSetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEACTIVATING: "DEACTIVATING",
+  DELETED: "DELETED",
+  DELETE_PENDING: "DELETE_PENDING",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ThreatIntelSetStatus = (typeof ThreatIntelSetStatus)[keyof typeof ThreatIntelSetStatus];
 
 /**
  * @public
@@ -4607,18 +4769,24 @@ export interface GetThreatIntelSetResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageFeature {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  DNS_LOGS = "DNS_LOGS",
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  EKS_RUNTIME_MONITORING = "EKS_RUNTIME_MONITORING",
-  FLOW_LOGS = "FLOW_LOGS",
-  LAMBDA_NETWORK_LOGS = "LAMBDA_NETWORK_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const UsageFeature = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  FLOW_LOGS: "FLOW_LOGS",
+  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageFeature = (typeof UsageFeature)[keyof typeof UsageFeature];
 
 /**
  * @public
@@ -4651,14 +4819,20 @@ export interface UsageCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageStatisticType {
-  SUM_BY_ACCOUNT = "SUM_BY_ACCOUNT",
-  SUM_BY_DATA_SOURCE = "SUM_BY_DATA_SOURCE",
-  SUM_BY_FEATURES = "SUM_BY_FEATURES",
-  SUM_BY_RESOURCE = "SUM_BY_RESOURCE",
-  TOP_RESOURCES = "TOP_RESOURCES",
-}
+export const UsageStatisticType = {
+  SUM_BY_ACCOUNT: "SUM_BY_ACCOUNT",
+  SUM_BY_DATA_SOURCE: "SUM_BY_DATA_SOURCE",
+  SUM_BY_FEATURES: "SUM_BY_FEATURES",
+  SUM_BY_RESOURCE: "SUM_BY_RESOURCE",
+  TOP_RESOURCES: "TOP_RESOURCES",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageStatisticType = (typeof UsageStatisticType)[keyof typeof UsageStatisticType];
 
 /**
  * @public

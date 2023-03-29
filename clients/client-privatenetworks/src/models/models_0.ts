@@ -35,12 +35,18 @@ export interface AcknowledgeOrderReceiptRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AcknowledgmentStatus {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  ACKNOWLEDGING = "ACKNOWLEDGING",
-  UNACKNOWLEDGED = "UNACKNOWLEDGED",
-}
+export const AcknowledgmentStatus = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  ACKNOWLEDGING: "ACKNOWLEDGING",
+  UNACKNOWLEDGED: "UNACKNOWLEDGED",
+} as const;
+
+/**
+ * @public
+ */
+export type AcknowledgmentStatus = (typeof AcknowledgmentStatus)[keyof typeof AcknowledgmentStatus];
 
 /**
  * @public
@@ -237,14 +243,20 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_ASSUME_ROLE = "CANNOT_ASSUME_ROLE",
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_ASSUME_ROLE: "CANNOT_ASSUME_ROLE",
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -297,11 +309,17 @@ export interface ActivateDeviceIdentifierRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceIdentifierStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const DeviceIdentifierStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceIdentifierStatus = (typeof DeviceIdentifierStatus)[keyof typeof DeviceIdentifierStatus];
 
 /**
  * @public
@@ -411,11 +429,18 @@ export interface NameValuePair {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkResourceDefinitionType {
-  DEVICE_IDENTIFIER = "DEVICE_IDENTIFIER",
-  RADIO_UNIT = "RADIO_UNIT",
-}
+export const NetworkResourceDefinitionType = {
+  DEVICE_IDENTIFIER: "DEVICE_IDENTIFIER",
+  RADIO_UNIT: "RADIO_UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkResourceDefinitionType =
+  (typeof NetworkResourceDefinitionType)[keyof typeof NetworkResourceDefinitionType];
 
 /**
  * @public
@@ -456,14 +481,20 @@ export interface SitePlan {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkSiteStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DEPROVISIONING = "DEPROVISIONING",
-  PROVISIONING = "PROVISIONING",
-}
+export const NetworkSiteStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DEPROVISIONING: "DEPROVISIONING",
+  PROVISIONING: "PROVISIONING",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkSiteStatus = (typeof NetworkSiteStatus)[keyof typeof NetworkSiteStatus];
 
 /**
  * @public
@@ -542,21 +573,33 @@ export interface ActivateNetworkSiteResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ElevationReference {
-  AGL = "AGL",
-  AMSL = "AMSL",
-}
+export const ElevationReference = {
+  AGL: "AGL",
+  AMSL: "AMSL",
+} as const;
 
 /**
  * @public
  */
-export enum ElevationUnit {
+export type ElevationReference = (typeof ElevationReference)[keyof typeof ElevationReference];
+
+/**
+ * @public
+ * @enum
+ */
+export const ElevationUnit = {
   /**
    * Feet.
    */
-  FEET = "FEET",
-}
+  FEET: "FEET",
+} as const;
+
+/**
+ * @public
+ */
+export type ElevationUnit = (typeof ElevationUnit)[keyof typeof ElevationUnit];
 
 /**
  * @public
@@ -629,12 +672,18 @@ export interface ConfigureAccessPointRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  INITIAL = "INITIAL",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const HealthStatus = {
+  HEALTHY: "HEALTHY",
+  INITIAL: "INITIAL",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
 
 /**
  * @public
@@ -667,25 +716,37 @@ export interface ReturnInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkResourceStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING_SHIPPING_LABEL = "CREATING_SHIPPING_LABEL",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
-  PENDING_RETURN = "PENDING_RETURN",
-  PROVISIONED = "PROVISIONED",
-  PROVISIONING = "PROVISIONING",
-  SHIPPED = "SHIPPED",
-}
+export const NetworkResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING_SHIPPING_LABEL: "CREATING_SHIPPING_LABEL",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING: "PENDING",
+  PENDING_RETURN: "PENDING_RETURN",
+  PROVISIONED: "PROVISIONED",
+  PROVISIONING: "PROVISIONING",
+  SHIPPED: "SHIPPED",
+} as const;
 
 /**
  * @public
  */
-export enum NetworkResourceType {
-  RADIO_UNIT = "RADIO_UNIT",
-}
+export type NetworkResourceStatus = (typeof NetworkResourceStatus)[keyof typeof NetworkResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkResourceType = {
+  RADIO_UNIT: "RADIO_UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkResourceType = (typeof NetworkResourceType)[keyof typeof NetworkResourceType];
 
 /**
  * @public
@@ -815,14 +876,20 @@ export interface CreateNetworkRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DEPROVISIONING = "DEPROVISIONING",
-  PROVISIONING = "PROVISIONING",
-}
+export const NetworkStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DEPROVISIONING: "DEPROVISIONING",
+  PROVISIONING: "PROVISIONING",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkStatus = (typeof NetworkStatus)[keyof typeof NetworkStatus];
 
 /**
  * @public
@@ -1048,12 +1115,18 @@ export interface DeleteNetworkSiteResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceIdentifierFilterKeys {
-  ORDER = "ORDER",
-  STATUS = "STATUS",
-  TRAFFIC_GROUP = "TRAFFIC_GROUP",
-}
+export const DeviceIdentifierFilterKeys = {
+  ORDER: "ORDER",
+  STATUS: "STATUS",
+  TRAFFIC_GROUP: "TRAFFIC_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceIdentifierFilterKeys = (typeof DeviceIdentifierFilterKeys)[keyof typeof DeviceIdentifierFilterKeys];
 
 /**
  * @public
@@ -1249,11 +1322,17 @@ export interface ListDeviceIdentifiersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkResourceFilterKeys {
-  ORDER = "ORDER",
-  STATUS = "STATUS",
-}
+export const NetworkResourceFilterKeys = {
+  ORDER: "ORDER",
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkResourceFilterKeys = (typeof NetworkResourceFilterKeys)[keyof typeof NetworkResourceFilterKeys];
 
 /**
  * @public
@@ -1312,10 +1391,16 @@ export interface ListNetworkResourcesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkFilterKeys {
-  STATUS = "STATUS",
-}
+export const NetworkFilterKeys = {
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkFilterKeys = (typeof NetworkFilterKeys)[keyof typeof NetworkFilterKeys];
 
 /**
  * @public
@@ -1364,10 +1449,16 @@ export interface ListNetworksResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkSiteFilterKeys {
-  STATUS = "STATUS",
-}
+export const NetworkSiteFilterKeys = {
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkSiteFilterKeys = (typeof NetworkSiteFilterKeys)[keyof typeof NetworkSiteFilterKeys];
 
 /**
  * @public
@@ -1422,11 +1513,17 @@ export interface ListNetworkSitesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderFilterKeys {
-  NETWORK_SITE = "NETWORK_SITE",
-  STATUS = "STATUS",
-}
+export const OrderFilterKeys = {
+  NETWORK_SITE: "NETWORK_SITE",
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderFilterKeys = (typeof OrderFilterKeys)[keyof typeof OrderFilterKeys];
 
 /**
  * @public
@@ -1539,11 +1636,17 @@ export interface PingResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateType {
-  REPLACE = "REPLACE",
-  RETURN = "RETURN",
-}
+export const UpdateType = {
+  REPLACE: "REPLACE",
+  RETURN: "RETURN",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
 
 /**
  * @public

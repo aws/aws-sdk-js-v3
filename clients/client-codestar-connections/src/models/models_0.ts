@@ -5,12 +5,18 @@ import { CodeStarConnectionsServiceException as __BaseException } from "./CodeSt
 
 /**
  * @public
+ * @enum
  */
-export enum ProviderType {
-  BITBUCKET = "Bitbucket",
-  GITHUB = "GitHub",
-  GITHUB_ENTERPRISE_SERVER = "GitHubEnterpriseServer",
-}
+export const ProviderType = {
+  BITBUCKET: "Bitbucket",
+  GITHUB: "GitHub",
+  GITHUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
+} as const;
+
+/**
+ * @public
+ */
+export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
 
 /**
  * @public
@@ -259,12 +265,18 @@ export interface GetConnectionInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionStatus {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
+export const ConnectionStatus = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 /**
  * @public

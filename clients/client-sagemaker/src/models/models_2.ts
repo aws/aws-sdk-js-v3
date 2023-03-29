@@ -298,17 +298,23 @@ export interface DeployedImage {
 
 /**
  * @public
+ * @enum
  */
-export enum StageStatus {
-  Creating = "CREATING",
-  Deployed = "DEPLOYED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  ReadyToDeploy = "READYTODEPLOY",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+export const StageStatus = {
+  Creating: "CREATING",
+  Deployed: "DEPLOYED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  ReadyToDeploy: "READYTODEPLOY",
+  Starting: "STARTING",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type StageStatus = (typeof StageStatus)[keyof typeof StageStatus];
 
 /**
  * @public
@@ -1535,16 +1541,22 @@ export interface DescribeDomainRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+export const DomainStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 /**
  * @public
@@ -1770,23 +1782,35 @@ export interface DescribeEdgePackagingJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EdgePackagingJobStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+export const EdgePackagingJobStatus = {
+  Completed: "COMPLETED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  Starting: "STARTING",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+} as const;
 
 /**
  * @public
  */
-export enum EdgePresetDeploymentStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-}
+export type EdgePackagingJobStatus = (typeof EdgePackagingJobStatus)[keyof typeof EdgePackagingJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EdgePresetDeploymentStatus = {
+  Completed: "COMPLETED",
+  Failed: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type EdgePresetDeploymentStatus = (typeof EdgePresetDeploymentStatus)[keyof typeof EdgePresetDeploymentStatus];
 
 /**
  * @public
@@ -1907,28 +1931,40 @@ export interface DescribeEndpointInput {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointStatus {
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_SERVICE = "InService",
-  OUT_OF_SERVICE = "OutOfService",
-  ROLLING_BACK = "RollingBack",
-  SYSTEM_UPDATING = "SystemUpdating",
-  UPDATING = "Updating",
-}
+export const EndpointStatus = {
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_SERVICE: "InService",
+  OUT_OF_SERVICE: "OutOfService",
+  ROLLING_BACK: "RollingBack",
+  SYSTEM_UPDATING: "SystemUpdating",
+  UPDATING: "Updating",
+} as const;
 
 /**
  * @public
  */
-export enum VariantStatus {
-  ACTIVATING_TRAFFIC = "ActivatingTraffic",
-  BAKING = "Baking",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  UPDATING = "Updating",
-}
+export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VariantStatus = {
+  ACTIVATING_TRAFFIC: "ActivatingTraffic",
+  BAKING: "Baking",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type VariantStatus = (typeof VariantStatus)[keyof typeof VariantStatus];
 
 /**
  * @public
@@ -2439,23 +2475,35 @@ export interface DescribeFeatureGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureGroupStatus {
-  CREATED = "Created",
-  CREATE_FAILED = "CreateFailed",
-  CREATING = "Creating",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-}
+export const FeatureGroupStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+} as const;
 
 /**
  * @public
  */
-export enum LastUpdateStatusValue {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+export type FeatureGroupStatus = (typeof FeatureGroupStatus)[keyof typeof FeatureGroupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastUpdateStatusValue = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+} as const;
+
+/**
+ * @public
+ */
+export type LastUpdateStatusValue = (typeof LastUpdateStatusValue)[keyof typeof LastUpdateStatusValue];
 
 /**
  * @public
@@ -2475,12 +2523,18 @@ export interface LastUpdateStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum OfflineStoreStatusValue {
-  ACTIVE = "Active",
-  BLOCKED = "Blocked",
-  DISABLED = "Disabled",
-}
+export const OfflineStoreStatusValue = {
+  ACTIVE: "Active",
+  BLOCKED: "Blocked",
+  DISABLED: "Disabled",
+} as const;
+
+/**
+ * @public
+ */
+export type OfflineStoreStatusValue = (typeof OfflineStoreStatusValue)[keyof typeof OfflineStoreStatusValue];
 
 /**
  * @public
@@ -2715,13 +2769,19 @@ export interface DescribeFlowDefinitionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FlowDefinitionStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-}
+export const FlowDefinitionStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowDefinitionStatus = (typeof FlowDefinitionStatus)[keyof typeof FlowDefinitionStatus];
 
 /**
  * @public
@@ -2791,16 +2851,22 @@ export interface DescribeHubRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HubStatus {
-  CREATE_FAILED = "CreateFailed",
-  CREATING = "Creating",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  IN_SERVICE = "InService",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATING = "Updating",
-}
+export const HubStatus = {
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  IN_SERVICE: "InService",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type HubStatus = (typeof HubStatus)[keyof typeof HubStatus];
 
 /**
  * @public
@@ -2900,14 +2966,20 @@ export interface HubContentDependency {
 
 /**
  * @public
+ * @enum
  */
-export enum HubContentStatus {
-  AVAILABLE = "Available",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  IMPORTING = "Importing",
-  IMPORT_FAILED = "ImportFailed",
-}
+export const HubContentStatus = {
+  AVAILABLE: "Available",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  IMPORTING: "Importing",
+  IMPORT_FAILED: "ImportFailed",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentStatus = (typeof HubContentStatus)[keyof typeof HubContentStatus];
 
 /**
  * @public
@@ -3007,11 +3079,17 @@ export interface DescribeHumanTaskUiRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HumanTaskUiStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-}
+export const HumanTaskUiStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+} as const;
+
+/**
+ * @public
+ */
+export type HumanTaskUiStatus = (typeof HumanTaskUiStatus)[keyof typeof HumanTaskUiStatus];
 
 /**
  * @public
@@ -3098,14 +3176,20 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
 
 /**
  * @public
+ * @enum
  */
-export enum TrainingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const TrainingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainingJobStatus = (typeof TrainingJobStatus)[keyof typeof TrainingJobStatus];
 
 /**
  * @public
@@ -3225,14 +3309,21 @@ export interface HyperParameterTuningJobConsumedResources {
 
 /**
  * @public
+ * @enum
  */
-export enum HyperParameterTuningJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const HyperParameterTuningJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperParameterTuningJobStatus =
+  (typeof HyperParameterTuningJobStatus)[keyof typeof HyperParameterTuningJobStatus];
 
 /**
  * @public
@@ -3442,16 +3533,22 @@ export interface DescribeImageRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const ImageStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];
 
 /**
  * @public
@@ -3525,14 +3622,20 @@ export interface DescribeImageVersionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageVersionStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const ImageVersionStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageVersionStatus = (typeof ImageVersionStatus)[keyof typeof ImageVersionStatus];
 
 /**
  * @public
@@ -3704,14 +3807,20 @@ export interface EndpointMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelVariantStatus {
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  IN_SERVICE = "InService",
-  UPDATING = "Updating",
-}
+export const ModelVariantStatus = {
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETING: "Deleting",
+  IN_SERVICE: "InService",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelVariantStatus = (typeof ModelVariantStatus)[keyof typeof ModelVariantStatus];
 
 /**
  * @public
@@ -3769,17 +3878,23 @@ export interface ModelVariantConfigSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum InferenceExperimentStatus {
-  CANCELLED = "Cancelled",
-  COMPLETED = "Completed",
-  CREATED = "Created",
-  CREATING = "Creating",
-  RUNNING = "Running",
-  STARTING = "Starting",
-  STOPPING = "Stopping",
-  UPDATING = "Updating",
-}
+export const InferenceExperimentStatus = {
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+  CREATED: "Created",
+  CREATING: "Creating",
+  RUNNING: "Running",
+  STARTING: "Starting",
+  STOPPING: "Stopping",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceExperimentStatus = (typeof InferenceExperimentStatus)[keyof typeof InferenceExperimentStatus];
 
 /**
  * @public
@@ -4112,15 +4227,21 @@ export interface InferenceRecommendation {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const RecommendationJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationJobStatus = (typeof RecommendationJobStatus)[keyof typeof RecommendationJobStatus];
 
 /**
  * @public
@@ -4260,15 +4381,21 @@ export interface LabelingJobOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum LabelingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const LabelingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type LabelingJobStatus = (typeof LabelingJobStatus)[keyof typeof LabelingJobStatus];
 
 /**
  * @public
@@ -4645,15 +4772,21 @@ export interface DescribeModelCardRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelCardProcessingStatus {
-  CONTENT_DELETED = "ContentDeleted",
-  DELETE_COMPLETED = "DeleteCompleted",
-  DELETE_FAILED = "DeleteFailed",
-  DELETE_INPROGRESS = "DeleteInProgress",
-  DELETE_PENDING = "DeletePending",
-  EXPORTJOBS_DELETED = "ExportJobsDeleted",
-}
+export const ModelCardProcessingStatus = {
+  CONTENT_DELETED: "ContentDeleted",
+  DELETE_COMPLETED: "DeleteCompleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_INPROGRESS: "DeleteInProgress",
+  DELETE_PENDING: "DeletePending",
+  EXPORTJOBS_DELETED: "ExportJobsDeleted",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardProcessingStatus = (typeof ModelCardProcessingStatus)[keyof typeof ModelCardProcessingStatus];
 
 /**
  * @public
@@ -4785,12 +4918,18 @@ export interface ModelCardExportArtifacts {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelCardExportJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-}
+export const ModelCardExportJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardExportJobStatus = (typeof ModelCardExportJobStatus)[keyof typeof ModelCardExportJobStatus];
 
 /**
  * @public
@@ -4952,13 +5091,19 @@ export interface DescribeModelPackageInput {
 
 /**
  * @public
+ * @enum
  */
-export enum DetailedModelPackageStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted",
-}
+export const DetailedModelPackageStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_STARTED: "NotStarted",
+} as const;
+
+/**
+ * @public
+ */
+export type DetailedModelPackageStatus = (typeof DetailedModelPackageStatus)[keyof typeof DetailedModelPackageStatus];
 
 /**
  * @public
@@ -5151,15 +5296,21 @@ export interface DescribeModelPackageGroupInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelPackageGroupStatus {
-  COMPLETED = "Completed",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-}
+export const ModelPackageGroupStatus = {
+  COMPLETED: "Completed",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelPackageGroupStatus = (typeof ModelPackageGroupStatus)[keyof typeof ModelPackageGroupStatus];
 
 /**
  * @public
@@ -5282,16 +5433,22 @@ export interface DescribeMonitoringScheduleRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutionStatus {
-  COMPLETED = "Completed",
-  COMPLETED_WITH_VIOLATIONS = "CompletedWithViolations",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const ExecutionStatus = {
+  COMPLETED: "Completed",
+  COMPLETED_WITH_VIOLATIONS: "CompletedWithViolations",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @public
@@ -5351,13 +5508,19 @@ export interface MonitoringExecutionSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduleStatus {
-  FAILED = "Failed",
-  PENDING = "Pending",
-  SCHEDULED = "Scheduled",
-  STOPPED = "Stopped",
-}
+export const ScheduleStatus = {
+  FAILED: "Failed",
+  PENDING: "Pending",
+  SCHEDULED: "Scheduled",
+  STOPPED: "Stopped",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
 
 /**
  * @public
@@ -5450,16 +5613,22 @@ export interface DescribeNotebookInstanceInput {
 
 /**
  * @public
+ * @enum
  */
-export enum NotebookInstanceStatus {
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Updating = "Updating",
-}
+export const NotebookInstanceStatus = {
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookInstanceStatus = (typeof NotebookInstanceStatus)[keyof typeof NotebookInstanceStatus];
 
 /**
  * @public
@@ -5665,10 +5834,16 @@ export interface DescribePipelineRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PipelineStatus {
-  ACTIVE = "Active",
-}
+export const PipelineStatus = {
+  ACTIVE: "Active",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus];
 
 /**
  * @public
@@ -5779,14 +5954,20 @@ export interface DescribePipelineExecutionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PipelineExecutionStatus {
-  EXECUTING = "Executing",
-  FAILED = "Failed",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  SUCCEEDED = "Succeeded",
-}
+export const PipelineExecutionStatus = {
+  EXECUTING: "Executing",
+  FAILED: "Failed",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUCCEEDED: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineExecutionStatus = (typeof PipelineExecutionStatus)[keyof typeof PipelineExecutionStatus];
 
 /**
  * @public
@@ -5884,14 +6065,20 @@ export interface DescribeProcessingJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ProcessingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const ProcessingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessingJobStatus = (typeof ProcessingJobStatus)[keyof typeof ProcessingJobStatus];
 
 /**
  * @public
@@ -6021,19 +6208,25 @@ export interface DescribeProjectInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectStatus {
-  CREATE_COMPLETED = "CreateCompleted",
-  CREATE_FAILED = "CreateFailed",
-  CREATE_IN_PROGRESS = "CreateInProgress",
-  DELETE_COMPLETED = "DeleteCompleted",
-  DELETE_FAILED = "DeleteFailed",
-  DELETE_IN_PROGRESS = "DeleteInProgress",
-  PENDING = "Pending",
-  UPDATE_COMPLETED = "UpdateCompleted",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATE_IN_PROGRESS = "UpdateInProgress",
-}
+export const ProjectStatus = {
+  CREATE_COMPLETED: "CreateCompleted",
+  CREATE_FAILED: "CreateFailed",
+  CREATE_IN_PROGRESS: "CreateInProgress",
+  DELETE_COMPLETED: "DeleteCompleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_IN_PROGRESS: "DeleteInProgress",
+  PENDING: "Pending",
+  UPDATE_COMPLETED: "UpdateCompleted",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATE_IN_PROGRESS: "UpdateInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
 /**
  * @public
@@ -6155,16 +6348,22 @@ export interface DescribeSpaceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SpaceStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+export const SpaceStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type SpaceStatus = (typeof SpaceStatus)[keyof typeof SpaceStatus];
 
 /**
  * @public
@@ -6376,33 +6575,45 @@ export interface ProfilerRuleEvaluationStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum ProfilingStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const ProfilingStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
 
 /**
  * @public
  */
-export enum SecondaryStatus {
-  COMPLETED = "Completed",
-  DOWNLOADING = "Downloading",
-  DOWNLOADING_TRAINING_IMAGE = "DownloadingTrainingImage",
-  FAILED = "Failed",
-  INTERRUPTED = "Interrupted",
-  LAUNCHING_ML_INSTANCES = "LaunchingMLInstances",
-  MAX_RUNTIME_EXCEEDED = "MaxRuntimeExceeded",
-  MAX_WAIT_TIME_EXCEEDED = "MaxWaitTimeExceeded",
-  PREPARING_TRAINING_STACK = "PreparingTrainingStack",
-  RESTARTING = "Restarting",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  TRAINING = "Training",
-  UPDATING = "Updating",
-  UPLOADING = "Uploading",
-}
+export type ProfilingStatus = (typeof ProfilingStatus)[keyof typeof ProfilingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecondaryStatus = {
+  COMPLETED: "Completed",
+  DOWNLOADING: "Downloading",
+  DOWNLOADING_TRAINING_IMAGE: "DownloadingTrainingImage",
+  FAILED: "Failed",
+  INTERRUPTED: "Interrupted",
+  LAUNCHING_ML_INSTANCES: "LaunchingMLInstances",
+  MAX_RUNTIME_EXCEEDED: "MaxRuntimeExceeded",
+  MAX_WAIT_TIME_EXCEEDED: "MaxWaitTimeExceeded",
+  PREPARING_TRAINING_STACK: "PreparingTrainingStack",
+  RESTARTING: "Restarting",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  TRAINING: "Training",
+  UPDATING: "Updating",
+  UPLOADING: "Uploading",
+} as const;
+
+/**
+ * @public
+ */
+export type SecondaryStatus = (typeof SecondaryStatus)[keyof typeof SecondaryStatus];
 
 /**
  * @public
@@ -6597,13 +6808,19 @@ export interface SecondaryStatusTransition {
 
 /**
  * @public
+ * @enum
  */
-export enum WarmPoolResourceStatus {
-  AVAILABLE = "Available",
-  INUSE = "InUse",
-  REUSED = "Reused",
-  TERMINATED = "Terminated",
-}
+export const WarmPoolResourceStatus = {
+  AVAILABLE: "Available",
+  INUSE: "InUse",
+  REUSED: "Reused",
+  TERMINATED: "Terminated",
+} as const;
+
+/**
+ * @public
+ */
+export type WarmPoolResourceStatus = (typeof WarmPoolResourceStatus)[keyof typeof WarmPoolResourceStatus];
 
 /**
  * @public
@@ -7075,14 +7292,20 @@ export interface DescribeTransformJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransformJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const TransformJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformJobStatus = (typeof TransformJobStatus)[keyof typeof TransformJobStatus];
 
 /**
  * @public
@@ -7539,16 +7762,22 @@ export interface DescribeUserProfileRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UserProfileStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+export const UserProfileStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type UserProfileStatus = (typeof UserProfileStatus)[keyof typeof UserProfileStatus];
 
 /**
  * @public
@@ -7665,14 +7894,20 @@ export interface OidcConfigForResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkforceStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  UPDATING = "Updating",
-}
+export const WorkforceStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkforceStatus = (typeof WorkforceStatus)[keyof typeof WorkforceStatus];
 
 /**
  * @public
@@ -7911,15 +8146,21 @@ export interface Device {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceDeploymentStatus {
-  Deployed = "DEPLOYED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  ReadyToDeploy = "READYTODEPLOY",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+export const DeviceDeploymentStatus = {
+  Deployed: "DEPLOYED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  ReadyToDeploy: "READYTODEPLOY",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceDeploymentStatus = (typeof DeviceDeploymentStatus)[keyof typeof DeviceDeploymentStatus];
 
 /**
  * @public
@@ -8093,12 +8334,18 @@ export interface DeviceSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum Direction {
-  ASCENDANTS = "Ascendants",
-  BOTH = "Both",
-  DESCENDANTS = "Descendants",
-}
+export const Direction = {
+  ASCENDANTS: "Ascendants",
+  BOTH: "Both",
+  DESCENDANTS: "Descendants",
+} as const;
+
+/**
+ * @public
+ */
+export type Direction = (typeof Direction)[keyof typeof Direction];
 
 /**
  * @public
@@ -8575,11 +8822,17 @@ export interface Endpoint {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointConfigSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-}
+export const EndpointConfigSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointConfigSortKey = (typeof EndpointConfigSortKey)[keyof typeof EndpointConfigSortKey];
 
 /**
  * @public
@@ -8604,12 +8857,18 @@ export interface EndpointConfigSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-  Status = "Status",
-}
+export const EndpointSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointSortKey = (typeof EndpointSortKey)[keyof typeof EndpointSortKey];
 
 /**
  * @public
@@ -8918,21 +9177,33 @@ export interface FeatureGroup {
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureGroupSortBy {
-  CREATION_TIME = "CreationTime",
-  FEATURE_GROUP_STATUS = "FeatureGroupStatus",
-  NAME = "Name",
-  OFFLINE_STORE_STATUS = "OfflineStoreStatus",
-}
+export const FeatureGroupSortBy = {
+  CREATION_TIME: "CreationTime",
+  FEATURE_GROUP_STATUS: "FeatureGroupStatus",
+  NAME: "Name",
+  OFFLINE_STORE_STATUS: "OfflineStoreStatus",
+} as const;
 
 /**
  * @public
  */
-export enum FeatureGroupSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export type FeatureGroupSortBy = (typeof FeatureGroupSortBy)[keyof typeof FeatureGroupSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureGroupSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureGroupSortOrder = (typeof FeatureGroupSortOrder)[keyof typeof FeatureGroupSortOrder];
 
 /**
  * @public
@@ -9018,19 +9289,25 @@ export interface FeatureMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum Operator {
-  CONTAINS = "Contains",
-  EQUALS = "Equals",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo",
-  IN = "In",
-  LESS_THAN = "LessThan",
-  LESS_THAN_OR_EQUAL_TO = "LessThanOrEqualTo",
-  NOT_EQUALS = "NotEquals",
-  NOT_EXISTS = "NotExists",
-}
+export const Operator = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  EXISTS: "Exists",
+  GREATER_THAN: "GreaterThan",
+  GREATER_THAN_OR_EQUAL_TO: "GreaterThanOrEqualTo",
+  IN: "In",
+  LESS_THAN: "LessThan",
+  LESS_THAN_OR_EQUAL_TO: "LessThanOrEqualTo",
+  NOT_EQUALS: "NotEquals",
+  NOT_EXISTS: "NotExists",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * @public
@@ -9371,11 +9648,18 @@ export interface GetSagemakerServicecatalogPortfolioStatusInput {}
 
 /**
  * @public
+ * @enum
  */
-export enum SagemakerServicecatalogStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const SagemakerServicecatalogStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type SagemakerServicecatalogStatus =
+  (typeof SagemakerServicecatalogStatus)[keyof typeof SagemakerServicecatalogStatus];
 
 /**
  * @public
@@ -9389,24 +9673,30 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  ENDPOINT = "Endpoint",
-  EXPERIMENT = "Experiment",
-  EXPERIMENT_TRIAL = "ExperimentTrial",
-  EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
-  FEATURE_GROUP = "FeatureGroup",
-  FEATURE_METADATA = "FeatureMetadata",
-  HYPER_PARAMETER_TUNING_JOB = "HyperParameterTuningJob",
-  MODEL = "Model",
-  MODEL_CARD = "ModelCard",
-  MODEL_PACKAGE = "ModelPackage",
-  MODEL_PACKAGE_GROUP = "ModelPackageGroup",
-  PIPELINE = "Pipeline",
-  PIPELINE_EXECUTION = "PipelineExecution",
-  PROJECT = "Project",
-  TRAINING_JOB = "TrainingJob",
-}
+export const ResourceType = {
+  ENDPOINT: "Endpoint",
+  EXPERIMENT: "Experiment",
+  EXPERIMENT_TRIAL: "ExperimentTrial",
+  EXPERIMENT_TRIAL_COMPONENT: "ExperimentTrialComponent",
+  FEATURE_GROUP: "FeatureGroup",
+  FEATURE_METADATA: "FeatureMetadata",
+  HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
+  MODEL: "Model",
+  MODEL_CARD: "ModelCard",
+  MODEL_PACKAGE: "ModelPackage",
+  MODEL_PACKAGE_GROUP: "ModelPackageGroup",
+  PIPELINE: "Pipeline",
+  PIPELINE_EXECUTION: "PipelineExecution",
+  PROJECT: "Project",
+  TRAINING_JOB: "TrainingJob",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -9548,12 +9838,18 @@ export interface HubContentInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum HubContentSortBy {
-  CREATION_TIME = "CreationTime",
-  HUB_CONTENT_NAME = "HubContentName",
-  HUB_CONTENT_STATUS = "HubContentStatus",
-}
+export const HubContentSortBy = {
+  CREATION_TIME: "CreationTime",
+  HUB_CONTENT_NAME: "HubContentName",
+  HUB_CONTENT_STATUS: "HubContentStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentSortBy = (typeof HubContentSortBy)[keyof typeof HubContentSortBy];
 
 /**
  * @public
@@ -9603,13 +9899,19 @@ export interface HubInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum HubSortBy {
-  ACCOUNT_ID_OWNER = "AccountIdOwner",
-  CREATION_TIME = "CreationTime",
-  HUB_NAME = "HubName",
-  HUB_STATUS = "HubStatus",
-}
+export const HubSortBy = {
+  ACCOUNT_ID_OWNER: "AccountIdOwner",
+  CREATION_TIME: "CreationTime",
+  HUB_NAME: "HubName",
+  HUB_STATUS: "HubStatus",
+} as const;
+
+/**
+ * @public
+ */
+export type HubSortBy = (typeof HubSortBy)[keyof typeof HubSortBy];
 
 /**
  * @public
@@ -9751,12 +10053,19 @@ export interface HyperParameterTuningJobSearchEntity {
 
 /**
  * @public
+ * @enum
  */
-export enum HyperParameterTuningJobSortByOptions {
-  CreationTime = "CreationTime",
-  Name = "Name",
-  Status = "Status",
-}
+export const HyperParameterTuningJobSortByOptions = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperParameterTuningJobSortByOptions =
+  (typeof HyperParameterTuningJobSortByOptions)[keyof typeof HyperParameterTuningJobSortByOptions];
 
 /**
  * @public
@@ -9876,20 +10185,32 @@ export interface Image {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageSortBy {
-  CREATION_TIME = "CREATION_TIME",
-  IMAGE_NAME = "IMAGE_NAME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-}
+export const ImageSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  IMAGE_NAME: "IMAGE_NAME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+} as const;
 
 /**
  * @public
  */
-export enum ImageSortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type ImageSortBy = (typeof ImageSortBy)[keyof typeof ImageSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSortOrder = (typeof ImageSortOrder)[keyof typeof ImageSortOrder];
 
 /**
  * @public
@@ -9935,20 +10256,32 @@ export interface ImageVersion {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageVersionSortBy {
-  CREATION_TIME = "CREATION_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  VERSION = "VERSION",
-}
+export const ImageVersionSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+  VERSION: "VERSION",
+} as const;
 
 /**
  * @public
  */
-export enum ImageVersionSortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type ImageVersionSortBy = (typeof ImageVersionSortBy)[keyof typeof ImageVersionSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageVersionSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageVersionSortOrder = (typeof ImageVersionSortOrder)[keyof typeof ImageVersionSortOrder];
 
 /**
  * @public
@@ -10087,11 +10420,18 @@ export interface InferenceExperimentSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum InferenceExperimentStopDesiredState {
-  CANCELLED = "Cancelled",
-  COMPLETED = "Completed",
-}
+export const InferenceExperimentStopDesiredState = {
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceExperimentStopDesiredState =
+  (typeof InferenceExperimentStopDesiredState)[keyof typeof InferenceExperimentStopDesiredState];
 
 /**
  * @public
@@ -10183,10 +10523,16 @@ export interface RecommendationJobInferenceBenchmark {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationStepType {
-  BENCHMARK = "BENCHMARK",
-}
+export const RecommendationStepType = {
+  BENCHMARK: "BENCHMARK",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationStepType = (typeof RecommendationStepType)[keyof typeof RecommendationStepType];
 
 /**
  * @public

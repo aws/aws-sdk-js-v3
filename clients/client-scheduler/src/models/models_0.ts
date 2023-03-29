@@ -5,11 +5,17 @@ import { SchedulerServiceException as __BaseException } from "./SchedulerService
 
 /**
  * @public
+ * @enum
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
 
 /**
  * @public
@@ -159,11 +165,17 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FlexibleTimeWindowMode {
-  FLEXIBLE = "FLEXIBLE",
-  OFF = "OFF",
-}
+export const FlexibleTimeWindowMode = {
+  FLEXIBLE: "FLEXIBLE",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type FlexibleTimeWindowMode = (typeof FlexibleTimeWindowMode)[keyof typeof FlexibleTimeWindowMode];
 
 /**
  * @public
@@ -183,11 +195,17 @@ export interface FlexibleTimeWindow {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduleState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ScheduleState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
 
 /**
  * @public
@@ -225,12 +243,18 @@ export interface CapacityProviderStrategyItem {
 
 /**
  * @public
+ * @enum
  */
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
 
 /**
  * @public
@@ -267,11 +291,17 @@ export interface NetworkConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
 
 /**
  * @public
@@ -292,12 +322,18 @@ export interface PlacementConstraint {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
 
 /**
  * @public
@@ -321,10 +357,16 @@ export interface PlacementStrategy {
 
 /**
  * @public
+ * @enum
  */
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+} as const;
+
+/**
+ * @public
+ */
+export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
 
 /**
  * @public
@@ -1155,11 +1197,17 @@ export interface GetScheduleGroupInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduleGroupState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const ScheduleGroupState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleGroupState = (typeof ScheduleGroupState)[keyof typeof ScheduleGroupState];
 
 /**
  * @public

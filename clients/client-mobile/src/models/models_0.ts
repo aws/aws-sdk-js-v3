@@ -132,12 +132,18 @@ export interface Resource {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectState {
-  IMPORTING = "IMPORTING",
-  NORMAL = "NORMAL",
-  SYNCING = "SYNCING",
-}
+export const ProjectState = {
+  IMPORTING: "IMPORTING",
+  NORMAL: "NORMAL",
+  SYNCING: "SYNCING",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectState = (typeof ProjectState)[keyof typeof ProjectState];
 
 /**
  * @public
@@ -435,16 +441,22 @@ export interface DescribeBundleRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Platform {
-  ANDROID = "ANDROID",
-  JAVASCRIPT = "JAVASCRIPT",
-  LINUX = "LINUX",
-  OBJC = "OBJC",
-  OSX = "OSX",
-  SWIFT = "SWIFT",
-  WINDOWS = "WINDOWS",
-}
+export const Platform = {
+  ANDROID: "ANDROID",
+  JAVASCRIPT: "JAVASCRIPT",
+  LINUX: "LINUX",
+  OBJC: "OBJC",
+  OSX: "OSX",
+  SWIFT: "SWIFT",
+  WINDOWS: "WINDOWS",
+} as const;
+
+/**
+ * @public
+ */
+export type Platform = (typeof Platform)[keyof typeof Platform];
 
 /**
  * @public

@@ -113,11 +113,17 @@ export interface Asset {
 
 /**
  * @public
+ * @enum
  */
-export enum Attribute {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT",
-}
+export const Attribute = {
+  ALL: "ALL",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type Attribute = (typeof Attribute)[keyof typeof Attribute];
 
 /**
  * @public
@@ -198,13 +204,19 @@ export interface BlackFrame {
 
 /**
  * @public
+ * @enum
  */
-export enum BodyPart {
-  FACE = "FACE",
-  HEAD = "HEAD",
-  LEFT_HAND = "LEFT_HAND",
-  RIGHT_HAND = "RIGHT_HAND",
-}
+export const BodyPart = {
+  FACE: "FACE",
+  HEAD: "HEAD",
+  LEFT_HAND: "LEFT_HAND",
+  RIGHT_HAND: "RIGHT_HAND",
+} as const;
+
+/**
+ * @public
+ */
+export type BodyPart = (typeof BodyPart)[keyof typeof BodyPart];
 
 /**
  * @public
@@ -268,12 +280,18 @@ export interface CoversBodyPart {
 
 /**
  * @public
+ * @enum
  */
-export enum ProtectiveEquipmentType {
-  FACE_COVER = "FACE_COVER",
-  HAND_COVER = "HAND_COVER",
-  HEAD_COVER = "HEAD_COVER",
-}
+export const ProtectiveEquipmentType = {
+  FACE_COVER: "FACE_COVER",
+  HAND_COVER: "HAND_COVER",
+  HEAD_COVER: "HEAD_COVER",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectiveEquipmentType = (typeof ProtectiveEquipmentType)[keyof typeof ProtectiveEquipmentType];
 
 /**
  * @public
@@ -329,18 +347,24 @@ export interface ProtectiveEquipmentBodyPart {
 
 /**
  * @public
+ * @enum
  */
-export enum EmotionName {
-  ANGRY = "ANGRY",
-  CALM = "CALM",
-  CONFUSED = "CONFUSED",
-  DISGUSTED = "DISGUSTED",
-  FEAR = "FEAR",
-  HAPPY = "HAPPY",
-  SAD = "SAD",
-  SURPRISED = "SURPRISED",
-  UNKNOWN = "UNKNOWN",
-}
+export const EmotionName = {
+  ANGRY: "ANGRY",
+  CALM: "CALM",
+  CONFUSED: "CONFUSED",
+  DISGUSTED: "DISGUSTED",
+  FEAR: "FEAR",
+  HAPPY: "HAPPY",
+  SAD: "SAD",
+  SURPRISED: "SURPRISED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type EmotionName = (typeof EmotionName)[keyof typeof EmotionName];
 
 /**
  * @public
@@ -364,39 +388,45 @@ export interface Emotion {
 
 /**
  * @public
+ * @enum
  */
-export enum LandmarkType {
-  chinBottom = "chinBottom",
-  eyeLeft = "eyeLeft",
-  eyeRight = "eyeRight",
-  leftEyeBrowLeft = "leftEyeBrowLeft",
-  leftEyeBrowRight = "leftEyeBrowRight",
-  leftEyeBrowUp = "leftEyeBrowUp",
-  leftEyeDown = "leftEyeDown",
-  leftEyeLeft = "leftEyeLeft",
-  leftEyeRight = "leftEyeRight",
-  leftEyeUp = "leftEyeUp",
-  leftPupil = "leftPupil",
-  midJawlineLeft = "midJawlineLeft",
-  midJawlineRight = "midJawlineRight",
-  mouthDown = "mouthDown",
-  mouthLeft = "mouthLeft",
-  mouthRight = "mouthRight",
-  mouthUp = "mouthUp",
-  nose = "nose",
-  noseLeft = "noseLeft",
-  noseRight = "noseRight",
-  rightEyeBrowLeft = "rightEyeBrowLeft",
-  rightEyeBrowRight = "rightEyeBrowRight",
-  rightEyeBrowUp = "rightEyeBrowUp",
-  rightEyeDown = "rightEyeDown",
-  rightEyeLeft = "rightEyeLeft",
-  rightEyeRight = "rightEyeRight",
-  rightEyeUp = "rightEyeUp",
-  rightPupil = "rightPupil",
-  upperJawlineLeft = "upperJawlineLeft",
-  upperJawlineRight = "upperJawlineRight",
-}
+export const LandmarkType = {
+  chinBottom: "chinBottom",
+  eyeLeft: "eyeLeft",
+  eyeRight: "eyeRight",
+  leftEyeBrowLeft: "leftEyeBrowLeft",
+  leftEyeBrowRight: "leftEyeBrowRight",
+  leftEyeBrowUp: "leftEyeBrowUp",
+  leftEyeDown: "leftEyeDown",
+  leftEyeLeft: "leftEyeLeft",
+  leftEyeRight: "leftEyeRight",
+  leftEyeUp: "leftEyeUp",
+  leftPupil: "leftPupil",
+  midJawlineLeft: "midJawlineLeft",
+  midJawlineRight: "midJawlineRight",
+  mouthDown: "mouthDown",
+  mouthLeft: "mouthLeft",
+  mouthRight: "mouthRight",
+  mouthUp: "mouthUp",
+  nose: "nose",
+  noseLeft: "noseLeft",
+  noseRight: "noseRight",
+  rightEyeBrowLeft: "rightEyeBrowLeft",
+  rightEyeBrowRight: "rightEyeBrowRight",
+  rightEyeBrowUp: "rightEyeBrowUp",
+  rightEyeDown: "rightEyeDown",
+  rightEyeLeft: "rightEyeLeft",
+  rightEyeRight: "rightEyeRight",
+  rightEyeUp: "rightEyeUp",
+  rightPupil: "rightPupil",
+  upperJawlineLeft: "upperJawlineLeft",
+  upperJawlineRight: "upperJawlineRight",
+} as const;
+
+/**
+ * @public
+ */
+export type LandmarkType = (typeof LandmarkType)[keyof typeof LandmarkType];
 
 /**
  * @public
@@ -527,13 +557,19 @@ export interface ComparedFace {
 
 /**
  * @public
+ * @enum
  */
-export enum KnownGenderType {
-  Female = "Female",
-  Male = "Male",
-  Nonbinary = "Nonbinary",
-  Unlisted = "Unlisted",
-}
+export const KnownGenderType = {
+  Female: "Female",
+  Male: "Male",
+  Nonbinary: "Nonbinary",
+  Unlisted: "Unlisted",
+} as const;
+
+/**
+ * @public
+ */
+export type KnownGenderType = (typeof KnownGenderType)[keyof typeof KnownGenderType];
 
 /**
  * @public
@@ -623,11 +659,17 @@ export interface EyeOpen {
 
 /**
  * @public
+ * @enum
  */
-export enum GenderType {
-  Female = "Female",
-  Male = "Male",
-}
+export const GenderType = {
+  Female: "Female",
+  Male: "Male",
+} as const;
+
+/**
+ * @public
+ */
+export type GenderType = (typeof GenderType)[keyof typeof GenderType];
 
 /**
  * @public
@@ -890,11 +932,17 @@ export interface CelebrityRecognition {
 
 /**
  * @public
+ * @enum
  */
-export enum CelebrityRecognitionSortBy {
-  ID = "ID",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const CelebrityRecognitionSortBy = {
+  ID: "ID",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type CelebrityRecognitionSortBy = (typeof CelebrityRecognitionSortBy)[keyof typeof CelebrityRecognitionSortBy];
 
 /**
  * @public
@@ -917,14 +965,20 @@ export interface ComparedSourceImageFace {
 
 /**
  * @public
+ * @enum
  */
-export enum QualityFilter {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE",
-}
+export const QualityFilter = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type QualityFilter = (typeof QualityFilter)[keyof typeof QualityFilter];
 
 /**
  * @public
@@ -1028,13 +1082,19 @@ export interface CompareFacesMatch {
 
 /**
  * @public
+ * @enum
  */
-export enum OrientationCorrection {
-  ROTATE_0 = "ROTATE_0",
-  ROTATE_180 = "ROTATE_180",
-  ROTATE_270 = "ROTATE_270",
-  ROTATE_90 = "ROTATE_90",
-}
+export const OrientationCorrection = {
+  ROTATE_0: "ROTATE_0",
+  ROTATE_180: "ROTATE_180",
+  ROTATE_270: "ROTATE_270",
+  ROTATE_90: "ROTATE_90",
+} as const;
+
+/**
+ * @public
+ */
+export type OrientationCorrection = (typeof OrientationCorrection)[keyof typeof OrientationCorrection];
 
 /**
  * @public
@@ -1344,11 +1404,17 @@ export interface ConnectedHomeSettingsForUpdate {
 
 /**
  * @public
+ * @enum
  */
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentClassifier];
 
 /**
  * @public
@@ -1398,11 +1464,17 @@ export interface ContentModerationDetection {
 
 /**
  * @public
+ * @enum
  */
-export enum ContentModerationSortBy {
-  NAME = "NAME",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const ContentModerationSortBy = {
+  NAME: "NAME",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentModerationSortBy = (typeof ContentModerationSortBy)[keyof typeof ContentModerationSortBy];
 
 /**
  * @public
@@ -1707,11 +1779,17 @@ export interface DatasetSource {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetType {
-  TEST = "TEST",
-  TRAIN = "TRAIN",
-}
+export const DatasetType = {
+  TEST: "TEST",
+  TRAIN: "TRAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
 
 /**
  * @public
@@ -2275,25 +2353,37 @@ export interface DatasetStats {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const DatasetStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
 
 /**
  * @public
  */
-export enum DatasetStatusMessageCode {
-  CLIENT_ERROR = "CLIENT_ERROR",
-  SERVICE_ERROR = "SERVICE_ERROR",
-  SUCCESS = "SUCCESS",
-}
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatasetStatusMessageCode = {
+  CLIENT_ERROR: "CLIENT_ERROR",
+  SERVICE_ERROR: "SERVICE_ERROR",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetStatusMessageCode = (typeof DatasetStatusMessageCode)[keyof typeof DatasetStatusMessageCode];
 
 /**
  * @public
@@ -2520,12 +2610,18 @@ export interface DeleteProjectRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectStatus {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ProjectStatus = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
 /**
  * @public
@@ -2603,21 +2699,27 @@ export interface DeleteProjectVersionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectVersionStatus {
-  COPYING_COMPLETED = "COPYING_COMPLETED",
-  COPYING_FAILED = "COPYING_FAILED",
-  COPYING_IN_PROGRESS = "COPYING_IN_PROGRESS",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TRAINING_COMPLETED = "TRAINING_COMPLETED",
-  TRAINING_FAILED = "TRAINING_FAILED",
-  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS",
-}
+export const ProjectVersionStatus = {
+  COPYING_COMPLETED: "COPYING_COMPLETED",
+  COPYING_FAILED: "COPYING_FAILED",
+  COPYING_IN_PROGRESS: "COPYING_IN_PROGRESS",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TRAINING_COMPLETED: "TRAINING_COMPLETED",
+  TRAINING_FAILED: "TRAINING_FAILED",
+  TRAINING_IN_PROGRESS: "TRAINING_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectVersionStatus = (typeof ProjectVersionStatus)[keyof typeof ProjectVersionStatus];
 
 /**
  * @public
@@ -3056,15 +3158,21 @@ export interface DescribeStreamProcessorRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StreamProcessorStatus {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export const StreamProcessorStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamProcessorStatus = (typeof StreamProcessorStatus)[keyof typeof StreamProcessorStatus];
 
 /**
  * @public
@@ -3324,11 +3432,17 @@ export interface DetectionFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum DetectLabelsFeatureName {
-  GENERAL_LABELS = "GENERAL_LABELS",
-  IMAGE_PROPERTIES = "IMAGE_PROPERTIES",
-}
+export const DetectLabelsFeatureName = {
+  GENERAL_LABELS: "GENERAL_LABELS",
+  IMAGE_PROPERTIES: "IMAGE_PROPERTIES",
+} as const;
+
+/**
+ * @public
+ */
+export type DetectLabelsFeatureName = (typeof DetectLabelsFeatureName)[keyof typeof DetectLabelsFeatureName];
 
 /**
  * @public
@@ -4029,11 +4143,17 @@ export interface DetectTextRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TextTypes {
-  LINE = "LINE",
-  WORD = "WORD",
-}
+export const TextTypes = {
+  LINE: "LINE",
+  WORD: "WORD",
+} as const;
+
+/**
+ * @public
+ */
+export type TextTypes = (typeof TextTypes)[keyof typeof TextTypes];
 
 /**
  * @public
@@ -4173,11 +4293,17 @@ export interface Face {
 
 /**
  * @public
+ * @enum
  */
-export enum FaceAttributes {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT",
-}
+export const FaceAttributes = {
+  ALL: "ALL",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type FaceAttributes = (typeof FaceAttributes)[keyof typeof FaceAttributes];
 
 /**
  * @public
@@ -4234,11 +4360,17 @@ export interface FaceRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum FaceSearchSortBy {
-  INDEX = "INDEX",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const FaceSearchSortBy = {
+  INDEX: "INDEX",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type FaceSearchSortBy = (typeof FaceSearchSortBy)[keyof typeof FaceSearchSortBy];
 
 /**
  * @public
@@ -4303,20 +4435,32 @@ export interface GetCelebrityRecognitionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VideoJobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const VideoJobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
  * @public
  */
-export enum VideoColorRange {
-  FULL = "FULL",
-  LIMITED = "LIMITED",
-}
+export type VideoJobStatus = (typeof VideoJobStatus)[keyof typeof VideoJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoColorRange = {
+  FULL: "FULL",
+  LIMITED: "LIMITED",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoColorRange = (typeof VideoColorRange)[keyof typeof VideoColorRange];
 
 /**
  * @public
@@ -4635,19 +4779,31 @@ export interface GetFaceSearchResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LabelDetectionAggregateBy {
-  SEGMENTS = "SEGMENTS",
-  TIMESTAMPS = "TIMESTAMPS",
-}
+export const LabelDetectionAggregateBy = {
+  SEGMENTS: "SEGMENTS",
+  TIMESTAMPS: "TIMESTAMPS",
+} as const;
 
 /**
  * @public
  */
-export enum LabelDetectionSortBy {
-  NAME = "NAME",
-  TIMESTAMP = "TIMESTAMP",
-}
+export type LabelDetectionAggregateBy = (typeof LabelDetectionAggregateBy)[keyof typeof LabelDetectionAggregateBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const LabelDetectionSortBy = {
+  NAME: "NAME",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type LabelDetectionSortBy = (typeof LabelDetectionSortBy)[keyof typeof LabelDetectionSortBy];
 
 /**
  * @public
@@ -4759,11 +4915,17 @@ export interface GetLabelDetectionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PersonTrackingSortBy {
-  INDEX = "INDEX",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const PersonTrackingSortBy = {
+  INDEX: "INDEX",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type PersonTrackingSortBy = (typeof PersonTrackingSortBy)[keyof typeof PersonTrackingSortBy];
 
 /**
  * @public
@@ -4890,16 +5052,22 @@ export interface ShotSegment {
 
 /**
  * @public
+ * @enum
  */
-export enum TechnicalCueType {
-  BLACK_FRAMES = "BlackFrames",
-  COLOR_BARS = "ColorBars",
-  CONTENT = "Content",
-  END_CREDITS = "EndCredits",
-  OPENING_CREDITS = "OpeningCredits",
-  SLATE = "Slate",
-  STUDIO_LOGO = "StudioLogo",
-}
+export const TechnicalCueType = {
+  BLACK_FRAMES: "BlackFrames",
+  COLOR_BARS: "ColorBars",
+  CONTENT: "Content",
+  END_CREDITS: "EndCredits",
+  OPENING_CREDITS: "OpeningCredits",
+  SLATE: "Slate",
+  STUDIO_LOGO: "StudioLogo",
+} as const;
+
+/**
+ * @public
+ */
+export type TechnicalCueType = (typeof TechnicalCueType)[keyof typeof TechnicalCueType];
 
 /**
  * @public
@@ -4919,11 +5087,17 @@ export interface TechnicalCueSegment {
 
 /**
  * @public
+ * @enum
  */
-export enum SegmentType {
-  SHOT = "SHOT",
-  TECHNICAL_CUE = "TECHNICAL_CUE",
-}
+export const SegmentType = {
+  SHOT: "SHOT",
+  TECHNICAL_CUE: "TECHNICAL_CUE",
+} as const;
+
+/**
+ * @public
+ */
+export type SegmentType = (typeof SegmentType)[keyof typeof SegmentType];
 
 /**
  * @public
@@ -5257,16 +5431,22 @@ export interface IndexFacesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Reason {
-  EXCEEDS_MAX_FACES = "EXCEEDS_MAX_FACES",
-  EXTREME_POSE = "EXTREME_POSE",
-  LOW_BRIGHTNESS = "LOW_BRIGHTNESS",
-  LOW_CONFIDENCE = "LOW_CONFIDENCE",
-  LOW_FACE_QUALITY = "LOW_FACE_QUALITY",
-  LOW_SHARPNESS = "LOW_SHARPNESS",
-  SMALL_BOUNDING_BOX = "SMALL_BOUNDING_BOX",
-}
+export const Reason = {
+  EXCEEDS_MAX_FACES: "EXCEEDS_MAX_FACES",
+  EXTREME_POSE: "EXTREME_POSE",
+  LOW_BRIGHTNESS: "LOW_BRIGHTNESS",
+  LOW_CONFIDENCE: "LOW_CONFIDENCE",
+  LOW_FACE_QUALITY: "LOW_FACE_QUALITY",
+  LOW_SHARPNESS: "LOW_SHARPNESS",
+  SMALL_BOUNDING_BOX: "SMALL_BOUNDING_BOX",
+} as const;
+
+/**
+ * @public
+ */
+export type Reason = (typeof Reason)[keyof typeof Reason];
 
 /**
  * @public
@@ -5385,10 +5565,16 @@ export interface KinesisVideoStreamStartSelector {
 
 /**
  * @public
+ * @enum
  */
-export enum LabelDetectionFeatureName {
-  GENERAL_LABELS = "GENERAL_LABELS",
-}
+export const LabelDetectionFeatureName = {
+  GENERAL_LABELS: "GENERAL_LABELS",
+} as const;
+
+/**
+ * @public
+ */
+export type LabelDetectionFeatureName = (typeof LabelDetectionFeatureName)[keyof typeof LabelDetectionFeatureName];
 
 /**
  * @public
@@ -6751,11 +6937,18 @@ export interface UpdateDatasetEntriesResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum StreamProcessorParameterToDelete {
-  ConnectedHomeMinConfidence = "ConnectedHomeMinConfidence",
-  RegionsOfInterest = "RegionsOfInterest",
-}
+export const StreamProcessorParameterToDelete = {
+  ConnectedHomeMinConfidence: "ConnectedHomeMinConfidence",
+  RegionsOfInterest: "RegionsOfInterest",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamProcessorParameterToDelete =
+  (typeof StreamProcessorParameterToDelete)[keyof typeof StreamProcessorParameterToDelete];
 
 /**
  * @public

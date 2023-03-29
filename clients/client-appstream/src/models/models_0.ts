@@ -5,10 +5,16 @@ import { AppStreamServiceException as __BaseException } from "./AppStreamService
 
 /**
  * @public
+ * @enum
  */
-export enum AccessEndpointType {
-  STREAMING = "STREAMING",
-}
+export const AccessEndpointType = {
+  STREAMING: "STREAMING",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessEndpointType = (typeof AccessEndpointType)[keyof typeof AccessEndpointType];
 
 /**
  * @public
@@ -28,16 +34,22 @@ export interface AccessEndpoint {
 
 /**
  * @public
+ * @enum
  */
-export enum Action {
-  CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
-  CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
-  DOMAIN_PASSWORD_SIGNIN = "DOMAIN_PASSWORD_SIGNIN",
-  DOMAIN_SMART_CARD_SIGNIN = "DOMAIN_SMART_CARD_SIGNIN",
-  FILE_DOWNLOAD = "FILE_DOWNLOAD",
-  FILE_UPLOAD = "FILE_UPLOAD",
-  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE",
-}
+export const Action = {
+  CLIPBOARD_COPY_FROM_LOCAL_DEVICE: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+  CLIPBOARD_COPY_TO_LOCAL_DEVICE: "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+  DOMAIN_PASSWORD_SIGNIN: "DOMAIN_PASSWORD_SIGNIN",
+  DOMAIN_SMART_CARD_SIGNIN: "DOMAIN_SMART_CARD_SIGNIN",
+  FILE_DOWNLOAD: "FILE_DOWNLOAD",
+  FILE_UPLOAD: "FILE_UPLOAD",
+  PRINTING_TO_LOCAL_DEVICE: "PRINTING_TO_LOCAL_DEVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type Action = (typeof Action)[keyof typeof Action];
 
 /**
  * @public
@@ -130,13 +142,19 @@ export interface AppBlock {
 
 /**
  * @public
+ * @enum
  */
-export enum PlatformType {
-  AMAZON_LINUX2 = "AMAZON_LINUX2",
-  WINDOWS = "WINDOWS",
-  WINDOWS_SERVER_2016 = "WINDOWS_SERVER_2016",
-  WINDOWS_SERVER_2019 = "WINDOWS_SERVER_2019",
-}
+export const PlatformType = {
+  AMAZON_LINUX2: "AMAZON_LINUX2",
+  WINDOWS: "WINDOWS",
+  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
+  WINDOWS_SERVER_2019: "WINDOWS_SERVER_2019",
+} as const;
+
+/**
+ * @public
+ */
+export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
 
 /**
  * @public
@@ -221,11 +239,17 @@ export interface Application {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationAttribute {
-  LAUNCH_PARAMETERS = "LAUNCH_PARAMETERS",
-  WORKING_DIRECTORY = "WORKING_DIRECTORY",
-}
+export const ApplicationAttribute = {
+  LAUNCH_PARAMETERS: "LAUNCH_PARAMETERS",
+  WORKING_DIRECTORY: "WORKING_DIRECTORY",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationAttribute = (typeof ApplicationAttribute)[keyof typeof ApplicationAttribute];
 
 /**
  * @public
@@ -283,11 +307,17 @@ export interface ApplicationSettingsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum AppVisibility {
-  ALL = "ALL",
-  ASSOCIATED = "ASSOCIATED",
-}
+export const AppVisibility = {
+  ALL: "ALL",
+  ASSOCIATED: "ASSOCIATED",
+} as const;
+
+/**
+ * @public
+ */
+export type AppVisibility = (typeof AppVisibility)[keyof typeof AppVisibility];
 
 /**
  * @public
@@ -563,13 +593,19 @@ export class InvalidAccountStatusException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticationType {
-  API = "API",
-  AWS_AD = "AWS_AD",
-  SAML = "SAML",
-  USERPOOL = "USERPOOL",
-}
+export const AuthenticationType = {
+  API: "API",
+  AWS_AD: "AWS_AD",
+  SAML: "SAML",
+  USERPOOL: "USERPOOL",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
  * @public
@@ -612,13 +648,20 @@ export interface BatchAssociateUserStackRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UserStackAssociationErrorCode {
-  DIRECTORY_NOT_FOUND = "DIRECTORY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STACK_NOT_FOUND = "STACK_NOT_FOUND",
-  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND",
-}
+export const UserStackAssociationErrorCode = {
+  DIRECTORY_NOT_FOUND: "DIRECTORY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STACK_NOT_FOUND: "STACK_NOT_FOUND",
+  USER_NAME_NOT_FOUND: "USER_NAME_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type UserStackAssociationErrorCode =
+  (typeof UserStackAssociationErrorCode)[keyof typeof UserStackAssociationErrorCode];
 
 /**
  * @public
@@ -673,12 +716,18 @@ export interface BatchDisassociateUserStackResult {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateBasedAuthStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ENABLED_NO_DIRECTORY_LOGIN_FALLBACK = "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
-}
+export const CertificateBasedAuthStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENABLED_NO_DIRECTORY_LOGIN_FALLBACK: "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateBasedAuthStatus = (typeof CertificateBasedAuthStatus)[keyof typeof CertificateBasedAuthStatus];
 
 /**
  * @public
@@ -1236,20 +1285,32 @@ export interface DomainJoinInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetType {
-  ALWAYS_ON = "ALWAYS_ON",
-  ELASTIC = "ELASTIC",
-  ON_DEMAND = "ON_DEMAND",
-}
+export const FleetType = {
+  ALWAYS_ON: "ALWAYS_ON",
+  ELASTIC: "ELASTIC",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
 
 /**
  * @public
  */
-export enum StreamView {
-  APP = "APP",
-  DESKTOP = "DESKTOP",
-}
+export type FleetType = (typeof FleetType)[keyof typeof FleetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamView = {
+  APP: "APP",
+  DESKTOP: "DESKTOP",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamView = (typeof StreamView)[keyof typeof StreamView];
 
 /**
  * @public
@@ -1540,39 +1601,45 @@ export interface CreateFleetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetErrorCode {
-  DOMAIN_JOIN_ERROR_ACCESS_DENIED = "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
-  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED = "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
-  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND = "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
-  DOMAIN_JOIN_ERROR_INVALID_PARAMETER = "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
-  DOMAIN_JOIN_ERROR_LOGON_FAILURE = "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
-  DOMAIN_JOIN_ERROR_MORE_DATA = "DOMAIN_JOIN_ERROR_MORE_DATA",
-  DOMAIN_JOIN_ERROR_NOT_SUPPORTED = "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
-  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN = "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
-  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR = "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
-  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME = "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
-  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED = "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
-  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED = "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
-  FLEET_INSTANCE_PROVISIONING_FAILURE = "FLEET_INSTANCE_PROVISIONING_FAILURE",
-  FLEET_STOPPED = "FLEET_STOPPED",
-  IAM_SERVICE_ROLE_IS_MISSING = "IAM_SERVICE_ROLE_IS_MISSING",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
-  IGW_NOT_ATTACHED = "IGW_NOT_ATTACHED",
-  IMAGE_NOT_FOUND = "IMAGE_NOT_FOUND",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_SUBNET_CONFIGURATION = "INVALID_SUBNET_CONFIGURATION",
-  MACHINE_ROLE_IS_MISSING = "MACHINE_ROLE_IS_MISSING",
-  NETWORK_INTERFACE_LIMIT_EXCEEDED = "NETWORK_INTERFACE_LIMIT_EXCEEDED",
-  SECURITY_GROUPS_NOT_FOUND = "SECURITY_GROUPS_NOT_FOUND",
-  STS_DISABLED_IN_REGION = "STS_DISABLED_IN_REGION",
-  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES = "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
-}
+export const FleetErrorCode = {
+  DOMAIN_JOIN_ERROR_ACCESS_DENIED: "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
+  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED: "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
+  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND: "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
+  DOMAIN_JOIN_ERROR_INVALID_PARAMETER: "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
+  DOMAIN_JOIN_ERROR_LOGON_FAILURE: "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
+  DOMAIN_JOIN_ERROR_MORE_DATA: "DOMAIN_JOIN_ERROR_MORE_DATA",
+  DOMAIN_JOIN_ERROR_NOT_SUPPORTED: "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
+  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN: "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
+  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR: "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
+  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME: "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
+  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED: "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
+  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED: "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+  FLEET_INSTANCE_PROVISIONING_FAILURE: "FLEET_INSTANCE_PROVISIONING_FAILURE",
+  FLEET_STOPPED: "FLEET_STOPPED",
+  IAM_SERVICE_ROLE_IS_MISSING: "IAM_SERVICE_ROLE_IS_MISSING",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+  IGW_NOT_ATTACHED: "IGW_NOT_ATTACHED",
+  IMAGE_NOT_FOUND: "IMAGE_NOT_FOUND",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  INVALID_SUBNET_CONFIGURATION: "INVALID_SUBNET_CONFIGURATION",
+  MACHINE_ROLE_IS_MISSING: "MACHINE_ROLE_IS_MISSING",
+  NETWORK_INTERFACE_LIMIT_EXCEEDED: "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+  SECURITY_GROUPS_NOT_FOUND: "SECURITY_GROUPS_NOT_FOUND",
+  STS_DISABLED_IN_REGION: "STS_DISABLED_IN_REGION",
+  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES: "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetErrorCode = (typeof FleetErrorCode)[keyof typeof FleetErrorCode];
 
 /**
  * @public
@@ -1592,13 +1659,19 @@ export interface FleetError {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetState {
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const FleetState = {
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetState = (typeof FleetState)[keyof typeof FleetState];
 
 /**
  * @public
@@ -2107,28 +2180,41 @@ export interface NetworkAccessConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageBuilderState {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PENDING_QUALIFICATION = "PENDING_QUALIFICATION",
-  REBOOTING = "REBOOTING",
-  RUNNING = "RUNNING",
-  SNAPSHOTTING = "SNAPSHOTTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-  UPDATING_AGENT = "UPDATING_AGENT",
-}
+export const ImageBuilderState = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PENDING_QUALIFICATION: "PENDING_QUALIFICATION",
+  REBOOTING: "REBOOTING",
+  RUNNING: "RUNNING",
+  SNAPSHOTTING: "SNAPSHOTTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+  UPDATING_AGENT: "UPDATING_AGENT",
+} as const;
 
 /**
  * @public
  */
-export enum ImageBuilderStateChangeReasonCode {
-  IMAGE_UNAVAILABLE = "IMAGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+export type ImageBuilderState = (typeof ImageBuilderState)[keyof typeof ImageBuilderState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageBuilderStateChangeReasonCode = {
+  IMAGE_UNAVAILABLE: "IMAGE_UNAVAILABLE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageBuilderStateChangeReasonCode =
+  (typeof ImageBuilderStateChangeReasonCode)[keyof typeof ImageBuilderStateChangeReasonCode];
 
 /**
  * @public
@@ -2387,12 +2473,18 @@ export interface CreateImageBuilderStreamingURLResult {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageConnectorType {
-  GOOGLE_DRIVE = "GOOGLE_DRIVE",
-  HOMEFOLDERS = "HOMEFOLDERS",
-  ONE_DRIVE = "ONE_DRIVE",
-}
+export const StorageConnectorType = {
+  GOOGLE_DRIVE: "GOOGLE_DRIVE",
+  HOMEFOLDERS: "HOMEFOLDERS",
+  ONE_DRIVE: "ONE_DRIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageConnectorType = (typeof StorageConnectorType)[keyof typeof StorageConnectorType];
 
 /**
  * @public
@@ -2417,11 +2509,17 @@ export interface StorageConnector {
 
 /**
  * @public
+ * @enum
  */
-export enum PreferredProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const PreferredProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type PreferredProtocol = (typeof PreferredProtocol)[keyof typeof PreferredProtocol];
 
 /**
  * @public
@@ -2436,11 +2534,17 @@ export interface StreamingExperienceSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum Permission {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const Permission = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
  * @public
@@ -2529,11 +2633,17 @@ export interface CreateStackRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StackErrorCode {
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR",
-}
+export const StackErrorCode = {
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  STORAGE_CONNECTOR_ERROR: "STORAGE_CONNECTOR_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type StackErrorCode = (typeof StackErrorCode)[keyof typeof StackErrorCode];
 
 /**
  * @public
@@ -2746,25 +2856,37 @@ export interface ImagePermissions {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageState {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IMPORTING = "IMPORTING",
-  PENDING = "PENDING",
-}
+export const ImageState = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IMPORTING: "IMPORTING",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum ImageStateChangeReasonCode {
-  IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
-  IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+export type ImageState = (typeof ImageState)[keyof typeof ImageState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageStateChangeReasonCode = {
+  IMAGE_BUILDER_NOT_AVAILABLE: "IMAGE_BUILDER_NOT_AVAILABLE",
+  IMAGE_COPY_FAILURE: "IMAGE_COPY_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageStateChangeReasonCode = (typeof ImageStateChangeReasonCode)[keyof typeof ImageStateChangeReasonCode];
 
 /**
  * @public
@@ -2784,12 +2906,18 @@ export interface ImageStateChangeReason {
 
 /**
  * @public
+ * @enum
  */
-export enum VisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-  SHARED = "SHARED",
-}
+export const VisibilityType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type VisibilityType = (typeof VisibilityType)[keyof typeof VisibilityType];
 
 /**
  * @public
@@ -2906,10 +3034,16 @@ export interface CreateUsageReportSubscriptionRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum UsageReportSchedule {
-  DAILY = "DAILY",
-}
+export const UsageReportSchedule = {
+  DAILY: "DAILY",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageReportSchedule = (typeof UsageReportSchedule)[keyof typeof UsageReportSchedule];
 
 /**
  * @public
@@ -2933,11 +3067,17 @@ export interface CreateUsageReportSubscriptionResult {
 
 /**
  * @public
+ * @enum
  */
-export enum MessageAction {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS",
-}
+export const MessageAction = {
+  RESEND: "RESEND",
+  SUPPRESS: "SUPPRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageAction = (typeof MessageAction)[keyof typeof MessageAction];
 
 /**
  * @public
@@ -3595,20 +3735,32 @@ export interface DescribeSessionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SessionConnectionState {
-  CONNECTED = "CONNECTED",
-  NOT_CONNECTED = "NOT_CONNECTED",
-}
+export const SessionConnectionState = {
+  CONNECTED: "CONNECTED",
+  NOT_CONNECTED: "NOT_CONNECTED",
+} as const;
 
 /**
  * @public
  */
-export enum SessionState {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-}
+export type SessionConnectionState = (typeof SessionConnectionState)[keyof typeof SessionConnectionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionState = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionState = (typeof SessionState)[keyof typeof SessionState];
 
 /**
  * @public
@@ -3729,12 +3881,19 @@ export interface DescribeUsageReportSubscriptionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageReportExecutionErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-}
+export const UsageReportExecutionErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageReportExecutionErrorCode =
+  (typeof UsageReportExecutionErrorCode)[keyof typeof UsageReportExecutionErrorCode];
 
 /**
  * @public
@@ -4086,15 +4245,21 @@ export interface ExpireSessionResult {}
 
 /**
  * @public
+ * @enum
  */
-export enum FleetAttribute {
-  DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
-  IAM_ROLE_ARN = "IAM_ROLE_ARN",
-  SESSION_SCRIPT_S3_LOCATION = "SESSION_SCRIPT_S3_LOCATION",
-  USB_DEVICE_FILTER_STRINGS = "USB_DEVICE_FILTER_STRINGS",
-  VPC_CONFIGURATION = "VPC_CONFIGURATION",
-  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
-}
+export const FleetAttribute = {
+  DOMAIN_JOIN_INFO: "DOMAIN_JOIN_INFO",
+  IAM_ROLE_ARN: "IAM_ROLE_ARN",
+  SESSION_SCRIPT_S3_LOCATION: "SESSION_SCRIPT_S3_LOCATION",
+  USB_DEVICE_FILTER_STRINGS: "USB_DEVICE_FILTER_STRINGS",
+  VPC_CONFIGURATION: "VPC_CONFIGURATION",
+  VPC_CONFIGURATION_SECURITY_GROUP_IDS: "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetAttribute = (typeof FleetAttribute)[keyof typeof FleetAttribute];
 
 /**
  * @public
@@ -4766,21 +4931,27 @@ export interface UpdateImagePermissionsResult {}
 
 /**
  * @public
+ * @enum
  */
-export enum StackAttribute {
-  ACCESS_ENDPOINTS = "ACCESS_ENDPOINTS",
-  EMBED_HOST_DOMAINS = "EMBED_HOST_DOMAINS",
-  FEEDBACK_URL = "FEEDBACK_URL",
-  IAM_ROLE_ARN = "IAM_ROLE_ARN",
-  REDIRECT_URL = "REDIRECT_URL",
-  STORAGE_CONNECTORS = "STORAGE_CONNECTORS",
-  STORAGE_CONNECTOR_GOOGLE_DRIVE = "STORAGE_CONNECTOR_GOOGLE_DRIVE",
-  STORAGE_CONNECTOR_HOMEFOLDERS = "STORAGE_CONNECTOR_HOMEFOLDERS",
-  STORAGE_CONNECTOR_ONE_DRIVE = "STORAGE_CONNECTOR_ONE_DRIVE",
-  STREAMING_EXPERIENCE_SETTINGS = "STREAMING_EXPERIENCE_SETTINGS",
-  THEME_NAME = "THEME_NAME",
-  USER_SETTINGS = "USER_SETTINGS",
-}
+export const StackAttribute = {
+  ACCESS_ENDPOINTS: "ACCESS_ENDPOINTS",
+  EMBED_HOST_DOMAINS: "EMBED_HOST_DOMAINS",
+  FEEDBACK_URL: "FEEDBACK_URL",
+  IAM_ROLE_ARN: "IAM_ROLE_ARN",
+  REDIRECT_URL: "REDIRECT_URL",
+  STORAGE_CONNECTORS: "STORAGE_CONNECTORS",
+  STORAGE_CONNECTOR_GOOGLE_DRIVE: "STORAGE_CONNECTOR_GOOGLE_DRIVE",
+  STORAGE_CONNECTOR_HOMEFOLDERS: "STORAGE_CONNECTOR_HOMEFOLDERS",
+  STORAGE_CONNECTOR_ONE_DRIVE: "STORAGE_CONNECTOR_ONE_DRIVE",
+  STREAMING_EXPERIENCE_SETTINGS: "STREAMING_EXPERIENCE_SETTINGS",
+  THEME_NAME: "THEME_NAME",
+  USER_SETTINGS: "USER_SETTINGS",
+} as const;
+
+/**
+ * @public
+ */
+export type StackAttribute = (typeof StackAttribute)[keyof typeof StackAttribute];
 
 /**
  * @public

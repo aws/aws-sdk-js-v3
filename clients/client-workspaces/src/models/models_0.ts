@@ -25,28 +25,48 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessPropertyValue {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const AccessPropertyValue = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
 
 /**
  * @public
  */
-export enum DedicatedTenancySupportResultEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type AccessPropertyValue = (typeof AccessPropertyValue)[keyof typeof AccessPropertyValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DedicatedTenancySupportResultEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum DedicatedTenancyModificationStateEnum {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export type DedicatedTenancySupportResultEnum =
+  (typeof DedicatedTenancySupportResultEnum)[keyof typeof DedicatedTenancySupportResultEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const DedicatedTenancyModificationStateEnum = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type DedicatedTenancyModificationStateEnum =
+  (typeof DedicatedTenancyModificationStateEnum)[keyof typeof DedicatedTenancyModificationStateEnum];
 
 /**
  * @public
@@ -89,11 +109,17 @@ export interface AccountModification {
 
 /**
  * @public
+ * @enum
  */
-export enum Application {
-  Microsoft_Office_2016 = "Microsoft_Office_2016",
-  Microsoft_Office_2019 = "Microsoft_Office_2019",
-}
+export const Application = {
+  Microsoft_Office_2016: "Microsoft_Office_2016",
+  Microsoft_Office_2019: "Microsoft_Office_2019",
+} as const;
+
+/**
+ * @public
+ */
+export type Application = (typeof Application)[keyof typeof Application];
 
 /**
  * @public
@@ -275,14 +301,20 @@ export class ResourceLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationStatus {
-  ASSOCIATED_WITH_OWNER_ACCOUNT = "ASSOCIATED_WITH_OWNER_ACCOUNT",
-  ASSOCIATED_WITH_SHARED_ACCOUNT = "ASSOCIATED_WITH_SHARED_ACCOUNT",
-  NOT_ASSOCIATED = "NOT_ASSOCIATED",
-  PENDING_ASSOCIATION = "PENDING_ASSOCIATION",
-  PENDING_DISASSOCIATION = "PENDING_DISASSOCIATION",
-}
+export const AssociationStatus = {
+  ASSOCIATED_WITH_OWNER_ACCOUNT: "ASSOCIATED_WITH_OWNER_ACCOUNT",
+  ASSOCIATED_WITH_SHARED_ACCOUNT: "ASSOCIATED_WITH_SHARED_ACCOUNT",
+  NOT_ASSOCIATED: "NOT_ASSOCIATED",
+  PENDING_ASSOCIATION: "PENDING_ASSOCIATION",
+  PENDING_DISASSOCIATION: "PENDING_DISASSOCIATION",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
 
 /**
  * @public
@@ -322,26 +354,38 @@ export interface AuthorizeIpRulesResult {}
 
 /**
  * @public
+ * @enum
  */
-export enum BundleType {
-  REGULAR = "REGULAR",
-  STANDBY = "STANDBY",
-}
+export const BundleType = {
+  REGULAR: "REGULAR",
+  STANDBY: "STANDBY",
+} as const;
 
 /**
  * @public
  */
-export enum Compute {
-  GRAPHICS = "GRAPHICS",
-  GRAPHICSPRO = "GRAPHICSPRO",
-  GRAPHICSPRO_G4DN = "GRAPHICSPRO_G4DN",
-  GRAPHICS_G4DN = "GRAPHICS_G4DN",
-  PERFORMANCE = "PERFORMANCE",
-  POWER = "POWER",
-  POWERPRO = "POWERPRO",
-  STANDARD = "STANDARD",
-  VALUE = "VALUE",
-}
+export type BundleType = (typeof BundleType)[keyof typeof BundleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Compute = {
+  GRAPHICS: "GRAPHICS",
+  GRAPHICSPRO: "GRAPHICSPRO",
+  GRAPHICSPRO_G4DN: "GRAPHICSPRO_G4DN",
+  GRAPHICS_G4DN: "GRAPHICS_G4DN",
+  PERFORMANCE: "PERFORMANCE",
+  POWER: "POWER",
+  POWERPRO: "POWERPRO",
+  STANDARD: "STANDARD",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type Compute = (typeof Compute)[keyof typeof Compute];
 
 /**
  * @public
@@ -367,12 +411,18 @@ export interface RootStorage {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkspaceBundleState {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
+export const WorkspaceBundleState = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceBundleState = (typeof WorkspaceBundleState)[keyof typeof WorkspaceBundleState];
 
 /**
  * @public
@@ -455,11 +505,18 @@ export interface WorkspaceBundle {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateBasedAuthStatusEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CertificateBasedAuthStatusEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateBasedAuthStatusEnum =
+  (typeof CertificateBasedAuthStatusEnum)[keyof typeof CertificateBasedAuthStatusEnum];
 
 /**
  * @public
@@ -480,31 +537,49 @@ export interface CertificateBasedAuthProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum ClientDeviceType {
-  DEVICE_TYPE_ANDROID = "DeviceTypeAndroid",
-  DEVICE_TYPE_IOS = "DeviceTypeIos",
-  DEVICE_TYPE_LINUX = "DeviceTypeLinux",
-  DEVICE_TYPE_OSX = "DeviceTypeOsx",
-  DEVICE_TYPE_WEB = "DeviceTypeWeb",
-  DEVICE_TYPE_WINDOWS = "DeviceTypeWindows",
-}
+export const ClientDeviceType = {
+  DEVICE_TYPE_ANDROID: "DeviceTypeAndroid",
+  DEVICE_TYPE_IOS: "DeviceTypeIos",
+  DEVICE_TYPE_LINUX: "DeviceTypeLinux",
+  DEVICE_TYPE_OSX: "DeviceTypeOsx",
+  DEVICE_TYPE_WEB: "DeviceTypeWeb",
+  DEVICE_TYPE_WINDOWS: "DeviceTypeWindows",
+} as const;
 
 /**
  * @public
  */
-export enum LogUploadEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type ClientDeviceType = (typeof ClientDeviceType)[keyof typeof ClientDeviceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogUploadEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum ReconnectEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type LogUploadEnum = (typeof LogUploadEnum)[keyof typeof LogUploadEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReconnectEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReconnectEnum = (typeof ReconnectEnum)[keyof typeof ReconnectEnum];
 
 /**
  * @public
@@ -601,12 +676,18 @@ export interface ConnectionAliasAssociation {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionAliasState {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ConnectionAliasState = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionAliasState = (typeof ConnectionAliasState)[keyof typeof ConnectionAliasState];
 
 /**
  * @public
@@ -665,12 +746,18 @@ export interface ConnectionAliasPermission {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionState {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-  UNKNOWN = "UNKNOWN",
-}
+export const ConnectionState = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionState = (typeof ConnectionState)[keyof typeof ConnectionState];
 
 /**
  * @public
@@ -954,26 +1041,32 @@ export interface FailedCreateStandbyWorkspacesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  IMPAIRED = "IMPAIRED",
-  MAINTENANCE = "MAINTENANCE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  REBUILDING = "REBUILDING",
-  RESTORING = "RESTORING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
-}
+export const WorkspaceState = {
+  ADMIN_MAINTENANCE: "ADMIN_MAINTENANCE",
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  IMPAIRED: "IMPAIRED",
+  MAINTENANCE: "MAINTENANCE",
+  PENDING: "PENDING",
+  REBOOTING: "REBOOTING",
+  REBUILDING: "REBUILDING",
+  RESTORING: "RESTORING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UNHEALTHY: "UNHEALTHY",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceState = (typeof WorkspaceState)[keyof typeof WorkspaceState];
 
 /**
  * @public
@@ -1166,11 +1259,17 @@ export interface CreateWorkspaceImageRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OperatingSystemType {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-}
+export const OperatingSystemType = {
+  LINUX: "LINUX",
+  WINDOWS: "WINDOWS",
+} as const;
+
+/**
+ * @public
+ */
+export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
 /**
  * @public
@@ -1185,20 +1284,33 @@ export interface OperatingSystem {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkspaceImageRequiredTenancy {
-  DEDICATED = "DEDICATED",
-  DEFAULT = "DEFAULT",
-}
+export const WorkspaceImageRequiredTenancy = {
+  DEDICATED: "DEDICATED",
+  DEFAULT: "DEFAULT",
+} as const;
 
 /**
  * @public
  */
-export enum WorkspaceImageState {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
+export type WorkspaceImageRequiredTenancy =
+  (typeof WorkspaceImageRequiredTenancy)[keyof typeof WorkspaceImageRequiredTenancy];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceImageState = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceImageState = (typeof WorkspaceImageState)[keyof typeof WorkspaceImageState];
 
 /**
  * @public
@@ -1251,20 +1363,32 @@ export interface CreateWorkspaceImageResult {
 
 /**
  * @public
+ * @enum
  */
-export enum Protocol {
-  PCOIP = "PCOIP",
-  WSP = "WSP",
-}
+export const Protocol = {
+  PCOIP: "PCOIP",
+  WSP: "WSP",
+} as const;
 
 /**
  * @public
  */
-export enum RunningMode {
-  ALWAYS_ON = "ALWAYS_ON",
-  AUTO_STOP = "AUTO_STOP",
-  MANUAL = "MANUAL",
-}
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const RunningMode = {
+  ALWAYS_ON: "ALWAYS_ON",
+  AUTO_STOP: "AUTO_STOP",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type RunningMode = (typeof RunningMode)[keyof typeof RunningMode];
 
 /**
  * @public
@@ -1411,20 +1535,32 @@ export interface FailedCreateWorkspaceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ModificationResourceEnum {
-  COMPUTE_TYPE = "COMPUTE_TYPE",
-  ROOT_VOLUME = "ROOT_VOLUME",
-  USER_VOLUME = "USER_VOLUME",
-}
+export const ModificationResourceEnum = {
+  COMPUTE_TYPE: "COMPUTE_TYPE",
+  ROOT_VOLUME: "ROOT_VOLUME",
+  USER_VOLUME: "USER_VOLUME",
+} as const;
 
 /**
  * @public
  */
-export enum ModificationStateEnum {
-  UPDATE_INITIATED = "UPDATE_INITIATED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export type ModificationResourceEnum = (typeof ModificationResourceEnum)[keyof typeof ModificationResourceEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModificationStateEnum = {
+  UPDATE_INITIATED: "UPDATE_INITIATED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ModificationStateEnum = (typeof ModificationStateEnum)[keyof typeof ModificationStateEnum];
 
 /**
  * @public
@@ -1444,11 +1580,18 @@ export interface ModificationState {
 
 /**
  * @public
+ * @enum
  */
-export enum StandbyWorkspaceRelationshipType {
-  PRIMARY = "PRIMARY",
-  STANDBY = "STANDBY",
-}
+export const StandbyWorkspaceRelationshipType = {
+  PRIMARY: "PRIMARY",
+  STANDBY: "STANDBY",
+} as const;
+
+/**
+ * @public
+ */
+export type StandbyWorkspaceRelationshipType =
+  (typeof StandbyWorkspaceRelationshipType)[keyof typeof StandbyWorkspaceRelationshipType];
 
 /**
  * @public
@@ -1595,10 +1738,17 @@ export interface CreateWorkspacesResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DedicatedTenancySupportEnum {
-  ENABLED = "ENABLED",
-}
+export const DedicatedTenancySupportEnum = {
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DedicatedTenancySupportEnum =
+  (typeof DedicatedTenancySupportEnum)[keyof typeof DedicatedTenancySupportEnum];
 
 /**
  * @public
@@ -1782,18 +1932,32 @@ export interface DefaultWorkspaceCreationProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum DeletableCertificateBasedAuthProperty {
-  CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN = "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
-}
+export const DeletableCertificateBasedAuthProperty = {
+  CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN:
+    "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
+} as const;
 
 /**
  * @public
  */
-export enum DeletableSamlProperty {
-  SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME = "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
-  SAML_PROPERTIES_USER_ACCESS_URL = "SAML_PROPERTIES_USER_ACCESS_URL",
-}
+export type DeletableCertificateBasedAuthProperty =
+  (typeof DeletableCertificateBasedAuthProperty)[keyof typeof DeletableCertificateBasedAuthProperty];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeletableSamlProperty = {
+  SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME: "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
+  SAML_PROPERTIES_USER_ACCESS_URL: "SAML_PROPERTIES_USER_ACCESS_URL",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletableSamlProperty = (typeof DeletableSamlProperty)[keyof typeof DeletableSamlProperty];
 
 /**
  * @public
@@ -2411,20 +2575,32 @@ export interface DescribeWorkspaceDirectoriesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkspaceDirectoryType {
-  AD_CONNECTOR = "AD_CONNECTOR",
-  SIMPLE_AD = "SIMPLE_AD",
-}
+export const WorkspaceDirectoryType = {
+  AD_CONNECTOR: "AD_CONNECTOR",
+  SIMPLE_AD: "SIMPLE_AD",
+} as const;
 
 /**
  * @public
  */
-export enum SamlStatusEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK = "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
-}
+export type WorkspaceDirectoryType = (typeof WorkspaceDirectoryType)[keyof typeof WorkspaceDirectoryType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SamlStatusEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK: "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type SamlStatusEnum = (typeof SamlStatusEnum)[keyof typeof SamlStatusEnum];
 
 /**
  * @public
@@ -2504,22 +2680,34 @@ export interface SelfservicePermissions {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkspaceDirectoryState {
-  DEREGISTERED = "DEREGISTERED",
-  DEREGISTERING = "DEREGISTERING",
-  ERROR = "ERROR",
-  REGISTERED = "REGISTERED",
-  REGISTERING = "REGISTERING",
-}
+export const WorkspaceDirectoryState = {
+  DEREGISTERED: "DEREGISTERED",
+  DEREGISTERING: "DEREGISTERING",
+  ERROR: "ERROR",
+  REGISTERED: "REGISTERED",
+  REGISTERING: "REGISTERING",
+} as const;
 
 /**
  * @public
  */
-export enum Tenancy {
-  DEDICATED = "DEDICATED",
-  SHARED = "SHARED",
-}
+export type WorkspaceDirectoryState = (typeof WorkspaceDirectoryState)[keyof typeof WorkspaceDirectoryState];
+
+/**
+ * @public
+ * @enum
+ */
+export const Tenancy = {
+  DEDICATED: "DEDICATED",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
 
 /**
  * @public
@@ -2752,11 +2940,17 @@ export interface DescribeWorkspaceImagePermissionsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageType {
-  OWNED = "OWNED",
-  SHARED = "SHARED",
-}
+export const ImageType = {
+  OWNED: "OWNED",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
 /**
  * @public
@@ -3271,16 +3465,23 @@ export interface ImportClientBrandingResult {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkspaceImageIngestionProcess {
-  BYOL_GRAPHICS = "BYOL_GRAPHICS",
-  BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
-  BYOL_GRAPHICS_G4DN = "BYOL_GRAPHICS_G4DN",
-  BYOL_GRAPHICS_G4DN_BYOP = "BYOL_GRAPHICS_G4DN_BYOP",
-  BYOL_REGULAR = "BYOL_REGULAR",
-  BYOL_REGULAR_BYOP = "BYOL_REGULAR_BYOP",
-  BYOL_REGULAR_WSP = "BYOL_REGULAR_WSP",
-}
+export const WorkspaceImageIngestionProcess = {
+  BYOL_GRAPHICS: "BYOL_GRAPHICS",
+  BYOL_GRAPHICSPRO: "BYOL_GRAPHICSPRO",
+  BYOL_GRAPHICS_G4DN: "BYOL_GRAPHICS_G4DN",
+  BYOL_GRAPHICS_G4DN_BYOP: "BYOL_GRAPHICS_G4DN_BYOP",
+  BYOL_REGULAR: "BYOL_REGULAR",
+  BYOL_REGULAR_BYOP: "BYOL_REGULAR_BYOP",
+  BYOL_REGULAR_WSP: "BYOL_REGULAR_WSP",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceImageIngestionProcess =
+  (typeof WorkspaceImageIngestionProcess)[keyof typeof WorkspaceImageIngestionProcess];
 
 /**
  * @public
@@ -3713,11 +3914,17 @@ export class UnsupportedWorkspaceConfigurationException extends __BaseException 
 
 /**
  * @public
+ * @enum
  */
-export enum TargetWorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-}
+export const TargetWorkspaceState = {
+  ADMIN_MAINTENANCE: "ADMIN_MAINTENANCE",
+  AVAILABLE: "AVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetWorkspaceState = (typeof TargetWorkspaceState)[keyof typeof TargetWorkspaceState];
 
 /**
  * @public

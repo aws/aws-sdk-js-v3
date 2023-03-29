@@ -27,10 +27,16 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum SummaryChecksumAlgorithm {
-  SUMMARY = "SUMMARY",
-}
+export const SummaryChecksumAlgorithm = {
+  SUMMARY: "SUMMARY",
+} as const;
+
+/**
+ * @public
+ */
+export type SummaryChecksumAlgorithm = (typeof SummaryChecksumAlgorithm)[keyof typeof SummaryChecksumAlgorithm];
 
 /**
  * @public
@@ -70,10 +76,16 @@ export interface BackupObject {
 
 /**
  * @public
+ * @enum
  */
-export enum DataChecksumAlgorithm {
-  SHA256 = "SHA256",
-}
+export const DataChecksumAlgorithm = {
+  SHA256: "SHA256",
+} as const;
+
+/**
+ * @public
+ */
+export type DataChecksumAlgorithm = (typeof DataChecksumAlgorithm)[keyof typeof DataChecksumAlgorithm];
 
 /**
  * @public

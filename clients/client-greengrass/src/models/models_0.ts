@@ -150,19 +150,31 @@ export interface Device {
 
 /**
  * @public
+ * @enum
  */
-export enum EncodingType {
-  binary = "binary",
-  json = "json",
-}
+export const EncodingType = {
+  binary: "binary",
+  json: "json",
+} as const;
 
 /**
  * @public
  */
-export enum FunctionIsolationMode {
-  GreengrassContainer = "GreengrassContainer",
-  NoContainer = "NoContainer",
-}
+export type EncodingType = (typeof EncodingType)[keyof typeof EncodingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FunctionIsolationMode = {
+  GreengrassContainer: "GreengrassContainer",
+  NoContainer: "NoContainer",
+} as const;
+
+/**
+ * @public
+ */
+export type FunctionIsolationMode = (typeof FunctionIsolationMode)[keyof typeof FunctionIsolationMode];
 
 /**
  * @public
@@ -198,11 +210,17 @@ export interface FunctionExecutionConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum Permission {
-  ro = "ro",
-  rw = "rw",
-}
+export const Permission = {
+  ro: "ro",
+  rw: "rw",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
  * @public
@@ -372,30 +390,48 @@ export interface GroupInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum LoggerComponent {
-  GreengrassSystem = "GreengrassSystem",
-  Lambda = "Lambda",
-}
+export const LoggerComponent = {
+  GreengrassSystem: "GreengrassSystem",
+  Lambda: "Lambda",
+} as const;
 
 /**
  * @public
  */
-export enum LoggerLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  INFO = "INFO",
-  WARN = "WARN",
-}
+export type LoggerComponent = (typeof LoggerComponent)[keyof typeof LoggerComponent];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoggerLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  INFO: "INFO",
+  WARN: "WARN",
+} as const;
 
 /**
  * @public
  */
-export enum LoggerType {
-  AWSCloudWatch = "AWSCloudWatch",
-  FileSystem = "FileSystem",
-}
+export type LoggerLevel = (typeof LoggerLevel)[keyof typeof LoggerLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoggerType = {
+  AWSCloudWatch: "AWSCloudWatch",
+  FileSystem: "FileSystem",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggerType = (typeof LoggerType)[keyof typeof LoggerType];
 
 /**
  * @public
@@ -826,13 +862,19 @@ export interface BulkDeploymentMetrics {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentType {
-  ForceResetDeployment = "ForceResetDeployment",
-  NewDeployment = "NewDeployment",
-  Redeployment = "Redeployment",
-  ResetDeployment = "ResetDeployment",
-}
+export const DeploymentType = {
+  ForceResetDeployment: "ForceResetDeployment",
+  NewDeployment: "NewDeployment",
+  Redeployment: "Redeployment",
+  ResetDeployment: "ResetDeployment",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
 
 /**
  * @public
@@ -882,23 +924,35 @@ export interface BulkDeploymentResult {
 
 /**
  * @public
+ * @enum
  */
-export enum BulkDeploymentStatus {
-  Completed = "Completed",
-  Failed = "Failed",
-  Initializing = "Initializing",
-  Running = "Running",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-}
+export const BulkDeploymentStatus = {
+  Completed: "Completed",
+  Failed: "Failed",
+  Initializing: "Initializing",
+  Running: "Running",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+} as const;
 
 /**
  * @public
  */
-export enum ConfigurationSyncStatus {
-  InSync = "InSync",
-  OutOfSync = "OutOfSync",
-}
+export type BulkDeploymentStatus = (typeof BulkDeploymentStatus)[keyof typeof BulkDeploymentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationSyncStatus = {
+  InSync: "InSync",
+  OutOfSync: "OutOfSync",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationSyncStatus = (typeof ConfigurationSyncStatus)[keyof typeof ConfigurationSyncStatus];
 
 /**
  * @public
@@ -1918,45 +1972,70 @@ export interface CreateResourceDefinitionVersionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SoftwareToUpdate {
-  core = "core",
-  ota_agent = "ota_agent",
-}
+export const SoftwareToUpdate = {
+  core: "core",
+  ota_agent: "ota_agent",
+} as const;
 
 /**
  * @public
  */
-export enum UpdateAgentLogLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  INFO = "INFO",
-  NONE = "NONE",
-  TRACE = "TRACE",
-  VERBOSE = "VERBOSE",
-  WARN = "WARN",
-}
+export type SoftwareToUpdate = (typeof SoftwareToUpdate)[keyof typeof SoftwareToUpdate];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateAgentLogLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  INFO: "INFO",
+  NONE: "NONE",
+  TRACE: "TRACE",
+  VERBOSE: "VERBOSE",
+  WARN: "WARN",
+} as const;
 
 /**
  * @public
  */
-export enum UpdateTargetsArchitecture {
-  aarch64 = "aarch64",
-  armv6l = "armv6l",
-  armv7l = "armv7l",
-  x86_64 = "x86_64",
-}
+export type UpdateAgentLogLevel = (typeof UpdateAgentLogLevel)[keyof typeof UpdateAgentLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateTargetsArchitecture = {
+  aarch64: "aarch64",
+  armv6l: "armv6l",
+  armv7l: "armv7l",
+  x86_64: "x86_64",
+} as const;
 
 /**
  * @public
  */
-export enum UpdateTargetsOperatingSystem {
-  amazon_linux = "amazon_linux",
-  openwrt = "openwrt",
-  raspbian = "raspbian",
-  ubuntu = "ubuntu",
-}
+export type UpdateTargetsArchitecture = (typeof UpdateTargetsArchitecture)[keyof typeof UpdateTargetsArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateTargetsOperatingSystem = {
+  amazon_linux: "amazon_linux",
+  openwrt: "openwrt",
+  raspbian: "raspbian",
+  ubuntu: "ubuntu",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateTargetsOperatingSystem =
+  (typeof UpdateTargetsOperatingSystem)[keyof typeof UpdateTargetsOperatingSystem];
 
 /**
  * @public
@@ -3412,11 +3491,17 @@ export interface GetThingRuntimeConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Telemetry {
-  Off = "Off",
-  On = "On",
-}
+export const Telemetry = {
+  Off: "Off",
+  On: "On",
+} as const;
+
+/**
+ * @public
+ */
+export type Telemetry = (typeof Telemetry)[keyof typeof Telemetry];
 
 /**
  * @public

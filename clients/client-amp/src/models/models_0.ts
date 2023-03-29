@@ -78,33 +78,40 @@ export interface CreateAlertManagerDefinitionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AlertManagerDefinitionStatusCode {
+export const AlertManagerDefinitionStatusCode = {
   /**
    * Definition has been created/updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Definition is being created. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Definition creation failed.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Definition is being deleting. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Definition update failed.
    */
-  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   /**
    * Definition is being updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type AlertManagerDefinitionStatusCode =
+  (typeof AlertManagerDefinitionStatusCode)[keyof typeof AlertManagerDefinitionStatusCode];
 
 /**
  * @public
@@ -293,13 +300,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -512,29 +525,35 @@ export interface CreateWorkspaceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkspaceStatusCode {
+export const WorkspaceStatusCode = {
   /**
    * Workspace has been created and is usable.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Workspace is being created. Deletion is disallowed until status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Workspace creation failed. Refer to WorkspaceStatus.failureReason for more details.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Workspace is being deleted. Deletions are allowed only when status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Workspace is being updated. Updates are allowed only when status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceStatusCode = (typeof WorkspaceStatusCode)[keyof typeof WorkspaceStatusCode];
 
 /**
  * @public
@@ -748,33 +767,40 @@ export interface CreateLoggingConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LoggingConfigurationStatusCode {
+export const LoggingConfigurationStatusCode = {
   /**
    * Logging configuration has been created/updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Logging configuration is being created. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Logging configuration creation failed.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Logging configuration is being deleting. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Logging configuration update failed.
    */
-  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   /**
    * Logging configuration is being updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggingConfigurationStatusCode =
+  (typeof LoggingConfigurationStatusCode)[keyof typeof LoggingConfigurationStatusCode];
 
 /**
  * @public
@@ -937,33 +963,40 @@ export interface CreateRuleGroupsNamespaceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleGroupsNamespaceStatusCode {
+export const RuleGroupsNamespaceStatusCode = {
   /**
    * Namespace has been created/updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Namespace is being created. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Namespace creation failed.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Namespace is being deleting. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Namespace update failed.
    */
-  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   /**
    * Namespace is being updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleGroupsNamespaceStatusCode =
+  (typeof RuleGroupsNamespaceStatusCode)[keyof typeof RuleGroupsNamespaceStatusCode];
 
 /**
  * @public

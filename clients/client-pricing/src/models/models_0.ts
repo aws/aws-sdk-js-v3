@@ -293,10 +293,16 @@ export interface GetPriceListFileUrlResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterType {
-  TERM_MATCH = "TERM_MATCH",
-}
+export const FilterType = {
+  TERM_MATCH: "TERM_MATCH",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
 /**
  * @public

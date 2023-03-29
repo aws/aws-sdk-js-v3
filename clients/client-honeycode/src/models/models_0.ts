@@ -645,11 +645,17 @@ export interface BatchUpsertTableRowsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UpsertAction {
-  Appended = "APPENDED",
-  Updated = "UPDATED",
-}
+export const UpsertAction = {
+  Appended: "APPENDED",
+  Updated: "UPDATED",
+} as const;
+
+/**
+ * @public
+ */
+export type UpsertAction = (typeof UpsertAction)[keyof typeof UpsertAction];
 
 /**
  * @public
@@ -705,21 +711,27 @@ export interface BatchUpsertTableRowsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum Format {
-  Accounting = "ACCOUNTING",
-  Auto = "AUTO",
-  Contact = "CONTACT",
-  Currency = "CURRENCY",
-  Date = "DATE",
-  DateTime = "DATE_TIME",
-  Number = "NUMBER",
-  Percentage = "PERCENTAGE",
-  Rowlink = "ROWLINK",
-  Rowset = "ROWSET",
-  Text = "TEXT",
-  Time = "TIME",
-}
+export const Format = {
+  Accounting: "ACCOUNTING",
+  Auto: "AUTO",
+  Contact: "CONTACT",
+  Currency: "CURRENCY",
+  Date: "DATE",
+  DateTime: "DATE_TIME",
+  Number: "NUMBER",
+  Percentage: "PERCENTAGE",
+  Rowlink: "ROWLINK",
+  Rowset: "ROWSET",
+  Text: "TEXT",
+  Time: "TIME",
+} as const;
+
+/**
+ * @public
+ */
+export type Format = (typeof Format)[keyof typeof Format];
 
 /**
  * @public
@@ -860,15 +872,22 @@ export interface DataItem {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportDataCharacterEncoding {
-  ISO_8859_1 = "ISO-8859-1",
-  US_ASCII = "US-ASCII",
-  UTF_16 = "UTF-16",
-  UTF_16BE = "UTF-16BE",
-  UTF_16LE = "UTF-16LE",
-  UTF_8 = "UTF-8",
-}
+export const ImportDataCharacterEncoding = {
+  ISO_8859_1: "ISO-8859-1",
+  US_ASCII: "US-ASCII",
+  UTF_16: "UTF-16",
+  UTF_16BE: "UTF-16BE",
+  UTF_16LE: "UTF-16LE",
+  UTF_8: "UTF-8",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportDataCharacterEncoding =
+  (typeof ImportDataCharacterEncoding)[keyof typeof ImportDataCharacterEncoding];
 
 /**
  * @public
@@ -929,23 +948,29 @@ export interface DescribeTableDataImportJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  AccessDenied = "ACCESS_DENIED",
-  FileEmptyError = "FILE_EMPTY_ERROR",
-  FileNotFoundError = "FILE_NOT_FOUND_ERROR",
-  FileParsingError = "FILE_PARSING_ERROR",
-  FileSizeLimitError = "FILE_SIZE_LIMIT_ERROR",
-  InvalidFileTypeError = "INVALID_FILE_TYPE_ERROR",
-  InvalidImportOptionsError = "INVALID_IMPORT_OPTIONS_ERROR",
-  InvalidTableColumnIdError = "INVALID_TABLE_COLUMN_ID_ERROR",
-  InvalidTableIdError = "INVALID_TABLE_ID_ERROR",
-  InvalidUrlError = "INVALID_URL_ERROR",
-  ResourceNotFoundError = "RESOURCE_NOT_FOUND_ERROR",
-  SystemLimitError = "SYSTEM_LIMIT_ERROR",
-  TableNotFoundError = "TABLE_NOT_FOUND_ERROR",
-  UnknownError = "UNKNOWN_ERROR",
-}
+export const ErrorCode = {
+  AccessDenied: "ACCESS_DENIED",
+  FileEmptyError: "FILE_EMPTY_ERROR",
+  FileNotFoundError: "FILE_NOT_FOUND_ERROR",
+  FileParsingError: "FILE_PARSING_ERROR",
+  FileSizeLimitError: "FILE_SIZE_LIMIT_ERROR",
+  InvalidFileTypeError: "INVALID_FILE_TYPE_ERROR",
+  InvalidImportOptionsError: "INVALID_IMPORT_OPTIONS_ERROR",
+  InvalidTableColumnIdError: "INVALID_TABLE_COLUMN_ID_ERROR",
+  InvalidTableIdError: "INVALID_TABLE_ID_ERROR",
+  InvalidUrlError: "INVALID_URL_ERROR",
+  ResourceNotFoundError: "RESOURCE_NOT_FOUND_ERROR",
+  SystemLimitError: "SYSTEM_LIMIT_ERROR",
+  TableNotFoundError: "TABLE_NOT_FOUND_ERROR",
+  UnknownError: "UNKNOWN_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -1055,13 +1080,19 @@ export interface TableDataImportJobMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum TableDataImportJobStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Submitted = "SUBMITTED",
-}
+export const TableDataImportJobStatus = {
+  Completed: "COMPLETED",
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+  Submitted: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type TableDataImportJobStatus = (typeof TableDataImportJobStatus)[keyof typeof TableDataImportJobStatus];
 
 /**
  * @public
@@ -1236,10 +1267,16 @@ export interface GetScreenDataResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportSourceDataFormat {
-  DelimitedText = "DELIMITED_TEXT",
-}
+export const ImportSourceDataFormat = {
+  DelimitedText: "DELIMITED_TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportSourceDataFormat = (typeof ImportSourceDataFormat)[keyof typeof ImportSourceDataFormat];
 
 /**
  * @public

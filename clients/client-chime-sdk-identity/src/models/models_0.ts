@@ -5,11 +5,17 @@ import { ChimeSDKIdentityServiceException as __BaseException } from "./ChimeSDKI
 
 /**
  * @public
+ * @enum
  */
-export enum AllowMessages {
-  ALL = "ALL",
-  NONE = "NONE",
-}
+export const AllowMessages = {
+  ALL: "ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowMessages = (typeof AllowMessages)[keyof typeof AllowMessages];
 
 /**
  * @public
@@ -93,10 +99,16 @@ export interface AppInstanceAdminSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum RespondsTo {
-  STANDARD_MESSAGES = "STANDARD_MESSAGES",
-}
+export const RespondsTo = {
+  STANDARD_MESSAGES: "STANDARD_MESSAGES",
+} as const;
+
+/**
+ * @public
+ */
+export type RespondsTo = (typeof RespondsTo)[keyof typeof RespondsTo];
 
 /**
  * @public
@@ -241,10 +253,16 @@ export interface AppInstanceRetentionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum ExpirationCriterion {
-  CREATED_TIMESTAMP = "CREATED_TIMESTAMP",
-}
+export const ExpirationCriterion = {
+  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ExpirationCriterion = (typeof ExpirationCriterion)[keyof typeof ExpirationCriterion];
 
 /**
  * @public
@@ -316,19 +334,31 @@ export interface EndpointAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const EndpointStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
  * @public
  */
-export enum EndpointStatusReason {
-  INVALID_DEVICE_TOKEN = "INVALID_DEVICE_TOKEN",
-  INVALID_PINPOINT_ARN = "INVALID_PINPOINT_ARN",
-}
+export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointStatusReason = {
+  INVALID_DEVICE_TOKEN: "INVALID_DEVICE_TOKEN",
+  INVALID_PINPOINT_ARN: "INVALID_PINPOINT_ARN",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointStatusReason = (typeof EndpointStatusReason)[keyof typeof EndpointStatusReason];
 
 /**
  * @public
@@ -368,12 +398,19 @@ export interface EndpointState {
 
 /**
  * @public
+ * @enum
  */
-export enum AppInstanceUserEndpointType {
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  GCM = "GCM",
-}
+export const AppInstanceUserEndpointType = {
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  GCM: "GCM",
+} as const;
+
+/**
+ * @public
+ */
+export type AppInstanceUserEndpointType =
+  (typeof AppInstanceUserEndpointType)[keyof typeof AppInstanceUserEndpointType];
 
 /**
  * @public
@@ -512,24 +549,30 @@ export interface AppInstanceUserSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Throttling = "Throttling",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
-}
+export const ErrorCode = {
+  AccessDenied: "AccessDenied",
+  BadRequest: "BadRequest",
+  Conflict: "Conflict",
+  Forbidden: "Forbidden",
+  NotFound: "NotFound",
+  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
+  PreconditionFailed: "PreconditionFailed",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttled: "Throttled",
+  Throttling: "Throttling",
+  Unauthorized: "Unauthorized",
+  Unprocessable: "Unprocessable",
+  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public

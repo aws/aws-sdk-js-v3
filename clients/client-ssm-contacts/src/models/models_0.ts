@@ -5,19 +5,31 @@ import { SSMContactsServiceException as __BaseException } from "./SSMContactsSer
 
 /**
  * @public
+ * @enum
  */
-export enum AcceptCodeValidation {
-  ENFORCE = "ENFORCE",
-  IGNORE = "IGNORE",
-}
+export const AcceptCodeValidation = {
+  ENFORCE: "ENFORCE",
+  IGNORE: "IGNORE",
+} as const;
 
 /**
  * @public
  */
-export enum AcceptType {
-  DELIVERED = "DELIVERED",
-  READ = "READ",
-}
+export type AcceptCodeValidation = (typeof AcceptCodeValidation)[keyof typeof AcceptCodeValidation];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcceptType = {
+  DELIVERED: "DELIVERED",
+  READ: "READ",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceptType = (typeof AcceptType)[keyof typeof AcceptType];
 
 /**
  * @public
@@ -205,13 +217,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -269,11 +287,17 @@ export interface ActivateContactChannelResult {}
 
 /**
  * @public
+ * @enum
  */
-export enum ActivationStatus {
-  ACTIVATED = "ACTIVATED",
-  NOT_ACTIVATED = "NOT_ACTIVATED",
-}
+export const ActivationStatus = {
+  ACTIVATED: "ACTIVATED",
+  NOT_ACTIVATED: "NOT_ACTIVATED",
+} as const;
+
+/**
+ * @public
+ */
+export type ActivationStatus = (typeof ActivationStatus)[keyof typeof ActivationStatus];
 
 /**
  * @public
@@ -295,12 +319,18 @@ export interface ChannelTargetInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelType {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+export const ChannelType = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
  * @public
@@ -362,12 +392,18 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactType {
-  ESCALATION = "ESCALATION",
-  ONCALL_SCHEDULE = "ONCALL_SCHEDULE",
-  PERSONAL = "PERSONAL",
-}
+export const ContactType = {
+  ESCALATION: "ESCALATION",
+  ONCALL_SCHEDULE: "ONCALL_SCHEDULE",
+  PERSONAL: "PERSONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactType = (typeof ContactType)[keyof typeof ContactType];
 
 /**
  * @public
@@ -801,16 +837,22 @@ export interface MonthlySetting {
 
 /**
  * @public
+ * @enum
  */
-export enum DayOfWeek {
-  FRI = "FRI",
-  MON = "MON",
-  SAT = "SAT",
-  SUN = "SUN",
-  THU = "THU",
-  TUE = "TUE",
-  WED = "WED",
-}
+export const DayOfWeek = {
+  FRI: "FRI",
+  MON: "MON",
+  SAT: "SAT",
+  SUN: "SUN",
+  THU: "THU",
+  TUE: "TUE",
+  WED: "WED",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * @public
@@ -1610,14 +1652,20 @@ export interface ListPageReceiptsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReceiptType {
-  DELIVERED = "DELIVERED",
-  ERROR = "ERROR",
-  READ = "READ",
-  SENT = "SENT",
-  STOP = "STOP",
-}
+export const ReceiptType = {
+  DELIVERED: "DELIVERED",
+  ERROR: "ERROR",
+  READ: "READ",
+  SENT: "SENT",
+  STOP: "STOP",
+} as const;
+
+/**
+ * @public
+ */
+export type ReceiptType = (typeof ReceiptType)[keyof typeof ReceiptType];
 
 /**
  * @public
@@ -1930,11 +1978,17 @@ export interface ShiftDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ShiftType {
-  OVERRIDDEN = "OVERRIDDEN",
-  REGULAR = "REGULAR",
-}
+export const ShiftType = {
+  OVERRIDDEN: "OVERRIDDEN",
+  REGULAR: "REGULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ShiftType = (typeof ShiftType)[keyof typeof ShiftType];
 
 /**
  * @public

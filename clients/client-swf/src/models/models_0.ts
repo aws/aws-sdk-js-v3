@@ -281,13 +281,19 @@ export interface ActivityTaskStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum ActivityTaskTimeoutType {
-  HEARTBEAT = "HEARTBEAT",
-  SCHEDULE_TO_CLOSE = "SCHEDULE_TO_CLOSE",
-  SCHEDULE_TO_START = "SCHEDULE_TO_START",
-  START_TO_CLOSE = "START_TO_CLOSE",
-}
+export const ActivityTaskTimeoutType = {
+  HEARTBEAT: "HEARTBEAT",
+  SCHEDULE_TO_CLOSE: "SCHEDULE_TO_CLOSE",
+  SCHEDULE_TO_START: "SCHEDULE_TO_START",
+  START_TO_CLOSE: "START_TO_CLOSE",
+} as const;
+
+/**
+ * @public
+ */
+export type ActivityTaskTimeoutType = (typeof ActivityTaskTimeoutType)[keyof typeof ActivityTaskTimeoutType];
 
 /**
  * @public
@@ -389,11 +395,17 @@ export interface ActivityTypeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RegistrationStatus {
-  DEPRECATED = "DEPRECATED",
-  REGISTERED = "REGISTERED",
-}
+export const RegistrationStatus = {
+  DEPRECATED: "DEPRECATED",
+  REGISTERED: "REGISTERED",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
 
 /**
  * @public
@@ -511,11 +523,17 @@ export interface CancelTimerDecisionAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum CancelTimerFailedCause {
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  TIMER_ID_UNKNOWN = "TIMER_ID_UNKNOWN",
-}
+export const CancelTimerFailedCause = {
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  TIMER_ID_UNKNOWN: "TIMER_ID_UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type CancelTimerFailedCause = (typeof CancelTimerFailedCause)[keyof typeof CancelTimerFailedCause];
 
 /**
  * @public
@@ -577,11 +595,18 @@ export interface CancelWorkflowExecutionDecisionAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum CancelWorkflowExecutionFailedCause {
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  UNHANDLED_DECISION = "UNHANDLED_DECISION",
-}
+export const CancelWorkflowExecutionFailedCause = {
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  UNHANDLED_DECISION: "UNHANDLED_DECISION",
+} as const;
+
+/**
+ * @public
+ */
+export type CancelWorkflowExecutionFailedCause =
+  (typeof CancelWorkflowExecutionFailedCause)[keyof typeof CancelWorkflowExecutionFailedCause];
 
 /**
  * @public
@@ -606,12 +631,18 @@ export interface CancelWorkflowExecutionFailedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum ChildPolicy {
-  ABANDON = "ABANDON",
-  REQUEST_CANCEL = "REQUEST_CANCEL",
-  TERMINATE = "TERMINATE",
-}
+export const ChildPolicy = {
+  ABANDON: "ABANDON",
+  REQUEST_CANCEL: "REQUEST_CANCEL",
+  TERMINATE: "TERMINATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChildPolicy = (typeof ChildPolicy)[keyof typeof ChildPolicy];
 
 /**
  * @public
@@ -809,10 +840,17 @@ export interface ChildWorkflowExecutionTerminatedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowExecutionTimeoutType {
-  START_TO_CLOSE = "START_TO_CLOSE",
-}
+export const WorkflowExecutionTimeoutType = {
+  START_TO_CLOSE: "START_TO_CLOSE",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowExecutionTimeoutType =
+  (typeof WorkflowExecutionTimeoutType)[keyof typeof WorkflowExecutionTimeoutType];
 
 /**
  * @public
@@ -852,15 +890,21 @@ export interface ChildWorkflowExecutionTimedOutEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum CloseStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  CONTINUED_AS_NEW = "CONTINUED_AS_NEW",
-  FAILED = "FAILED",
-  TERMINATED = "TERMINATED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const CloseStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  CONTINUED_AS_NEW: "CONTINUED_AS_NEW",
+  FAILED: "FAILED",
+  TERMINATED: "TERMINATED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type CloseStatus = (typeof CloseStatus)[keyof typeof CloseStatus];
 
 /**
  * @public
@@ -908,11 +952,18 @@ export interface CompleteWorkflowExecutionDecisionAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum CompleteWorkflowExecutionFailedCause {
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  UNHANDLED_DECISION = "UNHANDLED_DECISION",
-}
+export const CompleteWorkflowExecutionFailedCause = {
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  UNHANDLED_DECISION: "UNHANDLED_DECISION",
+} as const;
+
+/**
+ * @public
+ */
+export type CompleteWorkflowExecutionFailedCause =
+  (typeof CompleteWorkflowExecutionFailedCause)[keyof typeof CompleteWorkflowExecutionFailedCause];
 
 /**
  * @public
@@ -1067,18 +1118,25 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum ContinueAsNewWorkflowExecutionFailedCause {
-  CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED = "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED",
-  DEFAULT_CHILD_POLICY_UNDEFINED = "DEFAULT_CHILD_POLICY_UNDEFINED",
-  DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-  DEFAULT_TASK_LIST_UNDEFINED = "DEFAULT_TASK_LIST_UNDEFINED",
-  DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  UNHANDLED_DECISION = "UNHANDLED_DECISION",
-  WORKFLOW_TYPE_DEPRECATED = "WORKFLOW_TYPE_DEPRECATED",
-  WORKFLOW_TYPE_DOES_NOT_EXIST = "WORKFLOW_TYPE_DOES_NOT_EXIST",
-}
+export const ContinueAsNewWorkflowExecutionFailedCause = {
+  CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED: "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED",
+  DEFAULT_CHILD_POLICY_UNDEFINED: "DEFAULT_CHILD_POLICY_UNDEFINED",
+  DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED: "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  DEFAULT_TASK_LIST_UNDEFINED: "DEFAULT_TASK_LIST_UNDEFINED",
+  DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED: "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  UNHANDLED_DECISION: "UNHANDLED_DECISION",
+  WORKFLOW_TYPE_DEPRECATED: "WORKFLOW_TYPE_DEPRECATED",
+  WORKFLOW_TYPE_DOES_NOT_EXIST: "WORKFLOW_TYPE_DOES_NOT_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ContinueAsNewWorkflowExecutionFailedCause =
+  (typeof ContinueAsNewWorkflowExecutionFailedCause)[keyof typeof ContinueAsNewWorkflowExecutionFailedCause];
 
 /**
  * @public
@@ -1398,22 +1456,28 @@ export interface CountPendingDecisionTasksInput {
 
 /**
  * @public
+ * @enum
  */
-export enum DecisionType {
-  CancelTimer = "CancelTimer",
-  CancelWorkflowExecution = "CancelWorkflowExecution",
-  CompleteWorkflowExecution = "CompleteWorkflowExecution",
-  ContinueAsNewWorkflowExecution = "ContinueAsNewWorkflowExecution",
-  FailWorkflowExecution = "FailWorkflowExecution",
-  RecordMarker = "RecordMarker",
-  RequestCancelActivityTask = "RequestCancelActivityTask",
-  RequestCancelExternalWorkflowExecution = "RequestCancelExternalWorkflowExecution",
-  ScheduleActivityTask = "ScheduleActivityTask",
-  ScheduleLambdaFunction = "ScheduleLambdaFunction",
-  SignalExternalWorkflowExecution = "SignalExternalWorkflowExecution",
-  StartChildWorkflowExecution = "StartChildWorkflowExecution",
-  StartTimer = "StartTimer",
-}
+export const DecisionType = {
+  CancelTimer: "CancelTimer",
+  CancelWorkflowExecution: "CancelWorkflowExecution",
+  CompleteWorkflowExecution: "CompleteWorkflowExecution",
+  ContinueAsNewWorkflowExecution: "ContinueAsNewWorkflowExecution",
+  FailWorkflowExecution: "FailWorkflowExecution",
+  RecordMarker: "RecordMarker",
+  RequestCancelActivityTask: "RequestCancelActivityTask",
+  RequestCancelExternalWorkflowExecution: "RequestCancelExternalWorkflowExecution",
+  ScheduleActivityTask: "ScheduleActivityTask",
+  ScheduleLambdaFunction: "ScheduleLambdaFunction",
+  SignalExternalWorkflowExecution: "SignalExternalWorkflowExecution",
+  StartChildWorkflowExecution: "StartChildWorkflowExecution",
+  StartTimer: "StartTimer",
+} as const;
+
+/**
+ * @public
+ */
+export type DecisionType = (typeof DecisionType)[keyof typeof DecisionType];
 
 /**
  * @public
@@ -2401,10 +2465,16 @@ export interface DecisionTaskStartedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum DecisionTaskTimeoutType {
-  START_TO_CLOSE = "START_TO_CLOSE",
-}
+export const DecisionTaskTimeoutType = {
+  START_TO_CLOSE: "START_TO_CLOSE",
+} as const;
+
+/**
+ * @public
+ */
+export type DecisionTaskTimeoutType = (typeof DecisionTaskTimeoutType)[keyof typeof DecisionTaskTimeoutType];
 
 /**
  * @public
@@ -2433,63 +2503,69 @@ export interface DecisionTaskTimedOutEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  ActivityTaskCancelRequested = "ActivityTaskCancelRequested",
-  ActivityTaskCanceled = "ActivityTaskCanceled",
-  ActivityTaskCompleted = "ActivityTaskCompleted",
-  ActivityTaskFailed = "ActivityTaskFailed",
-  ActivityTaskScheduled = "ActivityTaskScheduled",
-  ActivityTaskStarted = "ActivityTaskStarted",
-  ActivityTaskTimedOut = "ActivityTaskTimedOut",
-  CancelTimerFailed = "CancelTimerFailed",
-  CancelWorkflowExecutionFailed = "CancelWorkflowExecutionFailed",
-  ChildWorkflowExecutionCanceled = "ChildWorkflowExecutionCanceled",
-  ChildWorkflowExecutionCompleted = "ChildWorkflowExecutionCompleted",
-  ChildWorkflowExecutionFailed = "ChildWorkflowExecutionFailed",
-  ChildWorkflowExecutionStarted = "ChildWorkflowExecutionStarted",
-  ChildWorkflowExecutionTerminated = "ChildWorkflowExecutionTerminated",
-  ChildWorkflowExecutionTimedOut = "ChildWorkflowExecutionTimedOut",
-  CompleteWorkflowExecutionFailed = "CompleteWorkflowExecutionFailed",
-  ContinueAsNewWorkflowExecutionFailed = "ContinueAsNewWorkflowExecutionFailed",
-  DecisionTaskCompleted = "DecisionTaskCompleted",
-  DecisionTaskScheduled = "DecisionTaskScheduled",
-  DecisionTaskStarted = "DecisionTaskStarted",
-  DecisionTaskTimedOut = "DecisionTaskTimedOut",
-  ExternalWorkflowExecutionCancelRequested = "ExternalWorkflowExecutionCancelRequested",
-  ExternalWorkflowExecutionSignaled = "ExternalWorkflowExecutionSignaled",
-  FailWorkflowExecutionFailed = "FailWorkflowExecutionFailed",
-  LambdaFunctionCompleted = "LambdaFunctionCompleted",
-  LambdaFunctionFailed = "LambdaFunctionFailed",
-  LambdaFunctionScheduled = "LambdaFunctionScheduled",
-  LambdaFunctionStarted = "LambdaFunctionStarted",
-  LambdaFunctionTimedOut = "LambdaFunctionTimedOut",
-  MarkerRecorded = "MarkerRecorded",
-  RecordMarkerFailed = "RecordMarkerFailed",
-  RequestCancelActivityTaskFailed = "RequestCancelActivityTaskFailed",
-  RequestCancelExternalWorkflowExecutionFailed = "RequestCancelExternalWorkflowExecutionFailed",
-  RequestCancelExternalWorkflowExecutionInitiated = "RequestCancelExternalWorkflowExecutionInitiated",
-  ScheduleActivityTaskFailed = "ScheduleActivityTaskFailed",
-  ScheduleLambdaFunctionFailed = "ScheduleLambdaFunctionFailed",
-  SignalExternalWorkflowExecutionFailed = "SignalExternalWorkflowExecutionFailed",
-  SignalExternalWorkflowExecutionInitiated = "SignalExternalWorkflowExecutionInitiated",
-  StartChildWorkflowExecutionFailed = "StartChildWorkflowExecutionFailed",
-  StartChildWorkflowExecutionInitiated = "StartChildWorkflowExecutionInitiated",
-  StartLambdaFunctionFailed = "StartLambdaFunctionFailed",
-  StartTimerFailed = "StartTimerFailed",
-  TimerCanceled = "TimerCanceled",
-  TimerFired = "TimerFired",
-  TimerStarted = "TimerStarted",
-  WorkflowExecutionCancelRequested = "WorkflowExecutionCancelRequested",
-  WorkflowExecutionCanceled = "WorkflowExecutionCanceled",
-  WorkflowExecutionCompleted = "WorkflowExecutionCompleted",
-  WorkflowExecutionContinuedAsNew = "WorkflowExecutionContinuedAsNew",
-  WorkflowExecutionFailed = "WorkflowExecutionFailed",
-  WorkflowExecutionSignaled = "WorkflowExecutionSignaled",
-  WorkflowExecutionStarted = "WorkflowExecutionStarted",
-  WorkflowExecutionTerminated = "WorkflowExecutionTerminated",
-  WorkflowExecutionTimedOut = "WorkflowExecutionTimedOut",
-}
+export const EventType = {
+  ActivityTaskCancelRequested: "ActivityTaskCancelRequested",
+  ActivityTaskCanceled: "ActivityTaskCanceled",
+  ActivityTaskCompleted: "ActivityTaskCompleted",
+  ActivityTaskFailed: "ActivityTaskFailed",
+  ActivityTaskScheduled: "ActivityTaskScheduled",
+  ActivityTaskStarted: "ActivityTaskStarted",
+  ActivityTaskTimedOut: "ActivityTaskTimedOut",
+  CancelTimerFailed: "CancelTimerFailed",
+  CancelWorkflowExecutionFailed: "CancelWorkflowExecutionFailed",
+  ChildWorkflowExecutionCanceled: "ChildWorkflowExecutionCanceled",
+  ChildWorkflowExecutionCompleted: "ChildWorkflowExecutionCompleted",
+  ChildWorkflowExecutionFailed: "ChildWorkflowExecutionFailed",
+  ChildWorkflowExecutionStarted: "ChildWorkflowExecutionStarted",
+  ChildWorkflowExecutionTerminated: "ChildWorkflowExecutionTerminated",
+  ChildWorkflowExecutionTimedOut: "ChildWorkflowExecutionTimedOut",
+  CompleteWorkflowExecutionFailed: "CompleteWorkflowExecutionFailed",
+  ContinueAsNewWorkflowExecutionFailed: "ContinueAsNewWorkflowExecutionFailed",
+  DecisionTaskCompleted: "DecisionTaskCompleted",
+  DecisionTaskScheduled: "DecisionTaskScheduled",
+  DecisionTaskStarted: "DecisionTaskStarted",
+  DecisionTaskTimedOut: "DecisionTaskTimedOut",
+  ExternalWorkflowExecutionCancelRequested: "ExternalWorkflowExecutionCancelRequested",
+  ExternalWorkflowExecutionSignaled: "ExternalWorkflowExecutionSignaled",
+  FailWorkflowExecutionFailed: "FailWorkflowExecutionFailed",
+  LambdaFunctionCompleted: "LambdaFunctionCompleted",
+  LambdaFunctionFailed: "LambdaFunctionFailed",
+  LambdaFunctionScheduled: "LambdaFunctionScheduled",
+  LambdaFunctionStarted: "LambdaFunctionStarted",
+  LambdaFunctionTimedOut: "LambdaFunctionTimedOut",
+  MarkerRecorded: "MarkerRecorded",
+  RecordMarkerFailed: "RecordMarkerFailed",
+  RequestCancelActivityTaskFailed: "RequestCancelActivityTaskFailed",
+  RequestCancelExternalWorkflowExecutionFailed: "RequestCancelExternalWorkflowExecutionFailed",
+  RequestCancelExternalWorkflowExecutionInitiated: "RequestCancelExternalWorkflowExecutionInitiated",
+  ScheduleActivityTaskFailed: "ScheduleActivityTaskFailed",
+  ScheduleLambdaFunctionFailed: "ScheduleLambdaFunctionFailed",
+  SignalExternalWorkflowExecutionFailed: "SignalExternalWorkflowExecutionFailed",
+  SignalExternalWorkflowExecutionInitiated: "SignalExternalWorkflowExecutionInitiated",
+  StartChildWorkflowExecutionFailed: "StartChildWorkflowExecutionFailed",
+  StartChildWorkflowExecutionInitiated: "StartChildWorkflowExecutionInitiated",
+  StartLambdaFunctionFailed: "StartLambdaFunctionFailed",
+  StartTimerFailed: "StartTimerFailed",
+  TimerCanceled: "TimerCanceled",
+  TimerFired: "TimerFired",
+  TimerStarted: "TimerStarted",
+  WorkflowExecutionCancelRequested: "WorkflowExecutionCancelRequested",
+  WorkflowExecutionCanceled: "WorkflowExecutionCanceled",
+  WorkflowExecutionCompleted: "WorkflowExecutionCompleted",
+  WorkflowExecutionContinuedAsNew: "WorkflowExecutionContinuedAsNew",
+  WorkflowExecutionFailed: "WorkflowExecutionFailed",
+  WorkflowExecutionSignaled: "WorkflowExecutionSignaled",
+  WorkflowExecutionStarted: "WorkflowExecutionStarted",
+  WorkflowExecutionTerminated: "WorkflowExecutionTerminated",
+  WorkflowExecutionTimedOut: "WorkflowExecutionTimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -2530,11 +2606,18 @@ export interface ExternalWorkflowExecutionSignaledEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum FailWorkflowExecutionFailedCause {
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  UNHANDLED_DECISION = "UNHANDLED_DECISION",
-}
+export const FailWorkflowExecutionFailedCause = {
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  UNHANDLED_DECISION: "UNHANDLED_DECISION",
+} as const;
+
+/**
+ * @public
+ */
+export type FailWorkflowExecutionFailedCause =
+  (typeof FailWorkflowExecutionFailedCause)[keyof typeof FailWorkflowExecutionFailedCause];
 
 /**
  * @public
@@ -2666,10 +2749,16 @@ export interface LambdaFunctionStartedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum LambdaFunctionTimeoutType {
-  START_TO_CLOSE = "START_TO_CLOSE",
-}
+export const LambdaFunctionTimeoutType = {
+  START_TO_CLOSE: "START_TO_CLOSE",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionTimeoutType = (typeof LambdaFunctionTimeoutType)[keyof typeof LambdaFunctionTimeoutType];
 
 /**
  * @public
@@ -2719,10 +2808,16 @@ export interface MarkerRecordedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordMarkerFailedCause {
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-}
+export const RecordMarkerFailedCause = {
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordMarkerFailedCause = (typeof RecordMarkerFailedCause)[keyof typeof RecordMarkerFailedCause];
 
 /**
  * @public
@@ -2754,11 +2849,18 @@ export interface RecordMarkerFailedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum RequestCancelActivityTaskFailedCause {
-  ACTIVITY_ID_UNKNOWN = "ACTIVITY_ID_UNKNOWN",
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-}
+export const RequestCancelActivityTaskFailedCause = {
+  ACTIVITY_ID_UNKNOWN: "ACTIVITY_ID_UNKNOWN",
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type RequestCancelActivityTaskFailedCause =
+  (typeof RequestCancelActivityTaskFailedCause)[keyof typeof RequestCancelActivityTaskFailedCause];
 
 /**
  * @public
@@ -2790,12 +2892,19 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum RequestCancelExternalWorkflowExecutionFailedCause {
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED = "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED",
-  UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION = "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION",
-}
+export const RequestCancelExternalWorkflowExecutionFailedCause = {
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED: "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED",
+  UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION: "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION",
+} as const;
+
+/**
+ * @public
+ */
+export type RequestCancelExternalWorkflowExecutionFailedCause =
+  (typeof RequestCancelExternalWorkflowExecutionFailedCause)[keyof typeof RequestCancelExternalWorkflowExecutionFailedCause];
 
 /**
  * @public
@@ -2875,20 +2984,27 @@ export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduleActivityTaskFailedCause {
-  ACTIVITY_CREATION_RATE_EXCEEDED = "ACTIVITY_CREATION_RATE_EXCEEDED",
-  ACTIVITY_ID_ALREADY_IN_USE = "ACTIVITY_ID_ALREADY_IN_USE",
-  ACTIVITY_TYPE_DEPRECATED = "ACTIVITY_TYPE_DEPRECATED",
-  ACTIVITY_TYPE_DOES_NOT_EXIST = "ACTIVITY_TYPE_DOES_NOT_EXIST",
-  DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED = "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED",
-  DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED",
-  DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED = "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED",
-  DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-  DEFAULT_TASK_LIST_UNDEFINED = "DEFAULT_TASK_LIST_UNDEFINED",
-  OPEN_ACTIVITIES_LIMIT_EXCEEDED = "OPEN_ACTIVITIES_LIMIT_EXCEEDED",
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-}
+export const ScheduleActivityTaskFailedCause = {
+  ACTIVITY_CREATION_RATE_EXCEEDED: "ACTIVITY_CREATION_RATE_EXCEEDED",
+  ACTIVITY_ID_ALREADY_IN_USE: "ACTIVITY_ID_ALREADY_IN_USE",
+  ACTIVITY_TYPE_DEPRECATED: "ACTIVITY_TYPE_DEPRECATED",
+  ACTIVITY_TYPE_DOES_NOT_EXIST: "ACTIVITY_TYPE_DOES_NOT_EXIST",
+  DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED: "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED",
+  DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED: "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED",
+  DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED: "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED",
+  DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED: "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  DEFAULT_TASK_LIST_UNDEFINED: "DEFAULT_TASK_LIST_UNDEFINED",
+  OPEN_ACTIVITIES_LIMIT_EXCEEDED: "OPEN_ACTIVITIES_LIMIT_EXCEEDED",
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleActivityTaskFailedCause =
+  (typeof ScheduleActivityTaskFailedCause)[keyof typeof ScheduleActivityTaskFailedCause];
 
 /**
  * @public
@@ -2925,13 +3041,20 @@ export interface ScheduleActivityTaskFailedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduleLambdaFunctionFailedCause {
-  ID_ALREADY_IN_USE = "ID_ALREADY_IN_USE",
-  LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED = "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED",
-  LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION = "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION",
-  OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED = "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED",
-}
+export const ScheduleLambdaFunctionFailedCause = {
+  ID_ALREADY_IN_USE: "ID_ALREADY_IN_USE",
+  LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED: "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED",
+  LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION: "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION",
+  OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED: "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleLambdaFunctionFailedCause =
+  (typeof ScheduleLambdaFunctionFailedCause)[keyof typeof ScheduleLambdaFunctionFailedCause];
 
 /**
  * @public
@@ -2971,12 +3094,19 @@ export interface ScheduleLambdaFunctionFailedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum SignalExternalWorkflowExecutionFailedCause {
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED = "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED",
-  UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION = "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION",
-}
+export const SignalExternalWorkflowExecutionFailedCause = {
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED: "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED",
+  UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION: "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalExternalWorkflowExecutionFailedCause =
+  (typeof SignalExternalWorkflowExecutionFailedCause)[keyof typeof SignalExternalWorkflowExecutionFailedCause];
 
 /**
  * @public
@@ -3064,20 +3194,27 @@ export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum StartChildWorkflowExecutionFailedCause {
-  CHILD_CREATION_RATE_EXCEEDED = "CHILD_CREATION_RATE_EXCEEDED",
-  DEFAULT_CHILD_POLICY_UNDEFINED = "DEFAULT_CHILD_POLICY_UNDEFINED",
-  DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-  DEFAULT_TASK_LIST_UNDEFINED = "DEFAULT_TASK_LIST_UNDEFINED",
-  DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED = "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED",
-  OPEN_CHILDREN_LIMIT_EXCEEDED = "OPEN_CHILDREN_LIMIT_EXCEEDED",
-  OPEN_WORKFLOWS_LIMIT_EXCEEDED = "OPEN_WORKFLOWS_LIMIT_EXCEEDED",
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  WORKFLOW_ALREADY_RUNNING = "WORKFLOW_ALREADY_RUNNING",
-  WORKFLOW_TYPE_DEPRECATED = "WORKFLOW_TYPE_DEPRECATED",
-  WORKFLOW_TYPE_DOES_NOT_EXIST = "WORKFLOW_TYPE_DOES_NOT_EXIST",
-}
+export const StartChildWorkflowExecutionFailedCause = {
+  CHILD_CREATION_RATE_EXCEEDED: "CHILD_CREATION_RATE_EXCEEDED",
+  DEFAULT_CHILD_POLICY_UNDEFINED: "DEFAULT_CHILD_POLICY_UNDEFINED",
+  DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED: "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  DEFAULT_TASK_LIST_UNDEFINED: "DEFAULT_TASK_LIST_UNDEFINED",
+  DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED: "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED",
+  OPEN_CHILDREN_LIMIT_EXCEEDED: "OPEN_CHILDREN_LIMIT_EXCEEDED",
+  OPEN_WORKFLOWS_LIMIT_EXCEEDED: "OPEN_WORKFLOWS_LIMIT_EXCEEDED",
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  WORKFLOW_ALREADY_RUNNING: "WORKFLOW_ALREADY_RUNNING",
+  WORKFLOW_TYPE_DEPRECATED: "WORKFLOW_TYPE_DEPRECATED",
+  WORKFLOW_TYPE_DOES_NOT_EXIST: "WORKFLOW_TYPE_DOES_NOT_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type StartChildWorkflowExecutionFailedCause =
+  (typeof StartChildWorkflowExecutionFailedCause)[keyof typeof StartChildWorkflowExecutionFailedCause];
 
 /**
  * @public
@@ -3223,10 +3360,17 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum StartLambdaFunctionFailedCause {
-  ASSUME_ROLE_FAILED = "ASSUME_ROLE_FAILED",
-}
+export const StartLambdaFunctionFailedCause = {
+  ASSUME_ROLE_FAILED: "ASSUME_ROLE_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type StartLambdaFunctionFailedCause =
+  (typeof StartLambdaFunctionFailedCause)[keyof typeof StartLambdaFunctionFailedCause];
 
 /**
  * @public
@@ -3259,13 +3403,19 @@ export interface StartLambdaFunctionFailedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum StartTimerFailedCause {
-  OPEN_TIMERS_LIMIT_EXCEEDED = "OPEN_TIMERS_LIMIT_EXCEEDED",
-  OPERATION_NOT_PERMITTED = "OPERATION_NOT_PERMITTED",
-  TIMER_CREATION_RATE_EXCEEDED = "TIMER_CREATION_RATE_EXCEEDED",
-  TIMER_ID_ALREADY_IN_USE = "TIMER_ID_ALREADY_IN_USE",
-}
+export const StartTimerFailedCause = {
+  OPEN_TIMERS_LIMIT_EXCEEDED: "OPEN_TIMERS_LIMIT_EXCEEDED",
+  OPERATION_NOT_PERMITTED: "OPERATION_NOT_PERMITTED",
+  TIMER_CREATION_RATE_EXCEEDED: "TIMER_CREATION_RATE_EXCEEDED",
+  TIMER_ID_ALREADY_IN_USE: "TIMER_ID_ALREADY_IN_USE",
+} as const;
+
+/**
+ * @public
+ */
+export type StartTimerFailedCause = (typeof StartTimerFailedCause)[keyof typeof StartTimerFailedCause];
 
 /**
  * @public
@@ -3389,10 +3539,17 @@ export interface WorkflowExecutionCanceledEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowExecutionCancelRequestedCause {
-  CHILD_POLICY_APPLIED = "CHILD_POLICY_APPLIED",
-}
+export const WorkflowExecutionCancelRequestedCause = {
+  CHILD_POLICY_APPLIED: "CHILD_POLICY_APPLIED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowExecutionCancelRequestedCause =
+  (typeof WorkflowExecutionCancelRequestedCause)[keyof typeof WorkflowExecutionCancelRequestedCause];
 
 /**
  * @public
@@ -3668,12 +3825,19 @@ export interface WorkflowExecutionStartedEventAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowExecutionTerminatedCause {
-  CHILD_POLICY_APPLIED = "CHILD_POLICY_APPLIED",
-  EVENT_LIMIT_EXCEEDED = "EVENT_LIMIT_EXCEEDED",
-  OPERATOR_INITIATED = "OPERATOR_INITIATED",
-}
+export const WorkflowExecutionTerminatedCause = {
+  CHILD_POLICY_APPLIED: "CHILD_POLICY_APPLIED",
+  EVENT_LIMIT_EXCEEDED: "EVENT_LIMIT_EXCEEDED",
+  OPERATOR_INITIATED: "OPERATOR_INITIATED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowExecutionTerminatedCause =
+  (typeof WorkflowExecutionTerminatedCause)[keyof typeof WorkflowExecutionTerminatedCause];
 
 /**
  * @public
@@ -4638,11 +4802,17 @@ export interface WorkflowExecutionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutionStatus {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN",
-}
+export const ExecutionStatus = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @public

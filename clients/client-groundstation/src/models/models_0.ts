@@ -102,12 +102,18 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ComponentType {
-  DIGITIZER = "DIGITIZER",
-  LAMINAR_FLOW = "LAMINAR_FLOW",
-  PRISM = "PRISM",
-}
+export const ComponentType = {
+  DIGITIZER: "DIGITIZER",
+  LAMINAR_FLOW: "LAMINAR_FLOW",
+  PRISM: "PRISM",
+} as const;
+
+/**
+ * @public
+ */
+export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
 
 /**
  * @public
@@ -204,13 +210,19 @@ export interface RegisterAgentResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum AgentStatus {
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  SUCCESS = "SUCCESS",
-}
+export const AgentStatus = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
  * @public
@@ -306,11 +318,17 @@ export interface UpdateAgentStatusResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum AngleUnits {
-  DEGREE_ANGLE = "DEGREE_ANGLE",
-  RADIAN = "RADIAN",
-}
+export const AngleUnits = {
+  DEGREE_ANGLE: "DEGREE_ANGLE",
+  RADIAN: "RADIAN",
+} as const;
+
+/**
+ * @public
+ */
+export type AngleUnits = (typeof AngleUnits)[keyof typeof AngleUnits];
 
 /**
  * @public
@@ -325,12 +343,18 @@ export interface AntennaDemodDecodeDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum BandwidthUnits {
-  GHZ = "GHz",
-  KHZ = "kHz",
-  MHZ = "MHz",
-}
+export const BandwidthUnits = {
+  GHZ: "GHz",
+  KHZ: "kHz",
+  MHZ: "MHz",
+} as const;
+
+/**
+ * @public
+ */
+export type BandwidthUnits = (typeof BandwidthUnits)[keyof typeof BandwidthUnits];
 
 /**
  * @public
@@ -361,12 +385,18 @@ export interface FrequencyBandwidth {
 
 /**
  * @public
+ * @enum
  */
-export enum FrequencyUnits {
-  GHZ = "GHz",
-  KHZ = "kHz",
-  MHZ = "MHz",
-}
+export const FrequencyUnits = {
+  GHZ: "GHz",
+  KHZ: "kHz",
+  MHZ: "MHz",
+} as const;
+
+/**
+ * @public
+ */
+export type FrequencyUnits = (typeof FrequencyUnits)[keyof typeof FrequencyUnits];
 
 /**
  * @public
@@ -386,12 +416,18 @@ export interface Frequency {
 
 /**
  * @public
+ * @enum
  */
-export enum Polarization {
-  LEFT_HAND = "LEFT_HAND",
-  NONE = "NONE",
-  RIGHT_HAND = "RIGHT_HAND",
-}
+export const Polarization = {
+  LEFT_HAND: "LEFT_HAND",
+  NONE: "NONE",
+  RIGHT_HAND: "RIGHT_HAND",
+} as const;
+
+/**
+ * @public
+ */
+export type Polarization = (typeof Polarization)[keyof typeof Polarization];
 
 /**
  * @public
@@ -498,10 +534,16 @@ export interface UplinkSpectrumConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum EirpUnits {
-  DBW = "dBW",
-}
+export const EirpUnits = {
+  DBW: "dBW",
+} as const;
+
+/**
+ * @public
+ */
+export type EirpUnits = (typeof EirpUnits)[keyof typeof EirpUnits];
 
 /**
  * @public
@@ -542,11 +584,17 @@ export interface AntennaUplinkConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditResults {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const AuditResults = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditResults = (typeof AuditResults)[keyof typeof AuditResults];
 
 /**
  * @public
@@ -683,16 +731,22 @@ export interface ContactIdResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigCapabilityType {
-  ANTENNA_DOWNLINK = "antenna-downlink",
-  ANTENNA_DOWNLINK_DEMOD_DECODE = "antenna-downlink-demod-decode",
-  ANTENNA_UPLINK = "antenna-uplink",
-  DATAFLOW_ENDPOINT = "dataflow-endpoint",
-  S3_RECORDING = "s3-recording",
-  TRACKING = "tracking",
-  UPLINK_ECHO = "uplink-echo",
-}
+export const ConfigCapabilityType = {
+  ANTENNA_DOWNLINK: "antenna-downlink",
+  ANTENNA_DOWNLINK_DEMOD_DECODE: "antenna-downlink-demod-decode",
+  ANTENNA_UPLINK: "antenna-uplink",
+  DATAFLOW_ENDPOINT: "dataflow-endpoint",
+  S3_RECORDING: "s3-recording",
+  TRACKING: "tracking",
+  UPLINK_ECHO: "uplink-echo",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigCapabilityType = (typeof ConfigCapabilityType)[keyof typeof ConfigCapabilityType];
 
 /**
  * @public
@@ -754,12 +808,18 @@ export interface S3RecordingConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum Criticality {
-  PREFERRED = "PREFERRED",
-  REMOVED = "REMOVED",
-  REQUIRED = "REQUIRED",
-}
+export const Criticality = {
+  PREFERRED: "PREFERRED",
+  REMOVED: "REMOVED",
+  REQUIRED: "REQUIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type Criticality = (typeof Criticality)[keyof typeof Criticality];
 
 /**
  * @public
@@ -1147,14 +1207,20 @@ export interface UpdateConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointStatus {
-  created = "created",
-  creating = "creating",
-  deleted = "deleted",
-  deleting = "deleting",
-  failed = "failed",
-}
+export const EndpointStatus = {
+  created: "created",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+  failed: "failed",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
 
 /**
  * @public
@@ -1320,22 +1386,28 @@ export interface DescribeContactRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactStatus {
-  AVAILABLE = "AVAILABLE",
-  AWS_CANCELLED = "AWS_CANCELLED",
-  AWS_FAILED = "AWS_FAILED",
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FAILED_TO_SCHEDULE = "FAILED_TO_SCHEDULE",
-  PASS = "PASS",
-  POSTPASS = "POSTPASS",
-  PREPASS = "PREPASS",
-  SCHEDULED = "SCHEDULED",
-  SCHEDULING = "SCHEDULING",
-}
+export const ContactStatus = {
+  AVAILABLE: "AVAILABLE",
+  AWS_CANCELLED: "AWS_CANCELLED",
+  AWS_FAILED: "AWS_FAILED",
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  FAILED_TO_SCHEDULE: "FAILED_TO_SCHEDULE",
+  PASS: "PASS",
+  POSTPASS: "POSTPASS",
+  PREPASS: "PREPASS",
+  SCHEDULED: "SCHEDULED",
+  SCHEDULING: "SCHEDULING",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactStatus = (typeof ContactStatus)[keyof typeof ContactStatus];
 
 /**
  * @public
@@ -2154,41 +2226,53 @@ export interface DescribeEphemerisRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EphemerisInvalidReason {
+export const EphemerisInvalidReason = {
   /**
    * Provided KMS key is invalid
    */
-  KMS_KEY_INVALID = "KMS_KEY_INVALID",
+  KMS_KEY_INVALID: "KMS_KEY_INVALID",
   /**
    * Provided spacecraft identifiers such as spacecraft NORAD Id are invalid
    */
-  METADATA_INVALID = "METADATA_INVALID",
+  METADATA_INVALID: "METADATA_INVALID",
   /**
    * Start, end, or expiration time(s) are invalid for the provided ephemeris
    */
-  TIME_RANGE_INVALID = "TIME_RANGE_INVALID",
+  TIME_RANGE_INVALID: "TIME_RANGE_INVALID",
   /**
    * Provided ephemeris defines invalid spacecraft trajectory
    */
-  TRAJECTORY_INVALID = "TRAJECTORY_INVALID",
+  TRAJECTORY_INVALID: "TRAJECTORY_INVALID",
   /**
    * Internal Service Error occurred while processing ephemeris
    */
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
 
 /**
  * @public
  */
-export enum EphemerisStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-  EXPIRED = "EXPIRED",
-  INVALID = "INVALID",
-  VALIDATING = "VALIDATING",
-}
+export type EphemerisInvalidReason = (typeof EphemerisInvalidReason)[keyof typeof EphemerisInvalidReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const EphemerisStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+  EXPIRED: "EXPIRED",
+  INVALID: "INVALID",
+  VALIDATING: "VALIDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type EphemerisStatus = (typeof EphemerisStatus)[keyof typeof EphemerisStatus];
 
 /**
  * @public
@@ -2435,11 +2519,17 @@ export interface UpdateEphemerisRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EphemerisSource {
-  CUSTOMER_PROVIDED = "CUSTOMER_PROVIDED",
-  SPACE_TRACK = "SPACE_TRACK",
-}
+export const EphemerisSource = {
+  CUSTOMER_PROVIDED: "CUSTOMER_PROVIDED",
+  SPACE_TRACK: "SPACE_TRACK",
+} as const;
+
+/**
+ * @public
+ */
+export type EphemerisSource = (typeof EphemerisSource)[keyof typeof EphemerisSource];
 
 /**
  * @public

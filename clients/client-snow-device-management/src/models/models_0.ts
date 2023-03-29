@@ -25,13 +25,19 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AttachmentStatus {
-  ATTACHED = "ATTACHED",
-  ATTACHING = "ATTACHING",
-  DETACHED = "DETACHED",
-  DETACHING = "DETACHING",
-}
+export const AttachmentStatus = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  DETACHED: "DETACHED",
+  DETACHING: "DETACHING",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
 
 /**
  * @public
@@ -322,31 +328,49 @@ export interface DescribeDeviceInput {
 
 /**
  * @public
+ * @enum
  */
-export enum UnlockState {
-  LOCKED = "LOCKED",
-  UNLOCKED = "UNLOCKED",
-  UNLOCKING = "UNLOCKING",
-}
+export const UnlockState = {
+  LOCKED: "LOCKED",
+  UNLOCKED: "UNLOCKED",
+  UNLOCKING: "UNLOCKING",
+} as const;
 
 /**
  * @public
  */
-export enum IpAddressAssignment {
-  DHCP = "DHCP",
-  STATIC = "STATIC",
-}
+export type UnlockState = (typeof UnlockState)[keyof typeof UnlockState];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressAssignment = {
+  DHCP: "DHCP",
+  STATIC: "STATIC",
+} as const;
 
 /**
  * @public
  */
-export enum PhysicalConnectorType {
-  QSFP = "QSFP",
-  RJ45 = "RJ45",
-  RJ45_2 = "RJ45_2",
-  SFP_PLUS = "SFP_PLUS",
-  WIFI = "WIFI",
-}
+export type IpAddressAssignment = (typeof IpAddressAssignment)[keyof typeof IpAddressAssignment];
+
+/**
+ * @public
+ * @enum
+ */
+export const PhysicalConnectorType = {
+  QSFP: "QSFP",
+  RJ45: "RJ45",
+  RJ45_2: "RJ45_2",
+  SFP_PLUS: "SFP_PLUS",
+  WIFI: "WIFI",
+} as const;
+
+/**
+ * @public
+ */
+export type PhysicalConnectorType = (typeof PhysicalConnectorType)[keyof typeof PhysicalConnectorType];
 
 /**
  * @public
@@ -553,15 +577,21 @@ export interface SecurityGroupIdentifier {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceStateName {
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TERMINATED = "TERMINATED",
-}
+export const InstanceStateName = {
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TERMINATED: "TERMINATED",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceStateName = (typeof InstanceStateName)[keyof typeof InstanceStateName];
 
 /**
  * @public
@@ -739,16 +769,22 @@ export interface DescribeExecutionInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutionState {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const ExecutionState = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionState = (typeof ExecutionState)[keyof typeof ExecutionState];
 
 /**
  * @public
@@ -797,12 +833,18 @@ export interface DescribeTaskInput {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskState {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const TaskState = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskState = (typeof TaskState)[keyof typeof TaskState];
 
 /**
  * @public

@@ -30,13 +30,19 @@ export interface ActiveDirectoryBackupAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum ActiveDirectoryErrorType {
-  DOMAIN_NOT_FOUND = "DOMAIN_NOT_FOUND",
-  INCOMPATIBLE_DOMAIN_MODE = "INCOMPATIBLE_DOMAIN_MODE",
-  INVALID_DOMAIN_STAGE = "INVALID_DOMAIN_STAGE",
-  WRONG_VPC = "WRONG_VPC",
-}
+export const ActiveDirectoryErrorType = {
+  DOMAIN_NOT_FOUND: "DOMAIN_NOT_FOUND",
+  INCOMPATIBLE_DOMAIN_MODE: "INCOMPATIBLE_DOMAIN_MODE",
+  INVALID_DOMAIN_STAGE: "INVALID_DOMAIN_STAGE",
+  WRONG_VPC: "WRONG_VPC",
+} as const;
+
+/**
+ * @public
+ */
+export type ActiveDirectoryErrorType = (typeof ActiveDirectoryErrorType)[keyof typeof ActiveDirectoryErrorType];
 
 /**
  * @public
@@ -77,17 +83,23 @@ export class ActiveDirectoryError extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AdministrativeActionType {
-  FILE_SYSTEM_ALIAS_ASSOCIATION = "FILE_SYSTEM_ALIAS_ASSOCIATION",
-  FILE_SYSTEM_ALIAS_DISASSOCIATION = "FILE_SYSTEM_ALIAS_DISASSOCIATION",
-  FILE_SYSTEM_UPDATE = "FILE_SYSTEM_UPDATE",
-  RELEASE_NFS_V3_LOCKS = "RELEASE_NFS_V3_LOCKS",
-  SNAPSHOT_UPDATE = "SNAPSHOT_UPDATE",
-  STORAGE_OPTIMIZATION = "STORAGE_OPTIMIZATION",
-  VOLUME_RESTORE = "VOLUME_RESTORE",
-  VOLUME_UPDATE = "VOLUME_UPDATE",
-}
+export const AdministrativeActionType = {
+  FILE_SYSTEM_ALIAS_ASSOCIATION: "FILE_SYSTEM_ALIAS_ASSOCIATION",
+  FILE_SYSTEM_ALIAS_DISASSOCIATION: "FILE_SYSTEM_ALIAS_DISASSOCIATION",
+  FILE_SYSTEM_UPDATE: "FILE_SYSTEM_UPDATE",
+  RELEASE_NFS_V3_LOCKS: "RELEASE_NFS_V3_LOCKS",
+  SNAPSHOT_UPDATE: "SNAPSHOT_UPDATE",
+  STORAGE_OPTIMIZATION: "STORAGE_OPTIMIZATION",
+  VOLUME_RESTORE: "VOLUME_RESTORE",
+  VOLUME_UPDATE: "VOLUME_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type AdministrativeActionType = (typeof AdministrativeActionType)[keyof typeof AdministrativeActionType];
 
 /**
  * @public
@@ -102,14 +114,20 @@ export interface AdministrativeActionFailureDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  UPDATED_OPTIMIZING = "UPDATED_OPTIMIZING",
-}
+export const Status = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  UPDATED_OPTIMIZING: "UPDATED_OPTIMIZING",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -124,44 +142,68 @@ export interface FileSystemFailureDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum FileSystemType {
-  LUSTRE = "LUSTRE",
-  ONTAP = "ONTAP",
-  OPENZFS = "OPENZFS",
-  WINDOWS = "WINDOWS",
-}
+export const FileSystemType = {
+  LUSTRE: "LUSTRE",
+  ONTAP: "ONTAP",
+  OPENZFS: "OPENZFS",
+  WINDOWS: "WINDOWS",
+} as const;
 
 /**
  * @public
  */
-export enum FileSystemLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  MISCONFIGURED_UNAVAILABLE = "MISCONFIGURED_UNAVAILABLE",
-  UPDATING = "UPDATING",
-}
+export type FileSystemType = (typeof FileSystemType)[keyof typeof FileSystemType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileSystemLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
+  MISCONFIGURED_UNAVAILABLE: "MISCONFIGURED_UNAVAILABLE",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum DataCompressionType {
-  LZ4 = "LZ4",
-  NONE = "NONE",
-}
+export type FileSystemLifecycle = (typeof FileSystemLifecycle)[keyof typeof FileSystemLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataCompressionType = {
+  LZ4: "LZ4",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum AutoImportPolicyType {
-  NEW = "NEW",
-  NEW_CHANGED = "NEW_CHANGED",
-  NEW_CHANGED_DELETED = "NEW_CHANGED_DELETED",
-  NONE = "NONE",
-}
+export type DataCompressionType = (typeof DataCompressionType)[keyof typeof DataCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoImportPolicyType = {
+  NEW: "NEW",
+  NEW_CHANGED: "NEW_CHANGED",
+  NEW_CHANGED_DELETED: "NEW_CHANGED_DELETED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoImportPolicyType = (typeof AutoImportPolicyType)[keyof typeof AutoImportPolicyType];
 
 /**
  * @public
@@ -177,15 +219,21 @@ export interface DataRepositoryFailureDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum DataRepositoryLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  UPDATING = "UPDATING",
-}
+export const DataRepositoryLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type DataRepositoryLifecycle = (typeof DataRepositoryLifecycle)[keyof typeof DataRepositoryLifecycle];
 
 /**
  * @public
@@ -299,31 +347,49 @@ export interface DataRepositoryConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum LustreDeploymentType {
-  PERSISTENT_1 = "PERSISTENT_1",
-  PERSISTENT_2 = "PERSISTENT_2",
-  SCRATCH_1 = "SCRATCH_1",
-  SCRATCH_2 = "SCRATCH_2",
-}
+export const LustreDeploymentType = {
+  PERSISTENT_1: "PERSISTENT_1",
+  PERSISTENT_2: "PERSISTENT_2",
+  SCRATCH_1: "SCRATCH_1",
+  SCRATCH_2: "SCRATCH_2",
+} as const;
 
 /**
  * @public
  */
-export enum DriveCacheType {
-  NONE = "NONE",
-  READ = "READ",
-}
+export type LustreDeploymentType = (typeof LustreDeploymentType)[keyof typeof LustreDeploymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DriveCacheType = {
+  NONE: "NONE",
+  READ: "READ",
+} as const;
 
 /**
  * @public
  */
-export enum LustreAccessAuditLogLevel {
-  DISABLED = "DISABLED",
-  ERROR_ONLY = "ERROR_ONLY",
-  WARN_ERROR = "WARN_ERROR",
-  WARN_ONLY = "WARN_ONLY",
-}
+export type DriveCacheType = (typeof DriveCacheType)[keyof typeof DriveCacheType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LustreAccessAuditLogLevel = {
+  DISABLED: "DISABLED",
+  ERROR_ONLY: "ERROR_ONLY",
+  WARN_ERROR: "WARN_ERROR",
+  WARN_ONLY: "WARN_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type LustreAccessAuditLogLevel = (typeof LustreAccessAuditLogLevel)[keyof typeof LustreAccessAuditLogLevel];
 
 /**
  * @public
@@ -558,19 +624,31 @@ export interface LustreFileSystemConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum OntapDeploymentType {
-  MULTI_AZ_1 = "MULTI_AZ_1",
-  SINGLE_AZ_1 = "SINGLE_AZ_1",
-}
+export const OntapDeploymentType = {
+  MULTI_AZ_1: "MULTI_AZ_1",
+  SINGLE_AZ_1: "SINGLE_AZ_1",
+} as const;
 
 /**
  * @public
  */
-export enum DiskIopsConfigurationMode {
-  AUTOMATIC = "AUTOMATIC",
-  USER_PROVISIONED = "USER_PROVISIONED",
-}
+export type OntapDeploymentType = (typeof OntapDeploymentType)[keyof typeof OntapDeploymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DiskIopsConfigurationMode = {
+  AUTOMATIC: "AUTOMATIC",
+  USER_PROVISIONED: "USER_PROVISIONED",
+} as const;
+
+/**
+ * @public
+ */
+export type DiskIopsConfigurationMode = (typeof DiskIopsConfigurationMode)[keyof typeof DiskIopsConfigurationMode];
 
 /**
  * @public
@@ -733,11 +811,17 @@ export interface OntapFileSystemConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum OpenZFSDeploymentType {
-  SINGLE_AZ_1 = "SINGLE_AZ_1",
-  SINGLE_AZ_2 = "SINGLE_AZ_2",
-}
+export const OpenZFSDeploymentType = {
+  SINGLE_AZ_1: "SINGLE_AZ_1",
+  SINGLE_AZ_2: "SINGLE_AZ_2",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenZFSDeploymentType = (typeof OpenZFSDeploymentType)[keyof typeof OpenZFSDeploymentType];
 
 /**
  * @public
@@ -818,11 +902,17 @@ export interface OpenZFSFileSystemConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageType {
-  HDD = "HDD",
-  SSD = "SSD",
-}
+export const StorageType = {
+  HDD: "HDD",
+  SSD: "SSD",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 /**
  * @public
@@ -846,14 +936,20 @@ export interface Tag {
 
 /**
  * @public
+ * @enum
  */
-export enum AliasLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const AliasLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type AliasLifecycle = (typeof AliasLifecycle)[keyof typeof AliasLifecycle];
 
 /**
  * @public
@@ -910,13 +1006,19 @@ export interface Alias {
 
 /**
  * @public
+ * @enum
  */
-export enum WindowsAccessAuditLogLevel {
-  DISABLED = "DISABLED",
-  FAILURE_ONLY = "FAILURE_ONLY",
-  SUCCESS_AND_FAILURE = "SUCCESS_AND_FAILURE",
-  SUCCESS_ONLY = "SUCCESS_ONLY",
-}
+export const WindowsAccessAuditLogLevel = {
+  DISABLED: "DISABLED",
+  FAILURE_ONLY: "FAILURE_ONLY",
+  SUCCESS_AND_FAILURE: "SUCCESS_AND_FAILURE",
+  SUCCESS_ONLY: "SUCCESS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type WindowsAccessAuditLogLevel = (typeof WindowsAccessAuditLogLevel)[keyof typeof WindowsAccessAuditLogLevel];
 
 /**
  * @public
@@ -995,20 +1097,33 @@ export interface WindowsAuditLogConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum WindowsDeploymentType {
-  MULTI_AZ_1 = "MULTI_AZ_1",
-  SINGLE_AZ_1 = "SINGLE_AZ_1",
-  SINGLE_AZ_2 = "SINGLE_AZ_2",
-}
+export const WindowsDeploymentType = {
+  MULTI_AZ_1: "MULTI_AZ_1",
+  SINGLE_AZ_1: "SINGLE_AZ_1",
+  SINGLE_AZ_2: "SINGLE_AZ_2",
+} as const;
 
 /**
  * @public
  */
-export enum FileSystemMaintenanceOperation {
-  BACKING_UP = "BACKING_UP",
-  PATCHING = "PATCHING",
-}
+export type WindowsDeploymentType = (typeof WindowsDeploymentType)[keyof typeof WindowsDeploymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileSystemMaintenanceOperation = {
+  BACKING_UP: "BACKING_UP",
+  PATCHING: "PATCHING",
+} as const;
+
+/**
+ * @public
+ */
+export type FileSystemMaintenanceOperation =
+  (typeof FileSystemMaintenanceOperation)[keyof typeof FileSystemMaintenanceOperation];
 
 /**
  * @public
@@ -1177,13 +1292,19 @@ export interface WindowsFileSystemConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SnapshotLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
-}
+export const SnapshotLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotLifecycle = (typeof SnapshotLifecycle)[keyof typeof SnapshotLifecycle];
 
 /**
  * @public
@@ -1198,53 +1319,83 @@ export interface LifecycleTransitionReason {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  PENDING = "PENDING",
-}
+export const VolumeLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum FlexCacheEndpointType {
-  CACHE = "CACHE",
-  NONE = "NONE",
-  ORIGIN = "ORIGIN",
-}
+export type VolumeLifecycle = (typeof VolumeLifecycle)[keyof typeof VolumeLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlexCacheEndpointType = {
+  CACHE: "CACHE",
+  NONE: "NONE",
+  ORIGIN: "ORIGIN",
+} as const;
 
 /**
  * @public
  */
-export enum OntapVolumeType {
-  DP = "DP",
-  LS = "LS",
-  RW = "RW",
-}
+export type FlexCacheEndpointType = (typeof FlexCacheEndpointType)[keyof typeof FlexCacheEndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OntapVolumeType = {
+  DP: "DP",
+  LS: "LS",
+  RW: "RW",
+} as const;
 
 /**
  * @public
  */
-export enum SecurityStyle {
-  MIXED = "MIXED",
-  NTFS = "NTFS",
-  UNIX = "UNIX",
-}
+export type OntapVolumeType = (typeof OntapVolumeType)[keyof typeof OntapVolumeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityStyle = {
+  MIXED: "MIXED",
+  NTFS: "NTFS",
+  UNIX: "UNIX",
+} as const;
 
 /**
  * @public
  */
-export enum TieringPolicyName {
-  ALL = "ALL",
-  AUTO = "AUTO",
-  NONE = "NONE",
-  SNAPSHOT_ONLY = "SNAPSHOT_ONLY",
-}
+export type SecurityStyle = (typeof SecurityStyle)[keyof typeof SecurityStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const TieringPolicyName = {
+  ALL: "ALL",
+  AUTO: "AUTO",
+  NONE: "NONE",
+  SNAPSHOT_ONLY: "SNAPSHOT_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type TieringPolicyName = (typeof TieringPolicyName)[keyof typeof TieringPolicyName];
 
 /**
  * @public
@@ -1453,12 +1604,18 @@ export interface OntapVolumeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum OpenZFSDataCompressionType {
-  LZ4 = "LZ4",
-  NONE = "NONE",
-  ZSTD = "ZSTD",
-}
+export const OpenZFSDataCompressionType = {
+  LZ4: "LZ4",
+  NONE: "NONE",
+  ZSTD: "ZSTD",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenZFSDataCompressionType = (typeof OpenZFSDataCompressionType)[keyof typeof OpenZFSDataCompressionType];
 
 /**
  * @public
@@ -1512,11 +1669,17 @@ export interface OpenZFSNfsExport {
 
 /**
  * @public
+ * @enum
  */
-export enum OpenZFSCopyStrategy {
-  CLONE = "CLONE",
-  FULL_COPY = "FULL_COPY",
-}
+export const OpenZFSCopyStrategy = {
+  CLONE: "CLONE",
+  FULL_COPY: "FULL_COPY",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenZFSCopyStrategy = (typeof OpenZFSCopyStrategy)[keyof typeof OpenZFSCopyStrategy];
 
 /**
  * @public
@@ -1554,11 +1717,17 @@ export interface OpenZFSOriginSnapshotConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum OpenZFSQuotaType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const OpenZFSQuotaType = {
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenZFSQuotaType = (typeof OpenZFSQuotaType)[keyof typeof OpenZFSQuotaType];
 
 /**
  * @public
@@ -1697,11 +1866,17 @@ export interface OpenZFSVolumeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeType {
-  ONTAP = "ONTAP",
-  OPENZFS = "OPENZFS",
-}
+export const VolumeType = {
+  ONTAP: "ONTAP",
+  OPENZFS: "OPENZFS",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
 
 /**
  * @public
@@ -1839,12 +2014,18 @@ export class InternalServerError extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  CHANGED = "CHANGED",
-  DELETED = "DELETED",
-  NEW = "NEW",
-}
+export const EventType = {
+  CHANGED: "CHANGED",
+  DELETED: "DELETED",
+  NEW: "NEW",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -1931,15 +2112,22 @@ export interface CancelDataRepositoryTaskRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DataRepositoryTaskLifecycle {
-  CANCELED = "CANCELED",
-  CANCELING = "CANCELING",
-  EXECUTING = "EXECUTING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DataRepositoryTaskLifecycle = {
+  CANCELED: "CANCELED",
+  CANCELING: "CANCELING",
+  EXECUTING: "EXECUTING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataRepositoryTaskLifecycle =
+  (typeof DataRepositoryTaskLifecycle)[keyof typeof DataRepositoryTaskLifecycle];
 
 /**
  * @public
@@ -2165,33 +2353,51 @@ export interface BackupFailureDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum BackupLifecycle {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  TRANSFERRING = "TRANSFERRING",
-}
+export const BackupLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  TRANSFERRING: "TRANSFERRING",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  FILE_SYSTEM = "FILE_SYSTEM",
-  VOLUME = "VOLUME",
-}
+export type BackupLifecycle = (typeof BackupLifecycle)[keyof typeof BackupLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  FILE_SYSTEM: "FILE_SYSTEM",
+  VOLUME: "VOLUME",
+} as const;
 
 /**
  * @public
  */
-export enum BackupType {
-  AUTOMATIC = "AUTOMATIC",
-  AWS_BACKUP = "AWS_BACKUP",
-  USER_INITIATED = "USER_INITIATED",
-}
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupType = {
+  AUTOMATIC: "AUTOMATIC",
+  AWS_BACKUP: "AWS_BACKUP",
+  USER_INITIATED: "USER_INITIATED",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
 
 /**
  * @public
@@ -2332,19 +2538,25 @@ export class InvalidSourceKmsKey extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceLimit {
-  FILE_CACHE_COUNT = "FILE_CACHE_COUNT",
-  FILE_SYSTEM_COUNT = "FILE_SYSTEM_COUNT",
-  STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM = "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM",
-  TOTAL_IN_PROGRESS_COPY_BACKUPS = "TOTAL_IN_PROGRESS_COPY_BACKUPS",
-  TOTAL_SSD_IOPS = "TOTAL_SSD_IOPS",
-  TOTAL_STORAGE = "TOTAL_STORAGE",
-  TOTAL_THROUGHPUT_CAPACITY = "TOTAL_THROUGHPUT_CAPACITY",
-  TOTAL_USER_INITIATED_BACKUPS = "TOTAL_USER_INITIATED_BACKUPS",
-  TOTAL_USER_TAGS = "TOTAL_USER_TAGS",
-  VOLUMES_PER_FILE_SYSTEM = "VOLUMES_PER_FILE_SYSTEM",
-}
+export const ServiceLimit = {
+  FILE_CACHE_COUNT: "FILE_CACHE_COUNT",
+  FILE_SYSTEM_COUNT: "FILE_SYSTEM_COUNT",
+  STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM: "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM",
+  TOTAL_IN_PROGRESS_COPY_BACKUPS: "TOTAL_IN_PROGRESS_COPY_BACKUPS",
+  TOTAL_SSD_IOPS: "TOTAL_SSD_IOPS",
+  TOTAL_STORAGE: "TOTAL_STORAGE",
+  TOTAL_THROUGHPUT_CAPACITY: "TOTAL_THROUGHPUT_CAPACITY",
+  TOTAL_USER_INITIATED_BACKUPS: "TOTAL_USER_INITIATED_BACKUPS",
+  TOTAL_USER_TAGS: "TOTAL_USER_TAGS",
+  VOLUMES_PER_FILE_SYSTEM: "VOLUMES_PER_FILE_SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceLimit = (typeof ServiceLimit)[keyof typeof ServiceLimit];
 
 /**
  * @public
@@ -2604,10 +2816,16 @@ export interface CreateDataRepositoryAssociationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NfsVersion {
-  NFS3 = "NFS3",
-}
+export const NfsVersion = {
+  NFS3: "NFS3",
+} as const;
+
+/**
+ * @public
+ */
+export type NfsVersion = (typeof NfsVersion)[keyof typeof NfsVersion];
 
 /**
  * @public
@@ -2882,17 +3100,29 @@ export interface CreateDataRepositoryAssociationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportFormat {
-  REPORT_CSV_20191124 = "REPORT_CSV_20191124",
-}
+export const ReportFormat = {
+  REPORT_CSV_20191124: "REPORT_CSV_20191124",
+} as const;
 
 /**
  * @public
  */
-export enum ReportScope {
-  FAILED_FILES_ONLY = "FAILED_FILES_ONLY",
-}
+export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportScope = {
+  FAILED_FILES_ONLY: "FAILED_FILES_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportScope = (typeof ReportScope)[keyof typeof ReportScope];
 
 /**
  * @public
@@ -2935,13 +3165,19 @@ export interface CompletionReport {
 
 /**
  * @public
+ * @enum
  */
-export enum DataRepositoryTaskType {
-  AUTO_TRIGGERED_EVICTION = "AUTO_RELEASE_DATA",
-  EVICTION = "RELEASE_DATA_FROM_FILESYSTEM",
-  EXPORT = "EXPORT_TO_REPOSITORY",
-  IMPORT = "IMPORT_METADATA_FROM_REPOSITORY",
-}
+export const DataRepositoryTaskType = {
+  AUTO_TRIGGERED_EVICTION: "AUTO_RELEASE_DATA",
+  EVICTION: "RELEASE_DATA_FROM_FILESYSTEM",
+  EXPORT: "EXPORT_TO_REPOSITORY",
+  IMPORT: "IMPORT_METADATA_FROM_REPOSITORY",
+} as const;
+
+/**
+ * @public
+ */
+export type DataRepositoryTaskType = (typeof DataRepositoryTaskType)[keyof typeof DataRepositoryTaskType];
 
 /**
  * @public
@@ -3338,17 +3574,30 @@ export interface FileCacheDataRepositoryAssociation {
 
 /**
  * @public
+ * @enum
  */
-export enum FileCacheType {
-  LUSTRE = "LUSTRE",
-}
+export const FileCacheType = {
+  LUSTRE: "LUSTRE",
+} as const;
 
 /**
  * @public
  */
-export enum FileCacheLustreDeploymentType {
-  CACHE_1 = "CACHE_1",
-}
+export type FileCacheType = (typeof FileCacheType)[keyof typeof FileCacheType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileCacheLustreDeploymentType = {
+  CACHE_1: "CACHE_1",
+} as const;
+
+/**
+ * @public
+ */
+export type FileCacheLustreDeploymentType =
+  (typeof FileCacheLustreDeploymentType)[keyof typeof FileCacheLustreDeploymentType];
 
 /**
  * @public
@@ -3506,14 +3755,20 @@ export interface FileCacheFailureDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum FileCacheLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const FileCacheLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type FileCacheLifecycle = (typeof FileCacheLifecycle)[keyof typeof FileCacheLifecycle];
 
 /**
  * @public
@@ -5183,12 +5438,19 @@ export interface CreateSvmActiveDirectoryConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageVirtualMachineRootVolumeSecurityStyle {
-  MIXED = "MIXED",
-  NTFS = "NTFS",
-  UNIX = "UNIX",
-}
+export const StorageVirtualMachineRootVolumeSecurityStyle = {
+  MIXED: "MIXED",
+  NTFS: "NTFS",
+  UNIX: "UNIX",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageVirtualMachineRootVolumeSecurityStyle =
+  (typeof StorageVirtualMachineRootVolumeSecurityStyle)[keyof typeof StorageVirtualMachineRootVolumeSecurityStyle];
 
 /**
  * @public
@@ -5325,25 +5587,39 @@ export interface SvmEndpoints {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageVirtualMachineLifecycle {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  PENDING = "PENDING",
-}
+export const StorageVirtualMachineLifecycle = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum StorageVirtualMachineSubtype {
-  DEFAULT = "DEFAULT",
-  DP_DESTINATION = "DP_DESTINATION",
-  SYNC_DESTINATION = "SYNC_DESTINATION",
-  SYNC_SOURCE = "SYNC_SOURCE",
-}
+export type StorageVirtualMachineLifecycle =
+  (typeof StorageVirtualMachineLifecycle)[keyof typeof StorageVirtualMachineLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageVirtualMachineSubtype = {
+  DEFAULT: "DEFAULT",
+  DP_DESTINATION: "DP_DESTINATION",
+  SYNC_DESTINATION: "SYNC_DESTINATION",
+  SYNC_SOURCE: "SYNC_SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageVirtualMachineSubtype =
+  (typeof StorageVirtualMachineSubtype)[keyof typeof StorageVirtualMachineSubtype];
 
 /**
  * @public
@@ -5461,11 +5737,17 @@ export interface CreateStorageVirtualMachineResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum InputOntapVolumeType {
-  DP = "DP",
-  RW = "RW",
-}
+export const InputOntapVolumeType = {
+  DP: "DP",
+  RW: "RW",
+} as const;
+
+/**
+ * @public
+ */
+export type InputOntapVolumeType = (typeof InputOntapVolumeType)[keyof typeof InputOntapVolumeType];
 
 /**
  * @public
@@ -6124,10 +6406,17 @@ export interface DeleteFileSystemLustreConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DeleteFileSystemOpenZFSOption {
-  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
-}
+export const DeleteFileSystemOpenZFSOption = {
+  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS: "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteFileSystemOpenZFSOption =
+  (typeof DeleteFileSystemOpenZFSOption)[keyof typeof DeleteFileSystemOpenZFSOption];
 
 /**
  * @public
@@ -6408,10 +6697,16 @@ export interface DeleteVolumeOntapConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DeleteOpenZFSVolumeOption {
-  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
-}
+export const DeleteOpenZFSVolumeOption = {
+  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS: "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteOpenZFSVolumeOption = (typeof DeleteOpenZFSVolumeOption)[keyof typeof DeleteOpenZFSVolumeOption];
 
 /**
  * @public
@@ -6496,16 +6791,22 @@ export interface DeleteVolumeResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterName {
-  BACKUP_TYPE = "backup-type",
-  DATA_REPOSITORY_TYPE = "data-repository-type",
-  FILE_CACHE_ID = "file-cache-id",
-  FILE_CACHE_TYPE = "file-cache-type",
-  FILE_SYSTEM_ID = "file-system-id",
-  FILE_SYSTEM_TYPE = "file-system-type",
-  VOLUME_ID = "volume-id",
-}
+export const FilterName = {
+  BACKUP_TYPE: "backup-type",
+  DATA_REPOSITORY_TYPE: "data-repository-type",
+  FILE_CACHE_ID: "file-cache-id",
+  FILE_CACHE_TYPE: "file-cache-type",
+  FILE_SYSTEM_ID: "file-system-id",
+  FILE_SYSTEM_TYPE: "file-system-type",
+  VOLUME_ID: "volume-id",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterName = (typeof FilterName)[keyof typeof FilterName];
 
 /**
  * @public
@@ -6632,13 +6933,20 @@ export class InvalidDataRepositoryType extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DataRepositoryTaskFilterName {
-  DATA_REPO_ASSOCIATION_ID = "data-repository-association-id",
-  FILE_CACHE_ID = "file-cache-id",
-  FILE_SYSTEM_ID = "file-system-id",
-  TASK_LIFECYCLE = "task-lifecycle",
-}
+export const DataRepositoryTaskFilterName = {
+  DATA_REPO_ASSOCIATION_ID: "data-repository-association-id",
+  FILE_CACHE_ID: "file-cache-id",
+  FILE_SYSTEM_ID: "file-system-id",
+  TASK_LIFECYCLE: "task-lifecycle",
+} as const;
+
+/**
+ * @public
+ */
+export type DataRepositoryTaskFilterName =
+  (typeof DataRepositoryTaskFilterName)[keyof typeof DataRepositoryTaskFilterName];
 
 /**
  * @public
@@ -6958,11 +7266,17 @@ export interface DescribeFileSystemsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SnapshotFilterName {
-  FILE_SYSTEM_ID = "file-system-id",
-  VOLUME_ID = "volume-id",
-}
+export const SnapshotFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+  VOLUME_ID: "volume-id",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotFilterName = (typeof SnapshotFilterName)[keyof typeof SnapshotFilterName];
 
 /**
  * @public
@@ -7015,10 +7329,17 @@ export interface DescribeSnapshotsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageVirtualMachineFilterName {
-  FILE_SYSTEM_ID = "file-system-id",
-}
+export const StorageVirtualMachineFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageVirtualMachineFilterName =
+  (typeof StorageVirtualMachineFilterName)[keyof typeof StorageVirtualMachineFilterName];
 
 /**
  * @public
@@ -7086,11 +7407,17 @@ export interface DescribeStorageVirtualMachinesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeFilterName {
-  FILE_SYSTEM_ID = "file-system-id",
-  STORAGE_VIRTUAL_MACHINE_ID = "storage-virtual-machine-id",
-}
+export const VolumeFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+  STORAGE_VIRTUAL_MACHINE_ID: "storage-virtual-machine-id",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeFilterName = (typeof VolumeFilterName)[keyof typeof VolumeFilterName];
 
 /**
  * @public
@@ -7333,11 +7660,17 @@ export interface ReleaseFileSystemNfsV3LocksRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RestoreOpenZFSVolumeOption {
-  DELETE_CLONED_VOLUMES = "DELETE_CLONED_VOLUMES",
-  DELETE_INTERMEDIATE_SNAPSHOTS = "DELETE_INTERMEDIATE_SNAPSHOTS",
-}
+export const RestoreOpenZFSVolumeOption = {
+  DELETE_CLONED_VOLUMES: "DELETE_CLONED_VOLUMES",
+  DELETE_INTERMEDIATE_SNAPSHOTS: "DELETE_INTERMEDIATE_SNAPSHOTS",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreOpenZFSVolumeOption = (typeof RestoreOpenZFSVolumeOption)[keyof typeof RestoreOpenZFSVolumeOption];
 
 /**
  * @public

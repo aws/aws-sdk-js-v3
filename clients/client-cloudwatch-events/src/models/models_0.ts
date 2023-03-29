@@ -115,24 +115,36 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ApiDestinationState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const ApiDestinationState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
  * @public
  */
-export enum ApiDestinationHttpMethod {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+export type ApiDestinationState = (typeof ApiDestinationState)[keyof typeof ApiDestinationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApiDestinationHttpMethod = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ApiDestinationHttpMethod = (typeof ApiDestinationHttpMethod)[keyof typeof ApiDestinationHttpMethod];
 
 /**
  * @public
@@ -187,15 +199,21 @@ export interface ApiDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum ArchiveState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const ArchiveState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ArchiveState = (typeof ArchiveState)[keyof typeof ArchiveState];
 
 /**
  * @public
@@ -246,11 +264,17 @@ export interface Archive {
 
 /**
  * @public
+ * @enum
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
 
 /**
  * @public
@@ -264,15 +288,21 @@ export interface CancelReplayRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplayState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-}
+export const ReplayState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplayState = (typeof ReplayState)[keyof typeof ReplayState];
 
 /**
  * @public
@@ -495,12 +525,19 @@ export class InvalidEventPatternException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionAuthorizationType {
-  API_KEY = "API_KEY",
-  BASIC = "BASIC",
-  OAUTH_CLIENT_CREDENTIALS = "OAUTH_CLIENT_CREDENTIALS",
-}
+export const ConnectionAuthorizationType = {
+  API_KEY: "API_KEY",
+  BASIC: "BASIC",
+  OAUTH_CLIENT_CREDENTIALS: "OAUTH_CLIENT_CREDENTIALS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionAuthorizationType =
+  (typeof ConnectionAuthorizationType)[keyof typeof ConnectionAuthorizationType];
 
 /**
  * @public
@@ -641,12 +678,18 @@ export interface CreateConnectionOAuthClientRequestParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionOAuthHttpMethod {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-}
+export const ConnectionOAuthHttpMethod = {
+  GET: "GET",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionOAuthHttpMethod = (typeof ConnectionOAuthHttpMethod)[keyof typeof ConnectionOAuthHttpMethod];
 
 /**
  * @public
@@ -737,16 +780,22 @@ export interface CreateConnectionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionState {
-  AUTHORIZED = "AUTHORIZED",
-  AUTHORIZING = "AUTHORIZING",
-  CREATING = "CREATING",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  DEAUTHORIZING = "DEAUTHORIZING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const ConnectionState = {
+  AUTHORIZED: "AUTHORIZED",
+  AUTHORIZING: "AUTHORIZING",
+  CREATING: "CREATING",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  DEAUTHORIZING: "DEAUTHORIZING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionState = (typeof ConnectionState)[keyof typeof ConnectionState];
 
 /**
  * @public
@@ -1401,12 +1450,18 @@ export interface DescribeEventSourceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EventSourceState {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  PENDING = "PENDING",
-}
+export const EventSourceState = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type EventSourceState = (typeof EventSourceState)[keyof typeof EventSourceState];
 
 /**
  * @public
@@ -1582,11 +1637,17 @@ export interface DescribeRuleRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const RuleState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleState = (typeof RuleState)[keyof typeof RuleState];
 
 /**
  * @public
@@ -2510,12 +2571,18 @@ export interface CapacityProviderStrategyItem {
 
 /**
  * @public
+ * @enum
  */
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
 
 /**
  * @public
@@ -2560,11 +2627,17 @@ export interface NetworkConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
 
 /**
  * @public
@@ -2589,12 +2662,18 @@ export interface PlacementConstraint {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
 
 /**
  * @public
@@ -2624,10 +2703,16 @@ export interface PlacementStrategy {
 
 /**
  * @public
+ * @enum
  */
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+} as const;
+
+/**
+ * @public
+ */
+export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
 
 /**
  * @public

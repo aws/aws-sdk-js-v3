@@ -107,12 +107,18 @@ export interface ApproveAssignmentResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum AssignmentStatus {
-  Approved = "Approved",
-  Rejected = "Rejected",
-  Submitted = "Submitted",
-}
+export const AssignmentStatus = {
+  Approved: "Approved",
+  Rejected: "Rejected",
+  Submitted: "Submitted",
+} as const;
+
+/**
+ * @public
+ */
+export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof AssignmentStatus];
 
 /**
  * @public
@@ -273,19 +279,25 @@ export interface BonusPayment {
 
 /**
  * @public
+ * @enum
  */
-export enum Comparator {
-  DoesNotExist = "DoesNotExist",
-  EqualTo = "EqualTo",
-  Exists = "Exists",
-  GreaterThan = "GreaterThan",
-  GreaterThanOrEqualTo = "GreaterThanOrEqualTo",
-  In = "In",
-  LessThan = "LessThan",
-  LessThanOrEqualTo = "LessThanOrEqualTo",
-  NotEqualTo = "NotEqualTo",
-  NotIn = "NotIn",
-}
+export const Comparator = {
+  DoesNotExist: "DoesNotExist",
+  EqualTo: "EqualTo",
+  Exists: "Exists",
+  GreaterThan: "GreaterThan",
+  GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
+  In: "In",
+  LessThan: "LessThan",
+  LessThanOrEqualTo: "LessThanOrEqualTo",
+  NotEqualTo: "NotEqualTo",
+  NotIn: "NotIn",
+} as const;
+
+/**
+ * @public
+ */
+export type Comparator = (typeof Comparator)[keyof typeof Comparator];
 
 /**
  * @public
@@ -412,12 +424,18 @@ export interface HITLayoutParameter {
 
 /**
  * @public
+ * @enum
  */
-export enum HITAccessActions {
-  Accept = "Accept",
-  DiscoverPreviewAndAccept = "DiscoverPreviewAndAccept",
-  PreviewAndAccept = "PreviewAndAccept",
-}
+export const HITAccessActions = {
+  Accept: "Accept",
+  DiscoverPreviewAndAccept: "DiscoverPreviewAndAccept",
+  PreviewAndAccept: "PreviewAndAccept",
+} as const;
+
+/**
+ * @public
+ */
+export type HITAccessActions = (typeof HITAccessActions)[keyof typeof HITAccessActions];
 
 /**
  * @public
@@ -710,24 +728,36 @@ export interface CreateHITRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HITReviewStatus {
-  MarkedForReview = "MarkedForReview",
-  NotReviewed = "NotReviewed",
-  ReviewedAppropriate = "ReviewedAppropriate",
-  ReviewedInappropriate = "ReviewedInappropriate",
-}
+export const HITReviewStatus = {
+  MarkedForReview: "MarkedForReview",
+  NotReviewed: "NotReviewed",
+  ReviewedAppropriate: "ReviewedAppropriate",
+  ReviewedInappropriate: "ReviewedInappropriate",
+} as const;
 
 /**
  * @public
  */
-export enum HITStatus {
-  Assignable = "Assignable",
-  Disposed = "Disposed",
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing",
-  Unassignable = "Unassignable",
-}
+export type HITReviewStatus = (typeof HITReviewStatus)[keyof typeof HITReviewStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HITStatus = {
+  Assignable: "Assignable",
+  Disposed: "Disposed",
+  Reviewable: "Reviewable",
+  Reviewing: "Reviewing",
+  Unassignable: "Unassignable",
+} as const;
+
+/**
+ * @public
+ */
+export type HITStatus = (typeof HITStatus)[keyof typeof HITStatus];
 
 /**
  * @public
@@ -1092,11 +1122,17 @@ export interface CreateHITWithHITTypeResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum QualificationTypeStatus {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const QualificationTypeStatus = {
+  Active: "Active",
+  Inactive: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type QualificationTypeStatus = (typeof QualificationTypeStatus)[keyof typeof QualificationTypeStatus];
 
 /**
  * @public
@@ -1416,21 +1452,27 @@ export interface DisassociateQualificationFromWorkerResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  AssignmentAbandoned = "AssignmentAbandoned",
-  AssignmentAccepted = "AssignmentAccepted",
-  AssignmentApproved = "AssignmentApproved",
-  AssignmentRejected = "AssignmentRejected",
-  AssignmentReturned = "AssignmentReturned",
-  AssignmentSubmitted = "AssignmentSubmitted",
-  HITCreated = "HITCreated",
-  HITDisposed = "HITDisposed",
-  HITExpired = "HITExpired",
-  HITExtended = "HITExtended",
-  HITReviewable = "HITReviewable",
-  Ping = "Ping",
-}
+export const EventType = {
+  AssignmentAbandoned: "AssignmentAbandoned",
+  AssignmentAccepted: "AssignmentAccepted",
+  AssignmentApproved: "AssignmentApproved",
+  AssignmentRejected: "AssignmentRejected",
+  AssignmentReturned: "AssignmentReturned",
+  AssignmentSubmitted: "AssignmentSubmitted",
+  HITCreated: "HITCreated",
+  HITDisposed: "HITDisposed",
+  HITExpired: "HITExpired",
+  HITExtended: "HITExtended",
+  HITReviewable: "HITReviewable",
+  Ping: "Ping",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -1546,11 +1588,17 @@ export interface GetQualificationScoreRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum QualificationStatus {
-  Granted = "Granted",
-  Revoked = "Revoked",
-}
+export const QualificationStatus = {
+  Granted: "Granted",
+  Revoked: "Revoked",
+} as const;
+
+/**
+ * @public
+ */
+export type QualificationStatus = (typeof QualificationStatus)[keyof typeof QualificationStatus];
 
 /**
  * @public
@@ -2000,11 +2048,17 @@ export interface ListQualificationTypesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ReviewableHITStatus {
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing",
-}
+export const ReviewableHITStatus = {
+  Reviewable: "Reviewable",
+  Reviewing: "Reviewing",
+} as const;
+
+/**
+ * @public
+ */
+export type ReviewableHITStatus = (typeof ReviewableHITStatus)[keyof typeof ReviewableHITStatus];
 
 /**
  * @public
@@ -2066,11 +2120,17 @@ export interface ListReviewableHITsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ReviewPolicyLevel {
-  Assignment = "Assignment",
-  HIT = "HIT",
-}
+export const ReviewPolicyLevel = {
+  Assignment: "Assignment",
+  HIT: "HIT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReviewPolicyLevel = (typeof ReviewPolicyLevel)[keyof typeof ReviewPolicyLevel];
 
 /**
  * @public
@@ -2118,13 +2178,19 @@ export interface ListReviewPolicyResultsForHITRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReviewActionStatus {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  Intended = "Intended",
-  Succeeded = "Succeeded",
-}
+export const ReviewActionStatus = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  Intended: "Intended",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type ReviewActionStatus = (typeof ReviewActionStatus)[keyof typeof ReviewActionStatus];
 
 /**
  * @public
@@ -2441,11 +2507,17 @@ export interface NotifyWorkersRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NotifyWorkersFailureCode {
-  HardFailure = "HardFailure",
-  SoftFailure = "SoftFailure",
-}
+export const NotifyWorkersFailureCode = {
+  HardFailure: "HardFailure",
+  SoftFailure: "SoftFailure",
+} as const;
+
+/**
+ * @public
+ */
+export type NotifyWorkersFailureCode = (typeof NotifyWorkersFailureCode)[keyof typeof NotifyWorkersFailureCode];
 
 /**
  * @public
@@ -2582,12 +2654,18 @@ export interface SendBonusResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum NotificationTransport {
-  Email = "Email",
-  SNS = "SNS",
-  SQS = "SQS",
-}
+export const NotificationTransport = {
+  Email: "Email",
+  SNS: "SNS",
+  SQS: "SQS",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationTransport = (typeof NotificationTransport)[keyof typeof NotificationTransport];
 
 /**
  * @public

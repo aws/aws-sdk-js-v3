@@ -5,11 +5,17 @@ import { MarketplaceEntitlementServiceServiceException as __BaseException } from
 
 /**
  * @public
+ * @enum
  */
-export enum GetEntitlementFilterName {
-  CUSTOMER_IDENTIFIER = "CUSTOMER_IDENTIFIER",
-  DIMENSION = "DIMENSION",
-}
+export const GetEntitlementFilterName = {
+  CUSTOMER_IDENTIFIER: "CUSTOMER_IDENTIFIER",
+  DIMENSION: "DIMENSION",
+} as const;
+
+/**
+ * @public
+ */
+export type GetEntitlementFilterName = (typeof GetEntitlementFilterName)[keyof typeof GetEntitlementFilterName];
 
 /**
  * @public

@@ -626,12 +626,18 @@ export interface CreateDatasetResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum IngestionMode {
-  ALL = "ALL",
-  BULK = "BULK",
-  PUT = "PUT",
-}
+export const IngestionMode = {
+  ALL: "ALL",
+  BULK: "BULK",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionMode = (typeof IngestionMode)[keyof typeof IngestionMode];
 
 /**
  * @public
@@ -698,11 +704,17 @@ export interface CreateDatasetExportJobResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Domain {
-  ECOMMERCE = "ECOMMERCE",
-  VIDEO_ON_DEMAND = "VIDEO_ON_DEMAND",
-}
+export const Domain = {
+  ECOMMERCE: "ECOMMERCE",
+  VIDEO_ON_DEMAND: "VIDEO_ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type Domain = (typeof Domain)[keyof typeof Domain];
 
 /**
  * @public
@@ -774,11 +786,17 @@ export interface DataSource {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportMode {
-  FULL = "FULL",
-  INCREMENTAL = "INCREMENTAL",
-}
+export const ImportMode = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportMode = (typeof ImportMode)[keyof typeof ImportMode];
 
 /**
  * @public
@@ -1262,13 +1280,19 @@ export interface HPOConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ObjectiveSensitivity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+export const ObjectiveSensitivity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type ObjectiveSensitivity = (typeof ObjectiveSensitivity)[keyof typeof ObjectiveSensitivity];
 
 /**
  * @public
@@ -1403,11 +1427,17 @@ export interface CreateSolutionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TrainingMode {
-  FULL = "FULL",
-  UPDATE = "UPDATE",
-}
+export const TrainingMode = {
+  FULL: "FULL",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainingMode = (typeof TrainingMode)[keyof typeof TrainingMode];
 
 /**
  * @public
@@ -4141,10 +4171,16 @@ export interface ListMetricAttributionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum RecipeProvider {
-  SERVICE = "SERVICE",
-}
+export const RecipeProvider = {
+  SERVICE: "SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type RecipeProvider = (typeof RecipeProvider)[keyof typeof RecipeProvider];
 
 /**
  * @public

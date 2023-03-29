@@ -265,31 +265,43 @@ export class UnsupportedAddressException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum JobType {
-  EXPORT = "EXPORT",
-  IMPORT = "IMPORT",
-  LOCAL_USE = "LOCAL_USE",
-}
+export const JobType = {
+  EXPORT: "EXPORT",
+  IMPORT: "IMPORT",
+  LOCAL_USE: "LOCAL_USE",
+} as const;
 
 /**
  * @public
  */
-export enum JobState {
-  CANCELLED = "Cancelled",
-  COMPLETE = "Complete",
-  IN_PROGRESS = "InProgress",
-  IN_TRANSIT_TO_AWS = "InTransitToAWS",
-  IN_TRANSIT_TO_CUSTOMER = "InTransitToCustomer",
-  LISTING = "Listing",
-  NEW = "New",
-  PENDING = "Pending",
-  PREPARING_APPLIANCE = "PreparingAppliance",
-  PREPARING_SHIPMENT = "PreparingShipment",
-  WITH_AWS = "WithAWS",
-  WITH_AWS_SORTING_FACILITY = "WithAWSSortingFacility",
-  WITH_CUSTOMER = "WithCustomer",
-}
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobState = {
+  CANCELLED: "Cancelled",
+  COMPLETE: "Complete",
+  IN_PROGRESS: "InProgress",
+  IN_TRANSIT_TO_AWS: "InTransitToAWS",
+  IN_TRANSIT_TO_CUSTOMER: "InTransitToCustomer",
+  LISTING: "Listing",
+  NEW: "New",
+  PENDING: "Pending",
+  PREPARING_APPLIANCE: "PreparingAppliance",
+  PREPARING_SHIPMENT: "PreparingShipment",
+  WITH_AWS: "WithAWS",
+  WITH_AWS_SORTING_FACILITY: "WithAWSSortingFacility",
+  WITH_CUSTOMER: "WithCustomer",
+} as const;
+
+/**
+ * @public
+ */
+export type JobState = (typeof JobState)[keyof typeof JobState];
 
 /**
  * @public
@@ -341,10 +353,16 @@ export interface EKSOnDeviceServiceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageUnit {
-  TB = "TB",
-}
+export const StorageUnit = {
+  TB: "TB",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageUnit = (typeof StorageUnit)[keyof typeof StorageUnit];
 
 /**
  * @public
@@ -406,11 +424,17 @@ export interface OnDeviceServiceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RemoteManagement {
-  INSTALLED_AUTOSTART = "INSTALLED_AUTOSTART",
-  INSTALLED_ONLY = "INSTALLED_ONLY",
-}
+export const RemoteManagement = {
+  INSTALLED_AUTOSTART: "INSTALLED_AUTOSTART",
+  INSTALLED_ONLY: "INSTALLED_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type RemoteManagement = (typeof RemoteManagement)[keyof typeof RemoteManagement];
 
 /**
  * @public
@@ -481,20 +505,32 @@ export interface KeyRange {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceServiceName {
-  NFS_ON_DEVICE_SERVICE = "NFS_ON_DEVICE_SERVICE",
-  S3_ON_DEVICE_SERVICE = "S3_ON_DEVICE_SERVICE",
-}
+export const DeviceServiceName = {
+  NFS_ON_DEVICE_SERVICE: "NFS_ON_DEVICE_SERVICE",
+  S3_ON_DEVICE_SERVICE: "S3_ON_DEVICE_SERVICE",
+} as const;
 
 /**
  * @public
  */
-export enum TransferOption {
-  EXPORT = "EXPORT",
-  IMPORT = "IMPORT",
-  LOCAL_USE = "LOCAL_USE",
-}
+export type DeviceServiceName = (typeof DeviceServiceName)[keyof typeof DeviceServiceName];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransferOption = {
+  EXPORT: "EXPORT",
+  IMPORT: "IMPORT",
+  LOCAL_USE: "LOCAL_USE",
+} as const;
+
+/**
+ * @public
+ */
+export type TransferOption = (typeof TransferOption)[keyof typeof TransferOption];
 
 /**
  * @public
@@ -571,27 +607,39 @@ export interface JobResource {
 
 /**
  * @public
+ * @enum
  */
-export enum ShippingOption {
-  EXPRESS = "EXPRESS",
-  NEXT_DAY = "NEXT_DAY",
-  SECOND_DAY = "SECOND_DAY",
-  STANDARD = "STANDARD",
-}
+export const ShippingOption = {
+  EXPRESS: "EXPRESS",
+  NEXT_DAY: "NEXT_DAY",
+  SECOND_DAY: "SECOND_DAY",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
  * @public
  */
-export enum SnowballType {
-  EDGE = "EDGE",
-  EDGE_C = "EDGE_C",
-  EDGE_CG = "EDGE_CG",
-  EDGE_S = "EDGE_S",
-  SNC1_HDD = "SNC1_HDD",
-  SNC1_SSD = "SNC1_SSD",
-  STANDARD = "STANDARD",
-  V3_5C = "V3_5C",
-}
+export type ShippingOption = (typeof ShippingOption)[keyof typeof ShippingOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnowballType = {
+  EDGE: "EDGE",
+  EDGE_C: "EDGE_C",
+  EDGE_CG: "EDGE_CG",
+  EDGE_S: "EDGE_S",
+  SNC1_HDD: "SNC1_HDD",
+  SNC1_SSD: "SNC1_SSD",
+  STANDARD: "STANDARD",
+  V3_5C: "V3_5C",
+} as const;
+
+/**
+ * @public
+ */
+export type SnowballType = (typeof SnowballType)[keyof typeof SnowballType];
 
 /**
  * @public
@@ -867,18 +915,24 @@ export interface DeviceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SnowballCapacity {
-  NO_PREFERENCE = "NoPreference",
-  T100 = "T100",
-  T14 = "T14",
-  T32 = "T32",
-  T42 = "T42",
-  T50 = "T50",
-  T8 = "T8",
-  T80 = "T80",
-  T98 = "T98",
-}
+export const SnowballCapacity = {
+  NO_PREFERENCE: "NoPreference",
+  T100: "T100",
+  T14: "T14",
+  T32: "T32",
+  T42: "T42",
+  T50: "T50",
+  T8: "T8",
+  T80: "T80",
+  T98: "T98",
+} as const;
+
+/**
+ * @public
+ */
+export type SnowballCapacity = (typeof SnowballCapacity)[keyof typeof SnowballCapacity];
 
 /**
  * @public
@@ -1051,11 +1105,17 @@ export interface CreateJobResult {
 
 /**
  * @public
+ * @enum
  */
-export enum LongTermPricingType {
-  ONE_YEAR = "OneYear",
-  THREE_YEAR = "ThreeYear",
-}
+export const LongTermPricingType = {
+  ONE_YEAR: "OneYear",
+  THREE_YEAR: "ThreeYear",
+} as const;
+
+/**
+ * @public
+ */
+export type LongTermPricingType = (typeof LongTermPricingType)[keyof typeof LongTermPricingType];
 
 /**
  * @public
@@ -1138,13 +1198,19 @@ export interface CreateReturnShippingLabelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ShippingLabelStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCEEDED = "Succeeded",
-  TIMED_OUT = "TimedOut",
-}
+export const ShippingLabelStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCEEDED: "Succeeded",
+  TIMED_OUT: "TimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type ShippingLabelStatus = (typeof ShippingLabelStatus)[keyof typeof ShippingLabelStatus];
 
 /**
  * @public
@@ -1271,14 +1337,20 @@ export interface DescribeClusterRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterState {
-  AWAITING_QUORUM = "AwaitingQuorum",
-  CANCELLED = "Cancelled",
-  COMPLETE = "Complete",
-  IN_USE = "InUse",
-  PENDING = "Pending",
-}
+export const ClusterState = {
+  AWAITING_QUORUM: "AwaitingQuorum",
+  CANCELLED: "Cancelled",
+  COMPLETE: "Complete",
+  IN_USE: "InUse",
+  PENDING: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
  * @public
@@ -2164,11 +2236,17 @@ export interface ListLongTermPricingResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceName {
-  EKS_ANYWHERE = "EKS_ANYWHERE",
-  KUBERNETES = "KUBERNETES",
-}
+export const ServiceName = {
+  EKS_ANYWHERE: "EKS_ANYWHERE",
+  KUBERNETES: "KUBERNETES",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
 
 /**
  * @public
@@ -2386,11 +2464,17 @@ export interface UpdateJobResult {}
 
 /**
  * @public
+ * @enum
  */
-export enum ShipmentState {
-  RECEIVED = "RECEIVED",
-  RETURNED = "RETURNED",
-}
+export const ShipmentState = {
+  RECEIVED: "RECEIVED",
+  RETURNED: "RETURNED",
+} as const;
+
+/**
+ * @public
+ */
+export type ShipmentState = (typeof ShipmentState)[keyof typeof ShipmentState];
 
 /**
  * @public

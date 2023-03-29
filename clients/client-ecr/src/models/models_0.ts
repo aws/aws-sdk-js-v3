@@ -26,11 +26,17 @@ export interface BatchCheckLayerAvailabilityRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LayerFailureCode {
-  InvalidLayerDigest = "InvalidLayerDigest",
-  MissingLayerDigest = "MissingLayerDigest",
-}
+export const LayerFailureCode = {
+  InvalidLayerDigest: "InvalidLayerDigest",
+  MissingLayerDigest: "MissingLayerDigest",
+} as const;
+
+/**
+ * @public
+ */
+export type LayerFailureCode = (typeof LayerFailureCode)[keyof typeof LayerFailureCode];
 
 /**
  * @public
@@ -55,11 +61,17 @@ export interface LayerFailure {
 
 /**
  * @public
+ * @enum
  */
-export enum LayerAvailability {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const LayerAvailability = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type LayerAvailability = (typeof LayerAvailability)[keyof typeof LayerAvailability];
 
 /**
  * @public
@@ -210,16 +222,22 @@ export interface BatchDeleteImageRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageFailureCode {
-  ImageNotFound = "ImageNotFound",
-  ImageReferencedByManifestList = "ImageReferencedByManifestList",
-  ImageTagDoesNotMatchDigest = "ImageTagDoesNotMatchDigest",
-  InvalidImageDigest = "InvalidImageDigest",
-  InvalidImageTag = "InvalidImageTag",
-  KmsError = "KmsError",
-  MissingDigestAndTag = "MissingDigestAndTag",
-}
+export const ImageFailureCode = {
+  ImageNotFound: "ImageNotFound",
+  ImageReferencedByManifestList: "ImageReferencedByManifestList",
+  ImageTagDoesNotMatchDigest: "ImageTagDoesNotMatchDigest",
+  InvalidImageDigest: "InvalidImageDigest",
+  InvalidImageTag: "InvalidImageTag",
+  KmsError: "KmsError",
+  MissingDigestAndTag: "MissingDigestAndTag",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageFailureCode = (typeof ImageFailureCode)[keyof typeof ImageFailureCode];
 
 /**
  * @public
@@ -347,10 +365,17 @@ export interface BatchGetRepositoryScanningConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanningConfigurationFailureCode {
-  REPOSITORY_NOT_FOUND = "REPOSITORY_NOT_FOUND",
-}
+export const ScanningConfigurationFailureCode = {
+  REPOSITORY_NOT_FOUND: "REPOSITORY_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanningConfigurationFailureCode =
+  (typeof ScanningConfigurationFailureCode)[keyof typeof ScanningConfigurationFailureCode];
 
 /**
  * @public
@@ -376,10 +401,17 @@ export interface RepositoryScanningConfigurationFailure {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanningRepositoryFilterType {
-  WILDCARD = "WILDCARD",
-}
+export const ScanningRepositoryFilterType = {
+  WILDCARD: "WILDCARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanningRepositoryFilterType =
+  (typeof ScanningRepositoryFilterType)[keyof typeof ScanningRepositoryFilterType];
 
 /**
  * @public
@@ -401,12 +433,18 @@ export interface ScanningRepositoryFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanFrequency {
-  CONTINUOUS_SCAN = "CONTINUOUS_SCAN",
-  MANUAL = "MANUAL",
-  SCAN_ON_PUSH = "SCAN_ON_PUSH",
-}
+export const ScanFrequency = {
+  CONTINUOUS_SCAN: "CONTINUOUS_SCAN",
+  MANUAL: "MANUAL",
+  SCAN_ON_PUSH: "SCAN_ON_PUSH",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanFrequency = (typeof ScanFrequency)[keyof typeof ScanFrequency];
 
 /**
  * @public
@@ -767,11 +805,17 @@ export class UnsupportedUpstreamRegistryException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionType {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+export const EncryptionType = {
+  AES256: "AES256",
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -829,11 +873,17 @@ export interface ImageScanningConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageTagMutability {
-  IMMUTABLE = "IMMUTABLE",
-  MUTABLE = "MUTABLE",
-}
+export const ImageTagMutability = {
+  IMMUTABLE: "IMMUTABLE",
+  MUTABLE: "MUTABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageTagMutability = (typeof ImageTagMutability)[keyof typeof ImageTagMutability];
 
 /**
  * @public
@@ -1319,12 +1369,18 @@ export interface DescribeImageReplicationStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ReplicationStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof ReplicationStatus];
 
 /**
  * @public
@@ -1394,12 +1450,18 @@ export class ImageNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum TagStatus {
-  ANY = "ANY",
-  TAGGED = "TAGGED",
-  UNTAGGED = "UNTAGGED",
-}
+export const TagStatus = {
+  ANY: "ANY",
+  TAGGED: "TAGGED",
+  UNTAGGED: "UNTAGGED",
+} as const;
+
+/**
+ * @public
+ */
+export type TagStatus = (typeof TagStatus)[keyof typeof TagStatus];
 
 /**
  * @public
@@ -1467,15 +1529,21 @@ export interface DescribeImagesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingSeverity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  UNDEFINED = "UNDEFINED",
-}
+export const FindingSeverity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNDEFINED: "UNDEFINED",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingSeverity = (typeof FindingSeverity)[keyof typeof FindingSeverity];
 
 /**
  * @public
@@ -1500,17 +1568,23 @@ export interface ImageScanFindingsSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanStatus {
-  ACTIVE = "ACTIVE",
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  FINDINGS_UNAVAILABLE = "FINDINGS_UNAVAILABLE",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED",
-  UNSUPPORTED_IMAGE = "UNSUPPORTED_IMAGE",
-}
+export const ScanStatus = {
+  ACTIVE: "ACTIVE",
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  FINDINGS_UNAVAILABLE: "FINDINGS_UNAVAILABLE",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
+  UNSUPPORTED_IMAGE: "UNSUPPORTED_IMAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanStatus = (typeof ScanStatus)[keyof typeof ScanStatus];
 
 /**
  * @public
@@ -2301,10 +2375,16 @@ export interface ReplicationDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum RepositoryFilterType {
-  PREFIX_MATCH = "PREFIX_MATCH",
-}
+export const RepositoryFilterType = {
+  PREFIX_MATCH: "PREFIX_MATCH",
+} as const;
+
+/**
+ * @public
+ */
+export type RepositoryFilterType = (typeof RepositoryFilterType)[keyof typeof RepositoryFilterType];
 
 /**
  * @public
@@ -2675,10 +2755,16 @@ export interface GetLifecyclePolicyPreviewRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageActionType {
-  EXPIRE = "EXPIRE",
-}
+export const ImageActionType = {
+  EXPIRE: "EXPIRE",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageActionType = (typeof ImageActionType)[keyof typeof ImageActionType];
 
 /**
  * @public
@@ -2725,13 +2811,20 @@ export interface LifecyclePolicyPreviewResult {
 
 /**
  * @public
+ * @enum
  */
-export enum LifecyclePolicyPreviewStatus {
-  COMPLETE = "COMPLETE",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const LifecyclePolicyPreviewStatus = {
+  COMPLETE: "COMPLETE",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecyclePolicyPreviewStatus =
+  (typeof LifecyclePolicyPreviewStatus)[keyof typeof LifecyclePolicyPreviewStatus];
 
 /**
  * @public
@@ -2856,11 +2949,17 @@ export interface RegistryScanningRule {
 
 /**
  * @public
+ * @enum
  */
-export enum ScanType {
-  BASIC = "BASIC",
-  ENHANCED = "ENHANCED",
-}
+export const ScanType = {
+  BASIC: "BASIC",
+  ENHANCED: "ENHANCED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanType = (typeof ScanType)[keyof typeof ScanType];
 
 /**
  * @public

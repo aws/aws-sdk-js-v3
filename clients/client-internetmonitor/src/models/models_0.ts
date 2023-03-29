@@ -139,13 +139,19 @@ export interface CreateMonitorInput {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitorConfigState {
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-}
+export const MonitorConfigState = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitorConfigState = (typeof MonitorConfigState)[keyof typeof MonitorConfigState];
 
 /**
  * @public
@@ -295,11 +301,17 @@ export interface Network {
 
 /**
  * @public
+ * @enum
  */
-export enum TriangulationEventType {
-  AWS = "AWS",
-  INTERNET = "Internet",
-}
+export const TriangulationEventType = {
+  AWS: "AWS",
+  INTERNET: "Internet",
+} as const;
+
+/**
+ * @public
+ */
+export type TriangulationEventType = (typeof TriangulationEventType)[keyof typeof TriangulationEventType];
 
 /**
  * @public
@@ -418,11 +430,17 @@ export interface InternetHealth {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthEventStatus {
-  ACTIVE = "ACTIVE",
-  RESOLVED = "RESOLVED",
-}
+export const HealthEventStatus = {
+  ACTIVE: "ACTIVE",
+  RESOLVED: "RESOLVED",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthEventStatus = (typeof HealthEventStatus)[keyof typeof HealthEventStatus];
 
 /**
  * @public
@@ -513,11 +531,17 @@ export interface ImpactedLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthEventImpactType {
-  AVAILABILITY = "AVAILABILITY",
-  PERFORMANCE = "PERFORMANCE",
-}
+export const HealthEventImpactType = {
+  AVAILABILITY: "AVAILABILITY",
+  PERFORMANCE: "PERFORMANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthEventImpactType = (typeof HealthEventImpactType)[keyof typeof HealthEventImpactType];
 
 /**
  * @public
@@ -586,15 +610,22 @@ export interface GetMonitorInput {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitorProcessingStatusCode {
-  COLLECTING_DATA = "COLLECTING_DATA",
-  FAULT_ACCESS_CLOUDWATCH = "FAULT_ACCESS_CLOUDWATCH",
-  FAULT_SERVICE = "FAULT_SERVICE",
-  INACTIVE = "INACTIVE",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+export const MonitorProcessingStatusCode = {
+  COLLECTING_DATA: "COLLECTING_DATA",
+  FAULT_ACCESS_CLOUDWATCH: "FAULT_ACCESS_CLOUDWATCH",
+  FAULT_SERVICE: "FAULT_SERVICE",
+  INACTIVE: "INACTIVE",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitorProcessingStatusCode =
+  (typeof MonitorProcessingStatusCode)[keyof typeof MonitorProcessingStatusCode];
 
 /**
  * @public

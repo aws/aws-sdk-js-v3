@@ -378,11 +378,17 @@ export interface ListRetainedMessagesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PayloadFormatIndicator {
-  UNSPECIFIED_BYTES = "UNSPECIFIED_BYTES",
-  UTF8_DATA = "UTF8_DATA",
-}
+export const PayloadFormatIndicator = {
+  UNSPECIFIED_BYTES: "UNSPECIFIED_BYTES",
+  UTF8_DATA: "UTF8_DATA",
+} as const;
+
+/**
+ * @public
+ */
+export type PayloadFormatIndicator = (typeof PayloadFormatIndicator)[keyof typeof PayloadFormatIndicator];
 
 /**
  * @public

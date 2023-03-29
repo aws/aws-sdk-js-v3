@@ -5,21 +5,34 @@ import { ResourceGroupsServiceException as __BaseException } from "./ResourceGro
 
 /**
  * @public
+ * @enum
  */
-export enum GroupLifecycleEventsDesiredStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const GroupLifecycleEventsDesiredStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
  * @public
  */
-export enum GroupLifecycleEventsStatus {
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export type GroupLifecycleEventsDesiredStatus =
+  (typeof GroupLifecycleEventsDesiredStatus)[keyof typeof GroupLifecycleEventsDesiredStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupLifecycleEventsStatus = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupLifecycleEventsStatus = (typeof GroupLifecycleEventsStatus)[keyof typeof GroupLifecycleEventsStatus];
 
 /**
  * @public
@@ -111,11 +124,17 @@ export interface GroupConfigurationItem {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryType {
-  CLOUDFORMATION_STACK_1_0 = "CLOUDFORMATION_STACK_1_0",
-  TAG_FILTERS_1_0 = "TAG_FILTERS_1_0",
-}
+export const QueryType = {
+  CLOUDFORMATION_STACK_1_0: "CLOUDFORMATION_STACK_1_0",
+  TAG_FILTERS_1_0: "TAG_FILTERS_1_0",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryType = (typeof QueryType)[keyof typeof QueryType];
 
 /**
  * @public
@@ -358,12 +377,18 @@ export interface Group {
 
 /**
  * @public
+ * @enum
  */
-export enum GroupConfigurationStatus {
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const GroupConfigurationStatus = {
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupConfigurationStatus = (typeof GroupConfigurationStatus)[keyof typeof GroupConfigurationStatus];
 
 /**
  * @public
@@ -776,10 +801,16 @@ export interface GroupResourcesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceFilterName {
-  ResourceType = "resource-type",
-}
+export const ResourceFilterName = {
+  ResourceType: "resource-type",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceFilterName = (typeof ResourceFilterName)[keyof typeof ResourceFilterName];
 
 /**
  * @public
@@ -878,12 +909,18 @@ export interface ListGroupResourcesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryErrorCode {
-  CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE",
-  CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING",
-  CLOUDFORMATION_STACK_UNASSUMABLE_ROLE = "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
-}
+export const QueryErrorCode = {
+  CLOUDFORMATION_STACK_INACTIVE: "CLOUDFORMATION_STACK_INACTIVE",
+  CLOUDFORMATION_STACK_NOT_EXISTING: "CLOUDFORMATION_STACK_NOT_EXISTING",
+  CLOUDFORMATION_STACK_UNASSUMABLE_ROLE: "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryErrorCode = (typeof QueryErrorCode)[keyof typeof QueryErrorCode];
 
 /**
  * @public
@@ -928,10 +965,16 @@ export interface ResourceIdentifier {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceStatusValue {
-  Pending = "PENDING",
-}
+export const ResourceStatusValue = {
+  Pending: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatusValue = (typeof ResourceStatusValue)[keyof typeof ResourceStatusValue];
 
 /**
  * @public
@@ -1037,11 +1080,17 @@ export class UnauthorizedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum GroupFilterName {
-  ConfigurationType = "configuration-type",
-  ResourceType = "resource-type",
-}
+export const GroupFilterName = {
+  ConfigurationType: "configuration-type",
+  ResourceType: "resource-type",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupFilterName = (typeof GroupFilterName)[keyof typeof GroupFilterName];
 
 /**
  * @public

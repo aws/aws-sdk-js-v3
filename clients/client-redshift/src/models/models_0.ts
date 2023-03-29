@@ -40,11 +40,17 @@ export interface RecurringCharge {
 
 /**
  * @public
+ * @enum
  */
-export enum ReservedNodeOfferingType {
-  Regular = "Regular",
-  Upgradable = "Upgradable",
-}
+export const ReservedNodeOfferingType = {
+  Regular: "Regular",
+  Upgradable: "Upgradable",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedNodeOfferingType = (typeof ReservedNodeOfferingType)[keyof typeof ReservedNodeOfferingType];
 
 /**
  * @public
@@ -390,12 +396,18 @@ export interface AccountWithRestoreAccess {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionType {
-  RECOMMEND_NODE_CONFIG = "recommend-node-config",
-  RESIZE_CLUSTER = "resize-cluster",
-  RESTORE_CLUSTER = "restore-cluster",
-}
+export const ActionType = {
+  RECOMMEND_NODE_CONFIG: "recommend-node-config",
+  RESIZE_CLUSTER: "resize-cluster",
+  RESTORE_CLUSTER: "restore-cluster",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 /**
  * @public
@@ -500,21 +512,33 @@ export class UnauthorizedPartnerIntegrationFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AquaConfigurationStatus {
-  AUTO = "auto",
-  DISABLED = "disabled",
-  ENABLED = "enabled",
-}
+export const AquaConfigurationStatus = {
+  AUTO: "auto",
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
 
 /**
  * @public
  */
-export enum AquaStatus {
-  APPLYING = "applying",
-  DISABLED = "disabled",
-  ENABLED = "enabled",
-}
+export type AquaConfigurationStatus = (typeof AquaConfigurationStatus)[keyof typeof AquaConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AquaStatus = {
+  APPLYING: "applying",
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AquaStatus = (typeof AquaStatus)[keyof typeof AquaStatus];
 
 /**
  * @public
@@ -560,15 +584,21 @@ export interface AssociateDataShareConsumerMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum DataShareStatus {
-  ACTIVE = "ACTIVE",
-  AUTHORIZED = "AUTHORIZED",
-  AVAILABLE = "AVAILABLE",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION",
-  REJECTED = "REJECTED",
-}
+export const DataShareStatus = {
+  ACTIVE: "ACTIVE",
+  AUTHORIZED: "AUTHORIZED",
+  AVAILABLE: "AVAILABLE",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataShareStatus = (typeof DataShareStatus)[keyof typeof DataShareStatus];
 
 /**
  * @public
@@ -676,12 +706,18 @@ export class InvalidNamespaceFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduleState {
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  MODIFYING = "MODIFYING",
-}
+export const ScheduleState = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
 
 /**
  * @public
@@ -841,11 +877,17 @@ export class AuthorizationQuotaExceededFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthorizationStatus {
-  AUTHORIZED = "Authorized",
-  REVOKING = "Revoking",
-}
+export const AuthorizationStatus = {
+  AUTHORIZED: "Authorized",
+  REVOKING: "Revoking",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizationStatus = (typeof AuthorizationStatus)[keyof typeof AuthorizationStatus];
 
 /**
  * @public
@@ -2329,15 +2371,22 @@ export interface PendingModifiedValues {
 
 /**
  * @public
+ * @enum
  */
-export enum ReservedNodeExchangeStatusType {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  REQUESTED = "REQUESTED",
-  RETRYING = "RETRYING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ReservedNodeExchangeStatusType = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  REQUESTED: "REQUESTED",
+  RETRYING: "RETRYING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedNodeExchangeStatusType =
+  (typeof ReservedNodeExchangeStatusType)[keyof typeof ReservedNodeExchangeStatusType];
 
 /**
  * @public
@@ -3117,11 +3166,17 @@ export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ParameterApplyType {
-  dynamic = "dynamic",
-  static = "static",
-}
+export const ParameterApplyType = {
+  dynamic: "dynamic",
+  static: "static",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterApplyType = (typeof ParameterApplyType)[keyof typeof ParameterApplyType];
 
 /**
  * @public
@@ -5610,11 +5665,17 @@ export class InvalidScheduleFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduledActionState {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-}
+export const ScheduledActionState = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledActionState = (typeof ScheduledActionState)[keyof typeof ScheduledActionState];
 
 /**
  * @public
@@ -6054,38 +6115,62 @@ export class ResourceNotFoundFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageLimitBreachAction {
-  DISABLE = "disable",
-  EMIT_METRIC = "emit-metric",
-  LOG = "log",
-}
+export const UsageLimitBreachAction = {
+  DISABLE: "disable",
+  EMIT_METRIC: "emit-metric",
+  LOG: "log",
+} as const;
 
 /**
  * @public
  */
-export enum UsageLimitFeatureType {
-  CONCURRENCY_SCALING = "concurrency-scaling",
-  CROSS_REGION_DATASHARING = "cross-region-datasharing",
-  SPECTRUM = "spectrum",
-}
+export type UsageLimitBreachAction = (typeof UsageLimitBreachAction)[keyof typeof UsageLimitBreachAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitFeatureType = {
+  CONCURRENCY_SCALING: "concurrency-scaling",
+  CROSS_REGION_DATASHARING: "cross-region-datasharing",
+  SPECTRUM: "spectrum",
+} as const;
 
 /**
  * @public
  */
-export enum UsageLimitLimitType {
-  DATA_SCANNED = "data-scanned",
-  TIME = "time",
-}
+export type UsageLimitFeatureType = (typeof UsageLimitFeatureType)[keyof typeof UsageLimitFeatureType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitLimitType = {
+  DATA_SCANNED: "data-scanned",
+  TIME: "time",
+} as const;
 
 /**
  * @public
  */
-export enum UsageLimitPeriod {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  WEEKLY = "weekly",
-}
+export type UsageLimitLimitType = (typeof UsageLimitLimitType)[keyof typeof UsageLimitLimitType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitPeriod = {
+  DAILY: "daily",
+  MONTHLY: "monthly",
+  WEEKLY: "weekly",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageLimitPeriod = (typeof UsageLimitPeriod)[keyof typeof UsageLimitPeriod];
 
 /**
  * @public
@@ -6252,22 +6337,34 @@ export interface CustomerStorageMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum DataShareStatusForConsumer {
-  ACTIVE = "ACTIVE",
-  AVAILABLE = "AVAILABLE",
-}
+export const DataShareStatusForConsumer = {
+  ACTIVE: "ACTIVE",
+  AVAILABLE: "AVAILABLE",
+} as const;
 
 /**
  * @public
  */
-export enum DataShareStatusForProducer {
-  ACTIVE = "ACTIVE",
-  AUTHORIZED = "AUTHORIZED",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION",
-  REJECTED = "REJECTED",
-}
+export type DataShareStatusForConsumer = (typeof DataShareStatusForConsumer)[keyof typeof DataShareStatusForConsumer];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataShareStatusForProducer = {
+  ACTIVE: "ACTIVE",
+  AUTHORIZED: "AUTHORIZED",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataShareStatusForProducer = (typeof DataShareStatusForProducer)[keyof typeof DataShareStatusForProducer];
 
 /**
  * @public
@@ -7103,20 +7200,32 @@ export interface DescribeClusterSecurityGroupsMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum SnapshotAttributeToSortBy {
-  CREATE_TIME = "CREATE_TIME",
-  SOURCE_TYPE = "SOURCE_TYPE",
-  TOTAL_SIZE = "TOTAL_SIZE",
-}
+export const SnapshotAttributeToSortBy = {
+  CREATE_TIME: "CREATE_TIME",
+  SOURCE_TYPE: "SOURCE_TYPE",
+  TOTAL_SIZE: "TOTAL_SIZE",
+} as const;
 
 /**
  * @public
  */
-export enum SortByOrder {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC",
-}
+export type SnapshotAttributeToSortBy = (typeof SnapshotAttributeToSortBy)[keyof typeof SnapshotAttributeToSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortByOrder = {
+  ASCENDING: "ASC",
+  DESCENDING: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortByOrder = (typeof SortByOrder)[keyof typeof SortByOrder];
 
 /**
  * @public
@@ -7866,14 +7975,20 @@ export interface EventCategoriesMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  cluster = "cluster",
-  cluster_parameter_group = "cluster-parameter-group",
-  cluster_security_group = "cluster-security-group",
-  cluster_snapshot = "cluster-snapshot",
-  scheduled_action = "scheduled-action",
-}
+export const SourceType = {
+  cluster: "cluster",
+  cluster_parameter_group: "cluster-parameter-group",
+  cluster_security_group: "cluster-security-group",
+  cluster_snapshot: "cluster-snapshot",
+  scheduled_action: "scheduled-action",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public

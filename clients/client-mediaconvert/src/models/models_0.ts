@@ -1,11 +1,17 @@
 // smithy-typescript generated code
 /**
  * @public
+ * @enum
  */
-export enum RequiredFlag {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const RequiredFlag = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RequiredFlag = (typeof RequiredFlag)[keyof typeof RequiredFlag];
 
 /**
  * @public
@@ -30,24 +36,30 @@ export interface AllowedRenditionSize {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioChannelTag {
-  C = "C",
-  CS = "CS",
-  L = "L",
-  LC = "LC",
-  LFE = "LFE",
-  LS = "LS",
-  LSD = "LSD",
-  R = "R",
-  RC = "RC",
-  RS = "RS",
-  RSD = "RSD",
-  TCS = "TCS",
-  VHC = "VHC",
-  VHL = "VHL",
-  VHR = "VHR",
-}
+export const AudioChannelTag = {
+  C: "C",
+  CS: "CS",
+  L: "L",
+  LC: "LC",
+  LFE: "LFE",
+  LS: "LS",
+  LSD: "LSD",
+  R: "R",
+  RC: "RC",
+  RS: "RS",
+  RSD: "RSD",
+  TCS: "TCS",
+  VHC: "VHC",
+  VHL: "VHL",
+  VHR: "VHR",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioChannelTag = (typeof AudioChannelTag)[keyof typeof AudioChannelTag];
 
 /**
  * @public
@@ -62,37 +74,65 @@ export interface AudioChannelTaggingSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioNormalizationAlgorithm {
-  ITU_BS_1770_1 = "ITU_BS_1770_1",
-  ITU_BS_1770_2 = "ITU_BS_1770_2",
-  ITU_BS_1770_3 = "ITU_BS_1770_3",
-  ITU_BS_1770_4 = "ITU_BS_1770_4",
-}
+export const AudioNormalizationAlgorithm = {
+  ITU_BS_1770_1: "ITU_BS_1770_1",
+  ITU_BS_1770_2: "ITU_BS_1770_2",
+  ITU_BS_1770_3: "ITU_BS_1770_3",
+  ITU_BS_1770_4: "ITU_BS_1770_4",
+} as const;
 
 /**
  * @public
  */
-export enum AudioNormalizationAlgorithmControl {
-  CORRECT_AUDIO = "CORRECT_AUDIO",
-  MEASURE_ONLY = "MEASURE_ONLY",
-}
+export type AudioNormalizationAlgorithm =
+  (typeof AudioNormalizationAlgorithm)[keyof typeof AudioNormalizationAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioNormalizationAlgorithmControl = {
+  CORRECT_AUDIO: "CORRECT_AUDIO",
+  MEASURE_ONLY: "MEASURE_ONLY",
+} as const;
 
 /**
  * @public
  */
-export enum AudioNormalizationLoudnessLogging {
-  DONT_LOG = "DONT_LOG",
-  LOG = "LOG",
-}
+export type AudioNormalizationAlgorithmControl =
+  (typeof AudioNormalizationAlgorithmControl)[keyof typeof AudioNormalizationAlgorithmControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioNormalizationLoudnessLogging = {
+  DONT_LOG: "DONT_LOG",
+  LOG: "LOG",
+} as const;
 
 /**
  * @public
  */
-export enum AudioNormalizationPeakCalculation {
-  NONE = "NONE",
-  TRUE_PEAK = "TRUE_PEAK",
-}
+export type AudioNormalizationLoudnessLogging =
+  (typeof AudioNormalizationLoudnessLogging)[keyof typeof AudioNormalizationLoudnessLogging];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioNormalizationPeakCalculation = {
+  NONE: "NONE",
+  TRUE_PEAK: "TRUE_PEAK",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioNormalizationPeakCalculation =
+  (typeof AudioNormalizationPeakCalculation)[keyof typeof AudioNormalizationPeakCalculation];
 
 /**
  * @public
@@ -137,73 +177,122 @@ export interface AudioNormalizationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioTypeControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export const AudioTypeControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+} as const;
 
 /**
  * @public
  */
-export enum AacAudioDescriptionBroadcasterMix {
-  BROADCASTER_MIXED_AD = "BROADCASTER_MIXED_AD",
-  NORMAL = "NORMAL",
-}
+export type AudioTypeControl = (typeof AudioTypeControl)[keyof typeof AudioTypeControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacAudioDescriptionBroadcasterMix = {
+  BROADCASTER_MIXED_AD: "BROADCASTER_MIXED_AD",
+  NORMAL: "NORMAL",
+} as const;
 
 /**
  * @public
  */
-export enum AacCodecProfile {
-  HEV1 = "HEV1",
-  HEV2 = "HEV2",
-  LC = "LC",
-}
+export type AacAudioDescriptionBroadcasterMix =
+  (typeof AacAudioDescriptionBroadcasterMix)[keyof typeof AacAudioDescriptionBroadcasterMix];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacCodecProfile = {
+  HEV1: "HEV1",
+  HEV2: "HEV2",
+  LC: "LC",
+} as const;
 
 /**
  * @public
  */
-export enum AacCodingMode {
-  AD_RECEIVER_MIX = "AD_RECEIVER_MIX",
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_1_1 = "CODING_MODE_1_1",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_5_1 = "CODING_MODE_5_1",
-}
+export type AacCodecProfile = (typeof AacCodecProfile)[keyof typeof AacCodecProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacCodingMode = {
+  AD_RECEIVER_MIX: "AD_RECEIVER_MIX",
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_1_1: "CODING_MODE_1_1",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_5_1: "CODING_MODE_5_1",
+} as const;
 
 /**
  * @public
  */
-export enum AacRateControlMode {
-  CBR = "CBR",
-  VBR = "VBR",
-}
+export type AacCodingMode = (typeof AacCodingMode)[keyof typeof AacCodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacRateControlMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+} as const;
 
 /**
  * @public
  */
-export enum AacRawFormat {
-  LATM_LOAS = "LATM_LOAS",
-  NONE = "NONE",
-}
+export type AacRateControlMode = (typeof AacRateControlMode)[keyof typeof AacRateControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacRawFormat = {
+  LATM_LOAS: "LATM_LOAS",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum AacSpecification {
-  MPEG2 = "MPEG2",
-  MPEG4 = "MPEG4",
-}
+export type AacRawFormat = (typeof AacRawFormat)[keyof typeof AacRawFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacSpecification = {
+  MPEG2: "MPEG2",
+  MPEG4: "MPEG4",
+} as const;
 
 /**
  * @public
  */
-export enum AacVbrQuality {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM_HIGH = "MEDIUM_HIGH",
-  MEDIUM_LOW = "MEDIUM_LOW",
-}
+export type AacSpecification = (typeof AacSpecification)[keyof typeof AacSpecification];
+
+/**
+ * @public
+ * @enum
+ */
+export const AacVbrQuality = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM_HIGH: "MEDIUM_HIGH",
+  MEDIUM_LOW: "MEDIUM_LOW",
+} as const;
+
+/**
+ * @public
+ */
+export type AacVbrQuality = (typeof AacVbrQuality)[keyof typeof AacVbrQuality];
 
 /**
  * @public
@@ -258,75 +347,120 @@ export interface AacSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum Ac3BitstreamMode {
-  COMMENTARY = "COMMENTARY",
-  COMPLETE_MAIN = "COMPLETE_MAIN",
-  DIALOGUE = "DIALOGUE",
-  EMERGENCY = "EMERGENCY",
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  MUSIC_AND_EFFECTS = "MUSIC_AND_EFFECTS",
-  VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
-  VOICE_OVER = "VOICE_OVER",
-}
+export const Ac3BitstreamMode = {
+  COMMENTARY: "COMMENTARY",
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+  DIALOGUE: "DIALOGUE",
+  EMERGENCY: "EMERGENCY",
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  MUSIC_AND_EFFECTS: "MUSIC_AND_EFFECTS",
+  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
+  VOICE_OVER: "VOICE_OVER",
+} as const;
 
 /**
  * @public
  */
-export enum Ac3CodingMode {
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_1_1 = "CODING_MODE_1_1",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_3_2_LFE = "CODING_MODE_3_2_LFE",
-}
+export type Ac3BitstreamMode = (typeof Ac3BitstreamMode)[keyof typeof Ac3BitstreamMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3CodingMode = {
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_1_1: "CODING_MODE_1_1",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_3_2_LFE: "CODING_MODE_3_2_LFE",
+} as const;
 
 /**
  * @public
  */
-export enum Ac3DynamicRangeCompressionLine {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export type Ac3CodingMode = (typeof Ac3CodingMode)[keyof typeof Ac3CodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3DynamicRangeCompressionLine = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
 
 /**
  * @public
  */
-export enum Ac3DynamicRangeCompressionProfile {
-  FILM_STANDARD = "FILM_STANDARD",
-  NONE = "NONE",
-}
+export type Ac3DynamicRangeCompressionLine =
+  (typeof Ac3DynamicRangeCompressionLine)[keyof typeof Ac3DynamicRangeCompressionLine];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3DynamicRangeCompressionProfile = {
+  FILM_STANDARD: "FILM_STANDARD",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum Ac3DynamicRangeCompressionRf {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export type Ac3DynamicRangeCompressionProfile =
+  (typeof Ac3DynamicRangeCompressionProfile)[keyof typeof Ac3DynamicRangeCompressionProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3DynamicRangeCompressionRf = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
 
 /**
  * @public
  */
-export enum Ac3LfeFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type Ac3DynamicRangeCompressionRf =
+  (typeof Ac3DynamicRangeCompressionRf)[keyof typeof Ac3DynamicRangeCompressionRf];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3LfeFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum Ac3MetadataControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export type Ac3LfeFilter = (typeof Ac3LfeFilter)[keyof typeof Ac3LfeFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac3MetadataControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type Ac3MetadataControl = (typeof Ac3MetadataControl)[keyof typeof Ac3MetadataControl];
 
 /**
  * @public
@@ -407,115 +541,185 @@ export interface AiffSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioCodec {
-  AAC = "AAC",
-  AC3 = "AC3",
-  AIFF = "AIFF",
-  EAC3 = "EAC3",
-  EAC3_ATMOS = "EAC3_ATMOS",
-  MP2 = "MP2",
-  MP3 = "MP3",
-  OPUS = "OPUS",
-  PASSTHROUGH = "PASSTHROUGH",
-  VORBIS = "VORBIS",
-  WAV = "WAV",
-}
+export const AudioCodec = {
+  AAC: "AAC",
+  AC3: "AC3",
+  AIFF: "AIFF",
+  EAC3: "EAC3",
+  EAC3_ATMOS: "EAC3_ATMOS",
+  MP2: "MP2",
+  MP3: "MP3",
+  OPUS: "OPUS",
+  PASSTHROUGH: "PASSTHROUGH",
+  VORBIS: "VORBIS",
+  WAV: "WAV",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosBitstreamMode {
-  COMPLETE_MAIN = "COMPLETE_MAIN",
-}
+export type AudioCodec = (typeof AudioCodec)[keyof typeof AudioCodec];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosBitstreamMode = {
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosCodingMode {
-  CODING_MODE_5_1_4 = "CODING_MODE_5_1_4",
-  CODING_MODE_7_1_4 = "CODING_MODE_7_1_4",
-  CODING_MODE_9_1_6 = "CODING_MODE_9_1_6",
-  CODING_MODE_AUTO = "CODING_MODE_AUTO",
-}
+export type Eac3AtmosBitstreamMode = (typeof Eac3AtmosBitstreamMode)[keyof typeof Eac3AtmosBitstreamMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosCodingMode = {
+  CODING_MODE_5_1_4: "CODING_MODE_5_1_4",
+  CODING_MODE_7_1_4: "CODING_MODE_7_1_4",
+  CODING_MODE_9_1_6: "CODING_MODE_9_1_6",
+  CODING_MODE_AUTO: "CODING_MODE_AUTO",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosDialogueIntelligence {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type Eac3AtmosCodingMode = (typeof Eac3AtmosCodingMode)[keyof typeof Eac3AtmosCodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDialogueIntelligence = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosDownmixControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
+export type Eac3AtmosDialogueIntelligence =
+  (typeof Eac3AtmosDialogueIntelligence)[keyof typeof Eac3AtmosDialogueIntelligence];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDownmixControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosDynamicRangeCompressionLine {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export type Eac3AtmosDownmixControl = (typeof Eac3AtmosDownmixControl)[keyof typeof Eac3AtmosDownmixControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDynamicRangeCompressionLine = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosDynamicRangeCompressionRf {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export type Eac3AtmosDynamicRangeCompressionLine =
+  (typeof Eac3AtmosDynamicRangeCompressionLine)[keyof typeof Eac3AtmosDynamicRangeCompressionLine];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDynamicRangeCompressionRf = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosDynamicRangeControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
+export type Eac3AtmosDynamicRangeCompressionRf =
+  (typeof Eac3AtmosDynamicRangeCompressionRf)[keyof typeof Eac3AtmosDynamicRangeCompressionRf];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosDynamicRangeControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosMeteringMode {
-  ITU_BS_1770_1 = "ITU_BS_1770_1",
-  ITU_BS_1770_2 = "ITU_BS_1770_2",
-  ITU_BS_1770_3 = "ITU_BS_1770_3",
-  ITU_BS_1770_4 = "ITU_BS_1770_4",
-  LEQ_A = "LEQ_A",
-}
+export type Eac3AtmosDynamicRangeControl =
+  (typeof Eac3AtmosDynamicRangeControl)[keyof typeof Eac3AtmosDynamicRangeControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosMeteringMode = {
+  ITU_BS_1770_1: "ITU_BS_1770_1",
+  ITU_BS_1770_2: "ITU_BS_1770_2",
+  ITU_BS_1770_3: "ITU_BS_1770_3",
+  ITU_BS_1770_4: "ITU_BS_1770_4",
+  LEQ_A: "LEQ_A",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosStereoDownmix {
-  DPL2 = "DPL2",
-  NOT_INDICATED = "NOT_INDICATED",
-  STEREO = "STEREO",
-  SURROUND = "SURROUND",
-}
+export type Eac3AtmosMeteringMode = (typeof Eac3AtmosMeteringMode)[keyof typeof Eac3AtmosMeteringMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosStereoDownmix = {
+  DPL2: "DPL2",
+  NOT_INDICATED: "NOT_INDICATED",
+  STEREO: "STEREO",
+  SURROUND: "SURROUND",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3AtmosSurroundExMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+export type Eac3AtmosStereoDownmix = (typeof Eac3AtmosStereoDownmix)[keyof typeof Eac3AtmosStereoDownmix];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3AtmosSurroundExMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3AtmosSurroundExMode = (typeof Eac3AtmosSurroundExMode)[keyof typeof Eac3AtmosSurroundExMode];
 
 /**
  * @public
@@ -610,131 +814,217 @@ export interface Eac3AtmosSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum Eac3AttenuationControl {
-  ATTENUATE_3_DB = "ATTENUATE_3_DB",
-  NONE = "NONE",
-}
+export const Eac3AttenuationControl = {
+  ATTENUATE_3_DB: "ATTENUATE_3_DB",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3BitstreamMode {
-  COMMENTARY = "COMMENTARY",
-  COMPLETE_MAIN = "COMPLETE_MAIN",
-  EMERGENCY = "EMERGENCY",
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
-}
+export type Eac3AttenuationControl = (typeof Eac3AttenuationControl)[keyof typeof Eac3AttenuationControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3BitstreamMode = {
+  COMMENTARY: "COMMENTARY",
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+  EMERGENCY: "EMERGENCY",
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3CodingMode {
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_3_2 = "CODING_MODE_3_2",
-}
+export type Eac3BitstreamMode = (typeof Eac3BitstreamMode)[keyof typeof Eac3BitstreamMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3CodingMode = {
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_3_2: "CODING_MODE_3_2",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3DcFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type Eac3CodingMode = (typeof Eac3CodingMode)[keyof typeof Eac3CodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3DcFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3DynamicRangeCompressionLine {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export type Eac3DcFilter = (typeof Eac3DcFilter)[keyof typeof Eac3DcFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3DynamicRangeCompressionLine = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3DynamicRangeCompressionRf {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export type Eac3DynamicRangeCompressionLine =
+  (typeof Eac3DynamicRangeCompressionLine)[keyof typeof Eac3DynamicRangeCompressionLine];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3DynamicRangeCompressionRf = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3LfeControl {
-  LFE = "LFE",
-  NO_LFE = "NO_LFE",
-}
+export type Eac3DynamicRangeCompressionRf =
+  (typeof Eac3DynamicRangeCompressionRf)[keyof typeof Eac3DynamicRangeCompressionRf];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3LfeControl = {
+  LFE: "LFE",
+  NO_LFE: "NO_LFE",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3LfeFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type Eac3LfeControl = (typeof Eac3LfeControl)[keyof typeof Eac3LfeControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3LfeFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3MetadataControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export type Eac3LfeFilter = (typeof Eac3LfeFilter)[keyof typeof Eac3LfeFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3MetadataControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3PassthroughControl {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  WHEN_POSSIBLE = "WHEN_POSSIBLE",
-}
+export type Eac3MetadataControl = (typeof Eac3MetadataControl)[keyof typeof Eac3MetadataControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3PassthroughControl = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  WHEN_POSSIBLE: "WHEN_POSSIBLE",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3PhaseControl {
-  NO_SHIFT = "NO_SHIFT",
-  SHIFT_90_DEGREES = "SHIFT_90_DEGREES",
-}
+export type Eac3PassthroughControl = (typeof Eac3PassthroughControl)[keyof typeof Eac3PassthroughControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3PhaseControl = {
+  NO_SHIFT: "NO_SHIFT",
+  SHIFT_90_DEGREES: "SHIFT_90_DEGREES",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3StereoDownmix {
-  DPL2 = "DPL2",
-  LO_RO = "LO_RO",
-  LT_RT = "LT_RT",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+export type Eac3PhaseControl = (typeof Eac3PhaseControl)[keyof typeof Eac3PhaseControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3StereoDownmix = {
+  DPL2: "DPL2",
+  LO_RO: "LO_RO",
+  LT_RT: "LT_RT",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3SurroundExMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+export type Eac3StereoDownmix = (typeof Eac3StereoDownmix)[keyof typeof Eac3StereoDownmix];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3SurroundExMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
 
 /**
  * @public
  */
-export enum Eac3SurroundMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+export type Eac3SurroundExMode = (typeof Eac3SurroundExMode)[keyof typeof Eac3SurroundExMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Eac3SurroundMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
+
+/**
+ * @public
+ */
+export type Eac3SurroundMode = (typeof Eac3SurroundMode)[keyof typeof Eac3SurroundMode];
 
 /**
  * @public
@@ -870,11 +1160,17 @@ export interface Mp2Settings {
 
 /**
  * @public
+ * @enum
  */
-export enum Mp3RateControlMode {
-  CBR = "CBR",
-  VBR = "VBR",
-}
+export const Mp3RateControlMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+} as const;
+
+/**
+ * @public
+ */
+export type Mp3RateControlMode = (typeof Mp3RateControlMode)[keyof typeof Mp3RateControlMode];
 
 /**
  * @public
@@ -951,11 +1247,17 @@ export interface VorbisSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum WavFormat {
-  RF64 = "RF64",
-  RIFF = "RIFF",
-}
+export const WavFormat = {
+  RF64: "RF64",
+  RIFF: "RIFF",
+} as const;
+
+/**
+ * @public
+ */
+export type WavFormat = (typeof WavFormat)[keyof typeof WavFormat];
 
 /**
  * @public
@@ -1046,209 +1348,221 @@ export interface AudioCodecSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum LanguageCode {
-  AAR = "AAR",
-  ABK = "ABK",
-  AFR = "AFR",
-  AKA = "AKA",
-  AMH = "AMH",
-  ARA = "ARA",
-  ARG = "ARG",
-  ASM = "ASM",
-  AVA = "AVA",
-  AVE = "AVE",
-  AYM = "AYM",
-  AZE = "AZE",
-  BAK = "BAK",
-  BAM = "BAM",
-  BEL = "BEL",
-  BEN = "BEN",
-  BIH = "BIH",
-  BIS = "BIS",
-  BOD = "BOD",
-  BOS = "BOS",
-  BRE = "BRE",
-  BUL = "BUL",
-  CAT = "CAT",
-  CES = "CES",
-  CHA = "CHA",
-  CHE = "CHE",
-  CHU = "CHU",
-  CHV = "CHV",
-  COR = "COR",
-  COS = "COS",
-  CRE = "CRE",
-  CYM = "CYM",
-  DAN = "DAN",
-  DEU = "DEU",
-  DIV = "DIV",
-  DZO = "DZO",
-  ELL = "ELL",
-  ENG = "ENG",
-  ENM = "ENM",
-  EPO = "EPO",
-  EST = "EST",
-  EUS = "EUS",
-  EWE = "EWE",
-  FAO = "FAO",
-  FAS = "FAS",
-  FIJ = "FIJ",
-  FIN = "FIN",
-  FRA = "FRA",
-  FRM = "FRM",
-  FRY = "FRY",
-  FUL = "FUL",
-  GER = "GER",
-  GLA = "GLA",
-  GLE = "GLE",
-  GLG = "GLG",
-  GLV = "GLV",
-  GRN = "GRN",
-  GUJ = "GUJ",
-  HAT = "HAT",
-  HAU = "HAU",
-  HEB = "HEB",
-  HER = "HER",
-  HIN = "HIN",
-  HMO = "HMO",
-  HRV = "HRV",
-  HUN = "HUN",
-  HYE = "HYE",
-  IBO = "IBO",
-  IDO = "IDO",
-  III = "III",
-  IKU = "IKU",
-  ILE = "ILE",
-  INA = "INA",
-  IND = "IND",
-  IPK = "IPK",
-  ISL = "ISL",
-  ITA = "ITA",
-  JAV = "JAV",
-  JPN = "JPN",
-  KAL = "KAL",
-  KAN = "KAN",
-  KAS = "KAS",
-  KAT = "KAT",
-  KAU = "KAU",
-  KAZ = "KAZ",
-  KHM = "KHM",
-  KIK = "KIK",
-  KIN = "KIN",
-  KIR = "KIR",
-  KOM = "KOM",
-  KON = "KON",
-  KOR = "KOR",
-  KUA = "KUA",
-  KUR = "KUR",
-  LAO = "LAO",
-  LAT = "LAT",
-  LAV = "LAV",
-  LIM = "LIM",
-  LIN = "LIN",
-  LIT = "LIT",
-  LTZ = "LTZ",
-  LUB = "LUB",
-  LUG = "LUG",
-  MAH = "MAH",
-  MAL = "MAL",
-  MAR = "MAR",
-  MKD = "MKD",
-  MLG = "MLG",
-  MLT = "MLT",
-  MON = "MON",
-  MRI = "MRI",
-  MSA = "MSA",
-  MYA = "MYA",
-  NAU = "NAU",
-  NAV = "NAV",
-  NBL = "NBL",
-  NDE = "NDE",
-  NDO = "NDO",
-  NEP = "NEP",
-  NLD = "NLD",
-  NNO = "NNO",
-  NOB = "NOB",
-  NOR = "NOR",
-  NYA = "NYA",
-  OCI = "OCI",
-  OJI = "OJI",
-  ORI = "ORI",
-  ORJ = "ORJ",
-  ORM = "ORM",
-  OSS = "OSS",
-  PAN = "PAN",
-  PLI = "PLI",
-  POL = "POL",
-  POR = "POR",
-  PUS = "PUS",
-  QAA = "QAA",
-  QPC = "QPC",
-  QUE = "QUE",
-  ROH = "ROH",
-  RON = "RON",
-  RUN = "RUN",
-  RUS = "RUS",
-  SAG = "SAG",
-  SAN = "SAN",
-  SIN = "SIN",
-  SLK = "SLK",
-  SLV = "SLV",
-  SME = "SME",
-  SMO = "SMO",
-  SNA = "SNA",
-  SND = "SND",
-  SOM = "SOM",
-  SOT = "SOT",
-  SPA = "SPA",
-  SQI = "SQI",
-  SRB = "SRB",
-  SRD = "SRD",
-  SRP = "SRP",
-  SSW = "SSW",
-  SUN = "SUN",
-  SWA = "SWA",
-  SWE = "SWE",
-  TAH = "TAH",
-  TAM = "TAM",
-  TAT = "TAT",
-  TEL = "TEL",
-  TGK = "TGK",
-  TGL = "TGL",
-  THA = "THA",
-  TIR = "TIR",
-  TNG = "TNG",
-  TON = "TON",
-  TSN = "TSN",
-  TSO = "TSO",
-  TUK = "TUK",
-  TUR = "TUR",
-  TWI = "TWI",
-  UIG = "UIG",
-  UKR = "UKR",
-  URD = "URD",
-  UZB = "UZB",
-  VEN = "VEN",
-  VIE = "VIE",
-  VOL = "VOL",
-  WLN = "WLN",
-  WOL = "WOL",
-  XHO = "XHO",
-  YID = "YID",
-  YOR = "YOR",
-  ZHA = "ZHA",
-  ZHO = "ZHO",
-  ZUL = "ZUL",
-}
+export const LanguageCode = {
+  AAR: "AAR",
+  ABK: "ABK",
+  AFR: "AFR",
+  AKA: "AKA",
+  AMH: "AMH",
+  ARA: "ARA",
+  ARG: "ARG",
+  ASM: "ASM",
+  AVA: "AVA",
+  AVE: "AVE",
+  AYM: "AYM",
+  AZE: "AZE",
+  BAK: "BAK",
+  BAM: "BAM",
+  BEL: "BEL",
+  BEN: "BEN",
+  BIH: "BIH",
+  BIS: "BIS",
+  BOD: "BOD",
+  BOS: "BOS",
+  BRE: "BRE",
+  BUL: "BUL",
+  CAT: "CAT",
+  CES: "CES",
+  CHA: "CHA",
+  CHE: "CHE",
+  CHU: "CHU",
+  CHV: "CHV",
+  COR: "COR",
+  COS: "COS",
+  CRE: "CRE",
+  CYM: "CYM",
+  DAN: "DAN",
+  DEU: "DEU",
+  DIV: "DIV",
+  DZO: "DZO",
+  ELL: "ELL",
+  ENG: "ENG",
+  ENM: "ENM",
+  EPO: "EPO",
+  EST: "EST",
+  EUS: "EUS",
+  EWE: "EWE",
+  FAO: "FAO",
+  FAS: "FAS",
+  FIJ: "FIJ",
+  FIN: "FIN",
+  FRA: "FRA",
+  FRM: "FRM",
+  FRY: "FRY",
+  FUL: "FUL",
+  GER: "GER",
+  GLA: "GLA",
+  GLE: "GLE",
+  GLG: "GLG",
+  GLV: "GLV",
+  GRN: "GRN",
+  GUJ: "GUJ",
+  HAT: "HAT",
+  HAU: "HAU",
+  HEB: "HEB",
+  HER: "HER",
+  HIN: "HIN",
+  HMO: "HMO",
+  HRV: "HRV",
+  HUN: "HUN",
+  HYE: "HYE",
+  IBO: "IBO",
+  IDO: "IDO",
+  III: "III",
+  IKU: "IKU",
+  ILE: "ILE",
+  INA: "INA",
+  IND: "IND",
+  IPK: "IPK",
+  ISL: "ISL",
+  ITA: "ITA",
+  JAV: "JAV",
+  JPN: "JPN",
+  KAL: "KAL",
+  KAN: "KAN",
+  KAS: "KAS",
+  KAT: "KAT",
+  KAU: "KAU",
+  KAZ: "KAZ",
+  KHM: "KHM",
+  KIK: "KIK",
+  KIN: "KIN",
+  KIR: "KIR",
+  KOM: "KOM",
+  KON: "KON",
+  KOR: "KOR",
+  KUA: "KUA",
+  KUR: "KUR",
+  LAO: "LAO",
+  LAT: "LAT",
+  LAV: "LAV",
+  LIM: "LIM",
+  LIN: "LIN",
+  LIT: "LIT",
+  LTZ: "LTZ",
+  LUB: "LUB",
+  LUG: "LUG",
+  MAH: "MAH",
+  MAL: "MAL",
+  MAR: "MAR",
+  MKD: "MKD",
+  MLG: "MLG",
+  MLT: "MLT",
+  MON: "MON",
+  MRI: "MRI",
+  MSA: "MSA",
+  MYA: "MYA",
+  NAU: "NAU",
+  NAV: "NAV",
+  NBL: "NBL",
+  NDE: "NDE",
+  NDO: "NDO",
+  NEP: "NEP",
+  NLD: "NLD",
+  NNO: "NNO",
+  NOB: "NOB",
+  NOR: "NOR",
+  NYA: "NYA",
+  OCI: "OCI",
+  OJI: "OJI",
+  ORI: "ORI",
+  ORJ: "ORJ",
+  ORM: "ORM",
+  OSS: "OSS",
+  PAN: "PAN",
+  PLI: "PLI",
+  POL: "POL",
+  POR: "POR",
+  PUS: "PUS",
+  QAA: "QAA",
+  QPC: "QPC",
+  QUE: "QUE",
+  ROH: "ROH",
+  RON: "RON",
+  RUN: "RUN",
+  RUS: "RUS",
+  SAG: "SAG",
+  SAN: "SAN",
+  SIN: "SIN",
+  SLK: "SLK",
+  SLV: "SLV",
+  SME: "SME",
+  SMO: "SMO",
+  SNA: "SNA",
+  SND: "SND",
+  SOM: "SOM",
+  SOT: "SOT",
+  SPA: "SPA",
+  SQI: "SQI",
+  SRB: "SRB",
+  SRD: "SRD",
+  SRP: "SRP",
+  SSW: "SSW",
+  SUN: "SUN",
+  SWA: "SWA",
+  SWE: "SWE",
+  TAH: "TAH",
+  TAM: "TAM",
+  TAT: "TAT",
+  TEL: "TEL",
+  TGK: "TGK",
+  TGL: "TGL",
+  THA: "THA",
+  TIR: "TIR",
+  TNG: "TNG",
+  TON: "TON",
+  TSN: "TSN",
+  TSO: "TSO",
+  TUK: "TUK",
+  TUR: "TUR",
+  TWI: "TWI",
+  UIG: "UIG",
+  UKR: "UKR",
+  URD: "URD",
+  UZB: "UZB",
+  VEN: "VEN",
+  VIE: "VIE",
+  VOL: "VOL",
+  WLN: "WLN",
+  WOL: "WOL",
+  XHO: "XHO",
+  YID: "YID",
+  YOR: "YOR",
+  ZHA: "ZHA",
+  ZHO: "ZHO",
+  ZUL: "ZUL",
+} as const;
 
 /**
  * @public
  */
-export enum AudioLanguageCodeControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioLanguageCodeControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioLanguageCodeControl = (typeof AudioLanguageCodeControl)[keyof typeof AudioLanguageCodeControl];
 
 /**
  * @public
@@ -1409,13 +1723,19 @@ export interface MinTopRenditionSize {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleType {
-  ALLOWED_RENDITIONS = "ALLOWED_RENDITIONS",
-  FORCE_INCLUDE_RENDITIONS = "FORCE_INCLUDE_RENDITIONS",
-  MIN_BOTTOM_RENDITION_SIZE = "MIN_BOTTOM_RENDITION_SIZE",
-  MIN_TOP_RENDITION_SIZE = "MIN_TOP_RENDITION_SIZE",
-}
+export const RuleType = {
+  ALLOWED_RENDITIONS: "ALLOWED_RENDITIONS",
+  FORCE_INCLUDE_RENDITIONS: "FORCE_INCLUDE_RENDITIONS",
+  MIN_BOTTOM_RENDITION_SIZE: "MIN_BOTTOM_RENDITION_SIZE",
+  MIN_TOP_RENDITION_SIZE: "MIN_TOP_RENDITION_SIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
 
 /**
  * @public
@@ -1450,104 +1770,168 @@ export interface AutomatedAbrRule {
 
 /**
  * @public
+ * @enum
  */
-export enum BurninSubtitleAlignment {
-  AUTO = "AUTO",
-  CENTERED = "CENTERED",
-  LEFT = "LEFT",
-}
+export const BurninSubtitleAlignment = {
+  AUTO: "AUTO",
+  CENTERED: "CENTERED",
+  LEFT: "LEFT",
+} as const;
 
 /**
  * @public
  */
-export enum BurninSubtitleApplyFontColor {
-  ALL_TEXT = "ALL_TEXT",
-  WHITE_TEXT_ONLY = "WHITE_TEXT_ONLY",
-}
+export type BurninSubtitleAlignment = (typeof BurninSubtitleAlignment)[keyof typeof BurninSubtitleAlignment];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleApplyFontColor = {
+  ALL_TEXT: "ALL_TEXT",
+  WHITE_TEXT_ONLY: "WHITE_TEXT_ONLY",
+} as const;
 
 /**
  * @public
  */
-export enum BurninSubtitleBackgroundColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
+export type BurninSubtitleApplyFontColor =
+  (typeof BurninSubtitleApplyFontColor)[keyof typeof BurninSubtitleApplyFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleBackgroundColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
 
 /**
  * @public
  */
-export enum BurninSubtitleFallbackFont {
-  BEST_MATCH = "BEST_MATCH",
-  MONOSPACED_SANSSERIF = "MONOSPACED_SANSSERIF",
-  MONOSPACED_SERIF = "MONOSPACED_SERIF",
-  PROPORTIONAL_SANSSERIF = "PROPORTIONAL_SANSSERIF",
-  PROPORTIONAL_SERIF = "PROPORTIONAL_SERIF",
-}
+export type BurninSubtitleBackgroundColor =
+  (typeof BurninSubtitleBackgroundColor)[keyof typeof BurninSubtitleBackgroundColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleFallbackFont = {
+  BEST_MATCH: "BEST_MATCH",
+  MONOSPACED_SANSSERIF: "MONOSPACED_SANSSERIF",
+  MONOSPACED_SERIF: "MONOSPACED_SERIF",
+  PROPORTIONAL_SANSSERIF: "PROPORTIONAL_SANSSERIF",
+  PROPORTIONAL_SERIF: "PROPORTIONAL_SERIF",
+} as const;
 
 /**
  * @public
  */
-export enum BurninSubtitleFontColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  HEX = "HEX",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
+export type BurninSubtitleFallbackFont = (typeof BurninSubtitleFallbackFont)[keyof typeof BurninSubtitleFallbackFont];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleFontColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  HEX: "HEX",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
 
 /**
  * @public
  */
-export enum FontScript {
-  AUTOMATIC = "AUTOMATIC",
-  HANS = "HANS",
-  HANT = "HANT",
-}
+export type BurninSubtitleFontColor = (typeof BurninSubtitleFontColor)[keyof typeof BurninSubtitleFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const FontScript = {
+  AUTOMATIC: "AUTOMATIC",
+  HANS: "HANS",
+  HANT: "HANT",
+} as const;
 
 /**
  * @public
  */
-export enum BurninSubtitleOutlineColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
+export type FontScript = (typeof FontScript)[keyof typeof FontScript];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleOutlineColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
 
 /**
  * @public
  */
-export enum BurninSubtitleShadowColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
+export type BurninSubtitleOutlineColor = (typeof BurninSubtitleOutlineColor)[keyof typeof BurninSubtitleOutlineColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleShadowColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
 
 /**
  * @public
  */
-export enum BurnInSubtitleStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type BurninSubtitleShadowColor = (typeof BurninSubtitleShadowColor)[keyof typeof BurninSubtitleShadowColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurnInSubtitleStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum BurninSubtitleTeletextSpacing {
-  AUTO = "AUTO",
-  FIXED_GRID = "FIXED_GRID",
-  PROPORTIONAL = "PROPORTIONAL",
-}
+export type BurnInSubtitleStylePassthrough =
+  (typeof BurnInSubtitleStylePassthrough)[keyof typeof BurnInSubtitleStylePassthrough];
+
+/**
+ * @public
+ * @enum
+ */
+export const BurninSubtitleTeletextSpacing = {
+  AUTO: "AUTO",
+  FIXED_GRID: "FIXED_GRID",
+  PROPORTIONAL: "PROPORTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type BurninSubtitleTeletextSpacing =
+  (typeof BurninSubtitleTeletextSpacing)[keyof typeof BurninSubtitleTeletextSpacing];
 
 /**
  * @public
@@ -1662,130 +2046,203 @@ export interface BurninDestinationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CaptionDestinationType {
-  BURN_IN = "BURN_IN",
-  DVB_SUB = "DVB_SUB",
-  EMBEDDED = "EMBEDDED",
-  EMBEDDED_PLUS_SCTE20 = "EMBEDDED_PLUS_SCTE20",
-  IMSC = "IMSC",
-  SCC = "SCC",
-  SCTE20_PLUS_EMBEDDED = "SCTE20_PLUS_EMBEDDED",
-  SMI = "SMI",
-  SRT = "SRT",
-  TELETEXT = "TELETEXT",
-  TTML = "TTML",
-  WEBVTT = "WEBVTT",
-}
+export const CaptionDestinationType = {
+  BURN_IN: "BURN_IN",
+  DVB_SUB: "DVB_SUB",
+  EMBEDDED: "EMBEDDED",
+  EMBEDDED_PLUS_SCTE20: "EMBEDDED_PLUS_SCTE20",
+  IMSC: "IMSC",
+  SCC: "SCC",
+  SCTE20_PLUS_EMBEDDED: "SCTE20_PLUS_EMBEDDED",
+  SMI: "SMI",
+  SRT: "SRT",
+  TELETEXT: "TELETEXT",
+  TTML: "TTML",
+  WEBVTT: "WEBVTT",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitleAlignment {
-  AUTO = "AUTO",
-  CENTERED = "CENTERED",
-  LEFT = "LEFT",
-}
+export type CaptionDestinationType = (typeof CaptionDestinationType)[keyof typeof CaptionDestinationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleAlignment = {
+  AUTO: "AUTO",
+  CENTERED: "CENTERED",
+  LEFT: "LEFT",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitleApplyFontColor {
-  ALL_TEXT = "ALL_TEXT",
-  WHITE_TEXT_ONLY = "WHITE_TEXT_ONLY",
-}
+export type DvbSubtitleAlignment = (typeof DvbSubtitleAlignment)[keyof typeof DvbSubtitleAlignment];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleApplyFontColor = {
+  ALL_TEXT: "ALL_TEXT",
+  WHITE_TEXT_ONLY: "WHITE_TEXT_ONLY",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitleBackgroundColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
+export type DvbSubtitleApplyFontColor = (typeof DvbSubtitleApplyFontColor)[keyof typeof DvbSubtitleApplyFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleBackgroundColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
 
 /**
  * @public
  */
-export enum DvbddsHandling {
-  NONE = "NONE",
-  NO_DISPLAY_WINDOW = "NO_DISPLAY_WINDOW",
-  SPECIFIED = "SPECIFIED",
-}
+export type DvbSubtitleBackgroundColor = (typeof DvbSubtitleBackgroundColor)[keyof typeof DvbSubtitleBackgroundColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbddsHandling = {
+  NONE: "NONE",
+  NO_DISPLAY_WINDOW: "NO_DISPLAY_WINDOW",
+  SPECIFIED: "SPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubSubtitleFallbackFont {
-  BEST_MATCH = "BEST_MATCH",
-  MONOSPACED_SANSSERIF = "MONOSPACED_SANSSERIF",
-  MONOSPACED_SERIF = "MONOSPACED_SERIF",
-  PROPORTIONAL_SANSSERIF = "PROPORTIONAL_SANSSERIF",
-  PROPORTIONAL_SERIF = "PROPORTIONAL_SERIF",
-}
+export type DvbddsHandling = (typeof DvbddsHandling)[keyof typeof DvbddsHandling];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubSubtitleFallbackFont = {
+  BEST_MATCH: "BEST_MATCH",
+  MONOSPACED_SANSSERIF: "MONOSPACED_SANSSERIF",
+  MONOSPACED_SERIF: "MONOSPACED_SERIF",
+  PROPORTIONAL_SANSSERIF: "PROPORTIONAL_SANSSERIF",
+  PROPORTIONAL_SERIF: "PROPORTIONAL_SERIF",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitleFontColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  HEX = "HEX",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
+export type DvbSubSubtitleFallbackFont = (typeof DvbSubSubtitleFallbackFont)[keyof typeof DvbSubSubtitleFallbackFont];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleFontColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  HEX: "HEX",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitleOutlineColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
+export type DvbSubtitleFontColor = (typeof DvbSubtitleFontColor)[keyof typeof DvbSubtitleFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleOutlineColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitleShadowColor {
-  AUTO = "AUTO",
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
+export type DvbSubtitleOutlineColor = (typeof DvbSubtitleOutlineColor)[keyof typeof DvbSubtitleOutlineColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleShadowColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitleStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type DvbSubtitleShadowColor = (typeof DvbSubtitleShadowColor)[keyof typeof DvbSubtitleShadowColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitlingType {
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  STANDARD = "STANDARD",
-}
+export type DvbSubtitleStylePassthrough =
+  (typeof DvbSubtitleStylePassthrough)[keyof typeof DvbSubtitleStylePassthrough];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitlingType = {
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
  * @public
  */
-export enum DvbSubtitleTeletextSpacing {
-  AUTO = "AUTO",
-  FIXED_GRID = "FIXED_GRID",
-  PROPORTIONAL = "PROPORTIONAL",
-}
+export type DvbSubtitlingType = (typeof DvbSubtitlingType)[keyof typeof DvbSubtitlingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DvbSubtitleTeletextSpacing = {
+  AUTO: "AUTO",
+  FIXED_GRID: "FIXED_GRID",
+  PROPORTIONAL: "PROPORTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbSubtitleTeletextSpacing = (typeof DvbSubtitleTeletextSpacing)[keyof typeof DvbSubtitleTeletextSpacing];
 
 /**
  * @public
@@ -1948,19 +2405,31 @@ export interface EmbeddedDestinationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum ImscAccessibilitySubs {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ImscAccessibilitySubs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum ImscStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type ImscAccessibilitySubs = (typeof ImscAccessibilitySubs)[keyof typeof ImscAccessibilitySubs];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImscStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImscStylePassthrough = (typeof ImscStylePassthrough)[keyof typeof ImscStylePassthrough];
 
 /**
  * @public
@@ -1980,14 +2449,20 @@ export interface ImscDestinationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum SccDestinationFramerate {
-  FRAMERATE_23_97 = "FRAMERATE_23_97",
-  FRAMERATE_24 = "FRAMERATE_24",
-  FRAMERATE_25 = "FRAMERATE_25",
-  FRAMERATE_29_97_DROPFRAME = "FRAMERATE_29_97_DROPFRAME",
-  FRAMERATE_29_97_NON_DROPFRAME = "FRAMERATE_29_97_NON_DROPFRAME",
-}
+export const SccDestinationFramerate = {
+  FRAMERATE_23_97: "FRAMERATE_23_97",
+  FRAMERATE_24: "FRAMERATE_24",
+  FRAMERATE_25: "FRAMERATE_25",
+  FRAMERATE_29_97_DROPFRAME: "FRAMERATE_29_97_DROPFRAME",
+  FRAMERATE_29_97_NON_DROPFRAME: "FRAMERATE_29_97_NON_DROPFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type SccDestinationFramerate = (typeof SccDestinationFramerate)[keyof typeof SccDestinationFramerate];
 
 /**
  * @public
@@ -2002,11 +2477,17 @@ export interface SccDestinationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum SrtStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const SrtStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type SrtStylePassthrough = (typeof SrtStylePassthrough)[keyof typeof SrtStylePassthrough];
 
 /**
  * @public
@@ -2021,14 +2502,20 @@ export interface SrtDestinationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum TeletextPageType {
-  PAGE_TYPE_ADDL_INFO = "PAGE_TYPE_ADDL_INFO",
-  PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE = "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE",
-  PAGE_TYPE_INITIAL = "PAGE_TYPE_INITIAL",
-  PAGE_TYPE_PROGRAM_SCHEDULE = "PAGE_TYPE_PROGRAM_SCHEDULE",
-  PAGE_TYPE_SUBTITLE = "PAGE_TYPE_SUBTITLE",
-}
+export const TeletextPageType = {
+  PAGE_TYPE_ADDL_INFO: "PAGE_TYPE_ADDL_INFO",
+  PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE: "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE",
+  PAGE_TYPE_INITIAL: "PAGE_TYPE_INITIAL",
+  PAGE_TYPE_PROGRAM_SCHEDULE: "PAGE_TYPE_PROGRAM_SCHEDULE",
+  PAGE_TYPE_SUBTITLE: "PAGE_TYPE_SUBTITLE",
+} as const;
+
+/**
+ * @public
+ */
+export type TeletextPageType = (typeof TeletextPageType)[keyof typeof TeletextPageType];
 
 /**
  * @public
@@ -2048,11 +2535,17 @@ export interface TeletextDestinationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum TtmlStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const TtmlStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TtmlStylePassthrough = (typeof TtmlStylePassthrough)[keyof typeof TtmlStylePassthrough];
 
 /**
  * @public
@@ -2067,20 +2560,32 @@ export interface TtmlDestinationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum WebvttAccessibilitySubs {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const WebvttAccessibilitySubs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum WebvttStylePassthrough {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  STRICT = "STRICT",
-}
+export type WebvttAccessibilitySubs = (typeof WebvttAccessibilitySubs)[keyof typeof WebvttAccessibilitySubs];
+
+/**
+ * @public
+ * @enum
+ */
+export const WebvttStylePassthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  STRICT: "STRICT",
+} as const;
+
+/**
+ * @public
+ */
+export type WebvttStylePassthrough = (typeof WebvttStylePassthrough)[keyof typeof WebvttStylePassthrough];
 
 /**
  * @public
@@ -2272,11 +2777,17 @@ export interface HlsAdditionalManifest {
 
 /**
  * @public
+ * @enum
  */
-export enum HlsAdMarkers {
-  ELEMENTAL = "ELEMENTAL",
-  ELEMENTAL_SCTE35 = "ELEMENTAL_SCTE35",
-}
+export const HlsAdMarkers = {
+  ELEMENTAL: "ELEMENTAL",
+  ELEMENTAL_SCTE35: "ELEMENTAL_SCTE35",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsAdMarkers = (typeof HlsAdMarkers)[keyof typeof HlsAdMarkers];
 
 /**
  * @public
@@ -2354,21 +2865,33 @@ export interface AudioSelectorGroup {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioDurationCorrection {
-  AUTO = "AUTO",
-  DISABLED = "DISABLED",
-  FRAME = "FRAME",
-  TRACK = "TRACK",
-}
+export const AudioDurationCorrection = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  FRAME: "FRAME",
+  TRACK: "TRACK",
+} as const;
 
 /**
  * @public
  */
-export enum AudioDefaultSelection {
-  DEFAULT = "DEFAULT",
-  NOT_DEFAULT = "NOT_DEFAULT",
-}
+export type AudioDurationCorrection = (typeof AudioDurationCorrection)[keyof typeof AudioDurationCorrection];
+
+/**
+ * @public
+ * @enum
+ */
+export const AudioDefaultSelection = {
+  DEFAULT: "DEFAULT",
+  NOT_DEFAULT: "NOT_DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioDefaultSelection = (typeof AudioDefaultSelection)[keyof typeof AudioDefaultSelection];
 
 /**
  * @public
@@ -2393,13 +2916,19 @@ export interface HlsRenditionGroupSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioSelectorType {
-  HLS_RENDITION_GROUP = "HLS_RENDITION_GROUP",
-  LANGUAGE_CODE = "LANGUAGE_CODE",
-  PID = "PID",
-  TRACK = "TRACK",
-}
+export const AudioSelectorType = {
+  HLS_RENDITION_GROUP: "HLS_RENDITION_GROUP",
+  LANGUAGE_CODE: "LANGUAGE_CODE",
+  PID: "PID",
+  TRACK: "TRACK",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioSelectorType = (typeof AudioSelectorType)[keyof typeof AudioSelectorType];
 
 /**
  * @public
@@ -2469,19 +2998,31 @@ export interface AudioSelector {
 
 /**
  * @public
+ * @enum
  */
-export enum AncillaryConvert608To708 {
-  DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT",
-}
+export const AncillaryConvert608To708 = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+} as const;
 
 /**
  * @public
  */
-export enum AncillaryTerminateCaptions {
-  DISABLED = "DISABLED",
-  END_OF_INPUT = "END_OF_INPUT",
-}
+export type AncillaryConvert608To708 = (typeof AncillaryConvert608To708)[keyof typeof AncillaryConvert608To708];
+
+/**
+ * @public
+ * @enum
+ */
+export const AncillaryTerminateCaptions = {
+  DISABLED: "DISABLED",
+  END_OF_INPUT: "END_OF_INPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type AncillaryTerminateCaptions = (typeof AncillaryTerminateCaptions)[keyof typeof AncillaryTerminateCaptions];
 
 /**
  * @public
@@ -2517,19 +3058,31 @@ export interface DvbSubSourceSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum EmbeddedConvert608To708 {
-  DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT",
-}
+export const EmbeddedConvert608To708 = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+} as const;
 
 /**
  * @public
  */
-export enum EmbeddedTerminateCaptions {
-  DISABLED = "DISABLED",
-  END_OF_INPUT = "END_OF_INPUT",
-}
+export type EmbeddedConvert608To708 = (typeof EmbeddedConvert608To708)[keyof typeof EmbeddedConvert608To708];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddedTerminateCaptions = {
+  DISABLED: "DISABLED",
+  END_OF_INPUT: "END_OF_INPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type EmbeddedTerminateCaptions = (typeof EmbeddedTerminateCaptions)[keyof typeof EmbeddedTerminateCaptions];
 
 /**
  * @public
@@ -2559,11 +3112,17 @@ export interface EmbeddedSourceSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum FileSourceConvert608To708 {
-  DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT",
-}
+export const FileSourceConvert608To708 = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+} as const;
+
+/**
+ * @public
+ */
+export type FileSourceConvert608To708 = (typeof FileSourceConvert608To708)[keyof typeof FileSourceConvert608To708];
 
 /**
  * @public
@@ -2583,11 +3142,17 @@ export interface CaptionSourceFramerate {
 
 /**
  * @public
+ * @enum
  */
-export enum FileSourceTimeDeltaUnits {
-  MILLISECONDS = "MILLISECONDS",
-  SECONDS = "SECONDS",
-}
+export const FileSourceTimeDeltaUnits = {
+  MILLISECONDS: "MILLISECONDS",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type FileSourceTimeDeltaUnits = (typeof FileSourceTimeDeltaUnits)[keyof typeof FileSourceTimeDeltaUnits];
 
 /**
  * @public
@@ -2622,23 +3187,29 @@ export interface FileSourceSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CaptionSourceType {
-  ANCILLARY = "ANCILLARY",
-  DVB_SUB = "DVB_SUB",
-  EMBEDDED = "EMBEDDED",
-  IMSC = "IMSC",
-  NULL_SOURCE = "NULL_SOURCE",
-  SCC = "SCC",
-  SCTE20 = "SCTE20",
-  SMI = "SMI",
-  SMPTE_TT = "SMPTE_TT",
-  SRT = "SRT",
-  STL = "STL",
-  TELETEXT = "TELETEXT",
-  TTML = "TTML",
-  WEBVTT = "WEBVTT",
-}
+export const CaptionSourceType = {
+  ANCILLARY: "ANCILLARY",
+  DVB_SUB: "DVB_SUB",
+  EMBEDDED: "EMBEDDED",
+  IMSC: "IMSC",
+  NULL_SOURCE: "NULL_SOURCE",
+  SCC: "SCC",
+  SCTE20: "SCTE20",
+  SMI: "SMI",
+  SMPTE_TT: "SMPTE_TT",
+  SRT: "SRT",
+  STL: "STL",
+  TELETEXT: "TELETEXT",
+  TTML: "TTML",
+  WEBVTT: "WEBVTT",
+} as const;
+
+/**
+ * @public
+ */
+export type CaptionSourceType = (typeof CaptionSourceType)[keyof typeof CaptionSourceType];
 
 /**
  * @public
@@ -2778,20 +3349,32 @@ export interface Rectangle {
 
 /**
  * @public
+ * @enum
  */
-export enum InputDeblockFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const InputDeblockFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum DecryptionMode {
-  AES_CBC = "AES_CBC",
-  AES_CTR = "AES_CTR",
-  AES_GCM = "AES_GCM",
-}
+export type InputDeblockFilter = (typeof InputDeblockFilter)[keyof typeof InputDeblockFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const DecryptionMode = {
+  AES_CBC: "AES_CBC",
+  AES_CTR: "AES_CTR",
+  AES_GCM: "AES_GCM",
+} as const;
+
+/**
+ * @public
+ */
+export type DecryptionMode = (typeof DecryptionMode)[keyof typeof DecryptionMode];
 
 /**
  * @public
@@ -2821,20 +3404,32 @@ export interface InputDecryptionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum InputDenoiseFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const InputDenoiseFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum InputFilterEnable {
-  AUTO = "AUTO",
-  DISABLE = "DISABLE",
-  FORCE = "FORCE",
-}
+export type InputDenoiseFilter = (typeof InputDenoiseFilter)[keyof typeof InputDenoiseFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputFilterEnable = {
+  AUTO: "AUTO",
+  DISABLE: "DISABLE",
+  FORCE: "FORCE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputFilterEnable = (typeof InputFilterEnable)[keyof typeof InputFilterEnable];
 
 /**
  * @public
@@ -2931,28 +3526,46 @@ export interface InputClipping {
 
 /**
  * @public
+ * @enum
  */
-export enum InputScanType {
-  AUTO = "AUTO",
-  PSF = "PSF",
-}
+export const InputScanType = {
+  AUTO: "AUTO",
+  PSF: "PSF",
+} as const;
 
 /**
  * @public
  */
-export enum InputPsiControl {
-  IGNORE_PSI = "IGNORE_PSI",
-  USE_PSI = "USE_PSI",
-}
+export type InputScanType = (typeof InputScanType)[keyof typeof InputScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputPsiControl = {
+  IGNORE_PSI: "IGNORE_PSI",
+  USE_PSI: "USE_PSI",
+} as const;
 
 /**
  * @public
  */
-export enum InputTimecodeSource {
-  EMBEDDED = "EMBEDDED",
-  SPECIFIEDSTART = "SPECIFIEDSTART",
-  ZEROBASED = "ZEROBASED",
-}
+export type InputPsiControl = (typeof InputPsiControl)[keyof typeof InputPsiControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputTimecodeSource = {
+  EMBEDDED: "EMBEDDED",
+  SPECIFIEDSTART: "SPECIFIEDSTART",
+  ZEROBASED: "ZEROBASED",
+} as const;
+
+/**
+ * @public
+ */
+export type InputTimecodeSource = (typeof InputTimecodeSource)[keyof typeof InputTimecodeSource];
 
 /**
  * @public
@@ -2967,41 +3580,65 @@ export interface InputVideoGenerator {
 
 /**
  * @public
+ * @enum
  */
-export enum AlphaBehavior {
-  DISCARD = "DISCARD",
-  REMAP_TO_LUMA = "REMAP_TO_LUMA",
-}
+export const AlphaBehavior = {
+  DISCARD: "DISCARD",
+  REMAP_TO_LUMA: "REMAP_TO_LUMA",
+} as const;
 
 /**
  * @public
  */
-export enum ColorSpace {
-  FOLLOW = "FOLLOW",
-  HDR10 = "HDR10",
-  HLG_2020 = "HLG_2020",
-  P3D65_HDR = "P3D65_HDR",
-  P3D65_SDR = "P3D65_SDR",
-  P3DCI = "P3DCI",
-  REC_601 = "REC_601",
-  REC_709 = "REC_709",
-}
+export type AlphaBehavior = (typeof AlphaBehavior)[keyof typeof AlphaBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const ColorSpace = {
+  FOLLOW: "FOLLOW",
+  HDR10: "HDR10",
+  HLG_2020: "HLG_2020",
+  P3D65_HDR: "P3D65_HDR",
+  P3D65_SDR: "P3D65_SDR",
+  P3DCI: "P3DCI",
+  REC_601: "REC_601",
+  REC_709: "REC_709",
+} as const;
 
 /**
  * @public
  */
-export enum ColorSpaceUsage {
-  FALLBACK = "FALLBACK",
-  FORCE = "FORCE",
-}
+export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
+
+/**
+ * @public
+ * @enum
+ */
+export const ColorSpaceUsage = {
+  FALLBACK: "FALLBACK",
+  FORCE: "FORCE",
+} as const;
 
 /**
  * @public
  */
-export enum EmbeddedTimecodeOverride {
-  NONE = "NONE",
-  USE_MDPM = "USE_MDPM",
-}
+export type ColorSpaceUsage = (typeof ColorSpaceUsage)[keyof typeof ColorSpaceUsage];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddedTimecodeOverride = {
+  NONE: "NONE",
+  USE_MDPM: "USE_MDPM",
+} as const;
+
+/**
+ * @public
+ */
+export type EmbeddedTimecodeOverride = (typeof EmbeddedTimecodeOverride)[keyof typeof EmbeddedTimecodeOverride];
 
 /**
  * @public
@@ -3071,31 +3708,49 @@ export interface Hdr10Metadata {
 
 /**
  * @public
+ * @enum
  */
-export enum PadVideo {
-  BLACK = "BLACK",
-  DISABLED = "DISABLED",
-}
+export const PadVideo = {
+  BLACK: "BLACK",
+  DISABLED: "DISABLED",
+} as const;
 
 /**
  * @public
  */
-export enum InputRotate {
-  AUTO = "AUTO",
-  DEGREES_180 = "DEGREES_180",
-  DEGREES_270 = "DEGREES_270",
-  DEGREES_90 = "DEGREES_90",
-  DEGREE_0 = "DEGREE_0",
-}
+export type PadVideo = (typeof PadVideo)[keyof typeof PadVideo];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputRotate = {
+  AUTO: "AUTO",
+  DEGREES_180: "DEGREES_180",
+  DEGREES_270: "DEGREES_270",
+  DEGREES_90: "DEGREES_90",
+  DEGREE_0: "DEGREE_0",
+} as const;
 
 /**
  * @public
  */
-export enum InputSampleRange {
-  FOLLOW = "FOLLOW",
-  FULL_RANGE = "FULL_RANGE",
-  LIMITED_RANGE = "LIMITED_RANGE",
-}
+export type InputRotate = (typeof InputRotate)[keyof typeof InputRotate];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputSampleRange = {
+  FOLLOW: "FOLLOW",
+  FULL_RANGE: "FULL_RANGE",
+  LIMITED_RANGE: "LIMITED_RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type InputSampleRange = (typeof InputSampleRange)[keyof typeof InputSampleRange];
 
 /**
  * @public
@@ -3372,12 +4027,18 @@ export interface InputTemplate {
 
 /**
  * @public
+ * @enum
  */
-export enum AccelerationMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  PREFERRED = "PREFERRED",
-}
+export const AccelerationMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  PREFERRED: "PREFERRED",
+} as const;
+
+/**
+ * @public
+ */
+export type AccelerationMode = (typeof AccelerationMode)[keyof typeof AccelerationMode];
 
 /**
  * @public
@@ -3392,32 +4053,50 @@ export interface AccelerationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum AccelerationStatus {
-  ACCELERATED = "ACCELERATED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_ACCELERATED = "NOT_ACCELERATED",
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-}
+export const AccelerationStatus = {
+  ACCELERATED: "ACCELERATED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_ACCELERATED: "NOT_ACCELERATED",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+} as const;
 
 /**
  * @public
  */
-export enum BillingTagsSource {
-  JOB = "JOB",
-  JOB_TEMPLATE = "JOB_TEMPLATE",
-  PRESET = "PRESET",
-  QUEUE = "QUEUE",
-}
+export type AccelerationStatus = (typeof AccelerationStatus)[keyof typeof AccelerationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BillingTagsSource = {
+  JOB: "JOB",
+  JOB_TEMPLATE: "JOB_TEMPLATE",
+  PRESET: "PRESET",
+  QUEUE: "QUEUE",
+} as const;
 
 /**
  * @public
  */
-export enum JobPhase {
-  PROBING = "PROBING",
-  TRANSCODING = "TRANSCODING",
-  UPLOADING = "UPLOADING",
-}
+export type BillingTagsSource = (typeof BillingTagsSource)[keyof typeof BillingTagsSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobPhase = {
+  PROBING: "PROBING",
+  TRANSCODING: "TRANSCODING",
+  UPLOADING: "UPLOADING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobPhase = (typeof JobPhase)[keyof typeof JobPhase];
 
 /**
  * @public
@@ -3555,19 +4234,31 @@ export interface EsamSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CopyProtectionAction {
-  PASSTHROUGH = "PASSTHROUGH",
-  STRIP = "STRIP",
-}
+export const CopyProtectionAction = {
+  PASSTHROUGH: "PASSTHROUGH",
+  STRIP: "STRIP",
+} as const;
 
 /**
  * @public
  */
-export enum VchipAction {
-  PASSTHROUGH = "PASSTHROUGH",
-  STRIP = "STRIP",
-}
+export type CopyProtectionAction = (typeof CopyProtectionAction)[keyof typeof CopyProtectionAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const VchipAction = {
+  PASSTHROUGH: "PASSTHROUGH",
+  STRIP: "STRIP",
+} as const;
+
+/**
+ * @public
+ */
+export type VchipAction = (typeof VchipAction)[keyof typeof VchipAction];
 
 /**
  * @public
@@ -3674,11 +4365,17 @@ export interface MotionImageInsertionFramerate {
 
 /**
  * @public
+ * @enum
  */
-export enum MotionImageInsertionMode {
-  MOV = "MOV",
-  PNG = "PNG",
-}
+export const MotionImageInsertionMode = {
+  MOV: "MOV",
+  PNG: "PNG",
+} as const;
+
+/**
+ * @public
+ */
+export type MotionImageInsertionMode = (typeof MotionImageInsertionMode)[keyof typeof MotionImageInsertionMode];
 
 /**
  * @public
@@ -3698,11 +4395,17 @@ export interface MotionImageInsertionOffset {
 
 /**
  * @public
+ * @enum
  */
-export enum MotionImagePlayback {
-  ONCE = "ONCE",
-  REPEAT = "REPEAT",
-}
+export const MotionImagePlayback = {
+  ONCE: "ONCE",
+  REPEAT: "REPEAT",
+} as const;
+
+/**
+ * @public
+ */
+export type MotionImagePlayback = (typeof MotionImagePlayback)[keyof typeof MotionImagePlayback];
 
 /**
  * @public
@@ -3758,28 +4461,49 @@ export interface NielsenConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum NielsenActiveWatermarkProcessType {
-  CBET = "CBET",
-  NAES2_AND_NW = "NAES2_AND_NW",
-  NAES2_AND_NW_AND_CBET = "NAES2_AND_NW_AND_CBET",
-}
+export const NielsenActiveWatermarkProcessType = {
+  CBET: "CBET",
+  NAES2_AND_NW: "NAES2_AND_NW",
+  NAES2_AND_NW_AND_CBET: "NAES2_AND_NW_AND_CBET",
+} as const;
 
 /**
  * @public
  */
-export enum NielsenSourceWatermarkStatusType {
-  CLEAN = "CLEAN",
-  WATERMARKED = "WATERMARKED",
-}
+export type NielsenActiveWatermarkProcessType =
+  (typeof NielsenActiveWatermarkProcessType)[keyof typeof NielsenActiveWatermarkProcessType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NielsenSourceWatermarkStatusType = {
+  CLEAN: "CLEAN",
+  WATERMARKED: "WATERMARKED",
+} as const;
 
 /**
  * @public
  */
-export enum NielsenUniqueTicPerAudioTrackType {
-  RESERVE_UNIQUE_TICS_PER_TRACK = "RESERVE_UNIQUE_TICS_PER_TRACK",
-  SAME_TICS_PER_TRACK = "SAME_TICS_PER_TRACK",
-}
+export type NielsenSourceWatermarkStatusType =
+  (typeof NielsenSourceWatermarkStatusType)[keyof typeof NielsenSourceWatermarkStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NielsenUniqueTicPerAudioTrackType = {
+  RESERVE_UNIQUE_TICS_PER_TRACK: "RESERVE_UNIQUE_TICS_PER_TRACK",
+  SAME_TICS_PER_TRACK: "SAME_TICS_PER_TRACK",
+} as const;
+
+/**
+ * @public
+ */
+export type NielsenUniqueTicPerAudioTrackType =
+  (typeof NielsenUniqueTicPerAudioTrackType)[keyof typeof NielsenUniqueTicPerAudioTrackType];
 
 /**
  * @public
@@ -3881,38 +4605,62 @@ export interface AutomatedEncodingSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CmafClientCache {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CmafClientCache = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum CmafCodecSpecification {
-  RFC_4281 = "RFC_4281",
-  RFC_6381 = "RFC_6381",
-}
+export type CmafClientCache = (typeof CmafClientCache)[keyof typeof CmafClientCache];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafCodecSpecification = {
+  RFC_4281: "RFC_4281",
+  RFC_6381: "RFC_6381",
+} as const;
 
 /**
  * @public
  */
-export enum DashManifestStyle {
-  BASIC = "BASIC",
-  COMPACT = "COMPACT",
-  DISTINCT = "DISTINCT",
-}
+export type CmafCodecSpecification = (typeof CmafCodecSpecification)[keyof typeof CmafCodecSpecification];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashManifestStyle = {
+  BASIC: "BASIC",
+  COMPACT: "COMPACT",
+  DISTINCT: "DISTINCT",
+} as const;
 
 /**
  * @public
  */
-export enum S3ObjectCannedAcl {
-  AUTHENTICATED_READ = "AUTHENTICATED_READ",
-  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
-  BUCKET_OWNER_READ = "BUCKET_OWNER_READ",
-  PUBLIC_READ = "PUBLIC_READ",
-}
+export type DashManifestStyle = (typeof DashManifestStyle)[keyof typeof DashManifestStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ObjectCannedAcl = {
+  AUTHENTICATED_READ: "AUTHENTICATED_READ",
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+  BUCKET_OWNER_READ: "BUCKET_OWNER_READ",
+  PUBLIC_READ: "PUBLIC_READ",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ObjectCannedAcl = (typeof S3ObjectCannedAcl)[keyof typeof S3ObjectCannedAcl];
 
 /**
  * @public
@@ -3927,11 +4675,17 @@ export interface S3DestinationAccessControl {
 
 /**
  * @public
+ * @enum
  */
-export enum S3ServerSideEncryptionType {
-  SERVER_SIDE_ENCRYPTION_KMS = "SERVER_SIDE_ENCRYPTION_KMS",
-  SERVER_SIDE_ENCRYPTION_S3 = "SERVER_SIDE_ENCRYPTION_S3",
-}
+export const S3ServerSideEncryptionType = {
+  SERVER_SIDE_ENCRYPTION_KMS: "SERVER_SIDE_ENCRYPTION_KMS",
+  SERVER_SIDE_ENCRYPTION_S3: "SERVER_SIDE_ENCRYPTION_S3",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ServerSideEncryptionType = (typeof S3ServerSideEncryptionType)[keyof typeof S3ServerSideEncryptionType];
 
 /**
  * @public
@@ -3983,19 +4737,32 @@ export interface DestinationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CmafEncryptionType {
-  AES_CTR = "AES_CTR",
-  SAMPLE_AES = "SAMPLE_AES",
-}
+export const CmafEncryptionType = {
+  AES_CTR: "AES_CTR",
+  SAMPLE_AES: "SAMPLE_AES",
+} as const;
 
 /**
  * @public
  */
-export enum CmafInitializationVectorInManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export type CmafEncryptionType = (typeof CmafEncryptionType)[keyof typeof CmafEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafInitializationVectorInManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafInitializationVectorInManifest =
+  (typeof CmafInitializationVectorInManifest)[keyof typeof CmafInitializationVectorInManifest];
 
 /**
  * @public
@@ -4056,11 +4823,17 @@ export interface StaticKeyProvider {
 
 /**
  * @public
+ * @enum
  */
-export enum CmafKeyProviderType {
-  SPEKE = "SPEKE",
-  STATIC_KEY = "STATIC_KEY",
-}
+export const CmafKeyProviderType = {
+  SPEKE: "SPEKE",
+  STATIC_KEY: "STATIC_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafKeyProviderType = (typeof CmafKeyProviderType)[keyof typeof CmafKeyProviderType];
 
 /**
  * @public
@@ -4100,21 +4873,33 @@ export interface CmafEncryptionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CmafImageBasedTrickPlay {
-  ADVANCED = "ADVANCED",
-  NONE = "NONE",
-  THUMBNAIL = "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
-}
+export const CmafImageBasedTrickPlay = {
+  ADVANCED: "ADVANCED",
+  NONE: "NONE",
+  THUMBNAIL: "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+} as const;
 
 /**
  * @public
  */
-export enum CmafIntervalCadence {
-  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME = "FOLLOW_IFRAME",
-}
+export type CmafImageBasedTrickPlay = (typeof CmafImageBasedTrickPlay)[keyof typeof CmafImageBasedTrickPlay];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafIntervalCadence = (typeof CmafIntervalCadence)[keyof typeof CmafIntervalCadence];
 
 /**
  * @public
@@ -4154,107 +4939,190 @@ export interface CmafImageBasedTrickPlaySettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CmafManifestCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const CmafManifestCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum CmafManifestDurationFormat {
-  FLOATING_POINT = "FLOATING_POINT",
-  INTEGER = "INTEGER",
-}
+export type CmafManifestCompression = (typeof CmafManifestCompression)[keyof typeof CmafManifestCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafManifestDurationFormat = {
+  FLOATING_POINT: "FLOATING_POINT",
+  INTEGER: "INTEGER",
+} as const;
 
 /**
  * @public
  */
-export enum CmafMpdManifestBandwidthType {
-  AVERAGE = "AVERAGE",
-  MAX = "MAX",
-}
+export type CmafManifestDurationFormat = (typeof CmafManifestDurationFormat)[keyof typeof CmafManifestDurationFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafMpdManifestBandwidthType = {
+  AVERAGE: "AVERAGE",
+  MAX: "MAX",
+} as const;
 
 /**
  * @public
  */
-export enum CmafMpdProfile {
-  MAIN_PROFILE = "MAIN_PROFILE",
-  ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
-}
+export type CmafMpdManifestBandwidthType =
+  (typeof CmafMpdManifestBandwidthType)[keyof typeof CmafMpdManifestBandwidthType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafMpdProfile = {
+  MAIN_PROFILE: "MAIN_PROFILE",
+  ON_DEMAND_PROFILE: "ON_DEMAND_PROFILE",
+} as const;
 
 /**
  * @public
  */
-export enum CmafPtsOffsetHandlingForBFrames {
-  MATCH_INITIAL_PTS = "MATCH_INITIAL_PTS",
-  ZERO_BASED = "ZERO_BASED",
-}
+export type CmafMpdProfile = (typeof CmafMpdProfile)[keyof typeof CmafMpdProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafPtsOffsetHandlingForBFrames = {
+  MATCH_INITIAL_PTS: "MATCH_INITIAL_PTS",
+  ZERO_BASED: "ZERO_BASED",
+} as const;
 
 /**
  * @public
  */
-export enum CmafSegmentControl {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
+export type CmafPtsOffsetHandlingForBFrames =
+  (typeof CmafPtsOffsetHandlingForBFrames)[keyof typeof CmafPtsOffsetHandlingForBFrames];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafSegmentControl = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+} as const;
 
 /**
  * @public
  */
-export enum CmafSegmentLengthControl {
-  EXACT = "EXACT",
-  GOP_MULTIPLE = "GOP_MULTIPLE",
-}
+export type CmafSegmentControl = (typeof CmafSegmentControl)[keyof typeof CmafSegmentControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafSegmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
 
 /**
  * @public
  */
-export enum CmafStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export type CmafSegmentLengthControl = (typeof CmafSegmentLengthControl)[keyof typeof CmafSegmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafStreamInfResolution = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
  * @public
  */
-export enum CmafTargetDurationCompatibilityMode {
-  LEGACY = "LEGACY",
-  SPEC_COMPLIANT = "SPEC_COMPLIANT",
-}
+export type CmafStreamInfResolution = (typeof CmafStreamInfResolution)[keyof typeof CmafStreamInfResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafTargetDurationCompatibilityMode = {
+  LEGACY: "LEGACY",
+  SPEC_COMPLIANT: "SPEC_COMPLIANT",
+} as const;
 
 /**
  * @public
  */
-export enum CmafVideoCompositionOffsets {
-  SIGNED = "SIGNED",
-  UNSIGNED = "UNSIGNED",
-}
+export type CmafTargetDurationCompatibilityMode =
+  (typeof CmafTargetDurationCompatibilityMode)[keyof typeof CmafTargetDurationCompatibilityMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafVideoCompositionOffsets = {
+  SIGNED: "SIGNED",
+  UNSIGNED: "UNSIGNED",
+} as const;
 
 /**
  * @public
  */
-export enum CmafWriteDASHManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type CmafVideoCompositionOffsets =
+  (typeof CmafVideoCompositionOffsets)[keyof typeof CmafVideoCompositionOffsets];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafWriteDASHManifest = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum CmafWriteHLSManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type CmafWriteDASHManifest = (typeof CmafWriteDASHManifest)[keyof typeof CmafWriteDASHManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafWriteHLSManifest = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum CmafWriteSegmentTimelineInRepresentation {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type CmafWriteHLSManifest = (typeof CmafWriteHLSManifest)[keyof typeof CmafWriteHLSManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafWriteSegmentTimelineInRepresentation = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafWriteSegmentTimelineInRepresentation =
+  (typeof CmafWriteSegmentTimelineInRepresentation)[keyof typeof CmafWriteSegmentTimelineInRepresentation];
 
 /**
  * @public
@@ -4399,19 +5267,33 @@ export interface CmafGroupSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum DashIsoGroupAudioChannelConfigSchemeIdUri {
-  DOLBY_CHANNEL_CONFIGURATION = "DOLBY_CHANNEL_CONFIGURATION",
-  MPEG_CHANNEL_CONFIGURATION = "MPEG_CHANNEL_CONFIGURATION",
-}
+export const DashIsoGroupAudioChannelConfigSchemeIdUri = {
+  DOLBY_CHANNEL_CONFIGURATION: "DOLBY_CHANNEL_CONFIGURATION",
+  MPEG_CHANNEL_CONFIGURATION: "MPEG_CHANNEL_CONFIGURATION",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoPlaybackDeviceCompatibility {
-  CENC_V1 = "CENC_V1",
-  UNENCRYPTED_SEI = "UNENCRYPTED_SEI",
-}
+export type DashIsoGroupAudioChannelConfigSchemeIdUri =
+  (typeof DashIsoGroupAudioChannelConfigSchemeIdUri)[keyof typeof DashIsoGroupAudioChannelConfigSchemeIdUri];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoPlaybackDeviceCompatibility = {
+  CENC_V1: "CENC_V1",
+  UNENCRYPTED_SEI: "UNENCRYPTED_SEI",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoPlaybackDeviceCompatibility =
+  (typeof DashIsoPlaybackDeviceCompatibility)[keyof typeof DashIsoPlaybackDeviceCompatibility];
 
 /**
  * @public
@@ -4458,29 +5340,47 @@ export interface DashIsoEncryptionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum DashIsoHbbtvCompliance {
-  HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE",
-}
+export const DashIsoHbbtvCompliance = {
+  HBBTV_1_5: "HBBTV_1_5",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoImageBasedTrickPlay {
-  ADVANCED = "ADVANCED",
-  NONE = "NONE",
-  THUMBNAIL = "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
-}
+export type DashIsoHbbtvCompliance = (typeof DashIsoHbbtvCompliance)[keyof typeof DashIsoHbbtvCompliance];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoImageBasedTrickPlay = {
+  ADVANCED: "ADVANCED",
+  NONE: "NONE",
+  THUMBNAIL: "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoIntervalCadence {
-  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME = "FOLLOW_IFRAME",
-}
+export type DashIsoImageBasedTrickPlay = (typeof DashIsoImageBasedTrickPlay)[keyof typeof DashIsoImageBasedTrickPlay];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoIntervalCadence = (typeof DashIsoIntervalCadence)[keyof typeof DashIsoIntervalCadence];
 
 /**
  * @public
@@ -4520,59 +5420,106 @@ export interface DashIsoImageBasedTrickPlaySettings {
 
 /**
  * @public
+ * @enum
  */
-export enum DashIsoMpdManifestBandwidthType {
-  AVERAGE = "AVERAGE",
-  MAX = "MAX",
-}
+export const DashIsoMpdManifestBandwidthType = {
+  AVERAGE: "AVERAGE",
+  MAX: "MAX",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoMpdProfile {
-  MAIN_PROFILE = "MAIN_PROFILE",
-  ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
-}
+export type DashIsoMpdManifestBandwidthType =
+  (typeof DashIsoMpdManifestBandwidthType)[keyof typeof DashIsoMpdManifestBandwidthType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoMpdProfile = {
+  MAIN_PROFILE: "MAIN_PROFILE",
+  ON_DEMAND_PROFILE: "ON_DEMAND_PROFILE",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoPtsOffsetHandlingForBFrames {
-  MATCH_INITIAL_PTS = "MATCH_INITIAL_PTS",
-  ZERO_BASED = "ZERO_BASED",
-}
+export type DashIsoMpdProfile = (typeof DashIsoMpdProfile)[keyof typeof DashIsoMpdProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoPtsOffsetHandlingForBFrames = {
+  MATCH_INITIAL_PTS: "MATCH_INITIAL_PTS",
+  ZERO_BASED: "ZERO_BASED",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoSegmentControl {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
+export type DashIsoPtsOffsetHandlingForBFrames =
+  (typeof DashIsoPtsOffsetHandlingForBFrames)[keyof typeof DashIsoPtsOffsetHandlingForBFrames];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoSegmentControl = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoSegmentLengthControl {
-  EXACT = "EXACT",
-  GOP_MULTIPLE = "GOP_MULTIPLE",
-}
+export type DashIsoSegmentControl = (typeof DashIsoSegmentControl)[keyof typeof DashIsoSegmentControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoSegmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoVideoCompositionOffsets {
-  SIGNED = "SIGNED",
-  UNSIGNED = "UNSIGNED",
-}
+export type DashIsoSegmentLengthControl =
+  (typeof DashIsoSegmentLengthControl)[keyof typeof DashIsoSegmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoVideoCompositionOffsets = {
+  SIGNED: "SIGNED",
+  UNSIGNED: "UNSIGNED",
+} as const;
 
 /**
  * @public
  */
-export enum DashIsoWriteSegmentTimelineInRepresentation {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type DashIsoVideoCompositionOffsets =
+  (typeof DashIsoVideoCompositionOffsets)[keyof typeof DashIsoVideoCompositionOffsets];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashIsoWriteSegmentTimelineInRepresentation = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashIsoWriteSegmentTimelineInRepresentation =
+  (typeof DashIsoWriteSegmentTimelineInRepresentation)[keyof typeof DashIsoWriteSegmentTimelineInRepresentation];
 
 /**
  * @public
@@ -4703,84 +5650,146 @@ export interface FileGroupSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum HlsAudioOnlyHeader {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export const HlsAudioOnlyHeader = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsCaptionLanguageSetting {
-  INSERT = "INSERT",
-  NONE = "NONE",
-  OMIT = "OMIT",
-}
+export type HlsAudioOnlyHeader = (typeof HlsAudioOnlyHeader)[keyof typeof HlsAudioOnlyHeader];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsCaptionLanguageSetting = {
+  INSERT: "INSERT",
+  NONE: "NONE",
+  OMIT: "OMIT",
+} as const;
 
 /**
  * @public
  */
-export enum HlsCaptionSegmentLengthControl {
-  LARGE_SEGMENTS = "LARGE_SEGMENTS",
-  MATCH_VIDEO = "MATCH_VIDEO",
-}
+export type HlsCaptionLanguageSetting = (typeof HlsCaptionLanguageSetting)[keyof typeof HlsCaptionLanguageSetting];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsCaptionSegmentLengthControl = {
+  LARGE_SEGMENTS: "LARGE_SEGMENTS",
+  MATCH_VIDEO: "MATCH_VIDEO",
+} as const;
 
 /**
  * @public
  */
-export enum HlsClientCache {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type HlsCaptionSegmentLengthControl =
+  (typeof HlsCaptionSegmentLengthControl)[keyof typeof HlsCaptionSegmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsClientCache = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum HlsCodecSpecification {
-  RFC_4281 = "RFC_4281",
-  RFC_6381 = "RFC_6381",
-}
+export type HlsClientCache = (typeof HlsClientCache)[keyof typeof HlsClientCache];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsCodecSpecification = {
+  RFC_4281: "RFC_4281",
+  RFC_6381: "RFC_6381",
+} as const;
 
 /**
  * @public
  */
-export enum HlsDirectoryStructure {
-  SINGLE_DIRECTORY = "SINGLE_DIRECTORY",
-  SUBDIRECTORY_PER_STREAM = "SUBDIRECTORY_PER_STREAM",
-}
+export type HlsCodecSpecification = (typeof HlsCodecSpecification)[keyof typeof HlsCodecSpecification];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsDirectoryStructure = {
+  SINGLE_DIRECTORY: "SINGLE_DIRECTORY",
+  SUBDIRECTORY_PER_STREAM: "SUBDIRECTORY_PER_STREAM",
+} as const;
 
 /**
  * @public
  */
-export enum HlsEncryptionType {
-  AES128 = "AES128",
-  SAMPLE_AES = "SAMPLE_AES",
-}
+export type HlsDirectoryStructure = (typeof HlsDirectoryStructure)[keyof typeof HlsDirectoryStructure];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsEncryptionType = {
+  AES128: "AES128",
+  SAMPLE_AES: "SAMPLE_AES",
+} as const;
 
 /**
  * @public
  */
-export enum HlsInitializationVectorInManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export type HlsEncryptionType = (typeof HlsEncryptionType)[keyof typeof HlsEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsInitializationVectorInManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsOfflineEncrypted {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type HlsInitializationVectorInManifest =
+  (typeof HlsInitializationVectorInManifest)[keyof typeof HlsInitializationVectorInManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsOfflineEncrypted = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum HlsKeyProviderType {
-  SPEKE = "SPEKE",
-  STATIC_KEY = "STATIC_KEY",
-}
+export type HlsOfflineEncrypted = (typeof HlsOfflineEncrypted)[keyof typeof HlsOfflineEncrypted];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsKeyProviderType = {
+  SPEKE: "SPEKE",
+  STATIC_KEY: "STATIC_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsKeyProviderType = (typeof HlsKeyProviderType)[keyof typeof HlsKeyProviderType];
 
 /**
  * @public
@@ -4825,21 +5834,33 @@ export interface HlsEncryptionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum HlsImageBasedTrickPlay {
-  ADVANCED = "ADVANCED",
-  NONE = "NONE",
-  THUMBNAIL = "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME = "THUMBNAIL_AND_FULLFRAME",
-}
+export const HlsImageBasedTrickPlay = {
+  ADVANCED: "ADVANCED",
+  NONE: "NONE",
+  THUMBNAIL: "THUMBNAIL",
+  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
+} as const;
 
 /**
  * @public
  */
-export enum HlsIntervalCadence {
-  FOLLOW_CUSTOM = "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME = "FOLLOW_IFRAME",
-}
+export type HlsImageBasedTrickPlay = (typeof HlsImageBasedTrickPlay)[keyof typeof HlsImageBasedTrickPlay];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsIntervalCadence = {
+  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
+  FOLLOW_IFRAME: "FOLLOW_IFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsIntervalCadence = (typeof HlsIntervalCadence)[keyof typeof HlsIntervalCadence];
 
 /**
  * @public
@@ -4879,76 +5900,131 @@ export interface HlsImageBasedTrickPlaySettings {
 
 /**
  * @public
+ * @enum
  */
-export enum HlsManifestCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const HlsManifestCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsManifestDurationFormat {
-  FLOATING_POINT = "FLOATING_POINT",
-  INTEGER = "INTEGER",
-}
+export type HlsManifestCompression = (typeof HlsManifestCompression)[keyof typeof HlsManifestCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsManifestDurationFormat = {
+  FLOATING_POINT: "FLOATING_POINT",
+  INTEGER: "INTEGER",
+} as const;
 
 /**
  * @public
  */
-export enum HlsOutputSelection {
-  MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY = "SEGMENTS_ONLY",
-}
+export type HlsManifestDurationFormat = (typeof HlsManifestDurationFormat)[keyof typeof HlsManifestDurationFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsOutputSelection = {
+  MANIFESTS_AND_SEGMENTS: "MANIFESTS_AND_SEGMENTS",
+  SEGMENTS_ONLY: "SEGMENTS_ONLY",
+} as const;
 
 /**
  * @public
  */
-export enum HlsProgramDateTime {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export type HlsOutputSelection = (typeof HlsOutputSelection)[keyof typeof HlsOutputSelection];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsProgramDateTime = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsSegmentControl {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
+export type HlsProgramDateTime = (typeof HlsProgramDateTime)[keyof typeof HlsProgramDateTime];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsSegmentControl = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsSegmentLengthControl {
-  EXACT = "EXACT",
-  GOP_MULTIPLE = "GOP_MULTIPLE",
-}
+export type HlsSegmentControl = (typeof HlsSegmentControl)[keyof typeof HlsSegmentControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsSegmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export type HlsSegmentLengthControl = (typeof HlsSegmentLengthControl)[keyof typeof HlsSegmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsStreamInfResolution = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
  * @public
  */
-export enum HlsTargetDurationCompatibilityMode {
-  LEGACY = "LEGACY",
-  SPEC_COMPLIANT = "SPEC_COMPLIANT",
-}
+export type HlsStreamInfResolution = (typeof HlsStreamInfResolution)[keyof typeof HlsStreamInfResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTargetDurationCompatibilityMode = {
+  LEGACY: "LEGACY",
+  SPEC_COMPLIANT: "SPEC_COMPLIANT",
+} as const;
 
 /**
  * @public
  */
-export enum HlsTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
+export type HlsTargetDurationCompatibilityMode =
+  (typeof HlsTargetDurationCompatibilityMode)[keyof typeof HlsTargetDurationCompatibilityMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsTimedMetadataId3Frame = (typeof HlsTimedMetadataId3Frame)[keyof typeof HlsTimedMetadataId3Frame];
 
 /**
  * @public
@@ -5129,11 +6205,17 @@ export interface MsSmoothAdditionalManifest {
 
 /**
  * @public
+ * @enum
  */
-export enum MsSmoothAudioDeduplication {
-  COMBINE_DUPLICATE_STREAMS = "COMBINE_DUPLICATE_STREAMS",
-  NONE = "NONE",
-}
+export const MsSmoothAudioDeduplication = {
+  COMBINE_DUPLICATE_STREAMS: "COMBINE_DUPLICATE_STREAMS",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type MsSmoothAudioDeduplication = (typeof MsSmoothAudioDeduplication)[keyof typeof MsSmoothAudioDeduplication];
 
 /**
  * @public
@@ -5148,19 +6230,32 @@ export interface MsSmoothEncryptionSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum MsSmoothFragmentLengthControl {
-  EXACT = "EXACT",
-  GOP_MULTIPLE = "GOP_MULTIPLE",
-}
+export const MsSmoothFragmentLengthControl = {
+  EXACT: "EXACT",
+  GOP_MULTIPLE: "GOP_MULTIPLE",
+} as const;
 
 /**
  * @public
  */
-export enum MsSmoothManifestEncoding {
-  UTF16 = "UTF16",
-  UTF8 = "UTF8",
-}
+export type MsSmoothFragmentLengthControl =
+  (typeof MsSmoothFragmentLengthControl)[keyof typeof MsSmoothFragmentLengthControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const MsSmoothManifestEncoding = {
+  UTF16: "UTF16",
+  UTF8: "UTF8",
+} as const;
+
+/**
+ * @public
+ */
+export type MsSmoothManifestEncoding = (typeof MsSmoothManifestEncoding)[keyof typeof MsSmoothManifestEncoding];
 
 /**
  * @public
@@ -5210,14 +6305,20 @@ export interface MsSmoothGroupSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum OutputGroupType {
-  CMAF_GROUP_SETTINGS = "CMAF_GROUP_SETTINGS",
-  DASH_ISO_GROUP_SETTINGS = "DASH_ISO_GROUP_SETTINGS",
-  FILE_GROUP_SETTINGS = "FILE_GROUP_SETTINGS",
-  HLS_GROUP_SETTINGS = "HLS_GROUP_SETTINGS",
-  MS_SMOOTH_GROUP_SETTINGS = "MS_SMOOTH_GROUP_SETTINGS",
-}
+export const OutputGroupType = {
+  CMAF_GROUP_SETTINGS: "CMAF_GROUP_SETTINGS",
+  DASH_ISO_GROUP_SETTINGS: "DASH_ISO_GROUP_SETTINGS",
+  FILE_GROUP_SETTINGS: "FILE_GROUP_SETTINGS",
+  HLS_GROUP_SETTINGS: "HLS_GROUP_SETTINGS",
+  MS_SMOOTH_GROUP_SETTINGS: "MS_SMOOTH_GROUP_SETTINGS",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputGroupType = (typeof OutputGroupType)[keyof typeof OutputGroupType];
 
 /**
  * @public
@@ -5257,84 +6358,147 @@ export interface OutputGroupSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum CmfcAudioDuration {
-  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
-}
+export const CmfcAudioDuration = {
+  DEFAULT_CODEC_DURATION: "DEFAULT_CODEC_DURATION",
+  MATCH_VIDEO_DURATION: "MATCH_VIDEO_DURATION",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcAudioTrackType {
-  ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
-  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-  ALTERNATE_AUDIO_NOT_AUTO_SELECT = "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-}
+export type CmfcAudioDuration = (typeof CmfcAudioDuration)[keyof typeof CmfcAudioDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcAudioTrackType = {
+  ALTERNATE_AUDIO_AUTO_SELECT: "ALTERNATE_AUDIO_AUTO_SELECT",
+  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
+  ALTERNATE_AUDIO_NOT_AUTO_SELECT: "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcDescriptiveVideoServiceFlag {
-  DONT_FLAG = "DONT_FLAG",
-  FLAG = "FLAG",
-}
+export type CmfcAudioTrackType = (typeof CmfcAudioTrackType)[keyof typeof CmfcAudioTrackType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcDescriptiveVideoServiceFlag = {
+  DONT_FLAG: "DONT_FLAG",
+  FLAG: "FLAG",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcIFrameOnlyManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export type CmfcDescriptiveVideoServiceFlag =
+  (typeof CmfcDescriptiveVideoServiceFlag)[keyof typeof CmfcDescriptiveVideoServiceFlag];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcIFrameOnlyManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcKlvMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export type CmfcIFrameOnlyManifest = (typeof CmfcIFrameOnlyManifest)[keyof typeof CmfcIFrameOnlyManifest];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcKlvMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcManifestMetadataSignaling {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type CmfcKlvMetadata = (typeof CmfcKlvMetadata)[keyof typeof CmfcKlvMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcManifestMetadataSignaling = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcScte35Esam {
-  INSERT = "INSERT",
-  NONE = "NONE",
-}
+export type CmfcManifestMetadataSignaling =
+  (typeof CmfcManifestMetadataSignaling)[keyof typeof CmfcManifestMetadataSignaling];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcScte35Esam = {
+  INSERT: "INSERT",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcScte35Source {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export type CmfcScte35Esam = (typeof CmfcScte35Esam)[keyof typeof CmfcScte35Esam];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcScte35Source = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcTimedMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export type CmfcScte35Source = (typeof CmfcScte35Source)[keyof typeof CmfcScte35Source];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcTimedMetadata = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
 
 /**
  * @public
  */
-export enum CmfcTimedMetadataBoxVersion {
-  VERSION_0 = "VERSION_0",
-  VERSION_1 = "VERSION_1",
-}
+export type CmfcTimedMetadata = (typeof CmfcTimedMetadata)[keyof typeof CmfcTimedMetadata];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcTimedMetadataBoxVersion = {
+  VERSION_0: "VERSION_0",
+  VERSION_1: "VERSION_1",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcTimedMetadataBoxVersion =
+  (typeof CmfcTimedMetadataBoxVersion)[keyof typeof CmfcTimedMetadataBoxVersion];
 
 /**
  * @public
@@ -5417,28 +6581,40 @@ export interface CmfcSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerType {
-  CMFC = "CMFC",
-  F4V = "F4V",
-  ISMV = "ISMV",
-  M2TS = "M2TS",
-  M3U8 = "M3U8",
-  MOV = "MOV",
-  MP4 = "MP4",
-  MPD = "MPD",
-  MXF = "MXF",
-  RAW = "RAW",
-  WEBM = "WEBM",
-}
+export const ContainerType = {
+  CMFC: "CMFC",
+  F4V: "F4V",
+  ISMV: "ISMV",
+  M2TS: "M2TS",
+  M3U8: "M3U8",
+  MOV: "MOV",
+  MP4: "MP4",
+  MPD: "MPD",
+  MXF: "MXF",
+  RAW: "RAW",
+  WEBM: "WEBM",
+} as const;
 
 /**
  * @public
  */
-export enum F4vMoovPlacement {
-  NORMAL = "NORMAL",
-  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD",
-}
+export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const F4vMoovPlacement = {
+  NORMAL: "NORMAL",
+  PROGRESSIVE_DOWNLOAD: "PROGRESSIVE_DOWNLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type F4vMoovPlacement = (typeof F4vMoovPlacement)[keyof typeof F4vMoovPlacement];
 
 /**
  * @public
@@ -5453,35 +6629,59 @@ export interface F4vSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum M2tsAudioBufferModel {
-  ATSC = "ATSC",
-  DVB = "DVB",
-}
+export const M2tsAudioBufferModel = {
+  ATSC: "ATSC",
+  DVB: "DVB",
+} as const;
 
 /**
  * @public
  */
-export enum M2tsAudioDuration {
-  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
-}
+export type M2tsAudioBufferModel = (typeof M2tsAudioBufferModel)[keyof typeof M2tsAudioBufferModel];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsAudioDuration = {
+  DEFAULT_CODEC_DURATION: "DEFAULT_CODEC_DURATION",
+  MATCH_VIDEO_DURATION: "MATCH_VIDEO_DURATION",
+} as const;
 
 /**
  * @public
  */
-export enum M2tsBufferModel {
-  MULTIPLEX = "MULTIPLEX",
-  NONE = "NONE",
-}
+export type M2tsAudioDuration = (typeof M2tsAudioDuration)[keyof typeof M2tsAudioDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsBufferModel = {
+  MULTIPLEX: "MULTIPLEX",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum M2tsDataPtsControl {
-  ALIGN_TO_VIDEO = "ALIGN_TO_VIDEO",
-  AUTO = "AUTO",
-}
+export type M2tsBufferModel = (typeof M2tsBufferModel)[keyof typeof M2tsBufferModel];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsDataPtsControl = {
+  ALIGN_TO_VIDEO: "ALIGN_TO_VIDEO",
+  AUTO: "AUTO",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsDataPtsControl = (typeof M2tsDataPtsControl)[keyof typeof M2tsDataPtsControl];
 
 /**
  * @public

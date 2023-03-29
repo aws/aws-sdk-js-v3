@@ -427,11 +427,17 @@ export interface ExportWithHiddenFieldsOption {
 
 /**
  * @public
+ * @enum
  */
-export enum DashboardUIState {
-  COLLAPSED = "COLLAPSED",
-  EXPANDED = "EXPANDED",
-}
+export const DashboardUIState = {
+  COLLAPSED: "COLLAPSED",
+  EXPANDED: "EXPANDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardUIState = (typeof DashboardUIState)[keyof typeof DashboardUIState];
 
 /**
  * @public
@@ -815,11 +821,17 @@ export interface FieldFolder {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSetImportMode {
-  DIRECT_QUERY = "DIRECT_QUERY",
-  SPICE = "SPICE",
-}
+export const DataSetImportMode = {
+  DIRECT_QUERY: "DIRECT_QUERY",
+  SPICE: "SPICE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetImportMode = (typeof DataSetImportMode)[keyof typeof DataSetImportMode];
 
 /**
  * @public
@@ -1064,13 +1076,19 @@ export interface JoinKeyProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum JoinType {
-  INNER = "INNER",
-  LEFT = "LEFT",
-  OUTER = "OUTER",
-  RIGHT = "RIGHT",
-}
+export const JoinType = {
+  INNER: "INNER",
+  LEFT: "LEFT",
+  OUTER: "OUTER",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type JoinType = (typeof JoinType)[keyof typeof JoinType];
 
 /**
  * @public
@@ -1156,16 +1174,22 @@ export interface LogicalTable {
 
 /**
  * @public
+ * @enum
  */
-export enum InputColumnDataType {
-  BIT = "BIT",
-  BOOLEAN = "BOOLEAN",
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  JSON = "JSON",
-  STRING = "STRING",
-}
+export const InputColumnDataType = {
+  BIT: "BIT",
+  BOOLEAN: "BOOLEAN",
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  JSON: "JSON",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type InputColumnDataType = (typeof InputColumnDataType)[keyof typeof InputColumnDataType];
 
 /**
  * @public
@@ -1242,23 +1266,35 @@ export interface RelationalTable {
 
 /**
  * @public
+ * @enum
  */
-export enum FileFormat {
-  CLF = "CLF",
-  CSV = "CSV",
-  ELF = "ELF",
-  JSON = "JSON",
-  TSV = "TSV",
-  XLSX = "XLSX",
-}
+export const FileFormat = {
+  CLF: "CLF",
+  CSV: "CSV",
+  ELF: "ELF",
+  JSON: "JSON",
+  TSV: "TSV",
+  XLSX: "XLSX",
+} as const;
 
 /**
  * @public
  */
-export enum TextQualifier {
-  DOUBLE_QUOTE = "DOUBLE_QUOTE",
-  SINGLE_QUOTE = "SINGLE_QUOTE",
-}
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const TextQualifier = {
+  DOUBLE_QUOTE: "DOUBLE_QUOTE",
+  SINGLE_QUOTE: "SINGLE_QUOTE",
+} as const;
+
+/**
+ * @public
+ */
+export type TextQualifier = (typeof TextQualifier)[keyof typeof TextQualifier];
 
 /**
  * @public
@@ -1385,27 +1421,46 @@ export namespace PhysicalTable {
 
 /**
  * @public
+ * @enum
  */
-export enum RowLevelPermissionFormatVersion {
-  VERSION_1 = "VERSION_1",
-  VERSION_2 = "VERSION_2",
-}
+export const RowLevelPermissionFormatVersion = {
+  VERSION_1: "VERSION_1",
+  VERSION_2: "VERSION_2",
+} as const;
 
 /**
  * @public
  */
-export enum RowLevelPermissionPolicy {
-  DENY_ACCESS = "DENY_ACCESS",
-  GRANT_ACCESS = "GRANT_ACCESS",
-}
+export type RowLevelPermissionFormatVersion =
+  (typeof RowLevelPermissionFormatVersion)[keyof typeof RowLevelPermissionFormatVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const RowLevelPermissionPolicy = {
+  DENY_ACCESS: "DENY_ACCESS",
+  GRANT_ACCESS: "GRANT_ACCESS",
+} as const;
 
 /**
  * @public
  */
-export enum Status {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type RowLevelPermissionPolicy = (typeof RowLevelPermissionPolicy)[keyof typeof RowLevelPermissionPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -2821,35 +2876,41 @@ export interface SslProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceType {
-  ADOBE_ANALYTICS = "ADOBE_ANALYTICS",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  AMAZON_OPENSEARCH = "AMAZON_OPENSEARCH",
-  ATHENA = "ATHENA",
-  AURORA = "AURORA",
-  AURORA_POSTGRESQL = "AURORA_POSTGRESQL",
-  AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS",
-  DATABRICKS = "DATABRICKS",
-  EXASOL = "EXASOL",
-  GITHUB = "GITHUB",
-  JIRA = "JIRA",
-  MARIADB = "MARIADB",
-  MYSQL = "MYSQL",
-  ORACLE = "ORACLE",
-  POSTGRESQL = "POSTGRESQL",
-  PRESTO = "PRESTO",
-  REDSHIFT = "REDSHIFT",
-  S3 = "S3",
-  SALESFORCE = "SALESFORCE",
-  SERVICENOW = "SERVICENOW",
-  SNOWFLAKE = "SNOWFLAKE",
-  SPARK = "SPARK",
-  SQLSERVER = "SQLSERVER",
-  TERADATA = "TERADATA",
-  TIMESTREAM = "TIMESTREAM",
-  TWITTER = "TWITTER",
-}
+export const DataSourceType = {
+  ADOBE_ANALYTICS: "ADOBE_ANALYTICS",
+  AMAZON_ELASTICSEARCH: "AMAZON_ELASTICSEARCH",
+  AMAZON_OPENSEARCH: "AMAZON_OPENSEARCH",
+  ATHENA: "ATHENA",
+  AURORA: "AURORA",
+  AURORA_POSTGRESQL: "AURORA_POSTGRESQL",
+  AWS_IOT_ANALYTICS: "AWS_IOT_ANALYTICS",
+  DATABRICKS: "DATABRICKS",
+  EXASOL: "EXASOL",
+  GITHUB: "GITHUB",
+  JIRA: "JIRA",
+  MARIADB: "MARIADB",
+  MYSQL: "MYSQL",
+  ORACLE: "ORACLE",
+  POSTGRESQL: "POSTGRESQL",
+  PRESTO: "PRESTO",
+  REDSHIFT: "REDSHIFT",
+  S3: "S3",
+  SALESFORCE: "SALESFORCE",
+  SERVICENOW: "SERVICENOW",
+  SNOWFLAKE: "SNOWFLAKE",
+  SPARK: "SPARK",
+  SQLSERVER: "SQLSERVER",
+  TERADATA: "TERADATA",
+  TIMESTREAM: "TIMESTREAM",
+  TWITTER: "TWITTER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
 /**
  * @public
@@ -2953,10 +3014,16 @@ export interface CreateDataSourceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FolderType {
-  SHARED = "SHARED",
-}
+export const FolderType = {
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type FolderType = (typeof FolderType)[keyof typeof FolderType];
 
 /**
  * @public
@@ -3028,12 +3095,18 @@ export interface CreateFolderResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MemberType {
-  ANALYSIS = "ANALYSIS",
-  DASHBOARD = "DASHBOARD",
-  DATASET = "DATASET",
-}
+export const MemberType = {
+  ANALYSIS: "ANALYSIS",
+  DASHBOARD: "DASHBOARD",
+  DATASET: "DATASET",
+} as const;
+
+/**
+ * @public
+ */
+export type MemberType = (typeof MemberType)[keyof typeof MemberType];
 
 /**
  * @public
@@ -3345,11 +3418,17 @@ export interface CreateIAMPolicyAssignmentResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum IngestionType {
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-}
+export const IngestionType = {
+  FULL_REFRESH: "FULL_REFRESH",
+  INCREMENTAL_REFRESH: "INCREMENTAL_REFRESH",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionType = (typeof IngestionType)[keyof typeof IngestionType];
 
 /**
  * @public
@@ -3378,15 +3457,21 @@ export interface CreateIngestionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IngestionStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+export const IngestionStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionStatus];
 
 /**
  * @public
@@ -3420,10 +3505,16 @@ export interface CreateIngestionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityStore {
-  QUICKSIGHT = "QUICKSIGHT",
-}
+export const IdentityStore = {
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityStore = (typeof IdentityStore)[keyof typeof IdentityStore];
 
 /**
  * @public
@@ -3453,14 +3544,20 @@ export interface CreateNamespaceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NamespaceStatus {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  NON_RETRYABLE_FAILURE = "NON_RETRYABLE_FAILURE",
-  RETRYABLE_FAILURE = "RETRYABLE_FAILURE",
-}
+export const NamespaceStatus = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  NON_RETRYABLE_FAILURE: "NON_RETRYABLE_FAILURE",
+  RETRYABLE_FAILURE: "RETRYABLE_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
 
 /**
  * @public
@@ -4199,19 +4296,25 @@ export interface CreateThemeAliasResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DashboardErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+export const DashboardErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardErrorType = (typeof DashboardErrorType)[keyof typeof DashboardErrorType];
 
 /**
  * @public
@@ -4334,16 +4437,22 @@ export interface Dashboard {
 
 /**
  * @public
+ * @enum
  */
-export enum DashboardFilterAttribute {
-  DASHBOARD_NAME = "DASHBOARD_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER = "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const DashboardFilterAttribute = {
+  DASHBOARD_NAME: "DASHBOARD_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardFilterAttribute = (typeof DashboardFilterAttribute)[keyof typeof DashboardFilterAttribute];
 
 /**
  * @public
@@ -4590,15 +4699,21 @@ export interface DataSet {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSetFilterAttribute {
-  DATASET_NAME = "DATASET_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const DataSetFilterAttribute = {
+  DATASET_NAME: "DATASET_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeof DataSetFilterAttribute];
 
 /**
  * @public
@@ -4706,17 +4821,23 @@ export interface DataSetSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceErrorInfoType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  CONFLICT = "CONFLICT",
-  COPY_SOURCE_NOT_FOUND = "COPY_SOURCE_NOT_FOUND",
-  ENGINE_VERSION_NOT_SUPPORTED = "ENGINE_VERSION_NOT_SUPPORTED",
-  GENERIC_SQL_FAILURE = "GENERIC_SQL_FAILURE",
-  TIMEOUT = "TIMEOUT",
-  UNKNOWN = "UNKNOWN",
-  UNKNOWN_HOST = "UNKNOWN_HOST",
-}
+export const DataSourceErrorInfoType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CONFLICT: "CONFLICT",
+  COPY_SOURCE_NOT_FOUND: "COPY_SOURCE_NOT_FOUND",
+  ENGINE_VERSION_NOT_SUPPORTED: "ENGINE_VERSION_NOT_SUPPORTED",
+  GENERIC_SQL_FAILURE: "GENERIC_SQL_FAILURE",
+  TIMEOUT: "TIMEOUT",
+  UNKNOWN: "UNKNOWN",
+  UNKNOWN_HOST: "UNKNOWN_HOST",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typeof DataSourceErrorInfoType];
 
 /**
  * @public
@@ -4821,13 +4942,19 @@ export interface DataSource {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceFilterAttribute {
-  DATASOURCE_NAME = "DATASOURCE_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const DataSourceFilterAttribute = {
+  DATASOURCE_NAME: "DATASOURCE_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceFilterAttribute = (typeof DataSourceFilterAttribute)[keyof typeof DataSourceFilterAttribute];
 
 /**
  * @public
@@ -6773,53 +6900,59 @@ export interface DescribeIngestionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IngestionErrorType {
-  ACCOUNT_CAPACITY_LIMIT_EXCEEDED = "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
-  CONNECTION_FAILURE = "CONNECTION_FAILURE",
-  CURSOR_NOT_ENABLED = "CURSOR_NOT_ENABLED",
-  CUSTOMER_ERROR = "CUSTOMER_ERROR",
-  DATA_SET_DELETED = "DATA_SET_DELETED",
-  DATA_SET_NOT_SPICE = "DATA_SET_NOT_SPICE",
-  DATA_SET_SIZE_LIMIT_EXCEEDED = "DATA_SET_SIZE_LIMIT_EXCEEDED",
-  DATA_SOURCE_AUTH_FAILED = "DATA_SOURCE_AUTH_FAILED",
-  DATA_SOURCE_CONNECTION_FAILED = "DATA_SOURCE_CONNECTION_FAILED",
-  DATA_SOURCE_NOT_FOUND = "DATA_SOURCE_NOT_FOUND",
-  DATA_TOLERANCE_EXCEPTION = "DATA_TOLERANCE_EXCEPTION",
-  ELASTICSEARCH_CURSOR_NOT_ENABLED = "ELASTICSEARCH_CURSOR_NOT_ENABLED",
-  FAILURE_TO_ASSUME_ROLE = "FAILURE_TO_ASSUME_ROLE",
-  FAILURE_TO_PROCESS_JSON_FILE = "FAILURE_TO_PROCESS_JSON_FILE",
-  IAM_ROLE_NOT_AVAILABLE = "IAM_ROLE_NOT_AVAILABLE",
-  INGESTION_CANCELED = "INGESTION_CANCELED",
-  INGESTION_SUPERSEDED = "INGESTION_SUPERSEDED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_DATAPREP_SYNTAX = "INVALID_DATAPREP_SYNTAX",
-  INVALID_DATA_SOURCE_CONFIG = "INVALID_DATA_SOURCE_CONFIG",
-  INVALID_DATE_FORMAT = "INVALID_DATE_FORMAT",
-  IOT_DATA_SET_FILE_EMPTY = "IOT_DATA_SET_FILE_EMPTY",
-  IOT_FILE_NOT_FOUND = "IOT_FILE_NOT_FOUND",
-  OAUTH_TOKEN_FAILURE = "OAUTH_TOKEN_FAILURE",
-  PASSWORD_AUTHENTICATION_FAILURE = "PASSWORD_AUTHENTICATION_FAILURE",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-  PERMISSION_NOT_FOUND = "PERMISSION_NOT_FOUND",
-  QUERY_TIMEOUT = "QUERY_TIMEOUT",
-  REFRESH_SUPPRESSED_BY_EDIT = "REFRESH_SUPPRESSED_BY_EDIT",
-  ROW_SIZE_LIMIT_EXCEEDED = "ROW_SIZE_LIMIT_EXCEEDED",
-  S3_FILE_INACCESSIBLE = "S3_FILE_INACCESSIBLE",
-  S3_MANIFEST_ERROR = "S3_MANIFEST_ERROR",
-  S3_UPLOADED_FILE_DELETED = "S3_UPLOADED_FILE_DELETED",
-  SOURCE_API_LIMIT_EXCEEDED_FAILURE = "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
-  SOURCE_RESOURCE_LIMIT_EXCEEDED = "SOURCE_RESOURCE_LIMIT_EXCEEDED",
-  SPICE_TABLE_NOT_FOUND = "SPICE_TABLE_NOT_FOUND",
-  SQL_EXCEPTION = "SQL_EXCEPTION",
-  SQL_INVALID_PARAMETER_VALUE = "SQL_INVALID_PARAMETER_VALUE",
-  SQL_NUMERIC_OVERFLOW = "SQL_NUMERIC_OVERFLOW",
-  SQL_SCHEMA_MISMATCH_ERROR = "SQL_SCHEMA_MISMATCH_ERROR",
-  SQL_TABLE_NOT_FOUND = "SQL_TABLE_NOT_FOUND",
-  SSL_CERTIFICATE_VALIDATION_FAILURE = "SSL_CERTIFICATE_VALIDATION_FAILURE",
-  UNRESOLVABLE_HOST = "UNRESOLVABLE_HOST",
-  UNROUTABLE_HOST = "UNROUTABLE_HOST",
-}
+export const IngestionErrorType = {
+  ACCOUNT_CAPACITY_LIMIT_EXCEEDED: "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
+  CONNECTION_FAILURE: "CONNECTION_FAILURE",
+  CURSOR_NOT_ENABLED: "CURSOR_NOT_ENABLED",
+  CUSTOMER_ERROR: "CUSTOMER_ERROR",
+  DATA_SET_DELETED: "DATA_SET_DELETED",
+  DATA_SET_NOT_SPICE: "DATA_SET_NOT_SPICE",
+  DATA_SET_SIZE_LIMIT_EXCEEDED: "DATA_SET_SIZE_LIMIT_EXCEEDED",
+  DATA_SOURCE_AUTH_FAILED: "DATA_SOURCE_AUTH_FAILED",
+  DATA_SOURCE_CONNECTION_FAILED: "DATA_SOURCE_CONNECTION_FAILED",
+  DATA_SOURCE_NOT_FOUND: "DATA_SOURCE_NOT_FOUND",
+  DATA_TOLERANCE_EXCEPTION: "DATA_TOLERANCE_EXCEPTION",
+  ELASTICSEARCH_CURSOR_NOT_ENABLED: "ELASTICSEARCH_CURSOR_NOT_ENABLED",
+  FAILURE_TO_ASSUME_ROLE: "FAILURE_TO_ASSUME_ROLE",
+  FAILURE_TO_PROCESS_JSON_FILE: "FAILURE_TO_PROCESS_JSON_FILE",
+  IAM_ROLE_NOT_AVAILABLE: "IAM_ROLE_NOT_AVAILABLE",
+  INGESTION_CANCELED: "INGESTION_CANCELED",
+  INGESTION_SUPERSEDED: "INGESTION_SUPERSEDED",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  INVALID_DATAPREP_SYNTAX: "INVALID_DATAPREP_SYNTAX",
+  INVALID_DATA_SOURCE_CONFIG: "INVALID_DATA_SOURCE_CONFIG",
+  INVALID_DATE_FORMAT: "INVALID_DATE_FORMAT",
+  IOT_DATA_SET_FILE_EMPTY: "IOT_DATA_SET_FILE_EMPTY",
+  IOT_FILE_NOT_FOUND: "IOT_FILE_NOT_FOUND",
+  OAUTH_TOKEN_FAILURE: "OAUTH_TOKEN_FAILURE",
+  PASSWORD_AUTHENTICATION_FAILURE: "PASSWORD_AUTHENTICATION_FAILURE",
+  PERMISSION_DENIED: "PERMISSION_DENIED",
+  PERMISSION_NOT_FOUND: "PERMISSION_NOT_FOUND",
+  QUERY_TIMEOUT: "QUERY_TIMEOUT",
+  REFRESH_SUPPRESSED_BY_EDIT: "REFRESH_SUPPRESSED_BY_EDIT",
+  ROW_SIZE_LIMIT_EXCEEDED: "ROW_SIZE_LIMIT_EXCEEDED",
+  S3_FILE_INACCESSIBLE: "S3_FILE_INACCESSIBLE",
+  S3_MANIFEST_ERROR: "S3_MANIFEST_ERROR",
+  S3_UPLOADED_FILE_DELETED: "S3_UPLOADED_FILE_DELETED",
+  SOURCE_API_LIMIT_EXCEEDED_FAILURE: "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
+  SOURCE_RESOURCE_LIMIT_EXCEEDED: "SOURCE_RESOURCE_LIMIT_EXCEEDED",
+  SPICE_TABLE_NOT_FOUND: "SPICE_TABLE_NOT_FOUND",
+  SQL_EXCEPTION: "SQL_EXCEPTION",
+  SQL_INVALID_PARAMETER_VALUE: "SQL_INVALID_PARAMETER_VALUE",
+  SQL_NUMERIC_OVERFLOW: "SQL_NUMERIC_OVERFLOW",
+  SQL_SCHEMA_MISMATCH_ERROR: "SQL_SCHEMA_MISMATCH_ERROR",
+  SQL_TABLE_NOT_FOUND: "SQL_TABLE_NOT_FOUND",
+  SSL_CERTIFICATE_VALIDATION_FAILURE: "SSL_CERTIFICATE_VALIDATION_FAILURE",
+  UNRESOLVABLE_HOST: "UNRESOLVABLE_HOST",
+  UNROUTABLE_HOST: "UNROUTABLE_HOST",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionErrorType = (typeof IngestionErrorType)[keyof typeof IngestionErrorType];
 
 /**
  * @public
@@ -6856,21 +6989,33 @@ export interface QueueInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum IngestionRequestSource {
-  MANUAL = "MANUAL",
-  SCHEDULED = "SCHEDULED",
-}
+export const IngestionRequestSource = {
+  MANUAL: "MANUAL",
+  SCHEDULED: "SCHEDULED",
+} as const;
 
 /**
  * @public
  */
-export enum IngestionRequestType {
-  EDIT = "EDIT",
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-  INITIAL_INGESTION = "INITIAL_INGESTION",
-}
+export type IngestionRequestSource = (typeof IngestionRequestSource)[keyof typeof IngestionRequestSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestionRequestType = {
+  EDIT: "EDIT",
+  FULL_REFRESH: "FULL_REFRESH",
+  INCREMENTAL_REFRESH: "INCREMENTAL_REFRESH",
+  INITIAL_INGESTION: "INITIAL_INGESTION",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionRequestType = (typeof IngestionRequestType)[keyof typeof IngestionRequestType];
 
 /**
  * @public
@@ -7031,11 +7176,17 @@ export interface DescribeNamespaceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NamespaceErrorType {
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-}
+export const NamespaceErrorType = {
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  PERMISSION_DENIED: "PERMISSION_DENIED",
+} as const;
+
+/**
+ * @public
+ */
+export type NamespaceErrorType = (typeof NamespaceErrorType)[keyof typeof NamespaceErrorType];
 
 /**
  * @public
@@ -7143,13 +7294,19 @@ export interface DescribeTemplateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TemplateErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+export const TemplateErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateErrorType = (typeof TemplateErrorType)[keyof typeof TemplateErrorType];
 
 /**
  * @public
@@ -7558,19 +7715,31 @@ export interface DescribeThemeRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ThemeType {
-  ALL = "ALL",
-  CUSTOM = "CUSTOM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
+export const ThemeType = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
 
 /**
  * @public
  */
-export enum ThemeErrorType {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
+export type ThemeType = (typeof ThemeType)[keyof typeof ThemeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThemeErrorType = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ThemeErrorType = (typeof ThemeErrorType)[keyof typeof ThemeErrorType];
 
 /**
  * @public
@@ -7806,22 +7975,34 @@ export interface DescribeUserRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityType {
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
+export const IdentityType = {
+  IAM: "IAM",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
 
 /**
  * @public
  */
-export enum UserRole {
-  ADMIN = "ADMIN",
-  AUTHOR = "AUTHOR",
-  READER = "READER",
-  RESTRICTED_AUTHOR = "RESTRICTED_AUTHOR",
-  RESTRICTED_READER = "RESTRICTED_READER",
-}
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserRole = {
+  ADMIN: "ADMIN",
+  AUTHOR: "AUTHOR",
+  READER: "READER",
+  RESTRICTED_AUTHOR: "RESTRICTED_AUTHOR",
+  RESTRICTED_READER: "RESTRICTED_READER",
+} as const;
+
+/**
+ * @public
+ */
+export type UserRole = (typeof UserRole)[keyof typeof UserRole];
 
 /**
  * @public
@@ -7975,25 +8156,37 @@ export class DomainNotWhitelistedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum EmbeddingIdentityType {
-  ANONYMOUS = "ANONYMOUS",
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
+export const EmbeddingIdentityType = {
+  ANONYMOUS: "ANONYMOUS",
+  IAM: "IAM",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
 
 /**
  * @public
  */
-export enum FolderFilterAttribute {
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  FOLDER_NAME = "FOLDER_NAME",
-  PARENT_FOLDER_ARN = "PARENT_FOLDER_ARN",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export type EmbeddingIdentityType = (typeof EmbeddingIdentityType)[keyof typeof EmbeddingIdentityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FolderFilterAttribute = {
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  FOLDER_NAME: "FOLDER_NAME",
+  PARENT_FOLDER_ARN: "PARENT_FOLDER_ARN",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type FolderFilterAttribute = (typeof FolderFilterAttribute)[keyof typeof FolderFilterAttribute];
 
 /**
  * @public

@@ -5,17 +5,24 @@ import { CloudFrontServiceException as __BaseException } from "./CloudFrontServi
 
 /**
  * @public
+ * @enum
  */
-export enum ResponseHeadersPolicyAccessControlAllowMethodsValues {
-  ALL = "ALL",
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+export const ResponseHeadersPolicyAccessControlAllowMethodsValues = {
+  ALL: "ALL",
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResponseHeadersPolicyAccessControlAllowMethodsValues =
+  (typeof ResponseHeadersPolicyAccessControlAllowMethodsValues)[keyof typeof ResponseHeadersPolicyAccessControlAllowMethodsValues];
 
 /**
  * @public
@@ -163,12 +170,18 @@ export interface Aliases {
 
 /**
  * @public
+ * @enum
  */
-export enum ICPRecordalStatus {
-  APPROVED = "APPROVED",
-  PENDING = "PENDING",
-  SUSPENDED = "SUSPENDED",
-}
+export const ICPRecordalStatus = {
+  APPROVED: "APPROVED",
+  PENDING: "PENDING",
+  SUSPENDED: "SUSPENDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ICPRecordalStatus = (typeof ICPRecordalStatus)[keyof typeof ICPRecordalStatus];
 
 /**
  * @public
@@ -219,16 +232,22 @@ export interface AliasICPRecordal {
 
 /**
  * @public
+ * @enum
  */
-export enum Method {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+export const Method = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type Method = (typeof Method)[keyof typeof Method];
 
 /**
  * @public
@@ -448,12 +467,18 @@ export class BatchTooLarge extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ItemSelection {
-  all = "all",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const ItemSelection = {
+  all: "all",
+  none: "none",
+  whitelist: "whitelist",
+} as const;
+
+/**
+ * @public
+ */
+export type ItemSelection = (typeof ItemSelection)[keyof typeof ItemSelection];
 
 /**
  * @public
@@ -660,13 +685,19 @@ export interface ForwardedValues {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  origin_request = "origin-request",
-  origin_response = "origin-response",
-  viewer_request = "viewer-request",
-  viewer_response = "viewer-response",
-}
+export const EventType = {
+  origin_request: "origin-request",
+  origin_response: "origin-response",
+  viewer_request: "viewer-request",
+  viewer_response: "viewer-response",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -840,12 +871,18 @@ export interface TrustedSigners {
 
 /**
  * @public
+ * @enum
  */
-export enum ViewerProtocolPolicy {
-  allow_all = "allow-all",
-  https_only = "https-only",
-  redirect_to_https = "redirect-to-https",
-}
+export const ViewerProtocolPolicy = {
+  allow_all: "allow-all",
+  https_only: "https-only",
+  redirect_to_https: "redirect-to-https",
+} as const;
+
+/**
+ * @public
+ */
+export type ViewerProtocolPolicy = (typeof ViewerProtocolPolicy)[keyof typeof ViewerProtocolPolicy];
 
 /**
  * @public
@@ -1133,13 +1170,19 @@ export interface CacheBehaviors {
 
 /**
  * @public
+ * @enum
  */
-export enum CachePolicyCookieBehavior {
-  all = "all",
-  allExcept = "allExcept",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const CachePolicyCookieBehavior = {
+  all: "all",
+  allExcept: "allExcept",
+  none: "none",
+  whitelist: "whitelist",
+} as const;
+
+/**
+ * @public
+ */
+export type CachePolicyCookieBehavior = (typeof CachePolicyCookieBehavior)[keyof typeof CachePolicyCookieBehavior];
 
 /**
  * @public
@@ -1191,11 +1234,17 @@ export interface CachePolicyCookiesConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum CachePolicyHeaderBehavior {
-  none = "none",
-  whitelist = "whitelist",
-}
+export const CachePolicyHeaderBehavior = {
+  none: "none",
+  whitelist: "whitelist",
+} as const;
+
+/**
+ * @public
+ */
+export type CachePolicyHeaderBehavior = (typeof CachePolicyHeaderBehavior)[keyof typeof CachePolicyHeaderBehavior];
 
 /**
  * @public
@@ -1232,13 +1281,20 @@ export interface CachePolicyHeadersConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum CachePolicyQueryStringBehavior {
-  all = "all",
-  allExcept = "allExcept",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const CachePolicyQueryStringBehavior = {
+  all: "all",
+  allExcept: "allExcept",
+  none: "none",
+  whitelist: "whitelist",
+} as const;
+
+/**
+ * @public
+ */
+export type CachePolicyQueryStringBehavior =
+  (typeof CachePolicyQueryStringBehavior)[keyof typeof CachePolicyQueryStringBehavior];
 
 /**
  * @public
@@ -1583,11 +1639,17 @@ export class CachePolicyInUse extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CachePolicyType {
-  custom = "custom",
-  managed = "managed",
-}
+export const CachePolicyType = {
+  custom: "custom",
+  managed: "managed",
+} as const;
+
+/**
+ * @public
+ */
+export type CachePolicyType = (typeof CachePolicyType)[keyof typeof CachePolicyType];
 
 /**
  * @public
@@ -1658,12 +1720,18 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateSource {
-  acm = "acm",
-  cloudfront = "cloudfront",
-  iam = "iam",
-}
+export const CertificateSource = {
+  acm: "acm",
+  cloudfront: "cloudfront",
+  iam: "iam",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateSource = (typeof CertificateSource)[keyof typeof CertificateSource];
 
 /**
  * @public
@@ -2079,13 +2147,19 @@ export interface DefaultCacheBehavior {
 
 /**
  * @public
+ * @enum
  */
-export enum HttpVersion {
-  http1_1 = "http1.1",
-  http2 = "http2",
-  http2and3 = "http2and3",
-  http3 = "http3",
-}
+export const HttpVersion = {
+  http1_1: "http1.1",
+  http2: "http2",
+  http2and3: "http2and3",
+  http3: "http3",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpVersion = (typeof HttpVersion)[keyof typeof HttpVersion];
 
 /**
  * @public
@@ -2272,22 +2346,34 @@ export interface CustomHeaders {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginProtocolPolicy {
-  http_only = "http-only",
-  https_only = "https-only",
-  match_viewer = "match-viewer",
-}
+export const OriginProtocolPolicy = {
+  http_only: "http-only",
+  https_only: "https-only",
+  match_viewer: "match-viewer",
+} as const;
 
 /**
  * @public
  */
-export enum SslProtocol {
-  SSLv3 = "SSLv3",
-  TLSv1 = "TLSv1",
-  TLSv1_1 = "TLSv1.1",
-  TLSv1_2 = "TLSv1.2",
-}
+export type OriginProtocolPolicy = (typeof OriginProtocolPolicy)[keyof typeof OriginProtocolPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SslProtocol = {
+  SSLv3: "SSLv3",
+  TLSv1: "TLSv1",
+  TLSv1_1: "TLSv1.1",
+  TLSv1_2: "TLSv1.2",
+} as const;
+
+/**
+ * @public
+ */
+export type SslProtocol = (typeof SslProtocol)[keyof typeof SslProtocol];
 
 /**
  * @public
@@ -2577,21 +2663,33 @@ export interface Origins {
 
 /**
  * @public
+ * @enum
  */
-export enum PriceClass {
-  PriceClass_100 = "PriceClass_100",
-  PriceClass_200 = "PriceClass_200",
-  PriceClass_All = "PriceClass_All",
-}
+export const PriceClass = {
+  PriceClass_100: "PriceClass_100",
+  PriceClass_200: "PriceClass_200",
+  PriceClass_All: "PriceClass_All",
+} as const;
 
 /**
  * @public
  */
-export enum GeoRestrictionType {
-  blacklist = "blacklist",
-  none = "none",
-  whitelist = "whitelist",
-}
+export type PriceClass = (typeof PriceClass)[keyof typeof PriceClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const GeoRestrictionType = {
+  blacklist: "blacklist",
+  none: "none",
+  whitelist: "whitelist",
+} as const;
+
+/**
+ * @public
+ */
+export type GeoRestrictionType = (typeof GeoRestrictionType)[keyof typeof GeoRestrictionType];
 
 /**
  * @public
@@ -2662,25 +2760,37 @@ export interface Restrictions {
 
 /**
  * @public
+ * @enum
  */
-export enum MinimumProtocolVersion {
-  SSLv3 = "SSLv3",
-  TLSv1 = "TLSv1",
-  TLSv1_1_2016 = "TLSv1.1_2016",
-  TLSv1_2016 = "TLSv1_2016",
-  TLSv1_2_2018 = "TLSv1.2_2018",
-  TLSv1_2_2019 = "TLSv1.2_2019",
-  TLSv1_2_2021 = "TLSv1.2_2021",
-}
+export const MinimumProtocolVersion = {
+  SSLv3: "SSLv3",
+  TLSv1: "TLSv1",
+  TLSv1_1_2016: "TLSv1.1_2016",
+  TLSv1_2016: "TLSv1_2016",
+  TLSv1_2_2018: "TLSv1.2_2018",
+  TLSv1_2_2019: "TLSv1.2_2019",
+  TLSv1_2_2021: "TLSv1.2_2021",
+} as const;
 
 /**
  * @public
  */
-export enum SSLSupportMethod {
-  sni_only = "sni-only",
-  static_ip = "static-ip",
-  vip = "vip",
-}
+export type MinimumProtocolVersion = (typeof MinimumProtocolVersion)[keyof typeof MinimumProtocolVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const SSLSupportMethod = {
+  sni_only: "sni-only",
+  static_ip: "static-ip",
+  vip: "vip",
+} as const;
+
+/**
+ * @public
+ */
+export type SSLSupportMethod = (typeof SSLSupportMethod)[keyof typeof SSLSupportMethod];
 
 /**
  * @public
@@ -4888,11 +4998,18 @@ export interface ContinuousDeploymentSingleWeightConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ContinuousDeploymentPolicyType {
-  SingleHeader = "SingleHeader",
-  SingleWeight = "SingleWeight",
-}
+export const ContinuousDeploymentPolicyType = {
+  SingleHeader: "SingleHeader",
+  SingleWeight: "SingleWeight",
+} as const;
+
+/**
+ * @public
+ */
+export type ContinuousDeploymentPolicyType =
+  (typeof ContinuousDeploymentPolicyType)[keyof typeof ContinuousDeploymentPolicyType];
 
 /**
  * @public
@@ -5293,10 +5410,16 @@ export class InvalidTagging extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Format {
-  URLEncoded = "URLEncoded",
-}
+export const Format = {
+  URLEncoded: "URLEncoded",
+} as const;
+
+/**
+ * @public
+ */
+export type Format = (typeof Format)[keyof typeof Format];
 
 /**
  * @public
@@ -5911,10 +6034,16 @@ export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FunctionRuntime {
-  cloudfront_js_1_0 = "cloudfront-js-1.0",
-}
+export const FunctionRuntime = {
+  cloudfront_js_1_0: "cloudfront-js-1.0",
+} as const;
+
+/**
+ * @public
+ */
+export type FunctionRuntime = (typeof FunctionRuntime)[keyof typeof FunctionRuntime];
 
 /**
  * @public
@@ -5958,11 +6087,17 @@ export interface CreateFunctionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FunctionStage {
-  DEVELOPMENT = "DEVELOPMENT",
-  LIVE = "LIVE",
-}
+export const FunctionStage = {
+  DEVELOPMENT: "DEVELOPMENT",
+  LIVE: "LIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type FunctionStage = (typeof FunctionStage)[keyof typeof FunctionStage];
 
 /**
  * @public
@@ -6418,11 +6553,18 @@ export class TooManyPublicKeysInKeyGroup extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RealtimeMetricsSubscriptionStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const RealtimeMetricsSubscriptionStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type RealtimeMetricsSubscriptionStatus =
+  (typeof RealtimeMetricsSubscriptionStatus)[keyof typeof RealtimeMetricsSubscriptionStatus];
 
 /**
  * @public
@@ -6499,27 +6641,48 @@ export class MonitoringSubscriptionAlreadyExists extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginAccessControlOriginTypes {
-  mediastore = "mediastore",
-  s3 = "s3",
-}
+export const OriginAccessControlOriginTypes = {
+  mediastore: "mediastore",
+  s3: "s3",
+} as const;
 
 /**
  * @public
  */
-export enum OriginAccessControlSigningBehaviors {
-  always = "always",
-  never = "never",
-  no_override = "no-override",
-}
+export type OriginAccessControlOriginTypes =
+  (typeof OriginAccessControlOriginTypes)[keyof typeof OriginAccessControlOriginTypes];
+
+/**
+ * @public
+ * @enum
+ */
+export const OriginAccessControlSigningBehaviors = {
+  always: "always",
+  never: "never",
+  no_override: "no-override",
+} as const;
 
 /**
  * @public
  */
-export enum OriginAccessControlSigningProtocols {
-  sigv4 = "sigv4",
-}
+export type OriginAccessControlSigningBehaviors =
+  (typeof OriginAccessControlSigningBehaviors)[keyof typeof OriginAccessControlSigningBehaviors];
+
+/**
+ * @public
+ * @enum
+ */
+export const OriginAccessControlSigningProtocols = {
+  sigv4: "sigv4",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginAccessControlSigningProtocols =
+  (typeof OriginAccessControlSigningProtocols)[keyof typeof OriginAccessControlSigningProtocols];
 
 /**
  * @public
@@ -6677,13 +6840,20 @@ export class TooManyOriginAccessControls extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginRequestPolicyCookieBehavior {
-  all = "all",
-  allExcept = "allExcept",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const OriginRequestPolicyCookieBehavior = {
+  all: "all",
+  allExcept: "allExcept",
+  none: "none",
+  whitelist: "whitelist",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginRequestPolicyCookieBehavior =
+  (typeof OriginRequestPolicyCookieBehavior)[keyof typeof OriginRequestPolicyCookieBehavior];
 
 /**
  * @public
@@ -6734,14 +6904,21 @@ export interface OriginRequestPolicyCookiesConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginRequestPolicyHeaderBehavior {
-  allExcept = "allExcept",
-  allViewer = "allViewer",
-  allViewerAndWhitelistCloudFront = "allViewerAndWhitelistCloudFront",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const OriginRequestPolicyHeaderBehavior = {
+  allExcept: "allExcept",
+  allViewer: "allViewer",
+  allViewerAndWhitelistCloudFront: "allViewerAndWhitelistCloudFront",
+  none: "none",
+  whitelist: "whitelist",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginRequestPolicyHeaderBehavior =
+  (typeof OriginRequestPolicyHeaderBehavior)[keyof typeof OriginRequestPolicyHeaderBehavior];
 
 /**
  * @public
@@ -6798,13 +6975,20 @@ export interface OriginRequestPolicyHeadersConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginRequestPolicyQueryStringBehavior {
-  all = "all",
-  allExcept = "allExcept",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const OriginRequestPolicyQueryStringBehavior = {
+  all: "all",
+  allExcept: "allExcept",
+  none: "none",
+  whitelist: "whitelist",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginRequestPolicyQueryStringBehavior =
+  (typeof OriginRequestPolicyQueryStringBehavior)[keyof typeof OriginRequestPolicyQueryStringBehavior];
 
 /**
  * @public
@@ -7705,11 +7889,17 @@ export interface ResponseHeadersPolicyContentTypeOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum FrameOptionsList {
-  DENY = "DENY",
-  SAMEORIGIN = "SAMEORIGIN",
-}
+export const FrameOptionsList = {
+  DENY: "DENY",
+  SAMEORIGIN: "SAMEORIGIN",
+} as const;
+
+/**
+ * @public
+ */
+export type FrameOptionsList = (typeof FrameOptionsList)[keyof typeof FrameOptionsList];
 
 /**
  * @public
@@ -7736,17 +7926,23 @@ export interface ResponseHeadersPolicyFrameOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferrerPolicyList {
-  no_referrer = "no-referrer",
-  no_referrer_when_downgrade = "no-referrer-when-downgrade",
-  origin = "origin",
-  origin_when_cross_origin = "origin-when-cross-origin",
-  same_origin = "same-origin",
-  strict_origin = "strict-origin",
-  strict_origin_when_cross_origin = "strict-origin-when-cross-origin",
-  unsafe_url = "unsafe-url",
-}
+export const ReferrerPolicyList = {
+  no_referrer: "no-referrer",
+  no_referrer_when_downgrade: "no-referrer-when-downgrade",
+  origin: "origin",
+  origin_when_cross_origin: "origin-when-cross-origin",
+  same_origin: "same-origin",
+  strict_origin: "strict-origin",
+  strict_origin_when_cross_origin: "strict-origin-when-cross-origin",
+  unsafe_url: "unsafe-url",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferrerPolicyList = (typeof ReferrerPolicyList)[keyof typeof ReferrerPolicyList];
 
 /**
  * @public

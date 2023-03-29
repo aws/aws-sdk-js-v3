@@ -6,13 +6,19 @@ import { OpenSearchServerlessServiceException as __BaseException } from "./OpenS
 
 /**
  * @public
+ * @enum
  */
-export enum AccessPolicyType {
+export const AccessPolicyType = {
   /**
    * data policy type
    */
-  data = "data",
-}
+  data: "data",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessPolicyType = (typeof AccessPolicyType)[keyof typeof AccessPolicyType];
 
 /**
  * @public
@@ -417,39 +423,51 @@ export interface BatchGetCollectionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CollectionStatus {
+export const CollectionStatus = {
   /**
    * Collection resource is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Creating collection resource
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Deleting collection resource
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Collection resource create or delete failed
    */
-  FAILED = "FAILED",
-}
+  FAILED: "FAILED",
+} as const;
 
 /**
  * @public
  */
-export enum CollectionType {
+export type CollectionStatus = (typeof CollectionStatus)[keyof typeof CollectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CollectionType = {
   /**
    * Search collection type
    */
-  SEARCH = "SEARCH",
+  SEARCH: "SEARCH",
   /**
    * Timeseries collection type
    */
-  TIMESERIES = "TIMESERIES",
-}
+  TIMESERIES: "TIMESERIES",
+} as const;
+
+/**
+ * @public
+ */
+export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType];
 
 /**
  * @public
@@ -571,25 +589,31 @@ export interface BatchGetVpcEndpointRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VpcEndpointStatus {
+export const VpcEndpointStatus = {
   /**
    * VPCEndpoint resource is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Deleting VPCEndpoint resource
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * VPCEndpoint resource create or delete failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * Pending VPCEndpoint resource
    */
-  PENDING = "PENDING",
-}
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEndpointStatus = (typeof VpcEndpointStatus)[keyof typeof VpcEndpointStatus];
 
 /**
  * @public
@@ -1012,13 +1036,19 @@ export interface SamlConfigOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum SecurityConfigType {
+export const SecurityConfigType = {
   /**
    * saml provider
    */
-  saml = "saml",
-}
+  saml: "saml",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityConfigType = (typeof SecurityConfigType)[keyof typeof SecurityConfigType];
 
 /**
  * @public
@@ -1103,17 +1133,23 @@ export interface CreateSecurityConfigResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SecurityPolicyType {
+export const SecurityPolicyType = {
   /**
    * encryption policy type
    */
-  encryption = "encryption",
+  encryption: "encryption",
   /**
    * network policy type
    */
-  network = "network",
-}
+  network: "network",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityPolicyType = (typeof SecurityPolicyType)[keyof typeof SecurityPolicyType];
 
 /**
  * @public

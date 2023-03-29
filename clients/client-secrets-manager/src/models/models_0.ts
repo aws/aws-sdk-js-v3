@@ -326,12 +326,18 @@ export interface CreateSecretRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusType {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  InSync = "InSync",
-}
+export const StatusType = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  InSync: "InSync",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * @public
@@ -841,16 +847,22 @@ export interface DescribeSecretResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterNameStringType {
-  all = "all",
-  description = "description",
-  name = "name",
-  owning_service = "owning-service",
-  primary_region = "primary-region",
-  tag_key = "tag-key",
-  tag_value = "tag-value",
-}
+export const FilterNameStringType = {
+  all: "all",
+  description: "description",
+  name: "name",
+  owning_service: "owning-service",
+  primary_region: "primary-region",
+  tag_key: "tag-key",
+  tag_value: "tag-value",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterNameStringType = (typeof FilterNameStringType)[keyof typeof FilterNameStringType];
 
 /**
  * @public
@@ -1103,11 +1115,17 @@ export class InvalidNextTokenException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrderType {
-  asc = "asc",
-  desc = "desc",
-}
+export const SortOrderType = {
+  asc: "asc",
+  desc: "desc",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrderType = (typeof SortOrderType)[keyof typeof SortOrderType];
 
 /**
  * @public

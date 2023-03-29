@@ -53,14 +53,19 @@ export namespace GreetingStruct {
 
 /**
  * @public
+ * @enum
  */
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
+export const FooEnum = {
+  BAR: "Bar",
+  BAZ: "Baz",
+  FOO: "Foo",
+  ONE: "1",
+  ZERO: "0",
+} as const;
+/**
+ * @public
+ */
+export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
 
 export enum IntegerEnum {
   A = 1,
@@ -70,13 +75,18 @@ export enum IntegerEnum {
 
 /**
  * @public
+ * @enum
  */
-export enum EnumString {
-  ABC = "abc",
-  DEF = "def",
-  GHI = "ghi",
-  JKL = "jkl",
-}
+export const EnumString = {
+  ABC: "abc",
+  DEF: "def",
+  GHI: "ghi",
+  JKL: "jkl",
+} as const;
+/**
+ * @public
+ */
+export type EnumString = (typeof EnumString)[keyof typeof EnumString];
 
 /**
  * @public
@@ -1331,11 +1341,16 @@ export namespace MalformedUniqueItemsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RecursiveEnumString {
-  ABC = "abc",
-  DEF = "def",
-}
+export const RecursiveEnumString = {
+  ABC: "abc",
+  DEF: "def",
+} as const;
+/**
+ * @public
+ */
+export type RecursiveEnumString = (typeof RecursiveEnumString)[keyof typeof RecursiveEnumString];
 
 /**
  * @public

@@ -5,12 +5,18 @@ import { IoTSecureTunnelingServiceException as __BaseException } from "./IoTSecu
 
 /**
  * @public
+ * @enum
  */
-export enum ClientMode {
-  ALL = "ALL",
-  DESTINATION = "DESTINATION",
-  SOURCE = "SOURCE",
-}
+export const ClientMode = {
+  ALL: "ALL",
+  DESTINATION: "DESTINATION",
+  SOURCE: "SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientMode = (typeof ClientMode)[keyof typeof ClientMode];
 
 /**
  * @public
@@ -55,11 +61,17 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionStatus {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-}
+export const ConnectionStatus = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 /**
  * @public
@@ -109,11 +121,17 @@ export interface DestinationConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum TunnelStatus {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN",
-}
+export const TunnelStatus = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+} as const;
+
+/**
+ * @public
+ */
+export type TunnelStatus = (typeof TunnelStatus)[keyof typeof TunnelStatus];
 
 /**
  * @public

@@ -25,12 +25,18 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ChatTokenCapability {
-  DELETE_MESSAGE = "DELETE_MESSAGE",
-  DISCONNECT_USER = "DISCONNECT_USER",
-  SEND_MESSAGE = "SEND_MESSAGE",
-}
+export const ChatTokenCapability = {
+  DELETE_MESSAGE: "DELETE_MESSAGE",
+  DISCONNECT_USER: "DISCONNECT_USER",
+  SEND_MESSAGE: "SEND_MESSAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChatTokenCapability = (typeof ChatTokenCapability)[keyof typeof ChatTokenCapability];
 
 /**
  * @public
@@ -113,10 +119,16 @@ export class PendingVerification extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  ROOM = "ROOM",
-}
+export const ResourceType = {
+  ROOM: "ROOM",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -168,12 +180,18 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -372,10 +390,17 @@ export interface CreateLoggingConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CreateLoggingConfigurationState {
-  ACTIVE = "ACTIVE",
-}
+export const CreateLoggingConfigurationState = {
+  ACTIVE: "ACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type CreateLoggingConfigurationState =
+  (typeof CreateLoggingConfigurationState)[keyof typeof CreateLoggingConfigurationState];
 
 /**
  * @public
@@ -470,11 +495,17 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FallbackResult {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const FallbackResult = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type FallbackResult = (typeof FallbackResult)[keyof typeof FallbackResult];
 
 /**
  * @public
@@ -730,16 +761,22 @@ export interface GetLoggingConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LoggingConfigurationState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const LoggingConfigurationState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggingConfigurationState = (typeof LoggingConfigurationState)[keyof typeof LoggingConfigurationState];
 
 /**
  * @public
@@ -1204,10 +1241,17 @@ export interface UpdateLoggingConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateLoggingConfigurationState {
-  ACTIVE = "ACTIVE",
-}
+export const UpdateLoggingConfigurationState = {
+  ACTIVE: "ACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateLoggingConfigurationState =
+  (typeof UpdateLoggingConfigurationState)[keyof typeof UpdateLoggingConfigurationState];
 
 /**
  * @public

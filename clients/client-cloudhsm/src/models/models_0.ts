@@ -125,11 +125,17 @@ export class InvalidRequestException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ClientVersion {
-  FIVE_ONE = "5.1",
-  FIVE_THREE = "5.3",
-}
+export const ClientVersion = {
+  FIVE_ONE: "5.1",
+  FIVE_THREE: "5.3",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientVersion = (typeof ClientVersion)[keyof typeof ClientVersion];
 
 /**
  * @public
@@ -155,10 +161,16 @@ export interface CreateHapgResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SubscriptionType {
-  PRODUCTION = "PRODUCTION",
-}
+export const SubscriptionType = {
+  PRODUCTION: "PRODUCTION",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
 
 /**
  * @public
@@ -339,12 +351,18 @@ export interface DescribeHapgRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CloudHsmObjectState {
-  DEGRADED = "DEGRADED",
-  READY = "READY",
-  UPDATING = "UPDATING",
-}
+export const CloudHsmObjectState = {
+  DEGRADED: "DEGRADED",
+  READY: "READY",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudHsmObjectState = (typeof CloudHsmObjectState)[keyof typeof CloudHsmObjectState];
 
 /**
  * @public
@@ -418,16 +436,22 @@ export interface DescribeHsmRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HsmStatus {
-  DEGRADED = "DEGRADED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UPDATING = "UPDATING",
-}
+export const HsmStatus = {
+  DEGRADED: "DEGRADED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type HsmStatus = (typeof HsmStatus)[keyof typeof HsmStatus];
 
 /**
  * @public

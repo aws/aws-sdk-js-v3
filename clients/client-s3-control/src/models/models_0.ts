@@ -17,10 +17,16 @@ export interface AbortIncompleteMultipartUpload {
 
 /**
  * @public
+ * @enum
  */
-export enum OwnerOverride {
-  Destination = "Destination",
-}
+export const OwnerOverride = {
+  Destination: "Destination",
+} as const;
+
+/**
+ * @public
+ */
+export type OwnerOverride = (typeof OwnerOverride)[keyof typeof OwnerOverride];
 
 /**
  * @public
@@ -38,11 +44,17 @@ export interface AccessControlTranslation {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkOrigin {
-  Internet = "Internet",
-  VPC = "VPC",
-}
+export const NetworkOrigin = {
+  Internet: "Internet",
+  VPC: "VPC",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkOrigin = (typeof NetworkOrigin)[keyof typeof NetworkOrigin];
 
 /**
  * @public
@@ -307,12 +319,18 @@ export interface AsyncErrorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum AsyncOperationName {
-  CreateMultiRegionAccessPoint = "CreateMultiRegionAccessPoint",
-  DeleteMultiRegionAccessPoint = "DeleteMultiRegionAccessPoint",
-  PutMultiRegionAccessPointPolicy = "PutMultiRegionAccessPointPolicy",
-}
+export const AsyncOperationName = {
+  CreateMultiRegionAccessPoint: "CreateMultiRegionAccessPoint",
+  DeleteMultiRegionAccessPoint: "DeleteMultiRegionAccessPoint",
+  PutMultiRegionAccessPointPolicy: "PutMultiRegionAccessPointPolicy",
+} as const;
+
+/**
+ * @public
+ */
+export type AsyncOperationName = (typeof AsyncOperationName)[keyof typeof AsyncOperationName];
 
 /**
  * @public
@@ -625,23 +643,36 @@ export interface CreateAccessPointResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ObjectLambdaAllowedFeature {
-  GetObjectPartNumber = "GetObject-PartNumber",
-  GetObjectRange = "GetObject-Range",
-  HeadObjectPartNumber = "HeadObject-PartNumber",
-  HeadObjectRange = "HeadObject-Range",
-}
+export const ObjectLambdaAllowedFeature = {
+  GetObjectPartNumber: "GetObject-PartNumber",
+  GetObjectRange: "GetObject-Range",
+  HeadObjectPartNumber: "HeadObject-PartNumber",
+  HeadObjectRange: "HeadObject-Range",
+} as const;
 
 /**
  * @public
  */
-export enum ObjectLambdaTransformationConfigurationAction {
-  GetObject = "GetObject",
-  HeadObject = "HeadObject",
-  ListObjects = "ListObjects",
-  ListObjectsV2 = "ListObjectsV2",
-}
+export type ObjectLambdaAllowedFeature = (typeof ObjectLambdaAllowedFeature)[keyof typeof ObjectLambdaAllowedFeature];
+
+/**
+ * @public
+ * @enum
+ */
+export const ObjectLambdaTransformationConfigurationAction = {
+  GetObject: "GetObject",
+  HeadObject: "HeadObject",
+  ListObjects: "ListObjects",
+  ListObjectsV2: "ListObjectsV2",
+} as const;
+
+/**
+ * @public
+ */
+export type ObjectLambdaTransformationConfigurationAction =
+  (typeof ObjectLambdaTransformationConfigurationAction)[keyof typeof ObjectLambdaTransformationConfigurationAction];
 
 /**
  * @public
@@ -747,11 +778,18 @@ export interface CreateAccessPointForObjectLambdaRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ObjectLambdaAccessPointAliasStatus {
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-}
+export const ObjectLambdaAccessPointAliasStatus = {
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type ObjectLambdaAccessPointAliasStatus =
+  (typeof ObjectLambdaAccessPointAliasStatus)[keyof typeof ObjectLambdaAccessPointAliasStatus];
 
 /**
  * @public
@@ -830,30 +868,42 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum BucketCannedACL {
-  authenticated_read = "authenticated-read",
-  private = "private",
-  public_read = "public-read",
-  public_read_write = "public-read-write",
-}
+export const BucketCannedACL = {
+  authenticated_read: "authenticated-read",
+  private: "private",
+  public_read: "public-read",
+  public_read_write: "public-read-write",
+} as const;
 
 /**
  * @public
  */
-export enum BucketLocationConstraint {
-  EU = "EU",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_south_1 = "ap-south-1",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  cn_north_1 = "cn-north-1",
-  eu_central_1 = "eu-central-1",
-  eu_west_1 = "eu-west-1",
-  sa_east_1 = "sa-east-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+export type BucketCannedACL = (typeof BucketCannedACL)[keyof typeof BucketCannedACL];
+
+/**
+ * @public
+ * @enum
+ */
+export const BucketLocationConstraint = {
+  EU: "EU",
+  ap_northeast_1: "ap-northeast-1",
+  ap_south_1: "ap-south-1",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  cn_north_1: "cn-north-1",
+  eu_central_1: "eu-central-1",
+  eu_west_1: "eu-west-1",
+  sa_east_1: "sa-east-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+} as const;
+
+/**
+ * @public
+ */
+export type BucketLocationConstraint = (typeof BucketLocationConstraint)[keyof typeof BucketLocationConstraint];
 
 /**
  * @public
@@ -1024,21 +1074,33 @@ export interface JobManifestLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum JobManifestFieldName {
-  Bucket = "Bucket",
-  Ignore = "Ignore",
-  Key = "Key",
-  VersionId = "VersionId",
-}
+export const JobManifestFieldName = {
+  Bucket: "Bucket",
+  Ignore: "Ignore",
+  Key: "Key",
+  VersionId: "VersionId",
+} as const;
 
 /**
  * @public
  */
-export enum JobManifestFormat {
-  S3BatchOperations_CSV_20180820 = "S3BatchOperations_CSV_20180820",
-  S3InventoryReport_CSV_20161130 = "S3InventoryReport_CSV_20161130",
-}
+export type JobManifestFieldName = (typeof JobManifestFieldName)[keyof typeof JobManifestFieldName];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobManifestFormat = {
+  S3BatchOperations_CSV_20180820: "S3BatchOperations_CSV_20180820",
+  S3InventoryReport_CSV_20161130: "S3InventoryReport_CSV_20161130",
+} as const;
+
+/**
+ * @public
+ */
+export type JobManifestFormat = (typeof JobManifestFormat)[keyof typeof JobManifestFormat];
 
 /**
  * @public
@@ -1077,13 +1139,19 @@ export interface JobManifest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  NONE = "NONE",
-  REPLICA = "REPLICA",
-}
+export const ReplicationStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  NONE: "NONE",
+  REPLICA: "REPLICA",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof ReplicationStatus];
 
 /**
  * @public
@@ -1152,10 +1220,16 @@ export interface GeneratedManifestEncryption {
 
 /**
  * @public
+ * @enum
  */
-export enum GeneratedManifestFormat {
-  S3InventoryReport_CSV_20211130 = "S3InventoryReport_CSV_20211130",
-}
+export const GeneratedManifestFormat = {
+  S3InventoryReport_CSV_20211130: "S3InventoryReport_CSV_20211130",
+} as const;
+
+/**
+ * @public
+ */
+export type GeneratedManifestFormat = (typeof GeneratedManifestFormat)[keyof typeof GeneratedManifestFormat];
 
 /**
  * @public
@@ -1286,11 +1360,17 @@ export interface S3DeleteObjectTaggingOperation {}
 
 /**
  * @public
+ * @enum
  */
-export enum S3GlacierJobTier {
-  BULK = "BULK",
-  STANDARD = "STANDARD",
-}
+export const S3GlacierJobTier = {
+  BULK: "BULK",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type S3GlacierJobTier = (typeof S3GlacierJobTier)[keyof typeof S3GlacierJobTier];
 
 /**
  * @public
@@ -1329,12 +1409,18 @@ export interface S3InitiateRestoreObjectOperation {
 
 /**
  * @public
+ * @enum
  */
-export enum S3GranteeTypeIdentifier {
-  CANONICAL = "id",
-  EMAIL_ADDRESS = "emailAddress",
-  GROUP = "uri",
-}
+export const S3GranteeTypeIdentifier = {
+  CANONICAL: "id",
+  EMAIL_ADDRESS: "emailAddress",
+  GROUP: "uri",
+} as const;
+
+/**
+ * @public
+ */
+export type S3GranteeTypeIdentifier = (typeof S3GranteeTypeIdentifier)[keyof typeof S3GranteeTypeIdentifier];
 
 /**
  * @public
@@ -1359,14 +1445,20 @@ export interface S3Grantee {
 
 /**
  * @public
+ * @enum
  */
-export enum S3Permission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
-}
+export const S3Permission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  READ_ACP: "READ_ACP",
+  WRITE: "WRITE",
+  WRITE_ACP: "WRITE_ACP",
+} as const;
+
+/**
+ * @public
+ */
+export type S3Permission = (typeof S3Permission)[keyof typeof S3Permission];
 
 /**
  * @public
@@ -1418,16 +1510,22 @@ export interface S3AccessControlList {
 
 /**
  * @public
+ * @enum
  */
-export enum S3CannedAccessControlList {
-  AUTHENTICATED_READ = "authenticated-read",
-  AWS_EXEC_READ = "aws-exec-read",
-  BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control",
-  BUCKET_OWNER_READ = "bucket-owner-read",
-  PRIVATE = "private",
-  PUBLIC_READ = "public-read",
-  PUBLIC_READ_WRITE = "public-read-write",
-}
+export const S3CannedAccessControlList = {
+  AUTHENTICATED_READ: "authenticated-read",
+  AWS_EXEC_READ: "aws-exec-read",
+  BUCKET_OWNER_FULL_CONTROL: "bucket-owner-full-control",
+  BUCKET_OWNER_READ: "bucket-owner-read",
+  PRIVATE: "private",
+  PUBLIC_READ: "public-read",
+  PUBLIC_READ_WRITE: "public-read-write",
+} as const;
+
+/**
+ * @public
+ */
+export type S3CannedAccessControlList = (typeof S3CannedAccessControlList)[keyof typeof S3CannedAccessControlList];
 
 /**
  * @public
@@ -1464,29 +1562,47 @@ export interface S3SetObjectAclOperation {
 
 /**
  * @public
+ * @enum
  */
-export enum S3ChecksumAlgorithm {
-  CRC32 = "CRC32",
-  CRC32C = "CRC32C",
-  SHA1 = "SHA1",
-  SHA256 = "SHA256",
-}
+export const S3ChecksumAlgorithm = {
+  CRC32: "CRC32",
+  CRC32C: "CRC32C",
+  SHA1: "SHA1",
+  SHA256: "SHA256",
+} as const;
 
 /**
  * @public
  */
-export enum S3MetadataDirective {
-  COPY = "COPY",
-  REPLACE = "REPLACE",
-}
+export type S3ChecksumAlgorithm = (typeof S3ChecksumAlgorithm)[keyof typeof S3ChecksumAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3MetadataDirective = {
+  COPY: "COPY",
+  REPLACE: "REPLACE",
+} as const;
 
 /**
  * @public
  */
-export enum S3SSEAlgorithm {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+export type S3MetadataDirective = (typeof S3MetadataDirective)[keyof typeof S3MetadataDirective];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3SSEAlgorithm = {
+  AES256: "AES256",
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type S3SSEAlgorithm = (typeof S3SSEAlgorithm)[keyof typeof S3SSEAlgorithm];
 
 /**
  * @public
@@ -1567,32 +1683,51 @@ export interface S3Tag {
 
 /**
  * @public
+ * @enum
  */
-export enum S3ObjectLockLegalHoldStatus {
-  OFF = "OFF",
-  ON = "ON",
-}
+export const S3ObjectLockLegalHoldStatus = {
+  OFF: "OFF",
+  ON: "ON",
+} as const;
 
 /**
  * @public
  */
-export enum S3ObjectLockMode {
-  COMPLIANCE = "COMPLIANCE",
-  GOVERNANCE = "GOVERNANCE",
-}
+export type S3ObjectLockLegalHoldStatus =
+  (typeof S3ObjectLockLegalHoldStatus)[keyof typeof S3ObjectLockLegalHoldStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ObjectLockMode = {
+  COMPLIANCE: "COMPLIANCE",
+  GOVERNANCE: "GOVERNANCE",
+} as const;
 
 /**
  * @public
  */
-export enum S3StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export type S3ObjectLockMode = (typeof S3ObjectLockMode)[keyof typeof S3ObjectLockMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
 
 /**
  * @public
@@ -1758,11 +1893,17 @@ export interface S3SetObjectLegalHoldOperation {
 
 /**
  * @public
+ * @enum
  */
-export enum S3ObjectLockRetentionMode {
-  COMPLIANCE = "COMPLIANCE",
-  GOVERNANCE = "GOVERNANCE",
-}
+export const S3ObjectLockRetentionMode = {
+  COMPLIANCE: "COMPLIANCE",
+  GOVERNANCE: "GOVERNANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ObjectLockRetentionMode = (typeof S3ObjectLockRetentionMode)[keyof typeof S3ObjectLockRetentionMode];
 
 /**
  * @public
@@ -1908,18 +2049,30 @@ export interface JobOperation {
 
 /**
  * @public
+ * @enum
  */
-export enum JobReportFormat {
-  Report_CSV_20180820 = "Report_CSV_20180820",
-}
+export const JobReportFormat = {
+  Report_CSV_20180820: "Report_CSV_20180820",
+} as const;
 
 /**
  * @public
  */
-export enum JobReportScope {
-  AllTasks = "AllTasks",
-  FailedTasksOnly = "FailedTasksOnly",
-}
+export type JobReportFormat = (typeof JobReportFormat)[keyof typeof JobReportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobReportScope = {
+  AllTasks: "AllTasks",
+  FailedTasksOnly: "FailedTasksOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type JobReportScope = (typeof JobReportScope)[keyof typeof JobReportScope];
 
 /**
  * @public
@@ -2493,22 +2646,28 @@ export interface JobProgressSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  Active = "Active",
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Complete = "Complete",
-  Completing = "Completing",
-  Failed = "Failed",
-  Failing = "Failing",
-  New = "New",
-  Paused = "Paused",
-  Pausing = "Pausing",
-  Preparing = "Preparing",
-  Ready = "Ready",
-  Suspended = "Suspended",
-}
+export const JobStatus = {
+  Active: "Active",
+  Cancelled: "Cancelled",
+  Cancelling: "Cancelling",
+  Complete: "Complete",
+  Completing: "Completing",
+  Failed: "Failed",
+  Failing: "Failing",
+  New: "New",
+  Paused: "Paused",
+  Pausing: "Pausing",
+  Preparing: "Preparing",
+  Ready: "Ready",
+  Suspended: "Suspended",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -3095,14 +3254,20 @@ export interface NoncurrentVersionExpiration {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitionStorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const TransitionStorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitionStorageClass = (typeof TransitionStorageClass)[keyof typeof TransitionStorageClass];
 
 /**
  * @public
@@ -3125,11 +3290,17 @@ export interface NoncurrentVersionTransition {
 
 /**
  * @public
+ * @enum
  */
-export enum ExpirationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ExpirationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ExpirationStatus = (typeof ExpirationStatus)[keyof typeof ExpirationStatus];
 
 /**
  * @public
@@ -3274,11 +3445,18 @@ export interface GetBucketReplicationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeleteMarkerReplicationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const DeleteMarkerReplicationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteMarkerReplicationStatus =
+  (typeof DeleteMarkerReplicationStatus)[keyof typeof DeleteMarkerReplicationStatus];
 
 /**
  * @public
@@ -3336,11 +3514,17 @@ export interface ReplicationTimeValue {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MetricsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricsStatus = (typeof MetricsStatus)[keyof typeof MetricsStatus];
 
 /**
  * @public
@@ -3364,11 +3548,17 @@ export interface Metrics {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationTimeStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicationTimeStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationTimeStatus = (typeof ReplicationTimeStatus)[keyof typeof ReplicationTimeStatus];
 
 /**
  * @public
@@ -3394,18 +3584,24 @@ export interface ReplicationTime {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationStorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  OUTPOSTS = "OUTPOSTS",
-  REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const ReplicationStorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  OUTPOSTS: "OUTPOSTS",
+  REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationStorageClass = (typeof ReplicationStorageClass)[keyof typeof ReplicationStorageClass];
 
 /**
  * @public
@@ -3473,11 +3669,18 @@ export interface Destination {
 
 /**
  * @public
+ * @enum
  */
-export enum ExistingObjectReplicationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ExistingObjectReplicationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ExistingObjectReplicationStatus =
+  (typeof ExistingObjectReplicationStatus)[keyof typeof ExistingObjectReplicationStatus];
 
 /**
  * @public
@@ -3566,11 +3769,17 @@ export interface ReplicationRuleFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicaModificationsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicaModificationsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicaModificationsStatus = (typeof ReplicaModificationsStatus)[keyof typeof ReplicaModificationsStatus];
 
 /**
  * @public
@@ -3597,11 +3806,18 @@ export interface ReplicaModifications {
 
 /**
  * @public
+ * @enum
  */
-export enum SseKmsEncryptedObjectsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const SseKmsEncryptedObjectsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type SseKmsEncryptedObjectsStatus =
+  (typeof SseKmsEncryptedObjectsStatus)[keyof typeof SseKmsEncryptedObjectsStatus];
 
 /**
  * @public
@@ -3656,11 +3872,17 @@ export interface SourceSelectionCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationRuleStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicationRuleStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationRuleStatus = (typeof ReplicationRuleStatus)[keyof typeof ReplicationRuleStatus];
 
 /**
  * @public
@@ -3824,19 +4046,31 @@ export interface GetBucketVersioningRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MFADeleteStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MFADeleteStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
 
 /**
  * @public
  */
-export enum BucketVersioningStatus {
-  Enabled = "Enabled",
-  Suspended = "Suspended",
-}
+export type MFADeleteStatus = (typeof MFADeleteStatus)[keyof typeof MFADeleteStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BucketVersioningStatus = {
+  Enabled: "Enabled",
+  Suspended: "Suspended",
+} as const;
+
+/**
+ * @public
+ */
+export type BucketVersioningStatus = (typeof BucketVersioningStatus)[keyof typeof BucketVersioningStatus];
 
 /**
  * @public
@@ -3922,15 +4156,22 @@ export interface RegionReport {
 
 /**
  * @public
+ * @enum
  */
-export enum MultiRegionAccessPointStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  INCONSISTENT_ACROSS_REGIONS = "INCONSISTENT_ACROSS_REGIONS",
-  PARTIALLY_CREATED = "PARTIALLY_CREATED",
-  PARTIALLY_DELETED = "PARTIALLY_DELETED",
-  READY = "READY",
-}
+export const MultiRegionAccessPointStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INCONSISTENT_ACROSS_REGIONS: "INCONSISTENT_ACROSS_REGIONS",
+  PARTIALLY_CREATED: "PARTIALLY_CREATED",
+  PARTIALLY_DELETED: "PARTIALLY_DELETED",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type MultiRegionAccessPointStatus =
+  (typeof MultiRegionAccessPointStatus)[keyof typeof MultiRegionAccessPointStatus];
 
 /**
  * @public
@@ -4294,18 +4535,30 @@ export interface StorageLensDataExportEncryption {
 
 /**
  * @public
+ * @enum
  */
-export enum Format {
-  CSV = "CSV",
-  Parquet = "Parquet",
-}
+export const Format = {
+  CSV: "CSV",
+  Parquet: "Parquet",
+} as const;
 
 /**
  * @public
  */
-export enum OutputSchemaVersion {
-  V_1 = "V_1",
-}
+export type Format = (typeof Format)[keyof typeof Format];
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputSchemaVersion = {
+  V_1: "V_1",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputSchemaVersion = (typeof OutputSchemaVersion)[keyof typeof OutputSchemaVersion];
 
 /**
  * @public
@@ -4697,18 +4950,24 @@ export interface ListJobsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationName {
-  LambdaInvoke = "LambdaInvoke",
-  S3DeleteObjectTagging = "S3DeleteObjectTagging",
-  S3InitiateRestoreObject = "S3InitiateRestoreObject",
-  S3PutObjectAcl = "S3PutObjectAcl",
-  S3PutObjectCopy = "S3PutObjectCopy",
-  S3PutObjectLegalHold = "S3PutObjectLegalHold",
-  S3PutObjectRetention = "S3PutObjectRetention",
-  S3PutObjectTagging = "S3PutObjectTagging",
-  S3ReplicateObject = "S3ReplicateObject",
-}
+export const OperationName = {
+  LambdaInvoke: "LambdaInvoke",
+  S3DeleteObjectTagging: "S3DeleteObjectTagging",
+  S3InitiateRestoreObject: "S3InitiateRestoreObject",
+  S3PutObjectAcl: "S3PutObjectAcl",
+  S3PutObjectCopy: "S3PutObjectCopy",
+  S3PutObjectLegalHold: "S3PutObjectLegalHold",
+  S3PutObjectRetention: "S3PutObjectRetention",
+  S3PutObjectTagging: "S3PutObjectTagging",
+  S3ReplicateObject: "S3ReplicateObject",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationName = (typeof OperationName)[keyof typeof OperationName];
 
 /**
  * @public
@@ -5138,11 +5397,17 @@ export interface PutBucketTaggingRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MFADelete {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MFADelete = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type MFADelete = (typeof MFADelete)[keyof typeof MFADelete];
 
 /**
  * @public
@@ -5425,11 +5690,17 @@ export class JobStatusException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RequestedJobStatus {
-  Cancelled = "Cancelled",
-  Ready = "Ready",
-}
+export const RequestedJobStatus = {
+  Cancelled: "Cancelled",
+  Ready: "Ready",
+} as const;
+
+/**
+ * @public
+ */
+export type RequestedJobStatus = (typeof RequestedJobStatus)[keyof typeof RequestedJobStatus];
 
 /**
  * @public

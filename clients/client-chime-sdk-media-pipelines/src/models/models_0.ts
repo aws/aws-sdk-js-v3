@@ -5,42 +5,66 @@ import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "./Chi
 
 /**
  * @public
+ * @enum
  */
-export enum ContentType {
-  PII = "PII",
-}
+export const ContentType = {
+  PII: "PII",
+} as const;
 
 /**
  * @public
  */
-export enum CallAnalyticsLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  PT_BR = "pt-BR",
-}
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CallAnalyticsLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  PT_BR: "pt-BR",
+} as const;
 
 /**
  * @public
  */
-export enum PartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
+export type CallAnalyticsLanguageCode = (typeof CallAnalyticsLanguageCode)[keyof typeof CallAnalyticsLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+} as const;
 
 /**
  * @public
  */
-export enum ContentRedactionOutput {
-  REDACTED = "redacted",
-  REDACTED_AND_UNREDACTED = "redacted_and_unredacted",
-}
+export type PartialResultsStability = (typeof PartialResultsStability)[keyof typeof PartialResultsStability];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentRedactionOutput = {
+  REDACTED: "redacted",
+  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeof ContentRedactionOutput];
 
 /**
  * @public
@@ -71,12 +95,18 @@ export interface PostCallAnalyticsSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum VocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+export const VocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+} as const;
+
+/**
+ * @public
+ */
+export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeof VocabularyFilterMethod];
 
 /**
  * @public
@@ -291,10 +321,17 @@ export interface AmazonTranscribeProcessorConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioArtifactsConcatenationState {
-  Enabled = "Enabled",
-}
+export const AudioArtifactsConcatenationState = {
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioArtifactsConcatenationState =
+  (typeof AudioArtifactsConcatenationState)[keyof typeof AudioArtifactsConcatenationState];
 
 /**
  * @public
@@ -309,11 +346,18 @@ export interface AudioConcatenationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ArtifactsConcatenationState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ArtifactsConcatenationState = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ArtifactsConcatenationState =
+  (typeof ArtifactsConcatenationState)[keyof typeof ArtifactsConcatenationState];
 
 /**
  * @public
@@ -427,12 +471,18 @@ export interface ArtifactsConcatenationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioMuxType {
-  AudioOnly = "AudioOnly",
-  AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
-  AudioWithCompositedVideo = "AudioWithCompositedVideo",
-}
+export const AudioMuxType = {
+  AudioOnly: "AudioOnly",
+  AudioWithActiveSpeakerVideo: "AudioWithActiveSpeakerVideo",
+  AudioWithCompositedVideo: "AudioWithCompositedVideo",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioMuxType = (typeof AudioMuxType)[keyof typeof AudioMuxType];
 
 /**
  * @public
@@ -447,22 +497,34 @@ export interface AudioArtifactsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ContentShareLayoutOption {
-  Horizontal = "Horizontal",
-  PresenterOnly = "PresenterOnly",
-  Vertical = "Vertical",
-}
+export const ContentShareLayoutOption = {
+  Horizontal: "Horizontal",
+  PresenterOnly: "PresenterOnly",
+  Vertical: "Vertical",
+} as const;
 
 /**
  * @public
  */
-export enum PresenterPosition {
-  BottomLeft = "BottomLeft",
-  BottomRight = "BottomRight",
-  TopLeft = "TopLeft",
-  TopRight = "TopRight",
-}
+export type ContentShareLayoutOption = (typeof ContentShareLayoutOption)[keyof typeof ContentShareLayoutOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const PresenterPosition = {
+  BottomLeft: "BottomLeft",
+  BottomRight: "BottomRight",
+  TopLeft: "TopLeft",
+  TopRight: "TopRight",
+} as const;
+
+/**
+ * @public
+ */
+export type PresenterPosition = (typeof PresenterPosition)[keyof typeof PresenterPosition];
 
 /**
  * @public
@@ -493,18 +555,30 @@ export interface GridViewConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum LayoutOption {
-  GridView = "GridView",
-}
+export const LayoutOption = {
+  GridView: "GridView",
+} as const;
 
 /**
  * @public
  */
-export enum ResolutionOption {
-  FHD = "FHD",
-  HD = "HD",
-}
+export type LayoutOption = (typeof LayoutOption)[keyof typeof LayoutOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolutionOption = {
+  FHD: "FHD",
+  HD: "HD",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolutionOption = (typeof ResolutionOption)[keyof typeof ResolutionOption];
 
 /**
  * @public
@@ -529,18 +603,30 @@ export interface CompositedVideoArtifactsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ContentMuxType {
-  ContentOnly = "ContentOnly",
-}
+export const ContentMuxType = {
+  ContentOnly: "ContentOnly",
+} as const;
 
 /**
  * @public
  */
-export enum ArtifactsState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export type ContentMuxType = (typeof ContentMuxType)[keyof typeof ContentMuxType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactsState = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ArtifactsState = (typeof ArtifactsState)[keyof typeof ArtifactsState];
 
 /**
  * @public
@@ -560,10 +646,16 @@ export interface ContentArtifactsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum VideoMuxType {
-  VideoOnly = "VideoOnly",
-}
+export const VideoMuxType = {
+  VideoOnly: "VideoOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoMuxType = (typeof VideoMuxType)[keyof typeof VideoMuxType];
 
 /**
  * @public
@@ -609,24 +701,36 @@ export interface ArtifactsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum AudioChannelsOption {
-  Mono = "Mono",
-  Stereo = "Stereo",
-}
+export const AudioChannelsOption = {
+  Mono: "Mono",
+  Stereo: "Stereo",
+} as const;
 
 /**
  * @public
  */
-export enum ErrorCode {
-  BadRequest = "BadRequest",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttling = "Throttling",
-}
+export type AudioChannelsOption = (typeof AudioChannelsOption)[keyof typeof AudioChannelsOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  BadRequest: "BadRequest",
+  Forbidden: "Forbidden",
+  NotFound: "NotFound",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttling: "Throttling",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -659,11 +763,17 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-}
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
 
 /**
  * @public
@@ -728,17 +838,29 @@ export interface ChimeSdkMeetingConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaPipelineSinkType {
-  S3Bucket = "S3Bucket",
-}
+export const MediaPipelineSinkType = {
+  S3Bucket: "S3Bucket",
+} as const;
 
 /**
  * @public
  */
-export enum MediaPipelineSourceType {
-  ChimeSdkMeeting = "ChimeSdkMeeting",
-}
+export type MediaPipelineSinkType = (typeof MediaPipelineSinkType)[keyof typeof MediaPipelineSinkType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaPipelineSourceType = {
+  ChimeSdkMeeting: "ChimeSdkMeeting",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaPipelineSourceType = (typeof MediaPipelineSourceType)[keyof typeof MediaPipelineSourceType];
 
 /**
  * @public
@@ -800,15 +922,21 @@ export interface CreateMediaCapturePipelineRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaPipelineStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Initializing = "Initializing",
-  Paused = "Paused",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-}
+export const MediaPipelineStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Initializing: "Initializing",
+  Paused: "Paused",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaPipelineStatus = (typeof MediaPipelineStatus)[keyof typeof MediaPipelineStatus];
 
 /**
  * @public
@@ -1068,10 +1196,16 @@ export interface S3BucketSinkConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ConcatenationSinkType {
-  S3Bucket = "S3Bucket",
-}
+export const ConcatenationSinkType = {
+  S3Bucket: "S3Bucket",
+} as const;
+
+/**
+ * @public
+ */
+export type ConcatenationSinkType = (typeof ConcatenationSinkType)[keyof typeof ConcatenationSinkType];
 
 /**
  * @public
@@ -1119,10 +1253,16 @@ export interface MediaCapturePipelineSourceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ConcatenationSourceType {
-  MediaCapturePipeline = "MediaCapturePipeline",
-}
+export const ConcatenationSourceType = {
+  MediaCapturePipeline: "MediaCapturePipeline",
+} as const;
+
+/**
+ * @public
+ */
+export type ConcatenationSourceType = (typeof ConcatenationSourceType)[keyof typeof ConcatenationSourceType];
 
 /**
  * @public
@@ -1220,11 +1360,17 @@ export interface CreateMediaConcatenationPipelineResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FragmentSelectorType {
-  ProducerTimestamp = "ProducerTimestamp",
-  ServerTimestamp = "ServerTimestamp",
-}
+export const FragmentSelectorType = {
+  ProducerTimestamp: "ProducerTimestamp",
+  ServerTimestamp: "ServerTimestamp",
+} as const;
+
+/**
+ * @public
+ */
+export type FragmentSelectorType = (typeof FragmentSelectorType)[keyof typeof FragmentSelectorType];
 
 /**
  * @public
@@ -1305,10 +1451,16 @@ export interface KinesisVideoStreamRecordingSourceRuntimeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaEncoding {
-  PCM = "pcm",
-}
+export const MediaEncoding = {
+  PCM: "pcm",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaEncoding = (typeof MediaEncoding)[keyof typeof MediaEncoding];
 
 /**
  * @public
@@ -1374,11 +1526,17 @@ export interface KinesisVideoStreamSourceRuntimeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordingFileFormat {
-  Opus = "Opus",
-  Wav = "Wav",
-}
+export const RecordingFileFormat = {
+  Opus: "Opus",
+  Wav: "Wav",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordingFileFormat = (typeof RecordingFileFormat)[keyof typeof RecordingFileFormat];
 
 /**
  * @public
@@ -1584,25 +1742,39 @@ export interface SqsQueueSinkConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaInsightsPipelineConfigurationElementType {
-  AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR = "AmazonTranscribeCallAnalyticsProcessor",
-  AMAZON_TRANSCRIBE_PROCESSOR = "AmazonTranscribeProcessor",
-  KINESIS_DATA_STREAM_SINK = "KinesisDataStreamSink",
-  LAMBDA_FUNCTION_SINK = "LambdaFunctionSink",
-  S3_RECORDING_SINK = "S3RecordingSink",
-  SNS_TOPIC_SINK = "SnsTopicSink",
-  SQS_QUEUE_SINK = "SqsQueueSink",
-  VOICE_ANALYTICS_PROCESSOR = "VoiceAnalyticsProcessor",
-}
+export const MediaInsightsPipelineConfigurationElementType = {
+  AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR: "AmazonTranscribeCallAnalyticsProcessor",
+  AMAZON_TRANSCRIBE_PROCESSOR: "AmazonTranscribeProcessor",
+  KINESIS_DATA_STREAM_SINK: "KinesisDataStreamSink",
+  LAMBDA_FUNCTION_SINK: "LambdaFunctionSink",
+  S3_RECORDING_SINK: "S3RecordingSink",
+  SNS_TOPIC_SINK: "SnsTopicSink",
+  SQS_QUEUE_SINK: "SqsQueueSink",
+  VOICE_ANALYTICS_PROCESSOR: "VoiceAnalyticsProcessor",
+} as const;
 
 /**
  * @public
  */
-export enum VoiceAnalyticsConfigurationStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export type MediaInsightsPipelineConfigurationElementType =
+  (typeof MediaInsightsPipelineConfigurationElementType)[keyof typeof MediaInsightsPipelineConfigurationElementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VoiceAnalyticsConfigurationStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type VoiceAnalyticsConfigurationStatus =
+  (typeof VoiceAnalyticsConfigurationStatus)[keyof typeof VoiceAnalyticsConfigurationStatus];
 
 /**
  * @public
@@ -1707,10 +1879,16 @@ export interface KeywordMatchConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SentimentType {
-  NEGATIVE = "NEGATIVE",
-}
+export const SentimentType = {
+  NEGATIVE: "NEGATIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type SentimentType = (typeof SentimentType)[keyof typeof SentimentType];
 
 /**
  * @public
@@ -1735,12 +1913,18 @@ export interface SentimentConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RealTimeAlertRuleType {
-  IssueDetection = "IssueDetection",
-  KeywordMatch = "KeywordMatch",
-  Sentiment = "Sentiment",
-}
+export const RealTimeAlertRuleType = {
+  IssueDetection: "IssueDetection",
+  KeywordMatch: "KeywordMatch",
+  Sentiment: "Sentiment",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeAlertRuleType = (typeof RealTimeAlertRuleType)[keyof typeof RealTimeAlertRuleType];
 
 /**
  * @public
@@ -1900,10 +2084,16 @@ export interface LiveConnectorRTMPConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum LiveConnectorSinkType {
-  RTMP = "RTMP",
-}
+export const LiveConnectorSinkType = {
+  RTMP: "RTMP",
+} as const;
+
+/**
+ * @public
+ */
+export type LiveConnectorSinkType = (typeof LiveConnectorSinkType)[keyof typeof LiveConnectorSinkType];
 
 /**
  * @public
@@ -1923,11 +2113,17 @@ export interface LiveConnectorSinkConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum LiveConnectorMuxType {
-  AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
-  AudioWithCompositedVideo = "AudioWithCompositedVideo",
-}
+export const LiveConnectorMuxType = {
+  AudioWithActiveSpeakerVideo: "AudioWithActiveSpeakerVideo",
+  AudioWithCompositedVideo: "AudioWithCompositedVideo",
+} as const;
+
+/**
+ * @public
+ */
+export type LiveConnectorMuxType = (typeof LiveConnectorMuxType)[keyof typeof LiveConnectorMuxType];
 
 /**
  * @public
@@ -1957,10 +2153,16 @@ export interface ChimeSdkMeetingLiveConnectorConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum LiveConnectorSourceType {
-  ChimeSdkMeeting = "ChimeSdkMeeting",
-}
+export const LiveConnectorSourceType = {
+  ChimeSdkMeeting: "ChimeSdkMeeting",
+} as const;
+
+/**
+ * @public
+ */
+export type LiveConnectorSourceType = (typeof LiveConnectorSourceType)[keyof typeof LiveConnectorSourceType];
 
 /**
  * @public
@@ -2440,11 +2642,17 @@ export interface UpdateMediaInsightsPipelineConfigurationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaPipelineStatusUpdate {
-  Pause = "Pause",
-  Resume = "Resume",
-}
+export const MediaPipelineStatusUpdate = {
+  Pause: "Pause",
+  Resume: "Resume",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaPipelineStatusUpdate = (typeof MediaPipelineStatusUpdate)[keyof typeof MediaPipelineStatusUpdate];
 
 /**
  * @public

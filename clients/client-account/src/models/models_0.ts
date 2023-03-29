@@ -26,12 +26,18 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AlternateContactType {
-  BILLING = "BILLING",
-  OPERATIONS = "OPERATIONS",
-  SECURITY = "SECURITY",
-}
+export const AlternateContactType = {
+  BILLING: "BILLING",
+  OPERATIONS: "OPERATIONS",
+  SECURITY: "SECURITY",
+} as const;
+
+/**
+ * @public
+ */
+export type AlternateContactType = (typeof AlternateContactType)[keyof typeof AlternateContactType];
 
 /**
  * @public
@@ -149,11 +155,17 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  INVALID_REGION_OPT_TARGET = "invalidRegionOptTarget",
-}
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  INVALID_REGION_OPT_TARGET: "invalidRegionOptTarget",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -578,14 +590,20 @@ export interface GetRegionOptStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RegionOptStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLED_BY_DEFAULT = "ENABLED_BY_DEFAULT",
-  ENABLING = "ENABLING",
-}
+export const RegionOptStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLED_BY_DEFAULT: "ENABLED_BY_DEFAULT",
+  ENABLING: "ENABLING",
+} as const;
+
+/**
+ * @public
+ */
+export type RegionOptStatus = (typeof RegionOptStatus)[keyof typeof RegionOptStatus];
 
 /**
  * @public

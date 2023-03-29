@@ -153,11 +153,17 @@ export interface LFTag {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  DATABASE = "DATABASE",
-  TABLE = "TABLE",
-}
+export const ResourceType = {
+  DATABASE: "DATABASE",
+  TABLE: "TABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -610,21 +616,27 @@ export interface AuditContext {
 
 /**
  * @public
+ * @enum
  */
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  ASSOCIATE = "ASSOCIATE",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  CREATE_TAG = "CREATE_TAG",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DESCRIBE = "DESCRIBE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT",
-}
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  ASSOCIATE: "ASSOCIATE",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  CREATE_TAG: "CREATE_TAG",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DESCRIBE: "DESCRIBE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
  * @public
@@ -812,13 +824,19 @@ export interface CommitTransactionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransactionStatus {
-  ABORTED = "ABORTED",
-  ACTIVE = "ACTIVE",
-  COMMITTED = "COMMITTED",
-  COMMIT_IN_PROGRESS = "COMMIT_IN_PROGRESS",
-}
+export const TransactionStatus = {
+  ABORTED: "ABORTED",
+  ACTIVE: "ACTIVE",
+  COMMITTED: "COMMITTED",
+  COMMIT_IN_PROGRESS: "COMMIT_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type TransactionStatus = (typeof TransactionStatus)[keyof typeof TransactionStatus];
 
 /**
  * @public
@@ -1485,14 +1503,20 @@ export interface GetQueryStateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryStateString {
-  ERROR = "ERROR",
-  EXPIRED = "EXPIRED",
-  FINISHED = "FINISHED",
-  PENDING = "PENDING",
-  WORKUNITS_AVAILABLE = "WORKUNITS_AVAILABLE",
-}
+export const QueryStateString = {
+  ERROR: "ERROR",
+  EXPIRED: "EXPIRED",
+  FINISHED: "FINISHED",
+  PENDING: "PENDING",
+  WORKUNITS_AVAILABLE: "WORKUNITS_AVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryStateString = (typeof QueryStateString)[keyof typeof QueryStateString];
 
 /**
  * @public
@@ -1881,11 +1905,17 @@ export interface PartitionValueList {
 
 /**
  * @public
+ * @enum
  */
-export enum PermissionType {
-  CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
-  COLUMN_PERMISSION = "COLUMN_PERMISSION",
-}
+export const PermissionType = {
+  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION: "COLUMN_PERMISSION",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 /**
  * @public
@@ -2218,11 +2248,17 @@ export interface ListDataCellsFilterResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceShareType {
-  ALL = "ALL",
-  FOREIGN = "FOREIGN",
-}
+export const ResourceShareType = {
+  ALL: "ALL",
+  FOREIGN: "FOREIGN",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceShareType = (typeof ResourceShareType)[keyof typeof ResourceShareType];
 
 /**
  * @public
@@ -2266,17 +2302,23 @@ export interface ListLFTagsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DataLakeResourceType {
-  CATALOG = "CATALOG",
-  DATABASE = "DATABASE",
-  DATA_LOCATION = "DATA_LOCATION",
-  LF_TAG = "LF_TAG",
-  LF_TAG_POLICY = "LF_TAG_POLICY",
-  LF_TAG_POLICY_DATABASE = "LF_TAG_POLICY_DATABASE",
-  LF_TAG_POLICY_TABLE = "LF_TAG_POLICY_TABLE",
-  TABLE = "TABLE",
-}
+export const DataLakeResourceType = {
+  CATALOG: "CATALOG",
+  DATABASE: "DATABASE",
+  DATA_LOCATION: "DATA_LOCATION",
+  LF_TAG: "LF_TAG",
+  LF_TAG_POLICY: "LF_TAG_POLICY",
+  LF_TAG_POLICY_DATABASE: "LF_TAG_POLICY_DATABASE",
+  LF_TAG_POLICY_TABLE: "LF_TAG_POLICY_TABLE",
+  TABLE: "TABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataLakeResourceType = (typeof DataLakeResourceType)[keyof typeof DataLakeResourceType];
 
 /**
  * @public
@@ -2336,29 +2378,41 @@ export interface ListPermissionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  IN = "IN",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS",
-}
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  IN: "IN",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+  NOT_CONTAINS: "NOT_CONTAINS",
+} as const;
 
 /**
  * @public
  */
-export enum FieldNameString {
-  LAST_MODIFIED = "LAST_MODIFIED",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  ROLE_ARN = "ROLE_ARN",
-}
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldNameString = {
+  LAST_MODIFIED: "LAST_MODIFIED",
+  RESOURCE_ARN: "RESOURCE_ARN",
+  ROLE_ARN: "ROLE_ARN",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldNameString = (typeof FieldNameString)[keyof typeof FieldNameString];
 
 /**
  * @public
@@ -2418,12 +2472,18 @@ export interface ListResourcesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OptimizerType {
-  COMPACTION = "COMPACTION",
-  GARBAGE_COLLECTION = "GARBAGE_COLLECTION",
-  GENERIC = "ALL",
-}
+export const OptimizerType = {
+  COMPACTION: "COMPACTION",
+  GARBAGE_COLLECTION: "GARBAGE_COLLECTION",
+  GENERIC: "ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type OptimizerType = (typeof OptimizerType)[keyof typeof OptimizerType];
 
 /**
  * @public
@@ -2510,14 +2570,20 @@ export interface ListTableStorageOptimizersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TransactionStatusFilter {
-  ABORTED = "ABORTED",
-  ACTIVE = "ACTIVE",
-  ALL = "ALL",
-  COMMITTED = "COMMITTED",
-  COMPLETED = "COMPLETED",
-}
+export const TransactionStatusFilter = {
+  ABORTED: "ABORTED",
+  ACTIVE: "ACTIVE",
+  ALL: "ALL",
+  COMMITTED: "COMMITTED",
+  COMPLETED: "COMPLETED",
+} as const;
+
+/**
+ * @public
+ */
+export type TransactionStatusFilter = (typeof TransactionStatusFilter)[keyof typeof TransactionStatusFilter];
 
 /**
  * @public
@@ -2852,11 +2918,17 @@ export interface StartQueryPlanningResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TransactionType {
-  READ_AND_WRITE = "READ_AND_WRITE",
-  READ_ONLY = "READ_ONLY",
-}
+export const TransactionType = {
+  READ_AND_WRITE: "READ_AND_WRITE",
+  READ_ONLY: "READ_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type TransactionType = (typeof TransactionType)[keyof typeof TransactionType];
 
 /**
  * @public

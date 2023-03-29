@@ -68,11 +68,17 @@ export interface AclConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum HighlightType {
-  STANDARD = "STANDARD",
-  THESAURUS_SYNONYM = "THESAURUS_SYNONYM",
-}
+export const HighlightType = {
+  STANDARD: "STANDARD",
+  THESAURUS_SYNONYM: "THESAURUS_SYNONYM",
+} as const;
+
+/**
+ * @public
+ */
+export type HighlightType = (typeof HighlightType)[keyof typeof HighlightType];
 
 /**
  * @public
@@ -132,10 +138,17 @@ export interface AdditionalResultAttributeValue {
 
 /**
  * @public
+ * @enum
  */
-export enum AdditionalResultAttributeValueType {
-  TEXT_WITH_HIGHLIGHTS_VALUE = "TEXT_WITH_HIGHLIGHTS_VALUE",
-}
+export const AdditionalResultAttributeValueType = {
+  TEXT_WITH_HIGHLIGHTS_VALUE: "TEXT_WITH_HIGHLIGHTS_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type AdditionalResultAttributeValueType =
+  (typeof AdditionalResultAttributeValueType)[keyof typeof AdditionalResultAttributeValueType];
 
 /**
  * @public
@@ -182,12 +195,18 @@ export interface DataSourceToIndexFieldMapping {
 
 /**
  * @public
+ * @enum
  */
-export enum AlfrescoEntity {
-  blog = "blog",
-  documentLibrary = "documentLibrary",
-  wiki = "wiki",
-}
+export const AlfrescoEntity = {
+  blog: "blog",
+  documentLibrary: "documentLibrary",
+  wiki: "wiki",
+} as const;
+
+/**
+ * @public
+ */
+export type AlfrescoEntity = (typeof AlfrescoEntity)[keyof typeof AlfrescoEntity];
 
 /**
  * @public
@@ -350,11 +369,17 @@ export interface AlfrescoConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum EntityType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const EntityType = {
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 /**
  * @public
@@ -543,11 +568,17 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Persona {
-  OWNER = "OWNER",
-  VIEWER = "VIEWER",
-}
+export const Persona = {
+  OWNER: "OWNER",
+  VIEWER: "VIEWER",
+} as const;
+
+/**
+ * @public
+ */
+export type Persona = (typeof Persona)[keyof typeof Persona];
 
 /**
  * @public
@@ -745,11 +776,17 @@ export interface BatchDeleteDocumentRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  INTERNAL_ERROR = "InternalError",
-  INVALID_REQUEST = "InvalidRequest",
-}
+export const ErrorCode = {
+  INTERNAL_ERROR: "InternalError",
+  INVALID_REQUEST: "InvalidRequest",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -879,15 +916,21 @@ export interface BatchGetDocumentStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentStatus {
-  FAILED = "FAILED",
-  INDEXED = "INDEXED",
-  NOT_FOUND = "NOT_FOUND",
-  PROCESSING = "PROCESSING",
-  UPDATED = "UPDATED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-}
+export const DocumentStatus = {
+  FAILED: "FAILED",
+  INDEXED: "INDEXED",
+  NOT_FOUND: "NOT_FOUND",
+  PROCESSING: "PROCESSING",
+  UPDATED: "UPDATED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentStatus = (typeof DocumentStatus)[keyof typeof DocumentStatus];
 
 /**
  * @public
@@ -963,20 +1006,26 @@ export interface BatchGetDocumentStatusResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ConditionOperator {
-  BeginsWith = "BeginsWith",
-  Contains = "Contains",
-  Equals = "Equals",
-  Exists = "Exists",
-  GreaterThan = "GreaterThan",
-  GreaterThanOrEquals = "GreaterThanOrEquals",
-  LessThan = "LessThan",
-  LessThanOrEquals = "LessThanOrEquals",
-  NotContains = "NotContains",
-  NotEquals = "NotEquals",
-  NotExists = "NotExists",
-}
+export const ConditionOperator = {
+  BeginsWith: "BeginsWith",
+  Contains: "Contains",
+  Equals: "Equals",
+  Exists: "Exists",
+  GreaterThan: "GreaterThan",
+  GreaterThanOrEquals: "GreaterThanOrEquals",
+  LessThan: "LessThan",
+  LessThanOrEquals: "LessThanOrEquals",
+  NotContains: "NotContains",
+  NotEquals: "NotEquals",
+  NotExists: "NotExists",
+} as const;
+
+/**
+ * @public
+ */
+export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
 
 /**
  * @public
@@ -1168,19 +1217,31 @@ export interface CustomDocumentEnrichmentConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadAccessType {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const ReadAccessType = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
 
 /**
  * @public
  */
-export enum PrincipalType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export type ReadAccessType = (typeof ReadAccessType)[keyof typeof ReadAccessType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * @public
@@ -1211,21 +1272,27 @@ export interface Principal {
 
 /**
  * @public
+ * @enum
  */
-export enum ContentType {
-  CSV = "CSV",
-  HTML = "HTML",
-  JSON = "JSON",
-  MD = "MD",
-  MS_EXCEL = "MS_EXCEL",
-  MS_WORD = "MS_WORD",
-  PDF = "PDF",
-  PLAIN_TEXT = "PLAIN_TEXT",
-  PPT = "PPT",
-  RTF = "RTF",
-  XML = "XML",
-  XSLT = "XSLT",
-}
+export const ContentType = {
+  CSV: "CSV",
+  HTML: "HTML",
+  JSON: "JSON",
+  MD: "MD",
+  MS_EXCEL: "MS_EXCEL",
+  MS_WORD: "MS_WORD",
+  PDF: "PDF",
+  PLAIN_TEXT: "PLAIN_TEXT",
+  PPT: "PPT",
+  RTF: "RTF",
+  XML: "XML",
+  XSLT: "XSLT",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
 /**
  * @public
@@ -1618,20 +1685,27 @@ export interface BoxConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfluenceAttachmentFieldName {
-  AUTHOR = "AUTHOR",
-  CONTENT_TYPE = "CONTENT_TYPE",
-  CREATED_DATE = "CREATED_DATE",
-  DISPLAY_URL = "DISPLAY_URL",
-  FILE_SIZE = "FILE_SIZE",
-  ITEM_TYPE = "ITEM_TYPE",
-  PARENT_ID = "PARENT_ID",
-  SPACE_KEY = "SPACE_KEY",
-  SPACE_NAME = "SPACE_NAME",
-  URL = "URL",
-  VERSION = "VERSION",
-}
+export const ConfluenceAttachmentFieldName = {
+  AUTHOR: "AUTHOR",
+  CONTENT_TYPE: "CONTENT_TYPE",
+  CREATED_DATE: "CREATED_DATE",
+  DISPLAY_URL: "DISPLAY_URL",
+  FILE_SIZE: "FILE_SIZE",
+  ITEM_TYPE: "ITEM_TYPE",
+  PARENT_ID: "PARENT_ID",
+  SPACE_KEY: "SPACE_KEY",
+  SPACE_NAME: "SPACE_NAME",
+  URL: "URL",
+  VERSION: "VERSION",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfluenceAttachmentFieldName =
+  (typeof ConfluenceAttachmentFieldName)[keyof typeof ConfluenceAttachmentFieldName];
 
 /**
  * @public
@@ -1687,26 +1761,39 @@ export interface ConfluenceAttachmentConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfluenceAuthenticationType {
-  HTTP_BASIC = "HTTP_BASIC",
-  PAT = "PAT",
-}
+export const ConfluenceAuthenticationType = {
+  HTTP_BASIC: "HTTP_BASIC",
+  PAT: "PAT",
+} as const;
 
 /**
  * @public
  */
-export enum ConfluenceBlogFieldName {
-  AUTHOR = "AUTHOR",
-  DISPLAY_URL = "DISPLAY_URL",
-  ITEM_TYPE = "ITEM_TYPE",
-  LABELS = "LABELS",
-  PUBLISH_DATE = "PUBLISH_DATE",
-  SPACE_KEY = "SPACE_KEY",
-  SPACE_NAME = "SPACE_NAME",
-  URL = "URL",
-  VERSION = "VERSION",
-}
+export type ConfluenceAuthenticationType =
+  (typeof ConfluenceAuthenticationType)[keyof typeof ConfluenceAuthenticationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfluenceBlogFieldName = {
+  AUTHOR: "AUTHOR",
+  DISPLAY_URL: "DISPLAY_URL",
+  ITEM_TYPE: "ITEM_TYPE",
+  LABELS: "LABELS",
+  PUBLISH_DATE: "PUBLISH_DATE",
+  SPACE_KEY: "SPACE_KEY",
+  SPACE_NAME: "SPACE_NAME",
+  URL: "URL",
+  VERSION: "VERSION",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfluenceBlogFieldName = (typeof ConfluenceBlogFieldName)[keyof typeof ConfluenceBlogFieldName];
 
 /**
  * @public
@@ -1756,21 +1843,27 @@ export interface ConfluenceBlogConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfluencePageFieldName {
-  AUTHOR = "AUTHOR",
-  CONTENT_STATUS = "CONTENT_STATUS",
-  CREATED_DATE = "CREATED_DATE",
-  DISPLAY_URL = "DISPLAY_URL",
-  ITEM_TYPE = "ITEM_TYPE",
-  LABELS = "LABELS",
-  MODIFIED_DATE = "MODIFIED_DATE",
-  PARENT_ID = "PARENT_ID",
-  SPACE_KEY = "SPACE_KEY",
-  SPACE_NAME = "SPACE_NAME",
-  URL = "URL",
-  VERSION = "VERSION",
-}
+export const ConfluencePageFieldName = {
+  AUTHOR: "AUTHOR",
+  CONTENT_STATUS: "CONTENT_STATUS",
+  CREATED_DATE: "CREATED_DATE",
+  DISPLAY_URL: "DISPLAY_URL",
+  ITEM_TYPE: "ITEM_TYPE",
+  LABELS: "LABELS",
+  MODIFIED_DATE: "MODIFIED_DATE",
+  PARENT_ID: "PARENT_ID",
+  SPACE_KEY: "SPACE_KEY",
+  SPACE_NAME: "SPACE_NAME",
+  URL: "URL",
+  VERSION: "VERSION",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfluencePageFieldName = (typeof ConfluencePageFieldName)[keyof typeof ConfluencePageFieldName];
 
 /**
  * @public
@@ -1850,13 +1943,19 @@ export interface ProxyConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfluenceSpaceFieldName {
-  DISPLAY_URL = "DISPLAY_URL",
-  ITEM_TYPE = "ITEM_TYPE",
-  SPACE_KEY = "SPACE_KEY",
-  URL = "URL",
-}
+export const ConfluenceSpaceFieldName = {
+  DISPLAY_URL: "DISPLAY_URL",
+  ITEM_TYPE: "ITEM_TYPE",
+  SPACE_KEY: "SPACE_KEY",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfluenceSpaceFieldName = (typeof ConfluenceSpaceFieldName)[keyof typeof ConfluenceSpaceFieldName];
 
 /**
  * @public
@@ -1937,11 +2036,17 @@ export interface ConfluenceSpaceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfluenceVersion {
-  CLOUD = "CLOUD",
-  SERVER = "SERVER",
-}
+export const ConfluenceVersion = {
+  CLOUD: "CLOUD",
+  SERVER: "SERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfluenceVersion = (typeof ConfluenceVersion)[keyof typeof ConfluenceVersion];
 
 /**
  * @public
@@ -2117,21 +2222,34 @@ export interface ConnectionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DatabaseEngineType {
-  RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL",
-  RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL",
-  RDS_MYSQL = "RDS_MYSQL",
-  RDS_POSTGRESQL = "RDS_POSTGRESQL",
-}
+export const DatabaseEngineType = {
+  RDS_AURORA_MYSQL: "RDS_AURORA_MYSQL",
+  RDS_AURORA_POSTGRESQL: "RDS_AURORA_POSTGRESQL",
+  RDS_MYSQL: "RDS_MYSQL",
+  RDS_POSTGRESQL: "RDS_POSTGRESQL",
+} as const;
 
 /**
  * @public
  */
-export enum QueryIdentifiersEnclosingOption {
-  DOUBLE_QUOTES = "DOUBLE_QUOTES",
-  NONE = "NONE",
-}
+export type DatabaseEngineType = (typeof DatabaseEngineType)[keyof typeof DatabaseEngineType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryIdentifiersEnclosingOption = {
+  DOUBLE_QUOTES: "DOUBLE_QUOTES",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryIdentifiersEnclosingOption =
+  (typeof QueryIdentifiersEnclosingOption)[keyof typeof QueryIdentifiersEnclosingOption];
 
 /**
  * @public
@@ -2194,10 +2312,16 @@ export interface DatabaseConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum FsxFileSystemType {
-  WINDOWS = "WINDOWS",
-}
+export const FsxFileSystemType = {
+  WINDOWS: "WINDOWS",
+} as const;
+
+/**
+ * @public
+ */
+export type FsxFileSystemType = (typeof FsxFileSystemType)[keyof typeof FsxFileSystemType];
 
 /**
  * @public
@@ -2384,11 +2508,17 @@ export interface SaaSConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum Type {
-  ON_PREMISE = "ON_PREMISE",
-  SAAS = "SAAS",
-}
+export const Type = {
+  ON_PREMISE: "ON_PREMISE",
+  SAAS: "SAAS",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public
@@ -2648,12 +2778,18 @@ export interface GoogleDriveConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum IssueSubEntity {
-  ATTACHMENTS = "ATTACHMENTS",
-  COMMENTS = "COMMENTS",
-  WORKLOGS = "WORKLOGS",
-}
+export const IssueSubEntity = {
+  ATTACHMENTS: "ATTACHMENTS",
+  COMMENTS: "COMMENTS",
+  WORKLOGS: "WORKLOGS",
+} as const;
+
+/**
+ * @public
+ */
+export type IssueSubEntity = (typeof IssueSubEntity)[keyof typeof IssueSubEntity];
 
 /**
  * @public
@@ -3068,11 +3204,18 @@ export interface S3DataSourceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SalesforceChatterFeedIncludeFilterType {
-  ACTIVE_USER = "ACTIVE_USER",
-  STANDARD_USER = "STANDARD_USER",
-}
+export const SalesforceChatterFeedIncludeFilterType = {
+  ACTIVE_USER: "ACTIVE_USER",
+  STANDARD_USER: "STANDARD_USER",
+} as const;
+
+/**
+ * @public
+ */
+export type SalesforceChatterFeedIncludeFilterType =
+  (typeof SalesforceChatterFeedIncludeFilterType)[keyof typeof SalesforceChatterFeedIncludeFilterType];
 
 /**
  * @public
@@ -3140,12 +3283,19 @@ export interface SalesforceCustomKnowledgeArticleTypeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SalesforceKnowledgeArticleState {
-  ARCHIVED = "ARCHIVED",
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+export const SalesforceKnowledgeArticleState = {
+  ARCHIVED: "ARCHIVED",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const;
+
+/**
+ * @public
+ */
+export type SalesforceKnowledgeArticleState =
+  (typeof SalesforceKnowledgeArticleState)[keyof typeof SalesforceKnowledgeArticleState];
 
 /**
  * @public
@@ -3216,26 +3366,33 @@ export interface SalesforceStandardObjectAttachmentConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SalesforceStandardObjectName {
-  ACCOUNT = "ACCOUNT",
-  CAMPAIGN = "CAMPAIGN",
-  CASE = "CASE",
-  CONTACT = "CONTACT",
-  CONTRACT = "CONTRACT",
-  DOCUMENT = "DOCUMENT",
-  GROUP = "GROUP",
-  IDEA = "IDEA",
-  LEAD = "LEAD",
-  OPPORTUNITY = "OPPORTUNITY",
-  PARTNER = "PARTNER",
-  PRICEBOOK = "PRICEBOOK",
-  PRODUCT = "PRODUCT",
-  PROFILE = "PROFILE",
-  SOLUTION = "SOLUTION",
-  TASK = "TASK",
-  USER = "USER",
-}
+export const SalesforceStandardObjectName = {
+  ACCOUNT: "ACCOUNT",
+  CAMPAIGN: "CAMPAIGN",
+  CASE: "CASE",
+  CONTACT: "CONTACT",
+  CONTRACT: "CONTRACT",
+  DOCUMENT: "DOCUMENT",
+  GROUP: "GROUP",
+  IDEA: "IDEA",
+  LEAD: "LEAD",
+  OPPORTUNITY: "OPPORTUNITY",
+  PARTNER: "PARTNER",
+  PRICEBOOK: "PRICEBOOK",
+  PRODUCT: "PRODUCT",
+  PROFILE: "PROFILE",
+  SOLUTION: "SOLUTION",
+  TASK: "TASK",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type SalesforceStandardObjectName =
+  (typeof SalesforceStandardObjectName)[keyof typeof SalesforceStandardObjectName];
 
 /**
  * @public
@@ -3366,11 +3523,18 @@ export interface SalesforceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceNowAuthenticationType {
-  HTTP_BASIC = "HTTP_BASIC",
-  OAUTH2 = "OAUTH2",
-}
+export const ServiceNowAuthenticationType = {
+  HTTP_BASIC: "HTTP_BASIC",
+  OAUTH2: "OAUTH2",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceNowAuthenticationType =
+  (typeof ServiceNowAuthenticationType)[keyof typeof ServiceNowAuthenticationType];
 
 /**
  * @public
@@ -3491,11 +3655,17 @@ export interface ServiceNowServiceCatalogConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceNowBuildVersionType {
-  LONDON = "LONDON",
-  OTHERS = "OTHERS",
-}
+export const ServiceNowBuildVersionType = {
+  LONDON: "LONDON",
+  OTHERS: "OTHERS",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceNowBuildVersionType = (typeof ServiceNowBuildVersionType)[keyof typeof ServiceNowBuildVersionType];
 
 /**
  * @public
@@ -3551,21 +3721,34 @@ export interface ServiceNowConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SharePointOnlineAuthenticationType {
-  HTTP_BASIC = "HTTP_BASIC",
-  OAUTH2 = "OAUTH2",
-}
+export const SharePointOnlineAuthenticationType = {
+  HTTP_BASIC: "HTTP_BASIC",
+  OAUTH2: "OAUTH2",
+} as const;
 
 /**
  * @public
  */
-export enum SharePointVersion {
-  SHAREPOINT_2013 = "SHAREPOINT_2013",
-  SHAREPOINT_2016 = "SHAREPOINT_2016",
-  SHAREPOINT_2019 = "SHAREPOINT_2019",
-  SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE",
-}
+export type SharePointOnlineAuthenticationType =
+  (typeof SharePointOnlineAuthenticationType)[keyof typeof SharePointOnlineAuthenticationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SharePointVersion = {
+  SHAREPOINT_2013: "SHAREPOINT_2013",
+  SHAREPOINT_2016: "SHAREPOINT_2016",
+  SHAREPOINT_2019: "SHAREPOINT_2019",
+  SHAREPOINT_ONLINE: "SHAREPOINT_ONLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type SharePointVersion = (typeof SharePointVersion)[keyof typeof SharePointVersion];
 
 /**
  * @public
@@ -3693,13 +3876,19 @@ export interface SharePointConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SlackEntity {
-  DIRECT_MESSAGE = "DIRECT_MESSAGE",
-  GROUP_MESSAGE = "GROUP_MESSAGE",
-  PRIVATE_CHANNEL = "PRIVATE_CHANNEL",
-  PUBLIC_CHANNEL = "PUBLIC_CHANNEL",
-}
+export const SlackEntity = {
+  DIRECT_MESSAGE: "DIRECT_MESSAGE",
+  GROUP_MESSAGE: "GROUP_MESSAGE",
+  PRIVATE_CHANNEL: "PRIVATE_CHANNEL",
+  PUBLIC_CHANNEL: "PUBLIC_CHANNEL",
+} as const;
+
+/**
+ * @public
+ */
+export type SlackEntity = (typeof SlackEntity)[keyof typeof SlackEntity];
 
 /**
  * @public
@@ -3838,12 +4027,18 @@ export interface TemplateConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum WebCrawlerMode {
-  EVERYTHING = "EVERYTHING",
-  HOST_ONLY = "HOST_ONLY",
-  SUBDOMAINS = "SUBDOMAINS",
-}
+export const WebCrawlerMode = {
+  EVERYTHING: "EVERYTHING",
+  HOST_ONLY: "HOST_ONLY",
+  SUBDOMAINS: "SUBDOMAINS",
+} as const;
+
+/**
+ * @public
+ */
+export type WebCrawlerMode = (typeof WebCrawlerMode)[keyof typeof WebCrawlerMode];
 
 /**
  * @public
@@ -4247,28 +4442,34 @@ export interface Tag {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceType {
-  ALFRESCO = "ALFRESCO",
-  BOX = "BOX",
-  CONFLUENCE = "CONFLUENCE",
-  CUSTOM = "CUSTOM",
-  DATABASE = "DATABASE",
-  FSX = "FSX",
-  GITHUB = "GITHUB",
-  GOOGLEDRIVE = "GOOGLEDRIVE",
-  JIRA = "JIRA",
-  ONEDRIVE = "ONEDRIVE",
-  QUIP = "QUIP",
-  S3 = "S3",
-  SALESFORCE = "SALESFORCE",
-  SERVICENOW = "SERVICENOW",
-  SHAREPOINT = "SHAREPOINT",
-  SLACK = "SLACK",
-  TEMPLATE = "TEMPLATE",
-  WEBCRAWLER = "WEBCRAWLER",
-  WORKDOCS = "WORKDOCS",
-}
+export const DataSourceType = {
+  ALFRESCO: "ALFRESCO",
+  BOX: "BOX",
+  CONFLUENCE: "CONFLUENCE",
+  CUSTOM: "CUSTOM",
+  DATABASE: "DATABASE",
+  FSX: "FSX",
+  GITHUB: "GITHUB",
+  GOOGLEDRIVE: "GOOGLEDRIVE",
+  JIRA: "JIRA",
+  ONEDRIVE: "ONEDRIVE",
+  QUIP: "QUIP",
+  S3: "S3",
+  SALESFORCE: "SALESFORCE",
+  SERVICENOW: "SERVICENOW",
+  SHAREPOINT: "SHAREPOINT",
+  SLACK: "SLACK",
+  TEMPLATE: "TEMPLATE",
+  WEBCRAWLER: "WEBCRAWLER",
+  WORKDOCS: "WORKDOCS",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
 /**
  * @public
@@ -4490,12 +4691,18 @@ export interface CreateExperienceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FaqFileFormat {
-  CSV = "CSV",
-  CSV_WITH_HEADER = "CSV_WITH_HEADER",
-  JSON = "JSON",
-}
+export const FaqFileFormat = {
+  CSV: "CSV",
+  CSV_WITH_HEADER: "CSV_WITH_HEADER",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type FaqFileFormat = (typeof FaqFileFormat)[keyof typeof FaqFileFormat];
 
 /**
  * @public
@@ -4573,11 +4780,17 @@ export interface CreateFaqResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum IndexEdition {
-  DEVELOPER_EDITION = "DEVELOPER_EDITION",
-  ENTERPRISE_EDITION = "ENTERPRISE_EDITION",
-}
+export const IndexEdition = {
+  DEVELOPER_EDITION: "DEVELOPER_EDITION",
+  ENTERPRISE_EDITION: "ENTERPRISE_EDITION",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexEdition = (typeof IndexEdition)[keyof typeof IndexEdition];
 
 /**
  * @public
@@ -4595,19 +4808,31 @@ export interface ServerSideEncryptionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum UserContextPolicy {
-  ATTRIBUTE_FILTER = "ATTRIBUTE_FILTER",
-  USER_TOKEN = "USER_TOKEN",
-}
+export const UserContextPolicy = {
+  ATTRIBUTE_FILTER: "ATTRIBUTE_FILTER",
+  USER_TOKEN: "USER_TOKEN",
+} as const;
 
 /**
  * @public
  */
-export enum UserGroupResolutionMode {
-  AWS_SSO = "AWS_SSO",
-  NONE = "NONE",
-}
+export type UserContextPolicy = (typeof UserContextPolicy)[keyof typeof UserContextPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserGroupResolutionMode = {
+  AWS_SSO: "AWS_SSO",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type UserGroupResolutionMode = (typeof UserGroupResolutionMode)[keyof typeof UserGroupResolutionMode];
 
 /**
  * @public
@@ -4657,11 +4882,17 @@ export interface JsonTokenTypeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum KeyLocation {
-  SECRET_MANAGER = "SECRET_MANAGER",
-  URL = "URL",
-}
+export const KeyLocation = {
+  SECRET_MANAGER: "SECRET_MANAGER",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyLocation = (typeof KeyLocation)[keyof typeof KeyLocation];
 
 /**
  * @public
@@ -5167,14 +5398,20 @@ export interface DescribeDataSourceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const DataSourceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
 
 /**
  * @public
@@ -5290,10 +5527,16 @@ export interface DescribeExperienceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointType {
-  HOME = "HOME",
-}
+export const EndpointType = {
+  HOME: "HOME",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
  * @public
@@ -5316,13 +5559,19 @@ export interface ExperienceEndpoint {
 
 /**
  * @public
+ * @enum
  */
-export enum ExperienceStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+export const ExperienceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperienceStatus = (typeof ExperienceStatus)[keyof typeof ExperienceStatus];
 
 /**
  * @public
@@ -5411,14 +5660,20 @@ export interface DescribeFaqRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FaqStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const FaqStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type FaqStatus = (typeof FaqStatus)[keyof typeof FaqStatus];
 
 /**
  * @public
@@ -5534,11 +5789,17 @@ export interface CapacityUnitsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
 
 /**
  * @public
@@ -5632,13 +5893,19 @@ export interface Search {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentAttributeValueType {
-  DATE_VALUE = "DATE_VALUE",
-  LONG_VALUE = "LONG_VALUE",
-  STRING_LIST_VALUE = "STRING_LIST_VALUE",
-  STRING_VALUE = "STRING_VALUE",
-}
+export const DocumentAttributeValueType = {
+  DATE_VALUE: "DATE_VALUE",
+  LONG_VALUE: "LONG_VALUE",
+  STRING_LIST_VALUE: "STRING_LIST_VALUE",
+  STRING_VALUE: "STRING_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentAttributeValueType = (typeof DocumentAttributeValueType)[keyof typeof DocumentAttributeValueType];
 
 /**
  * @public
@@ -5715,15 +5982,21 @@ export interface IndexStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING",
-  UPDATING = "UPDATING",
-}
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  SYSTEM_UPDATING: "SYSTEM_UPDATING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
 
 /**
  * @public
@@ -5852,14 +6125,20 @@ export interface DescribePrincipalMappingRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PrincipalMappingStatus {
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PROCESSING = "PROCESSING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const PrincipalMappingStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type PrincipalMappingStatus = (typeof PrincipalMappingStatus)[keyof typeof PrincipalMappingStatus];
 
 /**
  * @public
@@ -5972,15 +6251,22 @@ export interface DescribeQuerySuggestionsBlockListRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum QuerySuggestionsBlockListStatus {
-  ACTIVE = "ACTIVE",
-  ACTIVE_BUT_UPDATE_FAILED = "ACTIVE_BUT_UPDATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const QuerySuggestionsBlockListStatus = {
+  ACTIVE: "ACTIVE",
+  ACTIVE_BUT_UPDATE_FAILED: "ACTIVE_BUT_UPDATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type QuerySuggestionsBlockListStatus =
+  (typeof QuerySuggestionsBlockListStatus)[keyof typeof QuerySuggestionsBlockListStatus];
 
 /**
  * @public
@@ -6071,19 +6357,31 @@ export interface DescribeQuerySuggestionsConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Mode {
-  ENABLED = "ENABLED",
-  LEARN_ONLY = "LEARN_ONLY",
-}
+export const Mode = {
+  ENABLED: "ENABLED",
+  LEARN_ONLY: "LEARN_ONLY",
+} as const;
 
 /**
  * @public
  */
-export enum QuerySuggestionsStatus {
-  ACTIVE = "ACTIVE",
-  UPDATING = "UPDATING",
-}
+export type Mode = (typeof Mode)[keyof typeof Mode];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuerySuggestionsStatus = {
+  ACTIVE: "ACTIVE",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type QuerySuggestionsStatus = (typeof QuerySuggestionsStatus)[keyof typeof QuerySuggestionsStatus];
 
 /**
  * @public
@@ -6172,15 +6470,21 @@ export interface DescribeThesaurusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ThesaurusStatus {
-  ACTIVE = "ACTIVE",
-  ACTIVE_BUT_UPDATE_FAILED = "ACTIVE_BUT_UPDATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const ThesaurusStatus = {
+  ACTIVE: "ACTIVE",
+  ACTIVE_BUT_UPDATE_FAILED: "ACTIVE_BUT_UPDATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ThesaurusStatus = (typeof ThesaurusStatus)[keyof typeof ThesaurusStatus];
 
 /**
  * @public
@@ -6437,27 +6741,39 @@ export interface GetQuerySuggestionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Interval {
-  ONE_MONTH_AGO = "ONE_MONTH_AGO",
-  ONE_WEEK_AGO = "ONE_WEEK_AGO",
-  THIS_MONTH = "THIS_MONTH",
-  THIS_WEEK = "THIS_WEEK",
-  TWO_MONTHS_AGO = "TWO_MONTHS_AGO",
-  TWO_WEEKS_AGO = "TWO_WEEKS_AGO",
-}
+export const Interval = {
+  ONE_MONTH_AGO: "ONE_MONTH_AGO",
+  ONE_WEEK_AGO: "ONE_WEEK_AGO",
+  THIS_MONTH: "THIS_MONTH",
+  THIS_WEEK: "THIS_WEEK",
+  TWO_MONTHS_AGO: "TWO_MONTHS_AGO",
+  TWO_WEEKS_AGO: "TWO_WEEKS_AGO",
+} as const;
 
 /**
  * @public
  */
-export enum MetricType {
-  AGG_QUERY_DOC_METRICS = "AGG_QUERY_DOC_METRICS",
-  DOCS_BY_CLICK_COUNT = "DOCS_BY_CLICK_COUNT",
-  QUERIES_BY_COUNT = "QUERIES_BY_COUNT",
-  QUERIES_BY_ZERO_CLICK_RATE = "QUERIES_BY_ZERO_CLICK_RATE",
-  QUERIES_BY_ZERO_RESULT_RATE = "QUERIES_BY_ZERO_RESULT_RATE",
-  TREND_QUERY_DOC_METRICS = "TREND_QUERY_DOC_METRICS",
-}
+export type Interval = (typeof Interval)[keyof typeof Interval];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricType = {
+  AGG_QUERY_DOC_METRICS: "AGG_QUERY_DOC_METRICS",
+  DOCS_BY_CLICK_COUNT: "DOCS_BY_CLICK_COUNT",
+  QUERIES_BY_COUNT: "QUERIES_BY_COUNT",
+  QUERIES_BY_ZERO_CLICK_RATE: "QUERIES_BY_ZERO_CLICK_RATE",
+  QUERIES_BY_ZERO_RESULT_RATE: "QUERIES_BY_ZERO_RESULT_RATE",
+  TREND_QUERY_DOC_METRICS: "TREND_QUERY_DOC_METRICS",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
  * @public
@@ -6723,16 +7039,22 @@ export interface ListDataSourcesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceSyncJobStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  INCOMPLETE = "INCOMPLETE",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  SYNCING = "SYNCING",
-  SYNCING_INDEXING = "SYNCING_INDEXING",
-}
+export const DataSourceSyncJobStatus = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  INCOMPLETE: "INCOMPLETE",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  SYNCING: "SYNCING",
+  SYNCING_INDEXING: "SYNCING_INDEXING",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceSyncJobStatus = (typeof DataSourceSyncJobStatus)[keyof typeof DataSourceSyncJobStatus];
 
 /**
  * @public
@@ -7723,20 +8045,32 @@ export interface DocumentRelevanceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryResultType {
-  ANSWER = "ANSWER",
-  DOCUMENT = "DOCUMENT",
-  QUESTION_ANSWER = "QUESTION_ANSWER",
-}
+export const QueryResultType = {
+  ANSWER: "ANSWER",
+  DOCUMENT: "DOCUMENT",
+  QUESTION_ANSWER: "QUESTION_ANSWER",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -7885,22 +8219,34 @@ export interface UserContext {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryResultFormat {
-  TABLE = "TABLE",
-  TEXT = "TEXT",
-}
+export const QueryResultFormat = {
+  TABLE: "TABLE",
+  TEXT: "TEXT",
+} as const;
 
 /**
  * @public
  */
-export enum ScoreConfidence {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  VERY_HIGH = "VERY_HIGH",
-}
+export type QueryResultFormat = (typeof QueryResultFormat)[keyof typeof QueryResultFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScoreConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  VERY_HIGH: "VERY_HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type ScoreConfidence = (typeof ScoreConfidence)[keyof typeof ScoreConfidence];
 
 /**
  * @public
@@ -8124,10 +8470,16 @@ export interface SpellCorrectedQuery {
 
 /**
  * @public
+ * @enum
  */
-export enum WarningCode {
-  QUERY_LANGUAGE_INVALID_SYNTAX = "QUERY_LANGUAGE_INVALID_SYNTAX",
-}
+export const WarningCode = {
+  QUERY_LANGUAGE_INVALID_SYNTAX: "QUERY_LANGUAGE_INVALID_SYNTAX",
+} as const;
+
+/**
+ * @public
+ */
+export type WarningCode = (typeof WarningCode)[keyof typeof WarningCode];
 
 /**
  * @public
@@ -8229,11 +8581,17 @@ export interface ClickFeedback {
 
 /**
  * @public
+ * @enum
  */
-export enum RelevanceType {
-  NOT_RELEVANT = "NOT_RELEVANT",
-  RELEVANT = "RELEVANT",
-}
+export const RelevanceType = {
+  NOT_RELEVANT: "NOT_RELEVANT",
+  RELEVANT: "RELEVANT",
+} as const;
+
+/**
+ * @public
+ */
+export type RelevanceType = (typeof RelevanceType)[keyof typeof RelevanceType];
 
 /**
  * @public

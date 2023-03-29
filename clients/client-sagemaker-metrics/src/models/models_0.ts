@@ -43,13 +43,19 @@ export interface BatchPutMetricsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PutMetricsErrorCode {
-  CONFLICT_ERROR = "CONFLICT_ERROR",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  METRIC_LIMIT_EXCEEDED = "METRIC_LIMIT_EXCEEDED",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const PutMetricsErrorCode = {
+  CONFLICT_ERROR: "CONFLICT_ERROR",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  METRIC_LIMIT_EXCEEDED: "METRIC_LIMIT_EXCEEDED",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type PutMetricsErrorCode = (typeof PutMetricsErrorCode)[keyof typeof PutMetricsErrorCode];
 
 /**
  * @public

@@ -199,13 +199,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -361,11 +367,17 @@ export interface AssociateUserSettingsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticationType {
-  IAM_IDENTITY_CENTER = "IAM_Identity_Center",
-  STANDARD = "Standard",
-}
+export const AuthenticationType = {
+  IAM_IDENTITY_CENTER: "IAM_Identity_Center",
+  STANDARD: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
  * @public
@@ -474,15 +486,21 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityProviderType {
-  Facebook = "Facebook",
-  Google = "Google",
-  LoginWithAmazon = "LoginWithAmazon",
-  OIDC = "OIDC",
-  SAML = "SAML",
-  SignInWithApple = "SignInWithApple",
-}
+export const IdentityProviderType = {
+  Facebook: "Facebook",
+  Google: "Google",
+  LoginWithAmazon: "LoginWithAmazon",
+  OIDC: "OIDC",
+  SAML: "SAML",
+  SignInWithApple: "SignInWithApple",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof IdentityProviderType];
 
 /**
  * @public
@@ -865,11 +883,17 @@ export interface CreateUserAccessLoggingSettingsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EnabledType {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const EnabledType = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type EnabledType = (typeof EnabledType)[keyof typeof EnabledType];
 
 /**
  * @public
@@ -1427,26 +1451,44 @@ export interface GetPortalRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BrowserType {
-  CHROME = "Chrome",
-}
+export const BrowserType = {
+  CHROME: "Chrome",
+} as const;
 
 /**
  * @public
  */
-export enum PortalStatus {
-  ACTIVE = "Active",
-  INCOMPLETE = "Incomplete",
-  PENDING = "Pending",
-}
+export type BrowserType = (typeof BrowserType)[keyof typeof BrowserType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PortalStatus = {
+  ACTIVE: "Active",
+  INCOMPLETE: "Incomplete",
+  PENDING: "Pending",
+} as const;
 
 /**
  * @public
  */
-export enum RendererType {
-  APPSTREAM = "AppStream",
-}
+export type PortalStatus = (typeof PortalStatus)[keyof typeof PortalStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RendererType = {
+  APPSTREAM: "AppStream",
+} as const;
+
+/**
+ * @public
+ */
+export type RendererType = (typeof RendererType)[keyof typeof RendererType];
 
 /**
  * @public

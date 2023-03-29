@@ -77,19 +77,6 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  *          service.</p>
  *
  *
- * @example To accept a page during and engagement
- * ```javascript
- * // The following accept-page operation uses an accept code sent to the contact channel to accept a page.
- * const input = {
- *   "AcceptCode": "425440",
- *   "AcceptType": "READ",
- *   "PageId": "arn:aws:ssm-contacts:us-east-2:682428703967:page/akuam/94ea0c7b-56d9-46c3-b84a-a37c8b067ad3"
- * };
- * const command = new AcceptPageCommand(input);
- * await client.send(command);
- * // example id: to-accept-a-page-during-and-engagement-1630357840187
- * ```
- *
  */
 export class AcceptPageCommand extends $Command<
   AcceptPageCommandInput,

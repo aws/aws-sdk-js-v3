@@ -80,17 +80,6 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  *          service.</p>
  *
  *
- * @example To send an activation code
- * ```javascript
- * // The following send-activation-code example sends an activation code and message to the specified contact channel.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/8ddae2d1-12c8-4e45-b852-c8587266c400"
- * };
- * const command = new SendActivationCodeCommand(input);
- * await client.send(command);
- * // example id: to-send-an-activation-code-1630436453574
- * ```
- *
  */
 export class SendActivationCodeCommand extends $Command<
   SendActivationCodeCommandInput,

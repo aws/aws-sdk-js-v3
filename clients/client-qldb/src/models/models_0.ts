@@ -124,11 +124,17 @@ export class ResourcePreconditionNotMetException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum PermissionsMode {
-  ALLOW_ALL = "ALLOW_ALL",
-  STANDARD = "STANDARD",
-}
+export const PermissionsMode = {
+  ALLOW_ALL: "ALLOW_ALL",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionsMode = (typeof PermissionsMode)[keyof typeof PermissionsMode];
 
 /**
  * @public
@@ -247,13 +253,19 @@ export interface CreateLedgerRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LedgerState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const LedgerState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type LedgerState = (typeof LedgerState)[keyof typeof LedgerState];
 
 /**
  * @public
@@ -421,11 +433,17 @@ export interface DescribeJournalKinesisStreamRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCause {
-  IAM_PERMISSION_REVOKED = "IAM_PERMISSION_REVOKED",
-  KINESIS_STREAM_NOT_FOUND = "KINESIS_STREAM_NOT_FOUND",
-}
+export const ErrorCause = {
+  IAM_PERMISSION_REVOKED: "IAM_PERMISSION_REVOKED",
+  KINESIS_STREAM_NOT_FOUND: "KINESIS_STREAM_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCause = (typeof ErrorCause)[keyof typeof ErrorCause];
 
 /**
  * @public
@@ -452,14 +470,20 @@ export interface KinesisConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum StreamStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IMPAIRED = "IMPAIRED",
-}
+export const StreamStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IMPAIRED: "IMPAIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamStatus = (typeof StreamStatus)[keyof typeof StreamStatus];
 
 /**
  * @public
@@ -560,21 +584,33 @@ export interface DescribeJournalS3ExportRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OutputFormat {
-  ION_BINARY = "ION_BINARY",
-  ION_TEXT = "ION_TEXT",
-  JSON = "JSON",
-}
+export const OutputFormat = {
+  ION_BINARY: "ION_BINARY",
+  ION_TEXT: "ION_TEXT",
+  JSON: "JSON",
+} as const;
 
 /**
  * @public
  */
-export enum S3ObjectEncryptionType {
-  NO_ENCRYPTION = "NO_ENCRYPTION",
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ObjectEncryptionType = {
+  NO_ENCRYPTION: "NO_ENCRYPTION",
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ObjectEncryptionType = (typeof S3ObjectEncryptionType)[keyof typeof S3ObjectEncryptionType];
 
 /**
  * @public
@@ -652,12 +688,18 @@ export interface S3ExportConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ExportStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
 
 /**
  * @public
@@ -748,12 +790,18 @@ export interface DescribeLedgerRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionStatus {
-  ENABLED = "ENABLED",
-  KMS_KEY_INACCESSIBLE = "KMS_KEY_INACCESSIBLE",
-  UPDATING = "UPDATING",
-}
+export const EncryptionStatus = {
+  ENABLED: "ENABLED",
+  KMS_KEY_INACCESSIBLE: "KMS_KEY_INACCESSIBLE",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
 
 /**
  * @public

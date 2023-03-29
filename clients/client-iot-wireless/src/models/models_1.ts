@@ -184,10 +184,17 @@ export interface ListWirelessGatewaysResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum WirelessGatewayTaskDefinitionType {
-  UPDATE = "UPDATE",
-}
+export const WirelessGatewayTaskDefinitionType = {
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type WirelessGatewayTaskDefinitionType =
+  (typeof WirelessGatewayTaskDefinitionType)[keyof typeof WirelessGatewayTaskDefinitionType];
 
 /**
  * @public
@@ -431,13 +438,19 @@ export interface SendDataToMulticastGroupResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MessageType {
-  CUSTOM_COMMAND_ID_GET = "CUSTOM_COMMAND_ID_GET",
-  CUSTOM_COMMAND_ID_NOTIFY = "CUSTOM_COMMAND_ID_NOTIFY",
-  CUSTOM_COMMAND_ID_RESP = "CUSTOM_COMMAND_ID_RESP",
-  CUSTOM_COMMAND_ID_SET = "CUSTOM_COMMAND_ID_SET",
-}
+export const MessageType = {
+  CUSTOM_COMMAND_ID_GET: "CUSTOM_COMMAND_ID_GET",
+  CUSTOM_COMMAND_ID_NOTIFY: "CUSTOM_COMMAND_ID_NOTIFY",
+  CUSTOM_COMMAND_ID_RESP: "CUSTOM_COMMAND_ID_RESP",
+  CUSTOM_COMMAND_ID_SET: "CUSTOM_COMMAND_ID_SET",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * @public

@@ -88,10 +88,16 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionKeyType {
-  KMS = "KMS",
-}
+export const EncryptionKeyType = {
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof EncryptionKeyType];
 
 /**
  * @public
@@ -111,12 +117,18 @@ export interface EncryptionKey {
 
 /**
  * @public
+ * @enum
  */
-export enum ParallelDataFormat {
-  CSV = "CSV",
-  TMX = "TMX",
-  TSV = "TSV",
-}
+export const ParallelDataFormat = {
+  CSV: "CSV",
+  TMX: "TMX",
+  TSV: "TSV",
+} as const;
+
+/**
+ * @public
+ */
+export type ParallelDataFormat = (typeof ParallelDataFormat)[keyof typeof ParallelDataFormat];
 
 /**
  * @public
@@ -194,14 +206,20 @@ export interface CreateParallelDataRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ParallelDataStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const ParallelDataStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ParallelDataStatus = (typeof ParallelDataStatus)[keyof typeof ParallelDataStatus];
 
 /**
  * @public
@@ -508,16 +526,22 @@ export interface JobDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERROR = "COMPLETED_WITH_ERROR",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERROR: "COMPLETED_WITH_ERROR",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -538,18 +562,30 @@ export interface OutputDataConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum Formality {
-  FORMAL = "FORMAL",
-  INFORMAL = "INFORMAL",
-}
+export const Formality = {
+  FORMAL: "FORMAL",
+  INFORMAL: "INFORMAL",
+} as const;
 
 /**
  * @public
  */
-export enum Profanity {
-  MASK = "MASK",
-}
+export type Formality = (typeof Formality)[keyof typeof Formality];
+
+/**
+ * @public
+ * @enum
+ */
+export const Profanity = {
+  MASK: "MASK",
+} as const;
+
+/**
+ * @public
+ */
+export type Profanity = (typeof Profanity)[keyof typeof Profanity];
 
 /**
  * @public
@@ -868,12 +904,18 @@ export interface GetParallelDataResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TerminologyDataFormat {
-  CSV = "CSV",
-  TMX = "TMX",
-  TSV = "TSV",
-}
+export const TerminologyDataFormat = {
+  CSV: "CSV",
+  TMX: "TMX",
+  TSV: "TSV",
+} as const;
+
+/**
+ * @public
+ */
+export type TerminologyDataFormat = (typeof TerminologyDataFormat)[keyof typeof TerminologyDataFormat];
 
 /**
  * @public
@@ -925,11 +967,17 @@ export interface TerminologyDataLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum Directionality {
-  MULTI = "MULTI",
-  UNI = "UNI",
-}
+export const Directionality = {
+  MULTI: "MULTI",
+  UNI: "UNI",
+} as const;
+
+/**
+ * @public
+ */
+export type Directionality = (typeof Directionality)[keyof typeof Directionality];
 
 /**
  * @public
@@ -1059,10 +1107,16 @@ export interface GetTerminologyResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MergeStrategy {
-  OVERWRITE = "OVERWRITE",
-}
+export const MergeStrategy = {
+  OVERWRITE: "OVERWRITE",
+} as const;
+
+/**
+ * @public
+ */
+export type MergeStrategy = (typeof MergeStrategy)[keyof typeof MergeStrategy];
 
 /**
  * @public
@@ -1167,19 +1221,25 @@ export interface ImportTerminologyResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DisplayLanguageCode {
-  DE = "de",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  IT = "it",
-  JA = "ja",
-  KO = "ko",
-  PT = "pt",
-  ZH = "zh",
-  ZH_TW = "zh-TW",
-}
+export const DisplayLanguageCode = {
+  DE: "de",
+  EN: "en",
+  ES: "es",
+  FR: "fr",
+  IT: "it",
+  JA: "ja",
+  KO: "ko",
+  PT: "pt",
+  ZH: "zh",
+  ZH_TW: "zh-TW",
+} as const;
+
+/**
+ * @public
+ */
+export type DisplayLanguageCode = (typeof DisplayLanguageCode)[keyof typeof DisplayLanguageCode];
 
 /**
  * @public

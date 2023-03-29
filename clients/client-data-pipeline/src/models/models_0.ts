@@ -734,14 +734,20 @@ export interface PutPipelineDefinitionOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum OperatorType {
-  Between = "BETWEEN",
-  Equal = "EQ",
-  GreaterThanOrEqual = "GE",
-  LessThanOrEqual = "LE",
-  ReferenceEqual = "REF_EQ",
-}
+export const OperatorType = {
+  Between: "BETWEEN",
+  Equal: "EQ",
+  GreaterThanOrEqual: "GE",
+  LessThanOrEqual: "LE",
+  ReferenceEqual: "REF_EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
 /**
  * @public
@@ -981,12 +987,18 @@ export interface SetStatusInput {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskStatus {
-  FAILED = "FAILED",
-  FALSE = "FALSE",
-  FINISHED = "FINISHED",
-}
+export const TaskStatus = {
+  FAILED: "FAILED",
+  FALSE: "FALSE",
+  FINISHED: "FINISHED",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 /**
  * @public

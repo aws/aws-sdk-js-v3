@@ -30,14 +30,20 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CheckStatus {
-  ERROR = "ERROR",
-  FETCH_FAILED = "FETCH_FAILED",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  OKAY = "OKAY",
-  WARNING = "WARNING",
-}
+export const CheckStatus = {
+  ERROR: "ERROR",
+  FETCH_FAILED: "FETCH_FAILED",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  OKAY: "OKAY",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type CheckStatus = (typeof CheckStatus)[keyof typeof CheckStatus];
 
 /**
  * @public
@@ -57,11 +63,17 @@ export interface ChoiceContent {
 
 /**
  * @public
+ * @enum
  */
-export enum AdditionalResourceType {
-  HELPFUL_RESOURCE = "HELPFUL_RESOURCE",
-  IMPROVEMENT_PLAN = "IMPROVEMENT_PLAN",
-}
+export const AdditionalResourceType = {
+  HELPFUL_RESOURCE: "HELPFUL_RESOURCE",
+  IMPROVEMENT_PLAN: "IMPROVEMENT_PLAN",
+} as const;
+
+/**
+ * @public
+ */
+export type AdditionalResourceType = (typeof AdditionalResourceType)[keyof typeof AdditionalResourceType];
 
 /**
  * @public
@@ -81,23 +93,35 @@ export interface AdditionalResources {
 
 /**
  * @public
+ * @enum
  */
-export enum ChoiceReason {
-  ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
-  BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
-  NONE = "NONE",
-  OTHER = "OTHER",
-  OUT_OF_SCOPE = "OUT_OF_SCOPE",
-}
+export const ChoiceReason = {
+  ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
+  BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
+  NONE: "NONE",
+  OTHER: "OTHER",
+  OUT_OF_SCOPE: "OUT_OF_SCOPE",
+} as const;
 
 /**
  * @public
  */
-export enum ChoiceStatus {
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  SELECTED = "SELECTED",
-  UNSELECTED = "UNSELECTED",
-}
+export type ChoiceReason = (typeof ChoiceReason)[keyof typeof ChoiceReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChoiceStatus = {
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  SELECTED: "SELECTED",
+  UNSELECTED: "UNSELECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ChoiceStatus = (typeof ChoiceStatus)[keyof typeof ChoiceStatus];
 
 /**
  * @public
@@ -164,25 +188,37 @@ export interface Choice {
 
 /**
  * @public
+ * @enum
  */
-export enum AnswerReason {
-  ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
-  BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
-  NONE = "NONE",
-  OTHER = "OTHER",
-  OUT_OF_SCOPE = "OUT_OF_SCOPE",
-}
+export const AnswerReason = {
+  ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
+  BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
+  NONE: "NONE",
+  OTHER: "OTHER",
+  OUT_OF_SCOPE: "OUT_OF_SCOPE",
+} as const;
 
 /**
  * @public
  */
-export enum Risk {
-  HIGH = "HIGH",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE",
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  UNANSWERED = "UNANSWERED",
-}
+export type AnswerReason = (typeof AnswerReason)[keyof typeof AnswerReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const Risk = {
+  HIGH: "HIGH",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  UNANSWERED: "UNANSWERED",
+} as const;
+
+/**
+ * @public
+ */
+export type Risk = (typeof Risk)[keyof typeof Risk];
 
 /**
  * @public
@@ -508,13 +544,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -555,20 +597,32 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CheckProvider {
-  TRUSTED_ADVISOR = "TRUSTED_ADVISOR",
-}
+export const CheckProvider = {
+  TRUSTED_ADVISOR: "TRUSTED_ADVISOR",
+} as const;
 
 /**
  * @public
  */
-export enum CheckFailureReason {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ASSUME_ROLE_ERROR = "ASSUME_ROLE_ERROR",
-  PREMIUM_SUPPORT_REQUIRED = "PREMIUM_SUPPORT_REQUIRED",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR",
-}
+export type CheckProvider = (typeof CheckProvider)[keyof typeof CheckProvider];
+
+/**
+ * @public
+ * @enum
+ */
+export const CheckFailureReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ASSUME_ROLE_ERROR: "ASSUME_ROLE_ERROR",
+  PREMIUM_SUPPORT_REQUIRED: "PREMIUM_SUPPORT_REQUIRED",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type CheckFailureReason = (typeof CheckFailureReason)[keyof typeof CheckFailureReason];
 
 /**
  * @public
@@ -942,11 +996,18 @@ export interface CreateMilestoneOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum TrustedAdvisorIntegrationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const TrustedAdvisorIntegrationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TrustedAdvisorIntegrationStatus =
+  (typeof TrustedAdvisorIntegrationStatus)[keyof typeof TrustedAdvisorIntegrationStatus];
 
 /**
  * @public
@@ -961,11 +1022,17 @@ export interface WorkloadDiscoveryConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkloadEnvironment {
-  PREPRODUCTION = "PREPRODUCTION",
-  PRODUCTION = "PRODUCTION",
-}
+export const WorkloadEnvironment = {
+  PREPRODUCTION: "PREPRODUCTION",
+  PRODUCTION: "PRODUCTION",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkloadEnvironment = (typeof WorkloadEnvironment)[keyof typeof WorkloadEnvironment];
 
 /**
  * @public
@@ -1228,11 +1295,17 @@ export interface CreateWorkloadOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum PermissionType {
-  CONTRIBUTOR = "CONTRIBUTOR",
-  READONLY = "READONLY",
-}
+export const PermissionType = {
+  CONTRIBUTOR: "CONTRIBUTOR",
+  READONLY: "READONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 /**
  * @public
@@ -1287,12 +1360,18 @@ export interface CreateWorkloadShareOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum LensStatusType {
-  ALL = "ALL",
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+export const LensStatusType = {
+  ALL: "ALL",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const;
+
+/**
+ * @public
+ */
+export type LensStatusType = (typeof LensStatusType)[keyof typeof LensStatusType];
 
 /**
  * @public
@@ -1417,12 +1496,18 @@ export interface DeleteWorkloadShareInput {
 
 /**
  * @public
+ * @enum
  */
-export enum DifferenceStatus {
-  DELETED = "DELETED",
-  NEW = "NEW",
-  UPDATED = "UPDATED",
-}
+export const DifferenceStatus = {
+  DELETED: "DELETED",
+  NEW: "NEW",
+  UPDATED: "UPDATED",
+} as const;
+
+/**
+ * @public
+ */
+export type DifferenceStatus = (typeof DifferenceStatus)[keyof typeof DifferenceStatus];
 
 /**
  * @public
@@ -1635,14 +1720,20 @@ export interface GetLensReviewInput {
 
 /**
  * @public
+ * @enum
  */
-export enum LensStatus {
-  CURRENT = "CURRENT",
-  DELETED = "DELETED",
-  DEPRECATED = "DEPRECATED",
-  NOT_CURRENT = "NOT_CURRENT",
-  UNSHARED = "UNSHARED",
-}
+export const LensStatus = {
+  CURRENT: "CURRENT",
+  DELETED: "DELETED",
+  DEPRECATED: "DEPRECATED",
+  NOT_CURRENT: "NOT_CURRENT",
+  UNSHARED: "UNSHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type LensStatus = (typeof LensStatus)[keyof typeof LensStatus];
 
 /**
  * @public
@@ -1968,14 +2059,20 @@ export interface GetMilestoneInput {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkloadImprovementStatus {
-  COMPLETE = "COMPLETE",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  NOT_STARTED = "NOT_STARTED",
-  RISK_ACKNOWLEDGED = "RISK_ACKNOWLEDGED",
-}
+export const WorkloadImprovementStatus = {
+  COMPLETE: "COMPLETE",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  NOT_STARTED: "NOT_STARTED",
+  RISK_ACKNOWLEDGED: "RISK_ACKNOWLEDGED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkloadImprovementStatus = (typeof WorkloadImprovementStatus)[keyof typeof WorkloadImprovementStatus];
 
 /**
  * @public
@@ -2361,12 +2458,18 @@ export interface ImportLensInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportLensStatus {
-  COMPLETE = "COMPLETE",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ImportLensStatus = {
+  COMPLETE: "COMPLETE",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportLensStatus = (typeof ImportLensStatus)[keyof typeof ImportLensStatus];
 
 /**
  * @public
@@ -2468,17 +2571,23 @@ export interface LensReviewSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ShareStatus {
-  ACCEPTED = "ACCEPTED",
-  ASSOCIATED = "ASSOCIATED",
-  ASSOCIATING = "ASSOCIATING",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-  REVOKED = "REVOKED",
-}
+export const ShareStatus = {
+  ACCEPTED: "ACCEPTED",
+  ASSOCIATED: "ASSOCIATED",
+  ASSOCIATING: "ASSOCIATING",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+  REVOKED: "REVOKED",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
 
 /**
  * @public
@@ -2508,12 +2617,18 @@ export interface LensShareSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum LensType {
-  AWS_OFFICIAL = "AWS_OFFICIAL",
-  CUSTOM_SELF = "CUSTOM_SELF",
-  CUSTOM_SHARED = "CUSTOM_SHARED",
-}
+export const LensType = {
+  AWS_OFFICIAL: "AWS_OFFICIAL",
+  CUSTOM_SELF: "CUSTOM_SELF",
+  CUSTOM_SHARED: "CUSTOM_SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type LensType = (typeof LensType)[keyof typeof LensType];
 
 /**
  * @public
@@ -3185,11 +3300,17 @@ export interface ListNotificationsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum NotificationType {
-  LENS_VERSION_DEPRECATED = "LENS_VERSION_DEPRECATED",
-  LENS_VERSION_UPGRADED = "LENS_VERSION_UPGRADED",
-}
+export const NotificationType = {
+  LENS_VERSION_DEPRECATED: "LENS_VERSION_DEPRECATED",
+  LENS_VERSION_UPGRADED: "LENS_VERSION_UPGRADED",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
 
 /**
  * @public
@@ -3224,11 +3345,17 @@ export interface ListNotificationsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ShareResourceType {
-  LENS = "LENS",
-  WORKLOAD = "WORKLOAD",
-}
+export const ShareResourceType = {
+  LENS: "LENS",
+  WORKLOAD: "WORKLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareResourceType = (typeof ShareResourceType)[keyof typeof ShareResourceType];
 
 /**
  * @public
@@ -3474,11 +3601,17 @@ export interface ListWorkloadSharesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum OrganizationSharingStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const OrganizationSharingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationSharingStatus = (typeof OrganizationSharingStatus)[keyof typeof OrganizationSharingStatus];
 
 /**
  * @public
@@ -3517,11 +3650,17 @@ export interface ShareInvitation {
 
 /**
  * @public
+ * @enum
  */
-export enum ShareInvitationAction {
-  ACCEPT = "ACCEPT",
-  REJECT = "REJECT",
-}
+export const ShareInvitationAction = {
+  ACCEPT: "ACCEPT",
+  REJECT: "REJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareInvitationAction = (typeof ShareInvitationAction)[keyof typeof ShareInvitationAction];
 
 /**
  * @public

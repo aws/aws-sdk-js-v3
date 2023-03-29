@@ -5,10 +5,17 @@ import { CleanRoomsServiceException as __BaseException } from "./CleanRoomsServi
 
 /**
  * @public
+ * @enum
  */
-export enum AccessDeniedExceptionReason {
-  INSUFFICIENT_PERMISSIONS = "INSUFFICIENT_PERMISSIONS",
-}
+export const AccessDeniedExceptionReason = {
+  INSUFFICIENT_PERMISSIONS: "INSUFFICIENT_PERMISSIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessDeniedExceptionReason =
+  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
 
 /**
  * @public
@@ -38,14 +45,20 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregateFunctionName {
-  AVG = "AVG",
-  COUNT = "COUNT",
-  COUNT_DISTINCT = "COUNT_DISTINCT",
-  SUM = "SUM",
-  SUM_DISTINCT = "SUM_DISTINCT",
-}
+export const AggregateFunctionName = {
+  AVG: "AVG",
+  COUNT: "COUNT",
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+  SUM: "SUM",
+  SUM_DISTINCT: "SUM_DISTINCT",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregateFunctionName = (typeof AggregateFunctionName)[keyof typeof AggregateFunctionName];
 
 /**
  * @public
@@ -65,10 +78,16 @@ export interface AggregateColumn {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregationType {
-  COUNT_DISTINCT = "COUNT_DISTINCT",
-}
+export const AggregationType = {
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregationType = (typeof AggregationType)[keyof typeof AggregationType];
 
 /**
  * @public
@@ -96,36 +115,54 @@ export interface AggregationConstraint {
 
 /**
  * @public
+ * @enum
  */
-export enum AnalysisMethod {
-  DIRECT_QUERY = "DIRECT_QUERY",
-}
+export const AnalysisMethod = {
+  DIRECT_QUERY: "DIRECT_QUERY",
+} as const;
 
 /**
  * @public
  */
-export enum JoinRequiredOption {
-  QUERY_RUNNER = "QUERY_RUNNER",
-}
+export type AnalysisMethod = (typeof AnalysisMethod)[keyof typeof AnalysisMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const JoinRequiredOption = {
+  QUERY_RUNNER: "QUERY_RUNNER",
+} as const;
 
 /**
  * @public
  */
-export enum ScalarFunctions {
-  ABS = "ABS",
-  CAST = "CAST",
-  CEILING = "CEILING",
-  COALESCE = "COALESCE",
-  FLOOR = "FLOOR",
-  LN = "LN",
-  LOG = "LOG",
-  LOWER = "LOWER",
-  ROUND = "ROUND",
-  RTRIM = "RTRIM",
-  SQRT = "SQRT",
-  TRUNC = "TRUNC",
-  UPPER = "UPPER",
-}
+export type JoinRequiredOption = (typeof JoinRequiredOption)[keyof typeof JoinRequiredOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarFunctions = {
+  ABS: "ABS",
+  CAST: "CAST",
+  CEILING: "CEILING",
+  COALESCE: "COALESCE",
+  FLOOR: "FLOOR",
+  LN: "LN",
+  LOG: "LOG",
+  LOWER: "LOWER",
+  ROUND: "ROUND",
+  RTRIM: "RTRIM",
+  SQRT: "SQRT",
+  TRUNC: "TRUNC",
+  UPPER: "UPPER",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarFunctions = (typeof ScalarFunctions)[keyof typeof ScalarFunctions];
 
 /**
  * @public
@@ -267,11 +304,17 @@ export namespace AnalysisRulePolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum AnalysisRuleType {
-  AGGREGATION = "AGGREGATION",
-  LIST = "LIST",
-}
+export const AnalysisRuleType = {
+  AGGREGATION: "AGGREGATION",
+  LIST: "LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisRuleType = (typeof AnalysisRuleType)[keyof typeof AnalysisRuleType];
 
 /**
  * @public
@@ -364,10 +407,16 @@ export interface Column {
 
 /**
  * @public
+ * @enum
  */
-export enum SchemaType {
-  TABLE = "TABLE",
-}
+export const SchemaType = {
+  TABLE: "TABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
 
 /**
  * @public
@@ -475,13 +524,19 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  COLLABORATION = "COLLABORATION",
-  CONFIGURED_TABLE = "CONFIGURED_TABLE",
-  CONFIGURED_TABLE_ASSOCIATION = "CONFIGURED_TABLE_ASSOCIATION",
-  MEMBERSHIP = "MEMBERSHIP",
-}
+export const ResourceType = {
+  COLLABORATION: "COLLABORATION",
+  CONFIGURED_TABLE: "CONFIGURED_TABLE",
+  CONFIGURED_TABLE_ASSOCIATION: "CONFIGURED_TABLE_ASSOCIATION",
+  MEMBERSHIP: "MEMBERSHIP",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -553,12 +608,18 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  INVALID_CONFIGURATION = "INVALID_CONFIGURATION",
-  INVALID_QUERY = "INVALID_QUERY",
-}
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+  INVALID_QUERY: "INVALID_QUERY",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -594,11 +655,17 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum MemberAbility {
-  CAN_QUERY = "CAN_QUERY",
-  CAN_RECEIVE_RESULTS = "CAN_RECEIVE_RESULTS",
-}
+export const MemberAbility = {
+  CAN_QUERY: "CAN_QUERY",
+  CAN_RECEIVE_RESULTS: "CAN_RECEIVE_RESULTS",
+} as const;
+
+/**
+ * @public
+ */
+export type MemberAbility = (typeof MemberAbility)[keyof typeof MemberAbility];
 
 /**
  * @public
@@ -649,11 +716,18 @@ export interface MemberSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum CollaborationQueryLogStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CollaborationQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CollaborationQueryLogStatus =
+  (typeof CollaborationQueryLogStatus)[keyof typeof CollaborationQueryLogStatus];
 
 /**
  * @public
@@ -706,13 +780,19 @@ export interface CreateCollaborationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum MemberStatus {
-  ACTIVE = "ACTIVE",
-  INVITED = "INVITED",
-  LEFT = "LEFT",
-  REMOVED = "REMOVED",
-}
+export const MemberStatus = {
+  ACTIVE: "ACTIVE",
+  INVITED: "INVITED",
+  LEFT: "LEFT",
+  REMOVED: "REMOVED",
+} as const;
+
+/**
+ * @public
+ */
+export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
 
 /**
  * @public
@@ -845,12 +925,18 @@ export interface DeleteCollaborationOutput {}
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictExceptionReason {
-  ALREADY_EXISTS = "ALREADY_EXISTS",
-  INVALID_STATE = "INVALID_STATE",
-  SUBRESOURCES_EXIST = "SUBRESOURCES_EXIST",
-}
+export const ConflictExceptionReason = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  INVALID_STATE: "INVALID_STATE",
+  SUBRESOURCES_EXIST: "SUBRESOURCES_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
 
 /**
  * @public
@@ -989,11 +1075,17 @@ export interface GetSchemaAnalysisRuleOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterableMemberStatus {
-  ACTIVE = "ACTIVE",
-  INVITED = "INVITED",
-}
+export const FilterableMemberStatus = {
+  ACTIVE: "ACTIVE",
+  INVITED: "INVITED",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterableMemberStatus = (typeof FilterableMemberStatus)[keyof typeof FilterableMemberStatus];
 
 /**
  * @public
@@ -1662,11 +1754,18 @@ export interface CreateConfiguredTableInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfiguredTableAnalysisRuleType {
-  AGGREGATION = "AGGREGATION",
-  LIST = "LIST",
-}
+export const ConfiguredTableAnalysisRuleType = {
+  AGGREGATION: "AGGREGATION",
+  LIST: "LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfiguredTableAnalysisRuleType =
+  (typeof ConfiguredTableAnalysisRuleType)[keyof typeof ConfiguredTableAnalysisRuleType];
 
 /**
  * @public
@@ -2124,11 +2223,17 @@ export interface ListTagsForResourceOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum MembershipQueryLogStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const MembershipQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
 
 /**
  * @public
@@ -2156,12 +2261,18 @@ export interface CreateMembershipInput {
 
 /**
  * @public
+ * @enum
  */
-export enum MembershipStatus {
-  ACTIVE = "ACTIVE",
-  COLLABORATION_DELETED = "COLLABORATION_DELETED",
-  REMOVED = "REMOVED",
-}
+export const MembershipStatus = {
+  ACTIVE: "ACTIVE",
+  COLLABORATION_DELETED: "COLLABORATION_DELETED",
+  REMOVED: "REMOVED",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
 
 /**
  * @public
@@ -2364,11 +2475,17 @@ export interface ProtectedQueryResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ResultFormat {
-  CSV = "CSV",
-  PARQUET = "PARQUET",
-}
+export const ResultFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+} as const;
+
+/**
+ * @public
+ */
+export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
 
 /**
  * @public
@@ -2462,16 +2579,22 @@ export interface ProtectedQueryStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum ProtectedQueryStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  FAILED = "FAILED",
-  STARTED = "STARTED",
-  SUBMITTED = "SUBMITTED",
-  SUCCESS = "SUCCESS",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const ProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedQueryStatus = (typeof ProtectedQueryStatus)[keyof typeof ProtectedQueryStatus];
 
 /**
  * @public
@@ -2710,10 +2833,16 @@ export interface ListProtectedQueriesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProtectedQueryType {
-  SQL = "SQL",
-}
+export const ProtectedQueryType = {
+  SQL: "SQL",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedQueryType = (typeof ProtectedQueryType)[keyof typeof ProtectedQueryType];
 
 /**
  * @public
@@ -2778,10 +2907,16 @@ export interface UpdateMembershipOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetProtectedQueryStatus {
-  CANCELLED = "CANCELLED",
-}
+export const TargetProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetProtectedQueryStatus = (typeof TargetProtectedQueryStatus)[keyof typeof TargetProtectedQueryStatus];
 
 /**
  * @public

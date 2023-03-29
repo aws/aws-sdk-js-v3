@@ -141,13 +141,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -395,23 +401,35 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CloudComponentState {
-  DEPLOYABLE = "DEPLOYABLE",
-  DEPRECATED = "DEPRECATED",
-  FAILED = "FAILED",
-  INITIATED = "INITIATED",
-  REQUESTED = "REQUESTED",
-}
+export const CloudComponentState = {
+  DEPLOYABLE: "DEPLOYABLE",
+  DEPRECATED: "DEPRECATED",
+  FAILED: "FAILED",
+  INITIATED: "INITIATED",
+  REQUESTED: "REQUESTED",
+} as const;
 
 /**
  * @public
  */
-export enum VendorGuidance {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DISCONTINUED = "DISCONTINUED",
-}
+export type CloudComponentState = (typeof CloudComponentState)[keyof typeof CloudComponentState];
+
+/**
+ * @public
+ * @enum
+ */
+export const VendorGuidance = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISCONTINUED: "DISCONTINUED",
+} as const;
+
+/**
+ * @public
+ */
+export type VendorGuidance = (typeof VendorGuidance)[keyof typeof VendorGuidance];
 
 /**
  * @public
@@ -600,11 +618,17 @@ export interface ComponentConfigurationUpdate {
 
 /**
  * @public
+ * @enum
  */
-export enum ComponentDependencyType {
-  HARD = "HARD",
-  SOFT = "SOFT",
-}
+export const ComponentDependencyType = {
+  HARD: "HARD",
+  SOFT: "SOFT",
+} as const;
+
+/**
+ * @public
+ */
+export type ComponentDependencyType = (typeof ComponentDependencyType)[keyof typeof ComponentDependencyType];
 
 /**
  * @public
@@ -750,11 +774,17 @@ export interface ComponentVersionListItem {
 
 /**
  * @public
+ * @enum
  */
-export enum ComponentVisibilityScope {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export const ComponentVisibilityScope = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ComponentVisibilityScope = (typeof ComponentVisibilityScope)[keyof typeof ComponentVisibilityScope];
 
 /**
  * @public
@@ -787,11 +817,17 @@ export interface ConnectivityInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum CoreDeviceStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const CoreDeviceStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type CoreDeviceStatus = (typeof CoreDeviceStatus)[keyof typeof CoreDeviceStatus];
 
 /**
  * @public
@@ -830,11 +866,17 @@ export interface CoreDevice {
 
 /**
  * @public
+ * @enum
  */
-export enum LambdaEventSourceType {
-  IOT_CORE = "IOT_CORE",
-  PUB_SUB = "PUB_SUB",
-}
+export const LambdaEventSourceType = {
+  IOT_CORE: "IOT_CORE",
+  PUB_SUB: "PUB_SUB",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaEventSourceType = (typeof LambdaEventSourceType)[keyof typeof LambdaEventSourceType];
 
 /**
  * @public
@@ -870,19 +912,32 @@ export interface LambdaEventSource {
 
 /**
  * @public
+ * @enum
  */
-export enum LambdaInputPayloadEncodingType {
-  BINARY = "binary",
-  JSON = "json",
-}
+export const LambdaInputPayloadEncodingType = {
+  BINARY: "binary",
+  JSON: "json",
+} as const;
 
 /**
  * @public
  */
-export enum LambdaFilesystemPermission {
-  RO = "ro",
-  RW = "rw",
-}
+export type LambdaInputPayloadEncodingType =
+  (typeof LambdaInputPayloadEncodingType)[keyof typeof LambdaInputPayloadEncodingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFilesystemPermission = {
+  RO: "ro",
+  RW: "rw",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFilesystemPermission = (typeof LambdaFilesystemPermission)[keyof typeof LambdaFilesystemPermission];
 
 /**
  * @public
@@ -976,11 +1031,17 @@ export interface LambdaContainerParams {
 
 /**
  * @public
+ * @enum
  */
-export enum LambdaIsolationMode {
-  GREENGRASS_CONTAINER = "GreengrassContainer",
-  NO_CONTAINER = "NoContainer",
-}
+export const LambdaIsolationMode = {
+  GREENGRASS_CONTAINER: "GreengrassContainer",
+  NO_CONTAINER: "NoContainer",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaIsolationMode = (typeof LambdaIsolationMode)[keyof typeof LambdaIsolationMode];
 
 /**
  * @public
@@ -1261,11 +1322,18 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentComponentUpdatePolicyAction {
-  NOTIFY_COMPONENTS = "NOTIFY_COMPONENTS",
-  SKIP_NOTIFY_COMPONENTS = "SKIP_NOTIFY_COMPONENTS",
-}
+export const DeploymentComponentUpdatePolicyAction = {
+  NOTIFY_COMPONENTS: "NOTIFY_COMPONENTS",
+  SKIP_NOTIFY_COMPONENTS: "SKIP_NOTIFY_COMPONENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentComponentUpdatePolicyAction =
+  (typeof DeploymentComponentUpdatePolicyAction)[keyof typeof DeploymentComponentUpdatePolicyAction];
 
 /**
  * @public
@@ -1327,11 +1395,18 @@ export interface DeploymentConfigurationValidationPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentFailureHandlingPolicy {
-  DO_NOTHING = "DO_NOTHING",
-  ROLLBACK = "ROLLBACK",
-}
+export const DeploymentFailureHandlingPolicy = {
+  DO_NOTHING: "DO_NOTHING",
+  ROLLBACK: "ROLLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentFailureHandlingPolicy =
+  (typeof DeploymentFailureHandlingPolicy)[keyof typeof DeploymentFailureHandlingPolicy];
 
 /**
  * @public
@@ -1362,20 +1437,32 @@ export interface DeploymentPolicies {
 
 /**
  * @public
+ * @enum
  */
-export enum IoTJobAbortAction {
-  CANCEL = "CANCEL",
-}
+export const IoTJobAbortAction = {
+  CANCEL: "CANCEL",
+} as const;
 
 /**
  * @public
  */
-export enum IoTJobExecutionFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export type IoTJobAbortAction = (typeof IoTJobAbortAction)[keyof typeof IoTJobAbortAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const IoTJobExecutionFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type IoTJobExecutionFailureType = (typeof IoTJobExecutionFailureType)[keyof typeof IoTJobExecutionFailureType];
 
 /**
  * @public
@@ -1637,14 +1724,20 @@ export interface DeleteDeploymentRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-}
+export const DeploymentStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
 
 /**
  * @public
@@ -1694,11 +1787,17 @@ export interface Deployment {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentHistoryFilter {
-  ALL = "ALL",
-  LATEST_ONLY = "LATEST_ONLY",
-}
+export const DeploymentHistoryFilter = {
+  ALL: "ALL",
+  LATEST_ONLY: "LATEST_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentHistoryFilter = (typeof DeploymentHistoryFilter)[keyof typeof DeploymentHistoryFilter];
 
 /**
  * @public
@@ -1781,16 +1880,23 @@ export interface DisassociateServiceRoleFromAccountResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EffectiveDeploymentExecutionStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const EffectiveDeploymentExecutionStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type EffectiveDeploymentExecutionStatus =
+  (typeof EffectiveDeploymentExecutionStatus)[keyof typeof EffectiveDeploymentExecutionStatus];
 
 /**
  * @public
@@ -1884,11 +1990,17 @@ export interface EffectiveDeployment {
 
 /**
  * @public
+ * @enum
  */
-export enum RecipeOutputFormat {
-  JSON = "JSON",
-  YAML = "YAML",
-}
+export const RecipeOutputFormat = {
+  JSON: "JSON",
+  YAML: "YAML",
+} as const;
+
+/**
+ * @public
+ */
+export type RecipeOutputFormat = (typeof RecipeOutputFormat)[keyof typeof RecipeOutputFormat];
 
 /**
  * @public
@@ -2418,11 +2530,18 @@ export interface ListEffectiveDeploymentsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum InstalledComponentTopologyFilter {
-  ALL = "ALL",
-  ROOT = "ROOT",
-}
+export const InstalledComponentTopologyFilter = {
+  ALL: "ALL",
+  ROOT: "ROOT",
+} as const;
+
+/**
+ * @public
+ */
+export type InstalledComponentTopologyFilter =
+  (typeof InstalledComponentTopologyFilter)[keyof typeof InstalledComponentTopologyFilter];
 
 /**
  * @public
@@ -2467,17 +2586,24 @@ export interface ListInstalledComponentsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InstalledComponentLifecycleState {
-  BROKEN = "BROKEN",
-  ERRORED = "ERRORED",
-  FINISHED = "FINISHED",
-  INSTALLED = "INSTALLED",
-  NEW = "NEW",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+export const InstalledComponentLifecycleState = {
+  BROKEN: "BROKEN",
+  ERRORED: "ERRORED",
+  FINISHED: "FINISHED",
+  INSTALLED: "INSTALLED",
+  NEW: "NEW",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type InstalledComponentLifecycleState =
+  (typeof InstalledComponentLifecycleState)[keyof typeof InstalledComponentLifecycleState];
 
 /**
  * @public

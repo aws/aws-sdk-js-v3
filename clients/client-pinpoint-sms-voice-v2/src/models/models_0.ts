@@ -5,11 +5,18 @@ import { PinpointSMSVoiceV2ServiceException as __BaseException } from "./Pinpoin
 
 /**
  * @public
+ * @enum
  */
-export enum AccessDeniedExceptionReason {
-  ACCOUNT_DISABLED = "ACCOUNT_DISABLED",
-  INSUFFICIENT_ACCOUNT_REPUTATION = "INSUFFICIENT_ACCOUNT_REPUTATION",
-}
+export const AccessDeniedExceptionReason = {
+  ACCOUNT_DISABLED: "ACCOUNT_DISABLED",
+  INSUFFICIENT_ACCOUNT_REPUTATION: "INSUFFICIENT_ACCOUNT_REPUTATION",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessDeniedExceptionReason =
+  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
 
 /**
  * @public
@@ -41,10 +48,16 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AccountAttributeName {
-  ACCOUNT_TIER = "ACCOUNT_TIER",
-}
+export const AccountAttributeName = {
+  ACCOUNT_TIER: "ACCOUNT_TIER",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountAttributeName = (typeof AccountAttributeName)[keyof typeof AccountAttributeName];
 
 /**
  * @public
@@ -64,13 +77,19 @@ export interface AccountAttribute {
 
 /**
  * @public
+ * @enum
  */
-export enum AccountLimitName {
-  CONFIGURATION_SETS = "CONFIGURATION_SETS",
-  OPT_OUT_LISTS = "OPT_OUT_LISTS",
-  PHONE_NUMBERS = "PHONE_NUMBERS",
-  POOLS = "POOLS",
-}
+export const AccountLimitName = {
+  CONFIGURATION_SETS: "CONFIGURATION_SETS",
+  OPT_OUT_LISTS: "OPT_OUT_LISTS",
+  PHONE_NUMBERS: "PHONE_NUMBERS",
+  POOLS: "POOLS",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountLimitName = (typeof AccountLimitName)[keyof typeof AccountLimitName];
 
 /**
  * @public
@@ -159,44 +178,56 @@ export interface AssociateOriginationIdentityResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictExceptionReason {
-  DELETION_PROTECTION_ENABLED = "DELETION_PROTECTION_ENABLED",
-  DESTINATION_PHONE_NUMBER_NOT_VERIFIED = "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
-  DESTINATION_PHONE_NUMBER_OPTED_OUT = "DESTINATION_PHONE_NUMBER_OPTED_OUT",
-  EVENT_DESTINATION_MISMATCH = "EVENT_DESTINATION_MISMATCH",
-  KEYWORD_MISMATCH = "KEYWORD_MISMATCH",
-  LAST_PHONE_NUMBER = "LAST_PHONE_NUMBER",
-  MESSAGE_TYPE_MISMATCH = "MESSAGE_TYPE_MISMATCH",
-  NO_ORIGINATION_IDENTITIES_FOUND = "NO_ORIGINATION_IDENTITIES_FOUND",
-  OPT_OUT_LIST_MISMATCH = "OPT_OUT_LIST_MISMATCH",
-  PHONE_NUMBER_ASSOCIATED_TO_POOL = "PHONE_NUMBER_ASSOCIATED_TO_POOL",
-  PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL = "PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL",
-  PHONE_NUMBER_NOT_IN_REGISTRATION_REGION = "PHONE_NUMBER_NOT_IN_REGISTRATION_REGION",
-  RESOURCE_ALREADY_EXISTS = "RESOURCE_ALREADY_EXISTS",
-  RESOURCE_DELETION_NOT_ALLOWED = "RESOURCE_DELETION_NOT_ALLOWED",
-  RESOURCE_MODIFICATION_NOT_ALLOWED = "RESOURCE_MODIFICATION_NOT_ALLOWED",
-  RESOURCE_NOT_ACTIVE = "RESOURCE_NOT_ACTIVE",
-  RESOURCE_NOT_EMPTY = "RESOURCE_NOT_EMPTY",
-  SELF_MANAGED_OPT_OUTS_MISMATCH = "SELF_MANAGED_OPT_OUTS_MISMATCH",
-  TWO_WAY_CONFIG_MISMATCH = "TWO_WAY_CONFIG_MISMATCH",
-}
+export const ConflictExceptionReason = {
+  DELETION_PROTECTION_ENABLED: "DELETION_PROTECTION_ENABLED",
+  DESTINATION_PHONE_NUMBER_NOT_VERIFIED: "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
+  DESTINATION_PHONE_NUMBER_OPTED_OUT: "DESTINATION_PHONE_NUMBER_OPTED_OUT",
+  EVENT_DESTINATION_MISMATCH: "EVENT_DESTINATION_MISMATCH",
+  KEYWORD_MISMATCH: "KEYWORD_MISMATCH",
+  LAST_PHONE_NUMBER: "LAST_PHONE_NUMBER",
+  MESSAGE_TYPE_MISMATCH: "MESSAGE_TYPE_MISMATCH",
+  NO_ORIGINATION_IDENTITIES_FOUND: "NO_ORIGINATION_IDENTITIES_FOUND",
+  OPT_OUT_LIST_MISMATCH: "OPT_OUT_LIST_MISMATCH",
+  PHONE_NUMBER_ASSOCIATED_TO_POOL: "PHONE_NUMBER_ASSOCIATED_TO_POOL",
+  PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL: "PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL",
+  PHONE_NUMBER_NOT_IN_REGISTRATION_REGION: "PHONE_NUMBER_NOT_IN_REGISTRATION_REGION",
+  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
+  RESOURCE_DELETION_NOT_ALLOWED: "RESOURCE_DELETION_NOT_ALLOWED",
+  RESOURCE_MODIFICATION_NOT_ALLOWED: "RESOURCE_MODIFICATION_NOT_ALLOWED",
+  RESOURCE_NOT_ACTIVE: "RESOURCE_NOT_ACTIVE",
+  RESOURCE_NOT_EMPTY: "RESOURCE_NOT_EMPTY",
+  SELF_MANAGED_OPT_OUTS_MISMATCH: "SELF_MANAGED_OPT_OUTS_MISMATCH",
+  TWO_WAY_CONFIG_MISMATCH: "TWO_WAY_CONFIG_MISMATCH",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  ACCOUNT = "account",
-  CONFIGURATION_SET = "configuration-set",
-  EVENT_DESTINATION = "event-destination",
-  KEYWORD = "keyword",
-  OPTED_OUT_NUMBER = "opted-out-number",
-  OPT_OUT_LIST = "opt-out-list",
-  PHONE_NUMBER = "phone-number",
-  POOL = "pool",
-  REGISTRATION = "registration",
-  SENDER_ID = "sender-id",
-}
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ACCOUNT: "account",
+  CONFIGURATION_SET: "configuration-set",
+  EVENT_DESTINATION: "event-destination",
+  KEYWORD: "keyword",
+  OPTED_OUT_NUMBER: "opted-out-number",
+  OPT_OUT_LIST: "opt-out-list",
+  PHONE_NUMBER: "phone-number",
+  POOL: "pool",
+  REGISTRATION: "registration",
+  SENDER_ID: "sender-id",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -304,22 +335,29 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceQuotaExceededExceptionReason {
-  CONFIGURATION_SETS_PER_ACCOUNT = "CONFIGURATION_SETS_PER_ACCOUNT",
-  DAILY_DESTINATION_CALL_LIMIT = "DAILY_DESTINATION_CALL_LIMIT",
-  EVENT_DESTINATIONS_PER_CONFIGURATION_SET = "EVENT_DESTINATIONS_PER_CONFIGURATION_SET",
-  KEYWORDS_PER_PHONE_NUMBER = "KEYWORDS_PER_PHONE_NUMBER",
-  KEYWORDS_PER_POOL = "KEYWORDS_PER_POOL",
-  MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT = "MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT",
-  MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE = "MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE",
-  OPT_OUT_LISTS_PER_ACCOUNT = "OPT_OUT_LISTS_PER_ACCOUNT",
-  ORIGINATION_IDENTITIES_PER_POOL = "ORIGINATION_IDENTITIES_PER_POOL",
-  PHONE_NUMBERS_PER_ACCOUNT = "PHONE_NUMBERS_PER_ACCOUNT",
-  PHONE_NUMBERS_PER_REGISTRATION = "PHONE_NUMBERS_PER_REGISTRATION",
-  POOLS_PER_ACCOUNT = "POOLS_PER_ACCOUNT",
-  TAGS_PER_RESOURCE = "TAGS_PER_RESOURCE",
-}
+export const ServiceQuotaExceededExceptionReason = {
+  CONFIGURATION_SETS_PER_ACCOUNT: "CONFIGURATION_SETS_PER_ACCOUNT",
+  DAILY_DESTINATION_CALL_LIMIT: "DAILY_DESTINATION_CALL_LIMIT",
+  EVENT_DESTINATIONS_PER_CONFIGURATION_SET: "EVENT_DESTINATIONS_PER_CONFIGURATION_SET",
+  KEYWORDS_PER_PHONE_NUMBER: "KEYWORDS_PER_PHONE_NUMBER",
+  KEYWORDS_PER_POOL: "KEYWORDS_PER_POOL",
+  MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT: "MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT",
+  MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE: "MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE",
+  OPT_OUT_LISTS_PER_ACCOUNT: "OPT_OUT_LISTS_PER_ACCOUNT",
+  ORIGINATION_IDENTITIES_PER_POOL: "ORIGINATION_IDENTITIES_PER_POOL",
+  PHONE_NUMBERS_PER_ACCOUNT: "PHONE_NUMBERS_PER_ACCOUNT",
+  PHONE_NUMBERS_PER_REGISTRATION: "PHONE_NUMBERS_PER_REGISTRATION",
+  POOLS_PER_ACCOUNT: "POOLS_PER_ACCOUNT",
+  TAGS_PER_RESOURCE: "TAGS_PER_RESOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceQuotaExceededExceptionReason =
+  (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
 
 /**
  * @public
@@ -393,33 +431,39 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_ADD_OPTED_OUT_NUMBER = "CANNOT_ADD_OPTED_OUT_NUMBER",
-  CANNOT_PARSE = "CANNOT_PARSE",
-  COUNTRY_CODE_MISMATCH = "COUNTRY_CODE_MISMATCH",
-  DESTINATION_COUNTRY_BLOCKED = "DESTINATION_COUNTRY_BLOCKED",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  INVALID_ARN = "INVALID_ARN",
-  INVALID_FILTER_VALUES = "INVALID_FILTER_VALUES",
-  INVALID_IDENTITY_FOR_DESTINATION_COUNTRY = "INVALID_IDENTITY_FOR_DESTINATION_COUNTRY",
-  INVALID_NEXT_TOKEN = "INVALID_NEXT_TOKEN",
-  INVALID_PARAMETER = "INVALID_PARAMETER",
-  MISSING_PARAMETER = "MISSING_PARAMETER",
-  OTHER = "OTHER",
-  PARAMETERS_CANNOT_BE_USED_TOGETHER = "PARAMETERS_CANNOT_BE_USED_TOGETHER",
-  PHONE_NUMBER_CANNOT_BE_OPTED_IN = "PHONE_NUMBER_CANNOT_BE_OPTED_IN",
-  PHONE_NUMBER_CANNOT_BE_RELEASED = "PHONE_NUMBER_CANNOT_BE_RELEASED",
-  PRICE_OVER_THRESHOLD = "PRICE_OVER_THRESHOLD",
-  REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT = "REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT",
-  SENDER_ID_NOT_REGISTERED = "SENDER_ID_NOT_REGISTERED",
-  SENDER_ID_NOT_SUPPORTED = "SENDER_ID_NOT_SUPPORTED",
-  TWO_WAY_NOT_ENABLED = "TWO_WAY_NOT_ENABLED",
-  TWO_WAY_NOT_SUPPORTED_IN_COUNTRY = "TWO_WAY_NOT_SUPPORTED_IN_COUNTRY",
-  TWO_WAY_NOT_SUPPORTED_IN_REGION = "TWO_WAY_NOT_SUPPORTED_IN_REGION",
-  TWO_WAY_TOPIC_NOT_PRESENT = "TWO_WAY_TOPIC_NOT_PRESENT",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_ADD_OPTED_OUT_NUMBER: "CANNOT_ADD_OPTED_OUT_NUMBER",
+  CANNOT_PARSE: "CANNOT_PARSE",
+  COUNTRY_CODE_MISMATCH: "COUNTRY_CODE_MISMATCH",
+  DESTINATION_COUNTRY_BLOCKED: "DESTINATION_COUNTRY_BLOCKED",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_ARN: "INVALID_ARN",
+  INVALID_FILTER_VALUES: "INVALID_FILTER_VALUES",
+  INVALID_IDENTITY_FOR_DESTINATION_COUNTRY: "INVALID_IDENTITY_FOR_DESTINATION_COUNTRY",
+  INVALID_NEXT_TOKEN: "INVALID_NEXT_TOKEN",
+  INVALID_PARAMETER: "INVALID_PARAMETER",
+  MISSING_PARAMETER: "MISSING_PARAMETER",
+  OTHER: "OTHER",
+  PARAMETERS_CANNOT_BE_USED_TOGETHER: "PARAMETERS_CANNOT_BE_USED_TOGETHER",
+  PHONE_NUMBER_CANNOT_BE_OPTED_IN: "PHONE_NUMBER_CANNOT_BE_OPTED_IN",
+  PHONE_NUMBER_CANNOT_BE_RELEASED: "PHONE_NUMBER_CANNOT_BE_RELEASED",
+  PRICE_OVER_THRESHOLD: "PRICE_OVER_THRESHOLD",
+  REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT: "REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT",
+  SENDER_ID_NOT_REGISTERED: "SENDER_ID_NOT_REGISTERED",
+  SENDER_ID_NOT_SUPPORTED: "SENDER_ID_NOT_SUPPORTED",
+  TWO_WAY_NOT_ENABLED: "TWO_WAY_NOT_ENABLED",
+  TWO_WAY_NOT_SUPPORTED_IN_COUNTRY: "TWO_WAY_NOT_SUPPORTED_IN_COUNTRY",
+  TWO_WAY_NOT_SUPPORTED_IN_REGION: "TWO_WAY_NOT_SUPPORTED_IN_REGION",
+  TWO_WAY_TOPIC_NOT_PRESENT: "TWO_WAY_TOPIC_NOT_PRESENT",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -474,13 +518,19 @@ export interface CloudWatchLogsDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationSetFilterName {
-  DEFAULT_MESSAGE_TYPE = "default-message-type",
-  DEFAULT_SENDER_ID = "default-sender-id",
-  EVENT_DESTINATION_NAME = "event-destination-name",
-  MATCHING_EVENT_TYPES = "matching-event-types",
-}
+export const ConfigurationSetFilterName = {
+  DEFAULT_MESSAGE_TYPE: "default-message-type",
+  DEFAULT_SENDER_ID: "default-sender-id",
+  EVENT_DESTINATION_NAME: "event-destination-name",
+  MATCHING_EVENT_TYPES: "matching-event-types",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationSetFilterName = (typeof ConfigurationSetFilterName)[keyof typeof ConfigurationSetFilterName];
 
 /**
  * @public
@@ -500,11 +550,17 @@ export interface ConfigurationSetFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum MessageType {
-  PROMOTIONAL = "PROMOTIONAL",
-  TRANSACTIONAL = "TRANSACTIONAL",
-}
+export const MessageType = {
+  PROMOTIONAL: "PROMOTIONAL",
+  TRANSACTIONAL: "TRANSACTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * @public
@@ -528,34 +584,40 @@ export interface KinesisFirehoseDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  ALL = "ALL",
-  TEXT_ALL = "TEXT_ALL",
-  TEXT_BLOCKED = "TEXT_BLOCKED",
-  TEXT_CARRIER_BLOCKED = "TEXT_CARRIER_BLOCKED",
-  TEXT_CARRIER_UNREACHABLE = "TEXT_CARRIER_UNREACHABLE",
-  TEXT_DELIVERED = "TEXT_DELIVERED",
-  TEXT_INVALID = "TEXT_INVALID",
-  TEXT_INVALID_MESSAGE = "TEXT_INVALID_MESSAGE",
-  TEXT_PENDING = "TEXT_PENDING",
-  TEXT_QUEUED = "TEXT_QUEUED",
-  TEXT_SENT = "TEXT_SENT",
-  TEXT_SPAM = "TEXT_SPAM",
-  TEXT_SUCCESSFUL = "TEXT_SUCCESSFUL",
-  TEXT_TTL_EXPIRED = "TEXT_TTL_EXPIRED",
-  TEXT_UNKNOWN = "TEXT_UNKNOWN",
-  TEXT_UNREACHABLE = "TEXT_UNREACHABLE",
-  VOICE_ALL = "VOICE_ALL",
-  VOICE_ANSWERED = "VOICE_ANSWERED",
-  VOICE_BUSY = "VOICE_BUSY",
-  VOICE_COMPLETED = "VOICE_COMPLETED",
-  VOICE_FAILED = "VOICE_FAILED",
-  VOICE_INITIATED = "VOICE_INITIATED",
-  VOICE_NO_ANSWER = "VOICE_NO_ANSWER",
-  VOICE_RINGING = "VOICE_RINGING",
-  VOICE_TTL_EXPIRED = "VOICE_TTL_EXPIRED",
-}
+export const EventType = {
+  ALL: "ALL",
+  TEXT_ALL: "TEXT_ALL",
+  TEXT_BLOCKED: "TEXT_BLOCKED",
+  TEXT_CARRIER_BLOCKED: "TEXT_CARRIER_BLOCKED",
+  TEXT_CARRIER_UNREACHABLE: "TEXT_CARRIER_UNREACHABLE",
+  TEXT_DELIVERED: "TEXT_DELIVERED",
+  TEXT_INVALID: "TEXT_INVALID",
+  TEXT_INVALID_MESSAGE: "TEXT_INVALID_MESSAGE",
+  TEXT_PENDING: "TEXT_PENDING",
+  TEXT_QUEUED: "TEXT_QUEUED",
+  TEXT_SENT: "TEXT_SENT",
+  TEXT_SPAM: "TEXT_SPAM",
+  TEXT_SUCCESSFUL: "TEXT_SUCCESSFUL",
+  TEXT_TTL_EXPIRED: "TEXT_TTL_EXPIRED",
+  TEXT_UNKNOWN: "TEXT_UNKNOWN",
+  TEXT_UNREACHABLE: "TEXT_UNREACHABLE",
+  VOICE_ALL: "VOICE_ALL",
+  VOICE_ANSWERED: "VOICE_ANSWERED",
+  VOICE_BUSY: "VOICE_BUSY",
+  VOICE_COMPLETED: "VOICE_COMPLETED",
+  VOICE_FAILED: "VOICE_FAILED",
+  VOICE_INITIATED: "VOICE_INITIATED",
+  VOICE_NO_ANSWER: "VOICE_NO_ANSWER",
+  VOICE_RINGING: "VOICE_RINGING",
+  VOICE_TTL_EXPIRED: "VOICE_TTL_EXPIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -876,12 +938,18 @@ export interface CreatePoolRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PoolStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const PoolStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type PoolStatus = (typeof PoolStatus)[keyof typeof PoolStatus];
 
 /**
  * @public
@@ -1136,12 +1204,18 @@ export interface DeleteKeywordRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum KeywordAction {
-  AUTOMATIC_RESPONSE = "AUTOMATIC_RESPONSE",
-  OPT_IN = "OPT_IN",
-  OPT_OUT = "OPT_OUT",
-}
+export const KeywordAction = {
+  AUTOMATIC_RESPONSE: "AUTOMATIC_RESPONSE",
+  OPT_IN: "OPT_IN",
+  OPT_OUT: "OPT_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type KeywordAction = (typeof KeywordAction)[keyof typeof KeywordAction];
 
 /**
  * @public
@@ -1471,10 +1545,16 @@ export interface DescribeConfigurationSetsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum KeywordFilterName {
-  KEYWORD_ACTION = "keyword-action",
-}
+export const KeywordFilterName = {
+  KEYWORD_ACTION: "keyword-action",
+} as const;
+
+/**
+ * @public
+ */
+export type KeywordFilterName = (typeof KeywordFilterName)[keyof typeof KeywordFilterName];
 
 /**
  * @public
@@ -1575,10 +1655,16 @@ export interface DescribeKeywordsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum OptedOutFilterName {
-  END_USER_OPTED_OUT = "end-user-opted-out",
-}
+export const OptedOutFilterName = {
+  END_USER_OPTED_OUT: "end-user-opted-out",
+} as const;
+
+/**
+ * @public
+ */
+export type OptedOutFilterName = (typeof OptedOutFilterName)[keyof typeof OptedOutFilterName];
 
 /**
  * @public
@@ -1738,18 +1824,24 @@ export interface DescribeOptOutListsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneNumberFilterName {
-  DELETION_PROTECTION_ENABLED = "deletion-protection-enabled",
-  ISO_COUNTRY_CODE = "iso-country-code",
-  MESSAGE_TYPE = "message-type",
-  NUMBER_CAPABILITY = "number-capability",
-  NUMBER_TYPE = "number-type",
-  OPT_OUT_LIST_NAME = "opt-out-list-name",
-  SELF_MANAGED_OPT_OUTS_ENABLED = "self-managed-opt-outs-enabled",
-  STATUS = "status",
-  TWO_WAY_ENABLED = "two-way-enabled",
-}
+export const PhoneNumberFilterName = {
+  DELETION_PROTECTION_ENABLED: "deletion-protection-enabled",
+  ISO_COUNTRY_CODE: "iso-country-code",
+  MESSAGE_TYPE: "message-type",
+  NUMBER_CAPABILITY: "number-capability",
+  NUMBER_TYPE: "number-type",
+  OPT_OUT_LIST_NAME: "opt-out-list-name",
+  SELF_MANAGED_OPT_OUTS_ENABLED: "self-managed-opt-outs-enabled",
+  STATUS: "status",
+  TWO_WAY_ENABLED: "two-way-enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberFilterName = (typeof PhoneNumberFilterName)[keyof typeof PhoneNumberFilterName];
 
 /**
  * @public
@@ -1796,32 +1888,50 @@ export interface DescribePhoneNumbersRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NumberCapability {
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+export const NumberCapability = {
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
 
 /**
  * @public
  */
-export enum NumberType {
-  LONG_CODE = "LONG_CODE",
-  SHORT_CODE = "SHORT_CODE",
-  TEN_DLC = "TEN_DLC",
-  TOLL_FREE = "TOLL_FREE",
-}
+export type NumberCapability = (typeof NumberCapability)[keyof typeof NumberCapability];
+
+/**
+ * @public
+ * @enum
+ */
+export const NumberType = {
+  LONG_CODE: "LONG_CODE",
+  SHORT_CODE: "SHORT_CODE",
+  TEN_DLC: "TEN_DLC",
+  TOLL_FREE: "TOLL_FREE",
+} as const;
 
 /**
  * @public
  */
-export enum NumberStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  DELETED = "DELETED",
-  DISASSOCIATING = "DISASSOCIATING",
-  PENDING = "PENDING",
-}
+export type NumberType = (typeof NumberType)[keyof typeof NumberType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NumberStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  DELETED: "DELETED",
+  DISASSOCIATING: "DISASSOCIATING",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type NumberStatus = (typeof NumberStatus)[keyof typeof NumberStatus];
 
 /**
  * @public
@@ -1938,16 +2048,22 @@ export interface DescribePhoneNumbersResult {
 
 /**
  * @public
+ * @enum
  */
-export enum PoolFilterName {
-  DELETION_PROTECTION_ENABLED = "deletion-protection-enabled",
-  MESSAGE_TYPE = "message-type",
-  OPT_OUT_LIST_NAME = "opt-out-list-name",
-  SELF_MANAGED_OPT_OUTS_ENABLED = "self-managed-opt-outs-enabled",
-  SHARED_ROUTES_ENABLED = "shared-routes-enabled",
-  STATUS = "status",
-  TWO_WAY_ENABLED = "two-way-enabled",
-}
+export const PoolFilterName = {
+  DELETION_PROTECTION_ENABLED: "deletion-protection-enabled",
+  MESSAGE_TYPE: "message-type",
+  OPT_OUT_LIST_NAME: "opt-out-list-name",
+  SELF_MANAGED_OPT_OUTS_ENABLED: "self-managed-opt-outs-enabled",
+  SHARED_ROUTES_ENABLED: "shared-routes-enabled",
+  STATUS: "status",
+  TWO_WAY_ENABLED: "two-way-enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type PoolFilterName = (typeof PoolFilterName)[keyof typeof PoolFilterName];
 
 /**
  * @public
@@ -2084,12 +2200,18 @@ export interface DescribePoolsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum SenderIdFilterName {
-  ISO_COUNTRY_CODE = "iso-country-code",
-  MESSAGE_TYPE = "message-type",
-  SENDER_ID = "sender-id",
-}
+export const SenderIdFilterName = {
+  ISO_COUNTRY_CODE: "iso-country-code",
+  MESSAGE_TYPE: "message-type",
+  SENDER_ID: "sender-id",
+} as const;
+
+/**
+ * @public
+ */
+export type SenderIdFilterName = (typeof SenderIdFilterName)[keyof typeof SenderIdFilterName];
 
 /**
  * @public
@@ -2222,11 +2344,17 @@ export interface DescribeSpendLimitsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SpendLimitName {
-  TEXT_MESSAGE_MONTHLY_SPEND_LIMIT = "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT",
-  VOICE_MESSAGE_MONTHLY_SPEND_LIMIT = "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT",
-}
+export const SpendLimitName = {
+  TEXT_MESSAGE_MONTHLY_SPEND_LIMIT: "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT",
+  VOICE_MESSAGE_MONTHLY_SPEND_LIMIT: "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT",
+} as const;
+
+/**
+ * @public
+ */
+export type SpendLimitName = (typeof SpendLimitName)[keyof typeof SpendLimitName];
 
 /**
  * @public
@@ -2282,11 +2410,18 @@ export interface DescribeSpendLimitsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DestinationCountryParameterKey {
-  IN_ENTITY_ID = "IN_ENTITY_ID",
-  IN_TEMPLATE_ID = "IN_TEMPLATE_ID",
-}
+export const DestinationCountryParameterKey = {
+  IN_ENTITY_ID: "IN_ENTITY_ID",
+  IN_TEMPLATE_ID: "IN_TEMPLATE_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type DestinationCountryParameterKey =
+  (typeof DestinationCountryParameterKey)[keyof typeof DestinationCountryParameterKey];
 
 /**
  * @public
@@ -2353,11 +2488,18 @@ export interface DisassociateOriginationIdentityResult {
 
 /**
  * @public
+ * @enum
  */
-export enum PoolOriginationIdentitiesFilterName {
-  ISO_COUNTRY_CODE = "iso-country-code",
-  NUMBER_CAPABILITY = "number-capability",
-}
+export const PoolOriginationIdentitiesFilterName = {
+  ISO_COUNTRY_CODE: "iso-country-code",
+  NUMBER_CAPABILITY: "number-capability",
+} as const;
+
+/**
+ * @public
+ */
+export type PoolOriginationIdentitiesFilterName =
+  (typeof PoolOriginationIdentitiesFilterName)[keyof typeof PoolOriginationIdentitiesFilterName];
 
 /**
  * @public
@@ -2691,12 +2833,18 @@ export interface ReleasePhoneNumberResult {
 
 /**
  * @public
+ * @enum
  */
-export enum RequestableNumberType {
-  LONG_CODE = "LONG_CODE",
-  TEN_DLC = "TEN_DLC",
-  TOLL_FREE = "TOLL_FREE",
-}
+export const RequestableNumberType = {
+  LONG_CODE: "LONG_CODE",
+  TEN_DLC: "TEN_DLC",
+  TOLL_FREE: "TOLL_FREE",
+} as const;
+
+/**
+ * @public
+ */
+export type RequestableNumberType = (typeof RequestableNumberType)[keyof typeof RequestableNumberType];
 
 /**
  * @public
@@ -2946,76 +3094,88 @@ export interface SendTextMessageResult {
 
 /**
  * @public
+ * @enum
  */
-export enum VoiceMessageBodyTextType {
-  SSML = "SSML",
-  TEXT = "TEXT",
-}
+export const VoiceMessageBodyTextType = {
+  SSML: "SSML",
+  TEXT: "TEXT",
+} as const;
 
 /**
  * @public
  */
-export enum VoiceId {
-  AMY = "AMY",
-  ASTRID = "ASTRID",
-  BIANCA = "BIANCA",
-  BRIAN = "BRIAN",
-  CAMILA = "CAMILA",
-  CARLA = "CARLA",
-  CARMEN = "CARMEN",
-  CELINE = "CELINE",
-  CHANTAL = "CHANTAL",
-  CONCHITA = "CONCHITA",
-  CRISTIANO = "CRISTIANO",
-  DORA = "DORA",
-  EMMA = "EMMA",
-  ENRIQUE = "ENRIQUE",
-  EWA = "EWA",
-  FILIZ = "FILIZ",
-  GERAINT = "GERAINT",
-  GIORGIO = "GIORGIO",
-  GWYNETH = "GWYNETH",
-  HANS = "HANS",
-  INES = "INES",
-  IVY = "IVY",
-  JACEK = "JACEK",
-  JAN = "JAN",
-  JOANNA = "JOANNA",
-  JOEY = "JOEY",
-  JUSTIN = "JUSTIN",
-  KARL = "KARL",
-  KENDRA = "KENDRA",
-  KIMBERLY = "KIMBERLY",
-  LEA = "LEA",
-  LIV = "LIV",
-  LOTTE = "LOTTE",
-  LUCIA = "LUCIA",
-  LUPE = "LUPE",
-  MADS = "MADS",
-  MAJA = "MAJA",
-  MARLENE = "MARLENE",
-  MATHIEU = "MATHIEU",
-  MATTHEW = "MATTHEW",
-  MAXIM = "MAXIM",
-  MIA = "MIA",
-  MIGUEL = "MIGUEL",
-  MIZUKI = "MIZUKI",
-  NAJA = "NAJA",
-  NICOLE = "NICOLE",
-  PENELOPE = "PENELOPE",
-  RAVEENA = "RAVEENA",
-  RICARDO = "RICARDO",
-  RUBEN = "RUBEN",
-  RUSSELL = "RUSSELL",
-  SALLI = "SALLI",
-  SEOYEON = "SEOYEON",
-  TAKUMI = "TAKUMI",
-  TATYANA = "TATYANA",
-  VICKI = "VICKI",
-  VITORIA = "VITORIA",
-  ZEINA = "ZEINA",
-  ZHIYU = "ZHIYU",
-}
+export type VoiceMessageBodyTextType = (typeof VoiceMessageBodyTextType)[keyof typeof VoiceMessageBodyTextType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VoiceId = {
+  AMY: "AMY",
+  ASTRID: "ASTRID",
+  BIANCA: "BIANCA",
+  BRIAN: "BRIAN",
+  CAMILA: "CAMILA",
+  CARLA: "CARLA",
+  CARMEN: "CARMEN",
+  CELINE: "CELINE",
+  CHANTAL: "CHANTAL",
+  CONCHITA: "CONCHITA",
+  CRISTIANO: "CRISTIANO",
+  DORA: "DORA",
+  EMMA: "EMMA",
+  ENRIQUE: "ENRIQUE",
+  EWA: "EWA",
+  FILIZ: "FILIZ",
+  GERAINT: "GERAINT",
+  GIORGIO: "GIORGIO",
+  GWYNETH: "GWYNETH",
+  HANS: "HANS",
+  INES: "INES",
+  IVY: "IVY",
+  JACEK: "JACEK",
+  JAN: "JAN",
+  JOANNA: "JOANNA",
+  JOEY: "JOEY",
+  JUSTIN: "JUSTIN",
+  KARL: "KARL",
+  KENDRA: "KENDRA",
+  KIMBERLY: "KIMBERLY",
+  LEA: "LEA",
+  LIV: "LIV",
+  LOTTE: "LOTTE",
+  LUCIA: "LUCIA",
+  LUPE: "LUPE",
+  MADS: "MADS",
+  MAJA: "MAJA",
+  MARLENE: "MARLENE",
+  MATHIEU: "MATHIEU",
+  MATTHEW: "MATTHEW",
+  MAXIM: "MAXIM",
+  MIA: "MIA",
+  MIGUEL: "MIGUEL",
+  MIZUKI: "MIZUKI",
+  NAJA: "NAJA",
+  NICOLE: "NICOLE",
+  PENELOPE: "PENELOPE",
+  RAVEENA: "RAVEENA",
+  RICARDO: "RICARDO",
+  RUBEN: "RUBEN",
+  RUSSELL: "RUSSELL",
+  SALLI: "SALLI",
+  SEOYEON: "SEOYEON",
+  TAKUMI: "TAKUMI",
+  TATYANA: "TATYANA",
+  VICKI: "VICKI",
+  VITORIA: "VITORIA",
+  ZEINA: "ZEINA",
+  ZHIYU: "ZHIYU",
+} as const;
+
+/**
+ * @public
+ */
+export type VoiceId = (typeof VoiceId)[keyof typeof VoiceId];
 
 /**
  * @public

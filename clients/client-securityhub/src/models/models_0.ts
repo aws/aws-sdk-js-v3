@@ -631,11 +631,17 @@ export interface Adjustment {
 
 /**
  * @public
+ * @enum
  */
-export enum AdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+export const AdminStatus = {
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
 
 /**
  * @public
@@ -744,19 +750,31 @@ export interface AssociationSetDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssociationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum AutoEnableStandards {
-  DEFAULT = "DEFAULT",
-  NONE = "NONE",
-}
+export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoEnableStandards = {
+  DEFAULT: "DEFAULT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoEnableStandards = (typeof AutoEnableStandards)[keyof typeof AutoEnableStandards];
 
 /**
  * @public

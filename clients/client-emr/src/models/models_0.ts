@@ -5,22 +5,34 @@ import { EMRServiceException as __BaseException } from "./EMRServiceException";
 
 /**
  * @public
+ * @enum
  */
-export enum ActionOnFailure {
-  CANCEL_AND_WAIT = "CANCEL_AND_WAIT",
-  CONTINUE = "CONTINUE",
-  TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
-  TERMINATE_JOB_FLOW = "TERMINATE_JOB_FLOW",
-}
+export const ActionOnFailure = {
+  CANCEL_AND_WAIT: "CANCEL_AND_WAIT",
+  CONTINUE: "CONTINUE",
+  TERMINATE_CLUSTER: "TERMINATE_CLUSTER",
+  TERMINATE_JOB_FLOW: "TERMINATE_JOB_FLOW",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceFleetType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+export type ActionOnFailure = (typeof ActionOnFailure)[keyof typeof ActionOnFailure];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceFleetType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceFleetType = (typeof InstanceFleetType)[keyof typeof InstanceFleetType];
 
 /**
  * @public
@@ -90,25 +102,46 @@ export interface EbsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum OnDemandProvisioningAllocationStrategy {
-  LOWEST_PRICE = "lowest-price",
-}
+export const OnDemandProvisioningAllocationStrategy = {
+  LOWEST_PRICE: "lowest-price",
+} as const;
 
 /**
  * @public
  */
-export enum OnDemandCapacityReservationPreference {
-  NONE = "none",
-  OPEN = "open",
-}
+export type OnDemandProvisioningAllocationStrategy =
+  (typeof OnDemandProvisioningAllocationStrategy)[keyof typeof OnDemandProvisioningAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandCapacityReservationPreference = {
+  NONE: "none",
+  OPEN: "open",
+} as const;
 
 /**
  * @public
  */
-export enum OnDemandCapacityReservationUsageStrategy {
-  USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first",
-}
+export type OnDemandCapacityReservationPreference =
+  (typeof OnDemandCapacityReservationPreference)[keyof typeof OnDemandCapacityReservationPreference];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnDemandCapacityReservationUsageStrategy = {
+  USE_CAPACITY_RESERVATIONS_FIRST: "use-capacity-reservations-first",
+} as const;
+
+/**
+ * @public
+ */
+export type OnDemandCapacityReservationUsageStrategy =
+  (typeof OnDemandCapacityReservationUsageStrategy)[keyof typeof OnDemandCapacityReservationUsageStrategy];
 
 /**
  * @public
@@ -182,18 +215,32 @@ export interface OnDemandProvisioningSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum SpotProvisioningAllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacity-optimized",
-}
+export const SpotProvisioningAllocationStrategy = {
+  CAPACITY_OPTIMIZED: "capacity-optimized",
+} as const;
 
 /**
  * @public
  */
-export enum SpotProvisioningTimeoutAction {
-  SWITCH_TO_ON_DEMAND = "SWITCH_TO_ON_DEMAND",
-  TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
-}
+export type SpotProvisioningAllocationStrategy =
+  (typeof SpotProvisioningAllocationStrategy)[keyof typeof SpotProvisioningAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpotProvisioningTimeoutAction = {
+  SWITCH_TO_ON_DEMAND: "SWITCH_TO_ON_DEMAND",
+  TERMINATE_CLUSTER: "TERMINATE_CLUSTER",
+} as const;
+
+/**
+ * @public
+ */
+export type SpotProvisioningTimeoutAction =
+  (typeof SpotProvisioningTimeoutAction)[keyof typeof SpotProvisioningTimeoutAction];
 
 /**
  * @public
@@ -437,20 +484,32 @@ export interface ScalingConstraints {
 
 /**
  * @public
+ * @enum
  */
-export enum MarketType {
-  ON_DEMAND = "ON_DEMAND",
-  SPOT = "SPOT",
-}
+export const MarketType = {
+  ON_DEMAND: "ON_DEMAND",
+  SPOT: "SPOT",
+} as const;
 
 /**
  * @public
  */
-export enum AdjustmentType {
-  CHANGE_IN_CAPACITY = "CHANGE_IN_CAPACITY",
-  EXACT_CAPACITY = "EXACT_CAPACITY",
-  PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY",
-}
+export type MarketType = (typeof MarketType)[keyof typeof MarketType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdjustmentType = {
+  CHANGE_IN_CAPACITY: "CHANGE_IN_CAPACITY",
+  EXACT_CAPACITY: "EXACT_CAPACITY",
+  PERCENT_CHANGE_IN_CAPACITY: "PERCENT_CHANGE_IN_CAPACITY",
+} as const;
+
+/**
+ * @public
+ */
+export type AdjustmentType = (typeof AdjustmentType)[keyof typeof AdjustmentType];
 
 /**
  * @public
@@ -513,13 +572,19 @@ export interface ScalingAction {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
-}
+export const ComparisonOperator = {
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * @public
@@ -543,47 +608,59 @@ export interface MetricDimension {
 
 /**
  * @public
+ * @enum
  */
-export enum Statistic {
-  AVERAGE = "AVERAGE",
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-  SAMPLE_COUNT = "SAMPLE_COUNT",
-  SUM = "SUM",
-}
+export const Statistic = {
+  AVERAGE: "AVERAGE",
+  MAXIMUM: "MAXIMUM",
+  MINIMUM: "MINIMUM",
+  SAMPLE_COUNT: "SAMPLE_COUNT",
+  SUM: "SUM",
+} as const;
 
 /**
  * @public
  */
-export enum Unit {
-  BITS = "BITS",
-  BITS_PER_SECOND = "BITS_PER_SECOND",
-  BYTES = "BYTES",
-  BYTES_PER_SECOND = "BYTES_PER_SECOND",
-  COUNT = "COUNT",
-  COUNT_PER_SECOND = "COUNT_PER_SECOND",
-  GIGA_BITS = "GIGA_BITS",
-  GIGA_BITS_PER_SECOND = "GIGA_BITS_PER_SECOND",
-  GIGA_BYTES = "GIGA_BYTES",
-  GIGA_BYTES_PER_SECOND = "GIGA_BYTES_PER_SECOND",
-  KILO_BITS = "KILO_BITS",
-  KILO_BITS_PER_SECOND = "KILO_BITS_PER_SECOND",
-  KILO_BYTES = "KILO_BYTES",
-  KILO_BYTES_PER_SECOND = "KILO_BYTES_PER_SECOND",
-  MEGA_BITS = "MEGA_BITS",
-  MEGA_BITS_PER_SECOND = "MEGA_BITS_PER_SECOND",
-  MEGA_BYTES = "MEGA_BYTES",
-  MEGA_BYTES_PER_SECOND = "MEGA_BYTES_PER_SECOND",
-  MICRO_SECONDS = "MICRO_SECONDS",
-  MILLI_SECONDS = "MILLI_SECONDS",
-  NONE = "NONE",
-  PERCENT = "PERCENT",
-  SECONDS = "SECONDS",
-  TERA_BITS = "TERA_BITS",
-  TERA_BITS_PER_SECOND = "TERA_BITS_PER_SECOND",
-  TERA_BYTES = "TERA_BYTES",
-  TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND",
-}
+export type Statistic = (typeof Statistic)[keyof typeof Statistic];
+
+/**
+ * @public
+ * @enum
+ */
+export const Unit = {
+  BITS: "BITS",
+  BITS_PER_SECOND: "BITS_PER_SECOND",
+  BYTES: "BYTES",
+  BYTES_PER_SECOND: "BYTES_PER_SECOND",
+  COUNT: "COUNT",
+  COUNT_PER_SECOND: "COUNT_PER_SECOND",
+  GIGA_BITS: "GIGA_BITS",
+  GIGA_BITS_PER_SECOND: "GIGA_BITS_PER_SECOND",
+  GIGA_BYTES: "GIGA_BYTES",
+  GIGA_BYTES_PER_SECOND: "GIGA_BYTES_PER_SECOND",
+  KILO_BITS: "KILO_BITS",
+  KILO_BITS_PER_SECOND: "KILO_BITS_PER_SECOND",
+  KILO_BYTES: "KILO_BYTES",
+  KILO_BYTES_PER_SECOND: "KILO_BYTES_PER_SECOND",
+  MEGA_BITS: "MEGA_BITS",
+  MEGA_BITS_PER_SECOND: "MEGA_BITS_PER_SECOND",
+  MEGA_BYTES: "MEGA_BYTES",
+  MEGA_BYTES_PER_SECOND: "MEGA_BYTES_PER_SECOND",
+  MICRO_SECONDS: "MICRO_SECONDS",
+  MILLI_SECONDS: "MILLI_SECONDS",
+  NONE: "NONE",
+  PERCENT: "PERCENT",
+  SECONDS: "SECONDS",
+  TERA_BITS: "TERA_BITS",
+  TERA_BITS_PER_SECOND: "TERA_BITS_PER_SECOND",
+  TERA_BYTES: "TERA_BYTES",
+  TERA_BYTES_PER_SECOND: "TERA_BYTES_PER_SECOND",
+} as const;
+
+/**
+ * @public
+ */
+export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
  * @public
@@ -714,12 +791,18 @@ export interface AutoScalingPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceRoleType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+export const InstanceRoleType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceRoleType = (typeof InstanceRoleType)[keyof typeof InstanceRoleType];
 
 /**
  * @public
@@ -983,32 +1066,51 @@ export interface Application {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthMode {
-  IAM = "IAM",
-  SSO = "SSO",
-}
+export const AuthMode = {
+  IAM: "IAM",
+  SSO: "SSO",
+} as const;
 
 /**
  * @public
  */
-export enum AutoScalingPolicyState {
-  ATTACHED = "ATTACHED",
-  ATTACHING = "ATTACHING",
-  DETACHED = "DETACHED",
-  DETACHING = "DETACHING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoScalingPolicyState = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  DETACHED: "DETACHED",
+  DETACHING: "DETACHING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum AutoScalingPolicyStateChangeReasonCode {
-  CLEANUP_FAILURE = "CLEANUP_FAILURE",
-  PROVISION_FAILURE = "PROVISION_FAILURE",
-  USER_REQUEST = "USER_REQUEST",
-}
+export type AutoScalingPolicyState = (typeof AutoScalingPolicyState)[keyof typeof AutoScalingPolicyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoScalingPolicyStateChangeReasonCode = {
+  CLEANUP_FAILURE: "CLEANUP_FAILURE",
+  PROVISION_FAILURE: "PROVISION_FAILURE",
+  USER_REQUEST: "USER_REQUEST",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoScalingPolicyStateChangeReasonCode =
+  (typeof AutoScalingPolicyStateChangeReasonCode)[keyof typeof AutoScalingPolicyStateChangeReasonCode];
 
 /**
  * @public
@@ -1172,11 +1274,17 @@ export interface BootstrapActionDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum StepCancellationOption {
-  SEND_INTERRUPT = "SEND_INTERRUPT",
-  TERMINATE_PROCESS = "TERMINATE_PROCESS",
-}
+export const StepCancellationOption = {
+  SEND_INTERRUPT: "SEND_INTERRUPT",
+  TERMINATE_PROCESS: "TERMINATE_PROCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StepCancellationOption = (typeof StepCancellationOption)[keyof typeof StepCancellationOption];
 
 /**
  * @public
@@ -1203,11 +1311,17 @@ export interface CancelStepsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum CancelStepsRequestStatus {
-  FAILED = "FAILED",
-  SUBMITTED = "SUBMITTED",
-}
+export const CancelStepsRequestStatus = {
+  FAILED: "FAILED",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type CancelStepsRequestStatus = (typeof CancelStepsRequestStatus)[keyof typeof CancelStepsRequestStatus];
 
 /**
  * @public
@@ -1329,11 +1443,17 @@ export interface Ec2InstanceAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceCollectionType {
-  INSTANCE_FLEET = "INSTANCE_FLEET",
-  INSTANCE_GROUP = "INSTANCE_GROUP",
-}
+export const InstanceCollectionType = {
+  INSTANCE_FLEET: "INSTANCE_FLEET",
+  INSTANCE_GROUP: "INSTANCE_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceCollectionType = (typeof InstanceCollectionType)[keyof typeof InstanceCollectionType];
 
 /**
  * @public
@@ -1375,13 +1495,19 @@ export interface KerberosAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementGroupStrategy {
-  CLUSTER = "CLUSTER",
-  NONE = "NONE",
-  PARTITION = "PARTITION",
-  SPREAD = "SPREAD",
-}
+export const PlacementGroupStrategy = {
+  CLUSTER: "CLUSTER",
+  NONE: "NONE",
+  PARTITION: "PARTITION",
+  SPREAD: "SPREAD",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementGroupStrategy = (typeof PlacementGroupStrategy)[keyof typeof PlacementGroupStrategy];
 
 /**
  * @public
@@ -1409,46 +1535,71 @@ export interface PlacementGroupConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum RepoUpgradeOnBoot {
-  NONE = "NONE",
-  SECURITY = "SECURITY",
-}
+export const RepoUpgradeOnBoot = {
+  NONE: "NONE",
+  SECURITY: "SECURITY",
+} as const;
 
 /**
  * @public
  */
-export enum ScaleDownBehavior {
-  TERMINATE_AT_INSTANCE_HOUR = "TERMINATE_AT_INSTANCE_HOUR",
-  TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION",
-}
+export type RepoUpgradeOnBoot = (typeof RepoUpgradeOnBoot)[keyof typeof RepoUpgradeOnBoot];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScaleDownBehavior = {
+  TERMINATE_AT_INSTANCE_HOUR: "TERMINATE_AT_INSTANCE_HOUR",
+  TERMINATE_AT_TASK_COMPLETION: "TERMINATE_AT_TASK_COMPLETION",
+} as const;
 
 /**
  * @public
  */
-export enum ClusterState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  TERMINATED = "TERMINATED",
-  TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS",
-  TERMINATING = "TERMINATING",
-  WAITING = "WAITING",
-}
+export type ScaleDownBehavior = (typeof ScaleDownBehavior)[keyof typeof ScaleDownBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  TERMINATED: "TERMINATED",
+  TERMINATED_WITH_ERRORS: "TERMINATED_WITH_ERRORS",
+  TERMINATING: "TERMINATING",
+  WAITING: "WAITING",
+} as const;
 
 /**
  * @public
  */
-export enum ClusterStateChangeReasonCode {
-  ALL_STEPS_COMPLETED = "ALL_STEPS_COMPLETED",
-  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INSTANCE_FLEET_TIMEOUT = "INSTANCE_FLEET_TIMEOUT",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STEP_FAILURE = "STEP_FAILURE",
-  USER_REQUEST = "USER_REQUEST",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterStateChangeReasonCode = {
+  ALL_STEPS_COMPLETED: "ALL_STEPS_COMPLETED",
+  BOOTSTRAP_FAILURE: "BOOTSTRAP_FAILURE",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INSTANCE_FLEET_TIMEOUT: "INSTANCE_FLEET_TIMEOUT",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STEP_FAILURE: "STEP_FAILURE",
+  USER_REQUEST: "USER_REQUEST",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterStateChangeReasonCode =
+  (typeof ClusterStateChangeReasonCode)[keyof typeof ClusterStateChangeReasonCode];
 
 /**
  * @public
@@ -1572,12 +1723,18 @@ export interface Command {
 
 /**
  * @public
+ * @enum
  */
-export enum ComputeLimitsUnitType {
-  InstanceFleetUnits = "InstanceFleetUnits",
-  Instances = "Instances",
-  VCPU = "VCPU",
-}
+export const ComputeLimitsUnitType = {
+  InstanceFleetUnits: "InstanceFleetUnits",
+  Instances: "Instances",
+  VCPU: "VCPU",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeLimitsUnitType = (typeof ComputeLimitsUnitType)[keyof typeof ComputeLimitsUnitType];
 
 /**
  * @public
@@ -1766,11 +1923,17 @@ export interface CreateStudioOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const IdentityType = {
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 /**
  * @public
@@ -1930,17 +2093,23 @@ export interface DescribeClusterInput {
 
 /**
  * @public
+ * @enum
  */
-export enum JobFlowExecutionState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  STARTING = "STARTING",
-  TERMINATED = "TERMINATED",
-  WAITING = "WAITING",
-}
+export const JobFlowExecutionState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  STARTING: "STARTING",
+  TERMINATED: "TERMINATED",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobFlowExecutionState = (typeof JobFlowExecutionState)[keyof typeof JobFlowExecutionState];
 
 /**
  * @public
@@ -2006,20 +2175,26 @@ export interface JobFlowExecutionStatusDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceGroupState {
-  ARRESTED = "ARRESTED",
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  ENDED = "ENDED",
-  PROVISIONING = "PROVISIONING",
-  RECONFIGURING = "RECONFIGURING",
-  RESIZING = "RESIZING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const InstanceGroupState = {
+  ARRESTED: "ARRESTED",
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  ENDED: "ENDED",
+  PROVISIONING: "PROVISIONING",
+  RECONFIGURING: "RECONFIGURING",
+  RESIZING: "RESIZING",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceGroupState = (typeof InstanceGroupState)[keyof typeof InstanceGroupState];
 
 /**
  * @public
@@ -2215,16 +2390,22 @@ export interface JobFlowInstancesDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum StepExecutionState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CONTINUE = "CONTINUE",
-  FAILED = "FAILED",
-  INTERRUPTED = "INTERRUPTED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const StepExecutionState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CONTINUE: "CONTINUE",
+  FAILED: "FAILED",
+  INTERRUPTED: "INTERRUPTED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type StepExecutionState = (typeof StepExecutionState)[keyof typeof StepExecutionState];
 
 /**
  * @public
@@ -2401,10 +2582,16 @@ export interface DescribeNotebookExecutionInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutionEngineType {
-  EMR = "EMR",
-}
+export const ExecutionEngineType = {
+  EMR: "EMR",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionEngineType = (typeof ExecutionEngineType)[keyof typeof ExecutionEngineType];
 
 /**
  * @public
@@ -2435,19 +2622,25 @@ export interface ExecutionEngineConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum NotebookExecutionStatus {
-  FAILED = "FAILED",
-  FAILING = "FAILING",
-  FINISHED = "FINISHED",
-  FINISHING = "FINISHING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  START_PENDING = "START_PENDING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  STOP_PENDING = "STOP_PENDING",
-}
+export const NotebookExecutionStatus = {
+  FAILED: "FAILED",
+  FAILING: "FAILING",
+  FINISHED: "FINISHED",
+  FINISHING: "FINISHING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  START_PENDING: "START_PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  STOP_PENDING: "STOP_PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookExecutionStatus = (typeof NotebookExecutionStatus)[keyof typeof NotebookExecutionStatus];
 
 /**
  * @public
@@ -2777,23 +2970,35 @@ export interface FailureDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum StepState {
-  CANCELLED = "CANCELLED",
-  CANCEL_PENDING = "CANCEL_PENDING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INTERRUPTED = "INTERRUPTED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const StepState = {
+  CANCELLED: "CANCELLED",
+  CANCEL_PENDING: "CANCEL_PENDING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INTERRUPTED: "INTERRUPTED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
 
 /**
  * @public
  */
-export enum StepStateChangeReasonCode {
-  NONE = "NONE",
-}
+export type StepState = (typeof StepState)[keyof typeof StepState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StepStateChangeReasonCode = {
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type StepStateChangeReasonCode = (typeof StepStateChangeReasonCode)[keyof typeof StepStateChangeReasonCode];
 
 /**
  * @public
@@ -3357,26 +3562,39 @@ export interface ListInstanceFleetsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceFleetState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  PROVISIONING = "PROVISIONING",
-  RESIZING = "RESIZING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const InstanceFleetState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  PROVISIONING: "PROVISIONING",
+  RESIZING: "RESIZING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceFleetStateChangeReasonCode {
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export type InstanceFleetState = (typeof InstanceFleetState)[keyof typeof InstanceFleetState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceFleetStateChangeReasonCode = {
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceFleetStateChangeReasonCode =
+  (typeof InstanceFleetStateChangeReasonCode)[keyof typeof InstanceFleetStateChangeReasonCode];
 
 /**
  * @public
@@ -3504,12 +3722,18 @@ export interface ListInstanceGroupsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceGroupType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+export const InstanceGroupType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceGroupType = (typeof InstanceGroupType)[keyof typeof InstanceGroupType];
 
 /**
  * @public
@@ -3555,13 +3779,20 @@ export interface ShrinkPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceGroupStateChangeReasonCode {
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const InstanceGroupStateChangeReasonCode = {
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceGroupStateChangeReasonCode =
+  (typeof InstanceGroupStateChangeReasonCode)[keyof typeof InstanceGroupStateChangeReasonCode];
 
 /**
  * @public
@@ -3623,14 +3854,20 @@ export interface InstanceGroupStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceState {
-  AWAITING_FULFILLMENT = "AWAITING_FULFILLMENT",
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  PROVISIONING = "PROVISIONING",
-  RUNNING = "RUNNING",
-  TERMINATED = "TERMINATED",
-}
+export const InstanceState = {
+  AWAITING_FULFILLMENT: "AWAITING_FULFILLMENT",
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  PROVISIONING: "PROVISIONING",
+  RUNNING: "RUNNING",
+  TERMINATED: "TERMINATED",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
 
 /**
  * @public
@@ -3676,14 +3913,21 @@ export interface ListInstancesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceStateChangeReasonCode {
-  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const InstanceStateChangeReasonCode = {
+  BOOTSTRAP_FAILURE: "BOOTSTRAP_FAILURE",
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceStateChangeReasonCode =
+  (typeof InstanceStateChangeReasonCode)[keyof typeof InstanceStateChangeReasonCode];
 
 /**
  * @public
@@ -4426,11 +4670,17 @@ export interface ModifyInstanceFleetInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ReconfigurationType {
-  MERGE = "MERGE",
-  OVERWRITE = "OVERWRITE",
-}
+export const ReconfigurationType = {
+  MERGE: "MERGE",
+  OVERWRITE: "OVERWRITE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReconfigurationType = (typeof ReconfigurationType)[keyof typeof ReconfigurationType];
 
 /**
  * @public

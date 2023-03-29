@@ -111,27 +111,6 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *          service.</p>
  *
  *
- * @example To create a contact
- * ```javascript
- * // The following create-contact example creates a contact in your environment with a blank plan. The plan can be updated after creating contact channels. Use the create-contact-channel operation with the output ARN of this command. After you have created contact channels for this contact use update-contact to update the plan.
- * const input = {
- *   "Alias": "akuam",
- *   "DisplayName": "Akua Mansa",
- *   "Plan": {
- *     "Stages": []
- *   },
- *   "Type": "PERSONAL"
- * };
- * const command = new CreateContactCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/akuam"
- * }
- * *\/
- * // example id: to-create-a-contact-1630360152750
- * ```
- *
  */
 export class CreateContactCommand extends $Command<
   CreateContactCommandInput,

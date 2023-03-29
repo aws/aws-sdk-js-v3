@@ -212,17 +212,29 @@ export interface GetSessionEmbedUrlResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum GroupFilterAttribute {
-  GROUP_NAME = "GROUP_NAME",
-}
+export const GroupFilterAttribute = {
+  GROUP_NAME: "GROUP_NAME",
+} as const;
 
 /**
  * @public
  */
-export enum GroupFilterOperator {
-  StartsWith = "StartsWith",
-}
+export type GroupFilterAttribute = (typeof GroupFilterAttribute)[keyof typeof GroupFilterAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupFilterOperator = {
+  StartsWith: "StartsWith",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupFilterOperator = (typeof GroupFilterOperator)[keyof typeof GroupFilterOperator];
 
 /**
  * @public

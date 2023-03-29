@@ -31,11 +31,17 @@ export interface ClearTimerAction {
 
 /**
  * @public
+ * @enum
  */
-export enum PayloadType {
-  JSON = "JSON",
-  STRING = "STRING",
-}
+export const PayloadType = {
+  JSON: "JSON",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type PayloadType = (typeof PayloadType)[keyof typeof PayloadType];
 
 /**
  * @public
@@ -1022,13 +1028,19 @@ export interface AlarmModelSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AlarmModelVersionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-}
+export const AlarmModelVersionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type AlarmModelVersionStatus = (typeof AlarmModelVersionStatus)[keyof typeof AlarmModelVersionStatus];
 
 /**
  * @public
@@ -1260,15 +1272,21 @@ export interface AlarmNotification {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  EQUAL = "EQUAL",
-  GREATER = "GREATER",
-  GREATER_OR_EQUAL = "GREATER_OR_EQUAL",
-  LESS = "LESS",
-  LESS_OR_EQUAL = "LESS_OR_EQUAL",
-  NOT_EQUAL = "NOT_EQUAL",
-}
+export const ComparisonOperator = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESS: "LESS",
+  LESS_OR_EQUAL: "LESS_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * @public
@@ -1306,12 +1324,18 @@ export interface AlarmRule {
 
 /**
  * @public
+ * @enum
  */
-export enum AnalysisResultLevel {
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARNING = "WARNING",
-}
+export const AnalysisResultLevel = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisResultLevel = (typeof AnalysisResultLevel)[keyof typeof AnalysisResultLevel];
 
 /**
  * @public
@@ -1416,12 +1440,18 @@ export interface AnalysisResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AnalysisStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-}
+export const AnalysisStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
 
 /**
  * @public
@@ -1865,11 +1895,17 @@ export interface DetectorModelDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum EvaluationMethod {
-  BATCH = "BATCH",
-  SERIAL = "SERIAL",
-}
+export const EvaluationMethod = {
+  BATCH: "BATCH",
+  SERIAL: "SERIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationMethod = (typeof EvaluationMethod)[keyof typeof EvaluationMethod];
 
 /**
  * @public
@@ -1918,16 +1954,22 @@ export interface CreateDetectorModelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DetectorModelVersionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEPRECATED = "DEPRECATED",
-  DRAFT = "DRAFT",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  PAUSED = "PAUSED",
-}
+export const DetectorModelVersionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEPRECATED: "DEPRECATED",
+  DRAFT: "DRAFT",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  PAUSED: "PAUSED",
+} as const;
+
+/**
+ * @public
+ */
+export type DetectorModelVersionStatus = (typeof DetectorModelVersionStatus)[keyof typeof DetectorModelVersionStatus];
 
 /**
  * @public
@@ -2044,13 +2086,19 @@ export interface CreateInputRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InputStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const InputStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type InputStatus = (typeof InputStatus)[keyof typeof InputStatus];
 
 /**
  * @public
@@ -2421,12 +2469,18 @@ export interface DetectorDebugOption {
 
 /**
  * @public
+ * @enum
  */
-export enum LoggingLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  INFO = "INFO",
-}
+export const LoggingLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  INFO: "INFO",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
 
 /**
  * @public

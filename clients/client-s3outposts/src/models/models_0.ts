@@ -49,11 +49,17 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointAccessType {
-  CUSTOMER_OWNED_IP = "CustomerOwnedIp",
-  PRIVATE = "Private",
-}
+export const EndpointAccessType = {
+  CUSTOMER_OWNED_IP: "CustomerOwnedIp",
+  PRIVATE: "Private",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointAccessType = (typeof EndpointAccessType)[keyof typeof EndpointAccessType];
 
 /**
  * @public
@@ -259,14 +265,20 @@ export interface NetworkInterface {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointStatus {
-  AVAILABLE = "Available",
-  CREATE_FAILED = "Create_Failed",
-  DELETE_FAILED = "Delete_Failed",
-  DELETING = "Deleting",
-  PENDING = "Pending",
-}
+export const EndpointStatus = {
+  AVAILABLE: "Available",
+  CREATE_FAILED: "Create_Failed",
+  DELETE_FAILED: "Delete_Failed",
+  DELETING: "Deleting",
+  PENDING: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
 
 /**
  * @public

@@ -330,13 +330,20 @@ export interface SearchResourcesBucketCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum SearchResourcesSortAttributeName {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  RESOURCE_NAME = "RESOURCE_NAME",
-  S3_CLASSIFIABLE_OBJECT_COUNT = "S3_CLASSIFIABLE_OBJECT_COUNT",
-  S3_CLASSIFIABLE_SIZE_IN_BYTES = "S3_CLASSIFIABLE_SIZE_IN_BYTES",
-}
+export const SearchResourcesSortAttributeName = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  RESOURCE_NAME: "RESOURCE_NAME",
+  S3_CLASSIFIABLE_OBJECT_COUNT: "S3_CLASSIFIABLE_OBJECT_COUNT",
+  S3_CLASSIFIABLE_SIZE_IN_BYTES: "S3_CLASSIFIABLE_SIZE_IN_BYTES",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchResourcesSortAttributeName =
+  (typeof SearchResourcesSortAttributeName)[keyof typeof SearchResourcesSortAttributeName];
 
 /**
  * @public

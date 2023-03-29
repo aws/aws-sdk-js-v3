@@ -46,11 +46,18 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterEndpointEncryptionType {
-  NONE = "NONE",
-  TLS = "TLS",
-}
+export const ClusterEndpointEncryptionType = {
+  NONE: "NONE",
+  TLS: "TLS",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterEndpointEncryptionType =
+  (typeof ClusterEndpointEncryptionType)[keyof typeof ClusterEndpointEncryptionType];
 
 /**
  * @public

@@ -27,10 +27,16 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchLoadDataFormat {
-  CSV = "CSV",
-}
+export const BatchLoadDataFormat = {
+  CSV: "CSV",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchLoadDataFormat = (typeof BatchLoadDataFormat)[keyof typeof BatchLoadDataFormat];
 
 /**
  * @public
@@ -70,15 +76,21 @@ export interface BatchLoadProgressReport {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchLoadStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING_RESUME = "PENDING_RESUME",
-  PROGRESS_STOPPED = "PROGRESS_STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BatchLoadStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING_RESUME: "PENDING_RESUME",
+  PROGRESS_STOPPED: "PROGRESS_STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchLoadStatus = (typeof BatchLoadStatus)[keyof typeof BatchLoadStatus];
 
 /**
  * @public
@@ -141,26 +153,38 @@ export interface DimensionMapping {
 
 /**
  * @public
+ * @enum
  */
-export enum MeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  MULTI = "MULTI",
-  TIMESTAMP = "TIMESTAMP",
-  VARCHAR = "VARCHAR",
-}
+export const MeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  MULTI: "MULTI",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
  * @public
  */
-export enum ScalarMeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  TIMESTAMP = "TIMESTAMP",
-  VARCHAR = "VARCHAR",
-}
+export type MeasureValueType = (typeof MeasureValueType)[keyof typeof MeasureValueType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarMeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarMeasureValueType = (typeof ScalarMeasureValueType)[keyof typeof ScalarMeasureValueType];
 
 /**
  * @public
@@ -232,13 +256,19 @@ export interface MultiMeasureMappings {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeUnit {
-  MICROSECONDS = "MICROSECONDS",
-  MILLISECONDS = "MILLISECONDS",
-  NANOSECONDS = "NANOSECONDS",
-  SECONDS = "SECONDS",
-}
+export const TimeUnit = {
+  MICROSECONDS: "MICROSECONDS",
+  MILLISECONDS: "MILLISECONDS",
+  NANOSECONDS: "NANOSECONDS",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
 
 /**
  * @public
@@ -385,11 +415,17 @@ export interface DataSourceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum S3EncryptionOption {
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const S3EncryptionOption = {
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+} as const;
+
+/**
+ * @public
+ */
+export type S3EncryptionOption = (typeof S3EncryptionOption)[keyof typeof S3EncryptionOption];
 
 /**
  * @public
@@ -906,12 +942,18 @@ export interface CreateTableRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  RESTORING = "RESTORING",
-}
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  RESTORING: "RESTORING",
+} as const;
+
+/**
+ * @public
+ */
+export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
  * @public
@@ -1106,10 +1148,16 @@ export interface DescribeTableResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DimensionValueType {
-  VARCHAR = "VARCHAR",
-}
+export const DimensionValueType = {
+  VARCHAR: "VARCHAR",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionValueType = (typeof DimensionValueType)[keyof typeof DimensionValueType];
 
 /**
  * @public

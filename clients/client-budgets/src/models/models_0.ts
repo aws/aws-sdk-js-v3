@@ -30,11 +30,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ThresholdType {
-  ABSOLUTE_VALUE = "ABSOLUTE_VALUE",
-  PERCENTAGE = "PERCENTAGE",
-}
+export const ThresholdType = {
+  ABSOLUTE_VALUE: "ABSOLUTE_VALUE",
+  PERCENTAGE: "PERCENTAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
 
 /**
  * @public
@@ -54,20 +60,32 @@ export interface ActionThreshold {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionType {
-  IAM = "APPLY_IAM_POLICY",
-  SCP = "APPLY_SCP_POLICY",
-  SSM = "RUN_SSM_DOCUMENTS",
-}
+export const ActionType = {
+  IAM: "APPLY_IAM_POLICY",
+  SCP: "APPLY_SCP_POLICY",
+  SSM: "RUN_SSM_DOCUMENTS",
+} as const;
 
 /**
  * @public
  */
-export enum ApprovalModel {
-  AUTO = "AUTOMATIC",
-  MANUAL = "MANUAL",
-}
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApprovalModel = {
+  AUTO: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ApprovalModel = (typeof ApprovalModel)[keyof typeof ApprovalModel];
 
 /**
  * @public
@@ -113,11 +131,17 @@ export interface ScpActionDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionSubType {
-  STOP_EC2 = "STOP_EC2_INSTANCES",
-  STOP_RDS = "STOP_RDS_INSTANCES",
-}
+export const ActionSubType = {
+  STOP_EC2: "STOP_EC2_INSTANCES",
+  STOP_RDS: "STOP_RDS_INSTANCES",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionSubType = (typeof ActionSubType)[keyof typeof ActionSubType];
 
 /**
  * @public
@@ -163,35 +187,53 @@ export interface Definition {
 
 /**
  * @public
+ * @enum
  */
-export enum NotificationType {
-  ACTUAL = "ACTUAL",
-  FORECASTED = "FORECASTED",
-}
+export const NotificationType = {
+  ACTUAL: "ACTUAL",
+  FORECASTED: "FORECASTED",
+} as const;
 
 /**
  * @public
  */
-export enum ActionStatus {
-  Execution_Failure = "EXECUTION_FAILURE",
-  Execution_In_Progress = "EXECUTION_IN_PROGRESS",
-  Execution_Success = "EXECUTION_SUCCESS",
-  Pending = "PENDING",
-  Reset_Failure = "RESET_FAILURE",
-  Reset_In_Progress = "RESET_IN_PROGRESS",
-  Reverse_Failure = "REVERSE_FAILURE",
-  Reverse_In_Progress = "REVERSE_IN_PROGRESS",
-  Reverse_Success = "REVERSE_SUCCESS",
-  Standby = "STANDBY",
-}
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionStatus = {
+  Execution_Failure: "EXECUTION_FAILURE",
+  Execution_In_Progress: "EXECUTION_IN_PROGRESS",
+  Execution_Success: "EXECUTION_SUCCESS",
+  Pending: "PENDING",
+  Reset_Failure: "RESET_FAILURE",
+  Reset_In_Progress: "RESET_IN_PROGRESS",
+  Reverse_Failure: "REVERSE_FAILURE",
+  Reverse_In_Progress: "REVERSE_IN_PROGRESS",
+  Reverse_Success: "REVERSE_SUCCESS",
+  Standby: "STANDBY",
+} as const;
 
 /**
  * @public
  */
-export enum SubscriptionType {
-  EMAIL = "EMAIL",
-  SNS = "SNS",
-}
+export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionType = {
+  EMAIL: "EMAIL",
+  SNS: "SNS",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
 
 /**
  * @public
@@ -297,14 +339,20 @@ export interface ActionHistoryDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  CreateAction = "CREATE_ACTION",
-  DeleteAction = "DELETE_ACTION",
-  ExecuteAction = "EXECUTE_ACTION",
-  System = "SYSTEM",
-  UpdateAction = "UPDATE_ACTION",
-}
+export const EventType = {
+  CreateAction: "CREATE_ACTION",
+  DeleteAction: "DELETE_ACTION",
+  ExecuteAction: "EXECUTE_ACTION",
+  System: "SYSTEM",
+  UpdateAction: "UPDATE_ACTION",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -335,11 +383,17 @@ export interface ActionHistory {
 
 /**
  * @public
+ * @enum
  */
-export enum AutoAdjustType {
-  FORECAST = "FORECAST",
-  HISTORICAL = "HISTORICAL",
-}
+export const AutoAdjustType = {
+  FORECAST: "FORECAST",
+  HISTORICAL: "HISTORICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoAdjustType = (typeof AutoAdjustType)[keyof typeof AutoAdjustType];
 
 /**
  * @public
@@ -426,15 +480,21 @@ export interface Spend {
 
 /**
  * @public
+ * @enum
  */
-export enum BudgetType {
-  Cost = "COST",
-  RICoverage = "RI_COVERAGE",
-  RIUtilization = "RI_UTILIZATION",
-  SPCoverage = "SAVINGS_PLANS_COVERAGE",
-  SPUtilization = "SAVINGS_PLANS_UTILIZATION",
-  Usage = "USAGE",
-}
+export const BudgetType = {
+  Cost: "COST",
+  RICoverage: "RI_COVERAGE",
+  RIUtilization: "RI_UTILIZATION",
+  SPCoverage: "SAVINGS_PLANS_COVERAGE",
+  SPUtilization: "SAVINGS_PLANS_UTILIZATION",
+  Usage: "USAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type BudgetType = (typeof BudgetType)[keyof typeof BudgetType];
 
 /**
  * @public
@@ -558,13 +618,19 @@ export interface TimePeriod {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeUnit {
-  ANNUALLY = "ANNUALLY",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  QUARTERLY = "QUARTERLY",
-}
+export const TimeUnit = {
+  ANNUALLY: "ANNUALLY",
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  QUARTERLY: "QUARTERLY",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
 
 /**
  * @public
@@ -695,20 +761,32 @@ export interface Budget {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN",
-}
+export const ComparisonOperator = {
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  LESS_THAN: "LESS_THAN",
+} as const;
 
 /**
  * @public
  */
-export enum NotificationState {
-  ALARM = "ALARM",
-  OK = "OK",
-}
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationState = {
+  ALARM: "ALARM",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationState = (typeof NotificationState)[keyof typeof NotificationState];
 
 /**
  * @public
@@ -1797,13 +1875,19 @@ export interface DescribeSubscribersForNotificationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutionType {
-  ApproveBudgetAction = "APPROVE_BUDGET_ACTION",
-  ResetBudgetAction = "RESET_BUDGET_ACTION",
-  RetryBudgetAction = "RETRY_BUDGET_ACTION",
-  ReverseBudgetAction = "REVERSE_BUDGET_ACTION",
-}
+export const ExecutionType = {
+  ApproveBudgetAction: "APPROVE_BUDGET_ACTION",
+  ResetBudgetAction: "RESET_BUDGET_ACTION",
+  RetryBudgetAction: "RETRY_BUDGET_ACTION",
+  ReverseBudgetAction: "REVERSE_BUDGET_ACTION",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionType = (typeof ExecutionType)[keyof typeof ExecutionType];
 
 /**
  * @public

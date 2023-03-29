@@ -25,11 +25,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum VariableType {
-  INCIDENT_RECORD_ARN = "INCIDENT_RECORD_ARN",
-  INVOLVED_RESOURCES = "INVOLVED_RESOURCES",
-}
+export const VariableType = {
+  INCIDENT_RECORD_ARN: "INCIDENT_RECORD_ARN",
+  INVOLVED_RESOURCES: "INVOLVED_RESOURCES",
+} as const;
+
+/**
+ * @public
+ */
+export type VariableType = (typeof VariableType)[keyof typeof VariableType];
 
 /**
  * @public
@@ -70,11 +76,17 @@ export namespace DynamicSsmParameterValue {
 
 /**
  * @public
+ * @enum
  */
-export enum SsmTargetAccount {
-  IMPACTED_ACCOUNT = "IMPACTED_ACCOUNT",
-  RESPONSE_PLAN_OWNER_ACCOUNT = "RESPONSE_PLAN_OWNER_ACCOUNT",
-}
+export const SsmTargetAccount = {
+  IMPACTED_ACCOUNT: "IMPACTED_ACCOUNT",
+  RESPONSE_PLAN_OWNER_ACCOUNT: "RESPONSE_PLAN_OWNER_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type SsmTargetAccount = (typeof SsmTargetAccount)[keyof typeof SsmTargetAccount];
 
 /**
  * @public
@@ -380,14 +392,20 @@ export namespace Condition {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  INCIDENT_RECORD = "INCIDENT_RECORD",
-  REPLICATION_SET = "REPLICATION_SET",
-  RESOURCE_POLICY = "RESOURCE_POLICY",
-  RESPONSE_PLAN = "RESPONSE_PLAN",
-  TIMELINE_EVENT = "TIMELINE_EVENT",
-}
+export const ResourceType = {
+  INCIDENT_RECORD: "INCIDENT_RECORD",
+  REPLICATION_SET: "REPLICATION_SET",
+  RESOURCE_POLICY: "RESOURCE_POLICY",
+  RESPONSE_PLAN: "RESPONSE_PLAN",
+  TIMELINE_EVENT: "TIMELINE_EVENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -494,10 +512,16 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceCode {
-  SSM_INCIDENTS = "ssm-incidents",
-}
+export const ServiceCode = {
+  SSM_INCIDENTS: "ssm-incidents",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceCode = (typeof ServiceCode)[keyof typeof ServiceCode];
 
 /**
  * @public
@@ -1134,11 +1158,17 @@ export interface IncidentRecordSource {
 
 /**
  * @public
+ * @enum
  */
-export enum IncidentRecordStatus {
-  OPEN = "OPEN",
-  RESOLVED = "RESOLVED",
-}
+export const IncidentRecordStatus = {
+  OPEN: "OPEN",
+  RESOLVED: "RESOLVED",
+} as const;
+
+/**
+ * @public
+ */
+export type IncidentRecordStatus = (typeof IncidentRecordStatus)[keyof typeof IncidentRecordStatus];
 
 /**
  * @public
@@ -1241,25 +1271,31 @@ export interface GetReplicationSetInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RegionStatus {
+export const RegionStatus = {
   /**
    * All operations have completed successfully and the region is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * The region is in the process of being created.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * The region is in the process of being deleted.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * The region is not healthy and we cannot automatically fix it.
    */
-  FAILED = "FAILED",
-}
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type RegionStatus = (typeof RegionStatus)[keyof typeof RegionStatus];
 
 /**
  * @public
@@ -1289,29 +1325,35 @@ export interface RegionInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationSetStatus {
+export const ReplicationSetStatus = {
   /**
    * All operations have completed successfully and the replication set is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Replication set is in the process of being created.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Replication set is in the process of being deleted.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Replication set is not healthy and we cannot fix it.
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * Replication set is in the process of being updated.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationSetStatus = (typeof ReplicationSetStatus)[keyof typeof ReplicationSetStatus];
 
 /**
  * @public
@@ -1600,18 +1642,24 @@ export interface IncidentRecordSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ItemType {
-  ANALYSIS = "ANALYSIS",
-  ATTACHMENT = "ATTACHMENT",
-  AUTOMATION = "AUTOMATION",
-  INCIDENT = "INCIDENT",
-  INVOLVED_RESOURCE = "INVOLVED_RESOURCE",
-  METRIC = "METRIC",
-  OTHER = "OTHER",
-  PARENT = "PARENT",
-  TASK = "TASK",
-}
+export const ItemType = {
+  ANALYSIS: "ANALYSIS",
+  ATTACHMENT: "ATTACHMENT",
+  AUTOMATION: "AUTOMATION",
+  INCIDENT: "INCIDENT",
+  INVOLVED_RESOURCE: "INVOLVED_RESOURCE",
+  METRIC: "METRIC",
+  OTHER: "OTHER",
+  PARENT: "PARENT",
+  TASK: "TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 /**
  * @public
@@ -1974,18 +2022,30 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TimelineEventSort {
-  EVENT_TIME = "EVENT_TIME",
-}
+export const TimelineEventSort = {
+  EVENT_TIME: "EVENT_TIME",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type TimelineEventSort = (typeof TimelineEventSort)[keyof typeof TimelineEventSort];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public

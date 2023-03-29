@@ -17,12 +17,18 @@ export interface AcceptInvitationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  InternalError = "INTERNAL_ERROR",
-  InvalidGraphArn = "INVALID_GRAPH_ARN",
-  InvalidRequestBody = "INVALID_REQUEST_BODY",
-}
+export const ErrorCode = {
+  InternalError: "INTERNAL_ERROR",
+  InvalidGraphArn: "INVALID_GRAPH_ARN",
+  InvalidRequestBody: "INVALID_REQUEST_BODY",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -230,20 +236,33 @@ export interface BatchGetGraphMemberDatasourcesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasourcePackage {
-  DETECTIVE_CORE = "DETECTIVE_CORE",
-  EKS_AUDIT = "EKS_AUDIT",
-}
+export const DatasourcePackage = {
+  DETECTIVE_CORE: "DETECTIVE_CORE",
+  EKS_AUDIT: "EKS_AUDIT",
+} as const;
 
 /**
  * @public
  */
-export enum DatasourcePackageIngestState {
-  DISABLED = "DISABLED",
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+export type DatasourcePackage = (typeof DatasourcePackage)[keyof typeof DatasourcePackage];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatasourcePackageIngestState = {
+  DISABLED: "DISABLED",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasourcePackageIngestState =
+  (typeof DatasourcePackageIngestState)[keyof typeof DatasourcePackageIngestState];
 
 /**
  * @public
@@ -453,30 +472,48 @@ export interface CreateMembersRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MemberDisabledReason {
-  VOLUME_TOO_HIGH = "VOLUME_TOO_HIGH",
-  VOLUME_UNKNOWN = "VOLUME_UNKNOWN",
-}
+export const MemberDisabledReason = {
+  VOLUME_TOO_HIGH: "VOLUME_TOO_HIGH",
+  VOLUME_UNKNOWN: "VOLUME_UNKNOWN",
+} as const;
 
 /**
  * @public
  */
-export enum InvitationType {
-  INVITATION = "INVITATION",
-  ORGANIZATION = "ORGANIZATION",
-}
+export type MemberDisabledReason = (typeof MemberDisabledReason)[keyof typeof MemberDisabledReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvitationType = {
+  INVITATION: "INVITATION",
+  ORGANIZATION: "ORGANIZATION",
+} as const;
 
 /**
  * @public
  */
-export enum MemberStatus {
-  ACCEPTED_BUT_DISABLED = "ACCEPTED_BUT_DISABLED",
-  ENABLED = "ENABLED",
-  INVITED = "INVITED",
-  VERIFICATION_FAILED = "VERIFICATION_FAILED",
-  VERIFICATION_IN_PROGRESS = "VERIFICATION_IN_PROGRESS",
-}
+export type InvitationType = (typeof InvitationType)[keyof typeof InvitationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MemberStatus = {
+  ACCEPTED_BUT_DISABLED: "ACCEPTED_BUT_DISABLED",
+  ENABLED: "ENABLED",
+  INVITED: "INVITED",
+  VERIFICATION_FAILED: "VERIFICATION_FAILED",
+  VERIFICATION_IN_PROGRESS: "VERIFICATION_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
 
 /**
  * @public

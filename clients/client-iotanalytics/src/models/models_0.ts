@@ -433,11 +433,17 @@ export class ResourceAlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ComputeType {
-  ACU_1 = "ACU_1",
-  ACU_2 = "ACU_2",
-}
+export const ComputeType = {
+  ACU_1: "ACU_1",
+  ACU_2: "ACU_2",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 /**
  * @public
@@ -1664,12 +1670,18 @@ export interface DescribeChannelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ChannelStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelStatus = (typeof ChannelStatus)[keyof typeof ChannelStatus];
 
 /**
  * @public
@@ -1778,12 +1790,18 @@ export interface DescribeDatasetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const DatasetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
 
 /**
  * @public
@@ -1883,12 +1901,18 @@ export interface DescribeDatastoreRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DatastoreStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const DatastoreStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type DatastoreStatus = (typeof DatastoreStatus)[keyof typeof DatastoreStatus];
 
 /**
  * @public
@@ -1999,10 +2023,16 @@ export interface DescribeLoggingOptionsRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum LoggingLevel {
-  ERROR = "ERROR",
-}
+export const LoggingLevel = {
+  ERROR: "ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
 
 /**
  * @public
@@ -2047,13 +2077,19 @@ export interface DescribePipelineRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReprocessingStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ReprocessingStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReprocessingStatus = (typeof ReprocessingStatus)[keyof typeof ReprocessingStatus];
 
 /**
  * @public
@@ -2157,12 +2193,18 @@ export interface DatasetEntry {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetContentState {
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DatasetContentState = {
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetContentState = (typeof DatasetContentState)[keyof typeof DatasetContentState];
 
 /**
  * @public
@@ -2416,11 +2458,17 @@ export interface ListDatasetsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetActionType {
-  CONTAINER = "CONTAINER",
-  QUERY = "QUERY",
-}
+export const DatasetActionType = {
+  CONTAINER: "CONTAINER",
+  QUERY: "QUERY",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetActionType = (typeof DatasetActionType)[keyof typeof DatasetActionType];
 
 /**
  * @public
@@ -2585,11 +2633,17 @@ export interface DatastoreStorageSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum FileFormatType {
-  JSON = "JSON",
-  PARQUET = "PARQUET",
-}
+export const FileFormatType = {
+  JSON: "JSON",
+  PARQUET: "PARQUET",
+} as const;
+
+/**
+ * @public
+ */
+export type FileFormatType = (typeof FileFormatType)[keyof typeof FileFormatType];
 
 /**
  * @public

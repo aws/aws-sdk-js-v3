@@ -67,12 +67,18 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DestinationState {
-  DECOMMISSIONED = "DECOMMISSIONED",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DestinationState = {
+  DECOMMISSIONED: "DECOMMISSIONED",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DestinationState = (typeof DestinationState)[keyof typeof DestinationState];
 
 /**
  * @public

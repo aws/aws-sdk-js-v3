@@ -27,22 +27,36 @@ export interface AcceptResourceShareInvitationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceShareAssociationType {
-  PRINCIPAL = "PRINCIPAL",
-  RESOURCE = "RESOURCE",
-}
+export const ResourceShareAssociationType = {
+  PRINCIPAL: "PRINCIPAL",
+  RESOURCE: "RESOURCE",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceShareAssociationStatus {
-  ASSOCIATED = "ASSOCIATED",
-  ASSOCIATING = "ASSOCIATING",
-  DISASSOCIATED = "DISASSOCIATED",
-  DISASSOCIATING = "DISASSOCIATING",
-  FAILED = "FAILED",
-}
+export type ResourceShareAssociationType =
+  (typeof ResourceShareAssociationType)[keyof typeof ResourceShareAssociationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareAssociationStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  ASSOCIATING: "ASSOCIATING",
+  DISASSOCIATED: "DISASSOCIATED",
+  DISASSOCIATING: "DISASSOCIATING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceShareAssociationStatus =
+  (typeof ResourceShareAssociationStatus)[keyof typeof ResourceShareAssociationStatus];
 
 /**
  * @public
@@ -123,13 +137,20 @@ export interface ResourceShareAssociation {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceShareInvitationStatus {
-  ACCEPTED = "ACCEPTED",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const ResourceShareInvitationStatus = {
+  ACCEPTED: "ACCEPTED",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceShareInvitationStatus =
+  (typeof ResourceShareInvitationStatus)[keyof typeof ResourceShareInvitationStatus];
 
 /**
  * @public
@@ -776,23 +797,35 @@ export interface CreateResourceShareRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceShareFeatureSet {
-  CREATED_FROM_POLICY = "CREATED_FROM_POLICY",
-  PROMOTING_TO_STANDARD = "PROMOTING_TO_STANDARD",
-  STANDARD = "STANDARD",
-}
+export const ResourceShareFeatureSet = {
+  CREATED_FROM_POLICY: "CREATED_FROM_POLICY",
+  PROMOTING_TO_STANDARD: "PROMOTING_TO_STANDARD",
+  STANDARD: "STANDARD",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceShareStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export type ResourceShareFeatureSet = (typeof ResourceShareFeatureSet)[keyof typeof ResourceShareFeatureSet];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceShareStatus = (typeof ResourceShareStatus)[keyof typeof ResourceShareStatus];
 
 /**
  * @public
@@ -1449,11 +1482,17 @@ export class InvalidMaxResultsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceOwner {
-  OTHER_ACCOUNTS = "OTHER-ACCOUNTS",
-  SELF = "SELF",
-}
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER-ACCOUNTS",
+  SELF: "SELF",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
 
 /**
  * @public
@@ -1572,12 +1611,18 @@ export interface GetResourceSharesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceRegionScopeFilter {
-  ALL = "ALL",
-  GLOBAL = "GLOBAL",
-  REGIONAL = "REGIONAL",
-}
+export const ResourceRegionScopeFilter = {
+  ALL: "ALL",
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceRegionScopeFilter = (typeof ResourceRegionScopeFilter)[keyof typeof ResourceRegionScopeFilter];
 
 /**
  * @public
@@ -1637,22 +1682,34 @@ export interface ListPendingInvitationResourcesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceRegionScope {
-  GLOBAL = "GLOBAL",
-  REGIONAL = "REGIONAL",
-}
+export const ResourceRegionScope = {
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceStatus {
-  AVAILABLE = "AVAILABLE",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-  PENDING = "PENDING",
-  UNAVAILABLE = "UNAVAILABLE",
-  ZONAL_RESOURCE_INACCESSIBLE = "ZONAL_RESOURCE_INACCESSIBLE",
-}
+export type ResourceRegionScope = (typeof ResourceRegionScope)[keyof typeof ResourceRegionScope];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  PENDING: "PENDING",
+  UNAVAILABLE: "UNAVAILABLE",
+  ZONAL_RESOURCE_INACCESSIBLE: "ZONAL_RESOURCE_INACCESSIBLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
  * @public

@@ -43,12 +43,18 @@ export interface LambdaConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SnsFormat {
-  JSON = "JSON",
-  LONG_TEXT = "LONG_TEXT",
-  SHORT_TEXT = "SHORT_TEXT",
-}
+export const SnsFormat = {
+  JSON: "JSON",
+  LONG_TEXT: "LONG_TEXT",
+  SHORT_TEXT: "SHORT_TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type SnsFormat = (typeof SnsFormat)[keyof typeof SnsFormat];
 
 /**
  * @public
@@ -245,13 +251,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -289,11 +301,17 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregationFunction {
-  AVG = "AVG",
-  SUM = "SUM",
-}
+export const AggregationFunction = {
+  AVG: "AVG",
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregationFunction = (typeof AggregationFunction)[keyof typeof AggregationFunction];
 
 /**
  * @public
@@ -329,19 +347,31 @@ export interface AlertFilters {
 
 /**
  * @public
+ * @enum
  */
-export enum AlertStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AlertStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
  * @public
  */
-export enum AlertType {
-  LAMBDA = "LAMBDA",
-  SNS = "SNS",
-}
+export type AlertStatus = (typeof AlertStatus)[keyof typeof AlertStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AlertType = {
+  LAMBDA: "LAMBDA",
+  SNS: "SNS",
+} as const;
+
+/**
+ * @public
+ */
+export type AlertType = (typeof AlertType)[keyof typeof AlertType];
 
 /**
  * @public
@@ -457,24 +487,36 @@ export interface AlertSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AnomalyDetectionTaskStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FAILED_TO_SCHEDULE = "FAILED_TO_SCHEDULE",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-}
+export const AnomalyDetectionTaskStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  FAILED_TO_SCHEDULE: "FAILED_TO_SCHEDULE",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum Frequency {
-  P1D = "P1D",
-  PT10M = "PT10M",
-  PT1H = "PT1H",
-  PT5M = "PT5M",
-}
+export type AnomalyDetectionTaskStatus = (typeof AnomalyDetectionTaskStatus)[keyof typeof AnomalyDetectionTaskStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Frequency = {
+  P1D: "P1D",
+  PT10M: "PT10M",
+  PT1H: "PT1H",
+  PT5M: "PT5M",
+} as const;
+
+/**
+ * @public
+ */
+export type Frequency = (typeof Frequency)[keyof typeof Frequency];
 
 /**
  * @public
@@ -500,19 +542,25 @@ export interface AnomalyDetectorConfigSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum DataQualityMetricType {
-  BACKTEST_INFERENCE_DATA_END_TIME_STAMP = "BACKTEST_INFERENCE_DATA_END_TIME_STAMP",
-  BACKTEST_INFERENCE_DATA_START_TIME_STAMP = "BACKTEST_INFERENCE_DATA_START_TIME_STAMP",
-  BACKTEST_TRAINING_DATA_END_TIME_STAMP = "BACKTEST_TRAINING_DATA_END_TIME_STAMP",
-  BACKTEST_TRAINING_DATA_START_TIME_STAMP = "BACKTEST_TRAINING_DATA_START_TIME_STAMP",
-  COLUMN_COMPLETENESS = "COLUMN_COMPLETENESS",
-  DIMENSION_UNIQUENESS = "DIMENSION_UNIQUENESS",
-  INVALID_ROWS_COMPLIANCE = "INVALID_ROWS_COMPLIANCE",
-  ROWS_PARTIAL_COMPLIANCE = "ROWS_PARTIAL_COMPLIANCE",
-  ROWS_PROCESSED = "ROWS_PROCESSED",
-  TIME_SERIES_COUNT = "TIME_SERIES_COUNT",
-}
+export const DataQualityMetricType = {
+  BACKTEST_INFERENCE_DATA_END_TIME_STAMP: "BACKTEST_INFERENCE_DATA_END_TIME_STAMP",
+  BACKTEST_INFERENCE_DATA_START_TIME_STAMP: "BACKTEST_INFERENCE_DATA_START_TIME_STAMP",
+  BACKTEST_TRAINING_DATA_END_TIME_STAMP: "BACKTEST_TRAINING_DATA_END_TIME_STAMP",
+  BACKTEST_TRAINING_DATA_START_TIME_STAMP: "BACKTEST_TRAINING_DATA_START_TIME_STAMP",
+  COLUMN_COMPLETENESS: "COLUMN_COMPLETENESS",
+  DIMENSION_UNIQUENESS: "DIMENSION_UNIQUENESS",
+  INVALID_ROWS_COMPLIANCE: "INVALID_ROWS_COMPLIANCE",
+  ROWS_PARTIAL_COMPLIANCE: "ROWS_PARTIAL_COMPLIANCE",
+  ROWS_PROCESSED: "ROWS_PROCESSED",
+  TIME_SERIES_COUNT: "TIME_SERIES_COUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type DataQualityMetricType = (typeof DataQualityMetricType)[keyof typeof DataQualityMetricType];
 
 /**
  * @public
@@ -574,30 +622,42 @@ export interface AnomalyDetectorDataQualityMetric {
 
 /**
  * @public
+ * @enum
  */
-export enum AnomalyDetectorFailureType {
-  ACTIVATION_FAILURE = "ACTIVATION_FAILURE",
-  BACK_TEST_ACTIVATION_FAILURE = "BACK_TEST_ACTIVATION_FAILURE",
-  DEACTIVATION_FAILURE = "DEACTIVATION_FAILURE",
-  DELETION_FAILURE = "DELETION_FAILURE",
-}
+export const AnomalyDetectorFailureType = {
+  ACTIVATION_FAILURE: "ACTIVATION_FAILURE",
+  BACK_TEST_ACTIVATION_FAILURE: "BACK_TEST_ACTIVATION_FAILURE",
+  DEACTIVATION_FAILURE: "DEACTIVATION_FAILURE",
+  DELETION_FAILURE: "DELETION_FAILURE",
+} as const;
 
 /**
  * @public
  */
-export enum AnomalyDetectorStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  BACK_TEST_ACTIVATING = "BACK_TEST_ACTIVATING",
-  BACK_TEST_ACTIVE = "BACK_TEST_ACTIVE",
-  BACK_TEST_COMPLETE = "BACK_TEST_COMPLETE",
-  DEACTIVATED = "DEACTIVATED",
-  DEACTIVATING = "DEACTIVATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  LEARNING = "LEARNING",
-}
+export type AnomalyDetectorFailureType = (typeof AnomalyDetectorFailureType)[keyof typeof AnomalyDetectorFailureType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyDetectorStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  BACK_TEST_ACTIVATING: "BACK_TEST_ACTIVATING",
+  BACK_TEST_ACTIVE: "BACK_TEST_ACTIVE",
+  BACK_TEST_COMPLETE: "BACK_TEST_COMPLETE",
+  DEACTIVATED: "DEACTIVATED",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  LEARNING: "LEARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type AnomalyDetectorStatus = (typeof AnomalyDetectorStatus)[keyof typeof AnomalyDetectorStatus];
 
 /**
  * @public
@@ -1009,12 +1069,18 @@ export interface CloudWatchConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum Confidence {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  NONE = "NONE",
-}
+export const Confidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Confidence = (typeof Confidence)[keyof typeof Confidence];
 
 /**
  * @public
@@ -1153,10 +1219,16 @@ export interface CreateAnomalyDetectorResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterOperation {
-  EQUALS = "EQUALS",
-}
+export const FilterOperation = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterOperation = (typeof FilterOperation)[keyof typeof FilterOperation];
 
 /**
  * @public
@@ -1321,11 +1393,17 @@ export interface RedshiftSourceConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum CSVFileCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const CSVFileCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type CSVFileCompression = (typeof CSVFileCompression)[keyof typeof CSVFileCompression];
 
 /**
  * @public
@@ -1365,11 +1443,17 @@ export interface CsvFormatDescriptor {
 
 /**
  * @public
+ * @enum
  */
-export enum JsonFileCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const JsonFileCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type JsonFileCompression = (typeof JsonFileCompression)[keyof typeof JsonFileCompression];
 
 /**
  * @public
@@ -2164,11 +2248,17 @@ export interface GetSampleDataResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum RelationshipType {
-  CAUSE_OF_INPUT_ANOMALY_GROUP = "CAUSE_OF_INPUT_ANOMALY_GROUP",
-  EFFECT_OF_INPUT_ANOMALY_GROUP = "EFFECT_OF_INPUT_ANOMALY_GROUP",
-}
+export const RelationshipType = {
+  CAUSE_OF_INPUT_ANOMALY_GROUP: "CAUSE_OF_INPUT_ANOMALY_GROUP",
+  EFFECT_OF_INPUT_ANOMALY_GROUP: "EFFECT_OF_INPUT_ANOMALY_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type RelationshipType = (typeof RelationshipType)[keyof typeof RelationshipType];
 
 /**
  * @public

@@ -74,17 +74,6 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  *          service.</p>
  *
  *
- * @example To stop an engagement
- * ```javascript
- * // The following stop-engagement example stops an engagement from paging further contacts and contact channels.
- * const input = {
- *   "EngagementId": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/example_escalation/69e40ce1-8dbb-4d57-8962-5fbe7fc53356"
- * };
- * const command = new StopEngagementCommand(input);
- * await client.send(command);
- * // example id: to-stop-an-engagement-1630436882864
- * ```
- *
  */
 export class StopEngagementCommand extends $Command<
   StopEngagementCommandInput,

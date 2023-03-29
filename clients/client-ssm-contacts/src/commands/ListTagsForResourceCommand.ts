@@ -72,27 +72,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *          service.</p>
  *
  *
- * @example To list tags for a contact
- * ```javascript
- * // The following list-tags-for-resource example lists the tags of the specified contact.
- * const input = {
- *   "ResourceARN": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam"
- * };
- * const command = new ListTagsForResourceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Tags": [
- *     {
- *       "Key": "group1",
- *       "Value": "1"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-tags-for-a-contact-1630436051681
- * ```
- *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

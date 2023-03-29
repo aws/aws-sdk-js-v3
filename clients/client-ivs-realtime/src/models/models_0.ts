@@ -30,11 +30,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ParticipantTokenCapability {
-  PUBLISH = "PUBLISH",
-  SUBSCRIBE = "SUBSCRIBE",
-}
+export const ParticipantTokenCapability = {
+  PUBLISH: "PUBLISH",
+  SUBSCRIBE: "SUBSCRIBE",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantTokenCapability = (typeof ParticipantTokenCapability)[keyof typeof ParticipantTokenCapability];
 
 /**
  * @public

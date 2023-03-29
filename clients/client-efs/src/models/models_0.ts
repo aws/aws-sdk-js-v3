@@ -45,15 +45,21 @@ export class AccessPointAlreadyExists extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum LifeCycleState {
-  AVAILABLE = "available",
-  CREATING = "creating",
-  DELETED = "deleted",
-  DELETING = "deleting",
-  ERROR = "error",
-  UPDATING = "updating",
-}
+export const LifeCycleState = {
+  AVAILABLE: "available",
+  CREATING: "creating",
+  DELETED: "deleted",
+  DELETING: "deleting",
+  ERROR: "error",
+  UPDATING: "updating",
+} as const;
+
+/**
+ * @public
+ */
+export type LifeCycleState = (typeof LifeCycleState)[keyof typeof LifeCycleState];
 
 /**
  * @public
@@ -326,13 +332,19 @@ export class AvailabilityZonesMismatch extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-}
+export const Status = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -613,20 +625,32 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum PerformanceMode {
-  GENERAL_PURPOSE = "generalPurpose",
-  MAX_IO = "maxIO",
-}
+export const PerformanceMode = {
+  GENERAL_PURPOSE: "generalPurpose",
+  MAX_IO: "maxIO",
+} as const;
 
 /**
  * @public
  */
-export enum ThroughputMode {
-  BURSTING = "bursting",
-  ELASTIC = "elastic",
-  PROVISIONED = "provisioned",
-}
+export type PerformanceMode = (typeof PerformanceMode)[keyof typeof PerformanceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThroughputMode = {
+  BURSTING: "bursting",
+  ELASTIC: "elastic",
+  PROVISIONED: "provisioned",
+} as const;
+
+/**
+ * @public
+ */
+export type ThroughputMode = (typeof ThroughputMode)[keyof typeof ThroughputMode];
 
 /**
  * @public
@@ -1501,13 +1525,19 @@ export interface CreateReplicationConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationStatus {
-  DELETING = "DELETING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  ERROR = "ERROR",
-}
+export const ReplicationStatus = {
+  DELETING: "DELETING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  ERROR: "ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof ReplicationStatus];
 
 /**
  * @public
@@ -1910,19 +1940,31 @@ export interface DescribeAccountPreferencesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceIdType {
-  LongId = "LONG_ID",
-  ShortId = "SHORT_ID",
-}
+export const ResourceIdType = {
+  LongId: "LONG_ID",
+  ShortId: "SHORT_ID",
+} as const;
 
 /**
  * @public
  */
-export enum Resource {
-  FileSystem = "FILE_SYSTEM",
-  MountTarget = "MOUNT_TARGET",
-}
+export type ResourceIdType = (typeof ResourceIdType)[keyof typeof ResourceIdType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Resource = {
+  FileSystem: "FILE_SYSTEM",
+  MountTarget: "MOUNT_TARGET",
+} as const;
+
+/**
+ * @public
+ */
+export type Resource = (typeof Resource)[keyof typeof Resource];
 
 /**
  * @public
@@ -2093,22 +2135,35 @@ export interface DescribeLifecycleConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitionToIARules {
-  AFTER_14_DAYS = "AFTER_14_DAYS",
-  AFTER_1_DAY = "AFTER_1_DAY",
-  AFTER_30_DAYS = "AFTER_30_DAYS",
-  AFTER_60_DAYS = "AFTER_60_DAYS",
-  AFTER_7_DAYS = "AFTER_7_DAYS",
-  AFTER_90_DAYS = "AFTER_90_DAYS",
-}
+export const TransitionToIARules = {
+  AFTER_14_DAYS: "AFTER_14_DAYS",
+  AFTER_1_DAY: "AFTER_1_DAY",
+  AFTER_30_DAYS: "AFTER_30_DAYS",
+  AFTER_60_DAYS: "AFTER_60_DAYS",
+  AFTER_7_DAYS: "AFTER_7_DAYS",
+  AFTER_90_DAYS: "AFTER_90_DAYS",
+} as const;
 
 /**
  * @public
  */
-export enum TransitionToPrimaryStorageClassRules {
-  AFTER_1_ACCESS = "AFTER_1_ACCESS",
-}
+export type TransitionToIARules = (typeof TransitionToIARules)[keyof typeof TransitionToIARules];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitionToPrimaryStorageClassRules = {
+  AFTER_1_ACCESS: "AFTER_1_ACCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitionToPrimaryStorageClassRules =
+  (typeof TransitionToPrimaryStorageClassRules)[keyof typeof TransitionToPrimaryStorageClassRules];
 
 /**
  * @public

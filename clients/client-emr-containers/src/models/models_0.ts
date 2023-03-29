@@ -182,11 +182,17 @@ export interface JobDriver {
 
 /**
  * @public
+ * @enum
  */
-export enum TemplateParameterDataType {
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-}
+export const TemplateParameterDataType = {
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateParameterDataType = (typeof TemplateParameterDataType)[keyof typeof TemplateParameterDataType];
 
 /**
  * @public
@@ -268,11 +274,17 @@ export interface CloudWatchMonitoringConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum PersistentAppUI {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const PersistentAppUI = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PersistentAppUI = (typeof PersistentAppUI)[keyof typeof PersistentAppUI];
 
 /**
  * @public
@@ -379,10 +391,16 @@ export namespace ContainerInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerProviderType {
-  EKS = "EKS",
-}
+export const ContainerProviderType = {
+  EKS: "EKS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerProviderType = (typeof ContainerProviderType)[keyof typeof ContainerProviderType];
 
 /**
  * @public
@@ -537,13 +555,19 @@ export interface DescribeJobRunRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FailureReason {
-  CLUSTER_UNAVAILABLE = "CLUSTER_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  USER_ERROR = "USER_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const FailureReason = {
+  CLUSTER_UNAVAILABLE: "CLUSTER_UNAVAILABLE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  USER_ERROR: "USER_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
 
 /**
  * @public
@@ -569,16 +593,22 @@ export interface RetryPolicyExecution {
 
 /**
  * @public
+ * @enum
  */
-export enum JobRunState {
-  CANCELLED = "CANCELLED",
-  CANCEL_PENDING = "CANCEL_PENDING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUBMITTED = "SUBMITTED",
-}
+export const JobRunState = {
+  CANCELLED: "CANCELLED",
+  CANCEL_PENDING: "CANCEL_PENDING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
 
 /**
  * @public
@@ -623,14 +653,20 @@ export interface Certificate {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  TERMINATED = "TERMINATED",
-  TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS",
-  TERMINATING = "TERMINATING",
-}
+export const EndpointState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  TERMINATED: "TERMINATED",
+  TERMINATED_WITH_ERRORS: "TERMINATED_WITH_ERRORS",
+  TERMINATING: "TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
 
 /**
  * @public
@@ -644,13 +680,19 @@ export interface DescribeVirtualClusterRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VirtualClusterState {
-  ARRESTED = "ARRESTED",
-  RUNNING = "RUNNING",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const VirtualClusterState = {
+  ARRESTED: "ARRESTED",
+  RUNNING: "RUNNING",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualClusterState = (typeof VirtualClusterState)[keyof typeof VirtualClusterState];
 
 /**
  * @public

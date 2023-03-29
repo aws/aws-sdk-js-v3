@@ -27,10 +27,16 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetType {
-  ACCOUNT = "ACCOUNT",
-}
+export const TargetType = {
+  ACCOUNT: "ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * @public

@@ -34,11 +34,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessType {
-  LAKEFORMATION = "LAKEFORMATION",
-  S3 = "S3",
-}
+export const AccessType = {
+  LAKEFORMATION: "LAKEFORMATION",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessType = (typeof AccessType)[keyof typeof AccessType];
 
 /**
  * @public
@@ -64,51 +70,63 @@ export class AccountNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum OcsfEventClass {
-  ACCESS_ACTIVITY = "ACCESS_ACTIVITY",
-  ACCOUNT_CHANGE = "ACCOUNT_CHANGE",
-  AUTHENTICATION = "AUTHENTICATION",
-  AUTHORIZATION = "AUTHORIZATION",
-  CLOUD_API = "CLOUD_API",
-  CLOUD_STORAGE = "CLOUD_STORAGE",
-  CONFIG_STATE = "CONFIG_STATE",
-  CONTAINER_LIFECYCLE = "CONTAINER_LIFECYCLE",
-  DATABASE_LIFECYCLE = "DATABASE_LIFECYCLE",
-  DHCP_ACTIVITY = "DHCP_ACTIVITY",
-  DNS_ACTIVITY = "DNS_ACTIVITY",
-  ENTITY_MANAGEMENT_AUDIT = "ENTITY_MANAGEMENT_AUDIT",
-  FILE_ACTIVITY = "FILE_ACTIVITY",
-  FTP_ACTIVITY = "FTP_ACTIVITY",
-  HTTP_ACTIVITY = "HTTP_ACTIVITY",
-  INVENTORY_INFO = "INVENTORY_INFO",
-  KERNEL_ACTIVITY = "KERNEL_ACTIVITY",
-  KERNEL_EXTENSION = "KERNEL_EXTENSION",
-  MEMORY_ACTIVITY = "MEMORY_ACTIVITY",
-  MODULE_ACTIVITY = "MODULE_ACTIVITY",
-  NETWORK_ACTIVITY = "NETWORK_ACTIVITY",
-  PROCESS_ACTIVITY = "PROCESS_ACTIVITY",
-  RDP_ACTIVITY = "RDP_ACTIVITY",
-  REGISTRY_KEY_ACTIVITY = "REGISTRY_KEY_ACTIVITY",
-  REGISTRY_VALUE_ACTIVITY = "REGISTRY_VALUE_ACTIVITY",
-  RESOURCE_ACTIVITY = "RESOURCE_ACTIVITY",
-  RFB_ACTIVITY = "RFB_ACTIVITY",
-  SCHEDULED_JOB_ACTIVITY = "SCHEDULED_JOB_ACTIVITY",
-  SECURITY_FINDING = "SECURITY_FINDING",
-  SMB_ACTIVITY = "SMB_ACTIVITY",
-  SMTP_ACTIVITY = "SMTP_ACTIVITY",
-  SSH_ACTIVITY = "SSH_ACTIVITY",
-  VIRTUAL_MACHINE_ACTIVITY = "VIRTUAL_MACHINE_ACTIVITY",
-}
+export const OcsfEventClass = {
+  ACCESS_ACTIVITY: "ACCESS_ACTIVITY",
+  ACCOUNT_CHANGE: "ACCOUNT_CHANGE",
+  AUTHENTICATION: "AUTHENTICATION",
+  AUTHORIZATION: "AUTHORIZATION",
+  CLOUD_API: "CLOUD_API",
+  CLOUD_STORAGE: "CLOUD_STORAGE",
+  CONFIG_STATE: "CONFIG_STATE",
+  CONTAINER_LIFECYCLE: "CONTAINER_LIFECYCLE",
+  DATABASE_LIFECYCLE: "DATABASE_LIFECYCLE",
+  DHCP_ACTIVITY: "DHCP_ACTIVITY",
+  DNS_ACTIVITY: "DNS_ACTIVITY",
+  ENTITY_MANAGEMENT_AUDIT: "ENTITY_MANAGEMENT_AUDIT",
+  FILE_ACTIVITY: "FILE_ACTIVITY",
+  FTP_ACTIVITY: "FTP_ACTIVITY",
+  HTTP_ACTIVITY: "HTTP_ACTIVITY",
+  INVENTORY_INFO: "INVENTORY_INFO",
+  KERNEL_ACTIVITY: "KERNEL_ACTIVITY",
+  KERNEL_EXTENSION: "KERNEL_EXTENSION",
+  MEMORY_ACTIVITY: "MEMORY_ACTIVITY",
+  MODULE_ACTIVITY: "MODULE_ACTIVITY",
+  NETWORK_ACTIVITY: "NETWORK_ACTIVITY",
+  PROCESS_ACTIVITY: "PROCESS_ACTIVITY",
+  RDP_ACTIVITY: "RDP_ACTIVITY",
+  REGISTRY_KEY_ACTIVITY: "REGISTRY_KEY_ACTIVITY",
+  REGISTRY_VALUE_ACTIVITY: "REGISTRY_VALUE_ACTIVITY",
+  RESOURCE_ACTIVITY: "RESOURCE_ACTIVITY",
+  RFB_ACTIVITY: "RFB_ACTIVITY",
+  SCHEDULED_JOB_ACTIVITY: "SCHEDULED_JOB_ACTIVITY",
+  SECURITY_FINDING: "SECURITY_FINDING",
+  SMB_ACTIVITY: "SMB_ACTIVITY",
+  SMTP_ACTIVITY: "SMTP_ACTIVITY",
+  SSH_ACTIVITY: "SSH_ACTIVITY",
+  VIRTUAL_MACHINE_ACTIVITY: "VIRTUAL_MACHINE_ACTIVITY",
+} as const;
 
 /**
  * @public
  */
-export enum SourceStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  PENDING = "PENDING",
-}
+export type OcsfEventClass = (typeof OcsfEventClass)[keyof typeof OcsfEventClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceStatus = {
+  ACTIVE: "ACTIVE",
+  DEACTIVATED: "DEACTIVATED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceStatus = (typeof SourceStatus)[keyof typeof SourceStatus];
 
 /**
  * @public
@@ -157,26 +175,38 @@ export interface AccountSources {
 
 /**
  * @public
+ * @enum
  */
-export enum Region {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_2 = "us-west-2",
-}
+export const Region = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_2: "us-west-2",
+} as const;
 
 /**
  * @public
  */
-export enum AwsLogSourceType {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  ROUTE53 = "ROUTE53",
-  SH_FINDINGS = "SH_FINDINGS",
-  VPC_FLOW = "VPC_FLOW",
-}
+export type Region = (typeof Region)[keyof typeof Region];
+
+/**
+ * @public
+ * @enum
+ */
+export const AwsLogSourceType = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  ROUTE53: "ROUTE53",
+  SH_FINDINGS: "SH_FINDINGS",
+  VPC_FLOW: "VPC_FLOW",
+} as const;
+
+/**
+ * @public
+ */
+export type AwsLogSourceType = (typeof AwsLogSourceType)[keyof typeof AwsLogSourceType];
 
 /**
  * @public
@@ -314,12 +344,18 @@ export class ConflictSubscriptionException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Dimension {
-  MEMBER = "MEMBER",
-  REGION = "REGION",
-  SOURCE_TYPE = "SOURCE_TYPE",
-}
+export const Dimension = {
+  MEMBER: "MEMBER",
+  REGION: "REGION",
+  SOURCE_TYPE: "SOURCE_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type Dimension = (typeof Dimension)[keyof typeof Dimension];
 
 /**
  * @public
@@ -468,13 +504,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -583,16 +625,22 @@ export interface CreateCustomLogSourceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  EXPIRE = "EXPIRE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  EXPIRE: "EXPIRE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
 
 /**
  * @public
@@ -805,18 +853,24 @@ export interface CreateDatalakeDelegatedAdminResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum SubscriptionProtocolType {
-  APP = "APP",
-  EMAIL = "EMAIL",
-  EMAIL_JSON = "EMAIL_JSON",
-  FIREHOSE = "FIREHOSE",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  LAMBDA = "LAMBDA",
-  SMS = "SMS",
-  SQS = "SQS",
-}
+export const SubscriptionProtocolType = {
+  APP: "APP",
+  EMAIL: "EMAIL",
+  EMAIL_JSON: "EMAIL_JSON",
+  FIREHOSE: "FIREHOSE",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  LAMBDA: "LAMBDA",
+  SMS: "SMS",
+  SQS: "SQS",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionProtocolType = (typeof SubscriptionProtocolType)[keyof typeof SubscriptionProtocolType];
 
 /**
  * @public
@@ -986,11 +1040,17 @@ export class InvalidInputException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum HttpsMethod {
-  POST = "POST",
-  PUT = "PUT",
-}
+export const HttpsMethod = {
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpsMethod = (typeof HttpsMethod)[keyof typeof HttpsMethod];
 
 /**
  * @public
@@ -1196,11 +1256,17 @@ export interface DeleteSubscriptionNotificationConfigurationResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointProtocol {
-  HTTPS = "HTTPS",
-  SQS = "SQS",
-}
+export const EndpointProtocol = {
+  HTTPS: "HTTPS",
+  SQS: "SQS",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointProtocol = (typeof EndpointProtocol)[keyof typeof EndpointProtocol];
 
 /**
  * @public
@@ -1267,13 +1333,19 @@ export interface GetDatalakeRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum SettingsStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  PENDING = "PENDING",
-}
+export const SettingsStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SettingsStatus = (typeof SettingsStatus)[keyof typeof SettingsStatus];
 
 /**
  * @public
@@ -1506,13 +1578,19 @@ export interface GetSubscriberRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SubscriptionStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  PENDING = "PENDING",
-  READY = "READY",
-}
+export const SubscriptionStatus = {
+  ACTIVE: "ACTIVE",
+  DEACTIVATED: "DEACTIVATED",
+  PENDING: "PENDING",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus];
 
 /**
  * @public

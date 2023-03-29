@@ -26,26 +26,38 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AccountStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING_ACTIVATION = "PENDING_ACTIVATION",
-}
+export const AccountStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  PENDING_ACTIVATION: "PENDING_ACTIVATION",
+} as const;
 
 /**
  * @public
  */
-export enum ActionEnum {
-  ACTIVE = "ACTIVE",
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  IMPORT_EVIDENCE = "IMPORT_EVIDENCE",
-  INACTIVE = "INACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-  UPDATE_METADATA = "UPDATE_METADATA",
-}
+export type AccountStatus = (typeof AccountStatus)[keyof typeof AccountStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionEnum = {
+  ACTIVE: "ACTIVE",
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  IMPORT_EVIDENCE: "IMPORT_EVIDENCE",
+  INACTIVE: "INACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+  UPDATE_METADATA: "UPDATE_METADATA",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionEnum = (typeof ActionEnum)[keyof typeof ActionEnum];
 
 /**
  * @public
@@ -93,22 +105,34 @@ export interface ControlComment {
 
 /**
  * @public
+ * @enum
  */
-export enum ControlResponse {
-  AUTOMATE = "AUTOMATE",
-  DEFER = "DEFER",
-  IGNORE = "IGNORE",
-  MANUAL = "MANUAL",
-}
+export const ControlResponse = {
+  AUTOMATE: "AUTOMATE",
+  DEFER: "DEFER",
+  IGNORE: "IGNORE",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
  * @public
  */
-export enum ControlStatus {
-  INACTIVE = "INACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+export type ControlResponse = (typeof ControlResponse)[keyof typeof ControlResponse];
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlStatus = {
+  INACTIVE: "INACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlStatus = (typeof ControlStatus)[keyof typeof ControlStatus];
 
 /**
  * @public
@@ -163,20 +187,32 @@ export interface AssessmentControl {
 
 /**
  * @public
+ * @enum
  */
-export enum RoleType {
-  PROCESS_OWNER = "PROCESS_OWNER",
-  RESOURCE_OWNER = "RESOURCE_OWNER",
-}
+export const RoleType = {
+  PROCESS_OWNER: "PROCESS_OWNER",
+  RESOURCE_OWNER: "RESOURCE_OWNER",
+} as const;
 
 /**
  * @public
  */
-export enum DelegationStatus {
-  COMPLETE = "COMPLETE",
-  IN_PROGRESS = "IN_PROGRESS",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+export type RoleType = (typeof RoleType)[keyof typeof RoleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DelegationStatus = {
+  COMPLETE: "COMPLETE",
+  IN_PROGRESS: "IN_PROGRESS",
+  UNDER_REVIEW: "UNDER_REVIEW",
+} as const;
+
+/**
+ * @public
+ */
+export type DelegationStatus = (typeof DelegationStatus)[keyof typeof DelegationStatus];
 
 /**
  * @public
@@ -274,12 +310,18 @@ export interface Role {
 
 /**
  * @public
+ * @enum
  */
-export enum ControlSetStatus {
-  ACTIVE = "ACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+export const ControlSetStatus = {
+  ACTIVE: "ACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlSetStatus = (typeof ControlSetStatus)[keyof typeof ControlSetStatus];
 
 /**
  * @public
@@ -386,10 +428,17 @@ export interface AssessmentFramework {
 
 /**
  * @public
+ * @enum
  */
-export enum AssessmentReportDestinationType {
-  S3 = "S3",
-}
+export const AssessmentReportDestinationType = {
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type AssessmentReportDestinationType =
+  (typeof AssessmentReportDestinationType)[keyof typeof AssessmentReportDestinationType];
 
 /**
  * @public
@@ -455,11 +504,17 @@ export interface Scope {
 
 /**
  * @public
+ * @enum
  */
-export enum AssessmentStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AssessmentStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof AssessmentStatus];
 
 /**
  * @public
@@ -661,11 +716,17 @@ export interface AssessmentEvidenceFolder {
 
 /**
  * @public
+ * @enum
  */
-export enum FrameworkType {
-  CUSTOM = "Custom",
-  STANDARD = "Standard",
-}
+export const FrameworkType = {
+  CUSTOM: "Custom",
+  STANDARD: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type FrameworkType = (typeof FrameworkType)[keyof typeof FrameworkType];
 
 /**
  * @public
@@ -731,17 +792,23 @@ export interface AssessmentFrameworkMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum ShareRequestStatus {
-  ACTIVE = "ACTIVE",
-  DECLINED = "DECLINED",
-  EXPIRED = "EXPIRED",
-  EXPIRING = "EXPIRING",
-  FAILED = "FAILED",
-  REPLICATING = "REPLICATING",
-  REVOKED = "REVOKED",
-  SHARED = "SHARED",
-}
+export const ShareRequestStatus = {
+  ACTIVE: "ACTIVE",
+  DECLINED: "DECLINED",
+  EXPIRED: "EXPIRED",
+  EXPIRING: "EXPIRING",
+  FAILED: "FAILED",
+  REPLICATING: "REPLICATING",
+  REVOKED: "REVOKED",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareRequestStatus = (typeof ShareRequestStatus)[keyof typeof ShareRequestStatus];
 
 /**
  * @public
@@ -875,12 +942,18 @@ export interface AssessmentMetadataItem {
 
 /**
  * @public
+ * @enum
  */
-export enum AssessmentReportStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const AssessmentReportStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AssessmentReportStatus = (typeof AssessmentReportStatus)[keyof typeof AssessmentReportStatus];
 
 /**
  * @public
@@ -1095,13 +1168,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -1556,19 +1635,31 @@ export interface CreateAssessmentFrameworkRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceFrequency {
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  WEEKLY = "WEEKLY",
-}
+export const SourceFrequency = {
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+} as const;
 
 /**
  * @public
  */
-export enum KeywordInputType {
-  SELECT_FROM_LIST = "SELECT_FROM_LIST",
-}
+export type SourceFrequency = (typeof SourceFrequency)[keyof typeof SourceFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeywordInputType = {
+  SELECT_FROM_LIST: "SELECT_FROM_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type KeywordInputType = (typeof KeywordInputType)[keyof typeof KeywordInputType];
 
 /**
  * @public
@@ -1671,22 +1762,34 @@ export interface SourceKeyword {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceSetUpOption {
-  PROCEDURAL_CONTROLS_MAPPING = "Procedural_Controls_Mapping",
-  SYSTEM_CONTROLS_MAPPING = "System_Controls_Mapping",
-}
+export const SourceSetUpOption = {
+  PROCEDURAL_CONTROLS_MAPPING: "Procedural_Controls_Mapping",
+  SYSTEM_CONTROLS_MAPPING: "System_Controls_Mapping",
+} as const;
 
 /**
  * @public
  */
-export enum SourceType {
-  AWS_API_CALL = "AWS_API_Call",
-  AWS_CLOUDTRAIL = "AWS_Cloudtrail",
-  AWS_CONFIG = "AWS_Config",
-  AWS_SECURITY_HUB = "AWS_Security_Hub",
-  MANUAL = "MANUAL",
-}
+export type SourceSetUpOption = (typeof SourceSetUpOption)[keyof typeof SourceSetUpOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  AWS_API_CALL: "AWS_API_Call",
+  AWS_CLOUDTRAIL: "AWS_Cloudtrail",
+  AWS_CONFIG: "AWS_Config",
+  AWS_SECURITY_HUB: "AWS_Security_Hub",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -1765,11 +1868,17 @@ export interface ControlMappingSource {
 
 /**
  * @public
+ * @enum
  */
-export enum ControlType {
-  CUSTOM = "Custom",
-  STANDARD = "Standard",
-}
+export const ControlType = {
+  CUSTOM: "Custom",
+  STANDARD: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlType = (typeof ControlType)[keyof typeof ControlType];
 
 /**
  * @public
@@ -2163,11 +2272,17 @@ export interface DeleteAssessmentFrameworkResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum ShareRequestType {
-  RECEIVED = "RECEIVED",
-  SENT = "SENT",
-}
+export const ShareRequestType = {
+  RECEIVED: "RECEIVED",
+  SENT: "SENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareRequestType = (typeof ShareRequestType)[keyof typeof ShareRequestType];
 
 /**
  * @public
@@ -2411,14 +2526,20 @@ export interface GetChangeLogsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ObjectTypeEnum {
-  ASSESSMENT = "ASSESSMENT",
-  ASSESSMENT_REPORT = "ASSESSMENT_REPORT",
-  CONTROL = "CONTROL",
-  CONTROL_SET = "CONTROL_SET",
-  DELEGATION = "DELEGATION",
-}
+export const ObjectTypeEnum = {
+  ASSESSMENT: "ASSESSMENT",
+  ASSESSMENT_REPORT: "ASSESSMENT_REPORT",
+  CONTROL: "CONTROL",
+  CONTROL_SET: "CONTROL_SET",
+  DELEGATION: "DELEGATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ObjectTypeEnum = (typeof ObjectTypeEnum)[keyof typeof ObjectTypeEnum];
 
 /**
  * @public
@@ -3164,16 +3285,22 @@ export interface GetServicesInScopeResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SettingAttribute {
-  ALL = "ALL",
-  DEFAULT_ASSESSMENT_REPORTS_DESTINATION = "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
-  DEFAULT_PROCESS_OWNERS = "DEFAULT_PROCESS_OWNERS",
-  DEREGISTRATION_POLICY = "DEREGISTRATION_POLICY",
-  EVIDENCE_FINDER_ENABLEMENT = "EVIDENCE_FINDER_ENABLEMENT",
-  IS_AWS_ORG_ENABLED = "IS_AWS_ORG_ENABLED",
-  SNS_TOPIC = "SNS_TOPIC",
-}
+export const SettingAttribute = {
+  ALL: "ALL",
+  DEFAULT_ASSESSMENT_REPORTS_DESTINATION: "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
+  DEFAULT_PROCESS_OWNERS: "DEFAULT_PROCESS_OWNERS",
+  DEREGISTRATION_POLICY: "DEREGISTRATION_POLICY",
+  EVIDENCE_FINDER_ENABLEMENT: "EVIDENCE_FINDER_ENABLEMENT",
+  IS_AWS_ORG_ENABLED: "IS_AWS_ORG_ENABLED",
+  SNS_TOPIC: "SNS_TOPIC",
+} as const;
+
+/**
+ * @public
+ */
+export type SettingAttribute = (typeof SettingAttribute)[keyof typeof SettingAttribute];
 
 /**
  * @public
@@ -3187,11 +3314,17 @@ export interface GetSettingsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeleteResources {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT",
-}
+export const DeleteResources = {
+  ALL: "ALL",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteResources = (typeof DeleteResources)[keyof typeof DeleteResources];
 
 /**
  * @public
@@ -3233,22 +3366,36 @@ export interface DeregistrationPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum EvidenceFinderBackfillStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const EvidenceFinderBackfillStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
 /**
  * @public
  */
-export enum EvidenceFinderEnablementStatus {
-  DISABLED = "DISABLED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-}
+export type EvidenceFinderBackfillStatus =
+  (typeof EvidenceFinderBackfillStatus)[keyof typeof EvidenceFinderBackfillStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvidenceFinderEnablementStatus = {
+  DISABLED: "DISABLED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type EvidenceFinderEnablementStatus =
+  (typeof EvidenceFinderEnablementStatus)[keyof typeof EvidenceFinderEnablementStatus];
 
 /**
  * @public
@@ -4338,12 +4485,18 @@ export interface UpdateAssessmentFrameworkResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ShareRequestAction {
-  ACCEPT = "ACCEPT",
-  DECLINE = "DECLINE",
-  REVOKE = "REVOKE",
-}
+export const ShareRequestAction = {
+  ACCEPT: "ACCEPT",
+  DECLINE: "DECLINE",
+  REVOKE: "REVOKE",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareRequestAction = (typeof ShareRequestAction)[keyof typeof ShareRequestAction];
 
 /**
  * @public

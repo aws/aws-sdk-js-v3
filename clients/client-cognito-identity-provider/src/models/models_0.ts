@@ -5,12 +5,18 @@ import { CognitoIdentityProviderServiceException as __BaseException } from "./Co
 
 /**
  * @public
+ * @enum
  */
-export enum RecoveryOptionNameType {
-  ADMIN_ONLY = "admin_only",
-  VERIFIED_EMAIL = "verified_email",
-  VERIFIED_PHONE_NUMBER = "verified_phone_number",
-}
+export const RecoveryOptionNameType = {
+  ADMIN_ONLY: "admin_only",
+  VERIFIED_EMAIL: "verified_email",
+  VERIFIED_PHONE_NUMBER: "verified_phone_number",
+} as const;
+
+/**
+ * @public
+ */
+export type RecoveryOptionNameType = (typeof RecoveryOptionNameType)[keyof typeof RecoveryOptionNameType];
 
 /**
  * @public
@@ -42,13 +48,20 @@ export interface AccountRecoverySettingType {
 
 /**
  * @public
+ * @enum
  */
-export enum AccountTakeoverEventActionType {
-  BLOCK = "BLOCK",
-  MFA_IF_CONFIGURED = "MFA_IF_CONFIGURED",
-  MFA_REQUIRED = "MFA_REQUIRED",
-  NO_ACTION = "NO_ACTION",
-}
+export const AccountTakeoverEventActionType = {
+  BLOCK: "BLOCK",
+  MFA_IF_CONFIGURED: "MFA_IF_CONFIGURED",
+  MFA_REQUIRED: "MFA_REQUIRED",
+  NO_ACTION: "NO_ACTION",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountTakeoverEventActionType =
+  (typeof AccountTakeoverEventActionType)[keyof typeof AccountTakeoverEventActionType];
 
 /**
  * @public
@@ -188,13 +201,19 @@ export interface AccountTakeoverRiskConfigurationType {
 
 /**
  * @public
+ * @enum
  */
-export enum AttributeDataType {
-  BOOLEAN = "Boolean",
-  DATETIME = "DateTime",
-  NUMBER = "Number",
-  STRING = "String",
-}
+export const AttributeDataType = {
+  BOOLEAN: "Boolean",
+  DATETIME: "DateTime",
+  NUMBER: "Number",
+  STRING: "String",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeDataType = (typeof AttributeDataType)[keyof typeof AttributeDataType];
 
 /**
  * @public
@@ -636,19 +655,31 @@ export class UserLambdaValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliveryMediumType {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
-}
+export const DeliveryMediumType = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+} as const;
 
 /**
  * @public
  */
-export enum MessageActionType {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS",
-}
+export type DeliveryMediumType = (typeof DeliveryMediumType)[keyof typeof DeliveryMediumType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageActionType = {
+  RESEND: "RESEND",
+  SUPPRESS: "SUPPRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageActionType = (typeof MessageActionType)[keyof typeof MessageActionType];
 
 /**
  * @public
@@ -838,16 +869,22 @@ export interface MFAOptionType {
 
 /**
  * @public
+ * @enum
  */
-export enum UserStatusType {
-  ARCHIVED = "ARCHIVED",
-  COMPROMISED = "COMPROMISED",
-  CONFIRMED = "CONFIRMED",
-  FORCE_CHANGE_PASSWORD = "FORCE_CHANGE_PASSWORD",
-  RESET_REQUIRED = "RESET_REQUIRED",
-  UNCONFIRMED = "UNCONFIRMED",
-  UNKNOWN = "UNKNOWN",
-}
+export const UserStatusType = {
+  ARCHIVED: "ARCHIVED",
+  COMPROMISED: "COMPROMISED",
+  CONFIRMED: "CONFIRMED",
+  FORCE_CHANGE_PASSWORD: "FORCE_CHANGE_PASSWORD",
+  RESET_REQUIRED: "RESET_REQUIRED",
+  UNCONFIRMED: "UNCONFIRMED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type UserStatusType = (typeof UserStatusType)[keyof typeof UserStatusType];
 
 /**
  * @public
@@ -1502,16 +1539,22 @@ export interface AnalyticsMetadataType {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthFlowType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  ADMIN_USER_PASSWORD_AUTH = "ADMIN_USER_PASSWORD_AUTH",
-  CUSTOM_AUTH = "CUSTOM_AUTH",
-  REFRESH_TOKEN = "REFRESH_TOKEN",
-  REFRESH_TOKEN_AUTH = "REFRESH_TOKEN_AUTH",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
-  USER_SRP_AUTH = "USER_SRP_AUTH",
-}
+export const AuthFlowType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  ADMIN_USER_PASSWORD_AUTH: "ADMIN_USER_PASSWORD_AUTH",
+  CUSTOM_AUTH: "CUSTOM_AUTH",
+  REFRESH_TOKEN: "REFRESH_TOKEN",
+  REFRESH_TOKEN_AUTH: "REFRESH_TOKEN_AUTH",
+  USER_PASSWORD_AUTH: "USER_PASSWORD_AUTH",
+  USER_SRP_AUTH: "USER_SRP_AUTH",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthFlowType = (typeof AuthFlowType)[keyof typeof AuthFlowType];
 
 /**
  * @public
@@ -1804,19 +1847,25 @@ export interface AuthenticationResultType {
 
 /**
  * @public
+ * @enum
  */
-export enum ChallengeNameType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  CUSTOM_CHALLENGE = "CUSTOM_CHALLENGE",
-  DEVICE_PASSWORD_VERIFIER = "DEVICE_PASSWORD_VERIFIER",
-  DEVICE_SRP_AUTH = "DEVICE_SRP_AUTH",
-  MFA_SETUP = "MFA_SETUP",
-  NEW_PASSWORD_REQUIRED = "NEW_PASSWORD_REQUIRED",
-  PASSWORD_VERIFIER = "PASSWORD_VERIFIER",
-  SELECT_MFA_TYPE = "SELECT_MFA_TYPE",
-  SMS_MFA = "SMS_MFA",
-  SOFTWARE_TOKEN_MFA = "SOFTWARE_TOKEN_MFA",
-}
+export const ChallengeNameType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  CUSTOM_CHALLENGE: "CUSTOM_CHALLENGE",
+  DEVICE_PASSWORD_VERIFIER: "DEVICE_PASSWORD_VERIFIER",
+  DEVICE_SRP_AUTH: "DEVICE_SRP_AUTH",
+  MFA_SETUP: "MFA_SETUP",
+  NEW_PASSWORD_REQUIRED: "NEW_PASSWORD_REQUIRED",
+  PASSWORD_VERIFIER: "PASSWORD_VERIFIER",
+  SELECT_MFA_TYPE: "SELECT_MFA_TYPE",
+  SMS_MFA: "SMS_MFA",
+  SOFTWARE_TOKEN_MFA: "SOFTWARE_TOKEN_MFA",
+} as const;
+
+/**
+ * @public
+ */
+export type ChallengeNameType = (typeof ChallengeNameType)[keyof typeof ChallengeNameType];
 
 /**
  * @public
@@ -2231,19 +2280,31 @@ export interface AdminListUserAuthEventsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ChallengeName {
-  Mfa = "Mfa",
-  Password = "Password",
-}
+export const ChallengeName = {
+  Mfa: "Mfa",
+  Password: "Password",
+} as const;
 
 /**
  * @public
  */
-export enum ChallengeResponse {
-  Failure = "Failure",
-  Success = "Success",
-}
+export type ChallengeName = (typeof ChallengeName)[keyof typeof ChallengeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChallengeResponse = {
+  Failure: "Failure",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type ChallengeResponse = (typeof ChallengeResponse)[keyof typeof ChallengeResponse];
 
 /**
  * @public
@@ -2294,11 +2355,17 @@ export interface EventContextDataType {
 
 /**
  * @public
+ * @enum
  */
-export enum FeedbackValueType {
-  INVALID = "Invalid",
-  VALID = "Valid",
-}
+export const FeedbackValueType = {
+  INVALID: "Invalid",
+  VALID: "Valid",
+} as const;
+
+/**
+ * @public
+ */
+export type FeedbackValueType = (typeof FeedbackValueType)[keyof typeof FeedbackValueType];
 
 /**
  * @public
@@ -2323,30 +2390,48 @@ export interface EventFeedbackType {
 
 /**
  * @public
+ * @enum
  */
-export enum EventResponseType {
-  Fail = "Fail",
-  InProgress = "InProgress",
-  Pass = "Pass",
-}
+export const EventResponseType = {
+  Fail: "Fail",
+  InProgress: "InProgress",
+  Pass: "Pass",
+} as const;
 
 /**
  * @public
  */
-export enum RiskDecisionType {
-  AccountTakeover = "AccountTakeover",
-  Block = "Block",
-  NoRisk = "NoRisk",
-}
+export type EventResponseType = (typeof EventResponseType)[keyof typeof EventResponseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskDecisionType = {
+  AccountTakeover: "AccountTakeover",
+  Block: "Block",
+  NoRisk: "NoRisk",
+} as const;
 
 /**
  * @public
  */
-export enum RiskLevelType {
-  High = "High",
-  Low = "Low",
-  Medium = "Medium",
-}
+export type RiskDecisionType = (typeof RiskDecisionType)[keyof typeof RiskDecisionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskLevelType = {
+  High: "High",
+  Low: "Low",
+  Medium: "Medium",
+} as const;
+
+/**
+ * @public
+ */
+export type RiskLevelType = (typeof RiskLevelType)[keyof typeof RiskLevelType];
 
 /**
  * @public
@@ -2372,14 +2457,20 @@ export interface EventRiskType {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  ForgotPassword = "ForgotPassword",
-  PasswordChange = "PasswordChange",
-  ResendCode = "ResendCode",
-  SignIn = "SignIn",
-  SignUp = "SignUp",
-}
+export const EventType = {
+  ForgotPassword: "ForgotPassword",
+  PasswordChange: "PasswordChange",
+  ResendCode: "ResendCode",
+  SignIn: "SignIn",
+  SignUp: "SignUp",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -2995,11 +3086,17 @@ export interface AdminUpdateAuthEventFeedbackResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceRememberedStatusType {
-  NOT_REMEMBERED = "not_remembered",
-  REMEMBERED = "remembered",
-}
+export const DeviceRememberedStatusType = {
+  NOT_REMEMBERED: "not_remembered",
+  REMEMBERED: "remembered",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceRememberedStatusType = (typeof DeviceRememberedStatusType)[keyof typeof DeviceRememberedStatusType];
 
 /**
  * @public
@@ -3136,21 +3233,33 @@ export interface AdminUserGlobalSignOutResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum AdvancedSecurityModeType {
-  AUDIT = "AUDIT",
-  ENFORCED = "ENFORCED",
-  OFF = "OFF",
-}
+export const AdvancedSecurityModeType = {
+  AUDIT: "AUDIT",
+  ENFORCED: "ENFORCED",
+  OFF: "OFF",
+} as const;
 
 /**
  * @public
  */
-export enum AliasAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-  PREFERRED_USERNAME = "preferred_username",
-}
+export type AdvancedSecurityModeType = (typeof AdvancedSecurityModeType)[keyof typeof AdvancedSecurityModeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AliasAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+  PREFERRED_USERNAME: "preferred_username",
+} as const;
+
+/**
+ * @public
+ */
+export type AliasAttributeType = (typeof AliasAttributeType)[keyof typeof AliasAttributeType];
 
 /**
  * @public
@@ -3270,11 +3379,17 @@ export class ForbiddenException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum VerifiedAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-}
+export const VerifiedAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifiedAttributeType = (typeof VerifiedAttributeType)[keyof typeof VerifiedAttributeType];
 
 /**
  * @public
@@ -3639,15 +3754,21 @@ export class GroupExistsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityProviderTypeType {
-  Facebook = "Facebook",
-  Google = "Google",
-  LoginWithAmazon = "LoginWithAmazon",
-  OIDC = "OIDC",
-  SAML = "SAML",
-  SignInWithApple = "SignInWithApple",
-}
+export const IdentityProviderTypeType = {
+  Facebook: "Facebook",
+  Google: "Google",
+  LoginWithAmazon: "LoginWithAmazon",
+  OIDC: "OIDC",
+  SAML: "SAML",
+  SignInWithApple: "SignInWithApple",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityProviderTypeType = (typeof IdentityProviderTypeType)[keyof typeof IdentityProviderTypeType];
 
 /**
  * @public
@@ -4094,17 +4215,23 @@ export interface CreateUserImportJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UserImportJobStatusType {
-  Created = "Created",
-  Expired = "Expired",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Succeeded = "Succeeded",
-}
+export const UserImportJobStatusType = {
+  Created: "Created",
+  Expired: "Expired",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type UserImportJobStatusType = (typeof UserImportJobStatusType)[keyof typeof UserImportJobStatusType];
 
 /**
  * @public
@@ -4233,11 +4360,17 @@ export interface CreateUserImportJobResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DeletionProtectionType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const DeletionProtectionType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletionProtectionType = (typeof DeletionProtectionType)[keyof typeof DeletionProtectionType];
 
 /**
  * @public
@@ -4288,11 +4421,17 @@ export interface DeviceConfigurationType {
 
 /**
  * @public
+ * @enum
  */
-export enum EmailSendingAccountType {
-  COGNITO_DEFAULT = "COGNITO_DEFAULT",
-  DEVELOPER = "DEVELOPER",
-}
+export const EmailSendingAccountType = {
+  COGNITO_DEFAULT: "COGNITO_DEFAULT",
+  DEVELOPER: "DEVELOPER",
+} as const;
+
+/**
+ * @public
+ */
+export type EmailSendingAccountType = (typeof EmailSendingAccountType)[keyof typeof EmailSendingAccountType];
 
 /**
  * @public
@@ -4409,10 +4548,17 @@ export interface EmailConfigurationType {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomEmailSenderLambdaVersionType {
-  V1_0 = "V1_0",
-}
+export const CustomEmailSenderLambdaVersionType = {
+  V1_0: "V1_0",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomEmailSenderLambdaVersionType =
+  (typeof CustomEmailSenderLambdaVersionType)[keyof typeof CustomEmailSenderLambdaVersionType];
 
 /**
  * @public
@@ -4434,10 +4580,17 @@ export interface CustomEmailLambdaVersionConfigType {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomSMSSenderLambdaVersionType {
-  V1_0 = "V1_0",
-}
+export const CustomSMSSenderLambdaVersionType = {
+  V1_0: "V1_0",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomSMSSenderLambdaVersionType =
+  (typeof CustomSMSSenderLambdaVersionType)[keyof typeof CustomSMSSenderLambdaVersionType];
 
 /**
  * @public
@@ -4532,12 +4685,18 @@ export interface LambdaConfigType {
 
 /**
  * @public
+ * @enum
  */
-export enum UserPoolMfaType {
-  OFF = "OFF",
-  ON = "ON",
-  OPTIONAL = "OPTIONAL",
-}
+export const UserPoolMfaType = {
+  OFF: "OFF",
+  ON: "ON",
+  OPTIONAL: "OPTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type UserPoolMfaType = (typeof UserPoolMfaType)[keyof typeof UserPoolMfaType];
 
 /**
  * @public
@@ -4667,11 +4826,17 @@ export interface UserAttributeUpdateSettingsType {
 
 /**
  * @public
+ * @enum
  */
-export enum UsernameAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-}
+export const UsernameAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+} as const;
+
+/**
+ * @public
+ */
+export type UsernameAttributeType = (typeof UsernameAttributeType)[keyof typeof UsernameAttributeType];
 
 /**
  * @public
@@ -4715,11 +4880,17 @@ export interface UserPoolAddOnsType {
 
 /**
  * @public
+ * @enum
  */
-export enum DefaultEmailOptionType {
-  CONFIRM_WITH_CODE = "CONFIRM_WITH_CODE",
-  CONFIRM_WITH_LINK = "CONFIRM_WITH_LINK",
-}
+export const DefaultEmailOptionType = {
+  CONFIRM_WITH_CODE: "CONFIRM_WITH_CODE",
+  CONFIRM_WITH_LINK: "CONFIRM_WITH_LINK",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultEmailOptionType = (typeof DefaultEmailOptionType)[keyof typeof DefaultEmailOptionType];
 
 /**
  * @public
@@ -4931,11 +5102,17 @@ export interface CreateUserPoolRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusType {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const StatusType = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * @public
@@ -5209,44 +5386,69 @@ export class UserPoolTaggingException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum OAuthFlowType {
-  client_credentials = "client_credentials",
-  code = "code",
-  implicit = "implicit",
-}
+export const OAuthFlowType = {
+  client_credentials: "client_credentials",
+  code: "code",
+  implicit: "implicit",
+} as const;
 
 /**
  * @public
  */
-export enum ExplicitAuthFlowsType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  ALLOW_ADMIN_USER_PASSWORD_AUTH = "ALLOW_ADMIN_USER_PASSWORD_AUTH",
-  ALLOW_CUSTOM_AUTH = "ALLOW_CUSTOM_AUTH",
-  ALLOW_REFRESH_TOKEN_AUTH = "ALLOW_REFRESH_TOKEN_AUTH",
-  ALLOW_USER_PASSWORD_AUTH = "ALLOW_USER_PASSWORD_AUTH",
-  ALLOW_USER_SRP_AUTH = "ALLOW_USER_SRP_AUTH",
-  CUSTOM_AUTH_FLOW_ONLY = "CUSTOM_AUTH_FLOW_ONLY",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
-}
+export type OAuthFlowType = (typeof OAuthFlowType)[keyof typeof OAuthFlowType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExplicitAuthFlowsType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  ALLOW_ADMIN_USER_PASSWORD_AUTH: "ALLOW_ADMIN_USER_PASSWORD_AUTH",
+  ALLOW_CUSTOM_AUTH: "ALLOW_CUSTOM_AUTH",
+  ALLOW_REFRESH_TOKEN_AUTH: "ALLOW_REFRESH_TOKEN_AUTH",
+  ALLOW_USER_PASSWORD_AUTH: "ALLOW_USER_PASSWORD_AUTH",
+  ALLOW_USER_SRP_AUTH: "ALLOW_USER_SRP_AUTH",
+  CUSTOM_AUTH_FLOW_ONLY: "CUSTOM_AUTH_FLOW_ONLY",
+  USER_PASSWORD_AUTH: "USER_PASSWORD_AUTH",
+} as const;
 
 /**
  * @public
  */
-export enum PreventUserExistenceErrorTypes {
-  ENABLED = "ENABLED",
-  LEGACY = "LEGACY",
-}
+export type ExplicitAuthFlowsType = (typeof ExplicitAuthFlowsType)[keyof typeof ExplicitAuthFlowsType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreventUserExistenceErrorTypes = {
+  ENABLED: "ENABLED",
+  LEGACY: "LEGACY",
+} as const;
 
 /**
  * @public
  */
-export enum TimeUnitsType {
-  DAYS = "days",
-  HOURS = "hours",
-  MINUTES = "minutes",
-  SECONDS = "seconds",
-}
+export type PreventUserExistenceErrorTypes =
+  (typeof PreventUserExistenceErrorTypes)[keyof typeof PreventUserExistenceErrorTypes];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeUnitsType = {
+  DAYS: "days",
+  HOURS: "hours",
+  MINUTES: "minutes",
+  SECONDS: "seconds",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeUnitsType = (typeof TimeUnitsType)[keyof typeof TimeUnitsType];
 
 /**
  * @public
@@ -6192,11 +6394,18 @@ export interface DescribeRiskConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CompromisedCredentialsEventActionType {
-  BLOCK = "BLOCK",
-  NO_ACTION = "NO_ACTION",
-}
+export const CompromisedCredentialsEventActionType = {
+  BLOCK: "BLOCK",
+  NO_ACTION: "NO_ACTION",
+} as const;
+
+/**
+ * @public
+ */
+export type CompromisedCredentialsEventActionType =
+  (typeof CompromisedCredentialsEventActionType)[keyof typeof CompromisedCredentialsEventActionType];
 
 /**
  * @public
@@ -6211,12 +6420,18 @@ export interface CompromisedCredentialsActionsType {
 
 /**
  * @public
+ * @enum
  */
-export enum EventFilterType {
-  PASSWORD_CHANGE = "PASSWORD_CHANGE",
-  SIGN_IN = "SIGN_IN",
-  SIGN_UP = "SIGN_UP",
-}
+export const EventFilterType = {
+  PASSWORD_CHANGE: "PASSWORD_CHANGE",
+  SIGN_IN: "SIGN_IN",
+  SIGN_UP: "SIGN_UP",
+} as const;
+
+/**
+ * @public
+ */
+export type EventFilterType = (typeof EventFilterType)[keyof typeof EventFilterType];
 
 /**
  * @public
@@ -6395,14 +6610,20 @@ export interface DescribeUserPoolDomainRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainStatusType {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const DomainStatusType = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainStatusType = (typeof DomainStatusType)[keyof typeof DomainStatusType];
 
 /**
  * @public

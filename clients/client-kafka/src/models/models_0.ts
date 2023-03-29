@@ -42,18 +42,30 @@ export interface BrokerEBSVolumeInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterType {
-  PROVISIONED = "PROVISIONED",
-  SERVERLESS = "SERVERLESS",
-}
+export const ClusterType = {
+  PROVISIONED: "PROVISIONED",
+  SERVERLESS: "SERVERLESS",
+} as const;
 
 /**
  * @public
  */
-export enum BrokerAZDistribution {
-  DEFAULT = "DEFAULT",
-}
+export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BrokerAZDistribution = {
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type BrokerAZDistribution = (typeof BrokerAZDistribution)[keyof typeof BrokerAZDistribution];
 
 /**
  * @public
@@ -261,12 +273,18 @@ export interface EncryptionAtRest {
 
 /**
  * @public
+ * @enum
  */
-export enum ClientBroker {
-  PLAINTEXT = "PLAINTEXT",
-  TLS = "TLS",
-  TLS_PLAINTEXT = "TLS_PLAINTEXT",
-}
+export const ClientBroker = {
+  PLAINTEXT: "PLAINTEXT",
+  TLS: "TLS",
+  TLS_PLAINTEXT: "TLS_PLAINTEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientBroker = (typeof ClientBroker)[keyof typeof ClientBroker];
 
 /**
  * @public
@@ -310,13 +328,19 @@ export interface EncryptionInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum EnhancedMonitoring {
-  DEFAULT = "DEFAULT",
-  PER_BROKER = "PER_BROKER",
-  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER",
-  PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION",
-}
+export const EnhancedMonitoring = {
+  DEFAULT: "DEFAULT",
+  PER_BROKER: "PER_BROKER",
+  PER_TOPIC_PER_BROKER: "PER_TOPIC_PER_BROKER",
+  PER_TOPIC_PER_PARTITION: "PER_TOPIC_PER_PARTITION",
+} as const;
+
+/**
+ * @public
+ */
+export type EnhancedMonitoring = (typeof EnhancedMonitoring)[keyof typeof EnhancedMonitoring];
 
 /**
  * @public
@@ -410,11 +434,17 @@ export interface OpenMonitoringInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageMode {
-  LOCAL = "LOCAL",
-  TIERED = "TIERED",
-}
+export const StorageMode = {
+  LOCAL: "LOCAL",
+  TIERED: "TIERED",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageMode = (typeof StorageMode)[keyof typeof StorageMode];
 
 /**
  * @public
@@ -533,17 +563,23 @@ export interface Serverless {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALING = "HEALING",
-  MAINTENANCE = "MAINTENANCE",
-  REBOOTING_BROKER = "REBOOTING_BROKER",
-  UPDATING = "UPDATING",
-}
+export const ClusterState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  HEALING: "HEALING",
+  MAINTENANCE: "MAINTENANCE",
+  REBOOTING_BROKER: "REBOOTING_BROKER",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
  * @public
@@ -981,12 +1017,18 @@ export interface ConfigurationRevision {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationState {
-  ACTIVE = "ACTIVE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const ConfigurationState = {
+  ACTIVE: "ACTIVE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
 
 /**
  * @public
@@ -1031,11 +1073,17 @@ export interface Configuration {
 
 /**
  * @public
+ * @enum
  */
-export enum KafkaVersionStatus {
-  ACTIVE = "ACTIVE",
-  DEPRECATED = "DEPRECATED",
-}
+export const KafkaVersionStatus = {
+  ACTIVE: "ACTIVE",
+  DEPRECATED: "DEPRECATED",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaVersionStatus = (typeof KafkaVersionStatus)[keyof typeof KafkaVersionStatus];
 
 /**
  * @public
@@ -1083,10 +1131,16 @@ export interface BrokerNodeInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum NodeType {
-  BROKER = "BROKER",
-}
+export const NodeType = {
+  BROKER: "BROKER",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
 
 /**
  * @public

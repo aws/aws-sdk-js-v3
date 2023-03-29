@@ -5,25 +5,31 @@ import { ChimeSDKVoiceServiceException as __BaseException } from "./ChimeSDKVoic
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  Gone = "Gone",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Throttling = "Throttling",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
-}
+export const ErrorCode = {
+  AccessDenied: "AccessDenied",
+  BadRequest: "BadRequest",
+  Conflict: "Conflict",
+  Forbidden: "Forbidden",
+  Gone: "Gone",
+  NotFound: "NotFound",
+  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
+  PreconditionFailed: "PreconditionFailed",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttled: "Throttled",
+  Throttling: "Throttling",
+  Unauthorized: "Unauthorized",
+  Unprocessable: "Unprocessable",
+  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -109,11 +115,17 @@ export interface Address {
 
 /**
  * @public
+ * @enum
  */
-export enum AlexaSkillStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AlexaSkillStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type AlexaSkillStatus = (typeof AlexaSkillStatus)[keyof typeof AlexaSkillStatus];
 
 /**
  * @public
@@ -389,11 +401,17 @@ export interface BatchDeletePhoneNumberResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneNumberProductType {
-  SipMediaApplicationDialIn = "SipMediaApplicationDialIn",
-  VoiceConnector = "VoiceConnector",
-}
+export const PhoneNumberProductType = {
+  SipMediaApplicationDialIn: "SipMediaApplicationDialIn",
+  VoiceConnector: "VoiceConnector",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberProductType = (typeof PhoneNumberProductType)[keyof typeof PhoneNumberProductType];
 
 /**
  * @public
@@ -460,13 +478,19 @@ export interface CallDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum CallingNameStatus {
-  Unassigned = "Unassigned",
-  UpdateFailed = "UpdateFailed",
-  UpdateInProgress = "UpdateInProgress",
-  UpdateSucceeded = "UpdateSucceeded",
-}
+export const CallingNameStatus = {
+  Unassigned: "Unassigned",
+  UpdateFailed: "UpdateFailed",
+  UpdateInProgress: "UpdateInProgress",
+  UpdateSucceeded: "UpdateSucceeded",
+} as const;
+
+/**
+ * @public
+ */
+export type CallingNameStatus = (typeof CallingNameStatus)[keyof typeof CallingNameStatus];
 
 /**
  * @public
@@ -511,11 +535,17 @@ export interface CandidateAddress {
 
 /**
  * @public
+ * @enum
  */
-export enum Capability {
-  SMS = "SMS",
-  Voice = "Voice",
-}
+export const Capability = {
+  SMS: "SMS",
+  Voice: "Voice",
+} as const;
+
+/**
+ * @public
+ */
+export type Capability = (typeof Capability)[keyof typeof Capability];
 
 /**
  * @public
@@ -534,12 +564,18 @@ export interface CreatePhoneNumberOrderRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderedPhoneNumberStatus {
-  Acquired = "Acquired",
-  Failed = "Failed",
-  Processing = "Processing",
-}
+export const OrderedPhoneNumberStatus = {
+  Acquired: "Acquired",
+  Failed: "Failed",
+  Processing: "Processing",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderedPhoneNumberStatus = (typeof OrderedPhoneNumberStatus)[keyof typeof OrderedPhoneNumberStatus];
 
 /**
  * @public
@@ -559,28 +595,40 @@ export interface OrderedPhoneNumber {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneNumberOrderType {
-  New = "New",
-  Porting = "Porting",
-}
+export const PhoneNumberOrderType = {
+  New: "New",
+  Porting: "Porting",
+} as const;
 
 /**
  * @public
  */
-export enum PhoneNumberOrderStatus {
-  CancelRequested = "CancelRequested",
-  Cancelled = "Cancelled",
-  ChangeRequested = "ChangeRequested",
-  Exception = "Exception",
-  FOC = "FOC",
-  Failed = "Failed",
-  Partial = "Partial",
-  PendingDocuments = "PendingDocuments",
-  Processing = "Processing",
-  Submitted = "Submitted",
-  Successful = "Successful",
-}
+export type PhoneNumberOrderType = (typeof PhoneNumberOrderType)[keyof typeof PhoneNumberOrderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PhoneNumberOrderStatus = {
+  CancelRequested: "CancelRequested",
+  Cancelled: "Cancelled",
+  ChangeRequested: "ChangeRequested",
+  Exception: "Exception",
+  FOC: "FOC",
+  Failed: "Failed",
+  Partial: "Partial",
+  PendingDocuments: "PendingDocuments",
+  Processing: "Processing",
+  Submitted: "Submitted",
+  Successful: "Successful",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberOrderStatus = (typeof PhoneNumberOrderStatus)[keyof typeof PhoneNumberOrderStatus];
 
 /**
  * @public
@@ -660,11 +708,17 @@ export class ResourceLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum GeoMatchLevel {
-  AreaCode = "AreaCode",
-  Country = "Country",
-}
+export const GeoMatchLevel = {
+  AreaCode: "AreaCode",
+  Country: "Country",
+} as const;
+
+/**
+ * @public
+ */
+export type GeoMatchLevel = (typeof GeoMatchLevel)[keyof typeof GeoMatchLevel];
 
 /**
  * @public
@@ -684,11 +738,17 @@ export interface GeoMatchParams {
 
 /**
  * @public
+ * @enum
  */
-export enum NumberSelectionBehavior {
-  AvoidSticky = "AvoidSticky",
-  PreferSticky = "PreferSticky",
-}
+export const NumberSelectionBehavior = {
+  AvoidSticky: "AvoidSticky",
+  PreferSticky: "PreferSticky",
+} as const;
+
+/**
+ * @public
+ */
+export type NumberSelectionBehavior = (typeof NumberSelectionBehavior)[keyof typeof NumberSelectionBehavior];
 
 /**
  * @public
@@ -754,12 +814,18 @@ export interface Participant {
 
 /**
  * @public
+ * @enum
  */
-export enum ProxySessionStatus {
-  Closed = "Closed",
-  InProgress = "InProgress",
-  Open = "Open",
-}
+export const ProxySessionStatus = {
+  Closed: "Closed",
+  InProgress: "InProgress",
+  Open: "Open",
+} as const;
+
+/**
+ * @public
+ */
+export type ProxySessionStatus = (typeof ProxySessionStatus)[keyof typeof ProxySessionStatus];
 
 /**
  * @public
@@ -1024,11 +1090,17 @@ export interface SipRuleTargetApplication {
 
 /**
  * @public
+ * @enum
  */
-export enum SipRuleTriggerType {
-  RequestUriHostname = "RequestUriHostname",
-  ToPhoneNumber = "ToPhoneNumber",
-}
+export const SipRuleTriggerType = {
+  RequestUriHostname: "RequestUriHostname",
+  ToPhoneNumber: "ToPhoneNumber",
+} as const;
+
+/**
+ * @public
+ */
+export type SipRuleTriggerType = (typeof SipRuleTriggerType)[keyof typeof SipRuleTriggerType];
 
 /**
  * @public
@@ -1130,19 +1202,25 @@ export interface CreateSipRuleResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum VoiceConnectorAwsRegion {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_1 = "ap-southeast-1",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  US_EAST_1 = "us-east-1",
-  US_WEST_2 = "us-west-2",
-}
+export const VoiceConnectorAwsRegion = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_SOUTHEAST_1: "ap-southeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  US_EAST_1: "us-east-1",
+  US_WEST_2: "us-west-2",
+} as const;
+
+/**
+ * @public
+ */
+export type VoiceConnectorAwsRegion = (typeof VoiceConnectorAwsRegion)[keyof typeof VoiceConnectorAwsRegion];
 
 /**
  * @public
@@ -1737,12 +1815,18 @@ export interface GetPhoneNumberRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneNumberAssociationName {
-  SipRuleId = "SipRuleId",
-  VoiceConnectorGroupId = "VoiceConnectorGroupId",
-  VoiceConnectorId = "VoiceConnectorId",
-}
+export const PhoneNumberAssociationName = {
+  SipRuleId: "SipRuleId",
+  VoiceConnectorGroupId: "VoiceConnectorGroupId",
+  VoiceConnectorId: "VoiceConnectorId",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberAssociationName = (typeof PhoneNumberAssociationName)[keyof typeof PhoneNumberAssociationName];
 
 /**
  * @public
@@ -1805,28 +1889,40 @@ export interface PhoneNumberCapabilities {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneNumberStatus {
-  AcquireFailed = "AcquireFailed",
-  AcquireInProgress = "AcquireInProgress",
-  Assigned = "Assigned",
-  Cancelled = "Cancelled",
-  DeleteFailed = "DeleteFailed",
-  DeleteInProgress = "DeleteInProgress",
-  PortinCancelRequested = "PortinCancelRequested",
-  PortinInProgress = "PortinInProgress",
-  ReleaseFailed = "ReleaseFailed",
-  ReleaseInProgress = "ReleaseInProgress",
-  Unassigned = "Unassigned",
-}
+export const PhoneNumberStatus = {
+  AcquireFailed: "AcquireFailed",
+  AcquireInProgress: "AcquireInProgress",
+  Assigned: "Assigned",
+  Cancelled: "Cancelled",
+  DeleteFailed: "DeleteFailed",
+  DeleteInProgress: "DeleteInProgress",
+  PortinCancelRequested: "PortinCancelRequested",
+  PortinInProgress: "PortinInProgress",
+  ReleaseFailed: "ReleaseFailed",
+  ReleaseInProgress: "ReleaseInProgress",
+  Unassigned: "Unassigned",
+} as const;
 
 /**
  * @public
  */
-export enum PhoneNumberType {
-  Local = "Local",
-  TollFree = "TollFree",
-}
+export type PhoneNumberStatus = (typeof PhoneNumberStatus)[keyof typeof PhoneNumberStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PhoneNumberType = {
+  Local: "Local",
+  TollFree: "TollFree",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberType];
 
 /**
  * @public
@@ -2332,11 +2428,17 @@ export interface GetVoiceConnectorOriginationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginationRouteProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const OriginationRouteProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginationRouteProtocol = (typeof OriginationRouteProtocol)[keyof typeof OriginationRouteProtocol];
 
 /**
  * @public
@@ -2487,12 +2589,18 @@ export interface MediaInsightsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum NotificationTarget {
-  EventBridge = "EventBridge",
-  SNS = "SNS",
-  SQS = "SQS",
-}
+export const NotificationTarget = {
+  EventBridge: "EventBridge",
+  SNS: "SNS",
+  SQS: "SQS",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationTarget = (typeof NotificationTarget)[keyof typeof NotificationTarget];
 
 /**
  * @public
@@ -3598,10 +3706,16 @@ export class UnprocessableEntityException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum LanguageCode {
-  EN_US = "en-US",
-}
+export const LanguageCode = {
+  EN_US: "en-US",
+} as const;
+
+/**
+ * @public
+ */
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * @public

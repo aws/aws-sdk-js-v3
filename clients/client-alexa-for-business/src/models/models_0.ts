@@ -361,12 +361,18 @@ export interface CreateAddressBookResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum BusinessReportInterval {
-  ONE_DAY = "ONE_DAY",
-  ONE_WEEK = "ONE_WEEK",
-  THIRTY_DAYS = "THIRTY_DAYS",
-}
+export const BusinessReportInterval = {
+  ONE_DAY: "ONE_DAY",
+  ONE_WEEK: "ONE_WEEK",
+  THIRTY_DAYS: "THIRTY_DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type BusinessReportInterval = (typeof BusinessReportInterval)[keyof typeof BusinessReportInterval];
 
 /**
  * @public
@@ -381,11 +387,17 @@ export interface BusinessReportContentRange {
 
 /**
  * @public
+ * @enum
  */
-export enum BusinessReportFormat {
-  CSV = "CSV",
-  CSV_ZIP = "CSV_ZIP",
-}
+export const BusinessReportFormat = {
+  CSV: "CSV",
+  CSV_ZIP: "CSV_ZIP",
+} as const;
+
+/**
+ * @public
+ */
+export type BusinessReportFormat = (typeof BusinessReportFormat)[keyof typeof BusinessReportFormat];
 
 /**
  * @public
@@ -458,28 +470,40 @@ export interface CreateBusinessReportScheduleResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ConferenceProviderType {
-  BLUEJEANS = "BLUEJEANS",
-  CHIME = "CHIME",
-  CUSTOM = "CUSTOM",
-  FUZE = "FUZE",
-  GOOGLE_HANGOUTS = "GOOGLE_HANGOUTS",
-  POLYCOM = "POLYCOM",
-  RINGCENTRAL = "RINGCENTRAL",
-  SKYPE_FOR_BUSINESS = "SKYPE_FOR_BUSINESS",
-  WEBEX = "WEBEX",
-  ZOOM = "ZOOM",
-}
+export const ConferenceProviderType = {
+  BLUEJEANS: "BLUEJEANS",
+  CHIME: "CHIME",
+  CUSTOM: "CUSTOM",
+  FUZE: "FUZE",
+  GOOGLE_HANGOUTS: "GOOGLE_HANGOUTS",
+  POLYCOM: "POLYCOM",
+  RINGCENTRAL: "RINGCENTRAL",
+  SKYPE_FOR_BUSINESS: "SKYPE_FOR_BUSINESS",
+  WEBEX: "WEBEX",
+  ZOOM: "ZOOM",
+} as const;
 
 /**
  * @public
  */
-export enum CommsProtocol {
-  H323 = "H323",
-  SIP = "SIP",
-  SIPS = "SIPS",
-}
+export type ConferenceProviderType = (typeof ConferenceProviderType)[keyof typeof ConferenceProviderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CommsProtocol = {
+  H323: "H323",
+  SIP: "SIP",
+  SIPS: "SIPS",
+} as const;
+
+/**
+ * @public
+ */
+export type CommsProtocol = (typeof CommsProtocol)[keyof typeof CommsProtocol];
 
 /**
  * @public
@@ -499,12 +523,18 @@ export interface IPDialIn {
 
 /**
  * @public
+ * @enum
  */
-export enum RequirePin {
-  NO = "NO",
-  OPTIONAL = "OPTIONAL",
-  YES = "YES",
-}
+export const RequirePin = {
+  NO: "NO",
+  OPTIONAL: "OPTIONAL",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type RequirePin = (typeof RequirePin)[keyof typeof RequirePin];
 
 /**
  * @public
@@ -608,12 +638,18 @@ export interface CreateConferenceProviderResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneNumberType {
-  HOME = "HOME",
-  MOBILE = "MOBILE",
-  WORK = "WORK",
-}
+export const PhoneNumberType = {
+  HOME: "HOME",
+  MOBILE: "MOBILE",
+  WORK: "WORK",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberType];
 
 /**
  * @public
@@ -633,10 +669,16 @@ export interface PhoneNumber {
 
 /**
  * @public
+ * @enum
  */
-export enum SipType {
-  WORK = "WORK",
-}
+export const SipType = {
+  WORK: "WORK",
+} as const;
+
+/**
+ * @public
+ */
+export type SipType = (typeof SipType)[keyof typeof SipType];
 
 /**
  * @public
@@ -751,21 +793,33 @@ export interface CreateGatewayGroupResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkEapMethod {
-  EAP_TLS = "EAP_TLS",
-}
+export const NetworkEapMethod = {
+  EAP_TLS: "EAP_TLS",
+} as const;
 
 /**
  * @public
  */
-export enum NetworkSecurityType {
-  OPEN = "OPEN",
-  WEP = "WEP",
-  WPA2_ENTERPRISE = "WPA2_ENTERPRISE",
-  WPA2_PSK = "WPA2_PSK",
-  WPA_PSK = "WPA_PSK",
-}
+export type NetworkEapMethod = (typeof NetworkEapMethod)[keyof typeof NetworkEapMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkSecurityType = {
+  OPEN: "OPEN",
+  WEP: "WEP",
+  WPA2_ENTERPRISE: "WPA2_ENTERPRISE",
+  WPA2_PSK: "WPA2_PSK",
+  WPA_PSK: "WPA_PSK",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkSecurityType = (typeof NetworkSecurityType)[keyof typeof NetworkSecurityType];
 
 /**
  * @public
@@ -889,21 +943,33 @@ export class InvalidServiceLinkedRoleStateException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DistanceUnit {
-  IMPERIAL = "IMPERIAL",
-  METRIC = "METRIC",
-}
+export const DistanceUnit = {
+  IMPERIAL: "IMPERIAL",
+  METRIC: "METRIC",
+} as const;
 
 /**
  * @public
  */
-export enum EndOfMeetingReminderType {
-  ANNOUNCEMENT_TIME_CHECK = "ANNOUNCEMENT_TIME_CHECK",
-  ANNOUNCEMENT_VARIABLE_TIME_LEFT = "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
-  CHIME = "CHIME",
-  KNOCK = "KNOCK",
-}
+export type DistanceUnit = (typeof DistanceUnit)[keyof typeof DistanceUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndOfMeetingReminderType = {
+  ANNOUNCEMENT_TIME_CHECK: "ANNOUNCEMENT_TIME_CHECK",
+  ANNOUNCEMENT_VARIABLE_TIME_LEFT: "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
+  CHIME: "CHIME",
+  KNOCK: "KNOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type EndOfMeetingReminderType = (typeof EndOfMeetingReminderType)[keyof typeof EndOfMeetingReminderType];
 
 /**
  * @public
@@ -993,21 +1059,33 @@ export interface CreateMeetingRoomConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum TemperatureUnit {
-  CELSIUS = "CELSIUS",
-  FAHRENHEIT = "FAHRENHEIT",
-}
+export const TemperatureUnit = {
+  CELSIUS: "CELSIUS",
+  FAHRENHEIT: "FAHRENHEIT",
+} as const;
 
 /**
  * @public
  */
-export enum WakeWord {
-  ALEXA = "ALEXA",
-  AMAZON = "AMAZON",
-  COMPUTER = "COMPUTER",
-  ECHO = "ECHO",
-}
+export type TemperatureUnit = (typeof TemperatureUnit)[keyof typeof TemperatureUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const WakeWord = {
+  ALEXA: "ALEXA",
+  AMAZON: "AMAZON",
+  COMPUTER: "COMPUTER",
+  ECHO: "ECHO",
+} as const;
+
+/**
+ * @public
+ */
+export type WakeWord = (typeof WakeWord)[keyof typeof WakeWord];
 
 /**
  * @public
@@ -1326,10 +1404,16 @@ export interface DeleteDeviceResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceUsageType {
-  VOICE = "VOICE",
-}
+export const DeviceUsageType = {
+  VOICE: "VOICE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceUsageType = (typeof DeviceUsageType)[keyof typeof DeviceUsageType];
 
 /**
  * @public
@@ -1797,59 +1881,83 @@ export interface GetDeviceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceStatus {
-  DEREGISTERED = "DEREGISTERED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  READY = "READY",
-  WAS_OFFLINE = "WAS_OFFLINE",
-}
+export const DeviceStatus = {
+  DEREGISTERED: "DEREGISTERED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+  WAS_OFFLINE: "WAS_OFFLINE",
+} as const;
 
 /**
  * @public
  */
-export enum ConnectionStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-}
+export type DeviceStatus = (typeof DeviceStatus)[keyof typeof DeviceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionStatus = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+} as const;
 
 /**
  * @public
  */
-export enum DeviceStatusDetailCode {
-  ASSOCIATION_REJECTION = "ASSOCIATION_REJECTION",
-  AUTHENTICATION_FAILURE = "AUTHENTICATION_FAILURE",
-  CERTIFICATE_AUTHORITY_ACCESS_DENIED = "CERTIFICATE_AUTHORITY_ACCESS_DENIED",
-  CERTIFICATE_ISSUING_LIMIT_EXCEEDED = "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
-  CREDENTIALS_ACCESS_FAILURE = "CREDENTIALS_ACCESS_FAILURE",
-  DEVICE_SOFTWARE_UPDATE_NEEDED = "DEVICE_SOFTWARE_UPDATE_NEEDED",
-  DEVICE_WAS_OFFLINE = "DEVICE_WAS_OFFLINE",
-  DHCP_FAILURE = "DHCP_FAILURE",
-  DNS_FAILURE = "DNS_FAILURE",
-  INTERNET_UNAVAILABLE = "INTERNET_UNAVAILABLE",
-  INVALID_CERTIFICATE_AUTHORITY = "INVALID_CERTIFICATE_AUTHORITY",
-  INVALID_PASSWORD_STATE = "INVALID_PASSWORD_STATE",
-  NETWORK_PROFILE_NOT_FOUND = "NETWORK_PROFILE_NOT_FOUND",
-  PASSWORD_MANAGER_ACCESS_DENIED = "PASSWORD_MANAGER_ACCESS_DENIED",
-  PASSWORD_NOT_FOUND = "PASSWORD_NOT_FOUND",
-  TLS_VERSION_MISMATCH = "TLS_VERSION_MISMATCH",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE",
-}
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceStatusDetailCode = {
+  ASSOCIATION_REJECTION: "ASSOCIATION_REJECTION",
+  AUTHENTICATION_FAILURE: "AUTHENTICATION_FAILURE",
+  CERTIFICATE_AUTHORITY_ACCESS_DENIED: "CERTIFICATE_AUTHORITY_ACCESS_DENIED",
+  CERTIFICATE_ISSUING_LIMIT_EXCEEDED: "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
+  CREDENTIALS_ACCESS_FAILURE: "CREDENTIALS_ACCESS_FAILURE",
+  DEVICE_SOFTWARE_UPDATE_NEEDED: "DEVICE_SOFTWARE_UPDATE_NEEDED",
+  DEVICE_WAS_OFFLINE: "DEVICE_WAS_OFFLINE",
+  DHCP_FAILURE: "DHCP_FAILURE",
+  DNS_FAILURE: "DNS_FAILURE",
+  INTERNET_UNAVAILABLE: "INTERNET_UNAVAILABLE",
+  INVALID_CERTIFICATE_AUTHORITY: "INVALID_CERTIFICATE_AUTHORITY",
+  INVALID_PASSWORD_STATE: "INVALID_PASSWORD_STATE",
+  NETWORK_PROFILE_NOT_FOUND: "NETWORK_PROFILE_NOT_FOUND",
+  PASSWORD_MANAGER_ACCESS_DENIED: "PASSWORD_MANAGER_ACCESS_DENIED",
+  PASSWORD_NOT_FOUND: "PASSWORD_NOT_FOUND",
+  TLS_VERSION_MISMATCH: "TLS_VERSION_MISMATCH",
+  UNKNOWN_FAILURE: "UNKNOWN_FAILURE",
+} as const;
 
 /**
  * @public
  */
-export enum Feature {
-  ALL = "ALL",
-  BLUETOOTH = "BLUETOOTH",
-  LISTS = "LISTS",
-  NETWORK_PROFILE = "NETWORK_PROFILE",
-  NOTIFICATIONS = "NOTIFICATIONS",
-  SETTINGS = "SETTINGS",
-  SKILLS = "SKILLS",
-  VOLUME = "VOLUME",
-}
+export type DeviceStatusDetailCode = (typeof DeviceStatusDetailCode)[keyof typeof DeviceStatusDetailCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Feature = {
+  ALL: "ALL",
+  BLUETOOTH: "BLUETOOTH",
+  LISTS: "LISTS",
+  NETWORK_PROFILE: "NETWORK_PROFILE",
+  NOTIFICATIONS: "NOTIFICATIONS",
+  SETTINGS: "SETTINGS",
+  SKILLS: "SKILLS",
+  VOLUME: "VOLUME",
+} as const;
+
+/**
+ * @public
+ */
+export type Feature = (typeof Feature)[keyof typeof Feature];
 
 /**
  * @public
@@ -2547,12 +2655,18 @@ export interface ListBusinessReportSchedulesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BusinessReportFailureCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  NO_SUCH_BUCKET = "NO_SUCH_BUCKET",
-}
+export const BusinessReportFailureCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  NO_SUCH_BUCKET: "NO_SUCH_BUCKET",
+} as const;
+
+/**
+ * @public
+ */
+export type BusinessReportFailureCode = (typeof BusinessReportFailureCode)[keyof typeof BusinessReportFailureCode];
 
 /**
  * @public
@@ -2572,12 +2686,18 @@ export interface BusinessReportS3Location {
 
 /**
  * @public
+ * @enum
  */
-export enum BusinessReportStatus {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BusinessReportStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BusinessReportStatus = (typeof BusinessReportStatus)[keyof typeof BusinessReportStatus];
 
 /**
  * @public
@@ -2707,11 +2827,17 @@ export interface ListConferenceProvidersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceEventType {
-  CONNECTION_STATUS = "CONNECTION_STATUS",
-  DEVICE_STATUS = "DEVICE_STATUS",
-}
+export const DeviceEventType = {
+  CONNECTION_STATUS: "CONNECTION_STATUS",
+  DEVICE_STATUS: "DEVICE_STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceEventType = (typeof DeviceEventType)[keyof typeof DeviceEventType];
 
 /**
  * @public
@@ -2902,20 +3028,32 @@ export interface ListGatewaysResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EnablementTypeFilter {
-  ENABLED = "ENABLED",
-  PENDING = "PENDING",
-}
+export const EnablementTypeFilter = {
+  ENABLED: "ENABLED",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum SkillTypeFilter {
-  ALL = "ALL",
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export type EnablementTypeFilter = (typeof EnablementTypeFilter)[keyof typeof EnablementTypeFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const SkillTypeFilter = {
+  ALL: "ALL",
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type SkillTypeFilter = (typeof SkillTypeFilter)[keyof typeof SkillTypeFilter];
 
 /**
  * @public
@@ -2953,19 +3091,31 @@ export interface ListSkillsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EnablementType {
-  ENABLED = "ENABLED",
-  PENDING = "PENDING",
-}
+export const EnablementType = {
+  ENABLED: "ENABLED",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum SkillType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export type EnablementType = (typeof EnablementType)[keyof typeof EnablementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SkillType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type SkillType = (typeof SkillType)[keyof typeof SkillType];
 
 /**
  * @public
@@ -3601,11 +3751,17 @@ export interface Filter {
 
 /**
  * @public
+ * @enum
  */
-export enum SortValue {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortValue = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortValue = (typeof SortValue)[keyof typeof SortValue];
 
 /**
  * @public
@@ -4289,14 +4445,20 @@ export interface SearchUsersRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EnrollmentStatus {
-  DEREGISTERING = "DEREGISTERING",
-  DISASSOCIATING = "DISASSOCIATING",
-  INITIALIZED = "INITIALIZED",
-  PENDING = "PENDING",
-  REGISTERED = "REGISTERED",
-}
+export const EnrollmentStatus = {
+  DEREGISTERING: "DEREGISTERING",
+  DISASSOCIATING: "DISASSOCIATING",
+  INITIALIZED: "INITIALIZED",
+  PENDING: "PENDING",
+  REGISTERED: "REGISTERED",
+} as const;
+
+/**
+ * @public
+ */
+export type EnrollmentStatus = (typeof EnrollmentStatus)[keyof typeof EnrollmentStatus];
 
 /**
  * @public
@@ -4356,10 +4518,16 @@ export interface SearchUsersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Locale {
-  en_US = "en-US",
-}
+export const Locale = {
+  en_US: "en-US",
+} as const;
+
+/**
+ * @public
+ */
+export type Locale = (typeof Locale)[keyof typeof Locale];
 
 /**
  * @public

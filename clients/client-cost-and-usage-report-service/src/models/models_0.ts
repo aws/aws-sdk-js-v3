@@ -5,12 +5,18 @@ import { CostAndUsageReportServiceServiceException as __BaseException } from "./
 
 /**
  * @public
+ * @enum
  */
-export enum AdditionalArtifact {
-  ATHENA = "ATHENA",
-  QUICKSIGHT = "QUICKSIGHT",
-  REDSHIFT = "REDSHIFT",
-}
+export const AdditionalArtifact = {
+  ATHENA: "ATHENA",
+  QUICKSIGHT: "QUICKSIGHT",
+  REDSHIFT: "REDSHIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type AdditionalArtifact = (typeof AdditionalArtifact)[keyof typeof AdditionalArtifact];
 
 /**
  * @public
@@ -102,76 +108,112 @@ export interface DescribeReportDefinitionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SchemaElement {
-  RESOURCES = "RESOURCES",
-}
+export const SchemaElement = {
+  RESOURCES: "RESOURCES",
+} as const;
 
 /**
  * @public
  */
-export enum CompressionFormat {
-  GZIP = "GZIP",
-  Parquet = "Parquet",
-  ZIP = "ZIP",
-}
+export type SchemaElement = (typeof SchemaElement)[keyof typeof SchemaElement];
+
+/**
+ * @public
+ * @enum
+ */
+export const CompressionFormat = {
+  GZIP: "GZIP",
+  Parquet: "Parquet",
+  ZIP: "ZIP",
+} as const;
 
 /**
  * @public
  */
-export enum ReportFormat {
-  CSV = "textORcsv",
-  Parquet = "Parquet",
-}
+export type CompressionFormat = (typeof CompressionFormat)[keyof typeof CompressionFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportFormat = {
+  CSV: "textORcsv",
+  Parquet: "Parquet",
+} as const;
 
 /**
  * @public
  */
-export enum ReportVersioning {
-  CREATE_NEW_REPORT = "CREATE_NEW_REPORT",
-  OVERWRITE_REPORT = "OVERWRITE_REPORT",
-}
+export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportVersioning = {
+  CREATE_NEW_REPORT: "CREATE_NEW_REPORT",
+  OVERWRITE_REPORT: "OVERWRITE_REPORT",
+} as const;
 
 /**
  * @public
  */
-export enum AWSRegion {
-  BAHRAIN = "me-south-1",
-  BEIJING = "cn-north-1",
-  CANADA_CENTRAL = "ca-central-1",
-  CAPE_TOWN = "af-south-1",
-  FRANKFURT = "eu-central-1",
-  HONG_KONG = "ap-east-1",
-  IRELAND = "eu-west-1",
-  JAKARTA = "ap-southeast-3",
-  LONDON = "eu-west-2",
-  MILANO = "eu-south-1",
-  MUMBAI = "ap-south-1",
-  NINGXIA = "cn-northwest-1",
-  NORTHERN_CALIFORNIA = "us-west-1",
-  OHIO = "us-east-2",
-  OREGON = "us-west-2",
-  OSAKA = "ap-northeast-3",
-  PARIS = "eu-west-3",
-  SAO_PAULO = "sa-east-1",
-  SEOUL = "ap-northeast-2",
-  SINGAPORE = "ap-southeast-1",
-  SPAIN = "eu-south-2",
-  STOCKHOLM = "eu-north-1",
-  SYDNEY = "ap-southeast-2",
-  TOKYO = "ap-northeast-1",
-  UAE = "me-central-1",
-  US_STANDARD = "us-east-1",
-}
+export type ReportVersioning = (typeof ReportVersioning)[keyof typeof ReportVersioning];
+
+/**
+ * @public
+ * @enum
+ */
+export const AWSRegion = {
+  BAHRAIN: "me-south-1",
+  BEIJING: "cn-north-1",
+  CANADA_CENTRAL: "ca-central-1",
+  CAPE_TOWN: "af-south-1",
+  FRANKFURT: "eu-central-1",
+  HONG_KONG: "ap-east-1",
+  IRELAND: "eu-west-1",
+  JAKARTA: "ap-southeast-3",
+  LONDON: "eu-west-2",
+  MILANO: "eu-south-1",
+  MUMBAI: "ap-south-1",
+  NINGXIA: "cn-northwest-1",
+  NORTHERN_CALIFORNIA: "us-west-1",
+  OHIO: "us-east-2",
+  OREGON: "us-west-2",
+  OSAKA: "ap-northeast-3",
+  PARIS: "eu-west-3",
+  SAO_PAULO: "sa-east-1",
+  SEOUL: "ap-northeast-2",
+  SINGAPORE: "ap-southeast-1",
+  SPAIN: "eu-south-2",
+  STOCKHOLM: "eu-north-1",
+  SYDNEY: "ap-southeast-2",
+  TOKYO: "ap-northeast-1",
+  UAE: "me-central-1",
+  US_STANDARD: "us-east-1",
+} as const;
 
 /**
  * @public
  */
-export enum TimeUnit {
-  DAILY = "DAILY",
-  HOURLY = "HOURLY",
-  MONTHLY = "MONTHLY",
-}
+export type AWSRegion = (typeof AWSRegion)[keyof typeof AWSRegion];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeUnit = {
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
 
 /**
  * @public

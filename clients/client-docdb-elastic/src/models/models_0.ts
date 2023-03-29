@@ -25,11 +25,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Auth {
-  PLAIN_TEXT = "PLAIN_TEXT",
-  SECRET_ARN = "SECRET_ARN",
-}
+export const Auth = {
+  PLAIN_TEXT: "PLAIN_TEXT",
+  SECRET_ARN: "SECRET_ARN",
+} as const;
+
+/**
+ * @public
+ */
+export type Auth = (typeof Auth)[keyof typeof Auth];
 
 /**
  * @public
@@ -189,18 +195,24 @@ export interface CreateClusterInput {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDS = "INACCESSIBLE_ENCRYPTION_CREDS",
-  INVALID_SECURITY_GROUP_ID = "INVALID_SECURITY_GROUP_ID",
-  INVALID_SUBNET_ID = "INVALID_SUBNET_ID",
-  IP_ADDRESS_LIMIT_EXCEEDED = "IP_ADDRESS_LIMIT_EXCEEDED",
-  UPDATING = "UPDATING",
-  VPC_ENDPOINT_LIMIT_EXCEEDED = "VPC_ENDPOINT_LIMIT_EXCEEDED",
-}
+export const Status = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDS: "INACCESSIBLE_ENCRYPTION_CREDS",
+  INVALID_SECURITY_GROUP_ID: "INVALID_SECURITY_GROUP_ID",
+  INVALID_SUBNET_ID: "INVALID_SUBNET_ID",
+  IP_ADDRESS_LIMIT_EXCEEDED: "IP_ADDRESS_LIMIT_EXCEEDED",
+  UPDATING: "UPDATING",
+  VPC_ENDPOINT_LIMIT_EXCEEDED: "VPC_ENDPOINT_LIMIT_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -373,13 +385,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public

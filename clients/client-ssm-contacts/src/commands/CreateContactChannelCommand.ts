@@ -82,27 +82,6 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *          service.</p>
  *
  *
- * @example To create a contact channel
- * ```javascript
- * // Creates a contact channel of type SMS for the contact Akua Mansa. Contact channels can be created of type SMS, EMAIL, or VOICE.
- * const input = {
- *   "ContactId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam",
- *   "DeliveryAddress": {
- *     "SimpleAddress": "+15005550199"
- *   },
- *   "Name": "akuas sms-test",
- *   "Type": "SMS"
- * };
- * const command = new CreateContactChannelCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ContactChannelArn": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/02f506b9-ea5d-4764-af89-2daa793ff024"
- * }
- * *\/
- * // example id: to-create-a-contact-channel-1630360447010
- * ```
- *
  */
 export class CreateContactChannelCommand extends $Command<
   CreateContactChannelCommandInput,

@@ -74,11 +74,17 @@ export class AlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum BehaviorOnMXFailure {
-  RejectMessage = "RejectMessage",
-  UseDefaultValue = "UseDefaultValue",
-}
+export const BehaviorOnMXFailure = {
+  RejectMessage: "RejectMessage",
+  UseDefaultValue: "UseDefaultValue",
+} as const;
+
+/**
+ * @public
+ */
+export type BehaviorOnMXFailure = (typeof BehaviorOnMXFailure)[keyof typeof BehaviorOnMXFailure];
 
 /**
  * @public
@@ -162,26 +168,38 @@ export interface BounceAction {
 
 /**
  * @public
+ * @enum
  */
-export enum BounceType {
-  ContentRejected = "ContentRejected",
-  DoesNotExist = "DoesNotExist",
-  ExceededQuota = "ExceededQuota",
-  MessageTooLarge = "MessageTooLarge",
-  TemporaryFailure = "TemporaryFailure",
-  Undefined = "Undefined",
-}
+export const BounceType = {
+  ContentRejected: "ContentRejected",
+  DoesNotExist: "DoesNotExist",
+  ExceededQuota: "ExceededQuota",
+  MessageTooLarge: "MessageTooLarge",
+  TemporaryFailure: "TemporaryFailure",
+  Undefined: "Undefined",
+} as const;
 
 /**
  * @public
  */
-export enum DsnAction {
-  DELAYED = "delayed",
-  DELIVERED = "delivered",
-  EXPANDED = "expanded",
-  FAILED = "failed",
-  RELAYED = "relayed",
-}
+export type BounceType = (typeof BounceType)[keyof typeof BounceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DsnAction = {
+  DELAYED: "delayed",
+  DELIVERED: "delivered",
+  EXPANDED: "expanded",
+  FAILED: "failed",
+  RELAYED: "relayed",
+} as const;
+
+/**
+ * @public
+ */
+export type DsnAction = (typeof DsnAction)[keyof typeof DsnAction];
 
 /**
  * @public
@@ -403,23 +421,29 @@ export interface BulkEmailDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum BulkEmailStatus {
-  AccountDailyQuotaExceeded = "AccountDailyQuotaExceeded",
-  AccountSendingPaused = "AccountSendingPaused",
-  AccountSuspended = "AccountSuspended",
-  AccountThrottled = "AccountThrottled",
-  ConfigurationSetDoesNotExist = "ConfigurationSetDoesNotExist",
-  ConfigurationSetSendingPaused = "ConfigurationSetSendingPaused",
-  Failed = "Failed",
-  InvalidParameterValue = "InvalidParameterValue",
-  InvalidSendingPoolName = "InvalidSendingPoolName",
-  MailFromDomainNotVerified = "MailFromDomainNotVerified",
-  MessageRejected = "MessageRejected",
-  Success = "Success",
-  TemplateDoesNotExist = "TemplateDoesNotExist",
-  TransientFailure = "TransientFailure",
-}
+export const BulkEmailStatus = {
+  AccountDailyQuotaExceeded: "AccountDailyQuotaExceeded",
+  AccountSendingPaused: "AccountSendingPaused",
+  AccountSuspended: "AccountSuspended",
+  AccountThrottled: "AccountThrottled",
+  ConfigurationSetDoesNotExist: "ConfigurationSetDoesNotExist",
+  ConfigurationSetSendingPaused: "ConfigurationSetSendingPaused",
+  Failed: "Failed",
+  InvalidParameterValue: "InvalidParameterValue",
+  InvalidSendingPoolName: "InvalidSendingPoolName",
+  MailFromDomainNotVerified: "MailFromDomainNotVerified",
+  MessageRejected: "MessageRejected",
+  Success: "Success",
+  TemplateDoesNotExist: "TemplateDoesNotExist",
+  TransientFailure: "TransientFailure",
+} as const;
+
+/**
+ * @public
+ */
+export type BulkEmailStatus = (typeof BulkEmailStatus)[keyof typeof BulkEmailStatus];
 
 /**
  * @public
@@ -634,12 +658,18 @@ export class RuleSetDoesNotExistException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DimensionValueSource {
-  EMAIL_HEADER = "emailHeader",
-  LINK_TAG = "linkTag",
-  MESSAGE_TAG = "messageTag",
-}
+export const DimensionValueSource = {
+  EMAIL_HEADER: "emailHeader",
+  LINK_TAG: "linkTag",
+  MESSAGE_TAG: "messageTag",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof DimensionValueSource];
 
 /**
  * @public
@@ -758,13 +788,19 @@ export class ConfigurationSetAlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationSetAttribute {
-  DELIVERY_OPTIONS = "deliveryOptions",
-  EVENT_DESTINATIONS = "eventDestinations",
-  REPUTATION_OPTIONS = "reputationOptions",
-  TRACKING_OPTIONS = "trackingOptions",
-}
+export const ConfigurationSetAttribute = {
+  DELIVERY_OPTIONS: "deliveryOptions",
+  EVENT_DESTINATIONS: "eventDestinations",
+  REPUTATION_OPTIONS: "reputationOptions",
+  TRACKING_OPTIONS: "trackingOptions",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationSetAttribute = (typeof ConfigurationSetAttribute)[keyof typeof ConfigurationSetAttribute];
 
 /**
  * @public
@@ -884,17 +920,23 @@ export interface KinesisFirehoseDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  BOUNCE = "bounce",
-  CLICK = "click",
-  COMPLAINT = "complaint",
-  DELIVERY = "delivery",
-  OPEN = "open",
-  REJECT = "reject",
-  RENDERING_FAILURE = "renderingFailure",
-  SEND = "send",
-}
+export const EventType = {
+  BOUNCE: "bounce",
+  CLICK: "click",
+  COMPLAINT: "complaint",
+  DELIVERY: "delivery",
+  OPEN: "open",
+  REJECT: "reject",
+  RENDERING_FAILURE: "renderingFailure",
+  SEND: "send",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -1355,11 +1397,17 @@ export class FromEmailAddressNotVerifiedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ReceiptFilterPolicy {
-  Allow = "Allow",
-  Block = "Block",
-}
+export const ReceiptFilterPolicy = {
+  Allow: "Allow",
+  Block: "Block",
+} as const;
+
+/**
+ * @public
+ */
+export type ReceiptFilterPolicy = (typeof ReceiptFilterPolicy)[keyof typeof ReceiptFilterPolicy];
 
 /**
  * @public
@@ -1554,11 +1602,17 @@ export interface S3Action {
 
 /**
  * @public
+ * @enum
  */
-export enum SNSActionEncoding {
-  Base64 = "Base64",
-  UTF8 = "UTF-8",
-}
+export const SNSActionEncoding = {
+  Base64: "Base64",
+  UTF8: "UTF-8",
+} as const;
+
+/**
+ * @public
+ */
+export type SNSActionEncoding = (typeof SNSActionEncoding)[keyof typeof SNSActionEncoding];
 
 /**
  * @public
@@ -1599,10 +1653,16 @@ export interface SNSAction {
 
 /**
  * @public
+ * @enum
  */
-export enum StopScope {
-  RULE_SET = "RuleSet",
-}
+export const StopScope = {
+  RULE_SET: "RuleSet",
+} as const;
+
+/**
+ * @public
+ */
+export type StopScope = (typeof StopScope)[keyof typeof StopScope];
 
 /**
  * @public
@@ -1705,11 +1765,17 @@ export interface ReceiptAction {
 
 /**
  * @public
+ * @enum
  */
-export enum TlsPolicy {
-  Optional = "Optional",
-  Require = "Require",
-}
+export const TlsPolicy = {
+  Optional: "Optional",
+  Require: "Require",
+} as const;
+
+/**
+ * @public
+ */
+export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
 
 /**
  * @public
@@ -2022,13 +2088,19 @@ export class InvalidTemplateException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomMailFromStatus {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success",
-  TemporaryFailure = "TemporaryFailure",
-}
+export const CustomMailFromStatus = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Success: "Success",
+  TemporaryFailure: "TemporaryFailure",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomMailFromStatus = (typeof CustomMailFromStatus)[keyof typeof CustomMailFromStatus];
 
 /**
  * @public

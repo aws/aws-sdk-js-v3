@@ -5,11 +5,17 @@ import { SyntheticsServiceException as __BaseException } from "./SyntheticsServi
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionMode {
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const EncryptionMode = {
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode];
 
 /**
  * @public
@@ -315,36 +321,48 @@ export interface CanaryScheduleOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum CanaryState {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export const CanaryState = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  READY: "READY",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum CanaryStateReasonCode {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  INVALID_PERMISSIONS = "INVALID_PERMISSIONS",
-  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  SYNC_DELETE_IN_PROGRESS = "SYNC_DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_PENDING = "UPDATE_PENDING",
-}
+export type CanaryState = (typeof CanaryState)[keyof typeof CanaryState];
+
+/**
+ * @public
+ * @enum
+ */
+export const CanaryStateReasonCode = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  INVALID_PERMISSIONS: "INVALID_PERMISSIONS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  SYNC_DELETE_IN_PROGRESS: "SYNC_DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_PENDING: "UPDATE_PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type CanaryStateReasonCode = (typeof CanaryStateReasonCode)[keyof typeof CanaryStateReasonCode];
 
 /**
  * @public
@@ -542,20 +560,32 @@ export interface Canary {
 
 /**
  * @public
+ * @enum
  */
-export enum CanaryRunState {
-  FAILED = "FAILED",
-  PASSED = "PASSED",
-  RUNNING = "RUNNING",
-}
+export const CanaryRunState = {
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  RUNNING: "RUNNING",
+} as const;
 
 /**
  * @public
  */
-export enum CanaryRunStateReasonCode {
-  CANARY_FAILURE = "CANARY_FAILURE",
-  EXECUTION_FAILURE = "EXECUTION_FAILURE",
-}
+export type CanaryRunState = (typeof CanaryRunState)[keyof typeof CanaryRunState];
+
+/**
+ * @public
+ * @enum
+ */
+export const CanaryRunStateReasonCode = {
+  CANARY_FAILURE: "CANARY_FAILURE",
+  EXECUTION_FAILURE: "EXECUTION_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type CanaryRunStateReasonCode = (typeof CanaryRunStateReasonCode)[keyof typeof CanaryRunStateReasonCode];
 
 /**
  * @public

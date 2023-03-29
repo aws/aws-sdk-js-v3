@@ -5,11 +5,17 @@ import { GameLiftServiceException as __BaseException } from "./GameLiftServiceEx
 
 /**
  * @public
+ * @enum
  */
-export enum AcceptanceType {
-  ACCEPT = "ACCEPT",
-  REJECT = "REJECT",
-}
+export const AcceptanceType = {
+  ACCEPT: "ACCEPT",
+  REJECT: "REJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceptanceType = (typeof AcceptanceType)[keyof typeof AcceptanceType];
 
 /**
  * @public
@@ -130,11 +136,17 @@ export class UnsupportedRegionException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RoutingStrategyType {
-  SIMPLE = "SIMPLE",
-  TERMINAL = "TERMINAL",
-}
+export const RoutingStrategyType = {
+  SIMPLE: "SIMPLE",
+  TERMINAL: "TERMINAL",
+} as const;
+
+/**
+ * @public
+ */
+export type RoutingStrategyType = (typeof RoutingStrategyType)[keyof typeof RoutingStrategyType];
 
 /**
  * @public
@@ -296,38 +308,62 @@ export interface AwsCredentials {
 
 /**
  * @public
+ * @enum
  */
-export enum BackfillMode {
-  AUTOMATIC = "AUTOMATIC",
-  MANUAL = "MANUAL",
-}
+export const BackfillMode = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
  * @public
  */
-export enum BalancingStrategy {
-  ON_DEMAND_ONLY = "ON_DEMAND_ONLY",
-  SPOT_ONLY = "SPOT_ONLY",
-  SPOT_PREFERRED = "SPOT_PREFERRED",
-}
+export type BackfillMode = (typeof BackfillMode)[keyof typeof BackfillMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const BalancingStrategy = {
+  ON_DEMAND_ONLY: "ON_DEMAND_ONLY",
+  SPOT_ONLY: "SPOT_ONLY",
+  SPOT_PREFERRED: "SPOT_PREFERRED",
+} as const;
 
 /**
  * @public
  */
-export enum OperatingSystem {
-  AMAZON_LINUX = "AMAZON_LINUX",
-  AMAZON_LINUX_2 = "AMAZON_LINUX_2",
-  WINDOWS_2012 = "WINDOWS_2012",
-}
+export type BalancingStrategy = (typeof BalancingStrategy)[keyof typeof BalancingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperatingSystem = {
+  AMAZON_LINUX: "AMAZON_LINUX",
+  AMAZON_LINUX_2: "AMAZON_LINUX_2",
+  WINDOWS_2012: "WINDOWS_2012",
+} as const;
 
 /**
  * @public
  */
-export enum BuildStatus {
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  READY = "READY",
-}
+export type OperatingSystem = (typeof OperatingSystem)[keyof typeof OperatingSystem];
+
+/**
+ * @public
+ * @enum
+ */
+export const BuildStatus = {
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type BuildStatus = (typeof BuildStatus)[keyof typeof BuildStatus];
 
 /**
  * @public
@@ -410,11 +446,17 @@ export interface Build {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateType {
-  Disabled = "DISABLED",
-  Generated = "GENERATED",
-}
+export const CertificateType = {
+  Disabled: "DISABLED",
+  Generated: "GENERATED",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
 
 /**
  * @public
@@ -468,18 +510,31 @@ export interface ClaimGameServerInput {
 
 /**
  * @public
+ * @enum
  */
-export enum GameServerClaimStatus {
-  CLAIMED = "CLAIMED",
-}
+export const GameServerClaimStatus = {
+  CLAIMED: "CLAIMED",
+} as const;
 
 /**
  * @public
  */
-export enum GameServerUtilizationStatus {
-  AVAILABLE = "AVAILABLE",
-  UTILIZED = "UTILIZED",
-}
+export type GameServerClaimStatus = (typeof GameServerClaimStatus)[keyof typeof GameServerClaimStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameServerUtilizationStatus = {
+  AVAILABLE: "AVAILABLE",
+  UTILIZED: "UTILIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerUtilizationStatus =
+  (typeof GameServerUtilizationStatus)[keyof typeof GameServerUtilizationStatus];
 
 /**
  * @public
@@ -663,142 +718,160 @@ export class UnauthorizedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperatorType {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
+export const ComparisonOperatorType = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+} as const;
 
 /**
  * @public
  */
-export enum ComputeStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  TERMINATING = "TERMINATING",
-}
+export type ComparisonOperatorType = (typeof ComparisonOperatorType)[keyof typeof ComparisonOperatorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputeStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  TERMINATING: "TERMINATING",
+} as const;
 
 /**
  * @public
  */
-export enum EC2InstanceType {
-  c3_2xlarge = "c3.2xlarge",
-  c3_4xlarge = "c3.4xlarge",
-  c3_8xlarge = "c3.8xlarge",
-  c3_large = "c3.large",
-  c3_xlarge = "c3.xlarge",
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c5d_12xlarge = "c5d.12xlarge",
-  c5d_18xlarge = "c5d.18xlarge",
-  c5d_24xlarge = "c5d.24xlarge",
-  c5d_2xlarge = "c5d.2xlarge",
-  c5d_4xlarge = "c5d.4xlarge",
-  c5d_9xlarge = "c5d.9xlarge",
-  c5d_large = "c5d.large",
-  c5d_xlarge = "c5d.xlarge",
-  c6a_12xlarge = "c6a.12xlarge",
-  c6a_16xlarge = "c6a.16xlarge",
-  c6a_24xlarge = "c6a.24xlarge",
-  c6a_2xlarge = "c6a.2xlarge",
-  c6a_4xlarge = "c6a.4xlarge",
-  c6a_8xlarge = "c6a.8xlarge",
-  c6a_large = "c6a.large",
-  c6a_xlarge = "c6a.xlarge",
-  c6i_12xlarge = "c6i.12xlarge",
-  c6i_16xlarge = "c6i.16xlarge",
-  c6i_24xlarge = "c6i.24xlarge",
-  c6i_2xlarge = "c6i.2xlarge",
-  c6i_4xlarge = "c6i.4xlarge",
-  c6i_8xlarge = "c6i.8xlarge",
-  c6i_large = "c6i.large",
-  c6i_xlarge = "c6i.xlarge",
-  m3_2xlarge = "m3.2xlarge",
-  m3_large = "m3.large",
-  m3_medium = "m3.medium",
-  m3_xlarge = "m3.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  r3_2xlarge = "r3.2xlarge",
-  r3_4xlarge = "r3.4xlarge",
-  r3_8xlarge = "r3.8xlarge",
-  r3_large = "r3.large",
-  r3_xlarge = "r3.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r5d_12xlarge = "r5d.12xlarge",
-  r5d_16xlarge = "r5d.16xlarge",
-  r5d_24xlarge = "r5d.24xlarge",
-  r5d_2xlarge = "r5d.2xlarge",
-  r5d_4xlarge = "r5d.4xlarge",
-  r5d_8xlarge = "r5d.8xlarge",
-  r5d_large = "r5d.large",
-  r5d_xlarge = "r5d.xlarge",
-  t2_large = "t2.large",
-  t2_medium = "t2.medium",
-  t2_micro = "t2.micro",
-  t2_small = "t2.small",
-}
+export type ComputeStatus = (typeof ComputeStatus)[keyof typeof ComputeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EC2InstanceType = {
+  c3_2xlarge: "c3.2xlarge",
+  c3_4xlarge: "c3.4xlarge",
+  c3_8xlarge: "c3.8xlarge",
+  c3_large: "c3.large",
+  c3_xlarge: "c3.xlarge",
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c5d_12xlarge: "c5d.12xlarge",
+  c5d_18xlarge: "c5d.18xlarge",
+  c5d_24xlarge: "c5d.24xlarge",
+  c5d_2xlarge: "c5d.2xlarge",
+  c5d_4xlarge: "c5d.4xlarge",
+  c5d_9xlarge: "c5d.9xlarge",
+  c5d_large: "c5d.large",
+  c5d_xlarge: "c5d.xlarge",
+  c6a_12xlarge: "c6a.12xlarge",
+  c6a_16xlarge: "c6a.16xlarge",
+  c6a_24xlarge: "c6a.24xlarge",
+  c6a_2xlarge: "c6a.2xlarge",
+  c6a_4xlarge: "c6a.4xlarge",
+  c6a_8xlarge: "c6a.8xlarge",
+  c6a_large: "c6a.large",
+  c6a_xlarge: "c6a.xlarge",
+  c6i_12xlarge: "c6i.12xlarge",
+  c6i_16xlarge: "c6i.16xlarge",
+  c6i_24xlarge: "c6i.24xlarge",
+  c6i_2xlarge: "c6i.2xlarge",
+  c6i_4xlarge: "c6i.4xlarge",
+  c6i_8xlarge: "c6i.8xlarge",
+  c6i_large: "c6i.large",
+  c6i_xlarge: "c6i.xlarge",
+  m3_2xlarge: "m3.2xlarge",
+  m3_large: "m3.large",
+  m3_medium: "m3.medium",
+  m3_xlarge: "m3.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  r3_2xlarge: "r3.2xlarge",
+  r3_4xlarge: "r3.4xlarge",
+  r3_8xlarge: "r3.8xlarge",
+  r3_large: "r3.large",
+  r3_xlarge: "r3.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r5d_12xlarge: "r5d.12xlarge",
+  r5d_16xlarge: "r5d.16xlarge",
+  r5d_24xlarge: "r5d.24xlarge",
+  r5d_2xlarge: "r5d.2xlarge",
+  r5d_4xlarge: "r5d.4xlarge",
+  r5d_8xlarge: "r5d.8xlarge",
+  r5d_large: "r5d.large",
+  r5d_xlarge: "r5d.xlarge",
+  t2_large: "t2.large",
+  t2_medium: "t2.medium",
+  t2_micro: "t2.micro",
+  t2_small: "t2.small",
+} as const;
+
+/**
+ * @public
+ */
+export type EC2InstanceType = (typeof EC2InstanceType)[keyof typeof EC2InstanceType];
 
 /**
  * @public
@@ -875,11 +948,17 @@ export interface Compute {
 
 /**
  * @public
+ * @enum
  */
-export enum ComputeType {
-  ANYWHERE = "ANYWHERE",
-  EC2 = "EC2",
-}
+export const ComputeType = {
+  ANYWHERE: "ANYWHERE",
+  EC2: "EC2",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 /**
  * @public
@@ -1114,11 +1193,17 @@ export interface CreateBuildOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum IpProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const IpProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type IpProtocol = (typeof IpProtocol)[keyof typeof IpProtocol];
 
 /**
  * @public
@@ -1157,11 +1242,17 @@ export interface IpPermission {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetType {
-  OnDemand = "ON_DEMAND",
-  Spot = "SPOT",
-}
+export const FleetType = {
+  OnDemand: "ON_DEMAND",
+  Spot: "SPOT",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetType = (typeof FleetType)[keyof typeof FleetType];
 
 /**
  * @public
@@ -1177,11 +1268,17 @@ export interface LocationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ProtectionPolicy {
-  FullProtection = "FullProtection",
-  NoProtection = "NoProtection",
-}
+export const ProtectionPolicy = {
+  FullProtection: "FullProtection",
+  NoProtection: "NoProtection",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectionPolicy = (typeof ProtectionPolicy)[keyof typeof ProtectionPolicy];
 
 /**
  * @public
@@ -1488,26 +1585,38 @@ export interface CreateFleetInput {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  DELETING = "DELETING",
-  DOWNLOADING = "DOWNLOADING",
-  ERROR = "ERROR",
-  NEW = "NEW",
-  NOT_FOUND = "NOT_FOUND",
-  TERMINATED = "TERMINATED",
-  VALIDATING = "VALIDATING",
-}
+export const FleetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  BUILDING: "BUILDING",
+  DELETING: "DELETING",
+  DOWNLOADING: "DOWNLOADING",
+  ERROR: "ERROR",
+  NEW: "NEW",
+  NOT_FOUND: "NOT_FOUND",
+  TERMINATED: "TERMINATED",
+  VALIDATING: "VALIDATING",
+} as const;
 
 /**
  * @public
  */
-export enum FleetAction {
-  AutoScaling = "AUTO_SCALING",
-}
+export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetAction = {
+  AutoScaling: "AUTO_SCALING",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetAction = (typeof FleetAction)[keyof typeof FleetAction];
 
 /**
  * @public
@@ -1925,105 +2034,118 @@ export interface GameServerGroupAutoScalingPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum GameServerProtectionPolicy {
-  FULL_PROTECTION = "FULL_PROTECTION",
-  NO_PROTECTION = "NO_PROTECTION",
-}
+export const GameServerProtectionPolicy = {
+  FULL_PROTECTION: "FULL_PROTECTION",
+  NO_PROTECTION: "NO_PROTECTION",
+} as const;
 
 /**
  * @public
  */
-export enum GameServerGroupInstanceType {
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c6g_12xlarge = "c6g.12xlarge",
-  c6g_16xlarge = "c6g.16xlarge",
-  c6g_2xlarge = "c6g.2xlarge",
-  c6g_4xlarge = "c6g.4xlarge",
-  c6g_8xlarge = "c6g.8xlarge",
-  c6g_large = "c6g.large",
-  c6g_medium = "c6g.medium",
-  c6g_xlarge = "c6g.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  m6g_12xlarge = "m6g.12xlarge",
-  m6g_16xlarge = "m6g.16xlarge",
-  m6g_2xlarge = "m6g.2xlarge",
-  m6g_4xlarge = "m6g.4xlarge",
-  m6g_8xlarge = "m6g.8xlarge",
-  m6g_large = "m6g.large",
-  m6g_medium = "m6g.medium",
-  m6g_xlarge = "m6g.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r6g_12xlarge = "r6g.12xlarge",
-  r6g_16xlarge = "r6g.16xlarge",
-  r6g_2xlarge = "r6g.2xlarge",
-  r6g_4xlarge = "r6g.4xlarge",
-  r6g_8xlarge = "r6g.8xlarge",
-  r6g_large = "r6g.large",
-  r6g_medium = "r6g.medium",
-  r6g_xlarge = "r6g.xlarge",
-}
+export type GameServerProtectionPolicy = (typeof GameServerProtectionPolicy)[keyof typeof GameServerProtectionPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameServerGroupInstanceType = {
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c6g_12xlarge: "c6g.12xlarge",
+  c6g_16xlarge: "c6g.16xlarge",
+  c6g_2xlarge: "c6g.2xlarge",
+  c6g_4xlarge: "c6g.4xlarge",
+  c6g_8xlarge: "c6g.8xlarge",
+  c6g_large: "c6g.large",
+  c6g_medium: "c6g.medium",
+  c6g_xlarge: "c6g.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  m6g_12xlarge: "m6g.12xlarge",
+  m6g_16xlarge: "m6g.16xlarge",
+  m6g_2xlarge: "m6g.2xlarge",
+  m6g_4xlarge: "m6g.4xlarge",
+  m6g_8xlarge: "m6g.8xlarge",
+  m6g_large: "m6g.large",
+  m6g_medium: "m6g.medium",
+  m6g_xlarge: "m6g.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r6g_12xlarge: "r6g.12xlarge",
+  r6g_16xlarge: "r6g.16xlarge",
+  r6g_2xlarge: "r6g.2xlarge",
+  r6g_4xlarge: "r6g.4xlarge",
+  r6g_8xlarge: "r6g.8xlarge",
+  r6g_large: "r6g.large",
+  r6g_medium: "r6g.medium",
+  r6g_xlarge: "r6g.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerGroupInstanceType =
+  (typeof GameServerGroupInstanceType)[keyof typeof GameServerGroupInstanceType];
 
 /**
  * @public
@@ -2215,23 +2337,35 @@ export interface CreateGameServerGroupInput {
 
 /**
  * @public
+ * @enum
  */
-export enum GameServerGroupStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETE_SCHEDULED = "DELETE_SCHEDULED",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  NEW = "NEW",
-}
+export const GameServerGroupStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETE_SCHEDULED: "DELETE_SCHEDULED",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  NEW: "NEW",
+} as const;
 
 /**
  * @public
  */
-export enum GameServerGroupAction {
-  REPLACE_INSTANCE_TYPES = "REPLACE_INSTANCE_TYPES",
-}
+export type GameServerGroupStatus = (typeof GameServerGroupStatus)[keyof typeof GameServerGroupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameServerGroupAction = {
+  REPLACE_INSTANCE_TYPES: "REPLACE_INSTANCE_TYPES",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerGroupAction = (typeof GameServerGroupAction)[keyof typeof GameServerGroupAction];
 
 /**
  * @public
@@ -2496,29 +2630,48 @@ export interface CreateGameSessionInput {
 
 /**
  * @public
+ * @enum
  */
-export enum PlayerSessionCreationPolicy {
-  ACCEPT_ALL = "ACCEPT_ALL",
-  DENY_ALL = "DENY_ALL",
-}
+export const PlayerSessionCreationPolicy = {
+  ACCEPT_ALL: "ACCEPT_ALL",
+  DENY_ALL: "DENY_ALL",
+} as const;
 
 /**
  * @public
  */
-export enum GameSessionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export type PlayerSessionCreationPolicy =
+  (typeof PlayerSessionCreationPolicy)[keyof typeof PlayerSessionCreationPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameSessionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
 
 /**
  * @public
  */
-export enum GameSessionStatusReason {
-  INTERRUPTED = "INTERRUPTED",
-}
+export type GameSessionStatus = (typeof GameSessionStatus)[keyof typeof GameSessionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameSessionStatusReason = {
+  INTERRUPTED: "INTERRUPTED",
+} as const;
+
+/**
+ * @public
+ */
+export type GameSessionStatusReason = (typeof GameSessionStatusReason)[keyof typeof GameSessionStatusReason];
 
 /**
  * @public
@@ -2789,13 +2942,19 @@ export interface PlayerLatencyPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum PriorityType {
-  COST = "COST",
-  DESTINATION = "DESTINATION",
-  LATENCY = "LATENCY",
-  LOCATION = "LOCATION",
-}
+export const PriorityType = {
+  COST: "COST",
+  DESTINATION: "DESTINATION",
+  LATENCY: "LATENCY",
+  LOCATION: "LOCATION",
+} as const;
+
+/**
+ * @public
+ */
+export type PriorityType = (typeof PriorityType)[keyof typeof PriorityType];
 
 /**
  * @public
@@ -3048,11 +3207,17 @@ export interface CreateLocationOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum FlexMatchMode {
-  STANDALONE = "STANDALONE",
-  WITH_QUEUE = "WITH_QUEUE",
-}
+export const FlexMatchMode = {
+  STANDALONE: "STANDALONE",
+  WITH_QUEUE: "WITH_QUEUE",
+} as const;
+
+/**
+ * @public
+ */
+export type FlexMatchMode = (typeof FlexMatchMode)[keyof typeof FlexMatchMode];
 
 /**
  * @public
@@ -3439,13 +3604,19 @@ export interface CreatePlayerSessionInput {
 
 /**
  * @public
+ * @enum
  */
-export enum PlayerSessionStatus {
-  ACTIVE = "ACTIVE",
-  COMPLETED = "COMPLETED",
-  RESERVED = "RESERVED",
-  TIMEDOUT = "TIMEDOUT",
-}
+export const PlayerSessionStatus = {
+  ACTIVE: "ACTIVE",
+  COMPLETED: "COMPLETED",
+  RESERVED: "RESERVED",
+  TIMEDOUT: "TIMEDOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type PlayerSessionStatus = (typeof PlayerSessionStatus)[keyof typeof PlayerSessionStatus];
 
 /**
  * @public
@@ -3949,12 +4120,19 @@ export interface DeleteFleetLocationsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum GameServerGroupDeleteOption {
-  FORCE_DELETE = "FORCE_DELETE",
-  RETAIN = "RETAIN",
-  SAFE_DELETE = "SAFE_DELETE",
-}
+export const GameServerGroupDeleteOption = {
+  FORCE_DELETE: "FORCE_DELETE",
+  RETAIN: "RETAIN",
+  SAFE_DELETE: "SAFE_DELETE",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerGroupDeleteOption =
+  (typeof GameServerGroupDeleteOption)[keyof typeof GameServerGroupDeleteOption];
 
 /**
  * @public
@@ -4501,43 +4679,49 @@ export interface DescribeFleetEventsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum EventCode {
-  FLEET_ACTIVATION_FAILED = "FLEET_ACTIVATION_FAILED",
-  FLEET_ACTIVATION_FAILED_NO_INSTANCES = "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
-  FLEET_BINARY_DOWNLOAD_FAILED = "FLEET_BINARY_DOWNLOAD_FAILED",
-  FLEET_CREATED = "FLEET_CREATED",
-  FLEET_CREATION_EXTRACTING_BUILD = "FLEET_CREATION_EXTRACTING_BUILD",
-  FLEET_CREATION_RUNNING_INSTALLER = "FLEET_CREATION_RUNNING_INSTALLER",
-  FLEET_CREATION_VALIDATING_RUNTIME_CONFIG = "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
-  FLEET_DELETED = "FLEET_DELETED",
-  FLEET_INITIALIZATION_FAILED = "FLEET_INITIALIZATION_FAILED",
-  FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED = "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
-  FLEET_SCALING_EVENT = "FLEET_SCALING_EVENT",
-  FLEET_STATE_ACTIVATING = "FLEET_STATE_ACTIVATING",
-  FLEET_STATE_ACTIVE = "FLEET_STATE_ACTIVE",
-  FLEET_STATE_BUILDING = "FLEET_STATE_BUILDING",
-  FLEET_STATE_DOWNLOADING = "FLEET_STATE_DOWNLOADING",
-  FLEET_STATE_ERROR = "FLEET_STATE_ERROR",
-  FLEET_STATE_VALIDATING = "FLEET_STATE_VALIDATING",
-  FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE = "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
-  FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND = "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
-  FLEET_VALIDATION_TIMED_OUT = "FLEET_VALIDATION_TIMED_OUT",
-  FLEET_VPC_PEERING_DELETED = "FLEET_VPC_PEERING_DELETED",
-  FLEET_VPC_PEERING_FAILED = "FLEET_VPC_PEERING_FAILED",
-  FLEET_VPC_PEERING_SUCCEEDED = "FLEET_VPC_PEERING_SUCCEEDED",
-  GAME_SESSION_ACTIVATION_TIMEOUT = "GAME_SESSION_ACTIVATION_TIMEOUT",
-  GENERIC_EVENT = "GENERIC_EVENT",
-  INSTANCE_INTERRUPTED = "INSTANCE_INTERRUPTED",
-  INSTANCE_RECYCLED = "INSTANCE_RECYCLED",
-  SERVER_PROCESS_CRASHED = "SERVER_PROCESS_CRASHED",
-  SERVER_PROCESS_FORCE_TERMINATED = "SERVER_PROCESS_FORCE_TERMINATED",
-  SERVER_PROCESS_INVALID_PATH = "SERVER_PROCESS_INVALID_PATH",
-  SERVER_PROCESS_PROCESS_EXIT_TIMEOUT = "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
-  SERVER_PROCESS_PROCESS_READY_TIMEOUT = "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
-  SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT = "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
-  SERVER_PROCESS_TERMINATED_UNHEALTHY = "SERVER_PROCESS_TERMINATED_UNHEALTHY",
-}
+export const EventCode = {
+  FLEET_ACTIVATION_FAILED: "FLEET_ACTIVATION_FAILED",
+  FLEET_ACTIVATION_FAILED_NO_INSTANCES: "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
+  FLEET_BINARY_DOWNLOAD_FAILED: "FLEET_BINARY_DOWNLOAD_FAILED",
+  FLEET_CREATED: "FLEET_CREATED",
+  FLEET_CREATION_EXTRACTING_BUILD: "FLEET_CREATION_EXTRACTING_BUILD",
+  FLEET_CREATION_RUNNING_INSTALLER: "FLEET_CREATION_RUNNING_INSTALLER",
+  FLEET_CREATION_VALIDATING_RUNTIME_CONFIG: "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
+  FLEET_DELETED: "FLEET_DELETED",
+  FLEET_INITIALIZATION_FAILED: "FLEET_INITIALIZATION_FAILED",
+  FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED: "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
+  FLEET_SCALING_EVENT: "FLEET_SCALING_EVENT",
+  FLEET_STATE_ACTIVATING: "FLEET_STATE_ACTIVATING",
+  FLEET_STATE_ACTIVE: "FLEET_STATE_ACTIVE",
+  FLEET_STATE_BUILDING: "FLEET_STATE_BUILDING",
+  FLEET_STATE_DOWNLOADING: "FLEET_STATE_DOWNLOADING",
+  FLEET_STATE_ERROR: "FLEET_STATE_ERROR",
+  FLEET_STATE_VALIDATING: "FLEET_STATE_VALIDATING",
+  FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE: "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
+  FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND: "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
+  FLEET_VALIDATION_TIMED_OUT: "FLEET_VALIDATION_TIMED_OUT",
+  FLEET_VPC_PEERING_DELETED: "FLEET_VPC_PEERING_DELETED",
+  FLEET_VPC_PEERING_FAILED: "FLEET_VPC_PEERING_FAILED",
+  FLEET_VPC_PEERING_SUCCEEDED: "FLEET_VPC_PEERING_SUCCEEDED",
+  GAME_SESSION_ACTIVATION_TIMEOUT: "GAME_SESSION_ACTIVATION_TIMEOUT",
+  GENERIC_EVENT: "GENERIC_EVENT",
+  INSTANCE_INTERRUPTED: "INSTANCE_INTERRUPTED",
+  INSTANCE_RECYCLED: "INSTANCE_RECYCLED",
+  SERVER_PROCESS_CRASHED: "SERVER_PROCESS_CRASHED",
+  SERVER_PROCESS_FORCE_TERMINATED: "SERVER_PROCESS_FORCE_TERMINATED",
+  SERVER_PROCESS_INVALID_PATH: "SERVER_PROCESS_INVALID_PATH",
+  SERVER_PROCESS_PROCESS_EXIT_TIMEOUT: "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
+  SERVER_PROCESS_PROCESS_READY_TIMEOUT: "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
+  SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT: "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
+  SERVER_PROCESS_TERMINATED_UNHEALTHY: "SERVER_PROCESS_TERMINATED_UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type EventCode = (typeof EventCode)[keyof typeof EventCode];
 
 /**
  * @public
@@ -4844,10 +5028,16 @@ export interface DescribeFleetLocationAttributesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum LocationUpdateStatus {
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+export const LocationUpdateStatus = {
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationUpdateStatus = (typeof LocationUpdateStatus)[keyof typeof LocationUpdateStatus];
 
 /**
  * @public
@@ -5168,12 +5358,18 @@ export interface DescribeGameServerInstancesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum GameServerInstanceStatus {
-  ACTIVE = "ACTIVE",
-  DRAINING = "DRAINING",
-  SPOT_TERMINATING = "SPOT_TERMINATING",
-}
+export const GameServerInstanceStatus = {
+  ACTIVE: "ACTIVE",
+  DRAINING: "DRAINING",
+  SPOT_TERMINATING: "SPOT_TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerInstanceStatus = (typeof GameServerInstanceStatus)[keyof typeof GameServerInstanceStatus];
 
 /**
  * @public
@@ -5374,14 +5570,20 @@ export interface PlayerLatency {
 
 /**
  * @public
+ * @enum
  */
-export enum GameSessionPlacementState {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FULFILLED = "FULFILLED",
-  PENDING = "PENDING",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const GameSessionPlacementState = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FULFILLED: "FULFILLED",
+  PENDING: "PENDING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type GameSessionPlacementState = (typeof GameSessionPlacementState)[keyof typeof GameSessionPlacementState];
 
 /**
  * @public
@@ -5683,12 +5885,18 @@ export interface DescribeInstancesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  TERMINATING = "TERMINATING",
-}
+export const InstanceStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  TERMINATING: "TERMINATING",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
 
 /**
  * @public
@@ -5914,17 +6122,24 @@ export interface Player {
 
 /**
  * @public
+ * @enum
  */
-export enum MatchmakingConfigurationStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PLACING = "PLACING",
-  QUEUED = "QUEUED",
-  REQUIRES_ACCEPTANCE = "REQUIRES_ACCEPTANCE",
-  SEARCHING = "SEARCHING",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const MatchmakingConfigurationStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PLACING: "PLACING",
+  QUEUED: "QUEUED",
+  REQUIRES_ACCEPTANCE: "REQUIRES_ACCEPTANCE",
+  SEARCHING: "SEARCHING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type MatchmakingConfigurationStatus =
+  (typeof MatchmakingConfigurationStatus)[keyof typeof MatchmakingConfigurationStatus];
 
 /**
  * @public
@@ -6244,16 +6459,22 @@ export interface DescribeRuntimeConfigurationOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ScalingStatusType {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETE_REQUESTED = "DELETE_REQUESTED",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  UPDATE_REQUESTED = "UPDATE_REQUESTED",
-  UPDATING = "UPDATING",
-}
+export const ScalingStatusType = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETE_REQUESTED: "DELETE_REQUESTED",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  UPDATE_REQUESTED: "UPDATE_REQUESTED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalingStatusType = (typeof ScalingStatusType)[keyof typeof ScalingStatusType];
 
 /**
  * @public
@@ -6327,38 +6548,56 @@ export interface DescribeScalingPoliciesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricName {
-  ActivatingGameSessions = "ActivatingGameSessions",
-  ActiveGameSessions = "ActiveGameSessions",
-  ActiveInstances = "ActiveInstances",
-  AvailableGameSessions = "AvailableGameSessions",
-  AvailablePlayerSessions = "AvailablePlayerSessions",
-  ConcurrentActivatableGameSessions = "ConcurrentActivatableGameSessions",
-  CurrentPlayerSessions = "CurrentPlayerSessions",
-  IdleInstances = "IdleInstances",
-  PercentAvailableGameSessions = "PercentAvailableGameSessions",
-  PercentIdleInstances = "PercentIdleInstances",
-  QueueDepth = "QueueDepth",
-  WaitTime = "WaitTime",
-}
+export const MetricName = {
+  ActivatingGameSessions: "ActivatingGameSessions",
+  ActiveGameSessions: "ActiveGameSessions",
+  ActiveInstances: "ActiveInstances",
+  AvailableGameSessions: "AvailableGameSessions",
+  AvailablePlayerSessions: "AvailablePlayerSessions",
+  ConcurrentActivatableGameSessions: "ConcurrentActivatableGameSessions",
+  CurrentPlayerSessions: "CurrentPlayerSessions",
+  IdleInstances: "IdleInstances",
+  PercentAvailableGameSessions: "PercentAvailableGameSessions",
+  PercentIdleInstances: "PercentIdleInstances",
+  QueueDepth: "QueueDepth",
+  WaitTime: "WaitTime",
+} as const;
 
 /**
  * @public
  */
-export enum PolicyType {
-  RuleBased = "RuleBased",
-  TargetBased = "TargetBased",
-}
+export type MetricName = (typeof MetricName)[keyof typeof MetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const PolicyType = {
+  RuleBased: "RuleBased",
+  TargetBased: "TargetBased",
+} as const;
 
 /**
  * @public
  */
-export enum ScalingAdjustmentType {
-  ChangeInCapacity = "ChangeInCapacity",
-  ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity",
-}
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalingAdjustmentType = {
+  ChangeInCapacity: "ChangeInCapacity",
+  ExactCapacity: "ExactCapacity",
+  PercentChangeInCapacity: "PercentChangeInCapacity",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalingAdjustmentType = (typeof ScalingAdjustmentType)[keyof typeof ScalingAdjustmentType];
 
 /**
  * @public
@@ -7183,11 +7422,17 @@ export interface ListGameServerGroupsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -7235,11 +7480,17 @@ export interface ListGameServersOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum LocationFilter {
-  AWS = "AWS",
-  CUSTOM = "CUSTOM",
-}
+export const LocationFilter = {
+  AWS: "AWS",
+  CUSTOM: "CUSTOM",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationFilter = (typeof LocationFilter)[keyof typeof LocationFilter];
 
 /**
  * @public

@@ -264,15 +264,21 @@ export class ServiceException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ThrottleReason {
-  CallerRateLimitExceeded = "CallerRateLimitExceeded",
-  ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
-  ConcurrentSnapshotCreateLimitExceeded = "ConcurrentSnapshotCreateLimitExceeded",
-  FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded",
-  ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded",
-  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded",
-}
+export const ThrottleReason = {
+  CallerRateLimitExceeded: "CallerRateLimitExceeded",
+  ConcurrentInvocationLimitExceeded: "ConcurrentInvocationLimitExceeded",
+  ConcurrentSnapshotCreateLimitExceeded: "ConcurrentSnapshotCreateLimitExceeded",
+  FunctionInvocationRateLimitExceeded: "FunctionInvocationRateLimitExceeded",
+  ReservedFunctionConcurrentInvocationLimitExceeded: "ReservedFunctionConcurrentInvocationLimitExceeded",
+  ReservedFunctionInvocationRateLimitExceeded: "ReservedFunctionInvocationRateLimitExceeded",
+} as const;
+
+/**
+ * @public
+ */
+export type ThrottleReason = (typeof ThrottleReason)[keyof typeof ThrottleReason];
 
 /**
  * @public
@@ -306,11 +312,17 @@ export class TooManyRequestsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FunctionUrlAuthType {
-  AWS_IAM = "AWS_IAM",
-  NONE = "NONE",
-}
+export const FunctionUrlAuthType = {
+  AWS_IAM: "AWS_IAM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type FunctionUrlAuthType = (typeof FunctionUrlAuthType)[keyof typeof FunctionUrlAuthType];
 
 /**
  * @public
@@ -487,11 +499,17 @@ export interface AmazonManagedKafkaEventSourceConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum Architecture {
-  arm64 = "arm64",
-  x86_64 = "x86_64",
-}
+export const Architecture = {
+  arm64: "arm64",
+  x86_64: "x86_64",
+} as const;
+
+/**
+ * @public
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 /**
  * @public
@@ -545,11 +563,17 @@ export interface CreateAliasRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CodeSigningPolicy {
-  Enforce = "Enforce",
-  Warn = "Warn",
-}
+export const CodeSigningPolicy = {
+  Enforce: "Enforce",
+  Warn: "Warn",
+} as const;
+
+/**
+ * @public
+ */
+export type CodeSigningPolicy = (typeof CodeSigningPolicy)[keyof typeof CodeSigningPolicy];
 
 /**
  * @public
@@ -673,11 +697,17 @@ export interface DestinationConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum FullDocument {
-  Default = "Default",
-  UpdateLookup = "UpdateLookup",
-}
+export const FullDocument = {
+  Default: "Default",
+  UpdateLookup: "UpdateLookup",
+} as const;
+
+/**
+ * @public
+ */
+export type FullDocument = (typeof FullDocument)[keyof typeof FullDocument];
 
 /**
  * @public
@@ -742,10 +772,16 @@ export interface FilterCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum FunctionResponseType {
-  ReportBatchItemFailures = "ReportBatchItemFailures",
-}
+export const FunctionResponseType = {
+  ReportBatchItemFailures: "ReportBatchItemFailures",
+} as const;
+
+/**
+ * @public
+ */
+export type FunctionResponseType = (typeof FunctionResponseType)[keyof typeof FunctionResponseType];
 
 /**
  * @public
@@ -760,10 +796,16 @@ export interface ScalingConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum EndPointType {
-  KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
-}
+export const EndPointType = {
+  KAFKA_BOOTSTRAP_SERVERS: "KAFKA_BOOTSTRAP_SERVERS",
+} as const;
+
+/**
+ * @public
+ */
+export type EndPointType = (typeof EndPointType)[keyof typeof EndPointType];
 
 /**
  * @public
@@ -792,17 +834,23 @@ export interface SelfManagedKafkaEventSourceConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceAccessType {
-  BASIC_AUTH = "BASIC_AUTH",
-  CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH",
-  SASL_SCRAM_256_AUTH = "SASL_SCRAM_256_AUTH",
-  SASL_SCRAM_512_AUTH = "SASL_SCRAM_512_AUTH",
-  SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE",
-  VIRTUAL_HOST = "VIRTUAL_HOST",
-  VPC_SECURITY_GROUP = "VPC_SECURITY_GROUP",
-  VPC_SUBNET = "VPC_SUBNET",
-}
+export const SourceAccessType = {
+  BASIC_AUTH: "BASIC_AUTH",
+  CLIENT_CERTIFICATE_TLS_AUTH: "CLIENT_CERTIFICATE_TLS_AUTH",
+  SASL_SCRAM_256_AUTH: "SASL_SCRAM_256_AUTH",
+  SASL_SCRAM_512_AUTH: "SASL_SCRAM_512_AUTH",
+  SERVER_ROOT_CA_CERTIFICATE: "SERVER_ROOT_CA_CERTIFICATE",
+  VIRTUAL_HOST: "VIRTUAL_HOST",
+  VPC_SECURITY_GROUP: "VPC_SECURITY_GROUP",
+  VPC_SUBNET: "VPC_SUBNET",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceAccessType = (typeof SourceAccessType)[keyof typeof SourceAccessType];
 
 /**
  * @public
@@ -863,12 +911,18 @@ export interface SourceAccessConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum EventSourcePosition {
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const EventSourcePosition = {
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type EventSourcePosition = (typeof EventSourcePosition)[keyof typeof EventSourcePosition];
 
 /**
  * @public
@@ -1415,53 +1469,71 @@ export interface ImageConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageType {
-  Image = "Image",
-  Zip = "Zip",
-}
+export const PackageType = {
+  Image: "Image",
+  Zip: "Zip",
+} as const;
 
 /**
  * @public
  */
-export enum Runtime {
-  dotnet6 = "dotnet6",
-  dotnetcore10 = "dotnetcore1.0",
-  dotnetcore20 = "dotnetcore2.0",
-  dotnetcore21 = "dotnetcore2.1",
-  dotnetcore31 = "dotnetcore3.1",
-  go1x = "go1.x",
-  java11 = "java11",
-  java8 = "java8",
-  java8al2 = "java8.al2",
-  nodejs = "nodejs",
-  nodejs10x = "nodejs10.x",
-  nodejs12x = "nodejs12.x",
-  nodejs14x = "nodejs14.x",
-  nodejs16x = "nodejs16.x",
-  nodejs18x = "nodejs18.x",
-  nodejs43 = "nodejs4.3",
-  nodejs43edge = "nodejs4.3-edge",
-  nodejs610 = "nodejs6.10",
-  nodejs810 = "nodejs8.10",
-  provided = "provided",
-  providedal2 = "provided.al2",
-  python27 = "python2.7",
-  python36 = "python3.6",
-  python37 = "python3.7",
-  python38 = "python3.8",
-  python39 = "python3.9",
-  ruby25 = "ruby2.5",
-  ruby27 = "ruby2.7",
-}
+export type PackageType = (typeof PackageType)[keyof typeof PackageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Runtime = {
+  dotnet6: "dotnet6",
+  dotnetcore10: "dotnetcore1.0",
+  dotnetcore20: "dotnetcore2.0",
+  dotnetcore21: "dotnetcore2.1",
+  dotnetcore31: "dotnetcore3.1",
+  go1x: "go1.x",
+  java11: "java11",
+  java8: "java8",
+  java8al2: "java8.al2",
+  nodejs: "nodejs",
+  nodejs10x: "nodejs10.x",
+  nodejs12x: "nodejs12.x",
+  nodejs14x: "nodejs14.x",
+  nodejs16x: "nodejs16.x",
+  nodejs18x: "nodejs18.x",
+  nodejs43: "nodejs4.3",
+  nodejs43edge: "nodejs4.3-edge",
+  nodejs610: "nodejs6.10",
+  nodejs810: "nodejs8.10",
+  provided: "provided",
+  providedal2: "provided.al2",
+  python27: "python2.7",
+  python36: "python3.6",
+  python37: "python3.7",
+  python38: "python3.8",
+  python39: "python3.9",
+  ruby25: "ruby2.5",
+  ruby27: "ruby2.7",
+} as const;
 
 /**
  * @public
  */
-export enum SnapStartApplyOn {
-  None = "None",
-  PublishedVersions = "PublishedVersions",
-}
+export type Runtime = (typeof Runtime)[keyof typeof Runtime];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapStartApplyOn = {
+  None: "None",
+  PublishedVersions: "PublishedVersions",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapStartApplyOn = (typeof SnapStartApplyOn)[keyof typeof SnapStartApplyOn];
 
 /**
  * @public
@@ -1480,11 +1552,17 @@ export interface SnapStart {
 
 /**
  * @public
+ * @enum
  */
-export enum TracingMode {
-  Active = "Active",
-  PassThrough = "PassThrough",
-}
+export const TracingMode = {
+  Active: "Active",
+  PassThrough: "PassThrough",
+} as const;
+
+/**
+ * @public
+ */
+export type TracingMode = (typeof TracingMode)[keyof typeof TracingMode];
 
 /**
  * @public
@@ -1738,39 +1816,51 @@ export interface ImageConfigResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LastUpdateStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Successful = "Successful",
-}
+export const LastUpdateStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Successful: "Successful",
+} as const;
 
 /**
  * @public
  */
-export enum LastUpdateStatusReasonCode {
-  DisabledKMSKey = "DisabledKMSKey",
-  EFSIOError = "EFSIOError",
-  EFSMountConnectivityError = "EFSMountConnectivityError",
-  EFSMountFailure = "EFSMountFailure",
-  EFSMountTimeout = "EFSMountTimeout",
-  EniLimitExceeded = "EniLimitExceeded",
-  FunctionError = "FunctionError",
-  ImageAccessDenied = "ImageAccessDenied",
-  ImageDeleted = "ImageDeleted",
-  InsufficientRolePermissions = "InsufficientRolePermissions",
-  InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration",
-  InvalidImage = "InvalidImage",
-  InvalidRuntime = "InvalidRuntime",
-  InvalidSecurityGroup = "InvalidSecurityGroup",
-  InvalidStateKMSKey = "InvalidStateKMSKey",
-  InvalidSubnet = "InvalidSubnet",
-  InvalidZipFileException = "InvalidZipFileException",
-  KMSKeyAccessDenied = "KMSKeyAccessDenied",
-  KMSKeyNotFound = "KMSKeyNotFound",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
-}
+export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastUpdateStatusReasonCode = {
+  DisabledKMSKey: "DisabledKMSKey",
+  EFSIOError: "EFSIOError",
+  EFSMountConnectivityError: "EFSMountConnectivityError",
+  EFSMountFailure: "EFSMountFailure",
+  EFSMountTimeout: "EFSMountTimeout",
+  EniLimitExceeded: "EniLimitExceeded",
+  FunctionError: "FunctionError",
+  ImageAccessDenied: "ImageAccessDenied",
+  ImageDeleted: "ImageDeleted",
+  InsufficientRolePermissions: "InsufficientRolePermissions",
+  InternalError: "InternalError",
+  InvalidConfiguration: "InvalidConfiguration",
+  InvalidImage: "InvalidImage",
+  InvalidRuntime: "InvalidRuntime",
+  InvalidSecurityGroup: "InvalidSecurityGroup",
+  InvalidStateKMSKey: "InvalidStateKMSKey",
+  InvalidSubnet: "InvalidSubnet",
+  InvalidZipFileException: "InvalidZipFileException",
+  KMSKeyAccessDenied: "KMSKeyAccessDenied",
+  KMSKeyNotFound: "KMSKeyNotFound",
+  SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+} as const;
+
+/**
+ * @public
+ */
+export type LastUpdateStatusReasonCode = (typeof LastUpdateStatusReasonCode)[keyof typeof LastUpdateStatusReasonCode];
 
 /**
  * @public
@@ -1833,11 +1923,18 @@ export interface RuntimeVersionConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum SnapStartOptimizationStatus {
-  Off = "Off",
-  On = "On",
-}
+export const SnapStartOptimizationStatus = {
+  Off: "Off",
+  On: "On",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapStartOptimizationStatus =
+  (typeof SnapStartOptimizationStatus)[keyof typeof SnapStartOptimizationStatus];
 
 /**
  * @public
@@ -1857,43 +1954,55 @@ export interface SnapStartResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum State {
-  Active = "Active",
-  Failed = "Failed",
-  Inactive = "Inactive",
-  Pending = "Pending",
-}
+export const State = {
+  Active: "Active",
+  Failed: "Failed",
+  Inactive: "Inactive",
+  Pending: "Pending",
+} as const;
 
 /**
  * @public
  */
-export enum StateReasonCode {
-  Creating = "Creating",
-  DisabledKMSKey = "DisabledKMSKey",
-  EFSIOError = "EFSIOError",
-  EFSMountConnectivityError = "EFSMountConnectivityError",
-  EFSMountFailure = "EFSMountFailure",
-  EFSMountTimeout = "EFSMountTimeout",
-  EniLimitExceeded = "EniLimitExceeded",
-  FunctionError = "FunctionError",
-  Idle = "Idle",
-  ImageAccessDenied = "ImageAccessDenied",
-  ImageDeleted = "ImageDeleted",
-  InsufficientRolePermissions = "InsufficientRolePermissions",
-  InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration",
-  InvalidImage = "InvalidImage",
-  InvalidRuntime = "InvalidRuntime",
-  InvalidSecurityGroup = "InvalidSecurityGroup",
-  InvalidStateKMSKey = "InvalidStateKMSKey",
-  InvalidSubnet = "InvalidSubnet",
-  InvalidZipFileException = "InvalidZipFileException",
-  KMSKeyAccessDenied = "KMSKeyAccessDenied",
-  KMSKeyNotFound = "KMSKeyNotFound",
-  Restoring = "Restoring",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
-}
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * @enum
+ */
+export const StateReasonCode = {
+  Creating: "Creating",
+  DisabledKMSKey: "DisabledKMSKey",
+  EFSIOError: "EFSIOError",
+  EFSMountConnectivityError: "EFSMountConnectivityError",
+  EFSMountFailure: "EFSMountFailure",
+  EFSMountTimeout: "EFSMountTimeout",
+  EniLimitExceeded: "EniLimitExceeded",
+  FunctionError: "FunctionError",
+  Idle: "Idle",
+  ImageAccessDenied: "ImageAccessDenied",
+  ImageDeleted: "ImageDeleted",
+  InsufficientRolePermissions: "InsufficientRolePermissions",
+  InternalError: "InternalError",
+  InvalidConfiguration: "InvalidConfiguration",
+  InvalidImage: "InvalidImage",
+  InvalidRuntime: "InvalidRuntime",
+  InvalidSecurityGroup: "InvalidSecurityGroup",
+  InvalidStateKMSKey: "InvalidStateKMSKey",
+  InvalidSubnet: "InvalidSubnet",
+  InvalidZipFileException: "InvalidZipFileException",
+  KMSKeyAccessDenied: "KMSKeyAccessDenied",
+  KMSKeyNotFound: "KMSKeyNotFound",
+  Restoring: "Restoring",
+  SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+} as const;
+
+/**
+ * @public
+ */
+export type StateReasonCode = (typeof StateReasonCode)[keyof typeof StateReasonCode];
 
 /**
  * @public
@@ -3256,12 +3365,19 @@ export interface GetProvisionedConcurrencyConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ProvisionedConcurrencyStatusEnum {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY",
-}
+export const ProvisionedConcurrencyStatusEnum = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisionedConcurrencyStatusEnum =
+  (typeof ProvisionedConcurrencyStatusEnum)[keyof typeof ProvisionedConcurrencyStatusEnum];
 
 /**
  * @public
@@ -3357,12 +3473,18 @@ export interface GetRuntimeManagementConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateRuntimeOn {
-  Auto = "Auto",
-  FunctionUpdate = "FunctionUpdate",
-  Manual = "Manual",
-}
+export const UpdateRuntimeOn = {
+  Auto: "Auto",
+  FunctionUpdate: "FunctionUpdate",
+  Manual: "Manual",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateRuntimeOn = (typeof UpdateRuntimeOn)[keyof typeof UpdateRuntimeOn];
 
 /**
  * @public
@@ -3709,20 +3831,32 @@ export class InvalidZipFileException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum InvocationType {
-  DryRun = "DryRun",
-  Event = "Event",
-  RequestResponse = "RequestResponse",
-}
+export const InvocationType = {
+  DryRun: "DryRun",
+  Event: "Event",
+  RequestResponse: "RequestResponse",
+} as const;
 
 /**
  * @public
  */
-export enum LogType {
-  None = "None",
-  Tail = "Tail",
-}
+export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogType = {
+  None: "None",
+  Tail: "Tail",
+} as const;
+
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * @public
@@ -4380,10 +4514,16 @@ export interface ListFunctionEventInvokeConfigsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FunctionVersion {
-  ALL = "ALL",
-}
+export const FunctionVersion = {
+  ALL: "ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type FunctionVersion = (typeof FunctionVersion)[keyof typeof FunctionVersion];
 
 /**
  * @public

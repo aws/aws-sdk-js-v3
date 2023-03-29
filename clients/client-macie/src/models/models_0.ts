@@ -134,18 +134,32 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum S3ContinuousClassificationType {
-  FULL = "FULL",
-}
+export const S3ContinuousClassificationType = {
+  FULL: "FULL",
+} as const;
 
 /**
  * @public
  */
-export enum S3OneTimeClassificationType {
-  FULL = "FULL",
-  NONE = "NONE",
-}
+export type S3ContinuousClassificationType =
+  (typeof S3ContinuousClassificationType)[keyof typeof S3ContinuousClassificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3OneTimeClassificationType = {
+  FULL: "FULL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type S3OneTimeClassificationType =
+  (typeof S3OneTimeClassificationType)[keyof typeof S3OneTimeClassificationType];
 
 /**
  * @public

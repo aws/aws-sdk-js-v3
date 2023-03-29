@@ -25,14 +25,20 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticationType {
-  AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
-  API_KEY = "API_KEY",
-  AWS_IAM = "AWS_IAM",
-  AWS_LAMBDA = "AWS_LAMBDA",
-  OPENID_CONNECT = "OPENID_CONNECT",
-}
+export const AuthenticationType = {
+  AMAZON_COGNITO_USER_POOLS: "AMAZON_COGNITO_USER_POOLS",
+  API_KEY: "API_KEY",
+  AWS_IAM: "AWS_IAM",
+  AWS_LAMBDA: "AWS_LAMBDA",
+  OPENID_CONNECT: "OPENID_CONNECT",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
  * @public
@@ -148,12 +154,18 @@ export interface AdditionalAuthenticationProvider {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationStatus {
-  Failed = "FAILED",
-  Processing = "PROCESSING",
-  Success = "SUCCESS",
-}
+export const AssociationStatus = {
+  Failed: "FAILED",
+  Processing: "PROCESSING",
+  Success: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
 
 /**
  * @public
@@ -200,43 +212,61 @@ export interface ApiAssociation {
 
 /**
  * @public
+ * @enum
  */
-export enum ApiCachingBehavior {
-  FULL_REQUEST_CACHING = "FULL_REQUEST_CACHING",
-  PER_RESOLVER_CACHING = "PER_RESOLVER_CACHING",
-}
+export const ApiCachingBehavior = {
+  FULL_REQUEST_CACHING: "FULL_REQUEST_CACHING",
+  PER_RESOLVER_CACHING: "PER_RESOLVER_CACHING",
+} as const;
 
 /**
  * @public
  */
-export enum ApiCacheStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MODIFYING = "MODIFYING",
-}
+export type ApiCachingBehavior = (typeof ApiCachingBehavior)[keyof typeof ApiCachingBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApiCacheStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+} as const;
 
 /**
  * @public
  */
-export enum ApiCacheType {
-  LARGE = "LARGE",
-  LARGE_12X = "LARGE_12X",
-  LARGE_2X = "LARGE_2X",
-  LARGE_4X = "LARGE_4X",
-  LARGE_8X = "LARGE_8X",
-  MEDIUM = "MEDIUM",
-  R4_2XLARGE = "R4_2XLARGE",
-  R4_4XLARGE = "R4_4XLARGE",
-  R4_8XLARGE = "R4_8XLARGE",
-  R4_LARGE = "R4_LARGE",
-  R4_XLARGE = "R4_XLARGE",
-  SMALL = "SMALL",
-  T2_MEDIUM = "T2_MEDIUM",
-  T2_SMALL = "T2_SMALL",
-  XLARGE = "XLARGE",
-}
+export type ApiCacheStatus = (typeof ApiCacheStatus)[keyof typeof ApiCacheStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApiCacheType = {
+  LARGE: "LARGE",
+  LARGE_12X: "LARGE_12X",
+  LARGE_2X: "LARGE_2X",
+  LARGE_4X: "LARGE_4X",
+  LARGE_8X: "LARGE_8X",
+  MEDIUM: "MEDIUM",
+  R4_2XLARGE: "R4_2XLARGE",
+  R4_4XLARGE: "R4_4XLARGE",
+  R4_8XLARGE: "R4_8XLARGE",
+  R4_LARGE: "R4_LARGE",
+  R4_XLARGE: "R4_XLARGE",
+  SMALL: "SMALL",
+  T2_MEDIUM: "T2_MEDIUM",
+  T2_SMALL: "T2_SMALL",
+  XLARGE: "XLARGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ApiCacheType = (typeof ApiCacheType)[keyof typeof ApiCacheType];
 
 /**
  * @public
@@ -532,10 +562,16 @@ export class ApiLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RuntimeName {
-  APPSYNC_JS = "APPSYNC_JS",
-}
+export const RuntimeName = {
+  APPSYNC_JS: "APPSYNC_JS",
+} as const;
+
+/**
+ * @public
+ */
+export type RuntimeName = (typeof RuntimeName)[keyof typeof RuntimeName];
 
 /**
  * @public
@@ -639,10 +675,16 @@ export interface BadRequestDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum BadRequestReason {
-  CODE_ERROR = "CODE_ERROR",
-}
+export const BadRequestReason = {
+  CODE_ERROR: "CODE_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequestReason];
 
 /**
  * @public
@@ -721,10 +763,16 @@ export class NotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM",
-}
+export const AuthorizationType = {
+  AWS_IAM: "AWS_IAM",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizationType = (typeof AuthorizationType)[keyof typeof AuthorizationType];
 
 /**
  * @public
@@ -1150,10 +1198,17 @@ export interface RdsHttpEndpointConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum RelationalDatabaseSourceType {
-  RDS_HTTP_ENDPOINT = "RDS_HTTP_ENDPOINT",
-}
+export const RelationalDatabaseSourceType = {
+  RDS_HTTP_ENDPOINT: "RDS_HTTP_ENDPOINT",
+} as const;
+
+/**
+ * @public
+ */
+export type RelationalDatabaseSourceType =
+  (typeof RelationalDatabaseSourceType)[keyof typeof RelationalDatabaseSourceType];
 
 /**
  * @public
@@ -1180,17 +1235,23 @@ export interface RelationalDatabaseDataSourceConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceType {
-  AMAZON_DYNAMODB = "AMAZON_DYNAMODB",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  AMAZON_EVENTBRIDGE = "AMAZON_EVENTBRIDGE",
-  AMAZON_OPENSEARCH_SERVICE = "AMAZON_OPENSEARCH_SERVICE",
-  AWS_LAMBDA = "AWS_LAMBDA",
-  HTTP = "HTTP",
-  NONE = "NONE",
-  RELATIONAL_DATABASE = "RELATIONAL_DATABASE",
-}
+export const DataSourceType = {
+  AMAZON_DYNAMODB: "AMAZON_DYNAMODB",
+  AMAZON_ELASTICSEARCH: "AMAZON_ELASTICSEARCH",
+  AMAZON_EVENTBRIDGE: "AMAZON_EVENTBRIDGE",
+  AMAZON_OPENSEARCH_SERVICE: "AMAZON_OPENSEARCH_SERVICE",
+  AWS_LAMBDA: "AWS_LAMBDA",
+  HTTP: "HTTP",
+  NONE: "NONE",
+  RELATIONAL_DATABASE: "RELATIONAL_DATABASE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
 /**
  * @public
@@ -1441,21 +1502,33 @@ export interface CreateDomainNameResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictDetectionType {
-  NONE = "NONE",
-  VERSION = "VERSION",
-}
+export const ConflictDetectionType = {
+  NONE: "NONE",
+  VERSION: "VERSION",
+} as const;
 
 /**
  * @public
  */
-export enum ConflictHandlerType {
-  AUTOMERGE = "AUTOMERGE",
-  LAMBDA = "LAMBDA",
-  NONE = "NONE",
-  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY",
-}
+export type ConflictDetectionType = (typeof ConflictDetectionType)[keyof typeof ConflictDetectionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConflictHandlerType = {
+  AUTOMERGE: "AUTOMERGE",
+  LAMBDA: "LAMBDA",
+  NONE: "NONE",
+  OPTIMISTIC_CONCURRENCY: "OPTIMISTIC_CONCURRENCY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictHandlerType = (typeof ConflictHandlerType)[keyof typeof ConflictHandlerType];
 
 /**
  * @public
@@ -1673,12 +1746,18 @@ export interface CreateFunctionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FieldLogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  NONE = "NONE",
-}
+export const FieldLogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldLogLevel = (typeof FieldLogLevel)[keyof typeof FieldLogLevel];
 
 /**
  * @public
@@ -1740,11 +1819,17 @@ export interface LogConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum DefaultAction {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const DefaultAction = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
 /**
  * @public
@@ -1928,11 +2013,17 @@ export interface CachingConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolverKind {
-  PIPELINE = "PIPELINE",
-  UNIT = "UNIT",
-}
+export const ResolverKind = {
+  PIPELINE: "PIPELINE",
+  UNIT: "UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverKind = (typeof ResolverKind)[keyof typeof ResolverKind];
 
 /**
  * @public
@@ -2132,11 +2223,17 @@ export interface CreateResolverResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TypeDefinitionFormat {
-  JSON = "JSON",
-  SDL = "SDL",
-}
+export const TypeDefinitionFormat = {
+  JSON: "JSON",
+  SDL: "SDL",
+} as const;
+
+/**
+ * @public
+ */
+export type TypeDefinitionFormat = (typeof TypeDefinitionFormat)[keyof typeof TypeDefinitionFormat];
 
 /**
  * @public
@@ -2635,11 +2732,17 @@ export interface GetGraphqlApiResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OutputType {
-  JSON = "JSON",
-  SDL = "SDL",
-}
+export const OutputType = {
+  JSON: "JSON",
+  SDL: "SDL",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputType = (typeof OutputType)[keyof typeof OutputType];
 
 /**
  * @public
@@ -2735,15 +2838,21 @@ export interface GetSchemaCreationStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SchemaStatus {
-  Active = "ACTIVE",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  NotApplicable = "NOT_APPLICABLE",
-  Processing = "PROCESSING",
-  Success = "SUCCESS",
-}
+export const SchemaStatus = {
+  Active: "ACTIVE",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  NotApplicable: "NOT_APPLICABLE",
+  Processing: "PROCESSING",
+  Success: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaStatus = (typeof SchemaStatus)[keyof typeof SchemaStatus];
 
 /**
  * @public

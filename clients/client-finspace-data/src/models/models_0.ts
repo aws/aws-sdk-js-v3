@@ -25,24 +25,36 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ApiAccess {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ApiAccess = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum ApplicationPermission {
-  AccessNotebooks = "AccessNotebooks",
-  CreateDataset = "CreateDataset",
-  GetTemporaryCredentials = "GetTemporaryCredentials",
-  ManageAttributeSets = "ManageAttributeSets",
-  ManageClusters = "ManageClusters",
-  ManageUsersAndGroups = "ManageUsersAndGroups",
-  ViewAuditData = "ViewAuditData",
-}
+export type ApiAccess = (typeof ApiAccess)[keyof typeof ApiAccess];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationPermission = {
+  AccessNotebooks: "AccessNotebooks",
+  CreateDataset: "CreateDataset",
+  GetTemporaryCredentials: "GetTemporaryCredentials",
+  ManageAttributeSets: "ManageAttributeSets",
+  ManageClusters: "ManageClusters",
+  ManageUsersAndGroups: "ManageUsersAndGroups",
+  ViewAuditData: "ViewAuditData",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationPermission = (typeof ApplicationPermission)[keyof typeof ApplicationPermission];
 
 /**
  * @public
@@ -209,12 +221,18 @@ export interface AwsCredentials {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeType {
-  APPEND = "APPEND",
-  MODIFY = "MODIFY",
-  REPLACE = "REPLACE",
-}
+export const ChangeType = {
+  APPEND: "APPEND",
+  MODIFY: "MODIFY",
+  REPLACE: "REPLACE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
 
 /**
  * @public
@@ -359,11 +377,17 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetKind {
-  NON_TABULAR = "NON_TABULAR",
-  TABULAR = "TABULAR",
-}
+export const DatasetKind = {
+  NON_TABULAR: "NON_TABULAR",
+  TABULAR: "TABULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetKind = (typeof DatasetKind)[keyof typeof DatasetKind];
 
 /**
  * @public
@@ -465,21 +489,27 @@ export interface PermissionGroupParams {
 
 /**
  * @public
+ * @enum
  */
-export enum ColumnDataType {
-  BIGINT = "BIGINT",
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  CHAR = "CHAR",
-  DATE = "DATE",
-  DATETIME = "DATETIME",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INTEGER = "INTEGER",
-  SMALLINT = "SMALLINT",
-  STRING = "STRING",
-  TINYINT = "TINYINT",
-}
+export const ColumnDataType = {
+  BIGINT: "BIGINT",
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  CHAR: "CHAR",
+  DATE: "DATE",
+  DATETIME: "DATETIME",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INTEGER: "INTEGER",
+  SMALLINT: "SMALLINT",
+  STRING: "STRING",
+  TINYINT: "TINYINT",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
 
 /**
  * @public
@@ -626,11 +656,17 @@ export interface CreateDatasetResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportFileFormat {
-  DELIMITED_TEXT = "DELIMITED_TEXT",
-  PARQUET = "PARQUET",
-}
+export const ExportFileFormat = {
+  DELIMITED_TEXT: "DELIMITED_TEXT",
+  PARQUET: "PARQUET",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportFileFormat = (typeof ExportFileFormat)[keyof typeof ExportFileFormat];
 
 /**
  * @public
@@ -810,11 +846,17 @@ export interface CreatePermissionGroupResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum UserType {
-  APP_USER = "APP_USER",
-  SUPER_USER = "SUPER_USER",
-}
+export const UserType = {
+  APP_USER: "APP_USER",
+  SUPER_USER: "SUPER_USER",
+} as const;
+
+/**
+ * @public
+ */
+export type UserType = (typeof UserType)[keyof typeof UserType];
 
 /**
  * @public
@@ -1036,17 +1078,23 @@ export interface GetChangesetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCategory {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  CANCELLED = "CANCELLED",
-  INTERNAL_SERVICE_EXCEPTION = "INTERNAL_SERVICE_EXCEPTION",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  SERVICE_QUOTA_EXCEEDED = "SERVICE_QUOTA_EXCEEDED",
-  THROTTLING = "THROTTLING",
-  USER_RECOVERABLE = "USER_RECOVERABLE",
-  VALIDATION = "VALIDATION",
-}
+export const ErrorCategory = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CANCELLED: "CANCELLED",
+  INTERNAL_SERVICE_EXCEPTION: "INTERNAL_SERVICE_EXCEPTION",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  SERVICE_QUOTA_EXCEEDED: "SERVICE_QUOTA_EXCEEDED",
+  THROTTLING: "THROTTLING",
+  USER_RECOVERABLE: "USER_RECOVERABLE",
+  VALIDATION: "VALIDATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCategory = (typeof ErrorCategory)[keyof typeof ErrorCategory];
 
 /**
  * @public
@@ -1105,14 +1153,20 @@ export interface ChangesetErrorInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum IngestionStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUCCESS = "SUCCESS",
-}
+export const IngestionStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionStatus];
 
 /**
  * @public
@@ -1212,13 +1266,19 @@ export interface GetDatasetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCESS = "SUCCESS",
-}
+export const DatasetStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
 
 /**
  * @public
@@ -1377,17 +1437,23 @@ export interface DataViewErrorInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum DataViewStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FAILED_CLEANUP_FAILED = "FAILED_CLEANUP_FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  SUCCESS = "SUCCESS",
-  TIMEOUT = "TIMEOUT",
-}
+export const DataViewStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FAILED_CLEANUP_FAILED: "FAILED_CLEANUP_FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  SUCCESS: "SUCCESS",
+  TIMEOUT: "TIMEOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type DataViewStatus = (typeof DataViewStatus)[keyof typeof DataViewStatus];
 
 /**
  * @public
@@ -1547,12 +1613,19 @@ export interface GetPermissionGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PermissionGroupMembershipStatus {
-  ADDITION_IN_PROGRESS = "ADDITION_IN_PROGRESS",
-  ADDITION_SUCCESS = "ADDITION_SUCCESS",
-  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
-}
+export const PermissionGroupMembershipStatus = {
+  ADDITION_IN_PROGRESS: "ADDITION_IN_PROGRESS",
+  ADDITION_SUCCESS: "ADDITION_SUCCESS",
+  REMOVAL_IN_PROGRESS: "REMOVAL_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionGroupMembershipStatus =
+  (typeof PermissionGroupMembershipStatus)[keyof typeof PermissionGroupMembershipStatus];
 
 /**
  * @public
@@ -1719,12 +1792,18 @@ export interface GetUserRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum UserStatus {
-  CREATING = "CREATING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const UserStatus = {
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
 
 /**
  * @public
@@ -1834,11 +1913,17 @@ export interface GetUserResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LocationType {
-  INGESTION = "INGESTION",
-  SAGEMAKER = "SAGEMAKER",
-}
+export const LocationType = {
+  INGESTION: "INGESTION",
+  SAGEMAKER: "SAGEMAKER",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
 
 /**
  * @public

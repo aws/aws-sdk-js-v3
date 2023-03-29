@@ -222,11 +222,17 @@ export interface ListContactReferencesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceStatus {
-  APPROVED = "APPROVED",
-  REJECTED = "REJECTED",
-}
+export const ReferenceStatus = {
+  APPROVED: "APPROVED",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceStatus = (typeof ReferenceStatus)[keyof typeof ReferenceStatus];
 
 /**
  * @public
@@ -1227,11 +1233,17 @@ export interface ListQueueQuickConnectsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum QueueType {
-  AGENT = "AGENT",
-  STANDARD = "STANDARD",
-}
+export const QueueType = {
+  AGENT: "AGENT",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type QueueType = (typeof QueueType)[keyof typeof QueueType];
 
 /**
  * @public
@@ -2347,19 +2359,31 @@ export interface SearchAvailablePhoneNumbersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SearchableQueueType {
-  STANDARD = "STANDARD",
-}
+export const SearchableQueueType = {
+  STANDARD: "STANDARD",
+} as const;
 
 /**
  * @public
  */
-export enum StringComparisonType {
-  CONTAINS = "CONTAINS",
-  EXACT = "EXACT",
-  STARTS_WITH = "STARTS_WITH",
-}
+export type SearchableQueueType = (typeof SearchableQueueType)[keyof typeof SearchableQueueType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StringComparisonType = {
+  CONTAINS: "CONTAINS",
+  EXACT: "EXACT",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type StringComparisonType = (typeof StringComparisonType)[keyof typeof StringComparisonType];
 
 /**
  * @public
@@ -2601,11 +2625,17 @@ export interface SearchSecurityProfilesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum HierarchyGroupMatchType {
-  EXACT = "EXACT",
-  WITH_CHILD_GROUPS = "WITH_CHILD_GROUPS",
-}
+export const HierarchyGroupMatchType = {
+  EXACT: "EXACT",
+  WITH_CHILD_GROUPS: "WITH_CHILD_GROUPS",
+} as const;
+
+/**
+ * @public
+ */
+export type HierarchyGroupMatchType = (typeof HierarchyGroupMatchType)[keyof typeof HierarchyGroupMatchType];
 
 /**
  * @public
@@ -2873,11 +2903,17 @@ export interface ParticipantDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum RehydrationType {
-  ENTIRE_PAST_SESSION = "ENTIRE_PAST_SESSION",
-  FROM_SEGMENT = "FROM_SEGMENT",
-}
+export const RehydrationType = {
+  ENTIRE_PAST_SESSION: "ENTIRE_PAST_SESSION",
+  FROM_SEGMENT: "FROM_SEGMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type RehydrationType = (typeof RehydrationType)[keyof typeof RehydrationType];
 
 /**
  * @public
@@ -3033,12 +3069,18 @@ export interface StartChatContactResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum VoiceRecordingTrack {
-  ALL = "ALL",
-  FROM_AGENT = "FROM_AGENT",
-  TO_AGENT = "TO_AGENT",
-}
+export const VoiceRecordingTrack = {
+  ALL: "ALL",
+  FROM_AGENT: "FROM_AGENT",
+  TO_AGENT: "TO_AGENT",
+} as const;
+
+/**
+ * @public
+ */
+export type VoiceRecordingTrack = (typeof VoiceRecordingTrack)[keyof typeof VoiceRecordingTrack];
 
 /**
  * @public
@@ -3203,11 +3245,17 @@ export interface AnswerMachineDetectionConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum TrafficType {
-  CAMPAIGN = "CAMPAIGN",
-  GENERAL = "GENERAL",
-}
+export const TrafficType = {
+  CAMPAIGN: "CAMPAIGN",
+  GENERAL: "GENERAL",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
 
 /**
  * @public
@@ -3953,26 +4001,45 @@ export interface UpdateInstanceStorageConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TimerEligibleParticipantRoles {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-}
+export const TimerEligibleParticipantRoles = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+} as const;
 
 /**
  * @public
  */
-export enum ParticipantTimerType {
-  DISCONNECT_NONCUSTOMER = "DISCONNECT_NONCUSTOMER",
-  IDLE = "IDLE",
-}
+export type TimerEligibleParticipantRoles =
+  (typeof TimerEligibleParticipantRoles)[keyof typeof TimerEligibleParticipantRoles];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantTimerType = {
+  DISCONNECT_NONCUSTOMER: "DISCONNECT_NONCUSTOMER",
+  IDLE: "IDLE",
+} as const;
 
 /**
  * @public
  */
-export enum ParticipantTimerAction {
-  Unset = "Unset",
-}
+export type ParticipantTimerType = (typeof ParticipantTimerType)[keyof typeof ParticipantTimerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantTimerAction = {
+  Unset: "Unset",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantTimerAction = (typeof ParticipantTimerAction)[keyof typeof ParticipantTimerAction];
 
 /**
  * @public

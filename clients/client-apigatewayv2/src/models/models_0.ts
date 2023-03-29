@@ -41,11 +41,17 @@ export interface Cors {
 
 /**
  * @public
+ * @enum
  */
-export enum ProtocolType {
-  HTTP = "HTTP",
-  WEBSOCKET = "WEBSOCKET",
-}
+export const ProtocolType = {
+  HTTP: "HTTP",
+  WEBSOCKET: "WEBSOCKET",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtocolType = (typeof ProtocolType)[keyof typeof ProtocolType];
 
 /**
  * @public
@@ -161,11 +167,17 @@ export interface ApiMapping {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthorizerType {
-  JWT = "JWT",
-  REQUEST = "REQUEST",
-}
+export const AuthorizerType = {
+  JWT: "JWT",
+  REQUEST: "REQUEST",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizerType = (typeof AuthorizerType)[keyof typeof AuthorizerType];
 
 /**
  * @public
@@ -248,12 +260,18 @@ export interface Authorizer {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentStatus {
-  DEPLOYED = "DEPLOYED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export const DeploymentStatus = {
+  DEPLOYED: "DEPLOYED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
 
 /**
  * @public
@@ -293,29 +311,47 @@ export interface Deployment {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainNameStatus {
-  AVAILABLE = "AVAILABLE",
-  PENDING_CERTIFICATE_REIMPORT = "PENDING_CERTIFICATE_REIMPORT",
-  PENDING_OWNERSHIP_VERIFICATION = "PENDING_OWNERSHIP_VERIFICATION",
-  UPDATING = "UPDATING",
-}
+export const DomainNameStatus = {
+  AVAILABLE: "AVAILABLE",
+  PENDING_CERTIFICATE_REIMPORT: "PENDING_CERTIFICATE_REIMPORT",
+  PENDING_OWNERSHIP_VERIFICATION: "PENDING_OWNERSHIP_VERIFICATION",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum EndpointType {
-  EDGE = "EDGE",
-  REGIONAL = "REGIONAL",
-}
+export type DomainNameStatus = (typeof DomainNameStatus)[keyof typeof DomainNameStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointType = {
+  EDGE: "EDGE",
+  REGIONAL: "REGIONAL",
+} as const;
 
 /**
  * @public
  */
-export enum SecurityPolicy {
-  TLS_1_0 = "TLS_1_0",
-  TLS_1_2 = "TLS_1_2",
-}
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityPolicy = {
+  TLS_1_0: "TLS_1_0",
+  TLS_1_2: "TLS_1_2",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityPolicy = (typeof SecurityPolicy)[keyof typeof SecurityPolicy];
 
 /**
  * @public
@@ -426,39 +462,63 @@ export interface DomainName {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionType {
-  INTERNET = "INTERNET",
-  VPC_LINK = "VPC_LINK",
-}
+export const ConnectionType = {
+  INTERNET: "INTERNET",
+  VPC_LINK: "VPC_LINK",
+} as const;
 
 /**
  * @public
  */
-export enum ContentHandlingStrategy {
-  CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT = "CONVERT_TO_TEXT",
-}
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentHandlingStrategy = {
+  CONVERT_TO_BINARY: "CONVERT_TO_BINARY",
+  CONVERT_TO_TEXT: "CONVERT_TO_TEXT",
+} as const;
 
 /**
  * @public
  */
-export enum IntegrationType {
-  AWS = "AWS",
-  AWS_PROXY = "AWS_PROXY",
-  HTTP = "HTTP",
-  HTTP_PROXY = "HTTP_PROXY",
-  MOCK = "MOCK",
-}
+export type ContentHandlingStrategy = (typeof ContentHandlingStrategy)[keyof typeof ContentHandlingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationType = {
+  AWS: "AWS",
+  AWS_PROXY: "AWS_PROXY",
+  HTTP: "HTTP",
+  HTTP_PROXY: "HTTP_PROXY",
+  MOCK: "MOCK",
+} as const;
 
 /**
  * @public
  */
-export enum PassthroughBehavior {
-  NEVER = "NEVER",
-  WHEN_NO_MATCH = "WHEN_NO_MATCH",
-  WHEN_NO_TEMPLATES = "WHEN_NO_TEMPLATES",
-}
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PassthroughBehavior = {
+  NEVER: "NEVER",
+  WHEN_NO_MATCH: "WHEN_NO_MATCH",
+  WHEN_NO_TEMPLATES: "WHEN_NO_TEMPLATES",
+} as const;
+
+/**
+ * @public
+ */
+export type PassthroughBehavior = (typeof PassthroughBehavior)[keyof typeof PassthroughBehavior];
 
 /**
  * @public
@@ -651,13 +711,19 @@ export interface Model {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM",
-  CUSTOM = "CUSTOM",
-  JWT = "JWT",
-  NONE = "NONE",
-}
+export const AuthorizationType = {
+  AWS_IAM: "AWS_IAM",
+  CUSTOM: "CUSTOM",
+  JWT: "JWT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizationType = (typeof AuthorizationType)[keyof typeof AuthorizationType];
 
 /**
  * @public
@@ -790,12 +856,18 @@ export interface AccessLogSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum LoggingLevel {
-  ERROR = "ERROR",
-  INFO = "INFO",
-  OFF = "OFF",
-}
+export const LoggingLevel = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
 
 /**
  * @public
@@ -906,21 +978,33 @@ export interface Stage {
 
 /**
  * @public
+ * @enum
  */
-export enum VpcLinkStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-}
+export const VpcLinkStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum VpcLinkVersion {
-  V2 = "V2",
-}
+export type VpcLinkStatus = (typeof VpcLinkStatus)[keyof typeof VpcLinkStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcLinkVersion = {
+  V2: "V2",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcLinkVersion = (typeof VpcLinkVersion)[keyof typeof VpcLinkVersion];
 
 /**
  * @public

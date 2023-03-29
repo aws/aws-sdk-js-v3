@@ -299,14 +299,20 @@ export interface DescribeRescoreExecutionPlanRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RescoreExecutionPlanStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const RescoreExecutionPlanStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type RescoreExecutionPlanStatus = (typeof RescoreExecutionPlanStatus)[keyof typeof RescoreExecutionPlanStatus];
 
 /**
  * @public

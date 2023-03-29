@@ -30,12 +30,19 @@ export interface AssociateCustomDomainRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateValidationRecordStatus {
-  FAILED = "FAILED",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS",
-}
+export const CertificateValidationRecordStatus = {
+  FAILED: "FAILED",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateValidationRecordStatus =
+  (typeof CertificateValidationRecordStatus)[keyof typeof CertificateValidationRecordStatus];
 
 /**
  * @public
@@ -66,16 +73,23 @@ export interface CertificateValidationRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomDomainAssociationStatus {
-  ACTIVE = "ACTIVE",
-  BINDING_CERTIFICATE = "BINDING_CERTIFICATE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  PENDING_CERTIFICATE_DNS_VALIDATION = "PENDING_CERTIFICATE_DNS_VALIDATION",
-}
+export const CustomDomainAssociationStatus = {
+  ACTIVE: "ACTIVE",
+  BINDING_CERTIFICATE: "BINDING_CERTIFICATE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  PENDING_CERTIFICATE_DNS_VALIDATION: "PENDING_CERTIFICATE_DNS_VALIDATION",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomDomainAssociationStatus =
+  (typeof CustomDomainAssociationStatus)[keyof typeof CustomDomainAssociationStatus];
 
 /**
  * @public
@@ -284,11 +298,18 @@ export interface CreateAutoScalingConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AutoScalingConfigurationStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AutoScalingConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoScalingConfigurationStatus =
+  (typeof AutoScalingConfigurationStatus)[keyof typeof AutoScalingConfigurationStatus];
 
 /**
  * @public
@@ -394,10 +415,16 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ProviderType {
-  GITHUB = "GITHUB",
-}
+export const ProviderType = {
+  GITHUB: "GITHUB",
+} as const;
+
+/**
+ * @public
+ */
+export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
 
 /**
  * @public
@@ -421,13 +448,19 @@ export interface CreateConnectionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETED = "DELETED",
-  ERROR = "ERROR",
-  PENDING_HANDSHAKE = "PENDING_HANDSHAKE",
-}
+export const ConnectionStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  ERROR: "ERROR",
+  PENDING_HANDSHAKE: "PENDING_HANDSHAKE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 /**
  * @public
@@ -472,10 +505,16 @@ export interface CreateConnectionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TracingVendor {
-  AWSXRAY = "AWSXRAY",
-}
+export const TracingVendor = {
+  AWSXRAY: "AWSXRAY",
+} as const;
+
+/**
+ * @public
+ */
+export type TracingVendor = (typeof TracingVendor)[keyof typeof TracingVendor];
 
 /**
  * @public
@@ -517,11 +556,18 @@ export interface CreateObservabilityConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ObservabilityConfigurationStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const ObservabilityConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ObservabilityConfigurationStatus =
+  (typeof ObservabilityConfigurationStatus)[keyof typeof ObservabilityConfigurationStatus];
 
 /**
  * @public
@@ -599,11 +645,17 @@ export interface EncryptionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthCheckProtocol {
-  HTTP = "HTTP",
-  TCP = "TCP",
-}
+export const HealthCheckProtocol = {
+  HTTP: "HTTP",
+  TCP: "TCP",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthCheckProtocol = (typeof HealthCheckProtocol)[keyof typeof HealthCheckProtocol];
 
 /**
  * @public
@@ -684,11 +736,17 @@ export interface InstanceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum EgressType {
-  DEFAULT = "DEFAULT",
-  VPC = "VPC",
-}
+export const EgressType = {
+  DEFAULT: "DEFAULT",
+  VPC: "VPC",
+} as const;
+
+/**
+ * @public
+ */
+export type EgressType = (typeof EgressType)[keyof typeof EgressType];
 
 /**
  * @public
@@ -783,19 +841,25 @@ export interface AuthenticationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum Runtime {
-  CORRETTO_11 = "CORRETTO_11",
-  CORRETTO_8 = "CORRETTO_8",
-  DOTNET_6 = "DOTNET_6",
-  GO_1 = "GO_1",
-  NODEJS_12 = "NODEJS_12",
-  NODEJS_14 = "NODEJS_14",
-  NODEJS_16 = "NODEJS_16",
-  PHP_81 = "PHP_81",
-  PYTHON_3 = "PYTHON_3",
-  RUBY_31 = "RUBY_31",
-}
+export const Runtime = {
+  CORRETTO_11: "CORRETTO_11",
+  CORRETTO_8: "CORRETTO_8",
+  DOTNET_6: "DOTNET_6",
+  GO_1: "GO_1",
+  NODEJS_12: "NODEJS_12",
+  NODEJS_14: "NODEJS_14",
+  NODEJS_16: "NODEJS_16",
+  PHP_81: "PHP_81",
+  PYTHON_3: "PYTHON_3",
+  RUBY_31: "RUBY_31",
+} as const;
+
+/**
+ * @public
+ */
+export type Runtime = (typeof Runtime)[keyof typeof Runtime];
 
 /**
  * @public
@@ -856,11 +920,17 @@ export interface CodeConfigurationValues {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationSource {
-  API = "API",
-  REPOSITORY = "REPOSITORY",
-}
+export const ConfigurationSource = {
+  API: "API",
+  REPOSITORY: "REPOSITORY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationSource = (typeof ConfigurationSource)[keyof typeof ConfigurationSource];
 
 /**
  * @public
@@ -893,10 +963,16 @@ export interface CodeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceCodeVersionType {
-  BRANCH = "BRANCH",
-}
+export const SourceCodeVersionType = {
+  BRANCH: "BRANCH",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceCodeVersionType = (typeof SourceCodeVersionType)[keyof typeof SourceCodeVersionType];
 
 /**
  * @public
@@ -988,11 +1064,17 @@ export interface ImageConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageRepositoryType {
-  ECR = "ECR",
-  ECR_PUBLIC = "ECR_PUBLIC",
-}
+export const ImageRepositoryType = {
+  ECR: "ECR",
+  ECR_PUBLIC: "ECR_PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageRepositoryType = (typeof ImageRepositoryType)[keyof typeof ImageRepositoryType];
 
 /**
  * @public
@@ -1133,15 +1215,21 @@ export interface AutoScalingConfigurationSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  OPERATION_IN_PROGRESS = "OPERATION_IN_PROGRESS",
-  PAUSED = "PAUSED",
-  RUNNING = "RUNNING",
-}
+export const ServiceStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  OPERATION_IN_PROGRESS: "OPERATION_IN_PROGRESS",
+  PAUSED: "PAUSED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus];
 
 /**
  * @public
@@ -1289,11 +1377,17 @@ export interface CreateVpcConnectorRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VpcConnectorStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const VpcConnectorStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcConnectorStatus = (typeof VpcConnectorStatus)[keyof typeof VpcConnectorStatus];
 
 /**
  * @public
@@ -1409,17 +1503,23 @@ export interface CreateVpcIngressConnectionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VpcIngressConnectionStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETED = "DELETED",
-  FAILED_CREATION = "FAILED_CREATION",
-  FAILED_DELETION = "FAILED_DELETION",
-  FAILED_UPDATE = "FAILED_UPDATE",
-  PENDING_CREATION = "PENDING_CREATION",
-  PENDING_DELETION = "PENDING_DELETION",
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+export const VpcIngressConnectionStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  FAILED_CREATION: "FAILED_CREATION",
+  FAILED_DELETION: "FAILED_DELETION",
+  FAILED_UPDATE: "FAILED_UPDATE",
+  PENDING_CREATION: "PENDING_CREATION",
+  PENDING_DELETION: "PENDING_DELETION",
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcIngressConnectionStatus = (typeof VpcIngressConnectionStatus)[keyof typeof VpcIngressConnectionStatus];
 
 /**
  * @public
@@ -2091,28 +2191,40 @@ export interface ListOperationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS",
-  ROLLBACK_SUCCEEDED = "ROLLBACK_SUCCEEDED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const OperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  ROLLBACK_SUCCEEDED: "ROLLBACK_SUCCEEDED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
  * @public
  */
-export enum OperationType {
-  CREATE_SERVICE = "CREATE_SERVICE",
-  DELETE_SERVICE = "DELETE_SERVICE",
-  PAUSE_SERVICE = "PAUSE_SERVICE",
-  RESUME_SERVICE = "RESUME_SERVICE",
-  START_DEPLOYMENT = "START_DEPLOYMENT",
-  UPDATE_SERVICE = "UPDATE_SERVICE",
-}
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationType = {
+  CREATE_SERVICE: "CREATE_SERVICE",
+  DELETE_SERVICE: "DELETE_SERVICE",
+  PAUSE_SERVICE: "PAUSE_SERVICE",
+  RESUME_SERVICE: "RESUME_SERVICE",
+  START_DEPLOYMENT: "START_DEPLOYMENT",
+  UPDATE_SERVICE: "UPDATE_SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 /**
  * @public

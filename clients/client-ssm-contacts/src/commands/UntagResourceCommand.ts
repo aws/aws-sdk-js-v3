@@ -75,20 +75,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *          service.</p>
  *
  *
- * @example To remove tags from a contact
- * ```javascript
- * // The following untag-resource example removes the group1 tag from the specified contact.
- * const input = {
- *   "ResourceARN": "arn:aws:ssm-contacts:us-east-1:111122223333:contact/akuam",
- *   "TagKeys": [
- *     "group1"
- *   ]
- * };
- * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: to-remove-tags-from-a-contact-1630437251110
- * ```
- *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

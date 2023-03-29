@@ -264,11 +264,17 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  CFN_STACK = "CFN_STACK",
-  RESOURCE_TAG_VALUE = "RESOURCE_TAG_VALUE",
-}
+export const ResourceType = {
+  CFN_STACK: "CFN_STACK",
+  RESOURCE_TAG_VALUE: "RESOURCE_TAG_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -676,15 +682,21 @@ export interface GetApplicationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceGroupState {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const ResourceGroupState = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceGroupState = (typeof ResourceGroupState)[keyof typeof ResourceGroupState];
 
 /**
  * @public
@@ -1203,11 +1215,17 @@ export interface SyncResourceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SyncAction {
-  NO_ACTION = "NO_ACTION",
-  START_SYNC = "START_SYNC",
-}
+export const SyncAction = {
+  NO_ACTION: "NO_ACTION",
+  START_SYNC: "START_SYNC",
+} as const;
+
+/**
+ * @public
+ */
+export type SyncAction = (typeof SyncAction)[keyof typeof SyncAction];
 
 /**
  * @public

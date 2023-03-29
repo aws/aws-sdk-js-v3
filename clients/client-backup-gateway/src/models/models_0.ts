@@ -322,10 +322,16 @@ export interface PutBandwidthRateLimitScheduleOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum GatewayType {
-  BACKUP_VM = "BACKUP_VM",
-}
+export const GatewayType = {
+  BACKUP_VM: "BACKUP_VM",
+} as const;
+
+/**
+ * @public
+ */
+export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
 
 /**
  * @public
@@ -748,24 +754,36 @@ export interface GetHypervisorInput {
 
 /**
  * @public
+ * @enum
  */
-export enum SyncMetadataStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  PARTIALLY_FAILED = "PARTIALLY_FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const SyncMetadataStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PARTIALLY_FAILED: "PARTIALLY_FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
  * @public
  */
-export enum HypervisorState {
-  ERROR = "ERROR",
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  PENDING = "PENDING",
-}
+export type SyncMetadataStatus = (typeof SyncMetadataStatus)[keyof typeof SyncMetadataStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HypervisorState = {
+  ERROR: "ERROR",
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type HypervisorState = (typeof HypervisorState)[keyof typeof HypervisorState];
 
 /**
  * @public

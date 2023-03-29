@@ -51,12 +51,18 @@ export interface AccountCustomization {
 
 /**
  * @public
+ * @enum
  */
-export enum Edition {
-  ENTERPRISE = "ENTERPRISE",
-  ENTERPRISE_AND_Q = "ENTERPRISE_AND_Q",
-  STANDARD = "STANDARD",
-}
+export const Edition = {
+  ENTERPRISE: "ENTERPRISE",
+  ENTERPRISE_AND_Q: "ENTERPRISE_AND_Q",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type Edition = (typeof Edition)[keyof typeof Edition];
 
 /**
  * @public
@@ -167,11 +173,17 @@ export interface ActiveIAMPolicyAssignment {
 
 /**
  * @public
+ * @enum
  */
-export enum DashboardBehavior {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DashboardBehavior = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardBehavior = (typeof DashboardBehavior)[keyof typeof DashboardBehavior];
 
 /**
  * @public
@@ -186,21 +198,34 @@ export interface AdHocFilteringOption {
 
 /**
  * @public
+ * @enum
  */
-export enum CategoricalAggregationFunction {
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-}
+export const CategoricalAggregationFunction = {
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+} as const;
 
 /**
  * @public
  */
-export enum DateAggregationFunction {
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-  MAX = "MAX",
-  MIN = "MIN",
-}
+export type CategoricalAggregationFunction =
+  (typeof CategoricalAggregationFunction)[keyof typeof CategoricalAggregationFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const DateAggregationFunction = {
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MIN: "MIN",
+} as const;
+
+/**
+ * @public
+ */
+export type DateAggregationFunction = (typeof DateAggregationFunction)[keyof typeof DateAggregationFunction];
 
 /**
  * @public
@@ -215,20 +240,27 @@ export interface PercentileAggregation {
 
 /**
  * @public
+ * @enum
  */
-export enum SimpleNumericalAggregationFunction {
-  AVERAGE = "AVERAGE",
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-  MAX = "MAX",
-  MEDIAN = "MEDIAN",
-  MIN = "MIN",
-  STDEV = "STDEV",
-  STDEVP = "STDEVP",
-  SUM = "SUM",
-  VAR = "VAR",
-  VARP = "VARP",
-}
+export const SimpleNumericalAggregationFunction = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MEDIAN: "MEDIAN",
+  MIN: "MIN",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
+  SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
+} as const;
+
+/**
+ * @public
+ */
+export type SimpleNumericalAggregationFunction =
+  (typeof SimpleNumericalAggregationFunction)[keyof typeof SimpleNumericalAggregationFunction];
 
 /**
  * @public
@@ -360,11 +392,17 @@ export interface ColumnIdentifier {
 
 /**
  * @public
+ * @enum
  */
-export enum SortDirection {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortDirection = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];
 
 /**
  * @public
@@ -421,19 +459,25 @@ export interface AmazonOpenSearchParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum AnalysisErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+export const AnalysisErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisErrorType = (typeof AnalysisErrorType)[keyof typeof AnalysisErrorType];
 
 /**
  * @public
@@ -490,16 +534,22 @@ export interface Sheet {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
-  DELETED = "DELETED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
-}
+export const ResourceStatus = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
+  DELETED: "DELETED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
  * @public
@@ -592,11 +642,17 @@ export interface DefaultFreeFormLayoutConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ResizeOption {
-  FIXED = "FIXED",
-  RESPONSIVE = "RESPONSIVE",
-}
+export const ResizeOption = {
+  FIXED: "FIXED",
+  RESPONSIVE: "RESPONSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResizeOption = (typeof ResizeOption)[keyof typeof ResizeOption];
 
 /**
  * @public
@@ -692,28 +748,40 @@ export interface Spacing {
 
 /**
  * @public
+ * @enum
  */
-export enum PaperOrientation {
-  LANDSCAPE = "LANDSCAPE",
-  PORTRAIT = "PORTRAIT",
-}
+export const PaperOrientation = {
+  LANDSCAPE: "LANDSCAPE",
+  PORTRAIT: "PORTRAIT",
+} as const;
 
 /**
  * @public
  */
-export enum PaperSize {
-  A0 = "A0",
-  A1 = "A1",
-  A2 = "A2",
-  A3 = "A3",
-  A4 = "A4",
-  A5 = "A5",
-  JIS_B4 = "JIS_B4",
-  JIS_B5 = "JIS_B5",
-  US_LEGAL = "US_LEGAL",
-  US_LETTER = "US_LETTER",
-  US_TABLOID_LEDGER = "US_TABLOID_LEDGER",
-}
+export type PaperOrientation = (typeof PaperOrientation)[keyof typeof PaperOrientation];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaperSize = {
+  A0: "A0",
+  A1: "A1",
+  A2: "A2",
+  A3: "A3",
+  A4: "A4",
+  A5: "A5",
+  JIS_B4: "JIS_B4",
+  JIS_B5: "JIS_B5",
+  US_LEGAL: "US_LEGAL",
+  US_LETTER: "US_LETTER",
+  US_TABLOID_LEDGER: "US_TABLOID_LEDGER",
+} as const;
+
+/**
+ * @public
+ */
+export type PaperSize = (typeof PaperSize)[keyof typeof PaperSize];
 
 /**
  * @public
@@ -781,11 +849,17 @@ export interface DefaultPaginatedLayoutConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SheetContentType {
-  INTERACTIVE = "INTERACTIVE",
-  PAGINATED = "PAGINATED",
-}
+export const SheetContentType = {
+  INTERACTIVE: "INTERACTIVE",
+  PAGINATED: "PAGINATED",
+} as const;
+
+/**
+ * @public
+ */
+export type SheetContentType = (typeof SheetContentType)[keyof typeof SheetContentType];
 
 /**
  * @public
@@ -864,11 +938,17 @@ export interface DecimalPlacesConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum NegativeValueDisplayMode {
-  NEGATIVE = "NEGATIVE",
-  POSITIVE = "POSITIVE",
-}
+export const NegativeValueDisplayMode = {
+  NEGATIVE: "NEGATIVE",
+  POSITIVE: "POSITIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type NegativeValueDisplayMode = (typeof NegativeValueDisplayMode)[keyof typeof NegativeValueDisplayMode];
 
 /**
  * @public
@@ -883,32 +963,50 @@ export interface NegativeValueConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum NumberScale {
-  AUTO = "AUTO",
-  BILLIONS = "BILLIONS",
-  MILLIONS = "MILLIONS",
-  NONE = "NONE",
-  THOUSANDS = "THOUSANDS",
-  TRILLIONS = "TRILLIONS",
-}
+export const NumberScale = {
+  AUTO: "AUTO",
+  BILLIONS: "BILLIONS",
+  MILLIONS: "MILLIONS",
+  NONE: "NONE",
+  THOUSANDS: "THOUSANDS",
+  TRILLIONS: "TRILLIONS",
+} as const;
 
 /**
  * @public
  */
-export enum NumericSeparatorSymbol {
-  COMMA = "COMMA",
-  DOT = "DOT",
-  SPACE = "SPACE",
-}
+export type NumberScale = (typeof NumberScale)[keyof typeof NumberScale];
+
+/**
+ * @public
+ * @enum
+ */
+export const NumericSeparatorSymbol = {
+  COMMA: "COMMA",
+  DOT: "DOT",
+  SPACE: "SPACE",
+} as const;
 
 /**
  * @public
  */
-export enum Visibility {
-  HIDDEN = "HIDDEN",
-  VISIBLE = "VISIBLE",
-}
+export type NumericSeparatorSymbol = (typeof NumericSeparatorSymbol)[keyof typeof NumericSeparatorSymbol];
+
+/**
+ * @public
+ * @enum
+ */
+export const Visibility = {
+  HIDDEN: "HIDDEN",
+  VISIBLE: "VISIBLE",
+} as const;
+
+/**
+ * @public
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
 
 /**
  * @public
@@ -1158,11 +1256,17 @@ export interface FormatConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ColumnRole {
-  DIMENSION = "DIMENSION",
-  MEASURE = "MEASURE",
-}
+export const ColumnRole = {
+  DIMENSION: "DIMENSION",
+  MEASURE: "MEASURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnRole = (typeof ColumnRole)[keyof typeof ColumnRole];
 
 /**
  * @public
@@ -1203,39 +1307,65 @@ export interface DataSetIdentifierDeclaration {
 
 /**
  * @public
+ * @enum
  */
-export enum CrossDatasetTypes {
-  ALL_DATASETS = "ALL_DATASETS",
-  SINGLE_DATASET = "SINGLE_DATASET",
-}
+export const CrossDatasetTypes = {
+  ALL_DATASETS: "ALL_DATASETS",
+  SINGLE_DATASET: "SINGLE_DATASET",
+} as const;
 
 /**
  * @public
  */
-export enum CategoryFilterMatchOperator {
-  CONTAINS = "CONTAINS",
-  DOES_NOT_CONTAIN = "DOES_NOT_CONTAIN",
-  DOES_NOT_EQUAL = "DOES_NOT_EQUAL",
-  ENDS_WITH = "ENDS_WITH",
-  EQUALS = "EQUALS",
-  STARTS_WITH = "STARTS_WITH",
-}
+export type CrossDatasetTypes = (typeof CrossDatasetTypes)[keyof typeof CrossDatasetTypes];
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterMatchOperator = {
+  CONTAINS: "CONTAINS",
+  DOES_NOT_CONTAIN: "DOES_NOT_CONTAIN",
+  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
+  ENDS_WITH: "ENDS_WITH",
+  EQUALS: "EQUALS",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
 
 /**
  * @public
  */
-export enum FilterNullOption {
-  ALL_VALUES = "ALL_VALUES",
-  NON_NULLS_ONLY = "NON_NULLS_ONLY",
-  NULLS_ONLY = "NULLS_ONLY",
-}
+export type CategoryFilterMatchOperator =
+  (typeof CategoryFilterMatchOperator)[keyof typeof CategoryFilterMatchOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterNullOption = {
+  ALL_VALUES: "ALL_VALUES",
+  NON_NULLS_ONLY: "NON_NULLS_ONLY",
+  NULLS_ONLY: "NULLS_ONLY",
+} as const;
 
 /**
  * @public
  */
-export enum CategoryFilterSelectAllOptions {
-  FILTER_ALL_VALUES = "FILTER_ALL_VALUES",
-}
+export type FilterNullOption = (typeof FilterNullOption)[keyof typeof FilterNullOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterSelectAllOptions = {
+  FILTER_ALL_VALUES: "FILTER_ALL_VALUES",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterSelectAllOptions =
+  (typeof CategoryFilterSelectAllOptions)[keyof typeof CategoryFilterSelectAllOptions];
 
 /**
  * @public
@@ -1412,18 +1542,32 @@ export interface CategoryFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum NumericEqualityMatchOperator {
-  DOES_NOT_EQUAL = "DOES_NOT_EQUAL",
-  EQUALS = "EQUALS",
-}
+export const NumericEqualityMatchOperator = {
+  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
+  EQUALS: "EQUALS",
+} as const;
 
 /**
  * @public
  */
-export enum NumericFilterSelectAllOptions {
-  FILTER_ALL_VALUES = "FILTER_ALL_VALUES",
-}
+export type NumericEqualityMatchOperator =
+  (typeof NumericEqualityMatchOperator)[keyof typeof NumericEqualityMatchOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const NumericFilterSelectAllOptions = {
+  FILTER_ALL_VALUES: "FILTER_ALL_VALUES",
+} as const;
+
+/**
+ * @public
+ */
+export type NumericFilterSelectAllOptions =
+  (typeof NumericFilterSelectAllOptions)[keyof typeof NumericFilterSelectAllOptions];
 
 /**
  * @public
@@ -1582,10 +1726,16 @@ export interface NumericRangeFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum AnchorOption {
-  NOW = "NOW",
-}
+export const AnchorOption = {
+  NOW: "NOW",
+} as const;
+
+/**
+ * @public
+ */
+export type AnchorOption = (typeof AnchorOption)[keyof typeof AnchorOption];
 
 /**
  * @public
@@ -1612,26 +1762,38 @@ export interface AnchorDateConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeGranularity {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MILLISECOND = "MILLISECOND",
-  MINUTE = "MINUTE",
-  MONTH = "MONTH",
-  QUARTER = "QUARTER",
-  SECOND = "SECOND",
-  WEEK = "WEEK",
-  YEAR = "YEAR",
-}
+export const TimeGranularity = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MILLISECOND: "MILLISECOND",
+  MINUTE: "MINUTE",
+  MONTH: "MONTH",
+  QUARTER: "QUARTER",
+  SECOND: "SECOND",
+  WEEK: "WEEK",
+  YEAR: "YEAR",
+} as const;
 
 /**
  * @public
  */
-export enum WidgetStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type TimeGranularity = (typeof TimeGranularity)[keyof typeof TimeGranularity];
+
+/**
+ * @public
+ * @enum
+ */
+export const WidgetStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type WidgetStatus = (typeof WidgetStatus)[keyof typeof WidgetStatus];
 
 /**
  * @public
@@ -1668,14 +1830,20 @@ export interface ExcludePeriodConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RelativeDateType {
-  LAST = "LAST",
-  NEXT = "NEXT",
-  NOW = "NOW",
-  PREVIOUS = "PREVIOUS",
-  THIS = "THIS",
-}
+export const RelativeDateType = {
+  LAST: "LAST",
+  NEXT: "NEXT",
+  NOW: "NOW",
+  PREVIOUS: "PREVIOUS",
+  THIS: "THIS",
+} as const;
+
+/**
+ * @public
+ */
+export type RelativeDateType = (typeof RelativeDateType)[keyof typeof RelativeDateType];
 
 /**
  * @public
@@ -1992,11 +2160,17 @@ export interface Filter {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterVisualScope {
-  ALL_VISUALS = "ALL_VISUALS",
-  SELECTED_VISUALS = "SELECTED_VISUALS",
-}
+export const FilterVisualScope = {
+  ALL_VISUALS: "ALL_VISUALS",
+  SELECTED_VISUALS: "SELECTED_VISUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterVisualScope = (typeof FilterVisualScope)[keyof typeof FilterVisualScope];
 
 /**
  * @public
@@ -2144,11 +2318,17 @@ export interface DateTimeDefaultValues {
 
 /**
  * @public
+ * @enum
  */
-export enum ValueWhenUnsetOption {
-  NULL = "NULL",
-  RECOMMENDED_VALUE = "RECOMMENDED_VALUE",
-}
+export const ValueWhenUnsetOption = {
+  NULL: "NULL",
+  RECOMMENDED_VALUE: "RECOMMENDED_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type ValueWhenUnsetOption = (typeof ValueWhenUnsetOption)[keyof typeof ValueWhenUnsetOption];
 
 /**
  * @public
@@ -2220,11 +2400,17 @@ export interface DecimalDefaultValues {
 
 /**
  * @public
+ * @enum
  */
-export enum ParameterValueType {
-  MULTI_VALUED = "MULTI_VALUED",
-  SINGLE_VALUED = "SINGLE_VALUED",
-}
+export const ParameterValueType = {
+  MULTI_VALUED: "MULTI_VALUED",
+  SINGLE_VALUED: "SINGLE_VALUED",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterValueType = (typeof ParameterValueType)[keyof typeof ParameterValueType];
 
 /**
  * @public
@@ -2445,22 +2631,34 @@ export interface ParameterDeclaration {
 
 /**
  * @public
+ * @enum
  */
-export enum FontDecoration {
-  NONE = "NONE",
-  UNDERLINE = "UNDERLINE",
-}
+export const FontDecoration = {
+  NONE: "NONE",
+  UNDERLINE: "UNDERLINE",
+} as const;
 
 /**
  * @public
  */
-export enum RelativeFontSize {
-  EXTRA_LARGE = "EXTRA_LARGE",
-  EXTRA_SMALL = "EXTRA_SMALL",
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-}
+export type FontDecoration = (typeof FontDecoration)[keyof typeof FontDecoration];
+
+/**
+ * @public
+ * @enum
+ */
+export const RelativeFontSize = {
+  EXTRA_LARGE: "EXTRA_LARGE",
+  EXTRA_SMALL: "EXTRA_SMALL",
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+} as const;
+
+/**
+ * @public
+ */
+export type RelativeFontSize = (typeof RelativeFontSize)[keyof typeof RelativeFontSize];
 
 /**
  * @public
@@ -2475,19 +2673,31 @@ export interface FontSize {
 
 /**
  * @public
+ * @enum
  */
-export enum FontStyle {
-  ITALIC = "ITALIC",
-  NORMAL = "NORMAL",
-}
+export const FontStyle = {
+  ITALIC: "ITALIC",
+  NORMAL: "NORMAL",
+} as const;
 
 /**
  * @public
  */
-export enum FontWeightName {
-  BOLD = "BOLD",
-  NORMAL = "NORMAL",
-}
+export type FontStyle = (typeof FontStyle)[keyof typeof FontStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const FontWeightName = {
+  BOLD: "BOLD",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type FontWeightName = (typeof FontWeightName)[keyof typeof FontWeightName];
 
 /**
  * @public
@@ -2570,11 +2780,18 @@ export interface DateTimePickerControlDisplayOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum SheetControlDateTimePickerType {
-  DATE_RANGE = "DATE_RANGE",
-  SINGLE_VALUED = "SINGLE_VALUED",
-}
+export const SheetControlDateTimePickerType = {
+  DATE_RANGE: "DATE_RANGE",
+  SINGLE_VALUED: "SINGLE_VALUED",
+} as const;
+
+/**
+ * @public
+ */
+export type SheetControlDateTimePickerType =
+  (typeof SheetControlDateTimePickerType)[keyof typeof SheetControlDateTimePickerType];
 
 /**
  * @public
@@ -2685,11 +2902,17 @@ export interface FilterSelectableValues {
 
 /**
  * @public
+ * @enum
  */
-export enum SheetControlListType {
-  MULTI_SELECT = "MULTI_SELECT",
-  SINGLE_SELECT = "SINGLE_SELECT",
-}
+export const SheetControlListType = {
+  MULTI_SELECT: "MULTI_SELECT",
+  SINGLE_SELECT: "SINGLE_SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type SheetControlListType = (typeof SheetControlListType)[keyof typeof SheetControlListType];
 
 /**
  * @public
@@ -2880,11 +3103,17 @@ export interface SliderControlDisplayOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum SheetControlSliderType {
-  RANGE = "RANGE",
-  SINGLE_POINT = "SINGLE_POINT",
-}
+export const SheetControlSliderType = {
+  RANGE: "RANGE",
+  SINGLE_POINT: "SINGLE_POINT",
+} as const;
+
+/**
+ * @public
+ */
+export type SheetControlSliderType = (typeof SheetControlSliderType)[keyof typeof SheetControlSliderType];
 
 /**
  * @public
@@ -3118,13 +3347,19 @@ export interface FreeFormLayoutElementBorderStyle {
 
 /**
  * @public
+ * @enum
  */
-export enum LayoutElementType {
-  FILTER_CONTROL = "FILTER_CONTROL",
-  PARAMETER_CONTROL = "PARAMETER_CONTROL",
-  TEXT_BOX = "TEXT_BOX",
-  VISUAL = "VISUAL",
-}
+export const LayoutElementType = {
+  FILTER_CONTROL: "FILTER_CONTROL",
+  PARAMETER_CONTROL: "PARAMETER_CONTROL",
+  TEXT_BOX: "TEXT_BOX",
+  VISUAL: "VISUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type LayoutElementType = (typeof LayoutElementType)[keyof typeof LayoutElementType];
 
 /**
  * @public
@@ -3346,11 +3581,17 @@ export interface BodySectionContent {
 
 /**
  * @public
+ * @enum
  */
-export enum SectionPageBreakStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const SectionPageBreakStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type SectionPageBreakStatus = (typeof SectionPageBreakStatus)[keyof typeof SectionPageBreakStatus];
 
 /**
  * @public
@@ -3800,10 +4041,16 @@ export interface SheetTextBox {
 
 /**
  * @public
+ * @enum
  */
-export enum SelectedFieldOptions {
-  ALL_FIELDS = "ALL_FIELDS",
-}
+export const SelectedFieldOptions = {
+  ALL_FIELDS: "ALL_FIELDS",
+} as const;
+
+/**
+ * @public
+ */
+export type SelectedFieldOptions = (typeof SelectedFieldOptions)[keyof typeof SelectedFieldOptions];
 
 /**
  * @public
@@ -3831,10 +4078,16 @@ export interface FilterOperationSelectedFieldsConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetVisualOptions {
-  ALL_VISUALS = "ALL_VISUALS",
-}
+export const TargetVisualOptions = {
+  ALL_VISUALS: "ALL_VISUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetVisualOptions = (typeof TargetVisualOptions)[keyof typeof TargetVisualOptions];
 
 /**
  * @public
@@ -3957,10 +4210,16 @@ export interface CustomValuesConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum SelectAllValueOptions {
-  ALL_VALUES = "ALL_VALUES",
-}
+export const SelectAllValueOptions = {
+  ALL_VALUES: "ALL_VALUES",
+} as const;
+
+/**
+ * @public
+ */
+export type SelectAllValueOptions = (typeof SelectAllValueOptions)[keyof typeof SelectAllValueOptions];
 
 /**
  * @public
@@ -4019,12 +4278,18 @@ export interface CustomActionSetParametersOperation {
 
 /**
  * @public
+ * @enum
  */
-export enum URLTargetConfiguration {
-  NEW_TAB = "NEW_TAB",
-  NEW_WINDOW = "NEW_WINDOW",
-  SAME_TAB = "SAME_TAB",
-}
+export const URLTargetConfiguration = {
+  NEW_TAB: "NEW_TAB",
+  NEW_WINDOW: "NEW_WINDOW",
+  SAME_TAB: "SAME_TAB",
+} as const;
+
+/**
+ * @public
+ */
+export type URLTargetConfiguration = (typeof URLTargetConfiguration)[keyof typeof URLTargetConfiguration];
 
 /**
  * @public
@@ -4086,11 +4351,17 @@ export interface VisualCustomActionOperation {
 
 /**
  * @public
+ * @enum
  */
-export enum VisualCustomActionTrigger {
-  DATA_POINT_CLICK = "DATA_POINT_CLICK",
-  DATA_POINT_MENU = "DATA_POINT_MENU",
-}
+export const VisualCustomActionTrigger = {
+  DATA_POINT_CLICK: "DATA_POINT_CLICK",
+  DATA_POINT_MENU: "DATA_POINT_MENU",
+} as const;
+
+/**
+ * @public
+ */
+export type VisualCustomActionTrigger = (typeof VisualCustomActionTrigger)[keyof typeof VisualCustomActionTrigger];
 
 /**
  * @public
@@ -4137,12 +4408,18 @@ export interface VisualCustomAction {
 
 /**
  * @public
+ * @enum
  */
-export enum BarsArrangement {
-  CLUSTERED = "CLUSTERED",
-  STACKED = "STACKED",
-  STACKED_PERCENT = "STACKED_PERCENT",
-}
+export const BarsArrangement = {
+  CLUSTERED: "CLUSTERED",
+  STACKED: "STACKED",
+  STACKED_PERCENT: "STACKED_PERCENT",
+} as const;
+
+/**
+ * @public
+ */
+export type BarsArrangement = (typeof BarsArrangement)[keyof typeof BarsArrangement];
 
 /**
  * @public
@@ -4558,32 +4835,50 @@ export interface DataLabelType {
 
 /**
  * @public
+ * @enum
  */
-export enum DataLabelContent {
-  PERCENT = "PERCENT",
-  VALUE = "VALUE",
-  VALUE_AND_PERCENT = "VALUE_AND_PERCENT",
-}
+export const DataLabelContent = {
+  PERCENT: "PERCENT",
+  VALUE: "VALUE",
+  VALUE_AND_PERCENT: "VALUE_AND_PERCENT",
+} as const;
 
 /**
  * @public
  */
-export enum DataLabelOverlap {
-  DISABLE_OVERLAP = "DISABLE_OVERLAP",
-  ENABLE_OVERLAP = "ENABLE_OVERLAP",
-}
+export type DataLabelContent = (typeof DataLabelContent)[keyof typeof DataLabelContent];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataLabelOverlap = {
+  DISABLE_OVERLAP: "DISABLE_OVERLAP",
+  ENABLE_OVERLAP: "ENABLE_OVERLAP",
+} as const;
 
 /**
  * @public
  */
-export enum DataLabelPosition {
-  BOTTOM = "BOTTOM",
-  INSIDE = "INSIDE",
-  LEFT = "LEFT",
-  OUTSIDE = "OUTSIDE",
-  RIGHT = "RIGHT",
-  TOP = "TOP",
-}
+export type DataLabelOverlap = (typeof DataLabelOverlap)[keyof typeof DataLabelOverlap];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataLabelPosition = {
+  BOTTOM: "BOTTOM",
+  INSIDE: "INSIDE",
+  LEFT: "LEFT",
+  OUTSIDE: "OUTSIDE",
+  RIGHT: "RIGHT",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type DataLabelPosition = (typeof DataLabelPosition)[keyof typeof DataLabelPosition];
 
 /**
  * @public
@@ -4948,13 +5243,19 @@ export interface BarChartFieldWells {
 
 /**
  * @public
+ * @enum
  */
-export enum LegendPosition {
-  AUTO = "AUTO",
-  BOTTOM = "BOTTOM",
-  RIGHT = "RIGHT",
-  TOP = "TOP",
-}
+export const LegendPosition = {
+  AUTO: "AUTO",
+  BOTTOM: "BOTTOM",
+  RIGHT: "RIGHT",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type LegendPosition = (typeof LegendPosition)[keyof typeof LegendPosition];
 
 /**
  * @public
@@ -5013,19 +5314,31 @@ export interface LegendOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum BarChartOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  VERTICAL = "VERTICAL",
-}
+export const BarChartOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  VERTICAL: "VERTICAL",
+} as const;
 
 /**
  * @public
  */
-export enum AxisBinding {
-  PRIMARY_YAXIS = "PRIMARY_YAXIS",
-  SECONDARY_YAXIS = "SECONDARY_YAXIS",
-}
+export type BarChartOrientation = (typeof BarChartOrientation)[keyof typeof BarChartOrientation];
+
+/**
+ * @public
+ * @enum
+ */
+export const AxisBinding = {
+  PRIMARY_YAXIS: "PRIMARY_YAXIS",
+  SECONDARY_YAXIS: "SECONDARY_YAXIS",
+} as const;
+
+/**
+ * @public
+ */
+export type AxisBinding = (typeof AxisBinding)[keyof typeof AxisBinding];
 
 /**
  * @public
@@ -5102,20 +5415,34 @@ export interface ReferenceLineCustomLabelConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceLineLabelHorizontalPosition {
-  CENTER = "CENTER",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-}
+export const ReferenceLineLabelHorizontalPosition = {
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
 
 /**
  * @public
  */
-export enum ReferenceLineValueLabelRelativePosition {
-  AFTER_CUSTOM_LABEL = "AFTER_CUSTOM_LABEL",
-  BEFORE_CUSTOM_LABEL = "BEFORE_CUSTOM_LABEL",
-}
+export type ReferenceLineLabelHorizontalPosition =
+  (typeof ReferenceLineLabelHorizontalPosition)[keyof typeof ReferenceLineLabelHorizontalPosition];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineValueLabelRelativePosition = {
+  AFTER_CUSTOM_LABEL: "AFTER_CUSTOM_LABEL",
+  BEFORE_CUSTOM_LABEL: "BEFORE_CUSTOM_LABEL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineValueLabelRelativePosition =
+  (typeof ReferenceLineValueLabelRelativePosition)[keyof typeof ReferenceLineValueLabelRelativePosition];
 
 /**
  * @public
@@ -5147,11 +5474,18 @@ export interface ReferenceLineValueLabelConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceLineLabelVerticalPosition {
-  ABOVE = "ABOVE",
-  BELOW = "BELOW",
-}
+export const ReferenceLineLabelVerticalPosition = {
+  ABOVE: "ABOVE",
+  BELOW: "BELOW",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineLabelVerticalPosition =
+  (typeof ReferenceLineLabelVerticalPosition)[keyof typeof ReferenceLineLabelVerticalPosition];
 
 /**
  * @public
@@ -5221,12 +5555,18 @@ export interface ReferenceLineLabelConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceLinePatternType {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
+export const ReferenceLinePatternType = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLinePatternType = (typeof ReferenceLinePatternType)[keyof typeof ReferenceLinePatternType];
 
 /**
  * @public
@@ -5302,22 +5642,34 @@ export interface ReferenceLine {
 
 /**
  * @public
+ * @enum
  */
-export enum PanelBorderStyle {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
+export const PanelBorderStyle = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
 
 /**
  * @public
  */
-export enum HorizontalTextAlignment {
-  AUTO = "AUTO",
-  CENTER = "CENTER",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-}
+export type PanelBorderStyle = (typeof PanelBorderStyle)[keyof typeof PanelBorderStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const HorizontalTextAlignment = {
+  AUTO: "AUTO",
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type HorizontalTextAlignment = (typeof HorizontalTextAlignment)[keyof typeof HorizontalTextAlignment];
 
 /**
  * @public
@@ -5419,11 +5771,17 @@ export interface SmallMultiplesOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum OtherCategories {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export const OtherCategories = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type OtherCategories = (typeof OtherCategories)[keyof typeof OtherCategories];
 
 /**
  * @public
@@ -5622,11 +5980,17 @@ export interface TooltipItem {
 
 /**
  * @public
+ * @enum
  */
-export enum TooltipTitleType {
-  NONE = "NONE",
-  PRIMARY_VALUE = "PRIMARY_VALUE",
-}
+export const TooltipTitleType = {
+  NONE: "NONE",
+  PRIMARY_VALUE: "PRIMARY_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type TooltipTitleType = (typeof TooltipTitleType)[keyof typeof TooltipTitleType];
 
 /**
  * @public
@@ -5662,11 +6026,17 @@ export interface FieldBasedTooltip {
 
 /**
  * @public
+ * @enum
  */
-export enum SelectedTooltipType {
-  BASIC = "BASIC",
-  DETAILED = "DETAILED",
-}
+export const SelectedTooltipType = {
+  BASIC: "BASIC",
+  DETAILED: "DETAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type SelectedTooltipType = (typeof SelectedTooltipType)[keyof typeof SelectedTooltipType];
 
 /**
  * @public
@@ -6134,11 +6504,17 @@ export interface BarChartVisual {
 
 /**
  * @public
+ * @enum
  */
-export enum BoxPlotFillStyle {
-  SOLID = "SOLID",
-  TRANSPARENT = "TRANSPARENT",
-}
+export const BoxPlotFillStyle = {
+  SOLID: "SOLID",
+  TRANSPARENT: "TRANSPARENT",
+} as const;
+
+/**
+ * @public
+ */
+export type BoxPlotFillStyle = (typeof BoxPlotFillStyle)[keyof typeof BoxPlotFillStyle];
 
 /**
  * @public

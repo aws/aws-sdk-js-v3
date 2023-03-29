@@ -44,22 +44,34 @@ import {
 
 /**
  * @public
+ * @enum
  */
-export enum SchemaStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
-}
+export const SchemaStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum SchemaVersionStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILURE = "FAILURE",
-  PENDING = "PENDING",
-}
+export type SchemaStatus = (typeof SchemaStatus)[keyof typeof SchemaStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaVersionStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  FAILURE: "FAILURE",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaVersionStatus = (typeof SchemaVersionStatus)[keyof typeof SchemaVersionStatus];
 
 /**
  * @public
@@ -206,11 +218,17 @@ export interface CodeGenNode {
 
 /**
  * @public
+ * @enum
  */
-export enum Language {
-  PYTHON = "PYTHON",
-  SCALA = "SCALA",
-}
+export const Language = {
+  PYTHON: "PYTHON",
+  SCALA: "SCALA",
+} as const;
+
+/**
+ * @public
+ */
+export type Language = (typeof Language)[keyof typeof Language];
 
 /**
  * @public
@@ -249,11 +267,17 @@ export interface CreateScriptResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CloudWatchEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+export const CloudWatchEncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudWatchEncryptionMode = (typeof CloudWatchEncryptionMode)[keyof typeof CloudWatchEncryptionMode];
 
 /**
  * @public
@@ -273,11 +297,17 @@ export interface CloudWatchEncryption {
 
 /**
  * @public
+ * @enum
  */
-export enum JobBookmarksEncryptionMode {
-  CSEKMS = "CSE-KMS",
-  DISABLED = "DISABLED",
-}
+export const JobBookmarksEncryptionMode = {
+  CSEKMS: "CSE-KMS",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobBookmarksEncryptionMode = (typeof JobBookmarksEncryptionMode)[keyof typeof JobBookmarksEncryptionMode];
 
 /**
  * @public
@@ -297,12 +327,18 @@ export interface JobBookmarksEncryption {
 
 /**
  * @public
+ * @enum
  */
-export enum S3EncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-  SSES3 = "SSE-S3",
-}
+export const S3EncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+  SSES3: "SSE-S3",
+} as const;
+
+/**
+ * @public
+ */
+export type S3EncryptionMode = (typeof S3EncryptionMode)[keyof typeof S3EncryptionMode];
 
 /**
  * @public
@@ -486,15 +522,21 @@ export interface CreateSessionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SessionStatus {
-  FAILED = "FAILED",
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TIMEOUT = "TIMEOUT",
-}
+export const SessionStatus = {
+  FAILED: "FAILED",
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TIMEOUT: "TIMEOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
 
 /**
  * @public
@@ -809,21 +851,33 @@ export interface CreateTriggerResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PrincipalType {
-  GROUP = "GROUP",
-  ROLE = "ROLE",
-  USER = "USER",
-}
+export const PrincipalType = {
+  GROUP: "GROUP",
+  ROLE: "ROLE",
+  USER: "USER",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  ARCHIVE = "ARCHIVE",
-  FILE = "FILE",
-  JAR = "JAR",
-}
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ARCHIVE: "ARCHIVE",
+  FILE: "FILE",
+  JAR: "JAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -1338,11 +1392,17 @@ export interface DeleteRegistryInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RegistryStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-}
+export const RegistryStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistryStatus = (typeof RegistryStatus)[keyof typeof RegistryStatus];
 
 /**
  * @public
@@ -1723,13 +1783,19 @@ export interface GetBlueprintRunRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BlueprintRunState {
-  FAILED = "FAILED",
-  ROLLING_BACK = "ROLLING_BACK",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BlueprintRunState = {
+  FAILED: "FAILED",
+  ROLLING_BACK: "ROLLING_BACK",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BlueprintRunState = (typeof BlueprintRunState)[keyof typeof BlueprintRunState];
 
 /**
  * @public
@@ -2378,16 +2444,22 @@ export interface StringColumnStatisticsData {
 
 /**
  * @public
+ * @enum
  */
-export enum ColumnStatisticsType {
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  DOUBLE = "DOUBLE",
-  LONG = "LONG",
-  STRING = "STRING",
-}
+export const ColumnStatisticsType = {
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnStatisticsType = (typeof ColumnStatisticsType)[keyof typeof ColumnStatisticsType];
 
 /**
  * @public
@@ -3093,11 +3165,17 @@ export interface GetDatabaseResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceShareType {
-  ALL = "ALL",
-  FOREIGN = "FOREIGN",
-}
+export const ResourceShareType = {
+  ALL: "ALL",
+  FOREIGN: "FOREIGN",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceShareType = (typeof ResourceShareType)[keyof typeof ResourceShareType];
 
 /**
  * @public
@@ -3191,11 +3269,17 @@ export interface ConnectionPasswordEncryption {
 
 /**
  * @public
+ * @enum
  */
-export enum CatalogEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+export const CatalogEncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type CatalogEncryptionMode = (typeof CatalogEncryptionMode)[keyof typeof CatalogEncryptionMode];
 
 /**
  * @public
@@ -3958,14 +4042,20 @@ export interface LabelingSetGenerationTaskRunProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskType {
-  EVALUATION = "EVALUATION",
-  EXPORT_LABELS = "EXPORT_LABELS",
-  FIND_MATCHES = "FIND_MATCHES",
-  IMPORT_LABELS = "IMPORT_LABELS",
-  LABELING_SET_GENERATION = "LABELING_SET_GENERATION",
-}
+export const TaskType = {
+  EVALUATION: "EVALUATION",
+  EXPORT_LABELS: "EXPORT_LABELS",
+  FIND_MATCHES: "FIND_MATCHES",
+  IMPORT_LABELS: "IMPORT_LABELS",
+  LABELING_SET_GENERATION: "LABELING_SET_GENERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskType = (typeof TaskType)[keyof typeof TaskType];
 
 /**
  * @public
@@ -4082,20 +4172,32 @@ export interface TaskRunFilterCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskRunSortColumnType {
-  STARTED = "STARTED",
-  STATUS = "STATUS",
-  TASK_RUN_TYPE = "TASK_RUN_TYPE",
-}
+export const TaskRunSortColumnType = {
+  STARTED: "STARTED",
+  STATUS: "STATUS",
+  TASK_RUN_TYPE: "TASK_RUN_TYPE",
+} as const;
 
 /**
  * @public
  */
-export enum SortDirectionType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type TaskRunSortColumnType = (typeof TaskRunSortColumnType)[keyof typeof TaskRunSortColumnType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortDirectionType = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortDirectionType = (typeof SortDirectionType)[keyof typeof SortDirectionType];
 
 /**
  * @public
@@ -4357,12 +4459,18 @@ export interface SchemaColumn {
 
 /**
  * @public
+ * @enum
  */
-export enum TransformStatusType {
-  DELETING = "DELETING",
-  NOT_READY = "NOT_READY",
-  READY = "READY",
-}
+export const TransformStatusType = {
+  DELETING: "DELETING",
+  NOT_READY: "NOT_READY",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformStatusType = (typeof TransformStatusType)[keyof typeof TransformStatusType];
 
 /**
  * @public
@@ -4539,14 +4647,20 @@ export interface TransformFilterCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum TransformSortColumnType {
-  CREATED = "CREATED",
-  LAST_MODIFIED = "LAST_MODIFIED",
-  NAME = "NAME",
-  STATUS = "STATUS",
-  TRANSFORM_TYPE = "TRANSFORM_TYPE",
-}
+export const TransformSortColumnType = {
+  CREATED: "CREATED",
+  LAST_MODIFIED: "LAST_MODIFIED",
+  NAME: "NAME",
+  STATUS: "STATUS",
+  TRANSFORM_TYPE: "TRANSFORM_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformSortColumnType = (typeof TransformSortColumnType)[keyof typeof TransformSortColumnType];
 
 /**
  * @public
@@ -4836,14 +4950,20 @@ export interface GetPartitionIndexesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BackfillErrorCode {
-  ENCRYPTED_PARTITION_ERROR = "ENCRYPTED_PARTITION_ERROR",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_PARTITION_TYPE_DATA_ERROR = "INVALID_PARTITION_TYPE_DATA_ERROR",
-  MISSING_PARTITION_VALUE_ERROR = "MISSING_PARTITION_VALUE_ERROR",
-  UNSUPPORTED_PARTITION_CHARACTER_ERROR = "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
-}
+export const BackfillErrorCode = {
+  ENCRYPTED_PARTITION_ERROR: "ENCRYPTED_PARTITION_ERROR",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_PARTITION_TYPE_DATA_ERROR: "INVALID_PARTITION_TYPE_DATA_ERROR",
+  MISSING_PARTITION_VALUE_ERROR: "MISSING_PARTITION_VALUE_ERROR",
+  UNSUPPORTED_PARTITION_CHARACTER_ERROR: "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type BackfillErrorCode = (typeof BackfillErrorCode)[keyof typeof BackfillErrorCode];
 
 /**
  * @public
@@ -4881,13 +5001,19 @@ export interface BackfillError {
 
 /**
  * @public
+ * @enum
  */
-export enum PartitionIndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+export const PartitionIndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type PartitionIndexStatus = (typeof PartitionIndexStatus)[keyof typeof PartitionIndexStatus];
 
 /**
  * @public
@@ -5582,10 +5708,16 @@ export interface GetSchemaVersionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SchemaDiffType {
-  SYNTAX_DIFF = "SYNTAX_DIFF",
-}
+export const SchemaDiffType = {
+  SYNTAX_DIFF: "SYNTAX_DIFF",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaDiffType = (typeof SchemaDiffType)[keyof typeof SchemaDiffType];
 
 /**
  * @public
@@ -5760,15 +5892,21 @@ export interface StatementOutputData {
 
 /**
  * @public
+ * @enum
  */
-export enum StatementState {
-  AVAILABLE = "AVAILABLE",
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  ERROR = "ERROR",
-  RUNNING = "RUNNING",
-  WAITING = "WAITING",
-}
+export const StatementState = {
+  AVAILABLE: "AVAILABLE",
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  ERROR: "ERROR",
+  RUNNING: "RUNNING",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type StatementState = (typeof StatementState)[keyof typeof StatementState];
 
 /**
  * @public
@@ -6275,11 +6413,17 @@ export interface GetTriggersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PermissionType {
-  CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
-  COLUMN_PERMISSION = "COLUMN_PERMISSION",
-}
+export const PermissionType = {
+  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION: "COLUMN_PERMISSION",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 /**
  * @public

@@ -254,14 +254,20 @@ export interface Batch {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceConnectorType {
-  MARKETO = "Marketo",
-  S3 = "S3",
-  SALESFORCE = "Salesforce",
-  SERVICENOW = "Servicenow",
-  ZENDESK = "Zendesk",
-}
+export const SourceConnectorType = {
+  MARKETO: "Marketo",
+  S3: "S3",
+  SALESFORCE: "Salesforce",
+  SERVICENOW: "Servicenow",
+  ZENDESK: "Zendesk",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceConnectorType = (typeof SourceConnectorType)[keyof typeof SourceConnectorType];
 
 /**
  * @public
@@ -412,125 +418,157 @@ export interface SourceFlowConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum MarketoConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const MarketoConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  GREATER_THAN: "GREATER_THAN",
+  LESS_THAN: "LESS_THAN",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+} as const;
 
 /**
  * @public
  */
-export enum S3ConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export type MarketoConnectorOperator = (typeof MarketoConnectorOperator)[keyof typeof MarketoConnectorOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+} as const;
 
 /**
  * @public
  */
-export enum SalesforceConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export type S3ConnectorOperator = (typeof S3ConnectorOperator)[keyof typeof S3ConnectorOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const SalesforceConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+} as const;
 
 /**
  * @public
  */
-export enum ServiceNowConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export type SalesforceConnectorOperator =
+  (typeof SalesforceConnectorOperator)[keyof typeof SalesforceConnectorOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceNowConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+} as const;
 
 /**
  * @public
  */
-export enum ZendeskConnectorOperator {
-  ADDITION = "ADDITION",
-  DIVISION = "DIVISION",
-  GREATER_THAN = "GREATER_THAN",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export type ServiceNowConnectorOperator =
+  (typeof ServiceNowConnectorOperator)[keyof typeof ServiceNowConnectorOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ZendeskConnectorOperator = {
+  ADDITION: "ADDITION",
+  DIVISION: "DIVISION",
+  GREATER_THAN: "GREATER_THAN",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ZendeskConnectorOperator = (typeof ZendeskConnectorOperator)[keyof typeof ZendeskConnectorOperator];
 
 /**
  * @public
@@ -565,36 +603,48 @@ export interface ConnectorOperator {
 
 /**
  * @public
+ * @enum
  */
-export enum OperatorPropertiesKeys {
-  CONCAT_FORMAT = "CONCAT_FORMAT",
-  DATA_TYPE = "DATA_TYPE",
-  DESTINATION_DATA_TYPE = "DESTINATION_DATA_TYPE",
-  LOWER_BOUND = "LOWER_BOUND",
-  MASK_LENGTH = "MASK_LENGTH",
-  MASK_VALUE = "MASK_VALUE",
-  MATH_OPERATION_FIELDS_ORDER = "MATH_OPERATION_FIELDS_ORDER",
-  SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE",
-  SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP",
-  TRUNCATE_LENGTH = "TRUNCATE_LENGTH",
-  UPPER_BOUND = "UPPER_BOUND",
-  VALIDATION_ACTION = "VALIDATION_ACTION",
-  VALUE = "VALUE",
-  VALUES = "VALUES",
-}
+export const OperatorPropertiesKeys = {
+  CONCAT_FORMAT: "CONCAT_FORMAT",
+  DATA_TYPE: "DATA_TYPE",
+  DESTINATION_DATA_TYPE: "DESTINATION_DATA_TYPE",
+  LOWER_BOUND: "LOWER_BOUND",
+  MASK_LENGTH: "MASK_LENGTH",
+  MASK_VALUE: "MASK_VALUE",
+  MATH_OPERATION_FIELDS_ORDER: "MATH_OPERATION_FIELDS_ORDER",
+  SOURCE_DATA_TYPE: "SOURCE_DATA_TYPE",
+  SUBFIELD_CATEGORY_MAP: "SUBFIELD_CATEGORY_MAP",
+  TRUNCATE_LENGTH: "TRUNCATE_LENGTH",
+  UPPER_BOUND: "UPPER_BOUND",
+  VALIDATION_ACTION: "VALIDATION_ACTION",
+  VALUE: "VALUE",
+  VALUES: "VALUES",
+} as const;
 
 /**
  * @public
  */
-export enum TaskType {
-  ARITHMETIC = "Arithmetic",
-  FILTER = "Filter",
-  MAP = "Map",
-  MASK = "Mask",
-  MERGE = "Merge",
-  TRUNCATE = "Truncate",
-  VALIDATE = "Validate",
-}
+export type OperatorPropertiesKeys = (typeof OperatorPropertiesKeys)[keyof typeof OperatorPropertiesKeys];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskType = {
+  ARITHMETIC: "Arithmetic",
+  FILTER: "Filter",
+  MAP: "Map",
+  MASK: "Mask",
+  MERGE: "Merge",
+  TRUNCATE: "Truncate",
+  VALIDATE: "Validate",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskType = (typeof TaskType)[keyof typeof TaskType];
 
 /**
  * @public
@@ -632,11 +682,17 @@ export interface Task {
 
 /**
  * @public
+ * @enum
  */
-export enum DataPullMode {
-  COMPLETE = "Complete",
-  INCREMENTAL = "Incremental",
-}
+export const DataPullMode = {
+  COMPLETE: "Complete",
+  INCREMENTAL: "Incremental",
+} as const;
+
+/**
+ * @public
+ */
+export type DataPullMode = (typeof DataPullMode)[keyof typeof DataPullMode];
 
 /**
  * @public
@@ -699,12 +755,18 @@ export interface TriggerProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum TriggerType {
-  EVENT = "Event",
-  ONDEMAND = "OnDemand",
-  SCHEDULED = "Scheduled",
-}
+export const TriggerType = {
+  EVENT: "Event",
+  ONDEMAND: "OnDemand",
+  SCHEDULED: "Scheduled",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 /**
  * @public
@@ -827,16 +889,22 @@ export interface AppflowIntegrationWorkflowMetrics {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  CANCELLED = "CANCELLED",
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  RETRY = "RETRY",
-  SPLIT = "SPLIT",
-}
+export const Status = {
+  CANCELLED: "CANCELLED",
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  RETRY: "RETRY",
+  SPLIT: "SPLIT",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -886,11 +954,17 @@ export interface AppflowIntegrationWorkflowStep {
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictResolvingModel {
-  RECENCY = "RECENCY",
-  SOURCE = "SOURCE",
-}
+export const ConflictResolvingModel = {
+  RECENCY: "RECENCY",
+  SOURCE: "SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictResolvingModel = (typeof ConflictResolvingModel)[keyof typeof ConflictResolvingModel];
 
 /**
  * @public
@@ -999,16 +1073,22 @@ export interface ExportingConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum JobScheduleDayOfTheWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const JobScheduleDayOfTheWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type JobScheduleDayOfTheWeek = (typeof JobScheduleDayOfTheWeek)[keyof typeof JobScheduleDayOfTheWeek];
 
 /**
  * @public
@@ -1193,10 +1273,16 @@ export interface IntegrationConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowType {
-  APPFLOW_INTEGRATION = "APPFLOW_INTEGRATION",
-}
+export const WorkflowType = {
+  APPFLOW_INTEGRATION: "APPFLOW_INTEGRATION",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
 
 /**
  * @public
@@ -1250,21 +1336,33 @@ export interface CreateIntegrationWorkflowResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Gender {
-  FEMALE = "FEMALE",
-  MALE = "MALE",
-  UNSPECIFIED = "UNSPECIFIED",
-}
+export const Gender = {
+  FEMALE: "FEMALE",
+  MALE: "MALE",
+  UNSPECIFIED: "UNSPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum PartyType {
-  BUSINESS = "BUSINESS",
-  INDIVIDUAL = "INDIVIDUAL",
-  OTHER = "OTHER",
-}
+export type Gender = (typeof Gender)[keyof typeof Gender];
+
+/**
+ * @public
+ * @enum
+ */
+export const PartyType = {
+  BUSINESS: "BUSINESS",
+  INDIVIDUAL: "INDIVIDUAL",
+  OTHER: "OTHER",
+} as const;
+
+/**
+ * @public
+ */
+export type PartyType = (typeof PartyType)[keyof typeof PartyType];
 
 /**
  * @public
@@ -1806,16 +1904,23 @@ export interface JobStats {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityResolutionJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FIND_MATCHING = "FIND_MATCHING",
-  MERGING = "MERGING",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  PENDING = "PENDING",
-  PREPROCESSING = "PREPROCESSING",
-}
+export const IdentityResolutionJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  FIND_MATCHING: "FIND_MATCHING",
+  MERGING: "MERGING",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  PENDING: "PENDING",
+  PREPROCESSING: "PREPROCESSING",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityResolutionJobStatus =
+  (typeof IdentityResolutionJobStatus)[keyof typeof IdentityResolutionJobStatus];
 
 /**
  * @public
@@ -2070,14 +2175,20 @@ export interface GetProfileObjectTypeRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FieldContentType {
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  NAME = "NAME",
-  NUMBER = "NUMBER",
-  PHONE_NUMBER = "PHONE_NUMBER",
-  STRING = "STRING",
-}
+export const FieldContentType = {
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  NAME: "NAME",
+  NUMBER: "NUMBER",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldContentType = (typeof FieldContentType)[keyof typeof FieldContentType];
 
 /**
  * @public
@@ -2104,17 +2215,23 @@ export interface ObjectTypeField {
 
 /**
  * @public
+ * @enum
  */
-export enum StandardIdentifier {
-  ASSET = "ASSET",
-  CASE = "CASE",
-  LOOKUP_ONLY = "LOOKUP_ONLY",
-  NEW_ONLY = "NEW_ONLY",
-  ORDER = "ORDER",
-  PROFILE = "PROFILE",
-  SECONDARY = "SECONDARY",
-  UNIQUE = "UNIQUE",
-}
+export const StandardIdentifier = {
+  ASSET: "ASSET",
+  CASE: "CASE",
+  LOOKUP_ONLY: "LOOKUP_ONLY",
+  NEW_ONLY: "NEW_ONLY",
+  ORDER: "ORDER",
+  PROFILE: "PROFILE",
+  SECONDARY: "SECONDARY",
+  UNIQUE: "UNIQUE",
+} as const;
+
+/**
+ * @public
+ */
+export type StandardIdentifier = (typeof StandardIdentifier)[keyof typeof StandardIdentifier];
 
 /**
  * @public
@@ -3454,11 +3571,17 @@ export interface PutProfileObjectTypeResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LogicalOperator {
-  AND = "AND",
-  OR = "OR",
-}
+export const LogicalOperator = {
+  AND: "AND",
+  OR: "OR",
+} as const;
+
+/**
+ * @public
+ */
+export type LogicalOperator = (typeof LogicalOperator)[keyof typeof LogicalOperator];
 
 /**
  * @public

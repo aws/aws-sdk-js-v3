@@ -75,29 +75,47 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum BaseModelName {
-  NARROW_BAND = "NarrowBand",
-  WIDE_BAND = "WideBand",
-}
+export const BaseModelName = {
+  NARROW_BAND: "NarrowBand",
+  WIDE_BAND: "WideBand",
+} as const;
 
 /**
  * @public
  */
-export enum CallAnalyticsJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-}
+export type BaseModelName = (typeof BaseModelName)[keyof typeof BaseModelName];
+
+/**
+ * @public
+ * @enum
+ */
+export const CallAnalyticsJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+} as const;
 
 /**
  * @public
  */
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-}
+export type CallAnalyticsJobStatus = (typeof CallAnalyticsJobStatus)[keyof typeof CallAnalyticsJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
 
 /**
  * @public
@@ -121,48 +139,54 @@ export interface ChannelDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum LanguageCode {
-  AF_ZA = "af-ZA",
-  AR_AE = "ar-AE",
-  AR_SA = "ar-SA",
-  DA_DK = "da-DK",
-  DE_CH = "de-CH",
-  DE_DE = "de-DE",
-  EN_AB = "en-AB",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_IE = "en-IE",
-  EN_IN = "en-IN",
-  EN_NZ = "en-NZ",
-  EN_US = "en-US",
-  EN_WL = "en-WL",
-  EN_ZA = "en-ZA",
-  ES_ES = "es-ES",
-  ES_US = "es-US",
-  FA_IR = "fa-IR",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  HE_IL = "he-IL",
-  HI_IN = "hi-IN",
-  ID_ID = "id-ID",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  MS_MY = "ms-MY",
-  NL_NL = "nl-NL",
-  PT_BR = "pt-BR",
-  PT_PT = "pt-PT",
-  RU_RU = "ru-RU",
-  SV_SE = "sv-SE",
-  TA_IN = "ta-IN",
-  TE_IN = "te-IN",
-  TH_TH = "th-TH",
-  TR_TR = "tr-TR",
-  VI_VN = "vi-VN",
-  ZH_CN = "zh-CN",
-  ZH_TW = "zh-TW",
-}
+export const LanguageCode = {
+  AF_ZA: "af-ZA",
+  AR_AE: "ar-AE",
+  AR_SA: "ar-SA",
+  DA_DK: "da-DK",
+  DE_CH: "de-CH",
+  DE_DE: "de-DE",
+  EN_AB: "en-AB",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_IE: "en-IE",
+  EN_IN: "en-IN",
+  EN_NZ: "en-NZ",
+  EN_US: "en-US",
+  EN_WL: "en-WL",
+  EN_ZA: "en-ZA",
+  ES_ES: "es-ES",
+  ES_US: "es-US",
+  FA_IR: "fa-IR",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  HE_IL: "he-IL",
+  HI_IN: "hi-IN",
+  ID_ID: "id-ID",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  MS_MY: "ms-MY",
+  NL_NL: "nl-NL",
+  PT_BR: "pt-BR",
+  PT_PT: "pt-PT",
+  RU_RU: "ru-RU",
+  SV_SE: "sv-SE",
+  TA_IN: "ta-IN",
+  TE_IN: "te-IN",
+  TH_TH: "th-TH",
+  TR_TR: "tr-TR",
+  VI_VN: "vi-VN",
+  ZH_CN: "zh-CN",
+  ZH_TW: "zh-TW",
+} as const;
+
+/**
+ * @public
+ */
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * @public
@@ -223,49 +247,73 @@ export interface Media {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaFormat {
-  AMR = "amr",
-  FLAC = "flac",
-  MP3 = "mp3",
-  MP4 = "mp4",
-  OGG = "ogg",
-  WAV = "wav",
-  WEBM = "webm",
-}
+export const MediaFormat = {
+  AMR: "amr",
+  FLAC: "flac",
+  MP3: "mp3",
+  MP4: "mp4",
+  OGG: "ogg",
+  WAV: "wav",
+  WEBM: "webm",
+} as const;
 
 /**
  * @public
  */
-export enum PiiEntityType {
-  ADDRESS = "ADDRESS",
-  ALL = "ALL",
-  BANK_ACCOUNT_NUMBER = "BANK_ACCOUNT_NUMBER",
-  BANK_ROUTING = "BANK_ROUTING",
-  CREDIT_DEBIT_CVV = "CREDIT_DEBIT_CVV",
-  CREDIT_DEBIT_EXPIRY = "CREDIT_DEBIT_EXPIRY",
-  CREDIT_DEBIT_NUMBER = "CREDIT_DEBIT_NUMBER",
-  EMAIL = "EMAIL",
-  NAME = "NAME",
-  PHONE = "PHONE",
-  PIN = "PIN",
-  SSN = "SSN",
-}
+export type MediaFormat = (typeof MediaFormat)[keyof typeof MediaFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const PiiEntityType = {
+  ADDRESS: "ADDRESS",
+  ALL: "ALL",
+  BANK_ACCOUNT_NUMBER: "BANK_ACCOUNT_NUMBER",
+  BANK_ROUTING: "BANK_ROUTING",
+  CREDIT_DEBIT_CVV: "CREDIT_DEBIT_CVV",
+  CREDIT_DEBIT_EXPIRY: "CREDIT_DEBIT_EXPIRY",
+  CREDIT_DEBIT_NUMBER: "CREDIT_DEBIT_NUMBER",
+  EMAIL: "EMAIL",
+  NAME: "NAME",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SSN: "SSN",
+} as const;
 
 /**
  * @public
  */
-export enum RedactionOutput {
-  REDACTED = "redacted",
-  REDACTED_AND_UNREDACTED = "redacted_and_unredacted",
-}
+export type PiiEntityType = (typeof PiiEntityType)[keyof typeof PiiEntityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RedactionOutput = {
+  REDACTED: "redacted",
+  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
+} as const;
 
 /**
  * @public
  */
-export enum RedactionType {
-  PII = "PII",
-}
+export type RedactionOutput = (typeof RedactionOutput)[keyof typeof RedactionOutput];
+
+/**
+ * @public
+ * @enum
+ */
+export const RedactionType = {
+  PII: "PII",
+} as const;
+
+/**
+ * @public
+ */
+export type RedactionType = (typeof RedactionType)[keyof typeof RedactionType];
 
 /**
  * @public
@@ -368,12 +416,18 @@ export interface LanguageIdSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum VocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+export const VocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+} as const;
+
+/**
+ * @public
+ */
+export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeof VocabularyFilterMethod];
 
 /**
  * @public
@@ -738,11 +792,17 @@ export interface CallAnalyticsJobSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum InputType {
-  POST_CALL = "POST_CALL",
-  REAL_TIME = "REAL_TIME",
-}
+export const InputType = {
+  POST_CALL: "POST_CALL",
+  REAL_TIME: "REAL_TIME",
+} as const;
+
+/**
+ * @public
+ */
+export type InputType = (typeof InputType)[keyof typeof InputType];
 
 /**
  * @public
@@ -885,13 +945,19 @@ export interface NonTalkTimeFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum SentimentValue {
-  MIXED = "MIXED",
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+export const SentimentValue = {
+  MIXED: "MIXED",
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type SentimentValue = (typeof SentimentValue)[keyof typeof SentimentValue];
 
 /**
  * @public
@@ -953,10 +1019,16 @@ export interface SentimentFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum TranscriptFilterType {
-  EXACT = "EXACT",
-}
+export const TranscriptFilterType = {
+  EXACT: "EXACT",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscriptFilterType = (typeof TranscriptFilterType)[keyof typeof TranscriptFilterType];
 
 /**
  * @public
@@ -1163,16 +1235,22 @@ export interface CategoryProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum CLMLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  HI_IN = "hi-IN",
-  JA_JP = "ja-JP",
-}
+export const CLMLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  HI_IN: "hi-IN",
+  JA_JP: "ja-JP",
+} as const;
+
+/**
+ * @public
+ */
+export type CLMLanguageCode = (typeof CLMLanguageCode)[keyof typeof CLMLanguageCode];
 
 /**
  * @public
@@ -1418,12 +1496,18 @@ export interface CreateLanguageModelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ModelStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
 
 /**
  * @public
@@ -1499,12 +1583,18 @@ export interface CreateMedicalVocabularyRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VocabularyState {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  READY = "READY",
-}
+export const VocabularyState = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type VocabularyState = (typeof VocabularyState)[keyof typeof VocabularyState];
 
 /**
  * @public
@@ -2062,10 +2152,17 @@ export interface GetMedicalTranscriptionJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MedicalContentIdentificationType {
-  PHI = "PHI",
-}
+export const MedicalContentIdentificationType = {
+  PHI: "PHI",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalContentIdentificationType =
+  (typeof MedicalContentIdentificationType)[keyof typeof MedicalContentIdentificationType];
 
 /**
  * @public
@@ -2148,10 +2245,16 @@ export interface MedicalTranscriptionSetting {
 
 /**
  * @public
+ * @enum
  */
-export enum Specialty {
-  PRIMARYCARE = "PRIMARYCARE",
-}
+export const Specialty = {
+  PRIMARYCARE: "PRIMARYCARE",
+} as const;
+
+/**
+ * @public
+ */
+export type Specialty = (typeof Specialty)[keyof typeof Specialty];
 
 /**
  * @public
@@ -2170,21 +2273,33 @@ export interface MedicalTranscript {
 
 /**
  * @public
+ * @enum
  */
-export enum TranscriptionJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-}
+export const TranscriptionJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+} as const;
 
 /**
  * @public
  */
-export enum Type {
-  CONVERSATION = "CONVERSATION",
-  DICTATION = "DICTATION",
-}
+export type TranscriptionJobStatus = (typeof TranscriptionJobStatus)[keyof typeof TranscriptionJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  CONVERSATION: "CONVERSATION",
+  DICTATION: "DICTATION",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public
@@ -2602,11 +2717,17 @@ export interface Settings {
 
 /**
  * @public
+ * @enum
  */
-export enum SubtitleFormat {
-  SRT = "srt",
-  VTT = "vtt",
-}
+export const SubtitleFormat = {
+  SRT: "srt",
+  VTT: "vtt",
+} as const;
+
+/**
+ * @public
+ */
+export type SubtitleFormat = (typeof SubtitleFormat)[keyof typeof SubtitleFormat];
 
 /**
  * @public
@@ -3153,11 +3274,17 @@ export interface ListMedicalTranscriptionJobsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OutputLocationType {
-  CUSTOMER_BUCKET = "CUSTOMER_BUCKET",
-  SERVICE_BUCKET = "SERVICE_BUCKET",
-}
+export const OutputLocationType = {
+  CUSTOMER_BUCKET: "CUSTOMER_BUCKET",
+  SERVICE_BUCKET: "SERVICE_BUCKET",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputLocationType = (typeof OutputLocationType)[keyof typeof OutputLocationType];
 
 /**
  * @public

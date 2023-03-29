@@ -395,10 +395,16 @@ export interface ListCasesForContactResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CommentBodyTextType {
-  PLAINTEXT = "Text/Plain",
-}
+export const CommentBodyTextType = {
+  PLAINTEXT: "Text/Plain",
+} as const;
+
+/**
+ * @public
+ */
+export type CommentBodyTextType = (typeof CommentBodyTextType)[keyof typeof CommentBodyTextType];
 
 /**
  * @public
@@ -479,11 +485,17 @@ export namespace RelatedItemInputContent {
 
 /**
  * @public
+ * @enum
  */
-export enum RelatedItemType {
-  COMMENT = "Comment",
-  CONTACT = "Contact",
-}
+export const RelatedItemType = {
+  COMMENT: "Comment",
+  CONTACT: "Contact",
+} as const;
+
+/**
+ * @public
+ */
+export type RelatedItemType = (typeof RelatedItemType)[keyof typeof RelatedItemType];
 
 /**
  * @public
@@ -895,11 +907,17 @@ export namespace FieldFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum Order {
-  ASCENDING = "Asc",
-  DESCENDING = "Desc",
-}
+export const Order = {
+  ASCENDING: "Asc",
+  DESCENDING: "Desc",
+} as const;
+
+/**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
 
 /**
  * @public
@@ -998,12 +1016,18 @@ export interface CreateDomainRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainStatus {
-  ACTIVE = "Active",
-  CREATION_FAILED = "CreationFailed",
-  CREATION_IN_PROGRESS = "CreationInProgress",
-}
+export const DomainStatus = {
+  ACTIVE: "Active",
+  CREATION_FAILED: "CreationFailed",
+  CREATION_IN_PROGRESS: "CreationInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 /**
  * @public
@@ -1274,22 +1298,34 @@ export interface FieldError {
 
 /**
  * @public
+ * @enum
  */
-export enum FieldNamespace {
-  CUSTOM = "Custom",
-  SYSTEM = "System",
-}
+export const FieldNamespace = {
+  CUSTOM: "Custom",
+  SYSTEM: "System",
+} as const;
 
 /**
  * @public
  */
-export enum FieldType {
-  BOOLEAN = "Boolean",
-  DATE_TIME = "DateTime",
-  NUMBER = "Number",
-  SINGLE_SELECT = "SingleSelect",
-  TEXT = "Text",
-}
+export type FieldNamespace = (typeof FieldNamespace)[keyof typeof FieldNamespace];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldType = {
+  BOOLEAN: "Boolean",
+  DATE_TIME: "DateTime",
+  NUMBER: "Number",
+  SINGLE_SELECT: "SingleSelect",
+  TEXT: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldType = (typeof FieldType)[keyof typeof FieldType];
 
 /**
  * @public
@@ -1960,11 +1996,17 @@ export interface RequiredField {
 
 /**
  * @public
+ * @enum
  */
-export enum TemplateStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+export const TemplateStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus];
 
 /**
  * @public

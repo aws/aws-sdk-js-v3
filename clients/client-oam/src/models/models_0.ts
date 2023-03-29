@@ -32,12 +32,18 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  AWS_CLOUDWATCH_METRIC = "AWS::CloudWatch::Metric",
-  AWS_LOGS_LOGGROUP = "AWS::Logs::LogGroup",
-  AWS_XRAY_TRACE = "AWS::XRay::Trace",
-}
+export const ResourceType = {
+  AWS_CLOUDWATCH_METRIC: "AWS::CloudWatch::Metric",
+  AWS_LOGS_LOGGROUP: "AWS::Logs::LogGroup",
+  AWS_XRAY_TRACE: "AWS::XRay::Trace",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public

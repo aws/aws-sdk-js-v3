@@ -5,11 +5,17 @@ import { Macie2ServiceException as __BaseException } from "./Macie2ServiceExcept
 
 /**
  * @public
+ * @enum
  */
-export enum AdminStatus {
-  DISABLING_IN_PROGRESS = "DISABLING_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+export const AdminStatus = {
+  DISABLING_IN_PROGRESS: "DISABLING_IN_PROGRESS",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
 
 /**
  * @public
@@ -101,37 +107,62 @@ export interface BatchGetCustomDataIdentifierSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AllowsUnencryptedObjectUploads {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-  UNKNOWN = "UNKNOWN",
-}
+export const AllowsUnencryptedObjectUploads = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
  * @public
  */
-export enum BucketMetadataErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-}
+export type AllowsUnencryptedObjectUploads =
+  (typeof AllowsUnencryptedObjectUploads)[keyof typeof AllowsUnencryptedObjectUploads];
+
+/**
+ * @public
+ * @enum
+ */
+export const BucketMetadataErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+} as const;
 
 /**
  * @public
  */
-export enum IsDefinedInJob {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-  UNKNOWN = "UNKNOWN",
-}
+export type BucketMetadataErrorCode = (typeof BucketMetadataErrorCode)[keyof typeof BucketMetadataErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const IsDefinedInJob = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
  * @public
  */
-export enum IsMonitoredByJob {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-  UNKNOWN = "UNKNOWN",
-}
+export type IsDefinedInJob = (typeof IsDefinedInJob)[keyof typeof IsDefinedInJob];
+
+/**
+ * @public
+ * @enum
+ */
+export const IsMonitoredByJob = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type IsMonitoredByJob = (typeof IsMonitoredByJob)[keyof typeof IsMonitoredByJob];
 
 /**
  * @public
@@ -192,12 +223,18 @@ export interface ObjectCountByEncryptionType {
 
 /**
  * @public
+ * @enum
  */
-export enum EffectivePermission {
-  NOT_PUBLIC = "NOT_PUBLIC",
-  PUBLIC = "PUBLIC",
-  UNKNOWN = "UNKNOWN",
-}
+export const EffectivePermission = {
+  NOT_PUBLIC: "NOT_PUBLIC",
+  PUBLIC: "PUBLIC",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type EffectivePermission = (typeof EffectivePermission)[keyof typeof EffectivePermission];
 
 /**
  * @public
@@ -344,12 +381,18 @@ export interface ReplicationDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum Type {
-  AES256 = "AES256",
-  NONE = "NONE",
-  aws_kms = "aws:kms",
-}
+export const Type = {
+  AES256: "AES256",
+  NONE: "NONE",
+  aws_kms: "aws:kms",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public
@@ -369,13 +412,19 @@ export interface BucketServerSideEncryption {
 
 /**
  * @public
+ * @enum
  */
-export enum SharedAccess {
-  EXTERNAL = "EXTERNAL",
-  INTERNAL = "INTERNAL",
-  NOT_SHARED = "NOT_SHARED",
-  UNKNOWN = "UNKNOWN",
-}
+export const SharedAccess = {
+  EXTERNAL: "EXTERNAL",
+  INTERNAL: "INTERNAL",
+  NOT_SHARED: "NOT_SHARED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type SharedAccess = (typeof SharedAccess)[keyof typeof SharedAccess];
 
 /**
  * @public
@@ -568,27 +617,39 @@ export interface ClassificationScopeSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum JobComparator {
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GT = "GT",
-  GTE = "GTE",
-  LT = "LT",
-  LTE = "LTE",
-  NE = "NE",
-  STARTS_WITH = "STARTS_WITH",
-}
+export const JobComparator = {
+  CONTAINS: "CONTAINS",
+  EQ: "EQ",
+  GT: "GT",
+  GTE: "GTE",
+  LT: "LT",
+  LTE: "LTE",
+  NE: "NE",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
 
 /**
  * @public
  */
-export enum SimpleCriterionKeyForJob {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  S3_BUCKET_EFFECTIVE_PERMISSION = "S3_BUCKET_EFFECTIVE_PERMISSION",
-  S3_BUCKET_NAME = "S3_BUCKET_NAME",
-  S3_BUCKET_SHARED_ACCESS = "S3_BUCKET_SHARED_ACCESS",
-}
+export type JobComparator = (typeof JobComparator)[keyof typeof JobComparator];
+
+/**
+ * @public
+ * @enum
+ */
+export const SimpleCriterionKeyForJob = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  S3_BUCKET_EFFECTIVE_PERMISSION: "S3_BUCKET_EFFECTIVE_PERMISSION",
+  S3_BUCKET_NAME: "S3_BUCKET_NAME",
+  S3_BUCKET_SHARED_ACCESS: "S3_BUCKET_SHARED_ACCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type SimpleCriterionKeyForJob = (typeof SimpleCriterionKeyForJob)[keyof typeof SimpleCriterionKeyForJob];
 
 /**
  * @public
@@ -703,11 +764,17 @@ export interface DetectedDataDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum DataIdentifierType {
-  CUSTOM = "CUSTOM",
-  MANAGED = "MANAGED",
-}
+export const DataIdentifierType = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataIdentifierType = (typeof DataIdentifierType)[keyof typeof DataIdentifierType];
 
 /**
  * @public
@@ -747,19 +814,31 @@ export interface Detection {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingCategory {
-  CLASSIFICATION = "CLASSIFICATION",
-  POLICY = "POLICY",
-}
+export const FindingCategory = {
+  CLASSIFICATION: "CLASSIFICATION",
+  POLICY: "POLICY",
+} as const;
 
 /**
  * @public
  */
-export enum OriginType {
-  AUTOMATED_SENSITIVE_DATA_DISCOVERY = "AUTOMATED_SENSITIVE_DATA_DISCOVERY",
-  SENSITIVE_DATA_DISCOVERY_JOB = "SENSITIVE_DATA_DISCOVERY_JOB",
-}
+export type FindingCategory = (typeof FindingCategory)[keyof typeof FindingCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const OriginType = {
+  AUTOMATED_SENSITIVE_DATA_DISCOVERY: "AUTOMATED_SENSITIVE_DATA_DISCOVERY",
+  SENSITIVE_DATA_DISCOVERY_JOB: "SENSITIVE_DATA_DISCOVERY_JOB",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginType = (typeof OriginType)[keyof typeof OriginType];
 
 /**
  * @public
@@ -920,13 +999,19 @@ export interface CustomDataIdentifiers {
 
 /**
  * @public
+ * @enum
  */
-export enum SensitiveDataItemCategory {
-  CREDENTIALS = "CREDENTIALS",
-  CUSTOM_IDENTIFIER = "CUSTOM_IDENTIFIER",
-  FINANCIAL_INFORMATION = "FINANCIAL_INFORMATION",
-  PERSONAL_INFORMATION = "PERSONAL_INFORMATION",
-}
+export const SensitiveDataItemCategory = {
+  CREDENTIALS: "CREDENTIALS",
+  CUSTOM_IDENTIFIER: "CUSTOM_IDENTIFIER",
+  FINANCIAL_INFORMATION: "FINANCIAL_INFORMATION",
+  PERSONAL_INFORMATION: "PERSONAL_INFORMATION",
+} as const;
+
+/**
+ * @public
+ */
+export type SensitiveDataItemCategory = (typeof SensitiveDataItemCategory)[keyof typeof SensitiveDataItemCategory];
 
 /**
  * @public
@@ -1055,10 +1140,16 @@ export interface ClassificationDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingActionType {
-  AWS_API_CALL = "AWS_API_CALL",
-}
+export const FindingActionType = {
+  AWS_API_CALL: "AWS_API_CALL",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingActionType = (typeof FindingActionType)[keyof typeof FindingActionType];
 
 /**
  * @public
@@ -1414,15 +1505,21 @@ export interface UserIdentityRoot {
 
 /**
  * @public
+ * @enum
  */
-export enum UserIdentityType {
-  AWSAccount = "AWSAccount",
-  AWSService = "AWSService",
-  AssumedRole = "AssumedRole",
-  FederatedUser = "FederatedUser",
-  IAMUser = "IAMUser",
-  Root = "Root",
-}
+export const UserIdentityType = {
+  AWSAccount: "AWSAccount",
+  AWSService: "AWSService",
+  AssumedRole: "AssumedRole",
+  FederatedUser: "FederatedUser",
+  IAMUser: "IAMUser",
+  Root: "Root",
+} as const;
+
+/**
+ * @public
+ */
+export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdentityType];
 
 /**
  * @public
@@ -1504,13 +1601,19 @@ export interface PolicyDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionType {
-  AES256 = "AES256",
-  NONE = "NONE",
-  UNKNOWN = "UNKNOWN",
-  aws_kms = "aws:kms",
-}
+export const EncryptionType = {
+  AES256: "AES256",
+  NONE: "NONE",
+  UNKNOWN: "UNKNOWN",
+  aws_kms: "aws:kms",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -1592,18 +1695,24 @@ export interface S3Bucket {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  OUTPOSTS = "OUTPOSTS",
-  REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  OUTPOSTS: "OUTPOSTS",
+  REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
 
 /**
  * @public
@@ -1689,12 +1798,18 @@ export interface ResourcesAffected {
 
 /**
  * @public
+ * @enum
  */
-export enum SeverityDescription {
-  High = "High",
-  Low = "Low",
-  Medium = "Medium",
-}
+export const SeverityDescription = {
+  High: "High",
+  Low: "Low",
+  Medium: "Medium",
+} as const;
+
+/**
+ * @public
+ */
+export type SeverityDescription = (typeof SeverityDescription)[keyof typeof SeverityDescription];
 
 /**
  * @public
@@ -1714,20 +1829,26 @@ export interface Severity {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingType {
-  Policy_IAMUser_S3BlockPublicAccessDisabled = "Policy:IAMUser/S3BlockPublicAccessDisabled",
-  Policy_IAMUser_S3BucketEncryptionDisabled = "Policy:IAMUser/S3BucketEncryptionDisabled",
-  Policy_IAMUser_S3BucketPublic = "Policy:IAMUser/S3BucketPublic",
-  Policy_IAMUser_S3BucketReplicatedExternally = "Policy:IAMUser/S3BucketReplicatedExternally",
-  Policy_IAMUser_S3BucketSharedExternally = "Policy:IAMUser/S3BucketSharedExternally",
-  Policy_IAMUser_S3BucketSharedWithCloudFront = "Policy:IAMUser/S3BucketSharedWithCloudFront",
-  SensitiveData_S3Object_Credentials = "SensitiveData:S3Object/Credentials",
-  SensitiveData_S3Object_CustomIdentifier = "SensitiveData:S3Object/CustomIdentifier",
-  SensitiveData_S3Object_Financial = "SensitiveData:S3Object/Financial",
-  SensitiveData_S3Object_Multiple = "SensitiveData:S3Object/Multiple",
-  SensitiveData_S3Object_Personal = "SensitiveData:S3Object/Personal",
-}
+export const FindingType = {
+  Policy_IAMUser_S3BlockPublicAccessDisabled: "Policy:IAMUser/S3BlockPublicAccessDisabled",
+  Policy_IAMUser_S3BucketEncryptionDisabled: "Policy:IAMUser/S3BucketEncryptionDisabled",
+  Policy_IAMUser_S3BucketPublic: "Policy:IAMUser/S3BucketPublic",
+  Policy_IAMUser_S3BucketReplicatedExternally: "Policy:IAMUser/S3BucketReplicatedExternally",
+  Policy_IAMUser_S3BucketSharedExternally: "Policy:IAMUser/S3BucketSharedExternally",
+  Policy_IAMUser_S3BucketSharedWithCloudFront: "Policy:IAMUser/S3BucketSharedWithCloudFront",
+  SensitiveData_S3Object_Credentials: "SensitiveData:S3Object/Credentials",
+  SensitiveData_S3Object_CustomIdentifier: "SensitiveData:S3Object/CustomIdentifier",
+  SensitiveData_S3Object_Financial: "SensitiveData:S3Object/Financial",
+  SensitiveData_S3Object_Multiple: "SensitiveData:S3Object/Multiple",
+  SensitiveData_S3Object_Personal: "SensitiveData:S3Object/Personal",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingType = (typeof FindingType)[keyof typeof FindingType];
 
 /**
  * @public
@@ -1827,11 +1948,17 @@ export interface Finding {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingsFilterAction {
-  ARCHIVE = "ARCHIVE",
-  NOOP = "NOOP",
-}
+export const FindingsFilterAction = {
+  ARCHIVE: "ARCHIVE",
+  NOOP: "NOOP",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingsFilterAction = (typeof FindingsFilterAction)[keyof typeof FindingsFilterAction];
 
 /**
  * @public
@@ -1882,19 +2009,25 @@ export interface GroupCount {
 
 /**
  * @public
+ * @enum
  */
-export enum RelationshipStatus {
-  AccountSuspended = "AccountSuspended",
-  Created = "Created",
-  EmailVerificationFailed = "EmailVerificationFailed",
-  EmailVerificationInProgress = "EmailVerificationInProgress",
-  Enabled = "Enabled",
-  Invited = "Invited",
-  Paused = "Paused",
-  RegionDisabled = "RegionDisabled",
-  Removed = "Removed",
-  Resigned = "Resigned",
-}
+export const RelationshipStatus = {
+  AccountSuspended: "AccountSuspended",
+  Created: "Created",
+  EmailVerificationFailed: "EmailVerificationFailed",
+  EmailVerificationInProgress: "EmailVerificationInProgress",
+  Enabled: "Enabled",
+  Invited: "Invited",
+  Paused: "Paused",
+  RegionDisabled: "RegionDisabled",
+  Removed: "Removed",
+  Resigned: "Resigned",
+} as const;
+
+/**
+ * @public
+ */
+export type RelationshipStatus = (typeof RelationshipStatus)[keyof typeof RelationshipStatus];
 
 /**
  * @public
@@ -1924,13 +2057,19 @@ export interface Invitation {
 
 /**
  * @public
+ * @enum
  */
-export enum ScopeFilterKey {
-  OBJECT_EXTENSION = "OBJECT_EXTENSION",
-  OBJECT_KEY = "OBJECT_KEY",
-  OBJECT_LAST_MODIFIED_DATE = "OBJECT_LAST_MODIFIED_DATE",
-  OBJECT_SIZE = "OBJECT_SIZE",
-}
+export const ScopeFilterKey = {
+  OBJECT_EXTENSION: "OBJECT_EXTENSION",
+  OBJECT_KEY: "OBJECT_KEY",
+  OBJECT_LAST_MODIFIED_DATE: "OBJECT_LAST_MODIFIED_DATE",
+  OBJECT_SIZE: "OBJECT_SIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type ScopeFilterKey = (typeof ScopeFilterKey)[keyof typeof ScopeFilterKey];
 
 /**
  * @public
@@ -1971,10 +2110,16 @@ export interface TagValuePair {
 
 /**
  * @public
+ * @enum
  */
-export enum TagTarget {
-  S3_OBJECT = "S3_OBJECT",
-}
+export const TagTarget = {
+  S3_OBJECT: "S3_OBJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type TagTarget = (typeof TagTarget)[keyof typeof TagTarget];
 
 /**
  * @public
@@ -2063,31 +2208,49 @@ export interface S3BucketDefinitionForJob {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETE = "COMPLETE",
-  IDLE = "IDLE",
-  PAUSED = "PAUSED",
-  RUNNING = "RUNNING",
-  USER_PAUSED = "USER_PAUSED",
-}
+export const JobStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETE: "COMPLETE",
+  IDLE: "IDLE",
+  PAUSED: "PAUSED",
+  RUNNING: "RUNNING",
+  USER_PAUSED: "USER_PAUSED",
+} as const;
 
 /**
  * @public
  */
-export enum JobType {
-  ONE_TIME = "ONE_TIME",
-  SCHEDULED = "SCHEDULED",
-}
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobType = {
+  ONE_TIME: "ONE_TIME",
+  SCHEDULED: "SCHEDULED",
+} as const;
 
 /**
  * @public
  */
-export enum LastRunErrorStatusCode {
-  ERROR = "ERROR",
-  NONE = "NONE",
-}
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastRunErrorStatusCode = {
+  ERROR: "ERROR",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type LastRunErrorStatusCode = (typeof LastRunErrorStatusCode)[keyof typeof LastRunErrorStatusCode];
 
 /**
  * @public
@@ -2174,13 +2337,19 @@ export interface JobSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ListJobsFilterKey {
-  createdAt = "createdAt",
-  jobStatus = "jobStatus",
-  jobType = "jobType",
-  name = "name",
-}
+export const ListJobsFilterKey = {
+  createdAt: "createdAt",
+  jobStatus: "jobStatus",
+  jobType: "jobType",
+  name: "name",
+} as const;
+
+/**
+ * @public
+ */
+export type ListJobsFilterKey = (typeof ListJobsFilterKey)[keyof typeof ListJobsFilterKey];
 
 /**
  * @public
@@ -2385,21 +2554,34 @@ export interface ResourceProfileArtifact {
 
 /**
  * @public
+ * @enum
  */
-export enum SearchResourcesComparator {
-  EQ = "EQ",
-  NE = "NE",
-}
+export const SearchResourcesComparator = {
+  EQ: "EQ",
+  NE: "NE",
+} as const;
 
 /**
  * @public
  */
-export enum SearchResourcesSimpleCriterionKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  S3_BUCKET_EFFECTIVE_PERMISSION = "S3_BUCKET_EFFECTIVE_PERMISSION",
-  S3_BUCKET_NAME = "S3_BUCKET_NAME",
-  S3_BUCKET_SHARED_ACCESS = "S3_BUCKET_SHARED_ACCESS",
-}
+export type SearchResourcesComparator = (typeof SearchResourcesComparator)[keyof typeof SearchResourcesComparator];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchResourcesSimpleCriterionKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  S3_BUCKET_EFFECTIVE_PERMISSION: "S3_BUCKET_EFFECTIVE_PERMISSION",
+  S3_BUCKET_NAME: "S3_BUCKET_NAME",
+  S3_BUCKET_SHARED_ACCESS: "S3_BUCKET_SHARED_ACCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchResourcesSimpleCriterionKey =
+  (typeof SearchResourcesSimpleCriterionKey)[keyof typeof SearchResourcesSimpleCriterionKey];
 
 /**
  * @public
@@ -2504,22 +2686,34 @@ export interface SuppressDataIdentifier {
 
 /**
  * @public
+ * @enum
  */
-export enum UnavailabilityReasonCode {
-  INVALID_CLASSIFICATION_RESULT = "INVALID_CLASSIFICATION_RESULT",
-  OBJECT_EXCEEDS_SIZE_QUOTA = "OBJECT_EXCEEDS_SIZE_QUOTA",
-  OBJECT_UNAVAILABLE = "OBJECT_UNAVAILABLE",
-  UNSUPPORTED_FINDING_TYPE = "UNSUPPORTED_FINDING_TYPE",
-  UNSUPPORTED_OBJECT_TYPE = "UNSUPPORTED_OBJECT_TYPE",
-}
+export const UnavailabilityReasonCode = {
+  INVALID_CLASSIFICATION_RESULT: "INVALID_CLASSIFICATION_RESULT",
+  OBJECT_EXCEEDS_SIZE_QUOTA: "OBJECT_EXCEEDS_SIZE_QUOTA",
+  OBJECT_UNAVAILABLE: "OBJECT_UNAVAILABLE",
+  UNSUPPORTED_FINDING_TYPE: "UNSUPPORTED_FINDING_TYPE",
+  UNSUPPORTED_OBJECT_TYPE: "UNSUPPORTED_OBJECT_TYPE",
+} as const;
 
 /**
  * @public
  */
-export enum ErrorCode {
-  ClientError = "ClientError",
-  InternalError = "InternalError",
-}
+export type UnavailabilityReasonCode = (typeof UnavailabilityReasonCode)[keyof typeof UnavailabilityReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  ClientError: "ClientError",
+  InternalError: "InternalError",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -2544,17 +2738,29 @@ export interface UnprocessedAccount {
 
 /**
  * @public
+ * @enum
  */
-export enum Currency {
-  USD = "USD",
-}
+export const Currency = {
+  USD: "USD",
+} as const;
 
 /**
  * @public
  */
-export enum Unit {
-  TERABYTES = "TERABYTES",
-}
+export type Currency = (typeof Currency)[keyof typeof Currency];
+
+/**
+ * @public
+ * @enum
+ */
+export const Unit = {
+  TERABYTES: "TERABYTES",
+} as const;
+
+/**
+ * @public
+ */
+export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
  * @public
@@ -2579,13 +2785,19 @@ export interface ServiceLimit {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageType {
-  AUTOMATED_OBJECT_MONITORING = "AUTOMATED_OBJECT_MONITORING",
-  AUTOMATED_SENSITIVE_DATA_DISCOVERY = "AUTOMATED_SENSITIVE_DATA_DISCOVERY",
-  DATA_INVENTORY_EVALUATION = "DATA_INVENTORY_EVALUATION",
-  SENSITIVE_DATA_DISCOVERY = "SENSITIVE_DATA_DISCOVERY",
-}
+export const UsageType = {
+  AUTOMATED_OBJECT_MONITORING: "AUTOMATED_OBJECT_MONITORING",
+  AUTOMATED_SENSITIVE_DATA_DISCOVERY: "AUTOMATED_SENSITIVE_DATA_DISCOVERY",
+  DATA_INVENTORY_EVALUATION: "DATA_INVENTORY_EVALUATION",
+  SENSITIVE_DATA_DISCOVERY: "SENSITIVE_DATA_DISCOVERY",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageType = (typeof UsageType)[keyof typeof UsageType];
 
 /**
  * @public
@@ -2641,26 +2853,39 @@ export interface UsageRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageStatisticsFilterComparator {
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GT = "GT",
-  GTE = "GTE",
-  LT = "LT",
-  LTE = "LTE",
-  NE = "NE",
-}
+export const UsageStatisticsFilterComparator = {
+  CONTAINS: "CONTAINS",
+  EQ: "EQ",
+  GT: "GT",
+  GTE: "GTE",
+  LT: "LT",
+  LTE: "LTE",
+  NE: "NE",
+} as const;
 
 /**
  * @public
  */
-export enum UsageStatisticsFilterKey {
-  accountId = "accountId",
-  freeTrialStartDate = "freeTrialStartDate",
-  serviceLimit = "serviceLimit",
-  total = "total",
-}
+export type UsageStatisticsFilterComparator =
+  (typeof UsageStatisticsFilterComparator)[keyof typeof UsageStatisticsFilterComparator];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageStatisticsFilterKey = {
+  accountId: "accountId",
+  freeTrialStartDate: "freeTrialStartDate",
+  serviceLimit: "serviceLimit",
+  total: "total",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageStatisticsFilterKey = (typeof UsageStatisticsFilterKey)[keyof typeof UsageStatisticsFilterKey];
 
 /**
  * @public
@@ -2919,17 +3144,23 @@ export interface AllowListCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum AllowListStatusCode {
-  OK = "OK",
-  S3_OBJECT_ACCESS_DENIED = "S3_OBJECT_ACCESS_DENIED",
-  S3_OBJECT_EMPTY = "S3_OBJECT_EMPTY",
-  S3_OBJECT_NOT_FOUND = "S3_OBJECT_NOT_FOUND",
-  S3_OBJECT_OVERSIZE = "S3_OBJECT_OVERSIZE",
-  S3_THROTTLED = "S3_THROTTLED",
-  S3_USER_ACCESS_DENIED = "S3_USER_ACCESS_DENIED",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR",
-}
+export const AllowListStatusCode = {
+  OK: "OK",
+  S3_OBJECT_ACCESS_DENIED: "S3_OBJECT_ACCESS_DENIED",
+  S3_OBJECT_EMPTY: "S3_OBJECT_EMPTY",
+  S3_OBJECT_NOT_FOUND: "S3_OBJECT_NOT_FOUND",
+  S3_OBJECT_OVERSIZE: "S3_OBJECT_OVERSIZE",
+  S3_THROTTLED: "S3_THROTTLED",
+  S3_USER_ACCESS_DENIED: "S3_USER_ACCESS_DENIED",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowListStatusCode = (typeof AllowListStatusCode)[keyof typeof AllowListStatusCode];
 
 /**
  * @public
@@ -2949,19 +3180,31 @@ export interface AllowListStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum AutomatedDiscoveryStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AutomatedDiscoveryStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum AvailabilityCode {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export type AutomatedDiscoveryStatus = (typeof AutomatedDiscoveryStatus)[keyof typeof AutomatedDiscoveryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvailabilityCode = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type AvailabilityCode = (typeof AvailabilityCode)[keyof typeof AvailabilityCode];
 
 /**
  * @public
@@ -3130,11 +3373,17 @@ export interface BucketCriteriaAdditionalProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderBy {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const OrderBy = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderBy = (typeof OrderBy)[keyof typeof OrderBy];
 
 /**
  * @public
@@ -3238,12 +3487,19 @@ export interface ClassificationExportConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ClassificationScopeUpdateOperation {
-  ADD = "ADD",
-  REMOVE = "REMOVE",
-  REPLACE = "REPLACE",
-}
+export const ClassificationScopeUpdateOperation = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+  REPLACE: "REPLACE",
+} as const;
+
+/**
+ * @public
+ */
+export type ClassificationScopeUpdateOperation =
+  (typeof ClassificationScopeUpdateOperation)[keyof typeof ClassificationScopeUpdateOperation];
 
 /**
  * @public
@@ -3292,13 +3548,20 @@ export interface CreateAllowListResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ManagedDataIdentifierSelector {
-  ALL = "ALL",
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-  NONE = "NONE",
-}
+export const ManagedDataIdentifierSelector = {
+  ALL: "ALL",
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedDataIdentifierSelector =
+  (typeof ManagedDataIdentifierSelector)[keyof typeof ManagedDataIdentifierSelector];
 
 /**
  * @public
@@ -3367,16 +3630,22 @@ export interface MonthlySchedule {
 
 /**
  * @public
+ * @enum
  */
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * @public
@@ -3497,12 +3766,18 @@ export interface CreateClassificationJobResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DataIdentifierSeverity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const DataIdentifierSeverity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type DataIdentifierSeverity = (typeof DataIdentifierSeverity)[keyof typeof DataIdentifierSeverity];
 
 /**
  * @public
@@ -4120,20 +4395,32 @@ export interface DisassociateMemberResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum FindingPublishingFrequency {
-  FIFTEEN_MINUTES = "FIFTEEN_MINUTES",
-  ONE_HOUR = "ONE_HOUR",
-  SIX_HOURS = "SIX_HOURS",
-}
+export const FindingPublishingFrequency = {
+  FIFTEEN_MINUTES: "FIFTEEN_MINUTES",
+  ONE_HOUR: "ONE_HOUR",
+  SIX_HOURS: "SIX_HOURS",
+} as const;
 
 /**
  * @public
  */
-export enum MacieStatus {
-  ENABLED = "ENABLED",
-  PAUSED = "PAUSED",
-}
+export type FindingPublishingFrequency = (typeof FindingPublishingFrequency)[keyof typeof FindingPublishingFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const MacieStatus = {
+  ENABLED: "ENABLED",
+  PAUSED: "PAUSED",
+} as const;
+
+/**
+ * @public
+ */
+export type MacieStatus = (typeof MacieStatus)[keyof typeof MacieStatus];
 
 /**
  * @public
@@ -4182,11 +4469,18 @@ export interface EnableOrganizationAdminAccountResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum FindingStatisticsSortAttributeName {
-  count = "count",
-  groupKey = "groupKey",
-}
+export const FindingStatisticsSortAttributeName = {
+  count: "count",
+  groupKey: "groupKey",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingStatisticsSortAttributeName =
+  (typeof FindingStatisticsSortAttributeName)[keyof typeof FindingStatisticsSortAttributeName];
 
 /**
  * @public
@@ -4675,13 +4969,19 @@ export interface GetFindingsPublicationConfigurationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum GroupBy {
-  classificationDetails_jobId = "classificationDetails.jobId",
-  resourcesAffected_s3Bucket_name = "resourcesAffected.s3Bucket.name",
-  severity_description = "severity.description",
-  type = "type",
-}
+export const GroupBy = {
+  classificationDetails_jobId: "classificationDetails.jobId",
+  resourcesAffected_s3Bucket_name: "resourcesAffected.s3Bucket.name",
+  severity_description: "severity.description",
+  type: "type",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupBy = (typeof GroupBy)[keyof typeof GroupBy];
 
 /**
  * @public
@@ -4936,11 +5236,17 @@ export interface GetRevealConfigurationRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum RevealStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const RevealStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RevealStatus = (typeof RevealStatus)[keyof typeof RevealStatus];
 
 /**
  * @public
@@ -4980,12 +5286,18 @@ export interface GetSensitiveDataOccurrencesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RevealRequestStatus {
-  ERROR = "ERROR",
-  PROCESSING = "PROCESSING",
-  SUCCESS = "SUCCESS",
-}
+export const RevealRequestStatus = {
+  ERROR: "ERROR",
+  PROCESSING: "PROCESSING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RevealRequestStatus = (typeof RevealRequestStatus)[keyof typeof RevealRequestStatus];
 
 /**
  * @public
@@ -5126,13 +5438,19 @@ export interface GetSensitivityInspectionTemplateResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageStatisticsSortKey {
-  accountId = "accountId",
-  freeTrialStartDate = "freeTrialStartDate",
-  serviceLimitValue = "serviceLimitValue",
-  total = "total",
-}
+export const UsageStatisticsSortKey = {
+  accountId: "accountId",
+  freeTrialStartDate: "freeTrialStartDate",
+  serviceLimitValue: "serviceLimitValue",
+  total: "total",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageStatisticsSortKey = (typeof UsageStatisticsSortKey)[keyof typeof UsageStatisticsSortKey];
 
 /**
  * @public
@@ -5152,11 +5470,17 @@ export interface UsageStatisticsSortBy {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeRange {
-  MONTH_TO_DATE = "MONTH_TO_DATE",
-  PAST_30_DAYS = "PAST_30_DAYS",
-}
+export const TimeRange = {
+  MONTH_TO_DATE: "MONTH_TO_DATE",
+  PAST_30_DAYS: "PAST_30_DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeRange = (typeof TimeRange)[keyof typeof TimeRange];
 
 /**
  * @public
@@ -5281,13 +5605,19 @@ export interface ListJobsFilterCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum ListJobsSortAttributeName {
-  createdAt = "createdAt",
-  jobStatus = "jobStatus",
-  jobType = "jobType",
-  name = "name",
-}
+export const ListJobsSortAttributeName = {
+  createdAt: "createdAt",
+  jobStatus: "jobStatus",
+  jobType: "jobType",
+  name: "name",
+} as const;
+
+/**
+ * @public
+ */
+export type ListJobsSortAttributeName = (typeof ListJobsSortAttributeName)[keyof typeof ListJobsSortAttributeName];
 
 /**
  * @public

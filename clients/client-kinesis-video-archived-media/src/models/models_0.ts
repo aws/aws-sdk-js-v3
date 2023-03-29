@@ -28,11 +28,17 @@ export class ClientLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ClipFragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const ClipFragmentSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ClipFragmentSelectorType = (typeof ClipFragmentSelectorType)[keyof typeof ClipFragmentSelectorType];
 
 /**
  * @public
@@ -319,11 +325,17 @@ export class UnsupportedStreamMediaTypeException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DASHFragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const DASHFragmentSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type DASHFragmentSelectorType = (typeof DASHFragmentSelectorType)[keyof typeof DASHFragmentSelectorType];
 
 /**
  * @public
@@ -409,28 +421,47 @@ export interface DASHFragmentSelector {
 
 /**
  * @public
+ * @enum
  */
-export enum DASHDisplayFragmentNumber {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
+export const DASHDisplayFragmentNumber = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+} as const;
 
 /**
  * @public
  */
-export enum DASHDisplayFragmentTimestamp {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
+export type DASHDisplayFragmentNumber = (typeof DASHDisplayFragmentNumber)[keyof typeof DASHDisplayFragmentNumber];
+
+/**
+ * @public
+ * @enum
+ */
+export const DASHDisplayFragmentTimestamp = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+} as const;
 
 /**
  * @public
  */
-export enum DASHPlaybackMode {
-  LIVE = "LIVE",
-  LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND",
-}
+export type DASHDisplayFragmentTimestamp =
+  (typeof DASHDisplayFragmentTimestamp)[keyof typeof DASHDisplayFragmentTimestamp];
+
+/**
+ * @public
+ * @enum
+ */
+export const DASHPlaybackMode = {
+  LIVE: "LIVE",
+  LIVE_REPLAY: "LIVE_REPLAY",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type DASHPlaybackMode = (typeof DASHPlaybackMode)[keyof typeof DASHPlaybackMode];
 
 /**
  * @public
@@ -600,36 +631,61 @@ export interface GetDASHStreamingSessionURLOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerFormat {
-  FRAGMENTED_MP4 = "FRAGMENTED_MP4",
-  MPEG_TS = "MPEG_TS",
-}
+export const ContainerFormat = {
+  FRAGMENTED_MP4: "FRAGMENTED_MP4",
+  MPEG_TS: "MPEG_TS",
+} as const;
 
 /**
  * @public
  */
-export enum HLSDiscontinuityMode {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-  ON_DISCONTINUITY = "ON_DISCONTINUITY",
-}
+export type ContainerFormat = (typeof ContainerFormat)[keyof typeof ContainerFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const HLSDiscontinuityMode = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+  ON_DISCONTINUITY: "ON_DISCONTINUITY",
+} as const;
 
 /**
  * @public
  */
-export enum HLSDisplayFragmentTimestamp {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
+export type HLSDiscontinuityMode = (typeof HLSDiscontinuityMode)[keyof typeof HLSDiscontinuityMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HLSDisplayFragmentTimestamp = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+} as const;
 
 /**
  * @public
  */
-export enum HLSFragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export type HLSDisplayFragmentTimestamp =
+  (typeof HLSDisplayFragmentTimestamp)[keyof typeof HLSDisplayFragmentTimestamp];
+
+/**
+ * @public
+ * @enum
+ */
+export const HLSFragmentSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type HLSFragmentSelectorType = (typeof HLSFragmentSelectorType)[keyof typeof HLSFragmentSelectorType];
 
 /**
  * @public
@@ -711,12 +767,18 @@ export interface HLSFragmentSelector {
 
 /**
  * @public
+ * @enum
  */
-export enum HLSPlaybackMode {
-  LIVE = "LIVE",
-  LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND",
-}
+export const HLSPlaybackMode = {
+  LIVE: "LIVE",
+  LIVE_REPLAY: "LIVE_REPLAY",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type HLSPlaybackMode = (typeof HLSPlaybackMode)[keyof typeof HLSPlaybackMode];
 
 /**
  * @public
@@ -927,26 +989,44 @@ export interface GetHLSStreamingSessionURLOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum Format {
-  JPEG = "JPEG",
-  PNG = "PNG",
-}
+export const Format = {
+  JPEG: "JPEG",
+  PNG: "PNG",
+} as const;
 
 /**
  * @public
  */
-export enum FormatConfigKey {
-  JPEGQuality = "JPEGQuality",
-}
+export type Format = (typeof Format)[keyof typeof Format];
+
+/**
+ * @public
+ * @enum
+ */
+export const FormatConfigKey = {
+  JPEGQuality: "JPEGQuality",
+} as const;
 
 /**
  * @public
  */
-export enum ImageSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export type FormatConfigKey = (typeof FormatConfigKey)[keyof typeof FormatConfigKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSelectorType = (typeof ImageSelectorType)[keyof typeof ImageSelectorType];
 
 /**
  * @public
@@ -1028,11 +1108,17 @@ export interface GetImagesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageError {
-  MEDIA_ERROR = "MEDIA_ERROR",
-  NO_MEDIA = "NO_MEDIA",
-}
+export const ImageError = {
+  MEDIA_ERROR: "MEDIA_ERROR",
+  NO_MEDIA: "NO_MEDIA",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageError = (typeof ImageError)[keyof typeof ImageError];
 
 /**
  * @public
@@ -1153,11 +1239,17 @@ export interface GetMediaForFragmentListOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum FragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const FragmentSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type FragmentSelectorType = (typeof FragmentSelectorType)[keyof typeof FragmentSelectorType];
 
 /**
  * @public

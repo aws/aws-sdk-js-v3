@@ -5,14 +5,20 @@ import { FMSServiceException as __BaseException } from "./FMSServiceException";
 
 /**
  * @public
+ * @enum
  */
-export enum AccountRoleStatus {
-  Creating = "CREATING",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  PendingDeletion = "PENDING_DELETION",
-  Ready = "READY",
-}
+export const AccountRoleStatus = {
+  Creating: "CREATING",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  PendingDeletion: "PENDING_DELETION",
+  Ready: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountRoleStatus = (typeof AccountRoleStatus)[keyof typeof AccountRoleStatus];
 
 /**
  * @public
@@ -253,11 +259,17 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ThirdPartyFirewall {
-  FORTIGATE_CLOUD_NATIVE_FIREWALL = "FORTIGATE_CLOUD_NATIVE_FIREWALL",
-  PALO_ALTO_NETWORKS_CLOUD_NGFW = "PALO_ALTO_NETWORKS_CLOUD_NGFW",
-}
+export const ThirdPartyFirewall = {
+  FORTIGATE_CLOUD_NATIVE_FIREWALL: "FORTIGATE_CLOUD_NATIVE_FIREWALL",
+  PALO_ALTO_NETWORKS_CLOUD_NGFW: "PALO_ALTO_NETWORKS_CLOUD_NGFW",
+} as const;
+
+/**
+ * @public
+ */
+export type ThirdPartyFirewall = (typeof ThirdPartyFirewall)[keyof typeof ThirdPartyFirewall];
 
 /**
  * @public
@@ -271,14 +283,21 @@ export interface AssociateThirdPartyFirewallRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ThirdPartyFirewallAssociationStatus {
-  NOT_EXIST = "NOT_EXIST",
-  OFFBOARDING = "OFFBOARDING",
-  OFFBOARD_COMPLETE = "OFFBOARD_COMPLETE",
-  ONBOARDING = "ONBOARDING",
-  ONBOARD_COMPLETE = "ONBOARD_COMPLETE",
-}
+export const ThirdPartyFirewallAssociationStatus = {
+  NOT_EXIST: "NOT_EXIST",
+  OFFBOARDING: "OFFBOARDING",
+  OFFBOARD_COMPLETE: "OFFBOARD_COMPLETE",
+  ONBOARDING: "ONBOARDING",
+  ONBOARD_COMPLETE: "ONBOARD_COMPLETE",
+} as const;
+
+/**
+ * @public
+ */
+export type ThirdPartyFirewallAssociationStatus =
+  (typeof ThirdPartyFirewallAssociationStatus)[keyof typeof ThirdPartyFirewallAssociationStatus];
 
 /**
  * @public
@@ -361,15 +380,21 @@ export interface BatchAssociateResourceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FailedItemReason {
-  NotValidAccountId = "NOT_VALID_ACCOUNT_ID",
-  NotValidArn = "NOT_VALID_ARN",
-  NotValidPartition = "NOT_VALID_PARTITION",
-  NotValidRegion = "NOT_VALID_REGION",
-  NotValidResourceType = "NOT_VALID_RESOURCE_TYPE",
-  NotValidService = "NOT_VALID_SERVICE",
-}
+export const FailedItemReason = {
+  NotValidAccountId: "NOT_VALID_ACCOUNT_ID",
+  NotValidArn: "NOT_VALID_ARN",
+  NotValidPartition: "NOT_VALID_PARTITION",
+  NotValidRegion: "NOT_VALID_REGION",
+  NotValidResourceType: "NOT_VALID_RESOURCE_TYPE",
+  NotValidService: "NOT_VALID_SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type FailedItemReason = (typeof FailedItemReason)[keyof typeof FailedItemReason];
 
 /**
  * @public
@@ -608,47 +633,59 @@ export interface GetComplianceDetailRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DependentServiceName {
-  AWSConfig = "AWSCONFIG",
-  AWSShieldAdvanced = "AWSSHIELD_ADVANCED",
-  AWSVirtualPrivateCloud = "AWSVPC",
-  AWSWAF = "AWSWAF",
-}
+export const DependentServiceName = {
+  AWSConfig: "AWSCONFIG",
+  AWSShieldAdvanced: "AWSSHIELD_ADVANCED",
+  AWSVirtualPrivateCloud: "AWSVPC",
+  AWSWAF: "AWSWAF",
+} as const;
 
 /**
  * @public
  */
-export enum ViolationReason {
-  BlackHoleRouteDetected = "BLACK_HOLE_ROUTE_DETECTED",
-  BlackHoleRouteDetectedInFirewallSubnet = "BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET",
-  FMSCreatedSecurityGroupEdited = "FMS_CREATED_SECURITY_GROUP_EDITED",
-  FirewallSubnetIsOutOfScope = "FIREWALL_SUBNET_IS_OUT_OF_SCOPE",
-  FirewallSubnetMissingExpectedRoute = "FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE",
-  FirewallSubnetMissingVPCEndpoint = "FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT",
-  InternetGatewayMissingExpectedRoute = "INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE",
-  InternetTrafficNotInspected = "INTERNET_TRAFFIC_NOT_INSPECTED",
-  InvalidRouteConfiguration = "INVALID_ROUTE_CONFIGURATION",
-  MissingExpectedRouteTable = "MISSING_EXPECTED_ROUTE_TABLE",
-  MissingFirewall = "MISSING_FIREWALL",
-  MissingFirewallSubnetInAZ = "MISSING_FIREWALL_SUBNET_IN_AZ",
-  MissingTargetGateway = "MISSING_TARGET_GATEWAY",
-  NetworkFirewallPolicyModified = "NETWORK_FIREWALL_POLICY_MODIFIED",
-  ResourceIncorrectWebAcl = "RESOURCE_INCORRECT_WEB_ACL",
-  ResourceMissingDnsFirewall = "RESOURCE_MISSING_DNS_FIREWALL",
-  ResourceMissingSecurityGroup = "RESOURCE_MISSING_SECURITY_GROUP",
-  ResourceMissingShieldProtection = "RESOURCE_MISSING_SHIELD_PROTECTION",
-  ResourceMissingWebAcl = "RESOURCE_MISSING_WEB_ACL",
-  ResourceMissingWebaclOrShieldProtection = "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION",
-  ResourceViolatesAuditSecurityGroup = "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
-  RouteHasOutOfScopeEndpoint = "ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT",
-  SecurityGroupRedundant = "SECURITY_GROUP_REDUNDANT",
-  SecurityGroupUnused = "SECURITY_GROUP_UNUSED",
-  TrafficInspectionCrossesAZBoundary = "TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY",
-  UnexpectedFirewallRoutes = "UNEXPECTED_FIREWALL_ROUTES",
-  UnexpectedTargetGatewayRoutes = "UNEXPECTED_TARGET_GATEWAY_ROUTES",
-  WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP",
-}
+export type DependentServiceName = (typeof DependentServiceName)[keyof typeof DependentServiceName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ViolationReason = {
+  BlackHoleRouteDetected: "BLACK_HOLE_ROUTE_DETECTED",
+  BlackHoleRouteDetectedInFirewallSubnet: "BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET",
+  FMSCreatedSecurityGroupEdited: "FMS_CREATED_SECURITY_GROUP_EDITED",
+  FirewallSubnetIsOutOfScope: "FIREWALL_SUBNET_IS_OUT_OF_SCOPE",
+  FirewallSubnetMissingExpectedRoute: "FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE",
+  FirewallSubnetMissingVPCEndpoint: "FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT",
+  InternetGatewayMissingExpectedRoute: "INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE",
+  InternetTrafficNotInspected: "INTERNET_TRAFFIC_NOT_INSPECTED",
+  InvalidRouteConfiguration: "INVALID_ROUTE_CONFIGURATION",
+  MissingExpectedRouteTable: "MISSING_EXPECTED_ROUTE_TABLE",
+  MissingFirewall: "MISSING_FIREWALL",
+  MissingFirewallSubnetInAZ: "MISSING_FIREWALL_SUBNET_IN_AZ",
+  MissingTargetGateway: "MISSING_TARGET_GATEWAY",
+  NetworkFirewallPolicyModified: "NETWORK_FIREWALL_POLICY_MODIFIED",
+  ResourceIncorrectWebAcl: "RESOURCE_INCORRECT_WEB_ACL",
+  ResourceMissingDnsFirewall: "RESOURCE_MISSING_DNS_FIREWALL",
+  ResourceMissingSecurityGroup: "RESOURCE_MISSING_SECURITY_GROUP",
+  ResourceMissingShieldProtection: "RESOURCE_MISSING_SHIELD_PROTECTION",
+  ResourceMissingWebAcl: "RESOURCE_MISSING_WEB_ACL",
+  ResourceMissingWebaclOrShieldProtection: "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION",
+  ResourceViolatesAuditSecurityGroup: "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
+  RouteHasOutOfScopeEndpoint: "ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT",
+  SecurityGroupRedundant: "SECURITY_GROUP_REDUNDANT",
+  SecurityGroupUnused: "SECURITY_GROUP_UNUSED",
+  TrafficInspectionCrossesAZBoundary: "TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY",
+  UnexpectedFirewallRoutes: "UNEXPECTED_FIREWALL_ROUTES",
+  UnexpectedTargetGatewayRoutes: "UNEXPECTED_TARGET_GATEWAY_ROUTES",
+  WebAclMissingRuleGroup: "WEB_ACL_MISSING_RULE_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type ViolationReason = (typeof ViolationReason)[keyof typeof ViolationReason];
 
 /**
  * @public
@@ -769,11 +806,17 @@ export interface GetPolicyRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomerPolicyScopeIdType {
-  ACCOUNT = "ACCOUNT",
-  ORG_UNIT = "ORG_UNIT",
-}
+export const CustomerPolicyScopeIdType = {
+  ACCOUNT: "ACCOUNT",
+  ORG_UNIT: "ORG_UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomerPolicyScopeIdType = (typeof CustomerPolicyScopeIdType)[keyof typeof CustomerPolicyScopeIdType];
 
 /**
  * @public
@@ -799,11 +842,17 @@ export interface ResourceTag {
 
 /**
  * @public
+ * @enum
  */
-export enum FirewallDeploymentModel {
-  CENTRALIZED = "CENTRALIZED",
-  DISTRIBUTED = "DISTRIBUTED",
-}
+export const FirewallDeploymentModel = {
+  CENTRALIZED: "CENTRALIZED",
+  DISTRIBUTED: "DISTRIBUTED",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallDeploymentModel = (typeof FirewallDeploymentModel)[keyof typeof FirewallDeploymentModel];
 
 /**
  * @public
@@ -849,19 +898,25 @@ export interface PolicyOption {
 
 /**
  * @public
+ * @enum
  */
-export enum SecurityServiceType {
-  DNS_FIREWALL = "DNS_FIREWALL",
-  IMPORT_NETWORK_FIREWALL = "IMPORT_NETWORK_FIREWALL",
-  NETWORK_FIREWALL = "NETWORK_FIREWALL",
-  SECURITY_GROUPS_COMMON = "SECURITY_GROUPS_COMMON",
-  SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT",
-  SECURITY_GROUPS_USAGE_AUDIT = "SECURITY_GROUPS_USAGE_AUDIT",
-  SHIELD_ADVANCED = "SHIELD_ADVANCED",
-  THIRD_PARTY_FIREWALL = "THIRD_PARTY_FIREWALL",
-  WAF = "WAF",
-  WAFV2 = "WAFV2",
-}
+export const SecurityServiceType = {
+  DNS_FIREWALL: "DNS_FIREWALL",
+  IMPORT_NETWORK_FIREWALL: "IMPORT_NETWORK_FIREWALL",
+  NETWORK_FIREWALL: "NETWORK_FIREWALL",
+  SECURITY_GROUPS_COMMON: "SECURITY_GROUPS_COMMON",
+  SECURITY_GROUPS_CONTENT_AUDIT: "SECURITY_GROUPS_CONTENT_AUDIT",
+  SECURITY_GROUPS_USAGE_AUDIT: "SECURITY_GROUPS_USAGE_AUDIT",
+  SHIELD_ADVANCED: "SHIELD_ADVANCED",
+  THIRD_PARTY_FIREWALL: "THIRD_PARTY_FIREWALL",
+  WAF: "WAF",
+  WAFV2: "WAFV2",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityServiceType = (typeof SecurityServiceType)[keyof typeof SecurityServiceType];
 
 /**
  * @public
@@ -1511,12 +1566,19 @@ export interface GetThirdPartyFirewallAssociationStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MarketplaceSubscriptionOnboardingStatus {
-  COMPLETE = "COMPLETE",
-  NOT_COMPLETE = "NOT_COMPLETE",
-  NO_SUBSCRIPTION = "NO_SUBSCRIPTION",
-}
+export const MarketplaceSubscriptionOnboardingStatus = {
+  COMPLETE: "COMPLETE",
+  NOT_COMPLETE: "NOT_COMPLETE",
+  NO_SUBSCRIPTION: "NO_SUBSCRIPTION",
+} as const;
+
+/**
+ * @public
+ */
+export type MarketplaceSubscriptionOnboardingStatus =
+  (typeof MarketplaceSubscriptionOnboardingStatus)[keyof typeof MarketplaceSubscriptionOnboardingStatus];
 
 /**
  * @public
@@ -1635,11 +1697,17 @@ export interface PartialMatch {
 
 /**
  * @public
+ * @enum
  */
-export enum RemediationActionType {
-  Modify = "MODIFY",
-  Remove = "REMOVE",
-}
+export const RemediationActionType = {
+  Modify: "MODIFY",
+  Remove: "REMOVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RemediationActionType = (typeof RemediationActionType)[keyof typeof RemediationActionType];
 
 /**
  * @public
@@ -1860,28 +1928,40 @@ export interface FirewallSubnetMissingVPCEndpointViolation {
 
 /**
  * @public
+ * @enum
  */
-export enum DestinationType {
-  IPV4 = "IPV4",
-  IPV6 = "IPV6",
-  PrefixList = "PREFIX_LIST",
-}
+export const DestinationType = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+  PrefixList: "PREFIX_LIST",
+} as const;
 
 /**
  * @public
  */
-export enum TargetType {
-  CarrierGateway = "CARRIER_GATEWAY",
-  EgressOnlyInternetGateway = "EGRESS_ONLY_INTERNET_GATEWAY",
-  Gateway = "GATEWAY",
-  Instance = "INSTANCE",
-  LocalGateway = "LOCAL_GATEWAY",
-  NatGateway = "NAT_GATEWAY",
-  NetworkInterface = "NETWORK_INTERFACE",
-  TransitGateway = "TRANSIT_GATEWAY",
-  VPCEndpoint = "VPC_ENDPOINT",
-  VPCPeeringConnection = "VPC_PEERING_CONNECTION",
-}
+export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  CarrierGateway: "CARRIER_GATEWAY",
+  EgressOnlyInternetGateway: "EGRESS_ONLY_INTERNET_GATEWAY",
+  Gateway: "GATEWAY",
+  Instance: "INSTANCE",
+  LocalGateway: "LOCAL_GATEWAY",
+  NatGateway: "NAT_GATEWAY",
+  NetworkInterface: "NETWORK_INTERFACE",
+  TransitGateway: "TRANSIT_GATEWAY",
+  VPCEndpoint: "VPC_ENDPOINT",
+  VPCPeeringConnection: "VPC_PEERING_CONNECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * @public
@@ -2248,11 +2328,17 @@ export interface NetworkFirewallMissingSubnetViolation {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleOrder {
-  DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER",
-  STRICT_ORDER = "STRICT_ORDER",
-}
+export const RuleOrder = {
+  DEFAULT_ACTION_ORDER: "DEFAULT_ACTION_ORDER",
+  STRICT_ORDER: "STRICT_ORDER",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleOrder = (typeof RuleOrder)[keyof typeof RuleOrder];
 
 /**
  * @public
@@ -2270,10 +2356,17 @@ export interface StatefulEngineOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkFirewallOverrideAction {
-  DROP_TO_ALERT = "DROP_TO_ALERT",
-}
+export const NetworkFirewallOverrideAction = {
+  DROP_TO_ALERT: "DROP_TO_ALERT",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkFirewallOverrideAction =
+  (typeof NetworkFirewallOverrideAction)[keyof typeof NetworkFirewallOverrideAction];
 
 /**
  * @public
@@ -3201,11 +3294,17 @@ export interface ListComplianceStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyComplianceStatusType {
-  Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT",
-}
+export const PolicyComplianceStatusType = {
+  Compliant: "COMPLIANT",
+  NonCompliant: "NON_COMPLIANT",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyComplianceStatusType = (typeof PolicyComplianceStatusType)[keyof typeof PolicyComplianceStatusType];
 
 /**
  * @public

@@ -27,20 +27,32 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Action {
-  ALERT = "ALERT",
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
+export const Action = {
+  ALERT: "ALERT",
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
 
 /**
  * @public
  */
-export enum MutationProtectionStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type Action = (typeof Action)[keyof typeof Action];
+
+/**
+ * @public
+ * @enum
+ */
+export const MutationProtectionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MutationProtectionStatus = (typeof MutationProtectionStatus)[keyof typeof MutationProtectionStatus];
 
 /**
  * @public
@@ -111,12 +123,19 @@ export interface AssociateFirewallRuleGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FirewallRuleGroupAssociationStatus {
-  COMPLETE = "COMPLETE",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const FirewallRuleGroupAssociationStatus = {
+  COMPLETE: "COMPLETE",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallRuleGroupAssociationStatus =
+  (typeof FirewallRuleGroupAssociationStatus)[keyof typeof FirewallRuleGroupAssociationStatus];
 
 /**
  * @public
@@ -402,32 +421,50 @@ export interface AssociateResolverEndpointIpAddressRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolverEndpointDirection {
-  Inbound = "INBOUND",
-  Outbound = "OUTBOUND",
-}
+export const ResolverEndpointDirection = {
+  Inbound: "INBOUND",
+  Outbound: "OUTBOUND",
+} as const;
 
 /**
  * @public
  */
-export enum ResolverEndpointType {
-  DUALSTACK = "DUALSTACK",
-  IPV4 = "IPV4",
-  IPV6 = "IPV6",
-}
+export type ResolverEndpointDirection = (typeof ResolverEndpointDirection)[keyof typeof ResolverEndpointDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolverEndpointType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
 
 /**
  * @public
  */
-export enum ResolverEndpointStatus {
-  ActionNeeded = "ACTION_NEEDED",
-  AutoRecovering = "AUTO_RECOVERING",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Operational = "OPERATIONAL",
-  Updating = "UPDATING",
-}
+export type ResolverEndpointType = (typeof ResolverEndpointType)[keyof typeof ResolverEndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolverEndpointStatus = {
+  ActionNeeded: "ACTION_NEEDED",
+  AutoRecovering: "AUTO_RECOVERING",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Operational: "OPERATIONAL",
+  Updating: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverEndpointStatus = (typeof ResolverEndpointStatus)[keyof typeof ResolverEndpointStatus];
 
 /**
  * @public
@@ -674,24 +711,38 @@ export interface AssociateResolverQueryLogConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolverQueryLogConfigAssociationError {
-  AccessDenied = "ACCESS_DENIED",
-  DestinationNotFound = "DESTINATION_NOT_FOUND",
-  InternalServiceError = "INTERNAL_SERVICE_ERROR",
-  None = "NONE",
-}
+export const ResolverQueryLogConfigAssociationError = {
+  AccessDenied: "ACCESS_DENIED",
+  DestinationNotFound: "DESTINATION_NOT_FOUND",
+  InternalServiceError: "INTERNAL_SERVICE_ERROR",
+  None: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum ResolverQueryLogConfigAssociationStatus {
-  ActionNeeded = "ACTION_NEEDED",
-  Active = "ACTIVE",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-}
+export type ResolverQueryLogConfigAssociationError =
+  (typeof ResolverQueryLogConfigAssociationError)[keyof typeof ResolverQueryLogConfigAssociationError];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolverQueryLogConfigAssociationStatus = {
+  ActionNeeded: "ACTION_NEEDED",
+  Active: "ACTIVE",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverQueryLogConfigAssociationStatus =
+  (typeof ResolverQueryLogConfigAssociationStatus)[keyof typeof ResolverQueryLogConfigAssociationStatus];
 
 /**
  * @public
@@ -803,14 +854,21 @@ export interface AssociateResolverRuleRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolverRuleAssociationStatus {
-  Complete = "COMPLETE",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Overridden = "OVERRIDDEN",
-}
+export const ResolverRuleAssociationStatus = {
+  Complete: "COMPLETE",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Overridden: "OVERRIDDEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverRuleAssociationStatus =
+  (typeof ResolverRuleAssociationStatus)[keyof typeof ResolverRuleAssociationStatus];
 
 /**
  * @public
@@ -895,28 +953,46 @@ export class ResourceUnavailableException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AutodefinedReverseFlag {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const AutodefinedReverseFlag = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
 
 /**
  * @public
  */
-export enum BlockOverrideDnsType {
-  CNAME = "CNAME",
-}
+export type AutodefinedReverseFlag = (typeof AutodefinedReverseFlag)[keyof typeof AutodefinedReverseFlag];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlockOverrideDnsType = {
+  CNAME: "CNAME",
+} as const;
 
 /**
  * @public
  */
-export enum BlockResponse {
-  NODATA = "NODATA",
-  NXDOMAIN = "NXDOMAIN",
-  OVERRIDE = "OVERRIDE",
-}
+export type BlockOverrideDnsType = (typeof BlockOverrideDnsType)[keyof typeof BlockOverrideDnsType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlockResponse = {
+  NODATA: "NODATA",
+  NXDOMAIN: "NXDOMAIN",
+  OVERRIDE: "OVERRIDE",
+} as const;
+
+/**
+ * @public
+ */
+export type BlockResponse = (typeof BlockResponse)[keyof typeof BlockResponse];
 
 /**
  * @public
@@ -942,14 +1018,20 @@ export interface CreateFirewallDomainListRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FirewallDomainListStatus {
-  COMPLETE = "COMPLETE",
-  COMPLETE_IMPORT_FAILED = "COMPLETE_IMPORT_FAILED",
-  DELETING = "DELETING",
-  IMPORTING = "IMPORTING",
-  UPDATING = "UPDATING",
-}
+export const FirewallDomainListStatus = {
+  COMPLETE: "COMPLETE",
+  COMPLETE_IMPORT_FAILED: "COMPLETE_IMPORT_FAILED",
+  DELETING: "DELETING",
+  IMPORTING: "IMPORTING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallDomainListStatus = (typeof FirewallDomainListStatus)[keyof typeof FirewallDomainListStatus];
 
 /**
  * @public
@@ -1245,21 +1327,33 @@ export interface CreateFirewallRuleGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ShareStatus {
-  NotShared = "NOT_SHARED",
-  SharedByMe = "SHARED_BY_ME",
-  SharedWithMe = "SHARED_WITH_ME",
-}
+export const ShareStatus = {
+  NotShared: "NOT_SHARED",
+  SharedByMe: "SHARED_BY_ME",
+  SharedWithMe: "SHARED_WITH_ME",
+} as const;
 
 /**
  * @public
  */
-export enum FirewallRuleGroupStatus {
-  COMPLETE = "COMPLETE",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FirewallRuleGroupStatus = {
+  COMPLETE: "COMPLETE",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallRuleGroupStatus = (typeof FirewallRuleGroupStatus)[keyof typeof FirewallRuleGroupStatus];
 
 /**
  * @public
@@ -1489,13 +1583,20 @@ export interface CreateResolverQueryLogConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolverQueryLogConfigStatus {
-  Created = "CREATED",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-}
+export const ResolverQueryLogConfigStatus = {
+  Created: "CREATED",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverQueryLogConfigStatus =
+  (typeof ResolverQueryLogConfigStatus)[keyof typeof ResolverQueryLogConfigStatus];
 
 /**
  * @public
@@ -1603,12 +1704,18 @@ export interface CreateResolverQueryLogConfigResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleTypeOption {
-  Forward = "FORWARD",
-  Recursive = "RECURSIVE",
-  System = "SYSTEM",
-}
+export const RuleTypeOption = {
+  Forward: "FORWARD",
+  Recursive: "RECURSIVE",
+  System: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleTypeOption = (typeof RuleTypeOption)[keyof typeof RuleTypeOption];
 
 /**
  * @public
@@ -1690,13 +1797,19 @@ export interface CreateResolverRuleRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolverRuleStatus {
-  Complete = "COMPLETE",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Updating = "UPDATING",
-}
+export const ResolverRuleStatus = {
+  Complete: "COMPLETE",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Updating: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverRuleStatus = (typeof ResolverRuleStatus)[keyof typeof ResolverRuleStatus];
 
 /**
  * @public
@@ -2313,12 +2426,18 @@ export interface Filter {
 
 /**
  * @public
+ * @enum
  */
-export enum FirewallFailOpenStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const FirewallFailOpenStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallFailOpenStatus = (typeof FirewallFailOpenStatus)[keyof typeof FirewallFailOpenStatus];
 
 /**
  * @public
@@ -2360,10 +2479,17 @@ export interface FirewallConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum FirewallDomainImportOperation {
-  REPLACE = "REPLACE",
-}
+export const FirewallDomainImportOperation = {
+  REPLACE: "REPLACE",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallDomainImportOperation =
+  (typeof FirewallDomainImportOperation)[keyof typeof FirewallDomainImportOperation];
 
 /**
  * @public
@@ -2401,12 +2527,19 @@ export interface FirewallDomainListMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum FirewallDomainUpdateOperation {
-  ADD = "ADD",
-  REMOVE = "REMOVE",
-  REPLACE = "REPLACE",
-}
+export const FirewallDomainUpdateOperation = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+  REPLACE: "REPLACE",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallDomainUpdateOperation =
+  (typeof FirewallDomainUpdateOperation)[keyof typeof FirewallDomainUpdateOperation];
 
 /**
  * @public
@@ -2564,15 +2697,22 @@ export interface GetResolverConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolverAutodefinedReverseStatus {
-  Disabled = "DISABLED",
-  Disabling = "DISABLING",
-  Enabled = "ENABLED",
-  Enabling = "ENABLING",
-  UpdatingToUseLocalResourceSetting = "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
-  UseLocalResourceSetting = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const ResolverAutodefinedReverseStatus = {
+  Disabled: "DISABLED",
+  Disabling: "DISABLING",
+  Enabled: "ENABLED",
+  Enabling: "ENABLING",
+  UpdatingToUseLocalResourceSetting: "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+  UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverAutodefinedReverseStatus =
+  (typeof ResolverAutodefinedReverseStatus)[keyof typeof ResolverAutodefinedReverseStatus];
 
 /**
  * @public
@@ -2646,15 +2786,22 @@ export interface GetResolverDnssecConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolverDNSSECValidationStatus {
-  Disabled = "DISABLED",
-  Disabling = "DISABLING",
-  Enabled = "ENABLED",
-  Enabling = "ENABLING",
-  UpdateToUseLocalResourceSetting = "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
-  UseLocalResourceSetting = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const ResolverDNSSECValidationStatus = {
+  Disabled: "DISABLED",
+  Disabling: "DISABLING",
+  Enabled: "ENABLED",
+  Enabling: "ENABLING",
+  UpdateToUseLocalResourceSetting: "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+  UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverDNSSECValidationStatus =
+  (typeof ResolverDNSSECValidationStatus)[keyof typeof ResolverDNSSECValidationStatus];
 
 /**
  * @public
@@ -2989,20 +3136,26 @@ export class InvalidTagException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum IpAddressStatus {
-  Attached = "ATTACHED",
-  Attaching = "ATTACHING",
-  Creating = "CREATING",
-  DeleteFailedFasExpired = "DELETE_FAILED_FAS_EXPIRED",
-  Deleting = "DELETING",
-  Detaching = "DETACHING",
-  FailedCreation = "FAILED_CREATION",
-  FailedResourceGone = "FAILED_RESOURCE_GONE",
-  RemapAttaching = "REMAP_ATTACHING",
-  RemapDetaching = "REMAP_DETACHING",
-  Updating = "UPDATING",
-}
+export const IpAddressStatus = {
+  Attached: "ATTACHED",
+  Attaching: "ATTACHING",
+  Creating: "CREATING",
+  DeleteFailedFasExpired: "DELETE_FAILED_FAS_EXPIRED",
+  Deleting: "DELETING",
+  Detaching: "DETACHING",
+  FailedCreation: "FAILED_CREATION",
+  FailedResourceGone: "FAILED_RESOURCE_GONE",
+  RemapAttaching: "REMAP_ATTACHING",
+  RemapDetaching: "REMAP_DETACHING",
+  Updating: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressStatus = (typeof IpAddressStatus)[keyof typeof IpAddressStatus];
 
 /**
  * @public
@@ -3539,11 +3692,17 @@ export interface ListResolverEndpointsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
-  Ascending = "ASCENDING",
-  Descending = "DESCENDING",
-}
+export const SortOrder = {
+  Ascending: "ASCENDING",
+  Descending: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -4525,12 +4684,18 @@ export interface UpdateResolverConfigResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Validation {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const Validation = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+} as const;
+
+/**
+ * @public
+ */
+export type Validation = (typeof Validation)[keyof typeof Validation];
 
 /**
  * @public

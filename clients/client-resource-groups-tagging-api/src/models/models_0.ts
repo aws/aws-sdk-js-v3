@@ -231,11 +231,17 @@ export class ThrottledException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  INTERNAL_SERVICE_EXCEPTION = "InternalServiceException",
-  INVALID_PARAMETER_EXCEPTION = "InvalidParameterException",
-}
+export const ErrorCode = {
+  INTERNAL_SERVICE_EXCEPTION: "InternalServiceException",
+  INVALID_PARAMETER_EXCEPTION: "InvalidParameterException",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -293,12 +299,18 @@ export interface FailureInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum GroupByAttribute {
-  REGION = "REGION",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  TARGET_ID = "TARGET_ID",
-}
+export const GroupByAttribute = {
+  REGION: "REGION",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  TARGET_ID: "TARGET_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupByAttribute = (typeof GroupByAttribute)[keyof typeof GroupByAttribute];
 
 /**
  * @public
@@ -380,12 +392,18 @@ export interface GetComplianceSummaryInput {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetIdType {
-  ACCOUNT = "ACCOUNT",
-  OU = "OU",
-  ROOT = "ROOT",
-}
+export const TargetIdType = {
+  ACCOUNT: "ACCOUNT",
+  OU: "OU",
+  ROOT: "ROOT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetIdType = (typeof TargetIdType)[keyof typeof TargetIdType];
 
 /**
  * @public

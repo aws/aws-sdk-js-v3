@@ -117,11 +117,17 @@ export interface DescribeLoggingStatusMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum LogDestinationType {
-  CLOUDWATCH = "cloudwatch",
-  S3 = "s3",
-}
+export const LogDestinationType = {
+  CLOUDWATCH: "cloudwatch",
+  S3: "s3",
+} as const;
+
+/**
+ * @public
+ */
+export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDestinationType];
 
 /**
  * @public
@@ -173,26 +179,39 @@ export interface LoggingStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum NodeConfigurationOptionsFilterName {
-  ESTIMATED_DISK_UTILIZATION_PERCENT = "EstimatedDiskUtilizationPercent",
-  MODE = "Mode",
-  NODE_TYPE = "NodeType",
-  NUM_NODES = "NumberOfNodes",
-}
+export const NodeConfigurationOptionsFilterName = {
+  ESTIMATED_DISK_UTILIZATION_PERCENT: "EstimatedDiskUtilizationPercent",
+  MODE: "Mode",
+  NODE_TYPE: "NodeType",
+  NUM_NODES: "NumberOfNodes",
+} as const;
 
 /**
  * @public
  */
-export enum OperatorType {
-  BETWEEN = "between",
-  EQ = "eq",
-  GE = "ge",
-  GT = "gt",
-  IN = "in",
-  LE = "le",
-  LT = "lt",
-}
+export type NodeConfigurationOptionsFilterName =
+  (typeof NodeConfigurationOptionsFilterName)[keyof typeof NodeConfigurationOptionsFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperatorType = {
+  BETWEEN: "between",
+  EQ: "eq",
+  GE: "ge",
+  GT: "gt",
+  IN: "in",
+  LE: "le",
+  LT: "lt",
+} as const;
+
+/**
+ * @public
+ */
+export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
 /**
  * @public
@@ -286,11 +305,17 @@ export interface DescribeNodeConfigurationOptionsMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum Mode {
-  HIGH_PERFORMANCE = "high-performance",
-  STANDARD = "standard",
-}
+export const Mode = {
+  HIGH_PERFORMANCE: "high-performance",
+  STANDARD: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
 
 /**
  * @public
@@ -453,13 +478,19 @@ export interface DescribePartnersInputMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum PartnerIntegrationStatus {
-  Active = "Active",
-  ConnectionFailure = "ConnectionFailure",
-  Inactive = "Inactive",
-  RuntimeFailure = "RuntimeFailure",
-}
+export const PartnerIntegrationStatus = {
+  Active: "Active",
+  ConnectionFailure: "ConnectionFailure",
+  Inactive: "Inactive",
+  RuntimeFailure: "RuntimeFailure",
+} as const;
+
+/**
+ * @public
+ */
+export type PartnerIntegrationStatus = (typeof PartnerIntegrationStatus)[keyof typeof PartnerIntegrationStatus];
 
 /**
  * @public
@@ -751,11 +782,17 @@ export interface DescribeResizeMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduledActionFilterName {
-  CLUSTER_IDENTIFIER = "cluster-identifier",
-  IAM_ROLE = "iam-role",
-}
+export const ScheduledActionFilterName = {
+  CLUSTER_IDENTIFIER: "cluster-identifier",
+  IAM_ROLE: "iam-role",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledActionFilterName = (typeof ScheduledActionFilterName)[keyof typeof ScheduledActionFilterName];
 
 /**
  * @public
@@ -775,12 +812,18 @@ export interface ScheduledActionFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduledActionTypeValues {
-  PAUSE_CLUSTER = "PauseCluster",
-  RESIZE_CLUSTER = "ResizeCluster",
-  RESUME_CLUSTER = "ResumeCluster",
-}
+export const ScheduledActionTypeValues = {
+  PAUSE_CLUSTER: "PauseCluster",
+  RESIZE_CLUSTER: "ResizeCluster",
+  RESUME_CLUSTER: "ResumeCluster",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledActionTypeValues = (typeof ScheduledActionTypeValues)[keyof typeof ScheduledActionTypeValues];
 
 /**
  * @public
@@ -1053,14 +1096,20 @@ export class TableRestoreNotFoundFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum TableRestoreStatusType {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const TableRestoreStatusType = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type TableRestoreStatusType = (typeof TableRestoreStatusType)[keyof typeof TableRestoreStatusType];
 
 /**
  * @public
@@ -1897,11 +1946,18 @@ export interface GetClusterCredentialsWithIAMMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum ReservedNodeExchangeActionType {
-  RESIZE_CLUSTER = "resize-cluster",
-  RESTORE_CLUSTER = "restore-cluster",
-}
+export const ReservedNodeExchangeActionType = {
+  RESIZE_CLUSTER: "resize-cluster",
+  RESTORE_CLUSTER: "restore-cluster",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedNodeExchangeActionType =
+  (typeof ReservedNodeExchangeActionType)[keyof typeof ReservedNodeExchangeActionType];
 
 /**
  * @public

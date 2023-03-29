@@ -154,28 +154,34 @@ export interface DescribeOpsItemsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OpsItemStatus {
-  APPROVED = "Approved",
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  CHANGE_CALENDAR_OVERRIDE_APPROVED = "ChangeCalendarOverrideApproved",
-  CHANGE_CALENDAR_OVERRIDE_REJECTED = "ChangeCalendarOverrideRejected",
-  CLOSED = "Closed",
-  COMPLETED_WITH_FAILURE = "CompletedWithFailure",
-  COMPLETED_WITH_SUCCESS = "CompletedWithSuccess",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  OPEN = "Open",
-  PENDING = "Pending",
-  PENDING_APPROVAL = "PendingApproval",
-  PENDING_CHANGE_CALENDAR_OVERRIDE = "PendingChangeCalendarOverride",
-  REJECTED = "Rejected",
-  RESOLVED = "Resolved",
-  RUNBOOK_IN_PROGRESS = "RunbookInProgress",
-  SCHEDULED = "Scheduled",
-  TIMED_OUT = "TimedOut",
-}
+export const OpsItemStatus = {
+  APPROVED: "Approved",
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  CHANGE_CALENDAR_OVERRIDE_APPROVED: "ChangeCalendarOverrideApproved",
+  CHANGE_CALENDAR_OVERRIDE_REJECTED: "ChangeCalendarOverrideRejected",
+  CLOSED: "Closed",
+  COMPLETED_WITH_FAILURE: "CompletedWithFailure",
+  COMPLETED_WITH_SUCCESS: "CompletedWithSuccess",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  OPEN: "Open",
+  PENDING: "Pending",
+  PENDING_APPROVAL: "PendingApproval",
+  PENDING_CHANGE_CALENDAR_OVERRIDE: "PendingChangeCalendarOverride",
+  REJECTED: "Rejected",
+  RESOLVED: "Resolved",
+  RUNBOOK_IN_PROGRESS: "RunbookInProgress",
+  SCHEDULED: "Scheduled",
+  TIMED_OUT: "TimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type OpsItemStatus = (typeof OpsItemStatus)[keyof typeof OpsItemStatus];
 
 /**
  * @public
@@ -316,12 +322,18 @@ export interface DescribeOpsItemsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ParametersFilterKey {
-  KEY_ID = "KeyId",
-  NAME = "Name",
-  TYPE = "Type",
-}
+export const ParametersFilterKey = {
+  KEY_ID: "KeyId",
+  NAME: "Name",
+  TYPE: "Type",
+} as const;
+
+/**
+ * @public
+ */
+export type ParametersFilterKey = (typeof ParametersFilterKey)[keyof typeof ParametersFilterKey];
 
 /**
  * @public
@@ -430,21 +442,33 @@ export interface ParameterInlinePolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum ParameterTier {
-  ADVANCED = "Advanced",
-  INTELLIGENT_TIERING = "Intelligent-Tiering",
-  STANDARD = "Standard",
-}
+export const ParameterTier = {
+  ADVANCED: "Advanced",
+  INTELLIGENT_TIERING: "Intelligent-Tiering",
+  STANDARD: "Standard",
+} as const;
 
 /**
  * @public
  */
-export enum ParameterType {
-  SECURE_STRING = "SecureString",
-  STRING = "String",
-  STRING_LIST = "StringList",
-}
+export type ParameterTier = (typeof ParameterTier)[keyof typeof ParameterTier];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParameterType = {
+  SECURE_STRING: "SecureString",
+  STRING: "String",
+  STRING_LIST: "StringList",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 /**
  * @public
@@ -830,23 +854,35 @@ export interface DescribePatchGroupStateResult {
 
 /**
  * @public
+ * @enum
  */
-export enum PatchSet {
-  Application = "APPLICATION",
-  Os = "OS",
-}
+export const PatchSet = {
+  Application: "APPLICATION",
+  Os: "OS",
+} as const;
 
 /**
  * @public
  */
-export enum PatchProperty {
-  PatchClassification = "CLASSIFICATION",
-  PatchMsrcSeverity = "MSRC_SEVERITY",
-  PatchPriority = "PRIORITY",
-  PatchProductFamily = "PRODUCT_FAMILY",
-  PatchSeverity = "SEVERITY",
-  Product = "PRODUCT",
-}
+export type PatchSet = (typeof PatchSet)[keyof typeof PatchSet];
+
+/**
+ * @public
+ * @enum
+ */
+export const PatchProperty = {
+  PatchClassification: "CLASSIFICATION",
+  PatchMsrcSeverity: "MSRC_SEVERITY",
+  PatchPriority: "PRIORITY",
+  PatchProductFamily: "PRODUCT_FAMILY",
+  PatchSeverity: "SEVERITY",
+  Product: "PRODUCT",
+} as const;
+
+/**
+ * @public
+ */
+export type PatchProperty = (typeof PatchProperty)[keyof typeof PatchProperty];
 
 /**
  * @public
@@ -898,15 +934,21 @@ export interface DescribePatchPropertiesResult {
 
 /**
  * @public
+ * @enum
  */
-export enum SessionFilterKey {
-  INVOKED_AFTER = "InvokedAfter",
-  INVOKED_BEFORE = "InvokedBefore",
-  OWNER = "Owner",
-  SESSION_ID = "SessionId",
-  STATUS = "Status",
-  TARGET_ID = "Target",
-}
+export const SessionFilterKey = {
+  INVOKED_AFTER: "InvokedAfter",
+  INVOKED_BEFORE: "InvokedBefore",
+  OWNER: "Owner",
+  SESSION_ID: "SessionId",
+  STATUS: "Status",
+  TARGET_ID: "Target",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionFilterKey = (typeof SessionFilterKey)[keyof typeof SessionFilterKey];
 
 /**
  * @public
@@ -969,11 +1011,17 @@ export interface SessionFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum SessionState {
-  ACTIVE = "Active",
-  HISTORY = "History",
-}
+export const SessionState = {
+  ACTIVE: "Active",
+  HISTORY: "History",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionState = (typeof SessionState)[keyof typeof SessionState];
 
 /**
  * @public
@@ -1020,15 +1068,21 @@ export interface SessionManagerOutputUrl {
 
 /**
  * @public
+ * @enum
  */
-export enum SessionStatus {
-  CONNECTED = "Connected",
-  CONNECTING = "Connecting",
-  DISCONNECTED = "Disconnected",
-  FAILED = "Failed",
-  TERMINATED = "Terminated",
-  TERMINATING = "Terminating",
-}
+export const SessionStatus = {
+  CONNECTED: "Connected",
+  CONNECTING: "Connecting",
+  DISCONNECTED: "Disconnected",
+  FAILED: "Failed",
+  TERMINATED: "Terminated",
+  TERMINATING: "Terminating",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
 
 /**
  * @public
@@ -1413,11 +1467,17 @@ export interface GetCalendarStateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CalendarState {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN",
-}
+export const CalendarState = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+} as const;
+
+/**
+ * @public
+ */
+export type CalendarState = (typeof CalendarState)[keyof typeof CalendarState];
 
 /**
  * @public
@@ -1546,17 +1606,23 @@ export interface CloudWatchOutputConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum CommandInvocationStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  DELAYED = "Delayed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
-}
+export const CommandInvocationStatus = {
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  DELAYED: "Delayed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+  TIMED_OUT: "TimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type CommandInvocationStatus = (typeof CommandInvocationStatus)[keyof typeof CommandInvocationStatus];
 
 /**
  * @public
@@ -1777,11 +1843,17 @@ export interface GetConnectionStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionStatus {
-  CONNECTED = "Connected",
-  NOT_CONNECTED = "NotConnected",
-}
+export const ConnectionStatus = {
+  CONNECTED: "Connected",
+  NOT_CONNECTED: "NotConnected",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 /**
  * @public
@@ -1990,10 +2062,16 @@ export interface GetDocumentRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AttachmentHashType {
-  SHA256 = "Sha256",
-}
+export const AttachmentHashType = {
+  SHA256: "Sha256",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentHashType = (typeof AttachmentHashType)[keyof typeof AttachmentHashType];
 
 /**
  * @public
@@ -2110,15 +2188,21 @@ export interface GetDocumentResult {
 
 /**
  * @public
+ * @enum
  */
-export enum InventoryQueryOperatorType {
-  BEGIN_WITH = "BeginWith",
-  EQUAL = "Equal",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
-}
+export const InventoryQueryOperatorType = {
+  BEGIN_WITH: "BeginWith",
+  EQUAL: "Equal",
+  EXISTS: "Exists",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+  NOT_EQUAL: "NotEqual",
+} as const;
+
+/**
+ * @public
+ */
+export type InventoryQueryOperatorType = (typeof InventoryQueryOperatorType)[keyof typeof InventoryQueryOperatorType];
 
 /**
  * @public
@@ -2351,11 +2435,17 @@ export interface GetInventorySchemaRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InventoryAttributeDataType {
-  NUMBER = "number",
-  STRING = "string",
-}
+export const InventoryAttributeDataType = {
+  NUMBER: "number",
+  STRING: "string",
+} as const;
+
+/**
+ * @public
+ */
+export type InventoryAttributeDataType = (typeof InventoryAttributeDataType)[keyof typeof InventoryAttributeDataType];
 
 /**
  * @public
@@ -2858,23 +2948,35 @@ export interface MaintenanceWindowLambdaParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum NotificationEvent {
-  ALL = "All",
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
-}
+export const NotificationEvent = {
+  ALL: "All",
+  CANCELLED: "Cancelled",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESS: "Success",
+  TIMED_OUT: "TimedOut",
+} as const;
 
 /**
  * @public
  */
-export enum NotificationType {
-  Command = "Command",
-  Invocation = "Invocation",
-}
+export type NotificationEvent = (typeof NotificationEvent)[keyof typeof NotificationEvent];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationType = {
+  Command: "Command",
+  Invocation: "Invocation",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
 
 /**
  * @public
@@ -3431,15 +3533,21 @@ export interface GetOpsMetadataResult {
 
 /**
  * @public
+ * @enum
  */
-export enum OpsFilterOperatorType {
-  BEGIN_WITH = "BeginWith",
-  EQUAL = "Equal",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
-}
+export const OpsFilterOperatorType = {
+  BEGIN_WITH: "BeginWith",
+  EQUAL: "Equal",
+  EXISTS: "Exists",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+  NOT_EQUAL: "NotEqual",
+} as const;
+
+/**
+ * @public
+ */
+export type OpsFilterOperatorType = (typeof OpsFilterOperatorType)[keyof typeof OpsFilterOperatorType];
 
 /**
  * @public
@@ -4300,17 +4408,23 @@ export class ParameterVersionLabelLimitExceeded extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationFilterKey {
-  AssociationId = "AssociationId",
-  AssociationName = "AssociationName",
-  InstanceId = "InstanceId",
-  LastExecutedAfter = "LastExecutedAfter",
-  LastExecutedBefore = "LastExecutedBefore",
-  Name = "Name",
-  ResourceGroupName = "ResourceGroupName",
-  Status = "AssociationStatusName",
-}
+export const AssociationFilterKey = {
+  AssociationId: "AssociationId",
+  AssociationName: "AssociationName",
+  InstanceId: "InstanceId",
+  LastExecutedAfter: "LastExecutedAfter",
+  LastExecutedBefore: "LastExecutedBefore",
+  Name: "Name",
+  ResourceGroupName: "ResourceGroupName",
+  Status: "AssociationStatusName",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationFilterKey = (typeof AssociationFilterKey)[keyof typeof AssociationFilterKey];
 
 /**
  * @public
@@ -4633,14 +4747,20 @@ export interface ListAssociationVersionsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum CommandFilterKey {
-  DOCUMENT_NAME = "DocumentName",
-  EXECUTION_STAGE = "ExecutionStage",
-  INVOKED_AFTER = "InvokedAfter",
-  INVOKED_BEFORE = "InvokedBefore",
-  STATUS = "Status",
-}
+export const CommandFilterKey = {
+  DOCUMENT_NAME: "DocumentName",
+  EXECUTION_STAGE: "ExecutionStage",
+  INVOKED_AFTER: "InvokedAfter",
+  INVOKED_BEFORE: "InvokedBefore",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type CommandFilterKey = (typeof CommandFilterKey)[keyof typeof CommandFilterKey];
 
 /**
  * @public
@@ -4879,15 +4999,21 @@ export interface ListCommandInvocationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CommandPluginStatus {
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
-}
+export const CommandPluginStatus = {
+  CANCELLED: "Cancelled",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+  TIMED_OUT: "TimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type CommandPluginStatus = (typeof CommandPluginStatus)[keyof typeof CommandPluginStatus];
 
 /**
  * @public
@@ -5246,16 +5372,22 @@ export interface ListCommandsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CommandStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
-}
+export const CommandStatus = {
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+  TIMED_OUT: "TimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type CommandStatus = (typeof CommandStatus)[keyof typeof CommandStatus];
 
 /**
  * @public
@@ -5481,14 +5613,21 @@ export interface ListCommandsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ComplianceQueryOperatorType {
-  BeginWith = "BEGIN_WITH",
-  Equal = "EQUAL",
-  GreaterThan = "GREATER_THAN",
-  LessThan = "LESS_THAN",
-  NotEqual = "NOT_EQUAL",
-}
+export const ComplianceQueryOperatorType = {
+  BeginWith: "BEGIN_WITH",
+  Equal: "EQUAL",
+  GreaterThan: "GREATER_THAN",
+  LessThan: "LESS_THAN",
+  NotEqual: "NOT_EQUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComplianceQueryOperatorType =
+  (typeof ComplianceQueryOperatorType)[keyof typeof ComplianceQueryOperatorType];
 
 /**
  * @public
@@ -5573,23 +5712,35 @@ export interface ComplianceExecutionSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ComplianceSeverity {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Informational = "INFORMATIONAL",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
-}
+export const ComplianceSeverity = {
+  Critical: "CRITICAL",
+  High: "HIGH",
+  Informational: "INFORMATIONAL",
+  Low: "LOW",
+  Medium: "MEDIUM",
+  Unspecified: "UNSPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum ComplianceStatus {
-  Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT",
-}
+export type ComplianceSeverity = (typeof ComplianceSeverity)[keyof typeof ComplianceSeverity];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComplianceStatus = {
+  Compliant: "COMPLIANT",
+  NonCompliant: "NON_COMPLIANT",
+} as const;
+
+/**
+ * @public
+ */
+export type ComplianceStatus = (typeof ComplianceStatus)[keyof typeof ComplianceStatus];
 
 /**
  * @public
@@ -5813,10 +5964,16 @@ export interface ListComplianceSummariesResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentMetadataEnum {
-  DocumentReviews = "DocumentReviews",
-}
+export const DocumentMetadataEnum = {
+  DocumentReviews: "DocumentReviews",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentMetadataEnum = (typeof DocumentMetadataEnum)[keyof typeof DocumentMetadataEnum];
 
 /**
  * @public
@@ -5853,10 +6010,16 @@ export interface ListDocumentMetadataHistoryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentReviewCommentType {
-  Comment = "Comment",
-}
+export const DocumentReviewCommentType = {
+  Comment: "Comment",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentReviewCommentType = (typeof DocumentReviewCommentType)[keyof typeof DocumentReviewCommentType];
 
 /**
  * @public
@@ -5957,13 +6120,19 @@ export interface ListDocumentMetadataHistoryResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentFilterKey {
-  DocumentType = "DocumentType",
-  Name = "Name",
-  Owner = "Owner",
-  PlatformTypes = "PlatformTypes",
-}
+export const DocumentFilterKey = {
+  DocumentType: "DocumentType",
+  Name: "Name",
+  Owner: "Owner",
+  PlatformTypes: "PlatformTypes",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentFilterKey = (typeof DocumentFilterKey)[keyof typeof DocumentFilterKey];
 
 /**
  * @public
@@ -6425,17 +6594,29 @@ export interface ListInventoryEntriesResult {
 
 /**
  * @public
+ * @enum
  */
-export enum OpsItemEventFilterKey {
-  OPSITEM_ID = "OpsItemId",
-}
+export const OpsItemEventFilterKey = {
+  OPSITEM_ID: "OpsItemId",
+} as const;
 
 /**
  * @public
  */
-export enum OpsItemEventFilterOperator {
-  EQUAL = "Equal",
-}
+export type OpsItemEventFilterKey = (typeof OpsItemEventFilterKey)[keyof typeof OpsItemEventFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpsItemEventFilterOperator = {
+  EQUAL: "Equal",
+} as const;
+
+/**
+ * @public
+ */
+export type OpsItemEventFilterOperator = (typeof OpsItemEventFilterOperator)[keyof typeof OpsItemEventFilterOperator];
 
 /**
  * @public
@@ -6554,19 +6735,33 @@ export interface ListOpsItemEventsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OpsItemRelatedItemsFilterKey {
-  ASSOCIATION_ID = "AssociationId",
-  RESOURCE_TYPE = "ResourceType",
-  RESOURCE_URI = "ResourceUri",
-}
+export const OpsItemRelatedItemsFilterKey = {
+  ASSOCIATION_ID: "AssociationId",
+  RESOURCE_TYPE: "ResourceType",
+  RESOURCE_URI: "ResourceUri",
+} as const;
 
 /**
  * @public
  */
-export enum OpsItemRelatedItemsFilterOperator {
-  EQUAL = "Equal",
-}
+export type OpsItemRelatedItemsFilterKey =
+  (typeof OpsItemRelatedItemsFilterKey)[keyof typeof OpsItemRelatedItemsFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpsItemRelatedItemsFilterOperator = {
+  EQUAL: "Equal",
+} as const;
+
+/**
+ * @public
+ */
+export type OpsItemRelatedItemsFilterOperator =
+  (typeof OpsItemRelatedItemsFilterOperator)[keyof typeof OpsItemRelatedItemsFilterOperator];
 
 /**
  * @public
@@ -6880,12 +7075,18 @@ export interface ListResourceDataSyncRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LastResourceDataSyncStatus {
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+export const LastResourceDataSyncStatus = {
+  FAILED: "Failed",
+  INPROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+} as const;
+
+/**
+ * @public
+ */
+export type LastResourceDataSyncStatus = (typeof LastResourceDataSyncStatus)[keyof typeof LastResourceDataSyncStatus];
 
 /**
  * @public
@@ -7231,11 +7432,17 @@ export interface ComplianceItemEntry {
 
 /**
  * @public
+ * @enum
  */
-export enum ComplianceUploadType {
-  Complete = "COMPLETE",
-  Partial = "PARTIAL",
-}
+export const ComplianceUploadType = {
+  Complete: "COMPLETE",
+  Partial: "PARTIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComplianceUploadType = (typeof ComplianceUploadType)[keyof typeof ComplianceUploadType];
 
 /**
  * @public
@@ -8707,14 +8914,20 @@ export class InvalidAutomationSignalException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum SignalType {
-  APPROVE = "Approve",
-  REJECT = "Reject",
-  RESUME = "Resume",
-  START_STEP = "StartStep",
-  STOP_STEP = "StopStep",
-}
+export const SignalType = {
+  APPROVE: "Approve",
+  REJECT: "Reject",
+  RESUME: "Resume",
+  START_STEP: "StartStep",
+  STOP_STEP: "StopStep",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalType = (typeof SignalType)[keyof typeof SignalType];
 
 /**
  * @public
@@ -9478,11 +9691,17 @@ export class InvalidAutomationStatusUpdateException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum StopType {
-  CANCEL = "Cancel",
-  COMPLETE = "Complete",
-}
+export const StopType = {
+  CANCEL: "Cancel",
+  COMPLETE: "Complete",
+} as const;
+
+/**
+ * @public
+ */
+export type StopType = (typeof StopType)[keyof typeof StopType];
 
 /**
  * @public

@@ -3400,11 +3400,17 @@ export interface ListOriginAccessControlsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginRequestPolicyType {
-  custom = "custom",
-  managed = "managed",
-}
+export const OriginRequestPolicyType = {
+  custom: "custom",
+  managed: "managed",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginRequestPolicyType = (typeof OriginRequestPolicyType)[keyof typeof OriginRequestPolicyType];
 
 /**
  * @public
@@ -3655,11 +3661,17 @@ export interface ListRealtimeLogConfigsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ResponseHeadersPolicyType {
-  custom = "custom",
-  managed = "managed",
-}
+export const ResponseHeadersPolicyType = {
+  custom: "custom",
+  managed: "managed",
+} as const;
+
+/**
+ * @public
+ */
+export type ResponseHeadersPolicyType = (typeof ResponseHeadersPolicyType)[keyof typeof ResponseHeadersPolicyType];
 
 /**
  * @public

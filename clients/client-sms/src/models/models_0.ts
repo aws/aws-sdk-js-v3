@@ -5,62 +5,88 @@ import { SMSServiceException as __BaseException } from "./SMSServiceException";
 
 /**
  * @public
+ * @enum
  */
-export enum AppLaunchConfigurationStatus {
-  Configured = "CONFIGURED",
-  NotConfigured = "NOT_CONFIGURED",
-}
+export const AppLaunchConfigurationStatus = {
+  Configured: "CONFIGURED",
+  NotConfigured: "NOT_CONFIGURED",
+} as const;
 
 /**
  * @public
  */
-export enum AppLaunchStatus {
-  ConfigurationInProgress = "CONFIGURATION_IN_PROGRESS",
-  ConfigurationInvalid = "CONFIGURATION_INVALID",
-  DeltaLaunchFailed = "DELTA_LAUNCH_FAILED",
-  DeltaLaunchInProgress = "DELTA_LAUNCH_IN_PROGRESS",
-  LaunchFailed = "LAUNCH_FAILED",
-  LaunchInProgress = "LAUNCH_IN_PROGRESS",
-  LaunchPending = "LAUNCH_PENDING",
-  Launched = "LAUNCHED",
-  PartiallyLaunched = "PARTIALLY_LAUNCHED",
-  ReadyForConfiguration = "READY_FOR_CONFIGURATION",
-  ReadyForLaunch = "READY_FOR_LAUNCH",
-  TerminateFailed = "TERMINATE_FAILED",
-  TerminateInProgress = "TERMINATE_IN_PROGRESS",
-  Terminated = "TERMINATED",
-  ValidationInProgress = "VALIDATION_IN_PROGRESS",
-}
+export type AppLaunchConfigurationStatus =
+  (typeof AppLaunchConfigurationStatus)[keyof typeof AppLaunchConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppLaunchStatus = {
+  ConfigurationInProgress: "CONFIGURATION_IN_PROGRESS",
+  ConfigurationInvalid: "CONFIGURATION_INVALID",
+  DeltaLaunchFailed: "DELTA_LAUNCH_FAILED",
+  DeltaLaunchInProgress: "DELTA_LAUNCH_IN_PROGRESS",
+  LaunchFailed: "LAUNCH_FAILED",
+  LaunchInProgress: "LAUNCH_IN_PROGRESS",
+  LaunchPending: "LAUNCH_PENDING",
+  Launched: "LAUNCHED",
+  PartiallyLaunched: "PARTIALLY_LAUNCHED",
+  ReadyForConfiguration: "READY_FOR_CONFIGURATION",
+  ReadyForLaunch: "READY_FOR_LAUNCH",
+  TerminateFailed: "TERMINATE_FAILED",
+  TerminateInProgress: "TERMINATE_IN_PROGRESS",
+  Terminated: "TERMINATED",
+  ValidationInProgress: "VALIDATION_IN_PROGRESS",
+} as const;
 
 /**
  * @public
  */
-export enum AppReplicationConfigurationStatus {
-  Configured = "CONFIGURED",
-  NotConfigured = "NOT_CONFIGURED",
-}
+export type AppLaunchStatus = (typeof AppLaunchStatus)[keyof typeof AppLaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppReplicationConfigurationStatus = {
+  Configured: "CONFIGURED",
+  NotConfigured: "NOT_CONFIGURED",
+} as const;
 
 /**
  * @public
  */
-export enum AppReplicationStatus {
-  ConfigurationInProgress = "CONFIGURATION_IN_PROGRESS",
-  ConfigurationInvalid = "CONFIGURATION_INVALID",
-  DeltaReplicated = "DELTA_REPLICATED",
-  DeltaReplicationFailed = "DELTA_REPLICATION_FAILED",
-  DeltaReplicationInProgress = "DELTA_REPLICATION_IN_PROGRESS",
-  PartiallyReplicated = "PARTIALLY_REPLICATED",
-  ReadyForConfiguration = "READY_FOR_CONFIGURATION",
-  ReadyForReplication = "READY_FOR_REPLICATION",
-  Replicated = "REPLICATED",
-  ReplicationFailed = "REPLICATION_FAILED",
-  ReplicationInProgress = "REPLICATION_IN_PROGRESS",
-  ReplicationPending = "REPLICATION_PENDING",
-  ReplicationStopFailed = "REPLICATION_STOP_FAILED",
-  ReplicationStopped = "REPLICATION_STOPPED",
-  ReplicationStopping = "REPLICATION_STOPPING",
-  ValidationInProgress = "VALIDATION_IN_PROGRESS",
-}
+export type AppReplicationConfigurationStatus =
+  (typeof AppReplicationConfigurationStatus)[keyof typeof AppReplicationConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppReplicationStatus = {
+  ConfigurationInProgress: "CONFIGURATION_IN_PROGRESS",
+  ConfigurationInvalid: "CONFIGURATION_INVALID",
+  DeltaReplicated: "DELTA_REPLICATED",
+  DeltaReplicationFailed: "DELTA_REPLICATION_FAILED",
+  DeltaReplicationInProgress: "DELTA_REPLICATION_IN_PROGRESS",
+  PartiallyReplicated: "PARTIALLY_REPLICATED",
+  ReadyForConfiguration: "READY_FOR_CONFIGURATION",
+  ReadyForReplication: "READY_FOR_REPLICATION",
+  Replicated: "REPLICATED",
+  ReplicationFailed: "REPLICATION_FAILED",
+  ReplicationInProgress: "REPLICATION_IN_PROGRESS",
+  ReplicationPending: "REPLICATION_PENDING",
+  ReplicationStopFailed: "REPLICATION_STOP_FAILED",
+  ReplicationStopped: "REPLICATION_STOPPED",
+  ReplicationStopping: "REPLICATION_STOPPING",
+  ValidationInProgress: "VALIDATION_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AppReplicationStatus = (typeof AppReplicationStatus)[keyof typeof AppReplicationStatus];
 
 /**
  * @public
@@ -85,15 +111,21 @@ export interface LaunchDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum AppStatus {
-  Active = "ACTIVE",
-  Creating = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Updating = "UPDATING",
-}
+export const AppStatus = {
+  Active: "ACTIVE",
+  Creating: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Updating: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type AppStatus = (typeof AppStatus)[keyof typeof AppStatus];
 
 /**
  * @public
@@ -198,18 +230,30 @@ export interface AppSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AppValidationStrategy {
-  SSM = "SSM",
-}
+export const AppValidationStrategy = {
+  SSM: "SSM",
+} as const;
 
 /**
  * @public
  */
-export enum ScriptType {
-  POWERSHELL_SCRIPT = "POWERSHELL_SCRIPT",
-  SHELL_SCRIPT = "SHELL_SCRIPT",
-}
+export type AppValidationStrategy = (typeof AppValidationStrategy)[keyof typeof AppValidationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScriptType = {
+  POWERSHELL_SCRIPT: "POWERSHELL_SCRIPT",
+  SHELL_SCRIPT: "SHELL_SCRIPT",
+} as const;
+
+/**
+ * @public
+ */
+export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
 
 /**
  * @public
@@ -324,19 +368,31 @@ export interface AppValidationOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ServerType {
-  VirtualMachine = "VIRTUAL_MACHINE",
-}
+export const ServerType = {
+  VirtualMachine: "VIRTUAL_MACHINE",
+} as const;
 
 /**
  * @public
  */
-export enum VmManagerType {
-  hyperVManager = "HYPERV-MANAGER",
-  scvmm = "SCVMM",
-  vSphere = "VSPHERE",
-}
+export type ServerType = (typeof ServerType)[keyof typeof ServerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VmManagerType = {
+  hyperVManager: "HYPERV-MANAGER",
+  scvmm: "SCVMM",
+  vSphere: "VSPHERE",
+} as const;
+
+/**
+ * @public
+ */
+export type VmManagerType = (typeof VmManagerType)[keyof typeof VmManagerType];
 
 /**
  * @public
@@ -612,11 +668,17 @@ export class UnauthorizedOperationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum LicenseType {
-  AWS = "AWS",
-  BYOL = "BYOL",
-}
+export const LicenseType = {
+  AWS: "AWS",
+  BYOL: "BYOL",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 /**
  * @public
@@ -916,11 +978,17 @@ export interface DisassociateConnectorResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum OutputFormat {
-  JSON = "JSON",
-  YAML = "YAML",
-}
+export const OutputFormat = {
+  JSON: "JSON",
+  YAML: "YAML",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
 
 /**
  * @public
@@ -1262,10 +1330,16 @@ export interface GetAppValidationConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ServerValidationStrategy {
-  USERDATA = "USERDATA",
-}
+export const ServerValidationStrategy = {
+  USERDATA: "USERDATA",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerValidationStrategy = (typeof ServerValidationStrategy)[keyof typeof ServerValidationStrategy];
 
 /**
  * @public
@@ -1368,14 +1442,20 @@ export interface ServerValidationOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationStatus {
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Pending = "PENDING",
-  ReadyForValidation = "READY_FOR_VALIDATION",
-  Succeeded = "SUCCEEDED",
-}
+export const ValidationStatus = {
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+  Pending: "PENDING",
+  ReadyForValidation: "READY_FOR_VALIDATION",
+  Succeeded: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationStatus = (typeof ValidationStatus)[keyof typeof ValidationStatus];
 
 /**
  * @public
@@ -1447,22 +1527,34 @@ export interface GetConnectorsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectorCapability {
-  hyperVManager = "HYPERV-MANAGER",
-  scvmm = "SCVMM",
-  smsOptimized = "SMS_OPTIMIZED",
-  snapshotBatching = "SNAPSHOT_BATCHING",
-  vSphere = "VSPHERE",
-}
+export const ConnectorCapability = {
+  hyperVManager: "HYPERV-MANAGER",
+  scvmm: "SCVMM",
+  smsOptimized: "SMS_OPTIMIZED",
+  snapshotBatching: "SNAPSHOT_BATCHING",
+  vSphere: "VSPHERE",
+} as const;
 
 /**
  * @public
  */
-export enum ConnectorStatus {
-  Healthy = "HEALTHY",
-  Unhealthy = "UNHEALTHY",
-}
+export type ConnectorCapability = (typeof ConnectorCapability)[keyof typeof ConnectorCapability];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorStatus = {
+  Healthy: "HEALTHY",
+  Unhealthy: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
 
 /**
  * @public
@@ -1576,24 +1668,36 @@ export interface ReplicationRunStageDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationRunState {
-  Active = "ACTIVE",
-  Completed = "COMPLETED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Missed = "MISSED",
-  Pending = "PENDING",
-}
+export const ReplicationRunState = {
+  Active: "ACTIVE",
+  Completed: "COMPLETED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Missed: "MISSED",
+  Pending: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum ReplicationRunType {
-  Automatic = "AUTOMATIC",
-  OnDemand = "ON_DEMAND",
-}
+export type ReplicationRunState = (typeof ReplicationRunState)[keyof typeof ReplicationRunState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationRunType = {
+  Automatic: "AUTOMATIC",
+  OnDemand: "ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationRunType = (typeof ReplicationRunType)[keyof typeof ReplicationRunType];
 
 /**
  * @public
@@ -1676,17 +1780,23 @@ export interface ReplicationRun {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationJobState {
-  Active = "ACTIVE",
-  Completed = "COMPLETED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Failing = "FAILING",
-  PausedOnFailure = "PAUSED_ON_FAILURE",
-  Pending = "PENDING",
-}
+export const ReplicationJobState = {
+  Active: "ACTIVE",
+  Completed: "COMPLETED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Failing: "FAILING",
+  PausedOnFailure: "PAUSED_ON_FAILURE",
+  Pending: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationJobState = (typeof ReplicationJobState)[keyof typeof ReplicationJobState];
 
 /**
  * @public
@@ -1886,14 +1996,20 @@ export interface GetServersRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ServerCatalogStatus {
-  Available = "AVAILABLE",
-  Deleted = "DELETED",
-  Expired = "EXPIRED",
-  Importing = "IMPORTING",
-  NotImported = "NOT_IMPORTED",
-}
+export const ServerCatalogStatus = {
+  Available: "AVAILABLE",
+  Deleted: "DELETED",
+  Expired: "EXPIRED",
+  Importing: "IMPORTING",
+  NotImported: "NOT_IMPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerCatalogStatus = (typeof ServerCatalogStatus)[keyof typeof ServerCatalogStatus];
 
 /**
  * @public

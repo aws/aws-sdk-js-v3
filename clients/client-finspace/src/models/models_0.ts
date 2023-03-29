@@ -25,11 +25,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FederationMode {
-  FEDERATED = "FEDERATED",
-  LOCAL = "LOCAL",
-}
+export const FederationMode = {
+  FEDERATED: "FEDERATED",
+  LOCAL: "LOCAL",
+} as const;
+
+/**
+ * @public
+ */
+export type FederationMode = (typeof FederationMode)[keyof typeof FederationMode];
 
 /**
  * @public
@@ -326,19 +332,25 @@ export interface GetEnvironmentRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EnvironmentStatus {
-  CREATED = "CREATED",
-  CREATE_REQUESTED = "CREATE_REQUESTED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETE_REQUESTED = "DELETE_REQUESTED",
-  DELETING = "DELETING",
-  FAILED_CREATION = "FAILED_CREATION",
-  FAILED_DELETION = "FAILED_DELETION",
-  RETRY_DELETION = "RETRY_DELETION",
-  SUSPENDED = "SUSPENDED",
-}
+export const EnvironmentStatus = {
+  CREATED: "CREATED",
+  CREATE_REQUESTED: "CREATE_REQUESTED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETE_REQUESTED: "DELETE_REQUESTED",
+  DELETING: "DELETING",
+  FAILED_CREATION: "FAILED_CREATION",
+  FAILED_DELETION: "FAILED_DELETION",
+  RETRY_DELETION: "RETRY_DELETION",
+  SUSPENDED: "SUSPENDED",
+} as const;
+
+/**
+ * @public
+ */
+export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
 
 /**
  * @public

@@ -41,11 +41,17 @@ export interface DeviceUnderTest {
 
 /**
  * @public
+ * @enum
  */
-export enum Protocol {
-  MqttV3_1_1 = "MqttV3_1_1",
-  MqttV5 = "MqttV5",
-}
+export const Protocol = {
+  MqttV3_1_1: "MqttV3_1_1",
+  MqttV5: "MqttV5",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
@@ -305,18 +311,24 @@ export interface GetSuiteRunRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SuiteRunStatus {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const SuiteRunStatus = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type SuiteRunStatus = (typeof SuiteRunStatus)[keyof typeof SuiteRunStatus];
 
 /**
  * @public
@@ -342,41 +354,59 @@ export interface SuiteRunConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const Status = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
  * @public
  */
-export enum TestCaseScenarioStatus {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestCaseScenarioStatus = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
  * @public
  */
-export enum TestCaseScenarioType {
-  Advanced = "Advanced",
-  Basic = "Basic",
-}
+export type TestCaseScenarioStatus = (typeof TestCaseScenarioStatus)[keyof typeof TestCaseScenarioStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestCaseScenarioType = {
+  Advanced: "Advanced",
+  Basic: "Basic",
+} as const;
+
+/**
+ * @public
+ */
+export type TestCaseScenarioType = (typeof TestCaseScenarioType)[keyof typeof TestCaseScenarioType];
 
 /**
  * @public

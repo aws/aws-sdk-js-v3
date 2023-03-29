@@ -121,11 +121,17 @@ export interface AwsIamAccessKeySessionContext {
 
 /**
  * @public
+ * @enum
  */
-export enum AwsIamAccessKeyStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+export const AwsIamAccessKeyStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type AwsIamAccessKeyStatus = (typeof AwsIamAccessKeyStatus)[keyof typeof AwsIamAccessKeyStatus];
 
 /**
  * @public
@@ -4503,11 +4509,18 @@ export interface AwsS3BucketLoggingConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum AwsS3BucketNotificationConfigurationS3KeyFilterRuleName {
-  PREFIX = "Prefix",
-  SUFFIX = "Suffix",
-}
+export const AwsS3BucketNotificationConfigurationS3KeyFilterRuleName = {
+  PREFIX: "Prefix",
+  SUFFIX: "Suffix",
+} as const;
+
+/**
+ * @public
+ */
+export type AwsS3BucketNotificationConfigurationS3KeyFilterRuleName =
+  (typeof AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)[keyof typeof AwsS3BucketNotificationConfigurationS3KeyFilterRuleName];
 
 /**
  * @public
@@ -5171,13 +5184,19 @@ export interface AwsSecretsManagerSecretDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ComplianceStatus {
-  FAILED = "FAILED",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PASSED = "PASSED",
-  WARNING = "WARNING",
-}
+export const ComplianceStatus = {
+  FAILED: "FAILED",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  PASSED: "PASSED",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ComplianceStatus = (typeof ComplianceStatus)[keyof typeof ComplianceStatus];
 
 /**
  * @public
@@ -5284,14 +5303,20 @@ export interface RelatedFinding {
 
 /**
  * @public
+ * @enum
  */
-export enum SeverityLabel {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const SeverityLabel = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type SeverityLabel = (typeof SeverityLabel)[keyof typeof SeverityLabel];
 
 /**
  * @public
@@ -5350,33 +5375,45 @@ export interface FindingProviderFields {
 
 /**
  * @public
+ * @enum
  */
-export enum MalwareState {
-  OBSERVED = "OBSERVED",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVED = "REMOVED",
-}
+export const MalwareState = {
+  OBSERVED: "OBSERVED",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVED: "REMOVED",
+} as const;
 
 /**
  * @public
  */
-export enum MalwareType {
-  ADWARE = "ADWARE",
-  BLENDED_THREAT = "BLENDED_THREAT",
-  BOTNET_AGENT = "BOTNET_AGENT",
-  COIN_MINER = "COIN_MINER",
-  EXPLOIT_KIT = "EXPLOIT_KIT",
-  KEYLOGGER = "KEYLOGGER",
-  MACRO = "MACRO",
-  POTENTIALLY_UNWANTED = "POTENTIALLY_UNWANTED",
-  RANSOMWARE = "RANSOMWARE",
-  REMOTE_ACCESS = "REMOTE_ACCESS",
-  ROOTKIT = "ROOTKIT",
-  SPYWARE = "SPYWARE",
-  TROJAN = "TROJAN",
-  VIRUS = "VIRUS",
-  WORM = "WORM",
-}
+export type MalwareState = (typeof MalwareState)[keyof typeof MalwareState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MalwareType = {
+  ADWARE: "ADWARE",
+  BLENDED_THREAT: "BLENDED_THREAT",
+  BOTNET_AGENT: "BOTNET_AGENT",
+  COIN_MINER: "COIN_MINER",
+  EXPLOIT_KIT: "EXPLOIT_KIT",
+  KEYLOGGER: "KEYLOGGER",
+  MACRO: "MACRO",
+  POTENTIALLY_UNWANTED: "POTENTIALLY_UNWANTED",
+  RANSOMWARE: "RANSOMWARE",
+  REMOTE_ACCESS: "REMOTE_ACCESS",
+  ROOTKIT: "ROOTKIT",
+  SPYWARE: "SPYWARE",
+  TROJAN: "TROJAN",
+  VIRUS: "VIRUS",
+  WORM: "WORM",
+} as const;
+
+/**
+ * @public
+ */
+export type MalwareType = (typeof MalwareType)[keyof typeof MalwareType];
 
 /**
  * @public
@@ -5406,11 +5443,17 @@ export interface Malware {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkDirection {
-  IN = "IN",
-  OUT = "OUT",
-}
+export const NetworkDirection = {
+  IN: "IN",
+  OUT: "OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkDirection = (typeof NetworkDirection)[keyof typeof NetworkDirection];
 
 /**
  * @public
@@ -5703,11 +5746,17 @@ export interface ProcessDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
+export const RecordState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordState = (typeof RecordState)[keyof typeof RecordState];
 
 /**
  * @public
@@ -8011,12 +8060,18 @@ export interface ResourceDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum Partition {
-  AWS = "aws",
-  AWS_CN = "aws-cn",
-  AWS_US_GOV = "aws-us-gov",
-}
+export const Partition = {
+  AWS: "aws",
+  AWS_CN: "aws-cn",
+  AWS_US_GOV: "aws-us-gov",
+} as const;
+
+/**
+ * @public
+ */
+export type Partition = (typeof Partition)[keyof typeof Partition];
 
 /**
  * @public
@@ -8179,32 +8234,45 @@ export interface Severity {
 
 /**
  * @public
+ * @enum
  */
-export enum ThreatIntelIndicatorCategory {
-  BACKDOOR = "BACKDOOR",
-  CARD_STEALER = "CARD_STEALER",
-  COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
-  DROP_SITE = "DROP_SITE",
-  EXPLOIT_SITE = "EXPLOIT_SITE",
-  KEYLOGGER = "KEYLOGGER",
-}
+export const ThreatIntelIndicatorCategory = {
+  BACKDOOR: "BACKDOOR",
+  CARD_STEALER: "CARD_STEALER",
+  COMMAND_AND_CONTROL: "COMMAND_AND_CONTROL",
+  DROP_SITE: "DROP_SITE",
+  EXPLOIT_SITE: "EXPLOIT_SITE",
+  KEYLOGGER: "KEYLOGGER",
+} as const;
 
 /**
  * @public
  */
-export enum ThreatIntelIndicatorType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  HASH_MD5 = "HASH_MD5",
-  HASH_SHA1 = "HASH_SHA1",
-  HASH_SHA256 = "HASH_SHA256",
-  HASH_SHA512 = "HASH_SHA512",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MUTEX = "MUTEX",
-  PROCESS = "PROCESS",
-  URL = "URL",
-}
+export type ThreatIntelIndicatorCategory =
+  (typeof ThreatIntelIndicatorCategory)[keyof typeof ThreatIntelIndicatorCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThreatIntelIndicatorType = {
+  DOMAIN: "DOMAIN",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  HASH_MD5: "HASH_MD5",
+  HASH_SHA1: "HASH_SHA1",
+  HASH_SHA256: "HASH_SHA256",
+  HASH_SHA512: "HASH_SHA512",
+  IPV4_ADDRESS: "IPV4_ADDRESS",
+  IPV6_ADDRESS: "IPV6_ADDRESS",
+  MUTEX: "MUTEX",
+  PROCESS: "PROCESS",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type ThreatIntelIndicatorType = (typeof ThreatIntelIndicatorType)[keyof typeof ThreatIntelIndicatorType];
 
 /**
  * @public
@@ -8311,13 +8379,19 @@ export interface Threat {
 
 /**
  * @public
+ * @enum
  */
-export enum VerificationState {
-  BENIGN_POSITIVE = "BENIGN_POSITIVE",
-  FALSE_POSITIVE = "FALSE_POSITIVE",
-  TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN",
-}
+export const VerificationState = {
+  BENIGN_POSITIVE: "BENIGN_POSITIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  TRUE_POSITIVE: "TRUE_POSITIVE",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationState = (typeof VerificationState)[keyof typeof VerificationState];
 
 /**
  * @public
@@ -8352,12 +8426,18 @@ export interface Cvss {
 
 /**
  * @public
+ * @enum
  */
-export enum VulnerabilityFixAvailable {
-  NO = "NO",
-  PARTIAL = "PARTIAL",
-  YES = "YES",
-}
+export const VulnerabilityFixAvailable = {
+  NO: "NO",
+  PARTIAL: "PARTIAL",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type VulnerabilityFixAvailable = (typeof VulnerabilityFixAvailable)[keyof typeof VulnerabilityFixAvailable];
 
 /**
  * @public
@@ -8523,13 +8603,19 @@ export interface Vulnerability {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowStatus {
-  NEW = "NEW",
-  NOTIFIED = "NOTIFIED",
-  RESOLVED = "RESOLVED",
-  SUPPRESSED = "SUPPRESSED",
-}
+export const WorkflowStatus = {
+  NEW: "NEW",
+  NOTIFIED: "NOTIFIED",
+  RESOLVED: "RESOLVED",
+  SUPPRESSED: "SUPPRESSED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
 
 /**
  * @public
@@ -8581,14 +8667,20 @@ export interface Workflow {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowState {
-  ASSIGNED = "ASSIGNED",
-  DEFERRED = "DEFERRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NEW = "NEW",
-  RESOLVED = "RESOLVED",
-}
+export const WorkflowState = {
+  ASSIGNED: "ASSIGNED",
+  DEFERRED: "DEFERRED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NEW: "NEW",
+  RESOLVED: "RESOLVED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowState = (typeof WorkflowState)[keyof typeof WorkflowState];
 
 /**
  * @public
@@ -8859,13 +8951,19 @@ export interface AwsSecurityFinding {
 
 /**
  * @public
+ * @enum
  */
-export enum StringFilterComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-  PREFIX = "PREFIX",
-  PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS",
-}
+export const StringFilterComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+  PREFIX: "PREFIX",
+  PREFIX_NOT_EQUALS: "PREFIX_NOT_EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type StringFilterComparison = (typeof StringFilterComparison)[keyof typeof StringFilterComparison];
 
 /**
  * @public
@@ -8989,10 +9087,16 @@ export interface NumberFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum DateRangeUnit {
-  DAYS = "DAYS",
-}
+export const DateRangeUnit = {
+  DAYS: "DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type DateRangeUnit = (typeof DateRangeUnit)[keyof typeof DateRangeUnit];
 
 /**
  * @public
@@ -9059,11 +9163,17 @@ export interface IpFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum MapFilterComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+export const MapFilterComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type MapFilterComparison = (typeof MapFilterComparison)[keyof typeof MapFilterComparison];
 
 /**
  * @public
@@ -9768,22 +9878,34 @@ export interface BatchDisableStandardsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StandardsStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INCOMPLETE = "INCOMPLETE",
-  PENDING = "PENDING",
-  READY = "READY",
-}
+export const StandardsStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INCOMPLETE: "INCOMPLETE",
+  PENDING: "PENDING",
+  READY: "READY",
+} as const;
 
 /**
  * @public
  */
-export enum StatusReasonCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NO_AVAILABLE_CONFIGURATION_RECORDER = "NO_AVAILABLE_CONFIGURATION_RECORDER",
-}
+export type StandardsStatus = (typeof StandardsStatus)[keyof typeof StandardsStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusReasonCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NO_AVAILABLE_CONFIGURATION_RECORDER: "NO_AVAILABLE_CONFIGURATION_RECORDER",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusReasonCode = (typeof StatusReasonCode)[keyof typeof StatusReasonCode];
 
 /**
  * @public
@@ -9911,21 +10033,33 @@ export interface BatchGetSecurityControlsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ControlStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ControlStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum SeverityRating {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export type ControlStatus = (typeof ControlStatus)[keyof typeof ControlStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SeverityRating = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type SeverityRating = (typeof SeverityRating)[keyof typeof SeverityRating];
 
 /**
  * @public
@@ -9990,13 +10124,19 @@ export interface SecurityControl {
 
 /**
  * @public
+ * @enum
  */
-export enum UnprocessedErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INVALID_INPUT = "INVALID_INPUT",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-  NOT_FOUND = "NOT_FOUND",
-}
+export const UnprocessedErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INVALID_INPUT: "INVALID_INPUT",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  NOT_FOUND: "NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type UnprocessedErrorCode = (typeof UnprocessedErrorCode)[keyof typeof UnprocessedErrorCode];
 
 /**
  * @public
@@ -10683,11 +10823,17 @@ export interface BatchUpdateStandardsControlAssociationsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ControlFindingGenerator {
-  SECURITY_CONTROL = "SECURITY_CONTROL",
-  STANDARD_CONTROL = "STANDARD_CONTROL",
-}
+export const ControlFindingGenerator = {
+  SECURITY_CONTROL: "SECURITY_CONTROL",
+  STANDARD_CONTROL: "STANDARD_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlFindingGenerator = (typeof ControlFindingGenerator)[keyof typeof ControlFindingGenerator];
 
 /**
  * @public

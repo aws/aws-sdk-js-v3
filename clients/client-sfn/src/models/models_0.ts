@@ -379,13 +379,19 @@ export interface LogDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum LogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  OFF = "OFF",
-}
+export const LogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
 /**
  * @public
@@ -426,11 +432,17 @@ export interface TracingConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum StateMachineType {
-  EXPRESS = "EXPRESS",
-  STANDARD = "STANDARD",
-}
+export const StateMachineType = {
+  EXPRESS: "EXPRESS",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type StateMachineType = (typeof StateMachineType)[keyof typeof StateMachineType];
 
 /**
  * @public
@@ -716,12 +728,18 @@ export interface DeleteStateMachineOutput {}
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  API_DOES_NOT_SUPPORT_LABELED_ARNS = "API_DOES_NOT_SUPPORT_LABELED_ARNS",
-  CANNOT_UPDATE_COMPLETED_MAP_RUN = "CANNOT_UPDATE_COMPLETED_MAP_RUN",
-  MISSING_REQUIRED_PARAMETER = "MISSING_REQUIRED_PARAMETER",
-}
+export const ValidationExceptionReason = {
+  API_DOES_NOT_SUPPORT_LABELED_ARNS: "API_DOES_NOT_SUPPORT_LABELED_ARNS",
+  CANNOT_UPDATE_COMPLETED_MAP_RUN: "CANNOT_UPDATE_COMPLETED_MAP_RUN",
+  MISSING_REQUIRED_PARAMETER: "MISSING_REQUIRED_PARAMETER",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -825,14 +843,20 @@ export interface CloudWatchEventsExecutionDataDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutionStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const ExecutionStatus = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @public
@@ -1059,13 +1083,19 @@ export interface MapRunItemCounts {
 
 /**
  * @public
+ * @enum
  */
-export enum MapRunStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const MapRunStatus = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type MapRunStatus = (typeof MapRunStatus)[keyof typeof MapRunStatus];
 
 /**
  * @public
@@ -1157,11 +1187,17 @@ export interface DescribeStateMachineInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StateMachineStatus {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const StateMachineStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type StateMachineStatus = (typeof StateMachineStatus)[keyof typeof StateMachineStatus];
 
 /**
  * @public
@@ -1938,68 +1974,74 @@ export interface TaskTimedOutEventDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum HistoryEventType {
-  ActivityFailed = "ActivityFailed",
-  ActivityScheduleFailed = "ActivityScheduleFailed",
-  ActivityScheduled = "ActivityScheduled",
-  ActivityStarted = "ActivityStarted",
-  ActivitySucceeded = "ActivitySucceeded",
-  ActivityTimedOut = "ActivityTimedOut",
-  ChoiceStateEntered = "ChoiceStateEntered",
-  ChoiceStateExited = "ChoiceStateExited",
-  ExecutionAborted = "ExecutionAborted",
-  ExecutionFailed = "ExecutionFailed",
-  ExecutionStarted = "ExecutionStarted",
-  ExecutionSucceeded = "ExecutionSucceeded",
-  ExecutionTimedOut = "ExecutionTimedOut",
-  FailStateEntered = "FailStateEntered",
-  LambdaFunctionFailed = "LambdaFunctionFailed",
-  LambdaFunctionScheduleFailed = "LambdaFunctionScheduleFailed",
-  LambdaFunctionScheduled = "LambdaFunctionScheduled",
-  LambdaFunctionStartFailed = "LambdaFunctionStartFailed",
-  LambdaFunctionStarted = "LambdaFunctionStarted",
-  LambdaFunctionSucceeded = "LambdaFunctionSucceeded",
-  LambdaFunctionTimedOut = "LambdaFunctionTimedOut",
-  MapIterationAborted = "MapIterationAborted",
-  MapIterationFailed = "MapIterationFailed",
-  MapIterationStarted = "MapIterationStarted",
-  MapIterationSucceeded = "MapIterationSucceeded",
-  MapRunAborted = "MapRunAborted",
-  MapRunFailed = "MapRunFailed",
-  MapRunStarted = "MapRunStarted",
-  MapRunSucceeded = "MapRunSucceeded",
-  MapStateAborted = "MapStateAborted",
-  MapStateEntered = "MapStateEntered",
-  MapStateExited = "MapStateExited",
-  MapStateFailed = "MapStateFailed",
-  MapStateStarted = "MapStateStarted",
-  MapStateSucceeded = "MapStateSucceeded",
-  ParallelStateAborted = "ParallelStateAborted",
-  ParallelStateEntered = "ParallelStateEntered",
-  ParallelStateExited = "ParallelStateExited",
-  ParallelStateFailed = "ParallelStateFailed",
-  ParallelStateStarted = "ParallelStateStarted",
-  ParallelStateSucceeded = "ParallelStateSucceeded",
-  PassStateEntered = "PassStateEntered",
-  PassStateExited = "PassStateExited",
-  SucceedStateEntered = "SucceedStateEntered",
-  SucceedStateExited = "SucceedStateExited",
-  TaskFailed = "TaskFailed",
-  TaskScheduled = "TaskScheduled",
-  TaskStartFailed = "TaskStartFailed",
-  TaskStarted = "TaskStarted",
-  TaskStateAborted = "TaskStateAborted",
-  TaskStateEntered = "TaskStateEntered",
-  TaskStateExited = "TaskStateExited",
-  TaskSubmitFailed = "TaskSubmitFailed",
-  TaskSubmitted = "TaskSubmitted",
-  TaskSucceeded = "TaskSucceeded",
-  TaskTimedOut = "TaskTimedOut",
-  WaitStateAborted = "WaitStateAborted",
-  WaitStateEntered = "WaitStateEntered",
-  WaitStateExited = "WaitStateExited",
-}
+export const HistoryEventType = {
+  ActivityFailed: "ActivityFailed",
+  ActivityScheduleFailed: "ActivityScheduleFailed",
+  ActivityScheduled: "ActivityScheduled",
+  ActivityStarted: "ActivityStarted",
+  ActivitySucceeded: "ActivitySucceeded",
+  ActivityTimedOut: "ActivityTimedOut",
+  ChoiceStateEntered: "ChoiceStateEntered",
+  ChoiceStateExited: "ChoiceStateExited",
+  ExecutionAborted: "ExecutionAborted",
+  ExecutionFailed: "ExecutionFailed",
+  ExecutionStarted: "ExecutionStarted",
+  ExecutionSucceeded: "ExecutionSucceeded",
+  ExecutionTimedOut: "ExecutionTimedOut",
+  FailStateEntered: "FailStateEntered",
+  LambdaFunctionFailed: "LambdaFunctionFailed",
+  LambdaFunctionScheduleFailed: "LambdaFunctionScheduleFailed",
+  LambdaFunctionScheduled: "LambdaFunctionScheduled",
+  LambdaFunctionStartFailed: "LambdaFunctionStartFailed",
+  LambdaFunctionStarted: "LambdaFunctionStarted",
+  LambdaFunctionSucceeded: "LambdaFunctionSucceeded",
+  LambdaFunctionTimedOut: "LambdaFunctionTimedOut",
+  MapIterationAborted: "MapIterationAborted",
+  MapIterationFailed: "MapIterationFailed",
+  MapIterationStarted: "MapIterationStarted",
+  MapIterationSucceeded: "MapIterationSucceeded",
+  MapRunAborted: "MapRunAborted",
+  MapRunFailed: "MapRunFailed",
+  MapRunStarted: "MapRunStarted",
+  MapRunSucceeded: "MapRunSucceeded",
+  MapStateAborted: "MapStateAborted",
+  MapStateEntered: "MapStateEntered",
+  MapStateExited: "MapStateExited",
+  MapStateFailed: "MapStateFailed",
+  MapStateStarted: "MapStateStarted",
+  MapStateSucceeded: "MapStateSucceeded",
+  ParallelStateAborted: "ParallelStateAborted",
+  ParallelStateEntered: "ParallelStateEntered",
+  ParallelStateExited: "ParallelStateExited",
+  ParallelStateFailed: "ParallelStateFailed",
+  ParallelStateStarted: "ParallelStateStarted",
+  ParallelStateSucceeded: "ParallelStateSucceeded",
+  PassStateEntered: "PassStateEntered",
+  PassStateExited: "PassStateExited",
+  SucceedStateEntered: "SucceedStateEntered",
+  SucceedStateExited: "SucceedStateExited",
+  TaskFailed: "TaskFailed",
+  TaskScheduled: "TaskScheduled",
+  TaskStartFailed: "TaskStartFailed",
+  TaskStarted: "TaskStarted",
+  TaskStateAborted: "TaskStateAborted",
+  TaskStateEntered: "TaskStateEntered",
+  TaskStateExited: "TaskStateExited",
+  TaskSubmitFailed: "TaskSubmitFailed",
+  TaskSubmitted: "TaskSubmitted",
+  TaskSucceeded: "TaskSucceeded",
+  TaskTimedOut: "TaskTimedOut",
+  WaitStateAborted: "WaitStateAborted",
+  WaitStateEntered: "WaitStateEntered",
+  WaitStateExited: "WaitStateExited",
+} as const;
+
+/**
+ * @public
+ */
+export type HistoryEventType = (typeof HistoryEventType)[keyof typeof HistoryEventType];
 
 /**
  * @public
@@ -2875,12 +2917,18 @@ export interface BillingDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum SyncExecutionStatus {
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const SyncExecutionStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type SyncExecutionStatus = (typeof SyncExecutionStatus)[keyof typeof SyncExecutionStatus];
 
 /**
  * @public

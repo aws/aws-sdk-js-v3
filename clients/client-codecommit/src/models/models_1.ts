@@ -20,19 +20,31 @@ import {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderEnum {
-  ASCENDING = "ascending",
-  DESCENDING = "descending",
-}
+export const OrderEnum = {
+  ASCENDING: "ascending",
+  DESCENDING: "descending",
+} as const;
 
 /**
  * @public
  */
-export enum SortByEnum {
-  MODIFIED_DATE = "lastModifiedDate",
-  REPOSITORY_NAME = "repositoryName",
-}
+export type OrderEnum = (typeof OrderEnum)[keyof typeof OrderEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortByEnum = {
+  MODIFIED_DATE: "lastModifiedDate",
+  REPOSITORY_NAME: "repositoryName",
+} as const;
+
+/**
+ * @public
+ */
+export type SortByEnum = (typeof SortByEnum)[keyof typeof SortByEnum];
 
 /**
  * @public

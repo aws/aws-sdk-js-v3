@@ -253,22 +253,34 @@ export interface ChangeSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum FailureCode {
-  ClientError = "CLIENT_ERROR",
-  ServerFault = "SERVER_FAULT",
-}
+export const FailureCode = {
+  ClientError: "CLIENT_ERROR",
+  ServerFault: "SERVER_FAULT",
+} as const;
 
 /**
  * @public
  */
-export enum ChangeStatus {
-  APPLYING = "APPLYING",
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  PREPARING = "PREPARING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type FailureCode = (typeof FailureCode)[keyof typeof FailureCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeStatus = {
+  APPLYING: "APPLYING",
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PREPARING: "PREPARING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeStatus = (typeof ChangeStatus)[keyof typeof ChangeStatus];
 
 /**
  * @public
@@ -464,11 +476,17 @@ export interface Filter {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public

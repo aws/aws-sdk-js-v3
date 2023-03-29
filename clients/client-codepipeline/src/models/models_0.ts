@@ -24,16 +24,22 @@ export interface AcknowledgeJobInput {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  Created = "Created",
-  Dispatched = "Dispatched",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Queued = "Queued",
-  Succeeded = "Succeeded",
-  TimedOut = "TimedOut",
-}
+export const JobStatus = {
+  Created: "Created",
+  Dispatched: "Dispatched",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Queued: "Queued",
+  Succeeded: "Succeeded",
+  TimedOut: "TimedOut",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -162,15 +168,21 @@ export class InvalidClientTokenException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionCategory {
-  Approval = "Approval",
-  Build = "Build",
-  Deploy = "Deploy",
-  Invoke = "Invoke",
-  Source = "Source",
-  Test = "Test",
-}
+export const ActionCategory = {
+  Approval: "Approval",
+  Build: "Build",
+  Deploy: "Deploy",
+  Invoke: "Invoke",
+  Source: "Source",
+  Test: "Test",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionCategory = (typeof ActionCategory)[keyof typeof ActionCategory];
 
 /**
  * @public
@@ -185,12 +197,19 @@ export interface ActionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionConfigurationPropertyType {
-  Boolean = "Boolean",
-  Number = "Number",
-  String = "String",
-}
+export const ActionConfigurationPropertyType = {
+  Boolean: "Boolean",
+  Number: "Number",
+  String: "String",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionConfigurationPropertyType =
+  (typeof ActionConfigurationPropertyType)[keyof typeof ActionConfigurationPropertyType];
 
 /**
  * @public
@@ -263,12 +282,18 @@ export interface ActionContext {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionOwner {
-  AWS = "AWS",
-  Custom = "Custom",
-  ThirdParty = "ThirdParty",
-}
+export const ActionOwner = {
+  AWS: "AWS",
+  Custom: "Custom",
+  ThirdParty: "ThirdParty",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionOwner = (typeof ActionOwner)[keyof typeof ActionOwner];
 
 /**
  * @public
@@ -444,13 +469,19 @@ export interface ErrorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionExecutionStatus {
-  Abandoned = "Abandoned",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Succeeded = "Succeeded",
-}
+export const ActionExecutionStatus = {
+  Abandoned: "Abandoned",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionExecutionStatus = (typeof ActionExecutionStatus)[keyof typeof ActionExecutionStatus];
 
 /**
  * @public
@@ -942,11 +973,17 @@ export interface ExecutorConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutorType {
-  JobWorker = "JobWorker",
-  Lambda = "Lambda",
-}
+export const ExecutorType = {
+  JobWorker: "JobWorker",
+  Lambda: "Lambda",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutorType = (typeof ExecutorType)[keyof typeof ExecutorType];
 
 /**
  * @public
@@ -1228,11 +1265,17 @@ export class ApprovalAlreadyCompletedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ApprovalStatus {
-  Approved = "Approved",
-  Rejected = "Rejected",
-}
+export const ApprovalStatus = {
+  Approved: "Approved",
+  Rejected: "Rejected",
+} as const;
+
+/**
+ * @public
+ */
+export type ApprovalStatus = (typeof ApprovalStatus)[keyof typeof ApprovalStatus];
 
 /**
  * @public
@@ -1270,10 +1313,16 @@ export interface S3ArtifactLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum ArtifactLocationType {
-  S3 = "S3",
-}
+export const ArtifactLocationType = {
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ArtifactLocationType = (typeof ArtifactLocationType)[keyof typeof ArtifactLocationType];
 
 /**
  * @public
@@ -1359,10 +1408,16 @@ export interface ArtifactRevision {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionKeyType {
-  KMS = "KMS",
-}
+export const EncryptionKeyType = {
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof EncryptionKeyType];
 
 /**
  * @public
@@ -1390,10 +1445,16 @@ export interface EncryptionKey {
 
 /**
  * @public
+ * @enum
  */
-export enum ArtifactStoreType {
-  S3 = "S3",
-}
+export const ArtifactStoreType = {
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ArtifactStoreType = (typeof ArtifactStoreType)[keyof typeof ArtifactStoreType];
 
 /**
  * @public
@@ -1454,10 +1515,16 @@ export interface AWSSessionCredentials {
 
 /**
  * @public
+ * @enum
  */
-export enum BlockerType {
-  Schedule = "Schedule",
-}
+export const BlockerType = {
+  Schedule: "Schedule",
+} as const;
+
+/**
+ * @public
+ */
+export type BlockerType = (typeof BlockerType)[keyof typeof BlockerType];
 
 /**
  * @public
@@ -1941,11 +2008,17 @@ export class WebhookNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum StageTransitionType {
-  Inbound = "Inbound",
-  Outbound = "Outbound",
-}
+export const StageTransitionType = {
+  Inbound: "Inbound",
+  Outbound: "Outbound",
+} as const;
+
+/**
+ * @public
+ */
+export type StageTransitionType = (typeof StageTransitionType)[keyof typeof StageTransitionType];
 
 /**
  * @public
@@ -2366,16 +2439,22 @@ export interface GetPipelineExecutionInput {
 
 /**
  * @public
+ * @enum
  */
-export enum PipelineExecutionStatus {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Succeeded = "Succeeded",
-  Superseded = "Superseded",
-}
+export const PipelineExecutionStatus = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Succeeded: "Succeeded",
+  Superseded: "Superseded",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineExecutionStatus = (typeof PipelineExecutionStatus)[keyof typeof PipelineExecutionStatus];
 
 /**
  * @public
@@ -2488,15 +2567,21 @@ export interface GetPipelineStateInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StageExecutionStatus {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Succeeded = "Succeeded",
-}
+export const StageExecutionStatus = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type StageExecutionStatus = (typeof StageExecutionStatus)[keyof typeof StageExecutionStatus];
 
 /**
  * @public
@@ -2933,15 +3018,21 @@ export interface StopExecutionTrigger {
 
 /**
  * @public
+ * @enum
  */
-export enum TriggerType {
-  CloudWatchEvent = "CloudWatchEvent",
-  CreatePipeline = "CreatePipeline",
-  PollForSourceChanges = "PollForSourceChanges",
-  PutActionRevision = "PutActionRevision",
-  StartPipelineExecution = "StartPipelineExecution",
-  Webhook = "Webhook",
-}
+export const TriggerType = {
+  CloudWatchEvent: "CloudWatchEvent",
+  CreatePipeline: "CreatePipeline",
+  PollForSourceChanges: "PollForSourceChanges",
+  PutActionRevision: "PutActionRevision",
+  StartPipelineExecution: "StartPipelineExecution",
+  Webhook: "Webhook",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 /**
  * @public
@@ -3212,12 +3303,18 @@ export interface ListWebhooksInput {
 
 /**
  * @public
+ * @enum
  */
-export enum WebhookAuthenticationType {
-  GITHUB_HMAC = "GITHUB_HMAC",
-  IP = "IP",
-  UNAUTHENTICATED = "UNAUTHENTICATED",
-}
+export const WebhookAuthenticationType = {
+  GITHUB_HMAC: "GITHUB_HMAC",
+  IP: "IP",
+  UNAUTHENTICATED: "UNAUTHENTICATED",
+} as const;
+
+/**
+ * @public
+ */
+export type WebhookAuthenticationType = (typeof WebhookAuthenticationType)[keyof typeof WebhookAuthenticationType];
 
 /**
  * @public
@@ -3628,15 +3725,21 @@ export class InvalidJobStateException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FailureType {
-  ConfigurationError = "ConfigurationError",
-  JobFailed = "JobFailed",
-  PermissionError = "PermissionError",
-  RevisionOutOfSync = "RevisionOutOfSync",
-  RevisionUnavailable = "RevisionUnavailable",
-  SystemUnavailable = "SystemUnavailable",
-}
+export const FailureType = {
+  ConfigurationError: "ConfigurationError",
+  JobFailed: "JobFailed",
+  PermissionError: "PermissionError",
+  RevisionOutOfSync: "RevisionOutOfSync",
+  RevisionUnavailable: "RevisionUnavailable",
+  SystemUnavailable: "SystemUnavailable",
+} as const;
+
+/**
+ * @public
+ */
+export type FailureType = (typeof FailureType)[keyof typeof FailureType];
 
 /**
  * @public
@@ -3979,10 +4082,16 @@ export class NotLatestPipelineExecutionException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum StageRetryMode {
-  FAILED_ACTIONS = "FAILED_ACTIONS",
-}
+export const StageRetryMode = {
+  FAILED_ACTIONS: "FAILED_ACTIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type StageRetryMode = (typeof StageRetryMode)[keyof typeof StageRetryMode];
 
 /**
  * @public

@@ -347,12 +347,18 @@ export interface DescribeProductsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IntegrationType {
-  RECEIVE_FINDINGS_FROM_SECURITY_HUB = "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
-  SEND_FINDINGS_TO_SECURITY_HUB = "SEND_FINDINGS_TO_SECURITY_HUB",
-  UPDATE_FINDINGS_IN_SECURITY_HUB = "UPDATE_FINDINGS_IN_SECURITY_HUB",
-}
+export const IntegrationType = {
+  RECEIVE_FINDINGS_FROM_SECURITY_HUB: "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
+  SEND_FINDINGS_TO_SECURITY_HUB: "SEND_FINDINGS_TO_SECURITY_HUB",
+  UPDATE_FINDINGS_IN_SECURITY_HUB: "UPDATE_FINDINGS_IN_SECURITY_HUB",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
 
 /**
  * @public
@@ -907,11 +913,17 @@ export interface GetFindingAggregatorResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
-  ASCENDING = "asc",
-  DESCENDING = "desc",
-}
+export const SortOrder = {
+  ASCENDING: "asc",
+  DESCENDING: "desc",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -1481,11 +1493,17 @@ export interface ListSecurityControlDefinitionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RegionAvailabilityStatus {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const RegionAvailabilityStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type RegionAvailabilityStatus = (typeof RegionAvailabilityStatus)[keyof typeof RegionAvailabilityStatus];
 
 /**
  * @public

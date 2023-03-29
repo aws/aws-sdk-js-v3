@@ -5,22 +5,34 @@ import { MediaStoreServiceException as __BaseException } from "./MediaStoreServi
 
 /**
  * @public
+ * @enum
  */
-export enum MethodName {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  PUT = "PUT",
-}
+export const MethodName = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  PUT: "PUT",
+} as const;
 
 /**
  * @public
  */
-export enum ContainerStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export type MethodName = (typeof MethodName)[keyof typeof MethodName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerStatus = (typeof ContainerStatus)[keyof typeof ContainerStatus];
 
 /**
  * @public
@@ -93,11 +105,17 @@ export class ContainerInUseException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerLevelMetrics {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ContainerLevelMetrics = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerLevelMetrics = (typeof ContainerLevelMetrics)[keyof typeof ContainerLevelMetrics];
 
 /**
  * @public

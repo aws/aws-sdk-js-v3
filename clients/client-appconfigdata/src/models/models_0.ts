@@ -5,21 +5,27 @@ import { AppConfigDataServiceException as __BaseException } from "./AppConfigDat
 
 /**
  * @public
+ * @enum
  */
-export enum InvalidParameterProblem {
+export const InvalidParameterProblem = {
   /**
    * The parameter was corrupted and could not be understood by the service.
    */
-  CORRUPTED = "Corrupted",
+  CORRUPTED: "Corrupted",
   /**
    * The parameter was expired and can no longer be used.
    */
-  EXPIRED = "Expired",
+  EXPIRED: "Expired",
   /**
    * The client called the service before the time specified in the poll interval.
    */
-  POLL_INTERVAL_NOT_SATISFIED = "PollIntervalNotSatisfied",
-}
+  POLL_INTERVAL_NOT_SATISFIED: "PollIntervalNotSatisfied",
+} as const;
+
+/**
+ * @public
+ */
+export type InvalidParameterProblem = (typeof InvalidParameterProblem)[keyof typeof InvalidParameterProblem];
 
 /**
  * @public
@@ -69,14 +75,20 @@ export namespace BadRequestDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum BadRequestReason {
+export const BadRequestReason = {
   /**
    * Indicates there was a problem with one or more of the parameters.
    * See InvalidParameters in the BadRequestDetails for more information.
    */
-  INVALID_PARAMETERS = "InvalidParameters",
-}
+  INVALID_PARAMETERS: "InvalidParameters",
+} as const;
+
+/**
+ * @public
+ */
+export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequestReason];
 
 /**
  * @public
@@ -135,29 +147,35 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
+export const ResourceType = {
   /**
    * Resource type value for the Application resource.
    */
-  APPLICATION = "Application",
+  APPLICATION: "Application",
   /**
    * Resource type value for the Configuration resource.
    */
-  CONFIGURATION = "Configuration",
+  CONFIGURATION: "Configuration",
   /**
    * Resource type value for the ConfigurationProfile resource.
    */
-  CONFIGURATION_PROFILE = "ConfigurationProfile",
+  CONFIGURATION_PROFILE: "ConfigurationProfile",
   /**
    * Resource type value for the Deployment resource.
    */
-  DEPLOYMENT = "Deployment",
+  DEPLOYMENT: "Deployment",
   /**
    * Resource type value for the Environment resource.
    */
-  ENVIRONMENT = "Environment",
-}
+  ENVIRONMENT: "Environment",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public

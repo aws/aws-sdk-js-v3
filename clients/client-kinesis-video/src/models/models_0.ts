@@ -72,35 +72,53 @@ export class AccountStreamLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum APIName {
-  GET_CLIP = "GET_CLIP",
-  GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL",
-  GET_HLS_STREAMING_SESSION_URL = "GET_HLS_STREAMING_SESSION_URL",
-  GET_IMAGES = "GET_IMAGES",
-  GET_MEDIA = "GET_MEDIA",
-  GET_MEDIA_FOR_FRAGMENT_LIST = "GET_MEDIA_FOR_FRAGMENT_LIST",
-  LIST_FRAGMENTS = "LIST_FRAGMENTS",
-  PUT_MEDIA = "PUT_MEDIA",
-}
+export const APIName = {
+  GET_CLIP: "GET_CLIP",
+  GET_DASH_STREAMING_SESSION_URL: "GET_DASH_STREAMING_SESSION_URL",
+  GET_HLS_STREAMING_SESSION_URL: "GET_HLS_STREAMING_SESSION_URL",
+  GET_IMAGES: "GET_IMAGES",
+  GET_MEDIA: "GET_MEDIA",
+  GET_MEDIA_FOR_FRAGMENT_LIST: "GET_MEDIA_FOR_FRAGMENT_LIST",
+  LIST_FRAGMENTS: "LIST_FRAGMENTS",
+  PUT_MEDIA: "PUT_MEDIA",
+} as const;
 
 /**
  * @public
  */
-export enum Status {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export type APIName = (typeof APIName)[keyof typeof APIName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum ChannelType {
-  FULL_MESH = "FULL_MESH",
-  SINGLE_MASTER = "SINGLE_MASTER",
-}
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelType = {
+  FULL_MESH: "FULL_MESH",
+  SINGLE_MASTER: "SINGLE_MASTER",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
  * @public
@@ -159,10 +177,16 @@ export interface ChannelInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-}
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * @public
@@ -186,20 +210,32 @@ export interface ChannelNameCondition {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelProtocol {
-  HTTPS = "HTTPS",
-  WEBRTC = "WEBRTC",
-  WSS = "WSS",
-}
+export const ChannelProtocol = {
+  HTTPS: "HTTPS",
+  WEBRTC: "WEBRTC",
+  WSS: "WSS",
+} as const;
 
 /**
  * @public
  */
-export enum ChannelRole {
-  MASTER = "MASTER",
-  VIEWER = "VIEWER",
-}
+export type ChannelProtocol = (typeof ChannelProtocol)[keyof typeof ChannelProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelRole = {
+  MASTER: "MASTER",
+  VIEWER: "VIEWER",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelRole = (typeof ChannelRole)[keyof typeof ChannelRole];
 
 /**
  * @public
@@ -226,11 +262,17 @@ export class ClientLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ConfigurationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof ConfigurationStatus];
 
 /**
  * @public
@@ -598,11 +640,17 @@ export class NotAuthorizedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum StrategyOnFullSize {
-  DELETE_OLDEST_MEDIA = "DELETE_OLDEST_MEDIA",
-  DENY_NEW_MEDIA = "DENY_NEW_MEDIA",
-}
+export const StrategyOnFullSize = {
+  DELETE_OLDEST_MEDIA: "DELETE_OLDEST_MEDIA",
+  DENY_NEW_MEDIA: "DENY_NEW_MEDIA",
+} as const;
+
+/**
+ * @public
+ */
+export type StrategyOnFullSize = (typeof StrategyOnFullSize)[keyof typeof StrategyOnFullSize];
 
 /**
  * @public
@@ -670,11 +718,17 @@ export interface DescribeEdgeConfigurationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaUriType {
-  FILE_URI = "FILE_URI",
-  RTSP_URI = "RTSP_URI",
-}
+export const MediaUriType = {
+  FILE_URI: "FILE_URI",
+  RTSP_URI: "RTSP_URI",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaUriType = (typeof MediaUriType)[keyof typeof MediaUriType];
 
 /**
  * @public
@@ -799,15 +853,21 @@ export interface EdgeConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum SyncStatus {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  IN_SYNC = "IN_SYNC",
-  SYNCING = "SYNCING",
-  SYNC_FAILED = "SYNC_FAILED",
-}
+export const SyncStatus = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  IN_SYNC: "IN_SYNC",
+  SYNCING: "SYNCING",
+  SYNC_FAILED: "SYNC_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type SyncStatus = (typeof SyncStatus)[keyof typeof SyncStatus];
 
 /**
  * @public
@@ -907,26 +967,44 @@ export interface ImageGenerationDestinationConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum Format {
-  JPEG = "JPEG",
-  PNG = "PNG",
-}
+export const Format = {
+  JPEG: "JPEG",
+  PNG: "PNG",
+} as const;
 
 /**
  * @public
  */
-export enum FormatConfigKey {
-  JPEGQuality = "JPEGQuality",
-}
+export type Format = (typeof Format)[keyof typeof Format];
+
+/**
+ * @public
+ * @enum
+ */
+export const FormatConfigKey = {
+  JPEGQuality: "JPEGQuality",
+} as const;
 
 /**
  * @public
  */
-export enum ImageSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export type FormatConfigKey = (typeof FormatConfigKey)[keyof typeof FormatConfigKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSelectorType = (typeof ImageSelectorType)[keyof typeof ImageSelectorType];
 
 /**
  * @public
@@ -1068,11 +1146,18 @@ export interface DescribeMediaStorageConfigurationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaStorageConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const MediaStorageConfigurationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaStorageConfigurationStatus =
+  (typeof MediaStorageConfigurationStatus)[keyof typeof MediaStorageConfigurationStatus];
 
 /**
  * @public
@@ -1741,11 +1826,18 @@ export interface UntagStreamOutput {}
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateDataRetentionOperation {
-  DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION",
-  INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION",
-}
+export const UpdateDataRetentionOperation = {
+  DECREASE_DATA_RETENTION: "DECREASE_DATA_RETENTION",
+  INCREASE_DATA_RETENTION: "INCREASE_DATA_RETENTION",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateDataRetentionOperation =
+  (typeof UpdateDataRetentionOperation)[keyof typeof UpdateDataRetentionOperation];
 
 /**
  * @public
