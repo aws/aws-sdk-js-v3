@@ -481,13 +481,19 @@ export interface GetBulkPublishDetailsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BulkPublishStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BulkPublishStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BulkPublishStatus = (typeof BulkPublishStatus)[keyof typeof BulkPublishStatus];
 
 /**
  * @public

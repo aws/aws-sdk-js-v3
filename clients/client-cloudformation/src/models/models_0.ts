@@ -5,22 +5,34 @@ import { CloudFormationServiceException as __BaseException } from "./CloudFormat
 
 /**
  * @public
+ * @enum
  */
-export enum AccountFilterType {
-  DIFFERENCE = "DIFFERENCE",
-  INTERSECTION = "INTERSECTION",
-  NONE = "NONE",
-  UNION = "UNION",
-}
+export const AccountFilterType = {
+  DIFFERENCE: "DIFFERENCE",
+  INTERSECTION: "INTERSECTION",
+  NONE: "NONE",
+  UNION: "UNION",
+} as const;
 
 /**
  * @public
  */
-export enum AccountGateStatus {
-  FAILED = "FAILED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type AccountFilterType = (typeof AccountFilterType)[keyof typeof AccountFilterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountGateStatus = {
+  FAILED: "FAILED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountGateStatus = (typeof AccountGateStatus)[keyof typeof AccountGateStatus];
 
 /**
  * @public
@@ -140,20 +152,32 @@ export interface LoggingConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ThirdPartyType {
-  HOOK = "HOOK",
-  MODULE = "MODULE",
-  RESOURCE = "RESOURCE",
-}
+export const ThirdPartyType = {
+  HOOK: "HOOK",
+  MODULE: "MODULE",
+  RESOURCE: "RESOURCE",
+} as const;
 
 /**
  * @public
  */
-export enum VersionBump {
-  MAJOR = "MAJOR",
-  MINOR = "MINOR",
-}
+export type ThirdPartyType = (typeof ThirdPartyType)[keyof typeof ThirdPartyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VersionBump = {
+  MAJOR: "MAJOR",
+  MINOR: "MINOR",
+} as const;
+
+/**
+ * @public
+ */
+export type VersionBump = (typeof VersionBump)[keyof typeof VersionBump];
 
 /**
  * @public
@@ -514,11 +538,17 @@ export class TypeConfigurationNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CallAs {
-  DELEGATED_ADMIN = "DELEGATED_ADMIN",
-  SELF = "SELF",
-}
+export const CallAs = {
+  DELEGATED_ADMIN: "DELEGATED_ADMIN",
+  SELF: "SELF",
+} as const;
+
+/**
+ * @public
+ */
+export type CallAs = (typeof CallAs)[keyof typeof CallAs];
 
 /**
  * @public
@@ -564,73 +594,115 @@ export class TokenAlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Capability {
-  CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
-  CAPABILITY_IAM = "CAPABILITY_IAM",
-  CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
-}
+export const Capability = {
+  CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
+  CAPABILITY_IAM: "CAPABILITY_IAM",
+  CAPABILITY_NAMED_IAM: "CAPABILITY_NAMED_IAM",
+} as const;
 
 /**
  * @public
  */
-export enum Category {
-  ACTIVATED = "ACTIVATED",
-  AWS_TYPES = "AWS_TYPES",
-  REGISTERED = "REGISTERED",
-  THIRD_PARTY = "THIRD_PARTY",
-}
+export type Capability = (typeof Capability)[keyof typeof Capability];
+
+/**
+ * @public
+ * @enum
+ */
+export const Category = {
+  ACTIVATED: "ACTIVATED",
+  AWS_TYPES: "AWS_TYPES",
+  REGISTERED: "REGISTERED",
+  THIRD_PARTY: "THIRD_PARTY",
+} as const;
 
 /**
  * @public
  */
-export enum ChangeAction {
-  Add = "Add",
-  Dynamic = "Dynamic",
-  Import = "Import",
-  Modify = "Modify",
-  Remove = "Remove",
-}
+export type Category = (typeof Category)[keyof typeof Category];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeAction = {
+  Add: "Add",
+  Dynamic: "Dynamic",
+  Import: "Import",
+  Modify: "Modify",
+  Remove: "Remove",
+} as const;
 
 /**
  * @public
  */
-export enum ChangeSource {
-  Automatic = "Automatic",
-  DirectModification = "DirectModification",
-  ParameterReference = "ParameterReference",
-  ResourceAttribute = "ResourceAttribute",
-  ResourceReference = "ResourceReference",
-}
+export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeSource = {
+  Automatic: "Automatic",
+  DirectModification: "DirectModification",
+  ParameterReference: "ParameterReference",
+  ResourceAttribute: "ResourceAttribute",
+  ResourceReference: "ResourceReference",
+} as const;
 
 /**
  * @public
  */
-export enum EvaluationType {
-  Dynamic = "Dynamic",
-  Static = "Static",
-}
+export type ChangeSource = (typeof ChangeSource)[keyof typeof ChangeSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationType = {
+  Dynamic: "Dynamic",
+  Static: "Static",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceAttribute {
-  CreationPolicy = "CreationPolicy",
-  DeletionPolicy = "DeletionPolicy",
-  Metadata = "Metadata",
-  Properties = "Properties",
-  Tags = "Tags",
-  UpdatePolicy = "UpdatePolicy",
-}
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceAttribute = {
+  CreationPolicy: "CreationPolicy",
+  DeletionPolicy: "DeletionPolicy",
+  Metadata: "Metadata",
+  Properties: "Properties",
+  Tags: "Tags",
+  UpdatePolicy: "UpdatePolicy",
+} as const;
 
 /**
  * @public
  */
-export enum RequiresRecreation {
-  Always = "Always",
-  Conditionally = "Conditionally",
-  Never = "Never",
-}
+export type ResourceAttribute = (typeof ResourceAttribute)[keyof typeof ResourceAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RequiresRecreation = {
+  Always: "Always",
+  Conditionally: "Conditionally",
+  Never: "Never",
+} as const;
+
+/**
+ * @public
+ */
+export type RequiresRecreation = (typeof RequiresRecreation)[keyof typeof RequiresRecreation];
 
 /**
  * @public
@@ -781,12 +853,18 @@ export interface ModuleInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum Replacement {
-  Conditional = "Conditional",
-  False = "False",
-  True = "True",
-}
+export const Replacement = {
+  Conditional: "Conditional",
+  False: "False",
+  True: "True",
+} as const;
+
+/**
+ * @public
+ */
+export type Replacement = (typeof Replacement)[keyof typeof Replacement];
 
 /**
  * @public
@@ -863,10 +941,16 @@ export interface ResourceChange {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeType {
-  Resource = "Resource",
-}
+export const ChangeType = {
+  Resource: "Resource",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
 
 /**
  * @public
@@ -895,18 +979,30 @@ export interface Change {
 
 /**
  * @public
+ * @enum
  */
-export enum HookFailureMode {
-  FAIL = "FAIL",
-  WARN = "WARN",
-}
+export const HookFailureMode = {
+  FAIL: "FAIL",
+  WARN: "WARN",
+} as const;
 
 /**
  * @public
  */
-export enum HookInvocationPoint {
-  PRE_PROVISION = "PRE_PROVISION",
-}
+export type HookFailureMode = (typeof HookFailureMode)[keyof typeof HookFailureMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HookInvocationPoint = {
+  PRE_PROVISION: "PRE_PROVISION",
+} as const;
+
+/**
+ * @public
+ */
+export type HookInvocationPoint = (typeof HookInvocationPoint)[keyof typeof HookInvocationPoint];
 
 /**
  * @public
@@ -931,10 +1027,16 @@ export interface ChangeSetHookResourceTargetDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum HookTargetType {
-  RESOURCE = "RESOURCE",
-}
+export const HookTargetType = {
+  RESOURCE: "RESOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type HookTargetType = (typeof HookTargetType)[keyof typeof HookTargetType];
 
 /**
  * @public
@@ -1042,12 +1144,18 @@ export interface ChangeSetHook {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeSetHooksStatus {
-  PLANNED = "PLANNED",
-  PLANNING = "PLANNING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const ChangeSetHooksStatus = {
+  PLANNED: "PLANNED",
+  PLANNING: "PLANNING",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeSetHooksStatus = (typeof ChangeSetHooksStatus)[keyof typeof ChangeSetHooksStatus];
 
 /**
  * @public
@@ -1074,29 +1182,41 @@ export class ChangeSetNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeSetStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_PENDING = "DELETE_PENDING",
-  FAILED = "FAILED",
-}
+export const ChangeSetStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_PENDING: "DELETE_PENDING",
+  FAILED: "FAILED",
+} as const;
 
 /**
  * @public
  */
-export enum ExecutionStatus {
-  AVAILABLE = "AVAILABLE",
-  EXECUTE_COMPLETE = "EXECUTE_COMPLETE",
-  EXECUTE_FAILED = "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  OBSOLETE = "OBSOLETE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export type ChangeSetStatus = (typeof ChangeSetStatus)[keyof typeof ChangeSetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  AVAILABLE: "AVAILABLE",
+  EXECUTE_COMPLETE: "EXECUTE_COMPLETE",
+  EXECUTE_FAILED: "EXECUTE_FAILED",
+  EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+  OBSOLETE: "OBSOLETE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @public
@@ -1174,12 +1294,18 @@ export interface ChangeSetSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeSetType {
-  CREATE = "CREATE",
-  IMPORT = "IMPORT",
-  UPDATE = "UPDATE",
-}
+export const ChangeSetType = {
+  CREATE: "CREATE",
+  IMPORT: "IMPORT",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeSetType = (typeof ChangeSetType)[keyof typeof ChangeSetType];
 
 /**
  * @public
@@ -1714,12 +1840,18 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum OnFailure {
-  DELETE = "DELETE",
-  DO_NOTHING = "DO_NOTHING",
-  ROLLBACK = "ROLLBACK",
-}
+export const OnFailure = {
+  DELETE: "DELETE",
+  DO_NOTHING: "DO_NOTHING",
+  ROLLBACK: "ROLLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type OnFailure = (typeof OnFailure)[keyof typeof OnFailure];
 
 /**
  * @public
@@ -2068,11 +2200,17 @@ export interface DeploymentTargets {
 
 /**
  * @public
+ * @enum
  */
-export enum RegionConcurrencyType {
-  PARALLEL = "PARALLEL",
-  SEQUENTIAL = "SEQUENTIAL",
-}
+export const RegionConcurrencyType = {
+  PARALLEL: "PARALLEL",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type RegionConcurrencyType = (typeof RegionConcurrencyType)[keyof typeof RegionConcurrencyType];
 
 /**
  * @public
@@ -2414,11 +2552,17 @@ export interface ManagedExecution {
 
 /**
  * @public
+ * @enum
  */
-export enum PermissionModels {
-  SELF_MANAGED = "SELF_MANAGED",
-  SERVICE_MANAGED = "SERVICE_MANAGED",
-}
+export const PermissionModels = {
+  SELF_MANAGED: "SELF_MANAGED",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionModels = (typeof PermissionModels)[keyof typeof PermissionModels];
 
 /**
  * @public
@@ -2972,12 +3116,18 @@ export class StackSetNotEmptyException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RegistryType {
-  HOOK = "HOOK",
-  MODULE = "MODULE",
-  RESOURCE = "RESOURCE",
-}
+export const RegistryType = {
+  HOOK: "HOOK",
+  MODULE: "MODULE",
+  RESOURCE: "RESOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistryType = (typeof RegistryType)[keyof typeof RegistryType];
 
 /**
  * @public
@@ -3270,20 +3420,32 @@ export interface DescribePublisherInput {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityProvider {
-  AWS_Marketplace = "AWS_Marketplace",
-  Bitbucket = "Bitbucket",
-  GitHub = "GitHub",
-}
+export const IdentityProvider = {
+  AWS_Marketplace: "AWS_Marketplace",
+  Bitbucket: "Bitbucket",
+  GitHub: "GitHub",
+} as const;
 
 /**
  * @public
  */
-export enum PublisherStatus {
-  UNVERIFIED = "UNVERIFIED",
-  VERIFIED = "VERIFIED",
-}
+export type IdentityProvider = (typeof IdentityProvider)[keyof typeof IdentityProvider];
+
+/**
+ * @public
+ * @enum
+ */
+export const PublisherStatus = {
+  UNVERIFIED: "UNVERIFIED",
+  VERIFIED: "VERIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type PublisherStatus = (typeof PublisherStatus)[keyof typeof PublisherStatus];
 
 /**
  * @public
@@ -3327,22 +3489,34 @@ export interface DescribeStackDriftDetectionStatusInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackDriftDetectionStatus {
-  DETECTION_COMPLETE = "DETECTION_COMPLETE",
-  DETECTION_FAILED = "DETECTION_FAILED",
-  DETECTION_IN_PROGRESS = "DETECTION_IN_PROGRESS",
-}
+export const StackDriftDetectionStatus = {
+  DETECTION_COMPLETE: "DETECTION_COMPLETE",
+  DETECTION_FAILED: "DETECTION_FAILED",
+  DETECTION_IN_PROGRESS: "DETECTION_IN_PROGRESS",
+} as const;
 
 /**
  * @public
  */
-export enum StackDriftStatus {
-  DRIFTED = "DRIFTED",
-  IN_SYNC = "IN_SYNC",
-  NOT_CHECKED = "NOT_CHECKED",
-  UNKNOWN = "UNKNOWN",
-}
+export type StackDriftDetectionStatus = (typeof StackDriftDetectionStatus)[keyof typeof StackDriftDetectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StackDriftStatus = {
+  DRIFTED: "DRIFTED",
+  IN_SYNC: "IN_SYNC",
+  NOT_CHECKED: "NOT_CHECKED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type StackDriftStatus = (typeof StackDriftStatus)[keyof typeof StackDriftStatus];
 
 /**
  * @public
@@ -3463,41 +3637,53 @@ export interface DescribeStackEventsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum HookStatus {
-  HOOK_COMPLETE_FAILED = "HOOK_COMPLETE_FAILED",
-  HOOK_COMPLETE_SUCCEEDED = "HOOK_COMPLETE_SUCCEEDED",
-  HOOK_FAILED = "HOOK_FAILED",
-  HOOK_IN_PROGRESS = "HOOK_IN_PROGRESS",
-}
+export const HookStatus = {
+  HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
+  HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
+  HOOK_FAILED: "HOOK_FAILED",
+  HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SKIPPED = "DELETE_SKIPPED",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_FAILED = "IMPORT_FAILED",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  IMPORT_ROLLBACK_COMPLETE = "IMPORT_ROLLBACK_COMPLETE",
-  IMPORT_ROLLBACK_FAILED = "IMPORT_ROLLBACK_FAILED",
-  IMPORT_ROLLBACK_IN_PROGRESS = "IMPORT_ROLLBACK_IN_PROGRESS",
-  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_ROLLBACK_COMPLETE = "UPDATE_ROLLBACK_COMPLETE",
-  UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED",
-  UPDATE_ROLLBACK_IN_PROGRESS = "UPDATE_ROLLBACK_IN_PROGRESS",
-}
+export type HookStatus = (typeof HookStatus)[keyof typeof HookStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_SKIPPED: "DELETE_SKIPPED",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_FAILED: "IMPORT_FAILED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+  IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+  IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+  UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
  * @public
@@ -3669,15 +3855,22 @@ export interface DescribeStackInstanceInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackInstanceDetailedStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  INOPERABLE = "INOPERABLE",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const StackInstanceDetailedStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  INOPERABLE: "INOPERABLE",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackInstanceDetailedStatus =
+  (typeof StackInstanceDetailedStatus)[keyof typeof StackInstanceDetailedStatus];
 
 /**
  * @public
@@ -3729,12 +3922,18 @@ export interface StackInstanceComprehensiveStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum StackInstanceStatus {
-  CURRENT = "CURRENT",
-  INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED",
-}
+export const StackInstanceStatus = {
+  CURRENT: "CURRENT",
+  INOPERABLE: "INOPERABLE",
+  OUTDATED: "OUTDATED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackInstanceStatus = (typeof StackInstanceStatus)[keyof typeof StackInstanceStatus];
 
 /**
  * @public
@@ -3933,13 +4132,19 @@ export interface DescribeStackResourceInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackResourceDriftStatus {
-  DELETED = "DELETED",
-  IN_SYNC = "IN_SYNC",
-  MODIFIED = "MODIFIED",
-  NOT_CHECKED = "NOT_CHECKED",
-}
+export const StackResourceDriftStatus = {
+  DELETED: "DELETED",
+  IN_SYNC: "IN_SYNC",
+  MODIFIED: "MODIFIED",
+  NOT_CHECKED: "NOT_CHECKED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackResourceDriftStatus = (typeof StackResourceDriftStatus)[keyof typeof StackResourceDriftStatus];
 
 /**
  * @public
@@ -4140,12 +4345,18 @@ export interface PhysicalResourceIdContextKeyValuePair {
 
 /**
  * @public
+ * @enum
  */
-export enum DifferenceType {
-  ADD = "ADD",
-  NOT_EQUAL = "NOT_EQUAL",
-  REMOVE = "REMOVE",
-}
+export const DifferenceType = {
+  ADD: "ADD",
+  NOT_EQUAL: "NOT_EQUAL",
+  REMOVE: "REMOVE",
+} as const;
+
+/**
+ * @public
+ */
+export type DifferenceType = (typeof DifferenceType)[keyof typeof DifferenceType];
 
 /**
  * @public
@@ -4547,32 +4758,38 @@ export interface Output {
 
 /**
  * @public
+ * @enum
  */
-export enum StackStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  IMPORT_ROLLBACK_COMPLETE = "IMPORT_ROLLBACK_COMPLETE",
-  IMPORT_ROLLBACK_FAILED = "IMPORT_ROLLBACK_FAILED",
-  IMPORT_ROLLBACK_IN_PROGRESS = "IMPORT_ROLLBACK_IN_PROGRESS",
-  REVIEW_IN_PROGRESS = "REVIEW_IN_PROGRESS",
-  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS = "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_ROLLBACK_COMPLETE = "UPDATE_ROLLBACK_COMPLETE",
-  UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS = "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
-  UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED",
-  UPDATE_ROLLBACK_IN_PROGRESS = "UPDATE_ROLLBACK_IN_PROGRESS",
-}
+export const StackStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+  IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+  IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+  REVIEW_IN_PROGRESS: "REVIEW_IN_PROGRESS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+  UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
+  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+  UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StackStatus = (typeof StackStatus)[keyof typeof StackStatus];
 
 /**
  * @public
@@ -4767,23 +4984,36 @@ export interface DescribeStackSetInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackSetDriftDetectionStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  STOPPED = "STOPPED",
-}
+export const StackSetDriftDetectionStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  STOPPED: "STOPPED",
+} as const;
 
 /**
  * @public
  */
-export enum StackSetDriftStatus {
-  DRIFTED = "DRIFTED",
-  IN_SYNC = "IN_SYNC",
-  NOT_CHECKED = "NOT_CHECKED",
-}
+export type StackSetDriftDetectionStatus =
+  (typeof StackSetDriftDetectionStatus)[keyof typeof StackSetDriftDetectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StackSetDriftStatus = {
+  DRIFTED: "DRIFTED",
+  IN_SYNC: "IN_SYNC",
+  NOT_CHECKED: "NOT_CHECKED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackSetDriftStatus = (typeof StackSetDriftStatus)[keyof typeof StackSetDriftStatus];
 
 /**
  * @public
@@ -4908,11 +5138,17 @@ export interface StackSetDriftDetectionDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum StackSetStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-}
+export const StackSetStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackSetStatus = (typeof StackSetStatus)[keyof typeof StackSetStatus];
 
 /**
  * @public
@@ -5088,25 +5324,37 @@ export interface DescribeStackSetOperationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackSetOperationAction {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  DETECT_DRIFT = "DETECT_DRIFT",
-  UPDATE = "UPDATE",
-}
+export const StackSetOperationAction = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  DETECT_DRIFT: "DETECT_DRIFT",
+  UPDATE: "UPDATE",
+} as const;
 
 /**
  * @public
  */
-export enum StackSetOperationStatus {
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type StackSetOperationAction = (typeof StackSetOperationAction)[keyof typeof StackSetOperationAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const StackSetOperationStatus = {
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackSetOperationStatus = (typeof StackSetOperationStatus)[keyof typeof StackSetOperationStatus];
 
 /**
  * @public
@@ -5337,20 +5585,32 @@ export interface DescribeTypeInput {
 
 /**
  * @public
+ * @enum
  */
-export enum DeprecatedStatus {
-  DEPRECATED = "DEPRECATED",
-  LIVE = "LIVE",
-}
+export const DeprecatedStatus = {
+  DEPRECATED: "DEPRECATED",
+  LIVE: "LIVE",
+} as const;
 
 /**
  * @public
  */
-export enum ProvisioningType {
-  FULLY_MUTABLE = "FULLY_MUTABLE",
-  IMMUTABLE = "IMMUTABLE",
-  NON_PROVISIONABLE = "NON_PROVISIONABLE",
-}
+export type DeprecatedStatus = (typeof DeprecatedStatus)[keyof typeof DeprecatedStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningType = {
+  FULLY_MUTABLE: "FULLY_MUTABLE",
+  IMMUTABLE: "IMMUTABLE",
+  NON_PROVISIONABLE: "NON_PROVISIONABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningType = (typeof ProvisioningType)[keyof typeof ProvisioningType];
 
 /**
  * @public
@@ -5392,21 +5652,33 @@ export interface RequiredActivatedType {
 
 /**
  * @public
+ * @enum
  */
-export enum TypeTestsStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_TESTED = "NOT_TESTED",
-  PASSED = "PASSED",
-}
+export const TypeTestsStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_TESTED: "NOT_TESTED",
+  PASSED: "PASSED",
+} as const;
 
 /**
  * @public
  */
-export enum Visibility {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export type TypeTestsStatus = (typeof TypeTestsStatus)[keyof typeof TypeTestsStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Visibility = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
 
 /**
  * @public
@@ -5721,12 +5993,18 @@ export interface DescribeTypeRegistrationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RegistrationStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const RegistrationStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
 
 /**
  * @public
@@ -5979,11 +6257,17 @@ export interface GetStackPolicyOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum TemplateStage {
-  Original = "Original",
-  Processed = "Processed",
-}
+export const TemplateStage = {
+  Original: "Original",
+  Processed: "Processed",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateStage = (typeof TemplateStage)[keyof typeof TemplateStage];
 
 /**
  * @public
@@ -6467,11 +6751,17 @@ export interface ListImportsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackInstanceFilterName {
-  DETAILED_STATUS = "DETAILED_STATUS",
-  LAST_OPERATION_ID = "LAST_OPERATION_ID",
-}
+export const StackInstanceFilterName = {
+  DETAILED_STATUS: "DETAILED_STATUS",
+  LAST_OPERATION_ID: "LAST_OPERATION_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type StackInstanceFilterName = (typeof StackInstanceFilterName)[keyof typeof StackInstanceFilterName];
 
 /**
  * @public
@@ -6987,10 +7277,16 @@ export interface ListStacksOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationResultFilterName {
-  OPERATION_RESULT_STATUS = "OPERATION_RESULT_STATUS",
-}
+export const OperationResultFilterName = {
+  OPERATION_RESULT_STATUS: "OPERATION_RESULT_STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationResultFilterName = (typeof OperationResultFilterName)[keyof typeof OperationResultFilterName];
 
 /**
  * @public
@@ -7070,14 +7366,21 @@ export interface ListStackSetOperationResultsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackSetOperationResultStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const StackSetOperationResultStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackSetOperationResultStatus =
+  (typeof StackSetOperationResultStatus)[keyof typeof StackSetOperationResultStatus];
 
 /**
  * @public
@@ -8110,38 +8413,50 @@ export class OperationStatusCheckFailedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+export const OperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
  * @public
  */
-export enum HandlerErrorCode {
-  AccessDenied = "AccessDenied",
-  AlreadyExists = "AlreadyExists",
-  GeneralServiceException = "GeneralServiceException",
-  HandlerInternalFailure = "HandlerInternalFailure",
-  InternalFailure = "InternalFailure",
-  InvalidCredentials = "InvalidCredentials",
-  InvalidRequest = "InvalidRequest",
-  InvalidTypeConfiguration = "InvalidTypeConfiguration",
-  NetworkFailure = "NetworkFailure",
-  NonCompliant = "NonCompliant",
-  NotFound = "NotFound",
-  NotUpdatable = "NotUpdatable",
-  ResourceConflict = "ResourceConflict",
-  ServiceInternalError = "ServiceInternalError",
-  ServiceLimitExceeded = "ServiceLimitExceeded",
-  ServiceTimeout = "NotStabilized",
-  Throttling = "Throttling",
-  Unknown = "Unknown",
-  UnsupportedTarget = "UnsupportedTarget",
-}
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HandlerErrorCode = {
+  AccessDenied: "AccessDenied",
+  AlreadyExists: "AlreadyExists",
+  GeneralServiceException: "GeneralServiceException",
+  HandlerInternalFailure: "HandlerInternalFailure",
+  InternalFailure: "InternalFailure",
+  InvalidCredentials: "InvalidCredentials",
+  InvalidRequest: "InvalidRequest",
+  InvalidTypeConfiguration: "InvalidTypeConfiguration",
+  NetworkFailure: "NetworkFailure",
+  NonCompliant: "NonCompliant",
+  NotFound: "NotFound",
+  NotUpdatable: "NotUpdatable",
+  ResourceConflict: "ResourceConflict",
+  ServiceInternalError: "ServiceInternalError",
+  ServiceLimitExceeded: "ServiceLimitExceeded",
+  ServiceTimeout: "NotStabilized",
+  Throttling: "Throttling",
+  Unknown: "Unknown",
+  UnsupportedTarget: "UnsupportedTarget",
+} as const;
+
+/**
+ * @public
+ */
+export type HandlerErrorCode = (typeof HandlerErrorCode)[keyof typeof HandlerErrorCode];
 
 /**
  * @public
@@ -8504,11 +8819,17 @@ export interface SetTypeDefaultVersionOutput {}
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceSignalStatus {
-  FAILURE = "FAILURE",
-  SUCCESS = "SUCCESS",
-}
+export const ResourceSignalStatus = {
+  FAILURE: "FAILURE",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceSignalStatus = (typeof ResourceSignalStatus)[keyof typeof ResourceSignalStatus];
 
 /**
  * @public

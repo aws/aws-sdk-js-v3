@@ -349,11 +349,17 @@ export interface ListThingPrincipalsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportType {
-  ERRORS = "ERRORS",
-  RESULTS = "RESULTS",
-}
+export const ReportType = {
+  ERRORS: "ERRORS",
+  RESULTS: "RESULTS",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportType = (typeof ReportType)[keyof typeof ReportType];
 
 /**
  * @public
@@ -1019,12 +1025,18 @@ export interface ListViolationEventsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ViolationEventType {
-  ALARM_CLEARED = "alarm-cleared",
-  ALARM_INVALIDATED = "alarm-invalidated",
-  IN_ALARM = "in-alarm",
-}
+export const ViolationEventType = {
+  ALARM_CLEARED: "alarm-cleared",
+  ALARM_INVALIDATED: "alarm-invalidated",
+  IN_ALARM: "in-alarm",
+} as const;
+
+/**
+ * @public
+ */
+export type ViolationEventType = (typeof ViolationEventType)[keyof typeof ViolationEventType];
 
 /**
  * @public

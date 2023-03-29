@@ -223,13 +223,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -313,11 +319,17 @@ export namespace Definition {
 
 /**
  * @public
+ * @enum
  */
-export enum EngineType {
-  BLUAGE = "bluage",
-  MICROFOCUS = "microfocus",
-}
+export const EngineType = {
+  BLUAGE: "bluage",
+  MICROFOCUS: "microfocus",
+} as const;
+
+/**
+ * @public
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 /**
  * @public
@@ -827,12 +839,18 @@ export interface GetApplicationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentLifecycle {
-  DEPLOYING = "Deploying",
-  FAILED = "Failed",
-  SUCCEEDED = "Succeeded",
-}
+export const DeploymentLifecycle = {
+  DEPLOYING: "Deploying",
+  FAILED: "Failed",
+  SUCCEEDED: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentLifecycle = (typeof DeploymentLifecycle)[keyof typeof DeploymentLifecycle];
 
 /**
  * @public
@@ -857,12 +875,19 @@ export interface DeployedVersionSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationVersionLifecycle {
-  AVAILABLE = "Available",
-  CREATING = "Creating",
-  FAILED = "Failed",
-}
+export const ApplicationVersionLifecycle = {
+  AVAILABLE: "Available",
+  CREATING: "Creating",
+  FAILED: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationVersionLifecycle =
+  (typeof ApplicationVersionLifecycle)[keyof typeof ApplicationVersionLifecycle];
 
 /**
  * @public
@@ -909,20 +934,26 @@ export interface LogGroupSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationLifecycle {
-  AVAILABLE = "Available",
-  CREATED = "Created",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  DELETING_FROM_ENVIRONMENT = "Deleting From Environment",
-  FAILED = "Failed",
-  READY = "Ready",
-  RUNNING = "Running",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const ApplicationLifecycle = {
+  AVAILABLE: "Available",
+  CREATED: "Created",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  DELETING_FROM_ENVIRONMENT: "Deleting From Environment",
+  FAILED: "Failed",
+  READY: "Ready",
+  RUNNING: "Running",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationLifecycle = (typeof ApplicationLifecycle)[keyof typeof ApplicationLifecycle];
 
 /**
  * @public
@@ -1183,27 +1214,39 @@ export namespace BatchJobIdentifier {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchJobType {
-  JES2 = "JES2",
-  JES3 = "JES3",
-  VSE = "VSE",
-}
+export const BatchJobType = {
+  JES2: "JES2",
+  JES3: "JES3",
+  VSE: "VSE",
+} as const;
 
 /**
  * @public
  */
-export enum BatchJobExecutionStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  DISPATCH = "Dispatching",
-  FAILED = "Failed",
-  HOLDING = "Holding",
-  RUNNING = "Running",
-  SUBMITTING = "Submitting",
-  SUCCEEDED = "Succeeded",
-  SUCCEEDED_WITH_WARNING = "Succeeded With Warning",
-}
+export type BatchJobType = (typeof BatchJobType)[keyof typeof BatchJobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchJobExecutionStatus = {
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  DISPATCH: "Dispatching",
+  FAILED: "Failed",
+  HOLDING: "Holding",
+  RUNNING: "Running",
+  SUBMITTING: "Submitting",
+  SUCCEEDED: "Succeeded",
+  SUCCEEDED_WITH_WARNING: "Succeeded With Warning",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchJobExecutionStatus = (typeof BatchJobExecutionStatus)[keyof typeof BatchJobExecutionStatus];
 
 /**
  * @public
@@ -1460,12 +1503,18 @@ export interface GetDataSetImportTaskRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSetTaskLifecycle {
-  COMPLETED = "Completed",
-  CREATING = "Creating",
-  RUNNING = "Running",
-}
+export const DataSetTaskLifecycle = {
+  COMPLETED: "Completed",
+  CREATING: "Creating",
+  RUNNING: "Running",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetTaskLifecycle = (typeof DataSetTaskLifecycle)[keyof typeof DataSetTaskLifecycle];
 
 /**
  * @public
@@ -1601,11 +1650,18 @@ export interface ListApplicationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationDeploymentLifecycle {
-  DEPLOYED = "Deployed",
-  DEPLOYING = "Deploying",
-}
+export const ApplicationDeploymentLifecycle = {
+  DEPLOYED: "Deployed",
+  DEPLOYING: "Deploying",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationDeploymentLifecycle =
+  (typeof ApplicationDeploymentLifecycle)[keyof typeof ApplicationDeploymentLifecycle];
 
 /**
  * @public
@@ -2535,14 +2591,20 @@ export interface PendingMaintenance {
 
 /**
  * @public
+ * @enum
  */
-export enum EnvironmentLifecycle {
-  AVAILABLE = "Available",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  UPDATING = "Updating",
-}
+export const EnvironmentLifecycle = {
+  AVAILABLE: "Available",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type EnvironmentLifecycle = (typeof EnvironmentLifecycle)[keyof typeof EnvironmentLifecycle];
 
 /**
  * @public

@@ -147,17 +147,23 @@ export interface DeleteQueuedSavingsPlanResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlanRateFilterName {
-  INSTANCE_TYPE = "instanceType",
-  OPERATION = "operation",
-  PRODUCT_DESCRIPTION = "productDescription",
-  PRODUCT_TYPE = "productType",
-  REGION = "region",
-  SERVICE_CODE = "serviceCode",
-  TENANCY = "tenancy",
-  USAGE_TYPE = "usageType",
-}
+export const SavingsPlanRateFilterName = {
+  INSTANCE_TYPE: "instanceType",
+  OPERATION: "operation",
+  PRODUCT_DESCRIPTION: "productDescription",
+  PRODUCT_TYPE: "productType",
+  REGION: "region",
+  SERVICE_CODE: "serviceCode",
+  TENANCY: "tenancy",
+  USAGE_TYPE: "usageType",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanRateFilterName = (typeof SavingsPlanRateFilterName)[keyof typeof SavingsPlanRateFilterName];
 
 /**
  * @public
@@ -208,24 +214,36 @@ export type CurrencyCode = "CNY" | "USD";
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlanProductType {
-  EC2 = "EC2",
-  FARGATE = "Fargate",
-  LAMBDA = "Lambda",
-  SAGEMAKER = "SageMaker",
-}
+export const SavingsPlanProductType = {
+  EC2: "EC2",
+  FARGATE: "Fargate",
+  LAMBDA: "Lambda",
+  SAGEMAKER: "SageMaker",
+} as const;
 
 /**
  * @public
  */
-export enum SavingsPlanRatePropertyKey {
-  INSTANCE_FAMILY = "instanceFamily",
-  INSTANCE_TYPE = "instanceType",
-  PRODUCT_DESCRIPTION = "productDescription",
-  REGION = "region",
-  TENANCY = "tenancy",
-}
+export type SavingsPlanProductType = (typeof SavingsPlanProductType)[keyof typeof SavingsPlanProductType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanRatePropertyKey = {
+  INSTANCE_FAMILY: "instanceFamily",
+  INSTANCE_TYPE: "instanceType",
+  PRODUCT_DESCRIPTION: "productDescription",
+  REGION: "region",
+  TENANCY: "tenancy",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanRatePropertyKey = (typeof SavingsPlanRatePropertyKey)[keyof typeof SavingsPlanRatePropertyKey];
 
 /**
  * @public
@@ -245,23 +263,35 @@ export interface SavingsPlanRateProperty {
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlanRateServiceCode {
-  EC2 = "AmazonEC2",
-  FARGATE = "AmazonECS",
-  FARGATE_EKS = "AmazonEKS",
-  LAMBDA = "AWSLambda",
-  SAGEMAKER = "AmazonSageMaker",
-}
+export const SavingsPlanRateServiceCode = {
+  EC2: "AmazonEC2",
+  FARGATE: "AmazonECS",
+  FARGATE_EKS: "AmazonEKS",
+  LAMBDA: "AWSLambda",
+  SAGEMAKER: "AmazonSageMaker",
+} as const;
 
 /**
  * @public
  */
-export enum SavingsPlanRateUnit {
-  HOURS = "Hrs",
-  LAMBDA_GB_SECOND = "Lambda-GB-Second",
-  REQUEST = "Request",
-}
+export type SavingsPlanRateServiceCode = (typeof SavingsPlanRateServiceCode)[keyof typeof SavingsPlanRateServiceCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanRateUnit = {
+  HOURS: "Hrs",
+  LAMBDA_GB_SECOND: "Lambda-GB-Second",
+  REQUEST: "Request",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanRateUnit = (typeof SavingsPlanRateUnit)[keyof typeof SavingsPlanRateUnit];
 
 /**
  * @public
@@ -332,18 +362,24 @@ export interface DescribeSavingsPlanRatesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlansFilterName {
-  COMMITMENT = "commitment",
-  EC2_INSTANCE_FAMILY = "ec2-instance-family",
-  END = "end",
-  PAYMENT_OPTION = "payment-option",
-  REGION = "region",
-  SAVINGS_PLAN_TYPE = "savings-plan-type",
-  START = "start",
-  TERM = "term",
-  UPFRONT = "upfront",
-}
+export const SavingsPlansFilterName = {
+  COMMITMENT: "commitment",
+  EC2_INSTANCE_FAMILY: "ec2-instance-family",
+  END: "end",
+  PAYMENT_OPTION: "payment-option",
+  REGION: "region",
+  SAVINGS_PLAN_TYPE: "savings-plan-type",
+  START: "start",
+  TERM: "term",
+  UPFRONT: "upfront",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlansFilterName = (typeof SavingsPlansFilterName)[keyof typeof SavingsPlansFilterName];
 
 /**
  * @public
@@ -363,15 +399,21 @@ export interface SavingsPlanFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlanState {
-  ACTIVE = "active",
-  PAYMENT_FAILED = "payment-failed",
-  PAYMENT_PENDING = "payment-pending",
-  QUEUED = "queued",
-  QUEUED_DELETED = "queued-deleted",
-  RETIRED = "retired",
-}
+export const SavingsPlanState = {
+  ACTIVE: "active",
+  PAYMENT_FAILED: "payment-failed",
+  PAYMENT_PENDING: "payment-pending",
+  QUEUED: "queued",
+  QUEUED_DELETED: "queued-deleted",
+  RETIRED: "retired",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanState = (typeof SavingsPlanState)[keyof typeof SavingsPlanState];
 
 /**
  * @public
@@ -411,21 +453,33 @@ export interface DescribeSavingsPlansRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlanPaymentOption {
-  ALL_UPFRONT = "All Upfront",
-  NO_UPFRONT = "No Upfront",
-  PARTIAL_UPFRONT = "Partial Upfront",
-}
+export const SavingsPlanPaymentOption = {
+  ALL_UPFRONT: "All Upfront",
+  NO_UPFRONT: "No Upfront",
+  PARTIAL_UPFRONT: "Partial Upfront",
+} as const;
 
 /**
  * @public
  */
-export enum SavingsPlanType {
-  COMPUTE = "Compute",
-  EC2_INSTANCE = "EC2Instance",
-  SAGEMAKER = "SageMaker",
-}
+export type SavingsPlanPaymentOption = (typeof SavingsPlanPaymentOption)[keyof typeof SavingsPlanPaymentOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanType = {
+  COMPUTE: "Compute",
+  EC2_INSTANCE: "EC2Instance",
+  SAGEMAKER: "SageMaker",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanType = (typeof SavingsPlanType)[keyof typeof SavingsPlanType];
 
 /**
  * @public
@@ -541,15 +595,22 @@ export interface DescribeSavingsPlansResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlanRateFilterAttribute {
-  INSTANCE_FAMILY = "instanceFamily",
-  INSTANCE_TYPE = "instanceType",
-  PRODUCT_DESCRIPTION = "productDescription",
-  PRODUCT_ID = "productId",
-  REGION = "region",
-  TENANCY = "tenancy",
-}
+export const SavingsPlanRateFilterAttribute = {
+  INSTANCE_FAMILY: "instanceFamily",
+  INSTANCE_TYPE: "instanceType",
+  PRODUCT_DESCRIPTION: "productDescription",
+  PRODUCT_ID: "productId",
+  REGION: "region",
+  TENANCY: "tenancy",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanRateFilterAttribute =
+  (typeof SavingsPlanRateFilterAttribute)[keyof typeof SavingsPlanRateFilterAttribute];
 
 /**
  * @public
@@ -739,11 +800,18 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlanOfferingFilterAttribute {
-  instanceFamily = "instanceFamily",
-  region = "region",
-}
+export const SavingsPlanOfferingFilterAttribute = {
+  instanceFamily: "instanceFamily",
+  region: "region",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanOfferingFilterAttribute =
+  (typeof SavingsPlanOfferingFilterAttribute)[keyof typeof SavingsPlanOfferingFilterAttribute];
 
 /**
  * @public
@@ -834,11 +902,18 @@ export interface DescribeSavingsPlansOfferingsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SavingsPlanOfferingPropertyKey {
-  INSTANCE_FAMILY = "instanceFamily",
-  REGION = "region",
-}
+export const SavingsPlanOfferingPropertyKey = {
+  INSTANCE_FAMILY: "instanceFamily",
+  REGION: "region",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanOfferingPropertyKey =
+  (typeof SavingsPlanOfferingPropertyKey)[keyof typeof SavingsPlanOfferingPropertyKey];
 
 /**
  * @public

@@ -4712,11 +4712,17 @@ export interface DescribeDBClusterParameterGroupsMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplyMethod {
-  immediate = "immediate",
-  pending_reboot = "pending-reboot",
-}
+export const ApplyMethod = {
+  immediate: "immediate",
+  pending_reboot: "pending-reboot",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplyMethod = (typeof ApplyMethod)[keyof typeof ApplyMethod];
 
 /**
  * @public
@@ -5717,15 +5723,21 @@ export interface EventCategoriesMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  db_cluster = "db-cluster",
-  db_cluster_snapshot = "db-cluster-snapshot",
-  db_instance = "db-instance",
-  db_parameter_group = "db-parameter-group",
-  db_security_group = "db-security-group",
-  db_snapshot = "db-snapshot",
-}
+export const SourceType = {
+  db_cluster: "db-cluster",
+  db_cluster_snapshot: "db-cluster-snapshot",
+  db_instance: "db-instance",
+  db_parameter_group: "db-parameter-group",
+  db_security_group: "db-security-group",
+  db_snapshot: "db-snapshot",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public

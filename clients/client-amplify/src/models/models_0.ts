@@ -25,14 +25,20 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Stage {
-  BETA = "BETA",
-  DEVELOPMENT = "DEVELOPMENT",
-  EXPERIMENTAL = "EXPERIMENTAL",
-  PRODUCTION = "PRODUCTION",
-  PULL_REQUEST = "PULL_REQUEST",
-}
+export const Stage = {
+  BETA: "BETA",
+  DEVELOPMENT: "DEVELOPMENT",
+  EXPERIMENTAL: "EXPERIMENTAL",
+  PRODUCTION: "PRODUCTION",
+  PULL_REQUEST: "PULL_REQUEST",
+} as const;
+
+/**
+ * @public
+ */
+export type Stage = (typeof Stage)[keyof typeof Stage];
 
 /**
  * @public
@@ -147,12 +153,18 @@ export interface CustomRule {
 
 /**
  * @public
+ * @enum
  */
-export enum Platform {
-  WEB = "WEB",
-  WEB_COMPUTE = "WEB_COMPUTE",
-  WEB_DYNAMIC = "WEB_DYNAMIC",
-}
+export const Platform = {
+  WEB: "WEB",
+  WEB_COMPUTE: "WEB_COMPUTE",
+  WEB_DYNAMIC: "WEB_DYNAMIC",
+} as const;
+
+/**
+ * @public
+ */
+export type Platform = (typeof Platform)[keyof typeof Platform];
 
 /**
  * @public
@@ -311,12 +323,18 @@ export interface ProductionBranch {
 
 /**
  * @public
+ * @enum
  */
-export enum RepositoryCloneMethod {
-  SIGV4 = "SIGV4",
-  SSH = "SSH",
-  TOKEN = "TOKEN",
-}
+export const RepositoryCloneMethod = {
+  SIGV4: "SIGV4",
+  SSH: "SSH",
+  TOKEN: "TOKEN",
+} as const;
+
+/**
+ * @public
+ */
+export type RepositoryCloneMethod = (typeof RepositoryCloneMethod)[keyof typeof RepositoryCloneMethod];
 
 /**
  * @public
@@ -1010,17 +1028,23 @@ export interface CreateDomainAssociationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING_DEPLOYMENT = "PENDING_DEPLOYMENT",
-  PENDING_VERIFICATION = "PENDING_VERIFICATION",
-  REQUESTING_CERTIFICATE = "REQUESTING_CERTIFICATE",
-  UPDATING = "UPDATING",
-}
+export const DomainStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING_DEPLOYMENT: "PENDING_DEPLOYMENT",
+  PENDING_VERIFICATION: "PENDING_VERIFICATION",
+  REQUESTING_CERTIFICATE: "REQUESTING_CERTIFICATE",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 /**
  * @public
@@ -1308,26 +1332,38 @@ export interface DeleteJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum JobType {
-  MANUAL = "MANUAL",
-  RELEASE = "RELEASE",
-  RETRY = "RETRY",
-  WEB_HOOK = "WEB_HOOK",
-}
+export const JobType = {
+  MANUAL: "MANUAL",
+  RELEASE: "RELEASE",
+  RETRY: "RETRY",
+  WEB_HOOK: "WEB_HOOK",
+} as const;
 
 /**
  * @public
  */
-export enum JobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PROVISIONING = "PROVISIONING",
-  RUNNING = "RUNNING",
-  SUCCEED = "SUCCEED",
-}
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PROVISIONING: "PROVISIONING",
+  RUNNING: "RUNNING",
+  SUCCEED: "SUCCEED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public

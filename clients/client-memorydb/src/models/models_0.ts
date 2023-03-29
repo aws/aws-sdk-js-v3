@@ -161,11 +161,17 @@ export interface BatchUpdateClusterRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AZStatus {
-  MultiAZ = "multiaz",
-  SingleAZ = "singleaz",
-}
+export const AZStatus = {
+  MultiAZ: "multiaz",
+  SingleAZ: "singleaz",
+} as const;
+
+/**
+ * @public
+ */
+export type AZStatus = (typeof AZStatus)[keyof typeof AZStatus];
 
 /**
  * @public
@@ -185,11 +191,17 @@ export interface Endpoint {
 
 /**
  * @public
+ * @enum
  */
-export enum DataTieringStatus {
-  FALSE = "false",
-  TRUE = "true",
-}
+export const DataTieringStatus = {
+  FALSE: "false",
+  TRUE: "true",
+} as const;
+
+/**
+ * @public
+ */
+export type DataTieringStatus = (typeof DataTieringStatus)[keyof typeof DataTieringStatus];
 
 /**
  * @public
@@ -215,13 +227,19 @@ export interface ReshardingStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceUpdateStatus {
-  COMPLETE = "complete",
-  IN_PROGRESS = "in-progress",
-  NOT_APPLIED = "available",
-  SCHEDULED = "scheduled",
-}
+export const ServiceUpdateStatus = {
+  COMPLETE: "complete",
+  IN_PROGRESS: "in-progress",
+  NOT_APPLIED: "available",
+  SCHEDULED: "scheduled",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceUpdateStatus = (typeof ServiceUpdateStatus)[keyof typeof ServiceUpdateStatus];
 
 /**
  * @public
@@ -1801,10 +1819,16 @@ export class SubnetQuotaExceededFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum InputAuthenticationType {
-  PASSWORD = "password",
-}
+export const InputAuthenticationType = {
+  PASSWORD: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type InputAuthenticationType = (typeof InputAuthenticationType)[keyof typeof InputAuthenticationType];
 
 /**
  * @public
@@ -1849,11 +1873,17 @@ export interface CreateUserRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticationType {
-  NO_PASSWORD = "no-password",
-  PASSWORD = "password",
-}
+export const AuthenticationType = {
+  NO_PASSWORD: "no-password",
+  PASSWORD: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
  * @public
@@ -2272,15 +2302,21 @@ export interface DescribeEngineVersionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  acl = "acl",
-  cluster = "cluster",
-  node = "node",
-  parameter_group = "parameter-group",
-  subnet_group = "subnet-group",
-  user = "user",
-}
+export const SourceType = {
+  acl: "acl",
+  cluster: "cluster",
+  node: "node",
+  parameter_group: "parameter-group",
+  subnet_group: "subnet-group",
+  user: "user",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -2768,10 +2804,16 @@ export interface DescribeServiceUpdatesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceUpdateType {
-  SECURITY_UPDATE = "security-update",
-}
+export const ServiceUpdateType = {
+  SECURITY_UPDATE: "security-update",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceUpdateType = (typeof ServiceUpdateType)[keyof typeof ServiceUpdateType];
 
 /**
  * @public

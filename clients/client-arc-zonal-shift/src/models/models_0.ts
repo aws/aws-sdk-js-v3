@@ -25,11 +25,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AppliedStatus {
-  APPLIED = "APPLIED",
-  NOT_APPLIED = "NOT_APPLIED",
-}
+export const AppliedStatus = {
+  APPLIED: "APPLIED",
+  NOT_APPLIED: "NOT_APPLIED",
+} as const;
+
+/**
+ * @public
+ */
+export type AppliedStatus = (typeof AppliedStatus)[keyof typeof AppliedStatus];
 
 /**
  * @public
@@ -43,12 +49,18 @@ export interface CancelZonalShiftRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictExceptionReason {
-  SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT = "SimultaneousZonalShiftsConflict",
-  ZONAL_SHIFT_ALREADY_EXISTS = "ZonalShiftAlreadyExists",
-  ZONAL_SHIFT_STATUS_NOT_ACTIVE = "ZonalShiftStatusNotActive",
-}
+export const ConflictExceptionReason = {
+  SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT: "SimultaneousZonalShiftsConflict",
+  ZONAL_SHIFT_ALREADY_EXISTS: "ZonalShiftAlreadyExists",
+  ZONAL_SHIFT_STATUS_NOT_ACTIVE: "ZonalShiftStatusNotActive",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
 
 /**
  * @public
@@ -144,16 +156,22 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  INVALID_AZ = "InvalidAz",
-  INVALID_EXPIRES_IN = "InvalidExpiresIn",
-  INVALID_RESOURCE_IDENTIFIER = "InvalidResourceIdentifier",
-  INVALID_STATUS = "InvalidStatus",
-  INVALID_TOKEN = "InvalidToken",
-  MISSING_VALUE = "MissingValue",
-  UNSUPPORTED_AZ = "UnsupportedAz",
-}
+export const ValidationExceptionReason = {
+  INVALID_AZ: "InvalidAz",
+  INVALID_EXPIRES_IN: "InvalidExpiresIn",
+  INVALID_RESOURCE_IDENTIFIER: "InvalidResourceIdentifier",
+  INVALID_STATUS: "InvalidStatus",
+  INVALID_TOKEN: "InvalidToken",
+  MISSING_VALUE: "MissingValue",
+  UNSUPPORTED_AZ: "UnsupportedAz",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -183,12 +201,18 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ZonalShiftStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  EXPIRED = "EXPIRED",
-}
+export const ZonalShiftStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  EXPIRED: "EXPIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type ZonalShiftStatus = (typeof ZonalShiftStatus)[keyof typeof ZonalShiftStatus];
 
 /**
  * @public

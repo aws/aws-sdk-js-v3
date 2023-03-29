@@ -28,17 +28,23 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AddonIssueCode {
-  ACCESS_DENIED = "AccessDenied",
-  ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  CONFIGURATION_CONFLICT = "ConfigurationConflict",
-  INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
-  INTERNAL_FAILURE = "InternalFailure",
-  K8S_RESOURCE_NOT_FOUND = "K8sResourceNotFound",
-  UNSUPPORTED_ADDON_MODIFICATION = "UnsupportedAddonModification",
-}
+export const AddonIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  INSUFFICIENT_NUMBER_OF_REPLICAS: "InsufficientNumberOfReplicas",
+  INTERNAL_FAILURE: "InternalFailure",
+  K8S_RESOURCE_NOT_FOUND: "K8sResourceNotFound",
+  UNSUPPORTED_ADDON_MODIFICATION: "UnsupportedAddonModification",
+} as const;
+
+/**
+ * @public
+ */
+export type AddonIssueCode = (typeof AddonIssueCode)[keyof typeof AddonIssueCode];
 
 /**
  * @public
@@ -90,17 +96,23 @@ export interface MarketplaceInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum AddonStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DEGRADED = "DEGRADED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const AddonStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DEGRADED: "DEGRADED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type AddonStatus = (typeof AddonStatus)[keyof typeof AddonStatus];
 
 /**
  * @public
@@ -268,21 +280,27 @@ export interface AddonInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum AMITypes {
-  AL2_ARM_64 = "AL2_ARM_64",
-  AL2_x86_64 = "AL2_x86_64",
-  AL2_x86_64_GPU = "AL2_x86_64_GPU",
-  BOTTLEROCKET_ARM_64 = "BOTTLEROCKET_ARM_64",
-  BOTTLEROCKET_ARM_64_NVIDIA = "BOTTLEROCKET_ARM_64_NVIDIA",
-  BOTTLEROCKET_x86_64 = "BOTTLEROCKET_x86_64",
-  BOTTLEROCKET_x86_64_NVIDIA = "BOTTLEROCKET_x86_64_NVIDIA",
-  CUSTOM = "CUSTOM",
-  WINDOWS_CORE_2019_x86_64 = "WINDOWS_CORE_2019_x86_64",
-  WINDOWS_CORE_2022_x86_64 = "WINDOWS_CORE_2022_x86_64",
-  WINDOWS_FULL_2019_x86_64 = "WINDOWS_FULL_2019_x86_64",
-  WINDOWS_FULL_2022_x86_64 = "WINDOWS_FULL_2022_x86_64",
-}
+export const AMITypes = {
+  AL2_ARM_64: "AL2_ARM_64",
+  AL2_x86_64: "AL2_x86_64",
+  AL2_x86_64_GPU: "AL2_x86_64_GPU",
+  BOTTLEROCKET_ARM_64: "BOTTLEROCKET_ARM_64",
+  BOTTLEROCKET_ARM_64_NVIDIA: "BOTTLEROCKET_ARM_64_NVIDIA",
+  BOTTLEROCKET_x86_64: "BOTTLEROCKET_x86_64",
+  BOTTLEROCKET_x86_64_NVIDIA: "BOTTLEROCKET_x86_64_NVIDIA",
+  CUSTOM: "CUSTOM",
+  WINDOWS_CORE_2019_x86_64: "WINDOWS_CORE_2019_x86_64",
+  WINDOWS_CORE_2022_x86_64: "WINDOWS_CORE_2022_x86_64",
+  WINDOWS_FULL_2019_x86_64: "WINDOWS_FULL_2019_x86_64",
+  WINDOWS_FULL_2022_x86_64: "WINDOWS_FULL_2022_x86_64",
+} as const;
+
+/**
+ * @public
+ */
+export type AMITypes = (typeof AMITypes)[keyof typeof AMITypes];
 
 /**
  * @public
@@ -338,26 +356,32 @@ export interface AssociateEncryptionConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  CONFIGURATION_CONFLICT = "ConfigurationConflict",
-  ENI_LIMIT_REACHED = "EniLimitReached",
-  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
-  INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
-  IP_NOT_AVAILABLE = "IpNotAvailable",
-  K8S_RESOURCE_NOT_FOUND = "K8sResourceNotFound",
-  NODE_CREATION_FAILURE = "NodeCreationFailure",
-  OPERATION_NOT_PERMITTED = "OperationNotPermitted",
-  POD_EVICTION_FAILURE = "PodEvictionFailure",
-  SECURITY_GROUP_NOT_FOUND = "SecurityGroupNotFound",
-  SUBNET_NOT_FOUND = "SubnetNotFound",
-  UNKNOWN = "Unknown",
-  UNSUPPORTED_ADDON_MODIFICATION = "UnsupportedAddonModification",
-  VPC_ID_NOT_FOUND = "VpcIdNotFound",
-}
+export const ErrorCode = {
+  ACCESS_DENIED: "AccessDenied",
+  ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  ENI_LIMIT_REACHED: "EniLimitReached",
+  INSUFFICIENT_FREE_ADDRESSES: "InsufficientFreeAddresses",
+  INSUFFICIENT_NUMBER_OF_REPLICAS: "InsufficientNumberOfReplicas",
+  IP_NOT_AVAILABLE: "IpNotAvailable",
+  K8S_RESOURCE_NOT_FOUND: "K8sResourceNotFound",
+  NODE_CREATION_FAILURE: "NodeCreationFailure",
+  OPERATION_NOT_PERMITTED: "OperationNotPermitted",
+  POD_EVICTION_FAILURE: "PodEvictionFailure",
+  SECURITY_GROUP_NOT_FOUND: "SecurityGroupNotFound",
+  SUBNET_NOT_FOUND: "SubnetNotFound",
+  UNKNOWN: "Unknown",
+  UNSUPPORTED_ADDON_MODIFICATION: "UnsupportedAddonModification",
+  VPC_ID_NOT_FOUND: "VpcIdNotFound",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -420,32 +444,38 @@ export interface ErrorDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateParamType {
-  ADDON_VERSION = "AddonVersion",
-  CLUSTER_LOGGING = "ClusterLogging",
-  DESIRED_SIZE = "DesiredSize",
-  ENCRYPTION_CONFIG = "EncryptionConfig",
-  ENDPOINT_PRIVATE_ACCESS = "EndpointPrivateAccess",
-  ENDPOINT_PUBLIC_ACCESS = "EndpointPublicAccess",
-  IDENTITY_PROVIDER_CONFIG = "IdentityProviderConfig",
-  LABELS_TO_ADD = "LabelsToAdd",
-  LABELS_TO_REMOVE = "LabelsToRemove",
-  LAUNCH_TEMPLATE_NAME = "LaunchTemplateName",
-  LAUNCH_TEMPLATE_VERSION = "LaunchTemplateVersion",
-  MAX_SIZE = "MaxSize",
-  MAX_UNAVAILABLE = "MaxUnavailable",
-  MAX_UNAVAILABLE_PERCENTAGE = "MaxUnavailablePercentage",
-  MIN_SIZE = "MinSize",
-  PLATFORM_VERSION = "PlatformVersion",
-  PUBLIC_ACCESS_CIDRS = "PublicAccessCidrs",
-  RELEASE_VERSION = "ReleaseVersion",
-  RESOLVE_CONFLICTS = "ResolveConflicts",
-  SERVICE_ACCOUNT_ROLE_ARN = "ServiceAccountRoleArn",
-  TAINTS_TO_ADD = "TaintsToAdd",
-  TAINTS_TO_REMOVE = "TaintsToRemove",
-  VERSION = "Version",
-}
+export const UpdateParamType = {
+  ADDON_VERSION: "AddonVersion",
+  CLUSTER_LOGGING: "ClusterLogging",
+  DESIRED_SIZE: "DesiredSize",
+  ENCRYPTION_CONFIG: "EncryptionConfig",
+  ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
+  ENDPOINT_PUBLIC_ACCESS: "EndpointPublicAccess",
+  IDENTITY_PROVIDER_CONFIG: "IdentityProviderConfig",
+  LABELS_TO_ADD: "LabelsToAdd",
+  LABELS_TO_REMOVE: "LabelsToRemove",
+  LAUNCH_TEMPLATE_NAME: "LaunchTemplateName",
+  LAUNCH_TEMPLATE_VERSION: "LaunchTemplateVersion",
+  MAX_SIZE: "MaxSize",
+  MAX_UNAVAILABLE: "MaxUnavailable",
+  MAX_UNAVAILABLE_PERCENTAGE: "MaxUnavailablePercentage",
+  MIN_SIZE: "MinSize",
+  PLATFORM_VERSION: "PlatformVersion",
+  PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
+  RELEASE_VERSION: "ReleaseVersion",
+  RESOLVE_CONFLICTS: "ResolveConflicts",
+  SERVICE_ACCOUNT_ROLE_ARN: "ServiceAccountRoleArn",
+  TAINTS_TO_ADD: "TaintsToAdd",
+  TAINTS_TO_REMOVE: "TaintsToRemove",
+  VERSION: "Version",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateParamType = (typeof UpdateParamType)[keyof typeof UpdateParamType];
 
 /**
  * @public
@@ -465,27 +495,39 @@ export interface UpdateParam {
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateStatus {
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+export const UpdateStatus = {
+  CANCELLED: "Cancelled",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+} as const;
 
 /**
  * @public
  */
-export enum UpdateType {
-  ADDON_UPDATE = "AddonUpdate",
-  ASSOCIATE_ENCRYPTION_CONFIG = "AssociateEncryptionConfig",
-  ASSOCIATE_IDENTITY_PROVIDER_CONFIG = "AssociateIdentityProviderConfig",
-  CONFIG_UPDATE = "ConfigUpdate",
-  DISASSOCIATE_IDENTITY_PROVIDER_CONFIG = "DisassociateIdentityProviderConfig",
-  ENDPOINT_ACCESS_UPDATE = "EndpointAccessUpdate",
-  LOGGING_UPDATE = "LoggingUpdate",
-  VERSION_UPDATE = "VersionUpdate",
-}
+export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateType = {
+  ADDON_UPDATE: "AddonUpdate",
+  ASSOCIATE_ENCRYPTION_CONFIG: "AssociateEncryptionConfig",
+  ASSOCIATE_IDENTITY_PROVIDER_CONFIG: "AssociateIdentityProviderConfig",
+  CONFIG_UPDATE: "ConfigUpdate",
+  DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
+  ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
+  LOGGING_UPDATE: "LoggingUpdate",
+  VERSION_UPDATE: "VersionUpdate",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
 
 /**
  * @public
@@ -884,12 +926,18 @@ export interface AutoScalingGroup {
 
 /**
  * @public
+ * @enum
  */
-export enum ResolveConflicts {
-  NONE = "NONE",
-  OVERWRITE = "OVERWRITE",
-  PRESERVE = "PRESERVE",
-}
+export const ResolveConflicts = {
+  NONE: "NONE",
+  OVERWRITE: "OVERWRITE",
+  PRESERVE: "PRESERVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolveConflicts = (typeof ResolveConflicts)[keyof typeof ResolveConflicts];
 
 /**
  * @public
@@ -989,11 +1037,17 @@ export interface CreateAddonResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum IpFamily {
-  IPV4 = "ipv4",
-  IPV6 = "ipv6",
-}
+export const IpFamily = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type IpFamily = (typeof IpFamily)[keyof typeof IpFamily];
 
 /**
  * @public
@@ -1046,14 +1100,20 @@ export interface KubernetesNetworkConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LogType {
-  API = "api",
-  AUDIT = "audit",
-  AUTHENTICATOR = "authenticator",
-  CONTROLLER_MANAGER = "controllerManager",
-  SCHEDULER = "scheduler",
-}
+export const LogType = {
+  API: "api",
+  AUDIT: "audit",
+  AUTHENTICATOR: "authenticator",
+  CONTROLLER_MANAGER: "controllerManager",
+  SCHEDULER: "scheduler",
+} as const;
+
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * @public
@@ -1332,15 +1392,21 @@ export interface ConnectorConfigResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterIssueCode {
-  ACCESS_DENIED = "AccessDenied",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  CONFIGURATION_CONFLICT = "ConfigurationConflict",
-  INTERNAL_FAILURE = "InternalFailure",
-  RESOURCE_LIMIT_EXCEEDED = "ResourceLimitExceeded",
-  RESOURCE_NOT_FOUND = "ResourceNotFound",
-}
+export const ClusterIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  INTERNAL_FAILURE: "InternalFailure",
+  RESOURCE_LIMIT_EXCEEDED: "ResourceLimitExceeded",
+  RESOURCE_NOT_FOUND: "ResourceNotFound",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterIssueCode = (typeof ClusterIssueCode)[keyof typeof ClusterIssueCode];
 
 /**
  * @public
@@ -1545,15 +1611,21 @@ export interface VpcConfigResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  UPDATING = "UPDATING",
-}
+export const ClusterStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
 /**
  * @public
@@ -1853,14 +1925,20 @@ export interface CreateFargateProfileRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FargateProfileStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const FargateProfileStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type FargateProfileStatus = (typeof FargateProfileStatus)[keyof typeof FargateProfileStatus];
 
 /**
  * @public
@@ -1933,11 +2011,17 @@ export interface CreateFargateProfileResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CapacityTypes {
-  ON_DEMAND = "ON_DEMAND",
-  SPOT = "SPOT",
-}
+export const CapacityTypes = {
+  ON_DEMAND: "ON_DEMAND",
+  SPOT: "SPOT",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityTypes = (typeof CapacityTypes)[keyof typeof CapacityTypes];
 
 /**
  * @public
@@ -2053,12 +2137,18 @@ export interface NodegroupScalingConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum TaintEffect {
-  NO_EXECUTE = "NO_EXECUTE",
-  NO_SCHEDULE = "NO_SCHEDULE",
-  PREFER_NO_SCHEDULE = "PREFER_NO_SCHEDULE",
-}
+export const TaintEffect = {
+  NO_EXECUTE: "NO_EXECUTE",
+  NO_SCHEDULE: "NO_SCHEDULE",
+  PREFER_NO_SCHEDULE: "PREFER_NO_SCHEDULE",
+} as const;
+
+/**
+ * @public
+ */
+export type TaintEffect = (typeof TaintEffect)[keyof typeof TaintEffect];
 
 /**
  * @public
@@ -2256,28 +2346,34 @@ export interface CreateNodegroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NodegroupIssueCode {
-  ACCESS_DENIED = "AccessDenied",
-  ASG_INSTANCE_LAUNCH_FAILURES = "AsgInstanceLaunchFailures",
-  AUTO_SCALING_GROUP_INVALID_CONFIGURATION = "AutoScalingGroupInvalidConfiguration",
-  AUTO_SCALING_GROUP_NOT_FOUND = "AutoScalingGroupNotFound",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  EC2_LAUNCH_TEMPLATE_NOT_FOUND = "Ec2LaunchTemplateNotFound",
-  EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH = "Ec2LaunchTemplateVersionMismatch",
-  EC2_SECURITY_GROUP_DELETION_FAILURE = "Ec2SecurityGroupDeletionFailure",
-  EC2_SECURITY_GROUP_NOT_FOUND = "Ec2SecurityGroupNotFound",
-  EC2_SUBNET_INVALID_CONFIGURATION = "Ec2SubnetInvalidConfiguration",
-  EC2_SUBNET_MISSING_IPV6_ASSIGNMENT = "Ec2SubnetMissingIpv6Assignment",
-  EC2_SUBNET_NOT_FOUND = "Ec2SubnetNotFound",
-  IAM_INSTANCE_PROFILE_NOT_FOUND = "IamInstanceProfileNotFound",
-  IAM_LIMIT_EXCEEDED = "IamLimitExceeded",
-  IAM_NODE_ROLE_NOT_FOUND = "IamNodeRoleNotFound",
-  INSTANCE_LIMIT_EXCEEDED = "InstanceLimitExceeded",
-  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
-  INTERNAL_FAILURE = "InternalFailure",
-  NODE_CREATION_FAILURE = "NodeCreationFailure",
-}
+export const NodegroupIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  ASG_INSTANCE_LAUNCH_FAILURES: "AsgInstanceLaunchFailures",
+  AUTO_SCALING_GROUP_INVALID_CONFIGURATION: "AutoScalingGroupInvalidConfiguration",
+  AUTO_SCALING_GROUP_NOT_FOUND: "AutoScalingGroupNotFound",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  EC2_LAUNCH_TEMPLATE_NOT_FOUND: "Ec2LaunchTemplateNotFound",
+  EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH: "Ec2LaunchTemplateVersionMismatch",
+  EC2_SECURITY_GROUP_DELETION_FAILURE: "Ec2SecurityGroupDeletionFailure",
+  EC2_SECURITY_GROUP_NOT_FOUND: "Ec2SecurityGroupNotFound",
+  EC2_SUBNET_INVALID_CONFIGURATION: "Ec2SubnetInvalidConfiguration",
+  EC2_SUBNET_MISSING_IPV6_ASSIGNMENT: "Ec2SubnetMissingIpv6Assignment",
+  EC2_SUBNET_NOT_FOUND: "Ec2SubnetNotFound",
+  IAM_INSTANCE_PROFILE_NOT_FOUND: "IamInstanceProfileNotFound",
+  IAM_LIMIT_EXCEEDED: "IamLimitExceeded",
+  IAM_NODE_ROLE_NOT_FOUND: "IamNodeRoleNotFound",
+  INSTANCE_LIMIT_EXCEEDED: "InstanceLimitExceeded",
+  INSUFFICIENT_FREE_ADDRESSES: "InsufficientFreeAddresses",
+  INTERNAL_FAILURE: "InternalFailure",
+  NODE_CREATION_FAILURE: "NodeCreationFailure",
+} as const;
+
+/**
+ * @public
+ */
+export type NodegroupIssueCode = (typeof NodegroupIssueCode)[keyof typeof NodegroupIssueCode];
 
 /**
  * @public
@@ -2430,16 +2526,22 @@ export interface NodegroupResources {
 
 /**
  * @public
+ * @enum
  */
-export enum NodegroupStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DEGRADED = "DEGRADED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const NodegroupStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DEGRADED: "DEGRADED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type NodegroupStatus = (typeof NodegroupStatus)[keyof typeof NodegroupStatus];
 
 /**
  * @public
@@ -2953,12 +3055,18 @@ export interface DescribeIdentityProviderConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ConfigStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigStatus = (typeof ConfigStatus)[keyof typeof ConfigStatus];
 
 /**
  * @public
@@ -3541,18 +3649,24 @@ export interface ListUpdatesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectorConfigProvider {
-  AKS = "AKS",
-  ANTHOS = "ANTHOS",
-  EC2 = "EC2",
-  EKS_ANYWHERE = "EKS_ANYWHERE",
-  GKE = "GKE",
-  OPENSHIFT = "OPENSHIFT",
-  OTHER = "OTHER",
-  RANCHER = "RANCHER",
-  TANZU = "TANZU",
-}
+export const ConnectorConfigProvider = {
+  AKS: "AKS",
+  ANTHOS: "ANTHOS",
+  EC2: "EC2",
+  EKS_ANYWHERE: "EKS_ANYWHERE",
+  GKE: "GKE",
+  OPENSHIFT: "OPENSHIFT",
+  OTHER: "OTHER",
+  RANCHER: "RANCHER",
+  TANZU: "TANZU",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorConfigProvider = (typeof ConnectorConfigProvider)[keyof typeof ConnectorConfigProvider];
 
 /**
  * @public

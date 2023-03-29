@@ -47,11 +47,17 @@ export interface Entity {
 
 /**
  * @public
+ * @enum
  */
-export enum ItemType {
-  PRONUNCIATION = "pronunciation",
-  PUNCTUATION = "punctuation",
-}
+export const ItemType = {
+  PRONUNCIATION: "pronunciation",
+  PUNCTUATION: "punctuation",
+} as const;
+
+/**
+ * @public
+ */
+export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 /**
  * @public
@@ -146,11 +152,17 @@ export interface AudioEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-}
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
 
 /**
  * @public
@@ -174,11 +186,17 @@ export interface ChannelDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum ContentRedactionOutput {
-  REDACTED = "redacted",
-  REDACTED_AND_UNREDACTED = "redacted_and_unredacted",
-}
+export const ContentRedactionOutput = {
+  REDACTED: "redacted",
+  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeof ContentRedactionOutput];
 
 /**
  * @public
@@ -462,18 +480,24 @@ export interface CallAnalyticsItem {
 
 /**
  * @public
+ * @enum
  */
-export enum CallAnalyticsLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  PT_BR = "pt-BR",
-}
+export const CallAnalyticsLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  PT_BR: "pt-BR",
+} as const;
+
+/**
+ * @public
+ */
+export type CallAnalyticsLanguageCode = (typeof CallAnalyticsLanguageCode)[keyof typeof CallAnalyticsLanguageCode];
 
 /**
  * @public
@@ -643,13 +667,19 @@ export interface IssueDetected {
 
 /**
  * @public
+ * @enum
  */
-export enum Sentiment {
-  MIXED = "MIXED",
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+export const Sentiment = {
+  MIXED: "MIXED",
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type Sentiment = (typeof Sentiment)[keyof typeof Sentiment];
 
 /**
  * @public
@@ -878,37 +908,55 @@ export namespace CallAnalyticsTranscriptResultStream {
 
 /**
  * @public
+ * @enum
  */
-export enum ContentIdentificationType {
-  PII = "PII",
-}
+export const ContentIdentificationType = {
+  PII: "PII",
+} as const;
 
 /**
  * @public
  */
-export enum ContentRedactionType {
-  PII = "PII",
-}
+export type ContentIdentificationType = (typeof ContentIdentificationType)[keyof typeof ContentIdentificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentRedactionType = {
+  PII: "PII",
+} as const;
 
 /**
  * @public
  */
-export enum LanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  HI_IN = "hi-IN",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  TH_TH = "th-TH",
-  ZH_CN = "zh-CN",
-}
+export type ContentRedactionType = (typeof ContentRedactionType)[keyof typeof ContentRedactionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  HI_IN: "hi-IN",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  TH_TH: "th-TH",
+  ZH_CN: "zh-CN",
+} as const;
+
+/**
+ * @public
+ */
+export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * @public
@@ -931,12 +979,18 @@ export interface LanguageWithScore {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaEncoding {
-  FLAC = "flac",
-  OGG_OPUS = "ogg-opus",
-  PCM = "pcm",
-}
+export const MediaEncoding = {
+  FLAC: "flac",
+  OGG_OPUS: "ogg-opus",
+  PCM: "pcm",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaEncoding = (typeof MediaEncoding)[keyof typeof MediaEncoding];
 
 /**
  * @public
@@ -1042,10 +1096,17 @@ export interface MedicalAlternative {
 
 /**
  * @public
+ * @enum
  */
-export enum MedicalContentIdentificationType {
-  PHI = "PHI",
-}
+export const MedicalContentIdentificationType = {
+  PHI: "PHI",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalContentIdentificationType =
+  (typeof MedicalContentIdentificationType)[keyof typeof MedicalContentIdentificationType];
 
 /**
  * @public
@@ -1268,12 +1329,18 @@ export namespace MedicalTranscriptResultStream {
 
 /**
  * @public
+ * @enum
  */
-export enum PartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
+export const PartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+} as const;
+
+/**
+ * @public
+ */
+export type PartialResultsStability = (typeof PartialResultsStability)[keyof typeof PartialResultsStability];
 
 /**
  * @public
@@ -1333,24 +1400,36 @@ export interface Result {
 
 /**
  * @public
+ * @enum
  */
-export enum Specialty {
-  CARDIOLOGY = "CARDIOLOGY",
-  NEUROLOGY = "NEUROLOGY",
-  ONCOLOGY = "ONCOLOGY",
-  PRIMARYCARE = "PRIMARYCARE",
-  RADIOLOGY = "RADIOLOGY",
-  UROLOGY = "UROLOGY",
-}
+export const Specialty = {
+  CARDIOLOGY: "CARDIOLOGY",
+  NEUROLOGY: "NEUROLOGY",
+  ONCOLOGY: "ONCOLOGY",
+  PRIMARYCARE: "PRIMARYCARE",
+  RADIOLOGY: "RADIOLOGY",
+  UROLOGY: "UROLOGY",
+} as const;
 
 /**
  * @public
  */
-export enum VocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+export type Specialty = (typeof Specialty)[keyof typeof Specialty];
+
+/**
+ * @public
+ * @enum
+ */
+export const VocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+} as const;
+
+/**
+ * @public
+ */
+export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeof VocabularyFilterMethod];
 
 /**
  * @public
@@ -1583,11 +1662,17 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Type {
-  CONVERSATION = "CONVERSATION",
-  DICTATION = "DICTATION",
-}
+export const Type = {
+  CONVERSATION: "CONVERSATION",
+  DICTATION: "DICTATION",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public

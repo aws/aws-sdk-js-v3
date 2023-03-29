@@ -37,21 +37,33 @@ export interface ArchivalSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AttributeAction {
-  ADD = "ADD",
-  DELETE = "DELETE",
-  PUT = "PUT",
-}
+export const AttributeAction = {
+  ADD: "ADD",
+  DELETE: "DELETE",
+  PUT: "PUT",
+} as const;
 
 /**
  * @public
  */
-export enum ScalarAttributeType {
-  B = "B",
-  N = "N",
-  S = "S",
-}
+export type AttributeAction = (typeof AttributeAction)[keyof typeof AttributeAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarAttributeType = {
+  B: "B",
+  N: "N",
+  S: "S",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarAttributeType = (typeof ScalarAttributeType)[keyof typeof ScalarAttributeType];
 
 /**
  * @public
@@ -266,21 +278,33 @@ export interface AutoScalingSettingsUpdate {
 
 /**
  * @public
+ * @enum
  */
-export enum BackupStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-}
+export const BackupStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+} as const;
 
 /**
  * @public
  */
-export enum BackupType {
-  AWS_BACKUP = "AWS_BACKUP",
-  SYSTEM = "SYSTEM",
-  USER = "USER",
-}
+export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupType = {
+  AWS_BACKUP: "AWS_BACKUP",
+  SYSTEM: "SYSTEM",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
 
 /**
  * @public
@@ -346,19 +370,31 @@ export interface BackupDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum BillingMode {
-  PAY_PER_REQUEST = "PAY_PER_REQUEST",
-  PROVISIONED = "PROVISIONED",
-}
+export const BillingMode = {
+  PAY_PER_REQUEST: "PAY_PER_REQUEST",
+  PROVISIONED: "PROVISIONED",
+} as const;
 
 /**
  * @public
  */
-export enum KeyType {
-  HASH = "HASH",
-  RANGE = "RANGE",
-}
+export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyType = {
+  HASH: "HASH",
+  RANGE: "RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 /**
  * @public
@@ -501,12 +537,18 @@ export interface SourceTableDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectionType {
-  ALL = "ALL",
-  INCLUDE = "INCLUDE",
-  KEYS_ONLY = "KEYS_ONLY",
-}
+export const ProjectionType = {
+  ALL: "ALL",
+  INCLUDE: "INCLUDE",
+  KEYS_ONLY: "KEYS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectionType = (typeof ProjectionType)[keyof typeof ProjectionType];
 
 /**
  * @public
@@ -645,22 +687,34 @@ export interface LocalSecondaryIndexInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum SSEType {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+export const SSEType = {
+  AES256: "AES256",
+  KMS: "KMS",
+} as const;
 
 /**
  * @public
  */
-export enum SSEStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  UPDATING = "UPDATING",
-}
+export type SSEType = (typeof SSEType)[keyof typeof SSEType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SSEStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type SSEStatus = (typeof SSEStatus)[keyof typeof SSEStatus];
 
 /**
  * @public
@@ -711,13 +765,19 @@ export interface SSEDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum StreamViewType {
-  KEYS_ONLY = "KEYS_ONLY",
-  NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE = "NEW_IMAGE",
-  OLD_IMAGE = "OLD_IMAGE",
-}
+export const StreamViewType = {
+  KEYS_ONLY: "KEYS_ONLY",
+  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE: "NEW_IMAGE",
+  OLD_IMAGE: "OLD_IMAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamViewType = (typeof StreamViewType)[keyof typeof StreamViewType];
 
 /**
  * @public
@@ -762,13 +822,19 @@ export interface StreamSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeToLiveStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-}
+export const TimeToLiveStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeToLiveStatus = (typeof TimeToLiveStatus)[keyof typeof TimeToLiveStatus];
 
 /**
  * @public
@@ -964,22 +1030,34 @@ export interface BackupSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum BackupTypeFilter {
-  ALL = "ALL",
-  AWS_BACKUP = "AWS_BACKUP",
-  SYSTEM = "SYSTEM",
-  USER = "USER",
-}
+export const BackupTypeFilter = {
+  ALL: "ALL",
+  AWS_BACKUP: "AWS_BACKUP",
+  SYSTEM: "SYSTEM",
+  USER: "USER",
+} as const;
 
 /**
  * @public
  */
-export enum ReturnConsumedCapacity {
-  INDEXES = "INDEXES",
-  NONE = "NONE",
-  TOTAL = "TOTAL",
-}
+export type BackupTypeFilter = (typeof BackupTypeFilter)[keyof typeof BackupTypeFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReturnConsumedCapacity = {
+  INDEXES: "INDEXES",
+  NONE: "NONE",
+  TOTAL: "TOTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReturnConsumedCapacity = (typeof ReturnConsumedCapacity)[keyof typeof ReturnConsumedCapacity];
 
 /**
  * @public
@@ -1052,20 +1130,27 @@ export interface ConsumedCapacity {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchStatementErrorCodeEnum {
-  AccessDenied = "AccessDenied",
-  ConditionalCheckFailed = "ConditionalCheckFailed",
-  DuplicateItem = "DuplicateItem",
-  InternalServerError = "InternalServerError",
-  ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded",
-  ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded",
-  RequestLimitExceeded = "RequestLimitExceeded",
-  ResourceNotFound = "ResourceNotFound",
-  ThrottlingError = "ThrottlingError",
-  TransactionConflict = "TransactionConflict",
-  ValidationError = "ValidationError",
-}
+export const BatchStatementErrorCodeEnum = {
+  AccessDenied: "AccessDenied",
+  ConditionalCheckFailed: "ConditionalCheckFailed",
+  DuplicateItem: "DuplicateItem",
+  InternalServerError: "InternalServerError",
+  ItemCollectionSizeLimitExceeded: "ItemCollectionSizeLimitExceeded",
+  ProvisionedThroughputExceeded: "ProvisionedThroughputExceeded",
+  RequestLimitExceeded: "RequestLimitExceeded",
+  ResourceNotFound: "ResourceNotFound",
+  ThrottlingError: "ThrottlingError",
+  TransactionConflict: "TransactionConflict",
+  ValidationError: "ValidationError",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchStatementErrorCodeEnum =
+  (typeof BatchStatementErrorCodeEnum)[keyof typeof BatchStatementErrorCodeEnum];
 
 /**
  * @public
@@ -1192,11 +1277,18 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ReturnItemCollectionMetrics {
-  NONE = "NONE",
-  SIZE = "SIZE",
-}
+export const ReturnItemCollectionMetrics = {
+  NONE: "NONE",
+  SIZE: "SIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReturnItemCollectionMetrics =
+  (typeof ReturnItemCollectionMetrics)[keyof typeof ReturnItemCollectionMetrics];
 
 /**
  * @public
@@ -1259,22 +1351,28 @@ export interface BillingModeSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  IN = "IN",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS",
-  NOT_NULL = "NOT_NULL",
-  NULL = "NULL",
-}
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  IN: "IN",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+  NOT_CONTAINS: "NOT_CONTAINS",
+  NOT_NULL: "NOT_NULL",
+  NULL: "NULL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * @public
@@ -1298,35 +1396,60 @@ export class ConditionalCheckFailedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ConditionalOperator {
-  AND = "AND",
-  OR = "OR",
-}
+export const ConditionalOperator = {
+  AND: "AND",
+  OR: "OR",
+} as const;
 
 /**
  * @public
  */
-export enum ReturnValuesOnConditionCheckFailure {
-  ALL_OLD = "ALL_OLD",
-  NONE = "NONE",
-}
+export type ConditionalOperator = (typeof ConditionalOperator)[keyof typeof ConditionalOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReturnValuesOnConditionCheckFailure = {
+  ALL_OLD: "ALL_OLD",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum ContinuousBackupsStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type ReturnValuesOnConditionCheckFailure =
+  (typeof ReturnValuesOnConditionCheckFailure)[keyof typeof ReturnValuesOnConditionCheckFailure];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContinuousBackupsStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum PointInTimeRecoveryStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type ContinuousBackupsStatus = (typeof ContinuousBackupsStatus)[keyof typeof ContinuousBackupsStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PointInTimeRecoveryStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PointInTimeRecoveryStatus = (typeof PointInTimeRecoveryStatus)[keyof typeof PointInTimeRecoveryStatus];
 
 /**
  * @public
@@ -1403,22 +1526,34 @@ export class ContinuousBackupsUnavailableException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ContributorInsightsAction {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const ContributorInsightsAction = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
 
 /**
  * @public
  */
-export enum ContributorInsightsStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  FAILED = "FAILED",
-}
+export type ContributorInsightsAction = (typeof ContributorInsightsAction)[keyof typeof ContributorInsightsAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContributorInsightsStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContributorInsightsStatus = (typeof ContributorInsightsStatus)[keyof typeof ContributorInsightsStatus];
 
 /**
  * @public
@@ -1599,13 +1734,19 @@ export interface CreateGlobalTableInput {
 
 /**
  * @public
+ * @enum
  */
-export enum GlobalTableStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const GlobalTableStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalTableStatus = (typeof GlobalTableStatus)[keyof typeof GlobalTableStatus];
 
 /**
  * @public
@@ -1638,24 +1779,36 @@ export interface ReplicaGlobalSecondaryIndexDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicaStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  CREATION_FAILED = "CREATION_FAILED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  REGION_DISABLED = "REGION_DISABLED",
-  UPDATING = "UPDATING",
-}
+export const ReplicaStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  REGION_DISABLED: "REGION_DISABLED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum TableClass {
-  STANDARD = "STANDARD",
-  STANDARD_INFREQUENT_ACCESS = "STANDARD_INFREQUENT_ACCESS",
-}
+export type ReplicaStatus = (typeof ReplicaStatus)[keyof typeof ReplicaStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TableClass = {
+  STANDARD: "STANDARD",
+  STANDARD_INFREQUENT_ACCESS: "STANDARD_INFREQUENT_ACCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type TableClass = (typeof TableClass)[keyof typeof TableClass];
 
 /**
  * @public
@@ -2356,13 +2509,19 @@ export interface CreateTableInput {
 
 /**
  * @public
+ * @enum
  */
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
 
 /**
  * @public
@@ -2607,16 +2766,22 @@ export interface RestoreSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-  ARCHIVING = "ARCHIVING",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  UPDATING = "UPDATING",
-}
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  ARCHIVING: "ARCHIVING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
  * @public
@@ -3109,14 +3274,20 @@ export interface DeleteGlobalSecondaryIndexAction {
 
 /**
  * @public
+ * @enum
  */
-export enum ReturnValue {
-  ALL_NEW = "ALL_NEW",
-  ALL_OLD = "ALL_OLD",
-  NONE = "NONE",
-  UPDATED_NEW = "UPDATED_NEW",
-  UPDATED_OLD = "UPDATED_OLD",
-}
+export const ReturnValue = {
+  ALL_NEW: "ALL_NEW",
+  ALL_OLD: "ALL_OLD",
+  NONE: "NONE",
+  UPDATED_NEW: "UPDATED_NEW",
+  UPDATED_OLD: "UPDATED_OLD",
+} as const;
+
+/**
+ * @public
+ */
+export type ReturnValue = (typeof ReturnValue)[keyof typeof ReturnValue];
 
 /**
  * @public
@@ -3354,28 +3525,46 @@ export interface DescribeExportInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportFormat {
-  DYNAMODB_JSON = "DYNAMODB_JSON",
-  ION = "ION",
-}
+export const ExportFormat = {
+  DYNAMODB_JSON: "DYNAMODB_JSON",
+  ION: "ION",
+} as const;
 
 /**
  * @public
  */
-export enum ExportStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export type ExportFormat = (typeof ExportFormat)[keyof typeof ExportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
  * @public
  */
-export enum S3SseAlgorithm {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3SseAlgorithm = {
+  AES256: "AES256",
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type S3SseAlgorithm = (typeof S3SseAlgorithm)[keyof typeof S3SseAlgorithm];
 
 /**
  * @public
@@ -3737,32 +3926,50 @@ export interface DescribeImportInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ImportStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
  * @public
  */
-export enum InputCompressionType {
-  GZIP = "GZIP",
-  NONE = "NONE",
-  ZSTD = "ZSTD",
-}
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputCompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+  ZSTD: "ZSTD",
+} as const;
 
 /**
  * @public
  */
-export enum InputFormat {
-  CSV = "CSV",
-  DYNAMODB_JSON = "DYNAMODB_JSON",
-  ION = "ION",
-}
+export type InputCompressionType = (typeof InputCompressionType)[keyof typeof InputCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputFormat = {
+  CSV: "CSV",
+  DYNAMODB_JSON: "DYNAMODB_JSON",
+  ION: "ION",
+} as const;
+
+/**
+ * @public
+ */
+export type InputFormat = (typeof InputFormat)[keyof typeof InputFormat];
 
 /**
  * @public
@@ -4008,14 +4215,20 @@ export interface DescribeKinesisStreamingDestinationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum DestinationStatus {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLE_FAILED = "ENABLE_FAILED",
-  ENABLING = "ENABLING",
-}
+export const DestinationStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLE_FAILED: "ENABLE_FAILED",
+  ENABLING: "ENABLING",
+} as const;
+
+/**
+ * @public
+ */
+export type DestinationStatus = (typeof DestinationStatus)[keyof typeof DestinationStatus];
 
 /**
  * @public
@@ -5085,13 +5298,19 @@ export interface ListTagsOfResourceOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum Select {
-  ALL_ATTRIBUTES = "ALL_ATTRIBUTES",
-  ALL_PROJECTED_ATTRIBUTES = "ALL_PROJECTED_ATTRIBUTES",
-  COUNT = "COUNT",
-  SPECIFIC_ATTRIBUTES = "SPECIFIC_ATTRIBUTES",
-}
+export const Select = {
+  ALL_ATTRIBUTES: "ALL_ATTRIBUTES",
+  ALL_PROJECTED_ATTRIBUTES: "ALL_PROJECTED_ATTRIBUTES",
+  COUNT: "COUNT",
+  SPECIFIC_ATTRIBUTES: "SPECIFIC_ATTRIBUTES",
+} as const;
+
+/**
+ * @public
+ */
+export type Select = (typeof Select)[keyof typeof Select];
 
 /**
  * @public

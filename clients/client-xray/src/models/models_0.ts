@@ -713,19 +713,31 @@ export interface GetEncryptionConfigRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionStatus {
-  ACTIVE = "ACTIVE",
-  UPDATING = "UPDATING",
-}
+export const EncryptionStatus = {
+  ACTIVE: "ACTIVE",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum EncryptionType {
-  KMS = "KMS",
-  NONE = "NONE",
-}
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  KMS: "KMS",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -858,10 +870,16 @@ export interface GetInsightRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InsightCategory {
-  FAULT = "FAULT",
-}
+export const InsightCategory = {
+  FAULT: "FAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type InsightCategory = (typeof InsightCategory)[keyof typeof InsightCategory];
 
 /**
  * @public
@@ -886,11 +904,17 @@ export interface RequestImpactStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum InsightState {
-  ACTIVE = "ACTIVE",
-  CLOSED = "CLOSED",
-}
+export const InsightState = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+} as const;
+
+/**
+ * @public
+ */
+export type InsightState = (typeof InsightState)[keyof typeof InsightState];
 
 /**
  * @public
@@ -1988,11 +2012,17 @@ export interface GetTraceGraphResult {
 
 /**
  * @public
+ * @enum
  */
-export enum SamplingStrategyName {
-  FixedRate = "FixedRate",
-  PartialScan = "PartialScan",
-}
+export const SamplingStrategyName = {
+  FixedRate: "FixedRate",
+  PartialScan: "PartialScan",
+} as const;
+
+/**
+ * @public
+ */
+export type SamplingStrategyName = (typeof SamplingStrategyName)[keyof typeof SamplingStrategyName];
 
 /**
  * @public
@@ -2012,11 +2042,17 @@ export interface SamplingStrategy {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeRangeType {
-  Event = "Event",
-  TraceId = "TraceId",
-}
+export const TimeRangeType = {
+  Event: "Event",
+  TraceId: "TraceId",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeRangeType = (typeof TimeRangeType)[keyof typeof TimeRangeType];
 
 /**
  * @public

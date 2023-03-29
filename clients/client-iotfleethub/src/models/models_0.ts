@@ -5,14 +5,20 @@ import { IoTFleetHubServiceException as __BaseException } from "./IoTFleetHubSer
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const ApplicationState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationState = (typeof ApplicationState)[keyof typeof ApplicationState];
 
 /**
  * @public

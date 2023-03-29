@@ -28,137 +28,155 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AlgorithmNameCloudRemoval {
+export const AlgorithmNameCloudRemoval = {
   /**
    * INTERPOLATION
    */
-  INTERPOLATION = "INTERPOLATION",
-}
+  INTERPOLATION: "INTERPOLATION",
+} as const;
 
 /**
  * @public
  */
-export enum AlgorithmNameGeoMosaic {
+export type AlgorithmNameCloudRemoval = (typeof AlgorithmNameCloudRemoval)[keyof typeof AlgorithmNameCloudRemoval];
+
+/**
+ * @public
+ * @enum
+ */
+export const AlgorithmNameGeoMosaic = {
   /**
    * AVERAGE
    */
-  AVERAGE = "AVERAGE",
+  AVERAGE: "AVERAGE",
   /**
    * BILINEAR
    */
-  BILINEAR = "BILINEAR",
+  BILINEAR: "BILINEAR",
   /**
    * CUBIC
    */
-  CUBIC = "CUBIC",
+  CUBIC: "CUBIC",
   /**
    * CUBICSPLINE
    */
-  CUBICSPLINE = "CUBICSPLINE",
+  CUBICSPLINE: "CUBICSPLINE",
   /**
    * LANCZOS
    */
-  LANCZOS = "LANCZOS",
+  LANCZOS: "LANCZOS",
   /**
    * MAX
    */
-  MAX = "MAX",
+  MAX: "MAX",
   /**
    * MED
    */
-  MED = "MED",
+  MED: "MED",
   /**
    * MIN
    */
-  MIN = "MIN",
+  MIN: "MIN",
   /**
    * MODE
    */
-  MODE = "MODE",
+  MODE: "MODE",
   /**
    * NEAR
    */
-  NEAR = "NEAR",
+  NEAR: "NEAR",
   /**
    * Q1
    */
-  Q1 = "Q1",
+  Q1: "Q1",
   /**
    * Q3
    */
-  Q3 = "Q3",
+  Q3: "Q3",
   /**
    * RMS
    */
-  RMS = "RMS",
+  RMS: "RMS",
   /**
    * SUM
    */
-  SUM = "SUM",
-}
+  SUM: "SUM",
+} as const;
 
 /**
  * @public
  */
-export enum AlgorithmNameResampling {
+export type AlgorithmNameGeoMosaic = (typeof AlgorithmNameGeoMosaic)[keyof typeof AlgorithmNameGeoMosaic];
+
+/**
+ * @public
+ * @enum
+ */
+export const AlgorithmNameResampling = {
   /**
    * AVERAGE
    */
-  AVERAGE = "AVERAGE",
+  AVERAGE: "AVERAGE",
   /**
    * BILINEAR
    */
-  BILINEAR = "BILINEAR",
+  BILINEAR: "BILINEAR",
   /**
    * CUBIC
    */
-  CUBIC = "CUBIC",
+  CUBIC: "CUBIC",
   /**
    * CUBICSPLINE
    */
-  CUBICSPLINE = "CUBICSPLINE",
+  CUBICSPLINE: "CUBICSPLINE",
   /**
    * LANCZOS
    */
-  LANCZOS = "LANCZOS",
+  LANCZOS: "LANCZOS",
   /**
    * MAX
    */
-  MAX = "MAX",
+  MAX: "MAX",
   /**
    * MED
    */
-  MED = "MED",
+  MED: "MED",
   /**
    * MIN
    */
-  MIN = "MIN",
+  MIN: "MIN",
   /**
    * MODE
    */
-  MODE = "MODE",
+  MODE: "MODE",
   /**
    * NEAR
    */
-  NEAR = "NEAR",
+  NEAR: "NEAR",
   /**
    * Q1
    */
-  Q1 = "Q1",
+  Q1: "Q1",
   /**
    * Q3
    */
-  Q3 = "Q3",
+  Q3: "Q3",
   /**
    * RMS
    */
-  RMS = "RMS",
+  RMS: "RMS",
   /**
    * SUM
    */
-  SUM = "SUM",
-}
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type AlgorithmNameResampling = (typeof AlgorithmNameResampling)[keyof typeof AlgorithmNameResampling];
 
 /**
  * @public
@@ -279,29 +297,35 @@ export interface AssetValue {
 
 /**
  * @public
+ * @enum
  */
-export enum OutputType {
+export const OutputType = {
   /**
    * FLOAT32
    */
-  FLOAT32 = "FLOAT32",
+  FLOAT32: "FLOAT32",
   /**
    * FLOAT64
    */
-  FLOAT64 = "FLOAT64",
+  FLOAT64: "FLOAT64",
   /**
    * INT16
    */
-  INT16 = "INT16",
+  INT16: "INT16",
   /**
    * INT32
    */
-  INT32 = "INT32",
+  INT32: "INT32",
   /**
    * UINT16
    */
-  UINT16 = "UINT16",
-}
+  UINT16: "UINT16",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputType = (typeof OutputType)[keyof typeof OutputType];
 
 /**
  * @public
@@ -380,21 +404,27 @@ export interface CloudRemovalConfigInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
+export const ComparisonOperator = {
   /**
    * EQUALS
    */
-  EQUALS = "EQUALS",
+  EQUALS: "EQUALS",
   /**
    * NOT_EQUALS
    */
-  NOT_EQUALS = "NOT_EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
   /**
    * STARTS_WITH
    */
-  STARTS_WITH = "STARTS_WITH",
-}
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * @public
@@ -451,21 +481,27 @@ export interface Filter {
 
 /**
  * @public
+ * @enum
  */
-export enum DataCollectionType {
+export const DataCollectionType = {
   /**
    * PREMIUM
    */
-  PREMIUM = "PREMIUM",
+  PREMIUM: "PREMIUM",
   /**
    * PUBLIC
    */
-  PUBLIC = "PUBLIC",
+  PUBLIC: "PUBLIC",
   /**
    * USER
    */
-  USER = "USER",
-}
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataCollectionType = (typeof DataCollectionType)[keyof typeof DataCollectionType];
 
 /**
  * @public
@@ -700,21 +736,28 @@ export interface ExportEarthObservationJobInput {
 
 /**
  * @public
+ * @enum
  */
-export enum EarthObservationJobExportStatus {
+export const EarthObservationJobExportStatus = {
   /**
    * FAILED
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * IN_PROGRESS
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    * SUCCEEDED
    */
-  SUCCEEDED = "SUCCEEDED",
-}
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type EarthObservationJobExportStatus =
+  (typeof EarthObservationJobExportStatus)[keyof typeof EarthObservationJobExportStatus];
 
 /**
  * @public
@@ -790,17 +833,24 @@ export interface GetEarthObservationJobInput {
 
 /**
  * @public
+ * @enum
  */
-export enum EarthObservationJobErrorType {
+export const EarthObservationJobErrorType = {
   /**
    * CLIENT_ERROR
    */
-  CLIENT_ERROR = "CLIENT_ERROR",
+  CLIENT_ERROR: "CLIENT_ERROR",
   /**
    * SERVER_ERROR
    */
-  SERVER_ERROR = "SERVER_ERROR",
-}
+  SERVER_ERROR: "SERVER_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type EarthObservationJobErrorType =
+  (typeof EarthObservationJobErrorType)[keyof typeof EarthObservationJobErrorType];
 
 /**
  * @public
@@ -820,17 +870,23 @@ export interface EarthObservationJobErrorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportErrorType {
+export const ExportErrorType = {
   /**
    * CLIENT_ERROR
    */
-  CLIENT_ERROR = "CLIENT_ERROR",
+  CLIENT_ERROR: "CLIENT_ERROR",
   /**
    * SERVER_ERROR
    */
-  SERVER_ERROR = "SERVER_ERROR",
-}
+  SERVER_ERROR: "SERVER_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportErrorType = (typeof ExportErrorType)[keyof typeof ExportErrorType];
 
 /**
  * @public
@@ -866,13 +922,19 @@ export interface ExportErrorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum MetadataProvider {
+export const MetadataProvider = {
   /**
    * PLANET_ORDER
    */
-  PLANET_ORDER = "PLANET_ORDER",
-}
+  PLANET_ORDER: "PLANET_ORDER",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataProvider = (typeof MetadataProvider)[keyof typeof MetadataProvider];
 
 /**
  * @public
@@ -931,13 +993,19 @@ export namespace EojDataSourceConfigInput {
 
 /**
  * @public
+ * @enum
  */
-export enum LogicalOperator {
+export const LogicalOperator = {
   /**
    * AND
    */
-  AND = "AND",
-}
+  AND: "AND",
+} as const;
+
+/**
+ * @public
+ */
+export type LogicalOperator = (typeof LogicalOperator)[keyof typeof LogicalOperator];
 
 /**
  * @public
@@ -1280,13 +1348,19 @@ export interface LandCoverSegmentationConfigInput {}
 
 /**
  * @public
+ * @enum
  */
-export enum Unit {
+export const Unit = {
   /**
    * METERS
    */
-  METERS = "METERS",
-}
+  METERS: "METERS",
+} as const;
+
+/**
+ * @public
+ */
+export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
  * @public
@@ -1338,21 +1412,27 @@ export interface ResamplingConfigInput {
 
 /**
  * @public
+ * @enum
  */
-export enum PredefinedResolution {
+export const PredefinedResolution = {
   /**
    * AVERAGE
    */
-  AVERAGE = "AVERAGE",
+  AVERAGE: "AVERAGE",
   /**
    * HIGHEST
    */
-  HIGHEST = "HIGHEST",
+  HIGHEST: "HIGHEST",
   /**
    * LOWEST
    */
-  LOWEST = "LOWEST",
-}
+  LOWEST: "LOWEST",
+} as const;
+
+/**
+ * @public
+ */
+export type PredefinedResolution = (typeof PredefinedResolution)[keyof typeof PredefinedResolution];
 
 /**
  * @public
@@ -1388,35 +1468,47 @@ export interface StackConfigInput {
 
 /**
  * @public
+ * @enum
  */
-export enum GroupBy {
+export const GroupBy = {
   /**
    * ALL
    */
-  ALL = "ALL",
+  ALL: "ALL",
   /**
    * YEARLY
    */
-  YEARLY = "YEARLY",
-}
+  YEARLY: "YEARLY",
+} as const;
 
 /**
  * @public
  */
-export enum TemporalStatistics {
+export type GroupBy = (typeof GroupBy)[keyof typeof GroupBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemporalStatistics = {
   /**
    * MEAN
    */
-  MEAN = "MEAN",
+  MEAN: "MEAN",
   /**
    * MEDIAN
    */
-  MEDIAN = "MEDIAN",
+  MEDIAN: "MEDIAN",
   /**
    * STANDARD_DEVIATION
    */
-  STANDARD_DEVIATION = "STANDARD_DEVIATION",
-}
+  STANDARD_DEVIATION: "STANDARD_DEVIATION",
+} as const;
+
+/**
+ * @public
+ */
+export type TemporalStatistics = (typeof TemporalStatistics)[keyof typeof TemporalStatistics];
 
 /**
  * @public
@@ -1441,33 +1533,39 @@ export interface TemporalStatisticsConfigInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ZonalStatistics {
+export const ZonalStatistics = {
   /**
    * MAX
    */
-  MAX = "MAX",
+  MAX: "MAX",
   /**
    * MEAN
    */
-  MEAN = "MEAN",
+  MEAN: "MEAN",
   /**
    * MEDIAN
    */
-  MEDIAN = "MEDIAN",
+  MEDIAN: "MEDIAN",
   /**
    * MIN
    */
-  MIN = "MIN",
+  MIN: "MIN",
   /**
    * STANDARD_DEVIATION
    */
-  STANDARD_DEVIATION = "STANDARD_DEVIATION",
+  STANDARD_DEVIATION: "STANDARD_DEVIATION",
   /**
    * SUM
    */
-  SUM = "SUM",
-}
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ZonalStatistics = (typeof ZonalStatistics)[keyof typeof ZonalStatistics];
 
 /**
  * @public
@@ -1714,41 +1812,47 @@ export interface OutputBand {
 
 /**
  * @public
+ * @enum
  */
-export enum EarthObservationJobStatus {
+export const EarthObservationJobStatus = {
   /**
    * COMPLETED
    */
-  COMPLETED = "COMPLETED",
+  COMPLETED: "COMPLETED",
   /**
    * DELETED
    */
-  DELETED = "DELETED",
+  DELETED: "DELETED",
   /**
    * DELETING
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * FAILED
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * INITIALIZING
    */
-  INITIALIZING = "INITIALIZING",
+  INITIALIZING: "INITIALIZING",
   /**
    * IN_PROGRESS
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    * STOPPED
    */
-  STOPPED = "STOPPED",
+  STOPPED: "STOPPED",
   /**
    * STOPPING
    */
-  STOPPING = "STOPPING",
-}
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type EarthObservationJobStatus = (typeof EarthObservationJobStatus)[keyof typeof EarthObservationJobStatus];
 
 /**
  * @public
@@ -1827,17 +1931,23 @@ export interface GetEarthObservationJobOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetOptions {
+export const TargetOptions = {
   /**
    * INPUT
    */
-  INPUT = "INPUT",
+  INPUT: "INPUT",
   /**
    * OUTPUT
    */
-  OUTPUT = "OUTPUT",
-}
+  OUTPUT: "OUTPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetOptions = (typeof TargetOptions)[keyof typeof TargetOptions];
 
 /**
  * @public
@@ -1911,17 +2021,23 @@ export interface GetTileOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
+export const SortOrder = {
   /**
    * ASCENDING
    */
-  ASCENDING = "ASCENDING",
+  ASCENDING: "ASCENDING",
   /**
    * DESCENDING
    */
-  DESCENDING = "DESCENDING",
-}
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -2218,12 +2334,19 @@ export interface ExportVectorEnrichmentJobInput {
 
 /**
  * @public
+ * @enum
  */
-export enum VectorEnrichmentJobExportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const VectorEnrichmentJobExportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type VectorEnrichmentJobExportStatus =
+  (typeof VectorEnrichmentJobExportStatus)[keyof typeof VectorEnrichmentJobExportStatus];
 
 /**
  * @public
@@ -2339,17 +2462,24 @@ export interface GetVectorEnrichmentJobInput {
 
 /**
  * @public
+ * @enum
  */
-export enum VectorEnrichmentJobErrorType {
+export const VectorEnrichmentJobErrorType = {
   /**
    * CLIENT_ERROR
    */
-  CLIENT_ERROR = "CLIENT_ERROR",
+  CLIENT_ERROR: "CLIENT_ERROR",
   /**
    * SERVER_ERROR
    */
-  SERVER_ERROR = "SERVER_ERROR",
-}
+  SERVER_ERROR: "SERVER_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type VectorEnrichmentJobErrorType =
+  (typeof VectorEnrichmentJobErrorType)[keyof typeof VectorEnrichmentJobErrorType];
 
 /**
  * @public
@@ -2370,11 +2500,18 @@ export interface VectorEnrichmentJobErrorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum VectorEnrichmentJobExportErrorType {
-  CLIENT_ERROR = "CLIENT_ERROR",
-  SERVER_ERROR = "SERVER_ERROR",
-}
+export const VectorEnrichmentJobExportErrorType = {
+  CLIENT_ERROR: "CLIENT_ERROR",
+  SERVER_ERROR: "SERVER_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type VectorEnrichmentJobExportErrorType =
+  (typeof VectorEnrichmentJobExportErrorType)[keyof typeof VectorEnrichmentJobExportErrorType];
 
 /**
  * @public
@@ -2430,10 +2567,17 @@ export namespace VectorEnrichmentJobDataSourceConfigInput {
 
 /**
  * @public
+ * @enum
  */
-export enum VectorEnrichmentJobDocumentType {
-  CSV = "CSV",
-}
+export const VectorEnrichmentJobDocumentType = {
+  CSV: "CSV",
+} as const;
+
+/**
+ * @public
+ */
+export type VectorEnrichmentJobDocumentType =
+  (typeof VectorEnrichmentJobDocumentType)[keyof typeof VectorEnrichmentJobDocumentType];
 
 /**
  * @public
@@ -2545,25 +2689,37 @@ export namespace VectorEnrichmentJobConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum VectorEnrichmentJobStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INITIALIZING = "INITIALIZING",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const VectorEnrichmentJobStatus = {
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
  * @public
  */
-export enum VectorEnrichmentJobType {
-  MAP_MATCHING = "MAP_MATCHING",
-  REVERSE_GEOCODING = "REVERSE_GEOCODING",
-}
+export type VectorEnrichmentJobStatus = (typeof VectorEnrichmentJobStatus)[keyof typeof VectorEnrichmentJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VectorEnrichmentJobType = {
+  MAP_MATCHING: "MAP_MATCHING",
+  REVERSE_GEOCODING: "REVERSE_GEOCODING",
+} as const;
+
+/**
+ * @public
+ */
+export type VectorEnrichmentJobType = (typeof VectorEnrichmentJobType)[keyof typeof VectorEnrichmentJobType];
 
 /**
  * @public

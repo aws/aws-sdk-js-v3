@@ -5,10 +5,16 @@ import { RbinServiceException as __BaseException } from "./RbinServiceException"
 
 /**
  * @public
+ * @enum
  */
-export enum UnlockDelayUnit {
-  DAYS = "DAYS",
-}
+export const UnlockDelayUnit = {
+  DAYS: "DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type UnlockDelayUnit = (typeof UnlockDelayUnit)[keyof typeof UnlockDelayUnit];
 
 /**
  * @public
@@ -60,18 +66,30 @@ export interface ResourceTag {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  EBS_SNAPSHOT = "EBS_SNAPSHOT",
-  EC2_IMAGE = "EC2_IMAGE",
-}
+export const ResourceType = {
+  EBS_SNAPSHOT: "EBS_SNAPSHOT",
+  EC2_IMAGE: "EC2_IMAGE",
+} as const;
 
 /**
  * @public
  */
-export enum RetentionPeriodUnit {
-  DAYS = "DAYS",
-}
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetentionPeriodUnit = {
+  DAYS: "DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type RetentionPeriodUnit = (typeof RetentionPeriodUnit)[keyof typeof RetentionPeriodUnit];
 
 /**
  * @public
@@ -153,20 +171,32 @@ export interface CreateRuleRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LockState {
-  LOCKED = "locked",
-  PENDING_UNLOCK = "pending_unlock",
-  UNLOCKED = "unlocked",
-}
+export const LockState = {
+  LOCKED: "locked",
+  PENDING_UNLOCK: "pending_unlock",
+  UNLOCKED: "unlocked",
+} as const;
 
 /**
  * @public
  */
-export enum RuleStatus {
-  AVAILABLE = "available",
-  PENDING = "pending",
-}
+export type LockState = (typeof LockState)[keyof typeof LockState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleStatus = {
+  AVAILABLE: "available",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
 
 /**
  * @public
@@ -267,10 +297,17 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceQuotaExceededExceptionReason {
-  SERVICE_QUOTA_EXCEEDED = "SERVICE_QUOTA_EXCEEDED",
-}
+export const ServiceQuotaExceededExceptionReason = {
+  SERVICE_QUOTA_EXCEEDED: "SERVICE_QUOTA_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceQuotaExceededExceptionReason =
+  (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
 
 /**
  * @public
@@ -301,11 +338,17 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN",
-  INVALID_PARAMETER_VALUE = "INVALID_PARAMETER_VALUE",
-}
+export const ValidationExceptionReason = {
+  INVALID_PAGE_TOKEN: "INVALID_PAGE_TOKEN",
+  INVALID_PARAMETER_VALUE: "INVALID_PARAMETER_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -336,10 +379,16 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictExceptionReason {
-  INVALID_RULE_STATE = "INVALID_RULE_STATE",
-}
+export const ConflictExceptionReason = {
+  INVALID_RULE_STATE: "INVALID_RULE_STATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
 
 /**
  * @public
@@ -385,10 +434,17 @@ export interface DeleteRuleResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceNotFoundExceptionReason {
-  RULE_NOT_FOUND = "RULE_NOT_FOUND",
-}
+export const ResourceNotFoundExceptionReason = {
+  RULE_NOT_FOUND: "RULE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceNotFoundExceptionReason =
+  (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
 
 /**
  * @public

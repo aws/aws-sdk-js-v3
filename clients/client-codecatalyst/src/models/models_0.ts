@@ -234,11 +234,18 @@ export interface ListAccessTokensResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CatalogActionVersionFileRecordType {
-  LICENSE = "LICENSE",
-  README = "README",
-}
+export const CatalogActionVersionFileRecordType = {
+  LICENSE: "LICENSE",
+  README: "README",
+} as const;
+
+/**
+ * @public
+ */
+export type CatalogActionVersionFileRecordType =
+  (typeof CatalogActionVersionFileRecordType)[keyof typeof CatalogActionVersionFileRecordType];
 
 /**
  * @public
@@ -338,11 +345,17 @@ export interface ListEventLogsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationType {
-  MUTATION = "MUTATION",
-  READONLY = "READONLY",
-}
+export const OperationType = {
+  MUTATION: "MUTATION",
+  READONLY: "READONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 /**
  * @public
@@ -378,12 +391,18 @@ export interface EventPayload {
 
 /**
  * @public
+ * @enum
  */
-export enum UserType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-  UNKNOWN = "UNKNOWN",
-  USER = "USER",
-}
+export const UserType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+  UNKNOWN: "UNKNOWN",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type UserType = (typeof UserType)[keyof typeof UserType];
 
 /**
  * @public
@@ -660,13 +679,19 @@ export interface IdeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum _InstanceType {
-  DEV_STANDARD1_LARGE = "dev.standard1.large",
-  DEV_STANDARD1_MEDIUM = "dev.standard1.medium",
-  DEV_STANDARD1_SMALL = "dev.standard1.small",
-  DEV_STANDARD1_XLARGE = "dev.standard1.xlarge",
-}
+export const _InstanceType = {
+  DEV_STANDARD1_LARGE: "dev.standard1.large",
+  DEV_STANDARD1_MEDIUM: "dev.standard1.medium",
+  DEV_STANDARD1_SMALL: "dev.standard1.small",
+  DEV_STANDARD1_XLARGE: "dev.standard1.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
 
 /**
  * @public
@@ -890,17 +915,23 @@ export interface DevEnvironmentRepositorySummary {
 
 /**
  * @public
+ * @enum
  */
-export enum DevEnvironmentStatus {
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const DevEnvironmentStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type DevEnvironmentStatus = (typeof DevEnvironmentStatus)[keyof typeof DevEnvironmentStatus];
 
 /**
  * @public
@@ -1187,11 +1218,17 @@ export interface ExecuteCommandSessionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DevEnvironmentSessionType {
-  SSH = "SSH",
-  SSM = "SSM",
-}
+export const DevEnvironmentSessionType = {
+  SSH: "SSH",
+  SSM: "SSM",
+} as const;
+
+/**
+ * @public
+ */
+export type DevEnvironmentSessionType = (typeof DevEnvironmentSessionType)[keyof typeof DevEnvironmentSessionType];
 
 /**
  * @public
@@ -1516,21 +1553,33 @@ export interface GetProjectResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  EQUALS = "EQ",
-  GREATER_THAN = "GT",
-  GREATER_THAN_OR_EQUALS = "GE",
-  LESS_THAN = "LT",
-  LESS_THAN_OR_EQUALS = "LE",
-}
+export const ComparisonOperator = {
+  EQUALS: "EQ",
+  GREATER_THAN: "GT",
+  GREATER_THAN_OR_EQUALS: "GE",
+  LESS_THAN: "LT",
+  LESS_THAN_OR_EQUALS: "LE",
+} as const;
 
 /**
  * @public
  */
-export enum FilterKey {
-  HAS_ACCESS_TO = "hasAccessTo",
-}
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterKey = {
+  HAS_ACCESS_TO: "hasAccessTo",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterKey = (typeof FilterKey)[keyof typeof FilterKey];
 
 /**
  * @public

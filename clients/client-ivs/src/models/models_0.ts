@@ -40,19 +40,31 @@ export interface BatchGetChannelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelLatencyMode {
-  LowLatency = "LOW",
-  NormalLatency = "NORMAL",
-}
+export const ChannelLatencyMode = {
+  LowLatency: "LOW",
+  NormalLatency: "NORMAL",
+} as const;
 
 /**
  * @public
  */
-export enum ChannelType {
-  BasicChannelType = "BASIC",
-  StandardChannelType = "STANDARD",
-}
+export type ChannelLatencyMode = (typeof ChannelLatencyMode)[keyof typeof ChannelLatencyMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelType = {
+  BasicChannelType: "BASIC",
+  StandardChannelType: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
  * @public
@@ -452,11 +464,17 @@ export interface DestinationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordingMode {
-  Disabled = "DISABLED",
-  Interval = "INTERVAL",
-}
+export const RecordingMode = {
+  Disabled: "DISABLED",
+  Interval: "INTERVAL",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordingMode = (typeof RecordingMode)[keyof typeof RecordingMode];
 
 /**
  * @public
@@ -521,12 +539,19 @@ export interface CreateRecordingConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordingConfigurationState {
-  Active = "ACTIVE",
-  CreateFailed = "CREATE_FAILED",
-  Creating = "CREATING",
-}
+export const RecordingConfigurationState = {
+  Active: "ACTIVE",
+  CreateFailed: "CREATE_FAILED",
+  Creating: "CREATING",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordingConfigurationState =
+  (typeof RecordingConfigurationState)[keyof typeof RecordingConfigurationState];
 
 /**
  * @public
@@ -809,20 +834,32 @@ export interface GetStreamRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StreamHealth {
-  Starving = "STARVING",
-  StreamHealthy = "HEALTHY",
-  Unknown = "UNKNOWN",
-}
+export const StreamHealth = {
+  Starving: "STARVING",
+  StreamHealthy: "HEALTHY",
+  Unknown: "UNKNOWN",
+} as const;
 
 /**
  * @public
  */
-export enum StreamState {
-  StreamLive = "LIVE",
-  StreamOffline = "OFFLINE",
-}
+export type StreamHealth = (typeof StreamHealth)[keyof typeof StreamHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamState = {
+  StreamLive: "LIVE",
+  StreamOffline: "OFFLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamState = (typeof StreamState)[keyof typeof StreamState];
 
 /**
  * @public

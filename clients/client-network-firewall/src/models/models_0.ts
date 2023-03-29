@@ -283,11 +283,17 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum IPAddressType {
-  DUALSTACK = "DUALSTACK",
-  IPV4 = "IPV4",
-}
+export const IPAddressType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
 
 /**
  * @public
@@ -389,13 +395,19 @@ export class InsufficientCapacityException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AttachmentStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  READY = "READY",
-  SCALING = "SCALING",
-}
+export const AttachmentStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  READY: "READY",
+  SCALING: "SCALING",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
 
 /**
  * @public
@@ -477,20 +489,32 @@ export interface CapacityUsageSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationSyncState {
-  CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED",
-  IN_SYNC = "IN_SYNC",
-  PENDING = "PENDING",
-}
+export const ConfigurationSyncState = {
+  CAPACITY_CONSTRAINED: "CAPACITY_CONSTRAINED",
+  IN_SYNC: "IN_SYNC",
+  PENDING: "PENDING",
+} as const;
 
 /**
  * @public
  */
-export enum EncryptionType {
-  AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY",
-  CUSTOMER_KMS = "CUSTOMER_KMS",
-}
+export type ConfigurationSyncState = (typeof ConfigurationSyncState)[keyof typeof ConfigurationSyncState];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_KMS: "CUSTOMER_KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -676,21 +700,33 @@ export interface Firewall {
 
 /**
  * @public
+ * @enum
  */
-export enum FirewallStatusValue {
-  DELETING = "DELETING",
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-}
+export const FirewallStatusValue = {
+  DELETING: "DELETING",
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+} as const;
 
 /**
  * @public
  */
-export enum PerObjectSyncStatus {
-  CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED",
-  IN_SYNC = "IN_SYNC",
-  PENDING = "PENDING",
-}
+export type FirewallStatusValue = (typeof FirewallStatusValue)[keyof typeof FirewallStatusValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const PerObjectSyncStatus = {
+  CAPACITY_CONSTRAINED: "CAPACITY_CONSTRAINED",
+  IN_SYNC: "IN_SYNC",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type PerObjectSyncStatus = (typeof PerObjectSyncStatus)[keyof typeof PerObjectSyncStatus];
 
 /**
  * @public
@@ -830,19 +866,31 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleOrder {
-  DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER",
-  STRICT_ORDER = "STRICT_ORDER",
-}
+export const RuleOrder = {
+  DEFAULT_ACTION_ORDER: "DEFAULT_ACTION_ORDER",
+  STRICT_ORDER: "STRICT_ORDER",
+} as const;
 
 /**
  * @public
  */
-export enum StreamExceptionPolicy {
-  CONTINUE = "CONTINUE",
-  DROP = "DROP",
-}
+export type RuleOrder = (typeof RuleOrder)[keyof typeof RuleOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamExceptionPolicy = {
+  CONTINUE: "CONTINUE",
+  DROP: "DROP",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamExceptionPolicy = (typeof StreamExceptionPolicy)[keyof typeof StreamExceptionPolicy];
 
 /**
  * @public
@@ -876,10 +924,16 @@ export interface StatefulEngineOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum OverrideAction {
-  DROP_TO_ALERT = "DROP_TO_ALERT",
-}
+export const OverrideAction = {
+  DROP_TO_ALERT: "DROP_TO_ALERT",
+} as const;
+
+/**
+ * @public
+ */
+export type OverrideAction = (typeof OverrideAction)[keyof typeof OverrideAction];
 
 /**
  * @public
@@ -1107,11 +1161,17 @@ export interface CreateFirewallPolicyRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceStatus {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const ResourceStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
  * @public
@@ -1224,19 +1284,31 @@ export interface ReferenceSets {
 
 /**
  * @public
+ * @enum
  */
-export enum GeneratedRulesType {
-  ALLOWLIST = "ALLOWLIST",
-  DENYLIST = "DENYLIST",
-}
+export const GeneratedRulesType = {
+  ALLOWLIST: "ALLOWLIST",
+  DENYLIST: "DENYLIST",
+} as const;
 
 /**
  * @public
  */
-export enum TargetType {
-  HTTP_HOST = "HTTP_HOST",
-  TLS_SNI = "TLS_SNI",
-}
+export type GeneratedRulesType = (typeof GeneratedRulesType)[keyof typeof GeneratedRulesType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  HTTP_HOST: "HTTP_HOST",
+  TLS_SNI: "TLS_SNI",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * @public
@@ -1271,46 +1343,64 @@ export interface RulesSourceList {
 
 /**
  * @public
+ * @enum
  */
-export enum StatefulAction {
-  ALERT = "ALERT",
-  DROP = "DROP",
-  PASS = "PASS",
-  REJECT = "REJECT",
-}
+export const StatefulAction = {
+  ALERT: "ALERT",
+  DROP: "DROP",
+  PASS: "PASS",
+  REJECT: "REJECT",
+} as const;
 
 /**
  * @public
  */
-export enum StatefulRuleDirection {
-  ANY = "ANY",
-  FORWARD = "FORWARD",
-}
+export type StatefulAction = (typeof StatefulAction)[keyof typeof StatefulAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatefulRuleDirection = {
+  ANY: "ANY",
+  FORWARD: "FORWARD",
+} as const;
 
 /**
  * @public
  */
-export enum StatefulRuleProtocol {
-  ANY = "IP",
-  DCERPC = "DCERPC",
-  DHCP = "DHCP",
-  DNS = "DNS",
-  FTP = "FTP",
-  HTTP = "HTTP",
-  ICMP = "ICMP",
-  IKEV2 = "IKEV2",
-  IMAP = "IMAP",
-  KRB5 = "KRB5",
-  MSN = "MSN",
-  NTP = "NTP",
-  SMB = "SMB",
-  SMTP = "SMTP",
-  SSH = "SSH",
-  TCP = "TCP",
-  TFTP = "TFTP",
-  TLS = "TLS",
-  UDP = "UDP",
-}
+export type StatefulRuleDirection = (typeof StatefulRuleDirection)[keyof typeof StatefulRuleDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatefulRuleProtocol = {
+  ANY: "IP",
+  DCERPC: "DCERPC",
+  DHCP: "DHCP",
+  DNS: "DNS",
+  FTP: "FTP",
+  HTTP: "HTTP",
+  ICMP: "ICMP",
+  IKEV2: "IKEV2",
+  IMAP: "IMAP",
+  KRB5: "KRB5",
+  MSN: "MSN",
+  NTP: "NTP",
+  SMB: "SMB",
+  SMTP: "SMTP",
+  SSH: "SSH",
+  TCP: "TCP",
+  TFTP: "TFTP",
+  TLS: "TLS",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type StatefulRuleProtocol = (typeof StatefulRuleProtocol)[keyof typeof StatefulRuleProtocol];
 
 /**
  * @public
@@ -1492,17 +1582,23 @@ export interface PortRange {
 
 /**
  * @public
+ * @enum
  */
-export enum TCPFlag {
-  ACK = "ACK",
-  CWR = "CWR",
-  ECE = "ECE",
-  FIN = "FIN",
-  PSH = "PSH",
-  RST = "RST",
-  SYN = "SYN",
-  URG = "URG",
-}
+export const TCPFlag = {
+  ACK: "ACK",
+  CWR: "CWR",
+  ECE: "ECE",
+  FIN: "FIN",
+  PSH: "PSH",
+  RST: "RST",
+  SYN: "SYN",
+  URG: "URG",
+} as const;
+
+/**
+ * @public
+ */
+export type TCPFlag = (typeof TCPFlag)[keyof typeof TCPFlag];
 
 /**
  * @public
@@ -1822,11 +1918,17 @@ export interface SourceMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleGroupType {
-  STATEFUL = "STATEFUL",
-  STATELESS = "STATELESS",
-}
+export const RuleGroupType = {
+  STATEFUL: "STATEFUL",
+  STATELESS: "STATELESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleGroupType = (typeof RuleGroupType)[keyof typeof RuleGroupType];
 
 /**
  * @public
@@ -2297,20 +2399,32 @@ export interface DescribeLoggingConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LogDestinationType {
-  CLOUDWATCH_LOGS = "CloudWatchLogs",
-  KINESIS_DATA_FIREHOSE = "KinesisDataFirehose",
-  S3 = "S3",
-}
+export const LogDestinationType = {
+  CLOUDWATCH_LOGS: "CloudWatchLogs",
+  KINESIS_DATA_FIREHOSE: "KinesisDataFirehose",
+  S3: "S3",
+} as const;
 
 /**
  * @public
  */
-export enum LogType {
-  ALERT = "ALERT",
-  FLOW = "FLOW",
-}
+export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDestinationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogType = {
+  ALERT: "ALERT",
+  FLOW: "FLOW",
+} as const;
+
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * @public
@@ -2721,19 +2835,31 @@ export interface ListFirewallsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceManagedType {
-  AWS_MANAGED_DOMAIN_LISTS = "AWS_MANAGED_DOMAIN_LISTS",
-  AWS_MANAGED_THREAT_SIGNATURES = "AWS_MANAGED_THREAT_SIGNATURES",
-}
+export const ResourceManagedType = {
+  AWS_MANAGED_DOMAIN_LISTS: "AWS_MANAGED_DOMAIN_LISTS",
+  AWS_MANAGED_THREAT_SIGNATURES: "AWS_MANAGED_THREAT_SIGNATURES",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceManagedStatus {
-  ACCOUNT = "ACCOUNT",
-  MANAGED = "MANAGED",
-}
+export type ResourceManagedType = (typeof ResourceManagedType)[keyof typeof ResourceManagedType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceManagedStatus = {
+  ACCOUNT: "ACCOUNT",
+  MANAGED: "MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceManagedStatus = (typeof ResourceManagedStatus)[keyof typeof ResourceManagedStatus];
 
 /**
  * @public

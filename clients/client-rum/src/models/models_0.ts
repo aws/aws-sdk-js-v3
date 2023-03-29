@@ -28,21 +28,27 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Telemetry {
+export const Telemetry = {
   /**
    * Includes JS error event plugin
    */
-  ERRORS = "errors",
+  ERRORS: "errors",
   /**
    * Includes X-Ray Xhr and X-Ray Fetch plugin
    */
-  HTTP = "http",
+  HTTP: "http",
   /**
    * Includes navigation, paint, resource and web vital event plugins
    */
-  PERFORMANCE = "performance",
-}
+  PERFORMANCE: "performance",
+} as const;
+
+/**
+ * @public
+ */
+export type Telemetry = (typeof Telemetry)[keyof typeof Telemetry];
 
 /**
  * @public
@@ -130,11 +136,17 @@ export interface AppMonitorConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomEventsStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CustomEventsStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomEventsStatus = (typeof CustomEventsStatus)[keyof typeof CustomEventsStatus];
 
 /**
  * @public
@@ -181,12 +193,18 @@ export interface DataStorage {
 
 /**
  * @public
+ * @enum
  */
-export enum StateEnum {
-  ACTIVE = "ACTIVE",
-  CREATED = "CREATED",
-  DELETING = "DELETING",
-}
+export const StateEnum = {
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type StateEnum = (typeof StateEnum)[keyof typeof StateEnum];
 
 /**
  * @public
@@ -273,11 +291,17 @@ export interface AppMonitorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricDestination {
-  CloudWatch = "CloudWatch",
-  Evidently = "Evidently",
-}
+export const MetricDestination = {
+  CloudWatch: "CloudWatch",
+  Evidently: "Evidently",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricDestination = (typeof MetricDestination)[keyof typeof MetricDestination];
 
 /**
  * @public

@@ -263,12 +263,18 @@ export interface UpdateDomainResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum VariantPropertyType {
-  DataCaptureConfig = "DataCaptureConfig",
-  DesiredInstanceCount = "DesiredInstanceCount",
-  DesiredWeight = "DesiredWeight",
-}
+export const VariantPropertyType = {
+  DataCaptureConfig: "DataCaptureConfig",
+  DesiredInstanceCount: "DesiredInstanceCount",
+  DesiredWeight: "DesiredWeight",
+} as const;
+
+/**
+ * @public
+ */
+export type VariantPropertyType = (typeof VariantPropertyType)[keyof typeof VariantPropertyType];
 
 /**
  * @public

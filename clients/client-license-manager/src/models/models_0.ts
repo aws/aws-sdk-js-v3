@@ -15,18 +15,24 @@ export interface AcceptGrantRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum GrantStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  FAILED_WORKFLOW = "FAILED_WORKFLOW",
-  PENDING_ACCEPT = "PENDING_ACCEPT",
-  PENDING_DELETE = "PENDING_DELETE",
-  PENDING_WORKFLOW = "PENDING_WORKFLOW",
-  REJECTED = "REJECTED",
-  WORKFLOW_COMPLETED = "WORKFLOW_COMPLETED",
-}
+export const GrantStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  FAILED_WORKFLOW: "FAILED_WORKFLOW",
+  PENDING_ACCEPT: "PENDING_ACCEPT",
+  PENDING_DELETE: "PENDING_DELETE",
+  PENDING_WORKFLOW: "PENDING_WORKFLOW",
+  REJECTED: "REJECTED",
+  WORKFLOW_COMPLETED: "WORKFLOW_COMPLETED",
+} as const;
+
+/**
+ * @public
+ */
+export type GrantStatus = (typeof GrantStatus)[keyof typeof GrantStatus];
 
 /**
  * @public
@@ -205,16 +211,22 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AllowedOperation {
-  CHECKOUT_BORROW_LICENSE = "CheckoutBorrowLicense",
-  CHECKOUT_LICENSE = "CheckoutLicense",
-  CHECK_IN_LICENSE = "CheckInLicense",
-  CREATE_GRANT = "CreateGrant",
-  CREATE_TOKEN = "CreateToken",
-  EXTEND_CONSUMPTION_LICENSE = "ExtendConsumptionLicense",
-  LIST_PURCHASED_LICENSES = "ListPurchasedLicenses",
-}
+export const AllowedOperation = {
+  CHECKOUT_BORROW_LICENSE: "CheckoutBorrowLicense",
+  CHECKOUT_LICENSE: "CheckoutLicense",
+  CHECK_IN_LICENSE: "CheckInLicense",
+  CREATE_GRANT: "CreateGrant",
+  CREATE_TOKEN: "CreateToken",
+  EXTEND_CONSUMPTION_LICENSE: "ExtendConsumptionLicense",
+  LIST_PURCHASED_LICENSES: "ListPurchasedLicenses",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowedOperation = (typeof AllowedOperation)[keyof typeof AllowedOperation];
 
 /**
  * @public
@@ -309,43 +321,55 @@ export interface Metadata {
 
 /**
  * @public
+ * @enum
  */
-export enum DigitalSignatureMethod {
-  JWT_PS384 = "JWT_PS384",
-}
+export const DigitalSignatureMethod = {
+  JWT_PS384: "JWT_PS384",
+} as const;
 
 /**
  * @public
  */
-export enum EntitlementDataUnit {
-  BITS = "Bits",
-  BITS_PER_SECOND = "Bits/Second",
-  BYTES = "Bytes",
-  BYTES_PER_SECOND = "Bytes/Second",
-  COUNT = "Count",
-  COUNT_PER_SECOND = "Count/Second",
-  GIGABITS = "Gigabits",
-  GIGABITS_PER_SECOND = "Gigabits/Second",
-  GIGABYTES = "Gigabytes",
-  GIGABYTES_PER_SECOND = "Gigabytes/Second",
-  KILOBITS = "Kilobits",
-  KILOBITS_PER_SECOND = "Kilobits/Second",
-  KILOBYTES = "Kilobytes",
-  KILOBYTES_PER_SECOND = "Kilobytes/Second",
-  MEGABITS = "Megabits",
-  MEGABITS_PER_SECOND = "Megabits/Second",
-  MEGABYTES = "Megabytes",
-  MEGABYTES_PER_SECOND = "Megabytes/Second",
-  MICROSECONDS = "Microseconds",
-  MILLISECONDS = "Milliseconds",
-  NONE = "None",
-  PERCENT = "Percent",
-  SECONDS = "Seconds",
-  TERABITS = "Terabits",
-  TERABITS_PER_SECOND = "Terabits/Second",
-  TERABYTES = "Terabytes",
-  TERABYTES_PER_SECOND = "Terabytes/Second",
-}
+export type DigitalSignatureMethod = (typeof DigitalSignatureMethod)[keyof typeof DigitalSignatureMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const EntitlementDataUnit = {
+  BITS: "Bits",
+  BITS_PER_SECOND: "Bits/Second",
+  BYTES: "Bytes",
+  BYTES_PER_SECOND: "Bytes/Second",
+  COUNT: "Count",
+  COUNT_PER_SECOND: "Count/Second",
+  GIGABITS: "Gigabits",
+  GIGABITS_PER_SECOND: "Gigabits/Second",
+  GIGABYTES: "Gigabytes",
+  GIGABYTES_PER_SECOND: "Gigabytes/Second",
+  KILOBITS: "Kilobits",
+  KILOBITS_PER_SECOND: "Kilobits/Second",
+  KILOBYTES: "Kilobytes",
+  KILOBYTES_PER_SECOND: "Kilobytes/Second",
+  MEGABITS: "Megabits",
+  MEGABITS_PER_SECOND: "Megabits/Second",
+  MEGABYTES: "Megabytes",
+  MEGABYTES_PER_SECOND: "Megabytes/Second",
+  MICROSECONDS: "Microseconds",
+  MILLISECONDS: "Milliseconds",
+  NONE: "None",
+  PERCENT: "Percent",
+  SECONDS: "Seconds",
+  TERABITS: "Terabits",
+  TERABITS_PER_SECOND: "Terabits/Second",
+  TERABYTES: "Terabytes",
+  TERABYTES_PER_SECOND: "Terabytes/Second",
+} as const;
+
+/**
+ * @public
+ */
+export type EntitlementDataUnit = (typeof EntitlementDataUnit)[keyof typeof EntitlementDataUnit];
 
 /**
  * @public
@@ -541,11 +565,17 @@ export class UnsupportedDigitalSignatureMethodException extends __BaseException 
 
 /**
  * @public
+ * @enum
  */
-export enum CheckoutType {
-  PERPETUAL = "PERPETUAL",
-  PROVISIONAL = "PROVISIONAL",
-}
+export const CheckoutType = {
+  PERPETUAL: "PERPETUAL",
+  PROVISIONAL: "PROVISIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type CheckoutType = (typeof CheckoutType)[keyof typeof CheckoutType];
 
 /**
  * @public
@@ -776,12 +806,18 @@ export interface ProvisionalConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RenewType {
-  MONTHLY = "Monthly",
-  NONE = "None",
-  WEEKLY = "Weekly",
-}
+export const RenewType = {
+  MONTHLY: "Monthly",
+  NONE: "None",
+  WEEKLY: "Weekly",
+} as const;
+
+/**
+ * @public
+ */
+export type RenewType = (typeof RenewType)[keyof typeof RenewType];
 
 /**
  * @public
@@ -806,36 +842,42 @@ export interface ConsumptionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum EntitlementUnit {
-  BITS = "Bits",
-  BITS_PER_SECOND = "Bits/Second",
-  BYTES = "Bytes",
-  BYTES_PER_SECOND = "Bytes/Second",
-  COUNT = "Count",
-  COUNT_PER_SECOND = "Count/Second",
-  GIGABITS = "Gigabits",
-  GIGABITS_PER_SECOND = "Gigabits/Second",
-  GIGABYTES = "Gigabytes",
-  GIGABYTES_PER_SECOND = "Gigabytes/Second",
-  KILOBITS = "Kilobits",
-  KILOBITS_PER_SECOND = "Kilobits/Second",
-  KILOBYTES = "Kilobytes",
-  KILOBYTES_PER_SECOND = "Kilobytes/Second",
-  MEGABITS = "Megabits",
-  MEGABITS_PER_SECOND = "Megabits/Second",
-  MEGABYTES = "Megabytes",
-  MEGABYTES_PER_SECOND = "Megabytes/Second",
-  MICROSECONDS = "Microseconds",
-  MILLISECONDS = "Milliseconds",
-  NONE = "None",
-  PERCENT = "Percent",
-  SECONDS = "Seconds",
-  TERABITS = "Terabits",
-  TERABITS_PER_SECOND = "Terabits/Second",
-  TERABYTES = "Terabytes",
-  TERABYTES_PER_SECOND = "Terabytes/Second",
-}
+export const EntitlementUnit = {
+  BITS: "Bits",
+  BITS_PER_SECOND: "Bits/Second",
+  BYTES: "Bytes",
+  BYTES_PER_SECOND: "Bytes/Second",
+  COUNT: "Count",
+  COUNT_PER_SECOND: "Count/Second",
+  GIGABITS: "Gigabits",
+  GIGABITS_PER_SECOND: "Gigabits/Second",
+  GIGABYTES: "Gigabytes",
+  GIGABYTES_PER_SECOND: "Gigabytes/Second",
+  KILOBITS: "Kilobits",
+  KILOBITS_PER_SECOND: "Kilobits/Second",
+  KILOBYTES: "Kilobytes",
+  KILOBYTES_PER_SECOND: "Kilobytes/Second",
+  MEGABITS: "Megabits",
+  MEGABITS_PER_SECOND: "Megabits/Second",
+  MEGABYTES: "Megabytes",
+  MEGABYTES_PER_SECOND: "Megabytes/Second",
+  MICROSECONDS: "Microseconds",
+  MILLISECONDS: "Milliseconds",
+  NONE: "None",
+  PERCENT: "Percent",
+  SECONDS: "Seconds",
+  TERABITS: "Terabits",
+  TERABITS_PER_SECOND: "Terabits/Second",
+  TERABYTES: "Terabytes",
+  TERABYTES_PER_SECOND: "Terabytes/Second",
+} as const;
+
+/**
+ * @public
+ */
+export type EntitlementUnit = (typeof EntitlementUnit)[keyof typeof EntitlementUnit];
 
 /**
  * @public
@@ -970,16 +1012,22 @@ export interface CreateLicenseRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LicenseStatus {
-  AVAILABLE = "AVAILABLE",
-  DEACTIVATED = "DEACTIVATED",
-  DELETED = "DELETED",
-  EXPIRED = "EXPIRED",
-  PENDING_AVAILABLE = "PENDING_AVAILABLE",
-  PENDING_DELETE = "PENDING_DELETE",
-  SUSPENDED = "SUSPENDED",
-}
+export const LicenseStatus = {
+  AVAILABLE: "AVAILABLE",
+  DEACTIVATED: "DEACTIVATED",
+  DELETED: "DELETED",
+  EXPIRED: "EXPIRED",
+  PENDING_AVAILABLE: "PENDING_AVAILABLE",
+  PENDING_DELETE: "PENDING_DELETE",
+  SUSPENDED: "SUSPENDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseStatus = (typeof LicenseStatus)[keyof typeof LicenseStatus];
 
 /**
  * @public
@@ -1003,13 +1051,19 @@ export interface CreateLicenseResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LicenseCountingType {
-  CORE = "Core",
-  INSTANCE = "Instance",
-  SOCKET = "Socket",
-  VCPU = "vCPU",
-}
+export const LicenseCountingType = {
+  CORE: "Core",
+  INSTANCE: "Instance",
+  SOCKET: "Socket",
+  VCPU: "vCPU",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseCountingType = (typeof LicenseCountingType)[keyof typeof LicenseCountingType];
 
 /**
  * @public
@@ -1288,12 +1342,18 @@ export interface ReportContext {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportFrequencyType {
-  DAY = "DAY",
-  MONTH = "MONTH",
-  WEEK = "WEEK",
-}
+export const ReportFrequencyType = {
+  DAY: "DAY",
+  MONTH: "MONTH",
+  WEEK: "WEEK",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportFrequencyType = (typeof ReportFrequencyType)[keyof typeof ReportFrequencyType];
 
 /**
  * @public
@@ -1314,11 +1374,17 @@ export interface ReportFrequency {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportType {
-  LICENSE_CONFIGURATION_SUMMARY_REPORT = "LicenseConfigurationSummaryReport",
-  LICENSE_CONFIGURATION_USAGE_REPORT = "LicenseConfigurationUsageReport",
-}
+export const ReportType = {
+  LICENSE_CONFIGURATION_SUMMARY_REPORT: "LicenseConfigurationSummaryReport",
+  LICENSE_CONFIGURATION_USAGE_REPORT: "LicenseConfigurationUsageReport",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportType = (typeof ReportType)[keyof typeof ReportType];
 
 /**
  * @public
@@ -1500,10 +1566,16 @@ export interface CreateTokenRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TokenType {
-  REFRESH_TOKEN = "REFRESH_TOKEN",
-}
+export const TokenType = {
+  REFRESH_TOKEN: "REFRESH_TOKEN",
+} as const;
+
+/**
+ * @public
+ */
+export type TokenType = (typeof TokenType)[keyof typeof TokenType];
 
 /**
  * @public
@@ -1582,11 +1654,17 @@ export interface DeleteLicenseRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LicenseDeletionStatus {
-  DELETED = "DELETED",
-  PENDING_DELETE = "PENDING_DELETE",
-}
+export const LicenseDeletionStatus = {
+  DELETED: "DELETED",
+  PENDING_DELETE: "PENDING_DELETE",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseDeletionStatus = (typeof LicenseDeletionStatus)[keyof typeof LicenseDeletionStatus];
 
 /**
  * @public
@@ -1919,14 +1997,20 @@ export interface GetLicenseConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  EC2_AMI = "EC2_AMI",
-  EC2_HOST = "EC2_HOST",
-  EC2_INSTANCE = "EC2_INSTANCE",
-  RDS = "RDS",
-  SYSTEMS_MANAGER_MANAGED_INSTANCE = "SYSTEMS_MANAGER_MANAGED_INSTANCE",
-}
+export const ResourceType = {
+  EC2_AMI: "EC2_AMI",
+  EC2_HOST: "EC2_HOST",
+  EC2_INSTANCE: "EC2_INSTANCE",
+  RDS: "RDS",
+  SYSTEMS_MANAGER_MANAGED_INSTANCE: "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -2062,12 +2146,19 @@ export interface GetLicenseConversionTaskRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LicenseConversionTaskStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const LicenseConversionTaskStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseConversionTaskStatus =
+  (typeof LicenseConversionTaskStatus)[keyof typeof LicenseConversionTaskStatus];
 
 /**
  * @public
@@ -3187,17 +3278,23 @@ export interface ListReceivedLicensesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReceivedStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  FAILED_WORKFLOW = "FAILED_WORKFLOW",
-  PENDING_ACCEPT = "PENDING_ACCEPT",
-  PENDING_WORKFLOW = "PENDING_WORKFLOW",
-  REJECTED = "REJECTED",
-  WORKFLOW_COMPLETED = "WORKFLOW_COMPLETED",
-}
+export const ReceivedStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  FAILED_WORKFLOW: "FAILED_WORKFLOW",
+  PENDING_ACCEPT: "PENDING_ACCEPT",
+  PENDING_WORKFLOW: "PENDING_WORKFLOW",
+  REJECTED: "REJECTED",
+  WORKFLOW_COMPLETED: "WORKFLOW_COMPLETED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReceivedStatus = (typeof ReceivedStatus)[keyof typeof ReceivedStatus];
 
 /**
  * @public
@@ -3389,13 +3486,19 @@ export class FailedDependencyException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum InventoryFilterCondition {
-  BEGINS_WITH = "BEGINS_WITH",
-  CONTAINS = "CONTAINS",
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+export const InventoryFilterCondition = {
+  BEGINS_WITH: "BEGINS_WITH",
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type InventoryFilterCondition = (typeof InventoryFilterCondition)[keyof typeof InventoryFilterCondition];
 
 /**
  * @public
@@ -3801,11 +3904,17 @@ export interface UntagResourceResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum LicenseConfigurationStatus {
-  AVAILABLE = "AVAILABLE",
-  DISABLED = "DISABLED",
-}
+export const LicenseConfigurationStatus = {
+  AVAILABLE: "AVAILABLE",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseConfigurationStatus = (typeof LicenseConfigurationStatus)[keyof typeof LicenseConfigurationStatus];
 
 /**
  * @public

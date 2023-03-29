@@ -62,11 +62,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum PrincipalType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const PrincipalType = {
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * @public
@@ -102,19 +108,31 @@ export interface AccountAssignment {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusValues {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const StatusValues = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
  * @public
  */
-export enum TargetType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-}
+export type StatusValues = (typeof StatusValues)[keyof typeof StatusValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * @public
@@ -793,12 +811,19 @@ export interface DescribeInstanceAccessControlAttributeConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceAccessControlAttributeConfigurationStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+export const InstanceAccessControlAttributeConfigurationStatus = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceAccessControlAttributeConfigurationStatus =
+  (typeof InstanceAccessControlAttributeConfigurationStatus)[keyof typeof InstanceAccessControlAttributeConfigurationStatus];
 
 /**
  * @public
@@ -1202,11 +1227,17 @@ export interface ListAccountAssignmentsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ProvisioningStatus {
-  LATEST_PERMISSION_SET_NOT_PROVISIONED = "LATEST_PERMISSION_SET_NOT_PROVISIONED",
-  LATEST_PERMISSION_SET_PROVISIONED = "LATEST_PERMISSION_SET_PROVISIONED",
-}
+export const ProvisioningStatus = {
+  LATEST_PERMISSION_SET_NOT_PROVISIONED: "LATEST_PERMISSION_SET_NOT_PROVISIONED",
+  LATEST_PERMISSION_SET_PROVISIONED: "LATEST_PERMISSION_SET_PROVISIONED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningStatus = (typeof ProvisioningStatus)[keyof typeof ProvisioningStatus];
 
 /**
  * @public
@@ -1553,11 +1584,17 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ProvisionTargetType {
-  ALL_PROVISIONED_ACCOUNTS = "ALL_PROVISIONED_ACCOUNTS",
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-}
+export const ProvisionTargetType = {
+  ALL_PROVISIONED_ACCOUNTS: "ALL_PROVISIONED_ACCOUNTS",
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisionTargetType = (typeof ProvisionTargetType)[keyof typeof ProvisionTargetType];
 
 /**
  * @public

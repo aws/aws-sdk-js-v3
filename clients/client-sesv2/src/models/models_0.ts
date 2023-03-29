@@ -5,29 +5,47 @@ import { SESv2ServiceException as __BaseException } from "./SESv2ServiceExceptio
 
 /**
  * @public
+ * @enum
  */
-export enum ContactLanguage {
-  EN = "EN",
-  JA = "JA",
-}
+export const ContactLanguage = {
+  EN: "EN",
+  JA: "JA",
+} as const;
 
 /**
  * @public
  */
-export enum MailType {
-  MARKETING = "MARKETING",
-  TRANSACTIONAL = "TRANSACTIONAL",
-}
+export type ContactLanguage = (typeof ContactLanguage)[keyof typeof ContactLanguage];
+
+/**
+ * @public
+ * @enum
+ */
+export const MailType = {
+  MARKETING: "MARKETING",
+  TRANSACTIONAL: "TRANSACTIONAL",
+} as const;
 
 /**
  * @public
  */
-export enum ReviewStatus {
-  DENIED = "DENIED",
-  FAILED = "FAILED",
-  GRANTED = "GRANTED",
-  PENDING = "PENDING",
-}
+export type MailType = (typeof MailType)[keyof typeof MailType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReviewStatus = {
+  DENIED: "DENIED",
+  FAILED: "FAILED",
+  GRANTED: "GRANTED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReviewStatus = (typeof ReviewStatus)[keyof typeof ReviewStatus];
 
 /**
  * @public
@@ -183,35 +201,53 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricDimensionName {
-  CONFIGURATION_SET = "CONFIGURATION_SET",
-  EMAIL_IDENTITY = "EMAIL_IDENTITY",
-  ISP = "ISP",
-}
+export const MetricDimensionName = {
+  CONFIGURATION_SET: "CONFIGURATION_SET",
+  EMAIL_IDENTITY: "EMAIL_IDENTITY",
+  ISP: "ISP",
+} as const;
 
 /**
  * @public
  */
-export enum Metric {
-  CLICK = "CLICK",
-  COMPLAINT = "COMPLAINT",
-  DELIVERY = "DELIVERY",
-  DELIVERY_CLICK = "DELIVERY_CLICK",
-  DELIVERY_COMPLAINT = "DELIVERY_COMPLAINT",
-  DELIVERY_OPEN = "DELIVERY_OPEN",
-  OPEN = "OPEN",
-  PERMANENT_BOUNCE = "PERMANENT_BOUNCE",
-  SEND = "SEND",
-  TRANSIENT_BOUNCE = "TRANSIENT_BOUNCE",
-}
+export type MetricDimensionName = (typeof MetricDimensionName)[keyof typeof MetricDimensionName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Metric = {
+  CLICK: "CLICK",
+  COMPLAINT: "COMPLAINT",
+  DELIVERY: "DELIVERY",
+  DELIVERY_CLICK: "DELIVERY_CLICK",
+  DELIVERY_COMPLAINT: "DELIVERY_COMPLAINT",
+  DELIVERY_OPEN: "DELIVERY_OPEN",
+  OPEN: "OPEN",
+  PERMANENT_BOUNCE: "PERMANENT_BOUNCE",
+  SEND: "SEND",
+  TRANSIENT_BOUNCE: "TRANSIENT_BOUNCE",
+} as const;
 
 /**
  * @public
  */
-export enum MetricNamespace {
-  VDM = "VDM",
-}
+export type Metric = (typeof Metric)[keyof typeof Metric];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricNamespace = {
+  VDM: "VDM",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricNamespace = (typeof MetricNamespace)[keyof typeof MetricNamespace];
 
 /**
  * @public
@@ -327,11 +363,17 @@ export interface BatchGetMetricDataRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
+export const QueryErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryErrorCode = (typeof QueryErrorCode)[keyof typeof QueryErrorCode];
 
 /**
  * @public
@@ -464,11 +506,17 @@ export class TooManyRequestsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum BehaviorOnMxFailure {
-  REJECT_MESSAGE = "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE",
-}
+export const BehaviorOnMxFailure = {
+  REJECT_MESSAGE: "REJECT_MESSAGE",
+  USE_DEFAULT_VALUE: "USE_DEFAULT_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type BehaviorOnMxFailure = (typeof BehaviorOnMxFailure)[keyof typeof BehaviorOnMxFailure];
 
 /**
  * @public
@@ -706,23 +754,29 @@ export interface BulkEmailEntry {
 
 /**
  * @public
+ * @enum
  */
-export enum BulkEmailStatus {
-  ACCOUNT_DAILY_QUOTA_EXCEEDED = "ACCOUNT_DAILY_QUOTA_EXCEEDED",
-  ACCOUNT_SENDING_PAUSED = "ACCOUNT_SENDING_PAUSED",
-  ACCOUNT_SUSPENDED = "ACCOUNT_SUSPENDED",
-  ACCOUNT_THROTTLED = "ACCOUNT_THROTTLED",
-  CONFIGURATION_SET_NOT_FOUND = "CONFIGURATION_SET_NOT_FOUND",
-  CONFIGURATION_SET_SENDING_PAUSED = "CONFIGURATION_SET_SENDING_PAUSED",
-  FAILED = "FAILED",
-  INVALID_PARAMETER = "INVALID_PARAMETER",
-  INVALID_SENDING_POOL_NAME = "INVALID_SENDING_POOL_NAME",
-  MAIL_FROM_DOMAIN_NOT_VERIFIED = "MAIL_FROM_DOMAIN_NOT_VERIFIED",
-  MESSAGE_REJECTED = "MESSAGE_REJECTED",
-  SUCCESS = "SUCCESS",
-  TEMPLATE_NOT_FOUND = "TEMPLATE_NOT_FOUND",
-  TRANSIENT_FAILURE = "TRANSIENT_FAILURE",
-}
+export const BulkEmailStatus = {
+  ACCOUNT_DAILY_QUOTA_EXCEEDED: "ACCOUNT_DAILY_QUOTA_EXCEEDED",
+  ACCOUNT_SENDING_PAUSED: "ACCOUNT_SENDING_PAUSED",
+  ACCOUNT_SUSPENDED: "ACCOUNT_SUSPENDED",
+  ACCOUNT_THROTTLED: "ACCOUNT_THROTTLED",
+  CONFIGURATION_SET_NOT_FOUND: "CONFIGURATION_SET_NOT_FOUND",
+  CONFIGURATION_SET_SENDING_PAUSED: "CONFIGURATION_SET_SENDING_PAUSED",
+  FAILED: "FAILED",
+  INVALID_PARAMETER: "INVALID_PARAMETER",
+  INVALID_SENDING_POOL_NAME: "INVALID_SENDING_POOL_NAME",
+  MAIL_FROM_DOMAIN_NOT_VERIFIED: "MAIL_FROM_DOMAIN_NOT_VERIFIED",
+  MESSAGE_REJECTED: "MESSAGE_REJECTED",
+  SUCCESS: "SUCCESS",
+  TEMPLATE_NOT_FOUND: "TEMPLATE_NOT_FOUND",
+  TRANSIENT_FAILURE: "TRANSIENT_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type BulkEmailStatus = (typeof BulkEmailStatus)[keyof typeof BulkEmailStatus];
 
 /**
  * @public
@@ -810,12 +864,18 @@ export interface BulkEmailEntryResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DimensionValueSource {
-  EMAIL_HEADER = "EMAIL_HEADER",
-  LINK_TAG = "LINK_TAG",
-  MESSAGE_TAG = "MESSAGE_TAG",
-}
+export const DimensionValueSource = {
+  EMAIL_HEADER: "EMAIL_HEADER",
+  LINK_TAG: "LINK_TAG",
+  MESSAGE_TAG: "MESSAGE_TAG",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof DimensionValueSource];
 
 /**
  * @public
@@ -919,11 +979,17 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum SubscriptionStatus {
-  OPT_IN = "OPT_IN",
-  OPT_OUT = "OPT_OUT",
-}
+export const SubscriptionStatus = {
+  OPT_IN: "OPT_IN",
+  OPT_OUT: "OPT_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus];
 
 /**
  * @public
@@ -993,11 +1059,17 @@ export interface ContactList {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactListImportAction {
-  DELETE = "DELETE",
-  PUT = "PUT",
-}
+export const ContactListImportAction = {
+  DELETE: "DELETE",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactListImportAction = (typeof ContactListImportAction)[keyof typeof ContactListImportAction];
 
 /**
  * @public
@@ -1027,11 +1099,17 @@ export interface ContactListDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum TlsPolicy {
-  OPTIONAL = "OPTIONAL",
-  REQUIRE = "REQUIRE",
-}
+export const TlsPolicy = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRE: "REQUIRE",
+} as const;
+
+/**
+ * @public
+ */
+export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
 
 /**
  * @public
@@ -1088,11 +1166,17 @@ export interface SendingOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum SuppressionListReason {
-  BOUNCE = "BOUNCE",
-  COMPLAINT = "COMPLAINT",
-}
+export const SuppressionListReason = {
+  BOUNCE: "BOUNCE",
+  COMPLAINT: "COMPLAINT",
+} as const;
+
+/**
+ * @public
+ */
+export type SuppressionListReason = (typeof SuppressionListReason)[keyof typeof SuppressionListReason];
 
 /**
  * @public
@@ -1193,11 +1277,17 @@ export interface TrackingOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * @public
@@ -1370,19 +1460,25 @@ export interface KinesisFirehoseDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  BOUNCE = "BOUNCE",
-  CLICK = "CLICK",
-  COMPLAINT = "COMPLAINT",
-  DELIVERY = "DELIVERY",
-  DELIVERY_DELAY = "DELIVERY_DELAY",
-  OPEN = "OPEN",
-  REJECT = "REJECT",
-  RENDERING_FAILURE = "RENDERING_FAILURE",
-  SEND = "SEND",
-  SUBSCRIPTION = "SUBSCRIPTION",
-}
+export const EventType = {
+  BOUNCE: "BOUNCE",
+  CLICK: "CLICK",
+  COMPLAINT: "COMPLAINT",
+  DELIVERY: "DELIVERY",
+  DELIVERY_DELAY: "DELIVERY_DELAY",
+  OPEN: "OPEN",
+  REJECT: "REJECT",
+  RENDERING_FAILURE: "RENDERING_FAILURE",
+  SEND: "SEND",
+  SUBSCRIPTION: "SUBSCRIPTION",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -1634,11 +1730,17 @@ export interface CreateCustomVerificationEmailTemplateResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum ScalingMode {
-  MANAGED = "MANAGED",
-  STANDARD = "STANDARD",
-}
+export const ScalingMode = {
+  MANAGED: "MANAGED",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalingMode = (typeof ScalingMode)[keyof typeof ScalingMode];
 
 /**
  * @public
@@ -1817,11 +1919,17 @@ export interface CreateDeliverabilityTestReportRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliverabilityTestStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const DeliverabilityTestStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliverabilityTestStatus = (typeof DeliverabilityTestStatus)[keyof typeof DeliverabilityTestStatus];
 
 /**
  * @public
@@ -1905,11 +2013,17 @@ export class SendingPausedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DkimSigningKeyLength {
-  RSA_1024_BIT = "RSA_1024_BIT",
-  RSA_2048_BIT = "RSA_2048_BIT",
-}
+export const DkimSigningKeyLength = {
+  RSA_1024_BIT: "RSA_1024_BIT",
+  RSA_2048_BIT: "RSA_2048_BIT",
+} as const;
+
+/**
+ * @public
+ */
+export type DkimSigningKeyLength = (typeof DkimSigningKeyLength)[keyof typeof DkimSigningKeyLength];
 
 /**
  * @public
@@ -1971,22 +2085,35 @@ export interface CreateEmailIdentityRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DkimSigningAttributesOrigin {
-  AWS_SES = "AWS_SES",
-  EXTERNAL = "EXTERNAL",
-}
+export const DkimSigningAttributesOrigin = {
+  AWS_SES: "AWS_SES",
+  EXTERNAL: "EXTERNAL",
+} as const;
 
 /**
  * @public
  */
-export enum DkimStatus {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+export type DkimSigningAttributesOrigin =
+  (typeof DkimSigningAttributesOrigin)[keyof typeof DkimSigningAttributesOrigin];
+
+/**
+ * @public
+ * @enum
+ */
+export const DkimStatus = {
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type DkimStatus = (typeof DkimStatus)[keyof typeof DkimStatus];
 
 /**
  * @public
@@ -2092,12 +2219,18 @@ export interface DkimAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  MANAGED_DOMAIN = "MANAGED_DOMAIN",
-}
+export const IdentityType = {
+  DOMAIN: "DOMAIN",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  MANAGED_DOMAIN: "MANAGED_DOMAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 /**
  * @public
@@ -2209,11 +2342,17 @@ export interface CreateEmailTemplateResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum DataFormat {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const DataFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
 
 /**
  * @public
@@ -2234,11 +2373,18 @@ export interface ImportDataSource {
 
 /**
  * @public
+ * @enum
  */
-export enum SuppressionListImportAction {
-  DELETE = "DELETE",
-  PUT = "PUT",
-}
+export const SuppressionListImportAction = {
+  DELETE: "DELETE",
+  PUT: "PUT",
+} as const;
+
+/**
+ * @public
+ */
+export type SuppressionListImportAction =
+  (typeof SuppressionListImportAction)[keyof typeof SuppressionListImportAction];
 
 /**
  * @public
@@ -2452,11 +2598,17 @@ export interface DashboardAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum WarmupStatus {
-  DONE = "DONE",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const WarmupStatus = {
+  DONE: "DONE",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type WarmupStatus = (typeof WarmupStatus)[keyof typeof WarmupStatus];
 
 /**
  * @public
@@ -2728,12 +2880,19 @@ export interface DeleteSuppressedDestinationResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum DeliverabilityDashboardAccountStatus {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  PENDING_EXPIRATION = "PENDING_EXPIRATION",
-}
+export const DeliverabilityDashboardAccountStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  PENDING_EXPIRATION: "PENDING_EXPIRATION",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliverabilityDashboardAccountStatus =
+  (typeof DeliverabilityDashboardAccountStatus)[keyof typeof DeliverabilityDashboardAccountStatus];
 
 /**
  * @public
@@ -3884,13 +4043,19 @@ export interface GetEmailIdentityRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MailFromDomainStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+export const MailFromDomainStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type MailFromDomainStatus = (typeof MailFromDomainStatus)[keyof typeof MailFromDomainStatus];
 
 /**
  * @public
@@ -3945,14 +4110,20 @@ export interface MailFromAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum VerificationStatus {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+export const VerificationStatus = {
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
 
 /**
  * @public
@@ -4108,13 +4279,19 @@ export interface GetImportJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  PROCESSING = "PROCESSING",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -4298,11 +4475,17 @@ export interface IdentityInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportDestinationType {
-  CONTACT_LIST = "CONTACT_LIST",
-  SUPPRESSION_LIST = "SUPPRESSION_LIST",
-}
+export const ImportDestinationType = {
+  CONTACT_LIST: "CONTACT_LIST",
+  SUPPRESSION_LIST: "SUPPRESSION_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportDestinationType = (typeof ImportDestinationType)[keyof typeof ImportDestinationType];
 
 /**
  * @public
@@ -4863,13 +5046,20 @@ export interface ListManagementOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum ListRecommendationsFilterKey {
-  IMPACT = "IMPACT",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  STATUS = "STATUS",
-  TYPE = "TYPE",
-}
+export const ListRecommendationsFilterKey = {
+  IMPACT: "IMPACT",
+  RESOURCE_ARN: "RESOURCE_ARN",
+  STATUS: "STATUS",
+  TYPE: "TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type ListRecommendationsFilterKey =
+  (typeof ListRecommendationsFilterKey)[keyof typeof ListRecommendationsFilterKey];
 
 /**
  * @public
@@ -4903,29 +5093,47 @@ export interface ListRecommendationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationImpact {
-  HIGH = "HIGH",
-  LOW = "LOW",
-}
+export const RecommendationImpact = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+} as const;
 
 /**
  * @public
  */
-export enum RecommendationStatus {
-  FIXED = "FIXED",
-  OPEN = "OPEN",
-}
+export type RecommendationImpact = (typeof RecommendationImpact)[keyof typeof RecommendationImpact];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationStatus = {
+  FIXED: "FIXED",
+  OPEN: "OPEN",
+} as const;
 
 /**
  * @public
  */
-export enum RecommendationType {
-  BIMI = "BIMI",
-  DKIM = "DKIM",
-  DMARC = "DMARC",
-  SPF = "SPF",
-}
+export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationType = {
+  BIMI: "BIMI",
+  DKIM: "DKIM",
+  DMARC: "DMARC",
+  SPF: "SPF",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 /**
  * @public

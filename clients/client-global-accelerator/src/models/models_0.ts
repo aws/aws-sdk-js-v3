@@ -25,19 +25,31 @@ export interface AcceleratorEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum IpAddressType {
-  DUAL_STACK = "DUAL_STACK",
-  IPV4 = "IPV4",
-}
+export const IpAddressType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4: "IPV4",
+} as const;
 
 /**
  * @public
  */
-export enum IpAddressFamily {
-  IPv4 = "IPv4",
-  IPv6 = "IPv6",
-}
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressFamily = {
+  IPv4: "IPv4",
+  IPv6: "IPv6",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressFamily = (typeof IpAddressFamily)[keyof typeof IpAddressFamily];
 
 /**
  * @public
@@ -64,11 +76,17 @@ export interface IpSet {
 
 /**
  * @public
+ * @enum
  */
-export enum AcceleratorStatus {
-  DEPLOYED = "DEPLOYED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const AcceleratorStatus = {
+  DEPLOYED: "DEPLOYED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceleratorStatus = (typeof AcceleratorStatus)[keyof typeof AcceleratorStatus];
 
 /**
  * @public
@@ -486,12 +504,18 @@ export interface AddEndpointsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthState {
-  HEALTHY = "HEALTHY",
-  INITIAL = "INITIAL",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const HealthState = {
+  HEALTHY: "HEALTHY",
+  INITIAL: "INITIAL",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthState = (typeof HealthState)[keyof typeof HealthState];
 
 /**
  * @public
@@ -611,20 +635,26 @@ export interface ByoipCidrEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum ByoipCidrState {
-  ADVERTISING = "ADVERTISING",
-  DEPROVISIONED = "DEPROVISIONED",
-  FAILED_ADVERTISING = "FAILED_ADVERTISING",
-  FAILED_DEPROVISION = "FAILED_DEPROVISION",
-  FAILED_PROVISION = "FAILED_PROVISION",
-  FAILED_WITHDRAW = "FAILED_WITHDRAW",
-  PENDING_ADVERTISING = "PENDING_ADVERTISING",
-  PENDING_DEPROVISIONING = "PENDING_DEPROVISIONING",
-  PENDING_PROVISIONING = "PENDING_PROVISIONING",
-  PENDING_WITHDRAWING = "PENDING_WITHDRAWING",
-  READY = "READY",
-}
+export const ByoipCidrState = {
+  ADVERTISING: "ADVERTISING",
+  DEPROVISIONED: "DEPROVISIONED",
+  FAILED_ADVERTISING: "FAILED_ADVERTISING",
+  FAILED_DEPROVISION: "FAILED_DEPROVISION",
+  FAILED_PROVISION: "FAILED_PROVISION",
+  FAILED_WITHDRAW: "FAILED_WITHDRAW",
+  PENDING_ADVERTISING: "PENDING_ADVERTISING",
+  PENDING_DEPROVISIONING: "PENDING_DEPROVISIONING",
+  PENDING_PROVISIONING: "PENDING_PROVISIONING",
+  PENDING_WITHDRAWING: "PENDING_WITHDRAWING",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type ByoipCidrState = (typeof ByoipCidrState)[keyof typeof ByoipCidrState];
 
 /**
  * @public
@@ -880,11 +910,17 @@ export interface CidrAuthorizationContext {
 
 /**
  * @public
+ * @enum
  */
-export enum ClientAffinity {
-  NONE = "NONE",
-  SOURCE_IP = "SOURCE_IP",
-}
+export const ClientAffinity = {
+  NONE: "NONE",
+  SOURCE_IP: "SOURCE_IP",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientAffinity = (typeof ClientAffinity)[keyof typeof ClientAffinity];
 
 /**
  * @public
@@ -1016,11 +1052,18 @@ export interface CreateCustomRoutingAcceleratorRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomRoutingAcceleratorStatus {
-  DEPLOYED = "DEPLOYED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const CustomRoutingAcceleratorStatus = {
+  DEPLOYED: "DEPLOYED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomRoutingAcceleratorStatus =
+  (typeof CustomRoutingAcceleratorStatus)[keyof typeof CustomRoutingAcceleratorStatus];
 
 /**
  * @public
@@ -1095,11 +1138,17 @@ export interface CreateCustomRoutingAcceleratorResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomRoutingProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const CustomRoutingProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomRoutingProtocol = (typeof CustomRoutingProtocol)[keyof typeof CustomRoutingProtocol];
 
 /**
  * @public
@@ -1153,11 +1202,17 @@ export interface CreateCustomRoutingEndpointGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Protocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const Protocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
@@ -1355,12 +1410,18 @@ export interface CreateCustomRoutingListenerResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthCheckProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-}
+export const HealthCheckProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthCheckProtocol = (typeof HealthCheckProtocol)[keyof typeof HealthCheckProtocol];
 
 /**
  * @public
@@ -1662,11 +1723,18 @@ export interface CustomRoutingAcceleratorAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomRoutingDestinationTrafficState {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const CustomRoutingDestinationTrafficState = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomRoutingDestinationTrafficState =
+  (typeof CustomRoutingDestinationTrafficState)[keyof typeof CustomRoutingDestinationTrafficState];
 
 /**
  * @public

@@ -197,11 +197,17 @@ export interface DataConnector {
 
 /**
  * @public
+ * @enum
  */
-export enum Scope {
-  ENTITY = "ENTITY",
-  WORKSPACE = "WORKSPACE",
-}
+export const Scope = {
+  ENTITY: "ENTITY",
+  WORKSPACE: "WORKSPACE",
+} as const;
+
+/**
+ * @public
+ */
+export type Scope = (typeof Scope)[keyof typeof Scope];
 
 /**
  * @public
@@ -242,24 +248,36 @@ export interface Relationship {
 
 /**
  * @public
+ * @enum
  */
-export enum Type {
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  INTEGER = "INTEGER",
-  LIST = "LIST",
-  LONG = "LONG",
-  MAP = "MAP",
-  RELATIONSHIP = "RELATIONSHIP",
-  STRING = "STRING",
-}
+export const Type = {
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  LIST: "LIST",
+  LONG: "LONG",
+  MAP: "MAP",
+  RELATIONSHIP: "RELATIONSHIP",
+  STRING: "STRING",
+} as const;
 
 /**
  * @public
  */
-export enum GroupType {
-  TABULAR = "TABULAR",
-}
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupType = {
+  TABULAR: "TABULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupType = (typeof GroupType)[keyof typeof GroupType];
 
 /**
  * @public
@@ -279,14 +297,20 @@ export interface PropertyGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum State {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  UPDATING = "UPDATING",
-}
+export const State = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
 
 /**
  * @public
@@ -330,21 +354,33 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum PropertyUpdateType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const PropertyUpdateType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
 
 /**
  * @public
  */
-export enum PropertyGroupUpdateType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export type PropertyUpdateType = (typeof PropertyUpdateType)[keyof typeof PropertyUpdateType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PropertyGroupUpdateType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyGroupUpdateType = (typeof PropertyGroupUpdateType)[keyof typeof PropertyGroupUpdateType];
 
 /**
  * @public
@@ -478,14 +514,20 @@ export interface CreateSyncJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SyncJobState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  INITIALIZING = "INITIALIZING",
-}
+export const SyncJobState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  INITIALIZING: "INITIALIZING",
+} as const;
+
+/**
+ * @public
+ */
+export type SyncJobState = (typeof SyncJobState)[keyof typeof SyncJobState];
 
 /**
  * @public
@@ -699,12 +741,18 @@ export interface ExecuteQueryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ColumnType {
-  EDGE = "EDGE",
-  NODE = "NODE",
-  VALUE = "VALUE",
-}
+export const ColumnType = {
+  EDGE: "EDGE",
+  NODE: "NODE",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnType = (typeof ColumnType)[keyof typeof ColumnType];
 
 /**
  * @public
@@ -839,14 +887,20 @@ export interface PropertyGroupResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  SYNC_CREATING_ERROR = "SYNC_CREATING_ERROR",
-  SYNC_INITIALIZING_ERROR = "SYNC_INITIALIZING_ERROR",
-  SYNC_PROCESSING_ERROR = "SYNC_PROCESSING_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const ErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  SYNC_CREATING_ERROR: "SYNC_CREATING_ERROR",
+  SYNC_INITIALIZING_ERROR: "SYNC_INITIALIZING_ERROR",
+  SYNC_PROCESSING_ERROR: "SYNC_PROCESSING_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -925,13 +979,19 @@ export interface GetPricingPlanRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum PricingTier {
-  TIER_1 = "TIER_1",
-  TIER_2 = "TIER_2",
-  TIER_3 = "TIER_3",
-  TIER_4 = "TIER_4",
-}
+export const PricingTier = {
+  TIER_1: "TIER_1",
+  TIER_2: "TIER_2",
+  TIER_3: "TIER_3",
+  TIER_4: "TIER_4",
+} as const;
+
+/**
+ * @public
+ */
+export type PricingTier = (typeof PricingTier)[keyof typeof PricingTier];
 
 /**
  * @public
@@ -951,23 +1011,35 @@ export interface BundleInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum PricingMode {
-  BASIC = "BASIC",
-  STANDARD = "STANDARD",
-  TIERED_BUNDLE = "TIERED_BUNDLE",
-}
+export const PricingMode = {
+  BASIC: "BASIC",
+  STANDARD: "STANDARD",
+  TIERED_BUNDLE: "TIERED_BUNDLE",
+} as const;
 
 /**
  * @public
  */
-export enum UpdateReason {
-  DEFAULT = "DEFAULT",
-  ENTITY_COUNT_UPDATE = "ENTITY_COUNT_UPDATE",
-  OVERWRITTEN = "OVERWRITTEN",
-  PRICING_MODE_UPDATE = "PRICING_MODE_UPDATE",
-  PRICING_TIER_UPDATE = "PRICING_TIER_UPDATE",
-}
+export type PricingMode = (typeof PricingMode)[keyof typeof PricingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateReason = {
+  DEFAULT: "DEFAULT",
+  ENTITY_COUNT_UPDATE: "ENTITY_COUNT_UPDATE",
+  OVERWRITTEN: "OVERWRITTEN",
+  PRICING_MODE_UPDATE: "PRICING_MODE_UPDATE",
+  PRICING_TIER_UPDATE: "PRICING_TIER_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateReason = (typeof UpdateReason)[keyof typeof UpdateReason];
 
 /**
  * @public
@@ -1062,11 +1134,17 @@ export class ConnectorTimeoutException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
 
 /**
  * @public
@@ -1087,10 +1165,16 @@ export interface OrderBy {
 
 /**
  * @public
+ * @enum
  */
-export enum InterpolationType {
-  LINEAR = "LINEAR",
-}
+export const InterpolationType = {
+  LINEAR: "LINEAR",
+} as const;
+
+/**
+ * @public
+ */
+export type InterpolationType = (typeof InterpolationType)[keyof typeof InterpolationType];
 
 /**
  * @public
@@ -1110,11 +1194,17 @@ export interface InterpolationParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderByTime {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const OrderByTime = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderByTime = (typeof OrderByTime)[keyof typeof OrderByTime];
 
 /**
  * @public
@@ -1783,22 +1873,34 @@ export interface ListSyncJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SyncResourceType {
-  COMPONENT_TYPE = "COMPONENT_TYPE",
-  ENTITY = "ENTITY",
-}
+export const SyncResourceType = {
+  COMPONENT_TYPE: "COMPONENT_TYPE",
+  ENTITY: "ENTITY",
+} as const;
 
 /**
  * @public
  */
-export enum SyncResourceState {
-  DELETED = "DELETED",
-  ERROR = "ERROR",
-  INITIALIZING = "INITIALIZING",
-  IN_SYNC = "IN_SYNC",
-  PROCESSING = "PROCESSING",
-}
+export type SyncResourceType = (typeof SyncResourceType)[keyof typeof SyncResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SyncResourceState = {
+  DELETED: "DELETED",
+  ERROR: "ERROR",
+  INITIALIZING: "INITIALIZING",
+  IN_SYNC: "IN_SYNC",
+  PROCESSING: "PROCESSING",
+} as const;
+
+/**
+ * @public
+ */
+export type SyncResourceState = (typeof SyncResourceState)[keyof typeof SyncResourceState];
 
 /**
  * @public
@@ -2178,20 +2280,32 @@ export interface UpdateComponentTypeResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ComponentUpdateType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const ComponentUpdateType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
 
 /**
  * @public
  */
-export enum ParentEntityUpdateType {
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export type ComponentUpdateType = (typeof ComponentUpdateType)[keyof typeof ComponentUpdateType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParentEntityUpdateType = {
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ParentEntityUpdateType = (typeof ParentEntityUpdateType)[keyof typeof ParentEntityUpdateType];
 
 /**
  * @public

@@ -27,16 +27,22 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadSetActivationJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const ReadSetActivationJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetActivationJobStatus = (typeof ReadSetActivationJobStatus)[keyof typeof ReadSetActivationJobStatus];
 
 /**
  * @public
@@ -92,13 +98,20 @@ export interface ActivateReadSetJobItem {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadSetActivationJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ReadSetActivationJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetActivationJobItemStatus =
+  (typeof ReadSetActivationJobItemStatus)[keyof typeof ReadSetActivationJobItemStatus];
 
 /**
  * @public
@@ -123,33 +136,39 @@ export interface ActivateReadSetSourceItem {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
+export const JobStatus = {
   /**
    * The Job was cancelled
    */
-  CANCELLED = "CANCELLED",
+  CANCELLED: "CANCELLED",
   /**
    * The Job has completed
    */
-  COMPLETED = "COMPLETED",
+  COMPLETED: "COMPLETED",
   /**
    * The Job completed with failed runs
    */
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
   /**
    * The Job failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * The Job is executing
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    * The Job has been submitted to run
    */
-  SUBMITTED = "SUBMITTED",
-}
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -693,13 +712,19 @@ export namespace ReferenceItem {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionType {
+export const EncryptionType = {
   /**
    * KMS
    */
-  KMS = "KMS",
-}
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -719,97 +744,121 @@ export interface SseConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum StoreFormat {
+export const StoreFormat = {
   /**
    * GFF3 Format
    */
-  GFF = "GFF",
+  GFF: "GFF",
   /**
    * TSV Format
    */
-  TSV = "TSV",
+  TSV: "TSV",
   /**
    * VCF Format
    */
-  VCF = "VCF",
-}
+  VCF: "VCF",
+} as const;
 
 /**
  * @public
  */
-export enum AnnotationType {
+export type StoreFormat = (typeof StoreFormat)[keyof typeof StoreFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnnotationType = {
   /**
    * Contains contig and 1-base position
    */
-  CHR_POS = "CHR_POS",
+  CHR_POS: "CHR_POS",
   /**
    * Contains contig, 1-base position, ref and alt allele information
    */
-  CHR_POS_REF_ALT = "CHR_POS_REF_ALT",
+  CHR_POS_REF_ALT: "CHR_POS_REF_ALT",
   /**
    * Contains contig, start, and end positions. Coordinates are 1-based
    */
-  CHR_START_END_ONE_BASE = "CHR_START_END_ONE_BASE",
+  CHR_START_END_ONE_BASE: "CHR_START_END_ONE_BASE",
   /**
    * Contains contig, start, end, ref and alt allele information. Coordinates are 1-based
    */
-  CHR_START_END_REF_ALT_ONE_BASE = "CHR_START_END_REF_ALT_ONE_BASE",
+  CHR_START_END_REF_ALT_ONE_BASE: "CHR_START_END_REF_ALT_ONE_BASE",
   /**
    * Contains contig, start, end, ref and alt allele information. Coordinates are 0-based
    */
-  CHR_START_END_REF_ALT_ZERO_BASE = "CHR_START_END_REF_ALT_ZERO_BASE",
+  CHR_START_END_REF_ALT_ZERO_BASE: "CHR_START_END_REF_ALT_ZERO_BASE",
   /**
    * Contains contig, start, and end positions. Coordinates are 0-based
    */
-  CHR_START_END_ZERO_BASE = "CHR_START_END_ZERO_BASE",
+  CHR_START_END_ZERO_BASE: "CHR_START_END_ZERO_BASE",
   /**
    * Generic text file. No genomic information
    */
-  GENERIC = "GENERIC",
-}
+  GENERIC: "GENERIC",
+} as const;
 
 /**
  * @public
  */
-export enum FormatToHeaderKey {
-  ALT = "ALT",
-  CHR = "CHR",
-  END = "END",
-  POS = "POS",
-  REF = "REF",
-  START = "START",
-}
+export type AnnotationType = (typeof AnnotationType)[keyof typeof AnnotationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FormatToHeaderKey = {
+  ALT: "ALT",
+  CHR: "CHR",
+  END: "END",
+  POS: "POS",
+  REF: "REF",
+  START: "START",
+} as const;
 
 /**
  * @public
  */
-export enum SchemaValueType {
+export type FormatToHeaderKey = (typeof FormatToHeaderKey)[keyof typeof FormatToHeaderKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaValueType = {
   /**
    * BOOLEAN type
    */
-  BOOLEAN = "BOOLEAN",
+  BOOLEAN: "BOOLEAN",
   /**
    * DOUBLE type
    */
-  DOUBLE = "DOUBLE",
+  DOUBLE: "DOUBLE",
   /**
    * FLOAT type
    */
-  FLOAT = "FLOAT",
+  FLOAT: "FLOAT",
   /**
    * INT type
    */
-  INT = "INT",
+  INT: "INT",
   /**
    * LONG type
    */
-  LONG = "LONG",
+  LONG: "LONG",
   /**
    * STRING type
    */
-  STRING = "STRING",
-}
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaValueType = (typeof SchemaValueType)[keyof typeof SchemaValueType];
 
 /**
  * @public
@@ -908,29 +957,35 @@ export interface CreateAnnotationStoreRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StoreStatus {
+export const StoreStatus = {
   /**
    * The Store is active
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * The Store is being created
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * The Store is deleting
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * The Store creation failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * The Store is updating
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type StoreStatus = (typeof StoreStatus)[keyof typeof StoreStatus];
 
 /**
  * @public
@@ -1602,11 +1657,17 @@ export interface CreateVariantStoreResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowEngine {
-  NEXTFLOW = "NEXTFLOW",
-  WDL = "WDL",
-}
+export const WorkflowEngine = {
+  NEXTFLOW: "NEXTFLOW",
+  WDL: "WDL",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowEngine = (typeof WorkflowEngine)[keyof typeof WorkflowEngine];
 
 /**
  * @public
@@ -1681,15 +1742,21 @@ export interface CreateWorkflowRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  UPDATING = "UPDATING",
-}
+export const WorkflowStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
 
 /**
  * @public
@@ -1834,13 +1901,19 @@ export interface ExportReadSet {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadSetExportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ReadSetExportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetExportJobItemStatus = (typeof ReadSetExportJobItemStatus)[keyof typeof ReadSetExportJobItemStatus];
 
 /**
  * @public
@@ -1865,16 +1938,22 @@ export interface ExportReadSetDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadSetExportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const ReadSetExportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetExportJobStatus = (typeof ReadSetExportJobStatus)[keyof typeof ReadSetExportJobStatus];
 
 /**
  * @public
@@ -1956,21 +2035,33 @@ export interface FileInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum FileType {
-  BAM = "BAM",
-  CRAM = "CRAM",
-  FASTQ = "FASTQ",
-}
+export const FileType = {
+  BAM: "BAM",
+  CRAM: "CRAM",
+  FASTQ: "FASTQ",
+} as const;
 
 /**
  * @public
  */
-export enum ReadSetFile {
-  INDEX = "INDEX",
-  SOURCE1 = "SOURCE1",
-  SOURCE2 = "SOURCE2",
-}
+export type FileType = (typeof FileType)[keyof typeof FileType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetFile = {
+  INDEX: "INDEX",
+  SOURCE1: "SOURCE1",
+  SOURCE2: "SOURCE2",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetFile = (typeof ReadSetFile)[keyof typeof ReadSetFile];
 
 /**
  * @public
@@ -2176,13 +2267,19 @@ export interface SourceFiles {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadSetImportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ReadSetImportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetImportJobItemStatus = (typeof ReadSetImportJobItemStatus)[keyof typeof ReadSetImportJobItemStatus];
 
 /**
  * @public
@@ -2247,16 +2344,22 @@ export interface ImportReadSetSourceItem {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadSetImportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const ReadSetImportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetImportJobStatus = (typeof ReadSetImportJobStatus)[keyof typeof ReadSetImportJobStatus];
 
 /**
  * @public
@@ -2367,14 +2470,20 @@ export interface SequenceInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum ReadSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const ReadSetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetStatus = (typeof ReadSetStatus)[keyof typeof ReadSetStatus];
 
 /**
  * @public
@@ -2448,11 +2557,17 @@ export interface GetReadSetMetadataResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceFile {
-  INDEX = "INDEX",
-  SOURCE = "SOURCE",
-}
+export const ReferenceFile = {
+  INDEX: "INDEX",
+  SOURCE: "SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceFile = (typeof ReferenceFile)[keyof typeof ReferenceFile];
 
 /**
  * @public
@@ -2511,13 +2626,20 @@ export interface GetReferenceImportJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceImportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ReferenceImportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceImportJobItemStatus =
+  (typeof ReferenceImportJobItemStatus)[keyof typeof ReferenceImportJobItemStatus];
 
 /**
  * @public
@@ -2557,16 +2679,22 @@ export interface ImportReferenceSourceItem {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceImportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const ReferenceImportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceImportJobStatus = (typeof ReferenceImportJobStatus)[keyof typeof ReferenceImportJobStatus];
 
 /**
  * @public
@@ -2646,12 +2774,18 @@ export interface ReferenceFiles {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const ReferenceStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceStatus = (typeof ReferenceStatus)[keyof typeof ReferenceStatus];
 
 /**
  * @public
@@ -2755,10 +2889,16 @@ export interface GetReferenceStoreResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum RunExport {
-  DEFINITION = "DEFINITION",
-}
+export const RunExport = {
+  DEFINITION: "DEFINITION",
+} as const;
+
+/**
+ * @public
+ */
+export type RunExport = (typeof RunExport)[keyof typeof RunExport];
 
 /**
  * @public
@@ -2777,35 +2917,53 @@ export interface GetRunRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RunLogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  OFF = "OFF",
-}
+export const RunLogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  OFF: "OFF",
+} as const;
 
 /**
  * @public
  */
-export enum RunStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const RunStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
  * @public
  */
-export enum WorkflowType {
-  PRIVATE = "PRIVATE",
-  SERVICE = "SERVICE",
-}
+export type RunStatus = (typeof RunStatus)[keyof typeof RunStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowType = {
+  PRIVATE: "PRIVATE",
+  SERVICE: "SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
 
 /**
  * @public
@@ -2999,16 +3157,22 @@ export interface GetRunTaskRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+export const TaskStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 /**
  * @public
@@ -3273,10 +3437,16 @@ export interface GetVariantStoreResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowExport {
-  DEFINITION = "DEFINITION",
-}
+export const WorkflowExport = {
+  DEFINITION: "DEFINITION",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowExport = (typeof WorkflowExport)[keyof typeof WorkflowExport];
 
 /**
  * @public

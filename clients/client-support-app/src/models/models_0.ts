@@ -25,11 +25,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AccountType {
-  MANAGEMENT = "management",
-  MEMBER = "member",
-}
+export const AccountType = {
+  MANAGEMENT: "management",
+  MEMBER: "member",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountType = (typeof AccountType)[keyof typeof AccountType];
 
 /**
  * @public
@@ -79,12 +85,18 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum NotificationSeverityLevel {
-  ALL = "all",
-  HIGH = "high",
-  NONE = "none",
-}
+export const NotificationSeverityLevel = {
+  ALL: "all",
+  HIGH: "high",
+  NONE: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationSeverityLevel = (typeof NotificationSeverityLevel)[keyof typeof NotificationSeverityLevel];
 
 /**
  * @public

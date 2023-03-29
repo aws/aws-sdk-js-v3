@@ -618,17 +618,23 @@ export interface DeleteExperimentTemplateResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExperimentActionStatus {
-  cancelled = "cancelled",
-  completed = "completed",
-  failed = "failed",
-  initiating = "initiating",
-  pending = "pending",
-  running = "running",
-  stopped = "stopped",
-  stopping = "stopping",
-}
+export const ExperimentActionStatus = {
+  cancelled: "cancelled",
+  completed: "completed",
+  failed: "failed",
+  initiating: "initiating",
+  pending: "pending",
+  running: "running",
+  stopped: "stopped",
+  stopping: "stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentActionStatus = (typeof ExperimentActionStatus)[keyof typeof ExperimentActionStatus];
 
 /**
  * @public
@@ -742,16 +748,22 @@ export interface ExperimentLogConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ExperimentStatus {
-  completed = "completed",
-  failed = "failed",
-  initiating = "initiating",
-  pending = "pending",
-  running = "running",
-  stopped = "stopped",
-  stopping = "stopping",
-}
+export const ExperimentStatus = {
+  completed: "completed",
+  failed: "failed",
+  initiating: "initiating",
+  pending: "pending",
+  running: "running",
+  stopped: "stopped",
+  stopping: "stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentStatus = (typeof ExperimentStatus)[keyof typeof ExperimentStatus];
 
 /**
  * @public

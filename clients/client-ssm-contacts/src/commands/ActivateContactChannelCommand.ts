@@ -74,18 +74,6 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  *          service.</p>
  *
  *
- * @example Activate a contact's contact channel
- * ```javascript
- * // The following activate-contact-channel example activates a contact channel and makes it usable as part of an incident.
- * const input = {
- *   "ActivationCode": "466136",
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact-channel/akuam/fc7405c4-46b2-48b7-87b2-93e2f225b90d"
- * };
- * const command = new ActivateContactChannelCommand(input);
- * await client.send(command);
- * // example id: activate-a-contacts-contact-channel-1630359780075
- * ```
- *
  */
 export class ActivateContactChannelCommand extends $Command<
   ActivateContactChannelCommandInput,

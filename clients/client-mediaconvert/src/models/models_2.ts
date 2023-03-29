@@ -50,11 +50,17 @@ export interface GetPolicyRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum InputPolicy {
-  ALLOWED = "ALLOWED",
-  DISALLOWED = "DISALLOWED",
-}
+export const InputPolicy = {
+  ALLOWED: "ALLOWED",
+  DISALLOWED: "DISALLOWED",
+} as const;
+
+/**
+ * @public
+ */
+export type InputPolicy = (typeof InputPolicy)[keyof typeof InputPolicy];
 
 /**
  * @public
@@ -129,20 +135,32 @@ export interface GetQueueResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum JobTemplateListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-  SYSTEM = "SYSTEM",
-}
+export const JobTemplateListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+  SYSTEM: "SYSTEM",
+} as const;
 
 /**
  * @public
  */
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type JobTemplateListBy = (typeof JobTemplateListBy)[keyof typeof JobTemplateListBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
 
 /**
  * @public
@@ -236,12 +254,18 @@ export interface ListJobTemplatesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PresetListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-  SYSTEM = "SYSTEM",
-}
+export const PresetListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+  SYSTEM: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type PresetListBy = (typeof PresetListBy)[keyof typeof PresetListBy];
 
 /**
  * @public
@@ -290,11 +314,17 @@ export interface ListPresetsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum QueueListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-}
+export const QueueListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type QueueListBy = (typeof QueueListBy)[keyof typeof QueueListBy];
 
 /**
  * @public

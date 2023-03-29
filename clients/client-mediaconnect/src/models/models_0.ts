@@ -5,49 +5,73 @@ import { MediaConnectServiceException as __BaseException } from "./MediaConnectS
 
 /**
  * @public
+ * @enum
  */
-export enum Colorimetry {
-  BT2020 = "BT2020",
-  BT2100 = "BT2100",
-  BT601 = "BT601",
-  BT709 = "BT709",
-  ST2065_1 = "ST2065-1",
-  ST2065_3 = "ST2065-3",
-  XYZ = "XYZ",
-}
+export const Colorimetry = {
+  BT2020: "BT2020",
+  BT2100: "BT2100",
+  BT601: "BT601",
+  BT709: "BT709",
+  ST2065_1: "ST2065-1",
+  ST2065_3: "ST2065-3",
+  XYZ: "XYZ",
+} as const;
 
 /**
  * @public
  */
-export enum Range {
-  FULL = "FULL",
-  FULLPROTECT = "FULLPROTECT",
-  NARROW = "NARROW",
-}
+export type Colorimetry = (typeof Colorimetry)[keyof typeof Colorimetry];
+
+/**
+ * @public
+ * @enum
+ */
+export const Range = {
+  FULL: "FULL",
+  FULLPROTECT: "FULLPROTECT",
+  NARROW: "NARROW",
+} as const;
 
 /**
  * @public
  */
-export enum ScanMode {
-  interlace = "interlace",
-  progressive = "progressive",
-  progressive_segmented_frame = "progressive-segmented-frame",
-}
+export type Range = (typeof Range)[keyof typeof Range];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanMode = {
+  interlace: "interlace",
+  progressive: "progressive",
+  progressive_segmented_frame: "progressive-segmented-frame",
+} as const;
 
 /**
  * @public
  */
-export enum Tcs {
-  BT2100LINHLG = "BT2100LINHLG",
-  BT2100LINPQ = "BT2100LINPQ",
-  DENSITY = "DENSITY",
-  HLG = "HLG",
-  LINEAR = "LINEAR",
-  PQ = "PQ",
-  SDR = "SDR",
-  ST2065_1 = "ST2065-1",
-  ST428_1 = "ST428-1",
-}
+export type ScanMode = (typeof ScanMode)[keyof typeof ScanMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Tcs = {
+  BT2100LINHLG: "BT2100LINHLG",
+  BT2100LINPQ: "BT2100LINPQ",
+  DENSITY: "DENSITY",
+  HLG: "HLG",
+  LINEAR: "LINEAR",
+  PQ: "PQ",
+  SDR: "SDR",
+  ST2065_1: "ST2065-1",
+  ST428_1: "ST428-1",
+} as const;
+
+/**
+ * @public
+ */
+export type Tcs = (typeof Tcs)[keyof typeof Tcs];
 
 /**
  * @public
@@ -108,12 +132,18 @@ export interface MediaStreamAttributesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MediaStreamType {
-  ancillary_data = "ancillary-data",
-  audio = "audio",
-  video = "video",
-}
+export const MediaStreamType = {
+  ancillary_data: "ancillary-data",
+  audio: "audio",
+  video: "video",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaStreamType = (typeof MediaStreamType)[keyof typeof MediaStreamType];
 
 /**
  * @public
@@ -158,21 +188,33 @@ export interface AddMediaStreamRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Algorithm {
-  aes128 = "aes128",
-  aes192 = "aes192",
-  aes256 = "aes256",
-}
+export const Algorithm = {
+  aes128: "aes128",
+  aes192: "aes192",
+  aes256: "aes256",
+} as const;
 
 /**
  * @public
  */
-export enum KeyType {
-  speke = "speke",
-  srt_password = "srt-password",
-  static_key = "static-key",
-}
+export type Algorithm = (typeof Algorithm)[keyof typeof Algorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyType = {
+  speke: "speke",
+  srt_password: "srt-password",
+  static_key: "static-key",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 /**
  * @public
@@ -259,21 +301,33 @@ export interface DestinationConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EncodingName {
-  jxsv = "jxsv",
-  pcm = "pcm",
-  raw = "raw",
-  smpte291 = "smpte291",
-}
+export const EncodingName = {
+  jxsv: "jxsv",
+  pcm: "pcm",
+  raw: "raw",
+  smpte291: "smpte291",
+} as const;
 
 /**
  * @public
  */
-export enum EncoderProfile {
-  high = "high",
-  main = "main",
-}
+export type EncodingName = (typeof EncodingName)[keyof typeof EncodingName];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncoderProfile = {
+  high: "high",
+  main: "main",
+} as const;
+
+/**
+ * @public
+ */
+export type EncoderProfile = (typeof EncoderProfile)[keyof typeof EncoderProfile];
 
 /**
  * @public
@@ -319,19 +373,25 @@ export interface MediaStreamOutputConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Protocol {
-  cdi = "cdi",
-  fujitsu_qos = "fujitsu-qos",
-  rist = "rist",
-  rtp = "rtp",
-  rtp_fec = "rtp-fec",
-  srt_caller = "srt-caller",
-  srt_listener = "srt-listener",
-  st2110_jpegxs = "st2110-jpegxs",
-  zixi_pull = "zixi-pull",
-  zixi_push = "zixi-push",
-}
+export const Protocol = {
+  cdi: "cdi",
+  fujitsu_qos: "fujitsu-qos",
+  rist: "rist",
+  rtp: "rtp",
+  rtp_fec: "rtp-fec",
+  srt_caller: "srt-caller",
+  srt_listener: "srt-listener",
+  st2110_jpegxs: "st2110-jpegxs",
+  zixi_pull: "zixi-pull",
+  zixi_push: "zixi-push",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
@@ -464,11 +524,17 @@ export interface DestinationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum EntitlementStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EntitlementStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type EntitlementStatus = (typeof EntitlementStatus)[keyof typeof EntitlementStatus];
 
 /**
  * @public
@@ -607,16 +673,22 @@ export interface ListedEntitlement {
 
 /**
  * @public
+ * @enum
  */
-export enum MaintenanceDay {
-  Friday = "Friday",
-  Monday = "Monday",
-  Saturday = "Saturday",
-  Sunday = "Sunday",
-  Thursday = "Thursday",
-  Tuesday = "Tuesday",
-  Wednesday = "Wednesday",
-}
+export const MaintenanceDay = {
+  Friday: "Friday",
+  Monday: "Monday",
+  Saturday: "Saturday",
+  Sunday: "Sunday",
+  Thursday: "Thursday",
+  Tuesday: "Tuesday",
+  Wednesday: "Wednesday",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceDay = (typeof MaintenanceDay)[keyof typeof MaintenanceDay];
 
 /**
  * @public
@@ -646,24 +718,36 @@ export interface Maintenance {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  ENTITLED = "ENTITLED",
-  OWNED = "OWNED",
-}
+export const SourceType = {
+  ENTITLED: "ENTITLED",
+  OWNED: "OWNED",
+} as const;
 
 /**
  * @public
  */
-export enum Status {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  STANDBY = "STANDBY",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  STANDBY: "STANDBY",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -895,24 +979,42 @@ export interface MediaStreamSourceConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DurationUnits {
-  MONTHS = "MONTHS",
-}
+export const DurationUnits = {
+  MONTHS: "MONTHS",
+} as const;
 
 /**
  * @public
  */
-export enum PriceUnits {
-  HOURLY = "HOURLY",
-}
+export type DurationUnits = (typeof DurationUnits)[keyof typeof DurationUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const PriceUnits = {
+  HOURLY: "HOURLY",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  Mbps_Outbound_Bandwidth = "Mbps_Outbound_Bandwidth",
-}
+export type PriceUnits = (typeof PriceUnits)[keyof typeof PriceUnits];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  Mbps_Outbound_Bandwidth: "Mbps_Outbound_Bandwidth",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -1120,13 +1222,19 @@ export interface Output {
 
 /**
  * @public
+ * @enum
  */
-export enum ReservationState {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  EXPIRED = "EXPIRED",
-  PROCESSING = "PROCESSING",
-}
+export const ReservationState = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  EXPIRED: "EXPIRED",
+  PROCESSING: "PROCESSING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservationState = (typeof ReservationState)[keyof typeof ReservationState];
 
 /**
  * @public
@@ -1373,11 +1481,17 @@ export interface Source {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkInterfaceType {
-  efa = "efa",
-  ena = "ena",
-}
+export const NetworkInterfaceType = {
+  efa: "efa",
+  ena: "ena",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
 
 /**
  * @public
@@ -1788,11 +1902,17 @@ export class CreateFlow420Exception extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FailoverMode {
-  FAILOVER = "FAILOVER",
-  MERGE = "MERGE",
-}
+export const FailoverMode = {
+  FAILOVER: "FAILOVER",
+  MERGE: "MERGE",
+} as const;
+
+/**
+ * @public
+ */
+export type FailoverMode = (typeof FailoverMode)[keyof typeof FailoverMode];
 
 /**
  * @public
@@ -1807,11 +1927,17 @@ export interface SourcePriority {
 
 /**
  * @public
+ * @enum
  */
-export enum State {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const State = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
 
 /**
  * @public

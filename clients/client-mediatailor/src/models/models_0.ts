@@ -5,11 +5,17 @@ import { MediaTailorServiceException as __BaseException } from "./MediaTailorSer
 
 /**
  * @public
+ * @enum
  */
-export enum MessageType {
-  SPLICE_INSERT = "SPLICE_INSERT",
-  TIME_SIGNAL = "TIME_SIGNAL",
-}
+export const MessageType = {
+  SPLICE_INSERT: "SPLICE_INSERT",
+  TIME_SIGNAL: "TIME_SIGNAL",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * @public
@@ -181,10 +187,16 @@ export interface Alert {
 
 /**
  * @public
+ * @enum
  */
-export enum Operator {
-  EQUALS = "EQUALS",
-}
+export const Operator = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * @public
@@ -207,10 +219,16 @@ export interface AvailMatchingCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum LogType {
-  AS_RUN = "AS_RUN",
-}
+export const LogType = {
+  AS_RUN: "AS_RUN",
+} as const;
+
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * @public
@@ -360,11 +378,17 @@ export interface Channel {
 
 /**
  * @public
+ * @enum
  */
-export enum Type {
-  DASH = "DASH",
-  HLS = "HLS",
-}
+export const Type = {
+  DASH: "DASH",
+  HLS: "HLS",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public
@@ -430,11 +454,17 @@ export interface LiveSource {
 
 /**
  * @public
+ * @enum
  */
-export enum Mode {
-  BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE",
-  OFF = "OFF",
-}
+export const Mode = {
+  BEHIND_LIVE_EDGE: "BEHIND_LIVE_EDGE",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
 
 /**
  * @public
@@ -486,11 +516,17 @@ export interface CdnConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginManifestType {
-  MULTI_PERIOD = "MULTI_PERIOD",
-  SINGLE_PERIOD = "SINGLE_PERIOD",
-}
+export const OriginManifestType = {
+  MULTI_PERIOD: "MULTI_PERIOD",
+  SINGLE_PERIOD: "SINGLE_PERIOD",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginManifestType = (typeof OriginManifestType)[keyof typeof OriginManifestType];
 
 /**
  * @public
@@ -785,11 +821,17 @@ export interface ScheduleAdBreak {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduleEntryType {
-  FILLER_SLATE = "FILLER_SLATE",
-  PROGRAM = "PROGRAM",
-}
+export const ScheduleEntryType = {
+  FILLER_SLATE: "FILLER_SLATE",
+  PROGRAM: "PROGRAM",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleEntryType = (typeof ScheduleEntryType)[keyof typeof ScheduleEntryType];
 
 /**
  * @public
@@ -865,11 +907,17 @@ export interface SegmentDeliveryConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessType {
-  S3_SIGV4 = "S3_SIGV4",
-  SECRETS_MANAGER_ACCESS_TOKEN = "SECRETS_MANAGER_ACCESS_TOKEN",
-}
+export const AccessType = {
+  S3_SIGV4: "S3_SIGV4",
+  SECRETS_MANAGER_ACCESS_TOKEN: "SECRETS_MANAGER_ACCESS_TOKEN",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessType = (typeof AccessType)[keyof typeof AccessType];
 
 /**
  * @public
@@ -1163,19 +1211,31 @@ export interface RequestOutputItem {
 
 /**
  * @public
+ * @enum
  */
-export enum PlaybackMode {
-  LINEAR = "LINEAR",
-  LOOP = "LOOP",
-}
+export const PlaybackMode = {
+  LINEAR: "LINEAR",
+  LOOP: "LOOP",
+} as const;
 
 /**
  * @public
  */
-export enum Tier {
-  BASIC = "BASIC",
-  STANDARD = "STANDARD",
-}
+export type PlaybackMode = (typeof PlaybackMode)[keyof typeof PlaybackMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Tier = {
+  BASIC: "BASIC",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type Tier = (typeof Tier)[keyof typeof Tier];
 
 /**
  * @public
@@ -1220,11 +1280,17 @@ export interface CreateChannelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelState {
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const ChannelState = {
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelState = (typeof ChannelState)[keyof typeof ChannelState];
 
 /**
  * @public
@@ -1452,11 +1518,17 @@ export interface ClipRange {
 
 /**
  * @public
+ * @enum
  */
-export enum RelativePosition {
-  AFTER_PROGRAM = "AFTER_PROGRAM",
-  BEFORE_PROGRAM = "BEFORE_PROGRAM",
-}
+export const RelativePosition = {
+  AFTER_PROGRAM: "AFTER_PROGRAM",
+  BEFORE_PROGRAM: "BEFORE_PROGRAM",
+} as const;
+
+/**
+ * @public
+ */
+export type RelativePosition = (typeof RelativePosition)[keyof typeof RelativePosition];
 
 /**
  * @public

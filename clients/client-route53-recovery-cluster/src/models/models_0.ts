@@ -87,11 +87,17 @@ export interface GetRoutingControlStateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RoutingControlState {
-  Off = "Off",
-  On = "On",
-}
+export const RoutingControlState = {
+  Off: "Off",
+  On: "On",
+} as const;
+
+/**
+ * @public
+ */
+export type RoutingControlState = (typeof RoutingControlState)[keyof typeof RoutingControlState];
 
 /**
  * @public
@@ -215,13 +221,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public

@@ -147,31 +147,49 @@ export interface AccountAttributesMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum ActivityStreamMode {
-  async = "async",
-  sync = "sync",
-}
+export const ActivityStreamMode = {
+  async: "async",
+  sync: "sync",
+} as const;
 
 /**
  * @public
  */
-export enum ActivityStreamPolicyStatus {
-  locked = "locked",
-  locking_policy = "locking-policy",
-  unlocked = "unlocked",
-  unlocking_policy = "unlocking-policy",
-}
+export type ActivityStreamMode = (typeof ActivityStreamMode)[keyof typeof ActivityStreamMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActivityStreamPolicyStatus = {
+  locked: "locked",
+  locking_policy: "locking-policy",
+  unlocked: "unlocked",
+  unlocking_policy: "unlocking-policy",
+} as const;
 
 /**
  * @public
  */
-export enum ActivityStreamStatus {
-  started = "started",
-  starting = "starting",
-  stopped = "stopped",
-  stopping = "stopping",
-}
+export type ActivityStreamPolicyStatus = (typeof ActivityStreamPolicyStatus)[keyof typeof ActivityStreamPolicyStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActivityStreamStatus = {
+  started: "started",
+  starting: "starting",
+  stopped: "stopped",
+  stopping: "stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type ActivityStreamStatus = (typeof ActivityStreamStatus)[keyof typeof ActivityStreamStatus];
 
 /**
  * @public
@@ -1155,11 +1173,17 @@ export interface CancelExportTaskMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportSourceType {
-  CLUSTER = "CLUSTER",
-  SNAPSHOT = "SNAPSHOT",
-}
+export const ExportSourceType = {
+  CLUSTER: "CLUSTER",
+  SNAPSHOT: "SNAPSHOT",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportSourceType = (typeof ExportSourceType)[keyof typeof ExportSourceType];
 
 /**
  * @public
@@ -4625,14 +4649,20 @@ export interface DomainMembership {
 
 /**
  * @public
+ * @enum
  */
-export enum WriteForwardingStatus {
-  DISABLED = "disabled",
-  DISABLING = "disabling",
-  ENABLED = "enabled",
-  ENABLING = "enabling",
-  UNKNOWN = "unknown",
-}
+export const WriteForwardingStatus = {
+  DISABLED: "disabled",
+  DISABLING: "disabling",
+  ENABLED: "enabled",
+  ENABLING: "enabling",
+  UNKNOWN: "unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type WriteForwardingStatus = (typeof WriteForwardingStatus)[keyof typeof WriteForwardingStatus];
 
 /**
  * @public
@@ -7191,11 +7221,17 @@ export interface DBInstanceRole {
 
 /**
  * @public
+ * @enum
  */
-export enum AutomationMode {
-  ALL_PAUSED = "all-paused",
-  FULL = "full",
-}
+export const AutomationMode = {
+  ALL_PAUSED: "all-paused",
+  FULL: "full",
+} as const;
+
+/**
+ * @public
+ */
+export type AutomationMode = (typeof AutomationMode)[keyof typeof AutomationMode];
 
 /**
  * @public
@@ -7580,11 +7616,17 @@ export interface PendingModifiedValues {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicaMode {
-  MOUNTED = "mounted",
-  OPEN_READ_ONLY = "open-read-only",
-}
+export const ReplicaMode = {
+  MOUNTED: "mounted",
+  OPEN_READ_ONLY: "open-read-only",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicaMode = (typeof ReplicaMode)[keyof typeof ReplicaMode];
 
 /**
  * @public
@@ -9065,29 +9107,47 @@ export interface CreateDBParameterGroupResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthScheme {
-  SECRETS = "SECRETS",
-}
+export const AuthScheme = {
+  SECRETS: "SECRETS",
+} as const;
 
 /**
  * @public
  */
-export enum ClientPasswordAuthType {
-  MYSQL_NATIVE_PASSWORD = "MYSQL_NATIVE_PASSWORD",
-  POSTGRES_MD5 = "POSTGRES_MD5",
-  POSTGRES_SCRAM_SHA_256 = "POSTGRES_SCRAM_SHA_256",
-  SQL_SERVER_AUTHENTICATION = "SQL_SERVER_AUTHENTICATION",
-}
+export type AuthScheme = (typeof AuthScheme)[keyof typeof AuthScheme];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientPasswordAuthType = {
+  MYSQL_NATIVE_PASSWORD: "MYSQL_NATIVE_PASSWORD",
+  POSTGRES_MD5: "POSTGRES_MD5",
+  POSTGRES_SCRAM_SHA_256: "POSTGRES_SCRAM_SHA_256",
+  SQL_SERVER_AUTHENTICATION: "SQL_SERVER_AUTHENTICATION",
+} as const;
 
 /**
  * @public
  */
-export enum IAMAuthMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  REQUIRED = "REQUIRED",
-}
+export type ClientPasswordAuthType = (typeof ClientPasswordAuthType)[keyof typeof ClientPasswordAuthType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IAMAuthMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  REQUIRED: "REQUIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type IAMAuthMode = (typeof IAMAuthMode)[keyof typeof IAMAuthMode];
 
 /**
  * @public
@@ -9129,12 +9189,18 @@ export interface UserAuthConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum EngineFamily {
-  MYSQL = "MYSQL",
-  POSTGRESQL = "POSTGRESQL",
-  SQLSERVER = "SQLSERVER",
-}
+export const EngineFamily = {
+  MYSQL: "MYSQL",
+  POSTGRESQL: "POSTGRESQL",
+  SQLSERVER: "SQLSERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type EngineFamily = (typeof EngineFamily)[keyof typeof EngineFamily];
 
 /**
  * @public
@@ -9242,18 +9308,24 @@ export interface UserAuthConfigInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum DBProxyStatus {
-  AVAILABLE = "available",
-  CREATING = "creating",
-  DELETING = "deleting",
-  INCOMPATIBLE_NETWORK = "incompatible-network",
-  INSUFFICIENT_RESOURCE_LIMITS = "insufficient-resource-limits",
-  MODIFYING = "modifying",
-  REACTIVATING = "reactivating",
-  SUSPENDED = "suspended",
-  SUSPENDING = "suspending",
-}
+export const DBProxyStatus = {
+  AVAILABLE: "available",
+  CREATING: "creating",
+  DELETING: "deleting",
+  INCOMPATIBLE_NETWORK: "incompatible-network",
+  INSUFFICIENT_RESOURCE_LIMITS: "insufficient-resource-limits",
+  MODIFYING: "modifying",
+  REACTIVATING: "reactivating",
+  SUSPENDED: "suspended",
+  SUSPENDING: "suspending",
+} as const;
+
+/**
+ * @public
+ */
+export type DBProxyStatus = (typeof DBProxyStatus)[keyof typeof DBProxyStatus];
 
 /**
  * @public
@@ -9405,11 +9477,17 @@ export class DBProxyQuotaExceededFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DBProxyEndpointTargetRole {
-  READ_ONLY = "READ_ONLY",
-  READ_WRITE = "READ_WRITE",
-}
+export const DBProxyEndpointTargetRole = {
+  READ_ONLY: "READ_ONLY",
+  READ_WRITE: "READ_WRITE",
+} as const;
+
+/**
+ * @public
+ */
+export type DBProxyEndpointTargetRole = (typeof DBProxyEndpointTargetRole)[keyof typeof DBProxyEndpointTargetRole];
 
 /**
  * @public
@@ -9455,15 +9533,21 @@ export interface CreateDBProxyEndpointRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DBProxyEndpointStatus {
-  AVAILABLE = "available",
-  CREATING = "creating",
-  DELETING = "deleting",
-  INCOMPATIBLE_NETWORK = "incompatible-network",
-  INSUFFICIENT_RESOURCE_LIMITS = "insufficient-resource-limits",
-  MODIFYING = "modifying",
-}
+export const DBProxyEndpointStatus = {
+  AVAILABLE: "available",
+  CREATING: "creating",
+  DELETING: "deleting",
+  INCOMPATIBLE_NETWORK: "incompatible-network",
+  INSUFFICIENT_RESOURCE_LIMITS: "insufficient-resource-limits",
+  MODIFYING: "modifying",
+} as const;
+
+/**
+ * @public
+ */
+export type DBProxyEndpointStatus = (typeof DBProxyEndpointStatus)[keyof typeof DBProxyEndpointStatus];
 
 /**
  * @public
@@ -10154,12 +10238,18 @@ export interface CreateGlobalClusterMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum FailoverStatus {
-  CANCELLING = "cancelling",
-  FAILING_OVER = "failing-over",
-  PENDING = "pending",
-}
+export const FailoverStatus = {
+  CANCELLING: "cancelling",
+  FAILING_OVER: "failing-over",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type FailoverStatus = (typeof FailoverStatus)[keyof typeof FailoverStatus];
 
 /**
  * @public
@@ -11984,11 +12074,17 @@ export interface DescribeDBClusterParameterGroupsMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplyMethod {
-  immediate = "immediate",
-  pending_reboot = "pending-reboot",
-}
+export const ApplyMethod = {
+  immediate: "immediate",
+  pending_reboot: "pending-reboot",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplyMethod = (typeof ApplyMethod)[keyof typeof ApplyMethod];
 
 /**
  * @public

@@ -118,16 +118,22 @@ export interface ActionInvocation {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionPoint {
-  ON_DEPLOYMENT_BAKING = "ON_DEPLOYMENT_BAKING",
-  ON_DEPLOYMENT_COMPLETE = "ON_DEPLOYMENT_COMPLETE",
-  ON_DEPLOYMENT_ROLLED_BACK = "ON_DEPLOYMENT_ROLLED_BACK",
-  ON_DEPLOYMENT_START = "ON_DEPLOYMENT_START",
-  ON_DEPLOYMENT_STEP = "ON_DEPLOYMENT_STEP",
-  PRE_CREATE_HOSTED_CONFIGURATION_VERSION = "PRE_CREATE_HOSTED_CONFIGURATION_VERSION",
-  PRE_START_DEPLOYMENT = "PRE_START_DEPLOYMENT",
-}
+export const ActionPoint = {
+  ON_DEPLOYMENT_BAKING: "ON_DEPLOYMENT_BAKING",
+  ON_DEPLOYMENT_COMPLETE: "ON_DEPLOYMENT_COMPLETE",
+  ON_DEPLOYMENT_ROLLED_BACK: "ON_DEPLOYMENT_ROLLED_BACK",
+  ON_DEPLOYMENT_START: "ON_DEPLOYMENT_START",
+  ON_DEPLOYMENT_STEP: "ON_DEPLOYMENT_STEP",
+  PRE_CREATE_HOSTED_CONFIGURATION_VERSION: "PRE_CREATE_HOSTED_CONFIGURATION_VERSION",
+  PRE_START_DEPLOYMENT: "PRE_START_DEPLOYMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionPoint = (typeof ActionPoint)[keyof typeof ActionPoint];
 
 /**
  * @public
@@ -222,10 +228,16 @@ export namespace BadRequestDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum BadRequestReason {
-  INVALID_CONFIGURATION = "InvalidConfiguration",
-}
+export const BadRequestReason = {
+  INVALID_CONFIGURATION: "InvalidConfiguration",
+} as const;
+
+/**
+ * @public
+ */
+export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequestReason];
 
 /**
  * @public
@@ -302,11 +314,17 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidatorType {
-  JSON_SCHEMA = "JSON_SCHEMA",
-  LAMBDA = "LAMBDA",
-}
+export const ValidatorType = {
+  JSON_SCHEMA: "JSON_SCHEMA",
+  LAMBDA: "LAMBDA",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidatorType = (typeof ValidatorType)[keyof typeof ValidatorType];
 
 /**
  * @public
@@ -500,19 +518,31 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum GrowthType {
-  EXPONENTIAL = "EXPONENTIAL",
-  LINEAR = "LINEAR",
-}
+export const GrowthType = {
+  EXPONENTIAL: "EXPONENTIAL",
+  LINEAR: "LINEAR",
+} as const;
 
 /**
  * @public
  */
-export enum ReplicateTo {
-  NONE = "NONE",
-  SSM_DOCUMENT = "SSM_DOCUMENT",
-}
+export type GrowthType = (typeof GrowthType)[keyof typeof GrowthType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicateTo = {
+  NONE: "NONE",
+  SSM_DOCUMENT: "SSM_DOCUMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicateTo = (typeof ReplicateTo)[keyof typeof ReplicateTo];
 
 /**
  * @public
@@ -692,13 +722,19 @@ export interface CreateEnvironmentRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EnvironmentState {
-  DEPLOYING = "DEPLOYING",
-  READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK",
-}
+export const EnvironmentState = {
+  DEPLOYING: "DEPLOYING",
+  READY_FOR_DEPLOYMENT: "READY_FOR_DEPLOYMENT",
+  ROLLED_BACK: "ROLLED_BACK",
+  ROLLING_BACK: "ROLLING_BACK",
+} as const;
+
+/**
+ * @public
+ */
+export type EnvironmentState = (typeof EnvironmentState)[keyof typeof EnvironmentState];
 
 /**
  * @public
@@ -1047,10 +1083,16 @@ export interface HostedConfigurationVersion {
 
 /**
  * @public
+ * @enum
  */
-export enum BytesMeasure {
-  KILOBYTES = "KILOBYTES",
-}
+export const BytesMeasure = {
+  KILOBYTES: "KILOBYTES",
+} as const;
+
+/**
+ * @public
+ */
+export type BytesMeasure = (typeof BytesMeasure)[keyof typeof BytesMeasure];
 
 /**
  * @public
@@ -1311,25 +1353,37 @@ export interface AppliedExtension {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentEventType {
-  BAKE_TIME_STARTED = "BAKE_TIME_STARTED",
-  DEPLOYMENT_COMPLETED = "DEPLOYMENT_COMPLETED",
-  DEPLOYMENT_STARTED = "DEPLOYMENT_STARTED",
-  PERCENTAGE_UPDATED = "PERCENTAGE_UPDATED",
-  ROLLBACK_COMPLETED = "ROLLBACK_COMPLETED",
-  ROLLBACK_STARTED = "ROLLBACK_STARTED",
-}
+export const DeploymentEventType = {
+  BAKE_TIME_STARTED: "BAKE_TIME_STARTED",
+  DEPLOYMENT_COMPLETED: "DEPLOYMENT_COMPLETED",
+  DEPLOYMENT_STARTED: "DEPLOYMENT_STARTED",
+  PERCENTAGE_UPDATED: "PERCENTAGE_UPDATED",
+  ROLLBACK_COMPLETED: "ROLLBACK_COMPLETED",
+  ROLLBACK_STARTED: "ROLLBACK_STARTED",
+} as const;
 
 /**
  * @public
  */
-export enum TriggeredBy {
-  APPCONFIG = "APPCONFIG",
-  CLOUDWATCH_ALARM = "CLOUDWATCH_ALARM",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  USER = "USER",
-}
+export type DeploymentEventType = (typeof DeploymentEventType)[keyof typeof DeploymentEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggeredBy = {
+  APPCONFIG: "APPCONFIG",
+  CLOUDWATCH_ALARM: "CLOUDWATCH_ALARM",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggeredBy = (typeof TriggeredBy)[keyof typeof TriggeredBy];
 
 /**
  * @public
@@ -1370,15 +1424,21 @@ export interface DeploymentEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentState {
-  BAKING = "BAKING",
-  COMPLETE = "COMPLETE",
-  DEPLOYING = "DEPLOYING",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK",
-  VALIDATING = "VALIDATING",
-}
+export const DeploymentState = {
+  BAKING: "BAKING",
+  COMPLETE: "COMPLETE",
+  DEPLOYING: "DEPLOYING",
+  ROLLED_BACK: "ROLLED_BACK",
+  ROLLING_BACK: "ROLLING_BACK",
+  VALIDATING: "VALIDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
 
 /**
  * @public

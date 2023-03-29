@@ -47,13 +47,19 @@ export interface ComplianceContributorCount {
 
 /**
  * @public
+ * @enum
  */
-export enum ComplianceType {
-  Compliant = "COMPLIANT",
-  Insufficient_Data = "INSUFFICIENT_DATA",
-  Non_Compliant = "NON_COMPLIANT",
-  Not_Applicable = "NOT_APPLICABLE",
-}
+export const ComplianceType = {
+  Compliant: "COMPLIANT",
+  Insufficient_Data: "INSUFFICIENT_DATA",
+  Non_Compliant: "NON_COMPLIANT",
+  Not_Applicable: "NOT_APPLICABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ComplianceType = (typeof ComplianceType)[keyof typeof ComplianceType];
 
 /**
  * @public
@@ -122,12 +128,19 @@ export interface AggregateComplianceByConfigRule {
 
 /**
  * @public
+ * @enum
  */
-export enum ConformancePackComplianceType {
-  COMPLIANT = "COMPLIANT",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  NON_COMPLIANT = "NON_COMPLIANT",
-}
+export const ConformancePackComplianceType = {
+  COMPLIANT: "COMPLIANT",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  NON_COMPLIANT: "NON_COMPLIANT",
+} as const;
+
+/**
+ * @public
+ */
+export type ConformancePackComplianceType =
+  (typeof ConformancePackComplianceType)[keyof typeof ConformancePackComplianceType];
 
 /**
  * @public
@@ -311,28 +324,47 @@ export interface AggregateConformancePackComplianceSummaryFilters {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregateConformancePackComplianceSummaryGroupKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  AWS_REGION = "AWS_REGION",
-}
+export const AggregateConformancePackComplianceSummaryGroupKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  AWS_REGION: "AWS_REGION",
+} as const;
 
 /**
  * @public
  */
-export enum AggregatedSourceStatusType {
-  FAILED = "FAILED",
-  OUTDATED = "OUTDATED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type AggregateConformancePackComplianceSummaryGroupKey =
+  (typeof AggregateConformancePackComplianceSummaryGroupKey)[keyof typeof AggregateConformancePackComplianceSummaryGroupKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregatedSourceStatusType = {
+  FAILED: "FAILED",
+  OUTDATED: "OUTDATED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
  * @public
  */
-export enum AggregatedSourceType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-}
+export type AggregatedSourceStatusType = (typeof AggregatedSourceStatusType)[keyof typeof AggregatedSourceStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregatedSourceType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregatedSourceType = (typeof AggregatedSourceType)[keyof typeof AggregatedSourceType];
 
 /**
  * @public
@@ -394,11 +426,17 @@ export interface AggregatedSourceStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum EvaluationMode {
-  DETECTIVE = "DETECTIVE",
-  PROACTIVE = "PROACTIVE",
-}
+export const EvaluationMode = {
+  DETECTIVE: "DETECTIVE",
+  PROACTIVE: "PROACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationMode = (typeof EvaluationMode)[keyof typeof EvaluationMode];
 
 /**
  * @public
@@ -507,260 +545,266 @@ export interface AggregateEvaluationResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  AccessAnalyzerAnalyzer = "AWS::AccessAnalyzer::Analyzer",
-  AccountPublicAccessBlock = "AWS::S3::AccountPublicAccessBlock",
-  Alarm = "AWS::CloudWatch::Alarm",
-  AmazonMQBroker = "AWS::AmazonMQ::Broker",
-  Api = "AWS::ApiGatewayV2::Api",
-  AppConfigApplication = "AWS::AppConfig::Application",
-  AppConfigConfigurationProfile = "AWS::AppConfig::ConfigurationProfile",
-  AppConfigEnvironment = "AWS::AppConfig::Environment",
-  AppSyncGraphQLApi = "AWS::AppSync::GraphQLApi",
-  Application = "AWS::ElasticBeanstalk::Application",
-  ApplicationVersion = "AWS::ElasticBeanstalk::ApplicationVersion",
-  AssociationCompliance = "AWS::SSM::AssociationCompliance",
-  AthenaDataCatalog = "AWS::Athena::DataCatalog",
-  AthenaWorkGroup = "AWS::Athena::WorkGroup",
-  AutoScalingGroup = "AWS::AutoScaling::AutoScalingGroup",
-  BackupPlan = "AWS::Backup::BackupPlan",
-  BackupRecoveryPoint = "AWS::Backup::RecoveryPoint",
-  BackupReportPlan = "AWS::Backup::ReportPlan",
-  BackupSelection = "AWS::Backup::BackupSelection",
-  BackupVault = "AWS::Backup::BackupVault",
-  BatchComputeEnvironment = "AWS::Batch::ComputeEnvironment",
-  BatchJobQueue = "AWS::Batch::JobQueue",
-  Bucket = "AWS::S3::Bucket",
-  BudgetsBudgetsAction = "AWS::Budgets::BudgetsAction",
-  Certificate = "AWS::ACM::Certificate",
-  Cloud9EnvironmentEC2 = "AWS::Cloud9::EnvironmentEC2",
-  CloudFormationProduct = "AWS::ServiceCatalog::CloudFormationProduct",
-  CloudFormationProvisionedProduct = "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-  Cluster = "AWS::Redshift::Cluster",
-  ClusterParameterGroup = "AWS::Redshift::ClusterParameterGroup",
-  ClusterSecurityGroup = "AWS::Redshift::ClusterSecurityGroup",
-  ClusterSnapshot = "AWS::Redshift::ClusterSnapshot",
-  ClusterSubnetGroup = "AWS::Redshift::ClusterSubnetGroup",
-  CodeDeployApplication = "AWS::CodeDeploy::Application",
-  CodeDeployDeploymentConfig = "AWS::CodeDeploy::DeploymentConfig",
-  CodeDeployDeploymentGroup = "AWS::CodeDeploy::DeploymentGroup",
-  CodeGuruReviewerRepositoryAssociation = "AWS::CodeGuruReviewer::RepositoryAssociation",
-  ConformancePackCompliance = "AWS::Config::ConformancePackCompliance",
-  CustomerGateway = "AWS::EC2::CustomerGateway",
-  DBCluster = "AWS::RDS::DBCluster",
-  DBClusterSnapshot = "AWS::RDS::DBClusterSnapshot",
-  DBInstance = "AWS::RDS::DBInstance",
-  DBSecurityGroup = "AWS::RDS::DBSecurityGroup",
-  DBSnapshot = "AWS::RDS::DBSnapshot",
-  DBSubnetGroup = "AWS::RDS::DBSubnetGroup",
-  DMSCertificate = "AWS::DMS::Certificate",
-  DMSEventSubscription = "AWS::DMS::EventSubscription",
-  DMSReplicationSubnetGroup = "AWS::DMS::ReplicationSubnetGroup",
-  DataSyncLocationEFS = "AWS::DataSync::LocationEFS",
-  DataSyncLocationFSxLustre = "AWS::DataSync::LocationFSxLustre",
-  DataSyncLocationFSxWindows = "AWS::DataSync::LocationFSxWindows",
-  DataSyncLocationHDFS = "AWS::DataSync::LocationHDFS",
-  DataSyncLocationNFS = "AWS::DataSync::LocationNFS",
-  DataSyncLocationObjectStorage = "AWS::DataSync::LocationObjectStorage",
-  DataSyncLocationS3 = "AWS::DataSync::LocationS3",
-  DataSyncLocationSMB = "AWS::DataSync::LocationSMB",
-  DataSyncTask = "AWS::DataSync::Task",
-  DetectiveGraph = "AWS::Detective::Graph",
-  DeviceFarmTestGridProject = "AWS::DeviceFarm::TestGridProject",
-  Distribution = "AWS::CloudFront::Distribution",
-  Domain = "AWS::Elasticsearch::Domain",
-  EC2TrafficMirrorSession = "AWS::EC2::TrafficMirrorSession",
-  EC2TrafficMirrorTarget = "AWS::EC2::TrafficMirrorTarget",
-  ECRPublicRepository = "AWS::ECR::PublicRepository",
-  ECRRegistryPolicy = "AWS::ECR::RegistryPolicy",
-  ECRRepository = "AWS::ECR::Repository",
-  ECSCluster = "AWS::ECS::Cluster",
-  ECSService = "AWS::ECS::Service",
-  ECSTaskDefinition = "AWS::ECS::TaskDefinition",
-  EFSAccessPoint = "AWS::EFS::AccessPoint",
-  EFSFileSystem = "AWS::EFS::FileSystem",
-  EIP = "AWS::EC2::EIP",
-  EKSAddon = "AWS::EKS::Addon",
-  EKSCluster = "AWS::EKS::Cluster",
-  EKSFargateProfile = "AWS::EKS::FargateProfile",
-  EKSIdentityProviderConfig = "AWS::EKS::IdentityProviderConfig",
-  EMRSecurityConfiguration = "AWS::EMR::SecurityConfiguration",
-  EgressOnlyInternetGateway = "AWS::EC2::EgressOnlyInternetGateway",
-  EncryptionConfig = "AWS::XRay::EncryptionConfig",
-  Environment = "AWS::ElasticBeanstalk::Environment",
-  EventSchemasDiscoverer = "AWS::EventSchemas::Discoverer",
-  EventSchemasRegistry = "AWS::EventSchemas::Registry",
-  EventSchemasRegistryPolicy = "AWS::EventSchemas::RegistryPolicy",
-  EventSchemasSchema = "AWS::EventSchemas::Schema",
-  EventSubscription = "AWS::RDS::EventSubscription",
-  EventsApiDestination = "AWS::Events::ApiDestination",
-  EventsArchive = "AWS::Events::Archive",
-  EventsConnection = "AWS::Events::Connection",
-  EventsEndpoint = "AWS::Events::Endpoint",
-  EventsEventBus = "AWS::Events::EventBus",
-  FISExperimentTemplate = "AWS::FIS::ExperimentTemplate",
-  FileData = "AWS::SSM::FileData",
-  FlowLog = "AWS::EC2::FlowLog",
-  FraudDetectorEntityType = "AWS::FraudDetector::EntityType",
-  FraudDetectorLabel = "AWS::FraudDetector::Label",
-  FraudDetectorOutcome = "AWS::FraudDetector::Outcome",
-  FraudDetectorVariable = "AWS::FraudDetector::Variable",
-  Function = "AWS::Lambda::Function",
-  GlobalAcceleratorAccelerator = "AWS::GlobalAccelerator::Accelerator",
-  GlobalAcceleratorEndpointGroup = "AWS::GlobalAccelerator::EndpointGroup",
-  GlobalAcceleratorListener = "AWS::GlobalAccelerator::Listener",
-  GlueClassifier = "AWS::Glue::Classifier",
-  GlueJob = "AWS::Glue::Job",
-  GlueMLTransform = "AWS::Glue::MLTransform",
-  Group = "AWS::IAM::Group",
-  GuardDutyDetector = "AWS::GuardDuty::Detector",
-  GuardDutyFilter = "AWS::GuardDuty::Filter",
-  GuardDutyIPSet = "AWS::GuardDuty::IPSet",
-  GuardDutyThreatIntelSet = "AWS::GuardDuty::ThreatIntelSet",
-  Host = "AWS::EC2::Host",
-  IPSetV2 = "AWS::WAFv2::IPSet",
-  IVSChannel = "AWS::IVS::Channel",
-  IVSPlaybackKeyPair = "AWS::IVS::PlaybackKeyPair",
-  IVSRecordingConfiguration = "AWS::IVS::RecordingConfiguration",
-  ImageBuilderContainerRecipe = "AWS::ImageBuilder::ContainerRecipe",
-  ImageBuilderDistributionConfiguration = "AWS::ImageBuilder::DistributionConfiguration",
-  ImageBuilderInfrastructureConfiguration = "AWS::ImageBuilder::InfrastructureConfiguration",
-  Instance = "AWS::EC2::Instance",
-  InternetGateway = "AWS::EC2::InternetGateway",
-  IoTAccountAuditConfiguration = "AWS::IoT::AccountAuditConfiguration",
-  IoTAnalyticsChannel = "AWS::IoTAnalytics::Channel",
-  IoTAnalyticsDataset = "AWS::IoTAnalytics::Dataset",
-  IoTAnalyticsDatastore = "AWS::IoTAnalytics::Datastore",
-  IoTAnalyticsPipeline = "AWS::IoTAnalytics::Pipeline",
-  IoTAuthorizer = "AWS::IoT::Authorizer",
-  IoTCustomMetric = "AWS::IoT::CustomMetric",
-  IoTDimension = "AWS::IoT::Dimension",
-  IoTEventsAlarmModel = "AWS::IoTEvents::AlarmModel",
-  IoTEventsDetectorModel = "AWS::IoTEvents::DetectorModel",
-  IoTEventsInput = "AWS::IoTEvents::Input",
-  IoTMitigationAction = "AWS::IoT::MitigationAction",
-  IoTPolicy = "AWS::IoT::Policy",
-  IoTRoleAlias = "AWS::IoT::RoleAlias",
-  IoTScheduledAudit = "AWS::IoT::ScheduledAudit",
-  IoTSecurityProfile = "AWS::IoT::SecurityProfile",
-  IoTSiteWiseAssetModel = "AWS::IoTSiteWise::AssetModel",
-  IoTSiteWiseDashboard = "AWS::IoTSiteWise::Dashboard",
-  IoTSiteWiseGateway = "AWS::IoTSiteWise::Gateway",
-  IoTSiteWisePortal = "AWS::IoTSiteWise::Portal",
-  IoTSiteWiseProject = "AWS::IoTSiteWise::Project",
-  IoTTwinMakerEntity = "AWS::IoTTwinMaker::Entity",
-  IoTTwinMakerWorkspace = "AWS::IoTTwinMaker::Workspace",
-  Key = "AWS::KMS::Key",
-  KinesisAnalyticsV2Application = "AWS::KinesisAnalyticsV2::Application",
-  KinesisStream = "AWS::Kinesis::Stream",
-  KinesisStreamConsumer = "AWS::Kinesis::StreamConsumer",
-  LaunchConfiguration = "AWS::AutoScaling::LaunchConfiguration",
-  LaunchTemplate = "AWS::EC2::LaunchTemplate",
-  LexBot = "AWS::Lex::Bot",
-  LexBotAlias = "AWS::Lex::BotAlias",
-  LightsailBucket = "AWS::Lightsail::Bucket",
-  LightsailCertificate = "AWS::Lightsail::Certificate",
-  LightsailDisk = "AWS::Lightsail::Disk",
-  LightsailStaticIp = "AWS::Lightsail::StaticIp",
-  ListenerV2 = "AWS::ElasticLoadBalancingV2::Listener",
-  LoadBalancer = "AWS::ElasticLoadBalancing::LoadBalancer",
-  LoadBalancerV2 = "AWS::ElasticLoadBalancingV2::LoadBalancer",
-  LookoutMetricsAlert = "AWS::LookoutMetrics::Alert",
-  MSKCluster = "AWS::MSK::Cluster",
-  ManagedInstanceInventory = "AWS::SSM::ManagedInstanceInventory",
-  ManagedRuleSetV2 = "AWS::WAFv2::ManagedRuleSet",
-  MediaPackagePackagingConfiguration = "AWS::MediaPackage::PackagingConfiguration",
-  MediaPackagePackagingGroup = "AWS::MediaPackage::PackagingGroup",
-  NatGateway = "AWS::EC2::NatGateway",
-  NetworkAcl = "AWS::EC2::NetworkAcl",
-  NetworkFirewallFirewall = "AWS::NetworkFirewall::Firewall",
-  NetworkFirewallFirewallPolicy = "AWS::NetworkFirewall::FirewallPolicy",
-  NetworkFirewallRuleGroup = "AWS::NetworkFirewall::RuleGroup",
-  NetworkInsightsAccessScopeAnalysis = "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
-  NetworkInterface = "AWS::EC2::NetworkInterface",
-  OpenSearchDomain = "AWS::OpenSearch::Domain",
-  PatchCompliance = "AWS::SSM::PatchCompliance",
-  Pipeline = "AWS::CodePipeline::Pipeline",
-  Policy = "AWS::IAM::Policy",
-  Portfolio = "AWS::ServiceCatalog::Portfolio",
-  Project = "AWS::CodeBuild::Project",
-  Protection = "AWS::Shield::Protection",
-  QLDBLedger = "AWS::QLDB::Ledger",
-  Queue = "AWS::SQS::Queue",
-  RDSGlobalCluster = "AWS::RDS::GlobalCluster",
-  RUMAppMonitor = "AWS::RUM::AppMonitor",
-  RateBasedRule = "AWS::WAF::RateBasedRule",
-  RedshiftEventSubscription = "AWS::Redshift::EventSubscription",
-  RegexPatternSetV2 = "AWS::WAFv2::RegexPatternSet",
-  RegionalProtection = "AWS::ShieldRegional::Protection",
-  RegionalRateBasedRule = "AWS::WAFRegional::RateBasedRule",
-  RegionalRule = "AWS::WAFRegional::Rule",
-  RegionalRuleGroup = "AWS::WAFRegional::RuleGroup",
-  RegionalWebACL = "AWS::WAFRegional::WebACL",
-  RegisteredHAInstance = "AWS::EC2::RegisteredHAInstance",
-  ResilienceHubResiliencyPolicy = "AWS::ResilienceHub::ResiliencyPolicy",
-  ResourceCompliance = "AWS::Config::ResourceCompliance",
-  RestApi = "AWS::ApiGateway::RestApi",
-  RoboMakerRobotApplicationVersion = "AWS::RoboMaker::RobotApplicationVersion",
-  Role = "AWS::IAM::Role",
-  Route53HostedZone = "AWS::Route53::HostedZone",
-  Route53RecoveryReadinessCell = "AWS::Route53RecoveryReadiness::Cell",
-  Route53RecoveryReadinessReadinessCheck = "AWS::Route53RecoveryReadiness::ReadinessCheck",
-  Route53RecoveryReadinessRecoveryGroup = "AWS::Route53RecoveryReadiness::RecoveryGroup",
-  Route53ResolverFirewallDomainList = "AWS::Route53Resolver::FirewallDomainList",
-  Route53ResolverResolverEndpoint = "AWS::Route53Resolver::ResolverEndpoint",
-  Route53ResolverResolverRule = "AWS::Route53Resolver::ResolverRule",
-  Route53ResolverResolverRuleAssociation = "AWS::Route53Resolver::ResolverRuleAssociation",
-  RouteTable = "AWS::EC2::RouteTable",
-  Rule = "AWS::WAF::Rule",
-  RuleGroup = "AWS::WAF::RuleGroup",
-  RuleGroupV2 = "AWS::WAFv2::RuleGroup",
-  S3MultiRegionAccessPoint = "AWS::S3::MultiRegionAccessPoint",
-  S3StorageLens = "AWS::S3::StorageLens",
-  SESConfigurationSet = "AWS::SES::ConfigurationSet",
-  SESContactList = "AWS::SES::ContactList",
-  SESReceiptFilter = "AWS::SES::ReceiptFilter",
-  SESReceiptRuleSet = "AWS::SES::ReceiptRuleSet",
-  SESTemplate = "AWS::SES::Template",
-  SageMakerCodeRepository = "AWS::SageMaker::CodeRepository",
-  SageMakerModel = "AWS::SageMaker::Model",
-  SageMakerNotebookInstanceLifecycleConfig = "AWS::SageMaker::NotebookInstanceLifecycleConfig",
-  SageMakerWorkteam = "AWS::SageMaker::Workteam",
-  ScalingPolicy = "AWS::AutoScaling::ScalingPolicy",
-  ScheduledAction = "AWS::AutoScaling::ScheduledAction",
-  Secret = "AWS::SecretsManager::Secret",
-  SecurityGroup = "AWS::EC2::SecurityGroup",
-  ServiceDiscoveryHttpNamespace = "AWS::ServiceDiscovery::HttpNamespace",
-  ServiceDiscoveryPublicDnsNamespace = "AWS::ServiceDiscovery::PublicDnsNamespace",
-  ServiceDiscoveryService = "AWS::ServiceDiscovery::Service",
-  Stack = "AWS::CloudFormation::Stack",
-  Stage = "AWS::ApiGateway::Stage",
-  StageV2 = "AWS::ApiGatewayV2::Stage",
-  StepFunctionsActivity = "AWS::StepFunctions::Activity",
-  StepFunctionsStateMachine = "AWS::StepFunctions::StateMachine",
-  StreamingDistribution = "AWS::CloudFront::StreamingDistribution",
-  Subnet = "AWS::EC2::Subnet",
-  Table = "AWS::DynamoDB::Table",
-  Topic = "AWS::SNS::Topic",
-  Trail = "AWS::CloudTrail::Trail",
-  TransferWorkflow = "AWS::Transfer::Workflow",
-  TransitGateway = "AWS::EC2::TransitGateway",
-  TransitGatewayAttachment = "AWS::EC2::TransitGatewayAttachment",
-  TransitGatewayRouteTable = "AWS::EC2::TransitGatewayRouteTable",
-  User = "AWS::IAM::User",
-  VPC = "AWS::EC2::VPC",
-  VPCEndpoint = "AWS::EC2::VPCEndpoint",
-  VPCEndpointService = "AWS::EC2::VPCEndpointService",
-  VPCPeeringConnection = "AWS::EC2::VPCPeeringConnection",
-  VPNConnection = "AWS::EC2::VPNConnection",
-  VPNGateway = "AWS::EC2::VPNGateway",
-  Volume = "AWS::EC2::Volume",
-  WebACL = "AWS::WAF::WebACL",
-  WebACLV2 = "AWS::WAFv2::WebACL",
-  WorkSpacesConnectionAlias = "AWS::WorkSpaces::ConnectionAlias",
-  WorkSpacesWorkspace = "AWS::WorkSpaces::Workspace",
-}
+export const ResourceType = {
+  AccessAnalyzerAnalyzer: "AWS::AccessAnalyzer::Analyzer",
+  AccountPublicAccessBlock: "AWS::S3::AccountPublicAccessBlock",
+  Alarm: "AWS::CloudWatch::Alarm",
+  AmazonMQBroker: "AWS::AmazonMQ::Broker",
+  Api: "AWS::ApiGatewayV2::Api",
+  AppConfigApplication: "AWS::AppConfig::Application",
+  AppConfigConfigurationProfile: "AWS::AppConfig::ConfigurationProfile",
+  AppConfigEnvironment: "AWS::AppConfig::Environment",
+  AppSyncGraphQLApi: "AWS::AppSync::GraphQLApi",
+  Application: "AWS::ElasticBeanstalk::Application",
+  ApplicationVersion: "AWS::ElasticBeanstalk::ApplicationVersion",
+  AssociationCompliance: "AWS::SSM::AssociationCompliance",
+  AthenaDataCatalog: "AWS::Athena::DataCatalog",
+  AthenaWorkGroup: "AWS::Athena::WorkGroup",
+  AutoScalingGroup: "AWS::AutoScaling::AutoScalingGroup",
+  BackupPlan: "AWS::Backup::BackupPlan",
+  BackupRecoveryPoint: "AWS::Backup::RecoveryPoint",
+  BackupReportPlan: "AWS::Backup::ReportPlan",
+  BackupSelection: "AWS::Backup::BackupSelection",
+  BackupVault: "AWS::Backup::BackupVault",
+  BatchComputeEnvironment: "AWS::Batch::ComputeEnvironment",
+  BatchJobQueue: "AWS::Batch::JobQueue",
+  Bucket: "AWS::S3::Bucket",
+  BudgetsBudgetsAction: "AWS::Budgets::BudgetsAction",
+  Certificate: "AWS::ACM::Certificate",
+  Cloud9EnvironmentEC2: "AWS::Cloud9::EnvironmentEC2",
+  CloudFormationProduct: "AWS::ServiceCatalog::CloudFormationProduct",
+  CloudFormationProvisionedProduct: "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
+  Cluster: "AWS::Redshift::Cluster",
+  ClusterParameterGroup: "AWS::Redshift::ClusterParameterGroup",
+  ClusterSecurityGroup: "AWS::Redshift::ClusterSecurityGroup",
+  ClusterSnapshot: "AWS::Redshift::ClusterSnapshot",
+  ClusterSubnetGroup: "AWS::Redshift::ClusterSubnetGroup",
+  CodeDeployApplication: "AWS::CodeDeploy::Application",
+  CodeDeployDeploymentConfig: "AWS::CodeDeploy::DeploymentConfig",
+  CodeDeployDeploymentGroup: "AWS::CodeDeploy::DeploymentGroup",
+  CodeGuruReviewerRepositoryAssociation: "AWS::CodeGuruReviewer::RepositoryAssociation",
+  ConformancePackCompliance: "AWS::Config::ConformancePackCompliance",
+  CustomerGateway: "AWS::EC2::CustomerGateway",
+  DBCluster: "AWS::RDS::DBCluster",
+  DBClusterSnapshot: "AWS::RDS::DBClusterSnapshot",
+  DBInstance: "AWS::RDS::DBInstance",
+  DBSecurityGroup: "AWS::RDS::DBSecurityGroup",
+  DBSnapshot: "AWS::RDS::DBSnapshot",
+  DBSubnetGroup: "AWS::RDS::DBSubnetGroup",
+  DMSCertificate: "AWS::DMS::Certificate",
+  DMSEventSubscription: "AWS::DMS::EventSubscription",
+  DMSReplicationSubnetGroup: "AWS::DMS::ReplicationSubnetGroup",
+  DataSyncLocationEFS: "AWS::DataSync::LocationEFS",
+  DataSyncLocationFSxLustre: "AWS::DataSync::LocationFSxLustre",
+  DataSyncLocationFSxWindows: "AWS::DataSync::LocationFSxWindows",
+  DataSyncLocationHDFS: "AWS::DataSync::LocationHDFS",
+  DataSyncLocationNFS: "AWS::DataSync::LocationNFS",
+  DataSyncLocationObjectStorage: "AWS::DataSync::LocationObjectStorage",
+  DataSyncLocationS3: "AWS::DataSync::LocationS3",
+  DataSyncLocationSMB: "AWS::DataSync::LocationSMB",
+  DataSyncTask: "AWS::DataSync::Task",
+  DetectiveGraph: "AWS::Detective::Graph",
+  DeviceFarmTestGridProject: "AWS::DeviceFarm::TestGridProject",
+  Distribution: "AWS::CloudFront::Distribution",
+  Domain: "AWS::Elasticsearch::Domain",
+  EC2TrafficMirrorSession: "AWS::EC2::TrafficMirrorSession",
+  EC2TrafficMirrorTarget: "AWS::EC2::TrafficMirrorTarget",
+  ECRPublicRepository: "AWS::ECR::PublicRepository",
+  ECRRegistryPolicy: "AWS::ECR::RegistryPolicy",
+  ECRRepository: "AWS::ECR::Repository",
+  ECSCluster: "AWS::ECS::Cluster",
+  ECSService: "AWS::ECS::Service",
+  ECSTaskDefinition: "AWS::ECS::TaskDefinition",
+  EFSAccessPoint: "AWS::EFS::AccessPoint",
+  EFSFileSystem: "AWS::EFS::FileSystem",
+  EIP: "AWS::EC2::EIP",
+  EKSAddon: "AWS::EKS::Addon",
+  EKSCluster: "AWS::EKS::Cluster",
+  EKSFargateProfile: "AWS::EKS::FargateProfile",
+  EKSIdentityProviderConfig: "AWS::EKS::IdentityProviderConfig",
+  EMRSecurityConfiguration: "AWS::EMR::SecurityConfiguration",
+  EgressOnlyInternetGateway: "AWS::EC2::EgressOnlyInternetGateway",
+  EncryptionConfig: "AWS::XRay::EncryptionConfig",
+  Environment: "AWS::ElasticBeanstalk::Environment",
+  EventSchemasDiscoverer: "AWS::EventSchemas::Discoverer",
+  EventSchemasRegistry: "AWS::EventSchemas::Registry",
+  EventSchemasRegistryPolicy: "AWS::EventSchemas::RegistryPolicy",
+  EventSchemasSchema: "AWS::EventSchemas::Schema",
+  EventSubscription: "AWS::RDS::EventSubscription",
+  EventsApiDestination: "AWS::Events::ApiDestination",
+  EventsArchive: "AWS::Events::Archive",
+  EventsConnection: "AWS::Events::Connection",
+  EventsEndpoint: "AWS::Events::Endpoint",
+  EventsEventBus: "AWS::Events::EventBus",
+  FISExperimentTemplate: "AWS::FIS::ExperimentTemplate",
+  FileData: "AWS::SSM::FileData",
+  FlowLog: "AWS::EC2::FlowLog",
+  FraudDetectorEntityType: "AWS::FraudDetector::EntityType",
+  FraudDetectorLabel: "AWS::FraudDetector::Label",
+  FraudDetectorOutcome: "AWS::FraudDetector::Outcome",
+  FraudDetectorVariable: "AWS::FraudDetector::Variable",
+  Function: "AWS::Lambda::Function",
+  GlobalAcceleratorAccelerator: "AWS::GlobalAccelerator::Accelerator",
+  GlobalAcceleratorEndpointGroup: "AWS::GlobalAccelerator::EndpointGroup",
+  GlobalAcceleratorListener: "AWS::GlobalAccelerator::Listener",
+  GlueClassifier: "AWS::Glue::Classifier",
+  GlueJob: "AWS::Glue::Job",
+  GlueMLTransform: "AWS::Glue::MLTransform",
+  Group: "AWS::IAM::Group",
+  GuardDutyDetector: "AWS::GuardDuty::Detector",
+  GuardDutyFilter: "AWS::GuardDuty::Filter",
+  GuardDutyIPSet: "AWS::GuardDuty::IPSet",
+  GuardDutyThreatIntelSet: "AWS::GuardDuty::ThreatIntelSet",
+  Host: "AWS::EC2::Host",
+  IPSetV2: "AWS::WAFv2::IPSet",
+  IVSChannel: "AWS::IVS::Channel",
+  IVSPlaybackKeyPair: "AWS::IVS::PlaybackKeyPair",
+  IVSRecordingConfiguration: "AWS::IVS::RecordingConfiguration",
+  ImageBuilderContainerRecipe: "AWS::ImageBuilder::ContainerRecipe",
+  ImageBuilderDistributionConfiguration: "AWS::ImageBuilder::DistributionConfiguration",
+  ImageBuilderInfrastructureConfiguration: "AWS::ImageBuilder::InfrastructureConfiguration",
+  Instance: "AWS::EC2::Instance",
+  InternetGateway: "AWS::EC2::InternetGateway",
+  IoTAccountAuditConfiguration: "AWS::IoT::AccountAuditConfiguration",
+  IoTAnalyticsChannel: "AWS::IoTAnalytics::Channel",
+  IoTAnalyticsDataset: "AWS::IoTAnalytics::Dataset",
+  IoTAnalyticsDatastore: "AWS::IoTAnalytics::Datastore",
+  IoTAnalyticsPipeline: "AWS::IoTAnalytics::Pipeline",
+  IoTAuthorizer: "AWS::IoT::Authorizer",
+  IoTCustomMetric: "AWS::IoT::CustomMetric",
+  IoTDimension: "AWS::IoT::Dimension",
+  IoTEventsAlarmModel: "AWS::IoTEvents::AlarmModel",
+  IoTEventsDetectorModel: "AWS::IoTEvents::DetectorModel",
+  IoTEventsInput: "AWS::IoTEvents::Input",
+  IoTMitigationAction: "AWS::IoT::MitigationAction",
+  IoTPolicy: "AWS::IoT::Policy",
+  IoTRoleAlias: "AWS::IoT::RoleAlias",
+  IoTScheduledAudit: "AWS::IoT::ScheduledAudit",
+  IoTSecurityProfile: "AWS::IoT::SecurityProfile",
+  IoTSiteWiseAssetModel: "AWS::IoTSiteWise::AssetModel",
+  IoTSiteWiseDashboard: "AWS::IoTSiteWise::Dashboard",
+  IoTSiteWiseGateway: "AWS::IoTSiteWise::Gateway",
+  IoTSiteWisePortal: "AWS::IoTSiteWise::Portal",
+  IoTSiteWiseProject: "AWS::IoTSiteWise::Project",
+  IoTTwinMakerEntity: "AWS::IoTTwinMaker::Entity",
+  IoTTwinMakerWorkspace: "AWS::IoTTwinMaker::Workspace",
+  Key: "AWS::KMS::Key",
+  KinesisAnalyticsV2Application: "AWS::KinesisAnalyticsV2::Application",
+  KinesisStream: "AWS::Kinesis::Stream",
+  KinesisStreamConsumer: "AWS::Kinesis::StreamConsumer",
+  LaunchConfiguration: "AWS::AutoScaling::LaunchConfiguration",
+  LaunchTemplate: "AWS::EC2::LaunchTemplate",
+  LexBot: "AWS::Lex::Bot",
+  LexBotAlias: "AWS::Lex::BotAlias",
+  LightsailBucket: "AWS::Lightsail::Bucket",
+  LightsailCertificate: "AWS::Lightsail::Certificate",
+  LightsailDisk: "AWS::Lightsail::Disk",
+  LightsailStaticIp: "AWS::Lightsail::StaticIp",
+  ListenerV2: "AWS::ElasticLoadBalancingV2::Listener",
+  LoadBalancer: "AWS::ElasticLoadBalancing::LoadBalancer",
+  LoadBalancerV2: "AWS::ElasticLoadBalancingV2::LoadBalancer",
+  LookoutMetricsAlert: "AWS::LookoutMetrics::Alert",
+  MSKCluster: "AWS::MSK::Cluster",
+  ManagedInstanceInventory: "AWS::SSM::ManagedInstanceInventory",
+  ManagedRuleSetV2: "AWS::WAFv2::ManagedRuleSet",
+  MediaPackagePackagingConfiguration: "AWS::MediaPackage::PackagingConfiguration",
+  MediaPackagePackagingGroup: "AWS::MediaPackage::PackagingGroup",
+  NatGateway: "AWS::EC2::NatGateway",
+  NetworkAcl: "AWS::EC2::NetworkAcl",
+  NetworkFirewallFirewall: "AWS::NetworkFirewall::Firewall",
+  NetworkFirewallFirewallPolicy: "AWS::NetworkFirewall::FirewallPolicy",
+  NetworkFirewallRuleGroup: "AWS::NetworkFirewall::RuleGroup",
+  NetworkInsightsAccessScopeAnalysis: "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
+  NetworkInterface: "AWS::EC2::NetworkInterface",
+  OpenSearchDomain: "AWS::OpenSearch::Domain",
+  PatchCompliance: "AWS::SSM::PatchCompliance",
+  Pipeline: "AWS::CodePipeline::Pipeline",
+  Policy: "AWS::IAM::Policy",
+  Portfolio: "AWS::ServiceCatalog::Portfolio",
+  Project: "AWS::CodeBuild::Project",
+  Protection: "AWS::Shield::Protection",
+  QLDBLedger: "AWS::QLDB::Ledger",
+  Queue: "AWS::SQS::Queue",
+  RDSGlobalCluster: "AWS::RDS::GlobalCluster",
+  RUMAppMonitor: "AWS::RUM::AppMonitor",
+  RateBasedRule: "AWS::WAF::RateBasedRule",
+  RedshiftEventSubscription: "AWS::Redshift::EventSubscription",
+  RegexPatternSetV2: "AWS::WAFv2::RegexPatternSet",
+  RegionalProtection: "AWS::ShieldRegional::Protection",
+  RegionalRateBasedRule: "AWS::WAFRegional::RateBasedRule",
+  RegionalRule: "AWS::WAFRegional::Rule",
+  RegionalRuleGroup: "AWS::WAFRegional::RuleGroup",
+  RegionalWebACL: "AWS::WAFRegional::WebACL",
+  RegisteredHAInstance: "AWS::EC2::RegisteredHAInstance",
+  ResilienceHubResiliencyPolicy: "AWS::ResilienceHub::ResiliencyPolicy",
+  ResourceCompliance: "AWS::Config::ResourceCompliance",
+  RestApi: "AWS::ApiGateway::RestApi",
+  RoboMakerRobotApplicationVersion: "AWS::RoboMaker::RobotApplicationVersion",
+  Role: "AWS::IAM::Role",
+  Route53HostedZone: "AWS::Route53::HostedZone",
+  Route53RecoveryReadinessCell: "AWS::Route53RecoveryReadiness::Cell",
+  Route53RecoveryReadinessReadinessCheck: "AWS::Route53RecoveryReadiness::ReadinessCheck",
+  Route53RecoveryReadinessRecoveryGroup: "AWS::Route53RecoveryReadiness::RecoveryGroup",
+  Route53ResolverFirewallDomainList: "AWS::Route53Resolver::FirewallDomainList",
+  Route53ResolverResolverEndpoint: "AWS::Route53Resolver::ResolverEndpoint",
+  Route53ResolverResolverRule: "AWS::Route53Resolver::ResolverRule",
+  Route53ResolverResolverRuleAssociation: "AWS::Route53Resolver::ResolverRuleAssociation",
+  RouteTable: "AWS::EC2::RouteTable",
+  Rule: "AWS::WAF::Rule",
+  RuleGroup: "AWS::WAF::RuleGroup",
+  RuleGroupV2: "AWS::WAFv2::RuleGroup",
+  S3MultiRegionAccessPoint: "AWS::S3::MultiRegionAccessPoint",
+  S3StorageLens: "AWS::S3::StorageLens",
+  SESConfigurationSet: "AWS::SES::ConfigurationSet",
+  SESContactList: "AWS::SES::ContactList",
+  SESReceiptFilter: "AWS::SES::ReceiptFilter",
+  SESReceiptRuleSet: "AWS::SES::ReceiptRuleSet",
+  SESTemplate: "AWS::SES::Template",
+  SageMakerCodeRepository: "AWS::SageMaker::CodeRepository",
+  SageMakerModel: "AWS::SageMaker::Model",
+  SageMakerNotebookInstanceLifecycleConfig: "AWS::SageMaker::NotebookInstanceLifecycleConfig",
+  SageMakerWorkteam: "AWS::SageMaker::Workteam",
+  ScalingPolicy: "AWS::AutoScaling::ScalingPolicy",
+  ScheduledAction: "AWS::AutoScaling::ScheduledAction",
+  Secret: "AWS::SecretsManager::Secret",
+  SecurityGroup: "AWS::EC2::SecurityGroup",
+  ServiceDiscoveryHttpNamespace: "AWS::ServiceDiscovery::HttpNamespace",
+  ServiceDiscoveryPublicDnsNamespace: "AWS::ServiceDiscovery::PublicDnsNamespace",
+  ServiceDiscoveryService: "AWS::ServiceDiscovery::Service",
+  Stack: "AWS::CloudFormation::Stack",
+  Stage: "AWS::ApiGateway::Stage",
+  StageV2: "AWS::ApiGatewayV2::Stage",
+  StepFunctionsActivity: "AWS::StepFunctions::Activity",
+  StepFunctionsStateMachine: "AWS::StepFunctions::StateMachine",
+  StreamingDistribution: "AWS::CloudFront::StreamingDistribution",
+  Subnet: "AWS::EC2::Subnet",
+  Table: "AWS::DynamoDB::Table",
+  Topic: "AWS::SNS::Topic",
+  Trail: "AWS::CloudTrail::Trail",
+  TransferWorkflow: "AWS::Transfer::Workflow",
+  TransitGateway: "AWS::EC2::TransitGateway",
+  TransitGatewayAttachment: "AWS::EC2::TransitGatewayAttachment",
+  TransitGatewayRouteTable: "AWS::EC2::TransitGatewayRouteTable",
+  User: "AWS::IAM::User",
+  VPC: "AWS::EC2::VPC",
+  VPCEndpoint: "AWS::EC2::VPCEndpoint",
+  VPCEndpointService: "AWS::EC2::VPCEndpointService",
+  VPCPeeringConnection: "AWS::EC2::VPCPeeringConnection",
+  VPNConnection: "AWS::EC2::VPNConnection",
+  VPNGateway: "AWS::EC2::VPNGateway",
+  Volume: "AWS::EC2::Volume",
+  WebACL: "AWS::WAF::WebACL",
+  WebACLV2: "AWS::WAFv2::WebACL",
+  WorkSpacesConnectionAlias: "AWS::WorkSpaces::ConnectionAlias",
+  WorkSpacesWorkspace: "AWS::WorkSpaces::Workspace",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -825,14 +869,20 @@ export interface AggregationAuthorization {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationItemStatus {
-  OK = "OK",
-  ResourceDeleted = "ResourceDeleted",
-  ResourceDeletedNotRecorded = "ResourceDeletedNotRecorded",
-  ResourceDiscovered = "ResourceDiscovered",
-  ResourceNotRecorded = "ResourceNotRecorded",
-}
+export const ConfigurationItemStatus = {
+  OK: "OK",
+  ResourceDeleted: "ResourceDeleted",
+  ResourceDeletedNotRecorded: "ResourceDeletedNotRecorded",
+  ResourceDiscovered: "ResourceDiscovered",
+  ResourceNotRecorded: "ResourceNotRecorded",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationItemStatus = (typeof ConfigurationItemStatus)[keyof typeof ConfigurationItemStatus];
 
 /**
  * @public
@@ -1080,11 +1130,17 @@ export class NoAvailableConfigurationRecorderException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ChronologicalOrder {
-  Forward = "Forward",
-  Reverse = "Reverse",
-}
+export const ChronologicalOrder = {
+  Forward: "Forward",
+  Reverse: "Reverse",
+} as const;
+
+/**
+ * @public
+ */
+export type ChronologicalOrder = (typeof ChronologicalOrder)[keyof typeof ChronologicalOrder];
 
 /**
  * @public
@@ -1151,12 +1207,18 @@ export interface ComplianceSummaryByResourceType {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliveryStatus {
-  Failure = "Failure",
-  Not_Applicable = "Not_Applicable",
-  Success = "Success",
-}
+export const DeliveryStatus = {
+  Failure: "Failure",
+  Not_Applicable: "Not_Applicable",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryStatus = (typeof DeliveryStatus)[keyof typeof DeliveryStatus];
 
 /**
  * @public
@@ -1199,13 +1261,19 @@ export interface ConfigExportDeliveryInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigRuleState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  DELETING_RESULTS = "DELETING_RESULTS",
-  EVALUATING = "EVALUATING",
-}
+export const ConfigRuleState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  DELETING_RESULTS: "DELETING_RESULTS",
+  EVALUATING: "EVALUATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigRuleState = (typeof ConfigRuleState)[keyof typeof ConfigRuleState];
 
 /**
  * @public
@@ -1220,14 +1288,20 @@ export interface EvaluationModeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum MaximumExecutionFrequency {
-  One_Hour = "One_Hour",
-  Six_Hours = "Six_Hours",
-  Three_Hours = "Three_Hours",
-  Twelve_Hours = "Twelve_Hours",
-  TwentyFour_Hours = "TwentyFour_Hours",
-}
+export const MaximumExecutionFrequency = {
+  One_Hour: "One_Hour",
+  Six_Hours: "Six_Hours",
+  Three_Hours: "Three_Hours",
+  Twelve_Hours: "Twelve_Hours",
+  TwentyFour_Hours: "TwentyFour_Hours",
+} as const;
+
+/**
+ * @public
+ */
+export type MaximumExecutionFrequency = (typeof MaximumExecutionFrequency)[keyof typeof MaximumExecutionFrequency];
 
 /**
  * @public
@@ -1298,29 +1372,47 @@ export interface CustomPolicyDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum Owner {
-  Aws = "AWS",
-  Custom_Lambda = "CUSTOM_LAMBDA",
-  Custom_Policy = "CUSTOM_POLICY",
-}
+export const Owner = {
+  Aws: "AWS",
+  Custom_Lambda: "CUSTOM_LAMBDA",
+  Custom_Policy: "CUSTOM_POLICY",
+} as const;
 
 /**
  * @public
  */
-export enum EventSource {
-  Aws_Config = "aws.config",
-}
+export type Owner = (typeof Owner)[keyof typeof Owner];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventSource = {
+  Aws_Config: "aws.config",
+} as const;
 
 /**
  * @public
  */
-export enum MessageType {
-  ConfigurationItemChangeNotification = "ConfigurationItemChangeNotification",
-  ConfigurationSnapshotDeliveryCompleted = "ConfigurationSnapshotDeliveryCompleted",
-  OversizedConfigurationItemChangeNotification = "OversizedConfigurationItemChangeNotification",
-  ScheduledNotification = "ScheduledNotification",
-}
+export type EventSource = (typeof EventSource)[keyof typeof EventSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageType = {
+  ConfigurationItemChangeNotification: "ConfigurationItemChangeNotification",
+  ConfigurationSnapshotDeliveryCompleted: "ConfigurationSnapshotDeliveryCompleted",
+  OversizedConfigurationItemChangeNotification: "OversizedConfigurationItemChangeNotification",
+  ScheduledNotification: "ScheduledNotification",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * @public
@@ -1623,11 +1715,18 @@ export interface ConfigRuleComplianceSummaryFilters {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigRuleComplianceSummaryGroupKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  AWS_REGION = "AWS_REGION",
-}
+export const ConfigRuleComplianceSummaryGroupKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  AWS_REGION: "AWS_REGION",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigRuleComplianceSummaryGroupKey =
+  (typeof ConfigRuleComplianceSummaryGroupKey)[keyof typeof ConfigRuleComplianceSummaryGroupKey];
 
 /**
  * @public
@@ -2173,12 +2272,18 @@ export interface ConfigurationRecorder {
 
 /**
  * @public
+ * @enum
  */
-export enum RecorderStatus {
-  Failure = "Failure",
-  Pending = "Pending",
-  Success = "Success",
-}
+export const RecorderStatus = {
+  Failure: "Failure",
+  Pending: "Pending",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type RecorderStatus = (typeof RecorderStatus)[keyof typeof RecorderStatus];
 
 /**
  * @public
@@ -2479,14 +2584,20 @@ export interface ConformancePackRuleCompliance {
 
 /**
  * @public
+ * @enum
  */
-export enum ConformancePackState {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-}
+export const ConformancePackState = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConformancePackState = (typeof ConformancePackState)[keyof typeof ConformancePackState];
 
 /**
  * @public
@@ -4065,11 +4176,18 @@ export interface DescribeOrganizationConfigRulesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OrganizationConfigRuleTriggerTypeNoSN {
-  CONFIGURATION_ITEM_CHANGE_NOTIFICATION = "ConfigurationItemChangeNotification",
-  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION = "OversizedConfigurationItemChangeNotification",
-}
+export const OrganizationConfigRuleTriggerTypeNoSN = {
+  CONFIGURATION_ITEM_CHANGE_NOTIFICATION: "ConfigurationItemChangeNotification",
+  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION: "OversizedConfigurationItemChangeNotification",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationConfigRuleTriggerTypeNoSN =
+  (typeof OrganizationConfigRuleTriggerTypeNoSN)[keyof typeof OrganizationConfigRuleTriggerTypeNoSN];
 
 /**
  * @public
@@ -4148,12 +4266,19 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum OrganizationConfigRuleTriggerType {
-  CONFIGURATION_ITEM_CHANGE_NOTIFICATION = "ConfigurationItemChangeNotification",
-  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION = "OversizedConfigurationItemChangeNotification",
-  SCHEDULED_NOTIFICATION = "ScheduledNotification",
-}
+export const OrganizationConfigRuleTriggerType = {
+  CONFIGURATION_ITEM_CHANGE_NOTIFICATION: "ConfigurationItemChangeNotification",
+  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION: "OversizedConfigurationItemChangeNotification",
+  SCHEDULED_NOTIFICATION: "ScheduledNotification",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationConfigRuleTriggerType =
+  (typeof OrganizationConfigRuleTriggerType)[keyof typeof OrganizationConfigRuleTriggerType];
 
 /**
  * @public
@@ -4366,18 +4491,24 @@ export interface DescribeOrganizationConfigRuleStatusesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OrganizationRuleStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
-}
+export const OrganizationRuleStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_SUCCESSFUL: "DELETE_SUCCESSFUL",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationRuleStatus = (typeof OrganizationRuleStatus)[keyof typeof OrganizationRuleStatus];
 
 /**
  * @public
@@ -4576,18 +4707,24 @@ export interface DescribeOrganizationConformancePackStatusesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OrganizationResourceStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
-}
+export const OrganizationResourceStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_SUCCESSFUL: "DELETE_SUCCESSFUL",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationResourceStatus = (typeof OrganizationResourceStatus)[keyof typeof OrganizationResourceStatus];
 
 /**
  * @public
@@ -4777,10 +4914,16 @@ export interface ExecutionControls {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceValueType {
-  RESOURCE_ID = "RESOURCE_ID",
-}
+export const ResourceValueType = {
+  RESOURCE_ID: "RESOURCE_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceValueType = (typeof ResourceValueType)[keyof typeof ResourceValueType];
 
 /**
  * @public
@@ -4822,10 +4965,16 @@ export interface RemediationParameterValue {
 
 /**
  * @public
+ * @enum
  */
-export enum RemediationTargetType {
-  SSM_DOCUMENT = "SSM_DOCUMENT",
-}
+export const RemediationTargetType = {
+  SSM_DOCUMENT: "SSM_DOCUMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type RemediationTargetType = (typeof RemediationTargetType)[keyof typeof RemediationTargetType];
 
 /**
  * @public
@@ -5010,22 +5159,35 @@ export interface DescribeRemediationExecutionStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RemediationExecutionState {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const RemediationExecutionState = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
  * @public
  */
-export enum RemediationExecutionStepState {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type RemediationExecutionState = (typeof RemediationExecutionState)[keyof typeof RemediationExecutionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RemediationExecutionStepState = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type RemediationExecutionStepState =
+  (typeof RemediationExecutionStepState)[keyof typeof RemediationExecutionStepState];
 
 /**
  * @public
@@ -5274,12 +5436,18 @@ export interface EvaluationResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceEvaluationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ResourceEvaluationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceEvaluationStatus = (typeof ResourceEvaluationStatus)[keyof typeof ResourceEvaluationStatus];
 
 /**
  * @public
@@ -5567,12 +5735,18 @@ export interface ResourceCountFilters {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceCountGroupKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  AWS_REGION = "AWS_REGION",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-}
+export const ResourceCountGroupKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  AWS_REGION: "AWS_REGION",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceCountGroupKey = (typeof ResourceCountGroupKey)[keyof typeof ResourceCountGroupKey];
 
 /**
  * @public
@@ -6067,18 +6241,24 @@ export interface GetDiscoveredResourceCountsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MemberAccountRuleStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
-}
+export const MemberAccountRuleStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_SUCCESSFUL: "DELETE_SUCCESSFUL",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type MemberAccountRuleStatus = (typeof MemberAccountRuleStatus)[keyof typeof MemberAccountRuleStatus];
 
 /**
  * @public
@@ -6260,18 +6440,25 @@ export interface GetOrganizationConfigRuleDetailedStatusResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OrganizationResourceDetailedStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
-}
+export const OrganizationResourceDetailedStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_SUCCESSFUL: "DELETE_SUCCESSFUL",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationResourceDetailedStatus =
+  (typeof OrganizationResourceDetailedStatus)[keyof typeof OrganizationResourceDetailedStatus];
 
 /**
  * @public
@@ -6581,10 +6768,17 @@ export interface GetResourceEvaluationSummaryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceConfigurationSchemaType {
-  CFN_RESOURCE_SCHEMA = "CFN_RESOURCE_SCHEMA",
-}
+export const ResourceConfigurationSchemaType = {
+  CFN_RESOURCE_SCHEMA: "CFN_RESOURCE_SCHEMA",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceConfigurationSchemaType =
+  (typeof ResourceConfigurationSchemaType)[keyof typeof ResourceConfigurationSchemaType];
 
 /**
  * @public
@@ -7037,18 +7231,30 @@ export interface ListAggregateDiscoveredResourcesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortBy {
-  SCORE = "SCORE",
-}
+export const SortBy = {
+  SCORE: "SCORE",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type SortBy = (typeof SortBy)[keyof typeof SortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public

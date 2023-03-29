@@ -25,15 +25,21 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AgentUpdateStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  STAGED = "STAGED",
-  STAGING = "STAGING",
-  UPDATED = "UPDATED",
-  UPDATING = "UPDATING",
-}
+export const AgentUpdateStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STAGED: "STAGED",
+  STAGING: "STAGING",
+  UPDATED: "UPDATED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentUpdateStatus = (typeof AgentUpdateStatus)[keyof typeof AgentUpdateStatus];
 
 /**
  * @public
@@ -59,11 +65,17 @@ export class ClientException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ManagedScalingStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ManagedScalingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedScalingStatus = (typeof ManagedScalingStatus)[keyof typeof ManagedScalingStatus];
 
 /**
  * @public
@@ -119,11 +131,18 @@ export interface ManagedScaling {
 
 /**
  * @public
+ * @enum
  */
-export enum ManagedTerminationProtection {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ManagedTerminationProtection = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedTerminationProtection =
+  (typeof ManagedTerminationProtection)[keyof typeof ManagedTerminationProtection];
 
 /**
  * @public
@@ -266,23 +285,36 @@ export interface CreateCapacityProviderRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CapacityProviderStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const CapacityProviderStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
  * @public
  */
-export enum CapacityProviderUpdateStatus {
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export type CapacityProviderStatus = (typeof CapacityProviderStatus)[keyof typeof CapacityProviderStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderUpdateStatus = {
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityProviderUpdateStatus =
+  (typeof CapacityProviderUpdateStatus)[keyof typeof CapacityProviderUpdateStatus];
 
 /**
  * @public
@@ -514,12 +546,18 @@ export interface ExecuteCommandLogConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecuteCommandLogging {
-  DEFAULT = "DEFAULT",
-  NONE = "NONE",
-  OVERRIDE = "OVERRIDE",
-}
+export const ExecuteCommandLogging = {
+  DEFAULT: "DEFAULT",
+  NONE: "NONE",
+  OVERRIDE: "OVERRIDE",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecuteCommandLogging = (typeof ExecuteCommandLogging)[keyof typeof ExecuteCommandLogging];
 
 /**
  * @public
@@ -671,10 +709,16 @@ export interface ClusterServiceConnectDefaultsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterSettingName {
-  CONTAINER_INSIGHTS = "containerInsights",
-}
+export const ClusterSettingName = {
+  CONTAINER_INSIGHTS: "containerInsights",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterSettingName = (typeof ClusterSettingName)[keyof typeof ClusterSettingName];
 
 /**
  * @public
@@ -1293,12 +1337,18 @@ export interface DeploymentConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentControllerType {
-  CODE_DEPLOY = "CODE_DEPLOY",
-  ECS = "ECS",
-  EXTERNAL = "EXTERNAL",
-}
+export const DeploymentControllerType = {
+  CODE_DEPLOY: "CODE_DEPLOY",
+  ECS: "ECS",
+  EXTERNAL: "EXTERNAL",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentControllerType = (typeof DeploymentControllerType)[keyof typeof DeploymentControllerType];
 
 /**
  * @public
@@ -1336,12 +1386,18 @@ export interface DeploymentController {
 
 /**
  * @public
+ * @enum
  */
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
 
 /**
  * @public
@@ -1405,11 +1461,17 @@ export interface LoadBalancer {
 
 /**
  * @public
+ * @enum
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
 
 /**
  * @public
@@ -1459,11 +1521,17 @@ export interface NetworkConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
 
 /**
  * @public
@@ -1494,12 +1562,18 @@ export interface PlacementConstraint {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
 
 /**
  * @public
@@ -1532,34 +1606,52 @@ export interface PlacementStrategy {
 
 /**
  * @public
+ * @enum
  */
-export enum PropagateTags {
-  NONE = "NONE",
-  SERVICE = "SERVICE",
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+export const PropagateTags = {
+  NONE: "NONE",
+  SERVICE: "SERVICE",
+  TASK_DEFINITION: "TASK_DEFINITION",
+} as const;
 
 /**
  * @public
  */
-export enum SchedulingStrategy {
-  DAEMON = "DAEMON",
-  REPLICA = "REPLICA",
-}
+export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
+
+/**
+ * @public
+ * @enum
+ */
+export const SchedulingStrategy = {
+  DAEMON: "DAEMON",
+  REPLICA: "REPLICA",
+} as const;
 
 /**
  * @public
  */
-export enum LogDriver {
-  AWSFIRELENS = "awsfirelens",
-  AWSLOGS = "awslogs",
-  FLUENTD = "fluentd",
-  GELF = "gelf",
-  JOURNALD = "journald",
-  JSON_FILE = "json-file",
-  SPLUNK = "splunk",
-  SYSLOG = "syslog",
-}
+export type SchedulingStrategy = (typeof SchedulingStrategy)[keyof typeof SchedulingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogDriver = {
+  AWSFIRELENS: "awsfirelens",
+  AWSLOGS: "awslogs",
+  FLUENTD: "fluentd",
+  GELF: "gelf",
+  JOURNALD: "journald",
+  JSON_FILE: "json-file",
+  SPLUNK: "splunk",
+  SYSLOG: "syslog",
+} as const;
+
+/**
+ * @public
+ */
+export type LogDriver = (typeof LogDriver)[keyof typeof LogDriver];
 
 /**
  * @public
@@ -2201,12 +2293,18 @@ export interface CreateServiceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentRolloutState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const DeploymentRolloutState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentRolloutState = (typeof DeploymentRolloutState)[keyof typeof DeploymentRolloutState];
 
 /**
  * @public
@@ -2411,10 +2509,16 @@ export interface ServiceEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum ScaleUnit {
-  PERCENT = "PERCENT",
-}
+export const ScaleUnit = {
+  PERCENT: "PERCENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ScaleUnit = (typeof ScaleUnit)[keyof typeof ScaleUnit];
 
 /**
  * @public
@@ -2436,11 +2540,17 @@ export interface Scale {
 
 /**
  * @public
+ * @enum
  */
-export enum StabilityStatus {
-  STABILIZING = "STABILIZING",
-  STEADY_STATE = "STEADY_STATE",
-}
+export const StabilityStatus = {
+  STABILIZING: "STABILIZING",
+  STEADY_STATE: "STEADY_STATE",
+} as const;
+
+/**
+ * @public
+ */
+export type StabilityStatus = (typeof StabilityStatus)[keyof typeof StabilityStatus];
 
 /**
  * @public
@@ -3205,14 +3315,20 @@ export class ServiceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum SettingName {
-  AWSVPC_TRUNKING = "awsvpcTrunking",
-  CONTAINER_INSIGHTS = "containerInsights",
-  CONTAINER_INSTANCE_LONG_ARN_FORMAT = "containerInstanceLongArnFormat",
-  SERVICE_LONG_ARN_FORMAT = "serviceLongArnFormat",
-  TASK_LONG_ARN_FORMAT = "taskLongArnFormat",
-}
+export const SettingName = {
+  AWSVPC_TRUNKING: "awsvpcTrunking",
+  CONTAINER_INSIGHTS: "containerInsights",
+  CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
+  SERVICE_LONG_ARN_FORMAT: "serviceLongArnFormat",
+  TASK_LONG_ARN_FORMAT: "taskLongArnFormat",
+} as const;
+
+/**
+ * @public
+ */
+export type SettingName = (typeof SettingName)[keyof typeof SettingName];
 
 /**
  * @public
@@ -3272,10 +3388,16 @@ export interface DeleteAccountSettingResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetType {
-  CONTAINER_INSTANCE = "container-instance",
-}
+export const TargetType = {
+  CONTAINER_INSTANCE: "container-instance",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * @public
@@ -3537,22 +3659,34 @@ export interface Failure {
 
 /**
  * @public
+ * @enum
  */
-export enum Compatibility {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+export const Compatibility = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
 
 /**
  * @public
  */
-export enum ContainerCondition {
-  COMPLETE = "COMPLETE",
-  HEALTHY = "HEALTHY",
-  START = "START",
-  SUCCESS = "SUCCESS",
-}
+export type Compatibility = (typeof Compatibility)[keyof typeof Compatibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerCondition = {
+  COMPLETE: "COMPLETE",
+  HEALTHY: "HEALTHY",
+  START: "START",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerCondition = (typeof ContainerCondition)[keyof typeof ContainerCondition];
 
 /**
  * @public
@@ -3626,10 +3760,16 @@ export interface ContainerDependency {
 
 /**
  * @public
+ * @enum
  */
-export enum EnvironmentFileType {
-  S3 = "s3",
-}
+export const EnvironmentFileType = {
+  S3: "s3",
+} as const;
+
+/**
+ * @public
+ */
+export type EnvironmentFileType = (typeof EnvironmentFileType)[keyof typeof EnvironmentFileType];
 
 /**
  * @public
@@ -3689,11 +3829,17 @@ export interface HostEntry {
 
 /**
  * @public
+ * @enum
  */
-export enum FirelensConfigurationType {
-  FLUENTBIT = "fluentbit",
-  FLUENTD = "fluentd",
-}
+export const FirelensConfigurationType = {
+  FLUENTBIT: "fluentbit",
+  FLUENTD: "fluentd",
+} as const;
+
+/**
+ * @public
+ */
+export type FirelensConfigurationType = (typeof FirelensConfigurationType)[keyof typeof FirelensConfigurationType];
 
 /**
  * @public
@@ -3915,12 +4061,18 @@ export interface KernelCapabilities {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceCgroupPermission {
-  MKNOD = "mknod",
-  READ = "read",
-  WRITE = "write",
-}
+export const DeviceCgroupPermission = {
+  MKNOD: "mknod",
+  READ: "read",
+  WRITE: "write",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceCgroupPermission = (typeof DeviceCgroupPermission)[keyof typeof DeviceCgroupPermission];
 
 /**
  * @public
@@ -4088,20 +4240,32 @@ export interface MountPoint {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationProtocol {
-  GRPC = "grpc",
-  HTTP = "http",
-  HTTP2 = "http2",
-}
+export const ApplicationProtocol = {
+  GRPC: "grpc",
+  HTTP: "http",
+  HTTP2: "http2",
+} as const;
 
 /**
  * @public
  */
-export enum TransportProtocol {
-  TCP = "tcp",
-  UDP = "udp",
-}
+export type ApplicationProtocol = (typeof ApplicationProtocol)[keyof typeof ApplicationProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransportProtocol = {
+  TCP: "tcp",
+  UDP: "udp",
+} as const;
+
+/**
+ * @public
+ */
+export type TransportProtocol = (typeof TransportProtocol)[keyof typeof TransportProtocol];
 
 /**
  * @public
@@ -4293,11 +4457,17 @@ export interface RepositoryCredentials {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  GPU = "GPU",
-  INFERENCE_ACCELERATOR = "InferenceAccelerator",
-}
+export const ResourceType = {
+  GPU: "GPU",
+  INFERENCE_ACCELERATOR: "InferenceAccelerator",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -4367,24 +4537,30 @@ export interface SystemControl {
 
 /**
  * @public
+ * @enum
  */
-export enum UlimitName {
-  CORE = "core",
-  CPU = "cpu",
-  DATA = "data",
-  FSIZE = "fsize",
-  LOCKS = "locks",
-  MEMLOCK = "memlock",
-  MSGQUEUE = "msgqueue",
-  NICE = "nice",
-  NOFILE = "nofile",
-  NPROC = "nproc",
-  RSS = "rss",
-  RTPRIO = "rtprio",
-  RTTIME = "rttime",
-  SIGPENDING = "sigpending",
-  STACK = "stack",
-}
+export const UlimitName = {
+  CORE: "core",
+  CPU: "cpu",
+  DATA: "data",
+  FSIZE: "fsize",
+  LOCKS: "locks",
+  MEMLOCK: "memlock",
+  MSGQUEUE: "msgqueue",
+  NICE: "nice",
+  NOFILE: "nofile",
+  NPROC: "nproc",
+  RSS: "rss",
+  RTPRIO: "rtprio",
+  RTTIME: "rttime",
+  SIGPENDING: "sigpending",
+  STACK: "stack",
+} as const;
+
+/**
+ * @public
+ */
+export type UlimitName = (typeof UlimitName)[keyof typeof UlimitName];
 
 /**
  * @public
@@ -5156,37 +5332,62 @@ export interface InferenceAccelerator {
 
 /**
  * @public
+ * @enum
  */
-export enum IpcMode {
-  HOST = "host",
-  NONE = "none",
-  TASK = "task",
-}
+export const IpcMode = {
+  HOST: "host",
+  NONE: "none",
+  TASK: "task",
+} as const;
 
 /**
  * @public
  */
-export enum NetworkMode {
-  AWSVPC = "awsvpc",
-  BRIDGE = "bridge",
-  HOST = "host",
-  NONE = "none",
-}
+export type IpcMode = (typeof IpcMode)[keyof typeof IpcMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMode = {
+  AWSVPC: "awsvpc",
+  BRIDGE: "bridge",
+  HOST: "host",
+  NONE: "none",
+} as const;
 
 /**
  * @public
  */
-export enum PidMode {
-  HOST = "host",
-  TASK = "task",
-}
+export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PidMode = {
+  HOST: "host",
+  TASK: "task",
+} as const;
 
 /**
  * @public
  */
-export enum TaskDefinitionPlacementConstraintType {
-  MEMBER_OF = "memberOf",
-}
+export type PidMode = (typeof PidMode)[keyof typeof PidMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskDefinitionPlacementConstraintType = {
+  MEMBER_OF: "memberOf",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskDefinitionPlacementConstraintType =
+  (typeof TaskDefinitionPlacementConstraintType)[keyof typeof TaskDefinitionPlacementConstraintType];
 
 /**
  * @public
@@ -5213,10 +5414,16 @@ export interface TaskDefinitionPlacementConstraint {
 
 /**
  * @public
+ * @enum
  */
-export enum ProxyConfigurationType {
-  APPMESH = "APPMESH",
-}
+export const ProxyConfigurationType = {
+  APPMESH: "APPMESH",
+} as const;
+
+/**
+ * @public
+ */
+export type ProxyConfigurationType = (typeof ProxyConfigurationType)[keyof typeof ProxyConfigurationType];
 
 /**
  * @public
@@ -5293,25 +5500,37 @@ export interface ProxyConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum CPUArchitecture {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
+export const CPUArchitecture = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+} as const;
 
 /**
  * @public
  */
-export enum OSFamily {
-  LINUX = "LINUX",
-  WINDOWS_SERVER_2004_CORE = "WINDOWS_SERVER_2004_CORE",
-  WINDOWS_SERVER_2016_FULL = "WINDOWS_SERVER_2016_FULL",
-  WINDOWS_SERVER_2019_CORE = "WINDOWS_SERVER_2019_CORE",
-  WINDOWS_SERVER_2019_FULL = "WINDOWS_SERVER_2019_FULL",
-  WINDOWS_SERVER_2022_CORE = "WINDOWS_SERVER_2022_CORE",
-  WINDOWS_SERVER_2022_FULL = "WINDOWS_SERVER_2022_FULL",
-  WINDOWS_SERVER_20H2_CORE = "WINDOWS_SERVER_20H2_CORE",
-}
+export type CPUArchitecture = (typeof CPUArchitecture)[keyof typeof CPUArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
+export const OSFamily = {
+  LINUX: "LINUX",
+  WINDOWS_SERVER_2004_CORE: "WINDOWS_SERVER_2004_CORE",
+  WINDOWS_SERVER_2016_FULL: "WINDOWS_SERVER_2016_FULL",
+  WINDOWS_SERVER_2019_CORE: "WINDOWS_SERVER_2019_CORE",
+  WINDOWS_SERVER_2019_FULL: "WINDOWS_SERVER_2019_FULL",
+  WINDOWS_SERVER_2022_CORE: "WINDOWS_SERVER_2022_CORE",
+  WINDOWS_SERVER_2022_FULL: "WINDOWS_SERVER_2022_FULL",
+  WINDOWS_SERVER_20H2_CORE: "WINDOWS_SERVER_20H2_CORE",
+} as const;
+
+/**
+ * @public
+ */
+export type OSFamily = (typeof OSFamily)[keyof typeof OSFamily];
 
 /**
  * @public
@@ -5335,20 +5554,32 @@ export interface RuntimePlatform {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskDefinitionStatus {
-  ACTIVE = "ACTIVE",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  INACTIVE = "INACTIVE",
-}
+export const TaskDefinitionStatus = {
+  ACTIVE: "ACTIVE",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
  * @public
  */
-export enum Scope {
-  SHARED = "shared",
-  TASK = "task",
-}
+export type TaskDefinitionStatus = (typeof TaskDefinitionStatus)[keyof typeof TaskDefinitionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scope = {
+  SHARED: "shared",
+  TASK: "task",
+} as const;
+
+/**
+ * @public
+ */
+export type Scope = (typeof Scope)[keyof typeof Scope];
 
 /**
  * @public
@@ -5407,11 +5638,17 @@ export interface DockerVolumeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum EFSAuthorizationConfigIAM {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EFSAuthorizationConfigIAM = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type EFSAuthorizationConfigIAM = (typeof EFSAuthorizationConfigIAM)[keyof typeof EFSAuthorizationConfigIAM];
 
 /**
  * @public
@@ -5440,11 +5677,17 @@ export interface EFSAuthorizationConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum EFSTransitEncryption {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EFSTransitEncryption = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type EFSTransitEncryption = (typeof EFSTransitEncryption)[keyof typeof EFSTransitEncryption];
 
 /**
  * @public
@@ -6040,20 +6283,32 @@ export interface DeregisterContainerInstanceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceHealthCheckState {
-  IMPAIRED = "IMPAIRED",
-  INITIALIZING = "INITIALIZING",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+export const InstanceHealthCheckState = {
+  IMPAIRED: "IMPAIRED",
+  INITIALIZING: "INITIALIZING",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceHealthCheckType {
-  CONTAINER_RUNTIME = "CONTAINER_RUNTIME",
-}
+export type InstanceHealthCheckState = (typeof InstanceHealthCheckState)[keyof typeof InstanceHealthCheckState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthCheckType = {
+  CONTAINER_RUNTIME: "CONTAINER_RUNTIME",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceHealthCheckType = (typeof InstanceHealthCheckType)[keyof typeof InstanceHealthCheckType];
 
 /**
  * @public
@@ -6371,10 +6626,16 @@ export interface DeregisterTaskDefinitionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CapacityProviderField {
-  TAGS = "TAGS",
-}
+export const CapacityProviderField = {
+  TAGS: "TAGS",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityProviderField = (typeof CapacityProviderField)[keyof typeof CapacityProviderField];
 
 /**
  * @public
@@ -6447,14 +6708,20 @@ export interface DescribeCapacityProvidersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterField {
-  ATTACHMENTS = "ATTACHMENTS",
-  CONFIGURATIONS = "CONFIGURATIONS",
-  SETTINGS = "SETTINGS",
-  STATISTICS = "STATISTICS",
-  TAGS = "TAGS",
-}
+export const ClusterField = {
+  ATTACHMENTS: "ATTACHMENTS",
+  CONFIGURATIONS: "CONFIGURATIONS",
+  SETTINGS: "SETTINGS",
+  STATISTICS: "STATISTICS",
+  TAGS: "TAGS",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterField = (typeof ClusterField)[keyof typeof ClusterField];
 
 /**
  * @public
@@ -6500,11 +6767,17 @@ export interface DescribeClustersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerInstanceField {
-  CONTAINER_INSTANCE_HEALTH = "CONTAINER_INSTANCE_HEALTH",
-  TAGS = "TAGS",
-}
+export const ContainerInstanceField = {
+  CONTAINER_INSTANCE_HEALTH: "CONTAINER_INSTANCE_HEALTH",
+  TAGS: "TAGS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerInstanceField = (typeof ContainerInstanceField)[keyof typeof ContainerInstanceField];
 
 /**
  * @public
@@ -6550,10 +6823,16 @@ export interface DescribeContainerInstancesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceField {
-  TAGS = "TAGS",
-}
+export const ServiceField = {
+  TAGS: "TAGS",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceField = (typeof ServiceField)[keyof typeof ServiceField];
 
 /**
  * @public
@@ -6597,10 +6876,16 @@ export interface DescribeServicesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskDefinitionField {
-  TAGS = "TAGS",
-}
+export const TaskDefinitionField = {
+  TAGS: "TAGS",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskDefinitionField = (typeof TaskDefinitionField)[keyof typeof TaskDefinitionField];
 
 /**
  * @public
@@ -6671,10 +6956,16 @@ export interface DescribeTaskDefinitionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskField {
-  TAGS = "TAGS",
-}
+export const TaskField = {
+  TAGS: "TAGS",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskField = (typeof TaskField)[keyof typeof TaskField];
 
 /**
  * @public
@@ -6702,27 +6993,45 @@ export interface DescribeTasksRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Connectivity {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-}
+export const Connectivity = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+} as const;
 
 /**
  * @public
  */
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
+export type Connectivity = (typeof Connectivity)[keyof typeof Connectivity];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
  * @public
  */
-export enum ManagedAgentName {
-  ExecuteCommandAgent = "ExecuteCommandAgent",
-}
+export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedAgentName = {
+  ExecuteCommandAgent: "ExecuteCommandAgent",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedAgentName = (typeof ManagedAgentName)[keyof typeof ManagedAgentName];
 
 /**
  * @public
@@ -7111,15 +7420,21 @@ export interface TaskOverride {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskStopCode {
-  ESSENTIAL_CONTAINER_EXITED = "EssentialContainerExited",
-  SERVICE_SCHEDULER_INITIATED = "ServiceSchedulerInitiated",
-  SPOT_INTERRUPTION = "SpotInterruption",
-  TASK_FAILED_TO_START = "TaskFailedToStart",
-  TERMINATION_NOTICE = "TerminationNotice",
-  USER_INITIATED = "UserInitiated",
-}
+export const TaskStopCode = {
+  ESSENTIAL_CONTAINER_EXITED: "EssentialContainerExited",
+  SERVICE_SCHEDULER_INITIATED: "ServiceSchedulerInitiated",
+  SPOT_INTERRUPTION: "SpotInterruption",
+  TASK_FAILED_TO_START: "TaskFailedToStart",
+  TERMINATION_NOTICE: "TerminationNotice",
+  USER_INITIATED: "UserInitiated",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStopCode = (typeof TaskStopCode)[keyof typeof TaskStopCode];
 
 /**
  * @public
@@ -7503,10 +7818,16 @@ export interface DescribeTasksResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskSetField {
-  TAGS = "TAGS",
-}
+export const TaskSetField = {
+  TAGS: "TAGS",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskSetField = (typeof TaskSetField)[keyof typeof TaskSetField];
 
 /**
  * @public
@@ -8011,14 +8332,20 @@ export interface ListClustersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerInstanceStatus {
-  ACTIVE = "ACTIVE",
-  DEREGISTERING = "DEREGISTERING",
-  DRAINING = "DRAINING",
-  REGISTERING = "REGISTERING",
-  REGISTRATION_FAILED = "REGISTRATION_FAILED",
-}
+export const ContainerInstanceStatus = {
+  ACTIVE: "ACTIVE",
+  DEREGISTERING: "DEREGISTERING",
+  DRAINING: "DRAINING",
+  REGISTERING: "REGISTERING",
+  REGISTRATION_FAILED: "REGISTRATION_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerInstanceStatus = (typeof ContainerInstanceStatus)[keyof typeof ContainerInstanceStatus];
 
 /**
  * @public
@@ -8243,12 +8570,18 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskDefinitionFamilyStatus {
-  ACTIVE = "ACTIVE",
-  ALL = "ALL",
-  INACTIVE = "INACTIVE",
-}
+export const TaskDefinitionFamilyStatus = {
+  ACTIVE: "ACTIVE",
+  ALL: "ALL",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskDefinitionFamilyStatus = (typeof TaskDefinitionFamilyStatus)[keyof typeof TaskDefinitionFamilyStatus];
 
 /**
  * @public
@@ -8325,11 +8658,17 @@ export interface ListTaskDefinitionFamiliesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -8410,12 +8749,18 @@ export interface ListTaskDefinitionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DesiredStatus {
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const DesiredStatus = {
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type DesiredStatus = (typeof DesiredStatus)[keyof typeof DesiredStatus];
 
 /**
  * @public
@@ -8730,10 +9075,16 @@ export class ResourceInUseException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum PlatformDeviceType {
-  GPU = "GPU",
-}
+export const PlatformDeviceType = {
+  GPU: "GPU",
+} as const;
+
+/**
+ * @public
+ */
+export type PlatformDeviceType = (typeof PlatformDeviceType)[keyof typeof PlatformDeviceType];
 
 /**
  * @public

@@ -32,11 +32,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessDirection {
-  inbound = "inbound",
-  outbound = "outbound",
-}
+export const AccessDirection = {
+  inbound: "inbound",
+  outbound: "outbound",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessDirection = (typeof AccessDirection)[keyof typeof AccessDirection];
 
 /**
  * @public
@@ -68,11 +74,17 @@ export interface AccessKeyLastUsed {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusType {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const StatusType = {
+  Active: "Active",
+  Inactive: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * @public
@@ -142,11 +154,17 @@ export interface ResourceReceivingAccess {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessType {
-  Private = "private",
-  Public = "public",
-}
+export const AccessType = {
+  Private: "private",
+  Public: "public",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessType = (typeof AccessType)[keyof typeof AccessType];
 
 /**
  * @public
@@ -196,23 +214,35 @@ export interface AccessRules {
 
 /**
  * @public
+ * @enum
  */
-export enum BPAStatusMessage {
-  DEFAULTED_FOR_SLR_MISSING = "DEFAULTED_FOR_SLR_MISSING",
-  DEFAULTED_FOR_SLR_MISSING_ON_HOLD = "DEFAULTED_FOR_SLR_MISSING_ON_HOLD",
-  SYNC_ON_HOLD = "SYNC_ON_HOLD",
-  Unknown = "Unknown",
-}
+export const BPAStatusMessage = {
+  DEFAULTED_FOR_SLR_MISSING: "DEFAULTED_FOR_SLR_MISSING",
+  DEFAULTED_FOR_SLR_MISSING_ON_HOLD: "DEFAULTED_FOR_SLR_MISSING_ON_HOLD",
+  SYNC_ON_HOLD: "SYNC_ON_HOLD",
+  Unknown: "Unknown",
+} as const;
 
 /**
  * @public
  */
-export enum AccountLevelBpaSyncStatus {
-  Defaulted = "Defaulted",
-  Failed = "Failed",
-  InSync = "InSync",
-  NeverSynced = "NeverSynced",
-}
+export type BPAStatusMessage = (typeof BPAStatusMessage)[keyof typeof BPAStatusMessage];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountLevelBpaSyncStatus = {
+  Defaulted: "Defaulted",
+  Failed: "Failed",
+  InSync: "InSync",
+  NeverSynced: "NeverSynced",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountLevelBpaSyncStatus = (typeof AccountLevelBpaSyncStatus)[keyof typeof AccountLevelBpaSyncStatus];
 
 /**
  * @public
@@ -395,11 +425,17 @@ export interface AddOn {
 
 /**
  * @public
+ * @enum
  */
-export enum AddOnType {
-  AutoSnapshot = "AutoSnapshot",
-  StopInstanceOnIdle = "StopInstanceOnIdle",
-}
+export const AddOnType = {
+  AutoSnapshot: "AutoSnapshot",
+  StopInstanceOnIdle: "StopInstanceOnIdle",
+} as const;
+
+/**
+ * @public
+ */
+export type AddOnType = (typeof AddOnType)[keyof typeof AddOnType];
 
 /**
  * @public
@@ -510,42 +546,60 @@ export interface AddOnRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
+export const ComparisonOperator = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+} as const;
 
 /**
  * @public
  */
-export enum ContactProtocol {
-  Email = "Email",
-  SMS = "SMS",
-}
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactProtocol = {
+  Email: "Email",
+  SMS: "SMS",
+} as const;
 
 /**
  * @public
  */
-export enum RegionName {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_1 = "ap-southeast-1",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AP_SOUTH_1 = "ap-south-1",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_NORTH_1 = "eu-north-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  EU_WEST_3 = "eu-west-3",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_1 = "us-west-1",
-  US_WEST_2 = "us-west-2",
-}
+export type ContactProtocol = (typeof ContactProtocol)[keyof typeof ContactProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegionName = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_SOUTHEAST_1: "ap-southeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AP_SOUTH_1: "ap-south-1",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_NORTH_1: "eu-north-1",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  EU_WEST_3: "eu-west-3",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_1: "us-west-1",
+  US_WEST_2: "us-west-2",
+} as const;
+
+/**
+ * @public
+ */
+export type RegionName = (typeof RegionName)[keyof typeof RegionName];
 
 /**
  * @public
@@ -565,60 +619,72 @@ export interface ResourceLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricName {
-  BurstCapacityPercentage = "BurstCapacityPercentage",
-  BurstCapacityTime = "BurstCapacityTime",
-  CPUUtilization = "CPUUtilization",
-  ClientTLSNegotiationErrorCount = "ClientTLSNegotiationErrorCount",
-  DatabaseConnections = "DatabaseConnections",
-  DiskQueueDepth = "DiskQueueDepth",
-  FreeStorageSpace = "FreeStorageSpace",
-  HTTPCode_Instance_2XX_Count = "HTTPCode_Instance_2XX_Count",
-  HTTPCode_Instance_3XX_Count = "HTTPCode_Instance_3XX_Count",
-  HTTPCode_Instance_4XX_Count = "HTTPCode_Instance_4XX_Count",
-  HTTPCode_Instance_5XX_Count = "HTTPCode_Instance_5XX_Count",
-  HTTPCode_LB_4XX_Count = "HTTPCode_LB_4XX_Count",
-  HTTPCode_LB_5XX_Count = "HTTPCode_LB_5XX_Count",
-  HealthyHostCount = "HealthyHostCount",
-  InstanceResponseTime = "InstanceResponseTime",
-  NetworkIn = "NetworkIn",
-  NetworkOut = "NetworkOut",
-  NetworkReceiveThroughput = "NetworkReceiveThroughput",
-  NetworkTransmitThroughput = "NetworkTransmitThroughput",
-  RejectedConnectionCount = "RejectedConnectionCount",
-  RequestCount = "RequestCount",
-  StatusCheckFailed = "StatusCheckFailed",
-  StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
-  StatusCheckFailed_System = "StatusCheckFailed_System",
-  UnhealthyHostCount = "UnhealthyHostCount",
-}
+export const MetricName = {
+  BurstCapacityPercentage: "BurstCapacityPercentage",
+  BurstCapacityTime: "BurstCapacityTime",
+  CPUUtilization: "CPUUtilization",
+  ClientTLSNegotiationErrorCount: "ClientTLSNegotiationErrorCount",
+  DatabaseConnections: "DatabaseConnections",
+  DiskQueueDepth: "DiskQueueDepth",
+  FreeStorageSpace: "FreeStorageSpace",
+  HTTPCode_Instance_2XX_Count: "HTTPCode_Instance_2XX_Count",
+  HTTPCode_Instance_3XX_Count: "HTTPCode_Instance_3XX_Count",
+  HTTPCode_Instance_4XX_Count: "HTTPCode_Instance_4XX_Count",
+  HTTPCode_Instance_5XX_Count: "HTTPCode_Instance_5XX_Count",
+  HTTPCode_LB_4XX_Count: "HTTPCode_LB_4XX_Count",
+  HTTPCode_LB_5XX_Count: "HTTPCode_LB_5XX_Count",
+  HealthyHostCount: "HealthyHostCount",
+  InstanceResponseTime: "InstanceResponseTime",
+  NetworkIn: "NetworkIn",
+  NetworkOut: "NetworkOut",
+  NetworkReceiveThroughput: "NetworkReceiveThroughput",
+  NetworkTransmitThroughput: "NetworkTransmitThroughput",
+  RejectedConnectionCount: "RejectedConnectionCount",
+  RequestCount: "RequestCount",
+  StatusCheckFailed: "StatusCheckFailed",
+  StatusCheckFailed_Instance: "StatusCheckFailed_Instance",
+  StatusCheckFailed_System: "StatusCheckFailed_System",
+  UnhealthyHostCount: "UnhealthyHostCount",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  Alarm = "Alarm",
-  Bucket = "Bucket",
-  Certificate = "Certificate",
-  CloudFormationStackRecord = "CloudFormationStackRecord",
-  ContactMethod = "ContactMethod",
-  ContainerService = "ContainerService",
-  Disk = "Disk",
-  DiskSnapshot = "DiskSnapshot",
-  Distribution = "Distribution",
-  Domain = "Domain",
-  ExportSnapshotRecord = "ExportSnapshotRecord",
-  Instance = "Instance",
-  InstanceSnapshot = "InstanceSnapshot",
-  KeyPair = "KeyPair",
-  LoadBalancer = "LoadBalancer",
-  LoadBalancerTlsCertificate = "LoadBalancerTlsCertificate",
-  PeeredVpc = "PeeredVpc",
-  RelationalDatabase = "RelationalDatabase",
-  RelationalDatabaseSnapshot = "RelationalDatabaseSnapshot",
-  StaticIp = "StaticIp",
-}
+export type MetricName = (typeof MetricName)[keyof typeof MetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  Alarm: "Alarm",
+  Bucket: "Bucket",
+  Certificate: "Certificate",
+  CloudFormationStackRecord: "CloudFormationStackRecord",
+  ContactMethod: "ContactMethod",
+  ContainerService: "ContainerService",
+  Disk: "Disk",
+  DiskSnapshot: "DiskSnapshot",
+  Distribution: "Distribution",
+  Domain: "Domain",
+  ExportSnapshotRecord: "ExportSnapshotRecord",
+  Instance: "Instance",
+  InstanceSnapshot: "InstanceSnapshot",
+  KeyPair: "KeyPair",
+  LoadBalancer: "LoadBalancer",
+  LoadBalancerTlsCertificate: "LoadBalancerTlsCertificate",
+  PeeredVpc: "PeeredVpc",
+  RelationalDatabase: "RelationalDatabase",
+  RelationalDatabaseSnapshot: "RelationalDatabaseSnapshot",
+  StaticIp: "StaticIp",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -648,66 +714,90 @@ export interface MonitoredResourceInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum AlarmState {
-  ALARM = "ALARM",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+export const AlarmState = {
+  ALARM: "ALARM",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+} as const;
 
 /**
  * @public
  */
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export type AlarmState = (typeof AlarmState)[keyof typeof AlarmState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
 
 /**
  * @public
  */
-export enum TreatMissingData {
-  Breaching = "breaching",
-  Ignore = "ignore",
-  Missing = "missing",
-  NotBreaching = "notBreaching",
-}
+export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
+
+/**
+ * @public
+ * @enum
+ */
+export const TreatMissingData = {
+  Breaching: "breaching",
+  Ignore: "ignore",
+  Missing: "missing",
+  NotBreaching: "notBreaching",
+} as const;
 
 /**
  * @public
  */
-export enum MetricUnit {
-  Bits = "Bits",
-  BitsSecond = "Bits/Second",
-  Bytes = "Bytes",
-  BytesSecond = "Bytes/Second",
-  Count = "Count",
-  CountSecond = "Count/Second",
-  Gigabits = "Gigabits",
-  GigabitsSecond = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  GigabytesSecond = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  KilobitsSecond = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  KilobytesSecond = "Kilobytes/Second",
-  Megabits = "Megabits",
-  MegabitsSecond = "Megabits/Second",
-  Megabytes = "Megabytes",
-  MegabytesSecond = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  TerabitsSecond = "Terabits/Second",
-  Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second",
-}
+export type TreatMissingData = (typeof TreatMissingData)[keyof typeof TreatMissingData];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricUnit = {
+  Bits: "Bits",
+  BitsSecond: "Bits/Second",
+  Bytes: "Bytes",
+  BytesSecond: "Bytes/Second",
+  Count: "Count",
+  CountSecond: "Count/Second",
+  Gigabits: "Gigabits",
+  GigabitsSecond: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  GigabytesSecond: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  KilobitsSecond: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  KilobytesSecond: "Kilobytes/Second",
+  Megabits: "Megabits",
+  MegabitsSecond: "Megabits/Second",
+  Megabytes: "Megabytes",
+  MegabytesSecond: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  TerabitsSecond: "Terabits/Second",
+  Terabytes: "Terabytes",
+  TerabytesSecond: "Terabytes/Second",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricUnit = (typeof MetricUnit)[keyof typeof MetricUnit];
 
 /**
  * @public
@@ -903,102 +993,114 @@ export interface AllocateStaticIpRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationType {
-  AllocateStaticIp = "AllocateStaticIp",
-  AttachCertificateToDistribution = "AttachCertificateToDistribution",
-  AttachDisk = "AttachDisk",
-  AttachInstancesToLoadBalancer = "AttachInstancesToLoadBalancer",
-  AttachLoadBalancerTlsCertificate = "AttachLoadBalancerTlsCertificate",
-  AttachStaticIp = "AttachStaticIp",
-  CloseInstancePublicPorts = "CloseInstancePublicPorts",
-  CreateBucket = "CreateBucket",
-  CreateBucketAccessKey = "CreateBucketAccessKey",
-  CreateCertificate = "CreateCertificate",
-  CreateContactMethod = "CreateContactMethod",
-  CreateContainerService = "CreateContainerService",
-  CreateContainerServiceDeployment = "CreateContainerServiceDeployment",
-  CreateContainerServiceRegistryLogin = "CreateContainerServiceRegistryLogin",
-  CreateDisk = "CreateDisk",
-  CreateDiskFromSnapshot = "CreateDiskFromSnapshot",
-  CreateDiskSnapshot = "CreateDiskSnapshot",
-  CreateDistribution = "CreateDistribution",
-  CreateDomain = "CreateDomain",
-  CreateInstance = "CreateInstance",
-  CreateInstanceSnapshot = "CreateInstanceSnapshot",
-  CreateInstancesFromSnapshot = "CreateInstancesFromSnapshot",
-  CreateLoadBalancer = "CreateLoadBalancer",
-  CreateLoadBalancerTlsCertificate = "CreateLoadBalancerTlsCertificate",
-  CreateRelationalDatabase = "CreateRelationalDatabase",
-  CreateRelationalDatabaseFromSnapshot = "CreateRelationalDatabaseFromSnapshot",
-  CreateRelationalDatabaseSnapshot = "CreateRelationalDatabaseSnapshot",
-  DeleteAlarm = "DeleteAlarm",
-  DeleteBucket = "DeleteBucket",
-  DeleteBucketAccessKey = "DeleteBucketAccessKey",
-  DeleteCertificate = "DeleteCertificate",
-  DeleteContactMethod = "DeleteContactMethod",
-  DeleteContainerImage = "DeleteContainerImage",
-  DeleteContainerService = "DeleteContainerService",
-  DeleteDisk = "DeleteDisk",
-  DeleteDiskSnapshot = "DeleteDiskSnapshot",
-  DeleteDistribution = "DeleteDistribution",
-  DeleteDomain = "DeleteDomain",
-  DeleteDomainEntry = "DeleteDomainEntry",
-  DeleteInstance = "DeleteInstance",
-  DeleteInstanceSnapshot = "DeleteInstanceSnapshot",
-  DeleteKnownHostKeys = "DeleteKnownHostKeys",
-  DeleteLoadBalancer = "DeleteLoadBalancer",
-  DeleteLoadBalancerTlsCertificate = "DeleteLoadBalancerTlsCertificate",
-  DeleteRelationalDatabase = "DeleteRelationalDatabase",
-  DeleteRelationalDatabaseSnapshot = "DeleteRelationalDatabaseSnapshot",
-  DetachCertificateFromDistribution = "DetachCertificateFromDistribution",
-  DetachDisk = "DetachDisk",
-  DetachInstancesFromLoadBalancer = "DetachInstancesFromLoadBalancer",
-  DetachStaticIp = "DetachStaticIp",
-  DisableAddOn = "DisableAddOn",
-  EnableAddOn = "EnableAddOn",
-  GetAlarms = "GetAlarms",
-  GetContactMethods = "GetContactMethods",
-  OpenInstancePublicPorts = "OpenInstancePublicPorts",
-  PutAlarm = "PutAlarm",
-  PutInstancePublicPorts = "PutInstancePublicPorts",
-  RebootInstance = "RebootInstance",
-  RebootRelationalDatabase = "RebootRelationalDatabase",
-  RegisterContainerImage = "RegisterContainerImage",
-  ReleaseStaticIp = "ReleaseStaticIp",
-  ResetDistributionCache = "ResetDistributionCache",
-  SendContactMethodVerification = "SendContactMethodVerification",
-  SetIpAddressType = "SetIpAddressType",
-  SetResourceAccessForBucket = "SetResourceAccessForBucket",
-  StartGUISession = "StartGUISession",
-  StartInstance = "StartInstance",
-  StartRelationalDatabase = "StartRelationalDatabase",
-  StopGUISession = "StopGUISession",
-  StopInstance = "StopInstance",
-  StopRelationalDatabase = "StopRelationalDatabase",
-  TestAlarm = "TestAlarm",
-  UpdateBucket = "UpdateBucket",
-  UpdateBucketBundle = "UpdateBucketBundle",
-  UpdateContainerService = "UpdateContainerService",
-  UpdateDistribution = "UpdateDistribution",
-  UpdateDistributionBundle = "UpdateDistributionBundle",
-  UpdateDomainEntry = "UpdateDomainEntry",
-  UpdateInstanceMetadataOptions = "UpdateInstanceMetadataOptions",
-  UpdateLoadBalancerAttribute = "UpdateLoadBalancerAttribute",
-  UpdateRelationalDatabase = "UpdateRelationalDatabase",
-  UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters",
-}
+export const OperationType = {
+  AllocateStaticIp: "AllocateStaticIp",
+  AttachCertificateToDistribution: "AttachCertificateToDistribution",
+  AttachDisk: "AttachDisk",
+  AttachInstancesToLoadBalancer: "AttachInstancesToLoadBalancer",
+  AttachLoadBalancerTlsCertificate: "AttachLoadBalancerTlsCertificate",
+  AttachStaticIp: "AttachStaticIp",
+  CloseInstancePublicPorts: "CloseInstancePublicPorts",
+  CreateBucket: "CreateBucket",
+  CreateBucketAccessKey: "CreateBucketAccessKey",
+  CreateCertificate: "CreateCertificate",
+  CreateContactMethod: "CreateContactMethod",
+  CreateContainerService: "CreateContainerService",
+  CreateContainerServiceDeployment: "CreateContainerServiceDeployment",
+  CreateContainerServiceRegistryLogin: "CreateContainerServiceRegistryLogin",
+  CreateDisk: "CreateDisk",
+  CreateDiskFromSnapshot: "CreateDiskFromSnapshot",
+  CreateDiskSnapshot: "CreateDiskSnapshot",
+  CreateDistribution: "CreateDistribution",
+  CreateDomain: "CreateDomain",
+  CreateInstance: "CreateInstance",
+  CreateInstanceSnapshot: "CreateInstanceSnapshot",
+  CreateInstancesFromSnapshot: "CreateInstancesFromSnapshot",
+  CreateLoadBalancer: "CreateLoadBalancer",
+  CreateLoadBalancerTlsCertificate: "CreateLoadBalancerTlsCertificate",
+  CreateRelationalDatabase: "CreateRelationalDatabase",
+  CreateRelationalDatabaseFromSnapshot: "CreateRelationalDatabaseFromSnapshot",
+  CreateRelationalDatabaseSnapshot: "CreateRelationalDatabaseSnapshot",
+  DeleteAlarm: "DeleteAlarm",
+  DeleteBucket: "DeleteBucket",
+  DeleteBucketAccessKey: "DeleteBucketAccessKey",
+  DeleteCertificate: "DeleteCertificate",
+  DeleteContactMethod: "DeleteContactMethod",
+  DeleteContainerImage: "DeleteContainerImage",
+  DeleteContainerService: "DeleteContainerService",
+  DeleteDisk: "DeleteDisk",
+  DeleteDiskSnapshot: "DeleteDiskSnapshot",
+  DeleteDistribution: "DeleteDistribution",
+  DeleteDomain: "DeleteDomain",
+  DeleteDomainEntry: "DeleteDomainEntry",
+  DeleteInstance: "DeleteInstance",
+  DeleteInstanceSnapshot: "DeleteInstanceSnapshot",
+  DeleteKnownHostKeys: "DeleteKnownHostKeys",
+  DeleteLoadBalancer: "DeleteLoadBalancer",
+  DeleteLoadBalancerTlsCertificate: "DeleteLoadBalancerTlsCertificate",
+  DeleteRelationalDatabase: "DeleteRelationalDatabase",
+  DeleteRelationalDatabaseSnapshot: "DeleteRelationalDatabaseSnapshot",
+  DetachCertificateFromDistribution: "DetachCertificateFromDistribution",
+  DetachDisk: "DetachDisk",
+  DetachInstancesFromLoadBalancer: "DetachInstancesFromLoadBalancer",
+  DetachStaticIp: "DetachStaticIp",
+  DisableAddOn: "DisableAddOn",
+  EnableAddOn: "EnableAddOn",
+  GetAlarms: "GetAlarms",
+  GetContactMethods: "GetContactMethods",
+  OpenInstancePublicPorts: "OpenInstancePublicPorts",
+  PutAlarm: "PutAlarm",
+  PutInstancePublicPorts: "PutInstancePublicPorts",
+  RebootInstance: "RebootInstance",
+  RebootRelationalDatabase: "RebootRelationalDatabase",
+  RegisterContainerImage: "RegisterContainerImage",
+  ReleaseStaticIp: "ReleaseStaticIp",
+  ResetDistributionCache: "ResetDistributionCache",
+  SendContactMethodVerification: "SendContactMethodVerification",
+  SetIpAddressType: "SetIpAddressType",
+  SetResourceAccessForBucket: "SetResourceAccessForBucket",
+  StartGUISession: "StartGUISession",
+  StartInstance: "StartInstance",
+  StartRelationalDatabase: "StartRelationalDatabase",
+  StopGUISession: "StopGUISession",
+  StopInstance: "StopInstance",
+  StopRelationalDatabase: "StopRelationalDatabase",
+  TestAlarm: "TestAlarm",
+  UpdateBucket: "UpdateBucket",
+  UpdateBucketBundle: "UpdateBucketBundle",
+  UpdateContainerService: "UpdateContainerService",
+  UpdateDistribution: "UpdateDistribution",
+  UpdateDistributionBundle: "UpdateDistributionBundle",
+  UpdateDomainEntry: "UpdateDomainEntry",
+  UpdateInstanceMetadataOptions: "UpdateInstanceMetadataOptions",
+  UpdateLoadBalancerAttribute: "UpdateLoadBalancerAttribute",
+  UpdateRelationalDatabase: "UpdateRelationalDatabase",
+  UpdateRelationalDatabaseParameters: "UpdateRelationalDatabaseParameters",
+} as const;
 
 /**
  * @public
  */
-export enum OperationStatus {
-  Completed = "Completed",
-  Failed = "Failed",
-  NotStarted = "NotStarted",
-  Started = "Started",
-  Succeeded = "Succeeded",
-}
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  Completed: "Completed",
+  Failed: "Failed",
+  NotStarted: "NotStarted",
+  Started: "Started",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
 
 /**
  * @public
@@ -1217,10 +1319,16 @@ export class UnauthenticatedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AppCategory {
-  LfR = "LfR",
-}
+export const AppCategory = {
+  LfR: "LfR",
+} as const;
+
+/**
+ * @public
+ */
+export type AppCategory = (typeof AppCategory)[keyof typeof AppCategory];
 
 /**
  * @public
@@ -1424,23 +1532,35 @@ export interface AttachStaticIpResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AutoMountStatus {
-  Failed = "Failed",
-  Mounted = "Mounted",
-  NotMounted = "NotMounted",
-  Pending = "Pending",
-}
+export const AutoMountStatus = {
+  Failed: "Failed",
+  Mounted: "Mounted",
+  NotMounted: "NotMounted",
+  Pending: "Pending",
+} as const;
 
 /**
  * @public
  */
-export enum AutoSnapshotStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_FOUND = "NotFound",
-  SUCCESS = "Success",
-}
+export type AutoMountStatus = (typeof AutoMountStatus)[keyof typeof AutoMountStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoSnapshotStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_FOUND: "NotFound",
+  SUCCESS: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoSnapshotStatus = (typeof AutoSnapshotStatus)[keyof typeof AutoSnapshotStatus];
 
 /**
  * @public
@@ -1489,27 +1609,45 @@ export interface AvailabilityZone {
 
 /**
  * @public
+ * @enum
  */
-export enum BehaviorEnum {
-  CacheSetting = "cache",
-  DontCacheSetting = "dont-cache",
-}
+export const BehaviorEnum = {
+  CacheSetting: "cache",
+  DontCacheSetting: "dont-cache",
+} as const;
 
 /**
  * @public
  */
-export enum InstancePlatform {
-  LinuxUnix = "LINUX_UNIX",
-  Windows = "WINDOWS",
-}
+export type BehaviorEnum = (typeof BehaviorEnum)[keyof typeof BehaviorEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstancePlatform = {
+  LinuxUnix: "LINUX_UNIX",
+  Windows: "WINDOWS",
+} as const;
 
 /**
  * @public
  */
-export enum BlueprintType {
-  app = "app",
-  os = "os",
-}
+export type InstancePlatform = (typeof InstancePlatform)[keyof typeof InstancePlatform];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlueprintType = {
+  app: "app",
+  os: "os",
+} as const;
+
+/**
+ * @public
+ */
+export type BlueprintType = (typeof BlueprintType)[keyof typeof BlueprintType];
 
 /**
  * @public
@@ -1842,11 +1980,17 @@ export interface BucketBundle {
 
 /**
  * @public
+ * @enum
  */
-export enum BucketMetricName {
-  BucketSizeBytes = "BucketSizeBytes",
-  NumberOfObjects = "NumberOfObjects",
-}
+export const BucketMetricName = {
+  BucketSizeBytes: "BucketSizeBytes",
+  NumberOfObjects: "NumberOfObjects",
+} as const;
+
+/**
+ * @public
+ */
+export type BucketMetricName = (typeof BucketMetricName)[keyof typeof BucketMetricName];
 
 /**
  * @public
@@ -2047,12 +2191,18 @@ export interface CacheBehaviorPerPath {
 
 /**
  * @public
+ * @enum
  */
-export enum ForwardValues {
-  all = "all",
-  allowList = "allow-list",
-  none = "none",
-}
+export const ForwardValues = {
+  all: "all",
+  allowList: "allow-list",
+  none: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type ForwardValues = (typeof ForwardValues)[keyof typeof ForwardValues];
 
 /**
  * @public
@@ -2078,24 +2228,30 @@ export interface CookieObject {
 
 /**
  * @public
+ * @enum
  */
-export enum HeaderEnum {
-  accept = "Accept",
-  acceptCharset = "Accept-Charset",
-  acceptDatetime = "Accept-Datetime",
-  acceptEncoding = "Accept-Encoding",
-  acceptLanguage = "Accept-Language",
-  authorization = "Authorization",
-  cloudFrontForwardedProto = "CloudFront-Forwarded-Proto",
-  cloudFrontIsDesktopViewer = "CloudFront-Is-Desktop-Viewer",
-  cloudFrontIsMobileViewer = "CloudFront-Is-Mobile-Viewer",
-  cloudFrontIsSmartTVViewer = "CloudFront-Is-SmartTV-Viewer",
-  cloudFrontIsTabletViewer = "CloudFront-Is-Tablet-Viewer",
-  cloudFrontViewerCountry = "CloudFront-Viewer-Country",
-  host = "Host",
-  origin = "Origin",
-  referer = "Referer",
-}
+export const HeaderEnum = {
+  accept: "Accept",
+  acceptCharset: "Accept-Charset",
+  acceptDatetime: "Accept-Datetime",
+  acceptEncoding: "Accept-Encoding",
+  acceptLanguage: "Accept-Language",
+  authorization: "Authorization",
+  cloudFrontForwardedProto: "CloudFront-Forwarded-Proto",
+  cloudFrontIsDesktopViewer: "CloudFront-Is-Desktop-Viewer",
+  cloudFrontIsMobileViewer: "CloudFront-Is-Mobile-Viewer",
+  cloudFrontIsSmartTVViewer: "CloudFront-Is-SmartTV-Viewer",
+  cloudFrontIsTabletViewer: "CloudFront-Is-Tablet-Viewer",
+  cloudFrontViewerCountry: "CloudFront-Viewer-Country",
+  host: "Host",
+  origin: "Origin",
+  referer: "Referer",
+} as const;
+
+/**
+ * @public
+ */
+export type HeaderEnum = (typeof HeaderEnum)[keyof typeof HeaderEnum];
 
 /**
  * @public
@@ -2276,12 +2432,18 @@ export interface CacheSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum DnsRecordCreationStateCode {
-  Failed = "FAILED",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+export const DnsRecordCreationStateCode = {
+  Failed: "FAILED",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsRecordCreationStateCode = (typeof DnsRecordCreationStateCode)[keyof typeof DnsRecordCreationStateCode];
 
 /**
  * @public
@@ -2349,12 +2511,19 @@ export interface ResourceRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateDomainValidationStatus {
-  Failed = "FAILED",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
-}
+export const CertificateDomainValidationStatus = {
+  Failed: "FAILED",
+  PendingValidation: "PENDING_VALIDATION",
+  Success: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateDomainValidationStatus =
+  (typeof CertificateDomainValidationStatus)[keyof typeof CertificateDomainValidationStatus];
 
 /**
  * @public
@@ -2389,13 +2558,19 @@ export interface DomainValidationRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum RenewalStatus {
-  Failed = "Failed",
-  PendingAutoRenewal = "PendingAutoRenewal",
-  PendingValidation = "PendingValidation",
-  Success = "Success",
-}
+export const RenewalStatus = {
+  Failed: "Failed",
+  PendingAutoRenewal: "PendingAutoRenewal",
+  PendingValidation: "PendingValidation",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type RenewalStatus = (typeof RenewalStatus)[keyof typeof RenewalStatus];
 
 /**
  * @public
@@ -2463,16 +2638,22 @@ export interface RenewalSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateStatus {
-  Expired = "EXPIRED",
-  Failed = "FAILED",
-  Inactive = "INACTIVE",
-  Issued = "ISSUED",
-  PendingValidation = "PENDING_VALIDATION",
-  Revoked = "REVOKED",
-  ValidationTimedOut = "VALIDATION_TIMED_OUT",
-}
+export const CertificateStatus = {
+  Expired: "EXPIRED",
+  Failed: "FAILED",
+  Inactive: "INACTIVE",
+  Issued: "ISSUED",
+  PendingValidation: "PENDING_VALIDATION",
+  Revoked: "REVOKED",
+  ValidationTimedOut: "VALIDATION_TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
 
 /**
  * @public
@@ -2694,13 +2875,19 @@ export interface CertificateSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkProtocol {
-  ALL = "all",
-  ICMP = "icmp",
-  TCP = "tcp",
-  UDP = "udp",
-}
+export const NetworkProtocol = {
+  ALL: "all",
+  ICMP: "icmp",
+  TCP: "tcp",
+  UDP: "udp",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkProtocol = (typeof NetworkProtocol)[keyof typeof NetworkProtocol];
 
 /**
  * @public
@@ -2882,10 +3069,17 @@ export interface DestinationInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum CloudFormationStackRecordSourceType {
-  ExportSnapshotRecord = "ExportSnapshotRecord",
-}
+export const CloudFormationStackRecordSourceType = {
+  ExportSnapshotRecord: "ExportSnapshotRecord",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudFormationStackRecordSourceType =
+  (typeof CloudFormationStackRecordSourceType)[keyof typeof CloudFormationStackRecordSourceType];
 
 /**
  * @public
@@ -2911,12 +3105,18 @@ export interface CloudFormationStackRecordSourceInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordState {
-  Failed = "Failed",
-  Started = "Started",
-  Succeeded = "Succeeded",
-}
+export const RecordState = {
+  Failed: "Failed",
+  Started: "Started",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordState = (typeof RecordState)[keyof typeof RecordState];
 
 /**
  * @public
@@ -2972,12 +3172,18 @@ export interface CloudFormationStackRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactMethodStatus {
-  Invalid = "Invalid",
-  PendingVerification = "PendingVerification",
-  Valid = "Valid",
-}
+export const ContactMethodStatus = {
+  Invalid: "Invalid",
+  PendingVerification: "PendingVerification",
+  Valid: "Valid",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactMethodStatus = (typeof ContactMethodStatus)[keyof typeof ContactMethodStatus];
 
 /**
  * @public
@@ -3053,20 +3259,33 @@ export interface ContactMethod {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactMethodVerificationProtocol {
-  Email = "Email",
-}
+export const ContactMethodVerificationProtocol = {
+  Email: "Email",
+} as const;
 
 /**
  * @public
  */
-export enum ContainerServiceProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export type ContactMethodVerificationProtocol =
+  (typeof ContactMethodVerificationProtocol)[keyof typeof ContactMethodVerificationProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerServiceProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerServiceProtocol = (typeof ContainerServiceProtocol)[keyof typeof ContainerServiceProtocol];
 
 /**
  * @public
@@ -3197,13 +3416,20 @@ export interface ContainerServiceEndpoint {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerServiceDeploymentState {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-}
+export const ContainerServiceDeploymentState = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerServiceDeploymentState =
+  (typeof ContainerServiceDeploymentState)[keyof typeof ContainerServiceDeploymentState];
 
 /**
  * @public
@@ -3265,15 +3491,21 @@ export interface ContainerServiceDeployment {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerServicePowerName {
-  large = "large",
-  medium = "medium",
-  micro = "micro",
-  nano = "nano",
-  small = "small",
-  xlarge = "xlarge",
-}
+export const ContainerServicePowerName = {
+  large: "large",
+  medium: "medium",
+  micro: "micro",
+  nano: "nano",
+  small: "small",
+  xlarge: "xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerServicePowerName = (typeof ContainerServicePowerName)[keyof typeof ContainerServicePowerName];
 
 /**
  * @public
@@ -3315,31 +3547,44 @@ export interface PrivateRegistryAccess {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerServiceState {
-  DELETING = "DELETING",
-  DEPLOYING = "DEPLOYING",
-  DISABLED = "DISABLED",
-  PENDING = "PENDING",
-  READY = "READY",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+export const ContainerServiceState = {
+  DELETING: "DELETING",
+  DEPLOYING: "DEPLOYING",
+  DISABLED: "DISABLED",
+  PENDING: "PENDING",
+  READY: "READY",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum ContainerServiceStateDetailCode {
-  ACTIVATING_DEPLOYMENT = "ACTIVATING_DEPLOYMENT",
-  CERTIFICATE_LIMIT_EXCEEDED = "CERTIFICATE_LIMIT_EXCEEDED",
-  CREATING_DEPLOYMENT = "CREATING_DEPLOYMENT",
-  CREATING_NETWORK_INFRASTRUCTURE = "CREATING_NETWORK_INFRASTRUCTURE",
-  CREATING_SYSTEM_RESOURCES = "CREATING_SYSTEM_RESOURCES",
-  EVALUATING_HEALTH_CHECK = "EVALUATING_HEALTH_CHECK",
-  PROVISIONING_CERTIFICATE = "PROVISIONING_CERTIFICATE",
-  PROVISIONING_SERVICE = "PROVISIONING_SERVICE",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR",
-}
+export type ContainerServiceState = (typeof ContainerServiceState)[keyof typeof ContainerServiceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerServiceStateDetailCode = {
+  ACTIVATING_DEPLOYMENT: "ACTIVATING_DEPLOYMENT",
+  CERTIFICATE_LIMIT_EXCEEDED: "CERTIFICATE_LIMIT_EXCEEDED",
+  CREATING_DEPLOYMENT: "CREATING_DEPLOYMENT",
+  CREATING_NETWORK_INFRASTRUCTURE: "CREATING_NETWORK_INFRASTRUCTURE",
+  CREATING_SYSTEM_RESOURCES: "CREATING_SYSTEM_RESOURCES",
+  EVALUATING_HEALTH_CHECK: "EVALUATING_HEALTH_CHECK",
+  PROVISIONING_CERTIFICATE: "PROVISIONING_CERTIFICATE",
+  PROVISIONING_SERVICE: "PROVISIONING_SERVICE",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerServiceStateDetailCode =
+  (typeof ContainerServiceStateDetailCode)[keyof typeof ContainerServiceStateDetailCode];
 
 /**
  * @public
@@ -3668,11 +3913,17 @@ export interface ContainerServiceLogEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerServiceMetricName {
-  CPUUtilization = "CPUUtilization",
-  MemoryUtilization = "MemoryUtilization",
-}
+export const ContainerServiceMetricName = {
+  CPUUtilization: "CPUUtilization",
+  MemoryUtilization: "MemoryUtilization",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerServiceMetricName = (typeof ContainerServiceMetricName)[keyof typeof ContainerServiceMetricName];
 
 /**
  * @public
@@ -3850,21 +4101,33 @@ export interface CopySnapshotResult {
 
 /**
  * @public
+ * @enum
  */
-export enum Currency {
-  USD = "USD",
-}
+export const Currency = {
+  USD: "USD",
+} as const;
 
 /**
  * @public
  */
-export enum PricingUnit {
-  Bundles = "Bundles",
-  GB = "GB",
-  GBMo = "GB-Mo",
-  Hrs = "Hrs",
-  Queries = "Queries",
-}
+export type Currency = (typeof Currency)[keyof typeof Currency];
+
+/**
+ * @public
+ * @enum
+ */
+export const PricingUnit = {
+  Bundles: "Bundles",
+  GB: "GB",
+  GBMo: "GB-Mo",
+  Hrs: "Hrs",
+  Queries: "Queries",
+} as const;
+
+/**
+ * @public
+ */
+export type PricingUnit = (typeof PricingUnit)[keyof typeof PricingUnit];
 
 /**
  * @public
@@ -4059,13 +4322,19 @@ export interface CreateCertificateResult {
 
 /**
  * @public
+ * @enum
  */
-export enum PortInfoSourceType {
-  Closed = "CLOSED",
-  Default = "DEFAULT",
-  Instance = "INSTANCE",
-  None = "NONE",
-}
+export const PortInfoSourceType = {
+  Closed: "CLOSED",
+  Default: "DEFAULT",
+  Instance: "INSTANCE",
+  None: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type PortInfoSourceType = (typeof PortInfoSourceType)[keyof typeof PortInfoSourceType];
 
 /**
  * @public
@@ -4610,19 +4879,31 @@ export interface CreateDiskSnapshotResult {
 
 /**
  * @public
+ * @enum
  */
-export enum IpAddressType {
-  DUALSTACK = "dualstack",
-  IPV4 = "ipv4",
-}
+export const IpAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
 
 /**
  * @public
  */
-export enum OriginProtocolPolicyEnum {
-  HTTPOnly = "http-only",
-  HTTPSOnly = "https-only",
-}
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OriginProtocolPolicyEnum = {
+  HTTPOnly: "http-only",
+  HTTPSOnly: "https-only",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginProtocolPolicyEnum = (typeof OriginProtocolPolicyEnum)[keyof typeof OriginProtocolPolicyEnum];
 
 /**
  * @public
@@ -5061,19 +5342,25 @@ export interface Session {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  FailedInstanceCreation = "failedInstanceCreation",
-  FailedStartingGUISession = "failedStartingGUISession",
-  FailedStoppingGUISession = "failedStoppingGUISession",
-  NotStarted = "notStarted",
-  SettingUpInstance = "settingUpInstance",
-  StartExpired = "startExpired",
-  Started = "started",
-  Starting = "starting",
-  Stopped = "stopped",
-  Stopping = "stopping",
-}
+export const Status = {
+  FailedInstanceCreation: "failedInstanceCreation",
+  FailedStartingGUISession: "failedStartingGUISession",
+  FailedStoppingGUISession: "failedStoppingGUISession",
+  NotStarted: "notStarted",
+  SettingUpInstance: "settingUpInstance",
+  StartExpired: "startExpired",
+  Started: "started",
+  Starting: "starting",
+  Stopped: "stopped",
+  Stopping: "stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -6670,14 +6957,20 @@ export interface DisableAddOnResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DiskState {
-  Available = "available",
-  Error = "error",
-  InUse = "in-use",
-  Pending = "pending",
-  Unknown = "unknown",
-}
+export const DiskState = {
+  Available: "available",
+  Error: "error",
+  InUse: "in-use",
+  Pending: "pending",
+  Unknown: "unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type DiskState = (typeof DiskState)[keyof typeof DiskState];
 
 /**
  * @public
@@ -6824,13 +7117,19 @@ export interface DiskInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum DiskSnapshotState {
-  Completed = "completed",
-  Error = "error",
-  Pending = "pending",
-  Unknown = "unknown",
-}
+export const DiskSnapshotState = {
+  Completed: "completed",
+  Error: "error",
+  Pending: "pending",
+  Unknown: "unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type DiskSnapshotState = (typeof DiskSnapshotState)[keyof typeof DiskSnapshotState];
 
 /**
  * @public
@@ -6965,25 +7264,37 @@ export interface DistributionBundle {
 
 /**
  * @public
+ * @enum
  */
-export enum DistributionMetricName {
-  BytesDownloaded = "BytesDownloaded",
-  BytesUploaded = "BytesUploaded",
-  Http4xxErrorRate = "Http4xxErrorRate",
-  Http5xxErrorRate = "Http5xxErrorRate",
-  Requests = "Requests",
-  TotalErrorRate = "TotalErrorRate",
-}
+export const DistributionMetricName = {
+  BytesDownloaded: "BytesDownloaded",
+  BytesUploaded: "BytesUploaded",
+  Http4xxErrorRate: "Http4xxErrorRate",
+  Http5xxErrorRate: "Http5xxErrorRate",
+  Requests: "Requests",
+  TotalErrorRate: "TotalErrorRate",
+} as const;
 
 /**
  * @public
  */
-export enum NameServersUpdateStateCode {
-  Failed = "FAILED",
-  Pending = "PENDING",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+export type DistributionMetricName = (typeof DistributionMetricName)[keyof typeof DistributionMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const NameServersUpdateStateCode = {
+  Failed: "FAILED",
+  Pending: "PENDING",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type NameServersUpdateStateCode = (typeof NameServersUpdateStateCode)[keyof typeof NameServersUpdateStateCode];
 
 /**
  * @public
@@ -7025,13 +7336,20 @@ export interface NameServersUpdateState {
 
 /**
  * @public
+ * @enum
  */
-export enum R53HostedZoneDeletionStateCode {
-  Failed = "FAILED",
-  Pending = "PENDING",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+export const R53HostedZoneDeletionStateCode = {
+  Failed: "FAILED",
+  Pending: "PENDING",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type R53HostedZoneDeletionStateCode =
+  (typeof R53HostedZoneDeletionStateCode)[keyof typeof R53HostedZoneDeletionStateCode];
 
 /**
  * @public
@@ -7263,11 +7581,18 @@ export interface InstanceSnapshotInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportSnapshotRecordSourceType {
-  DiskSnapshot = "DiskSnapshot",
-  InstanceSnapshot = "InstanceSnapshot",
-}
+export const ExportSnapshotRecordSourceType = {
+  DiskSnapshot: "DiskSnapshot",
+  InstanceSnapshot: "InstanceSnapshot",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportSnapshotRecordSourceType =
+  (typeof ExportSnapshotRecordSourceType)[keyof typeof ExportSnapshotRecordSourceType];
 
 /**
  * @public

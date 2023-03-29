@@ -28,29 +28,47 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AllowPublish {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
+export const AllowPublish = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
 
 /**
  * @public
  */
-export enum AllowUpstream {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
+export type AllowPublish = (typeof AllowPublish)[keyof typeof AllowPublish];
+
+/**
+ * @public
+ * @enum
+ */
+export const AllowUpstream = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
 
 /**
  * @public
  */
-export enum HashAlgorithm {
-  MD5 = "MD5",
-  SHA1 = "SHA-1",
-  SHA256 = "SHA-256",
-  SHA512 = "SHA-512",
-}
+export type AllowUpstream = (typeof AllowUpstream)[keyof typeof AllowUpstream];
+
+/**
+ * @public
+ * @enum
+ */
+export const HashAlgorithm = {
+  MD5: "MD5",
+  SHA1: "SHA-1",
+  SHA256: "SHA-256",
+  SHA512: "SHA-512",
+} as const;
+
+/**
+ * @public
+ */
+export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
 
 /**
  * @public
@@ -156,21 +174,33 @@ export interface AssociateExternalConnectionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageFormat {
-  GENERIC = "generic",
-  MAVEN = "maven",
-  NPM = "npm",
-  NUGET = "nuget",
-  PYPI = "pypi",
-}
+export const PackageFormat = {
+  GENERIC: "generic",
+  MAVEN: "maven",
+  NPM: "npm",
+  NUGET: "nuget",
+  PYPI: "pypi",
+} as const;
 
 /**
  * @public
  */
-export enum ExternalConnectionStatus {
-  AVAILABLE = "Available",
-}
+export type PackageFormat = (typeof PackageFormat)[keyof typeof PackageFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalConnectionStatus = {
+  AVAILABLE: "Available",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalConnectionStatus = (typeof ExternalConnectionStatus)[keyof typeof ExternalConnectionStatus];
 
 /**
  * @public
@@ -317,14 +347,20 @@ export interface AssociateExternalConnectionResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  ASSET = "asset",
-  DOMAIN = "domain",
-  PACKAGE = "package",
-  PACKAGE_VERSION = "package-version",
-  REPOSITORY = "repository",
-}
+export const ResourceType = {
+  ASSET: "asset",
+  DOMAIN: "domain",
+  PACKAGE: "package",
+  PACKAGE_VERSION: "package-version",
+  REPOSITORY: "repository",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -492,14 +528,20 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  ENCRYPTION_KEY_ERROR = "ENCRYPTION_KEY_ERROR",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  ENCRYPTION_KEY_ERROR: "ENCRYPTION_KEY_ERROR",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -651,15 +693,21 @@ export interface CopyPackageVersionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageVersionErrorCode {
-  ALREADY_EXISTS = "ALREADY_EXISTS",
-  MISMATCHED_REVISION = "MISMATCHED_REVISION",
-  MISMATCHED_STATUS = "MISMATCHED_STATUS",
-  NOT_ALLOWED = "NOT_ALLOWED",
-  NOT_FOUND = "NOT_FOUND",
-  SKIPPED = "SKIPPED",
-}
+export const PackageVersionErrorCode = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  MISMATCHED_REVISION: "MISMATCHED_REVISION",
+  MISMATCHED_STATUS: "MISMATCHED_STATUS",
+  NOT_ALLOWED: "NOT_ALLOWED",
+  NOT_FOUND: "NOT_FOUND",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageVersionErrorCode = (typeof PackageVersionErrorCode)[keyof typeof PackageVersionErrorCode];
 
 /**
  * @public
@@ -715,15 +763,21 @@ export interface PackageVersionError {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageVersionStatus {
-  ARCHIVED = "Archived",
-  DELETED = "Deleted",
-  DISPOSED = "Disposed",
-  PUBLISHED = "Published",
-  UNFINISHED = "Unfinished",
-  UNLISTED = "Unlisted",
-}
+export const PackageVersionStatus = {
+  ARCHIVED: "Archived",
+  DELETED: "Deleted",
+  DISPOSED: "Disposed",
+  PUBLISHED: "Published",
+  UNFINISHED: "Unfinished",
+  UNLISTED: "Unlisted",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageVersionStatus = (typeof PackageVersionStatus)[keyof typeof PackageVersionStatus];
 
 /**
  * @public
@@ -850,11 +904,17 @@ export interface CreateDomainRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainStatus {
-  ACTIVE = "Active",
-  DELETED = "Deleted",
-}
+export const DomainStatus = {
+  ACTIVE: "Active",
+  DELETED: "Deleted",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 /**
  * @public
@@ -1742,12 +1802,18 @@ export interface DomainEntryPoint {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageVersionOriginType {
-  EXTERNAL = "EXTERNAL",
-  INTERNAL = "INTERNAL",
-  UNKNOWN = "UNKNOWN",
-}
+export const PackageVersionOriginType = {
+  EXTERNAL: "EXTERNAL",
+  INTERNAL: "INTERNAL",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageVersionOriginType = (typeof PackageVersionOriginType)[keyof typeof PackageVersionOriginType];
 
 /**
  * @public
@@ -3125,10 +3191,16 @@ export interface ListPackageVersionDependenciesResult {
 
 /**
  * @public
+ * @enum
  */
-export enum PackageVersionSortType {
-  PUBLISHED_TIME = "PUBLISHED_TIME",
-}
+export const PackageVersionSortType = {
+  PUBLISHED_TIME: "PUBLISHED_TIME",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageVersionSortType = (typeof PackageVersionSortType)[keyof typeof PackageVersionSortType];
 
 /**
  * @public

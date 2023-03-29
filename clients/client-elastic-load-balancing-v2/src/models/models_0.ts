@@ -5,12 +5,19 @@ import { ElasticLoadBalancingV2ServiceException as __BaseException } from "./Ela
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticateCognitoActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny",
-}
+export const AuthenticateCognitoActionConditionalBehaviorEnum = {
+  ALLOW: "allow",
+  AUTHENTICATE: "authenticate",
+  DENY: "deny",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticateCognitoActionConditionalBehaviorEnum =
+  (typeof AuthenticateCognitoActionConditionalBehaviorEnum)[keyof typeof AuthenticateCognitoActionConditionalBehaviorEnum];
 
 /**
  * @public
@@ -79,12 +86,19 @@ export interface AuthenticateCognitoActionConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticateOidcActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny",
-}
+export const AuthenticateOidcActionConditionalBehaviorEnum = {
+  ALLOW: "allow",
+  AUTHENTICATE: "authenticate",
+  DENY: "deny",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticateOidcActionConditionalBehaviorEnum =
+  (typeof AuthenticateOidcActionConditionalBehaviorEnum)[keyof typeof AuthenticateOidcActionConditionalBehaviorEnum];
 
 /**
  * @public
@@ -254,11 +268,18 @@ export interface ForwardActionConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum RedirectActionStatusCodeEnum {
-  HTTP_301 = "HTTP_301",
-  HTTP_302 = "HTTP_302",
-}
+export const RedirectActionStatusCodeEnum = {
+  HTTP_301: "HTTP_301",
+  HTTP_302: "HTTP_302",
+} as const;
+
+/**
+ * @public
+ */
+export type RedirectActionStatusCodeEnum =
+  (typeof RedirectActionStatusCodeEnum)[keyof typeof RedirectActionStatusCodeEnum];
 
 /**
  * @public
@@ -327,14 +348,20 @@ export interface RedirectActionConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionTypeEnum {
-  AUTHENTICATE_COGNITO = "authenticate-cognito",
-  AUTHENTICATE_OIDC = "authenticate-oidc",
-  FIXED_RESPONSE = "fixed-response",
-  FORWARD = "forward",
-  REDIRECT = "redirect",
-}
+export const ActionTypeEnum = {
+  AUTHENTICATE_COGNITO: "authenticate-cognito",
+  AUTHENTICATE_OIDC: "authenticate-oidc",
+  FIXED_RESPONSE: "fixed-response",
+  FORWARD: "forward",
+  REDIRECT: "redirect",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionTypeEnum = (typeof ActionTypeEnum)[keyof typeof ActionTypeEnum];
 
 /**
  * @public
@@ -794,16 +821,22 @@ export interface Cipher {
 
 /**
  * @public
+ * @enum
  */
-export enum ProtocolEnum {
-  GENEVE = "GENEVE",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-  TCP_UDP = "TCP_UDP",
-  TLS = "TLS",
-  UDP = "UDP",
-}
+export const ProtocolEnum = {
+  GENEVE: "GENEVE",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+  TCP_UDP: "TCP_UDP",
+  TLS: "TLS",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtocolEnum = (typeof ProtocolEnum)[keyof typeof ProtocolEnum];
 
 /**
  * @public
@@ -1218,19 +1251,31 @@ export class UnsupportedProtocolException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum IpAddressType {
-  DUALSTACK = "dualstack",
-  IPV4 = "ipv4",
-}
+export const IpAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
 
 /**
  * @public
  */
-export enum LoadBalancerSchemeEnum {
-  INTERNAL = "internal",
-  INTERNET_FACING = "internet-facing",
-}
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerSchemeEnum = {
+  INTERNAL: "internal",
+  INTERNET_FACING: "internet-facing",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerSchemeEnum = (typeof LoadBalancerSchemeEnum)[keyof typeof LoadBalancerSchemeEnum];
 
 /**
  * @public
@@ -1261,12 +1306,18 @@ export interface SubnetMapping {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerTypeEnum {
-  APPLICATION = "application",
-  GATEWAY = "gateway",
-  NETWORK = "network",
-}
+export const LoadBalancerTypeEnum = {
+  APPLICATION: "application",
+  GATEWAY: "gateway",
+  NETWORK: "network",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerTypeEnum = (typeof LoadBalancerTypeEnum)[keyof typeof LoadBalancerTypeEnum];
 
 /**
  * @public
@@ -1359,13 +1410,19 @@ export interface CreateLoadBalancerInput {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerStateEnum {
-  ACTIVE = "active",
-  ACTIVE_IMPAIRED = "active_impaired",
-  FAILED = "failed",
-  PROVISIONING = "provisioning",
-}
+export const LoadBalancerStateEnum = {
+  ACTIVE: "active",
+  ACTIVE_IMPAIRED: "active_impaired",
+  FAILED: "failed",
+  PROVISIONING: "provisioning",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerStateEnum = (typeof LoadBalancerStateEnum)[keyof typeof LoadBalancerStateEnum];
 
 /**
  * @public
@@ -2064,11 +2121,18 @@ export class TooManyTargetGroupsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetGroupIpAddressTypeEnum {
-  IPV4 = "ipv4",
-  IPV6 = "ipv6",
-}
+export const TargetGroupIpAddressTypeEnum = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetGroupIpAddressTypeEnum =
+  (typeof TargetGroupIpAddressTypeEnum)[keyof typeof TargetGroupIpAddressTypeEnum];
 
 /**
  * @public
@@ -2096,13 +2160,19 @@ export interface Matcher {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetTypeEnum {
-  ALB = "alb",
-  INSTANCE = "instance",
-  IP = "ip",
-  LAMBDA = "lambda",
-}
+export const TargetTypeEnum = {
+  ALB: "alb",
+  INSTANCE: "instance",
+  IP: "ip",
+  LAMBDA: "lambda",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetTypeEnum = (typeof TargetTypeEnum)[keyof typeof TargetTypeEnum];
 
 /**
  * @public
@@ -3367,33 +3437,45 @@ export interface DescribeTargetHealthInput {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetHealthReasonEnum {
-  DEREGISTRATION_IN_PROGRESS = "Target.DeregistrationInProgress",
-  FAILED_HEALTH_CHECKS = "Target.FailedHealthChecks",
-  HEALTH_CHECK_DISABLED = "Target.HealthCheckDisabled",
-  INITIAL_HEALTH_CHECKING = "Elb.InitialHealthChecking",
-  INTERNAL_ERROR = "Elb.InternalError",
-  INVALID_STATE = "Target.InvalidState",
-  IP_UNUSABLE = "Target.IpUnusable",
-  NOT_IN_USE = "Target.NotInUse",
-  NOT_REGISTERED = "Target.NotRegistered",
-  REGISTRATION_IN_PROGRESS = "Elb.RegistrationInProgress",
-  RESPONSE_CODE_MISMATCH = "Target.ResponseCodeMismatch",
-  TIMEOUT = "Target.Timeout",
-}
+export const TargetHealthReasonEnum = {
+  DEREGISTRATION_IN_PROGRESS: "Target.DeregistrationInProgress",
+  FAILED_HEALTH_CHECKS: "Target.FailedHealthChecks",
+  HEALTH_CHECK_DISABLED: "Target.HealthCheckDisabled",
+  INITIAL_HEALTH_CHECKING: "Elb.InitialHealthChecking",
+  INTERNAL_ERROR: "Elb.InternalError",
+  INVALID_STATE: "Target.InvalidState",
+  IP_UNUSABLE: "Target.IpUnusable",
+  NOT_IN_USE: "Target.NotInUse",
+  NOT_REGISTERED: "Target.NotRegistered",
+  REGISTRATION_IN_PROGRESS: "Elb.RegistrationInProgress",
+  RESPONSE_CODE_MISMATCH: "Target.ResponseCodeMismatch",
+  TIMEOUT: "Target.Timeout",
+} as const;
 
 /**
  * @public
  */
-export enum TargetHealthStateEnum {
-  DRAINING = "draining",
-  HEALTHY = "healthy",
-  INITIAL = "initial",
-  UNAVAILABLE = "unavailable",
-  UNHEALTHY = "unhealthy",
-  UNUSED = "unused",
-}
+export type TargetHealthReasonEnum = (typeof TargetHealthReasonEnum)[keyof typeof TargetHealthReasonEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetHealthStateEnum = {
+  DRAINING: "draining",
+  HEALTHY: "healthy",
+  INITIAL: "initial",
+  UNAVAILABLE: "unavailable",
+  UNHEALTHY: "unhealthy",
+  UNUSED: "unused",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetHealthStateEnum = (typeof TargetHealthStateEnum)[keyof typeof TargetHealthStateEnum];
 
 /**
  * @public

@@ -423,11 +423,17 @@ export interface GetVoiceConnectorOriginationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OriginationRouteProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const OriginationRouteProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginationRouteProtocol = (typeof OriginationRouteProtocol)[keyof typeof OriginationRouteProtocol];
 
 /**
  * @public
@@ -557,12 +563,18 @@ export interface GetVoiceConnectorStreamingConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NotificationTarget {
-  EventBridge = "EventBridge",
-  SNS = "SNS",
-  SQS = "SQS",
-}
+export const NotificationTarget = {
+  EventBridge: "EventBridge",
+  SNS: "SNS",
+  SQS: "SQS",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationTarget = (typeof NotificationTarget)[keyof typeof NotificationTarget];
 
 /**
  * @public
@@ -1142,11 +1154,17 @@ export interface ListChannelMembershipsForAppInstanceUserResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public

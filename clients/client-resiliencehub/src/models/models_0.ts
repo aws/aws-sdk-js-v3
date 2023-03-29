@@ -27,23 +27,35 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceMappingType {
-  APP_REGISTRY_APP = "AppRegistryApp",
-  CFN_STACK = "CfnStack",
-  EKS = "EKS",
-  RESOURCE = "Resource",
-  RESOURCE_GROUP = "ResourceGroup",
-  TERRAFORM = "Terraform",
-}
+export const ResourceMappingType = {
+  APP_REGISTRY_APP: "AppRegistryApp",
+  CFN_STACK: "CfnStack",
+  EKS: "EKS",
+  RESOURCE: "Resource",
+  RESOURCE_GROUP: "ResourceGroup",
+  TERRAFORM: "Terraform",
+} as const;
 
 /**
  * @public
  */
-export enum PhysicalIdentifierType {
-  ARN = "Arn",
-  NATIVE = "Native",
-}
+export type ResourceMappingType = (typeof ResourceMappingType)[keyof typeof ResourceMappingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PhysicalIdentifierType = {
+  ARN: "Arn",
+  NATIVE: "Native",
+} as const;
+
+/**
+ * @public
+ */
+export type PhysicalIdentifierType = (typeof PhysicalIdentifierType)[keyof typeof PhysicalIdentifierType];
 
 /**
  * @public
@@ -367,14 +379,20 @@ export interface RecommendationItem {
 
 /**
  * @public
+ * @enum
  */
-export enum AlarmType {
-  CANARY = "Canary",
-  COMPOSITE = "Composite",
-  EVENT = "Event",
-  LOGS = "Logs",
-  METRIC = "Metric",
-}
+export const AlarmType = {
+  CANARY: "Canary",
+  COMPOSITE: "Composite",
+  EVENT: "Event",
+  LOGS: "Logs",
+  METRIC: "Metric",
+} as const;
+
+/**
+ * @public
+ */
+export type AlarmType = (typeof AlarmType)[keyof typeof AlarmType];
 
 /**
  * @public
@@ -424,29 +442,47 @@ export interface AlarmRecommendation {
 
 /**
  * @public
+ * @enum
  */
-export enum AppAssessmentScheduleType {
-  DAILY = "Daily",
-  DISABLED = "Disabled",
-}
+export const AppAssessmentScheduleType = {
+  DAILY: "Daily",
+  DISABLED: "Disabled",
+} as const;
 
 /**
  * @public
  */
-export enum AppComplianceStatusType {
-  CHANGES_DETECTED = "ChangesDetected",
-  NOT_ASSESSED = "NotAssessed",
-  POLICY_BREACHED = "PolicyBreached",
-  POLICY_MET = "PolicyMet",
-}
+export type AppAssessmentScheduleType = (typeof AppAssessmentScheduleType)[keyof typeof AppAssessmentScheduleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppComplianceStatusType = {
+  CHANGES_DETECTED: "ChangesDetected",
+  NOT_ASSESSED: "NotAssessed",
+  POLICY_BREACHED: "PolicyBreached",
+  POLICY_MET: "PolicyMet",
+} as const;
 
 /**
  * @public
  */
-export enum AppStatusType {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-}
+export type AppComplianceStatusType = (typeof AppComplianceStatusType)[keyof typeof AppComplianceStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AppStatusType = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+} as const;
+
+/**
+ * @public
+ */
+export type AppStatusType = (typeof AppStatusType)[keyof typeof AppStatusType];
 
 /**
  * @public
@@ -527,31 +563,49 @@ export interface App {
 
 /**
  * @public
+ * @enum
  */
-export enum AssessmentStatus {
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-}
+export const AssessmentStatus = {
+  FAILED: "Failed",
+  INPROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+} as const;
 
 /**
  * @public
  */
-export enum DisruptionType {
-  AZ = "AZ",
-  HARDWARE = "Hardware",
-  REGION = "Region",
-  SOFTWARE = "Software",
-}
+export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof AssessmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DisruptionType = {
+  AZ: "AZ",
+  HARDWARE: "Hardware",
+  REGION: "Region",
+  SOFTWARE: "Software",
+} as const;
 
 /**
  * @public
  */
-export enum ComplianceStatus {
-  POLICY_BREACHED = "PolicyBreached",
-  POLICY_MET = "PolicyMet",
-}
+export type DisruptionType = (typeof DisruptionType)[keyof typeof DisruptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComplianceStatus = {
+  POLICY_BREACHED: "PolicyBreached",
+  POLICY_MET: "PolicyMet",
+} as const;
+
+/**
+ * @public
+ */
+export type ComplianceStatus = (typeof ComplianceStatus)[keyof typeof ComplianceStatus];
 
 /**
  * @public
@@ -611,13 +665,19 @@ export interface DisruptionCompliance {
 
 /**
  * @public
+ * @enum
  */
-export enum CostFrequency {
-  DAILY = "Daily",
-  HOURLY = "Hourly",
-  MONTHLY = "Monthly",
-  YEARLY = "Yearly",
-}
+export const CostFrequency = {
+  DAILY: "Daily",
+  HOURLY: "Hourly",
+  MONTHLY: "Monthly",
+  YEARLY: "Yearly",
+} as const;
+
+/**
+ * @public
+ */
+export type CostFrequency = (typeof CostFrequency)[keyof typeof CostFrequency];
 
 /**
  * @public
@@ -642,30 +702,48 @@ export interface Cost {
 
 /**
  * @public
+ * @enum
  */
-export enum AssessmentInvoker {
-  SYSTEM = "System",
-  USER = "User",
-}
+export const AssessmentInvoker = {
+  SYSTEM: "System",
+  USER: "User",
+} as const;
 
 /**
  * @public
  */
-export enum DataLocationConstraint {
-  ANY_LOCATION = "AnyLocation",
-  SAME_CONTINENT = "SameContinent",
-  SAME_COUNTRY = "SameCountry",
-}
+export type AssessmentInvoker = (typeof AssessmentInvoker)[keyof typeof AssessmentInvoker];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataLocationConstraint = {
+  ANY_LOCATION: "AnyLocation",
+  SAME_CONTINENT: "SameContinent",
+  SAME_COUNTRY: "SameCountry",
+} as const;
 
 /**
  * @public
  */
-export enum EstimatedCostTier {
-  L1 = "L1",
-  L2 = "L2",
-  L3 = "L3",
-  L4 = "L4",
-}
+export type DataLocationConstraint = (typeof DataLocationConstraint)[keyof typeof DataLocationConstraint];
+
+/**
+ * @public
+ * @enum
+ */
+export const EstimatedCostTier = {
+  L1: "L1",
+  L2: "L2",
+  L3: "L3",
+  L4: "L4",
+} as const;
+
+/**
+ * @public
+ */
+export type EstimatedCostTier = (typeof EstimatedCostTier)[keyof typeof EstimatedCostTier];
 
 /**
  * @public
@@ -685,14 +763,20 @@ export interface FailurePolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum ResiliencyPolicyTier {
-  CORE_SERVICES = "CoreServices",
-  CRITICAL = "Critical",
-  IMPORTANT = "Important",
-  MISSION_CRITICAL = "MissionCritical",
-  NON_CRITICAL = "NonCritical",
-}
+export const ResiliencyPolicyTier = {
+  CORE_SERVICES: "CoreServices",
+  CRITICAL: "Critical",
+  IMPORTANT: "Important",
+  MISSION_CRITICAL: "MissionCritical",
+  NON_CRITICAL: "NonCritical",
+} as const;
+
+/**
+ * @public
+ */
+export type ResiliencyPolicyTier = (typeof ResiliencyPolicyTier)[keyof typeof ResiliencyPolicyTier];
 
 /**
  * @public
@@ -1508,20 +1592,32 @@ export interface CreateAppVersionResourceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TemplateFormat {
-  CFN_JSON = "CfnJson",
-  CFN_YAML = "CfnYaml",
-}
+export const TemplateFormat = {
+  CFN_JSON: "CfnJson",
+  CFN_YAML: "CfnYaml",
+} as const;
 
 /**
  * @public
  */
-export enum RenderRecommendationType {
-  ALARM = "Alarm",
-  SOP = "Sop",
-  TEST = "Test",
-}
+export type TemplateFormat = (typeof TemplateFormat)[keyof typeof TemplateFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const RenderRecommendationType = {
+  ALARM: "Alarm",
+  SOP: "Sop",
+  TEST: "Test",
+} as const;
+
+/**
+ * @public
+ */
+export type RenderRecommendationType = (typeof RenderRecommendationType)[keyof typeof RenderRecommendationType];
 
 /**
  * @public
@@ -1600,13 +1696,20 @@ export interface CreateRecommendationTemplateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationTemplateStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-}
+export const RecommendationTemplateStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationTemplateStatus =
+  (typeof RecommendationTemplateStatus)[keyof typeof RecommendationTemplateStatus];
 
 /**
  * @public
@@ -2358,13 +2461,20 @@ export interface DescribeAppVersionResourcesResolutionStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceResolutionStatusType {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-}
+export const ResourceResolutionStatusType = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceResolutionStatusType =
+  (typeof ResourceResolutionStatusType)[keyof typeof ResourceResolutionStatusType];
 
 /**
  * @public
@@ -2692,13 +2802,19 @@ export interface DescribeDraftAppVersionResourcesImportStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceImportStatusType {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-}
+export const ResourceImportStatusType = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceImportStatusType = (typeof ResourceImportStatusType)[keyof typeof ResourceImportStatusType];
 
 /**
  * @public
@@ -2782,11 +2898,17 @@ export interface EksSource {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceImportStrategyType {
-  ADD_ONLY = "AddOnly",
-  REPLACE_ALL = "ReplaceAll",
-}
+export const ResourceImportStrategyType = {
+  ADD_ONLY: "AddOnly",
+  REPLACE_ALL: "ReplaceAll",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceImportStrategyType = (typeof ResourceImportStrategyType)[keyof typeof ResourceImportStrategyType];
 
 /**
  * @public
@@ -3046,26 +3168,39 @@ export interface ListAppComponentRecommendationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HaArchitecture {
-  BACKUP_AND_RESTORE = "BackupAndRestore",
-  MULTI_SITE = "MultiSite",
-  NO_RECOVERY_PLAN = "NoRecoveryPlan",
-  PILOT_LIGHT = "PilotLight",
-  WARM_STANDBY = "WarmStandby",
-}
+export const HaArchitecture = {
+  BACKUP_AND_RESTORE: "BackupAndRestore",
+  MULTI_SITE: "MultiSite",
+  NO_RECOVERY_PLAN: "NoRecoveryPlan",
+  PILOT_LIGHT: "PilotLight",
+  WARM_STANDBY: "WarmStandby",
+} as const;
 
 /**
  * @public
  */
-export enum ConfigRecommendationOptimizationType {
-  BEST_ATTAINABLE = "BestAttainable",
-  BEST_AZ_RECOVERY = "BestAZRecovery",
-  BEST_REGION_RECOVERY = "BestRegionRecovery",
-  LEAST_CHANGE = "LeastChange",
-  LEAST_COST = "LeastCost",
-  LEAST_ERRORS = "LeastErrors",
-}
+export type HaArchitecture = (typeof HaArchitecture)[keyof typeof HaArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigRecommendationOptimizationType = {
+  BEST_ATTAINABLE: "BestAttainable",
+  BEST_AZ_RECOVERY: "BestAZRecovery",
+  BEST_REGION_RECOVERY: "BestRegionRecovery",
+  LEAST_CHANGE: "LeastChange",
+  LEAST_COST: "LeastCost",
+  LEAST_ERRORS: "LeastErrors",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigRecommendationOptimizationType =
+  (typeof ConfigRecommendationOptimizationType)[keyof typeof ConfigRecommendationOptimizationType];
 
 /**
  * @public
@@ -3160,12 +3295,19 @@ export interface ConfigRecommendation {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationComplianceStatus {
-  BREACHED_CAN_MEET = "BreachedCanMeet",
-  BREACHED_UNATTAINABLE = "BreachedUnattainable",
-  MET_CAN_IMPROVE = "MetCanImprove",
-}
+export const RecommendationComplianceStatus = {
+  BREACHED_CAN_MEET: "BreachedCanMeet",
+  BREACHED_UNATTAINABLE: "BreachedUnattainable",
+  MET_CAN_IMPROVE: "MetCanImprove",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationComplianceStatus =
+  (typeof RecommendationComplianceStatus)[keyof typeof RecommendationComplianceStatus];
 
 /**
  * @public
@@ -3622,10 +3764,16 @@ export interface ListSopRecommendationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SopServiceType {
-  SSM = "SSM",
-}
+export const SopServiceType = {
+  SSM: "SSM",
+} as const;
+
+/**
+ * @public
+ */
+export type SopServiceType = (typeof SopServiceType)[keyof typeof SopServiceType];
 
 /**
  * @public
@@ -3769,22 +3917,34 @@ export interface ListTestRecommendationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TestRisk {
-  HIGH = "High",
-  MEDIUM = "Medium",
-  SMALL = "Small",
-}
+export const TestRisk = {
+  HIGH: "High",
+  MEDIUM: "Medium",
+  SMALL: "Small",
+} as const;
 
 /**
  * @public
  */
-export enum TestType {
-  AZ = "AZ",
-  HARDWARE = "Hardware",
-  REGION = "Region",
-  SOFTWARE = "Software",
-}
+export type TestRisk = (typeof TestRisk)[keyof typeof TestRisk];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestType = {
+  AZ: "AZ",
+  HARDWARE: "Hardware",
+  REGION: "Region",
+  SOFTWARE: "Software",
+} as const;
+
+/**
+ * @public
+ */
+export type TestType = (typeof TestType)[keyof typeof TestType];
 
 /**
  * @public

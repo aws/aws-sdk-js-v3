@@ -247,12 +247,18 @@ export interface RestoreObjectOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum Tier {
-  Bulk = "Bulk",
-  Expedited = "Expedited",
-  Standard = "Standard",
-}
+export const Tier = {
+  Bulk: "Bulk",
+  Expedited: "Expedited",
+  Standard: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type Tier = (typeof Tier)[keyof typeof Tier];
 
 /**
  * @public
@@ -367,28 +373,46 @@ export interface OutputLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum ExpressionType {
-  SQL = "SQL",
-}
+export const ExpressionType = {
+  SQL: "SQL",
+} as const;
 
 /**
  * @public
  */
-export enum CompressionType {
-  BZIP2 = "BZIP2",
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export type ExpressionType = (typeof ExpressionType)[keyof typeof ExpressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CompressionType = {
+  BZIP2: "BZIP2",
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum FileHeaderInfo {
-  IGNORE = "IGNORE",
-  NONE = "NONE",
-  USE = "USE",
-}
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileHeaderInfo = {
+  IGNORE: "IGNORE",
+  NONE: "NONE",
+  USE: "USE",
+} as const;
+
+/**
+ * @public
+ */
+export type FileHeaderInfo = (typeof FileHeaderInfo)[keyof typeof FileHeaderInfo];
 
 /**
  * @public
@@ -466,11 +490,17 @@ export interface CSVInput {
 
 /**
  * @public
+ * @enum
  */
-export enum JSONType {
-  DOCUMENT = "DOCUMENT",
-  LINES = "LINES",
-}
+export const JSONType = {
+  DOCUMENT: "DOCUMENT",
+  LINES: "LINES",
+} as const;
+
+/**
+ * @public
+ */
+export type JSONType = (typeof JSONType)[keyof typeof JSONType];
 
 /**
  * @public
@@ -518,11 +548,17 @@ export interface InputSerialization {
 
 /**
  * @public
+ * @enum
  */
-export enum QuoteFields {
-  ALWAYS = "ALWAYS",
-  ASNEEDED = "ASNEEDED",
-}
+export const QuoteFields = {
+  ALWAYS: "ALWAYS",
+  ASNEEDED: "ASNEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type QuoteFields = (typeof QuoteFields)[keyof typeof QuoteFields];
 
 /**
  * @public
@@ -627,10 +663,16 @@ export interface SelectParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum RestoreRequestType {
-  SELECT = "SELECT",
-}
+export const RestoreRequestType = {
+  SELECT: "SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreRequestType = (typeof RestoreRequestType)[keyof typeof RestoreRequestType];
 
 /**
  * @public

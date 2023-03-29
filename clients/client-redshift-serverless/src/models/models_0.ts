@@ -109,15 +109,21 @@ export interface ConvertRecoveryPointToSnapshotRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SnapshotStatus {
-  AVAILABLE = "AVAILABLE",
-  CANCELLED = "CANCELLED",
-  COPYING = "COPYING",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-}
+export const SnapshotStatus = {
+  AVAILABLE: "AVAILABLE",
+  CANCELLED: "CANCELLED",
+  COPYING: "COPYING",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
 
 /**
  * @public
@@ -512,12 +518,18 @@ export interface CreateEndpointAccessResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LogExport {
-  CONNECTION_LOG = "connectionlog",
-  USER_ACTIVITY_LOG = "useractivitylog",
-  USER_LOG = "userlog",
-}
+export const LogExport = {
+  CONNECTION_LOG: "connectionlog",
+  USER_ACTIVITY_LOG: "useractivitylog",
+  USER_LOG: "userlog",
+} as const;
+
+/**
+ * @public
+ */
+export type LogExport = (typeof LogExport)[keyof typeof LogExport];
 
 /**
  * @public
@@ -572,12 +584,18 @@ export interface CreateNamespaceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NamespaceStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  MODIFYING = "MODIFYING",
-}
+export const NamespaceStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  MODIFYING: "MODIFYING",
+} as const;
+
+/**
+ * @public
+ */
+export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
 
 /**
  * @public
@@ -690,29 +708,47 @@ export interface CreateSnapshotResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum UsageLimitBreachAction {
-  DEACTIVATE = "deactivate",
-  EMIT_METRIC = "emit-metric",
-  LOG = "log",
-}
+export const UsageLimitBreachAction = {
+  DEACTIVATE: "deactivate",
+  EMIT_METRIC: "emit-metric",
+  LOG: "log",
+} as const;
 
 /**
  * @public
  */
-export enum UsageLimitPeriod {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  WEEKLY = "weekly",
-}
+export type UsageLimitBreachAction = (typeof UsageLimitBreachAction)[keyof typeof UsageLimitBreachAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitPeriod = {
+  DAILY: "daily",
+  MONTHLY: "monthly",
+  WEEKLY: "weekly",
+} as const;
 
 /**
  * @public
  */
-export enum UsageLimitUsageType {
-  CROSS_REGION_DATASHARING = "cross-region-datasharing",
-  SERVERLESS_COMPUTE = "serverless-compute",
-}
+export type UsageLimitPeriod = (typeof UsageLimitPeriod)[keyof typeof UsageLimitPeriod];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitUsageType = {
+  CROSS_REGION_DATASHARING: "cross-region-datasharing",
+  SERVERLESS_COMPUTE: "serverless-compute",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageLimitUsageType = (typeof UsageLimitUsageType)[keyof typeof UsageLimitUsageType];
 
 /**
  * @public
@@ -879,13 +915,19 @@ export interface Endpoint {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkgroupStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  MODIFYING = "MODIFYING",
-}
+export const WorkgroupStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  MODIFYING: "MODIFYING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkgroupStatus = (typeof WorkgroupStatus)[keyof typeof WorkgroupStatus];
 
 /**
  * @public

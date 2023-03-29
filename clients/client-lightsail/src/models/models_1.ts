@@ -622,35 +622,59 @@ export interface InstanceHardware {
 
 /**
  * @public
+ * @enum
  */
-export enum HttpEndpoint {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+export const HttpEndpoint = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
 
 /**
  * @public
  */
-export enum HttpProtocolIpv6 {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+export type HttpEndpoint = (typeof HttpEndpoint)[keyof typeof HttpEndpoint];
+
+/**
+ * @public
+ * @enum
+ */
+export const HttpProtocolIpv6 = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
 
 /**
  * @public
  */
-export enum HttpTokens {
-  optional = "optional",
-  required = "required",
-}
+export type HttpProtocolIpv6 = (typeof HttpProtocolIpv6)[keyof typeof HttpProtocolIpv6];
+
+/**
+ * @public
+ * @enum
+ */
+export const HttpTokens = {
+  optional: "optional",
+  required: "required",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceMetadataState {
-  applied = "applied",
-  pending = "pending",
-}
+export type HttpTokens = (typeof HttpTokens)[keyof typeof HttpTokens];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMetadataState = {
+  applied: "applied",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMetadataState = (typeof InstanceMetadataState)[keyof typeof InstanceMetadataState];
 
 /**
  * @public
@@ -728,11 +752,17 @@ export interface MonthlyTransfer {
 
 /**
  * @public
+ * @enum
  */
-export enum PortAccessType {
-  Private = "Private",
-  Public = "Public",
-}
+export const PortAccessType = {
+  Private: "Private",
+  Public: "Public",
+} as const;
+
+/**
+ * @public
+ */
+export type PortAccessType = (typeof PortAccessType)[keyof typeof PortAccessType];
 
 /**
  * @public
@@ -1051,11 +1081,17 @@ export interface GetInstanceResult {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceAccessProtocol {
-  rdp = "rdp",
-  ssh = "ssh",
-}
+export const InstanceAccessProtocol = {
+  rdp: "rdp",
+  ssh: "ssh",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceAccessProtocol = (typeof InstanceAccessProtocol)[keyof typeof InstanceAccessProtocol];
 
 /**
  * @public
@@ -1263,18 +1299,24 @@ export interface GetInstanceAccessDetailsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceMetricName {
-  BurstCapacityPercentage = "BurstCapacityPercentage",
-  BurstCapacityTime = "BurstCapacityTime",
-  CPUUtilization = "CPUUtilization",
-  MetadataNoToken = "MetadataNoToken",
-  NetworkIn = "NetworkIn",
-  NetworkOut = "NetworkOut",
-  StatusCheckFailed = "StatusCheckFailed",
-  StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
-  StatusCheckFailed_System = "StatusCheckFailed_System",
-}
+export const InstanceMetricName = {
+  BurstCapacityPercentage: "BurstCapacityPercentage",
+  BurstCapacityTime: "BurstCapacityTime",
+  CPUUtilization: "CPUUtilization",
+  MetadataNoToken: "MetadataNoToken",
+  NetworkIn: "NetworkIn",
+  NetworkOut: "NetworkOut",
+  StatusCheckFailed: "StatusCheckFailed",
+  StatusCheckFailed_Instance: "StatusCheckFailed_Instance",
+  StatusCheckFailed_System: "StatusCheckFailed_System",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMetricName = (typeof InstanceMetricName)[keyof typeof InstanceMetricName];
 
 /**
  * @public
@@ -1514,11 +1556,17 @@ export interface GetInstancePortStatesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PortState {
-  Closed = "closed",
-  Open = "open",
-}
+export const PortState = {
+  Closed: "closed",
+  Open: "open",
+} as const;
+
+/**
+ * @public
+ */
+export type PortState = (typeof PortState)[keyof typeof PortState];
 
 /**
  * @public
@@ -1707,12 +1755,18 @@ export interface GetInstanceSnapshotRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceSnapshotState {
-  Available = "available",
-  Error = "error",
-  Pending = "pending",
-}
+export const InstanceSnapshotState = {
+  Available: "available",
+  Error: "error",
+  Pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceSnapshotState = (typeof InstanceSnapshotState)[keyof typeof InstanceSnapshotState];
 
 /**
  * @public
@@ -1944,43 +1998,61 @@ export interface GetLoadBalancerRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerAttributeName {
-  HealthCheckPath = "HealthCheckPath",
-  HttpsRedirectionEnabled = "HttpsRedirectionEnabled",
-  SessionStickinessEnabled = "SessionStickinessEnabled",
-  SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds",
-  TlsPolicyName = "TlsPolicyName",
-}
+export const LoadBalancerAttributeName = {
+  HealthCheckPath: "HealthCheckPath",
+  HttpsRedirectionEnabled: "HttpsRedirectionEnabled",
+  SessionStickinessEnabled: "SessionStickinessEnabled",
+  SessionStickiness_LB_CookieDurationSeconds: "SessionStickiness_LB_CookieDurationSeconds",
+  TlsPolicyName: "TlsPolicyName",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceHealthState {
-  Draining = "draining",
-  Healthy = "healthy",
-  Initial = "initial",
-  Unavailable = "unavailable",
-  Unhealthy = "unhealthy",
-  Unused = "unused",
-}
+export type LoadBalancerAttributeName = (typeof LoadBalancerAttributeName)[keyof typeof LoadBalancerAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthState = {
+  Draining: "draining",
+  Healthy: "healthy",
+  Initial: "initial",
+  Unavailable: "unavailable",
+  Unhealthy: "unhealthy",
+  Unused: "unused",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceHealthReason {
-  InstanceDeregistrationInProgress = "Instance.DeregistrationInProgress",
-  InstanceFailedHealthChecks = "Instance.FailedHealthChecks",
-  InstanceInvalidState = "Instance.InvalidState",
-  InstanceIpUnusable = "Instance.IpUnusable",
-  InstanceNotInUse = "Instance.NotInUse",
-  InstanceNotRegistered = "Instance.NotRegistered",
-  InstanceResponseCodeMismatch = "Instance.ResponseCodeMismatch",
-  InstanceTimeout = "Instance.Timeout",
-  LbInitialHealthChecking = "Lb.InitialHealthChecking",
-  LbInternalError = "Lb.InternalError",
-  LbRegistrationInProgress = "Lb.RegistrationInProgress",
-}
+export type InstanceHealthState = (typeof InstanceHealthState)[keyof typeof InstanceHealthState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthReason = {
+  InstanceDeregistrationInProgress: "Instance.DeregistrationInProgress",
+  InstanceFailedHealthChecks: "Instance.FailedHealthChecks",
+  InstanceInvalidState: "Instance.InvalidState",
+  InstanceIpUnusable: "Instance.IpUnusable",
+  InstanceNotInUse: "Instance.NotInUse",
+  InstanceNotRegistered: "Instance.NotRegistered",
+  InstanceResponseCodeMismatch: "Instance.ResponseCodeMismatch",
+  InstanceTimeout: "Instance.Timeout",
+  LbInitialHealthChecking: "Lb.InitialHealthChecking",
+  LbInternalError: "Lb.InternalError",
+  LbRegistrationInProgress: "Lb.RegistrationInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceHealthReason = (typeof InstanceHealthReason)[keyof typeof InstanceHealthReason];
 
 /**
  * @public
@@ -2126,22 +2198,34 @@ export interface InstanceHealthSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerProtocol {
-  HTTP = "HTTP",
-  HTTP_HTTPS = "HTTP_HTTPS",
-}
+export const LoadBalancerProtocol = {
+  HTTP: "HTTP",
+  HTTP_HTTPS: "HTTP_HTTPS",
+} as const;
 
 /**
  * @public
  */
-export enum LoadBalancerState {
-  Active = "active",
-  ActiveImpaired = "active_impaired",
-  Failed = "failed",
-  Provisioning = "provisioning",
-  Unknown = "unknown",
-}
+export type LoadBalancerProtocol = (typeof LoadBalancerProtocol)[keyof typeof LoadBalancerProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerState = {
+  Active: "active",
+  ActiveImpaired: "active_impaired",
+  Failed: "failed",
+  Provisioning: "provisioning",
+  Unknown: "unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerState = (typeof LoadBalancerState)[keyof typeof LoadBalancerState];
 
 /**
  * @public
@@ -2289,21 +2373,27 @@ export interface GetLoadBalancerResult {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerMetricName {
-  ClientTLSNegotiationErrorCount = "ClientTLSNegotiationErrorCount",
-  HTTPCode_Instance_2XX_Count = "HTTPCode_Instance_2XX_Count",
-  HTTPCode_Instance_3XX_Count = "HTTPCode_Instance_3XX_Count",
-  HTTPCode_Instance_4XX_Count = "HTTPCode_Instance_4XX_Count",
-  HTTPCode_Instance_5XX_Count = "HTTPCode_Instance_5XX_Count",
-  HTTPCode_LB_4XX_Count = "HTTPCode_LB_4XX_Count",
-  HTTPCode_LB_5XX_Count = "HTTPCode_LB_5XX_Count",
-  HealthyHostCount = "HealthyHostCount",
-  InstanceResponseTime = "InstanceResponseTime",
-  RejectedConnectionCount = "RejectedConnectionCount",
-  RequestCount = "RequestCount",
-  UnhealthyHostCount = "UnhealthyHostCount",
-}
+export const LoadBalancerMetricName = {
+  ClientTLSNegotiationErrorCount: "ClientTLSNegotiationErrorCount",
+  HTTPCode_Instance_2XX_Count: "HTTPCode_Instance_2XX_Count",
+  HTTPCode_Instance_3XX_Count: "HTTPCode_Instance_3XX_Count",
+  HTTPCode_Instance_4XX_Count: "HTTPCode_Instance_4XX_Count",
+  HTTPCode_Instance_5XX_Count: "HTTPCode_Instance_5XX_Count",
+  HTTPCode_LB_4XX_Count: "HTTPCode_LB_4XX_Count",
+  HTTPCode_LB_5XX_Count: "HTTPCode_LB_5XX_Count",
+  HealthyHostCount: "HealthyHostCount",
+  InstanceResponseTime: "InstanceResponseTime",
+  RejectedConnectionCount: "RejectedConnectionCount",
+  RequestCount: "RequestCount",
+  UnhealthyHostCount: "UnhealthyHostCount",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerMetricName = (typeof LoadBalancerMetricName)[keyof typeof LoadBalancerMetricName];
 
 /**
  * @public
@@ -2603,12 +2693,19 @@ export interface GetLoadBalancerTlsCertificatesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerTlsCertificateDnsRecordCreationStateCode {
-  Failed = "FAILED",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+export const LoadBalancerTlsCertificateDnsRecordCreationStateCode = {
+  Failed: "FAILED",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerTlsCertificateDnsRecordCreationStateCode =
+  (typeof LoadBalancerTlsCertificateDnsRecordCreationStateCode)[keyof typeof LoadBalancerTlsCertificateDnsRecordCreationStateCode];
 
 /**
  * @public
@@ -2645,12 +2742,19 @@ export interface LoadBalancerTlsCertificateDnsRecordCreationState {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerTlsCertificateDomainStatus {
-  Failed = "FAILED",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
-}
+export const LoadBalancerTlsCertificateDomainStatus = {
+  Failed: "FAILED",
+  PendingValidation: "PENDING_VALIDATION",
+  Success: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerTlsCertificateDomainStatus =
+  (typeof LoadBalancerTlsCertificateDomainStatus)[keyof typeof LoadBalancerTlsCertificateDomainStatus];
 
 /**
  * @public
@@ -2694,14 +2798,21 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerTlsCertificateFailureReason {
-  AdditionalVerificationRequired = "ADDITIONAL_VERIFICATION_REQUIRED",
-  DomainNotAllowed = "DOMAIN_NOT_ALLOWED",
-  InvalidPublicDomain = "INVALID_PUBLIC_DOMAIN",
-  NoAvailableContacts = "NO_AVAILABLE_CONTACTS",
-  Other = "OTHER",
-}
+export const LoadBalancerTlsCertificateFailureReason = {
+  AdditionalVerificationRequired: "ADDITIONAL_VERIFICATION_REQUIRED",
+  DomainNotAllowed: "DOMAIN_NOT_ALLOWED",
+  InvalidPublicDomain: "INVALID_PUBLIC_DOMAIN",
+  NoAvailableContacts: "NO_AVAILABLE_CONTACTS",
+  Other: "OTHER",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerTlsCertificateFailureReason =
+  (typeof LoadBalancerTlsCertificateFailureReason)[keyof typeof LoadBalancerTlsCertificateFailureReason];
 
 /**
  * @public
@@ -2722,13 +2833,20 @@ export interface LoadBalancerTlsCertificateDomainValidationOption {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerTlsCertificateRenewalStatus {
-  Failed = "FAILED",
-  PendingAutoRenewal = "PENDING_AUTO_RENEWAL",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
-}
+export const LoadBalancerTlsCertificateRenewalStatus = {
+  Failed: "FAILED",
+  PendingAutoRenewal: "PENDING_AUTO_RENEWAL",
+  PendingValidation: "PENDING_VALIDATION",
+  Success: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerTlsCertificateRenewalStatus =
+  (typeof LoadBalancerTlsCertificateRenewalStatus)[keyof typeof LoadBalancerTlsCertificateRenewalStatus];
 
 /**
  * @public
@@ -2828,33 +2946,47 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum LoadBalancerTlsCertificateRevocationReason {
-  AACompromise = "A_A_COMPROMISE",
-  AffiliationChanged = "AFFILIATION_CHANGED",
-  CaCompromise = "CA_COMPROMISE",
-  CertificateHold = "CERTIFICATE_HOLD",
-  CessationOfOperation = "CESSATION_OF_OPERATION",
-  KeyCompromise = "KEY_COMPROMISE",
-  PrivilegeWithdrawn = "PRIVILEGE_WITHDRAWN",
-  RemoveFromCrl = "REMOVE_FROM_CRL",
-  Superceded = "SUPERCEDED",
-  Unspecified = "UNSPECIFIED",
-}
+export const LoadBalancerTlsCertificateRevocationReason = {
+  AACompromise: "A_A_COMPROMISE",
+  AffiliationChanged: "AFFILIATION_CHANGED",
+  CaCompromise: "CA_COMPROMISE",
+  CertificateHold: "CERTIFICATE_HOLD",
+  CessationOfOperation: "CESSATION_OF_OPERATION",
+  KeyCompromise: "KEY_COMPROMISE",
+  PrivilegeWithdrawn: "PRIVILEGE_WITHDRAWN",
+  RemoveFromCrl: "REMOVE_FROM_CRL",
+  Superceded: "SUPERCEDED",
+  Unspecified: "UNSPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum LoadBalancerTlsCertificateStatus {
-  Expired = "EXPIRED",
-  Failed = "FAILED",
-  Inactive = "INACTIVE",
-  Issued = "ISSUED",
-  PendingValidation = "PENDING_VALIDATION",
-  Revoked = "REVOKED",
-  Unknown = "UNKNOWN",
-  ValidationTimedOut = "VALIDATION_TIMED_OUT",
-}
+export type LoadBalancerTlsCertificateRevocationReason =
+  (typeof LoadBalancerTlsCertificateRevocationReason)[keyof typeof LoadBalancerTlsCertificateRevocationReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTlsCertificateStatus = {
+  Expired: "EXPIRED",
+  Failed: "FAILED",
+  Inactive: "INACTIVE",
+  Issued: "ISSUED",
+  PendingValidation: "PENDING_VALIDATION",
+  Revoked: "REVOKED",
+  Unknown: "UNKNOWN",
+  ValidationTimedOut: "VALIDATION_TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerTlsCertificateStatus =
+  (typeof LoadBalancerTlsCertificateStatus)[keyof typeof LoadBalancerTlsCertificateStatus];
 
 /**
  * @public
@@ -3641,10 +3773,16 @@ export interface GetRelationalDatabaseBlueprintsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RelationalDatabaseEngine {
-  MYSQL = "mysql",
-}
+export const RelationalDatabaseEngine = {
+  MYSQL: "mysql",
+} as const;
+
+/**
+ * @public
+ */
+export type RelationalDatabaseEngine = (typeof RelationalDatabaseEngine)[keyof typeof RelationalDatabaseEngine];
 
 /**
  * @public
@@ -3993,12 +4131,19 @@ export interface GetRelationalDatabaseLogStreamsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum RelationalDatabasePasswordVersion {
-  CURRENT = "CURRENT",
-  PENDING = "PENDING",
-  PREVIOUS = "PREVIOUS",
-}
+export const RelationalDatabasePasswordVersion = {
+  CURRENT: "CURRENT",
+  PENDING: "PENDING",
+  PREVIOUS: "PREVIOUS",
+} as const;
+
+/**
+ * @public
+ */
+export type RelationalDatabasePasswordVersion =
+  (typeof RelationalDatabasePasswordVersion)[keyof typeof RelationalDatabasePasswordVersion];
 
 /**
  * @public
@@ -4039,15 +4184,22 @@ export interface GetRelationalDatabaseMasterUserPasswordResult {
 
 /**
  * @public
+ * @enum
  */
-export enum RelationalDatabaseMetricName {
-  CPUUtilization = "CPUUtilization",
-  DatabaseConnections = "DatabaseConnections",
-  DiskQueueDepth = "DiskQueueDepth",
-  FreeStorageSpace = "FreeStorageSpace",
-  NetworkReceiveThroughput = "NetworkReceiveThroughput",
-  NetworkTransmitThroughput = "NetworkTransmitThroughput",
-}
+export const RelationalDatabaseMetricName = {
+  CPUUtilization: "CPUUtilization",
+  DatabaseConnections: "DatabaseConnections",
+  DiskQueueDepth: "DiskQueueDepth",
+  FreeStorageSpace: "FreeStorageSpace",
+  NetworkReceiveThroughput: "NetworkReceiveThroughput",
+  NetworkTransmitThroughput: "NetworkTransmitThroughput",
+} as const;
+
+/**
+ * @public
+ */
+export type RelationalDatabaseMetricName =
+  (typeof RelationalDatabaseMetricName)[keyof typeof RelationalDatabaseMetricName];
 
 /**
  * @public
@@ -5105,11 +5257,17 @@ export interface SetIpAddressTypeResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceBucketAccess {
-  Allow = "allow",
-  Deny = "deny",
-}
+export const ResourceBucketAccess = {
+  Allow: "allow",
+  Deny: "deny",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceBucketAccess = (typeof ResourceBucketAccess)[keyof typeof ResourceBucketAccess];
 
 /**
  * @public

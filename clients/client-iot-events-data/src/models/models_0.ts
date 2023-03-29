@@ -43,14 +43,20 @@ export interface AcknowledgeAlarmActionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomerActionName {
-  ACKNOWLEDGE = "ACKNOWLEDGE",
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-  RESET = "RESET",
-  SNOOZE = "SNOOZE",
-}
+export const CustomerActionName = {
+  ACKNOWLEDGE: "ACKNOWLEDGE",
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  RESET: "RESET",
+  SNOOZE: "SNOOZE",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomerActionName = (typeof CustomerActionName)[keyof typeof CustomerActionName];
 
 /**
  * @public
@@ -162,15 +168,21 @@ export interface CustomerAction {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  EQUAL = "EQUAL",
-  GREATER = "GREATER",
-  GREATER_OR_EQUAL = "GREATER_OR_EQUAL",
-  LESS = "LESS",
-  LESS_OR_EQUAL = "LESS_OR_EQUAL",
-  NOT_EQUAL = "NOT_EQUAL",
-}
+export const ComparisonOperator = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESS: "LESS",
+  LESS_OR_EQUAL: "LESS_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * @public
@@ -206,29 +218,47 @@ export interface RuleEvaluation {
 
 /**
  * @public
+ * @enum
  */
-export enum AlarmStateName {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  LATCHED = "LATCHED",
-  NORMAL = "NORMAL",
-  SNOOZE_DISABLED = "SNOOZE_DISABLED",
-}
+export const AlarmStateName = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  LATCHED: "LATCHED",
+  NORMAL: "NORMAL",
+  SNOOZE_DISABLED: "SNOOZE_DISABLED",
+} as const;
 
 /**
  * @public
  */
-export enum EventType {
-  STATE_CHANGE = "STATE_CHANGE",
-}
+export type AlarmStateName = (typeof AlarmStateName)[keyof typeof AlarmStateName];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  STATE_CHANGE: "STATE_CHANGE",
+} as const;
 
 /**
  * @public
  */
-export enum TriggerType {
-  SNOOZE_TIMEOUT = "SNOOZE_TIMEOUT",
-}
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerType = {
+  SNOOZE_TIMEOUT: "SNOOZE_TIMEOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 /**
  * @public
@@ -446,14 +476,20 @@ export interface BatchAcknowledgeAlarmRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  InternalFailureException = "InternalFailureException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  ServiceUnavailableException = "ServiceUnavailableException",
-  ThrottlingException = "ThrottlingException",
-}
+export const ErrorCode = {
+  InternalFailureException: "InternalFailureException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ServiceUnavailableException: "ServiceUnavailableException",
+  ThrottlingException: "ThrottlingException",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public

@@ -56,20 +56,26 @@ export interface AdditionalInstanceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageStatus {
-  AVAILABLE = "AVAILABLE",
-  BUILDING = "BUILDING",
-  CANCELLED = "CANCELLED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DEPRECATED = "DEPRECATED",
-  DISTRIBUTING = "DISTRIBUTING",
-  FAILED = "FAILED",
-  INTEGRATING = "INTEGRATING",
-  PENDING = "PENDING",
-  TESTING = "TESTING",
-}
+export const ImageStatus = {
+  AVAILABLE: "AVAILABLE",
+  BUILDING: "BUILDING",
+  CANCELLED: "CANCELLED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DEPRECATED: "DEPRECATED",
+  DISTRIBUTING: "DISTRIBUTING",
+  FAILED: "FAILED",
+  INTEGRATING: "INTEGRATING",
+  PENDING: "PENDING",
+  TESTING: "TESTING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];
 
 /**
  * @public
@@ -194,12 +200,18 @@ export interface AmiDistributionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum BuildType {
-  IMPORT = "IMPORT",
-  SCHEDULED = "SCHEDULED",
-  USER_INITIATED = "USER_INITIATED",
-}
+export const BuildType = {
+  IMPORT: "IMPORT",
+  SCHEDULED: "SCHEDULED",
+  USER_INITIATED: "USER_INITIATED",
+} as const;
+
+/**
+ * @public
+ */
+export type BuildType = (typeof BuildType)[keyof typeof BuildType];
 
 /**
  * @public
@@ -430,18 +442,30 @@ export interface ComponentParameterDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum Platform {
-  LINUX = "Linux",
-  WINDOWS = "Windows",
-}
+export const Platform = {
+  LINUX: "Linux",
+  WINDOWS: "Windows",
+} as const;
 
 /**
  * @public
  */
-export enum ComponentStatus {
-  DEPRECATED = "DEPRECATED",
-}
+export type Platform = (typeof Platform)[keyof typeof Platform];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComponentStatus = {
+  DEPRECATED: "DEPRECATED",
+} as const;
+
+/**
+ * @public
+ */
+export type ComponentStatus = (typeof ComponentStatus)[keyof typeof ComponentStatus];
 
 /**
  * @public
@@ -462,11 +486,17 @@ export interface ComponentState {
 
 /**
  * @public
+ * @enum
  */
-export enum ComponentType {
-  BUILD = "BUILD",
-  TEST = "TEST",
-}
+export const ComponentType = {
+  BUILD: "BUILD",
+  TEST: "TEST",
+} as const;
+
+/**
+ * @public
+ */
+export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
 
 /**
  * @public
@@ -605,10 +635,16 @@ export interface ComponentConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ComponentFormat {
-  SHELL = "SHELL",
-}
+export const ComponentFormat = {
+  SHELL: "SHELL",
+} as const;
+
+/**
+ * @public
+ */
+export type ComponentFormat = (typeof ComponentFormat)[keyof typeof ComponentFormat];
 
 /**
  * @public
@@ -796,10 +832,16 @@ export interface Container {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerRepositoryService {
-  ECR = "ECR",
-}
+export const ContainerRepositoryService = {
+  ECR: "ECR",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerRepositoryService = (typeof ContainerRepositoryService)[keyof typeof ContainerRepositoryService];
 
 /**
  * @public
@@ -840,23 +882,35 @@ export interface ContainerDistributionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ContainerType {
-  DOCKER = "DOCKER",
-}
+export const ContainerType = {
+  DOCKER: "DOCKER",
+} as const;
 
 /**
  * @public
  */
-export enum EbsVolumeType {
-  GP2 = "gp2",
-  GP3 = "gp3",
-  IO1 = "io1",
-  IO2 = "io2",
-  SC1 = "sc1",
-  ST1 = "st1",
-  STANDARD = "standard",
-}
+export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EbsVolumeType = {
+  GP2: "gp2",
+  GP3: "gp3",
+  IO1: "io1",
+  IO2: "io2",
+  SC1: "sc1",
+  ST1: "st1",
+  STANDARD: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type EbsVolumeType = (typeof EbsVolumeType)[keyof typeof EbsVolumeType];
 
 /**
  * @public
@@ -1521,12 +1575,18 @@ export interface LaunchTemplateConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DiskImageFormat {
-  RAW = "RAW",
-  VHD = "VHD",
-  VMDK = "VMDK",
-}
+export const DiskImageFormat = {
+  RAW: "RAW",
+  VHD: "VHD",
+  VMDK: "VMDK",
+} as const;
+
+/**
+ * @public
+ */
+export type DiskImageFormat = (typeof DiskImageFormat)[keyof typeof DiskImageFormat];
 
 /**
  * @public
@@ -1764,11 +1824,18 @@ export interface CreateImageResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PipelineExecutionStartCondition {
-  EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
-  EXPRESSION_MATCH_ONLY = "EXPRESSION_MATCH_ONLY",
-}
+export const PipelineExecutionStartCondition = {
+  EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE: "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+  EXPRESSION_MATCH_ONLY: "EXPRESSION_MATCH_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineExecutionStartCondition =
+  (typeof PipelineExecutionStartCondition)[keyof typeof PipelineExecutionStartCondition];
 
 /**
  * @public
@@ -1806,11 +1873,17 @@ export interface Schedule {
 
 /**
  * @public
+ * @enum
  */
-export enum PipelineStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const PipelineStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus];
 
 /**
  * @public
@@ -2633,11 +2706,17 @@ export interface GetImageRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageType {
-  AMI = "AMI",
-  DOCKER = "DOCKER",
-}
+export const ImageType = {
+  AMI: "AMI",
+  DOCKER: "DOCKER",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
 /**
  * @public
@@ -2722,13 +2801,19 @@ export interface ImageRecipe {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageSource {
-  AMAZON_MANAGED = "AMAZON_MANAGED",
-  AWS_MARKETPLACE = "AWS_MARKETPLACE",
-  CUSTOM = "CUSTOM",
-  IMPORTED = "IMPORTED",
-}
+export const ImageSource = {
+  AMAZON_MANAGED: "AMAZON_MANAGED",
+  AWS_MARKETPLACE: "AWS_MARKETPLACE",
+  CUSTOM: "CUSTOM",
+  IMPORTED: "IMPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSource = (typeof ImageSource)[keyof typeof ImageSource];
 
 /**
  * @public
@@ -3489,13 +3574,19 @@ export interface ListComponentBuildVersionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Ownership {
-  AMAZON = "Amazon",
-  SELF = "Self",
-  SHARED = "Shared",
-  THIRDPARTY = "ThirdParty",
-}
+export const Ownership = {
+  AMAZON: "Amazon",
+  SELF: "Self",
+  SHARED: "Shared",
+  THIRDPARTY: "ThirdParty",
+} as const;
+
+/**
+ * @public
+ */
+export type Ownership = (typeof Ownership)[keyof typeof Ownership];
 
 /**
  * @public

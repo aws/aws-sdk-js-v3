@@ -5,13 +5,19 @@ import { CloudHSMV2ServiceException as __BaseException } from "./CloudHSMV2Servi
 
 /**
  * @public
+ * @enum
  */
-export enum BackupState {
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  PENDING_DELETION = "PENDING_DELETION",
-  READY = "READY",
-}
+export const BackupState = {
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  PENDING_DELETION: "PENDING_DELETION",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupState = (typeof BackupState)[keyof typeof BackupState];
 
 /**
  * @public
@@ -101,17 +107,29 @@ export interface Backup {
 
 /**
  * @public
+ * @enum
  */
-export enum BackupPolicy {
-  DEFAULT = "DEFAULT",
-}
+export const BackupPolicy = {
+  DEFAULT: "DEFAULT",
+} as const;
 
 /**
  * @public
  */
-export enum BackupRetentionType {
-  DAYS = "DAYS",
-}
+export type BackupPolicy = (typeof BackupPolicy)[keyof typeof BackupPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupRetentionType = {
+  DAYS: "DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupRetentionType = (typeof BackupRetentionType)[keyof typeof BackupRetentionType];
 
 /**
  * @public
@@ -403,14 +421,20 @@ export interface Certificates {
 
 /**
  * @public
+ * @enum
  */
-export enum HsmState {
-  ACTIVE = "ACTIVE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DEGRADED = "DEGRADED",
-  DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-}
+export const HsmState = {
+  ACTIVE: "ACTIVE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DEGRADED: "DEGRADED",
+  DELETED: "DELETED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type HsmState = (typeof HsmState)[keyof typeof HsmState];
 
 /**
  * @public
@@ -461,18 +485,24 @@ export interface Hsm {
 
 /**
  * @public
+ * @enum
  */
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DEGRADED = "DEGRADED",
-  DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  INITIALIZED = "INITIALIZED",
-  INITIALIZE_IN_PROGRESS = "INITIALIZE_IN_PROGRESS",
-  UNINITIALIZED = "UNINITIALIZED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const ClusterState = {
+  ACTIVE: "ACTIVE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DEGRADED: "DEGRADED",
+  DELETED: "DELETED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  INITIALIZED: "INITIALIZED",
+  INITIALIZE_IN_PROGRESS: "INITIALIZE_IN_PROGRESS",
+  UNINITIALIZED: "UNINITIALIZED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
  * @public

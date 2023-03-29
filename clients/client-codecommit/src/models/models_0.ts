@@ -25,11 +25,17 @@ export class ActorDoesNotExistException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ApprovalState {
-  APPROVE = "APPROVE",
-  REVOKE = "REVOKE",
-}
+export const ApprovalState = {
+  APPROVE: "APPROVE",
+  REVOKE: "REVOKE",
+} as const;
+
+/**
+ * @public
+ */
+export type ApprovalState = (typeof ApprovalState)[keyof typeof ApprovalState];
 
 /**
  * @public
@@ -213,11 +219,17 @@ export class ApprovalRuleNameRequiredException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum OverrideStatus {
-  OVERRIDE = "OVERRIDE",
-  REVOKE = "REVOKE",
-}
+export const OverrideStatus = {
+  OVERRIDE: "OVERRIDE",
+  REVOKE: "REVOKE",
+} as const;
+
+/**
+ * @public
+ */
+export type OverrideStatus = (typeof OverrideStatus)[keyof typeof OverrideStatus];
 
 /**
  * @public
@@ -763,30 +775,50 @@ export class RepositoryNamesRequiredException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictDetailLevelTypeEnum {
-  FILE_LEVEL = "FILE_LEVEL",
-  LINE_LEVEL = "LINE_LEVEL",
-}
+export const ConflictDetailLevelTypeEnum = {
+  FILE_LEVEL: "FILE_LEVEL",
+  LINE_LEVEL: "LINE_LEVEL",
+} as const;
 
 /**
  * @public
  */
-export enum ConflictResolutionStrategyTypeEnum {
-  ACCEPT_DESTINATION = "ACCEPT_DESTINATION",
-  ACCEPT_SOURCE = "ACCEPT_SOURCE",
-  AUTOMERGE = "AUTOMERGE",
-  NONE = "NONE",
-}
+export type ConflictDetailLevelTypeEnum =
+  (typeof ConflictDetailLevelTypeEnum)[keyof typeof ConflictDetailLevelTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConflictResolutionStrategyTypeEnum = {
+  ACCEPT_DESTINATION: "ACCEPT_DESTINATION",
+  ACCEPT_SOURCE: "ACCEPT_SOURCE",
+  AUTOMERGE: "AUTOMERGE",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum MergeOptionTypeEnum {
-  FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE",
-  SQUASH_MERGE = "SQUASH_MERGE",
-  THREE_WAY_MERGE = "THREE_WAY_MERGE",
-}
+export type ConflictResolutionStrategyTypeEnum =
+  (typeof ConflictResolutionStrategyTypeEnum)[keyof typeof ConflictResolutionStrategyTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const MergeOptionTypeEnum = {
+  FAST_FORWARD_MERGE: "FAST_FORWARD_MERGE",
+  SQUASH_MERGE: "SQUASH_MERGE",
+  THREE_WAY_MERGE: "THREE_WAY_MERGE",
+} as const;
+
+/**
+ * @public
+ */
+export type MergeOptionTypeEnum = (typeof MergeOptionTypeEnum)[keyof typeof MergeOptionTypeEnum];
 
 /**
  * @public
@@ -853,12 +885,18 @@ export interface BatchDescribeMergeConflictsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum FileModeTypeEnum {
-  EXECUTABLE = "EXECUTABLE",
-  NORMAL = "NORMAL",
-  SYMLINK = "SYMLINK",
-}
+export const FileModeTypeEnum = {
+  EXECUTABLE: "EXECUTABLE",
+  NORMAL: "NORMAL",
+  SYMLINK: "SYMLINK",
+} as const;
+
+/**
+ * @public
+ */
+export type FileModeTypeEnum = (typeof FileModeTypeEnum)[keyof typeof FileModeTypeEnum];
 
 /**
  * @public
@@ -925,12 +963,18 @@ export interface IsBinaryFile {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeTypeEnum {
-  ADDED = "A",
-  DELETED = "D",
-  MODIFIED = "M",
-}
+export const ChangeTypeEnum = {
+  ADDED: "A",
+  DELETED: "D",
+  MODIFIED: "M",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeTypeEnum = (typeof ChangeTypeEnum)[keyof typeof ChangeTypeEnum];
 
 /**
  * @public
@@ -951,13 +995,19 @@ export interface MergeOperations {
 
 /**
  * @public
+ * @enum
  */
-export enum ObjectTypeEnum {
-  DIRECTORY = "DIRECTORY",
-  FILE = "FILE",
-  GIT_LINK = "GIT_LINK",
-  SYMBOLIC_LINK = "SYMBOLIC_LINK",
-}
+export const ObjectTypeEnum = {
+  DIRECTORY: "DIRECTORY",
+  FILE: "FILE",
+  GIT_LINK: "GIT_LINK",
+  SYMBOLIC_LINK: "SYMBOLIC_LINK",
+} as const;
+
+/**
+ * @public
+ */
+export type ObjectTypeEnum = (typeof ObjectTypeEnum)[keyof typeof ObjectTypeEnum];
 
 /**
  * @public
@@ -2993,11 +3043,17 @@ export interface CreatePullRequestInput {
 
 /**
  * @public
+ * @enum
  */
-export enum PullRequestStatusEnum {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN",
-}
+export const PullRequestStatusEnum = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+} as const;
+
+/**
+ * @public
+ */
+export type PullRequestStatusEnum = (typeof PullRequestStatusEnum)[keyof typeof PullRequestStatusEnum];
 
 /**
  * @public
@@ -3891,13 +3947,19 @@ export class ConcurrentReferenceUpdateException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplacementTypeEnum {
-  KEEP_BASE = "KEEP_BASE",
-  KEEP_DESTINATION = "KEEP_DESTINATION",
-  KEEP_SOURCE = "KEEP_SOURCE",
-  USE_NEW_CONTENT = "USE_NEW_CONTENT",
-}
+export const ReplacementTypeEnum = {
+  KEEP_BASE: "KEEP_BASE",
+  KEEP_DESTINATION: "KEEP_DESTINATION",
+  KEEP_SOURCE: "KEEP_SOURCE",
+  USE_NEW_CONTENT: "USE_NEW_CONTENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplacementTypeEnum = (typeof ReplacementTypeEnum)[keyof typeof ReplacementTypeEnum];
 
 /**
  * @public
@@ -4651,18 +4713,24 @@ export interface DescribeMergeConflictsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum PullRequestEventType {
-  PULL_REQUEST_APPROVAL_RULE_CREATED = "PULL_REQUEST_APPROVAL_RULE_CREATED",
-  PULL_REQUEST_APPROVAL_RULE_DELETED = "PULL_REQUEST_APPROVAL_RULE_DELETED",
-  PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN = "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN",
-  PULL_REQUEST_APPROVAL_RULE_UPDATED = "PULL_REQUEST_APPROVAL_RULE_UPDATED",
-  PULL_REQUEST_APPROVAL_STATE_CHANGED = "PULL_REQUEST_APPROVAL_STATE_CHANGED",
-  PULL_REQUEST_CREATED = "PULL_REQUEST_CREATED",
-  PULL_REQUEST_MERGE_STATE_CHANGED = "PULL_REQUEST_MERGE_STATE_CHANGED",
-  PULL_REQUEST_SOURCE_REFERENCE_UPDATED = "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
-  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED",
-}
+export const PullRequestEventType = {
+  PULL_REQUEST_APPROVAL_RULE_CREATED: "PULL_REQUEST_APPROVAL_RULE_CREATED",
+  PULL_REQUEST_APPROVAL_RULE_DELETED: "PULL_REQUEST_APPROVAL_RULE_DELETED",
+  PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN: "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN",
+  PULL_REQUEST_APPROVAL_RULE_UPDATED: "PULL_REQUEST_APPROVAL_RULE_UPDATED",
+  PULL_REQUEST_APPROVAL_STATE_CHANGED: "PULL_REQUEST_APPROVAL_STATE_CHANGED",
+  PULL_REQUEST_CREATED: "PULL_REQUEST_CREATED",
+  PULL_REQUEST_MERGE_STATE_CHANGED: "PULL_REQUEST_MERGE_STATE_CHANGED",
+  PULL_REQUEST_SOURCE_REFERENCE_UPDATED: "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
+  PULL_REQUEST_STATUS_CHANGED: "PULL_REQUEST_STATUS_CHANGED",
+} as const;
+
+/**
+ * @public
+ */
+export type PullRequestEventType = (typeof PullRequestEventType)[keyof typeof PullRequestEventType];
 
 /**
  * @public
@@ -5326,11 +5394,17 @@ export interface GetCommentsForComparedCommitInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RelativeFileVersionEnum {
-  AFTER = "AFTER",
-  BEFORE = "BEFORE",
-}
+export const RelativeFileVersionEnum = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+} as const;
+
+/**
+ * @public
+ */
+export type RelativeFileVersionEnum = (typeof RelativeFileVersionEnum)[keyof typeof RelativeFileVersionEnum];
 
 /**
  * @public
@@ -6307,13 +6381,19 @@ export interface GetRepositoryTriggersInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RepositoryTriggerEventEnum {
-  ALL = "all",
-  CREATE_REFERENCE = "createReference",
-  DELETE_REFERENCE = "deleteReference",
-  UPDATE_REFERENCE = "updateReference",
-}
+export const RepositoryTriggerEventEnum = {
+  ALL: "all",
+  CREATE_REFERENCE: "createReference",
+  DELETE_REFERENCE: "deleteReference",
+  UPDATE_REFERENCE: "updateReference",
+} as const;
+
+/**
+ * @public
+ */
+export type RepositoryTriggerEventEnum = (typeof RepositoryTriggerEventEnum)[keyof typeof RepositoryTriggerEventEnum];
 
 /**
  * @public

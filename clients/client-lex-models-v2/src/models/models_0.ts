@@ -5,10 +5,16 @@ import { LexModelsV2ServiceException as __BaseException } from "./LexModelsV2Ser
 
 /**
  * @public
+ * @enum
  */
-export enum AudioRecognitionStrategy {
-  UseSlotValuesAsCustomVocabulary = "UseSlotValuesAsCustomVocabulary",
-}
+export const AudioRecognitionStrategy = {
+  UseSlotValuesAsCustomVocabulary: "UseSlotValuesAsCustomVocabulary",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioRecognitionStrategy = (typeof AudioRecognitionStrategy)[keyof typeof AudioRecognitionStrategy];
 
 /**
  * @public
@@ -23,18 +29,32 @@ export interface AdvancedRecognitionSetting {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregatedUtterancesFilterName {
-  Utterance = "Utterance",
-}
+export const AggregatedUtterancesFilterName = {
+  Utterance: "Utterance",
+} as const;
 
 /**
  * @public
  */
-export enum AggregatedUtterancesFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export type AggregatedUtterancesFilterName =
+  (typeof AggregatedUtterancesFilterName)[keyof typeof AggregatedUtterancesFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregatedUtterancesFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregatedUtterancesFilterOperator =
+  (typeof AggregatedUtterancesFilterOperator)[keyof typeof AggregatedUtterancesFilterOperator];
 
 /**
  * @public
@@ -64,19 +84,32 @@ export interface AggregatedUtterancesFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregatedUtterancesSortAttribute {
-  HitCount = "HitCount",
-  MissedCount = "MissedCount",
-}
+export const AggregatedUtterancesSortAttribute = {
+  HitCount: "HitCount",
+  MissedCount: "MissedCount",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
+export type AggregatedUtterancesSortAttribute =
+  (typeof AggregatedUtterancesSortAttribute)[keyof typeof AggregatedUtterancesSortAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -178,11 +211,18 @@ export interface AssociatedTranscript {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociatedTranscriptFilterName {
-  IntentId = "IntentId",
-  SlotTypeId = "SlotTypeId",
-}
+export const AssociatedTranscriptFilterName = {
+  IntentId: "IntentId",
+  SlotTypeId: "SlotTypeId",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociatedTranscriptFilterName =
+  (typeof AssociatedTranscriptFilterName)[keyof typeof AssociatedTranscriptFilterName];
 
 /**
  * @public
@@ -382,13 +422,19 @@ export interface BatchCreateCustomVocabularyItemRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  DUPLICATE_INPUT = "DUPLICATE_INPUT",
-  INTERNAL_SERVER_FAILURE = "INTERNAL_SERVER_FAILURE",
-  RESOURCE_ALREADY_EXISTS = "RESOURCE_ALREADY_EXISTS",
-  RESOURCE_DOES_NOT_EXIST = "RESOURCE_DOES_NOT_EXIST",
-}
+export const ErrorCode = {
+  DUPLICATE_INPUT: "DUPLICATE_INPUT",
+  INTERNAL_SERVER_FAILURE: "INTERNAL_SERVER_FAILURE",
+  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
+  RESOURCE_DOES_NOT_EXIST: "RESOURCE_DOES_NOT_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -807,13 +853,19 @@ export interface BotAliasLocaleSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum BotAliasStatus {
-  Available = "Available",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-}
+export const BotAliasStatus = {
+  Available: "Available",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type BotAliasStatus = (typeof BotAliasStatus)[keyof typeof BotAliasStatus];
 
 /**
  * @public
@@ -879,20 +931,32 @@ export interface BotExportSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum BotFilterName {
-  BotName = "BotName",
-  BotType = "BotType",
-}
+export const BotFilterName = {
+  BotName: "BotName",
+  BotType: "BotType",
+} as const;
 
 /**
  * @public
  */
-export enum BotFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-  NotEquals = "NE",
-}
+export type BotFilterName = (typeof BotFilterName)[keyof typeof BotFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const BotFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+  NotEquals: "NE",
+} as const;
+
+/**
+ * @public
+ */
+export type BotFilterOperator = (typeof BotFilterOperator)[keyof typeof BotFilterOperator];
 
 /**
  * @public
@@ -1036,18 +1100,30 @@ export interface BotLocaleExportSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum BotLocaleFilterName {
-  BotLocaleName = "BotLocaleName",
-}
+export const BotLocaleFilterName = {
+  BotLocaleName: "BotLocaleName",
+} as const;
 
 /**
  * @public
  */
-export enum BotLocaleFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export type BotLocaleFilterName = (typeof BotLocaleFilterName)[keyof typeof BotLocaleFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const BotLocaleFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type BotLocaleFilterOperator = (typeof BotLocaleFilterOperator)[keyof typeof BotLocaleFilterOperator];
 
 /**
  * @public
@@ -1094,11 +1170,17 @@ export interface BotLocaleHistoryEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum VoiceEngine {
-  Neural = "neural",
-  Standard = "standard",
-}
+export const VoiceEngine = {
+  Neural: "neural",
+  Standard: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type VoiceEngine = (typeof VoiceEngine)[keyof typeof VoiceEngine];
 
 /**
  * @public
@@ -1195,10 +1277,16 @@ export interface BotLocaleImportSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum BotLocaleSortAttribute {
-  BotLocaleName = "BotLocaleName",
-}
+export const BotLocaleSortAttribute = {
+  BotLocaleName: "BotLocaleName",
+} as const;
+
+/**
+ * @public
+ */
+export type BotLocaleSortAttribute = (typeof BotLocaleSortAttribute)[keyof typeof BotLocaleSortAttribute];
 
 /**
  * @public
@@ -1219,18 +1307,24 @@ export interface BotLocaleSortBy {
 
 /**
  * @public
+ * @enum
  */
-export enum BotLocaleStatus {
-  Building = "Building",
-  Built = "Built",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Importing = "Importing",
-  NotBuilt = "NotBuilt",
-  Processing = "Processing",
-  ReadyExpressTesting = "ReadyExpressTesting",
-}
+export const BotLocaleStatus = {
+  Building: "Building",
+  Built: "Built",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Importing: "Importing",
+  NotBuilt: "NotBuilt",
+  Processing: "Processing",
+  ReadyExpressTesting: "ReadyExpressTesting",
+} as const;
+
+/**
+ * @public
+ */
+export type BotLocaleStatus = (typeof BotLocaleStatus)[keyof typeof BotLocaleStatus];
 
 /**
  * @public
@@ -1371,18 +1465,24 @@ export interface BotRecommendationResults {
 
 /**
  * @public
+ * @enum
  */
-export enum BotRecommendationStatus {
-  Available = "Available",
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Downloading = "Downloading",
-  Failed = "Failed",
-  Processing = "Processing",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Updating = "Updating",
-}
+export const BotRecommendationStatus = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Downloading: "Downloading",
+  Failed: "Failed",
+  Processing: "Processing",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type BotRecommendationStatus = (typeof BotRecommendationStatus)[keyof typeof BotRecommendationStatus];
 
 /**
  * @public
@@ -1417,10 +1517,16 @@ export interface BotRecommendationSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum BotSortAttribute {
-  BotName = "BotName",
-}
+export const BotSortAttribute = {
+  BotName: "BotName",
+} as const;
+
+/**
+ * @public
+ */
+export type BotSortAttribute = (typeof BotSortAttribute)[keyof typeof BotSortAttribute];
 
 /**
  * @public
@@ -1441,25 +1547,37 @@ export interface BotSortBy {
 
 /**
  * @public
+ * @enum
  */
-export enum BotStatus {
-  Available = "Available",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Importing = "Importing",
-  Inactive = "Inactive",
-  Updating = "Updating",
-  Versioning = "Versioning",
-}
+export const BotStatus = {
+  Available: "Available",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Importing: "Importing",
+  Inactive: "Inactive",
+  Updating: "Updating",
+  Versioning: "Versioning",
+} as const;
 
 /**
  * @public
  */
-export enum BotType {
-  Bot = "Bot",
-  BotNetwork = "BotNetwork",
-}
+export type BotStatus = (typeof BotStatus)[keyof typeof BotStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BotType = {
+  Bot: "Bot",
+  BotNetwork: "BotNetwork",
+} as const;
+
+/**
+ * @public
+ */
+export type BotType = (typeof BotType)[keyof typeof BotType];
 
 /**
  * @public
@@ -1517,10 +1635,16 @@ export interface BotVersionLocaleDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum BotVersionSortAttribute {
-  BotVersion = "BotVersion",
-}
+export const BotVersionSortAttribute = {
+  BotVersion: "BotVersion",
+} as const;
+
+/**
+ * @public
+ */
+export type BotVersionSortAttribute = (typeof BotVersionSortAttribute)[keyof typeof BotVersionSortAttribute];
 
 /**
  * @public
@@ -1681,10 +1805,16 @@ export class PreconditionFailedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum BuiltInIntentSortAttribute {
-  IntentSignature = "IntentSignature",
-}
+export const BuiltInIntentSortAttribute = {
+  IntentSignature: "IntentSignature",
+} as const;
+
+/**
+ * @public
+ */
+export type BuiltInIntentSortAttribute = (typeof BuiltInIntentSortAttribute)[keyof typeof BuiltInIntentSortAttribute];
 
 /**
  * @public
@@ -1722,10 +1852,17 @@ export interface BuiltInIntentSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum BuiltInSlotTypeSortAttribute {
-  SlotTypeSignature = "SlotTypeSignature",
-}
+export const BuiltInSlotTypeSortAttribute = {
+  SlotTypeSignature: "SlotTypeSignature",
+} as const;
+
+/**
+ * @public
+ */
+export type BuiltInSlotTypeSortAttribute =
+  (typeof BuiltInSlotTypeSortAttribute)[keyof typeof BuiltInSlotTypeSortAttribute];
 
 /**
  * @public
@@ -1844,18 +1981,24 @@ export interface Condition {
 
 /**
  * @public
+ * @enum
  */
-export enum DialogActionType {
-  CloseIntent = "CloseIntent",
-  ConfirmIntent = "ConfirmIntent",
-  ElicitIntent = "ElicitIntent",
-  ElicitSlot = "ElicitSlot",
-  EndConversation = "EndConversation",
-  EvaluateConditional = "EvaluateConditional",
-  FulfillIntent = "FulfillIntent",
-  InvokeDialogCodeHook = "InvokeDialogCodeHook",
-  StartIntent = "StartIntent",
-}
+export const DialogActionType = {
+  CloseIntent: "CloseIntent",
+  ConfirmIntent: "ConfirmIntent",
+  ElicitIntent: "ElicitIntent",
+  ElicitSlot: "ElicitSlot",
+  EndConversation: "EndConversation",
+  EvaluateConditional: "EvaluateConditional",
+  FulfillIntent: "FulfillIntent",
+  InvokeDialogCodeHook: "InvokeDialogCodeHook",
+  StartIntent: "StartIntent",
+} as const;
+
+/**
+ * @public
+ */
+export type DialogActionType = (typeof DialogActionType)[keyof typeof DialogActionType];
 
 /**
  * @public
@@ -1882,11 +2025,17 @@ export interface DialogAction {
 
 /**
  * @public
+ * @enum
  */
-export enum SlotShape {
-  List = "List",
-  Scalar = "Scalar",
-}
+export const SlotShape = {
+  List: "List",
+  Scalar: "Scalar",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotShape = (typeof SlotShape)[keyof typeof SlotShape];
 
 /**
  * @public
@@ -2553,11 +2702,17 @@ export interface CreateBotVersionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportExportFileFormat {
-  LexJson = "LexJson",
-  TSV = "TSV",
-}
+export const ImportExportFileFormat = {
+  LexJson: "LexJson",
+  TSV: "TSV",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportExportFileFormat = (typeof ImportExportFileFormat)[keyof typeof ImportExportFileFormat];
 
 /**
  * @public
@@ -2628,13 +2783,19 @@ export interface CreateExportRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportStatus {
-  Completed = "Completed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
+export const ExportStatus = {
+  Completed: "Completed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InProgress: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
 
 /**
  * @public
@@ -2803,23 +2964,35 @@ export interface ElicitationCodeHookInvocationSetting {
 
 /**
  * @public
+ * @enum
  */
-export enum MessageSelectionStrategy {
-  Ordered = "Ordered",
-  Random = "Random",
-}
+export const MessageSelectionStrategy = {
+  Ordered: "Ordered",
+  Random: "Random",
+} as const;
 
 /**
  * @public
  */
-export enum PromptAttempt {
-  Initial = "Initial",
-  Retry1 = "Retry1",
-  Retry2 = "Retry2",
-  Retry3 = "Retry3",
-  Retry4 = "Retry4",
-  Retry5 = "Retry5",
-}
+export type MessageSelectionStrategy = (typeof MessageSelectionStrategy)[keyof typeof MessageSelectionStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const PromptAttempt = {
+  Initial: "Initial",
+  Retry1: "Retry1",
+  Retry2: "Retry2",
+  Retry3: "Retry3",
+  Retry4: "Retry4",
+  Retry5: "Retry5",
+} as const;
+
+/**
+ * @public
+ */
+export type PromptAttempt = (typeof PromptAttempt)[keyof typeof PromptAttempt];
 
 /**
  * @public
@@ -3005,11 +3178,17 @@ export interface CreateResourcePolicyResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Effect {
-  Allow = "Allow",
-  Deny = "Deny",
-}
+export const Effect = {
+  Allow: "Allow",
+  Deny: "Deny",
+} as const;
+
+/**
+ * @public
+ */
+export type Effect = (typeof Effect)[keyof typeof Effect];
 
 /**
  * @public
@@ -3128,11 +3307,17 @@ export interface MultipleValuesSetting {
 
 /**
  * @public
+ * @enum
  */
-export enum ObfuscationSettingType {
-  DefaultObfuscation = "DefaultObfuscation",
-  None = "None",
-}
+export const ObfuscationSettingType = {
+  DefaultObfuscation: "DefaultObfuscation",
+  None: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type ObfuscationSettingType = (typeof ObfuscationSettingType)[keyof typeof ObfuscationSettingType];
 
 /**
  * @public
@@ -3310,11 +3495,17 @@ export interface SubSlotSetting {
 
 /**
  * @public
+ * @enum
  */
-export enum SlotConstraint {
-  Optional = "Optional",
-  Required = "Required",
-}
+export const SlotConstraint = {
+  Optional: "Optional",
+  Required: "Required",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotConstraint = (typeof SlotConstraint)[keyof typeof SlotConstraint];
 
 /**
  * @public
@@ -3431,12 +3622,19 @@ export interface SlotValueRegexFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum SlotValueResolutionStrategy {
-  Concatenation = "Concatenation",
-  OriginalValue = "OriginalValue",
-  TopResolution = "TopResolution",
-}
+export const SlotValueResolutionStrategy = {
+  Concatenation: "Concatenation",
+  OriginalValue: "OriginalValue",
+  TopResolution: "TopResolution",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotValueResolutionStrategy =
+  (typeof SlotValueResolutionStrategy)[keyof typeof SlotValueResolutionStrategy];
 
 /**
  * @public
@@ -3677,14 +3875,20 @@ export interface CustomVocabularyImportSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomVocabularyStatus {
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Exporting = "Exporting",
-  Importing = "Importing",
-  Ready = "Ready",
-}
+export const CustomVocabularyStatus = {
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Exporting: "Exporting",
+  Importing: "Importing",
+  Ready: "Ready",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomVocabularyStatus = (typeof CustomVocabularyStatus)[keyof typeof CustomVocabularyStatus];
 
 /**
  * @public
@@ -3976,13 +4180,19 @@ export interface DeleteImportRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportStatus {
-  Completed = "Completed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
+export const ImportStatus = {
+  Completed: "Completed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InProgress: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
 
 /**
  * @public
@@ -4616,10 +4826,16 @@ export interface TranscriptFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum TranscriptFormat {
-  Lex = "Lex",
-}
+export const TranscriptFormat = {
+  Lex: "Lex",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscriptFormat = (typeof TranscriptFormat)[keyof typeof TranscriptFormat];
 
 /**
  * @public
@@ -4968,12 +5184,18 @@ export interface DescribeImportRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MergeStrategy {
-  Append = "Append",
-  FailOnConflict = "FailOnConflict",
-  Overwrite = "Overwrite",
-}
+export const MergeStrategy = {
+  Append: "Append",
+  FailOnConflict: "FailOnConflict",
+  Overwrite: "Overwrite",
+} as const;
+
+/**
+ * @public
+ */
+export type MergeStrategy = (typeof MergeStrategy)[keyof typeof MergeStrategy];
 
 /**
  * @public
@@ -5273,18 +5495,30 @@ export interface DescribeSlotTypeResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportFilterName {
-  ExportResourceType = "ExportResourceType",
-}
+export const ExportFilterName = {
+  ExportResourceType: "ExportResourceType",
+} as const;
 
 /**
  * @public
  */
-export enum ExportFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export type ExportFilterName = (typeof ExportFilterName)[keyof typeof ExportFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportFilterOperator = (typeof ExportFilterOperator)[keyof typeof ExportFilterOperator];
 
 /**
  * @public
@@ -5315,10 +5549,16 @@ export interface ExportFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
+export const ExportSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportSortAttribute = (typeof ExportSortAttribute)[keyof typeof ExportSortAttribute];
 
 /**
  * @public
@@ -5376,18 +5616,30 @@ export interface ExportSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportFilterName {
-  ImportResourceType = "ImportResourceType",
-}
+export const ImportFilterName = {
+  ImportResourceType: "ImportResourceType",
+} as const;
 
 /**
  * @public
  */
-export enum ImportFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export type ImportFilterName = (typeof ImportFilterName)[keyof typeof ImportFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportFilterOperator = (typeof ImportFilterOperator)[keyof typeof ImportFilterOperator];
 
 /**
  * @public
@@ -5418,19 +5670,31 @@ export interface ImportFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportResourceType {
-  Bot = "Bot",
-  BotLocale = "BotLocale",
-  CustomVocabulary = "CustomVocabulary",
-}
+export const ImportResourceType = {
+  Bot: "Bot",
+  BotLocale: "BotLocale",
+  CustomVocabulary: "CustomVocabulary",
+} as const;
 
 /**
  * @public
  */
-export enum ImportSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
+export type ImportResourceType = (typeof ImportResourceType)[keyof typeof ImportResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportSortAttribute = (typeof ImportSortAttribute)[keyof typeof ImportSortAttribute];
 
 /**
  * @public
@@ -5500,18 +5764,30 @@ export interface ImportSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum IntentFilterName {
-  IntentName = "IntentName",
-}
+export const IntentFilterName = {
+  IntentName: "IntentName",
+} as const;
 
 /**
  * @public
  */
-export enum IntentFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export type IntentFilterName = (typeof IntentFilterName)[keyof typeof IntentFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntentFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type IntentFilterOperator = (typeof IntentFilterOperator)[keyof typeof IntentFilterOperator];
 
 /**
  * @public
@@ -5541,11 +5817,17 @@ export interface IntentFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum IntentSortAttribute {
-  IntentName = "IntentName",
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
+export const IntentSortAttribute = {
+  IntentName: "IntentName",
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+} as const;
+
+/**
+ * @public
+ */
+export type IntentSortAttribute = (typeof IntentSortAttribute)[keyof typeof IntentSortAttribute];
 
 /**
  * @public
@@ -5614,12 +5896,18 @@ export interface IntentSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeDimension {
-  Days = "Days",
-  Hours = "Hours",
-  Weeks = "Weeks",
-}
+export const TimeDimension = {
+  Days: "Days",
+  Hours: "Hours",
+  Weeks: "Weeks",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeDimension = (typeof TimeDimension)[keyof typeof TimeDimension];
 
 /**
  * @public
@@ -6777,18 +7065,30 @@ export interface ListRecommendedIntentsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SlotFilterName {
-  SlotName = "SlotName",
-}
+export const SlotFilterName = {
+  SlotName: "SlotName",
+} as const;
 
 /**
  * @public
  */
-export enum SlotFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export type SlotFilterName = (typeof SlotFilterName)[keyof typeof SlotFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlotFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotFilterOperator = (typeof SlotFilterOperator)[keyof typeof SlotFilterOperator];
 
 /**
  * @public
@@ -6818,11 +7118,17 @@ export interface SlotFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum SlotSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-  SlotName = "SlotName",
-}
+export const SlotSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+  SlotName: "SlotName",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotSortAttribute = (typeof SlotSortAttribute)[keyof typeof SlotSortAttribute];
 
 /**
  * @public
@@ -6990,19 +7296,31 @@ export interface ListSlotsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SlotTypeFilterName {
-  ExternalSourceType = "ExternalSourceType",
-  SlotTypeName = "SlotTypeName",
-}
+export const SlotTypeFilterName = {
+  ExternalSourceType: "ExternalSourceType",
+  SlotTypeName: "SlotTypeName",
+} as const;
 
 /**
  * @public
  */
-export enum SlotTypeFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export type SlotTypeFilterName = (typeof SlotTypeFilterName)[keyof typeof SlotTypeFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlotTypeFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotTypeFilterOperator = (typeof SlotTypeFilterOperator)[keyof typeof SlotTypeFilterOperator];
 
 /**
  * @public
@@ -7032,11 +7350,17 @@ export interface SlotTypeFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum SlotTypeSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-  SlotTypeName = "SlotTypeName",
-}
+export const SlotTypeSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+  SlotTypeName: "SlotTypeName",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotTypeSortAttribute = (typeof SlotTypeSortAttribute)[keyof typeof SlotTypeSortAttribute];
 
 /**
  * @public
@@ -7111,13 +7435,19 @@ export interface ListSlotTypesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SlotTypeCategory {
-  Composite = "Composite",
-  Custom = "Custom",
-  Extended = "Extended",
-  ExternalGrammar = "ExternalGrammar",
-}
+export const SlotTypeCategory = {
+  Composite: "Composite",
+  Custom: "Custom",
+  Extended: "Extended",
+  ExternalGrammar: "ExternalGrammar",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotTypeCategory = (typeof SlotTypeCategory)[keyof typeof SlotTypeCategory];
 
 /**
  * @public
@@ -7237,11 +7567,17 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SearchOrder {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
+export const SearchOrder = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchOrder = (typeof SearchOrder)[keyof typeof SearchOrder];
 
 /**
  * @public

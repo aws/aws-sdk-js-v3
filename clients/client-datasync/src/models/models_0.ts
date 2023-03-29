@@ -5,11 +5,17 @@ import { DataSyncServiceException as __BaseException } from "./DataSyncServiceEx
 
 /**
  * @public
+ * @enum
  */
-export enum AgentStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-}
+export const AgentStatus = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
  * @public
@@ -35,11 +41,17 @@ export interface AgentListEntry {
 
 /**
  * @public
+ * @enum
  */
-export enum Atime {
-  BEST_EFFORT = "BEST_EFFORT",
-  NONE = "NONE",
-}
+export const Atime = {
+  BEST_EFFORT: "BEST_EFFORT",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Atime = (typeof Atime)[keyof typeof Atime];
 
 /**
  * @public
@@ -224,11 +236,17 @@ export interface Ec2Config {
 
 /**
  * @public
+ * @enum
  */
-export enum EfsInTransitEncryption {
-  NONE = "NONE",
-  TLS1_2 = "TLS1_2",
-}
+export const EfsInTransitEncryption = {
+  NONE: "NONE",
+  TLS1_2: "TLS1_2",
+} as const;
+
+/**
+ * @public
+ */
+export type EfsInTransitEncryption = (typeof EfsInTransitEncryption)[keyof typeof EfsInTransitEncryption];
 
 /**
  * @public
@@ -332,13 +350,19 @@ export interface CreateLocationFsxLustreResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NfsVersion {
-  AUTOMATIC = "AUTOMATIC",
-  NFS3 = "NFS3",
-  NFS4_0 = "NFS4_0",
-  NFS4_1 = "NFS4_1",
-}
+export const NfsVersion = {
+  AUTOMATIC: "AUTOMATIC",
+  NFS3: "NFS3",
+  NFS4_0: "NFS4_0",
+  NFS4_1: "NFS4_1",
+} as const;
+
+/**
+ * @public
+ */
+export type NfsVersion = (typeof NfsVersion)[keyof typeof NfsVersion];
 
 /**
  * @public
@@ -390,14 +414,20 @@ export interface FsxProtocolNfs {
 
 /**
  * @public
+ * @enum
  */
-export enum SmbVersion {
-  AUTOMATIC = "AUTOMATIC",
-  SMB1 = "SMB1",
-  SMB2 = "SMB2",
-  SMB2_0 = "SMB2_0",
-  SMB3 = "SMB3",
-}
+export const SmbVersion = {
+  AUTOMATIC: "AUTOMATIC",
+  SMB1: "SMB1",
+  SMB2: "SMB2",
+  SMB2_0: "SMB2_0",
+  SMB3: "SMB3",
+} as const;
+
+/**
+ * @public
+ */
+export type SmbVersion = (typeof SmbVersion)[keyof typeof SmbVersion];
 
 /**
  * @public
@@ -704,11 +734,17 @@ export interface CreateLocationFsxWindowsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum HdfsAuthenticationType {
-  KERBEROS = "KERBEROS",
-  SIMPLE = "SIMPLE",
-}
+export const HdfsAuthenticationType = {
+  KERBEROS: "KERBEROS",
+  SIMPLE: "SIMPLE",
+} as const;
+
+/**
+ * @public
+ */
+export type HdfsAuthenticationType = (typeof HdfsAuthenticationType)[keyof typeof HdfsAuthenticationType];
 
 /**
  * @public
@@ -733,23 +769,35 @@ export interface HdfsNameNode {
 
 /**
  * @public
+ * @enum
  */
-export enum HdfsDataTransferProtection {
-  AUTHENTICATION = "AUTHENTICATION",
-  DISABLED = "DISABLED",
-  INTEGRITY = "INTEGRITY",
-  PRIVACY = "PRIVACY",
-}
+export const HdfsDataTransferProtection = {
+  AUTHENTICATION: "AUTHENTICATION",
+  DISABLED: "DISABLED",
+  INTEGRITY: "INTEGRITY",
+  PRIVACY: "PRIVACY",
+} as const;
 
 /**
  * @public
  */
-export enum HdfsRpcProtection {
-  AUTHENTICATION = "AUTHENTICATION",
-  DISABLED = "DISABLED",
-  INTEGRITY = "INTEGRITY",
-  PRIVACY = "PRIVACY",
-}
+export type HdfsDataTransferProtection = (typeof HdfsDataTransferProtection)[keyof typeof HdfsDataTransferProtection];
+
+/**
+ * @public
+ * @enum
+ */
+export const HdfsRpcProtection = {
+  AUTHENTICATION: "AUTHENTICATION",
+  DISABLED: "DISABLED",
+  INTEGRITY: "INTEGRITY",
+  PRIVACY: "PRIVACY",
+} as const;
+
+/**
+ * @public
+ */
+export type HdfsRpcProtection = (typeof HdfsRpcProtection)[keyof typeof HdfsRpcProtection];
 
 /**
  * @public
@@ -971,11 +1019,18 @@ export interface CreateLocationNfsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ObjectStorageServerProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-}
+export const ObjectStorageServerProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+} as const;
+
+/**
+ * @public
+ */
+export type ObjectStorageServerProtocol =
+  (typeof ObjectStorageServerProtocol)[keyof typeof ObjectStorageServerProtocol];
 
 /**
  * @public
@@ -1064,17 +1119,23 @@ export interface S3Config {
 
 /**
  * @public
+ * @enum
  */
-export enum S3StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_INSTANT_RETRIEVAL = "GLACIER_INSTANT_RETRIEVAL",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  OUTPOSTS = "OUTPOSTS",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const S3StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_INSTANT_RETRIEVAL: "GLACIER_INSTANT_RETRIEVAL",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  OUTPOSTS: "OUTPOSTS",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
 
 /**
  * @public
@@ -1214,10 +1275,16 @@ export interface CreateLocationSmbResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterType {
-  SIMPLE_PATTERN = "SIMPLE_PATTERN",
-}
+export const FilterType = {
+  SIMPLE_PATTERN: "SIMPLE_PATTERN",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
 /**
  * @public
@@ -1243,114 +1310,193 @@ export interface FilterRule {
 
 /**
  * @public
+ * @enum
  */
-export enum Gid {
-  BOTH = "BOTH",
-  INT_VALUE = "INT_VALUE",
-  NAME = "NAME",
-  NONE = "NONE",
-}
+export const Gid = {
+  BOTH: "BOTH",
+  INT_VALUE: "INT_VALUE",
+  NAME: "NAME",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum LogLevel {
-  BASIC = "BASIC",
-  OFF = "OFF",
-  TRANSFER = "TRANSFER",
-}
+export type Gid = (typeof Gid)[keyof typeof Gid];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogLevel = {
+  BASIC: "BASIC",
+  OFF: "OFF",
+  TRANSFER: "TRANSFER",
+} as const;
 
 /**
  * @public
  */
-export enum Mtime {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const Mtime = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
 
 /**
  * @public
  */
-export enum ObjectTags {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
+export type Mtime = (typeof Mtime)[keyof typeof Mtime];
+
+/**
+ * @public
+ * @enum
+ */
+export const ObjectTags = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
 
 /**
  * @public
  */
-export enum OverwriteMode {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
+export type ObjectTags = (typeof ObjectTags)[keyof typeof ObjectTags];
+
+/**
+ * @public
+ * @enum
+ */
+export const OverwriteMode = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+} as const;
 
 /**
  * @public
  */
-export enum PosixPermissions {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
+export type OverwriteMode = (typeof OverwriteMode)[keyof typeof OverwriteMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PosixPermissions = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
 
 /**
  * @public
  */
-export enum PreserveDeletedFiles {
-  PRESERVE = "PRESERVE",
-  REMOVE = "REMOVE",
-}
+export type PosixPermissions = (typeof PosixPermissions)[keyof typeof PosixPermissions];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreserveDeletedFiles = {
+  PRESERVE: "PRESERVE",
+  REMOVE: "REMOVE",
+} as const;
 
 /**
  * @public
  */
-export enum PreserveDevices {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
+export type PreserveDeletedFiles = (typeof PreserveDeletedFiles)[keyof typeof PreserveDeletedFiles];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreserveDevices = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+} as const;
 
 /**
  * @public
  */
-export enum SmbSecurityDescriptorCopyFlags {
-  NONE = "NONE",
-  OWNER_DACL = "OWNER_DACL",
-  OWNER_DACL_SACL = "OWNER_DACL_SACL",
-}
+export type PreserveDevices = (typeof PreserveDevices)[keyof typeof PreserveDevices];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmbSecurityDescriptorCopyFlags = {
+  NONE: "NONE",
+  OWNER_DACL: "OWNER_DACL",
+  OWNER_DACL_SACL: "OWNER_DACL_SACL",
+} as const;
 
 /**
  * @public
  */
-export enum TaskQueueing {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type SmbSecurityDescriptorCopyFlags =
+  (typeof SmbSecurityDescriptorCopyFlags)[keyof typeof SmbSecurityDescriptorCopyFlags];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskQueueing = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum TransferMode {
-  ALL = "ALL",
-  CHANGED = "CHANGED",
-}
+export type TaskQueueing = (typeof TaskQueueing)[keyof typeof TaskQueueing];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransferMode = {
+  ALL: "ALL",
+  CHANGED: "CHANGED",
+} as const;
 
 /**
  * @public
  */
-export enum Uid {
-  BOTH = "BOTH",
-  INT_VALUE = "INT_VALUE",
-  NAME = "NAME",
-  NONE = "NONE",
-}
+export type TransferMode = (typeof TransferMode)[keyof typeof TransferMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Uid = {
+  BOTH: "BOTH",
+  INT_VALUE: "INT_VALUE",
+  NAME: "NAME",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum VerifyMode {
-  NONE = "NONE",
-  ONLY_FILES_TRANSFERRED = "ONLY_FILES_TRANSFERRED",
-  POINT_IN_TIME_CONSISTENT = "POINT_IN_TIME_CONSISTENT",
-}
+export type Uid = (typeof Uid)[keyof typeof Uid];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerifyMode = {
+  NONE: "NONE",
+  ONLY_FILES_TRANSFERRED: "ONLY_FILES_TRANSFERRED",
+  POINT_IN_TIME_CONSISTENT: "POINT_IN_TIME_CONSISTENT",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifyMode = (typeof VerifyMode)[keyof typeof VerifyMode];
 
 /**
  * @public
@@ -1765,12 +1911,18 @@ export interface DescribeAgentRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EndpointType {
-  FIPS = "FIPS",
-  PRIVATE_LINK = "PRIVATE_LINK",
-  PUBLIC = "PUBLIC",
-}
+export const EndpointType = {
+  FIPS: "FIPS",
+  PRIVATE_LINK: "PRIVATE_LINK",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
  * @public
@@ -2388,14 +2540,20 @@ export interface DescribeTaskRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const TaskStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 /**
  * @public
@@ -2504,12 +2662,18 @@ export interface DescribeTaskExecutionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PhaseStatus {
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+export const PhaseStatus = {
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type PhaseStatus = (typeof PhaseStatus)[keyof typeof PhaseStatus];
 
 /**
  * @public
@@ -2571,16 +2735,22 @@ export interface TaskExecutionResultDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskExecutionStatus {
-  ERROR = "ERROR",
-  LAUNCHING = "LAUNCHING",
-  PREPARING = "PREPARING",
-  QUEUED = "QUEUED",
-  SUCCESS = "SUCCESS",
-  TRANSFERRING = "TRANSFERRING",
-  VERIFYING = "VERIFYING",
-}
+export const TaskExecutionStatus = {
+  ERROR: "ERROR",
+  LAUNCHING: "LAUNCHING",
+  PREPARING: "PREPARING",
+  QUEUED: "QUEUED",
+  SUCCESS: "SUCCESS",
+  TRANSFERRING: "TRANSFERRING",
+  VERIFYING: "VERIFYING",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof TaskExecutionStatus];
 
 /**
  * @public
@@ -2720,28 +2890,40 @@ export interface ListAgentsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LocationFilterName {
-  CreationTime = "CreationTime",
-  LocationType = "LocationType",
-  LocationUri = "LocationUri",
-}
+export const LocationFilterName = {
+  CreationTime: "CreationTime",
+  LocationType: "LocationType",
+  LocationUri: "LocationUri",
+} as const;
 
 /**
  * @public
  */
-export enum Operator {
-  BEGINS_WITH = "BeginsWith",
-  CONTAINS = "Contains",
-  EQ = "Equals",
-  GE = "GreaterThanOrEqual",
-  GT = "GreaterThan",
-  IN = "In",
-  LE = "LessThanOrEqual",
-  LT = "LessThan",
-  NE = "NotEquals",
-  NOT_CONTAINS = "NotContains",
-}
+export type LocationFilterName = (typeof LocationFilterName)[keyof typeof LocationFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Operator = {
+  BEGINS_WITH: "BeginsWith",
+  CONTAINS: "Contains",
+  EQ: "Equals",
+  GE: "GreaterThanOrEqual",
+  GT: "GreaterThan",
+  IN: "In",
+  LE: "LessThanOrEqual",
+  LT: "LessThan",
+  NE: "NotEquals",
+  NOT_CONTAINS: "NotContains",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * @public
@@ -2946,11 +3128,17 @@ export interface ListTaskExecutionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskFilterName {
-  CreationTime = "CreationTime",
-  LocationId = "LocationId",
-}
+export const TaskFilterName = {
+  CreationTime: "CreationTime",
+  LocationId: "LocationId",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskFilterName = (typeof TaskFilterName)[keyof typeof TaskFilterName];
 
 /**
  * @public

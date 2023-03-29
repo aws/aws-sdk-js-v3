@@ -94,11 +94,17 @@ export interface CreateGameRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum GameState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const GameState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type GameState = (typeof GameState)[keyof typeof GameState];
 
 /**
  * @public
@@ -386,11 +392,17 @@ export interface CreateStageRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StageState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const StageState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type StageState = (typeof StageState)[keyof typeof StageState];
 
 /**
  * @public
@@ -498,20 +510,32 @@ export interface DeleteStageResult {}
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentAction {
-  DEPLOY = "DEPLOY",
-  UNDEPLOY = "UNDEPLOY",
-}
+export const DeploymentAction = {
+  DEPLOY: "DEPLOY",
+  UNDEPLOY: "UNDEPLOY",
+} as const;
 
 /**
  * @public
  */
-export enum ResultCode {
-  INVALID_ROLE_FAILURE = "INVALID_ROLE_FAILURE",
-  SUCCESS = "SUCCESS",
-  UNSPECIFIED_FAILURE = "UNSPECIFIED_FAILURE",
-}
+export type DeploymentAction = (typeof DeploymentAction)[keyof typeof DeploymentAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResultCode = {
+  INVALID_ROLE_FAILURE: "INVALID_ROLE_FAILURE",
+  SUCCESS: "SUCCESS",
+  UNSPECIFIED_FAILURE: "UNSPECIFIED_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResultCode = (typeof ResultCode)[keyof typeof ResultCode];
 
 /**
  * @public
@@ -531,13 +555,19 @@ export interface DeploymentResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-}
+export const DeploymentState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
 
 /**
  * @public
@@ -798,13 +828,19 @@ export interface GetGeneratedCodeJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum GeneratedCodeJobState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-}
+export const GeneratedCodeJobState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type GeneratedCodeJobState = (typeof GeneratedCodeJobState)[keyof typeof GeneratedCodeJobState];
 
 /**
  * @public
@@ -1680,12 +1716,18 @@ export interface UpdateGameResult {
 
 /**
  * @public
+ * @enum
  */
-export enum Operation {
-  ADD = "ADD",
-  REMOVE = "REMOVE",
-  REPLACE = "REPLACE",
-}
+export const Operation = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+  REPLACE: "REPLACE",
+} as const;
+
+/**
+ * @public
+ */
+export type Operation = (typeof Operation)[keyof typeof Operation];
 
 /**
  * @public

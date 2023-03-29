@@ -5,11 +5,17 @@ import { PipesServiceException as __BaseException } from "./PipesServiceExceptio
 
 /**
  * @public
+ * @enum
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
 
 /**
  * @public
@@ -69,12 +75,19 @@ export interface BatchEnvironmentVariable {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchResourceRequirementType {
-  GPU = "GPU",
-  MEMORY = "MEMORY",
-  VCPU = "VCPU",
-}
+export const BatchResourceRequirementType = {
+  GPU: "GPU",
+  MEMORY: "MEMORY",
+  VCPU: "VCPU",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchResourceRequirementType =
+  (typeof BatchResourceRequirementType)[keyof typeof BatchResourceRequirementType];
 
 /**
  * @public
@@ -288,11 +301,17 @@ export interface BatchContainerOverrides {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchJobDependencyType {
-  N_TO_N = "N_TO_N",
-  SEQUENTIAL = "SEQUENTIAL",
-}
+export const BatchJobDependencyType = {
+  N_TO_N: "N_TO_N",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchJobDependencyType = (typeof BatchJobDependencyType)[keyof typeof BatchJobDependencyType];
 
 /**
  * @public
@@ -382,11 +401,17 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RequestedPipeState {
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const RequestedPipeState = {
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type RequestedPipeState = (typeof RequestedPipeState)[keyof typeof RequestedPipeState];
 
 /**
  * @public
@@ -514,18 +539,32 @@ export interface DeadLetterConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum OnPartialBatchItemFailureStreams {
-  AUTOMATIC_BISECT = "AUTOMATIC_BISECT",
-}
+export const OnPartialBatchItemFailureStreams = {
+  AUTOMATIC_BISECT: "AUTOMATIC_BISECT",
+} as const;
 
 /**
  * @public
  */
-export enum DynamoDBStreamStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export type OnPartialBatchItemFailureStreams =
+  (typeof OnPartialBatchItemFailureStreams)[keyof typeof OnPartialBatchItemFailureStreams];
+
+/**
+ * @public
+ * @enum
+ */
+export const DynamoDBStreamStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type DynamoDBStreamStartPosition =
+  (typeof DynamoDBStreamStartPosition)[keyof typeof DynamoDBStreamStartPosition];
 
 /**
  * @public
@@ -602,12 +641,18 @@ export interface FilterCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum KinesisStreamStartPosition {
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const KinesisStreamStartPosition = {
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type KinesisStreamStartPosition = (typeof KinesisStreamStartPosition)[keyof typeof KinesisStreamStartPosition];
 
 /**
  * @public
@@ -716,11 +761,17 @@ export namespace MSKAccessCredentials {
 
 /**
  * @public
+ * @enum
  */
-export enum MSKStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const MSKStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type MSKStartPosition = (typeof MSKStartPosition)[keyof typeof MSKStartPosition];
 
 /**
  * @public
@@ -876,11 +927,18 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
 
 /**
  * @public
+ * @enum
  */
-export enum SelfManagedKafkaStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const SelfManagedKafkaStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type SelfManagedKafkaStartPosition =
+  (typeof SelfManagedKafkaStartPosition)[keyof typeof SelfManagedKafkaStartPosition];
 
 /**
  * @public
@@ -1079,12 +1137,18 @@ export interface PipeTargetCloudWatchLogsParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
 
 /**
  * @public
@@ -1118,10 +1182,16 @@ export interface EcsEnvironmentVariable {
 
 /**
  * @public
+ * @enum
  */
-export enum EcsEnvironmentFileType {
-  s3 = "s3",
-}
+export const EcsEnvironmentFileType = {
+  s3: "s3",
+} as const;
+
+/**
+ * @public
+ */
+export type EcsEnvironmentFileType = (typeof EcsEnvironmentFileType)[keyof typeof EcsEnvironmentFileType];
 
 /**
  * @public
@@ -1163,11 +1233,17 @@ export interface EcsEnvironmentFile {
 
 /**
  * @public
+ * @enum
  */
-export enum EcsResourceRequirementType {
-  GPU = "GPU",
-  InferenceAccelerator = "InferenceAccelerator",
-}
+export const EcsResourceRequirementType = {
+  GPU: "GPU",
+  InferenceAccelerator: "InferenceAccelerator",
+} as const;
+
+/**
+ * @public
+ */
+export type EcsResourceRequirementType = (typeof EcsResourceRequirementType)[keyof typeof EcsResourceRequirementType];
 
 /**
  * @public
@@ -1349,11 +1425,17 @@ export interface EcsTaskOverride {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
 
 /**
  * @public
@@ -1378,12 +1460,18 @@ export interface PlacementConstraint {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
 
 /**
  * @public
@@ -1413,10 +1501,16 @@ export interface PlacementStrategy {
 
 /**
  * @public
+ * @enum
  */
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+} as const;
+
+/**
+ * @public
+ */
+export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
 
 /**
  * @public
@@ -1621,11 +1715,17 @@ export interface PipeTargetKinesisStreamParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum PipeTargetInvocationType {
-  FIRE_AND_FORGET = "FIRE_AND_FORGET",
-  REQUEST_RESPONSE = "REQUEST_RESPONSE",
-}
+export const PipeTargetInvocationType = {
+  FIRE_AND_FORGET: "FIRE_AND_FORGET",
+  REQUEST_RESPONSE: "REQUEST_RESPONSE",
+} as const;
+
+/**
+ * @public
+ */
+export type PipeTargetInvocationType = (typeof PipeTargetInvocationType)[keyof typeof PipeTargetInvocationType];
 
 /**
  * @public
@@ -1884,20 +1984,26 @@ export interface CreatePipeRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PipeState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  START_FAILED = "START_FAILED",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  STOP_FAILED = "STOP_FAILED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const PipeState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  START_FAILED: "START_FAILED",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  STOP_FAILED: "STOP_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type PipeState = (typeof PipeState)[keyof typeof PipeState];
 
 /**
  * @public
@@ -2116,12 +2222,19 @@ export interface DeletePipeRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RequestedPipeStateDescribeResponse {
-  DELETED = "DELETED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const RequestedPipeStateDescribeResponse = {
+  DELETED: "DELETED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type RequestedPipeStateDescribeResponse =
+  (typeof RequestedPipeStateDescribeResponse)[keyof typeof RequestedPipeStateDescribeResponse];
 
 /**
  * @public

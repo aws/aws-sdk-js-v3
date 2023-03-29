@@ -27,13 +27,19 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionType {
-  ASSIGN_CONTACT_CATEGORY = "ASSIGN_CONTACT_CATEGORY",
-  CREATE_TASK = "CREATE_TASK",
-  GENERATE_EVENTBRIDGE_EVENT = "GENERATE_EVENTBRIDGE_EVENT",
-  SEND_NOTIFICATION = "SEND_NOTIFICATION",
-}
+export const ActionType = {
+  ASSIGN_CONTACT_CATEGORY: "ASSIGN_CONTACT_CATEGORY",
+  CREATE_TASK: "CREATE_TASK",
+  GENERATE_EVENTBRIDGE_EVENT: "GENERATE_EVENTBRIDGE_EVENT",
+  SEND_NOTIFICATION: "SEND_NOTIFICATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 /**
  * @public
@@ -48,41 +54,59 @@ export interface ActionSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactState {
-  CONNECTED = "CONNECTED",
-  CONNECTED_ONHOLD = "CONNECTED_ONHOLD",
-  CONNECTING = "CONNECTING",
-  ENDED = "ENDED",
-  ERROR = "ERROR",
-  INCOMING = "INCOMING",
-  MISSED = "MISSED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const ContactState = {
+  CONNECTED: "CONNECTED",
+  CONNECTED_ONHOLD: "CONNECTED_ONHOLD",
+  CONNECTING: "CONNECTING",
+  ENDED: "ENDED",
+  ERROR: "ERROR",
+  INCOMING: "INCOMING",
+  MISSED: "MISSED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
 
 /**
  * @public
  */
-export enum Channel {
-  CHAT = "CHAT",
-  TASK = "TASK",
-  VOICE = "VOICE",
-}
+export type ContactState = (typeof ContactState)[keyof typeof ContactState];
+
+/**
+ * @public
+ * @enum
+ */
+export const Channel = {
+  CHAT: "CHAT",
+  TASK: "TASK",
+  VOICE: "VOICE",
+} as const;
 
 /**
  * @public
  */
-export enum ContactInitiationMethod {
-  API = "API",
-  CALLBACK = "CALLBACK",
-  DISCONNECT = "DISCONNECT",
-  INBOUND = "INBOUND",
-  MONITOR = "MONITOR",
-  OUTBOUND = "OUTBOUND",
-  QUEUE_TRANSFER = "QUEUE_TRANSFER",
-  TRANSFER = "TRANSFER",
-}
+export type Channel = (typeof Channel)[keyof typeof Channel];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactInitiationMethod = {
+  API: "API",
+  CALLBACK: "CALLBACK",
+  DISCONNECT: "DISCONNECT",
+  INBOUND: "INBOUND",
+  MONITOR: "MONITOR",
+  OUTBOUND: "OUTBOUND",
+  QUEUE_TRANSFER: "QUEUE_TRANSFER",
+  TRANSFER: "TRANSFER",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactInitiationMethod = (typeof ContactInitiationMethod)[keyof typeof ContactInitiationMethod];
 
 /**
  * @public
@@ -160,20 +184,32 @@ export interface AgentInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum AgentStatusState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AgentStatusState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum AgentStatusType {
-  CUSTOM = "CUSTOM",
-  OFFLINE = "OFFLINE",
-  ROUTABLE = "ROUTABLE",
-}
+export type AgentStatusState = (typeof AgentStatusState)[keyof typeof AgentStatusState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentStatusType = {
+  CUSTOM: "CUSTOM",
+  OFFLINE: "OFFLINE",
+  ROUTABLE: "ROUTABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentStatusType = (typeof AgentStatusType)[keyof typeof AgentStatusType];
 
 /**
  * @public
@@ -270,11 +306,17 @@ export interface AgentStatusSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitorCapability {
-  BARGE = "BARGE",
-  SILENT_MONITOR = "SILENT_MONITOR",
-}
+export const MonitorCapability = {
+  BARGE: "BARGE",
+  SILENT_MONITOR: "SILENT_MONITOR",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitorCapability = (typeof MonitorCapability)[keyof typeof MonitorCapability];
 
 /**
  * @public
@@ -531,32 +573,38 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum VocabularyLanguageCode {
-  AR_AE = "ar-AE",
-  DE_CH = "de-CH",
-  DE_DE = "de-DE",
-  EN_AB = "en-AB",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_IE = "en-IE",
-  EN_IN = "en-IN",
-  EN_NZ = "en-NZ",
-  EN_US = "en-US",
-  EN_WL = "en-WL",
-  EN_ZA = "en-ZA",
-  ES_ES = "es-ES",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  HI_IN = "hi-IN",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  PT_PT = "pt-PT",
-  ZH_CN = "zh-CN",
-}
+export const VocabularyLanguageCode = {
+  AR_AE: "ar-AE",
+  DE_CH: "de-CH",
+  DE_DE: "de-DE",
+  EN_AB: "en-AB",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_IE: "en-IE",
+  EN_IN: "en-IN",
+  EN_NZ: "en-NZ",
+  EN_US: "en-US",
+  EN_WL: "en-WL",
+  EN_ZA: "en-ZA",
+  ES_ES: "es-ES",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  HI_IN: "hi-IN",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  PT_PT: "pt-PT",
+  ZH_CN: "zh-CN",
+} as const;
+
+/**
+ * @public
+ */
+export type VocabularyLanguageCode = (typeof VocabularyLanguageCode)[keyof typeof VocabularyLanguageCode];
 
 /**
  * @public
@@ -587,18 +635,25 @@ export interface AssociateDefaultVocabularyResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceStorageResourceType {
-  AGENT_EVENTS = "AGENT_EVENTS",
-  ATTACHMENTS = "ATTACHMENTS",
-  CALL_RECORDINGS = "CALL_RECORDINGS",
-  CHAT_TRANSCRIPTS = "CHAT_TRANSCRIPTS",
-  CONTACT_EVALUATIONS = "CONTACT_EVALUATIONS",
-  CONTACT_TRACE_RECORDS = "CONTACT_TRACE_RECORDS",
-  MEDIA_STREAMS = "MEDIA_STREAMS",
-  REAL_TIME_CONTACT_ANALYSIS_SEGMENTS = "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
-  SCHEDULED_REPORTS = "SCHEDULED_REPORTS",
-}
+export const InstanceStorageResourceType = {
+  AGENT_EVENTS: "AGENT_EVENTS",
+  ATTACHMENTS: "ATTACHMENTS",
+  CALL_RECORDINGS: "CALL_RECORDINGS",
+  CHAT_TRANSCRIPTS: "CHAT_TRANSCRIPTS",
+  CONTACT_EVALUATIONS: "CONTACT_EVALUATIONS",
+  CONTACT_TRACE_RECORDS: "CONTACT_TRACE_RECORDS",
+  MEDIA_STREAMS: "MEDIA_STREAMS",
+  REAL_TIME_CONTACT_ANALYSIS_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
+  SCHEDULED_REPORTS: "SCHEDULED_REPORTS",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceStorageResourceType =
+  (typeof InstanceStorageResourceType)[keyof typeof InstanceStorageResourceType];
 
 /**
  * @public
@@ -624,10 +679,16 @@ export interface KinesisStreamConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionType {
-  KMS = "KMS",
-}
+export const EncryptionType = {
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -698,13 +759,19 @@ export interface S3Config {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageType {
-  KINESIS_FIREHOSE = "KINESIS_FIREHOSE",
-  KINESIS_STREAM = "KINESIS_STREAM",
-  KINESIS_VIDEO_STREAM = "KINESIS_VIDEO_STREAM",
-  S3 = "S3",
-}
+export const StorageType = {
+  KINESIS_FIREHOSE: "KINESIS_FIREHOSE",
+  KINESIS_STREAM: "KINESIS_STREAM",
+  KINESIS_VIDEO_STREAM: "KINESIS_VIDEO_STREAM",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 /**
  * @public
@@ -1079,18 +1146,24 @@ export class DuplicateResourceException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactFlowType {
-  AGENT_HOLD = "AGENT_HOLD",
-  AGENT_TRANSFER = "AGENT_TRANSFER",
-  AGENT_WHISPER = "AGENT_WHISPER",
-  CONTACT_FLOW = "CONTACT_FLOW",
-  CUSTOMER_HOLD = "CUSTOMER_HOLD",
-  CUSTOMER_QUEUE = "CUSTOMER_QUEUE",
-  CUSTOMER_WHISPER = "CUSTOMER_WHISPER",
-  OUTBOUND_WHISPER = "OUTBOUND_WHISPER",
-  QUEUE_TRANSFER = "QUEUE_TRANSFER",
-}
+export const ContactFlowType = {
+  AGENT_HOLD: "AGENT_HOLD",
+  AGENT_TRANSFER: "AGENT_TRANSFER",
+  AGENT_WHISPER: "AGENT_WHISPER",
+  CONTACT_FLOW: "CONTACT_FLOW",
+  CUSTOMER_HOLD: "CUSTOMER_HOLD",
+  CUSTOMER_QUEUE: "CUSTOMER_QUEUE",
+  CUSTOMER_WHISPER: "CUSTOMER_WHISPER",
+  OUTBOUND_WHISPER: "OUTBOUND_WHISPER",
+  QUEUE_TRANSFER: "QUEUE_TRANSFER",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactFlowType = (typeof ContactFlowType)[keyof typeof ContactFlowType];
 
 /**
  * @public
@@ -1256,16 +1329,22 @@ export class InvalidContactFlowModuleException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum HoursOfOperationDays {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const HoursOfOperationDays = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type HoursOfOperationDays = (typeof HoursOfOperationDays)[keyof typeof HoursOfOperationDays];
 
 /**
  * @public
@@ -1356,12 +1435,18 @@ export interface CreateHoursOfOperationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DirectoryType {
-  CONNECT_MANAGED = "CONNECT_MANAGED",
-  EXISTING_DIRECTORY = "EXISTING_DIRECTORY",
-  SAML = "SAML",
-}
+export const DirectoryType = {
+  CONNECT_MANAGED: "CONNECT_MANAGED",
+  EXISTING_DIRECTORY: "EXISTING_DIRECTORY",
+  SAML: "SAML",
+} as const;
+
+/**
+ * @public
+ */
+export type DirectoryType = (typeof DirectoryType)[keyof typeof DirectoryType];
 
 /**
  * @public
@@ -1415,23 +1500,35 @@ export interface CreateInstanceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum IntegrationType {
-  CASES_DOMAIN = "CASES_DOMAIN",
-  EVENT = "EVENT",
-  PINPOINT_APP = "PINPOINT_APP",
-  VOICE_ID = "VOICE_ID",
-  WISDOM_ASSISTANT = "WISDOM_ASSISTANT",
-  WISDOM_KNOWLEDGE_BASE = "WISDOM_KNOWLEDGE_BASE",
-}
+export const IntegrationType = {
+  CASES_DOMAIN: "CASES_DOMAIN",
+  EVENT: "EVENT",
+  PINPOINT_APP: "PINPOINT_APP",
+  VOICE_ID: "VOICE_ID",
+  WISDOM_ASSISTANT: "WISDOM_ASSISTANT",
+  WISDOM_KNOWLEDGE_BASE: "WISDOM_KNOWLEDGE_BASE",
+} as const;
 
 /**
  * @public
  */
-export enum SourceType {
-  SALESFORCE = "SALESFORCE",
-  ZENDESK = "ZENDESK",
-}
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  SALESFORCE: "SALESFORCE",
+  ZENDESK: "ZENDESK",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -1603,12 +1700,18 @@ export interface QueueQuickConnectConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum QuickConnectType {
-  PHONE_NUMBER = "PHONE_NUMBER",
-  QUEUE = "QUEUE",
-  USER = "USER",
-}
+export const QuickConnectType = {
+  PHONE_NUMBER: "PHONE_NUMBER",
+  QUEUE: "QUEUE",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type QuickConnectType = (typeof QuickConnectType)[keyof typeof QuickConnectType];
 
 /**
  * @public
@@ -1804,17 +1907,29 @@ export interface EventBridgeActionDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum NotificationContentType {
-  PLAIN_TEXT = "PLAIN_TEXT",
-}
+export const NotificationContentType = {
+  PLAIN_TEXT: "PLAIN_TEXT",
+} as const;
 
 /**
  * @public
  */
-export enum NotificationDeliveryType {
-  EMAIL = "EMAIL",
-}
+export type NotificationContentType = (typeof NotificationContentType)[keyof typeof NotificationContentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationDeliveryType = {
+  EMAIL: "EMAIL",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationDeliveryType = (typeof NotificationDeliveryType)[keyof typeof NotificationDeliveryType];
 
 /**
  * @public
@@ -1870,15 +1985,21 @@ export interface SendNotificationActionDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum ReferenceType {
-  ATTACHMENT = "ATTACHMENT",
-  DATE = "DATE",
-  EMAIL = "EMAIL",
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-  URL = "URL",
-}
+export const ReferenceType = {
+  ATTACHMENT: "ATTACHMENT",
+  DATE: "DATE",
+  EMAIL: "EMAIL",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
 
 /**
  * @public
@@ -1966,23 +2087,35 @@ export interface RuleAction {
 
 /**
  * @public
+ * @enum
  */
-export enum RulePublishStatus {
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+export const RulePublishStatus = {
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const;
 
 /**
  * @public
  */
-export enum EventSourceName {
-  OnPostCallAnalysisAvailable = "OnPostCallAnalysisAvailable",
-  OnPostChatAnalysisAvailable = "OnPostChatAnalysisAvailable",
-  OnRealTimeCallAnalysisAvailable = "OnRealTimeCallAnalysisAvailable",
-  OnSalesforceCaseCreate = "OnSalesforceCaseCreate",
-  OnZendeskTicketCreate = "OnZendeskTicketCreate",
-  OnZendeskTicketStatusUpdate = "OnZendeskTicketStatusUpdate",
-}
+export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePublishStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventSourceName = {
+  OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
+  OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
+  OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
+  OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
+  OnZendeskTicketCreate: "OnZendeskTicketCreate",
+  OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
+} as const;
+
+/**
+ * @public
+ */
+export type EventSourceName = (typeof EventSourceName)[keyof typeof EventSourceName];
 
 /**
  * @public
@@ -2213,21 +2346,27 @@ export interface TaskTemplateDefaults {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskTemplateFieldType {
-  BOOLEAN = "BOOLEAN",
-  DATE_TIME = "DATE_TIME",
-  DESCRIPTION = "DESCRIPTION",
-  EMAIL = "EMAIL",
-  NAME = "NAME",
-  NUMBER = "NUMBER",
-  QUICK_CONNECT = "QUICK_CONNECT",
-  SCHEDULED_TIME = "SCHEDULED_TIME",
-  SINGLE_SELECT = "SINGLE_SELECT",
-  TEXT = "TEXT",
-  TEXT_AREA = "TEXT_AREA",
-  URL = "URL",
-}
+export const TaskTemplateFieldType = {
+  BOOLEAN: "BOOLEAN",
+  DATE_TIME: "DATE_TIME",
+  DESCRIPTION: "DESCRIPTION",
+  EMAIL: "EMAIL",
+  NAME: "NAME",
+  NUMBER: "NUMBER",
+  QUICK_CONNECT: "QUICK_CONNECT",
+  SCHEDULED_TIME: "SCHEDULED_TIME",
+  SINGLE_SELECT: "SINGLE_SELECT",
+  TEXT: "TEXT",
+  TEXT_AREA: "TEXT_AREA",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskTemplateFieldType = (typeof TaskTemplateFieldType)[keyof typeof TaskTemplateFieldType];
 
 /**
  * @public
@@ -2257,11 +2396,17 @@ export interface TaskTemplateField {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskTemplateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const TaskTemplateStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskTemplateStatus = (typeof TaskTemplateStatus)[keyof typeof TaskTemplateStatus];
 
 /**
  * @public
@@ -2335,15 +2480,22 @@ export interface CreateTaskTemplateResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PropertyValidationExceptionReason {
-  INVALID_FORMAT = "INVALID_FORMAT",
-  NOT_SUPPORTED = "NOT_SUPPORTED",
-  REFERENCED_RESOURCE_NOT_FOUND = "REFERENCED_RESOURCE_NOT_FOUND",
-  REQUIRED_PROPERTY_MISSING = "REQUIRED_PROPERTY_MISSING",
-  RESOURCE_NAME_ALREADY_EXISTS = "RESOURCE_NAME_ALREADY_EXISTS",
-  UNIQUE_CONSTRAINT_VIOLATED = "UNIQUE_CONSTRAINT_VIOLATED",
-}
+export const PropertyValidationExceptionReason = {
+  INVALID_FORMAT: "INVALID_FORMAT",
+  NOT_SUPPORTED: "NOT_SUPPORTED",
+  REFERENCED_RESOURCE_NOT_FOUND: "REFERENCED_RESOURCE_NOT_FOUND",
+  REQUIRED_PROPERTY_MISSING: "REQUIRED_PROPERTY_MISSING",
+  RESOURCE_NAME_ALREADY_EXISTS: "RESOURCE_NAME_ALREADY_EXISTS",
+  UNIQUE_CONSTRAINT_VIOLATED: "UNIQUE_CONSTRAINT_VIOLATED",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyValidationExceptionReason =
+  (typeof PropertyValidationExceptionReason)[keyof typeof PropertyValidationExceptionReason];
 
 /**
  * @public
@@ -2465,11 +2617,17 @@ export class ResourceNotReadyException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum UseCaseType {
-  CONNECT_CAMPAIGNS = "CONNECT_CAMPAIGNS",
-  RULES_EVALUATION = "RULES_EVALUATION",
-}
+export const UseCaseType = {
+  CONNECT_CAMPAIGNS: "CONNECT_CAMPAIGNS",
+  RULES_EVALUATION: "RULES_EVALUATION",
+} as const;
+
+/**
+ * @public
+ */
+export type UseCaseType = (typeof UseCaseType)[keyof typeof UseCaseType];
 
 /**
  * @public
@@ -2552,11 +2710,17 @@ export interface UserIdentityInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneType {
-  DESK_PHONE = "DESK_PHONE",
-  SOFT_PHONE = "SOFT_PHONE",
-}
+export const PhoneType = {
+  DESK_PHONE: "DESK_PHONE",
+  SOFT_PHONE: "SOFT_PHONE",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneType = (typeof PhoneType)[keyof typeof PhoneType];
 
 /**
  * @public
@@ -2754,13 +2918,19 @@ export interface CreateVocabularyRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VocabularyState {
-  ACTIVE = "ACTIVE",
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-}
+export const VocabularyState = {
+  ACTIVE: "ACTIVE",
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type VocabularyState = (typeof VocabularyState)[keyof typeof VocabularyState];
 
 /**
  * @public
@@ -2909,16 +3079,22 @@ export interface DeleteSecurityProfileRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  CONTACT = "CONTACT",
-  CONTACT_FLOW = "CONTACT_FLOW",
-  HIERARCHY_GROUP = "HIERARCHY_GROUP",
-  HIERARCHY_LEVEL = "HIERARCHY_LEVEL",
-  INSTANCE = "INSTANCE",
-  PARTICIPANT = "PARTICIPANT",
-  USER = "USER",
-}
+export const ResourceType = {
+  CONTACT: "CONTACT",
+  CONTACT_FLOW: "CONTACT_FLOW",
+  HIERARCHY_GROUP: "HIERARCHY_GROUP",
+  HIERARCHY_LEVEL: "HIERARCHY_LEVEL",
+  INSTANCE: "INSTANCE",
+  PARTICIPANT: "PARTICIPANT",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -3283,11 +3459,17 @@ export interface DescribeContactFlowRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactFlowState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
+export const ContactFlowState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactFlowState = (typeof ContactFlowState)[keyof typeof ContactFlowState];
 
 /**
  * @public
@@ -3363,19 +3545,31 @@ export interface DescribeContactFlowModuleRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ContactFlowModuleState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
+export const ContactFlowModuleState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
 
 /**
  * @public
  */
-export enum ContactFlowModuleStatus {
-  PUBLISHED = "PUBLISHED",
-  SAVED = "SAVED",
-}
+export type ContactFlowModuleState = (typeof ContactFlowModuleState)[keyof typeof ContactFlowModuleState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactFlowModuleStatus = {
+  PUBLISHED: "PUBLISHED",
+  SAVED: "SAVED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactFlowModuleStatus = (typeof ContactFlowModuleStatus)[keyof typeof ContactFlowModuleStatus];
 
 /**
  * @public
@@ -3511,12 +3705,18 @@ export interface DescribeInstanceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceStatus {
-  ACTIVE = "ACTIVE",
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-}
+export const InstanceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
 
 /**
  * @public
@@ -3599,19 +3799,25 @@ export interface DescribeInstanceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceAttributeType {
-  AUTO_RESOLVE_BEST_VOICES = "AUTO_RESOLVE_BEST_VOICES",
-  CONTACTFLOW_LOGS = "CONTACTFLOW_LOGS",
-  CONTACT_LENS = "CONTACT_LENS",
-  EARLY_MEDIA = "EARLY_MEDIA",
-  ENHANCED_CONTACT_MONITORING = "ENHANCED_CONTACT_MONITORING",
-  HIGH_VOLUME_OUTBOUND = "HIGH_VOLUME_OUTBOUND",
-  INBOUND_CALLS = "INBOUND_CALLS",
-  MULTI_PARTY_CONFERENCE = "MULTI_PARTY_CONFERENCE",
-  OUTBOUND_CALLS = "OUTBOUND_CALLS",
-  USE_CUSTOM_TTS_VOICES = "USE_CUSTOM_TTS_VOICES",
-}
+export const InstanceAttributeType = {
+  AUTO_RESOLVE_BEST_VOICES: "AUTO_RESOLVE_BEST_VOICES",
+  CONTACTFLOW_LOGS: "CONTACTFLOW_LOGS",
+  CONTACT_LENS: "CONTACT_LENS",
+  EARLY_MEDIA: "EARLY_MEDIA",
+  ENHANCED_CONTACT_MONITORING: "ENHANCED_CONTACT_MONITORING",
+  HIGH_VOLUME_OUTBOUND: "HIGH_VOLUME_OUTBOUND",
+  INBOUND_CALLS: "INBOUND_CALLS",
+  MULTI_PARTY_CONFERENCE: "MULTI_PARTY_CONFERENCE",
+  OUTBOUND_CALLS: "OUTBOUND_CALLS",
+  USE_CUSTOM_TTS_VOICES: "USE_CUSTOM_TTS_VOICES",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceAttributeType = (typeof InstanceAttributeType)[keyof typeof InstanceAttributeType];
 
 /**
  * @public
@@ -3698,255 +3904,267 @@ export interface DescribePhoneNumberRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneNumberCountryCode {
-  AD = "AD",
-  AE = "AE",
-  AF = "AF",
-  AG = "AG",
-  AI = "AI",
-  AL = "AL",
-  AM = "AM",
-  AN = "AN",
-  AO = "AO",
-  AQ = "AQ",
-  AR = "AR",
-  AS = "AS",
-  AT = "AT",
-  AU = "AU",
-  AW = "AW",
-  AZ = "AZ",
-  BA = "BA",
-  BB = "BB",
-  BD = "BD",
-  BE = "BE",
-  BF = "BF",
-  BG = "BG",
-  BH = "BH",
-  BI = "BI",
-  BJ = "BJ",
-  BL = "BL",
-  BM = "BM",
-  BN = "BN",
-  BO = "BO",
-  BR = "BR",
-  BS = "BS",
-  BT = "BT",
-  BW = "BW",
-  BY = "BY",
-  BZ = "BZ",
-  CA = "CA",
-  CC = "CC",
-  CD = "CD",
-  CF = "CF",
-  CG = "CG",
-  CH = "CH",
-  CI = "CI",
-  CK = "CK",
-  CL = "CL",
-  CM = "CM",
-  CN = "CN",
-  CO = "CO",
-  CR = "CR",
-  CU = "CU",
-  CV = "CV",
-  CW = "CW",
-  CX = "CX",
-  CY = "CY",
-  CZ = "CZ",
-  DE = "DE",
-  DJ = "DJ",
-  DK = "DK",
-  DM = "DM",
-  DO = "DO",
-  DZ = "DZ",
-  EC = "EC",
-  EE = "EE",
-  EG = "EG",
-  EH = "EH",
-  ER = "ER",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FJ = "FJ",
-  FK = "FK",
-  FM = "FM",
-  FO = "FO",
-  FR = "FR",
-  GA = "GA",
-  GB = "GB",
-  GD = "GD",
-  GE = "GE",
-  GG = "GG",
-  GH = "GH",
-  GI = "GI",
-  GL = "GL",
-  GM = "GM",
-  GN = "GN",
-  GQ = "GQ",
-  GR = "GR",
-  GT = "GT",
-  GU = "GU",
-  GW = "GW",
-  GY = "GY",
-  HK = "HK",
-  HN = "HN",
-  HR = "HR",
-  HT = "HT",
-  HU = "HU",
-  ID = "ID",
-  IE = "IE",
-  IL = "IL",
-  IM = "IM",
-  IN = "IN",
-  IO = "IO",
-  IQ = "IQ",
-  IR = "IR",
-  IS = "IS",
-  IT = "IT",
-  JE = "JE",
-  JM = "JM",
-  JO = "JO",
-  JP = "JP",
-  KE = "KE",
-  KG = "KG",
-  KH = "KH",
-  KI = "KI",
-  KM = "KM",
-  KN = "KN",
-  KP = "KP",
-  KR = "KR",
-  KW = "KW",
-  KY = "KY",
-  KZ = "KZ",
-  LA = "LA",
-  LB = "LB",
-  LC = "LC",
-  LI = "LI",
-  LK = "LK",
-  LR = "LR",
-  LS = "LS",
-  LT = "LT",
-  LU = "LU",
-  LV = "LV",
-  LY = "LY",
-  MA = "MA",
-  MC = "MC",
-  MD = "MD",
-  ME = "ME",
-  MF = "MF",
-  MG = "MG",
-  MH = "MH",
-  MK = "MK",
-  ML = "ML",
-  MM = "MM",
-  MN = "MN",
-  MO = "MO",
-  MP = "MP",
-  MR = "MR",
-  MS = "MS",
-  MT = "MT",
-  MU = "MU",
-  MV = "MV",
-  MW = "MW",
-  MX = "MX",
-  MY = "MY",
-  MZ = "MZ",
-  NA = "NA",
-  NC = "NC",
-  NE = "NE",
-  NG = "NG",
-  NI = "NI",
-  NL = "NL",
-  NO = "NO",
-  NP = "NP",
-  NR = "NR",
-  NU = "NU",
-  NZ = "NZ",
-  OM = "OM",
-  PA = "PA",
-  PE = "PE",
-  PF = "PF",
-  PG = "PG",
-  PH = "PH",
-  PK = "PK",
-  PL = "PL",
-  PM = "PM",
-  PN = "PN",
-  PR = "PR",
-  PT = "PT",
-  PW = "PW",
-  PY = "PY",
-  QA = "QA",
-  RE = "RE",
-  RO = "RO",
-  RS = "RS",
-  RU = "RU",
-  RW = "RW",
-  SA = "SA",
-  SB = "SB",
-  SC = "SC",
-  SD = "SD",
-  SE = "SE",
-  SG = "SG",
-  SH = "SH",
-  SI = "SI",
-  SJ = "SJ",
-  SK = "SK",
-  SL = "SL",
-  SM = "SM",
-  SN = "SN",
-  SO = "SO",
-  SR = "SR",
-  ST = "ST",
-  SV = "SV",
-  SX = "SX",
-  SY = "SY",
-  SZ = "SZ",
-  TC = "TC",
-  TD = "TD",
-  TG = "TG",
-  TH = "TH",
-  TJ = "TJ",
-  TK = "TK",
-  TL = "TL",
-  TM = "TM",
-  TN = "TN",
-  TO = "TO",
-  TR = "TR",
-  TT = "TT",
-  TV = "TV",
-  TW = "TW",
-  TZ = "TZ",
-  UA = "UA",
-  UG = "UG",
-  US = "US",
-  UY = "UY",
-  UZ = "UZ",
-  VA = "VA",
-  VC = "VC",
-  VE = "VE",
-  VG = "VG",
-  VI = "VI",
-  VN = "VN",
-  VU = "VU",
-  WF = "WF",
-  WS = "WS",
-  YE = "YE",
-  YT = "YT",
-  ZA = "ZA",
-  ZM = "ZM",
-  ZW = "ZW",
-}
+export const PhoneNumberCountryCode = {
+  AD: "AD",
+  AE: "AE",
+  AF: "AF",
+  AG: "AG",
+  AI: "AI",
+  AL: "AL",
+  AM: "AM",
+  AN: "AN",
+  AO: "AO",
+  AQ: "AQ",
+  AR: "AR",
+  AS: "AS",
+  AT: "AT",
+  AU: "AU",
+  AW: "AW",
+  AZ: "AZ",
+  BA: "BA",
+  BB: "BB",
+  BD: "BD",
+  BE: "BE",
+  BF: "BF",
+  BG: "BG",
+  BH: "BH",
+  BI: "BI",
+  BJ: "BJ",
+  BL: "BL",
+  BM: "BM",
+  BN: "BN",
+  BO: "BO",
+  BR: "BR",
+  BS: "BS",
+  BT: "BT",
+  BW: "BW",
+  BY: "BY",
+  BZ: "BZ",
+  CA: "CA",
+  CC: "CC",
+  CD: "CD",
+  CF: "CF",
+  CG: "CG",
+  CH: "CH",
+  CI: "CI",
+  CK: "CK",
+  CL: "CL",
+  CM: "CM",
+  CN: "CN",
+  CO: "CO",
+  CR: "CR",
+  CU: "CU",
+  CV: "CV",
+  CW: "CW",
+  CX: "CX",
+  CY: "CY",
+  CZ: "CZ",
+  DE: "DE",
+  DJ: "DJ",
+  DK: "DK",
+  DM: "DM",
+  DO: "DO",
+  DZ: "DZ",
+  EC: "EC",
+  EE: "EE",
+  EG: "EG",
+  EH: "EH",
+  ER: "ER",
+  ES: "ES",
+  ET: "ET",
+  FI: "FI",
+  FJ: "FJ",
+  FK: "FK",
+  FM: "FM",
+  FO: "FO",
+  FR: "FR",
+  GA: "GA",
+  GB: "GB",
+  GD: "GD",
+  GE: "GE",
+  GG: "GG",
+  GH: "GH",
+  GI: "GI",
+  GL: "GL",
+  GM: "GM",
+  GN: "GN",
+  GQ: "GQ",
+  GR: "GR",
+  GT: "GT",
+  GU: "GU",
+  GW: "GW",
+  GY: "GY",
+  HK: "HK",
+  HN: "HN",
+  HR: "HR",
+  HT: "HT",
+  HU: "HU",
+  ID: "ID",
+  IE: "IE",
+  IL: "IL",
+  IM: "IM",
+  IN: "IN",
+  IO: "IO",
+  IQ: "IQ",
+  IR: "IR",
+  IS: "IS",
+  IT: "IT",
+  JE: "JE",
+  JM: "JM",
+  JO: "JO",
+  JP: "JP",
+  KE: "KE",
+  KG: "KG",
+  KH: "KH",
+  KI: "KI",
+  KM: "KM",
+  KN: "KN",
+  KP: "KP",
+  KR: "KR",
+  KW: "KW",
+  KY: "KY",
+  KZ: "KZ",
+  LA: "LA",
+  LB: "LB",
+  LC: "LC",
+  LI: "LI",
+  LK: "LK",
+  LR: "LR",
+  LS: "LS",
+  LT: "LT",
+  LU: "LU",
+  LV: "LV",
+  LY: "LY",
+  MA: "MA",
+  MC: "MC",
+  MD: "MD",
+  ME: "ME",
+  MF: "MF",
+  MG: "MG",
+  MH: "MH",
+  MK: "MK",
+  ML: "ML",
+  MM: "MM",
+  MN: "MN",
+  MO: "MO",
+  MP: "MP",
+  MR: "MR",
+  MS: "MS",
+  MT: "MT",
+  MU: "MU",
+  MV: "MV",
+  MW: "MW",
+  MX: "MX",
+  MY: "MY",
+  MZ: "MZ",
+  NA: "NA",
+  NC: "NC",
+  NE: "NE",
+  NG: "NG",
+  NI: "NI",
+  NL: "NL",
+  NO: "NO",
+  NP: "NP",
+  NR: "NR",
+  NU: "NU",
+  NZ: "NZ",
+  OM: "OM",
+  PA: "PA",
+  PE: "PE",
+  PF: "PF",
+  PG: "PG",
+  PH: "PH",
+  PK: "PK",
+  PL: "PL",
+  PM: "PM",
+  PN: "PN",
+  PR: "PR",
+  PT: "PT",
+  PW: "PW",
+  PY: "PY",
+  QA: "QA",
+  RE: "RE",
+  RO: "RO",
+  RS: "RS",
+  RU: "RU",
+  RW: "RW",
+  SA: "SA",
+  SB: "SB",
+  SC: "SC",
+  SD: "SD",
+  SE: "SE",
+  SG: "SG",
+  SH: "SH",
+  SI: "SI",
+  SJ: "SJ",
+  SK: "SK",
+  SL: "SL",
+  SM: "SM",
+  SN: "SN",
+  SO: "SO",
+  SR: "SR",
+  ST: "ST",
+  SV: "SV",
+  SX: "SX",
+  SY: "SY",
+  SZ: "SZ",
+  TC: "TC",
+  TD: "TD",
+  TG: "TG",
+  TH: "TH",
+  TJ: "TJ",
+  TK: "TK",
+  TL: "TL",
+  TM: "TM",
+  TN: "TN",
+  TO: "TO",
+  TR: "TR",
+  TT: "TT",
+  TV: "TV",
+  TW: "TW",
+  TZ: "TZ",
+  UA: "UA",
+  UG: "UG",
+  US: "US",
+  UY: "UY",
+  UZ: "UZ",
+  VA: "VA",
+  VC: "VC",
+  VE: "VE",
+  VG: "VG",
+  VI: "VI",
+  VN: "VN",
+  VU: "VU",
+  WF: "WF",
+  WS: "WS",
+  YE: "YE",
+  YT: "YT",
+  ZA: "ZA",
+  ZM: "ZM",
+  ZW: "ZW",
+} as const;
 
 /**
  * @public
  */
-export enum PhoneNumberWorkflowStatus {
-  Claimed = "CLAIMED",
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-}
+export type PhoneNumberCountryCode = (typeof PhoneNumberCountryCode)[keyof typeof PhoneNumberCountryCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PhoneNumberWorkflowStatus = {
+  Claimed: "CLAIMED",
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberWorkflowStatus = (typeof PhoneNumberWorkflowStatus)[keyof typeof PhoneNumberWorkflowStatus];
 
 /**
  * @public
@@ -3990,11 +4208,17 @@ export interface PhoneNumberStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum PhoneNumberType {
-  DID = "DID",
-  TOLL_FREE = "TOLL_FREE",
-}
+export const PhoneNumberType = {
+  DID: "DID",
+  TOLL_FREE: "TOLL_FREE",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberType];
 
 /**
  * @public
@@ -4104,11 +4328,17 @@ export interface DescribeQueueRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum QueueStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const QueueStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
 
 /**
  * @public
@@ -4485,15 +4715,22 @@ export interface DescribeTrafficDistributionGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TrafficDistributionGroupStatus {
-  ACTIVE = "ACTIVE",
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  DELETION_FAILED = "DELETION_FAILED",
-  PENDING_DELETION = "PENDING_DELETION",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const TrafficDistributionGroupStatus = {
+  ACTIVE: "ACTIVE",
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  DELETION_FAILED: "DELETION_FAILED",
+  PENDING_DELETION: "PENDING_DELETION",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficDistributionGroupStatus =
+  (typeof TrafficDistributionGroupStatus)[keyof typeof TrafficDistributionGroupStatus];
 
 /**
  * @public
@@ -5141,31 +5378,43 @@ export interface GetContactAttributesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CurrentMetricName {
-  AGENTS_AFTER_CONTACT_WORK = "AGENTS_AFTER_CONTACT_WORK",
-  AGENTS_AVAILABLE = "AGENTS_AVAILABLE",
-  AGENTS_ERROR = "AGENTS_ERROR",
-  AGENTS_NON_PRODUCTIVE = "AGENTS_NON_PRODUCTIVE",
-  AGENTS_ONLINE = "AGENTS_ONLINE",
-  AGENTS_ON_CALL = "AGENTS_ON_CALL",
-  AGENTS_ON_CONTACT = "AGENTS_ON_CONTACT",
-  AGENTS_STAFFED = "AGENTS_STAFFED",
-  CONTACTS_IN_QUEUE = "CONTACTS_IN_QUEUE",
-  CONTACTS_SCHEDULED = "CONTACTS_SCHEDULED",
-  OLDEST_CONTACT_AGE = "OLDEST_CONTACT_AGE",
-  SLOTS_ACTIVE = "SLOTS_ACTIVE",
-  SLOTS_AVAILABLE = "SLOTS_AVAILABLE",
-}
+export const CurrentMetricName = {
+  AGENTS_AFTER_CONTACT_WORK: "AGENTS_AFTER_CONTACT_WORK",
+  AGENTS_AVAILABLE: "AGENTS_AVAILABLE",
+  AGENTS_ERROR: "AGENTS_ERROR",
+  AGENTS_NON_PRODUCTIVE: "AGENTS_NON_PRODUCTIVE",
+  AGENTS_ONLINE: "AGENTS_ONLINE",
+  AGENTS_ON_CALL: "AGENTS_ON_CALL",
+  AGENTS_ON_CONTACT: "AGENTS_ON_CONTACT",
+  AGENTS_STAFFED: "AGENTS_STAFFED",
+  CONTACTS_IN_QUEUE: "CONTACTS_IN_QUEUE",
+  CONTACTS_SCHEDULED: "CONTACTS_SCHEDULED",
+  OLDEST_CONTACT_AGE: "OLDEST_CONTACT_AGE",
+  SLOTS_ACTIVE: "SLOTS_ACTIVE",
+  SLOTS_AVAILABLE: "SLOTS_AVAILABLE",
+} as const;
 
 /**
  * @public
  */
-export enum Unit {
-  COUNT = "COUNT",
-  PERCENT = "PERCENT",
-  SECONDS = "SECONDS",
-}
+export type CurrentMetricName = (typeof CurrentMetricName)[keyof typeof CurrentMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Unit = {
+  COUNT: "COUNT",
+  PERCENT: "PERCENT",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
  * @public
@@ -5209,20 +5458,32 @@ export interface Filters {
 
 /**
  * @public
+ * @enum
  */
-export enum Grouping {
-  CHANNEL = "CHANNEL",
-  QUEUE = "QUEUE",
-  ROUTING_PROFILE = "ROUTING_PROFILE",
-}
+export const Grouping = {
+  CHANNEL: "CHANNEL",
+  QUEUE: "QUEUE",
+  ROUTING_PROFILE: "ROUTING_PROFILE",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type Grouping = (typeof Grouping)[keyof typeof Grouping];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -5831,50 +6092,68 @@ export class UserNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum HistoricalMetricName {
-  ABANDON_TIME = "ABANDON_TIME",
-  AFTER_CONTACT_WORK_TIME = "AFTER_CONTACT_WORK_TIME",
-  API_CONTACTS_HANDLED = "API_CONTACTS_HANDLED",
-  CALLBACK_CONTACTS_HANDLED = "CALLBACK_CONTACTS_HANDLED",
-  CONTACTS_ABANDONED = "CONTACTS_ABANDONED",
-  CONTACTS_AGENT_HUNG_UP_FIRST = "CONTACTS_AGENT_HUNG_UP_FIRST",
-  CONTACTS_CONSULTED = "CONTACTS_CONSULTED",
-  CONTACTS_HANDLED = "CONTACTS_HANDLED",
-  CONTACTS_HANDLED_INCOMING = "CONTACTS_HANDLED_INCOMING",
-  CONTACTS_HANDLED_OUTBOUND = "CONTACTS_HANDLED_OUTBOUND",
-  CONTACTS_HOLD_ABANDONS = "CONTACTS_HOLD_ABANDONS",
-  CONTACTS_MISSED = "CONTACTS_MISSED",
-  CONTACTS_QUEUED = "CONTACTS_QUEUED",
-  CONTACTS_TRANSFERRED_IN = "CONTACTS_TRANSFERRED_IN",
-  CONTACTS_TRANSFERRED_IN_FROM_QUEUE = "CONTACTS_TRANSFERRED_IN_FROM_QUEUE",
-  CONTACTS_TRANSFERRED_OUT = "CONTACTS_TRANSFERRED_OUT",
-  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE = "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE",
-  HANDLE_TIME = "HANDLE_TIME",
-  HOLD_TIME = "HOLD_TIME",
-  INTERACTION_AND_HOLD_TIME = "INTERACTION_AND_HOLD_TIME",
-  INTERACTION_TIME = "INTERACTION_TIME",
-  OCCUPANCY = "OCCUPANCY",
-  QUEUED_TIME = "QUEUED_TIME",
-  QUEUE_ANSWER_TIME = "QUEUE_ANSWER_TIME",
-  SERVICE_LEVEL = "SERVICE_LEVEL",
-}
+export const HistoricalMetricName = {
+  ABANDON_TIME: "ABANDON_TIME",
+  AFTER_CONTACT_WORK_TIME: "AFTER_CONTACT_WORK_TIME",
+  API_CONTACTS_HANDLED: "API_CONTACTS_HANDLED",
+  CALLBACK_CONTACTS_HANDLED: "CALLBACK_CONTACTS_HANDLED",
+  CONTACTS_ABANDONED: "CONTACTS_ABANDONED",
+  CONTACTS_AGENT_HUNG_UP_FIRST: "CONTACTS_AGENT_HUNG_UP_FIRST",
+  CONTACTS_CONSULTED: "CONTACTS_CONSULTED",
+  CONTACTS_HANDLED: "CONTACTS_HANDLED",
+  CONTACTS_HANDLED_INCOMING: "CONTACTS_HANDLED_INCOMING",
+  CONTACTS_HANDLED_OUTBOUND: "CONTACTS_HANDLED_OUTBOUND",
+  CONTACTS_HOLD_ABANDONS: "CONTACTS_HOLD_ABANDONS",
+  CONTACTS_MISSED: "CONTACTS_MISSED",
+  CONTACTS_QUEUED: "CONTACTS_QUEUED",
+  CONTACTS_TRANSFERRED_IN: "CONTACTS_TRANSFERRED_IN",
+  CONTACTS_TRANSFERRED_IN_FROM_QUEUE: "CONTACTS_TRANSFERRED_IN_FROM_QUEUE",
+  CONTACTS_TRANSFERRED_OUT: "CONTACTS_TRANSFERRED_OUT",
+  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE: "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE",
+  HANDLE_TIME: "HANDLE_TIME",
+  HOLD_TIME: "HOLD_TIME",
+  INTERACTION_AND_HOLD_TIME: "INTERACTION_AND_HOLD_TIME",
+  INTERACTION_TIME: "INTERACTION_TIME",
+  OCCUPANCY: "OCCUPANCY",
+  QUEUED_TIME: "QUEUED_TIME",
+  QUEUE_ANSWER_TIME: "QUEUE_ANSWER_TIME",
+  SERVICE_LEVEL: "SERVICE_LEVEL",
+} as const;
 
 /**
  * @public
  */
-export enum Statistic {
-  AVG = "AVG",
-  MAX = "MAX",
-  SUM = "SUM",
-}
+export type HistoricalMetricName = (typeof HistoricalMetricName)[keyof typeof HistoricalMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Statistic = {
+  AVG: "AVG",
+  MAX: "MAX",
+  SUM: "SUM",
+} as const;
 
 /**
  * @public
  */
-export enum Comparison {
-  LT = "LT",
-}
+export type Statistic = (typeof Statistic)[keyof typeof Statistic];
+
+/**
+ * @public
+ * @enum
+ */
+export const Comparison = {
+  LT: "LT",
+} as const;
+
+/**
+ * @public
+ */
+export type Comparison = (typeof Comparison)[keyof typeof Comparison];
 
 /**
  * @public
@@ -6797,11 +7076,17 @@ export interface ListApprovedOriginsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LexVersion {
-  V1 = "V1",
-  V2 = "V2",
-}
+export const LexVersion = {
+  V1: "V1",
+  V2: "V2",
+} as const;
+
+/**
+ * @public
+ */
+export type LexVersion = (typeof LexVersion)[keyof typeof LexVersion];
 
 /**
  * @public

@@ -294,13 +294,19 @@ export class ServiceQuotaTemplateNotInUseException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  DEPENDENCY_ACCESS_DENIED_ERROR = "DEPENDENCY_ACCESS_DENIED_ERROR",
-  DEPENDENCY_SERVICE_ERROR = "DEPENDENCY_SERVICE_ERROR",
-  DEPENDENCY_THROTTLING_ERROR = "DEPENDENCY_THROTTLING_ERROR",
-  SERVICE_QUOTA_NOT_AVAILABLE_ERROR = "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
-}
+export const ErrorCode = {
+  DEPENDENCY_ACCESS_DENIED_ERROR: "DEPENDENCY_ACCESS_DENIED_ERROR",
+  DEPENDENCY_SERVICE_ERROR: "DEPENDENCY_SERVICE_ERROR",
+  DEPENDENCY_THROTTLING_ERROR: "DEPENDENCY_THROTTLING_ERROR",
+  SERVICE_QUOTA_NOT_AVAILABLE_ERROR: "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -347,11 +353,18 @@ export interface GetAssociationForServiceQuotaTemplateRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceQuotaTemplateAssociationStatus {
-  ASSOCIATED = "ASSOCIATED",
-  DISASSOCIATED = "DISASSOCIATED",
-}
+export const ServiceQuotaTemplateAssociationStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  DISASSOCIATED: "DISASSOCIATED",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceQuotaTemplateAssociationStatus =
+  (typeof ServiceQuotaTemplateAssociationStatus)[keyof typeof ServiceQuotaTemplateAssociationStatus];
 
 /**
  * @public
@@ -382,16 +395,22 @@ export interface GetAWSDefaultServiceQuotaRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PeriodUnit {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MICROSECOND = "MICROSECOND",
-  MILLISECOND = "MILLISECOND",
-  MINUTE = "MINUTE",
-  SECOND = "SECOND",
-  WEEK = "WEEK",
-}
+export const PeriodUnit = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MICROSECOND: "MICROSECOND",
+  MILLISECOND: "MILLISECOND",
+  MINUTE: "MINUTE",
+  SECOND: "SECOND",
+  WEEK: "WEEK",
+} as const;
+
+/**
+ * @public
+ */
+export type PeriodUnit = (typeof PeriodUnit)[keyof typeof PeriodUnit];
 
 /**
  * @public
@@ -524,14 +543,20 @@ export interface GetRequestedServiceQuotaChangeRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RequestStatus {
-  APPROVED = "APPROVED",
-  CASE_CLOSED = "CASE_CLOSED",
-  CASE_OPENED = "CASE_OPENED",
-  DENIED = "DENIED",
-  PENDING = "PENDING",
-}
+export const RequestStatus = {
+  APPROVED: "APPROVED",
+  CASE_CLOSED: "CASE_CLOSED",
+  CASE_OPENED: "CASE_OPENED",
+  DENIED: "DENIED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type RequestStatus = (typeof RequestStatus)[keyof typeof RequestStatus];
 
 /**
  * @public

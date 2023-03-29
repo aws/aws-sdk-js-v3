@@ -5,11 +5,18 @@ import { IAMServiceException as __BaseException } from "./IAMServiceException";
 
 /**
  * @public
+ * @enum
  */
-export enum AccessAdvisorUsageGranularityType {
-  ACTION_LEVEL = "ACTION_LEVEL",
-  SERVICE_LEVEL = "SERVICE_LEVEL",
-}
+export const AccessAdvisorUsageGranularityType = {
+  ACTION_LEVEL: "ACTION_LEVEL",
+  SERVICE_LEVEL: "SERVICE_LEVEL",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessAdvisorUsageGranularityType =
+  (typeof AccessAdvisorUsageGranularityType)[keyof typeof AccessAdvisorUsageGranularityType];
 
 /**
  * @public
@@ -69,11 +76,17 @@ export interface AccessDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusType {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const StatusType = {
+  Active: "Active",
+  Inactive: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * @public
@@ -393,19 +406,32 @@ export interface AddUserToGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AssignmentStatusType {
-  Any = "Any",
-  Assigned = "Assigned",
-  Unassigned = "Unassigned",
-}
+export const AssignmentStatusType = {
+  Any: "Any",
+  Assigned: "Assigned",
+  Unassigned: "Unassigned",
+} as const;
 
 /**
  * @public
  */
-export enum PermissionsBoundaryAttachmentType {
-  Policy = "PermissionsBoundaryPolicy",
-}
+export type AssignmentStatusType = (typeof AssignmentStatusType)[keyof typeof AssignmentStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PermissionsBoundaryAttachmentType = {
+  Policy: "PermissionsBoundaryPolicy",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionsBoundaryAttachmentType =
+  (typeof PermissionsBoundaryAttachmentType)[keyof typeof PermissionsBoundaryAttachmentType];
 
 /**
  * @public
@@ -2513,12 +2539,18 @@ export class InvalidAuthenticationCodeException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportStateType {
-  COMPLETE = "COMPLETE",
-  INPROGRESS = "INPROGRESS",
-  STARTED = "STARTED",
-}
+export const ReportStateType = {
+  COMPLETE: "COMPLETE",
+  INPROGRESS: "INPROGRESS",
+  STARTED: "STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportStateType = (typeof ReportStateType)[keyof typeof ReportStateType];
 
 /**
  * @public
@@ -2658,14 +2690,20 @@ export interface GetAccessKeyLastUsedResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EntityType {
-  AWSManagedPolicy = "AWSManagedPolicy",
-  Group = "Group",
-  LocalManagedPolicy = "LocalManagedPolicy",
-  Role = "Role",
-  User = "User",
-}
+export const EntityType = {
+  AWSManagedPolicy: "AWSManagedPolicy",
+  Group: "Group",
+  LocalManagedPolicy: "LocalManagedPolicy",
+  Role: "Role",
+  User: "User",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 /**
  * @public
@@ -3135,35 +3173,41 @@ export interface GetAccountPasswordPolicyResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SummaryKeyType {
-  AccessKeysPerUserQuota = "AccessKeysPerUserQuota",
-  AccountAccessKeysPresent = "AccountAccessKeysPresent",
-  AccountMFAEnabled = "AccountMFAEnabled",
-  AccountSigningCertificatesPresent = "AccountSigningCertificatesPresent",
-  AttachedPoliciesPerGroupQuota = "AttachedPoliciesPerGroupQuota",
-  AttachedPoliciesPerRoleQuota = "AttachedPoliciesPerRoleQuota",
-  AttachedPoliciesPerUserQuota = "AttachedPoliciesPerUserQuota",
-  GlobalEndpointTokenVersion = "GlobalEndpointTokenVersion",
-  GroupPolicySizeQuota = "GroupPolicySizeQuota",
-  Groups = "Groups",
-  GroupsPerUserQuota = "GroupsPerUserQuota",
-  GroupsQuota = "GroupsQuota",
-  MFADevices = "MFADevices",
-  MFADevicesInUse = "MFADevicesInUse",
-  Policies = "Policies",
-  PoliciesQuota = "PoliciesQuota",
-  PolicySizeQuota = "PolicySizeQuota",
-  PolicyVersionsInUse = "PolicyVersionsInUse",
-  PolicyVersionsInUseQuota = "PolicyVersionsInUseQuota",
-  ServerCertificates = "ServerCertificates",
-  ServerCertificatesQuota = "ServerCertificatesQuota",
-  SigningCertificatesPerUserQuota = "SigningCertificatesPerUserQuota",
-  UserPolicySizeQuota = "UserPolicySizeQuota",
-  Users = "Users",
-  UsersQuota = "UsersQuota",
-  VersionsPerPolicyQuota = "VersionsPerPolicyQuota",
-}
+export const SummaryKeyType = {
+  AccessKeysPerUserQuota: "AccessKeysPerUserQuota",
+  AccountAccessKeysPresent: "AccountAccessKeysPresent",
+  AccountMFAEnabled: "AccountMFAEnabled",
+  AccountSigningCertificatesPresent: "AccountSigningCertificatesPresent",
+  AttachedPoliciesPerGroupQuota: "AttachedPoliciesPerGroupQuota",
+  AttachedPoliciesPerRoleQuota: "AttachedPoliciesPerRoleQuota",
+  AttachedPoliciesPerUserQuota: "AttachedPoliciesPerUserQuota",
+  GlobalEndpointTokenVersion: "GlobalEndpointTokenVersion",
+  GroupPolicySizeQuota: "GroupPolicySizeQuota",
+  Groups: "Groups",
+  GroupsPerUserQuota: "GroupsPerUserQuota",
+  GroupsQuota: "GroupsQuota",
+  MFADevices: "MFADevices",
+  MFADevicesInUse: "MFADevicesInUse",
+  Policies: "Policies",
+  PoliciesQuota: "PoliciesQuota",
+  PolicySizeQuota: "PolicySizeQuota",
+  PolicyVersionsInUse: "PolicyVersionsInUse",
+  PolicyVersionsInUseQuota: "PolicyVersionsInUseQuota",
+  ServerCertificates: "ServerCertificates",
+  ServerCertificatesQuota: "ServerCertificatesQuota",
+  SigningCertificatesPerUserQuota: "SigningCertificatesPerUserQuota",
+  UserPolicySizeQuota: "UserPolicySizeQuota",
+  Users: "Users",
+  UsersQuota: "UsersQuota",
+  VersionsPerPolicyQuota: "VersionsPerPolicyQuota",
+} as const;
+
+/**
+ * @public
+ */
+export type SummaryKeyType = (typeof SummaryKeyType)[keyof typeof SummaryKeyType];
 
 /**
  * @public
@@ -3322,10 +3366,16 @@ export class CredentialReportNotReadyException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportFormatType {
-  text_csv = "text/csv",
-}
+export const ReportFormatType = {
+  text_csv: "text/csv",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportFormatType = (typeof ReportFormatType)[keyof typeof ReportFormatType];
 
 /**
  * @public
@@ -3559,13 +3609,19 @@ export interface GetOpenIDConnectProviderResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortKeyType {
-  LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING",
-  LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING",
-  SERVICE_NAMESPACE_ASCENDING = "SERVICE_NAMESPACE_ASCENDING",
-  SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING",
-}
+export const SortKeyType = {
+  LAST_AUTHENTICATED_TIME_ASCENDING: "LAST_AUTHENTICATED_TIME_ASCENDING",
+  LAST_AUTHENTICATED_TIME_DESCENDING: "LAST_AUTHENTICATED_TIME_DESCENDING",
+  SERVICE_NAMESPACE_ASCENDING: "SERVICE_NAMESPACE_ASCENDING",
+  SERVICE_NAMESPACE_DESCENDING: "SERVICE_NAMESPACE_DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortKeyType = (typeof SortKeyType)[keyof typeof SortKeyType];
 
 /**
  * @public
@@ -3623,12 +3679,18 @@ export interface ErrorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatusType {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const JobStatusType = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatusType = (typeof JobStatusType)[keyof typeof JobStatusType];
 
 /**
  * @public
@@ -4194,12 +4256,18 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyOwnerEntityType {
-  GROUP = "GROUP",
-  ROLE = "ROLE",
-  USER = "USER",
-}
+export const PolicyOwnerEntityType = {
+  GROUP: "GROUP",
+  ROLE: "ROLE",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyOwnerEntityType = (typeof PolicyOwnerEntityType)[keyof typeof PolicyOwnerEntityType];
 
 /**
  * @public
@@ -4365,13 +4433,19 @@ export interface DeletionTaskFailureReasonType {
 
 /**
  * @public
+ * @enum
  */
-export enum DeletionTaskStatusType {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DeletionTaskStatusType = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletionTaskStatusType = (typeof DeletionTaskStatusType)[keyof typeof DeletionTaskStatusType];
 
 /**
  * @public
@@ -4390,11 +4464,17 @@ export interface GetServiceLinkedRoleDeletionStatusResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EncodingType {
-  PEM = "PEM",
-  SSH = "SSH",
-}
+export const EncodingType = {
+  PEM: "PEM",
+  SSH: "SSH",
+} as const;
+
+/**
+ * @public
+ */
+export type EncodingType = (typeof EncodingType)[keyof typeof EncodingType];
 
 /**
  * @public
@@ -4910,11 +4990,17 @@ export interface ListAttachedUserPoliciesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyUsageType {
-  PermissionsBoundary = "PermissionsBoundary",
-  PermissionsPolicy = "PermissionsPolicy",
-}
+export const PolicyUsageType = {
+  PermissionsBoundary: "PermissionsBoundary",
+  PermissionsPolicy: "PermissionsPolicy",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyUsageType = (typeof PolicyUsageType)[keyof typeof PolicyUsageType];
 
 /**
  * @public
@@ -5692,12 +5778,18 @@ export interface ListOpenIDConnectProviderTagsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyScopeType {
-  AWS = "AWS",
-  All = "All",
-  Local = "Local",
-}
+export const PolicyScopeType = {
+  AWS: "AWS",
+  All: "All",
+  Local: "Local",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyScopeType = (typeof PolicyScopeType)[keyof typeof PolicyScopeType];
 
 /**
  * @public
@@ -5823,11 +5915,17 @@ export interface ListPoliciesGrantingServiceAccessRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyType {
-  INLINE = "INLINE",
-  MANAGED = "MANAGED",
-}
+export const PolicyType = {
+  INLINE: "INLINE",
+  MANAGED: "MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
 /**
  * @public
@@ -7288,11 +7386,17 @@ export interface SetDefaultPolicyVersionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum GlobalEndpointTokenVersion {
-  v1Token = "v1Token",
-  v2Token = "v2Token",
-}
+export const GlobalEndpointTokenVersion = {
+  v1Token: "v1Token",
+  v2Token: "v2Token",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalEndpointTokenVersion = (typeof GlobalEndpointTokenVersion)[keyof typeof GlobalEndpointTokenVersion];
 
 /**
  * @public
@@ -7333,21 +7437,27 @@ export class PolicyEvaluationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ContextKeyTypeEnum {
-  BINARY = "binary",
-  BINARY_LIST = "binaryList",
-  BOOLEAN = "boolean",
-  BOOLEAN_LIST = "booleanList",
-  DATE = "date",
-  DATE_LIST = "dateList",
-  IP = "ip",
-  IP_LIST = "ipList",
-  NUMERIC = "numeric",
-  NUMERIC_LIST = "numericList",
-  STRING = "string",
-  STRING_LIST = "stringList",
-}
+export const ContextKeyTypeEnum = {
+  BINARY: "binary",
+  BINARY_LIST: "binaryList",
+  BOOLEAN: "boolean",
+  BOOLEAN_LIST: "booleanList",
+  DATE: "date",
+  DATE_LIST: "dateList",
+  IP: "ip",
+  IP_LIST: "ipList",
+  NUMERIC: "numeric",
+  NUMERIC_LIST: "numericList",
+  STRING: "string",
+  STRING_LIST: "stringList",
+} as const;
+
+/**
+ * @public
+ */
+export type ContextKeyTypeEnum = (typeof ContextKeyTypeEnum)[keyof typeof ContextKeyTypeEnum];
 
 /**
  * @public
@@ -7596,12 +7706,19 @@ export interface SimulateCustomPolicyRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyEvaluationDecisionType {
-  ALLOWED = "allowed",
-  EXPLICIT_DENY = "explicitDeny",
-  IMPLICIT_DENY = "implicitDeny",
-}
+export const PolicyEvaluationDecisionType = {
+  ALLOWED: "allowed",
+  EXPLICIT_DENY: "explicitDeny",
+  IMPLICIT_DENY: "implicitDeny",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyEvaluationDecisionType =
+  (typeof PolicyEvaluationDecisionType)[keyof typeof PolicyEvaluationDecisionType];
 
 /**
  * @public
@@ -7625,16 +7742,22 @@ export interface Position {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicySourceType {
-  AWS_MANAGED = "aws-managed",
-  GROUP = "group",
-  NONE = "none",
-  RESOURCE = "resource",
-  ROLE = "role",
-  USER = "user",
-  USER_MANAGED = "user-managed",
-}
+export const PolicySourceType = {
+  AWS_MANAGED: "aws-managed",
+  GROUP: "group",
+  NONE: "none",
+  RESOURCE: "resource",
+  ROLE: "role",
+  USER: "user",
+  USER_MANAGED: "user-managed",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicySourceType = (typeof PolicySourceType)[keyof typeof PolicySourceType];
 
 /**
  * @public

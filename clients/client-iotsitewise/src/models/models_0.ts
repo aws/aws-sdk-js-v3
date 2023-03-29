@@ -87,11 +87,17 @@ export interface Identity {
 
 /**
  * @public
+ * @enum
  */
-export enum Permission {
-  ADMINISTRATOR = "ADMINISTRATOR",
-  VIEWER = "VIEWER",
-}
+export const Permission = {
+  ADMINISTRATOR: "ADMINISTRATOR",
+  VIEWER: "VIEWER",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
  * @public
@@ -171,12 +177,18 @@ export interface AccessPolicySummary {
 
 /**
  * @public
+ * @enum
  */
-export enum Quality {
-  BAD = "BAD",
-  GOOD = "GOOD",
-  UNCERTAIN = "UNCERTAIN",
-}
+export const Quality = {
+  BAD: "BAD",
+  GOOD: "GOOD",
+  UNCERTAIN: "UNCERTAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type Quality = (typeof Quality)[keyof typeof Quality];
 
 /**
  * @public
@@ -238,15 +250,21 @@ export interface AggregatedValue {
 
 /**
  * @public
+ * @enum
  */
-export enum AggregateType {
-  AVERAGE = "AVERAGE",
-  COUNT = "COUNT",
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-  STANDARD_DEVIATION = "STANDARD_DEVIATION",
-  SUM = "SUM",
-}
+export const AggregateType = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  MAXIMUM: "MAXIMUM",
+  MINIMUM: "MINIMUM",
+  STANDARD_DEVIATION: "STANDARD_DEVIATION",
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregateType = (typeof AggregateType)[keyof typeof AggregateType];
 
 /**
  * @public
@@ -271,22 +289,34 @@ export interface Alarms {
 
 /**
  * @public
+ * @enum
  */
-export enum PropertyDataType {
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-  STRUCT = "STRUCT",
-}
+export const PropertyDataType = {
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+  STRUCT: "STRUCT",
+} as const;
 
 /**
  * @public
  */
-export enum PropertyNotificationState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export type PropertyDataType = (typeof PropertyDataType)[keyof typeof PropertyDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PropertyNotificationState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyNotificationState = (typeof PropertyNotificationState)[keyof typeof PropertyNotificationState];
 
 /**
  * @public
@@ -387,10 +417,16 @@ export interface AssetCompositeModel {
 
 /**
  * @public
+ * @enum
  */
-export enum AssetErrorCode {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
+export const AssetErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetErrorCode = (typeof AssetErrorCode)[keyof typeof AssetErrorCode];
 
 /**
  * @public
@@ -464,11 +500,17 @@ export interface Attribute {
 
 /**
  * @public
+ * @enum
  */
-export enum ForwardingConfigState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ForwardingConfigState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ForwardingConfigState = (typeof ForwardingConfigState)[keyof typeof ForwardingConfigState];
 
 /**
  * @public
@@ -510,11 +552,17 @@ export interface Measurement {
 
 /**
  * @public
+ * @enum
  */
-export enum ComputeLocation {
-  CLOUD = "CLOUD",
-  EDGE = "EDGE",
-}
+export const ComputeLocation = {
+  CLOUD: "CLOUD",
+  EDGE: "EDGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeLocation = (typeof ComputeLocation)[keyof typeof ComputeLocation];
 
 /**
  * @public
@@ -1021,31 +1069,49 @@ export interface AssetModelPropertySummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AssetModelState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PROPAGATING = "PROPAGATING",
-  UPDATING = "UPDATING",
-}
+export const AssetModelState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PROPAGATING: "PROPAGATING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum ErrorCode {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export type AssetModelState = (typeof AssetModelState)[keyof typeof AssetModelState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
 
 /**
  * @public
  */
-export enum DetailedErrorCode {
-  INCOMPATIBLE_COMPUTE_LOCATION = "INCOMPATIBLE_COMPUTE_LOCATION",
-  INCOMPATIBLE_FORWARDING_CONFIGURATION = "INCOMPATIBLE_FORWARDING_CONFIGURATION",
-}
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const DetailedErrorCode = {
+  INCOMPATIBLE_COMPUTE_LOCATION: "INCOMPATIBLE_COMPUTE_LOCATION",
+  INCOMPATIBLE_FORWARDING_CONFIGURATION: "INCOMPATIBLE_FORWARDING_CONFIGURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type DetailedErrorCode = (typeof DetailedErrorCode)[keyof typeof DetailedErrorCode];
 
 /**
  * @public
@@ -1250,10 +1316,16 @@ export interface AssetPropertyValue {
 
 /**
  * @public
+ * @enum
  */
-export enum AssetRelationshipType {
-  HIERARCHY = "HIERARCHY",
-}
+export const AssetRelationshipType = {
+  HIERARCHY: "HIERARCHY",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetRelationshipType = (typeof AssetRelationshipType)[keyof typeof AssetRelationshipType];
 
 /**
  * @public
@@ -1284,14 +1356,20 @@ export interface AssetRelationshipSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AssetState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const AssetState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetState = (typeof AssetState)[keyof typeof AssetState];
 
 /**
  * @public
@@ -1645,11 +1723,17 @@ export interface AssociateTimeSeriesToAssetPropertyRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthMode {
-  IAM = "IAM",
-  SSO = "SSO",
-}
+export const AuthMode = {
+  IAM: "IAM",
+  SSO: "SSO",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
 
 /**
  * @public
@@ -1713,11 +1797,17 @@ export interface BatchDisassociateProjectAssetsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeOrdering {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const TimeOrdering = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeOrdering = (typeof TimeOrdering)[keyof typeof TimeOrdering];
 
 /**
  * @public
@@ -1824,12 +1914,19 @@ export interface BatchGetAssetPropertyAggregatesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchGetAssetPropertyAggregatesErrorCode {
-  AccessDeniedException = "AccessDeniedException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-}
+export const BatchGetAssetPropertyAggregatesErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchGetAssetPropertyAggregatesErrorCode =
+  (typeof BatchGetAssetPropertyAggregatesErrorCode)[keyof typeof BatchGetAssetPropertyAggregatesErrorCode];
 
 /**
  * @public
@@ -1855,11 +1952,17 @@ export interface BatchGetAssetPropertyAggregatesErrorEntry {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchEntryCompletionStatus {
-  ERROR = "ERROR",
-  SUCCESS = "SUCCESS",
-}
+export const BatchEntryCompletionStatus = {
+  ERROR: "ERROR",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchEntryCompletionStatus = (typeof BatchEntryCompletionStatus)[keyof typeof BatchEntryCompletionStatus];
 
 /**
  * @public
@@ -2022,12 +2125,19 @@ export interface BatchGetAssetPropertyValueRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchGetAssetPropertyValueErrorCode {
-  AccessDeniedException = "AccessDeniedException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-}
+export const BatchGetAssetPropertyValueErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchGetAssetPropertyValueErrorCode =
+  (typeof BatchGetAssetPropertyValueErrorCode)[keyof typeof BatchGetAssetPropertyValueErrorCode];
 
 /**
  * @public
@@ -2228,12 +2338,19 @@ export interface BatchGetAssetPropertyValueHistoryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchGetAssetPropertyValueHistoryErrorCode {
-  AccessDeniedException = "AccessDeniedException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-}
+export const BatchGetAssetPropertyValueHistoryErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchGetAssetPropertyValueHistoryErrorCode =
+  (typeof BatchGetAssetPropertyValueHistoryErrorCode)[keyof typeof BatchGetAssetPropertyValueHistoryErrorCode];
 
 /**
  * @public
@@ -2390,18 +2507,25 @@ export interface BatchPutAssetPropertyValueRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchPutAssetPropertyValueErrorCode {
-  AccessDeniedException = "AccessDeniedException",
-  ConflictingOperationException = "ConflictingOperationException",
-  InternalFailureException = "InternalFailureException",
-  InvalidRequestException = "InvalidRequestException",
-  LimitExceededException = "LimitExceededException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  ServiceUnavailableException = "ServiceUnavailableException",
-  ThrottlingException = "ThrottlingException",
-  TimestampOutOfRangeException = "TimestampOutOfRangeException",
-}
+export const BatchPutAssetPropertyValueErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  ConflictingOperationException: "ConflictingOperationException",
+  InternalFailureException: "InternalFailureException",
+  InvalidRequestException: "InvalidRequestException",
+  LimitExceededException: "LimitExceededException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ServiceUnavailableException: "ServiceUnavailableException",
+  ThrottlingException: "ThrottlingException",
+  TimestampOutOfRangeException: "TimestampOutOfRangeException",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchPutAssetPropertyValueErrorCode =
+  (typeof BatchPutAssetPropertyValueErrorCode)[keyof typeof BatchPutAssetPropertyValueErrorCode];
 
 /**
  * @public
@@ -2680,17 +2804,23 @@ export interface File {
 
 /**
  * @public
+ * @enum
  */
-export enum ColumnName {
-  ALIAS = "ALIAS",
-  ASSET_ID = "ASSET_ID",
-  DATA_TYPE = "DATA_TYPE",
-  PROPERTY_ID = "PROPERTY_ID",
-  QUALITY = "QUALITY",
-  TIMESTAMP_NANO_OFFSET = "TIMESTAMP_NANO_OFFSET",
-  TIMESTAMP_SECONDS = "TIMESTAMP_SECONDS",
-  VALUE = "VALUE",
-}
+export const ColumnName = {
+  ALIAS: "ALIAS",
+  ASSET_ID: "ASSET_ID",
+  DATA_TYPE: "DATA_TYPE",
+  PROPERTY_ID: "PROPERTY_ID",
+  QUALITY: "QUALITY",
+  TIMESTAMP_NANO_OFFSET: "TIMESTAMP_NANO_OFFSET",
+  TIMESTAMP_SECONDS: "TIMESTAMP_SECONDS",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnName = (typeof ColumnName)[keyof typeof ColumnName];
 
 /**
  * @public
@@ -2757,15 +2887,21 @@ export interface CreateBulkImportJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const JobStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -2960,10 +3096,16 @@ export interface CreateGatewayResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ImageFileType {
-  PNG = "PNG",
-}
+export const ImageFileType = {
+  PNG: "PNG",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageFileType = (typeof ImageFileType)[keyof typeof ImageFileType];
 
 /**
  * @public
@@ -3070,12 +3212,18 @@ export interface CreatePortalRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitorErrorCode {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const MonitorErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitorErrorCode = (typeof MonitorErrorCode)[keyof typeof MonitorErrorCode];
 
 /**
  * @public
@@ -3095,14 +3243,20 @@ export interface MonitorErrorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum PortalState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const PortalState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type PortalState = (typeof PortalState)[keyof typeof PortalState];
 
 /**
  * @public
@@ -3888,12 +4042,18 @@ export interface ConfigurationErrorDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationState {
-  ACTIVE = "ACTIVE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const ConfigurationState = {
+  ACTIVE: "ACTIVE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
 
 /**
  * @public
@@ -3913,11 +4073,17 @@ export interface ConfigurationStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionType {
-  KMS_BASED_ENCRYPTION = "KMS_BASED_ENCRYPTION",
-  SITEWISE_DEFAULT_ENCRYPTION = "SITEWISE_DEFAULT_ENCRYPTION",
-}
+export const EncryptionType = {
+  KMS_BASED_ENCRYPTION: "KMS_BASED_ENCRYPTION",
+  SITEWISE_DEFAULT_ENCRYPTION: "SITEWISE_DEFAULT_ENCRYPTION",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -3954,13 +4120,19 @@ export interface DescribeGatewayRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CapabilitySyncStatus {
-  IN_SYNC = "IN_SYNC",
-  OUT_OF_SYNC = "OUT_OF_SYNC",
-  SYNC_FAILED = "SYNC_FAILED",
-  UNKNOWN = "UNKNOWN",
-}
+export const CapabilitySyncStatus = {
+  IN_SYNC: "IN_SYNC",
+  OUT_OF_SYNC: "OUT_OF_SYNC",
+  SYNC_FAILED: "SYNC_FAILED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type CapabilitySyncStatus = (typeof CapabilitySyncStatus)[keyof typeof CapabilitySyncStatus];
 
 /**
  * @public
@@ -4107,12 +4279,18 @@ export interface DescribeLoggingOptionsRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum LoggingLevel {
-  ERROR = "ERROR",
-  INFO = "INFO",
-  OFF = "OFF",
-}
+export const LoggingLevel = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
 
 /**
  * @public
@@ -4310,11 +4488,18 @@ export interface DescribeStorageConfigurationRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum DisassociatedDataStorageState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DisassociatedDataStorageState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DisassociatedDataStorageState =
+  (typeof DisassociatedDataStorageState)[keyof typeof DisassociatedDataStorageState];
 
 /**
  * @public
@@ -4371,11 +4556,17 @@ export interface RetentionPeriod {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageType {
-  MULTI_LAYER_STORAGE = "MULTI_LAYER_STORAGE",
-  SITEWISE_DEFAULT_STORAGE = "SITEWISE_DEFAULT_STORAGE",
-}
+export const StorageType = {
+  MULTI_LAYER_STORAGE: "MULTI_LAYER_STORAGE",
+  SITEWISE_DEFAULT_STORAGE: "SITEWISE_DEFAULT_STORAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 /**
  * @public
@@ -4916,20 +5107,32 @@ export interface GetInterpolatedAssetPropertyValuesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityType {
-  GROUP = "GROUP",
-  IAM = "IAM",
-  USER = "USER",
-}
+export const IdentityType = {
+  GROUP: "GROUP",
+  IAM: "IAM",
+  USER: "USER",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  PORTAL = "PORTAL",
-  PROJECT = "PROJECT",
-}
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  PORTAL: "PORTAL",
+  PROJECT: "PROJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -4995,11 +5198,18 @@ export interface ListAccessPoliciesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListAssetModelPropertiesFilter {
-  ALL = "ALL",
-  BASE = "BASE",
-}
+export const ListAssetModelPropertiesFilter = {
+  ALL: "ALL",
+  BASE: "BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type ListAssetModelPropertiesFilter =
+  (typeof ListAssetModelPropertiesFilter)[keyof typeof ListAssetModelPropertiesFilter];
 
 /**
  * @public
@@ -5089,11 +5299,17 @@ export interface ListAssetModelsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListAssetPropertiesFilter {
-  ALL = "ALL",
-  BASE = "BASE",
-}
+export const ListAssetPropertiesFilter = {
+  ALL: "ALL",
+  BASE: "BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type ListAssetPropertiesFilter = (typeof ListAssetPropertiesFilter)[keyof typeof ListAssetPropertiesFilter];
 
 /**
  * @public
@@ -5152,10 +5368,16 @@ export interface ListAssetPropertiesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TraversalType {
-  PATH_TO_ROOT = "PATH_TO_ROOT",
-}
+export const TraversalType = {
+  PATH_TO_ROOT: "PATH_TO_ROOT",
+} as const;
+
+/**
+ * @public
+ */
+export type TraversalType = (typeof TraversalType)[keyof typeof TraversalType];
 
 /**
  * @public
@@ -5208,11 +5430,17 @@ export interface ListAssetRelationshipsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListAssetsFilter {
-  ALL = "ALL",
-  TOP_LEVEL = "TOP_LEVEL",
-}
+export const ListAssetsFilter = {
+  ALL: "ALL",
+  TOP_LEVEL: "TOP_LEVEL",
+} as const;
+
+/**
+ * @public
+ */
+export type ListAssetsFilter = (typeof ListAssetsFilter)[keyof typeof ListAssetsFilter];
 
 /**
  * @public
@@ -5273,11 +5501,17 @@ export interface ListAssetsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TraversalDirection {
-  CHILD = "CHILD",
-  PARENT = "PARENT",
-}
+export const TraversalDirection = {
+  CHILD: "CHILD",
+  PARENT: "PARENT",
+} as const;
+
+/**
+ * @public
+ */
+export type TraversalDirection = (typeof TraversalDirection)[keyof typeof TraversalDirection];
 
 /**
  * @public
@@ -5345,16 +5579,22 @@ export interface ListAssociatedAssetsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListBulkImportJobsFilter {
-  ALL = "ALL",
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const ListBulkImportJobsFilter = {
+  ALL: "ALL",
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ListBulkImportJobsFilter = (typeof ListBulkImportJobsFilter)[keyof typeof ListBulkImportJobsFilter];
 
 /**
  * @public
@@ -5804,11 +6044,17 @@ export class UnauthorizedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ListTimeSeriesType {
-  ASSOCIATED = "ASSOCIATED",
-  DISASSOCIATED = "DISASSOCIATED",
-}
+export const ListTimeSeriesType = {
+  ASSOCIATED: "ASSOCIATED",
+  DISASSOCIATED: "DISASSOCIATED",
+} as const;
+
+/**
+ * @public
+ */
+export type ListTimeSeriesType = (typeof ListTimeSeriesType)[keyof typeof ListTimeSeriesType];
 
 /**
  * @public

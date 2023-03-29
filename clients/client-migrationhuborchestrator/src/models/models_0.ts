@@ -212,23 +212,30 @@ export interface CreateMigrationWorkflowRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MigrationWorkflowStatusEnum {
-  COMPLETED = "COMPLETED",
-  CREATING = "CREATING",
-  CREATION_FAILED = "CREATION_FAILED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  DELETION_FAILED = "DELETION_FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  PAUSED = "PAUSED",
-  PAUSING = "PAUSING",
-  PAUSING_FAILED = "PAUSING_FAILED",
-  STARTING = "STARTING",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-  WORKFLOW_FAILED = "WORKFLOW_FAILED",
-}
+export const MigrationWorkflowStatusEnum = {
+  COMPLETED: "COMPLETED",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  DELETION_FAILED: "DELETION_FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
+  PAUSING_FAILED: "PAUSING_FAILED",
+  STARTING: "STARTING",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+  WORKFLOW_FAILED: "WORKFLOW_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type MigrationWorkflowStatusEnum =
+  (typeof MigrationWorkflowStatusEnum)[keyof typeof MigrationWorkflowStatusEnum];
 
 /**
  * @public
@@ -784,13 +791,19 @@ export interface GetMigrationWorkflowTemplateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DataType {
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-  STRINGLIST = "STRINGLIST",
-  STRINGMAP = "STRINGMAP",
-}
+export const DataType = {
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+  STRINGLIST: "STRINGLIST",
+  STRINGMAP: "STRINGMAP",
+} as const;
+
+/**
+ * @public
+ */
+export type DataType = (typeof DataType)[keyof typeof DataType];
 
 /**
  * @public
@@ -815,10 +828,16 @@ export interface TemplateInput {
 
 /**
  * @public
+ * @enum
  */
-export enum TemplateStatus {
-  CREATED = "CREATED",
-}
+export const TemplateStatus = {
+  CREATED: "CREATED",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus];
 
 /**
  * @public
@@ -938,11 +957,17 @@ export interface ListPluginsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PluginHealth {
-  PLUGIN_HEALTHY = "HEALTHY",
-  PLUGIN_UNHEALTHY = "UNHEALTHY",
-}
+export const PluginHealth = {
+  PLUGIN_HEALTHY: "HEALTHY",
+  PLUGIN_UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type PluginHealth = (typeof PluginHealth)[keyof typeof PluginHealth];
 
 /**
  * @public
@@ -1059,11 +1084,17 @@ export interface StepOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum StepActionType {
-  AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL",
-}
+export const StepActionType = {
+  AUTOMATED: "AUTOMATED",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type StepActionType = (typeof StepActionType)[keyof typeof StepActionType];
 
 /**
  * @public
@@ -1083,11 +1114,17 @@ export interface PlatformCommand {
 
 /**
  * @public
+ * @enum
  */
-export enum RunEnvironment {
-  AWS = "AWS",
-  ONPREMISE = "ONPREMISE",
-}
+export const RunEnvironment = {
+  AWS: "AWS",
+  ONPREMISE: "ONPREMISE",
+} as const;
+
+/**
+ * @public
+ */
+export type RunEnvironment = (typeof RunEnvironment)[keyof typeof RunEnvironment];
 
 /**
  * @public
@@ -1107,12 +1144,18 @@ export interface PlatformScriptKey {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetType {
-  ALL = "ALL",
-  NONE = "NONE",
-  SINGLE = "SINGLE",
-}
+export const TargetType = {
+  ALL: "ALL",
+  NONE: "NONE",
+  SINGLE: "SINGLE",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * @public
@@ -1233,11 +1276,17 @@ export interface ListTemplateStepsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Owner {
-  AWSManaged = "AWS_MANAGED",
-  CUSTOM = "CUSTOM",
-}
+export const Owner = {
+  AWSManaged: "AWS_MANAGED",
+  CUSTOM: "CUSTOM",
+} as const;
+
+/**
+ * @public
+ */
+export type Owner = (typeof Owner)[keyof typeof Owner];
 
 /**
  * @public
@@ -1323,17 +1372,23 @@ export interface GetTemplateStepGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StepGroupStatus {
-  AWAITING_DEPENDENCIES = "AWAITING_DEPENDENCIES",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PAUSED = "PAUSED",
-  PAUSING = "PAUSING",
-  READY = "READY",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-}
+export const StepGroupStatus = {
+  AWAITING_DEPENDENCIES: "AWAITING_DEPENDENCIES",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
+  READY: "READY",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type StepGroupStatus = (typeof StepGroupStatus)[keyof typeof StepGroupStatus];
 
 /**
  * @public
@@ -1723,16 +1778,22 @@ export interface GetWorkflowStepRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StepStatus {
-  AWAITING_DEPENDENCIES = "AWAITING_DEPENDENCIES",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PAUSED = "PAUSED",
-  READY = "READY",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-}
+export const StepStatus = {
+  AWAITING_DEPENDENCIES: "AWAITING_DEPENDENCIES",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PAUSED: "PAUSED",
+  READY: "READY",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+} as const;
+
+/**
+ * @public
+ */
+export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
 
 /**
  * @public

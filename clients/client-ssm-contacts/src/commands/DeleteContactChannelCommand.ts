@@ -75,17 +75,6 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  *          service.</p>
  *
  *
- * @example To delete a contact channel
- * ```javascript
- * // The following delete-contact-channel example deletes a contact channel. Deleting a contact channel ensures the contact channel will not be paged during an incident.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/13149bad-52ee-45ea-ae1e-45857f78f9b2"
- * };
- * const command = new DeleteContactChannelCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-contact-channel-1630364616682
- * ```
- *
  */
 export class DeleteContactChannelCommand extends $Command<
   DeleteContactChannelCommandInput,

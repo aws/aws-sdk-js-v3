@@ -217,12 +217,18 @@ export interface GeneralName {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessMethodType {
-  CA_REPOSITORY = "CA_REPOSITORY",
-  RESOURCE_PKI_MANIFEST = "RESOURCE_PKI_MANIFEST",
-  RESOURCE_PKI_NOTIFY = "RESOURCE_PKI_NOTIFY",
-}
+export const AccessMethodType = {
+  CA_REPOSITORY: "CA_REPOSITORY",
+  RESOURCE_PKI_MANIFEST: "RESOURCE_PKI_MANIFEST",
+  RESOURCE_PKI_NOTIFY: "RESOURCE_PKI_NOTIFY",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessMethodType = (typeof AccessMethodType)[keyof typeof AccessMethodType];
 
 /**
  * @public
@@ -336,25 +342,37 @@ export interface CsrExtensions {
 
 /**
  * @public
+ * @enum
  */
-export enum KeyAlgorithm {
-  EC_prime256v1 = "EC_prime256v1",
-  EC_secp384r1 = "EC_secp384r1",
-  RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096",
-}
+export const KeyAlgorithm = {
+  EC_prime256v1: "EC_prime256v1",
+  EC_secp384r1: "EC_secp384r1",
+  RSA_2048: "RSA_2048",
+  RSA_4096: "RSA_4096",
+} as const;
 
 /**
  * @public
  */
-export enum SigningAlgorithm {
-  SHA256WITHECDSA = "SHA256WITHECDSA",
-  SHA256WITHRSA = "SHA256WITHRSA",
-  SHA384WITHECDSA = "SHA384WITHECDSA",
-  SHA384WITHRSA = "SHA384WITHRSA",
-  SHA512WITHECDSA = "SHA512WITHECDSA",
-  SHA512WITHRSA = "SHA512WITHRSA",
-}
+export type KeyAlgorithm = (typeof KeyAlgorithm)[keyof typeof KeyAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const SigningAlgorithm = {
+  SHA256WITHECDSA: "SHA256WITHECDSA",
+  SHA256WITHRSA: "SHA256WITHRSA",
+  SHA384WITHECDSA: "SHA384WITHECDSA",
+  SHA384WITHRSA: "SHA384WITHRSA",
+  SHA512WITHECDSA: "SHA512WITHECDSA",
+  SHA512WITHRSA: "SHA512WITHRSA",
+} as const;
+
+/**
+ * @public
+ */
+export type SigningAlgorithm = (typeof SigningAlgorithm)[keyof typeof SigningAlgorithm];
 
 /**
  * @public
@@ -394,27 +412,45 @@ export interface CertificateAuthorityConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateAuthorityType {
-  ROOT = "ROOT",
-  SUBORDINATE = "SUBORDINATE",
-}
+export const CertificateAuthorityType = {
+  ROOT: "ROOT",
+  SUBORDINATE: "SUBORDINATE",
+} as const;
 
 /**
  * @public
  */
-export enum KeyStorageSecurityStandard {
-  FIPS_140_2_LEVEL_2_OR_HIGHER = "FIPS_140_2_LEVEL_2_OR_HIGHER",
-  FIPS_140_2_LEVEL_3_OR_HIGHER = "FIPS_140_2_LEVEL_3_OR_HIGHER",
-}
+export type CertificateAuthorityType = (typeof CertificateAuthorityType)[keyof typeof CertificateAuthorityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyStorageSecurityStandard = {
+  FIPS_140_2_LEVEL_2_OR_HIGHER: "FIPS_140_2_LEVEL_2_OR_HIGHER",
+  FIPS_140_2_LEVEL_3_OR_HIGHER: "FIPS_140_2_LEVEL_3_OR_HIGHER",
+} as const;
 
 /**
  * @public
  */
-export enum S3ObjectAcl {
-  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
-  PUBLIC_READ = "PUBLIC_READ",
-}
+export type KeyStorageSecurityStandard = (typeof KeyStorageSecurityStandard)[keyof typeof KeyStorageSecurityStandard];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ObjectAcl = {
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+  PUBLIC_READ: "PUBLIC_READ",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ObjectAcl = (typeof S3ObjectAcl)[keyof typeof S3ObjectAcl];
 
 /**
  * @public
@@ -668,11 +704,18 @@ export interface Tag {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateAuthorityUsageMode {
-  GENERAL_PURPOSE = "GENERAL_PURPOSE",
-  SHORT_LIVED_CERTIFICATE = "SHORT_LIVED_CERTIFICATE",
-}
+export const CertificateAuthorityUsageMode = {
+  GENERAL_PURPOSE: "GENERAL_PURPOSE",
+  SHORT_LIVED_CERTIFICATE: "SHORT_LIVED_CERTIFICATE",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateAuthorityUsageMode =
+  (typeof CertificateAuthorityUsageMode)[keyof typeof CertificateAuthorityUsageMode];
 
 /**
  * @public
@@ -874,11 +917,17 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditReportResponseFormat {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const AuditReportResponseFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditReportResponseFormat = (typeof AuditReportResponseFormat)[keyof typeof AuditReportResponseFormat];
 
 /**
  * @public
@@ -1023,12 +1072,18 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionType {
-  GetCertificate = "GetCertificate",
-  IssueCertificate = "IssueCertificate",
-  ListPermissions = "ListPermissions",
-}
+export const ActionType = {
+  GetCertificate: "GetCertificate",
+  IssueCertificate: "IssueCertificate",
+  ListPermissions: "ListPermissions",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 /**
  * @public
@@ -1201,25 +1256,37 @@ export interface DescribeCertificateAuthorityRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FailureReason {
-  OTHER = "OTHER",
-  REQUEST_TIMED_OUT = "REQUEST_TIMED_OUT",
-  UNSUPPORTED_ALGORITHM = "UNSUPPORTED_ALGORITHM",
-}
+export const FailureReason = {
+  OTHER: "OTHER",
+  REQUEST_TIMED_OUT: "REQUEST_TIMED_OUT",
+  UNSUPPORTED_ALGORITHM: "UNSUPPORTED_ALGORITHM",
+} as const;
 
 /**
  * @public
  */
-export enum CertificateAuthorityStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PENDING_CERTIFICATE = "PENDING_CERTIFICATE",
-}
+export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateAuthorityStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PENDING_CERTIFICATE: "PENDING_CERTIFICATE",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateAuthorityStatus = (typeof CertificateAuthorityStatus)[keyof typeof CertificateAuthorityStatus];
 
 /**
  * @public
@@ -1357,12 +1424,18 @@ export interface DescribeCertificateAuthorityAuditReportRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditReportStatus {
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS",
-}
+export const AuditReportStatus = {
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditReportStatus = (typeof AuditReportStatus)[keyof typeof AuditReportStatus];
 
 /**
  * @public
@@ -1604,10 +1677,16 @@ export class MalformedCertificateException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyQualifierId {
-  CPS = "CPS",
-}
+export const PolicyQualifierId = {
+  CPS: "CPS",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyQualifierId = (typeof PolicyQualifierId)[keyof typeof PolicyQualifierId];
 
 /**
  * @public
@@ -1693,18 +1772,24 @@ export interface CustomExtension {
 
 /**
  * @public
+ * @enum
  */
-export enum ExtendedKeyUsageType {
-  CERTIFICATE_TRANSPARENCY = "CERTIFICATE_TRANSPARENCY",
-  CLIENT_AUTH = "CLIENT_AUTH",
-  CODE_SIGNING = "CODE_SIGNING",
-  DOCUMENT_SIGNING = "DOCUMENT_SIGNING",
-  EMAIL_PROTECTION = "EMAIL_PROTECTION",
-  OCSP_SIGNING = "OCSP_SIGNING",
-  SERVER_AUTH = "SERVER_AUTH",
-  SMART_CARD_LOGIN = "SMART_CARD_LOGIN",
-  TIME_STAMPING = "TIME_STAMPING",
-}
+export const ExtendedKeyUsageType = {
+  CERTIFICATE_TRANSPARENCY: "CERTIFICATE_TRANSPARENCY",
+  CLIENT_AUTH: "CLIENT_AUTH",
+  CODE_SIGNING: "CODE_SIGNING",
+  DOCUMENT_SIGNING: "DOCUMENT_SIGNING",
+  EMAIL_PROTECTION: "EMAIL_PROTECTION",
+  OCSP_SIGNING: "OCSP_SIGNING",
+  SERVER_AUTH: "SERVER_AUTH",
+  SMART_CARD_LOGIN: "SMART_CARD_LOGIN",
+  TIME_STAMPING: "TIME_STAMPING",
+} as const;
+
+/**
+ * @public
+ */
+export type ExtendedKeyUsageType = (typeof ExtendedKeyUsageType)[keyof typeof ExtendedKeyUsageType];
 
 /**
  * @public
@@ -1799,14 +1884,20 @@ export interface ApiPassthrough {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidityPeriodType {
-  ABSOLUTE = "ABSOLUTE",
-  DAYS = "DAYS",
-  END_DATE = "END_DATE",
-  MONTHS = "MONTHS",
-  YEARS = "YEARS",
-}
+export const ValidityPeriodType = {
+  ABSOLUTE: "ABSOLUTE",
+  DAYS: "DAYS",
+  END_DATE: "END_DATE",
+  MONTHS: "MONTHS",
+  YEARS: "YEARS",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidityPeriodType = (typeof ValidityPeriodType)[keyof typeof ValidityPeriodType];
 
 /**
  * @public
@@ -2049,11 +2140,17 @@ export class InvalidNextTokenException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceOwner {
-  OTHER_ACCOUNTS = "OTHER_ACCOUNTS",
-  SELF = "SELF",
-}
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER_ACCOUNTS",
+  SELF: "SELF",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
 
 /**
  * @public
@@ -2289,17 +2386,23 @@ export class RequestAlreadyProcessedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RevocationReason {
-  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
-  A_A_COMPROMISE = "A_A_COMPROMISE",
-  CERTIFICATE_AUTHORITY_COMPROMISE = "CERTIFICATE_AUTHORITY_COMPROMISE",
-  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
-  KEY_COMPROMISE = "KEY_COMPROMISE",
-  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
-  SUPERSEDED = "SUPERSEDED",
-  UNSPECIFIED = "UNSPECIFIED",
-}
+export const RevocationReason = {
+  AFFILIATION_CHANGED: "AFFILIATION_CHANGED",
+  A_A_COMPROMISE: "A_A_COMPROMISE",
+  CERTIFICATE_AUTHORITY_COMPROMISE: "CERTIFICATE_AUTHORITY_COMPROMISE",
+  CESSATION_OF_OPERATION: "CESSATION_OF_OPERATION",
+  KEY_COMPROMISE: "KEY_COMPROMISE",
+  PRIVILEGE_WITHDRAWN: "PRIVILEGE_WITHDRAWN",
+  SUPERSEDED: "SUPERSEDED",
+  UNSPECIFIED: "UNSPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type RevocationReason = (typeof RevocationReason)[keyof typeof RevocationReason];
 
 /**
  * @public

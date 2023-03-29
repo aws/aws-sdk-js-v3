@@ -357,29 +357,35 @@ export interface CreateIndexInput {
 
 /**
  * @public
+ * @enum
  */
-export enum IndexState {
+export const IndexState = {
   /**
    * Index is active.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Resource Explorer is creating the index.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Resource Explorer successfully deleted the index.
    */
-  DELETED = "DELETED",
+  DELETED: "DELETED",
   /**
    * Resource Explorer is deleting the index.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Resource Explorer is switching the index type between local and aggregator.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexState = (typeof IndexState)[keyof typeof IndexState];
 
 /**
  * @public
@@ -446,17 +452,23 @@ export interface DeleteIndexOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum IndexType {
+export const IndexType = {
   /**
    * aggregator index
    */
-  AGGREGATOR = "AGGREGATOR",
+  AGGREGATOR: "AGGREGATOR",
   /**
    * local index
    */
-  LOCAL = "LOCAL",
-}
+  LOCAL: "LOCAL",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexType = (typeof IndexType)[keyof typeof IndexType];
 
 /**
  * @public

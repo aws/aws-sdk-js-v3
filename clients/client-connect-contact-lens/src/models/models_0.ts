@@ -169,12 +169,18 @@ export interface IssueDetected {
 
 /**
  * @public
+ * @enum
  */
-export enum SentimentValue {
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+export const SentimentValue = {
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type SentimentValue = (typeof SentimentValue)[keyof typeof SentimentValue];
 
 /**
  * @public

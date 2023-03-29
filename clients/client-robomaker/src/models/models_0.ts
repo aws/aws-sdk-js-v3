@@ -5,12 +5,18 @@ import { RoboMakerServiceException as __BaseException } from "./RoboMakerService
 
 /**
  * @public
+ * @enum
  */
-export enum Architecture {
-  ARM64 = "ARM64",
-  ARMHF = "ARMHF",
-  X86_64 = "X86_64",
-}
+export const Architecture = {
+  ARM64: "ARM64",
+  ARMHF: "ARMHF",
+  X86_64: "X86_64",
+} as const;
+
+/**
+ * @public
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 /**
  * @public
@@ -106,11 +112,17 @@ export interface BatchDescribeSimulationJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ComputeType {
-  CPU = "CPU",
-  GPU_AND_CPU = "GPU_AND_CPU",
-}
+export const ComputeType = {
+  CPU: "CPU",
+  GPU_AND_CPU: "GPU_AND_CPU",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 /**
  * @public
@@ -155,12 +167,18 @@ export interface S3KeyOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceType {
-  Archive = "Archive",
-  File = "File",
-  Prefix = "Prefix",
-}
+export const DataSourceType = {
+  Archive: "Archive",
+  File: "File",
+  Prefix: "Prefix",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
 /**
  * @public
@@ -206,48 +224,60 @@ export interface DataSource {
 
 /**
  * @public
+ * @enum
  */
-export enum FailureBehavior {
-  Continue = "Continue",
-  Fail = "Fail",
-}
+export const FailureBehavior = {
+  Continue: "Continue",
+  Fail: "Fail",
+} as const;
 
 /**
  * @public
  */
-export enum SimulationJobErrorCode {
-  BadPermissionsCloudwatchLogs = "BadPermissionsCloudwatchLogs",
-  BadPermissionsRobotApplication = "BadPermissionsRobotApplication",
-  BadPermissionsS3Object = "BadPermissionsS3Object",
-  BadPermissionsS3Output = "BadPermissionsS3Output",
-  BadPermissionsSimulationApplication = "BadPermissionsSimulationApplication",
-  BadPermissionsUserCredentials = "BadPermissionsUserCredentials",
-  BatchCanceled = "BatchCanceled",
-  BatchTimedOut = "BatchTimedOut",
-  ENILimitExceeded = "ENILimitExceeded",
-  InternalServiceError = "InternalServiceError",
-  InvalidBundleRobotApplication = "InvalidBundleRobotApplication",
-  InvalidBundleSimulationApplication = "InvalidBundleSimulationApplication",
-  InvalidInput = "InvalidInput",
-  InvalidS3Resource = "InvalidS3Resource",
-  LimitExceeded = "LimitExceeded",
-  MismatchedEtag = "MismatchedEtag",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-  RobotApplicationCrash = "RobotApplicationCrash",
-  RobotApplicationHealthCheckFailure = "RobotApplicationHealthCheckFailure",
-  RobotApplicationVersionMismatchedEtag = "RobotApplicationVersionMismatchedEtag",
-  SimulationApplicationCrash = "SimulationApplicationCrash",
-  SimulationApplicationHealthCheckFailure = "SimulationApplicationHealthCheckFailure",
-  SimulationApplicationVersionMismatchedEtag = "SimulationApplicationVersionMismatchedEtag",
-  SubnetIpLimitExceeded = "SubnetIpLimitExceeded",
-  ThrottlingError = "ThrottlingError",
-  UploadContentMismatchError = "UploadContentMismatchError",
-  WrongRegionRobotApplication = "WrongRegionRobotApplication",
-  WrongRegionS3Bucket = "WrongRegionS3Bucket",
-  WrongRegionS3Output = "WrongRegionS3Output",
-  WrongRegionSimulationApplication = "WrongRegionSimulationApplication",
-}
+export type FailureBehavior = (typeof FailureBehavior)[keyof typeof FailureBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const SimulationJobErrorCode = {
+  BadPermissionsCloudwatchLogs: "BadPermissionsCloudwatchLogs",
+  BadPermissionsRobotApplication: "BadPermissionsRobotApplication",
+  BadPermissionsS3Object: "BadPermissionsS3Object",
+  BadPermissionsS3Output: "BadPermissionsS3Output",
+  BadPermissionsSimulationApplication: "BadPermissionsSimulationApplication",
+  BadPermissionsUserCredentials: "BadPermissionsUserCredentials",
+  BatchCanceled: "BatchCanceled",
+  BatchTimedOut: "BatchTimedOut",
+  ENILimitExceeded: "ENILimitExceeded",
+  InternalServiceError: "InternalServiceError",
+  InvalidBundleRobotApplication: "InvalidBundleRobotApplication",
+  InvalidBundleSimulationApplication: "InvalidBundleSimulationApplication",
+  InvalidInput: "InvalidInput",
+  InvalidS3Resource: "InvalidS3Resource",
+  LimitExceeded: "LimitExceeded",
+  MismatchedEtag: "MismatchedEtag",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+  RobotApplicationCrash: "RobotApplicationCrash",
+  RobotApplicationHealthCheckFailure: "RobotApplicationHealthCheckFailure",
+  RobotApplicationVersionMismatchedEtag: "RobotApplicationVersionMismatchedEtag",
+  SimulationApplicationCrash: "SimulationApplicationCrash",
+  SimulationApplicationHealthCheckFailure: "SimulationApplicationHealthCheckFailure",
+  SimulationApplicationVersionMismatchedEtag: "SimulationApplicationVersionMismatchedEtag",
+  SubnetIpLimitExceeded: "SubnetIpLimitExceeded",
+  ThrottlingError: "ThrottlingError",
+  UploadContentMismatchError: "UploadContentMismatchError",
+  WrongRegionRobotApplication: "WrongRegionRobotApplication",
+  WrongRegionS3Bucket: "WrongRegionS3Bucket",
+  WrongRegionS3Output: "WrongRegionS3Output",
+  WrongRegionSimulationApplication: "WrongRegionSimulationApplication",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationJobErrorCode = (typeof SimulationJobErrorCode)[keyof typeof SimulationJobErrorCode];
 
 /**
  * @public
@@ -377,11 +407,17 @@ export interface LaunchConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ExitBehavior {
-  FAIL = "FAIL",
-  RESTART = "RESTART",
-}
+export const ExitBehavior = {
+  FAIL: "FAIL",
+  RESTART: "RESTART",
+} as const;
+
+/**
+ * @public
+ */
+export type ExitBehavior = (typeof ExitBehavior)[keyof typeof ExitBehavior];
 
 /**
  * @public
@@ -422,11 +458,17 @@ export interface Tool {
 
 /**
  * @public
+ * @enum
  */
-export enum UploadBehavior {
-  UPLOAD_ON_TERMINATE = "UPLOAD_ON_TERMINATE",
-  UPLOAD_ROLLING_AUTO_REMOVE = "UPLOAD_ROLLING_AUTO_REMOVE",
-}
+export const UploadBehavior = {
+  UPLOAD_ON_TERMINATE: "UPLOAD_ON_TERMINATE",
+  UPLOAD_ROLLING_AUTO_REMOVE: "UPLOAD_ROLLING_AUTO_REMOVE",
+} as const;
+
+/**
+ * @public
+ */
+export type UploadBehavior = (typeof UploadBehavior)[keyof typeof UploadBehavior];
 
 /**
  * @public
@@ -601,19 +643,25 @@ export interface SimulationApplicationConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum SimulationJobStatus {
-  Canceled = "Canceled",
-  Completed = "Completed",
-  Failed = "Failed",
-  Pending = "Pending",
-  Preparing = "Preparing",
-  Restarting = "Restarting",
-  Running = "Running",
-  RunningFailed = "RunningFailed",
-  Terminated = "Terminated",
-  Terminating = "Terminating",
-}
+export const SimulationJobStatus = {
+  Canceled: "Canceled",
+  Completed: "Completed",
+  Failed: "Failed",
+  Pending: "Pending",
+  Preparing: "Preparing",
+  Restarting: "Restarting",
+  Running: "Running",
+  RunningFailed: "RunningFailed",
+  Terminated: "Terminated",
+  Terminating: "Terminating",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationJobStatus = (typeof SimulationJobStatus)[keyof typeof SimulationJobStatus];
 
 /**
  * @public
@@ -1088,45 +1136,57 @@ export interface CreateDeploymentJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentJobErrorCode {
-  BadLambdaAssociated = "BadLambdaAssociated",
-  BadPermissionError = "BadPermissionError",
-  DeploymentFleetDoesNotExist = "DeploymentFleetDoesNotExist",
-  DownloadConditionFailed = "DownloadConditionFailed",
-  EnvironmentSetupError = "EnvironmentSetupError",
-  EtagMismatch = "EtagMismatch",
-  ExtractingBundleFailure = "ExtractingBundleFailure",
-  FailureThresholdBreached = "FailureThresholdBreached",
-  FleetDeploymentTimeout = "FleetDeploymentTimeout",
-  GreengrassDeploymentFailed = "GreengrassDeploymentFailed",
-  GreengrassGroupVersionDoesNotExist = "GreengrassGroupVersionDoesNotExist",
-  InternalServerError = "InternalServerError",
-  InvalidGreengrassGroup = "InvalidGreengrassGroup",
-  LambdaDeleted = "LambdaDeleted",
-  MissingRobotApplicationArchitecture = "MissingRobotApplicationArchitecture",
-  MissingRobotArchitecture = "MissingRobotArchitecture",
-  MissingRobotDeploymentResource = "MissingRobotDeploymentResource",
-  PostLaunchFileFailure = "PostLaunchFileFailure",
-  PreLaunchFileFailure = "PreLaunchFileFailure",
-  ResourceNotFound = "ResourceNotFound",
-  RobotAgentConnectionTimeout = "RobotAgentConnectionTimeout",
-  RobotApplicationDoesNotExist = "RobotApplicationDoesNotExist",
-  RobotDeploymentAborted = "RobotDeploymentAborted",
-  RobotDeploymentNoResponse = "RobotDeploymentNoResponse",
-}
+export const DeploymentJobErrorCode = {
+  BadLambdaAssociated: "BadLambdaAssociated",
+  BadPermissionError: "BadPermissionError",
+  DeploymentFleetDoesNotExist: "DeploymentFleetDoesNotExist",
+  DownloadConditionFailed: "DownloadConditionFailed",
+  EnvironmentSetupError: "EnvironmentSetupError",
+  EtagMismatch: "EtagMismatch",
+  ExtractingBundleFailure: "ExtractingBundleFailure",
+  FailureThresholdBreached: "FailureThresholdBreached",
+  FleetDeploymentTimeout: "FleetDeploymentTimeout",
+  GreengrassDeploymentFailed: "GreengrassDeploymentFailed",
+  GreengrassGroupVersionDoesNotExist: "GreengrassGroupVersionDoesNotExist",
+  InternalServerError: "InternalServerError",
+  InvalidGreengrassGroup: "InvalidGreengrassGroup",
+  LambdaDeleted: "LambdaDeleted",
+  MissingRobotApplicationArchitecture: "MissingRobotApplicationArchitecture",
+  MissingRobotArchitecture: "MissingRobotArchitecture",
+  MissingRobotDeploymentResource: "MissingRobotDeploymentResource",
+  PostLaunchFileFailure: "PostLaunchFileFailure",
+  PreLaunchFileFailure: "PreLaunchFileFailure",
+  ResourceNotFound: "ResourceNotFound",
+  RobotAgentConnectionTimeout: "RobotAgentConnectionTimeout",
+  RobotApplicationDoesNotExist: "RobotApplicationDoesNotExist",
+  RobotDeploymentAborted: "RobotDeploymentAborted",
+  RobotDeploymentNoResponse: "RobotDeploymentNoResponse",
+} as const;
 
 /**
  * @public
  */
-export enum DeploymentStatus {
-  Canceled = "Canceled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  Preparing = "Preparing",
-  Succeeded = "Succeeded",
-}
+export type DeploymentJobErrorCode = (typeof DeploymentJobErrorCode)[keyof typeof DeploymentJobErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStatus = {
+  Canceled: "Canceled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  Preparing: "Preparing",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
 
 /**
  * @public
@@ -1414,22 +1474,35 @@ export interface Environment {
 
 /**
  * @public
+ * @enum
  */
-export enum RobotSoftwareSuiteType {
-  General = "General",
-  ROS = "ROS",
-  ROS2 = "ROS2",
-}
+export const RobotSoftwareSuiteType = {
+  General: "General",
+  ROS: "ROS",
+  ROS2: "ROS2",
+} as const;
 
 /**
  * @public
  */
-export enum RobotSoftwareSuiteVersionType {
-  Dashing = "Dashing",
-  Foxy = "Foxy",
-  Kinetic = "Kinetic",
-  Melodic = "Melodic",
-}
+export type RobotSoftwareSuiteType = (typeof RobotSoftwareSuiteType)[keyof typeof RobotSoftwareSuiteType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RobotSoftwareSuiteVersionType = {
+  Dashing: "Dashing",
+  Foxy: "Foxy",
+  Kinetic: "Kinetic",
+  Melodic: "Melodic",
+} as const;
+
+/**
+ * @public
+ */
+export type RobotSoftwareSuiteVersionType =
+  (typeof RobotSoftwareSuiteVersionType)[keyof typeof RobotSoftwareSuiteVersionType];
 
 /**
  * @public
@@ -1654,10 +1727,16 @@ export interface CreateRobotApplicationVersionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum RenderingEngineType {
-  OGRE = "OGRE",
-}
+export const RenderingEngineType = {
+  OGRE: "OGRE",
+} as const;
+
+/**
+ * @public
+ */
+export type RenderingEngineType = (typeof RenderingEngineType)[keyof typeof RenderingEngineType];
 
 /**
  * @public
@@ -1677,12 +1756,19 @@ export interface RenderingEngine {
 
 /**
  * @public
+ * @enum
  */
-export enum SimulationSoftwareSuiteType {
-  Gazebo = "Gazebo",
-  RosbagPlay = "RosbagPlay",
-  SimulationRuntime = "SimulationRuntime",
-}
+export const SimulationSoftwareSuiteType = {
+  Gazebo: "Gazebo",
+  RosbagPlay: "RosbagPlay",
+  SimulationRuntime: "SimulationRuntime",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationSoftwareSuiteType =
+  (typeof SimulationSoftwareSuiteType)[keyof typeof SimulationSoftwareSuiteType];
 
 /**
  * @public
@@ -2347,27 +2433,39 @@ export interface CreateWorldExportJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum WorldExportJobErrorCode {
-  AccessDenied = "AccessDenied",
-  InternalServiceError = "InternalServiceError",
-  InvalidInput = "InvalidInput",
-  LimitExceeded = "LimitExceeded",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-}
+export const WorldExportJobErrorCode = {
+  AccessDenied: "AccessDenied",
+  InternalServiceError: "InternalServiceError",
+  InvalidInput: "InvalidInput",
+  LimitExceeded: "LimitExceeded",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+} as const;
 
 /**
  * @public
  */
-export enum WorldExportJobStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Failed = "Failed",
-  Pending = "Pending",
-  Running = "Running",
-}
+export type WorldExportJobErrorCode = (typeof WorldExportJobErrorCode)[keyof typeof WorldExportJobErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorldExportJobStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Failed: "Failed",
+  Pending: "Pending",
+  Running: "Running",
+} as const;
+
+/**
+ * @public
+ */
+export type WorldExportJobStatus = (typeof WorldExportJobStatus)[keyof typeof WorldExportJobStatus];
 
 /**
  * @public
@@ -2531,28 +2629,41 @@ export interface CreateWorldGenerationJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum WorldGenerationJobErrorCode {
-  AllWorldGenerationFailed = "AllWorldGenerationFailed",
-  InternalServiceError = "InternalServiceError",
-  InvalidInput = "InvalidInput",
-  LimitExceeded = "LimitExceeded",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-}
+export const WorldGenerationJobErrorCode = {
+  AllWorldGenerationFailed: "AllWorldGenerationFailed",
+  InternalServiceError: "InternalServiceError",
+  InvalidInput: "InvalidInput",
+  LimitExceeded: "LimitExceeded",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+} as const;
 
 /**
  * @public
  */
-export enum WorldGenerationJobStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Failed = "Failed",
-  PartialFailed = "PartialFailed",
-  Pending = "Pending",
-  Running = "Running",
-}
+export type WorldGenerationJobErrorCode =
+  (typeof WorldGenerationJobErrorCode)[keyof typeof WorldGenerationJobErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorldGenerationJobStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Failed: "Failed",
+  PartialFailed: "PartialFailed",
+  Pending: "Pending",
+  Running: "Running",
+} as const;
+
+/**
+ * @public
+ */
+export type WorldGenerationJobStatus = (typeof WorldGenerationJobStatus)[keyof typeof WorldGenerationJobStatus];
 
 /**
  * @public
@@ -2915,16 +3026,22 @@ export interface DescribeDeploymentJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RobotDeploymentStep {
-  DownloadingExtractingStep = "DownloadingExtracting",
-  ExecutingDownloadCondition = "ExecutingDownloadCondition",
-  FinishedStep = "Finished",
-  LaunchingStep = "Launching",
-  PostLaunchStep = "ExecutingPostLaunch",
-  PreLaunchStep = "ExecutingPreLaunch",
-  ValidatingStep = "Validating",
-}
+export const RobotDeploymentStep = {
+  DownloadingExtractingStep: "DownloadingExtracting",
+  ExecutingDownloadCondition: "ExecutingDownloadCondition",
+  FinishedStep: "Finished",
+  LaunchingStep: "Launching",
+  PostLaunchStep: "ExecutingPostLaunch",
+  PreLaunchStep: "ExecutingPreLaunch",
+  ValidatingStep: "Validating",
+} as const;
+
+/**
+ * @public
+ */
+export type RobotDeploymentStep = (typeof RobotDeploymentStep)[keyof typeof RobotDeploymentStep];
 
 /**
  * @public
@@ -2984,16 +3101,22 @@ export interface ProgressDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum RobotStatus {
-  Available = "Available",
-  Deploying = "Deploying",
-  Failed = "Failed",
-  InSync = "InSync",
-  NoResponse = "NoResponse",
-  PendingNewDeployment = "PendingNewDeployment",
-  Registered = "Registered",
-}
+export const RobotStatus = {
+  Available: "Available",
+  Deploying: "Deploying",
+  Failed: "Failed",
+  InSync: "InSync",
+  NoResponse: "NoResponse",
+  PendingNewDeployment: "PendingNewDeployment",
+  Registered: "Registered",
+} as const;
+
+/**
+ * @public
+ */
+export type RobotStatus = (typeof RobotStatus)[keyof typeof RobotStatus];
 
 /**
  * @public
@@ -3689,25 +3812,38 @@ export interface FailedCreateSimulationJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SimulationJobBatchErrorCode {
-  InternalServiceError = "InternalServiceError",
-}
+export const SimulationJobBatchErrorCode = {
+  InternalServiceError: "InternalServiceError",
+} as const;
 
 /**
  * @public
  */
-export enum SimulationJobBatchStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Completing = "Completing",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  TimedOut = "TimedOut",
-  TimingOut = "TimingOut",
-}
+export type SimulationJobBatchErrorCode =
+  (typeof SimulationJobBatchErrorCode)[keyof typeof SimulationJobBatchErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SimulationJobBatchStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Completing: "Completing",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  TimedOut: "TimedOut",
+  TimingOut: "TimingOut",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationJobBatchStatus = (typeof SimulationJobBatchStatus)[keyof typeof SimulationJobBatchStatus];
 
 /**
  * @public

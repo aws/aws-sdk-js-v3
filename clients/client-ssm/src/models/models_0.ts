@@ -99,18 +99,24 @@ export interface Activation {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceTypeForTagging {
-  ASSOCIATION = "Association",
-  AUTOMATION = "Automation",
-  DOCUMENT = "Document",
-  MAINTENANCE_WINDOW = "MaintenanceWindow",
-  MANAGED_INSTANCE = "ManagedInstance",
-  OPSMETADATA = "OpsMetadata",
-  OPS_ITEM = "OpsItem",
-  PARAMETER = "Parameter",
-  PATCH_BASELINE = "PatchBaseline",
-}
+export const ResourceTypeForTagging = {
+  ASSOCIATION: "Association",
+  AUTOMATION: "Automation",
+  DOCUMENT: "Document",
+  MAINTENANCE_WINDOW: "MaintenanceWindow",
+  MANAGED_INSTANCE: "ManagedInstance",
+  OPSMETADATA: "OpsMetadata",
+  OPS_ITEM: "OpsItem",
+  PARAMETER: "Parameter",
+  PATCH_BASELINE: "PatchBaseline",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceTypeForTagging = (typeof ResourceTypeForTagging)[keyof typeof ResourceTypeForTagging];
 
 /**
  * @public
@@ -316,11 +322,17 @@ export interface AlarmConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ExternalAlarmState {
-  ALARM = "ALARM",
-  UNKNOWN = "UNKNOWN",
-}
+export const ExternalAlarmState = {
+  ALARM: "ALARM",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalAlarmState = (typeof ExternalAlarmState)[keyof typeof ExternalAlarmState];
 
 /**
  * @public
@@ -834,14 +846,21 @@ export class AssociationLimitExceeded extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationComplianceSeverity {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
-}
+export const AssociationComplianceSeverity = {
+  Critical: "CRITICAL",
+  High: "HIGH",
+  Low: "LOW",
+  Medium: "MEDIUM",
+  Unspecified: "UNSPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationComplianceSeverity =
+  (typeof AssociationComplianceSeverity)[keyof typeof AssociationComplianceSeverity];
 
 /**
  * @public
@@ -879,11 +898,17 @@ export interface InstanceAssociationOutputLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationSyncCompliance {
-  Auto = "AUTO",
-  Manual = "MANUAL",
-}
+export const AssociationSyncCompliance = {
+  Auto: "AUTO",
+  Manual: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationSyncCompliance = (typeof AssociationSyncCompliance)[keyof typeof AssociationSyncCompliance];
 
 /**
  * @public
@@ -1258,12 +1283,18 @@ export interface AssociationOverview {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationStatusName {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success",
-}
+export const AssociationStatusName = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationStatusName = (typeof AssociationStatusName)[keyof typeof AssociationStatusName];
 
 /**
  * @public
@@ -1838,12 +1869,18 @@ export interface CreateAssociationBatchRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Fault {
-  Client = "Client",
-  Server = "Server",
-  Unknown = "Unknown",
-}
+export const Fault = {
+  Client: "Client",
+  Server: "Server",
+  Unknown: "Unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type Fault = (typeof Fault)[keyof typeof Fault];
 
 /**
  * @public
@@ -1883,12 +1920,18 @@ export interface CreateAssociationBatchResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AttachmentsSourceKey {
-  AttachmentReference = "AttachmentReference",
-  S3FileUrl = "S3FileUrl",
-  SourceUrl = "SourceUrl",
-}
+export const AttachmentsSourceKey = {
+  AttachmentReference: "AttachmentReference",
+  S3FileUrl: "S3FileUrl",
+  SourceUrl: "SourceUrl",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentsSourceKey = (typeof AttachmentsSourceKey)[keyof typeof AttachmentsSourceKey];
 
 /**
  * @public
@@ -1948,33 +1991,45 @@ export interface AttachmentsSource {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentFormat {
-  JSON = "JSON",
-  TEXT = "TEXT",
-  YAML = "YAML",
-}
+export const DocumentFormat = {
+  JSON: "JSON",
+  TEXT: "TEXT",
+  YAML: "YAML",
+} as const;
 
 /**
  * @public
  */
-export enum DocumentType {
-  ApplicationConfiguration = "ApplicationConfiguration",
-  ApplicationConfigurationSchema = "ApplicationConfigurationSchema",
-  Automation = "Automation",
-  ChangeCalendar = "ChangeCalendar",
-  ChangeTemplate = "Automation.ChangeTemplate",
-  CloudFormation = "CloudFormation",
-  Command = "Command",
-  ConformancePackTemplate = "ConformancePackTemplate",
-  DeploymentStrategy = "DeploymentStrategy",
-  Package = "Package",
-  Policy = "Policy",
-  ProblemAnalysis = "ProblemAnalysis",
-  ProblemAnalysisTemplate = "ProblemAnalysisTemplate",
-  QuickSetup = "QuickSetup",
-  Session = "Session",
-}
+export type DocumentFormat = (typeof DocumentFormat)[keyof typeof DocumentFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentType = {
+  ApplicationConfiguration: "ApplicationConfiguration",
+  ApplicationConfigurationSchema: "ApplicationConfigurationSchema",
+  Automation: "Automation",
+  ChangeCalendar: "ChangeCalendar",
+  ChangeTemplate: "Automation.ChangeTemplate",
+  CloudFormation: "CloudFormation",
+  Command: "Command",
+  ConformancePackTemplate: "ConformancePackTemplate",
+  DeploymentStrategy: "DeploymentStrategy",
+  Package: "Package",
+  Policy: "Policy",
+  ProblemAnalysis: "ProblemAnalysis",
+  ProblemAnalysisTemplate: "ProblemAnalysisTemplate",
+  QuickSetup: "QuickSetup",
+  Session: "Session",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType];
 
 /**
  * @public
@@ -2153,19 +2208,31 @@ export interface AttachmentInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentHashType {
-  SHA1 = "Sha1",
-  SHA256 = "Sha256",
-}
+export const DocumentHashType = {
+  SHA1: "Sha1",
+  SHA256: "Sha256",
+} as const;
 
 /**
  * @public
  */
-export enum DocumentParameterType {
-  String = "String",
-  StringList = "StringList",
-}
+export type DocumentHashType = (typeof DocumentHashType)[keyof typeof DocumentHashType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentParameterType = {
+  String: "String",
+  StringList: "StringList",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentParameterType = (typeof DocumentParameterType)[keyof typeof DocumentParameterType];
 
 /**
  * @public
@@ -2198,22 +2265,34 @@ export interface DocumentParameter {
 
 /**
  * @public
+ * @enum
  */
-export enum PlatformType {
-  LINUX = "Linux",
-  MACOS = "MacOS",
-  WINDOWS = "Windows",
-}
+export const PlatformType = {
+  LINUX: "Linux",
+  MACOS: "MacOS",
+  WINDOWS: "Windows",
+} as const;
 
 /**
  * @public
  */
-export enum ReviewStatus {
-  APPROVED = "APPROVED",
-  NOT_REVIEWED = "NOT_REVIEWED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReviewStatus = {
+  APPROVED: "APPROVED",
+  NOT_REVIEWED: "NOT_REVIEWED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReviewStatus = (typeof ReviewStatus)[keyof typeof ReviewStatus];
 
 /**
  * @public
@@ -2238,14 +2317,20 @@ export interface ReviewInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentStatus {
-  Active = "Active",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Updating = "Updating",
-}
+export const DocumentStatus = {
+  Active: "Active",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentStatus = (typeof DocumentStatus)[keyof typeof DocumentStatus];
 
 /**
  * @public
@@ -2722,11 +2807,17 @@ export interface OpsItemNotification {
 
 /**
  * @public
+ * @enum
  */
-export enum OpsItemDataType {
-  SEARCHABLE_STRING = "SearchableString",
-  STRING = "String",
-}
+export const OpsItemDataType = {
+  SEARCHABLE_STRING: "SearchableString",
+  STRING: "String",
+} as const;
+
+/**
+ * @public
+ */
+export type OpsItemDataType = (typeof OpsItemDataType)[keyof typeof OpsItemDataType];
 
 /**
  * @public
@@ -3111,40 +3202,52 @@ export class OpsMetadataTooManyUpdatesException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum PatchComplianceLevel {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Informational = "INFORMATIONAL",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
-}
+export const PatchComplianceLevel = {
+  Critical: "CRITICAL",
+  High: "HIGH",
+  Informational: "INFORMATIONAL",
+  Low: "LOW",
+  Medium: "MEDIUM",
+  Unspecified: "UNSPECIFIED",
+} as const;
 
 /**
  * @public
  */
-export enum PatchFilterKey {
-  AdvisoryId = "ADVISORY_ID",
-  Arch = "ARCH",
-  BugzillaId = "BUGZILLA_ID",
-  CVEId = "CVE_ID",
-  Classification = "CLASSIFICATION",
-  Epoch = "EPOCH",
-  MsrcSeverity = "MSRC_SEVERITY",
-  Name = "NAME",
-  PatchId = "PATCH_ID",
-  PatchSet = "PATCH_SET",
-  Priority = "PRIORITY",
-  Product = "PRODUCT",
-  ProductFamily = "PRODUCT_FAMILY",
-  Release = "RELEASE",
-  Repository = "REPOSITORY",
-  Section = "SECTION",
-  Security = "SECURITY",
-  Severity = "SEVERITY",
-  Version = "VERSION",
-}
+export type PatchComplianceLevel = (typeof PatchComplianceLevel)[keyof typeof PatchComplianceLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const PatchFilterKey = {
+  AdvisoryId: "ADVISORY_ID",
+  Arch: "ARCH",
+  BugzillaId: "BUGZILLA_ID",
+  CVEId: "CVE_ID",
+  Classification: "CLASSIFICATION",
+  Epoch: "EPOCH",
+  MsrcSeverity: "MSRC_SEVERITY",
+  Name: "NAME",
+  PatchId: "PATCH_ID",
+  PatchSet: "PATCH_SET",
+  Priority: "PRIORITY",
+  Product: "PRODUCT",
+  ProductFamily: "PRODUCT_FAMILY",
+  Release: "RELEASE",
+  Repository: "REPOSITORY",
+  Section: "SECTION",
+  Security: "SECURITY",
+  Severity: "SEVERITY",
+  Version: "VERSION",
+} as const;
+
+/**
+ * @public
+ */
+export type PatchFilterKey = (typeof PatchFilterKey)[keyof typeof PatchFilterKey];
 
 /**
  * @public
@@ -3241,32 +3344,44 @@ export interface PatchRuleGroup {
 
 /**
  * @public
+ * @enum
  */
-export enum OperatingSystem {
-  AlmaLinux = "ALMA_LINUX",
-  AmazonLinux = "AMAZON_LINUX",
-  AmazonLinux2 = "AMAZON_LINUX_2",
-  AmazonLinux2022 = "AMAZON_LINUX_2022",
-  AmazonLinux2023 = "AMAZON_LINUX_2023",
-  CentOS = "CENTOS",
-  Debian = "DEBIAN",
-  MacOS = "MACOS",
-  OracleLinux = "ORACLE_LINUX",
-  Raspbian = "RASPBIAN",
-  RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
-  Rocky_Linux = "ROCKY_LINUX",
-  Suse = "SUSE",
-  Ubuntu = "UBUNTU",
-  Windows = "WINDOWS",
-}
+export const OperatingSystem = {
+  AlmaLinux: "ALMA_LINUX",
+  AmazonLinux: "AMAZON_LINUX",
+  AmazonLinux2: "AMAZON_LINUX_2",
+  AmazonLinux2022: "AMAZON_LINUX_2022",
+  AmazonLinux2023: "AMAZON_LINUX_2023",
+  CentOS: "CENTOS",
+  Debian: "DEBIAN",
+  MacOS: "MACOS",
+  OracleLinux: "ORACLE_LINUX",
+  Raspbian: "RASPBIAN",
+  RedhatEnterpriseLinux: "REDHAT_ENTERPRISE_LINUX",
+  Rocky_Linux: "ROCKY_LINUX",
+  Suse: "SUSE",
+  Ubuntu: "UBUNTU",
+  Windows: "WINDOWS",
+} as const;
 
 /**
  * @public
  */
-export enum PatchAction {
-  AllowAsDependency = "ALLOW_AS_DEPENDENCY",
-  Block = "BLOCK",
-}
+export type OperatingSystem = (typeof OperatingSystem)[keyof typeof OperatingSystem];
+
+/**
+ * @public
+ * @enum
+ */
+export const PatchAction = {
+  AllowAsDependency: "ALLOW_AS_DEPENDENCY",
+  Block: "BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type PatchAction = (typeof PatchAction)[keyof typeof PatchAction];
 
 /**
  * @public
@@ -3456,10 +3571,16 @@ export interface ResourceDataSyncDestinationDataSharing {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceDataSyncS3Format {
-  JSON_SERDE = "JsonSerDe",
-}
+export const ResourceDataSyncS3Format = {
+  JSON_SERDE: "JsonSerDe",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceDataSyncS3Format = (typeof ResourceDataSyncS3Format)[keyof typeof ResourceDataSyncS3Format];
 
 /**
  * @public
@@ -3870,11 +3991,18 @@ export class InvalidDocumentOperation extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum InventorySchemaDeleteOption {
-  DELETE_SCHEMA = "DeleteSchema",
-  DISABLE_SCHEMA = "DisableSchema",
-}
+export const InventorySchemaDeleteOption = {
+  DELETE_SCHEMA: "DeleteSchema",
+  DISABLE_SCHEMA: "DisableSchema",
+} as const;
+
+/**
+ * @public
+ */
+export type InventorySchemaDeleteOption =
+  (typeof InventorySchemaDeleteOption)[keyof typeof InventorySchemaDeleteOption];
 
 /**
  * @public
@@ -4484,12 +4612,19 @@ export interface DeregisterTaskFromMaintenanceWindowResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DescribeActivationsFilterKeys {
-  ACTIVATION_IDS = "ActivationIds",
-  DEFAULT_INSTANCE_NAME = "DefaultInstanceName",
-  IAM_ROLE = "IamRole",
-}
+export const DescribeActivationsFilterKeys = {
+  ACTIVATION_IDS: "ActivationIds",
+  DEFAULT_INSTANCE_NAME: "DefaultInstanceName",
+  IAM_ROLE: "IamRole",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribeActivationsFilterKeys =
+  (typeof DescribeActivationsFilterKeys)[keyof typeof DescribeActivationsFilterKeys];
 
 /**
  * @public
@@ -4652,21 +4787,35 @@ export class InvalidAssociationVersion extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationExecutionFilterKey {
-  CreatedTime = "CreatedTime",
-  ExecutionId = "ExecutionId",
-  Status = "Status",
-}
+export const AssociationExecutionFilterKey = {
+  CreatedTime: "CreatedTime",
+  ExecutionId: "ExecutionId",
+  Status: "Status",
+} as const;
 
 /**
  * @public
  */
-export enum AssociationFilterOperatorType {
-  Equal = "EQUAL",
-  GreaterThan = "GREATER_THAN",
-  LessThan = "LESS_THAN",
-}
+export type AssociationExecutionFilterKey =
+  (typeof AssociationExecutionFilterKey)[keyof typeof AssociationExecutionFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociationFilterOperatorType = {
+  Equal: "EQUAL",
+  GreaterThan: "GREATER_THAN",
+  LessThan: "LESS_THAN",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationFilterOperatorType =
+  (typeof AssociationFilterOperatorType)[keyof typeof AssociationFilterOperatorType];
 
 /**
  * @public
@@ -4815,12 +4964,19 @@ export class AssociationExecutionDoesNotExist extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationExecutionTargetsFilterKey {
-  ResourceId = "ResourceId",
-  ResourceType = "ResourceType",
-  Status = "Status",
-}
+export const AssociationExecutionTargetsFilterKey = {
+  ResourceId: "ResourceId",
+  ResourceType: "ResourceType",
+  Status: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationExecutionTargetsFilterKey =
+  (typeof AssociationExecutionTargetsFilterKey)[keyof typeof AssociationExecutionTargetsFilterKey];
 
 /**
  * @public
@@ -4957,21 +5113,28 @@ export interface DescribeAssociationExecutionTargetsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AutomationExecutionFilterKey {
-  AUTOMATION_SUBTYPE = "AutomationSubtype",
-  AUTOMATION_TYPE = "AutomationType",
-  CURRENT_ACTION = "CurrentAction",
-  DOCUMENT_NAME_PREFIX = "DocumentNamePrefix",
-  EXECUTION_ID = "ExecutionId",
-  EXECUTION_STATUS = "ExecutionStatus",
-  OPS_ITEM_ID = "OpsItemId",
-  PARENT_EXECUTION_ID = "ParentExecutionId",
-  START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore",
-  TAG_KEY = "TagKey",
-  TARGET_RESOURCE_GROUP = "TargetResourceGroup",
-}
+export const AutomationExecutionFilterKey = {
+  AUTOMATION_SUBTYPE: "AutomationSubtype",
+  AUTOMATION_TYPE: "AutomationType",
+  CURRENT_ACTION: "CurrentAction",
+  DOCUMENT_NAME_PREFIX: "DocumentNamePrefix",
+  EXECUTION_ID: "ExecutionId",
+  EXECUTION_STATUS: "ExecutionStatus",
+  OPS_ITEM_ID: "OpsItemId",
+  PARENT_EXECUTION_ID: "ParentExecutionId",
+  START_TIME_AFTER: "StartTimeAfter",
+  START_TIME_BEFORE: "StartTimeBefore",
+  TAG_KEY: "TagKey",
+  TARGET_RESOURCE_GROUP: "TargetResourceGroup",
+} as const;
+
+/**
+ * @public
+ */
+export type AutomationExecutionFilterKey =
+  (typeof AutomationExecutionFilterKey)[keyof typeof AutomationExecutionFilterKey];
 
 /**
  * @public
@@ -5014,50 +5177,74 @@ export interface DescribeAutomationExecutionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AutomationExecutionStatus {
-  APPROVED = "Approved",
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  CHANGE_CALENDAR_OVERRIDE_APPROVED = "ChangeCalendarOverrideApproved",
-  CHANGE_CALENDAR_OVERRIDE_REJECTED = "ChangeCalendarOverrideRejected",
-  COMPLETED_WITH_FAILURE = "CompletedWithFailure",
-  COMPLETED_WITH_SUCCESS = "CompletedWithSuccess",
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  PENDING = "Pending",
-  PENDING_APPROVAL = "PendingApproval",
-  PENDING_CHANGE_CALENDAR_OVERRIDE = "PendingChangeCalendarOverride",
-  REJECTED = "Rejected",
-  RUNBOOK_INPROGRESS = "RunbookInProgress",
-  SCHEDULED = "Scheduled",
-  SUCCESS = "Success",
-  TIMEDOUT = "TimedOut",
-  WAITING = "Waiting",
-}
+export const AutomationExecutionStatus = {
+  APPROVED: "Approved",
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  CHANGE_CALENDAR_OVERRIDE_APPROVED: "ChangeCalendarOverrideApproved",
+  CHANGE_CALENDAR_OVERRIDE_REJECTED: "ChangeCalendarOverrideRejected",
+  COMPLETED_WITH_FAILURE: "CompletedWithFailure",
+  COMPLETED_WITH_SUCCESS: "CompletedWithSuccess",
+  FAILED: "Failed",
+  INPROGRESS: "InProgress",
+  PENDING: "Pending",
+  PENDING_APPROVAL: "PendingApproval",
+  PENDING_CHANGE_CALENDAR_OVERRIDE: "PendingChangeCalendarOverride",
+  REJECTED: "Rejected",
+  RUNBOOK_INPROGRESS: "RunbookInProgress",
+  SCHEDULED: "Scheduled",
+  SUCCESS: "Success",
+  TIMEDOUT: "TimedOut",
+  WAITING: "Waiting",
+} as const;
 
 /**
  * @public
  */
-export enum AutomationSubtype {
-  ChangeRequest = "ChangeRequest",
-}
+export type AutomationExecutionStatus = (typeof AutomationExecutionStatus)[keyof typeof AutomationExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutomationSubtype = {
+  ChangeRequest: "ChangeRequest",
+} as const;
 
 /**
  * @public
  */
-export enum AutomationType {
-  CrossAccount = "CrossAccount",
-  Local = "Local",
-}
+export type AutomationSubtype = (typeof AutomationSubtype)[keyof typeof AutomationSubtype];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutomationType = {
+  CrossAccount: "CrossAccount",
+  Local: "Local",
+} as const;
 
 /**
  * @public
  */
-export enum ExecutionMode {
-  Auto = "Auto",
-  Interactive = "Interactive",
-}
+export type AutomationType = (typeof AutomationType)[keyof typeof AutomationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionMode = {
+  Auto: "Auto",
+  Interactive: "Interactive",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionMode = (typeof ExecutionMode)[keyof typeof ExecutionMode];
 
 /**
  * @public
@@ -5391,15 +5578,21 @@ export class AutomationExecutionNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum StepExecutionFilterKey {
-  ACTION = "Action",
-  START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore",
-  STEP_EXECUTION_ID = "StepExecutionId",
-  STEP_EXECUTION_STATUS = "StepExecutionStatus",
-  STEP_NAME = "StepName",
-}
+export const StepExecutionFilterKey = {
+  ACTION: "Action",
+  START_TIME_AFTER: "StartTimeAfter",
+  START_TIME_BEFORE: "StartTimeBefore",
+  STEP_EXECUTION_ID: "StepExecutionId",
+  STEP_EXECUTION_STATUS: "StepExecutionStatus",
+  STEP_NAME: "StepName",
+} as const;
+
+/**
+ * @public
+ */
+export type StepExecutionFilterKey = (typeof StepExecutionFilterKey)[keyof typeof StepExecutionFilterKey];
 
 /**
  * @public
@@ -6056,10 +6249,16 @@ export interface DescribeDocumentResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentPermissionType {
-  SHARE = "Share",
-}
+export const DocumentPermissionType = {
+  SHARE: "Share",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentPermissionType = (typeof DocumentPermissionType)[keyof typeof DocumentPermissionType];
 
 /**
  * @public
@@ -6222,13 +6421,19 @@ export interface DescribeEffectivePatchesForPatchBaselineRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PatchDeploymentStatus {
-  Approved = "APPROVED",
-  ExplicitApproved = "EXPLICIT_APPROVED",
-  ExplicitRejected = "EXPLICIT_REJECTED",
-  PendingApproval = "PENDING_APPROVAL",
-}
+export const PatchDeploymentStatus = {
+  Approved: "APPROVED",
+  ExplicitApproved: "EXPLICIT_APPROVED",
+  ExplicitRejected: "EXPLICIT_REJECTED",
+  PendingApproval: "PENDING_APPROVAL",
+} as const;
+
+/**
+ * @public
+ */
+export type PatchDeploymentStatus = (typeof PatchDeploymentStatus)[keyof typeof PatchDeploymentStatus];
 
 /**
  * @public
@@ -6488,17 +6693,24 @@ export interface InstanceInformationStringFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceInformationFilterKey {
-  ACTIVATION_IDS = "ActivationIds",
-  AGENT_VERSION = "AgentVersion",
-  ASSOCIATION_STATUS = "AssociationStatus",
-  IAM_ROLE = "IamRole",
-  INSTANCE_IDS = "InstanceIds",
-  PING_STATUS = "PingStatus",
-  PLATFORM_TYPES = "PlatformTypes",
-  RESOURCE_TYPE = "ResourceType",
-}
+export const InstanceInformationFilterKey = {
+  ACTIVATION_IDS: "ActivationIds",
+  AGENT_VERSION: "AgentVersion",
+  ASSOCIATION_STATUS: "AssociationStatus",
+  IAM_ROLE: "IamRole",
+  INSTANCE_IDS: "InstanceIds",
+  PING_STATUS: "PingStatus",
+  PLATFORM_TYPES: "PlatformTypes",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceInformationFilterKey =
+  (typeof InstanceInformationFilterKey)[keyof typeof InstanceInformationFilterKey];
 
 /**
  * @public
@@ -6573,30 +6785,48 @@ export interface InstanceAggregatedAssociationOverview {
 
 /**
  * @public
+ * @enum
  */
-export enum PingStatus {
-  CONNECTION_LOST = "ConnectionLost",
-  INACTIVE = "Inactive",
-  ONLINE = "Online",
-}
+export const PingStatus = {
+  CONNECTION_LOST: "ConnectionLost",
+  INACTIVE: "Inactive",
+  ONLINE: "Online",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  DOCUMENT = "Document",
-  EC2_INSTANCE = "EC2Instance",
-  MANAGED_INSTANCE = "ManagedInstance",
-}
+export type PingStatus = (typeof PingStatus)[keyof typeof PingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  DOCUMENT: "Document",
+  EC2_INSTANCE: "EC2Instance",
+  MANAGED_INSTANCE: "ManagedInstance",
+} as const;
 
 /**
  * @public
  */
-export enum SourceType {
-  AWS_EC2_INSTANCE = "AWS::EC2::Instance",
-  AWS_IOT_THING = "AWS::IoT::Thing",
-  AWS_SSM_MANAGEDINSTANCE = "AWS::SSM::ManagedInstance",
-}
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  AWS_EC2_INSTANCE: "AWS::EC2::Instance",
+  AWS_IOT_THING: "AWS::IoT::Thing",
+  AWS_SSM_MANAGEDINSTANCE: "AWS::SSM::ManagedInstance",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -6834,16 +7064,22 @@ export interface DescribeInstancePatchesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PatchComplianceDataState {
-  Failed = "FAILED",
-  Installed = "INSTALLED",
-  InstalledOther = "INSTALLED_OTHER",
-  InstalledPendingReboot = "INSTALLED_PENDING_REBOOT",
-  InstalledRejected = "INSTALLED_REJECTED",
-  Missing = "MISSING",
-  NotApplicable = "NOT_APPLICABLE",
-}
+export const PatchComplianceDataState = {
+  Failed: "FAILED",
+  Installed: "INSTALLED",
+  InstalledOther: "INSTALLED_OTHER",
+  InstalledPendingReboot: "INSTALLED_PENDING_REBOOT",
+  InstalledRejected: "INSTALLED_REJECTED",
+  Missing: "MISSING",
+  NotApplicable: "NOT_APPLICABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type PatchComplianceDataState = (typeof PatchComplianceDataState)[keyof typeof PatchComplianceDataState];
 
 /**
  * @public
@@ -6954,19 +7190,31 @@ export interface DescribeInstancePatchStatesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PatchOperationType {
-  INSTALL = "Install",
-  SCAN = "Scan",
-}
+export const PatchOperationType = {
+  INSTALL: "Install",
+  SCAN: "Scan",
+} as const;
 
 /**
  * @public
  */
-export enum RebootOption {
-  NO_REBOOT = "NoReboot",
-  REBOOT_IF_NEEDED = "RebootIfNeeded",
-}
+export type PatchOperationType = (typeof PatchOperationType)[keyof typeof PatchOperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RebootOption = {
+  NO_REBOOT: "NoReboot",
+  REBOOT_IF_NEEDED: "RebootIfNeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type RebootOption = (typeof RebootOption)[keyof typeof RebootOption];
 
 /**
  * @public
@@ -7167,13 +7415,20 @@ export interface DescribeInstancePatchStatesResult {
 
 /**
  * @public
+ * @enum
  */
-export enum InstancePatchStateOperatorType {
-  EQUAL = "Equal",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
-}
+export const InstancePatchStateOperatorType = {
+  EQUAL: "Equal",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+  NOT_EQUAL: "NotEqual",
+} as const;
+
+/**
+ * @public
+ */
+export type InstancePatchStateOperatorType =
+  (typeof InstancePatchStateOperatorType)[keyof typeof InstancePatchStateOperatorType];
 
 /**
  * @public
@@ -7335,11 +7590,17 @@ export interface DescribeInventoryDeletionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InventoryDeletionStatus {
-  COMPLETE = "Complete",
-  IN_PROGRESS = "InProgress",
-}
+export const InventoryDeletionStatus = {
+  COMPLETE: "Complete",
+  IN_PROGRESS: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type InventoryDeletionStatus = (typeof InventoryDeletionStatus)[keyof typeof InventoryDeletionStatus];
 
 /**
  * @public
@@ -7512,17 +7773,24 @@ export interface DescribeMaintenanceWindowExecutionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MaintenanceWindowExecutionStatus {
-  Cancelled = "CANCELLED",
-  Cancelling = "CANCELLING",
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Pending = "PENDING",
-  SkippedOverlapping = "SKIPPED_OVERLAPPING",
-  Success = "SUCCESS",
-  TimedOut = "TIMED_OUT",
-}
+export const MaintenanceWindowExecutionStatus = {
+  Cancelled: "CANCELLED",
+  Cancelling: "CANCELLING",
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+  Pending: "PENDING",
+  SkippedOverlapping: "SKIPPED_OVERLAPPING",
+  Success: "SUCCESS",
+  TimedOut: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceWindowExecutionStatus =
+  (typeof MaintenanceWindowExecutionStatus)[keyof typeof MaintenanceWindowExecutionStatus];
 
 /**
  * @public
@@ -7613,13 +7881,19 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MaintenanceWindowTaskType {
-  Automation = "AUTOMATION",
-  Lambda = "LAMBDA",
-  RunCommand = "RUN_COMMAND",
-  StepFunctions = "STEP_FUNCTIONS",
-}
+export const MaintenanceWindowTaskType = {
+  Automation: "AUTOMATION",
+  Lambda: "LAMBDA",
+  RunCommand: "RUN_COMMAND",
+  StepFunctions: "STEP_FUNCTIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceWindowTaskType = (typeof MaintenanceWindowTaskType)[keyof typeof MaintenanceWindowTaskType];
 
 /**
  * @public
@@ -7927,11 +8201,18 @@ export interface DescribeMaintenanceWindowsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum MaintenanceWindowResourceType {
-  Instance = "INSTANCE",
-  ResourceGroup = "RESOURCE_GROUP",
-}
+export const MaintenanceWindowResourceType = {
+  Instance: "INSTANCE",
+  ResourceGroup: "RESOURCE_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceWindowResourceType =
+  (typeof MaintenanceWindowResourceType)[keyof typeof MaintenanceWindowResourceType];
 
 /**
  * @public
@@ -8195,11 +8476,18 @@ export interface DescribeMaintenanceWindowTasksRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MaintenanceWindowTaskCutoffBehavior {
-  CancelTask = "CANCEL_TASK",
-  ContinueTask = "CONTINUE_TASK",
-}
+export const MaintenanceWindowTaskCutoffBehavior = {
+  CancelTask: "CANCEL_TASK",
+  ContinueTask: "CONTINUE_TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceWindowTaskCutoffBehavior =
+  (typeof MaintenanceWindowTaskCutoffBehavior)[keyof typeof MaintenanceWindowTaskCutoffBehavior];
 
 /**
  * @public
@@ -8379,47 +8667,59 @@ export interface DescribeMaintenanceWindowTasksResult {
 
 /**
  * @public
+ * @enum
  */
-export enum OpsItemFilterKey {
-  ACCOUNT_ID = "AccountId",
-  ACTUAL_END_TIME = "ActualEndTime",
-  ACTUAL_START_TIME = "ActualStartTime",
-  AUTOMATION_ID = "AutomationId",
-  CATEGORY = "Category",
-  CHANGE_REQUEST_APPROVER_ARN = "ChangeRequestByApproverArn",
-  CHANGE_REQUEST_APPROVER_NAME = "ChangeRequestByApproverName",
-  CHANGE_REQUEST_REQUESTER_ARN = "ChangeRequestByRequesterArn",
-  CHANGE_REQUEST_REQUESTER_NAME = "ChangeRequestByRequesterName",
-  CHANGE_REQUEST_TARGETS_RESOURCE_GROUP = "ChangeRequestByTargetsResourceGroup",
-  CHANGE_REQUEST_TEMPLATE = "ChangeRequestByTemplate",
-  CREATED_BY = "CreatedBy",
-  CREATED_TIME = "CreatedTime",
-  INSIGHT_TYPE = "InsightByType",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  OPERATIONAL_DATA = "OperationalData",
-  OPERATIONAL_DATA_KEY = "OperationalDataKey",
-  OPERATIONAL_DATA_VALUE = "OperationalDataValue",
-  OPSITEM_ID = "OpsItemId",
-  OPSITEM_TYPE = "OpsItemType",
-  PLANNED_END_TIME = "PlannedEndTime",
-  PLANNED_START_TIME = "PlannedStartTime",
-  PRIORITY = "Priority",
-  RESOURCE_ID = "ResourceId",
-  SEVERITY = "Severity",
-  SOURCE = "Source",
-  STATUS = "Status",
-  TITLE = "Title",
-}
+export const OpsItemFilterKey = {
+  ACCOUNT_ID: "AccountId",
+  ACTUAL_END_TIME: "ActualEndTime",
+  ACTUAL_START_TIME: "ActualStartTime",
+  AUTOMATION_ID: "AutomationId",
+  CATEGORY: "Category",
+  CHANGE_REQUEST_APPROVER_ARN: "ChangeRequestByApproverArn",
+  CHANGE_REQUEST_APPROVER_NAME: "ChangeRequestByApproverName",
+  CHANGE_REQUEST_REQUESTER_ARN: "ChangeRequestByRequesterArn",
+  CHANGE_REQUEST_REQUESTER_NAME: "ChangeRequestByRequesterName",
+  CHANGE_REQUEST_TARGETS_RESOURCE_GROUP: "ChangeRequestByTargetsResourceGroup",
+  CHANGE_REQUEST_TEMPLATE: "ChangeRequestByTemplate",
+  CREATED_BY: "CreatedBy",
+  CREATED_TIME: "CreatedTime",
+  INSIGHT_TYPE: "InsightByType",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  OPERATIONAL_DATA: "OperationalData",
+  OPERATIONAL_DATA_KEY: "OperationalDataKey",
+  OPERATIONAL_DATA_VALUE: "OperationalDataValue",
+  OPSITEM_ID: "OpsItemId",
+  OPSITEM_TYPE: "OpsItemType",
+  PLANNED_END_TIME: "PlannedEndTime",
+  PLANNED_START_TIME: "PlannedStartTime",
+  PRIORITY: "Priority",
+  RESOURCE_ID: "ResourceId",
+  SEVERITY: "Severity",
+  SOURCE: "Source",
+  STATUS: "Status",
+  TITLE: "Title",
+} as const;
 
 /**
  * @public
  */
-export enum OpsItemFilterOperator {
-  CONTAINS = "Contains",
-  EQUAL = "Equal",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-}
+export type OpsItemFilterKey = (typeof OpsItemFilterKey)[keyof typeof OpsItemFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpsItemFilterOperator = {
+  CONTAINS: "Contains",
+  EQUAL: "Equal",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+} as const;
+
+/**
+ * @public
+ */
+export type OpsItemFilterOperator = (typeof OpsItemFilterOperator)[keyof typeof OpsItemFilterOperator];
 
 /**
  * @internal

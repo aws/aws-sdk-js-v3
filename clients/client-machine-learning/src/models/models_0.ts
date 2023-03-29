@@ -5,13 +5,19 @@ import { MachineLearningServiceException as __BaseException } from "./MachineLea
 
 /**
  * @public
+ * @enum
  */
-export enum TaggableResourceType {
-  BATCH_PREDICTION = "BatchPrediction",
-  DATASOURCE = "DataSource",
-  EVALUATION = "Evaluation",
-  ML_MODEL = "MLModel",
-}
+export const TaggableResourceType = {
+  BATCH_PREDICTION: "BatchPrediction",
+  DATASOURCE: "DataSource",
+  EVALUATION: "Evaluation",
+  ML_MODEL: "MLModel",
+} as const;
+
+/**
+ * @public
+ */
+export type TaggableResourceType = (typeof TaggableResourceType)[keyof typeof TaggableResourceType];
 
 /**
  * @public
@@ -171,10 +177,16 @@ export class TagLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Algorithm {
-  SGD = "sgd",
-}
+export const Algorithm = {
+  SGD: "sgd",
+} as const;
+
+/**
+ * @public
+ */
+export type Algorithm = (typeof Algorithm)[keyof typeof Algorithm];
 
 /**
  * @public
@@ -1052,12 +1064,18 @@ export interface CreateEvaluationOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum MLModelType {
-  BINARY = "BINARY",
-  MULTICLASS = "MULTICLASS",
-  REGRESSION = "REGRESSION",
-}
+export const MLModelType = {
+  BINARY: "BINARY",
+  MULTICLASS: "MULTICLASS",
+  REGRESSION: "REGRESSION",
+} as const;
+
+/**
+ * @public
+ */
+export type MLModelType = (typeof MLModelType)[keyof typeof MLModelType];
 
 /**
  * @public
@@ -1184,13 +1202,19 @@ export interface CreateRealtimeEndpointInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RealtimeEndpointStatus {
-  FAILED = "FAILED",
-  NONE = "NONE",
-  READY = "READY",
-  UPDATING = "UPDATING",
-}
+export const RealtimeEndpointStatus = {
+  FAILED: "FAILED",
+  NONE: "NONE",
+  READY: "READY",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type RealtimeEndpointStatus = (typeof RealtimeEndpointStatus)[keyof typeof RealtimeEndpointStatus];
 
 /**
  * @public
@@ -1412,25 +1436,38 @@ export interface DeleteTagsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchPredictionFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATASOURCE_ID = "DataSourceId",
-  DATA_URI = "DataURI",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_ID = "MLModelId",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const BatchPredictionFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATASOURCE_ID: "DataSourceId",
+  DATA_URI: "DataURI",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_ID: "MLModelId",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "asc",
-  DSC = "dsc",
-}
+export type BatchPredictionFilterVariable =
+  (typeof BatchPredictionFilterVariable)[keyof typeof BatchPredictionFilterVariable];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "asc",
+  DSC: "dsc",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -1558,14 +1595,20 @@ export interface DescribeBatchPredictionsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum EntityStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  INPROGRESS = "INPROGRESS",
-  PENDING = "PENDING",
-}
+export const EntityStatus = {
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  INPROGRESS: "INPROGRESS",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
 
 /**
  * @public
@@ -1698,15 +1741,21 @@ export interface DescribeBatchPredictionsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSourceFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATA_URI = "DataLocationS3",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const DataSourceFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATA_URI: "DataLocationS3",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceFilterVariable = (typeof DataSourceFilterVariable)[keyof typeof DataSourceFilterVariable];
 
 /**
  * @public
@@ -2019,17 +2068,23 @@ export interface DescribeDataSourcesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum EvaluationFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATASOURCE_ID = "DataSourceId",
-  DATA_URI = "DataURI",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_ID = "MLModelId",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const EvaluationFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATASOURCE_ID: "DataSourceId",
+  DATA_URI: "DataURI",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_ID: "MLModelId",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFilterVariable = (typeof EvaluationFilterVariable)[keyof typeof EvaluationFilterVariable];
 
 /**
  * @public
@@ -2313,19 +2368,25 @@ export interface DescribeEvaluationsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum MLModelFilterVariable {
-  ALGORITHM = "Algorithm",
-  CREATED_AT = "CreatedAt",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_TYPE = "MLModelType",
-  NAME = "Name",
-  REAL_TIME_ENDPOINT_STATUS = "RealtimeEndpointStatus",
-  STATUS = "Status",
-  TRAINING_DATASOURCE_ID = "TrainingDataSourceId",
-  TRAINING_DATA_URI = "TrainingDataURI",
-}
+export const MLModelFilterVariable = {
+  ALGORITHM: "Algorithm",
+  CREATED_AT: "CreatedAt",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_TYPE: "MLModelType",
+  NAME: "Name",
+  REAL_TIME_ENDPOINT_STATUS: "RealtimeEndpointStatus",
+  STATUS: "Status",
+  TRAINING_DATASOURCE_ID: "TrainingDataSourceId",
+  TRAINING_DATA_URI: "TrainingDataURI",
+} as const;
+
+/**
+ * @public
+ */
+export type MLModelFilterVariable = (typeof MLModelFilterVariable)[keyof typeof MLModelFilterVariable];
 
 /**
  * @public
@@ -3384,11 +3445,17 @@ export class PredictorNotMountedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DetailsAttributes {
-  ALGORITHM = "Algorithm",
-  PREDICTIVE_MODEL_TYPE = "PredictiveModelType",
-}
+export const DetailsAttributes = {
+  ALGORITHM: "Algorithm",
+  PREDICTIVE_MODEL_TYPE: "PredictiveModelType",
+} as const;
+
+/**
+ * @public
+ */
+export type DetailsAttributes = (typeof DetailsAttributes)[keyof typeof DetailsAttributes];
 
 /**
  * @public

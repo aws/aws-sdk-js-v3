@@ -484,29 +484,35 @@ export interface GetCampaignStateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CampaignState {
+export const CampaignState = {
   /**
    * Campaign is in failed state
    */
-  FAILED = "Failed",
+  FAILED: "Failed",
   /**
    * Campaign is in initialized state
    */
-  INITIALIZED = "Initialized",
+  INITIALIZED: "Initialized",
   /**
    * Campaign is in paused state
    */
-  PAUSED = "Paused",
+  PAUSED: "Paused",
   /**
    * Campaign is in running state
    */
-  RUNNING = "Running",
+  RUNNING: "Running",
   /**
    * Campaign is in stopped state
    */
-  STOPPED = "Stopped",
-}
+  STOPPED: "Stopped",
+} as const;
+
+/**
+ * @public
+ */
+export type CampaignState = (typeof CampaignState)[keyof typeof CampaignState];
 
 /**
  * @public
@@ -532,17 +538,24 @@ export interface GetCampaignStateBatchRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum GetCampaignStateBatchFailureCode {
+export const GetCampaignStateBatchFailureCode = {
   /**
    * The specified resource was not found
    */
-  RESOURCE_NOT_FOUND = "ResourceNotFound",
+  RESOURCE_NOT_FOUND: "ResourceNotFound",
   /**
    * Unexpected error during processing of request
    */
-  UNKNOWN_ERROR = "UnknownError",
-}
+  UNKNOWN_ERROR: "UnknownError",
+} as const;
+
+/**
+ * @public
+ */
+export type GetCampaignStateBatchFailureCode =
+  (typeof GetCampaignStateBatchFailureCode)[keyof typeof GetCampaignStateBatchFailureCode];
 
 /**
  * @public
@@ -605,10 +618,16 @@ export interface GetConnectInstanceConfigRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionType {
-  KMS = "KMS",
-}
+export const EncryptionType = {
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -682,24 +701,38 @@ export interface GetInstanceOnboardingJobStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceOnboardingJobFailureCode {
-  EVENT_BRIDGE_ACCESS_DENIED = "EVENT_BRIDGE_ACCESS_DENIED",
-  EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED = "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
-  IAM_ACCESS_DENIED = "IAM_ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED",
-  KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
-}
+export const InstanceOnboardingJobFailureCode = {
+  EVENT_BRIDGE_ACCESS_DENIED: "EVENT_BRIDGE_ACCESS_DENIED",
+  EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED: "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
+  IAM_ACCESS_DENIED: "IAM_ACCESS_DENIED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  KMS_ACCESS_DENIED: "KMS_ACCESS_DENIED",
+  KMS_KEY_NOT_FOUND: "KMS_KEY_NOT_FOUND",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceOnboardingJobStatusCode {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type InstanceOnboardingJobFailureCode =
+  (typeof InstanceOnboardingJobFailureCode)[keyof typeof InstanceOnboardingJobFailureCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceOnboardingJobStatusCode = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceOnboardingJobStatusCode =
+  (typeof InstanceOnboardingJobStatusCode)[keyof typeof InstanceOnboardingJobStatusCode];
 
 /**
  * @public
@@ -735,13 +768,19 @@ export interface GetInstanceOnboardingJobStatusResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceIdFilterOperator {
+export const InstanceIdFilterOperator = {
   /**
    * Equals operator
    */
-  EQ = "Eq",
-}
+  EQ: "Eq",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceIdFilterOperator = (typeof InstanceIdFilterOperator)[keyof typeof InstanceIdFilterOperator];
 
 /**
  * @public
@@ -942,21 +981,27 @@ export interface PutDialRequestBatchRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FailureCode {
+export const FailureCode = {
   /**
    * The request failed to satisfy the constraints specified by the service
    */
-  INVALID_INPUT = "InvalidInput",
+  INVALID_INPUT: "InvalidInput",
   /**
    * Request throttled due to large number of pending dial requests
    */
-  REQUEST_THROTTLED = "RequestThrottled",
+  REQUEST_THROTTLED: "RequestThrottled",
   /**
    * Unexpected error during processing of request
    */
-  UNKNOWN_ERROR = "UnknownError",
-}
+  UNKNOWN_ERROR: "UnknownError",
+} as const;
+
+/**
+ * @public
+ */
+export type FailureCode = (typeof FailureCode)[keyof typeof FailureCode];
 
 /**
  * @public

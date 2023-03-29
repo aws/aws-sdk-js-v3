@@ -284,14 +284,20 @@ export interface DeleteTopicRuleDestinationResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum LogTargetType {
-  CLIENT_ID = "CLIENT_ID",
-  DEFAULT = "DEFAULT",
-  PRINCIPAL_ID = "PRINCIPAL_ID",
-  SOURCE_IP = "SOURCE_IP",
-  THING_GROUP = "THING_GROUP",
-}
+export const LogTargetType = {
+  CLIENT_ID: "CLIENT_ID",
+  DEFAULT: "DEFAULT",
+  PRINCIPAL_ID: "PRINCIPAL_ID",
+  SOURCE_IP: "SOURCE_IP",
+  THING_GROUP: "THING_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type LogTargetType = (typeof LogTargetType)[keyof typeof LogTargetType];
 
 /**
  * @public
@@ -691,19 +697,31 @@ export interface DescribeCACertificateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateMode {
-  DEFAULT = "DEFAULT",
-  SNI_ONLY = "SNI_ONLY",
-}
+export const CertificateMode = {
+  DEFAULT: "DEFAULT",
+  SNI_ONLY: "SNI_ONLY",
+} as const;
 
 /**
  * @public
  */
-export enum CACertificateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export type CertificateMode = (typeof CertificateMode)[keyof typeof CertificateMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CACertificateStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type CACertificateStatus = (typeof CACertificateStatus)[keyof typeof CACertificateStatus];
 
 /**
  * @public
@@ -841,15 +859,21 @@ export interface DescribeCertificateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CertificateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING_ACTIVATION = "PENDING_ACTIVATION",
-  PENDING_TRANSFER = "PENDING_TRANSFER",
-  REGISTER_INACTIVE = "REGISTER_INACTIVE",
-  REVOKED = "REVOKED",
-}
+export const CertificateStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  PENDING_ACTIVATION: "PENDING_ACTIVATION",
+  PENDING_TRANSFER: "PENDING_TRANSFER",
+  REGISTER_INACTIVE: "REGISTER_INACTIVE",
+  REVOKED: "REVOKED",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
 
 /**
  * @public
@@ -1127,13 +1151,20 @@ export interface DetectMitigationActionsTaskStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum DetectMitigationActionsTaskStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESSFUL = "SUCCESSFUL",
-}
+export const DetectMitigationActionsTaskStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type DetectMitigationActionsTaskStatus =
+  (typeof DetectMitigationActionsTaskStatus)[keyof typeof DetectMitigationActionsTaskStatus];
 
 /**
  * @public
@@ -1307,28 +1338,46 @@ export interface DescribeDomainConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DomainConfigurationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum DomainType {
-  AWS_MANAGED = "AWS_MANAGED",
-  CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
-  ENDPOINT = "ENDPOINT",
-}
+export type DomainConfigurationStatus = (typeof DomainConfigurationStatus)[keyof typeof DomainConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainType = {
+  AWS_MANAGED: "AWS_MANAGED",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+  ENDPOINT: "ENDPOINT",
+} as const;
 
 /**
  * @public
  */
-export enum ServerCertificateStatus {
-  INVALID = "INVALID",
-  VALID = "VALID",
-}
+export type DomainType = (typeof DomainType)[keyof typeof DomainType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServerCertificateStatus = {
+  INVALID: "INVALID",
+  VALID: "VALID",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerCertificateStatus = (typeof ServerCertificateStatus)[keyof typeof ServerCertificateStatus];
 
 /**
  * @public
@@ -1459,20 +1508,26 @@ export interface DescribeEventConfigurationsRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  CA_CERTIFICATE = "CA_CERTIFICATE",
-  CERTIFICATE = "CERTIFICATE",
-  JOB = "JOB",
-  JOB_EXECUTION = "JOB_EXECUTION",
-  POLICY = "POLICY",
-  THING = "THING",
-  THING_GROUP = "THING_GROUP",
-  THING_GROUP_HIERARCHY = "THING_GROUP_HIERARCHY",
-  THING_GROUP_MEMBERSHIP = "THING_GROUP_MEMBERSHIP",
-  THING_TYPE = "THING_TYPE",
-  THING_TYPE_ASSOCIATION = "THING_TYPE_ASSOCIATION",
-}
+export const EventType = {
+  CA_CERTIFICATE: "CA_CERTIFICATE",
+  CERTIFICATE: "CERTIFICATE",
+  JOB: "JOB",
+  JOB_EXECUTION: "JOB_EXECUTION",
+  POLICY: "POLICY",
+  THING: "THING",
+  THING_GROUP: "THING_GROUP",
+  THING_GROUP_HIERARCHY: "THING_GROUP_HIERARCHY",
+  THING_GROUP_MEMBERSHIP: "THING_GROUP_MEMBERSHIP",
+  THING_TYPE: "THING_TYPE",
+  THING_TYPE_ASSOCIATION: "THING_TYPE_ASSOCIATION",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -1598,12 +1653,18 @@ export interface DescribeIndexRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  REBUILDING = "REBUILDING",
-}
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  BUILDING: "BUILDING",
+  REBUILDING: "REBUILDING",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
 
 /**
  * @public
@@ -1721,14 +1782,20 @@ export interface ScheduledJobRollout {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
-  IN_PROGRESS = "IN_PROGRESS",
-  SCHEDULED = "SCHEDULED",
-}
+export const JobStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
+  SCHEDULED: "SCHEDULED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -1927,17 +1994,23 @@ export interface DescribeJobExecutionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum JobExecutionStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  REMOVED = "REMOVED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const JobExecutionStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  REMOVED: "REMOVED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type JobExecutionStatus = (typeof JobExecutionStatus)[keyof typeof JobExecutionStatus];
 
 /**
  * @public
@@ -2248,15 +2321,21 @@ export interface DescribeMitigationActionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MitigationActionType {
-  ADD_THINGS_TO_THING_GROUP = "ADD_THINGS_TO_THING_GROUP",
-  ENABLE_IOT_LOGGING = "ENABLE_IOT_LOGGING",
-  PUBLISH_FINDING_TO_SNS = "PUBLISH_FINDING_TO_SNS",
-  REPLACE_DEFAULT_POLICY_VERSION = "REPLACE_DEFAULT_POLICY_VERSION",
-  UPDATE_CA_CERTIFICATE = "UPDATE_CA_CERTIFICATE",
-  UPDATE_DEVICE_CERTIFICATE = "UPDATE_DEVICE_CERTIFICATE",
-}
+export const MitigationActionType = {
+  ADD_THINGS_TO_THING_GROUP: "ADD_THINGS_TO_THING_GROUP",
+  ENABLE_IOT_LOGGING: "ENABLE_IOT_LOGGING",
+  PUBLISH_FINDING_TO_SNS: "PUBLISH_FINDING_TO_SNS",
+  REPLACE_DEFAULT_POLICY_VERSION: "REPLACE_DEFAULT_POLICY_VERSION",
+  UPDATE_CA_CERTIFICATE: "UPDATE_CA_CERTIFICATE",
+  UPDATE_DEVICE_CERTIFICATE: "UPDATE_DEVICE_CERTIFICATE",
+} as const;
+
+/**
+ * @public
+ */
+export type MitigationActionType = (typeof MitigationActionType)[keyof typeof MitigationActionType];
 
 /**
  * @public
@@ -2764,12 +2843,18 @@ export interface DescribeThingGroupRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DynamicGroupStatus {
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  REBUILDING = "REBUILDING",
-}
+export const DynamicGroupStatus = {
+  ACTIVE: "ACTIVE",
+  BUILDING: "BUILDING",
+  REBUILDING: "REBUILDING",
+} as const;
+
+/**
+ * @public
+ */
+export type DynamicGroupStatus = (typeof DynamicGroupStatus)[keyof typeof DynamicGroupStatus];
 
 /**
  * @public
@@ -2875,14 +2960,20 @@ export interface DescribeThingRegistrationTaskRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Completed = "Completed",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
+export const Status = {
+  Cancelled: "Cancelled",
+  Cancelling: "Cancelling",
+  Completed: "Completed",
+  Failed: "Failed",
+  InProgress: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -3144,12 +3235,18 @@ export interface GetBehaviorModelTrainingSummariesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelStatus {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PENDING_BUILD = "PENDING_BUILD",
-}
+export const ModelStatus = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  PENDING_BUILD: "PENDING_BUILD",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
 
 /**
  * @public
@@ -3400,12 +3497,18 @@ export interface GetIndexingConfigurationRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum FieldType {
-  BOOLEAN = "Boolean",
-  NUMBER = "Number",
-  STRING = "String",
-}
+export const FieldType = {
+  BOOLEAN: "Boolean",
+  NUMBER: "Number",
+  STRING: "String",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldType = (typeof FieldType)[keyof typeof FieldType];
 
 /**
  * @public
@@ -3425,11 +3528,17 @@ export interface Field {
 
 /**
  * @public
+ * @enum
  */
-export enum ThingGroupIndexingMode {
-  OFF = "OFF",
-  ON = "ON",
-}
+export const ThingGroupIndexingMode = {
+  OFF: "OFF",
+  ON: "ON",
+} as const;
+
+/**
+ * @public
+ */
+export type ThingGroupIndexingMode = (typeof ThingGroupIndexingMode)[keyof typeof ThingGroupIndexingMode];
 
 /**
  * @public
@@ -3457,11 +3566,17 @@ export interface ThingGroupIndexingConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceDefenderIndexingMode {
-  OFF = "OFF",
-  VIOLATIONS = "VIOLATIONS",
-}
+export const DeviceDefenderIndexingMode = {
+  OFF: "OFF",
+  VIOLATIONS: "VIOLATIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceDefenderIndexingMode = (typeof DeviceDefenderIndexingMode)[keyof typeof DeviceDefenderIndexingMode];
 
 /**
  * @public
@@ -3481,28 +3596,47 @@ export interface IndexingFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum NamedShadowIndexingMode {
-  OFF = "OFF",
-  ON = "ON",
-}
+export const NamedShadowIndexingMode = {
+  OFF: "OFF",
+  ON: "ON",
+} as const;
 
 /**
  * @public
  */
-export enum ThingConnectivityIndexingMode {
-  OFF = "OFF",
-  STATUS = "STATUS",
-}
+export type NamedShadowIndexingMode = (typeof NamedShadowIndexingMode)[keyof typeof NamedShadowIndexingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThingConnectivityIndexingMode = {
+  OFF: "OFF",
+  STATUS: "STATUS",
+} as const;
 
 /**
  * @public
  */
-export enum ThingIndexingMode {
-  OFF = "OFF",
-  REGISTRY = "REGISTRY",
-  REGISTRY_AND_SHADOW = "REGISTRY_AND_SHADOW",
-}
+export type ThingConnectivityIndexingMode =
+  (typeof ThingConnectivityIndexingMode)[keyof typeof ThingConnectivityIndexingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThingIndexingMode = {
+  OFF: "OFF",
+  REGISTRY: "REGISTRY",
+  REGISTRY_AND_SHADOW: "REGISTRY_AND_SHADOW",
+} as const;
+
+/**
+ * @public
+ */
+export type ThingIndexingMode = (typeof ThingIndexingMode)[keyof typeof ThingIndexingMode];
 
 /**
  * @public
@@ -4192,12 +4326,18 @@ export class NotConfiguredException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum BehaviorCriteriaType {
-  MACHINE_LEARNING = "MACHINE_LEARNING",
-  STATIC = "STATIC",
-  STATISTICAL = "STATISTICAL",
-}
+export const BehaviorCriteriaType = {
+  MACHINE_LEARNING: "MACHINE_LEARNING",
+  STATIC: "STATIC",
+  STATISTICAL: "STATISTICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type BehaviorCriteriaType = (typeof BehaviorCriteriaType)[keyof typeof BehaviorCriteriaType];
 
 /**
  * @public
@@ -4948,13 +5088,20 @@ export interface ListDetectMitigationActionsExecutionsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DetectMitigationActionExecutionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SKIPPED = "SKIPPED",
-  SUCCESSFUL = "SUCCESSFUL",
-}
+export const DetectMitigationActionExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SKIPPED: "SKIPPED",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type DetectMitigationActionExecutionStatus =
+  (typeof DetectMitigationActionExecutionStatus)[keyof typeof DetectMitigationActionExecutionStatus];
 
 /**
  * @public

@@ -52,15 +52,21 @@ export class ConnectionLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum StartSelectorType {
-  CONTINUATION_TOKEN = "CONTINUATION_TOKEN",
-  EARLIEST = "EARLIEST",
-  FRAGMENT_NUMBER = "FRAGMENT_NUMBER",
-  NOW = "NOW",
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const StartSelectorType = {
+  CONTINUATION_TOKEN: "CONTINUATION_TOKEN",
+  EARLIEST: "EARLIEST",
+  FRAGMENT_NUMBER: "FRAGMENT_NUMBER",
+  NOW: "NOW",
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type StartSelectorType = (typeof StartSelectorType)[keyof typeof StartSelectorType];
 
 /**
  * @public

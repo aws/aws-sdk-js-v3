@@ -25,13 +25,19 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  ACTIVE = "Active",
-  FAILED = "Failed",
-  INACTIVE = "Inactive",
-  PENDING = "Pending",
-}
+export const Status = {
+  ACTIVE: "Active",
+  FAILED: "Failed",
+  INACTIVE: "Inactive",
+  PENDING: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -64,11 +70,17 @@ export interface AccountEnrollmentStatus {
 
 /**
  * @public
+ * @enum
  */
-export enum AutoScalingConfiguration {
-  TARGET_TRACKING_SCALING_CPU = "TargetTrackingScalingCpu",
-  TARGET_TRACKING_SCALING_MEMORY = "TargetTrackingScalingMemory",
-}
+export const AutoScalingConfiguration = {
+  TARGET_TRACKING_SCALING_CPU: "TargetTrackingScalingCpu",
+  TARGET_TRACKING_SCALING_MEMORY: "TargetTrackingScalingMemory",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoScalingConfiguration = (typeof AutoScalingConfiguration)[keyof typeof AutoScalingConfiguration];
 
 /**
  * @public
@@ -100,39 +112,64 @@ export interface AutoScalingGroupConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum CurrentPerformanceRisk {
-  HIGH = "High",
-  LOW = "Low",
-  MEDIUM = "Medium",
-  VERY_LOW = "VeryLow",
-}
+export const CurrentPerformanceRisk = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  VERY_LOW: "VeryLow",
+} as const;
 
 /**
  * @public
  */
-export enum CpuVendorArchitecture {
-  AWS_ARM64 = "AWS_ARM64",
-  CURRENT = "CURRENT",
-}
+export type CurrentPerformanceRisk = (typeof CurrentPerformanceRisk)[keyof typeof CurrentPerformanceRisk];
+
+/**
+ * @public
+ * @enum
+ */
+export const CpuVendorArchitecture = {
+  AWS_ARM64: "AWS_ARM64",
+  CURRENT: "CURRENT",
+} as const;
 
 /**
  * @public
  */
-export enum EnhancedInfrastructureMetrics {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+export type CpuVendorArchitecture = (typeof CpuVendorArchitecture)[keyof typeof CpuVendorArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnhancedInfrastructureMetrics = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
 
 /**
  * @public
  */
-export enum ExternalMetricsSource {
-  DATADOG = "Datadog",
-  DYNATRACE = "Dynatrace",
-  INSTANA = "Instana",
-  NEWRELIC = "NewRelic",
-}
+export type EnhancedInfrastructureMetrics =
+  (typeof EnhancedInfrastructureMetrics)[keyof typeof EnhancedInfrastructureMetrics];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalMetricsSource = {
+  DATADOG: "Datadog",
+  DYNATRACE: "Dynatrace",
+  INSTANA: "Instana",
+  NEWRELIC: "NewRelic",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalMetricsSource = (typeof ExternalMetricsSource)[keyof typeof ExternalMetricsSource];
 
 /**
  * @public
@@ -148,11 +185,18 @@ export interface ExternalMetricsPreference {
 
 /**
  * @public
+ * @enum
  */
-export enum InferredWorkloadTypesPreference {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+export const InferredWorkloadTypesPreference = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type InferredWorkloadTypesPreference =
+  (typeof InferredWorkloadTypesPreference)[keyof typeof InferredWorkloadTypesPreference];
 
 /**
  * @public
@@ -211,65 +255,95 @@ export interface EffectiveRecommendationPreferences {
 
 /**
  * @public
+ * @enum
  */
-export enum Finding {
-  NOT_OPTIMIZED = "NotOptimized",
-  OPTIMIZED = "Optimized",
-  OVER_PROVISIONED = "Overprovisioned",
-  UNDER_PROVISIONED = "Underprovisioned",
-}
+export const Finding = {
+  NOT_OPTIMIZED: "NotOptimized",
+  OPTIMIZED: "Optimized",
+  OVER_PROVISIONED: "Overprovisioned",
+  UNDER_PROVISIONED: "Underprovisioned",
+} as const;
 
 /**
  * @public
  */
-export enum InferredWorkloadType {
-  AMAZON_EMR = "AmazonEmr",
-  APACHE_CASSANDRA = "ApacheCassandra",
-  APACHE_HADOOP = "ApacheHadoop",
-  KAFKA = "Kafka",
-  MEMCACHED = "Memcached",
-  NGINX = "Nginx",
-  POSTGRE_SQL = "PostgreSql",
-  REDIS = "Redis",
-}
+export type Finding = (typeof Finding)[keyof typeof Finding];
+
+/**
+ * @public
+ * @enum
+ */
+export const InferredWorkloadType = {
+  AMAZON_EMR: "AmazonEmr",
+  APACHE_CASSANDRA: "ApacheCassandra",
+  APACHE_HADOOP: "ApacheHadoop",
+  KAFKA: "Kafka",
+  MEMCACHED: "Memcached",
+  NGINX: "Nginx",
+  POSTGRE_SQL: "PostgreSql",
+  REDIS: "Redis",
+} as const;
 
 /**
  * @public
  */
-export enum MigrationEffort {
-  HIGH = "High",
-  LOW = "Low",
-  MEDIUM = "Medium",
-  VERY_LOW = "VeryLow",
-}
+export type InferredWorkloadType = (typeof InferredWorkloadType)[keyof typeof InferredWorkloadType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MigrationEffort = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  VERY_LOW: "VeryLow",
+} as const;
 
 /**
  * @public
  */
-export enum MetricName {
-  CPU = "Cpu",
-  DISK_READ_BYTES_PER_SECOND = "DISK_READ_BYTES_PER_SECOND",
-  DISK_READ_OPS_PER_SECOND = "DISK_READ_OPS_PER_SECOND",
-  DISK_WRITE_BYTES_PER_SECOND = "DISK_WRITE_BYTES_PER_SECOND",
-  DISK_WRITE_OPS_PER_SECOND = "DISK_WRITE_OPS_PER_SECOND",
-  EBS_READ_BYTES_PER_SECOND = "EBS_READ_BYTES_PER_SECOND",
-  EBS_READ_OPS_PER_SECOND = "EBS_READ_OPS_PER_SECOND",
-  EBS_WRITE_BYTES_PER_SECOND = "EBS_WRITE_BYTES_PER_SECOND",
-  EBS_WRITE_OPS_PER_SECOND = "EBS_WRITE_OPS_PER_SECOND",
-  MEMORY = "Memory",
-  NETWORK_IN_BYTES_PER_SECOND = "NETWORK_IN_BYTES_PER_SECOND",
-  NETWORK_OUT_BYTES_PER_SECOND = "NETWORK_OUT_BYTES_PER_SECOND",
-  NETWORK_PACKETS_IN_PER_SECOND = "NETWORK_PACKETS_IN_PER_SECOND",
-  NETWORK_PACKETS_OUT_PER_SECOND = "NETWORK_PACKETS_OUT_PER_SECOND",
-}
+export type MigrationEffort = (typeof MigrationEffort)[keyof typeof MigrationEffort];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricName = {
+  CPU: "Cpu",
+  DISK_READ_BYTES_PER_SECOND: "DISK_READ_BYTES_PER_SECOND",
+  DISK_READ_OPS_PER_SECOND: "DISK_READ_OPS_PER_SECOND",
+  DISK_WRITE_BYTES_PER_SECOND: "DISK_WRITE_BYTES_PER_SECOND",
+  DISK_WRITE_OPS_PER_SECOND: "DISK_WRITE_OPS_PER_SECOND",
+  EBS_READ_BYTES_PER_SECOND: "EBS_READ_BYTES_PER_SECOND",
+  EBS_READ_OPS_PER_SECOND: "EBS_READ_OPS_PER_SECOND",
+  EBS_WRITE_BYTES_PER_SECOND: "EBS_WRITE_BYTES_PER_SECOND",
+  EBS_WRITE_OPS_PER_SECOND: "EBS_WRITE_OPS_PER_SECOND",
+  MEMORY: "Memory",
+  NETWORK_IN_BYTES_PER_SECOND: "NETWORK_IN_BYTES_PER_SECOND",
+  NETWORK_OUT_BYTES_PER_SECOND: "NETWORK_OUT_BYTES_PER_SECOND",
+  NETWORK_PACKETS_IN_PER_SECOND: "NETWORK_PACKETS_IN_PER_SECOND",
+  NETWORK_PACKETS_OUT_PER_SECOND: "NETWORK_PACKETS_OUT_PER_SECOND",
+} as const;
 
 /**
  * @public
  */
-export enum MetricStatistic {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum",
-}
+export type MetricName = (typeof MetricName)[keyof typeof MetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricStatistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
 
 /**
  * @public
@@ -417,11 +491,17 @@ export interface UtilizationMetric {
 
 /**
  * @public
+ * @enum
  */
-export enum Currency {
-  CNY = "CNY",
-  USD = "USD",
-}
+export const Currency = {
+  CNY: "CNY",
+  USD: "USD",
+} as const;
+
+/**
+ * @public
+ */
+export type Currency = (typeof Currency)[keyof typeof Currency];
 
 /**
  * @public
@@ -678,33 +758,52 @@ export interface AutoScalingGroupRecommendation {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationPreferenceName {
-  ENHANCED_INFRASTRUCTURE_METRICS = "EnhancedInfrastructureMetrics",
-  EXTERNAL_METRICS_PREFERENCE = "ExternalMetricsPreference",
-  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
-}
+export const RecommendationPreferenceName = {
+  ENHANCED_INFRASTRUCTURE_METRICS: "EnhancedInfrastructureMetrics",
+  EXTERNAL_METRICS_PREFERENCE: "ExternalMetricsPreference",
+  INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  AUTO_SCALING_GROUP = "AutoScalingGroup",
-  EBS_VOLUME = "EbsVolume",
-  EC2_INSTANCE = "Ec2Instance",
-  ECS_SERVICE = "EcsService",
-  LAMBDA_FUNCTION = "LambdaFunction",
-  NOT_APPLICABLE = "NotApplicable",
-}
+export type RecommendationPreferenceName =
+  (typeof RecommendationPreferenceName)[keyof typeof RecommendationPreferenceName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  AUTO_SCALING_GROUP: "AutoScalingGroup",
+  EBS_VOLUME: "EbsVolume",
+  EC2_INSTANCE: "Ec2Instance",
+  ECS_SERVICE: "EcsService",
+  LAMBDA_FUNCTION: "LambdaFunction",
+  NOT_APPLICABLE: "NotApplicable",
+} as const;
 
 /**
  * @public
  */
-export enum ScopeName {
-  ACCOUNT_ID = "AccountId",
-  ORGANIZATION = "Organization",
-  RESOURCE_ARN = "ResourceArn",
-}
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScopeName = {
+  ACCOUNT_ID: "AccountId",
+  ORGANIZATION: "Organization",
+  RESOURCE_ARN: "ResourceArn",
+} as const;
+
+/**
+ * @public
+ */
+export type ScopeName = (typeof ScopeName)[keyof typeof ScopeName];
 
 /**
  * @public
@@ -955,11 +1054,17 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum JobFilterName {
-  JOB_STATUS = "JobStatus",
-  RESOURCE_TYPE = "ResourceType",
-}
+export const JobFilterName = {
+  JOB_STATUS: "JobStatus",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type JobFilterName = (typeof JobFilterName)[keyof typeof JobFilterName];
 
 /**
  * @public
@@ -1072,13 +1177,19 @@ export interface ExportDestination {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  COMPLETE = "Complete",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  QUEUED = "Queued",
-}
+export const JobStatus = {
+  COMPLETE: "Complete",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  QUEUED: "Queued",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -1143,79 +1254,105 @@ export interface DescribeRecommendationExportJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportableAutoScalingGroupField {
-  ACCOUNT_ID = "AccountId",
-  AUTO_SCALING_GROUP_ARN = "AutoScalingGroupArn",
-  AUTO_SCALING_GROUP_NAME = "AutoScalingGroupName",
-  CURRENT_CONFIGURATION_DESIRED_CAPACITY = "CurrentConfigurationDesiredCapacity",
-  CURRENT_CONFIGURATION_INSTANCE_TYPE = "CurrentConfigurationInstanceType",
-  CURRENT_CONFIGURATION_MAX_SIZE = "CurrentConfigurationMaxSize",
-  CURRENT_CONFIGURATION_MIN_SIZE = "CurrentConfigurationMinSize",
-  CURRENT_MEMORY = "CurrentMemory",
-  CURRENT_NETWORK = "CurrentNetwork",
-  CURRENT_ON_DEMAND_PRICE = "CurrentOnDemandPrice",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE = "CurrentStandardOneYearNoUpfrontReservedPrice",
-  CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE = "CurrentStandardThreeYearNoUpfrontReservedPrice",
-  CURRENT_STORAGE = "CurrentStorage",
-  CURRENT_VCPUS = "CurrentVCpus",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES = "EffectiveRecommendationPreferencesCpuVendorArchitectures",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS = "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES = "EffectiveRecommendationPreferencesInferredWorkloadTypes",
-  FINDING = "Finding",
-  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY = "RecommendationOptionsConfigurationDesiredCapacity",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE = "RecommendationOptionsConfigurationInstanceType",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE = "RecommendationOptionsConfigurationMaxSize",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE = "RecommendationOptionsConfigurationMinSize",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_MEMORY = "RecommendationOptionsMemory",
-  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT = "RecommendationOptionsMigrationEffort",
-  RECOMMENDATION_OPTIONS_NETWORK = "RecommendationOptionsNetwork",
-  RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE = "RecommendationOptionsOnDemandPrice",
-  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK = "RecommendationOptionsPerformanceRisk",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE = "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
-  RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE = "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
-  RECOMMENDATION_OPTIONS_STORAGE = "RecommendationOptionsStorage",
-  RECOMMENDATION_OPTIONS_VCPUS = "RecommendationOptionsVcpus",
-  UTILIZATION_METRICS_CPU_MAXIMUM = "UtilizationMetricsCpuMaximum",
-  UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
-  UTILIZATION_METRICS_MEMORY_MAXIMUM = "UtilizationMetricsMemoryMaximum",
-  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkInBytesPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
-}
+export const ExportableAutoScalingGroupField = {
+  ACCOUNT_ID: "AccountId",
+  AUTO_SCALING_GROUP_ARN: "AutoScalingGroupArn",
+  AUTO_SCALING_GROUP_NAME: "AutoScalingGroupName",
+  CURRENT_CONFIGURATION_DESIRED_CAPACITY: "CurrentConfigurationDesiredCapacity",
+  CURRENT_CONFIGURATION_INSTANCE_TYPE: "CurrentConfigurationInstanceType",
+  CURRENT_CONFIGURATION_MAX_SIZE: "CurrentConfigurationMaxSize",
+  CURRENT_CONFIGURATION_MIN_SIZE: "CurrentConfigurationMinSize",
+  CURRENT_MEMORY: "CurrentMemory",
+  CURRENT_NETWORK: "CurrentNetwork",
+  CURRENT_ON_DEMAND_PRICE: "CurrentOnDemandPrice",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE: "CurrentStandardOneYearNoUpfrontReservedPrice",
+  CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE: "CurrentStandardThreeYearNoUpfrontReservedPrice",
+  CURRENT_STORAGE: "CurrentStorage",
+  CURRENT_VCPUS: "CurrentVCpus",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES:
+    "EffectiveRecommendationPreferencesCpuVendorArchitectures",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS:
+    "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES:
+    "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+  FINDING: "Finding",
+  INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY: "RecommendationOptionsConfigurationDesiredCapacity",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE: "RecommendationOptionsConfigurationInstanceType",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE: "RecommendationOptionsConfigurationMaxSize",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE: "RecommendationOptionsConfigurationMinSize",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
+  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: "RecommendationOptionsMigrationEffort",
+  RECOMMENDATION_OPTIONS_NETWORK: "RecommendationOptionsNetwork",
+  RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE: "RecommendationOptionsOnDemandPrice",
+  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE:
+    "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
+  RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE:
+    "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
+  RECOMMENDATION_OPTIONS_STORAGE: "RecommendationOptionsStorage",
+  RECOMMENDATION_OPTIONS_VCPUS: "RecommendationOptionsVcpus",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
+} as const;
 
 /**
  * @public
  */
-export enum FileFormat {
-  CSV = "Csv",
-}
+export type ExportableAutoScalingGroupField =
+  (typeof ExportableAutoScalingGroupField)[keyof typeof ExportableAutoScalingGroupField];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileFormat = {
+  CSV: "Csv",
+} as const;
 
 /**
  * @public
  */
-export enum FilterName {
-  FINDING = "Finding",
-  FINDING_REASON_CODES = "FindingReasonCodes",
-  RECOMMENDATION_SOURCE_TYPE = "RecommendationSourceType",
-}
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterName = {
+  FINDING: "Finding",
+  FINDING_REASON_CODES: "FindingReasonCodes",
+  RECOMMENDATION_SOURCE_TYPE: "RecommendationSourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterName = (typeof FilterName)[keyof typeof FilterName];
 
 /**
  * @public
@@ -1570,44 +1707,58 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportableVolumeField {
-  ACCOUNT_ID = "AccountId",
-  CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS = "CurrentConfigurationVolumeBaselineIOPS",
-  CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT = "CurrentConfigurationVolumeBaselineThroughput",
-  CURRENT_CONFIGURATION_VOLUME_BURST_IOPS = "CurrentConfigurationVolumeBurstIOPS",
-  CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT = "CurrentConfigurationVolumeBurstThroughput",
-  CURRENT_CONFIGURATION_VOLUME_SIZE = "CurrentConfigurationVolumeSize",
-  CURRENT_CONFIGURATION_VOLUME_TYPE = "CurrentConfigurationVolumeType",
-  CURRENT_MONTHLY_PRICE = "CurrentMonthlyPrice",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  FINDING = "Finding",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS = "RecommendationOptionsConfigurationVolumeBaselineIOPS",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT = "RecommendationOptionsConfigurationVolumeBaselineThroughput",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS = "RecommendationOptionsConfigurationVolumeBurstIOPS",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT = "RecommendationOptionsConfigurationVolumeBurstThroughput",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE = "RecommendationOptionsConfigurationVolumeSize",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE = "RecommendationOptionsConfigurationVolumeType",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_MONTHLY_PRICE = "RecommendationOptionsMonthlyPrice",
-  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK = "RecommendationOptionsPerformanceRisk",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
-  VOLUME_ARN = "VolumeArn",
-}
+export const ExportableVolumeField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS: "CurrentConfigurationVolumeBaselineIOPS",
+  CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT: "CurrentConfigurationVolumeBaselineThroughput",
+  CURRENT_CONFIGURATION_VOLUME_BURST_IOPS: "CurrentConfigurationVolumeBurstIOPS",
+  CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT: "CurrentConfigurationVolumeBurstThroughput",
+  CURRENT_CONFIGURATION_VOLUME_SIZE: "CurrentConfigurationVolumeSize",
+  CURRENT_CONFIGURATION_VOLUME_TYPE: "CurrentConfigurationVolumeType",
+  CURRENT_MONTHLY_PRICE: "CurrentMonthlyPrice",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  FINDING: "Finding",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS: "RecommendationOptionsConfigurationVolumeBaselineIOPS",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT:
+    "RecommendationOptionsConfigurationVolumeBaselineThroughput",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS: "RecommendationOptionsConfigurationVolumeBurstIOPS",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT:
+    "RecommendationOptionsConfigurationVolumeBurstThroughput",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE: "RecommendationOptionsConfigurationVolumeSize",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE: "RecommendationOptionsConfigurationVolumeType",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_MONTHLY_PRICE: "RecommendationOptionsMonthlyPrice",
+  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
+  VOLUME_ARN: "VolumeArn",
+} as const;
 
 /**
  * @public
  */
-export enum EBSFilterName {
-  FINDING = "Finding",
-}
+export type ExportableVolumeField = (typeof ExportableVolumeField)[keyof typeof ExportableVolumeField];
+
+/**
+ * @public
+ * @enum
+ */
+export const EBSFilterName = {
+  FINDING: "Finding",
+} as const;
+
+/**
+ * @public
+ */
+export type EBSFilterName = (typeof EBSFilterName)[keyof typeof EBSFilterName];
 
 /**
  * @public
@@ -1717,62 +1868,76 @@ export interface ExportEBSVolumeRecommendationsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportableInstanceField {
-  ACCOUNT_ID = "AccountId",
-  CURRENT_INSTANCE_TYPE = "CurrentInstanceType",
-  CURRENT_MEMORY = "CurrentMemory",
-  CURRENT_NETWORK = "CurrentNetwork",
-  CURRENT_ON_DEMAND_PRICE = "CurrentOnDemandPrice",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE = "CurrentStandardOneYearNoUpfrontReservedPrice",
-  CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE = "CurrentStandardThreeYearNoUpfrontReservedPrice",
-  CURRENT_STORAGE = "CurrentStorage",
-  CURRENT_VCPUS = "CurrentVCpus",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES = "EffectiveRecommendationPreferencesCpuVendorArchitectures",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS = "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE = "EffectiveRecommendationPreferencesExternalMetricsSource",
-  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES = "EffectiveRecommendationPreferencesInferredWorkloadTypes",
-  FINDING = "Finding",
-  Finding_Reason_Codes = "FindingReasonCodes",
-  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
-  INSTANCE_ARN = "InstanceArn",
-  INSTANCE_NAME = "InstanceName",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN = "RecommendationsSourcesRecommendationSourceArn",
-  RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE = "RecommendationsSourcesRecommendationSourceType",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_INSTANCE_TYPE = "RecommendationOptionsInstanceType",
-  RECOMMENDATION_OPTIONS_MEMORY = "RecommendationOptionsMemory",
-  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT = "RecommendationOptionsMigrationEffort",
-  RECOMMENDATION_OPTIONS_NETWORK = "RecommendationOptionsNetwork",
-  RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE = "RecommendationOptionsOnDemandPrice",
-  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK = "RecommendationOptionsPerformanceRisk",
-  RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES = "RecommendationOptionsPlatformDifferences",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE = "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
-  RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE = "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
-  RECOMMENDATION_OPTIONS_STORAGE = "RecommendationOptionsStorage",
-  RECOMMENDATION_OPTIONS_VCPUS = "RecommendationOptionsVcpus",
-  UTILIZATION_METRICS_CPU_MAXIMUM = "UtilizationMetricsCpuMaximum",
-  UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsReadBytesPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsReadOpsPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
-  UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM = "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
-  UTILIZATION_METRICS_MEMORY_MAXIMUM = "UtilizationMetricsMemoryMaximum",
-  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkInBytesPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
-  UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM = "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
-}
+export const ExportableInstanceField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_INSTANCE_TYPE: "CurrentInstanceType",
+  CURRENT_MEMORY: "CurrentMemory",
+  CURRENT_NETWORK: "CurrentNetwork",
+  CURRENT_ON_DEMAND_PRICE: "CurrentOnDemandPrice",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE: "CurrentStandardOneYearNoUpfrontReservedPrice",
+  CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE: "CurrentStandardThreeYearNoUpfrontReservedPrice",
+  CURRENT_STORAGE: "CurrentStorage",
+  CURRENT_VCPUS: "CurrentVCpus",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES:
+    "EffectiveRecommendationPreferencesCpuVendorArchitectures",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS:
+    "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE:
+    "EffectiveRecommendationPreferencesExternalMetricsSource",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES:
+    "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+  FINDING: "Finding",
+  Finding_Reason_Codes: "FindingReasonCodes",
+  INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
+  INSTANCE_ARN: "InstanceArn",
+  INSTANCE_NAME: "InstanceName",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN: "RecommendationsSourcesRecommendationSourceArn",
+  RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE: "RecommendationsSourcesRecommendationSourceType",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_INSTANCE_TYPE: "RecommendationOptionsInstanceType",
+  RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
+  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: "RecommendationOptionsMigrationEffort",
+  RECOMMENDATION_OPTIONS_NETWORK: "RecommendationOptionsNetwork",
+  RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE: "RecommendationOptionsOnDemandPrice",
+  RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
+  RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES: "RecommendationOptionsPlatformDifferences",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE:
+    "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
+  RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE:
+    "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
+  RECOMMENDATION_OPTIONS_STORAGE: "RecommendationOptionsStorage",
+  RECOMMENDATION_OPTIONS_VCPUS: "RecommendationOptionsVcpus",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadBytesPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
+  UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportableInstanceField = (typeof ExportableInstanceField)[keyof typeof ExportableInstanceField];
 
 /**
  * @public
@@ -1865,40 +2030,55 @@ export interface ExportEC2InstanceRecommendationsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportableECSServiceField {
-  ACCOUNT_ID = "AccountId",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  CURRENT_SERVICE_CONFIGURATION_AUTO_SCALING_CONFIGURATION = "CurrentServiceConfigurationAutoScalingConfiguration",
-  CURRENT_SERVICE_CONFIGURATION_CPU = "CurrentServiceConfigurationCpu",
-  CURRENT_SERVICE_CONFIGURATION_MEMORY = "CurrentServiceConfigurationMemory",
-  CURRENT_SERVICE_CONFIGURATION_TASK_DEFINITION_ARN = "CurrentServiceConfigurationTaskDefinitionArn",
-  CURRENT_SERVICE_CONTAINER_CONFIGURATIONS = "CurrentServiceContainerConfigurations",
-  FINDING = "Finding",
-  FINDING_REASON_CODES = "FindingReasonCodes",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LAUNCH_TYPE = "LaunchType",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  RECOMMENDATION_OPTIONS_CONTAINER_RECOMMENDATIONS = "RecommendationOptionsContainerRecommendations",
-  RECOMMENDATION_OPTIONS_CPU = "RecommendationOptionsCpu",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_MEMORY = "RecommendationOptionsMemory",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM = "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  SERVICE_ARN = "ServiceArn",
-  UTILIZATION_METRICS_CPU_MAXIMUM = "UtilizationMetricsCpuMaximum",
-  UTILIZATION_METRICS_MEMORY_MAXIMUM = "UtilizationMetricsMemoryMaximum",
-}
+export const ExportableECSServiceField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  CURRENT_SERVICE_CONFIGURATION_AUTO_SCALING_CONFIGURATION: "CurrentServiceConfigurationAutoScalingConfiguration",
+  CURRENT_SERVICE_CONFIGURATION_CPU: "CurrentServiceConfigurationCpu",
+  CURRENT_SERVICE_CONFIGURATION_MEMORY: "CurrentServiceConfigurationMemory",
+  CURRENT_SERVICE_CONFIGURATION_TASK_DEFINITION_ARN: "CurrentServiceConfigurationTaskDefinitionArn",
+  CURRENT_SERVICE_CONTAINER_CONFIGURATIONS: "CurrentServiceContainerConfigurations",
+  FINDING: "Finding",
+  FINDING_REASON_CODES: "FindingReasonCodes",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LAUNCH_TYPE: "LaunchType",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_CONTAINER_RECOMMENDATIONS: "RecommendationOptionsContainerRecommendations",
+  RECOMMENDATION_OPTIONS_CPU: "RecommendationOptionsCpu",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  SERVICE_ARN: "ServiceArn",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+} as const;
 
 /**
  * @public
  */
-export enum ECSServiceRecommendationFilterName {
-  FINDING = "Finding",
-  FINDING_REASON_CODE = "FindingReasonCode",
-}
+export type ExportableECSServiceField = (typeof ExportableECSServiceField)[keyof typeof ExportableECSServiceField];
+
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceRecommendationFilterName = {
+  FINDING: "Finding",
+  FINDING_REASON_CODE: "FindingReasonCode",
+} as const;
+
+/**
+ * @public
+ */
+export type ECSServiceRecommendationFilterName =
+  (typeof ECSServiceRecommendationFilterName)[keyof typeof ECSServiceRecommendationFilterName];
 
 /**
  * @public
@@ -2035,43 +2215,60 @@ export interface ExportECSServiceRecommendationsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportableLambdaFunctionField {
-  ACCOUNT_ID = "AccountId",
-  CURRENT_CONFIGURATION_MEMORY_SIZE = "CurrentConfigurationMemorySize",
-  CURRENT_CONFIGURATION_TIMEOUT = "CurrentConfigurationTimeout",
-  CURRENT_COST_AVERAGE = "CurrentCostAverage",
-  CURRENT_COST_TOTAL = "CurrentCostTotal",
-  CURRENT_PERFORMANCE_RISK = "CurrentPerformanceRisk",
-  FINDING = "Finding",
-  FINDING_REASON_CODES = "FindingReasonCodes",
-  FUNCTION_ARN = "FunctionArn",
-  FUNCTION_VERSION = "FunctionVersion",
-  LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
-  LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
-  NUMBER_OF_INVOCATIONS = "NumberOfInvocations",
-  RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE = "RecommendationOptionsConfigurationMemorySize",
-  RECOMMENDATION_OPTIONS_COST_HIGH = "RecommendationOptionsCostHigh",
-  RECOMMENDATION_OPTIONS_COST_LOW = "RecommendationOptionsCostLow",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED = "RecommendationOptionsProjectedUtilizationMetricsDurationExpected",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND = "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound",
-  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND = "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
-  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE = "RecommendationOptionsSavingsOpportunityPercentage",
-  UTILIZATION_METRICS_DURATION_AVERAGE = "UtilizationMetricsDurationAverage",
-  UTILIZATION_METRICS_DURATION_MAXIMUM = "UtilizationMetricsDurationMaximum",
-  UTILIZATION_METRICS_MEMORY_AVERAGE = "UtilizationMetricsMemoryAverage",
-  UTILIZATION_METRICS_MEMORY_MAXIMUM = "UtilizationMetricsMemoryMaximum",
-}
+export const ExportableLambdaFunctionField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_CONFIGURATION_MEMORY_SIZE: "CurrentConfigurationMemorySize",
+  CURRENT_CONFIGURATION_TIMEOUT: "CurrentConfigurationTimeout",
+  CURRENT_COST_AVERAGE: "CurrentCostAverage",
+  CURRENT_COST_TOTAL: "CurrentCostTotal",
+  CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  FINDING: "Finding",
+  FINDING_REASON_CODES: "FindingReasonCodes",
+  FUNCTION_ARN: "FunctionArn",
+  FUNCTION_VERSION: "FunctionVersion",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  NUMBER_OF_INVOCATIONS: "NumberOfInvocations",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE: "RecommendationOptionsConfigurationMemorySize",
+  RECOMMENDATION_OPTIONS_COST_HIGH: "RecommendationOptionsCostHigh",
+  RECOMMENDATION_OPTIONS_COST_LOW: "RecommendationOptionsCostLow",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED:
+    "RecommendationOptionsProjectedUtilizationMetricsDurationExpected",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND:
+    "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND:
+    "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  UTILIZATION_METRICS_DURATION_AVERAGE: "UtilizationMetricsDurationAverage",
+  UTILIZATION_METRICS_DURATION_MAXIMUM: "UtilizationMetricsDurationMaximum",
+  UTILIZATION_METRICS_MEMORY_AVERAGE: "UtilizationMetricsMemoryAverage",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+} as const;
 
 /**
  * @public
  */
-export enum LambdaFunctionRecommendationFilterName {
-  FINDING = "Finding",
-  FINDING_REASON_CODE = "FindingReasonCode",
-}
+export type ExportableLambdaFunctionField =
+  (typeof ExportableLambdaFunctionField)[keyof typeof ExportableLambdaFunctionField];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionRecommendationFilterName = {
+  FINDING: "Finding",
+  FINDING_REASON_CODE: "FindingReasonCode",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionRecommendationFilterName =
+  (typeof LambdaFunctionRecommendationFilterName)[keyof typeof LambdaFunctionRecommendationFilterName];
 
 /**
  * @public
@@ -2371,21 +2568,33 @@ export interface VolumeConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum EBSFinding {
-  NOT_OPTIMIZED = "NotOptimized",
-  OPTIMIZED = "Optimized",
-}
+export const EBSFinding = {
+  NOT_OPTIMIZED: "NotOptimized",
+  OPTIMIZED: "Optimized",
+} as const;
 
 /**
  * @public
  */
-export enum EBSMetricName {
-  VOLUME_READ_BYTES_PER_SECOND = "VolumeReadBytesPerSecond",
-  VOLUME_READ_OPS_PER_SECOND = "VolumeReadOpsPerSecond",
-  VOLUME_WRITE_BYTES_PER_SECOND = "VolumeWriteBytesPerSecond",
-  VOLUME_WRITE_OPS_PER_SECOND = "VolumeWriteOpsPerSecond",
-}
+export type EBSFinding = (typeof EBSFinding)[keyof typeof EBSFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const EBSMetricName = {
+  VOLUME_READ_BYTES_PER_SECOND: "VolumeReadBytesPerSecond",
+  VOLUME_READ_OPS_PER_SECOND: "VolumeReadOpsPerSecond",
+  VOLUME_WRITE_BYTES_PER_SECOND: "VolumeWriteBytesPerSecond",
+  VOLUME_WRITE_OPS_PER_SECOND: "VolumeWriteOpsPerSecond",
+} as const;
+
+/**
+ * @public
+ */
+export type EBSMetricName = (typeof EBSMetricName)[keyof typeof EBSMetricName];
 
 /**
  * @public
@@ -2631,37 +2840,50 @@ export interface GetEC2InstanceRecommendationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceRecommendationFindingReasonCode {
-  CPU_OVER_PROVISIONED = "CPUOverprovisioned",
-  CPU_UNDER_PROVISIONED = "CPUUnderprovisioned",
-  DISK_IOPS_OVER_PROVISIONED = "DiskIOPSOverprovisioned",
-  DISK_IOPS_UNDER_PROVISIONED = "DiskIOPSUnderprovisioned",
-  DISK_THROUGHPUT_OVER_PROVISIONED = "DiskThroughputOverprovisioned",
-  DISK_THROUGHPUT_UNDER_PROVISIONED = "DiskThroughputUnderprovisioned",
-  EBS_IOPS_OVER_PROVISIONED = "EBSIOPSOverprovisioned",
-  EBS_IOPS_UNDER_PROVISIONED = "EBSIOPSUnderprovisioned",
-  EBS_THROUGHPUT_OVER_PROVISIONED = "EBSThroughputOverprovisioned",
-  EBS_THROUGHPUT_UNDER_PROVISIONED = "EBSThroughputUnderprovisioned",
-  MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
-  MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
-  NETWORK_BANDWIDTH_OVER_PROVISIONED = "NetworkBandwidthOverprovisioned",
-  NETWORK_BANDWIDTH_UNDER_PROVISIONED = "NetworkBandwidthUnderprovisioned",
-  NETWORK_PPS_OVER_PROVISIONED = "NetworkPPSOverprovisioned",
-  NETWORK_PPS_UNDER_PROVISIONED = "NetworkPPSUnderprovisioned",
-}
+export const InstanceRecommendationFindingReasonCode = {
+  CPU_OVER_PROVISIONED: "CPUOverprovisioned",
+  CPU_UNDER_PROVISIONED: "CPUUnderprovisioned",
+  DISK_IOPS_OVER_PROVISIONED: "DiskIOPSOverprovisioned",
+  DISK_IOPS_UNDER_PROVISIONED: "DiskIOPSUnderprovisioned",
+  DISK_THROUGHPUT_OVER_PROVISIONED: "DiskThroughputOverprovisioned",
+  DISK_THROUGHPUT_UNDER_PROVISIONED: "DiskThroughputUnderprovisioned",
+  EBS_IOPS_OVER_PROVISIONED: "EBSIOPSOverprovisioned",
+  EBS_IOPS_UNDER_PROVISIONED: "EBSIOPSUnderprovisioned",
+  EBS_THROUGHPUT_OVER_PROVISIONED: "EBSThroughputOverprovisioned",
+  EBS_THROUGHPUT_UNDER_PROVISIONED: "EBSThroughputUnderprovisioned",
+  MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
+  NETWORK_BANDWIDTH_OVER_PROVISIONED: "NetworkBandwidthOverprovisioned",
+  NETWORK_BANDWIDTH_UNDER_PROVISIONED: "NetworkBandwidthUnderprovisioned",
+  NETWORK_PPS_OVER_PROVISIONED: "NetworkPPSOverprovisioned",
+  NETWORK_PPS_UNDER_PROVISIONED: "NetworkPPSUnderprovisioned",
+} as const;
 
 /**
  * @public
  */
-export enum PlatformDifference {
-  ARCHITECTURE = "Architecture",
-  HYPERVISOR = "Hypervisor",
-  INSTANCE_STORE_AVAILABILITY = "InstanceStoreAvailability",
-  NETWORK_INTERFACE = "NetworkInterface",
-  STORAGE_INTERFACE = "StorageInterface",
-  VIRTUALIZATION_TYPE = "VirtualizationType",
-}
+export type InstanceRecommendationFindingReasonCode =
+  (typeof InstanceRecommendationFindingReasonCode)[keyof typeof InstanceRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlatformDifference = {
+  ARCHITECTURE: "Architecture",
+  HYPERVISOR: "Hypervisor",
+  INSTANCE_STORE_AVAILABILITY: "InstanceStoreAvailability",
+  NETWORK_INTERFACE: "NetworkInterface",
+  STORAGE_INTERFACE: "StorageInterface",
+  VIRTUALIZATION_TYPE: "VirtualizationType",
+} as const;
+
+/**
+ * @public
+ */
+export type PlatformDifference = (typeof PlatformDifference)[keyof typeof PlatformDifference];
 
 /**
  * @public
@@ -2832,14 +3054,20 @@ export interface InstanceRecommendationOption {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationSourceType {
-  AUTO_SCALING_GROUP = "AutoScalingGroup",
-  EBS_VOLUME = "EbsVolume",
-  EC2_INSTANCE = "Ec2Instance",
-  ECS_SERVICE = "EcsService",
-  LAMBDA_FUNCTION = "LambdaFunction",
-}
+export const RecommendationSourceType = {
+  AUTO_SCALING_GROUP: "AutoScalingGroup",
+  EBS_VOLUME: "EbsVolume",
+  EC2_INSTANCE: "Ec2Instance",
+  ECS_SERVICE: "EcsService",
+  LAMBDA_FUNCTION: "LambdaFunction",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationSourceType = (typeof RecommendationSourceType)[keyof typeof RecommendationSourceType];
 
 /**
  * @public
@@ -3420,11 +3648,17 @@ export interface GetECSServiceRecommendationProjectedMetricsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ECSServiceMetricName {
-  CPU = "Cpu",
-  MEMORY = "Memory",
-}
+export const ECSServiceMetricName = {
+  CPU: "Cpu",
+  MEMORY: "Memory",
+} as const;
+
+/**
+ * @public
+ */
+export type ECSServiceMetricName = (typeof ECSServiceMetricName)[keyof typeof ECSServiceMetricName];
 
 /**
  * @public
@@ -3689,30 +3923,50 @@ export interface ServiceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ECSServiceRecommendationFinding {
-  OPTIMIZED = "Optimized",
-  OVER_PROVISIONED = "Overprovisioned",
-  UNDER_PROVISIONED = "Underprovisioned",
-}
+export const ECSServiceRecommendationFinding = {
+  OPTIMIZED: "Optimized",
+  OVER_PROVISIONED: "Overprovisioned",
+  UNDER_PROVISIONED: "Underprovisioned",
+} as const;
 
 /**
  * @public
  */
-export enum ECSServiceRecommendationFindingReasonCode {
-  CPU_OVER_PROVISIONED = "CPUOverprovisioned",
-  CPU_UNDER_PROVISIONED = "CPUUnderprovisioned",
-  MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
-  MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
-}
+export type ECSServiceRecommendationFinding =
+  (typeof ECSServiceRecommendationFinding)[keyof typeof ECSServiceRecommendationFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceRecommendationFindingReasonCode = {
+  CPU_OVER_PROVISIONED: "CPUOverprovisioned",
+  CPU_UNDER_PROVISIONED: "CPUUnderprovisioned",
+  MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
+} as const;
 
 /**
  * @public
  */
-export enum ECSServiceLaunchType {
-  EC2 = "EC2",
-  FARGATE = "Fargate",
-}
+export type ECSServiceRecommendationFindingReasonCode =
+  (typeof ECSServiceRecommendationFindingReasonCode)[keyof typeof ECSServiceRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ECSServiceLaunchType = {
+  EC2: "EC2",
+  FARGATE: "Fargate",
+} as const;
+
+/**
+ * @public
+ */
+export type ECSServiceLaunchType = (typeof ECSServiceLaunchType)[keyof typeof ECSServiceLaunchType];
 
 /**
  * @public
@@ -3745,11 +3999,17 @@ export interface ContainerRecommendation {
 
 /**
  * @public
+ * @enum
  */
-export enum ECSServiceMetricStatistic {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum",
-}
+export const ECSServiceMetricStatistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+} as const;
+
+/**
+ * @public
+ */
+export type ECSServiceMetricStatistic = (typeof ECSServiceMetricStatistic)[keyof typeof ECSServiceMetricStatistic];
 
 /**
  * @public
@@ -4199,10 +4459,16 @@ export interface GetEnrollmentStatusResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EnrollmentFilterName {
-  STATUS = "Status",
-}
+export const EnrollmentFilterName = {
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type EnrollmentFilterName = (typeof EnrollmentFilterName)[keyof typeof EnrollmentFilterName];
 
 /**
  * @public
@@ -4315,38 +4581,66 @@ export interface GetLambdaFunctionRecommendationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LambdaFunctionRecommendationFinding {
-  NOT_OPTIMIZED = "NotOptimized",
-  OPTIMIZED = "Optimized",
-  UNAVAILABLE = "Unavailable",
-}
+export const LambdaFunctionRecommendationFinding = {
+  NOT_OPTIMIZED: "NotOptimized",
+  OPTIMIZED: "Optimized",
+  UNAVAILABLE: "Unavailable",
+} as const;
 
 /**
  * @public
  */
-export enum LambdaFunctionRecommendationFindingReasonCode {
-  INCONCLUSIVE = "Inconclusive",
-  INSUFFICIENT_DATA = "InsufficientData",
-  MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
-  MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
-}
+export type LambdaFunctionRecommendationFinding =
+  (typeof LambdaFunctionRecommendationFinding)[keyof typeof LambdaFunctionRecommendationFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionRecommendationFindingReasonCode = {
+  INCONCLUSIVE: "Inconclusive",
+  INSUFFICIENT_DATA: "InsufficientData",
+  MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
+} as const;
 
 /**
  * @public
  */
-export enum LambdaFunctionMemoryMetricName {
-  DURATION = "Duration",
-}
+export type LambdaFunctionRecommendationFindingReasonCode =
+  (typeof LambdaFunctionRecommendationFindingReasonCode)[keyof typeof LambdaFunctionRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionMemoryMetricName = {
+  DURATION: "Duration",
+} as const;
 
 /**
  * @public
  */
-export enum LambdaFunctionMemoryMetricStatistic {
-  EXPECTED = "Expected",
-  LOWER_BOUND = "LowerBound",
-  UPPER_BOUND = "UpperBound",
-}
+export type LambdaFunctionMemoryMetricName =
+  (typeof LambdaFunctionMemoryMetricName)[keyof typeof LambdaFunctionMemoryMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionMemoryMetricStatistic = {
+  EXPECTED: "Expected",
+  LOWER_BOUND: "LowerBound",
+  UPPER_BOUND: "UpperBound",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionMemoryMetricStatistic =
+  (typeof LambdaFunctionMemoryMetricStatistic)[keyof typeof LambdaFunctionMemoryMetricStatistic];
 
 /**
  * @public
@@ -4402,19 +4696,32 @@ export interface LambdaFunctionMemoryRecommendationOption {
 
 /**
  * @public
+ * @enum
  */
-export enum LambdaFunctionMetricName {
-  DURATION = "Duration",
-  MEMORY = "Memory",
-}
+export const LambdaFunctionMetricName = {
+  DURATION: "Duration",
+  MEMORY: "Memory",
+} as const;
 
 /**
  * @public
  */
-export enum LambdaFunctionMetricStatistic {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum",
-}
+export type LambdaFunctionMetricName = (typeof LambdaFunctionMetricName)[keyof typeof LambdaFunctionMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaFunctionMetricStatistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaFunctionMetricStatistic =
+  (typeof LambdaFunctionMetricStatistic)[keyof typeof LambdaFunctionMetricStatistic];
 
 /**
  * @public
@@ -4806,11 +5113,17 @@ export interface CurrentPerformanceRiskRatings {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingReasonCode {
-  MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
-  MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
-}
+export const FindingReasonCode = {
+  MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingReasonCode = (typeof FindingReasonCode)[keyof typeof FindingReasonCode];
 
 /**
  * @public

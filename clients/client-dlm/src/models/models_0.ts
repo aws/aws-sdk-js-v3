@@ -26,13 +26,20 @@ export interface EncryptionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RetentionIntervalUnitValues {
-  DAYS = "DAYS",
-  MONTHS = "MONTHS",
-  WEEKS = "WEEKS",
-  YEARS = "YEARS",
-}
+export const RetentionIntervalUnitValues = {
+  DAYS: "DAYS",
+  MONTHS: "MONTHS",
+  WEEKS: "WEEKS",
+  YEARS: "YEARS",
+} as const;
+
+/**
+ * @public
+ */
+export type RetentionIntervalUnitValues =
+  (typeof RetentionIntervalUnitValues)[keyof typeof RetentionIntervalUnitValues];
 
 /**
  * @public
@@ -165,10 +172,16 @@ export interface ArchiveRule {
 
 /**
  * @public
+ * @enum
  */
-export enum EventTypeValues {
-  SHARE_SNAPSHOT = "shareSnapshot",
-}
+export const EventTypeValues = {
+  SHARE_SNAPSHOT: "shareSnapshot",
+} as const;
+
+/**
+ * @public
+ */
+export type EventTypeValues = (typeof EventTypeValues)[keyof typeof EventTypeValues];
 
 /**
  * @public
@@ -200,10 +213,16 @@ export interface EventParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum EventSourceValues {
-  MANAGED_CWE = "MANAGED_CWE",
-}
+export const EventSourceValues = {
+  MANAGED_CWE: "MANAGED_CWE",
+} as const;
+
+/**
+ * @public
+ */
+export type EventSourceValues = (typeof EventSourceValues)[keyof typeof EventSourceValues];
 
 /**
  * @public
@@ -282,43 +301,73 @@ export interface _Parameters {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyTypeValues {
-  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT",
-  EVENT_BASED_POLICY = "EVENT_BASED_POLICY",
-  IMAGE_MANAGEMENT = "IMAGE_MANAGEMENT",
-}
+export const PolicyTypeValues = {
+  EBS_SNAPSHOT_MANAGEMENT: "EBS_SNAPSHOT_MANAGEMENT",
+  EVENT_BASED_POLICY: "EVENT_BASED_POLICY",
+  IMAGE_MANAGEMENT: "IMAGE_MANAGEMENT",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceLocationValues {
-  CLOUD = "CLOUD",
-  OUTPOST = "OUTPOST",
-}
+export type PolicyTypeValues = (typeof PolicyTypeValues)[keyof typeof PolicyTypeValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceLocationValues = {
+  CLOUD: "CLOUD",
+  OUTPOST: "OUTPOST",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceTypeValues {
-  INSTANCE = "INSTANCE",
-  VOLUME = "VOLUME",
-}
+export type ResourceLocationValues = (typeof ResourceLocationValues)[keyof typeof ResourceLocationValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceTypeValues = {
+  INSTANCE: "INSTANCE",
+  VOLUME: "VOLUME",
+} as const;
 
 /**
  * @public
  */
-export enum IntervalUnitValues {
-  HOURS = "HOURS",
-}
+export type ResourceTypeValues = (typeof ResourceTypeValues)[keyof typeof ResourceTypeValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntervalUnitValues = {
+  HOURS: "HOURS",
+} as const;
 
 /**
  * @public
  */
-export enum LocationValues {
-  CLOUD = "CLOUD",
-  OUTPOST_LOCAL = "OUTPOST_LOCAL",
-}
+export type IntervalUnitValues = (typeof IntervalUnitValues)[keyof typeof IntervalUnitValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocationValues = {
+  CLOUD: "CLOUD",
+  OUTPOST_LOCAL: "OUTPOST_LOCAL",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationValues = (typeof LocationValues)[keyof typeof LocationValues];
 
 /**
  * @public
@@ -760,11 +809,17 @@ export interface PolicyDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum SettablePolicyStateValues {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const SettablePolicyStateValues = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type SettablePolicyStateValues = (typeof SettablePolicyStateValues)[keyof typeof SettablePolicyStateValues];
 
 /**
  * @public
@@ -949,12 +1004,18 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum GettablePolicyStateValues {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-}
+export const GettablePolicyStateValues = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type GettablePolicyStateValues = (typeof GettablePolicyStateValues)[keyof typeof GettablePolicyStateValues];
 
 /**
  * @public

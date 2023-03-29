@@ -5,20 +5,32 @@ import { ChimeSDKMessagingServiceException as __BaseException } from "./ChimeSDK
 
 /**
  * @public
+ * @enum
  */
-export enum AllowNotifications {
-  ALL = "ALL",
-  FILTERED = "FILTERED",
-  NONE = "NONE",
-}
+export const AllowNotifications = {
+  ALL: "ALL",
+  FILTERED: "FILTERED",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum ChannelMembershipType {
-  DEFAULT = "DEFAULT",
-  HIDDEN = "HIDDEN",
-}
+export type AllowNotifications = (typeof AllowNotifications)[keyof typeof AllowNotifications];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelMembershipType = {
+  DEFAULT: "DEFAULT",
+  HIDDEN: "HIDDEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelMembershipType = (typeof ChannelMembershipType)[keyof typeof ChannelMembershipType];
 
 /**
  * @public
@@ -63,24 +75,30 @@ export interface AssociateChannelFlowRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Throttling = "Throttling",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
-}
+export const ErrorCode = {
+  AccessDenied: "AccessDenied",
+  BadRequest: "BadRequest",
+  Conflict: "Conflict",
+  Forbidden: "Forbidden",
+  NotFound: "NotFound",
+  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
+  PreconditionFailed: "PreconditionFailed",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttled: "Throttled",
+  Throttling: "Throttling",
+  Unauthorized: "Unauthorized",
+  Unprocessable: "Unprocessable",
+  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -446,11 +464,17 @@ export interface ElasticChannelConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ExpirationCriterion {
-  CREATED_TIMESTAMP = "CREATED_TIMESTAMP",
-  LAST_MESSAGE_TIMESTAMP = "LAST_MESSAGE_TIMESTAMP",
-}
+export const ExpirationCriterion = {
+  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
+  LAST_MESSAGE_TIMESTAMP: "LAST_MESSAGE_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type ExpirationCriterion = (typeof ExpirationCriterion)[keyof typeof ExpirationCriterion];
 
 /**
  * @public
@@ -470,19 +494,31 @@ export interface ExpirationSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelMode {
-  RESTRICTED = "RESTRICTED",
-  UNRESTRICTED = "UNRESTRICTED",
-}
+export const ChannelMode = {
+  RESTRICTED: "RESTRICTED",
+  UNRESTRICTED: "UNRESTRICTED",
+} as const;
 
 /**
  * @public
  */
-export enum ChannelPrivacy {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export type ChannelMode = (typeof ChannelMode)[keyof typeof ChannelMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelPrivacy = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelPrivacy = (typeof ChannelPrivacy)[keyof typeof ChannelPrivacy];
 
 /**
  * @public
@@ -620,10 +656,16 @@ export interface ChannelBanSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum InvocationType {
-  ASYNC = "ASYNC",
-}
+export const InvocationType = {
+  ASYNC: "ASYNC",
+} as const;
+
+/**
+ * @public
+ */
+export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
 
 /**
  * @public
@@ -654,11 +696,17 @@ export interface ProcessorConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum FallbackAction {
-  ABORT = "ABORT",
-  CONTINUE = "CONTINUE",
-}
+export const FallbackAction = {
+  ABORT: "ABORT",
+  CONTINUE: "CONTINUE",
+} as const;
+
+/**
+ * @public
+ */
+export type FallbackAction = (typeof FallbackAction)[keyof typeof FallbackAction];
 
 /**
  * @public
@@ -733,11 +781,17 @@ export interface MessageAttributeValue {
 
 /**
  * @public
+ * @enum
  */
-export enum PushNotificationType {
-  DEFAULT = "DEFAULT",
-  VOIP = "VOIP",
-}
+export const PushNotificationType = {
+  DEFAULT: "DEFAULT",
+  VOIP: "VOIP",
+} as const;
+
+/**
+ * @public
+ */
+export type PushNotificationType = (typeof PushNotificationType)[keyof typeof PushNotificationType];
 
 /**
  * @public
@@ -999,21 +1053,34 @@ export interface ChannelMembershipSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelMessagePersistenceType {
-  NON_PERSISTENT = "NON_PERSISTENT",
-  PERSISTENT = "PERSISTENT",
-}
+export const ChannelMessagePersistenceType = {
+  NON_PERSISTENT: "NON_PERSISTENT",
+  PERSISTENT: "PERSISTENT",
+} as const;
 
 /**
  * @public
  */
-export enum ChannelMessageStatus {
-  DENIED = "DENIED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SENT = "SENT",
-}
+export type ChannelMessagePersistenceType =
+  (typeof ChannelMessagePersistenceType)[keyof typeof ChannelMessagePersistenceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelMessageStatus = {
+  DENIED: "DENIED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SENT: "SENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelMessageStatus = (typeof ChannelMessageStatus)[keyof typeof ChannelMessageStatus];
 
 /**
  * @public
@@ -1033,11 +1100,17 @@ export interface ChannelMessageStatusStructure {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelMessageType {
-  CONTROL = "CONTROL",
-  STANDARD = "STANDARD",
-}
+export const ChannelMessageType = {
+  CONTROL: "CONTROL",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelMessageType = (typeof ChannelMessageType)[keyof typeof ChannelMessageType];
 
 /**
  * @public
@@ -2030,11 +2103,17 @@ export interface GetMessagingStreamingConfigurationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MessagingDataType {
-  Channel = "Channel",
-  ChannelMessage = "ChannelMessage",
-}
+export const MessagingDataType = {
+  Channel: "Channel",
+  ChannelMessage: "ChannelMessage",
+} as const;
+
+/**
+ * @public
+ */
+export type MessagingDataType = (typeof MessagingDataType)[keyof typeof MessagingDataType];
 
 /**
  * @public
@@ -2251,11 +2330,17 @@ export interface ListChannelMembershipsForAppInstanceUserResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -2744,18 +2829,30 @@ export interface RedactChannelMessageResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SearchFieldKey {
-  MEMBERS = "MEMBERS",
-}
+export const SearchFieldKey = {
+  MEMBERS: "MEMBERS",
+} as const;
 
 /**
  * @public
  */
-export enum SearchFieldOperator {
-  EQUALS = "EQUALS",
-  INCLUDES = "INCLUDES",
-}
+export type SearchFieldKey = (typeof SearchFieldKey)[keyof typeof SearchFieldKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchFieldOperator = {
+  EQUALS: "EQUALS",
+  INCLUDES: "INCLUDES",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchFieldOperator = (typeof SearchFieldOperator)[keyof typeof SearchFieldOperator];
 
 /**
  * @public

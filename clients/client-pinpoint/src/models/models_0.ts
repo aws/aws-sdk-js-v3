@@ -5,31 +5,43 @@ import { PinpointServiceException as __BaseException } from "./PinpointServiceEx
 
 /**
  * @public
+ * @enum
  */
-export enum __EndpointTypesElement {
-  ADM = "ADM",
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  APNS_VOIP = "APNS_VOIP",
-  APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX",
-  BAIDU = "BAIDU",
-  CUSTOM = "CUSTOM",
-  EMAIL = "EMAIL",
-  GCM = "GCM",
-  IN_APP = "IN_APP",
-  PUSH = "PUSH",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+export const __EndpointTypesElement = {
+  ADM: "ADM",
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  APNS_VOIP: "APNS_VOIP",
+  APNS_VOIP_SANDBOX: "APNS_VOIP_SANDBOX",
+  BAIDU: "BAIDU",
+  CUSTOM: "CUSTOM",
+  EMAIL: "EMAIL",
+  GCM: "GCM",
+  IN_APP: "IN_APP",
+  PUSH: "PUSH",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
 
 /**
  * @public
  */
-export enum Action {
-  DEEP_LINK = "DEEP_LINK",
-  OPEN_APP = "OPEN_APP",
-  URL = "URL",
-}
+export type __EndpointTypesElement = (typeof __EndpointTypesElement)[keyof typeof __EndpointTypesElement];
+
+/**
+ * @public
+ * @enum
+ */
+export const Action = {
+  DEEP_LINK: "DEEP_LINK",
+  OPEN_APP: "OPEN_APP",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type Action = (typeof Action)[keyof typeof Action];
 
 /**
  * @public
@@ -120,16 +132,22 @@ export interface ActivitiesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum AttributeType {
-  AFTER = "AFTER",
-  BEFORE = "BEFORE",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE",
-  ON = "ON",
-}
+export const AttributeType = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EXCLUSIVE: "EXCLUSIVE",
+  INCLUSIVE: "INCLUSIVE",
+  ON: "ON",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
 
 /**
  * @public
@@ -149,11 +167,17 @@ export interface AttributeDimension {
 
 /**
  * @public
+ * @enum
  */
-export enum DimensionType {
-  EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE",
-}
+export const DimensionType = {
+  EXCLUSIVE: "EXCLUSIVE",
+  INCLUSIVE: "INCLUSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
 
 /**
  * @public
@@ -237,21 +261,33 @@ export interface SegmentCondition {
 
 /**
  * @public
+ * @enum
  */
-export enum Duration {
-  DAY_14 = "DAY_14",
-  DAY_30 = "DAY_30",
-  DAY_7 = "DAY_7",
-  HR_24 = "HR_24",
-}
+export const Duration = {
+  DAY_14: "DAY_14",
+  DAY_30: "DAY_30",
+  DAY_7: "DAY_7",
+  HR_24: "HR_24",
+} as const;
 
 /**
  * @public
  */
-export enum RecencyType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export type Duration = (typeof Duration)[keyof typeof Duration];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecencyType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RecencyType = (typeof RecencyType)[keyof typeof RecencyType];
 
 /**
  * @public
@@ -423,11 +459,17 @@ export interface SimpleCondition {
 
 /**
  * @public
+ * @enum
  */
-export enum Operator {
-  ALL = "ALL",
-  ANY = "ANY",
-}
+export const Operator = {
+  ALL: "ALL",
+  ANY: "ANY",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * @public
@@ -700,11 +742,17 @@ export interface RandomSplitActivity {
 
 /**
  * @public
+ * @enum
  */
-export enum MessageType {
-  PROMOTIONAL = "PROMOTIONAL",
-  TRANSACTIONAL = "TRANSACTIONAL",
-}
+export const MessageType = {
+  PROMOTIONAL: "PROMOTIONAL",
+  TRANSACTIONAL: "TRANSACTIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * @public
@@ -842,22 +890,28 @@ export interface Activity {
 
 /**
  * @public
+ * @enum
  */
-export enum ChannelType {
-  ADM = "ADM",
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  APNS_VOIP = "APNS_VOIP",
-  APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX",
-  BAIDU = "BAIDU",
-  CUSTOM = "CUSTOM",
-  EMAIL = "EMAIL",
-  GCM = "GCM",
-  IN_APP = "IN_APP",
-  PUSH = "PUSH",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+export const ChannelType = {
+  ADM: "ADM",
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  APNS_VOIP: "APNS_VOIP",
+  APNS_VOIP_SANDBOX: "APNS_VOIP_SANDBOX",
+  BAIDU: "BAIDU",
+  CUSTOM: "CUSTOM",
+  EMAIL: "EMAIL",
+  GCM: "GCM",
+  IN_APP: "IN_APP",
+  PUSH: "PUSH",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
  * @public
@@ -1060,12 +1114,18 @@ export interface ADMMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum Alignment {
-  CENTER = "CENTER",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-}
+export const Alignment = {
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type Alignment = (typeof Alignment)[keyof typeof Alignment];
 
 /**
  * @public
@@ -1820,11 +1880,17 @@ export interface ApplicationResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Mode {
-  DELIVERY = "DELIVERY",
-  FILTER = "FILTER",
-}
+export const Mode = {
+  DELIVERY: "DELIVERY",
+  FILTER: "FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
 
 /**
  * @public
@@ -2153,12 +2219,18 @@ export interface BaiduMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum ButtonAction {
-  CLOSE = "CLOSE",
-  DEEP_LINK = "DEEP_LINK",
-  LINK = "LINK",
-}
+export const ButtonAction = {
+  CLOSE: "CLOSE",
+  DEEP_LINK: "DEEP_LINK",
+  LINK: "LINK",
+} as const;
+
+/**
+ * @public
+ */
+export type ButtonAction = (typeof ButtonAction)[keyof typeof ButtonAction];
 
 /**
  * @public
@@ -2240,11 +2312,17 @@ export interface CampaignEmailMessage {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterType {
-  ENDPOINT = "ENDPOINT",
-  SYSTEM = "SYSTEM",
-}
+export const FilterType = {
+  ENDPOINT: "ENDPOINT",
+  SYSTEM: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
 /**
  * @public
@@ -2420,15 +2498,21 @@ export interface InAppMessageContent {
 
 /**
  * @public
+ * @enum
  */
-export enum Layout {
-  BOTTOM_BANNER = "BOTTOM_BANNER",
-  CAROUSEL = "CAROUSEL",
-  MIDDLE_BANNER = "MIDDLE_BANNER",
-  MOBILE_FEED = "MOBILE_FEED",
-  OVERLAYS = "OVERLAYS",
-  TOP_BANNER = "TOP_BANNER",
-}
+export const Layout = {
+  BOTTOM_BANNER: "BOTTOM_BANNER",
+  CAROUSEL: "CAROUSEL",
+  MIDDLE_BANNER: "MIDDLE_BANNER",
+  MOBILE_FEED: "MOBILE_FEED",
+  OVERLAYS: "OVERLAYS",
+  TOP_BANNER: "TOP_BANNER",
+} as const;
+
+/**
+ * @public
+ */
+export type Layout = (typeof Layout)[keyof typeof Layout];
 
 /**
  * @public
@@ -2627,16 +2711,22 @@ export interface MessageConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum Frequency {
-  DAILY = "DAILY",
-  EVENT = "EVENT",
-  HOURLY = "HOURLY",
-  IN_APP_EVENT = "IN_APP_EVENT",
-  MONTHLY = "MONTHLY",
-  ONCE = "ONCE",
-  WEEKLY = "WEEKLY",
-}
+export const Frequency = {
+  DAILY: "DAILY",
+  EVENT: "EVENT",
+  HOURLY: "HOURLY",
+  IN_APP_EVENT: "IN_APP_EVENT",
+  MONTHLY: "MONTHLY",
+  ONCE: "ONCE",
+  WEEKLY: "WEEKLY",
+} as const;
+
+/**
+ * @public
+ */
+export type Frequency = (typeof Frequency)[keyof typeof Frequency];
 
 /**
  * @public
@@ -2684,16 +2774,22 @@ export interface Schedule {
 
 /**
  * @public
+ * @enum
  */
-export enum CampaignStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  EXECUTING = "EXECUTING",
-  INVALID = "INVALID",
-  PAUSED = "PAUSED",
-  PENDING_NEXT_RUN = "PENDING_NEXT_RUN",
-  SCHEDULED = "SCHEDULED",
-}
+export const CampaignStatus = {
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  EXECUTING: "EXECUTING",
+  INVALID: "INVALID",
+  PAUSED: "PAUSED",
+  PENDING_NEXT_RUN: "PENDING_NEXT_RUN",
+  SCHEDULED: "SCHEDULED",
+} as const;
+
+/**
+ * @public
+ */
+export type CampaignStatus = (typeof CampaignStatus)[keyof typeof CampaignStatus];
 
 /**
  * @public
@@ -3626,18 +3722,24 @@ export interface ExportJobResource {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETING = "COMPLETING",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  FAILING = "FAILING",
-  INITIALIZING = "INITIALIZING",
-  PENDING_JOB = "PENDING_JOB",
-  PREPARING_FOR_INITIALIZATION = "PREPARING_FOR_INITIALIZATION",
-  PROCESSING = "PROCESSING",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETING: "COMPLETING",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  FAILING: "FAILING",
+  INITIALIZING: "INITIALIZING",
+  PENDING_JOB: "PENDING_JOB",
+  PREPARING_FOR_INITIALIZATION: "PREPARING_FOR_INITIALIZATION",
+  PROCESSING: "PROCESSING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -3722,11 +3824,17 @@ export interface CreateExportJobResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Format {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const Format = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type Format = (typeof Format)[keyof typeof Format];
 
 /**
  * @public
@@ -4037,16 +4145,22 @@ export interface JourneyLimits {
 
 /**
  * @public
+ * @enum
  */
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * @public
@@ -4173,15 +4287,21 @@ export interface StartCondition {
 
 /**
  * @public
+ * @enum
  */
-export enum State {
-  ACTIVE = "ACTIVE",
-  CANCELLED = "CANCELLED",
-  CLOSED = "CLOSED",
-  COMPLETED = "COMPLETED",
-  DRAFT = "DRAFT",
-  PAUSED = "PAUSED",
-}
+export const State = {
+  ACTIVE: "ACTIVE",
+  CANCELLED: "CANCELLED",
+  CLOSED: "CLOSED",
+  COMPLETED: "COMPLETED",
+  DRAFT: "DRAFT",
+  PAUSED: "PAUSED",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
 
 /**
  * @public
@@ -4677,21 +4797,33 @@ export interface SegmentReference {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE",
-}
+export const SourceType = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum Type {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE",
-}
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public
@@ -4721,12 +4853,18 @@ export interface SegmentGroup {
 
 /**
  * @public
+ * @enum
  */
-export enum Include {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE",
-}
+export const Include = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Include = (typeof Include)[keyof typeof Include];
 
 /**
  * @public
@@ -4823,11 +4961,17 @@ export interface SegmentImportResource {
 
 /**
  * @public
+ * @enum
  */
-export enum SegmentType {
-  DIMENSIONAL = "DIMENSIONAL",
-  IMPORT = "IMPORT",
-}
+export const SegmentType = {
+  DIMENSIONAL: "DIMENSIONAL",
+  IMPORT: "IMPORT",
+} as const;
+
+/**
+ * @public
+ */
+export type SegmentType = (typeof SegmentType)[keyof typeof SegmentType];
 
 /**
  * @public
@@ -6109,16 +6253,22 @@ export interface DeleteVoiceTemplateResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliveryStatus {
-  DUPLICATE = "DUPLICATE",
-  OPT_OUT = "OPT_OUT",
-  PERMANENT_FAILURE = "PERMANENT_FAILURE",
-  SUCCESSFUL = "SUCCESSFUL",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-  THROTTLED = "THROTTLED",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE",
-}
+export const DeliveryStatus = {
+  DUPLICATE: "DUPLICATE",
+  OPT_OUT: "OPT_OUT",
+  PERMANENT_FAILURE: "PERMANENT_FAILURE",
+  SUCCESSFUL: "SUCCESSFUL",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+  THROTTLED: "THROTTLED",
+  UNKNOWN_FAILURE: "UNKNOWN_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryStatus = (typeof DeliveryStatus)[keyof typeof DeliveryStatus];
 
 /**
  * @public
@@ -6466,14 +6616,20 @@ export interface EmailChannelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TemplateType {
-  EMAIL = "EMAIL",
-  INAPP = "INAPP",
-  PUSH = "PUSH",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+export const TemplateType = {
+  EMAIL: "EMAIL",
+  INAPP: "INAPP",
+  PUSH: "PUSH",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
 
 /**
  * @public

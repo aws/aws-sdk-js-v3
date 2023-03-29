@@ -40,10 +40,16 @@ export interface UpdateFleetPortSettingsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum GameServerHealthCheck {
-  HEALTHY = "HEALTHY",
-}
+export const GameServerHealthCheck = {
+  HEALTHY: "HEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type GameServerHealthCheck = (typeof GameServerHealthCheck)[keyof typeof GameServerHealthCheck];
 
 /**
  * @public

@@ -316,13 +316,19 @@ export interface ListComponentsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TokenProviders {
+export const TokenProviders = {
   /**
    * The figma token provider.
    */
-  FIGMA = "figma",
-}
+  FIGMA: "figma",
+} as const;
+
+/**
+ * @public
+ */
+export type TokenProviders = (typeof TokenProviders)[keyof typeof TokenProviders];
 
 /**
  * @public
@@ -378,10 +384,16 @@ export interface ExchangeCodeForTokenResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FixedPosition {
-  FIRST = "first",
-}
+export const FixedPosition = {
+  FIRST: "first",
+} as const;
+
+/**
+ * @public
+ */
+export type FixedPosition = (typeof FixedPosition)[keyof typeof FixedPosition];
 
 /**
  * @public
@@ -472,12 +484,18 @@ export interface FormButton {
 
 /**
  * @public
+ * @enum
  */
-export enum FormButtonsPosition {
-  BOTTOM = "bottom",
-  TOP = "top",
-  TOP_AND_BOTTOM = "top_and_bottom",
-}
+export const FormButtonsPosition = {
+  BOTTOM: "bottom",
+  TOP: "top",
+  TOP_AND_BOTTOM: "top_and_bottom",
+} as const;
+
+/**
+ * @public
+ */
+export type FormButtonsPosition = (typeof FormButtonsPosition)[keyof typeof FormButtonsPosition];
 
 /**
  * @public
@@ -507,17 +525,23 @@ export interface FormCTA {
 
 /**
  * @public
+ * @enum
  */
-export enum FormDataSourceType {
+export const FormDataSourceType = {
   /**
    * Will use passed in hooks to use when creating a form from scratch
    */
-  CUSTOM = "Custom",
+  CUSTOM: "Custom",
   /**
    * Will use a provided Amplify DataStore enabled API
    */
-  DATASTORE = "DataStore",
-}
+  DATASTORE: "DataStore",
+} as const;
+
+/**
+ * @public
+ */
+export type FormDataSourceType = (typeof FormDataSourceType)[keyof typeof FormDataSourceType];
 
 /**
  * @public
@@ -717,11 +741,17 @@ export interface FieldConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum FormActionType {
-  CREATE = "create",
-  UPDATE = "update",
-}
+export const FormActionType = {
+  CREATE: "create",
+  UPDATE: "update",
+} as const;
+
+/**
+ * @public
+ */
+export type FormActionType = (typeof FormActionType)[keyof typeof FormActionType];
 
 /**
  * @public

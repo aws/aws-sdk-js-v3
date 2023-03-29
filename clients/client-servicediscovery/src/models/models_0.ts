@@ -368,13 +368,19 @@ export interface CreatePublicDnsNamespaceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordType {
-  A = "A",
-  AAAA = "AAAA",
-  CNAME = "CNAME",
-  SRV = "SRV",
-}
+export const RecordType = {
+  A: "A",
+  AAAA: "AAAA",
+  CNAME: "CNAME",
+  SRV: "SRV",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordType = (typeof RecordType)[keyof typeof RecordType];
 
 /**
  * @public
@@ -538,11 +544,17 @@ export interface DnsRecord {
 
 /**
  * @public
+ * @enum
  */
-export enum RoutingPolicy {
-  MULTIVALUE = "MULTIVALUE",
-  WEIGHTED = "WEIGHTED",
-}
+export const RoutingPolicy = {
+  MULTIVALUE: "MULTIVALUE",
+  WEIGHTED: "WEIGHTED",
+} as const;
+
+/**
+ * @public
+ */
+export type RoutingPolicy = (typeof RoutingPolicy)[keyof typeof RoutingPolicy];
 
 /**
  * @public
@@ -616,12 +628,18 @@ export interface DnsConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthCheckType {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-}
+export const HealthCheckType = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthCheckType = (typeof HealthCheckType)[keyof typeof HealthCheckType];
 
 /**
  * @public
@@ -825,10 +843,16 @@ export interface HealthCheckCustomConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceTypeOption {
-  HTTP = "HTTP",
-}
+export const ServiceTypeOption = {
+  HTTP: "HTTP",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceTypeOption = (typeof ServiceTypeOption)[keyof typeof ServiceTypeOption];
 
 /**
  * @public
@@ -929,12 +953,18 @@ export interface CreateServiceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceType {
-  DNS = "DNS",
-  DNS_HTTP = "DNS_HTTP",
-  HTTP = "HTTP",
-}
+export const ServiceType = {
+  DNS: "DNS",
+  DNS_HTTP: "DNS_HTTP",
+  HTTP: "HTTP",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 /**
  * @public
@@ -1127,11 +1157,17 @@ export class CustomHealthNotFound extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomHealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const CustomHealthStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomHealthStatus = (typeof CustomHealthStatus)[keyof typeof CustomHealthStatus];
 
 /**
  * @public
@@ -1265,13 +1301,19 @@ export class InstanceNotFound extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthStatusFilter {
-  ALL = "ALL",
-  HEALTHY = "HEALTHY",
-  HEALTHY_OR_ELSE_ALL = "HEALTHY_OR_ELSE_ALL",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const HealthStatusFilter = {
+  ALL: "ALL",
+  HEALTHY: "HEALTHY",
+  HEALTHY_OR_ELSE_ALL: "HEALTHY_OR_ELSE_ALL",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthStatusFilter = (typeof HealthStatusFilter)[keyof typeof HealthStatusFilter];
 
 /**
  * @public
@@ -1342,12 +1384,18 @@ export interface DiscoverInstancesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
+export const HealthStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
 
 /**
  * @public
@@ -1458,13 +1506,19 @@ export interface DnsProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterCondition {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  EQ = "EQ",
-  IN = "IN",
-}
+export const FilterCondition = {
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  EQ: "EQ",
+  IN: "IN",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterCondition = (typeof FilterCondition)[keyof typeof FilterCondition];
 
 /**
  * @public
@@ -1732,12 +1786,18 @@ export interface NamespaceProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum NamespaceType {
-  DNS_PRIVATE = "DNS_PRIVATE",
-  DNS_PUBLIC = "DNS_PUBLIC",
-  HTTP = "HTTP",
-}
+export const NamespaceType = {
+  DNS_PRIVATE: "DNS_PRIVATE",
+  DNS_PUBLIC: "DNS_PUBLIC",
+  HTTP: "HTTP",
+} as const;
+
+/**
+ * @public
+ */
+export type NamespaceType = (typeof NamespaceType)[keyof typeof NamespaceType];
 
 /**
  * @public
@@ -1834,34 +1894,52 @@ export interface GetOperationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationStatus {
-  FAIL = "FAIL",
-  PENDING = "PENDING",
-  SUBMITTED = "SUBMITTED",
-  SUCCESS = "SUCCESS",
-}
+export const OperationStatus = {
+  FAIL: "FAIL",
+  PENDING: "PENDING",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
  * @public
  */
-export enum OperationTargetType {
-  INSTANCE = "INSTANCE",
-  NAMESPACE = "NAMESPACE",
-  SERVICE = "SERVICE",
-}
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationTargetType = {
+  INSTANCE: "INSTANCE",
+  NAMESPACE: "NAMESPACE",
+  SERVICE: "SERVICE",
+} as const;
 
 /**
  * @public
  */
-export enum OperationType {
-  CREATE_NAMESPACE = "CREATE_NAMESPACE",
-  DELETE_NAMESPACE = "DELETE_NAMESPACE",
-  DEREGISTER_INSTANCE = "DEREGISTER_INSTANCE",
-  REGISTER_INSTANCE = "REGISTER_INSTANCE",
-  UPDATE_NAMESPACE = "UPDATE_NAMESPACE",
-  UPDATE_SERVICE = "UPDATE_SERVICE",
-}
+export type OperationTargetType = (typeof OperationTargetType)[keyof typeof OperationTargetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationType = {
+  CREATE_NAMESPACE: "CREATE_NAMESPACE",
+  DELETE_NAMESPACE: "DELETE_NAMESPACE",
+  DEREGISTER_INSTANCE: "DEREGISTER_INSTANCE",
+  REGISTER_INSTANCE: "REGISTER_INSTANCE",
+  UPDATE_NAMESPACE: "UPDATE_NAMESPACE",
+  UPDATE_SERVICE: "UPDATE_SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 /**
  * @public
@@ -2163,12 +2241,18 @@ export interface ListInstancesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NamespaceFilterName {
-  HTTP_NAME = "HTTP_NAME",
-  NAME = "NAME",
-  TYPE = "TYPE",
-}
+export const NamespaceFilterName = {
+  HTTP_NAME: "HTTP_NAME",
+  NAME: "NAME",
+  TYPE: "TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type NamespaceFilterName = (typeof NamespaceFilterName)[keyof typeof NamespaceFilterName];
 
 /**
  * @public
@@ -2346,14 +2430,20 @@ export interface ListNamespacesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationFilterName {
-  NAMESPACE_ID = "NAMESPACE_ID",
-  SERVICE_ID = "SERVICE_ID",
-  STATUS = "STATUS",
-  TYPE = "TYPE",
-  UPDATE_DATE = "UPDATE_DATE",
-}
+export const OperationFilterName = {
+  NAMESPACE_ID: "NAMESPACE_ID",
+  SERVICE_ID: "SERVICE_ID",
+  STATUS: "STATUS",
+  TYPE: "TYPE",
+  UPDATE_DATE: "UPDATE_DATE",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationFilterName = (typeof OperationFilterName)[keyof typeof OperationFilterName];
 
 /**
  * @public
@@ -2550,10 +2640,16 @@ export interface ListOperationsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceFilterName {
-  NAMESPACE_ID = "NAMESPACE_ID",
-}
+export const ServiceFilterName = {
+  NAMESPACE_ID: "NAMESPACE_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceFilterName = (typeof ServiceFilterName)[keyof typeof ServiceFilterName];
 
 /**
  * @public

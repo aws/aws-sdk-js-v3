@@ -5,11 +5,18 @@ import { CognitoIdentityServiceException as __BaseException } from "./CognitoIde
 
 /**
  * @public
+ * @enum
  */
-export enum AmbiguousRoleResolutionType {
-  AUTHENTICATED_ROLE = "AuthenticatedRole",
-  DENY = "Deny",
-}
+export const AmbiguousRoleResolutionType = {
+  AUTHENTICATED_ROLE: "AuthenticatedRole",
+  DENY: "Deny",
+} as const;
+
+/**
+ * @public
+ */
+export type AmbiguousRoleResolutionType =
+  (typeof AmbiguousRoleResolutionType)[keyof typeof AmbiguousRoleResolutionType];
 
 /**
  * @public
@@ -295,11 +302,17 @@ export interface DeleteIdentitiesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  INTERNAL_SERVER_ERROR = "InternalServerError",
-}
+export const ErrorCode = {
+  ACCESS_DENIED: "AccessDenied",
+  INTERNAL_SERVER_ERROR: "InternalServerError",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * @public
@@ -602,13 +615,19 @@ export interface GetIdentityPoolRolesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum MappingRuleMatchType {
-  CONTAINS = "Contains",
-  EQUALS = "Equals",
-  NOT_EQUAL = "NotEqual",
-  STARTS_WITH = "StartsWith",
-}
+export const MappingRuleMatchType = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  NOT_EQUAL: "NotEqual",
+  STARTS_WITH: "StartsWith",
+} as const;
+
+/**
+ * @public
+ */
+export type MappingRuleMatchType = (typeof MappingRuleMatchType)[keyof typeof MappingRuleMatchType];
 
 /**
  * @public
@@ -653,11 +672,17 @@ export interface RulesConfigurationType {
 
 /**
  * @public
+ * @enum
  */
-export enum RoleMappingType {
-  RULES = "Rules",
-  TOKEN = "Token",
-}
+export const RoleMappingType = {
+  RULES: "Rules",
+  TOKEN: "Token",
+} as const;
+
+/**
+ * @public
+ */
+export type RoleMappingType = (typeof RoleMappingType)[keyof typeof RoleMappingType];
 
 /**
  * @public

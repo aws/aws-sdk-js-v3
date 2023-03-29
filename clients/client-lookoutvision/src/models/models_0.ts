@@ -66,14 +66,20 @@ export interface Anomaly {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  DATASET = "DATASET",
-  MODEL = "MODEL",
-  MODEL_PACKAGE_JOB = "MODEL_PACKAGE_JOB",
-  PROJECT = "PROJECT",
-  TRIAL = "TRIAL",
-}
+export const ResourceType = {
+  DATASET: "DATASET",
+  MODEL: "MODEL",
+  MODEL_PACKAGE_JOB: "MODEL_PACKAGE_JOB",
+  PROJECT: "PROJECT",
+  TRIAL: "TRIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -198,19 +204,25 @@ export interface CreateDatasetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED_ROLLBACK_COMPLETE = "UPDATE_FAILED_ROLLBACK_COMPLETE",
-  UPDATE_FAILED_ROLLBACK_IN_PROGRESS = "UPDATE_FAILED_ROLLBACK_IN_PROGRESS",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const DatasetStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED_ROLLBACK_COMPLETE: "UPDATE_FAILED_ROLLBACK_COMPLETE",
+  UPDATE_FAILED_ROLLBACK_IN_PROGRESS: "UPDATE_FAILED_ROLLBACK_IN_PROGRESS",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
 
 /**
  * @public
@@ -533,18 +545,24 @@ export interface ModelPerformance {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelStatus {
-  DELETING = "DELETING",
-  HOSTED = "HOSTED",
-  HOSTING_FAILED = "HOSTING_FAILED",
-  STARTING_HOSTING = "STARTING_HOSTING",
-  STOPPING_HOSTING = "STOPPING_HOSTING",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING",
-  TRAINED = "TRAINED",
-  TRAINING = "TRAINING",
-  TRAINING_FAILED = "TRAINING_FAILED",
-}
+export const ModelStatus = {
+  DELETING: "DELETING",
+  HOSTED: "HOSTED",
+  HOSTING_FAILED: "HOSTING_FAILED",
+  STARTING_HOSTING: "STARTING_HOSTING",
+  STOPPING_HOSTING: "STOPPING_HOSTING",
+  SYSTEM_UPDATING: "SYSTEM_UPDATING",
+  TRAINED: "TRAINED",
+  TRAINING: "TRAINING",
+  TRAINING_FAILED: "TRAINING_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
 
 /**
  * @public
@@ -1004,32 +1022,56 @@ export interface DescribeModelPackagingJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetDevice {
-  JETSON_XAVIER = "jetson_xavier",
-}
+export const TargetDevice = {
+  JETSON_XAVIER: "jetson_xavier",
+} as const;
 
 /**
  * @public
  */
-export enum TargetPlatformAccelerator {
-  NVIDIA = "NVIDIA",
-}
+export type TargetDevice = (typeof TargetDevice)[keyof typeof TargetDevice];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformAccelerator = {
+  NVIDIA: "NVIDIA",
+} as const;
 
 /**
  * @public
  */
-export enum TargetPlatformArch {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
+export type TargetPlatformAccelerator = (typeof TargetPlatformAccelerator)[keyof typeof TargetPlatformAccelerator];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformArch = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+} as const;
 
 /**
  * @public
  */
-export enum TargetPlatformOs {
-  LINUX = "LINUX",
-}
+export type TargetPlatformArch = (typeof TargetPlatformArch)[keyof typeof TargetPlatformArch];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetPlatformOs = {
+  LINUX: "LINUX",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetPlatformOs = (typeof TargetPlatformOs)[keyof typeof TargetPlatformOs];
 
 /**
  * @public
@@ -1208,13 +1250,19 @@ export interface ModelPackagingOutputDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelPackagingJobStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ModelPackagingJobStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelPackagingJobStatus = (typeof ModelPackagingJobStatus)[keyof typeof ModelPackagingJobStatus];
 
 /**
  * @public
@@ -1785,14 +1833,20 @@ export interface StartModelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelHostingStatus {
-  HOSTED = "HOSTED",
-  HOSTING_FAILED = "HOSTING_FAILED",
-  STARTING_HOSTING = "STARTING_HOSTING",
-  STOPPING_HOSTING = "STOPPING_HOSTING",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING",
-}
+export const ModelHostingStatus = {
+  HOSTED: "HOSTED",
+  HOSTING_FAILED: "HOSTING_FAILED",
+  STARTING_HOSTING: "STARTING_HOSTING",
+  STOPPING_HOSTING: "STOPPING_HOSTING",
+  SYSTEM_UPDATING: "SYSTEM_UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelHostingStatus = (typeof ModelHostingStatus)[keyof typeof ModelHostingStatus];
 
 /**
  * @public

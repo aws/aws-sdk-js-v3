@@ -234,11 +234,17 @@ export class RequestedRangeNotSatisfiableException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ItemType {
-  FOLDER = "FOLDER",
-  OBJECT = "OBJECT",
-}
+export const ItemType = {
+  FOLDER: "FOLDER",
+  OBJECT: "OBJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 /**
  * @public
@@ -330,18 +336,30 @@ export interface ListItemsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum StorageClass {
-  TEMPORAL = "TEMPORAL",
-}
+export const StorageClass = {
+  TEMPORAL: "TEMPORAL",
+} as const;
 
 /**
  * @public
  */
-export enum UploadAvailability {
-  STANDARD = "STANDARD",
-  STREAMING = "STREAMING",
-}
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const UploadAvailability = {
+  STANDARD: "STANDARD",
+  STREAMING: "STREAMING",
+} as const;
+
+/**
+ * @public
+ */
+export type UploadAvailability = (typeof UploadAvailability)[keyof typeof UploadAvailability];
 
 /**
  * @public

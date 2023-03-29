@@ -85,24 +85,30 @@ export interface Action {
 
 /**
  * @public
+ * @enum
  */
-export enum AggFunction {
-  avg = "avg",
-  count = "count",
-  countDistinct = "countDistinct",
-  first = "first",
-  kurtosis = "kurtosis",
-  last = "last",
-  max = "max",
-  min = "min",
-  skewness = "skewness",
-  stddev_pop = "stddev_pop",
-  stddev_samp = "stddev_samp",
-  sum = "sum",
-  sumDistinct = "sumDistinct",
-  var_pop = "var_pop",
-  var_samp = "var_samp",
-}
+export const AggFunction = {
+  avg: "avg",
+  count: "count",
+  countDistinct: "countDistinct",
+  first: "first",
+  kurtosis: "kurtosis",
+  last: "last",
+  max: "max",
+  min: "min",
+  skewness: "skewness",
+  stddev_pop: "stddev_pop",
+  stddev_samp: "stddev_samp",
+  sum: "sum",
+  sumDistinct: "sumDistinct",
+  var_pop: "var_pop",
+  var_samp: "var_samp",
+} as const;
+
+/**
+ * @public
+ */
+export type AggFunction = (typeof AggFunction)[keyof typeof AggFunction];
 
 /**
  * @public
@@ -1005,13 +1011,19 @@ export interface LastActiveDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum BlueprintStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const BlueprintStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type BlueprintStatus = (typeof BlueprintStatus)[keyof typeof BlueprintStatus];
 
 /**
  * @public
@@ -1127,12 +1139,18 @@ export interface LakeFormationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum LastCrawlStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const LastCrawlStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LastCrawlStatus = (typeof LastCrawlStatus)[keyof typeof LastCrawlStatus];
 
 /**
  * @public
@@ -1172,11 +1190,17 @@ export interface LastCrawlInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum CrawlerLineageSettings {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const CrawlerLineageSettings = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type CrawlerLineageSettings = (typeof CrawlerLineageSettings)[keyof typeof CrawlerLineageSettings];
 
 /**
  * @public
@@ -1199,12 +1223,18 @@ export interface LineageConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RecrawlBehavior {
-  CRAWL_EVENT_MODE = "CRAWL_EVENT_MODE",
-  CRAWL_EVERYTHING = "CRAWL_EVERYTHING",
-  CRAWL_NEW_FOLDERS_ONLY = "CRAWL_NEW_FOLDERS_ONLY",
-}
+export const RecrawlBehavior = {
+  CRAWL_EVENT_MODE: "CRAWL_EVENT_MODE",
+  CRAWL_EVERYTHING: "CRAWL_EVERYTHING",
+  CRAWL_NEW_FOLDERS_ONLY: "CRAWL_NEW_FOLDERS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type RecrawlBehavior = (typeof RecrawlBehavior)[keyof typeof RecrawlBehavior];
 
 /**
  * @public
@@ -1222,12 +1252,18 @@ export interface RecrawlPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduleState {
-  NOT_SCHEDULED = "NOT_SCHEDULED",
-  SCHEDULED = "SCHEDULED",
-  TRANSITIONING = "TRANSITIONING",
-}
+export const ScheduleState = {
+  NOT_SCHEDULED: "NOT_SCHEDULED",
+  SCHEDULED: "SCHEDULED",
+  TRANSITIONING: "TRANSITIONING",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
 
 /**
  * @public
@@ -1249,20 +1285,32 @@ export interface Schedule {
 
 /**
  * @public
+ * @enum
  */
-export enum DeleteBehavior {
-  DELETE_FROM_DATABASE = "DELETE_FROM_DATABASE",
-  DEPRECATE_IN_DATABASE = "DEPRECATE_IN_DATABASE",
-  LOG = "LOG",
-}
+export const DeleteBehavior = {
+  DELETE_FROM_DATABASE: "DELETE_FROM_DATABASE",
+  DEPRECATE_IN_DATABASE: "DEPRECATE_IN_DATABASE",
+  LOG: "LOG",
+} as const;
 
 /**
  * @public
  */
-export enum UpdateBehavior {
-  LOG = "LOG",
-  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
-}
+export type DeleteBehavior = (typeof DeleteBehavior)[keyof typeof DeleteBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateBehavior = {
+  LOG: "LOG",
+  UPDATE_IN_DATABASE: "UPDATE_IN_DATABASE",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateBehavior = (typeof UpdateBehavior)[keyof typeof UpdateBehavior];
 
 /**
  * @public
@@ -1282,12 +1330,18 @@ export interface SchemaChangePolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum CrawlerState {
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STOPPING = "STOPPING",
-}
+export const CrawlerState = {
+  READY: "READY",
+  RUNNING: "RUNNING",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type CrawlerState = (typeof CrawlerState)[keyof typeof CrawlerState];
 
 /**
  * @public
@@ -1371,11 +1425,17 @@ export interface DynamoDBTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum JdbcMetadataEntry {
-  COMMENTS = "COMMENTS",
-  RAWTYPES = "RAWTYPES",
-}
+export const JdbcMetadataEntry = {
+  COMMENTS: "COMMENTS",
+  RAWTYPES: "RAWTYPES",
+} as const;
+
+/**
+ * @public
+ */
+export type JdbcMetadataEntry = (typeof JdbcMetadataEntry)[keyof typeof JdbcMetadataEntry];
 
 /**
  * @public
@@ -1740,12 +1800,19 @@ export interface DataSource {
 
 /**
  * @public
+ * @enum
  */
-export enum DataQualityRuleResultStatus {
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-}
+export const DataQualityRuleResultStatus = {
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+
+/**
+ * @public
+ */
+export type DataQualityRuleResultStatus =
+  (typeof DataQualityRuleResultStatus)[keyof typeof DataQualityRuleResultStatus];
 
 /**
  * @public
@@ -1862,13 +1929,19 @@ export interface BatchGetDevEndpointsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkerType {
-  G_025X = "G.025X",
-  G_1X = "G.1X",
-  G_2X = "G.2X",
-  Standard = "Standard",
-}
+export const WorkerType = {
+  G_025X: "G.025X",
+  G_1X: "G.1X",
+  G_2X: "G.2X",
+  Standard: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkerType = (typeof WorkerType)[keyof typeof WorkerType];
 
 /**
  * @public
@@ -2301,12 +2374,18 @@ export interface CatalogKafkaSource {
 
 /**
  * @public
+ * @enum
  */
-export enum StartingPosition {
-  EARLIEST = "earliest",
-  LATEST = "latest",
-  TRIM_HORIZON = "trim_horizon",
-}
+export const StartingPosition = {
+  EARLIEST: "earliest",
+  LATEST: "latest",
+  TRIM_HORIZON: "trim_horizon",
+} as const;
+
+/**
+ * @public
+ */
+export type StartingPosition = (typeof StartingPosition)[keyof typeof StartingPosition];
 
 /**
  * @public
@@ -2535,14 +2614,20 @@ export interface CustomCode {
 
 /**
  * @public
+ * @enum
  */
-export enum JDBCConnectionType {
-  mysql = "mysql",
-  oracle = "oracle",
-  postgresql = "postgresql",
-  redshift = "redshift",
-  sqlserver = "sqlserver",
-}
+export const JDBCConnectionType = {
+  mysql: "mysql",
+  oracle: "oracle",
+  postgresql: "postgresql",
+  redshift: "redshift",
+  sqlserver: "sqlserver",
+} as const;
+
+/**
+ * @public
+ */
+export type JDBCConnectionType = (typeof JDBCConnectionType)[keyof typeof JDBCConnectionType];
 
 /**
  * @public
@@ -2766,16 +2851,22 @@ export interface DropNullFields {
 
 /**
  * @public
+ * @enum
  */
-export enum ParamType {
-  BOOL = "bool",
-  COMPLEX = "complex",
-  FLOAT = "float",
-  INT = "int",
-  LIST = "list",
-  NULL = "null",
-  STR = "str",
-}
+export const ParamType = {
+  BOOL: "bool",
+  COMPLEX: "complex",
+  FLOAT: "float",
+  INT: "int",
+  LIST: "list",
+  NULL: "null",
+  STR: "str",
+} as const;
+
+/**
+ * @public
+ */
+export type ParamType = (typeof ParamType)[keyof typeof ParamType];
 
 /**
  * @public
@@ -2882,11 +2973,17 @@ export interface DynamoDBCatalogSource {
 
 /**
  * @public
+ * @enum
  */
-export enum DQTransformOutput {
-  EvaluationResults = "EvaluationResults",
-  PrimaryInput = "PrimaryInput",
-}
+export const DQTransformOutput = {
+  EvaluationResults: "EvaluationResults",
+  PrimaryInput: "PrimaryInput",
+} as const;
+
+/**
+ * @public
+ */
+export type DQTransformOutput = (typeof DQTransformOutput)[keyof typeof DQTransformOutput];
 
 /**
  * @public
@@ -2916,11 +3013,17 @@ export interface DQResultsPublishingOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum DQStopJobOnFailureTiming {
-  AfterDataLoad = "AfterDataLoad",
-  Immediate = "Immediate",
-}
+export const DQStopJobOnFailureTiming = {
+  AfterDataLoad: "AfterDataLoad",
+  Immediate: "Immediate",
+} as const;
+
+/**
+ * @public
+ */
+export type DQStopJobOnFailureTiming = (typeof DQStopJobOnFailureTiming)[keyof typeof DQStopJobOnFailureTiming];
 
 /**
  * @public
@@ -2997,24 +3100,36 @@ export interface FillMissingValues {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterOperation {
-  EQ = "EQ",
-  GT = "GT",
-  GTE = "GTE",
-  ISNULL = "ISNULL",
-  LT = "LT",
-  LTE = "LTE",
-  REGEX = "REGEX",
-}
+export const FilterOperation = {
+  EQ: "EQ",
+  GT: "GT",
+  GTE: "GTE",
+  ISNULL: "ISNULL",
+  LT: "LT",
+  LTE: "LTE",
+  REGEX: "REGEX",
+} as const;
 
 /**
  * @public
  */
-export enum FilterValueType {
-  COLUMNEXTRACTED = "COLUMNEXTRACTED",
-  CONSTANT = "CONSTANT",
-}
+export type FilterOperation = (typeof FilterOperation)[keyof typeof FilterOperation];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterValueType = {
+  COLUMNEXTRACTED: "COLUMNEXTRACTED",
+  CONSTANT: "CONSTANT",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterValueType = (typeof FilterValueType)[keyof typeof FilterValueType];
 
 /**
  * @public
@@ -3055,11 +3170,17 @@ export interface FilterExpression {
 
 /**
  * @public
+ * @enum
  */
-export enum FilterLogicalOperator {
-  AND = "AND",
-  OR = "OR",
-}
+export const FilterLogicalOperator = {
+  AND: "AND",
+  OR: "OR",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterLogicalOperator = (typeof FilterLogicalOperator)[keyof typeof FilterLogicalOperator];
 
 /**
  * @public
@@ -3136,11 +3257,17 @@ export interface GovernedCatalogSource {
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateCatalogBehavior {
-  LOG = "LOG",
-  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
-}
+export const UpdateCatalogBehavior = {
+  LOG: "LOG",
+  UPDATE_IN_DATABASE: "UPDATE_IN_DATABASE",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateCatalogBehavior = (typeof UpdateCatalogBehavior)[keyof typeof UpdateCatalogBehavior];
 
 /**
  * @public
@@ -3196,64 +3323,76 @@ export interface GovernedCatalogTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum JDBCDataType {
-  ARRAY = "ARRAY",
-  BIGINT = "BIGINT",
-  BINARY = "BINARY",
-  BIT = "BIT",
-  BLOB = "BLOB",
-  BOOLEAN = "BOOLEAN",
-  CHAR = "CHAR",
-  CLOB = "CLOB",
-  DATALINK = "DATALINK",
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  DISTINCT = "DISTINCT",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INTEGER = "INTEGER",
-  JAVA_OBJECT = "JAVA_OBJECT",
-  LONGNVARCHAR = "LONGNVARCHAR",
-  LONGVARBINARY = "LONGVARBINARY",
-  LONGVARCHAR = "LONGVARCHAR",
-  NCHAR = "NCHAR",
-  NCLOB = "NCLOB",
-  NULL = "NULL",
-  NUMERIC = "NUMERIC",
-  NVARCHAR = "NVARCHAR",
-  OTHER = "OTHER",
-  REAL = "REAL",
-  REF = "REF",
-  REF_CURSOR = "REF_CURSOR",
-  ROWID = "ROWID",
-  SMALLINT = "SMALLINT",
-  SQLXML = "SQLXML",
-  STRUCT = "STRUCT",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  TIMESTAMP_WITH_TIMEZONE = "TIMESTAMP_WITH_TIMEZONE",
-  TIME_WITH_TIMEZONE = "TIME_WITH_TIMEZONE",
-  TINYINT = "TINYINT",
-  VARBINARY = "VARBINARY",
-  VARCHAR = "VARCHAR",
-}
+export const JDBCDataType = {
+  ARRAY: "ARRAY",
+  BIGINT: "BIGINT",
+  BINARY: "BINARY",
+  BIT: "BIT",
+  BLOB: "BLOB",
+  BOOLEAN: "BOOLEAN",
+  CHAR: "CHAR",
+  CLOB: "CLOB",
+  DATALINK: "DATALINK",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DISTINCT: "DISTINCT",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INTEGER: "INTEGER",
+  JAVA_OBJECT: "JAVA_OBJECT",
+  LONGNVARCHAR: "LONGNVARCHAR",
+  LONGVARBINARY: "LONGVARBINARY",
+  LONGVARCHAR: "LONGVARCHAR",
+  NCHAR: "NCHAR",
+  NCLOB: "NCLOB",
+  NULL: "NULL",
+  NUMERIC: "NUMERIC",
+  NVARCHAR: "NVARCHAR",
+  OTHER: "OTHER",
+  REAL: "REAL",
+  REF: "REF",
+  REF_CURSOR: "REF_CURSOR",
+  ROWID: "ROWID",
+  SMALLINT: "SMALLINT",
+  SQLXML: "SQLXML",
+  STRUCT: "STRUCT",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  TIMESTAMP_WITH_TIMEZONE: "TIMESTAMP_WITH_TIMEZONE",
+  TIME_WITH_TIMEZONE: "TIME_WITH_TIMEZONE",
+  TINYINT: "TINYINT",
+  VARBINARY: "VARBINARY",
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
  * @public
  */
-export enum GlueRecordType {
-  BIGDECIMAL = "BIGDECIMAL",
-  BYTE = "BYTE",
-  DATE = "DATE",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INT = "INT",
-  LONG = "LONG",
-  SHORT = "SHORT",
-  STRING = "STRING",
-  TIMESTAMP = "TIMESTAMP",
-}
+export type JDBCDataType = (typeof JDBCDataType)[keyof typeof JDBCDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlueRecordType = {
+  BIGDECIMAL: "BIGDECIMAL",
+  BYTE: "BYTE",
+  DATE: "DATE",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INT: "INT",
+  LONG: "LONG",
+  SHORT: "SHORT",
+  STRING: "STRING",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type GlueRecordType = (typeof GlueRecordType)[keyof typeof GlueRecordType];
 
 /**
  * @public
@@ -3415,15 +3554,21 @@ export interface JoinColumn {
 
 /**
  * @public
+ * @enum
  */
-export enum JoinType {
-  EQUIJOIN = "equijoin",
-  LEFT = "left",
-  LEFT_ANTI = "leftanti",
-  LEFT_SEMI = "leftsemi",
-  OUTER = "outer",
-  RIGHT = "right",
-}
+export const JoinType = {
+  EQUIJOIN: "equijoin",
+  LEFT: "left",
+  LEFT_ANTI: "leftanti",
+  LEFT_SEMI: "leftsemi",
+  OUTER: "outer",
+  RIGHT: "right",
+} as const;
+
+/**
+ * @public
+ */
+export type JoinType = (typeof JoinType)[keyof typeof JoinType];
 
 /**
  * @public
@@ -3620,13 +3765,19 @@ export interface OracleSQLCatalogTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum PiiType {
-  ColumnAudit = "ColumnAudit",
-  ColumnMasking = "ColumnMasking",
-  RowAudit = "RowAudit",
-  RowMasking = "RowMasking",
-}
+export const PiiType = {
+  ColumnAudit: "ColumnAudit",
+  ColumnMasking: "ColumnMasking",
+  RowAudit: "RowAudit",
+  RowMasking: "RowMasking",
+} as const;
+
+/**
+ * @public
+ */
+export type PiiType = (typeof PiiType)[keyof typeof PiiType];
 
 /**
  * @public
@@ -4023,32 +4174,50 @@ export interface S3DirectSourceAdditionalOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum CompressionType {
-  BZIP2 = "bzip2",
-  GZIP = "gzip",
-}
+export const CompressionType = {
+  BZIP2: "bzip2",
+  GZIP: "gzip",
+} as const;
 
 /**
  * @public
  */
-export enum QuoteChar {
-  DISABLED = "disabled",
-  QUILLEMET = "quillemet",
-  QUOTE = "quote",
-  SINGLE_QUOTE = "single_quote",
-}
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuoteChar = {
+  DISABLED: "disabled",
+  QUILLEMET: "quillemet",
+  QUOTE: "quote",
+  SINGLE_QUOTE: "single_quote",
+} as const;
 
 /**
  * @public
  */
-export enum Separator {
-  COMMA = "comma",
-  CTRLA = "ctrla",
-  PIPE = "pipe",
-  SEMICOLON = "semicolon",
-  TAB = "tab",
-}
+export type QuoteChar = (typeof QuoteChar)[keyof typeof QuoteChar];
+
+/**
+ * @public
+ * @enum
+ */
+export const Separator = {
+  COMMA: "comma",
+  CTRLA: "ctrla",
+  PIPE: "pipe",
+  SEMICOLON: "semicolon",
+  TAB: "tab",
+} as const;
+
+/**
+ * @public
+ */
+export type Separator = (typeof Separator)[keyof typeof Separator];
 
 /**
  * @public
@@ -4194,24 +4363,36 @@ export interface S3DeltaCatalogTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum DeltaTargetCompressionType {
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
+export const DeltaTargetCompressionType = {
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+} as const;
 
 /**
  * @public
  */
-export enum TargetFormat {
-  AVRO = "avro",
-  CSV = "csv",
-  DELTA = "delta",
-  HUDI = "hudi",
-  JSON = "json",
-  ORC = "orc",
-  PARQUET = "parquet",
-}
+export type DeltaTargetCompressionType = (typeof DeltaTargetCompressionType)[keyof typeof DeltaTargetCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetFormat = {
+  AVRO: "avro",
+  CSV: "csv",
+  DELTA: "delta",
+  HUDI: "hudi",
+  JSON: "json",
+  ORC: "orc",
+  PARQUET: "parquet",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetFormat = (typeof TargetFormat)[keyof typeof TargetFormat];
 
 /**
  * @public
@@ -4359,14 +4540,20 @@ export interface S3DirectTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum ParquetCompressionType {
-  GZIP = "gzip",
-  LZO = "lzo",
-  NONE = "none",
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
+export const ParquetCompressionType = {
+  GZIP: "gzip",
+  LZO: "lzo",
+  NONE: "none",
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+} as const;
+
+/**
+ * @public
+ */
+export type ParquetCompressionType = (typeof ParquetCompressionType)[keyof typeof ParquetCompressionType];
 
 /**
  * @public
@@ -4447,13 +4634,19 @@ export interface S3HudiCatalogTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum HudiTargetCompressionType {
-  GZIP = "gzip",
-  LZO = "lzo",
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
+export const HudiTargetCompressionType = {
+  GZIP: "gzip",
+  LZO: "lzo",
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+} as const;
+
+/**
+ * @public
+ */
+export type HudiTargetCompressionType = (typeof HudiTargetCompressionType)[keyof typeof HudiTargetCompressionType];
 
 /**
  * @public
@@ -4890,11 +5083,17 @@ export interface SplitFields {
 
 /**
  * @public
+ * @enum
  */
-export enum UnionType {
-  ALL = "ALL",
-  DISTINCT = "DISTINCT",
-}
+export const UnionType = {
+  ALL: "ALL",
+  DISTINCT: "DISTINCT",
+} as const;
+
+/**
+ * @public
+ */
+export type UnionType = (typeof UnionType)[keyof typeof UnionType];
 
 /**
  * @public
@@ -4956,11 +5155,17 @@ export interface ConnectionsList {
 
 /**
  * @public
+ * @enum
  */
-export enum ExecutionClass {
-  FLEX = "FLEX",
-  STANDARD = "STANDARD",
-}
+export const ExecutionClass = {
+  FLEX: "FLEX",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionClass = (typeof ExecutionClass)[keyof typeof ExecutionClass];
 
 /**
  * @public
@@ -4977,19 +5182,31 @@ export interface ExecutionProperty {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceControlAuthStrategy {
-  AWS_SECRETS_MANAGER = "AWS_SECRETS_MANAGER",
-  PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
-}
+export const SourceControlAuthStrategy = {
+  AWS_SECRETS_MANAGER: "AWS_SECRETS_MANAGER",
+  PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
+} as const;
 
 /**
  * @public
  */
-export enum SourceControlProvider {
-  AWS_CODE_COMMIT = "AWS_CODE_COMMIT",
-  GITHUB = "GITHUB",
-}
+export type SourceControlAuthStrategy = (typeof SourceControlAuthStrategy)[keyof typeof SourceControlAuthStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceControlProvider = {
+  AWS_CODE_COMMIT: "AWS_CODE_COMMIT",
+  GITHUB: "GITHUB",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceControlProvider = (typeof SourceControlProvider)[keyof typeof SourceControlProvider];
 
 /**
  * @public
@@ -5186,37 +5403,55 @@ export interface EventBatchingCondition {
 
 /**
  * @public
+ * @enum
  */
-export enum CrawlState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const CrawlState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
  * @public
  */
-export enum LogicalOperator {
-  EQUALS = "EQUALS",
-}
+export type CrawlState = (typeof CrawlState)[keyof typeof CrawlState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogicalOperator = {
+  EQUALS: "EQUALS",
+} as const;
 
 /**
  * @public
  */
-export enum JobRunState {
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
-  WAITING = "WAITING",
-}
+export type LogicalOperator = (typeof LogicalOperator)[keyof typeof LogicalOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobRunState = {
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
 
 /**
  * @public
@@ -5252,11 +5487,17 @@ export interface Condition {
 
 /**
  * @public
+ * @enum
  */
-export enum Logical {
-  AND = "AND",
-  ANY = "ANY",
-}
+export const Logical = {
+  AND: "AND",
+  ANY: "ANY",
+} as const;
+
+/**
+ * @public
+ */
+export type Logical = (typeof Logical)[keyof typeof Logical];
 
 /**
  * @public
@@ -5277,27 +5518,39 @@ export interface Predicate {
 
 /**
  * @public
+ * @enum
  */
-export enum TriggerState {
-  ACTIVATED = "ACTIVATED",
-  ACTIVATING = "ACTIVATING",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DEACTIVATED = "DEACTIVATED",
-  DEACTIVATING = "DEACTIVATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const TriggerState = {
+  ACTIVATED: "ACTIVATED",
+  ACTIVATING: "ACTIVATING",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DEACTIVATED: "DEACTIVATED",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum TriggerType {
-  CONDITIONAL = "CONDITIONAL",
-  EVENT = "EVENT",
-  ON_DEMAND = "ON_DEMAND",
-  SCHEDULED = "SCHEDULED",
-}
+export type TriggerState = (typeof TriggerState)[keyof typeof TriggerState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerType = {
+  CONDITIONAL: "CONDITIONAL",
+  EVENT: "EVENT",
+  ON_DEMAND: "ON_DEMAND",
+  SCHEDULED: "SCHEDULED",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 /**
  * @public
@@ -5689,12 +5942,18 @@ export interface TriggerNodeDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum NodeType {
-  CRAWLER = "CRAWLER",
-  JOB = "JOB",
-  TRIGGER = "TRIGGER",
-}
+export const NodeType = {
+  CRAWLER: "CRAWLER",
+  JOB: "JOB",
+  TRIGGER: "TRIGGER",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
 
 /**
  * @public
@@ -5815,14 +6074,20 @@ export interface WorkflowRunStatistics {
 
 /**
  * @public
+ * @enum
  */
-export enum WorkflowRunStatus {
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const WorkflowRunStatus = {
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus];
 
 /**
  * @public
@@ -6144,16 +6409,22 @@ export interface CancelMLTaskRunRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TaskStatusType {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
-}
+export const TaskStatusType = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStatusType = (typeof TaskStatusType)[keyof typeof TaskStatusType];
 
 /**
  * @public
@@ -6227,12 +6498,18 @@ export class IllegalSessionStateException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DataFormat {
-  AVRO = "AVRO",
-  JSON = "JSON",
-  PROTOBUF = "PROTOBUF",
-}
+export const DataFormat = {
+  AVRO: "AVRO",
+  JSON: "JSON",
+  PROTOBUF: "PROTOBUF",
+} as const;
+
+/**
+ * @public
+ */
+export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
 
 /**
  * @public
@@ -6301,12 +6578,18 @@ export interface CreateBlueprintResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CsvHeaderOption {
-  ABSENT = "ABSENT",
-  PRESENT = "PRESENT",
-  UNKNOWN = "UNKNOWN",
-}
+export const CsvHeaderOption = {
+  ABSENT: "ABSENT",
+  PRESENT: "PRESENT",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type CsvHeaderOption = (typeof CsvHeaderOption)[keyof typeof CsvHeaderOption];
 
 /**
  * @public
@@ -6465,52 +6748,64 @@ export interface CreateClassifierResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionPropertyKey {
-  CONFIG_FILES = "CONFIG_FILES",
-  CONNECTION_URL = "CONNECTION_URL",
-  CONNECTOR_CLASS_NAME = "CONNECTOR_CLASS_NAME",
-  CONNECTOR_TYPE = "CONNECTOR_TYPE",
-  CONNECTOR_URL = "CONNECTOR_URL",
-  CUSTOM_JDBC_CERT = "CUSTOM_JDBC_CERT",
-  CUSTOM_JDBC_CERT_STRING = "CUSTOM_JDBC_CERT_STRING",
-  ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD = "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
-  ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD = "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
-  ENCRYPTED_PASSWORD = "ENCRYPTED_PASSWORD",
-  HOST = "HOST",
-  INSTANCE_ID = "INSTANCE_ID",
-  JDBC_CONNECTION_URL = "JDBC_CONNECTION_URL",
-  JDBC_DRIVER_CLASS_NAME = "JDBC_DRIVER_CLASS_NAME",
-  JDBC_DRIVER_JAR_URI = "JDBC_DRIVER_JAR_URI",
-  JDBC_ENFORCE_SSL = "JDBC_ENFORCE_SSL",
-  JDBC_ENGINE = "JDBC_ENGINE",
-  JDBC_ENGINE_VERSION = "JDBC_ENGINE_VERSION",
-  KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
-  KAFKA_CLIENT_KEYSTORE = "KAFKA_CLIENT_KEYSTORE",
-  KAFKA_CLIENT_KEYSTORE_PASSWORD = "KAFKA_CLIENT_KEYSTORE_PASSWORD",
-  KAFKA_CLIENT_KEY_PASSWORD = "KAFKA_CLIENT_KEY_PASSWORD",
-  KAFKA_CUSTOM_CERT = "KAFKA_CUSTOM_CERT",
-  KAFKA_SKIP_CUSTOM_CERT_VALIDATION = "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
-  KAFKA_SSL_ENABLED = "KAFKA_SSL_ENABLED",
-  PASSWORD = "PASSWORD",
-  PORT = "PORT",
-  SECRET_ID = "SECRET_ID",
-  SKIP_CUSTOM_JDBC_CERT_VALIDATION = "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
-  USER_NAME = "USERNAME",
-}
+export const ConnectionPropertyKey = {
+  CONFIG_FILES: "CONFIG_FILES",
+  CONNECTION_URL: "CONNECTION_URL",
+  CONNECTOR_CLASS_NAME: "CONNECTOR_CLASS_NAME",
+  CONNECTOR_TYPE: "CONNECTOR_TYPE",
+  CONNECTOR_URL: "CONNECTOR_URL",
+  CUSTOM_JDBC_CERT: "CUSTOM_JDBC_CERT",
+  CUSTOM_JDBC_CERT_STRING: "CUSTOM_JDBC_CERT_STRING",
+  ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
+  ENCRYPTED_PASSWORD: "ENCRYPTED_PASSWORD",
+  HOST: "HOST",
+  INSTANCE_ID: "INSTANCE_ID",
+  JDBC_CONNECTION_URL: "JDBC_CONNECTION_URL",
+  JDBC_DRIVER_CLASS_NAME: "JDBC_DRIVER_CLASS_NAME",
+  JDBC_DRIVER_JAR_URI: "JDBC_DRIVER_JAR_URI",
+  JDBC_ENFORCE_SSL: "JDBC_ENFORCE_SSL",
+  JDBC_ENGINE: "JDBC_ENGINE",
+  JDBC_ENGINE_VERSION: "JDBC_ENGINE_VERSION",
+  KAFKA_BOOTSTRAP_SERVERS: "KAFKA_BOOTSTRAP_SERVERS",
+  KAFKA_CLIENT_KEYSTORE: "KAFKA_CLIENT_KEYSTORE",
+  KAFKA_CLIENT_KEYSTORE_PASSWORD: "KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  KAFKA_CLIENT_KEY_PASSWORD: "KAFKA_CLIENT_KEY_PASSWORD",
+  KAFKA_CUSTOM_CERT: "KAFKA_CUSTOM_CERT",
+  KAFKA_SKIP_CUSTOM_CERT_VALIDATION: "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
+  KAFKA_SSL_ENABLED: "KAFKA_SSL_ENABLED",
+  PASSWORD: "PASSWORD",
+  PORT: "PORT",
+  SECRET_ID: "SECRET_ID",
+  SKIP_CUSTOM_JDBC_CERT_VALIDATION: "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
+  USER_NAME: "USERNAME",
+} as const;
 
 /**
  * @public
  */
-export enum ConnectionType {
-  CUSTOM = "CUSTOM",
-  JDBC = "JDBC",
-  KAFKA = "KAFKA",
-  MARKETPLACE = "MARKETPLACE",
-  MONGODB = "MONGODB",
-  NETWORK = "NETWORK",
-  SFTP = "SFTP",
-}
+export type ConnectionPropertyKey = (typeof ConnectionPropertyKey)[keyof typeof ConnectionPropertyKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  CUSTOM: "CUSTOM",
+  JDBC: "JDBC",
+  KAFKA: "KAFKA",
+  MARKETPLACE: "MARKETPLACE",
+  MONGODB: "MONGODB",
+  NETWORK: "NETWORK",
+  SFTP: "SFTP",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
 
 /**
  * @public
@@ -6866,18 +7161,24 @@ export class ConcurrentModificationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT",
-}
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
  * @public
@@ -7357,10 +7658,16 @@ export interface FindMatchesParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum TransformType {
-  FIND_MATCHES = "FIND_MATCHES",
-}
+export const TransformType = {
+  FIND_MATCHES: "FIND_MATCHES",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformType = (typeof TransformType)[keyof typeof TransformType];
 
 /**
  * @public
@@ -7382,11 +7689,18 @@ export interface TransformParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum MLUserDataEncryptionModeString {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+export const MLUserDataEncryptionModeString = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type MLUserDataEncryptionModeString =
+  (typeof MLUserDataEncryptionModeString)[keyof typeof MLUserDataEncryptionModeString];
 
 /**
  * @public
@@ -7695,17 +8009,23 @@ export interface CreateRegistryResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Compatibility {
-  BACKWARD = "BACKWARD",
-  BACKWARD_ALL = "BACKWARD_ALL",
-  DISABLED = "DISABLED",
-  FORWARD = "FORWARD",
-  FORWARD_ALL = "FORWARD_ALL",
-  FULL = "FULL",
-  FULL_ALL = "FULL_ALL",
-  NONE = "NONE",
-}
+export const Compatibility = {
+  BACKWARD: "BACKWARD",
+  BACKWARD_ALL: "BACKWARD_ALL",
+  DISABLED: "DISABLED",
+  FORWARD: "FORWARD",
+  FORWARD_ALL: "FORWARD_ALL",
+  FULL: "FULL",
+  FULL_ALL: "FULL_ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Compatibility = (typeof Compatibility)[keyof typeof Compatibility];
 
 /**
  * @public

@@ -50,18 +50,24 @@ export interface CloudWatchLoggingOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum ProcessorParameterName {
-  BUFFER_INTERVAL_IN_SECONDS = "BufferIntervalInSeconds",
-  BUFFER_SIZE_IN_MB = "BufferSizeInMBs",
-  Delimiter = "Delimiter",
-  JSON_PARSING_ENGINE = "JsonParsingEngine",
-  LAMBDA_ARN = "LambdaArn",
-  LAMBDA_NUMBER_OF_RETRIES = "NumberOfRetries",
-  METADATA_EXTRACTION_QUERY = "MetadataExtractionQuery",
-  ROLE_ARN = "RoleArn",
-  SUB_RECORD_TYPE = "SubRecordType",
-}
+export const ProcessorParameterName = {
+  BUFFER_INTERVAL_IN_SECONDS: "BufferIntervalInSeconds",
+  BUFFER_SIZE_IN_MB: "BufferSizeInMBs",
+  Delimiter: "Delimiter",
+  JSON_PARSING_ENGINE: "JsonParsingEngine",
+  LAMBDA_ARN: "LambdaArn",
+  LAMBDA_NUMBER_OF_RETRIES: "NumberOfRetries",
+  METADATA_EXTRACTION_QUERY: "MetadataExtractionQuery",
+  ROLE_ARN: "RoleArn",
+  SUB_RECORD_TYPE: "SubRecordType",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessorParameterName = (typeof ProcessorParameterName)[keyof typeof ProcessorParameterName];
 
 /**
  * @public
@@ -85,13 +91,19 @@ export interface ProcessorParameter {
 
 /**
  * @public
+ * @enum
  */
-export enum ProcessorType {
-  AppendDelimiterToRecord = "AppendDelimiterToRecord",
-  Lambda = "Lambda",
-  MetadataExtraction = "MetadataExtraction",
-  RecordDeAggregation = "RecordDeAggregation",
-}
+export const ProcessorType = {
+  AppendDelimiterToRecord: "AppendDelimiterToRecord",
+  Lambda: "Lambda",
+  MetadataExtraction: "MetadataExtraction",
+  RecordDeAggregation: "RecordDeAggregation",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessorType = (typeof ProcessorType)[keyof typeof ProcessorType];
 
 /**
  * @public
@@ -143,11 +155,18 @@ export interface AmazonOpenSearchServerlessRetryOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum AmazonOpenSearchServerlessS3BackupMode {
-  AllDocuments = "AllDocuments",
-  FailedDocumentsOnly = "FailedDocumentsOnly",
-}
+export const AmazonOpenSearchServerlessS3BackupMode = {
+  AllDocuments: "AllDocuments",
+  FailedDocumentsOnly: "FailedDocumentsOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type AmazonOpenSearchServerlessS3BackupMode =
+  (typeof AmazonOpenSearchServerlessS3BackupMode)[keyof typeof AmazonOpenSearchServerlessS3BackupMode];
 
 /**
  * @public
@@ -180,14 +199,20 @@ export interface BufferingHints {
 
 /**
  * @public
+ * @enum
  */
-export enum CompressionFormat {
-  GZIP = "GZIP",
-  HADOOP_SNAPPY = "HADOOP_SNAPPY",
-  SNAPPY = "Snappy",
-  UNCOMPRESSED = "UNCOMPRESSED",
-  ZIP = "ZIP",
-}
+export const CompressionFormat = {
+  GZIP: "GZIP",
+  HADOOP_SNAPPY: "HADOOP_SNAPPY",
+  SNAPPY: "Snappy",
+  UNCOMPRESSED: "UNCOMPRESSED",
+  ZIP: "ZIP",
+} as const;
+
+/**
+ * @public
+ */
+export type CompressionFormat = (typeof CompressionFormat)[keyof typeof CompressionFormat];
 
 /**
  * @public
@@ -203,10 +228,16 @@ export interface KMSEncryptionConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum NoEncryptionConfig {
-  NoEncryption = "NoEncryption",
-}
+export const NoEncryptionConfig = {
+  NoEncryption: "NoEncryption",
+} as const;
+
+/**
+ * @public
+ */
+export type NoEncryptionConfig = (typeof NoEncryptionConfig)[keyof typeof NoEncryptionConfig];
 
 /**
  * @public
@@ -787,14 +818,21 @@ export interface AmazonopensearchserviceBufferingHints {
 
 /**
  * @public
+ * @enum
  */
-export enum AmazonopensearchserviceIndexRotationPeriod {
-  NoRotation = "NoRotation",
-  OneDay = "OneDay",
-  OneHour = "OneHour",
-  OneMonth = "OneMonth",
-  OneWeek = "OneWeek",
-}
+export const AmazonopensearchserviceIndexRotationPeriod = {
+  NoRotation: "NoRotation",
+  OneDay: "OneDay",
+  OneHour: "OneHour",
+  OneMonth: "OneMonth",
+  OneWeek: "OneWeek",
+} as const;
+
+/**
+ * @public
+ */
+export type AmazonopensearchserviceIndexRotationPeriod =
+  (typeof AmazonopensearchserviceIndexRotationPeriod)[keyof typeof AmazonopensearchserviceIndexRotationPeriod];
 
 /**
  * @public
@@ -813,11 +851,18 @@ export interface AmazonopensearchserviceRetryOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum AmazonopensearchserviceS3BackupMode {
-  AllDocuments = "AllDocuments",
-  FailedDocumentsOnly = "FailedDocumentsOnly",
-}
+export const AmazonopensearchserviceS3BackupMode = {
+  AllDocuments: "AllDocuments",
+  FailedDocumentsOnly: "FailedDocumentsOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type AmazonopensearchserviceS3BackupMode =
+  (typeof AmazonopensearchserviceS3BackupMode)[keyof typeof AmazonopensearchserviceS3BackupMode];
 
 /**
  * @public
@@ -1077,11 +1122,17 @@ export class ConcurrentModificationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ContentEncoding {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const ContentEncoding = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentEncoding = (typeof ContentEncoding)[keyof typeof ContentEncoding];
 
 /**
  * @public
@@ -1125,11 +1176,17 @@ export interface CopyCommand {
 
 /**
  * @public
+ * @enum
  */
-export enum KeyType {
-  AWS_OWNED_CMK = "AWS_OWNED_CMK",
-  CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK",
-}
+export const KeyType = {
+  AWS_OWNED_CMK: "AWS_OWNED_CMK",
+  CUSTOMER_MANAGED_CMK: "CUSTOMER_MANAGED_CMK",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 /**
  * @public
@@ -1170,11 +1227,17 @@ export interface DeliveryStreamEncryptionConfigurationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliveryStreamType {
-  DirectPut = "DirectPut",
-  KinesisStreamAsSource = "KinesisStreamAsSource",
-}
+export const DeliveryStreamType = {
+  DirectPut: "DirectPut",
+  KinesisStreamAsSource: "KinesisStreamAsSource",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryStreamType = (typeof DeliveryStreamType)[keyof typeof DeliveryStreamType];
 
 /**
  * @public
@@ -1200,14 +1263,21 @@ export interface ElasticsearchBufferingHints {
 
 /**
  * @public
+ * @enum
  */
-export enum ElasticsearchIndexRotationPeriod {
-  NoRotation = "NoRotation",
-  OneDay = "OneDay",
-  OneHour = "OneHour",
-  OneMonth = "OneMonth",
-  OneWeek = "OneWeek",
-}
+export const ElasticsearchIndexRotationPeriod = {
+  NoRotation: "NoRotation",
+  OneDay: "OneDay",
+  OneHour: "OneHour",
+  OneMonth: "OneMonth",
+  OneWeek: "OneWeek",
+} as const;
+
+/**
+ * @public
+ */
+export type ElasticsearchIndexRotationPeriod =
+  (typeof ElasticsearchIndexRotationPeriod)[keyof typeof ElasticsearchIndexRotationPeriod];
 
 /**
  * @public
@@ -1226,11 +1296,17 @@ export interface ElasticsearchRetryOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum ElasticsearchS3BackupMode {
-  AllDocuments = "AllDocuments",
-  FailedDocumentsOnly = "FailedDocumentsOnly",
-}
+export const ElasticsearchS3BackupMode = {
+  AllDocuments: "AllDocuments",
+  FailedDocumentsOnly: "FailedDocumentsOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type ElasticsearchS3BackupMode = (typeof ElasticsearchS3BackupMode)[keyof typeof ElasticsearchS3BackupMode];
 
 /**
  * @public
@@ -1423,20 +1499,32 @@ export interface InputFormatConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum OrcCompression {
-  NONE = "NONE",
-  SNAPPY = "SNAPPY",
-  ZLIB = "ZLIB",
-}
+export const OrcCompression = {
+  NONE: "NONE",
+  SNAPPY: "SNAPPY",
+  ZLIB: "ZLIB",
+} as const;
 
 /**
  * @public
  */
-export enum OrcFormatVersion {
-  V0_11 = "V0_11",
-  V0_12 = "V0_12",
-}
+export type OrcCompression = (typeof OrcCompression)[keyof typeof OrcCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrcFormatVersion = {
+  V0_11: "V0_11",
+  V0_12: "V0_12",
+} as const;
+
+/**
+ * @public
+ */
+export type OrcFormatVersion = (typeof OrcFormatVersion)[keyof typeof OrcFormatVersion];
 
 /**
  * @public
@@ -1517,20 +1605,32 @@ export interface OrcSerDe {
 
 /**
  * @public
+ * @enum
  */
-export enum ParquetCompression {
-  GZIP = "GZIP",
-  SNAPPY = "SNAPPY",
-  UNCOMPRESSED = "UNCOMPRESSED",
-}
+export const ParquetCompression = {
+  GZIP: "GZIP",
+  SNAPPY: "SNAPPY",
+  UNCOMPRESSED: "UNCOMPRESSED",
+} as const;
 
 /**
  * @public
  */
-export enum ParquetWriterVersion {
-  V1 = "V1",
-  V2 = "V2",
-}
+export type ParquetCompression = (typeof ParquetCompression)[keyof typeof ParquetCompression];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParquetWriterVersion = {
+  V1: "V1",
+  V2: "V2",
+} as const;
+
+/**
+ * @public
+ */
+export type ParquetWriterVersion = (typeof ParquetWriterVersion)[keyof typeof ParquetWriterVersion];
 
 /**
  * @public
@@ -1748,11 +1848,17 @@ export interface DynamicPartitioningConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum S3BackupMode {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const S3BackupMode = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type S3BackupMode = (typeof S3BackupMode)[keyof typeof S3BackupMode];
 
 /**
  * @public
@@ -1946,11 +2052,17 @@ export interface HttpEndpointRetryOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum HttpEndpointS3BackupMode {
-  AllData = "AllData",
-  FailedDataOnly = "FailedDataOnly",
-}
+export const HttpEndpointS3BackupMode = {
+  AllData: "AllData",
+  FailedDataOnly: "FailedDataOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpEndpointS3BackupMode = (typeof HttpEndpointS3BackupMode)[keyof typeof HttpEndpointS3BackupMode];
 
 /**
  * @public
@@ -2052,11 +2164,17 @@ export interface RedshiftRetryOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum RedshiftS3BackupMode {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const RedshiftS3BackupMode = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type RedshiftS3BackupMode = (typeof RedshiftS3BackupMode)[keyof typeof RedshiftS3BackupMode];
 
 /**
  * @public
@@ -2131,11 +2249,17 @@ export interface RedshiftDestinationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum HECEndpointType {
-  Event = "Event",
-  Raw = "Raw",
-}
+export const HECEndpointType = {
+  Event: "Event",
+  Raw: "Raw",
+} as const;
+
+/**
+ * @public
+ */
+export type HECEndpointType = (typeof HECEndpointType)[keyof typeof HECEndpointType];
 
 /**
  * @public
@@ -2154,11 +2278,17 @@ export interface SplunkRetryOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum SplunkS3BackupMode {
-  AllEvents = "AllEvents",
-  FailedEventsOnly = "FailedEventsOnly",
-}
+export const SplunkS3BackupMode = {
+  AllEvents: "AllEvents",
+  FailedEventsOnly: "FailedEventsOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type SplunkS3BackupMode = (typeof SplunkS3BackupMode)[keyof typeof SplunkS3BackupMode];
 
 /**
  * @public
@@ -2490,24 +2620,30 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliveryStreamFailureType {
-  CREATE_ENI_FAILED = "CREATE_ENI_FAILED",
-  CREATE_KMS_GRANT_FAILED = "CREATE_KMS_GRANT_FAILED",
-  DELETE_ENI_FAILED = "DELETE_ENI_FAILED",
-  DISABLED_KMS_KEY = "DISABLED_KMS_KEY",
-  ENI_ACCESS_DENIED = "ENI_ACCESS_DENIED",
-  INVALID_KMS_KEY = "INVALID_KMS_KEY",
-  KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED",
-  KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
-  KMS_OPT_IN_REQUIRED = "KMS_OPT_IN_REQUIRED",
-  RETIRE_KMS_GRANT_FAILED = "RETIRE_KMS_GRANT_FAILED",
-  SECURITY_GROUP_ACCESS_DENIED = "SECURITY_GROUP_ACCESS_DENIED",
-  SECURITY_GROUP_NOT_FOUND = "SECURITY_GROUP_NOT_FOUND",
-  SUBNET_ACCESS_DENIED = "SUBNET_ACCESS_DENIED",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR",
-}
+export const DeliveryStreamFailureType = {
+  CREATE_ENI_FAILED: "CREATE_ENI_FAILED",
+  CREATE_KMS_GRANT_FAILED: "CREATE_KMS_GRANT_FAILED",
+  DELETE_ENI_FAILED: "DELETE_ENI_FAILED",
+  DISABLED_KMS_KEY: "DISABLED_KMS_KEY",
+  ENI_ACCESS_DENIED: "ENI_ACCESS_DENIED",
+  INVALID_KMS_KEY: "INVALID_KMS_KEY",
+  KMS_ACCESS_DENIED: "KMS_ACCESS_DENIED",
+  KMS_KEY_NOT_FOUND: "KMS_KEY_NOT_FOUND",
+  KMS_OPT_IN_REQUIRED: "KMS_OPT_IN_REQUIRED",
+  RETIRE_KMS_GRANT_FAILED: "RETIRE_KMS_GRANT_FAILED",
+  SECURITY_GROUP_ACCESS_DENIED: "SECURITY_GROUP_ACCESS_DENIED",
+  SECURITY_GROUP_NOT_FOUND: "SECURITY_GROUP_NOT_FOUND",
+  SUBNET_ACCESS_DENIED: "SUBNET_ACCESS_DENIED",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryStreamFailureType = (typeof DeliveryStreamFailureType)[keyof typeof DeliveryStreamFailureType];
 
 /**
  * @public
@@ -2529,15 +2665,22 @@ export interface FailureDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliveryStreamEncryptionStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  DISABLING_FAILED = "DISABLING_FAILED",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  ENABLING_FAILED = "ENABLING_FAILED",
-}
+export const DeliveryStreamEncryptionStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  DISABLING_FAILED: "DISABLING_FAILED",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  ENABLING_FAILED: "ENABLING_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryStreamEncryptionStatus =
+  (typeof DeliveryStreamEncryptionStatus)[keyof typeof DeliveryStreamEncryptionStatus];
 
 /**
  * @public
@@ -2578,14 +2721,20 @@ export interface DeliveryStreamEncryptionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DeliveryStreamStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  CREATING_FAILED = "CREATING_FAILED",
-  DELETING = "DELETING",
-  DELETING_FAILED = "DELETING_FAILED",
-}
+export const DeliveryStreamStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  CREATING_FAILED: "CREATING_FAILED",
+  DELETING: "DELETING",
+  DELETING_FAILED: "DELETING_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryStreamStatus = (typeof DeliveryStreamStatus)[keyof typeof DeliveryStreamStatus];
 
 /**
  * @public

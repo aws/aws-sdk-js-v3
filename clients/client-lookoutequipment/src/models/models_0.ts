@@ -115,12 +115,18 @@ export interface CreateDatasetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DatasetStatus {
-  ACTIVE = "ACTIVE",
-  CREATED = "CREATED",
-  INGESTION_IN_PROGRESS = "INGESTION_IN_PROGRESS",
-}
+export const DatasetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  INGESTION_IN_PROGRESS: "INGESTION_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
 
 /**
  * @public
@@ -329,14 +335,20 @@ export interface InferenceOutputConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DataUploadFrequency {
-  PT10M = "PT10M",
-  PT15M = "PT15M",
-  PT1H = "PT1H",
-  PT30M = "PT30M",
-  PT5M = "PT5M",
-}
+export const DataUploadFrequency = {
+  PT10M: "PT10M",
+  PT15M: "PT15M",
+  PT1H: "PT1H",
+  PT30M: "PT30M",
+  PT5M: "PT5M",
+} as const;
+
+/**
+ * @public
+ */
+export type DataUploadFrequency = (typeof DataUploadFrequency)[keyof typeof DataUploadFrequency];
 
 /**
  * @public
@@ -409,13 +421,19 @@ export interface CreateInferenceSchedulerRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InferenceSchedulerStatus {
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const InferenceSchedulerStatus = {
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceSchedulerStatus = (typeof InferenceSchedulerStatus)[keyof typeof InferenceSchedulerStatus];
 
 /**
  * @public
@@ -462,12 +480,18 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum LabelRating {
-  ANOMALY = "ANOMALY",
-  NEUTRAL = "NEUTRAL",
-  NO_ANOMALY = "NO_ANOMALY",
-}
+export const LabelRating = {
+  ANOMALY: "ANOMALY",
+  NEUTRAL: "NEUTRAL",
+  NO_ANOMALY: "NO_ANOMALY",
+} as const;
+
+/**
+ * @public
+ */
+export type LabelRating = (typeof LabelRating)[keyof typeof LabelRating];
 
 /**
  * @public
@@ -602,20 +626,26 @@ export interface CreateLabelGroupResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetSamplingRate {
-  PT10M = "PT10M",
-  PT10S = "PT10S",
-  PT15M = "PT15M",
-  PT15S = "PT15S",
-  PT1H = "PT1H",
-  PT1M = "PT1M",
-  PT1S = "PT1S",
-  PT30M = "PT30M",
-  PT30S = "PT30S",
-  PT5M = "PT5M",
-  PT5S = "PT5S",
-}
+export const TargetSamplingRate = {
+  PT10M: "PT10M",
+  PT10S: "PT10S",
+  PT15M: "PT15M",
+  PT15S: "PT15S",
+  PT1H: "PT1H",
+  PT1M: "PT1M",
+  PT1S: "PT1S",
+  PT30M: "PT30M",
+  PT30S: "PT30S",
+  PT5M: "PT5M",
+  PT5S: "PT5S",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetSamplingRate = (typeof TargetSamplingRate)[keyof typeof TargetSamplingRate];
 
 /**
  * @public
@@ -777,12 +807,18 @@ export interface CreateModelRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const ModelStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
 
 /**
  * @public
@@ -1086,12 +1122,18 @@ export interface IngestionInputConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum IngestionJobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const IngestionJobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
 
 /**
  * @public
@@ -1274,11 +1316,17 @@ export interface DescribeInferenceSchedulerRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum LatestInferenceResult {
-  ANOMALOUS = "ANOMALOUS",
-  NORMAL = "NORMAL",
-}
+export const LatestInferenceResult = {
+  ANOMALOUS: "ANOMALOUS",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type LatestInferenceResult = (typeof LatestInferenceResult)[keyof typeof LatestInferenceResult];
 
 /**
  * @public
@@ -1894,12 +1942,18 @@ export interface ListInferenceEventsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum InferenceExecutionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const InferenceExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceExecutionStatus = (typeof InferenceExecutionStatus)[keyof typeof InferenceExecutionStatus];
 
 /**
  * @public
@@ -2479,11 +2533,17 @@ export interface ListSensorStatisticsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StatisticalIssueStatus {
-  NO_ISSUE_DETECTED = "NO_ISSUE_DETECTED",
-  POTENTIAL_ISSUE_DETECTED = "POTENTIAL_ISSUE_DETECTED",
-}
+export const StatisticalIssueStatus = {
+  NO_ISSUE_DETECTED: "NO_ISSUE_DETECTED",
+  POTENTIAL_ISSUE_DETECTED: "POTENTIAL_ISSUE_DETECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type StatisticalIssueStatus = (typeof StatisticalIssueStatus)[keyof typeof StatisticalIssueStatus];
 
 /**
  * @public
@@ -2543,12 +2603,18 @@ export interface LargeTimestampGaps {
 
 /**
  * @public
+ * @enum
  */
-export enum Monotonicity {
-  DECREASING = "DECREASING",
-  INCREASING = "INCREASING",
-  STATIC = "STATIC",
-}
+export const Monotonicity = {
+  DECREASING: "DECREASING",
+  INCREASING: "INCREASING",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type Monotonicity = (typeof Monotonicity)[keyof typeof Monotonicity];
 
 /**
  * @public

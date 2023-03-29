@@ -99,11 +99,17 @@ export interface ApplicationComponent {
 
 /**
  * @public
+ * @enum
  */
-export enum DiscoveryType {
-  ACCOUNT_BASED = "ACCOUNT_BASED",
-  RESOURCE_GROUP_BASED = "RESOURCE_GROUP_BASED",
-}
+export const DiscoveryType = {
+  ACCOUNT_BASED: "ACCOUNT_BASED",
+  RESOURCE_GROUP_BASED: "RESOURCE_GROUP_BASED",
+} as const;
+
+/**
+ * @public
+ */
+export type DiscoveryType = (typeof DiscoveryType)[keyof typeof DiscoveryType];
 
 /**
  * @public
@@ -247,10 +253,16 @@ export interface ConfigurationEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum GroupingType {
-  ACCOUNT_BASED = "ACCOUNT_BASED",
-}
+export const GroupingType = {
+  ACCOUNT_BASED: "ACCOUNT_BASED",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupingType = (typeof GroupingType)[keyof typeof GroupingType];
 
 /**
  * @public

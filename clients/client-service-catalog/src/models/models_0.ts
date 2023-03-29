@@ -5,12 +5,18 @@ import { ServiceCatalogServiceException as __BaseException } from "./ServiceCata
 
 /**
  * @public
+ * @enum
  */
-export enum PortfolioShareType {
-  AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
-  AWS_SERVICECATALOG = "AWS_SERVICECATALOG",
-  IMPORTED = "IMPORTED",
-}
+export const PortfolioShareType = {
+  AWS_ORGANIZATIONS: "AWS_ORGANIZATIONS",
+  AWS_SERVICECATALOG: "AWS_SERVICECATALOG",
+  IMPORTED: "IMPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PortfolioShareType = (typeof PortfolioShareType)[keyof typeof PortfolioShareType];
 
 /**
  * @public
@@ -137,12 +143,18 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessLevelFilterKey {
-  ACCOUNT = "Account",
-  ROLE = "Role",
-  USER = "User",
-}
+export const AccessLevelFilterKey = {
+  ACCOUNT: "Account",
+  ROLE: "Role",
+  USER: "User",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessLevelFilterKey = (typeof AccessLevelFilterKey)[keyof typeof AccessLevelFilterKey];
 
 /**
  * @public
@@ -176,12 +188,18 @@ export interface AccessLevelFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UNDER_CHANGE = "UNDER_CHANGE",
-}
+export const AccessStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessStatus = (typeof AccessStatus)[keyof typeof AccessStatus];
 
 /**
  * @public
@@ -244,11 +262,17 @@ export class DuplicateResourceException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum PrincipalType {
-  IAM = "IAM",
-  IAM_PATTERN = "IAM_PATTERN",
-}
+export const PrincipalType = {
+  IAM: "IAM",
+  IAM_PATTERN: "IAM_PATTERN",
+} as const;
+
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * @public
@@ -506,14 +530,21 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceActionAssociationErrorCode {
-  DuplicateResourceException = "DUPLICATE_RESOURCE",
-  InternalFailure = "INTERNAL_FAILURE",
-  LimitExceededException = "LIMIT_EXCEEDED",
-  ResourceNotFoundException = "RESOURCE_NOT_FOUND",
-  ThrottlingException = "THROTTLING",
-}
+export const ServiceActionAssociationErrorCode = {
+  DuplicateResourceException: "DUPLICATE_RESOURCE",
+  InternalFailure: "INTERNAL_FAILURE",
+  LimitExceededException: "LIMIT_EXCEEDED",
+  ResourceNotFoundException: "RESOURCE_NOT_FOUND",
+  ThrottlingException: "THROTTLING",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceActionAssociationErrorCode =
+  (typeof ServiceActionAssociationErrorCode)[keyof typeof ServiceActionAssociationErrorCode];
 
 /**
  * @public
@@ -597,17 +628,30 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum CopyOption {
-  CopyTags = "CopyTags",
-}
+export const CopyOption = {
+  CopyTags: "CopyTags",
+} as const;
 
 /**
  * @public
  */
-export enum ProvisioningArtifactPropertyName {
-  Id = "Id",
-}
+export type CopyOption = (typeof CopyOption)[keyof typeof CopyOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningArtifactPropertyName = {
+  Id: "Id",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningArtifactPropertyName =
+  (typeof ProvisioningArtifactPropertyName)[keyof typeof ProvisioningArtifactPropertyName];
 
 /**
  * @public
@@ -867,12 +911,18 @@ export interface ConstraintDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-}
+export const Status = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -997,12 +1047,18 @@ export interface CreatePortfolioOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum OrganizationNodeType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-}
+export const OrganizationNodeType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationNodeType = (typeof OrganizationNodeType)[keyof typeof OrganizationNodeType];
 
 /**
  * @public
@@ -1112,20 +1168,32 @@ export class OperationNotSupportedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ProductType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE = "MARKETPLACE",
-}
+export const ProductType = {
+  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE: "MARKETPLACE",
+} as const;
 
 /**
  * @public
  */
-export enum ProvisioningArtifactType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE_AMI = "MARKETPLACE_AMI",
-  MARKETPLACE_CAR = "MARKETPLACE_CAR",
-}
+export type ProductType = (typeof ProductType)[keyof typeof ProductType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningArtifactType = {
+  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE_AMI: "MARKETPLACE_AMI",
+  MARKETPLACE_CAR: "MARKETPLACE_CAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningArtifactType = (typeof ProvisioningArtifactType)[keyof typeof ProvisioningArtifactType];
 
 /**
  * @public
@@ -1224,10 +1292,16 @@ export interface SourceConnectionParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum SourceType {
-  CODESTAR = "CODESTAR",
-}
+export const SourceType = {
+  CODESTAR: "CODESTAR",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -1420,11 +1494,17 @@ export interface ProductViewSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum LastSyncStatus {
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const LastSyncStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LastSyncStatus = (typeof LastSyncStatus)[keyof typeof LastSyncStatus];
 
 /**
  * @public
@@ -1583,11 +1663,18 @@ export interface ProductViewDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum ProvisioningArtifactGuidance {
-  DEFAULT = "DEFAULT",
-  DEPRECATED = "DEPRECATED",
-}
+export const ProvisioningArtifactGuidance = {
+  DEFAULT: "DEFAULT",
+  DEPRECATED: "DEPRECATED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningArtifactGuidance =
+  (typeof ProvisioningArtifactGuidance)[keyof typeof ProvisioningArtifactGuidance];
 
 /**
  * @public
@@ -1677,10 +1764,16 @@ export interface CreateProductOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProvisionedProductPlanType {
-  CLOUDFORMATION = "CLOUDFORMATION",
-}
+export const ProvisionedProductPlanType = {
+  CLOUDFORMATION: "CLOUDFORMATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisionedProductPlanType = (typeof ProvisionedProductPlanType)[keyof typeof ProvisionedProductPlanType];
 
 /**
  * @public
@@ -1886,20 +1979,33 @@ export interface CreateProvisioningArtifactOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceActionDefinitionKey {
-  AssumeRole = "AssumeRole",
-  Name = "Name",
-  Parameters = "Parameters",
-  Version = "Version",
-}
+export const ServiceActionDefinitionKey = {
+  AssumeRole: "AssumeRole",
+  Name: "Name",
+  Parameters: "Parameters",
+  Version: "Version",
+} as const;
 
 /**
  * @public
  */
-export enum ServiceActionDefinitionType {
-  SsmAutomation = "SSM_AUTOMATION",
-}
+export type ServiceActionDefinitionKey = (typeof ServiceActionDefinitionKey)[keyof typeof ServiceActionDefinitionKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceActionDefinitionType = {
+  SsmAutomation: "SSM_AUTOMATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceActionDefinitionType =
+  (typeof ServiceActionDefinitionType)[keyof typeof ServiceActionDefinitionType];
 
 /**
  * @public
@@ -2462,12 +2568,18 @@ export interface DescribeCopyProductStatusInput {
 
 /**
  * @public
+ * @enum
  */
-export enum CopyProductStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const CopyProductStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type CopyProductStatus = (typeof CopyProductStatus)[keyof typeof CopyProductStatus];
 
 /**
  * @public
@@ -2556,13 +2668,19 @@ export interface DescribePortfolioOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum DescribePortfolioShareType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-  ORGANIZATION_MEMBER_ACCOUNT = "ORGANIZATION_MEMBER_ACCOUNT",
-}
+export const DescribePortfolioShareType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+  ORGANIZATION_MEMBER_ACCOUNT: "ORGANIZATION_MEMBER_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribePortfolioShareType = (typeof DescribePortfolioShareType)[keyof typeof DescribePortfolioShareType];
 
 /**
  * @public
@@ -2693,14 +2811,20 @@ export interface ShareDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ShareStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ShareStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
 
 /**
  * @public
@@ -3046,14 +3170,20 @@ export interface CloudWatchDashboard {
 
 /**
  * @public
+ * @enum
  */
-export enum ProvisionedProductStatus {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PLAN_IN_PROGRESS = "PLAN_IN_PROGRESS",
-  TAINTED = "TAINTED",
-  UNDER_CHANGE = "UNDER_CHANGE",
-}
+export const ProvisionedProductStatus = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PLAN_IN_PROGRESS: "PLAN_IN_PROGRESS",
+  TAINTED: "TAINTED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisionedProductStatus = (typeof ProvisionedProductStatus)[keyof typeof ProvisionedProductStatus];
 
 /**
  * @public
@@ -3260,15 +3390,22 @@ export interface DescribeProvisionedProductPlanInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProvisionedProductPlanStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESS = "CREATE_SUCCESS",
-  EXECUTE_FAILED = "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  EXECUTE_SUCCESS = "EXECUTE_SUCCESS",
-}
+export const ProvisionedProductPlanStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCESS: "CREATE_SUCCESS",
+  EXECUTE_FAILED: "EXECUTE_FAILED",
+  EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+  EXECUTE_SUCCESS: "EXECUTE_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisionedProductPlanStatus =
+  (typeof ProvisionedProductPlanStatus)[keyof typeof ProvisionedProductPlanStatus];
 
 /**
  * @public
@@ -3357,41 +3494,65 @@ export interface ProvisionedProductPlanDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeAction {
-  ADD = "ADD",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE",
-}
+export const ChangeAction = {
+  ADD: "ADD",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+} as const;
 
 /**
  * @public
  */
-export enum EvaluationType {
-  DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC",
-}
+export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationType = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceAttribute {
-  CREATIONPOLICY = "CREATIONPOLICY",
-  DELETIONPOLICY = "DELETIONPOLICY",
-  METADATA = "METADATA",
-  PROPERTIES = "PROPERTIES",
-  TAGS = "TAGS",
-  UPDATEPOLICY = "UPDATEPOLICY",
-}
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceAttribute = {
+  CREATIONPOLICY: "CREATIONPOLICY",
+  DELETIONPOLICY: "DELETIONPOLICY",
+  METADATA: "METADATA",
+  PROPERTIES: "PROPERTIES",
+  TAGS: "TAGS",
+  UPDATEPOLICY: "UPDATEPOLICY",
+} as const;
 
 /**
  * @public
  */
-export enum RequiresRecreation {
-  ALWAYS = "ALWAYS",
-  CONDITIONALLY = "CONDITIONALLY",
-  NEVER = "NEVER",
-}
+export type ResourceAttribute = (typeof ResourceAttribute)[keyof typeof ResourceAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RequiresRecreation = {
+  ALWAYS: "ALWAYS",
+  CONDITIONALLY: "CONDITIONALLY",
+  NEVER: "NEVER",
+} as const;
+
+/**
+ * @public
+ */
+export type RequiresRecreation = (typeof RequiresRecreation)[keyof typeof RequiresRecreation];
 
 /**
  * @public
@@ -3440,12 +3601,18 @@ export interface ResourceChangeDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum Replacement {
-  CONDITIONAL = "CONDITIONAL",
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+export const Replacement = {
+  CONDITIONAL: "CONDITIONAL",
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type Replacement = (typeof Replacement)[keyof typeof Replacement];
 
 /**
  * @public
@@ -3939,14 +4106,20 @@ export interface RecordTag {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  IN_PROGRESS_IN_ERROR = "IN_PROGRESS_IN_ERROR",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const RecordStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  IN_PROGRESS_IN_ERROR: "IN_PROGRESS_IN_ERROR",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordStatus = (typeof RecordStatus)[keyof typeof RecordStatus];
 
 /**
  * @public
@@ -5758,12 +5931,18 @@ export interface ListStackInstancesForProvisionedProductInput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackInstanceStatus {
-  CURRENT = "CURRENT",
-  INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED",
-}
+export const StackInstanceStatus = {
+  CURRENT: "CURRENT",
+  INOPERABLE: "INOPERABLE",
+  OUTDATED: "OUTDATED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackInstanceStatus = (typeof StackInstanceStatus)[keyof typeof StackInstanceStatus];
 
 /**
  * @public
@@ -6164,30 +6343,48 @@ export interface ScanProvisionedProductsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProductViewFilterBy {
-  FullTextSearch = "FullTextSearch",
-  Owner = "Owner",
-  ProductType = "ProductType",
-  SourceProductId = "SourceProductId",
-}
+export const ProductViewFilterBy = {
+  FullTextSearch: "FullTextSearch",
+  Owner: "Owner",
+  ProductType: "ProductType",
+  SourceProductId: "SourceProductId",
+} as const;
 
 /**
  * @public
  */
-export enum ProductViewSortBy {
-  CreationDate = "CreationDate",
-  Title = "Title",
-  VersionCount = "VersionCount",
-}
+export type ProductViewFilterBy = (typeof ProductViewFilterBy)[keyof typeof ProductViewFilterBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProductViewSortBy = {
+  CreationDate: "CreationDate",
+  Title: "Title",
+  VersionCount: "VersionCount",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export type ProductViewSortBy = (typeof ProductViewSortBy)[keyof typeof ProductViewSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -6278,10 +6475,16 @@ export interface SearchProductsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProductSource {
-  ACCOUNT = "ACCOUNT",
-}
+export const ProductSource = {
+  ACCOUNT: "ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type ProductSource = (typeof ProductSource)[keyof typeof ProductSource];
 
 /**
  * @public
@@ -6360,10 +6563,17 @@ export interface SearchProductsAsAdminOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProvisionedProductViewFilterBy {
-  SearchQuery = "SearchQuery",
-}
+export const ProvisionedProductViewFilterBy = {
+  SearchQuery: "SearchQuery",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisionedProductViewFilterBy =
+  (typeof ProvisionedProductViewFilterBy)[keyof typeof ProvisionedProductViewFilterBy];
 
 /**
  * @public
@@ -7047,12 +7257,18 @@ export interface UpdateProductOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum StackSetOperationType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const StackSetOperationType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type StackSetOperationType = (typeof StackSetOperationType)[keyof typeof StackSetOperationType];
 
 /**
  * @public
@@ -7227,11 +7443,17 @@ export interface UpdateProvisionedProductOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum PropertyKey {
-  LaunchRole = "LAUNCH_ROLE",
-  Owner = "OWNER",
-}
+export const PropertyKey = {
+  LaunchRole: "LAUNCH_ROLE",
+  Owner: "OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyKey = (typeof PropertyKey)[keyof typeof PropertyKey];
 
 /**
  * @public

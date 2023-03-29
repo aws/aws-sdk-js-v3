@@ -247,13 +247,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -871,23 +877,29 @@ export interface KmsGrantConstraints {
 
 /**
  * @public
+ * @enum
  */
-export enum KmsGrantOperation {
-  CREATE_GRANT = "CreateGrant",
-  DECRYPT = "Decrypt",
-  DESCRIBE_KEY = "DescribeKey",
-  ENCRYPT = "Encrypt",
-  GENERATE_DATA_KEY = "GenerateDataKey",
-  GENERATE_DATA_KEY_PAIR = "GenerateDataKeyPair",
-  GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT = "GenerateDataKeyPairWithoutPlaintext",
-  GENERATE_DATA_KEY_WITHOUT_PLAINTEXT = "GenerateDataKeyWithoutPlaintext",
-  GET_PUBLIC_KEY = "GetPublicKey",
-  REENCRYPT_FROM = "ReEncryptFrom",
-  REENCRYPT_TO = "ReEncryptTo",
-  RETIRE_GRANT = "RetireGrant",
-  SIGN = "Sign",
-  VERIFY = "Verify",
-}
+export const KmsGrantOperation = {
+  CREATE_GRANT: "CreateGrant",
+  DECRYPT: "Decrypt",
+  DESCRIBE_KEY: "DescribeKey",
+  ENCRYPT: "Encrypt",
+  GENERATE_DATA_KEY: "GenerateDataKey",
+  GENERATE_DATA_KEY_PAIR: "GenerateDataKeyPair",
+  GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT: "GenerateDataKeyPairWithoutPlaintext",
+  GENERATE_DATA_KEY_WITHOUT_PLAINTEXT: "GenerateDataKeyWithoutPlaintext",
+  GET_PUBLIC_KEY: "GetPublicKey",
+  REENCRYPT_FROM: "ReEncryptFrom",
+  REENCRYPT_TO: "ReEncryptTo",
+  RETIRE_GRANT: "RetireGrant",
+  SIGN: "Sign",
+  VERIFY: "Verify",
+} as const;
+
+/**
+ * @public
+ */
+export type KmsGrantOperation = (typeof KmsGrantOperation)[keyof typeof KmsGrantOperation];
 
 /**
  * @public
@@ -1326,14 +1338,20 @@ export namespace AclGrantee {
 
 /**
  * @public
+ * @enum
  */
-export enum AclPermission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
-}
+export const AclPermission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  READ_ACP: "READ_ACP",
+  WRITE: "WRITE",
+  WRITE_ACP: "WRITE_ACP",
+} as const;
+
+/**
+ * @public
+ */
+export type AclPermission = (typeof AclPermission)[keyof typeof AclPermission];
 
 /**
  * @public
@@ -1779,20 +1797,33 @@ export interface GetAccessPreviewRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessPreviewStatus {
-  COMPLETED = "COMPLETED",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-}
+export const AccessPreviewStatus = {
+  COMPLETED: "COMPLETED",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+} as const;
 
 /**
  * @public
  */
-export enum AccessPreviewStatusReasonCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_CONFIGURATION = "INVALID_CONFIGURATION",
-}
+export type AccessPreviewStatus = (typeof AccessPreviewStatus)[keyof typeof AccessPreviewStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessPreviewStatusReasonCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessPreviewStatusReasonCode =
+  (typeof AccessPreviewStatusReasonCode)[keyof typeof AccessPreviewStatusReasonCode];
 
 /**
  * @public
@@ -2270,13 +2301,19 @@ export interface GeneratedPolicyResult {
 
 /**
  * @public
+ * @enum
  */
-export enum JobErrorCode {
-  AUTHORIZATION_ERROR = "AUTHORIZATION_ERROR",
-  RESOURCE_NOT_FOUND_ERROR = "RESOURCE_NOT_FOUND_ERROR",
-  SERVICE_ERROR = "SERVICE_ERROR",
-  SERVICE_QUOTA_EXCEEDED_ERROR = "SERVICE_QUOTA_EXCEEDED_ERROR",
-}
+export const JobErrorCode = {
+  AUTHORIZATION_ERROR: "AUTHORIZATION_ERROR",
+  RESOURCE_NOT_FOUND_ERROR: "RESOURCE_NOT_FOUND_ERROR",
+  SERVICE_ERROR: "SERVICE_ERROR",
+  SERVICE_QUOTA_EXCEEDED_ERROR: "SERVICE_QUOTA_EXCEEDED_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type JobErrorCode = (typeof JobErrorCode)[keyof typeof JobErrorCode];
 
 /**
  * @public
@@ -2297,13 +2334,19 @@ export interface JobError {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const JobStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -2389,12 +2432,18 @@ export interface ListAccessPreviewFindingsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingChangeType {
-  CHANGED = "CHANGED",
-  NEW = "NEW",
-  UNCHANGED = "UNCHANGED",
-}
+export const FindingChangeType = {
+  CHANGED: "CHANGED",
+  NEW: "NEW",
+  UNCHANGED: "UNCHANGED",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingChangeType = (typeof FindingChangeType)[keyof typeof FindingChangeType];
 
 /**
  * @public
@@ -3133,39 +3182,57 @@ export interface UpdateFindingsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Locale {
-  DE = "DE",
-  EN = "EN",
-  ES = "ES",
-  FR = "FR",
-  IT = "IT",
-  JA = "JA",
-  KO = "KO",
-  PT_BR = "PT_BR",
-  ZH_CN = "ZH_CN",
-  ZH_TW = "ZH_TW",
-}
+export const Locale = {
+  DE: "DE",
+  EN: "EN",
+  ES: "ES",
+  FR: "FR",
+  IT: "IT",
+  JA: "JA",
+  KO: "KO",
+  PT_BR: "PT_BR",
+  ZH_CN: "ZH_CN",
+  ZH_TW: "ZH_TW",
+} as const;
 
 /**
  * @public
  */
-export enum PolicyType {
-  IDENTITY_POLICY = "IDENTITY_POLICY",
-  RESOURCE_POLICY = "RESOURCE_POLICY",
-  SERVICE_CONTROL_POLICY = "SERVICE_CONTROL_POLICY",
-}
+export type Locale = (typeof Locale)[keyof typeof Locale];
+
+/**
+ * @public
+ * @enum
+ */
+export const PolicyType = {
+  IDENTITY_POLICY: "IDENTITY_POLICY",
+  RESOURCE_POLICY: "RESOURCE_POLICY",
+  SERVICE_CONTROL_POLICY: "SERVICE_CONTROL_POLICY",
+} as const;
 
 /**
  * @public
  */
-export enum ValidatePolicyResourceType {
-  ROLE_TRUST = "AWS::IAM::AssumeRolePolicyDocument",
-  S3_ACCESS_POINT = "AWS::S3::AccessPoint",
-  S3_BUCKET = "AWS::S3::Bucket",
-  S3_MULTI_REGION_ACCESS_POINT = "AWS::S3::MultiRegionAccessPoint",
-  S3_OBJECT_LAMBDA_ACCESS_POINT = "AWS::S3ObjectLambda::AccessPoint",
-}
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidatePolicyResourceType = {
+  ROLE_TRUST: "AWS::IAM::AssumeRolePolicyDocument",
+  S3_ACCESS_POINT: "AWS::S3::AccessPoint",
+  S3_BUCKET: "AWS::S3::Bucket",
+  S3_MULTI_REGION_ACCESS_POINT: "AWS::S3::MultiRegionAccessPoint",
+  S3_OBJECT_LAMBDA_ACCESS_POINT: "AWS::S3ObjectLambda::AccessPoint",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidatePolicyResourceType = (typeof ValidatePolicyResourceType)[keyof typeof ValidatePolicyResourceType];
 
 /**
  * @public
@@ -3218,13 +3285,19 @@ export interface ValidatePolicyRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidatePolicyFindingType {
-  ERROR = "ERROR",
-  SECURITY_WARNING = "SECURITY_WARNING",
-  SUGGESTION = "SUGGESTION",
-  WARNING = "WARNING",
-}
+export const ValidatePolicyFindingType = {
+  ERROR: "ERROR",
+  SECURITY_WARNING: "SECURITY_WARNING",
+  SUGGESTION: "SUGGESTION",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidatePolicyFindingType = (typeof ValidatePolicyFindingType)[keyof typeof ValidatePolicyFindingType];
 
 /**
  * @public

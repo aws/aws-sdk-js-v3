@@ -287,11 +287,17 @@ export interface MappingParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordFormatType {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const RecordFormatType = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordFormatType = (typeof RecordFormatType)[keyof typeof RecordFormatType];
 
 /**
  * @public
@@ -737,15 +743,21 @@ export interface AddApplicationReferenceDataSourceResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationStatus {
-  DELETING = "DELETING",
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export const ApplicationStatus = {
+  DELETING: "DELETING",
+  READY: "READY",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
 
 /**
  * @public
@@ -800,12 +812,18 @@ export interface InputProcessingConfigurationDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum InputStartingPosition {
-  LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
-  NOW = "NOW",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const InputStartingPosition = {
+  LAST_STOPPED_POINT: "LAST_STOPPED_POINT",
+  NOW: "NOW",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type InputStartingPosition = (typeof InputStartingPosition)[keyof typeof InputStartingPosition];
 
 /**
  * @public

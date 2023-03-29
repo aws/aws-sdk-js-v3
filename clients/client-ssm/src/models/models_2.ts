@@ -497,13 +497,19 @@ export interface UpdateDocumentDefaultVersionResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DocumentReviewAction {
-  Approve = "Approve",
-  Reject = "Reject",
-  SendForReview = "SendForReview",
-  UpdateReview = "UpdateReview",
-}
+export const DocumentReviewAction = {
+  Approve: "Approve",
+  Reject: "Reject",
+  SendForReview: "SendForReview",
+  UpdateReview: "UpdateReview",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentReviewAction = (typeof DocumentReviewAction)[keyof typeof DocumentReviewAction];
 
 /**
  * @public

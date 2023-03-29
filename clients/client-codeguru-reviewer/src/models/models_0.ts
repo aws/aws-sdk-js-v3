@@ -27,19 +27,31 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AnalysisType {
-  CODE_QUALITY = "CodeQuality",
-  SECURITY = "Security",
-}
+export const AnalysisType = {
+  CODE_QUALITY: "CodeQuality",
+  SECURITY: "Security",
+} as const;
 
 /**
  * @public
  */
-export enum EncryptionOption {
-  AoCmk = "AWS_OWNED_CMK",
-  CmCmk = "CUSTOMER_MANAGED_CMK",
-}
+export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionOption = {
+  AoCmk: "AWS_OWNED_CMK",
+  CmCmk: "CUSTOMER_MANAGED_CMK",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionOption = (typeof EncryptionOption)[keyof typeof EncryptionOption];
 
 /**
  * @public
@@ -204,14 +216,20 @@ export interface AssociateRepositoryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ProviderType {
-  BITBUCKET = "Bitbucket",
-  CODE_COMMIT = "CodeCommit",
-  GIT_HUB = "GitHub",
-  GIT_HUB_ENTERPRISE_SERVER = "GitHubEnterpriseServer",
-  S3_BUCKET = "S3Bucket",
-}
+export const ProviderType = {
+  BITBUCKET: "Bitbucket",
+  CODE_COMMIT: "CodeCommit",
+  GIT_HUB: "GitHub",
+  GIT_HUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
+  S3_BUCKET: "S3Bucket",
+} as const;
+
+/**
+ * @public
+ */
+export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
 
 /**
  * @public
@@ -266,14 +284,20 @@ export interface S3RepositoryDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum RepositoryAssociationState {
-  ASSOCIATED = "Associated",
-  ASSOCIATING = "Associating",
-  DISASSOCIATED = "Disassociated",
-  DISASSOCIATING = "Disassociating",
-  FAILED = "Failed",
-}
+export const RepositoryAssociationState = {
+  ASSOCIATED: "Associated",
+  ASSOCIATING: "Associating",
+  DISASSOCIATED: "Disassociated",
+  DISASSOCIATING: "Disassociating",
+  FAILED: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type RepositoryAssociationState = (typeof RepositoryAssociationState)[keyof typeof RepositoryAssociationState];
 
 /**
  * @public
@@ -590,12 +614,18 @@ export interface EventInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum VendorName {
-  GITHUB = "GitHub",
-  GITLAB = "GitLab",
-  NATIVE_S3 = "NativeS3",
-}
+export const VendorName = {
+  GITHUB: "GitHub",
+  GITLAB: "GitLab",
+  NATIVE_S3: "NativeS3",
+} as const;
+
+/**
+ * @public
+ */
+export type VendorName = (typeof VendorName)[keyof typeof VendorName];
 
 /**
  * @public
@@ -768,12 +798,18 @@ export interface CreateCodeReviewRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigFileState {
-  ABSENT = "Absent",
-  PRESENT = "Present",
-  PRESENT_WITH_ERRORS = "PresentWithErrors",
-}
+export const ConfigFileState = {
+  ABSENT: "Absent",
+  PRESENT: "Present",
+  PRESENT_WITH_ERRORS: "PresentWithErrors",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigFileState = (typeof ConfigFileState)[keyof typeof ConfigFileState];
 
 /**
  * @public
@@ -806,21 +842,33 @@ export interface Metrics {
 
 /**
  * @public
+ * @enum
  */
-export enum JobState {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  PENDING = "Pending",
-}
+export const JobState = {
+  COMPLETED: "Completed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  PENDING: "Pending",
+} as const;
 
 /**
  * @public
  */
-export enum Type {
-  PULL_REQUEST = "PullRequest",
-  REPOSITORY_ANALYSIS = "RepositoryAnalysis",
-}
+export type JobState = (typeof JobState)[keyof typeof JobState];
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  PULL_REQUEST: "PullRequest",
+  REPOSITORY_ANALYSIS: "RepositoryAnalysis",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public
@@ -1018,11 +1066,17 @@ export interface DescribeRecommendationFeedbackRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Reaction {
-  THUMBS_DOWN = "ThumbsDown",
-  THUMBS_UP = "ThumbsUp",
-}
+export const Reaction = {
+  THUMBS_DOWN: "ThumbsDown",
+  THUMBS_UP: "ThumbsUp",
+} as const;
+
+/**
+ * @public
+ */
+export type Reaction = (typeof Reaction)[keyof typeof Reaction];
 
 /**
  * @public
@@ -1488,20 +1542,26 @@ export interface ListRecommendationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationCategory {
-  AWS_BEST_PRACTICES = "AWSBestPractices",
-  AWS_CLOUDFORMATION_ISSUES = "AWSCloudFormationIssues",
-  CODE_INCONSISTENCIES = "CodeInconsistencies",
-  CODE_MAINTENANCE_ISSUES = "CodeMaintenanceIssues",
-  CONCURRENCY_ISSUES = "ConcurrencyIssues",
-  DUPLICATE_CODE = "DuplicateCode",
-  INPUT_VALIDATIONS = "InputValidations",
-  JAVA_BEST_PRACTICES = "JavaBestPractices",
-  PYTHON_BEST_PRACTICES = "PythonBestPractices",
-  RESOURCE_LEAKS = "ResourceLeaks",
-  SECURITY_ISSUES = "SecurityIssues",
-}
+export const RecommendationCategory = {
+  AWS_BEST_PRACTICES: "AWSBestPractices",
+  AWS_CLOUDFORMATION_ISSUES: "AWSCloudFormationIssues",
+  CODE_INCONSISTENCIES: "CodeInconsistencies",
+  CODE_MAINTENANCE_ISSUES: "CodeMaintenanceIssues",
+  CONCURRENCY_ISSUES: "ConcurrencyIssues",
+  DUPLICATE_CODE: "DuplicateCode",
+  INPUT_VALIDATIONS: "InputValidations",
+  JAVA_BEST_PRACTICES: "JavaBestPractices",
+  PYTHON_BEST_PRACTICES: "PythonBestPractices",
+  RESOURCE_LEAKS: "ResourceLeaks",
+  SECURITY_ISSUES: "SecurityIssues",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationCategory = (typeof RecommendationCategory)[keyof typeof RecommendationCategory];
 
 /**
  * @public
@@ -1536,14 +1596,20 @@ export interface RuleMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum Severity {
-  CRITICAL = "Critical",
-  HIGH = "High",
-  INFO = "Info",
-  LOW = "Low",
-  MEDIUM = "Medium",
-}
+export const Severity = {
+  CRITICAL: "Critical",
+  HIGH: "High",
+  INFO: "Info",
+  LOW: "Low",
+  MEDIUM: "Medium",
+} as const;
+
+/**
+ * @public
+ */
+export type Severity = (typeof Severity)[keyof typeof Severity];
 
 /**
  * @public

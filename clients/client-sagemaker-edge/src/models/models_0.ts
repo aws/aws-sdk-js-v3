@@ -20,10 +20,16 @@ export interface GetDeploymentsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ChecksumType {
-  Sha1 = "SHA1",
-}
+export const ChecksumType = {
+  Sha1: "SHA1",
+} as const;
+
+/**
+ * @public
+ */
+export type ChecksumType = (typeof ChecksumType)[keyof typeof ChecksumType];
 
 /**
  * @public
@@ -43,11 +49,17 @@ export interface Checksum {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelState {
-  Deploy = "DEPLOY",
-  Undeploy = "UNDEPLOY",
-}
+export const ModelState = {
+  Deploy: "DEPLOY",
+  Undeploy: "UNDEPLOY",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelState = (typeof ModelState)[keyof typeof ModelState];
 
 /**
  * @public
@@ -77,18 +89,30 @@ export interface Definition {
 
 /**
  * @public
+ * @enum
  */
-export enum FailureHandlingPolicy {
-  DoNothing = "DO_NOTHING",
-  RollbackOnFailure = "ROLLBACK_ON_FAILURE",
-}
+export const FailureHandlingPolicy = {
+  DoNothing: "DO_NOTHING",
+  RollbackOnFailure: "ROLLBACK_ON_FAILURE",
+} as const;
 
 /**
  * @public
  */
-export enum DeploymentType {
-  Model = "Model",
-}
+export type FailureHandlingPolicy = (typeof FailureHandlingPolicy)[keyof typeof FailureHandlingPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentType = {
+  Model: "Model",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
 
 /**
  * @public
@@ -207,11 +231,17 @@ export interface EdgeMetric {
 
 /**
  * @public
+ * @enum
  */
-export enum DeploymentStatus {
-  Fail = "FAIL",
-  Success = "SUCCESS",
-}
+export const DeploymentStatus = {
+  Fail: "FAIL",
+  Success: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
 
 /**
  * @public

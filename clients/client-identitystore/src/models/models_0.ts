@@ -261,13 +261,19 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  GROUP = "GROUP",
-  GROUP_MEMBERSHIP = "GROUP_MEMBERSHIP",
-  IDENTITY_STORE = "IDENTITY_STORE",
-  USER = "USER",
-}
+export const ResourceType = {
+  GROUP: "GROUP",
+  GROUP_MEMBERSHIP: "GROUP_MEMBERSHIP",
+  IDENTITY_STORE: "IDENTITY_STORE",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -481,11 +487,17 @@ export interface GetUserIdResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictExceptionReason {
-  CONCURRENT_MODIFICATION = "CONCURRENT_MODIFICATION",
-  UNIQUENESS_CONSTRAINT_VIOLATION = "UNIQUENESS_CONSTRAINT_VIOLATION",
-}
+export const ConflictExceptionReason = {
+  CONCURRENT_MODIFICATION: "CONCURRENT_MODIFICATION",
+  UNIQUENESS_CONSTRAINT_VIOLATION: "UNIQUENESS_CONSTRAINT_VIOLATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
 
 /**
  * @public

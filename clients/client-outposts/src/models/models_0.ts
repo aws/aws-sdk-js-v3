@@ -88,11 +88,17 @@ export interface Address {
 
 /**
  * @public
+ * @enum
  */
-export enum AddressType {
-  OPERATING_ADDRESS = "OPERATING_ADDRESS",
-  SHIPPING_ADDRESS = "SHIPPING_ADDRESS",
-}
+export const AddressType = {
+  OPERATING_ADDRESS: "OPERATING_ADDRESS",
+  SHIPPING_ADDRESS: "SHIPPING_ADDRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AddressType = (typeof AddressType)[keyof typeof AddressType];
 
 /**
  * @public
@@ -107,19 +113,31 @@ export interface AssetLocation {
 
 /**
  * @public
+ * @enum
  */
-export enum AssetType {
-  COMPUTE = "COMPUTE",
-}
+export const AssetType = {
+  COMPUTE: "COMPUTE",
+} as const;
 
 /**
  * @public
  */
-export enum ComputeAssetState {
-  ACTIVE = "ACTIVE",
-  ISOLATED = "ISOLATED",
-  RETIRING = "RETIRING",
-}
+export type AssetType = (typeof AssetType)[keyof typeof AssetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputeAssetState = {
+  ACTIVE: "ACTIVE",
+  ISOLATED: "ISOLATED",
+  RETIRING: "RETIRING",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeAssetState = (typeof ComputeAssetState)[keyof typeof ComputeAssetState];
 
 /**
  * @public
@@ -185,11 +203,17 @@ export interface AssetInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum AssetState {
-  ACTIVE = "ACTIVE",
-  RETIRING = "RETIRING",
-}
+export const AssetState = {
+  ACTIVE: "ACTIVE",
+  RETIRING: "RETIRING",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetState = (typeof AssetState)[keyof typeof AssetState];
 
 /**
  * @public
@@ -208,11 +232,17 @@ export interface CancelOrderOutput {}
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  ORDER = "ORDER",
-  OUTPOST = "OUTPOST",
-}
+export const ResourceType = {
+  ORDER: "ORDER",
+  OUTPOST: "OUTPOST",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -336,19 +366,31 @@ export interface EC2Capacity {
 
 /**
  * @public
+ * @enum
  */
-export enum CatalogItemStatus {
-  AVAILABLE = "AVAILABLE",
-  DISCONTINUED = "DISCONTINUED",
-}
+export const CatalogItemStatus = {
+  AVAILABLE: "AVAILABLE",
+  DISCONTINUED: "DISCONTINUED",
+} as const;
 
 /**
  * @public
  */
-export enum SupportedStorageEnum {
-  EBS = "EBS",
-  S3 = "S3",
-}
+export type CatalogItemStatus = (typeof CatalogItemStatus)[keyof typeof CatalogItemStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportedStorageEnum = {
+  EBS: "EBS",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedStorageEnum = (typeof SupportedStorageEnum)[keyof typeof SupportedStorageEnum];
 
 /**
  * @public
@@ -393,11 +435,17 @@ export interface CatalogItem {
 
 /**
  * @public
+ * @enum
  */
-export enum CatalogItemClass {
-  RACK = "RACK",
-  SERVER = "SERVER",
-}
+export const CatalogItemClass = {
+  RACK: "RACK",
+  SERVER: "SERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type CatalogItemClass = (typeof CatalogItemClass)[keyof typeof CatalogItemClass];
 
 /**
  * @public
@@ -453,20 +501,32 @@ export interface LineItemRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
+export const PaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+} as const;
 
 /**
  * @public
  */
-export enum PaymentTerm {
-  ONE_YEAR = "ONE_YEAR",
-  THREE_YEARS = "THREE_YEARS",
-}
+export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentTerm = {
+  ONE_YEAR: "ONE_YEAR",
+  THREE_YEARS: "THREE_YEARS",
+} as const;
+
+/**
+ * @public
+ */
+export type PaymentTerm = (typeof PaymentTerm)[keyof typeof PaymentTerm];
 
 /**
  * @public
@@ -511,13 +571,19 @@ export interface LineItemAssetInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum ShipmentCarrier {
-  DBS = "DBS",
-  DHL = "DHL",
-  FEDEX = "FEDEX",
-  UPS = "UPS",
-}
+export const ShipmentCarrier = {
+  DBS: "DBS",
+  DHL: "DHL",
+  FEDEX: "FEDEX",
+  UPS: "UPS",
+} as const;
+
+/**
+ * @public
+ */
+export type ShipmentCarrier = (typeof ShipmentCarrier)[keyof typeof ShipmentCarrier];
 
 /**
  * @public
@@ -537,18 +603,24 @@ export interface ShipmentInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum LineItemStatus {
-  BUILDING = "BUILDING",
-  CANCELLED = "CANCELLED",
-  DELIVERED = "DELIVERED",
-  ERROR = "ERROR",
-  INSTALLED = "INSTALLED",
-  INSTALLING = "INSTALLING",
-  PREPARING = "PREPARING",
-  REPLACED = "REPLACED",
-  SHIPPED = "SHIPPED",
-}
+export const LineItemStatus = {
+  BUILDING: "BUILDING",
+  CANCELLED: "CANCELLED",
+  DELIVERED: "DELIVERED",
+  ERROR: "ERROR",
+  INSTALLED: "INSTALLED",
+  INSTALLING: "INSTALLING",
+  PREPARING: "PREPARING",
+  REPLACED: "REPLACED",
+  SHIPPED: "SHIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type LineItemStatus = (typeof LineItemStatus)[keyof typeof LineItemStatus];
 
 /**
  * @public
@@ -598,27 +670,39 @@ export interface LineItem {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderType {
-  OUTPOST = "OUTPOST",
-  REPLACEMENT = "REPLACEMENT",
-}
+export const OrderType = {
+  OUTPOST: "OUTPOST",
+  REPLACEMENT: "REPLACEMENT",
+} as const;
 
 /**
  * @public
  */
-export enum OrderStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  FULFILLED = "FULFILLED",
-  INSTALLING = "INSTALLING",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  PREPARING = "PREPARING",
-  PROCESSING = "PROCESSING",
-  RECEIVED = "RECEIVED",
-}
+export type OrderType = (typeof OrderType)[keyof typeof OrderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrderStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  FULFILLED: "FULFILLED",
+  INSTALLING: "INSTALLING",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  PREPARING: "PREPARING",
+  PROCESSING: "PROCESSING",
+  RECEIVED: "RECEIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus];
 
 /**
  * @public
@@ -732,11 +816,17 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum SupportedHardwareType {
-  RACK = "RACK",
-  SERVER = "SERVER",
-}
+export const SupportedHardwareType = {
+  RACK: "RACK",
+  SERVER: "SERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedHardwareType = (typeof SupportedHardwareType)[keyof typeof SupportedHardwareType];
 
 /**
  * @public
@@ -856,103 +946,157 @@ export interface CreateOutpostOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum FiberOpticCableType {
-  MULTI_MODE = "MULTI_MODE",
-  SINGLE_MODE = "SINGLE_MODE",
-}
+export const FiberOpticCableType = {
+  MULTI_MODE: "MULTI_MODE",
+  SINGLE_MODE: "SINGLE_MODE",
+} as const;
 
 /**
  * @public
  */
-export enum MaximumSupportedWeightLbs {
-  MAX_1400_LBS = "MAX_1400_LBS",
-  MAX_1600_LBS = "MAX_1600_LBS",
-  MAX_1800_LBS = "MAX_1800_LBS",
-  MAX_2000_LBS = "MAX_2000_LBS",
-  NO_LIMIT = "NO_LIMIT",
-}
+export type FiberOpticCableType = (typeof FiberOpticCableType)[keyof typeof FiberOpticCableType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaximumSupportedWeightLbs = {
+  MAX_1400_LBS: "MAX_1400_LBS",
+  MAX_1600_LBS: "MAX_1600_LBS",
+  MAX_1800_LBS: "MAX_1800_LBS",
+  MAX_2000_LBS: "MAX_2000_LBS",
+  NO_LIMIT: "NO_LIMIT",
+} as const;
 
 /**
  * @public
  */
-export enum OpticalStandard {
-  OPTIC_1000BASE_LX = "OPTIC_1000BASE_LX",
-  OPTIC_1000BASE_SX = "OPTIC_1000BASE_SX",
-  OPTIC_100GBASE_CWDM4 = "OPTIC_100GBASE_CWDM4",
-  OPTIC_100GBASE_LR4 = "OPTIC_100GBASE_LR4",
-  OPTIC_100GBASE_SR4 = "OPTIC_100GBASE_SR4",
-  OPTIC_100G_PSM4_MSA = "OPTIC_100G_PSM4_MSA",
-  OPTIC_10GBASE_IR = "OPTIC_10GBASE_IR",
-  OPTIC_10GBASE_LR = "OPTIC_10GBASE_LR",
-  OPTIC_10GBASE_SR = "OPTIC_10GBASE_SR",
-  OPTIC_40GBASE_ESR = "OPTIC_40GBASE_ESR",
-  OPTIC_40GBASE_IR4_LR4L = "OPTIC_40GBASE_IR4_LR4L",
-  OPTIC_40GBASE_LR4 = "OPTIC_40GBASE_LR4",
-  OPTIC_40GBASE_SR = "OPTIC_40GBASE_SR",
-}
+export type MaximumSupportedWeightLbs = (typeof MaximumSupportedWeightLbs)[keyof typeof MaximumSupportedWeightLbs];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpticalStandard = {
+  OPTIC_1000BASE_LX: "OPTIC_1000BASE_LX",
+  OPTIC_1000BASE_SX: "OPTIC_1000BASE_SX",
+  OPTIC_100GBASE_CWDM4: "OPTIC_100GBASE_CWDM4",
+  OPTIC_100GBASE_LR4: "OPTIC_100GBASE_LR4",
+  OPTIC_100GBASE_SR4: "OPTIC_100GBASE_SR4",
+  OPTIC_100G_PSM4_MSA: "OPTIC_100G_PSM4_MSA",
+  OPTIC_10GBASE_IR: "OPTIC_10GBASE_IR",
+  OPTIC_10GBASE_LR: "OPTIC_10GBASE_LR",
+  OPTIC_10GBASE_SR: "OPTIC_10GBASE_SR",
+  OPTIC_40GBASE_ESR: "OPTIC_40GBASE_ESR",
+  OPTIC_40GBASE_IR4_LR4L: "OPTIC_40GBASE_IR4_LR4L",
+  OPTIC_40GBASE_LR4: "OPTIC_40GBASE_LR4",
+  OPTIC_40GBASE_SR: "OPTIC_40GBASE_SR",
+} as const;
 
 /**
  * @public
  */
-export enum PowerConnector {
-  AH530P7W = "AH530P7W",
-  AH532P6W = "AH532P6W",
-  IEC309 = "IEC309",
-  L6_30P = "L6_30P",
-}
+export type OpticalStandard = (typeof OpticalStandard)[keyof typeof OpticalStandard];
+
+/**
+ * @public
+ * @enum
+ */
+export const PowerConnector = {
+  AH530P7W: "AH530P7W",
+  AH532P6W: "AH532P6W",
+  IEC309: "IEC309",
+  L6_30P: "L6_30P",
+} as const;
 
 /**
  * @public
  */
-export enum PowerDrawKva {
-  POWER_10_KVA = "POWER_10_KVA",
-  POWER_15_KVA = "POWER_15_KVA",
-  POWER_30_KVA = "POWER_30_KVA",
-  POWER_5_KVA = "POWER_5_KVA",
-}
+export type PowerConnector = (typeof PowerConnector)[keyof typeof PowerConnector];
+
+/**
+ * @public
+ * @enum
+ */
+export const PowerDrawKva = {
+  POWER_10_KVA: "POWER_10_KVA",
+  POWER_15_KVA: "POWER_15_KVA",
+  POWER_30_KVA: "POWER_30_KVA",
+  POWER_5_KVA: "POWER_5_KVA",
+} as const;
 
 /**
  * @public
  */
-export enum PowerFeedDrop {
-  ABOVE_RACK = "ABOVE_RACK",
-  BELOW_RACK = "BELOW_RACK",
-}
+export type PowerDrawKva = (typeof PowerDrawKva)[keyof typeof PowerDrawKva];
+
+/**
+ * @public
+ * @enum
+ */
+export const PowerFeedDrop = {
+  ABOVE_RACK: "ABOVE_RACK",
+  BELOW_RACK: "BELOW_RACK",
+} as const;
 
 /**
  * @public
  */
-export enum PowerPhase {
-  SINGLE_PHASE = "SINGLE_PHASE",
-  THREE_PHASE = "THREE_PHASE",
-}
+export type PowerFeedDrop = (typeof PowerFeedDrop)[keyof typeof PowerFeedDrop];
+
+/**
+ * @public
+ * @enum
+ */
+export const PowerPhase = {
+  SINGLE_PHASE: "SINGLE_PHASE",
+  THREE_PHASE: "THREE_PHASE",
+} as const;
 
 /**
  * @public
  */
-export enum UplinkCount {
-  UPLINK_COUNT_1 = "UPLINK_COUNT_1",
-  UPLINK_COUNT_12 = "UPLINK_COUNT_12",
-  UPLINK_COUNT_16 = "UPLINK_COUNT_16",
-  UPLINK_COUNT_2 = "UPLINK_COUNT_2",
-  UPLINK_COUNT_3 = "UPLINK_COUNT_3",
-  UPLINK_COUNT_4 = "UPLINK_COUNT_4",
-  UPLINK_COUNT_5 = "UPLINK_COUNT_5",
-  UPLINK_COUNT_6 = "UPLINK_COUNT_6",
-  UPLINK_COUNT_7 = "UPLINK_COUNT_7",
-  UPLINK_COUNT_8 = "UPLINK_COUNT_8",
-}
+export type PowerPhase = (typeof PowerPhase)[keyof typeof PowerPhase];
+
+/**
+ * @public
+ * @enum
+ */
+export const UplinkCount = {
+  UPLINK_COUNT_1: "UPLINK_COUNT_1",
+  UPLINK_COUNT_12: "UPLINK_COUNT_12",
+  UPLINK_COUNT_16: "UPLINK_COUNT_16",
+  UPLINK_COUNT_2: "UPLINK_COUNT_2",
+  UPLINK_COUNT_3: "UPLINK_COUNT_3",
+  UPLINK_COUNT_4: "UPLINK_COUNT_4",
+  UPLINK_COUNT_5: "UPLINK_COUNT_5",
+  UPLINK_COUNT_6: "UPLINK_COUNT_6",
+  UPLINK_COUNT_7: "UPLINK_COUNT_7",
+  UPLINK_COUNT_8: "UPLINK_COUNT_8",
+} as const;
 
 /**
  * @public
  */
-export enum UplinkGbps {
-  UPLINK_100G = "UPLINK_100G",
-  UPLINK_10G = "UPLINK_10G",
-  UPLINK_1G = "UPLINK_1G",
-  UPLINK_40G = "UPLINK_40G",
-}
+export type UplinkCount = (typeof UplinkCount)[keyof typeof UplinkCount];
+
+/**
+ * @public
+ * @enum
+ */
+export const UplinkGbps = {
+  UPLINK_100G: "UPLINK_100G",
+  UPLINK_10G: "UPLINK_10G",
+  UPLINK_1G: "UPLINK_1G",
+  UPLINK_40G: "UPLINK_40G",
+} as const;
+
+/**
+ * @public
+ */
+export type UplinkGbps = (typeof UplinkGbps)[keyof typeof UplinkGbps];
 
 /**
  * @public

@@ -208,21 +208,33 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum BackupType {
-  AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL",
-}
+export const BackupType = {
+  AUTOMATED: "AUTOMATED",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
  * @public
  */
-export enum BackupStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  OK = "OK",
-}
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
 
 /**
  * @public
@@ -782,30 +794,42 @@ export interface CreateServerRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MaintenanceStatus {
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS",
-}
+export const MaintenanceStatus = {
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
  * @public
  */
-export enum ServerStatus {
-  BACKING_UP = "BACKING_UP",
-  CONNECTION_LOST = "CONNECTION_LOST",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALTHY = "HEALTHY",
-  MODIFYING = "MODIFYING",
-  RESTORING = "RESTORING",
-  RUNNING = "RUNNING",
-  SETUP = "SETUP",
-  TERMINATED = "TERMINATED",
-  UNDER_MAINTENANCE = "UNDER_MAINTENANCE",
-  UNHEALTHY = "UNHEALTHY",
-}
+export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServerStatus = {
+  BACKING_UP: "BACKING_UP",
+  CONNECTION_LOST: "CONNECTION_LOST",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  HEALTHY: "HEALTHY",
+  MODIFYING: "MODIFYING",
+  RESTORING: "RESTORING",
+  RUNNING: "RUNNING",
+  SETUP: "SETUP",
+  TERMINATED: "TERMINATED",
+  UNDER_MAINTENANCE: "UNDER_MAINTENANCE",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerStatus = (typeof ServerStatus)[keyof typeof ServerStatus];
 
 /**
  * @public
@@ -1265,12 +1289,18 @@ export interface DescribeNodeAssociationStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NodeAssociationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const NodeAssociationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeAssociationStatus = (typeof NodeAssociationStatus)[keyof typeof NodeAssociationStatus];
 
 /**
  * @public

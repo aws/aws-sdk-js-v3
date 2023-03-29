@@ -5,29 +5,47 @@ import { CloudWatchServiceException as __BaseException } from "./CloudWatchServi
 
 /**
  * @public
+ * @enum
  */
-export enum ActionsSuppressedBy {
-  Alarm = "Alarm",
-  ExtensionPeriod = "ExtensionPeriod",
-  WaitPeriod = "WaitPeriod",
-}
+export const ActionsSuppressedBy = {
+  Alarm: "Alarm",
+  ExtensionPeriod: "ExtensionPeriod",
+  WaitPeriod: "WaitPeriod",
+} as const;
 
 /**
  * @public
  */
-export enum AlarmType {
-  CompositeAlarm = "CompositeAlarm",
-  MetricAlarm = "MetricAlarm",
-}
+export type ActionsSuppressedBy = (typeof ActionsSuppressedBy)[keyof typeof ActionsSuppressedBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const AlarmType = {
+  CompositeAlarm: "CompositeAlarm",
+  MetricAlarm: "MetricAlarm",
+} as const;
 
 /**
  * @public
  */
-export enum HistoryItemType {
-  Action = "Action",
-  ConfigurationUpdate = "ConfigurationUpdate",
-  StateUpdate = "StateUpdate",
-}
+export type AlarmType = (typeof AlarmType)[keyof typeof AlarmType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HistoryItemType = {
+  Action: "Action",
+  ConfigurationUpdate: "ConfigurationUpdate",
+  StateUpdate: "StateUpdate",
+} as const;
+
+/**
+ * @public
+ */
+export type HistoryItemType = (typeof HistoryItemType)[keyof typeof HistoryItemType];
 
 /**
  * @public
@@ -157,36 +175,42 @@ export interface Metric {
 
 /**
  * @public
+ * @enum
  */
-export enum StandardUnit {
-  Bits = "Bits",
-  Bits_Second = "Bits/Second",
-  Bytes = "Bytes",
-  Bytes_Second = "Bytes/Second",
-  Count = "Count",
-  Count_Second = "Count/Second",
-  Gigabits = "Gigabits",
-  Gigabits_Second = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  Gigabytes_Second = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  Kilobits_Second = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  Kilobytes_Second = "Kilobytes/Second",
-  Megabits = "Megabits",
-  Megabits_Second = "Megabits/Second",
-  Megabytes = "Megabytes",
-  Megabytes_Second = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  Terabits_Second = "Terabits/Second",
-  Terabytes = "Terabytes",
-  Terabytes_Second = "Terabytes/Second",
-}
+export const StandardUnit = {
+  Bits: "Bits",
+  Bits_Second: "Bits/Second",
+  Bytes: "Bytes",
+  Bytes_Second: "Bytes/Second",
+  Count: "Count",
+  Count_Second: "Count/Second",
+  Gigabits: "Gigabits",
+  Gigabits_Second: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  Gigabytes_Second: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  Kilobits_Second: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  Kilobytes_Second: "Kilobytes/Second",
+  Megabits: "Megabits",
+  Megabits_Second: "Megabits/Second",
+  Megabytes: "Megabytes",
+  Megabytes_Second: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  Terabits_Second: "Terabits/Second",
+  Terabytes: "Terabytes",
+  Terabytes_Second: "Terabytes/Second",
+} as const;
+
+/**
+ * @public
+ */
+export type StandardUnit = (typeof StandardUnit)[keyof typeof StandardUnit];
 
 /**
  * @public
@@ -384,12 +408,18 @@ export interface SingleMetricAnomalyDetector {
 
 /**
  * @public
+ * @enum
  */
-export enum AnomalyDetectorStateValue {
-  PENDING_TRAINING = "PENDING_TRAINING",
-  TRAINED = "TRAINED",
-  TRAINED_INSUFFICIENT_DATA = "TRAINED_INSUFFICIENT_DATA",
-}
+export const AnomalyDetectorStateValue = {
+  PENDING_TRAINING: "PENDING_TRAINING",
+  TRAINED: "TRAINED",
+  TRAINED_INSUFFICIENT_DATA: "TRAINED_INSUFFICIENT_DATA",
+} as const;
+
+/**
+ * @public
+ */
+export type AnomalyDetectorStateValue = (typeof AnomalyDetectorStateValue)[keyof typeof AnomalyDetectorStateValue];
 
 /**
  * @public
@@ -453,11 +483,17 @@ export interface AnomalyDetector {
 
 /**
  * @public
+ * @enum
  */
-export enum AnomalyDetectorType {
-  METRIC_MATH = "METRIC_MATH",
-  SINGLE_METRIC = "SINGLE_METRIC",
-}
+export const AnomalyDetectorType = {
+  METRIC_MATH: "METRIC_MATH",
+  SINGLE_METRIC: "SINGLE_METRIC",
+} as const;
+
+/**
+ * @public
+ */
+export type AnomalyDetectorType = (typeof AnomalyDetectorType)[keyof typeof AnomalyDetectorType];
 
 /**
  * @public
@@ -488,25 +524,37 @@ export interface PartialFailure {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonOperator {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  GreaterThanUpperThreshold = "GreaterThanUpperThreshold",
-  LessThanLowerOrGreaterThanUpperThreshold = "LessThanLowerOrGreaterThanUpperThreshold",
-  LessThanLowerThreshold = "LessThanLowerThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
+export const ComparisonOperator = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  GreaterThanUpperThreshold: "GreaterThanUpperThreshold",
+  LessThanLowerOrGreaterThanUpperThreshold: "LessThanLowerOrGreaterThanUpperThreshold",
+  LessThanLowerThreshold: "LessThanLowerThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+} as const;
 
 /**
  * @public
  */
-export enum StateValue {
-  ALARM = "ALARM",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const StateValue = {
+  ALARM: "ALARM",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type StateValue = (typeof StateValue)[keyof typeof StateValue];
 
 /**
  * @public
@@ -1132,11 +1180,17 @@ export interface DeleteMetricStreamOutput {}
 
 /**
  * @public
+ * @enum
  */
-export enum ScanBy {
-  TIMESTAMP_ASCENDING = "TimestampAscending",
-  TIMESTAMP_DESCENDING = "TimestampDescending",
-}
+export const ScanBy = {
+  TIMESTAMP_ASCENDING: "TimestampAscending",
+  TIMESTAMP_DESCENDING: "TimestampDescending",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanBy = (typeof ScanBy)[keyof typeof ScanBy];
 
 /**
  * @public
@@ -1309,21 +1363,33 @@ export interface DescribeAlarmsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum EvaluationState {
-  PARTIAL_DATA = "PARTIAL_DATA",
-}
+export const EvaluationState = {
+  PARTIAL_DATA: "PARTIAL_DATA",
+} as const;
 
 /**
  * @public
  */
-export enum Statistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export type EvaluationState = (typeof EvaluationState)[keyof typeof EvaluationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const Statistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type Statistic = (typeof Statistic)[keyof typeof Statistic];
 
 /**
  * @public
@@ -2183,13 +2249,19 @@ export interface MessageData {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusCode {
-  COMPLETE = "Complete",
-  FORBIDDEN = "Forbidden",
-  INTERNAL_ERROR = "InternalError",
-  PARTIAL_DATA = "PartialData",
-}
+export const StatusCode = {
+  COMPLETE: "Complete",
+  FORBIDDEN: "Forbidden",
+  INTERNAL_ERROR: "InternalError",
+  PARTIAL_DATA: "PartialData",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusCode = (typeof StatusCode)[keyof typeof StatusCode];
 
 /**
  * @public
@@ -2409,11 +2481,17 @@ export interface MetricStreamFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricStreamOutputFormat {
-  JSON = "json",
-  OPEN_TELEMETRY_0_7 = "opentelemetry0.7",
-}
+export const MetricStreamOutputFormat = {
+  JSON: "json",
+  OPEN_TELEMETRY_0_7: "opentelemetry0.7",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricStreamOutputFormat = (typeof MetricStreamOutputFormat)[keyof typeof MetricStreamOutputFormat];
 
 /**
  * @public
@@ -2785,10 +2863,16 @@ export interface ListManagedInsightRulesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum RecentlyActive {
-  PT3H = "PT3H",
-}
+export const RecentlyActive = {
+  PT3H: "PT3H",
+} as const;
+
+/**
+ * @public
+ */
+export type RecentlyActive = (typeof RecentlyActive)[keyof typeof RecentlyActive];
 
 /**
  * @public

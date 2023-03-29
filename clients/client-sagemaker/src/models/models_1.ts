@@ -182,15 +182,22 @@ export interface ExplainerConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ProductionVariantAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge",
-}
+export const ProductionVariantAcceleratorType = {
+  ML_EIA1_LARGE: "ml.eia1.large",
+  ML_EIA1_MEDIUM: "ml.eia1.medium",
+  ML_EIA1_XLARGE: "ml.eia1.xlarge",
+  ML_EIA2_LARGE: "ml.eia2.large",
+  ML_EIA2_MEDIUM: "ml.eia2.medium",
+  ML_EIA2_XLARGE: "ml.eia2.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type ProductionVariantAcceleratorType =
+  (typeof ProductionVariantAcceleratorType)[keyof typeof ProductionVariantAcceleratorType];
 
 /**
  * @public
@@ -504,12 +511,18 @@ export interface CreateExperimentResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureType {
-  FRACTIONAL = "Fractional",
-  INTEGRAL = "Integral",
-  STRING = "String",
-}
+export const FeatureType = {
+  FRACTIONAL: "Fractional",
+  INTEGRAL: "Integral",
+  STRING: "String",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
 
 /**
  * @public
@@ -588,11 +601,17 @@ export interface S3StorageConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum TableFormat {
-  GLUE = "Glue",
-  ICEBERG = "Iceberg",
-}
+export const TableFormat = {
+  GLUE: "Glue",
+  ICEBERG: "Iceberg",
+} as const;
+
+/**
+ * @public
+ */
+export type TableFormat = (typeof TableFormat)[keyof typeof TableFormat];
 
 /**
  * @public
@@ -1891,13 +1910,20 @@ export interface ResourceLimits {
 
 /**
  * @public
+ * @enum
  */
-export enum HyperParameterTuningJobStrategyType {
-  BAYESIAN = "Bayesian",
-  GRID = "Grid",
-  HYPERBAND = "Hyperband",
-  RANDOM = "Random",
-}
+export const HyperParameterTuningJobStrategyType = {
+  BAYESIAN: "Bayesian",
+  GRID: "Grid",
+  HYPERBAND: "Hyperband",
+  RANDOM: "Random",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperParameterTuningJobStrategyType =
+  (typeof HyperParameterTuningJobStrategyType)[keyof typeof HyperParameterTuningJobStrategyType];
 
 /**
  * @public
@@ -1983,11 +2009,18 @@ export interface HyperParameterTuningJobStrategyConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum TrainingJobEarlyStoppingType {
-  AUTO = "Auto",
-  OFF = "Off",
-}
+export const TrainingJobEarlyStoppingType = {
+  AUTO: "Auto",
+  OFF: "Off",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainingJobEarlyStoppingType =
+  (typeof TrainingJobEarlyStoppingType)[keyof typeof TrainingJobEarlyStoppingType];
 
 /**
  * @public
@@ -2160,10 +2193,17 @@ export interface HyperParameterAlgorithmSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum HyperParameterTuningAllocationStrategy {
-  PRIORITIZED = "Prioritized",
-}
+export const HyperParameterTuningAllocationStrategy = {
+  PRIORITIZED: "Prioritized",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperParameterTuningAllocationStrategy =
+  (typeof HyperParameterTuningAllocationStrategy)[keyof typeof HyperParameterTuningAllocationStrategy];
 
 /**
  * @public
@@ -2489,11 +2529,18 @@ export interface ParentHyperParameterTuningJob {
 
 /**
  * @public
+ * @enum
  */
-export enum HyperParameterTuningJobWarmStartType {
-  IDENTICAL_DATA_AND_ALGORITHM = "IdenticalDataAndAlgorithm",
-  TRANSFER_LEARNING = "TransferLearning",
-}
+export const HyperParameterTuningJobWarmStartType = {
+  IDENTICAL_DATA_AND_ALGORITHM: "IdenticalDataAndAlgorithm",
+  TRANSFER_LEARNING: "TransferLearning",
+} as const;
+
+/**
+ * @public
+ */
+export type HyperParameterTuningJobWarmStartType =
+  (typeof HyperParameterTuningJobWarmStartType)[keyof typeof HyperParameterTuningJobWarmStartType];
 
 /**
  * @public
@@ -2674,30 +2721,48 @@ export interface CreateImageResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum JobType {
-  INFERENCE = "INFERENCE",
-  NOTEBOOK_KERNEL = "NOTEBOOK_KERNEL",
-  TRAINING = "TRAINING",
-}
+export const JobType = {
+  INFERENCE: "INFERENCE",
+  NOTEBOOK_KERNEL: "NOTEBOOK_KERNEL",
+  TRAINING: "TRAINING",
+} as const;
 
 /**
  * @public
  */
-export enum Processor {
-  CPU = "CPU",
-  GPU = "GPU",
-}
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Processor = {
+  CPU: "CPU",
+  GPU: "GPU",
+} as const;
 
 /**
  * @public
  */
-export enum VendorGuidance {
-  ARCHIVED = "ARCHIVED",
-  NOT_PROVIDED = "NOT_PROVIDED",
-  STABLE = "STABLE",
-  TO_BE_ARCHIVED = "TO_BE_ARCHIVED",
-}
+export type Processor = (typeof Processor)[keyof typeof Processor];
+
+/**
+ * @public
+ * @enum
+ */
+export const VendorGuidance = {
+  ARCHIVED: "ARCHIVED",
+  NOT_PROVIDED: "NOT_PROVIDED",
+  STABLE: "STABLE",
+  TO_BE_ARCHIVED: "TO_BE_ARCHIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type VendorGuidance = (typeof VendorGuidance)[keyof typeof VendorGuidance];
 
 /**
  * @public
@@ -2843,85 +2908,97 @@ export interface InferenceExperimentDataStorageConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelInfrastructureType {
-  REAL_TIME_INFERENCE = "RealTimeInference",
-}
+export const ModelInfrastructureType = {
+  REAL_TIME_INFERENCE: "RealTimeInference",
+} as const;
 
 /**
  * @public
  */
-export enum _InstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_16XLARGE = "ml.m5d.16xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_8XLARGE = "ml.m5d.8xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-}
+export type ModelInfrastructureType = (typeof ModelInfrastructureType)[keyof typeof ModelInfrastructureType];
+
+/**
+ * @public
+ * @enum
+ */
+export const _InstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5D_18XLARGE: "ml.c5d.18xlarge",
+  ML_C5D_2XLARGE: "ml.c5d.2xlarge",
+  ML_C5D_4XLARGE: "ml.c5d.4xlarge",
+  ML_C5D_9XLARGE: "ml.c5d.9xlarge",
+  ML_C5D_XLARGE: "ml.c5d.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5D_12XLARGE: "ml.m5d.12xlarge",
+  ML_M5D_16XLARGE: "ml.m5d.16xlarge",
+  ML_M5D_24XLARGE: "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE: "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE: "ml.m5d.4xlarge",
+  ML_M5D_8XLARGE: "ml.m5d.8xlarge",
+  ML_M5D_LARGE: "ml.m5d.large",
+  ML_M5D_XLARGE: "ml.m5d.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T2_2XLARGE: "ml.t2.2xlarge",
+  ML_T2_LARGE: "ml.t2.large",
+  ML_T2_MEDIUM: "ml.t2.medium",
+  ML_T2_XLARGE: "ml.t2.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
 
 /**
  * @public
@@ -3041,10 +3118,16 @@ export interface ShadowModeConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum InferenceExperimentType {
-  SHADOW_MODE = "ShadowMode",
-}
+export const InferenceExperimentType = {
+  SHADOW_MODE: "ShadowMode",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceExperimentType = (typeof InferenceExperimentType)[keyof typeof InferenceExperimentType];
 
 /**
  * @public
@@ -3357,10 +3440,16 @@ export interface Phase {
 
 /**
  * @public
+ * @enum
  */
-export enum TrafficType {
-  PHASES = "PHASES",
-}
+export const TrafficType = {
+  PHASES: "PHASES",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
 
 /**
  * @public
@@ -3490,11 +3579,17 @@ export interface RecommendationJobInputConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum RecommendationJobType {
-  ADVANCED = "Advanced",
-  DEFAULT = "Default",
-}
+export const RecommendationJobType = {
+  ADVANCED: "Advanced",
+  DEFAULT: "Default",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationJobType = (typeof RecommendationJobType)[keyof typeof RecommendationJobType];
 
 /**
  * @public
@@ -5776,11 +5871,17 @@ export interface CreateLabelingJobResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum InferenceExecutionMode {
-  DIRECT = "Direct",
-  SERIAL = "Serial",
-}
+export const InferenceExecutionMode = {
+  DIRECT: "Direct",
+  SERIAL: "Serial",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceExecutionMode = (typeof InferenceExecutionMode)[keyof typeof InferenceExecutionMode];
 
 /**
  * @public
@@ -6017,13 +6118,19 @@ export interface CreateModelBiasJobDefinitionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelCardStatus {
-  APPROVED = "Approved",
-  ARCHIVED = "Archived",
-  DRAFT = "Draft",
-  PENDINGREVIEW = "PendingReview",
-}
+export const ModelCardStatus = {
+  APPROVED: "Approved",
+  ARCHIVED: "Archived",
+  DRAFT: "Draft",
+  PENDINGREVIEW: "PendingReview",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardStatus = (typeof ModelCardStatus)[keyof typeof ModelCardStatus];
 
 /**
  * @public
@@ -6716,12 +6823,18 @@ export interface CreateModelPackageGroupOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitoringProblemType {
-  BINARY_CLASSIFICATION = "BinaryClassification",
-  MULTICLASS_CLASSIFICATION = "MulticlassClassification",
-  REGRESSION = "Regression",
-}
+export const MonitoringProblemType = {
+  BINARY_CLASSIFICATION: "BinaryClassification",
+  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
+  REGRESSION: "Regression",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringProblemType = (typeof MonitoringProblemType)[keyof typeof MonitoringProblemType];
 
 /**
  * @public
@@ -7038,13 +7151,19 @@ export interface MonitoringJobDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitoringType {
-  DATA_QUALITY = "DataQuality",
-  MODEL_BIAS = "ModelBias",
-  MODEL_EXPLAINABILITY = "ModelExplainability",
-  MODEL_QUALITY = "ModelQuality",
-}
+export const MonitoringType = {
+  DATA_QUALITY: "DataQuality",
+  MODEL_BIAS: "ModelBias",
+  MODEL_EXPLAINABILITY: "ModelExplainability",
+  MODEL_QUALITY: "ModelQuality",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringType = (typeof MonitoringType)[keyof typeof MonitoringType];
 
 /**
  * @public
@@ -7172,23 +7291,36 @@ export interface CreateMonitoringScheduleResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NotebookInstanceAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge",
-}
+export const NotebookInstanceAcceleratorType = {
+  ML_EIA1_LARGE: "ml.eia1.large",
+  ML_EIA1_MEDIUM: "ml.eia1.medium",
+  ML_EIA1_XLARGE: "ml.eia1.xlarge",
+  ML_EIA2_LARGE: "ml.eia2.large",
+  ML_EIA2_MEDIUM: "ml.eia2.medium",
+  ML_EIA2_XLARGE: "ml.eia2.xlarge",
+} as const;
 
 /**
  * @public
  */
-export enum DirectInternetAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export type NotebookInstanceAcceleratorType =
+  (typeof NotebookInstanceAcceleratorType)[keyof typeof NotebookInstanceAcceleratorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DirectInternetAccess = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type DirectInternetAccess = (typeof DirectInternetAccess)[keyof typeof DirectInternetAccess];
 
 /**
  * @public
@@ -7203,11 +7335,17 @@ export interface InstanceMetadataServiceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum RootAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const RootAccess = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type RootAccess = (typeof RootAccess)[keyof typeof RootAccess];
 
 /**
  * @public
@@ -7616,38 +7754,63 @@ export interface ExperimentConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum DataDistributionType {
-  FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key",
-}
+export const DataDistributionType = {
+  FULLYREPLICATED: "FullyReplicated",
+  SHARDEDBYS3KEY: "ShardedByS3Key",
+} as const;
 
 /**
  * @public
  */
-export enum InputMode {
-  FILE = "File",
-  PIPE = "Pipe",
-}
+export type DataDistributionType = (typeof DataDistributionType)[keyof typeof DataDistributionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputMode = {
+  FILE: "File",
+  PIPE: "Pipe",
+} as const;
 
 /**
  * @public
  */
-export enum RedshiftResultCompressionType {
-  BZIP2 = "BZIP2",
-  GZIP = "GZIP",
-  NONE = "None",
-  SNAPPY = "SNAPPY",
-  ZSTD = "ZSTD",
-}
+export type InputMode = (typeof InputMode)[keyof typeof InputMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftResultCompressionType = {
+  BZIP2: "BZIP2",
+  GZIP: "GZIP",
+  NONE: "None",
+  SNAPPY: "SNAPPY",
+  ZSTD: "ZSTD",
+} as const;
 
 /**
  * @public
  */
-export enum RedshiftResultFormat {
-  CSV = "CSV",
-  PARQUET = "PARQUET",
-}
+export type RedshiftResultCompressionType =
+  (typeof RedshiftResultCompressionType)[keyof typeof RedshiftResultCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftResultFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+} as const;
+
+/**
+ * @public
+ */
+export type RedshiftResultFormat = (typeof RedshiftResultFormat)[keyof typeof RedshiftResultFormat];
 
 /**
  * @public
@@ -7743,19 +7906,32 @@ export interface DatasetDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum ProcessingS3CompressionType {
-  GZIP = "Gzip",
-  NONE = "None",
-}
+export const ProcessingS3CompressionType = {
+  GZIP: "Gzip",
+  NONE: "None",
+} as const;
 
 /**
  * @public
  */
-export enum ProcessingS3DataType {
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix",
-}
+export type ProcessingS3CompressionType =
+  (typeof ProcessingS3CompressionType)[keyof typeof ProcessingS3CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingS3DataType = {
+  MANIFEST_FILE: "ManifestFile",
+  S3_PREFIX: "S3Prefix",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessingS3DataType = (typeof ProcessingS3DataType)[keyof typeof ProcessingS3DataType];
 
 /**
  * @public
@@ -8239,11 +8415,18 @@ export interface CreateSpaceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum StudioLifecycleConfigAppType {
-  JupyterServer = "JupyterServer",
-  KernelGateway = "KernelGateway",
-}
+export const StudioLifecycleConfigAppType = {
+  JupyterServer: "JupyterServer",
+  KernelGateway: "KernelGateway",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioLifecycleConfigAppType =
+  (typeof StudioLifecycleConfigAppType)[keyof typeof StudioLifecycleConfigAppType];
 
 /**
  * @public
@@ -8671,11 +8854,17 @@ export interface CreateTrainingJobResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum JoinSource {
-  INPUT = "Input",
-  NONE = "None",
-}
+export const JoinSource = {
+  INPUT: "Input",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type JoinSource = (typeof JoinSource)[keyof typeof JoinSource];
 
 /**
  * @public
@@ -9029,14 +9218,21 @@ export namespace TrialComponentParameterValue {
 
 /**
  * @public
+ * @enum
  */
-export enum TrialComponentPrimaryStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const TrialComponentPrimaryStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type TrialComponentPrimaryStatus =
+  (typeof TrialComponentPrimaryStatus)[keyof typeof TrialComponentPrimaryStatus];
 
 /**
  * @public
@@ -9477,15 +9673,21 @@ export interface DataCaptureConfigSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleEvaluationStatus {
-  ERROR = "Error",
-  IN_PROGRESS = "InProgress",
-  ISSUES_FOUND = "IssuesFound",
-  NO_ISSUES_FOUND = "NoIssuesFound",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const RuleEvaluationStatus = {
+  ERROR: "Error",
+  IN_PROGRESS: "InProgress",
+  ISSUES_FOUND: "IssuesFound",
+  NO_ISSUES_FOUND: "NoIssuesFound",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleEvaluationStatus = (typeof RuleEvaluationStatus)[keyof typeof RuleEvaluationStatus];
 
 /**
  * @public
@@ -9695,11 +9897,17 @@ export interface DeleteDeviceFleetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RetentionType {
-  Delete = "Delete",
-  Retain = "Retain",
-}
+export const RetentionType = {
+  Delete: "Delete",
+  Retain: "Retain",
+} as const;
+
+/**
+ * @public
+ */
+export type RetentionType = (typeof RetentionType)[keyof typeof RetentionType];
 
 /**
  * @public
@@ -9833,11 +10041,17 @@ export interface DeleteHubRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum HubContentType {
-  MODEL = "Model",
-  NOTEBOOK = "Notebook",
-}
+export const HubContentType = {
+  MODEL: "Model",
+  NOTEBOOK: "Notebook",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentType = (typeof HubContentType)[keyof typeof HubContentType];
 
 /**
  * @public

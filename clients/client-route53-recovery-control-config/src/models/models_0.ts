@@ -21,12 +21,18 @@ export interface ClusterEndpoint {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  DEPLOYED = "DEPLOYED",
-  PENDING = "PENDING",
-  PENDING_DELETION = "PENDING_DELETION",
-}
+export const Status = {
+  DEPLOYED: "DEPLOYED",
+  PENDING: "PENDING",
+  PENDING_DELETION: "PENDING_DELETION",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -118,12 +124,18 @@ export interface RoutingControl {
 
 /**
  * @public
+ * @enum
  */
-export enum RuleType {
-  AND = "AND",
-  ATLEAST = "ATLEAST",
-  OR = "OR",
-}
+export const RuleType = {
+  AND: "AND",
+  ATLEAST: "ATLEAST",
+  OR: "OR",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
 
 /**
  * @public

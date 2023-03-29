@@ -344,20 +344,32 @@ export interface PropagatingVgw {
 
 /**
  * @public
+ * @enum
  */
-export enum RouteOrigin {
-  CreateRoute = "CreateRoute",
-  CreateRouteTable = "CreateRouteTable",
-  EnableVgwRoutePropagation = "EnableVgwRoutePropagation",
-}
+export const RouteOrigin = {
+  CreateRoute: "CreateRoute",
+  CreateRouteTable: "CreateRouteTable",
+  EnableVgwRoutePropagation: "EnableVgwRoutePropagation",
+} as const;
 
 /**
  * @public
  */
-export enum RouteState {
-  active = "active",
-  blackhole = "blackhole",
-}
+export type RouteOrigin = (typeof RouteOrigin)[keyof typeof RouteOrigin];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteState = {
+  active: "active",
+  blackhole: "blackhole",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteState = (typeof RouteState)[keyof typeof RouteState];
 
 /**
  * @public
@@ -618,22 +630,34 @@ export interface CreateSnapshotRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SnapshotState {
-  completed = "completed",
-  error = "error",
-  pending = "pending",
-  recoverable = "recoverable",
-  recovering = "recovering",
-}
+export const SnapshotState = {
+  completed: "completed",
+  error: "error",
+  pending: "pending",
+  recoverable: "recoverable",
+  recovering: "recovering",
+} as const;
 
 /**
  * @public
  */
-export enum StorageTier {
-  archive = "archive",
-  standard = "standard",
-}
+export type SnapshotState = (typeof SnapshotState)[keyof typeof SnapshotState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageTier = {
+  archive: "archive",
+  standard: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageTier = (typeof StorageTier)[keyof typeof StorageTier];
 
 /**
  * @public
@@ -744,10 +768,16 @@ export interface Snapshot {
 
 /**
  * @public
+ * @enum
  */
-export enum CopyTagsFromSource {
-  volume = "volume",
-}
+export const CopyTagsFromSource = {
+  volume: "volume",
+} as const;
+
+/**
+ * @public
+ */
+export type CopyTagsFromSource = (typeof CopyTagsFromSource)[keyof typeof CopyTagsFromSource];
 
 /**
  * @public
@@ -948,11 +978,17 @@ export interface SpotInstanceStateFault {
 
 /**
  * @public
+ * @enum
  */
-export enum DatafeedSubscriptionState {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const DatafeedSubscriptionState = {
+  Active: "Active",
+  Inactive: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type DatafeedSubscriptionState = (typeof DatafeedSubscriptionState)[keyof typeof DatafeedSubscriptionState];
 
 /**
  * @public
@@ -1134,11 +1170,17 @@ export interface CreateSubnetResult {
 
 /**
  * @public
+ * @enum
  */
-export enum SubnetCidrReservationType {
-  explicit = "explicit",
-  prefix = "prefix",
-}
+export const SubnetCidrReservationType = {
+  explicit: "explicit",
+  prefix: "prefix",
+} as const;
+
+/**
+ * @public
+ */
+export type SubnetCidrReservationType = (typeof SubnetCidrReservationType)[keyof typeof SubnetCidrReservationType];
 
 /**
  * @public
@@ -1321,19 +1363,31 @@ export interface TrafficMirrorPortRange {
 
 /**
  * @public
+ * @enum
  */
-export enum TrafficMirrorRuleAction {
-  accept = "accept",
-  reject = "reject",
-}
+export const TrafficMirrorRuleAction = {
+  accept: "accept",
+  reject: "reject",
+} as const;
 
 /**
  * @public
  */
-export enum TrafficDirection {
-  egress = "egress",
-  ingress = "ingress",
-}
+export type TrafficMirrorRuleAction = (typeof TrafficMirrorRuleAction)[keyof typeof TrafficMirrorRuleAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrafficDirection = {
+  egress: "egress",
+  ingress: "ingress",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficDirection = (typeof TrafficDirection)[keyof typeof TrafficDirection];
 
 /**
  * @public
@@ -1398,10 +1452,17 @@ export interface TrafficMirrorFilterRule {
 
 /**
  * @public
+ * @enum
  */
-export enum TrafficMirrorNetworkService {
-  amazon_dns = "amazon-dns",
-}
+export const TrafficMirrorNetworkService = {
+  amazon_dns: "amazon-dns",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficMirrorNetworkService =
+  (typeof TrafficMirrorNetworkService)[keyof typeof TrafficMirrorNetworkService];
 
 /**
  * @public
@@ -1736,12 +1797,18 @@ export interface CreateTrafficMirrorTargetRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TrafficMirrorTargetType {
-  gateway_load_balancer_endpoint = "gateway-load-balancer-endpoint",
-  network_interface = "network-interface",
-  network_load_balancer = "network-load-balancer",
-}
+export const TrafficMirrorTargetType = {
+  gateway_load_balancer_endpoint: "gateway-load-balancer-endpoint",
+  network_interface: "network-interface",
+  network_load_balancer: "network-load-balancer",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficMirrorTargetType = (typeof TrafficMirrorTargetType)[keyof typeof TrafficMirrorTargetType];
 
 /**
  * @public
@@ -1806,43 +1873,76 @@ export interface CreateTrafficMirrorTargetResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AutoAcceptSharedAttachmentsValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const AutoAcceptSharedAttachmentsValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
  * @public
  */
-export enum DefaultRouteTableAssociationValue {
-  disable = "disable",
-  enable = "enable",
-}
+export type AutoAcceptSharedAttachmentsValue =
+  (typeof AutoAcceptSharedAttachmentsValue)[keyof typeof AutoAcceptSharedAttachmentsValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DefaultRouteTableAssociationValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
  * @public
  */
-export enum DefaultRouteTablePropagationValue {
-  disable = "disable",
-  enable = "enable",
-}
+export type DefaultRouteTableAssociationValue =
+  (typeof DefaultRouteTableAssociationValue)[keyof typeof DefaultRouteTableAssociationValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DefaultRouteTablePropagationValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
  * @public
  */
-export enum MulticastSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export type DefaultRouteTablePropagationValue =
+  (typeof DefaultRouteTablePropagationValue)[keyof typeof DefaultRouteTablePropagationValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const MulticastSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
  * @public
  */
-export enum VpnEcmpSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export type MulticastSupportValue = (typeof MulticastSupportValue)[keyof typeof MulticastSupportValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpnEcmpSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+
+/**
+ * @public
+ */
+export type VpnEcmpSupportValue = (typeof VpnEcmpSupportValue)[keyof typeof VpnEcmpSupportValue];
 
 /**
  * @public
@@ -1977,14 +2077,20 @@ export interface TransitGatewayOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  modifying = "modifying",
-  pending = "pending",
-}
+export const TransitGatewayState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  modifying: "modifying",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayState = (typeof TransitGatewayState)[keyof typeof TransitGatewayState];
 
 /**
  * @public
@@ -2044,10 +2150,16 @@ export interface CreateTransitGatewayResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ProtocolValue {
-  gre = "gre",
-}
+export const ProtocolValue = {
+  gre: "gre",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtocolValue = (typeof ProtocolValue)[keyof typeof ProtocolValue];
 
 /**
  * @public
@@ -2210,11 +2322,17 @@ export interface CreateTransitGatewayConnectPeerRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BgpStatus {
-  down = "down",
-  up = "up",
-}
+export const BgpStatus = {
+  down: "down",
+  up: "up",
+} as const;
+
+/**
+ * @public
+ */
+export type BgpStatus = (typeof BgpStatus)[keyof typeof BgpStatus];
 
 /**
  * @public
@@ -2280,13 +2398,20 @@ export interface TransitGatewayConnectPeerConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayConnectPeerState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayConnectPeerState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayConnectPeerState =
+  (typeof TransitGatewayConnectPeerState)[keyof typeof TransitGatewayConnectPeerState];
 
 /**
  * @public
@@ -2336,27 +2461,46 @@ export interface CreateTransitGatewayConnectPeerResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AutoAcceptSharedAssociationsValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const AutoAcceptSharedAssociationsValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
  * @public
  */
-export enum Igmpv2SupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export type AutoAcceptSharedAssociationsValue =
+  (typeof AutoAcceptSharedAssociationsValue)[keyof typeof AutoAcceptSharedAssociationsValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const Igmpv2SupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
  * @public
  */
-export enum StaticSourcesSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export type Igmpv2SupportValue = (typeof Igmpv2SupportValue)[keyof typeof Igmpv2SupportValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const StaticSourcesSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+
+/**
+ * @public
+ */
+export type StaticSourcesSupportValue = (typeof StaticSourcesSupportValue)[keyof typeof StaticSourcesSupportValue];
 
 /**
  * @public
@@ -2429,13 +2573,20 @@ export interface TransitGatewayMulticastDomainOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayMulticastDomainState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayMulticastDomainState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayMulticastDomainState =
+  (typeof TransitGatewayMulticastDomainState)[keyof typeof TransitGatewayMulticastDomainState];
 
 /**
  * @public
@@ -2580,13 +2731,20 @@ export interface CreateTransitGatewayPolicyTableRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayPolicyTableState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayPolicyTableState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayPolicyTableState =
+  (typeof TransitGatewayPolicyTableState)[keyof typeof TransitGatewayPolicyTableState];
 
 /**
  * @public
@@ -2663,13 +2821,20 @@ export interface CreateTransitGatewayPrefixListReferenceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayPrefixListReferenceState {
-  available = "available",
-  deleting = "deleting",
-  modifying = "modifying",
-  pending = "pending",
-}
+export const TransitGatewayPrefixListReferenceState = {
+  available: "available",
+  deleting: "deleting",
+  modifying: "modifying",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayPrefixListReferenceState =
+  (typeof TransitGatewayPrefixListReferenceState)[keyof typeof TransitGatewayPrefixListReferenceState];
 
 /**
  * @public
@@ -2773,14 +2938,20 @@ export interface CreateTransitGatewayRouteRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayRouteState {
-  active = "active",
-  blackhole = "blackhole",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayRouteState = {
+  active: "active",
+  blackhole: "blackhole",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayRouteState = (typeof TransitGatewayRouteState)[keyof typeof TransitGatewayRouteState];
 
 /**
  * @public
@@ -2805,11 +2976,17 @@ export interface TransitGatewayRouteAttachment {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayRouteType {
-  propagated = "propagated",
-  static = "static",
-}
+export const TransitGatewayRouteType = {
+  propagated: "propagated",
+  static: "static",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayRouteType = (typeof TransitGatewayRouteType)[keyof typeof TransitGatewayRouteType];
 
 /**
  * @public
@@ -2881,13 +3058,20 @@ export interface CreateTransitGatewayRouteTableRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayRouteTableState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayRouteTableState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayRouteTableState =
+  (typeof TransitGatewayRouteTableState)[keyof typeof TransitGatewayRouteTableState];
 
 /**
  * @public
@@ -2969,23 +3153,37 @@ export interface CreateTransitGatewayRouteTableAnnouncementRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayRouteTableAnnouncementDirection {
-  incoming = "incoming",
-  outgoing = "outgoing",
-}
+export const TransitGatewayRouteTableAnnouncementDirection = {
+  incoming: "incoming",
+  outgoing: "outgoing",
+} as const;
 
 /**
  * @public
  */
-export enum TransitGatewayRouteTableAnnouncementState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  failed = "failed",
-  failing = "failing",
-  pending = "pending",
-}
+export type TransitGatewayRouteTableAnnouncementDirection =
+  (typeof TransitGatewayRouteTableAnnouncementDirection)[keyof typeof TransitGatewayRouteTableAnnouncementDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayRouteTableAnnouncementState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  failed: "failed",
+  failing: "failing",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayRouteTableAnnouncementState =
+  (typeof TransitGatewayRouteTableAnnouncementState)[keyof typeof TransitGatewayRouteTableAnnouncementState];
 
 /**
  * @public
@@ -3130,26 +3328,46 @@ export interface CreateTransitGatewayVpcAttachmentResult {
 
 /**
  * @public
+ * @enum
  */
-export enum VerifiedAccessEndpointAttachmentType {
-  vpc = "vpc",
-}
+export const VerifiedAccessEndpointAttachmentType = {
+  vpc: "vpc",
+} as const;
 
 /**
  * @public
  */
-export enum VerifiedAccessEndpointType {
-  load_balancer = "load-balancer",
-  network_interface = "network-interface",
-}
+export type VerifiedAccessEndpointAttachmentType =
+  (typeof VerifiedAccessEndpointAttachmentType)[keyof typeof VerifiedAccessEndpointAttachmentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerifiedAccessEndpointType = {
+  load_balancer: "load-balancer",
+  network_interface: "network-interface",
+} as const;
 
 /**
  * @public
  */
-export enum VerifiedAccessEndpointProtocol {
-  http = "http",
-  https = "https",
-}
+export type VerifiedAccessEndpointType = (typeof VerifiedAccessEndpointType)[keyof typeof VerifiedAccessEndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerifiedAccessEndpointProtocol = {
+  http: "http",
+  https: "https",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifiedAccessEndpointProtocol =
+  (typeof VerifiedAccessEndpointProtocol)[keyof typeof VerifiedAccessEndpointProtocol];
 
 /**
  * @public
@@ -3331,14 +3549,21 @@ export interface VerifiedAccessEndpointEniOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum VerifiedAccessEndpointStatusCode {
-  active = "active",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-  updating = "updating",
-}
+export const VerifiedAccessEndpointStatusCode = {
+  active: "active",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+  updating: "updating",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifiedAccessEndpointStatusCode =
+  (typeof VerifiedAccessEndpointStatusCode)[keyof typeof VerifiedAccessEndpointStatusCode];
 
 /**
  * @public
@@ -3907,15 +4132,21 @@ export interface CreateVolumeRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeState {
-  available = "available",
-  creating = "creating",
-  deleted = "deleted",
-  deleting = "deleting",
-  error = "error",
-  in_use = "in-use",
-}
+export const VolumeState = {
+  available: "available",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+  error: "error",
+  in_use: "in-use",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeState = (typeof VolumeState)[keyof typeof VolumeState];
 
 /**
  * @public
@@ -4099,13 +4330,19 @@ export interface CreateVpcResult {
 
 /**
  * @public
+ * @enum
  */
-export enum DnsRecordIpType {
-  dualstack = "dualstack",
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-  service_defined = "service-defined",
-}
+export const DnsRecordIpType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+  service_defined: "service-defined",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsRecordIpType = (typeof DnsRecordIpType)[keyof typeof DnsRecordIpType];
 
 /**
  * @public
@@ -4128,21 +4365,33 @@ export interface DnsOptionsSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum IpAddressType {
-  dualstack = "dualstack",
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+export const IpAddressType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+} as const;
 
 /**
  * @public
  */
-export enum VpcEndpointType {
-  Gateway = "Gateway",
-  GatewayLoadBalancer = "GatewayLoadBalancer",
-  Interface = "Interface",
-}
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcEndpointType = {
+  Gateway: "Gateway",
+  GatewayLoadBalancer: "GatewayLoadBalancer",
+  Interface: "Interface",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];
 
 /**
  * @public
@@ -4302,17 +4551,23 @@ export interface LastError {
 
 /**
  * @public
+ * @enum
  */
-export enum State {
-  Available = "Available",
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Expired = "Expired",
-  Failed = "Failed",
-  Pending = "Pending",
-  PendingAcceptance = "PendingAcceptance",
-  Rejected = "Rejected",
-}
+export const State = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Expired: "Expired",
+  Failed: "Failed",
+  Pending: "Pending",
+  PendingAcceptance: "PendingAcceptance",
+  Rejected: "Rejected",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
 
 /**
  * @public
@@ -4475,18 +4730,31 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectionNotificationState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ConnectionNotificationState = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
 
 /**
  * @public
  */
-export enum ConnectionNotificationType {
-  Topic = "Topic",
-}
+export type ConnectionNotificationState =
+  (typeof ConnectionNotificationState)[keyof typeof ConnectionNotificationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionNotificationType = {
+  Topic: "Topic",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionNotificationType = (typeof ConnectionNotificationType)[keyof typeof ConnectionNotificationType];
 
 /**
  * @public
@@ -4599,19 +4867,31 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PayerResponsibility {
-  ServiceOwner = "ServiceOwner",
-}
+export const PayerResponsibility = {
+  ServiceOwner: "ServiceOwner",
+} as const;
 
 /**
  * @public
  */
-export enum DnsNameState {
-  Failed = "failed",
-  PendingVerification = "pendingVerification",
-  Verified = "verified",
-}
+export type PayerResponsibility = (typeof PayerResponsibility)[keyof typeof PayerResponsibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const DnsNameState = {
+  Failed: "failed",
+  PendingVerification: "pendingVerification",
+  Verified: "verified",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsNameState = (typeof DnsNameState)[keyof typeof DnsNameState];
 
 /**
  * @public
@@ -4644,23 +4924,35 @@ export interface PrivateDnsNameConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceState {
-  Available = "Available",
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Pending = "Pending",
-}
+export const ServiceState = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Pending: "Pending",
+} as const;
 
 /**
  * @public
  */
-export enum ServiceType {
-  Gateway = "Gateway",
-  GatewayLoadBalancer = "GatewayLoadBalancer",
-  Interface = "Interface",
-}
+export type ServiceState = (typeof ServiceState)[keyof typeof ServiceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceType = {
+  Gateway: "Gateway",
+  GatewayLoadBalancer: "GatewayLoadBalancer",
+  Interface: "Interface",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 /**
  * @public
@@ -4675,11 +4967,17 @@ export interface ServiceTypeDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceConnectivityType {
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+export const ServiceConnectivityType = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceConnectivityType = (typeof ServiceConnectivityType)[keyof typeof ServiceConnectivityType];
 
 /**
  * @public
@@ -4833,11 +5131,17 @@ export interface CreateVpcPeeringConnectionResult {
 
 /**
  * @public
+ * @enum
  */
-export enum TunnelInsideIpVersion {
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+export const TunnelInsideIpVersion = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type TunnelInsideIpVersion = (typeof TunnelInsideIpVersion)[keyof typeof TunnelInsideIpVersion];
 
 /**
  * @public
@@ -5294,13 +5598,19 @@ export interface CreateVpnConnectionRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum GatewayAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociating = "disassociating",
-  not_associated = "not-associated",
-}
+export const GatewayAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociating: "disassociating",
+  not_associated: "not-associated",
+} as const;
+
+/**
+ * @public
+ */
+export type GatewayAssociationState = (typeof GatewayAssociationState)[keyof typeof GatewayAssociationState];
 
 /**
  * @public
@@ -5593,20 +5903,32 @@ export interface VpnConnectionOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum VpnStaticRouteSource {
-  Static = "Static",
-}
+export const VpnStaticRouteSource = {
+  Static: "Static",
+} as const;
 
 /**
  * @public
  */
-export enum VpnState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export type VpnStaticRouteSource = (typeof VpnStaticRouteSource)[keyof typeof VpnStaticRouteSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpnState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type VpnState = (typeof VpnState)[keyof typeof VpnState];
 
 /**
  * @public
@@ -5631,11 +5953,17 @@ export interface VpnStaticRoute {
 
 /**
  * @public
+ * @enum
  */
-export enum TelemetryStatus {
-  DOWN = "DOWN",
-  UP = "UP",
-}
+export const TelemetryStatus = {
+  DOWN: "DOWN",
+  UP: "UP",
+} as const;
+
+/**
+ * @public
+ */
+export type TelemetryStatus = (typeof TelemetryStatus)[keyof typeof TelemetryStatus];
 
 /**
  * @public
@@ -6121,16 +6449,22 @@ export interface DeleteFleetsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetStateCode {
-  ACTIVE = "active",
-  DELETED = "deleted",
-  DELETED_RUNNING = "deleted_running",
-  DELETED_TERMINATING_INSTANCES = "deleted_terminating",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  SUBMITTED = "submitted",
-}
+export const FleetStateCode = {
+  ACTIVE: "active",
+  DELETED: "deleted",
+  DELETED_RUNNING: "deleted_running",
+  DELETED_TERMINATING_INSTANCES: "deleted_terminating",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  SUBMITTED: "submitted",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetStateCode = (typeof FleetStateCode)[keyof typeof FleetStateCode];
 
 /**
  * @public
@@ -6155,13 +6489,19 @@ export interface DeleteFleetSuccessItem {
 
 /**
  * @public
+ * @enum
  */
-export enum DeleteFleetErrorCode {
-  FLEET_ID_DOES_NOT_EXIST = "fleetIdDoesNotExist",
-  FLEET_ID_MALFORMED = "fleetIdMalformed",
-  FLEET_NOT_IN_DELETABLE_STATE = "fleetNotInDeletableState",
-  UNEXPECTED_ERROR = "unexpectedError",
-}
+export const DeleteFleetErrorCode = {
+  FLEET_ID_DOES_NOT_EXIST: "fleetIdDoesNotExist",
+  FLEET_ID_MALFORMED: "fleetIdMalformed",
+  FLEET_NOT_IN_DELETABLE_STATE: "fleetNotInDeletableState",
+  UNEXPECTED_ERROR: "unexpectedError",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteFleetErrorCode = (typeof DeleteFleetErrorCode)[keyof typeof DeleteFleetErrorCode];
 
 /**
  * @public
@@ -6579,15 +6919,21 @@ export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
 
 /**
  * @public
+ * @enum
  */
-export enum LaunchTemplateErrorCode {
-  LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST = "launchTemplateIdDoesNotExist",
-  LAUNCH_TEMPLATE_ID_MALFORMED = "launchTemplateIdMalformed",
-  LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST = "launchTemplateNameDoesNotExist",
-  LAUNCH_TEMPLATE_NAME_MALFORMED = "launchTemplateNameMalformed",
-  LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST = "launchTemplateVersionDoesNotExist",
-  UNEXPECTED_ERROR = "unexpectedError",
-}
+export const LaunchTemplateErrorCode = {
+  LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST: "launchTemplateIdDoesNotExist",
+  LAUNCH_TEMPLATE_ID_MALFORMED: "launchTemplateIdMalformed",
+  LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST: "launchTemplateNameDoesNotExist",
+  LAUNCH_TEMPLATE_NAME_MALFORMED: "launchTemplateNameMalformed",
+  LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST: "launchTemplateVersionDoesNotExist",
+  UNEXPECTED_ERROR: "unexpectedError",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchTemplateErrorCode = (typeof LaunchTemplateErrorCode)[keyof typeof LaunchTemplateErrorCode];
 
 /**
  * @public
@@ -7094,12 +7440,19 @@ export interface DeleteQueuedReservedInstancesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeleteQueuedReservedInstancesErrorCode {
-  RESERVED_INSTANCES_ID_INVALID = "reserved-instances-id-invalid",
-  RESERVED_INSTANCES_NOT_IN_QUEUED_STATE = "reserved-instances-not-in-queued-state",
-  UNEXPECTED_ERROR = "unexpected-error",
-}
+export const DeleteQueuedReservedInstancesErrorCode = {
+  RESERVED_INSTANCES_ID_INVALID: "reserved-instances-id-invalid",
+  RESERVED_INSTANCES_NOT_IN_QUEUED_STATE: "reserved-instances-not-in-queued-state",
+  UNEXPECTED_ERROR: "unexpected-error",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteQueuedReservedInstancesErrorCode =
+  (typeof DeleteQueuedReservedInstancesErrorCode)[keyof typeof DeleteQueuedReservedInstancesErrorCode];
 
 /**
  * @public

@@ -373,15 +373,21 @@ export interface PrivateDnsNameOptionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceStateName {
-  pending = "pending",
-  running = "running",
-  shutting_down = "shutting-down",
-  stopped = "stopped",
-  stopping = "stopping",
-  terminated = "terminated",
-}
+export const InstanceStateName = {
+  pending: "pending",
+  running: "running",
+  shutting_down: "shutting-down",
+  stopped: "stopped",
+  stopping: "stopping",
+  terminated: "terminated",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceStateName = (typeof InstanceStateName)[keyof typeof InstanceStateName];
 
 /**
  * @public
@@ -941,14 +947,20 @@ export interface DescribeInstanceStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum EventCode {
-  instance_reboot = "instance-reboot",
-  instance_retirement = "instance-retirement",
-  instance_stop = "instance-stop",
-  system_maintenance = "system-maintenance",
-  system_reboot = "system-reboot",
-}
+export const EventCode = {
+  instance_reboot: "instance-reboot",
+  instance_retirement: "instance-retirement",
+  instance_stop: "instance-stop",
+  system_maintenance: "system-maintenance",
+  system_reboot: "system-reboot",
+} as const;
+
+/**
+ * @public
+ */
+export type EventCode = (typeof EventCode)[keyof typeof EventCode];
 
 /**
  * @public
@@ -991,20 +1003,32 @@ export interface InstanceStatusEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusName {
-  reachability = "reachability",
-}
+export const StatusName = {
+  reachability: "reachability",
+} as const;
 
 /**
  * @public
  */
-export enum StatusType {
-  failed = "failed",
-  initializing = "initializing",
-  insufficient_data = "insufficient-data",
-  passed = "passed",
-}
+export type StatusName = (typeof StatusName)[keyof typeof StatusName];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusType = {
+  failed: "failed",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  passed: "passed",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * @public
@@ -1030,14 +1054,20 @@ export interface InstanceStatusDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum SummaryStatus {
-  impaired = "impaired",
-  initializing = "initializing",
-  insufficient_data = "insufficient-data",
-  not_applicable = "not-applicable",
-  ok = "ok",
-}
+export const SummaryStatus = {
+  impaired: "impaired",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  not_applicable: "not-applicable",
+  ok: "ok",
+} as const;
+
+/**
+ * @public
+ */
+export type SummaryStatus = (typeof SummaryStatus)[keyof typeof SummaryStatus];
 
 /**
  * @public
@@ -1117,12 +1147,18 @@ export interface DescribeInstanceStatusResult {
 
 /**
  * @public
+ * @enum
  */
-export enum LocationType {
-  availability_zone = "availability-zone",
-  availability_zone_id = "availability-zone-id",
-  region = "region",
-}
+export const LocationType = {
+  availability_zone: "availability-zone",
+  availability_zone_id: "availability-zone-id",
+  region: "region",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
 
 /**
  * @public
@@ -1503,29 +1539,47 @@ export interface EbsOptimizedInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum EbsOptimizedSupport {
-  default = "default",
-  supported = "supported",
-  unsupported = "unsupported",
-}
+export const EbsOptimizedSupport = {
+  default: "default",
+  supported: "supported",
+  unsupported: "unsupported",
+} as const;
 
 /**
  * @public
  */
-export enum EbsEncryptionSupport {
-  supported = "supported",
-  unsupported = "unsupported",
-}
+export type EbsOptimizedSupport = (typeof EbsOptimizedSupport)[keyof typeof EbsOptimizedSupport];
+
+/**
+ * @public
+ * @enum
+ */
+export const EbsEncryptionSupport = {
+  supported: "supported",
+  unsupported: "unsupported",
+} as const;
 
 /**
  * @public
  */
-export enum EbsNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
+export type EbsEncryptionSupport = (typeof EbsEncryptionSupport)[keyof typeof EbsEncryptionSupport];
+
+/**
+ * @public
+ * @enum
+ */
+export const EbsNvmeSupport = {
+  REQUIRED: "required",
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type EbsNvmeSupport = (typeof EbsNvmeSupport)[keyof typeof EbsNvmeSupport];
 
 /**
  * @public
@@ -1662,11 +1716,17 @@ export interface GpuInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceTypeHypervisor {
-  NITRO = "nitro",
-  XEN = "xen",
-}
+export const InstanceTypeHypervisor = {
+  NITRO: "nitro",
+  XEN: "xen",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceTypeHypervisor = (typeof InstanceTypeHypervisor)[keyof typeof InstanceTypeHypervisor];
 
 /**
  * @public
@@ -1702,11 +1762,17 @@ export interface InferenceAcceleratorInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum DiskType {
-  hdd = "hdd",
-  ssd = "ssd",
-}
+export const DiskType = {
+  hdd: "hdd",
+  ssd: "ssd",
+} as const;
+
+/**
+ * @public
+ */
+export type DiskType = (typeof DiskType)[keyof typeof DiskType];
 
 /**
  * @public
@@ -1731,20 +1797,33 @@ export interface DiskInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceStorageEncryptionSupport {
-  required = "required",
-  unsupported = "unsupported",
-}
+export const InstanceStorageEncryptionSupport = {
+  required: "required",
+  unsupported: "unsupported",
+} as const;
 
 /**
  * @public
  */
-export enum EphemeralNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
+export type InstanceStorageEncryptionSupport =
+  (typeof InstanceStorageEncryptionSupport)[keyof typeof InstanceStorageEncryptionSupport];
+
+/**
+ * @public
+ * @enum
+ */
+export const EphemeralNvmeSupport = {
+  REQUIRED: "required",
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type EphemeralNvmeSupport = (typeof EphemeralNvmeSupport)[keyof typeof EphemeralNvmeSupport];
 
 /**
  * @public
@@ -1796,12 +1875,18 @@ export interface EfaInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum EnaSupport {
-  required = "required",
-  supported = "supported",
-  unsupported = "unsupported",
-}
+export const EnaSupport = {
+  required: "required",
+  supported: "supported",
+  unsupported: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type EnaSupport = (typeof EnaSupport)[keyof typeof EnaSupport];
 
 /**
  * @public
@@ -1899,12 +1984,18 @@ export interface NetworkInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum PlacementGroupStrategy {
-  cluster = "cluster",
-  partition = "partition",
-  spread = "spread",
-}
+export const PlacementGroupStrategy = {
+  cluster: "cluster",
+  partition: "partition",
+  spread: "spread",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementGroupStrategy = (typeof PlacementGroupStrategy)[keyof typeof PlacementGroupStrategy];
 
 /**
  * @public
@@ -1919,14 +2010,20 @@ export interface PlacementGroupInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum ArchitectureType {
-  arm64 = "arm64",
-  arm64_mac = "arm64_mac",
-  i386 = "i386",
-  x86_64 = "x86_64",
-  x86_64_mac = "x86_64_mac",
-}
+export const ArchitectureType = {
+  arm64: "arm64",
+  arm64_mac: "arm64_mac",
+  i386: "i386",
+  x86_64: "x86_64",
+  x86_64_mac: "x86_64_mac",
+} as const;
+
+/**
+ * @public
+ */
+export type ArchitectureType = (typeof ArchitectureType)[keyof typeof ArchitectureType];
 
 /**
  * @public
@@ -1946,27 +2043,45 @@ export interface ProcessorInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum BootModeType {
-  legacy_bios = "legacy-bios",
-  uefi = "uefi",
-}
+export const BootModeType = {
+  legacy_bios: "legacy-bios",
+  uefi: "uefi",
+} as const;
 
 /**
  * @public
  */
-export enum RootDeviceType {
-  ebs = "ebs",
-  instance_store = "instance-store",
-}
+export type BootModeType = (typeof BootModeType)[keyof typeof BootModeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RootDeviceType = {
+  ebs: "ebs",
+  instance_store: "instance-store",
+} as const;
 
 /**
  * @public
  */
-export enum UsageClassType {
-  on_demand = "on-demand",
-  spot = "spot",
-}
+export type RootDeviceType = (typeof RootDeviceType)[keyof typeof RootDeviceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageClassType = {
+  on_demand: "on-demand",
+  spot: "spot",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageClassType = (typeof UsageClassType)[keyof typeof UsageClassType];
 
 /**
  * @public
@@ -3599,11 +3714,17 @@ export interface DescribeMovingAddressesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MoveStatus {
-  movingToVpc = "movingToVpc",
-  restoringToClassic = "restoringToClassic",
-}
+export const MoveStatus = {
+  movingToVpc: "movingToVpc",
+  restoringToClassic: "restoringToClassic",
+} as const;
+
+/**
+ * @public
+ */
+export type MoveStatus = (typeof MoveStatus)[keyof typeof MoveStatus];
 
 /**
  * @public
@@ -3897,21 +4018,33 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FindingsFound {
-  false = "false",
-  true = "true",
-  unknown = "unknown",
-}
+export const FindingsFound = {
+  false: "false",
+  true: "true",
+  unknown: "unknown",
+} as const;
 
 /**
  * @public
  */
-export enum AnalysisStatus {
-  failed = "failed",
-  running = "running",
-  succeeded = "succeeded",
-}
+export type FindingsFound = (typeof FindingsFound)[keyof typeof FindingsFound];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisStatus = {
+  failed: "failed",
+  running: "running",
+  succeeded: "succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
 
 /**
  * @public
@@ -4279,13 +4412,19 @@ export interface DescribeNetworkInsightsPathsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkInterfaceAttribute {
-  attachment = "attachment",
-  description = "description",
-  groupSet = "groupSet",
-  sourceDestCheck = "sourceDestCheck",
-}
+export const NetworkInterfaceAttribute = {
+  attachment: "attachment",
+  description: "description",
+  groupSet: "groupSet",
+  sourceDestCheck: "sourceDestCheck",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceAttribute = (typeof NetworkInterfaceAttribute)[keyof typeof NetworkInterfaceAttribute];
 
 /**
  * @public
@@ -5112,23 +5251,35 @@ export interface DescribeReplaceRootVolumeTasksResult {
 
 /**
  * @public
+ * @enum
  */
-export enum OfferingClassType {
-  CONVERTIBLE = "convertible",
-  STANDARD = "standard",
-}
+export const OfferingClassType = {
+  CONVERTIBLE: "convertible",
+  STANDARD: "standard",
+} as const;
 
 /**
  * @public
  */
-export enum OfferingTypeValues {
-  All_Upfront = "All Upfront",
-  Heavy_Utilization = "Heavy Utilization",
-  Light_Utilization = "Light Utilization",
-  Medium_Utilization = "Medium Utilization",
-  No_Upfront = "No Upfront",
-  Partial_Upfront = "Partial Upfront",
-}
+export type OfferingClassType = (typeof OfferingClassType)[keyof typeof OfferingClassType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferingTypeValues = {
+  All_Upfront: "All Upfront",
+  Heavy_Utilization: "Heavy Utilization",
+  Light_Utilization: "Light Utilization",
+  Medium_Utilization: "Medium Utilization",
+  No_Upfront: "No Upfront",
+  Partial_Upfront: "Partial Upfront",
+} as const;
+
+/**
+ * @public
+ */
+export type OfferingTypeValues = (typeof OfferingTypeValues)[keyof typeof OfferingTypeValues];
 
 /**
  * @public
@@ -5234,20 +5385,32 @@ export interface DescribeReservedInstancesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RIProductDescription {
-  Linux_UNIX = "Linux/UNIX",
-  Linux_UNIX_Amazon_VPC_ = "Linux/UNIX (Amazon VPC)",
-  Windows = "Windows",
-  Windows_Amazon_VPC_ = "Windows (Amazon VPC)",
-}
+export const RIProductDescription = {
+  Linux_UNIX: "Linux/UNIX",
+  Linux_UNIX_Amazon_VPC_: "Linux/UNIX (Amazon VPC)",
+  Windows: "Windows",
+  Windows_Amazon_VPC_: "Windows (Amazon VPC)",
+} as const;
 
 /**
  * @public
  */
-export enum RecurringChargeFrequency {
-  Hourly = "Hourly",
-}
+export type RIProductDescription = (typeof RIProductDescription)[keyof typeof RIProductDescription];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecurringChargeFrequency = {
+  Hourly: "Hourly",
+} as const;
+
+/**
+ * @public
+ */
+export type RecurringChargeFrequency = (typeof RecurringChargeFrequency)[keyof typeof RecurringChargeFrequency];
 
 /**
  * @public
@@ -5267,23 +5430,35 @@ export interface RecurringCharge {
 
 /**
  * @public
+ * @enum
  */
-export enum Scope {
-  AVAILABILITY_ZONE = "Availability Zone",
-  REGIONAL = "Region",
-}
+export const Scope = {
+  AVAILABILITY_ZONE: "Availability Zone",
+  REGIONAL: "Region",
+} as const;
 
 /**
  * @public
  */
-export enum ReservedInstanceState {
-  active = "active",
-  payment_failed = "payment-failed",
-  payment_pending = "payment-pending",
-  queued = "queued",
-  queued_deleted = "queued-deleted",
-  retired = "retired",
-}
+export type Scope = (typeof Scope)[keyof typeof Scope];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservedInstanceState = {
+  active: "active",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
+  queued: "queued",
+  queued_deleted: "queued-deleted",
+  retired: "retired",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedInstanceState = (typeof ReservedInstanceState)[keyof typeof ReservedInstanceState];
 
 /**
  * @public
@@ -6838,11 +7013,17 @@ export interface DescribeSecurityGroupsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum SnapshotAttributeName {
-  createVolumePermission = "createVolumePermission",
-  productCodes = "productCodes",
-}
+export const SnapshotAttributeName = {
+  createVolumePermission: "createVolumePermission",
+  productCodes: "productCodes",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotAttributeName = (typeof SnapshotAttributeName)[keyof typeof SnapshotAttributeName];
 
 /**
  * @public
@@ -7080,18 +7261,24 @@ export interface DescribeSnapshotTierStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TieringOperationStatus {
-  archival_completed = "archival-completed",
-  archival_failed = "archival-failed",
-  archival_in_progress = "archival-in-progress",
-  permanent_restore_completed = "permanent-restore-completed",
-  permanent_restore_failed = "permanent-restore-failed",
-  permanent_restore_in_progress = "permanent-restore-in-progress",
-  temporary_restore_completed = "temporary-restore-completed",
-  temporary_restore_failed = "temporary-restore-failed",
-  temporary_restore_in_progress = "temporary-restore-in-progress",
-}
+export const TieringOperationStatus = {
+  archival_completed: "archival-completed",
+  archival_failed: "archival-failed",
+  archival_in_progress: "archival-in-progress",
+  permanent_restore_completed: "permanent-restore-completed",
+  permanent_restore_failed: "permanent-restore-failed",
+  permanent_restore_in_progress: "permanent-restore-in-progress",
+  temporary_restore_completed: "temporary-restore-completed",
+  temporary_restore_failed: "temporary-restore-failed",
+  temporary_restore_in_progress: "temporary-restore-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type TieringOperationStatus = (typeof TieringOperationStatus)[keyof typeof TieringOperationStatus];
 
 /**
  * @public
@@ -7261,13 +7448,19 @@ export interface DescribeSpotFleetInstancesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum EventType {
-  BATCH_CHANGE = "fleetRequestChange",
-  ERROR = "error",
-  INFORMATION = "information",
-  INSTANCE_CHANGE = "instanceChange",
-}
+export const EventType = {
+  BATCH_CHANGE: "fleetRequestChange",
+  ERROR: "error",
+  INFORMATION: "information",
+  INSTANCE_CHANGE: "instanceChange",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -7424,11 +7617,18 @@ export interface DescribeSpotFleetRequestsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ExcessCapacityTerminationPolicy {
-  DEFAULT = "default",
-  NO_TERMINATION = "noTermination",
-}
+export const ExcessCapacityTerminationPolicy = {
+  DEFAULT: "default",
+  NO_TERMINATION: "noTermination",
+} as const;
+
+/**
+ * @public
+ */
+export type ExcessCapacityTerminationPolicy =
+  (typeof ExcessCapacityTerminationPolicy)[keyof typeof ExcessCapacityTerminationPolicy];
 
 /**
  * @public
@@ -7893,19 +8093,31 @@ export interface LoadBalancersConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum OnDemandAllocationStrategy {
-  LOWEST_PRICE = "lowestPrice",
-  PRIORITIZED = "prioritized",
-}
+export const OnDemandAllocationStrategy = {
+  LOWEST_PRICE: "lowestPrice",
+  PRIORITIZED: "prioritized",
+} as const;
 
 /**
  * @public
  */
-export enum ReplacementStrategy {
-  LAUNCH = "launch",
-  LAUNCH_BEFORE_TERMINATE = "launch-before-terminate",
-}
+export type OnDemandAllocationStrategy = (typeof OnDemandAllocationStrategy)[keyof typeof OnDemandAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplacementStrategy = {
+  LAUNCH: "launch",
+  LAUNCH_BEFORE_TERMINATE: "launch-before-terminate",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplacementStrategy = (typeof ReplacementStrategy)[keyof typeof ReplacementStrategy];
 
 /**
  * @public
@@ -8606,14 +8818,20 @@ export interface LaunchSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum SpotInstanceState {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  failed = "failed",
-  open = "open",
-}
+export const SpotInstanceState = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  failed: "failed",
+  open: "open",
+} as const;
+
+/**
+ * @public
+ */
+export type SpotInstanceState = (typeof SpotInstanceState)[keyof typeof SpotInstanceState];
 
 /**
  * @public
@@ -10623,11 +10841,18 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VerifiedAccessLogDeliveryStatusCode {
-  FAILED = "failed",
-  SUCCESS = "success",
-}
+export const VerifiedAccessLogDeliveryStatusCode = {
+  FAILED: "failed",
+  SUCCESS: "success",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifiedAccessLogDeliveryStatusCode =
+  (typeof VerifiedAccessLogDeliveryStatusCode)[keyof typeof VerifiedAccessLogDeliveryStatusCode];
 
 /**
  * @public
@@ -10868,11 +11093,17 @@ export interface DescribeVerifiedAccessTrustProvidersResult {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeAttributeName {
-  autoEnableIO = "autoEnableIO",
-  productCodes = "productCodes",
-}
+export const VolumeAttributeName = {
+  autoEnableIO: "autoEnableIO",
+  productCodes: "productCodes",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeAttributeName = (typeof VolumeAttributeName)[keyof typeof VolumeAttributeName];
 
 /**
  * @public

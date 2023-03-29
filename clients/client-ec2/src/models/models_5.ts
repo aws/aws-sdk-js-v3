@@ -187,13 +187,19 @@ export interface DescribeVolumesModificationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeModificationState {
-  completed = "completed",
-  failed = "failed",
-  modifying = "modifying",
-  optimizing = "optimizing",
-}
+export const VolumeModificationState = {
+  completed: "completed",
+  failed: "failed",
+  modifying: "modifying",
+  optimizing: "optimizing",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeModificationState = (typeof VolumeModificationState)[keyof typeof VolumeModificationState];
 
 /**
  * @public
@@ -478,11 +484,17 @@ export interface VolumeStatusEvent {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeStatusName {
-  io_enabled = "io-enabled",
-  io_performance = "io-performance",
-}
+export const VolumeStatusName = {
+  io_enabled: "io-enabled",
+  io_performance: "io-performance",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeStatusName = (typeof VolumeStatusName)[keyof typeof VolumeStatusName];
 
 /**
  * @public
@@ -502,12 +514,18 @@ export interface VolumeStatusDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeStatusInfoStatus {
-  impaired = "impaired",
-  insufficient_data = "insufficient-data",
-  ok = "ok",
-}
+export const VolumeStatusInfoStatus = {
+  impaired: "impaired",
+  insufficient_data: "insufficient-data",
+  ok: "ok",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeStatusInfoStatus = (typeof VolumeStatusInfoStatus)[keyof typeof VolumeStatusInfoStatus];
 
 /**
  * @public
@@ -584,12 +602,18 @@ export interface DescribeVolumeStatusResult {
 
 /**
  * @public
+ * @enum
  */
-export enum VpcAttributeName {
-  enableDnsHostnames = "enableDnsHostnames",
-  enableDnsSupport = "enableDnsSupport",
-  enableNetworkAddressUsageMetrics = "enableNetworkAddressUsageMetrics",
-}
+export const VpcAttributeName = {
+  enableDnsHostnames: "enableDnsHostnames",
+  enableDnsSupport: "enableDnsSupport",
+  enableNetworkAddressUsageMetrics: "enableNetworkAddressUsageMetrics",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcAttributeName = (typeof VpcAttributeName)[keyof typeof VpcAttributeName];
 
 /**
  * @public
@@ -2423,13 +2447,20 @@ export interface DisableTransitGatewayRouteTablePropagationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayPropagationState {
-  disabled = "disabled",
-  disabling = "disabling",
-  enabled = "enabled",
-  enabling = "enabling",
-}
+export const TransitGatewayPropagationState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayPropagationState =
+  (typeof TransitGatewayPropagationState)[keyof typeof TransitGatewayPropagationState];
 
 /**
  * @public
@@ -3633,11 +3664,18 @@ export interface ExportClientVpnClientCertificateRevocationListRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ClientCertificateRevocationListStatusCode {
-  active = "active",
-  pending = "pending",
-}
+export const ClientCertificateRevocationListStatusCode = {
+  active: "active",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientCertificateRevocationListStatusCode =
+  (typeof ClientCertificateRevocationListStatusCode)[keyof typeof ClientCertificateRevocationListStatusCode];
 
 /**
  * @public
@@ -4450,13 +4488,20 @@ export interface GetConsoleScreenshotResult {
 
 /**
  * @public
+ * @enum
  */
-export enum UnlimitedSupportedInstanceFamily {
-  t2 = "t2",
-  t3 = "t3",
-  t3a = "t3a",
-  t4g = "t4g",
-}
+export const UnlimitedSupportedInstanceFamily = {
+  t2: "t2",
+  t3: "t3",
+  t3a: "t3a",
+  t4g: "t4g",
+} as const;
+
+/**
+ * @public
+ */
+export type UnlimitedSupportedInstanceFamily =
+  (typeof UnlimitedSupportedInstanceFamily)[keyof typeof UnlimitedSupportedInstanceFamily];
 
 /**
  * @public
@@ -4549,13 +4594,19 @@ export interface GetEbsEncryptionByDefaultResult {
 
 /**
  * @public
+ * @enum
  */
-export enum PartitionLoadFrequency {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  NONE = "none",
-  WEEKLY = "weekly",
-}
+export const PartitionLoadFrequency = {
+  DAILY: "daily",
+  MONTHLY: "monthly",
+  NONE: "none",
+  WEEKLY: "weekly",
+} as const;
+
+/**
+ * @public
+ */
+export type PartitionLoadFrequency = (typeof PartitionLoadFrequency)[keyof typeof PartitionLoadFrequency];
 
 /**
  * @public
@@ -4927,33 +4978,52 @@ export interface GetIpamAddressHistoryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IpamComplianceStatus {
-  compliant = "compliant",
-  ignored = "ignored",
-  noncompliant = "noncompliant",
-  unmanaged = "unmanaged",
-}
+export const IpamComplianceStatus = {
+  compliant: "compliant",
+  ignored: "ignored",
+  noncompliant: "noncompliant",
+  unmanaged: "unmanaged",
+} as const;
 
 /**
  * @public
  */
-export enum IpamOverlapStatus {
-  ignored = "ignored",
-  nonoverlapping = "nonoverlapping",
-  overlapping = "overlapping",
-}
+export type IpamComplianceStatus = (typeof IpamComplianceStatus)[keyof typeof IpamComplianceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamOverlapStatus = {
+  ignored: "ignored",
+  nonoverlapping: "nonoverlapping",
+  overlapping: "overlapping",
+} as const;
 
 /**
  * @public
  */
-export enum IpamAddressHistoryResourceType {
-  eip = "eip",
-  instance = "instance",
-  network_interface = "network-interface",
-  subnet = "subnet",
-  vpc = "vpc",
-}
+export type IpamOverlapStatus = (typeof IpamOverlapStatus)[keyof typeof IpamOverlapStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamAddressHistoryResourceType = {
+  eip: "eip",
+  instance: "instance",
+  network_interface: "network-interface",
+  subnet: "subnet",
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamAddressHistoryResourceType =
+  (typeof IpamAddressHistoryResourceType)[keyof typeof IpamAddressHistoryResourceType];
 
 /**
  * @public
@@ -5071,12 +5141,18 @@ export interface GetIpamDiscoveredAccountsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IpamDiscoveryFailureCode {
-  assume_role_failure = "assume-role-failure",
-  throttling_failure = "throttling-failure",
-  unauthorized_failure = "unauthorized-failure",
-}
+export const IpamDiscoveryFailureCode = {
+  assume_role_failure: "assume-role-failure",
+  throttling_failure: "throttling-failure",
+  unauthorized_failure: "unauthorized-failure",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamDiscoveryFailureCode = (typeof IpamDiscoveryFailureCode)[keyof typeof IpamDiscoveryFailureCode];
 
 /**
  * @public
@@ -5205,14 +5281,20 @@ export interface GetIpamDiscoveredResourceCidrsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IpamResourceType {
-  eip = "eip",
-  ipv6_pool = "ipv6-pool",
-  public_ipv4_pool = "public-ipv4-pool",
-  subnet = "subnet",
-  vpc = "vpc",
-}
+export const IpamResourceType = {
+  eip: "eip",
+  ipv6_pool: "ipv6-pool",
+  public_ipv4_pool: "public-ipv4-pool",
+  subnet: "subnet",
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamResourceType = (typeof IpamResourceType)[keyof typeof IpamResourceType];
 
 /**
  * @public
@@ -5457,12 +5539,18 @@ export interface GetIpamResourceCidrsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IpamManagementState {
-  ignored = "ignored",
-  managed = "managed",
-  unmanaged = "unmanaged",
-}
+export const IpamManagementState = {
+  ignored: "ignored",
+  managed: "managed",
+  unmanaged: "unmanaged",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamManagementState = (typeof IpamManagementState)[keyof typeof IpamManagementState];
 
 /**
  * @public

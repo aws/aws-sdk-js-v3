@@ -108,21 +108,34 @@ export interface ComboChartVisual {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomContentType {
-  IMAGE = "IMAGE",
-  OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT",
-}
+export const CustomContentType = {
+  IMAGE: "IMAGE",
+  OTHER_EMBEDDED_CONTENT: "OTHER_EMBEDDED_CONTENT",
+} as const;
 
 /**
  * @public
  */
-export enum CustomContentImageScalingConfiguration {
-  DO_NOT_SCALE = "DO_NOT_SCALE",
-  FIT_TO_HEIGHT = "FIT_TO_HEIGHT",
-  FIT_TO_WIDTH = "FIT_TO_WIDTH",
-  SCALE_TO_VISUAL = "SCALE_TO_VISUAL",
-}
+export type CustomContentType = (typeof CustomContentType)[keyof typeof CustomContentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomContentImageScalingConfiguration = {
+  DO_NOT_SCALE: "DO_NOT_SCALE",
+  FIT_TO_HEIGHT: "FIT_TO_HEIGHT",
+  FIT_TO_WIDTH: "FIT_TO_WIDTH",
+  SCALE_TO_VISUAL: "SCALE_TO_VISUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomContentImageScalingConfiguration =
+  (typeof CustomContentImageScalingConfiguration)[keyof typeof CustomContentImageScalingConfiguration];
 
 /**
  * @public
@@ -234,13 +247,19 @@ export interface FilledMapFieldWells {
 
 /**
  * @public
+ * @enum
  */
-export enum BaseMapStyleType {
-  DARK_GRAY = "DARK_GRAY",
-  IMAGERY = "IMAGERY",
-  LIGHT_GRAY = "LIGHT_GRAY",
-  STREET = "STREET",
-}
+export const BaseMapStyleType = {
+  DARK_GRAY: "DARK_GRAY",
+  IMAGERY: "IMAGERY",
+  LIGHT_GRAY: "LIGHT_GRAY",
+  STREET: "STREET",
+} as const;
+
+/**
+ * @public
+ */
+export type BaseMapStyleType = (typeof BaseMapStyleType)[keyof typeof BaseMapStyleType];
 
 /**
  * @public
@@ -293,11 +312,17 @@ export interface GeospatialCoordinateBounds {
 
 /**
  * @public
+ * @enum
  */
-export enum MapZoomMode {
-  AUTO = "AUTO",
-  MANUAL = "MANUAL",
-}
+export const MapZoomMode = {
+  AUTO: "AUTO",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type MapZoomMode = (typeof MapZoomMode)[keyof typeof MapZoomMode];
 
 /**
  * @public
@@ -524,14 +549,21 @@ export interface FilledMapVisual {
 
 /**
  * @public
+ * @enum
  */
-export enum FunnelChartMeasureDataLabelStyle {
-  PERCENTAGE_BY_FIRST_STAGE = "PERCENTAGE_BY_FIRST_STAGE",
-  PERCENTAGE_BY_PREVIOUS_STAGE = "PERCENTAGE_BY_PREVIOUS_STAGE",
-  VALUE_AND_PERCENTAGE_BY_FIRST_STAGE = "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE",
-  VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
-  VALUE_ONLY = "VALUE_ONLY",
-}
+export const FunnelChartMeasureDataLabelStyle = {
+  PERCENTAGE_BY_FIRST_STAGE: "PERCENTAGE_BY_FIRST_STAGE",
+  PERCENTAGE_BY_PREVIOUS_STAGE: "PERCENTAGE_BY_PREVIOUS_STAGE",
+  VALUE_AND_PERCENTAGE_BY_FIRST_STAGE: "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE",
+  VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE: "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
+  VALUE_ONLY: "VALUE_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type FunnelChartMeasureDataLabelStyle =
+  (typeof FunnelChartMeasureDataLabelStyle)[keyof typeof FunnelChartMeasureDataLabelStyle];
 
 /**
  * @public
@@ -715,12 +747,18 @@ export interface GaugeChartFieldWells {
 
 /**
  * @public
+ * @enum
  */
-export enum ArcThicknessOptions {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-}
+export const ArcThicknessOptions = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+} as const;
+
+/**
+ * @public
+ */
+export type ArcThicknessOptions = (typeof ArcThicknessOptions)[keyof typeof ArcThicknessOptions];
 
 /**
  * @public
@@ -789,12 +827,18 @@ export interface ComparisonFormatConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ComparisonMethod {
-  DIFFERENCE = "DIFFERENCE",
-  PERCENT = "PERCENT",
-  PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE",
-}
+export const ComparisonMethod = {
+  DIFFERENCE: "DIFFERENCE",
+  PERCENT: "PERCENT",
+  PERCENT_DIFFERENCE: "PERCENT_DIFFERENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonMethod = (typeof ComparisonMethod)[keyof typeof ComparisonMethod];
 
 /**
  * @public
@@ -831,12 +875,18 @@ export interface ComparisonConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum PrimaryValueDisplayType {
-  ACTUAL = "ACTUAL",
-  COMPARISON = "COMPARISON",
-  HIDDEN = "HIDDEN",
-}
+export const PrimaryValueDisplayType = {
+  ACTUAL: "ACTUAL",
+  COMPARISON: "COMPARISON",
+  HIDDEN: "HIDDEN",
+} as const;
+
+/**
+ * @public
+ */
+export type PrimaryValueDisplayType = (typeof PrimaryValueDisplayType)[keyof typeof PrimaryValueDisplayType];
 
 /**
  * @public
@@ -913,10 +963,17 @@ export interface GaugeChartArcConditionalFormatting {
 
 /**
  * @public
+ * @enum
  */
-export enum ConditionalFormattingIconDisplayOption {
-  ICON_ONLY = "ICON_ONLY",
-}
+export const ConditionalFormattingIconDisplayOption = {
+  ICON_ONLY: "ICON_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConditionalFormattingIconDisplayOption =
+  (typeof ConditionalFormattingIconDisplayOption)[keyof typeof ConditionalFormattingIconDisplayOption];
 
 /**
  * @public
@@ -931,35 +988,41 @@ export interface ConditionalFormattingIconDisplayConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum Icon {
-  ARROW_DOWN = "ARROW_DOWN",
-  ARROW_DOWN_LEFT = "ARROW_DOWN_LEFT",
-  ARROW_DOWN_RIGHT = "ARROW_DOWN_RIGHT",
-  ARROW_LEFT = "ARROW_LEFT",
-  ARROW_RIGHT = "ARROW_RIGHT",
-  ARROW_UP = "ARROW_UP",
-  ARROW_UP_LEFT = "ARROW_UP_LEFT",
-  ARROW_UP_RIGHT = "ARROW_UP_RIGHT",
-  CARET_DOWN = "CARET_DOWN",
-  CARET_UP = "CARET_UP",
-  CHECKMARK = "CHECKMARK",
-  CIRCLE = "CIRCLE",
-  FACE_DOWN = "FACE_DOWN",
-  FACE_FLAT = "FACE_FLAT",
-  FACE_UP = "FACE_UP",
-  FLAG = "FLAG",
-  MINUS = "MINUS",
-  ONE_BAR = "ONE_BAR",
-  PLUS = "PLUS",
-  SQUARE = "SQUARE",
-  THREE_BAR = "THREE_BAR",
-  THUMBS_DOWN = "THUMBS_DOWN",
-  THUMBS_UP = "THUMBS_UP",
-  TRIANGLE = "TRIANGLE",
-  TWO_BAR = "TWO_BAR",
-  X = "X",
-}
+export const Icon = {
+  ARROW_DOWN: "ARROW_DOWN",
+  ARROW_DOWN_LEFT: "ARROW_DOWN_LEFT",
+  ARROW_DOWN_RIGHT: "ARROW_DOWN_RIGHT",
+  ARROW_LEFT: "ARROW_LEFT",
+  ARROW_RIGHT: "ARROW_RIGHT",
+  ARROW_UP: "ARROW_UP",
+  ARROW_UP_LEFT: "ARROW_UP_LEFT",
+  ARROW_UP_RIGHT: "ARROW_UP_RIGHT",
+  CARET_DOWN: "CARET_DOWN",
+  CARET_UP: "CARET_UP",
+  CHECKMARK: "CHECKMARK",
+  CIRCLE: "CIRCLE",
+  FACE_DOWN: "FACE_DOWN",
+  FACE_FLAT: "FACE_FLAT",
+  FACE_UP: "FACE_UP",
+  FLAG: "FLAG",
+  MINUS: "MINUS",
+  ONE_BAR: "ONE_BAR",
+  PLUS: "PLUS",
+  SQUARE: "SQUARE",
+  THREE_BAR: "THREE_BAR",
+  THUMBS_DOWN: "THUMBS_DOWN",
+  THUMBS_UP: "THUMBS_UP",
+  TRIANGLE: "TRIANGLE",
+  TWO_BAR: "TWO_BAR",
+  X: "X",
+} as const;
+
+/**
+ * @public
+ */
+export type Icon = (typeof Icon)[keyof typeof Icon];
 
 /**
  * @public
@@ -1005,20 +1068,27 @@ export interface ConditionalFormattingCustomIconCondition {
 
 /**
  * @public
+ * @enum
  */
-export enum ConditionalFormattingIconSetType {
-  BARS = "BARS",
-  CARET_UP_MINUS_DOWN = "CARET_UP_MINUS_DOWN",
-  CHECK_X = "CHECK_X",
-  FLAGS = "FLAGS",
-  FOUR_COLOR_ARROW = "FOUR_COLOR_ARROW",
-  FOUR_GRAY_ARROW = "FOUR_GRAY_ARROW",
-  PLUS_MINUS = "PLUS_MINUS",
-  THREE_CIRCLE = "THREE_CIRCLE",
-  THREE_COLOR_ARROW = "THREE_COLOR_ARROW",
-  THREE_GRAY_ARROW = "THREE_GRAY_ARROW",
-  THREE_SHAPE = "THREE_SHAPE",
-}
+export const ConditionalFormattingIconSetType = {
+  BARS: "BARS",
+  CARET_UP_MINUS_DOWN: "CARET_UP_MINUS_DOWN",
+  CHECK_X: "CHECK_X",
+  FLAGS: "FLAGS",
+  FOUR_COLOR_ARROW: "FOUR_COLOR_ARROW",
+  FOUR_GRAY_ARROW: "FOUR_GRAY_ARROW",
+  PLUS_MINUS: "PLUS_MINUS",
+  THREE_CIRCLE: "THREE_CIRCLE",
+  THREE_COLOR_ARROW: "THREE_COLOR_ARROW",
+  THREE_GRAY_ARROW: "THREE_GRAY_ARROW",
+  THREE_SHAPE: "THREE_SHAPE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConditionalFormattingIconSetType =
+  (typeof ConditionalFormattingIconSetType)[keyof typeof ConditionalFormattingIconSetType];
 
 /**
  * @public
@@ -1201,11 +1271,18 @@ export interface ClusterMarkerConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum GeospatialSelectedPointStyle {
-  CLUSTER = "CLUSTER",
-  POINT = "POINT",
-}
+export const GeospatialSelectedPointStyle = {
+  CLUSTER: "CLUSTER",
+  POINT: "POINT",
+} as const;
+
+/**
+ * @public
+ */
+export type GeospatialSelectedPointStyle =
+  (typeof GeospatialSelectedPointStyle)[keyof typeof GeospatialSelectedPointStyle];
 
 /**
  * @public
@@ -1303,11 +1380,17 @@ export interface GeospatialMapVisual {
 
 /**
  * @public
+ * @enum
  */
-export enum ColorFillType {
-  DISCRETE = "DISCRETE",
-  GRADIENT = "GRADIENT",
-}
+export const ColorFillType = {
+  DISCRETE: "DISCRETE",
+  GRADIENT: "GRADIENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ColorFillType = (typeof ColorFillType)[keyof typeof ColorFillType];
 
 /**
  * @public
@@ -1517,11 +1600,17 @@ export interface BinWidthOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum HistogramBinType {
-  BIN_COUNT = "BIN_COUNT",
-  BIN_WIDTH = "BIN_WIDTH",
-}
+export const HistogramBinType = {
+  BIN_COUNT: "BIN_COUNT",
+  BIN_WIDTH: "BIN_WIDTH",
+} as const;
+
+/**
+ * @public
+ */
+export type HistogramBinType = (typeof HistogramBinType)[keyof typeof HistogramBinType];
 
 /**
  * @public
@@ -1651,11 +1740,18 @@ export interface HistogramVisual {
 
 /**
  * @public
+ * @enum
  */
-export enum ForecastComputationSeasonality {
-  AUTOMATIC = "AUTOMATIC",
-  CUSTOM = "CUSTOM",
-}
+export const ForecastComputationSeasonality = {
+  AUTOMATIC: "AUTOMATIC",
+  CUSTOM: "CUSTOM",
+} as const;
+
+/**
+ * @public
+ */
+export type ForecastComputationSeasonality =
+  (typeof ForecastComputationSeasonality)[keyof typeof ForecastComputationSeasonality];
 
 /**
  * @public
@@ -1762,11 +1858,18 @@ export interface GrowthRateComputation {
 
 /**
  * @public
+ * @enum
  */
-export enum MaximumMinimumComputationType {
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-}
+export const MaximumMinimumComputationType = {
+  MAXIMUM: "MAXIMUM",
+  MINIMUM: "MINIMUM",
+} as const;
+
+/**
+ * @public
+ */
+export type MaximumMinimumComputationType =
+  (typeof MaximumMinimumComputationType)[keyof typeof MaximumMinimumComputationType];
 
 /**
  * @public
@@ -1905,19 +2008,31 @@ export interface PeriodToDateComputation {
 
 /**
  * @public
+ * @enum
  */
-export enum TopBottomSortOrder {
-  ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE",
-  PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE",
-}
+export const TopBottomSortOrder = {
+  ABSOLUTE_DIFFERENCE: "ABSOLUTE_DIFFERENCE",
+  PERCENT_DIFFERENCE: "PERCENT_DIFFERENCE",
+} as const;
 
 /**
  * @public
  */
-export enum TopBottomComputationType {
-  BOTTOM = "BOTTOM",
-  TOP = "TOP",
-}
+export type TopBottomSortOrder = (typeof TopBottomSortOrder)[keyof typeof TopBottomSortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopBottomComputationType = {
+  BOTTOM: "BOTTOM",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type TopBottomComputationType = (typeof TopBottomComputationType)[keyof typeof TopBottomComputationType];
 
 /**
  * @public
@@ -2405,21 +2520,33 @@ export interface KPIVisual {
 
 /**
  * @public
+ * @enum
  */
-export enum LineInterpolation {
-  LINEAR = "LINEAR",
-  SMOOTH = "SMOOTH",
-  STEPPED = "STEPPED",
-}
+export const LineInterpolation = {
+  LINEAR: "LINEAR",
+  SMOOTH: "SMOOTH",
+  STEPPED: "STEPPED",
+} as const;
 
 /**
  * @public
  */
-export enum LineChartLineStyle {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
+export type LineInterpolation = (typeof LineInterpolation)[keyof typeof LineInterpolation];
+
+/**
+ * @public
+ * @enum
+ */
+export const LineChartLineStyle = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+} as const;
+
+/**
+ * @public
+ */
+export type LineChartLineStyle = (typeof LineChartLineStyle)[keyof typeof LineChartLineStyle];
 
 /**
  * @public
@@ -2477,14 +2604,20 @@ export interface LineChartLineStyleSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum LineChartMarkerShape {
-  CIRCLE = "CIRCLE",
-  DIAMOND = "DIAMOND",
-  ROUNDED_SQUARE = "ROUNDED_SQUARE",
-  SQUARE = "SQUARE",
-  TRIANGLE = "TRIANGLE",
-}
+export const LineChartMarkerShape = {
+  CIRCLE: "CIRCLE",
+  DIAMOND: "DIAMOND",
+  ROUNDED_SQUARE: "ROUNDED_SQUARE",
+  SQUARE: "SQUARE",
+  TRIANGLE: "TRIANGLE",
+} as const;
+
+/**
+ * @public
+ */
+export type LineChartMarkerShape = (typeof LineChartMarkerShape)[keyof typeof LineChartMarkerShape];
 
 /**
  * @public
@@ -2710,12 +2843,18 @@ export interface ForecastConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum MissingDataTreatmentOption {
-  INTERPOLATE = "INTERPOLATE",
-  SHOW_AS_BLANK = "SHOW_AS_BLANK",
-  SHOW_AS_ZERO = "SHOW_AS_ZERO",
-}
+export const MissingDataTreatmentOption = {
+  INTERPOLATE: "INTERPOLATE",
+  SHOW_AS_BLANK: "SHOW_AS_BLANK",
+  SHOW_AS_ZERO: "SHOW_AS_ZERO",
+} as const;
+
+/**
+ * @public
+ */
+export type MissingDataTreatmentOption = (typeof MissingDataTreatmentOption)[keyof typeof MissingDataTreatmentOption];
 
 /**
  * @public
@@ -2872,12 +3011,18 @@ export interface LineChartSortConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum LineChartType {
-  AREA = "AREA",
-  LINE = "LINE",
-  STACKED_AREA = "STACKED_AREA",
-}
+export const LineChartType = {
+  AREA: "AREA",
+  LINE: "LINE",
+  STACKED_AREA: "STACKED_AREA",
+} as const;
+
+/**
+ * @public
+ */
+export type LineChartType = (typeof LineChartType)[keyof typeof LineChartType];
 
 /**
  * @public
@@ -3019,13 +3164,19 @@ export interface LineChartVisual {
 
 /**
  * @public
+ * @enum
  */
-export enum ArcThickness {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-  WHOLE = "WHOLE",
-}
+export const ArcThickness = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+  WHOLE: "WHOLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ArcThickness = (typeof ArcThickness)[keyof typeof ArcThickness];
 
 /**
  * @public
@@ -3419,11 +3570,17 @@ export interface PivotTableSortConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum TableBorderStyle {
-  NONE = "NONE",
-  SOLID = "SOLID",
-}
+export const TableBorderStyle = {
+  NONE: "NONE",
+  SOLID: "SOLID",
+} as const;
+
+/**
+ * @public
+ */
+export type TableBorderStyle = (typeof TableBorderStyle)[keyof typeof TableBorderStyle];
 
 /**
  * @public
@@ -3500,20 +3657,32 @@ export interface GlobalTableBorderOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum TextWrap {
-  NONE = "NONE",
-  WRAP = "WRAP",
-}
+export const TextWrap = {
+  NONE: "NONE",
+  WRAP: "WRAP",
+} as const;
 
 /**
  * @public
  */
-export enum VerticalTextAlignment {
-  BOTTOM = "BOTTOM",
-  MIDDLE = "MIDDLE",
-  TOP = "TOP",
-}
+export type TextWrap = (typeof TextWrap)[keyof typeof TextWrap];
+
+/**
+ * @public
+ * @enum
+ */
+export const VerticalTextAlignment = {
+  BOTTOM: "BOTTOM",
+  MIDDLE: "MIDDLE",
+  TOP: "TOP",
+} as const;
+
+/**
+ * @public
+ */
+export type VerticalTextAlignment = (typeof VerticalTextAlignment)[keyof typeof VerticalTextAlignment];
 
 /**
  * @public
@@ -3563,11 +3732,17 @@ export interface TableCellStyle {
 
 /**
  * @public
+ * @enum
  */
-export enum PivotTableMetricPlacement {
-  COLUMN = "COLUMN",
-  ROW = "ROW",
-}
+export const PivotTableMetricPlacement = {
+  COLUMN: "COLUMN",
+  ROW: "ROW",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableMetricPlacement = (typeof PivotTableMetricPlacement)[keyof typeof PivotTableMetricPlacement];
 
 /**
  * @public
@@ -3643,12 +3818,18 @@ export interface PivotTableOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum PivotTableSubtotalLevel {
-  ALL = "ALL",
-  CUSTOM = "CUSTOM",
-  LAST = "LAST",
-}
+export const PivotTableSubtotalLevel = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  LAST: "LAST",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableSubtotalLevel = (typeof PivotTableSubtotalLevel)[keyof typeof PivotTableSubtotalLevel];
 
 /**
  * @public
@@ -3704,19 +3885,31 @@ export interface SubtotalOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum TableTotalsPlacement {
-  END = "END",
-  START = "START",
-}
+export const TableTotalsPlacement = {
+  END: "END",
+  START: "START",
+} as const;
 
 /**
  * @public
  */
-export enum TableTotalsScrollStatus {
-  PINNED = "PINNED",
-  SCROLLED = "SCROLLED",
-}
+export type TableTotalsPlacement = (typeof TableTotalsPlacement)[keyof typeof TableTotalsPlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const TableTotalsScrollStatus = {
+  PINNED: "PINNED",
+  SCROLLED: "SCROLLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TableTotalsScrollStatus = (typeof TableTotalsScrollStatus)[keyof typeof TableTotalsScrollStatus];
 
 /**
  * @public
@@ -3823,12 +4016,19 @@ export interface PivotTableConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum PivotTableConditionalFormattingScopeRole {
-  FIELD = "FIELD",
-  FIELD_TOTAL = "FIELD_TOTAL",
-  GRAND_TOTAL = "GRAND_TOTAL",
-}
+export const PivotTableConditionalFormattingScopeRole = {
+  FIELD: "FIELD",
+  FIELD_TOTAL: "FIELD_TOTAL",
+  GRAND_TOTAL: "GRAND_TOTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableConditionalFormattingScopeRole =
+  (typeof PivotTableConditionalFormattingScopeRole)[keyof typeof PivotTableConditionalFormattingScopeRole];
 
 /**
  * @public
@@ -3998,11 +4198,17 @@ export interface RadarChartFieldWells {
 
 /**
  * @public
+ * @enum
  */
-export enum RadarChartShape {
-  CIRCLE = "CIRCLE",
-  POLYGON = "POLYGON",
-}
+export const RadarChartShape = {
+  CIRCLE: "CIRCLE",
+  POLYGON: "POLYGON",
+} as const;
+
+/**
+ * @public
+ */
+export type RadarChartShape = (typeof RadarChartShape)[keyof typeof RadarChartShape];
 
 /**
  * @public
@@ -4408,12 +4614,19 @@ export interface ScatterPlotVisual {
 
 /**
  * @public
+ * @enum
  */
-export enum TableCellImageScalingConfiguration {
-  DO_NOT_SCALE = "DO_NOT_SCALE",
-  FIT_TO_CELL_HEIGHT = "FIT_TO_CELL_HEIGHT",
-  FIT_TO_CELL_WIDTH = "FIT_TO_CELL_WIDTH",
-}
+export const TableCellImageScalingConfiguration = {
+  DO_NOT_SCALE: "DO_NOT_SCALE",
+  FIT_TO_CELL_HEIGHT: "FIT_TO_CELL_HEIGHT",
+  FIT_TO_CELL_WIDTH: "FIT_TO_CELL_WIDTH",
+} as const;
+
+/**
+ * @public
+ */
+export type TableCellImageScalingConfiguration =
+  (typeof TableCellImageScalingConfiguration)[keyof typeof TableCellImageScalingConfiguration];
 
 /**
  * @public
@@ -4439,10 +4652,16 @@ export interface TableFieldImageConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum TableFieldIconSetType {
-  LINK = "LINK",
-}
+export const TableFieldIconSetType = {
+  LINK: "LINK",
+} as const;
+
+/**
+ * @public
+ */
+export type TableFieldIconSetType = (typeof TableFieldIconSetType)[keyof typeof TableFieldIconSetType];
 
 /**
  * @public
@@ -4697,11 +4916,17 @@ export interface TableInlineVisualization {
 
 /**
  * @public
+ * @enum
  */
-export enum TableOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  VERTICAL = "VERTICAL",
-}
+export const TableOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  VERTICAL: "VERTICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type TableOrientation = (typeof TableOrientation)[keyof typeof TableOrientation];
 
 /**
  * @public
@@ -5232,45 +5457,75 @@ export interface WordCloudSortConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum WordCloudCloudLayout {
-  FLUID = "FLUID",
-  NORMAL = "NORMAL",
-}
+export const WordCloudCloudLayout = {
+  FLUID: "FLUID",
+  NORMAL: "NORMAL",
+} as const;
 
 /**
  * @public
  */
-export enum WordCloudWordCasing {
-  EXISTING_CASE = "EXISTING_CASE",
-  LOWER_CASE = "LOWER_CASE",
-}
+export type WordCloudCloudLayout = (typeof WordCloudCloudLayout)[keyof typeof WordCloudCloudLayout];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordCasing = {
+  EXISTING_CASE: "EXISTING_CASE",
+  LOWER_CASE: "LOWER_CASE",
+} as const;
 
 /**
  * @public
  */
-export enum WordCloudWordOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  HORIZONTAL_AND_VERTICAL = "HORIZONTAL_AND_VERTICAL",
-}
+export type WordCloudWordCasing = (typeof WordCloudWordCasing)[keyof typeof WordCloudWordCasing];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  HORIZONTAL_AND_VERTICAL: "HORIZONTAL_AND_VERTICAL",
+} as const;
 
 /**
  * @public
  */
-export enum WordCloudWordPadding {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE",
-  SMALL = "SMALL",
-}
+export type WordCloudWordOrientation = (typeof WordCloudWordOrientation)[keyof typeof WordCloudWordOrientation];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordPadding = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  SMALL: "SMALL",
+} as const;
 
 /**
  * @public
  */
-export enum WordCloudWordScaling {
-  EMPHASIZE = "EMPHASIZE",
-  NORMAL = "NORMAL",
-}
+export type WordCloudWordPadding = (typeof WordCloudWordPadding)[keyof typeof WordCloudWordPadding];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordScaling = {
+  EMPHASIZE: "EMPHASIZE",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordScaling = (typeof WordCloudWordScaling)[keyof typeof WordCloudWordScaling];
 
 /**
  * @public
@@ -5642,24 +5897,36 @@ export interface AnalysisDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum AnalysisFilterAttribute {
-  ANALYSIS_NAME = "ANALYSIS_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER = "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const AnalysisFilterAttribute = {
+  ANALYSIS_NAME: "ANALYSIS_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
 
 /**
  * @public
  */
-export enum FilterOperator {
-  StringEquals = "StringEquals",
-  StringLike = "StringLike",
-}
+export type AnalysisFilterAttribute = (typeof AnalysisFilterAttribute)[keyof typeof AnalysisFilterAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  StringEquals: "StringEquals",
+  StringLike: "StringLike",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * @public
@@ -5886,12 +6153,18 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum AssignmentStatus {
-  DISABLED = "DISABLED",
-  DRAFT = "DRAFT",
-  ENABLED = "ENABLED",
-}
+export const AssignmentStatus = {
+  DISABLED: "DISABLED",
+  DRAFT: "DRAFT",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof AssignmentStatus];
 
 /**
  * @public
@@ -5953,12 +6226,18 @@ export interface AuroraPostgreSqlParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticationMethodOption {
-  ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
-  IAM_AND_QUICKSIGHT = "IAM_AND_QUICKSIGHT",
-  IAM_ONLY = "IAM_ONLY",
-}
+export const AuthenticationMethodOption = {
+  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
+  IAM_AND_QUICKSIGHT: "IAM_AND_QUICKSIGHT",
+  IAM_ONLY: "IAM_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationMethodOption = (typeof AuthenticationMethodOption)[keyof typeof AuthenticationMethodOption];
 
 /**
  * @public
@@ -6106,18 +6385,24 @@ export class InvalidParameterValueException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ExceptionResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  DATA_SET = "DATA_SET",
-  DATA_SOURCE = "DATA_SOURCE",
-  GROUP = "GROUP",
-  IAMPOLICY_ASSIGNMENT = "IAMPOLICY_ASSIGNMENT",
-  INGESTION = "INGESTION",
-  NAMESPACE = "NAMESPACE",
-  USER = "USER",
-  VPC_CONNECTION = "VPC_CONNECTION",
-}
+export const ExceptionResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  DATA_SET: "DATA_SET",
+  DATA_SOURCE: "DATA_SOURCE",
+  GROUP: "GROUP",
+  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
+  INGESTION: "INGESTION",
+  NAMESPACE: "NAMESPACE",
+  USER: "USER",
+  VPC_CONNECTION: "VPC_CONNECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof ExceptionResourceType];
 
 /**
  * @public
@@ -6214,13 +6499,19 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ColumnDataType {
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-}
+export const ColumnDataType = {
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
 
 /**
  * @public
@@ -6257,10 +6548,16 @@ export interface ColumnDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum GeoSpatialCountryCode {
-  US = "US",
-}
+export const GeoSpatialCountryCode = {
+  US: "US",
+} as const;
+
+/**
+ * @public
+ */
+export type GeoSpatialCountryCode = (typeof GeoSpatialCountryCode)[keyof typeof GeoSpatialCountryCode];
 
 /**
  * @public
@@ -6367,16 +6664,22 @@ export interface ColumnSchema {
 
 /**
  * @public
+ * @enum
  */
-export enum GeoSpatialDataRole {
-  CITY = "CITY",
-  COUNTRY = "COUNTRY",
-  COUNTY = "COUNTY",
-  LATITUDE = "LATITUDE",
-  LONGITUDE = "LONGITUDE",
-  POSTCODE = "POSTCODE",
-  STATE = "STATE",
-}
+export const GeoSpatialDataRole = {
+  CITY: "CITY",
+  COUNTRY: "COUNTRY",
+  COUNTY: "COUNTY",
+  LATITUDE: "LATITUDE",
+  LONGITUDE: "LONGITUDE",
+  POSTCODE: "POSTCODE",
+  STATE: "STATE",
+} as const;
+
+/**
+ * @public
+ */
+export type GeoSpatialDataRole = (typeof GeoSpatialDataRole)[keyof typeof GeoSpatialDataRole];
 
 /**
  * @public
@@ -6402,11 +6705,17 @@ export interface ColumnTag {
 
 /**
  * @public
+ * @enum
  */
-export enum ColumnTagName {
-  COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION",
-  COLUMN_GEOGRAPHIC_ROLE = "COLUMN_GEOGRAPHIC_ROLE",
-}
+export const ColumnTagName = {
+  COLUMN_DESCRIPTION: "COLUMN_DESCRIPTION",
+  COLUMN_GEOGRAPHIC_ROLE: "COLUMN_GEOGRAPHIC_ROLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnTagName = (typeof ColumnTagName)[keyof typeof ColumnTagName];
 
 /**
  * @public

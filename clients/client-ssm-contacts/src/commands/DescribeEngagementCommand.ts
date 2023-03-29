@@ -76,29 +76,6 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  *          service.</p>
  *
  *
- * @example To describe the details of an engagement
- * ```javascript
- * // The following describe-engagement example lists the details of an engagement to a contact or escalation plan. The subject and content are sent to the contact channels.
- * const input = {
- *   "EngagementId": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/example_escalation/69e40ce1-8dbb-4d57-8962-5fbe7fc53356"
- * };
- * const command = new DescribeEngagementCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/example_escalation",
- *   "Content": "Testing engagements",
- *   "EngagementArn": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/example_escalation/69e40ce1-8dbb-4d57-8962-5fbe7fc53356",
- *   "PublicContent": "Testing engagements",
- *   "PublicSubject": "test",
- *   "Sender": "tester",
- *   "StartTime": "2021-05-18T18:25:41.151000+00:00",
- *   "Subject": "test"
- * }
- * *\/
- * // example id: to-describe-the-details-of-an-engagement-1630364719475
- * ```
- *
  */
 export class DescribeEngagementCommand extends $Command<
   DescribeEngagementCommandInput,

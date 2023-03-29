@@ -5,20 +5,32 @@ import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
 /**
  * @public
+ * @enum
  */
-export enum AbortAction {
-  CANCEL = "CANCEL",
-}
+export const AbortAction = {
+  CANCEL: "CANCEL",
+} as const;
 
 /**
  * @public
  */
-export enum JobExecutionFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export type AbortAction = (typeof AbortAction)[keyof typeof AbortAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobExecutionFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type JobExecutionFailureType = (typeof JobExecutionFailureType)[keyof typeof JobExecutionFailureType];
 
 /**
  * @public
@@ -305,11 +317,17 @@ export interface CloudwatchMetricAction {
 
 /**
  * @public
+ * @enum
  */
-export enum DynamoKeyType {
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-}
+export const DynamoKeyType = {
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type DynamoKeyType = (typeof DynamoKeyType)[keyof typeof DynamoKeyType];
 
 /**
  * @public
@@ -1108,17 +1126,23 @@ export interface RepublishAction {
 
 /**
  * @public
+ * @enum
  */
-export enum CannedAccessControlList {
-  AuthenticatedRead = "authenticated-read",
-  AwsExecRead = "aws-exec-read",
-  BucketOwnerFullControl = "bucket-owner-full-control",
-  BucketOwnerRead = "bucket-owner-read",
-  LogDeliveryWrite = "log-delivery-write",
-  Private = "private",
-  PublicRead = "public-read",
-  PublicReadWrite = "public-read-write",
-}
+export const CannedAccessControlList = {
+  AuthenticatedRead: "authenticated-read",
+  AwsExecRead: "aws-exec-read",
+  BucketOwnerFullControl: "bucket-owner-full-control",
+  BucketOwnerRead: "bucket-owner-read",
+  LogDeliveryWrite: "log-delivery-write",
+  Private: "private",
+  PublicRead: "public-read",
+  PublicReadWrite: "public-read-write",
+} as const;
+
+/**
+ * @public
+ */
+export type CannedAccessControlList = (typeof CannedAccessControlList)[keyof typeof CannedAccessControlList];
 
 /**
  * @public
@@ -1169,11 +1193,17 @@ export interface SalesforceAction {
 
 /**
  * @public
+ * @enum
  */
-export enum MessageFormat {
-  JSON = "JSON",
-  RAW = "RAW",
-}
+export const MessageFormat = {
+  JSON: "JSON",
+  RAW: "RAW",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageFormat = (typeof MessageFormat)[keyof typeof MessageFormat];
 
 /**
  * @public
@@ -1463,38 +1493,56 @@ export interface Action {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionType {
-  CONNECT = "CONNECT",
-  PUBLISH = "PUBLISH",
-  RECEIVE = "RECEIVE",
-  SUBSCRIBE = "SUBSCRIBE",
-}
+export const ActionType = {
+  CONNECT: "CONNECT",
+  PUBLISH: "PUBLISH",
+  RECEIVE: "RECEIVE",
+  SUBSCRIBE: "SUBSCRIBE",
+} as const;
 
 /**
  * @public
  */
-export enum ComparisonOperator {
-  GREATER_THAN = "greater-than",
-  GREATER_THAN_EQUALS = "greater-than-equals",
-  IN_CIDR_SET = "in-cidr-set",
-  IN_PORT_SET = "in-port-set",
-  IN_SET = "in-set",
-  LESS_THAN = "less-than",
-  LESS_THAN_EQUALS = "less-than-equals",
-  NOT_IN_CIDR_SET = "not-in-cidr-set",
-  NOT_IN_PORT_SET = "not-in-port-set",
-  NOT_IN_SET = "not-in-set",
-}
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  GREATER_THAN: "greater-than",
+  GREATER_THAN_EQUALS: "greater-than-equals",
+  IN_CIDR_SET: "in-cidr-set",
+  IN_PORT_SET: "in-port-set",
+  IN_SET: "in-set",
+  LESS_THAN: "less-than",
+  LESS_THAN_EQUALS: "less-than-equals",
+  NOT_IN_CIDR_SET: "not-in-cidr-set",
+  NOT_IN_PORT_SET: "not-in-port-set",
+  NOT_IN_SET: "not-in-set",
+} as const;
 
 /**
  * @public
  */
-export enum ConfidenceLevel {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfidenceLevel = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
 
 /**
  * @public
@@ -1654,11 +1702,17 @@ export interface BehaviorCriteria {
 
 /**
  * @public
+ * @enum
  */
-export enum DimensionValueOperator {
-  IN = "IN",
-  NOT_IN = "NOT_IN",
-}
+export const DimensionValueOperator = {
+  IN: "IN",
+  NOT_IN: "NOT_IN",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionValueOperator = (typeof DimensionValueOperator)[keyof typeof DimensionValueOperator];
 
 /**
  * @public
@@ -1714,13 +1768,19 @@ export interface Behavior {
 
 /**
  * @public
+ * @enum
  */
-export enum VerificationState {
-  BENIGN_POSITIVE = "BENIGN_POSITIVE",
-  FALSE_POSITIVE = "FALSE_POSITIVE",
-  TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN",
-}
+export const VerificationState = {
+  BENIGN_POSITIVE: "BENIGN_POSITIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  TRUE_POSITIVE: "TRUE_POSITIVE",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationState = (typeof VerificationState)[keyof typeof VerificationState];
 
 /**
  * @public
@@ -1900,12 +1960,18 @@ export interface AddThingToThingGroupResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum AggregationTypeName {
-  CARDINALITY = "Cardinality",
-  PERCENTILES = "Percentiles",
-  STATISTICS = "Statistics",
-}
+export const AggregationTypeName = {
+  CARDINALITY: "Cardinality",
+  PERCENTILES: "Percentiles",
+  STATISTICS: "Statistics",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregationTypeName = (typeof AggregationTypeName)[keyof typeof AggregationTypeName];
 
 /**
  * @public
@@ -1942,10 +2008,16 @@ export interface AlertTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum AlertTargetType {
-  SNS = "SNS",
-}
+export const AlertTargetType = {
+  SNS: "SNS",
+} as const;
+
+/**
+ * @public
+ */
+export type AlertTargetType = (typeof AlertTargetType)[keyof typeof AlertTargetType];
 
 /**
  * @public
@@ -2181,15 +2253,21 @@ export interface AuditCheckConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditCheckRunStatus {
-  CANCELED = "CANCELED",
-  COMPLETED_COMPLIANT = "COMPLETED_COMPLIANT",
-  COMPLETED_NON_COMPLIANT = "COMPLETED_NON_COMPLIANT",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  WAITING_FOR_DATA_COLLECTION = "WAITING_FOR_DATA_COLLECTION",
-}
+export const AuditCheckRunStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED_COMPLIANT: "COMPLETED_COMPLIANT",
+  COMPLETED_NON_COMPLIANT: "COMPLETED_NON_COMPLIANT",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  WAITING_FOR_DATA_COLLECTION: "WAITING_FOR_DATA_COLLECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditCheckRunStatus = (typeof AuditCheckRunStatus)[keyof typeof AuditCheckRunStatus];
 
 /**
  * @public
@@ -2331,18 +2409,24 @@ export interface ResourceIdentifier {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  CA_CERTIFICATE = "CA_CERTIFICATE",
-  CLIENT_ID = "CLIENT_ID",
-  COGNITO_IDENTITY_POOL = "COGNITO_IDENTITY_POOL",
-  DEVICE_CERTIFICATE = "DEVICE_CERTIFICATE",
-  IAM_ROLE = "IAM_ROLE",
-  IOT_POLICY = "IOT_POLICY",
-  ISSUER_CERTIFICATE = "ISSUER_CERTIFICATE",
-  ROLE_ALIAS = "ROLE_ALIAS",
-}
+export const ResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  CA_CERTIFICATE: "CA_CERTIFICATE",
+  CLIENT_ID: "CLIENT_ID",
+  COGNITO_IDENTITY_POOL: "COGNITO_IDENTITY_POOL",
+  DEVICE_CERTIFICATE: "DEVICE_CERTIFICATE",
+  IAM_ROLE: "IAM_ROLE",
+  IOT_POLICY: "IOT_POLICY",
+  ISSUER_CERTIFICATE: "ISSUER_CERTIFICATE",
+  ROLE_ALIAS: "ROLE_ALIAS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -2388,13 +2472,19 @@ export interface RelatedResource {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditFindingSeverity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const AuditFindingSeverity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditFindingSeverity = (typeof AuditFindingSeverity)[keyof typeof AuditFindingSeverity];
 
 /**
  * @public
@@ -2463,25 +2553,38 @@ export interface AuditFinding {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditFrequency {
-  BIWEEKLY = "BIWEEKLY",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  WEEKLY = "WEEKLY",
-}
+export const AuditFrequency = {
+  BIWEEKLY: "BIWEEKLY",
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+} as const;
 
 /**
  * @public
  */
-export enum AuditMitigationActionsExecutionStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SKIPPED = "SKIPPED",
-}
+export type AuditFrequency = (typeof AuditFrequency)[keyof typeof AuditFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuditMitigationActionsExecutionStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditMitigationActionsExecutionStatus =
+  (typeof AuditMitigationActionsExecutionStatus)[keyof typeof AuditMitigationActionsExecutionStatus];
 
 /**
  * @public
@@ -2536,13 +2639,20 @@ export interface AuditMitigationActionExecutionMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditMitigationActionsTaskStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const AuditMitigationActionsTaskStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditMitigationActionsTaskStatus =
+  (typeof AuditMitigationActionsTaskStatus)[keyof typeof AuditMitigationActionsTaskStatus];
 
 /**
  * @public
@@ -2640,10 +2750,16 @@ export interface AuditNotificationTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditNotificationType {
-  SNS = "SNS",
-}
+export const AuditNotificationType = {
+  SNS: "SNS",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditNotificationType = (typeof AuditNotificationType)[keyof typeof AuditNotificationType];
 
 /**
  * @public
@@ -2687,21 +2803,33 @@ export interface AuditSuppression {
 
 /**
  * @public
+ * @enum
  */
-export enum AuditTaskStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const AuditTaskStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
  * @public
  */
-export enum AuditTaskType {
-  ON_DEMAND_AUDIT_TASK = "ON_DEMAND_AUDIT_TASK",
-  SCHEDULED_AUDIT_TASK = "SCHEDULED_AUDIT_TASK",
-}
+export type AuditTaskStatus = (typeof AuditTaskStatus)[keyof typeof AuditTaskStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuditTaskType = {
+  ON_DEMAND_AUDIT_TASK: "ON_DEMAND_AUDIT_TASK",
+  SCHEDULED_AUDIT_TASK: "SCHEDULED_AUDIT_TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditTaskType = (typeof AuditTaskType)[keyof typeof AuditTaskType];
 
 /**
  * @public
@@ -2727,12 +2855,18 @@ export interface AuditTaskMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthDecision {
-  ALLOWED = "ALLOWED",
-  EXPLICIT_DENY = "EXPLICIT_DENY",
-  IMPLICIT_DENY = "IMPLICIT_DENY",
-}
+export const AuthDecision = {
+  ALLOWED: "ALLOWED",
+  EXPLICIT_DENY: "EXPLICIT_DENY",
+  IMPLICIT_DENY: "IMPLICIT_DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthDecision = (typeof AuthDecision)[keyof typeof AuthDecision];
 
 /**
  * @public
@@ -2769,11 +2903,17 @@ export interface AuthorizerConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthorizerStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AuthorizerStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizerStatus = (typeof AuthorizerStatus)[keyof typeof AuthorizerStatus];
 
 /**
  * @public
@@ -2927,11 +3067,17 @@ export interface AuthResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AutoRegistrationStatus {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const AutoRegistrationStatus = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoRegistrationStatus = (typeof AutoRegistrationStatus)[keyof typeof AutoRegistrationStatus];
 
 /**
  * @public
@@ -3438,13 +3584,19 @@ export interface CreateCertificateFromCsrResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomMetricType {
-  IP_ADDRESS_LIST = "ip-address-list",
-  NUMBER = "number",
-  NUMBER_LIST = "number-list",
-  STRING_LIST = "string-list",
-}
+export const CustomMetricType = {
+  IP_ADDRESS_LIST: "ip-address-list",
+  NUMBER: "number",
+  NUMBER_LIST: "number-list",
+  STRING_LIST: "string-list",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomMetricType = (typeof CustomMetricType)[keyof typeof CustomMetricType];
 
 /**
  * @public
@@ -3513,10 +3665,16 @@ export interface CreateCustomMetricResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DimensionType {
-  TOPIC_FILTER = "TOPIC_FILTER",
-}
+export const DimensionType = {
+  TOPIC_FILTER: "TOPIC_FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
 
 /**
  * @public
@@ -3590,12 +3748,18 @@ export class CertificateValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceType {
-  CREDENTIAL_PROVIDER = "CREDENTIAL_PROVIDER",
-  DATA = "DATA",
-  JOBS = "JOBS",
-}
+export const ServiceType = {
+  CREDENTIAL_PROVIDER: "CREDENTIAL_PROVIDER",
+  DATA: "DATA",
+  JOBS: "JOBS",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 /**
  * @public
@@ -3780,36 +3944,42 @@ export class InvalidQueryException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetMetricUnit {
-  Bits = "Bits",
-  BitsSecond = "Bits/Second",
-  Bytes = "Bytes",
-  BytesSecond = "Bytes/Second",
-  Count = "Count",
-  CountSecond = "Count/Second",
-  Gigabits = "Gigabits",
-  GigabitsSecond = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  GigabytesSecond = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  KilobitsSecond = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  KilobytesSecond = "Kilobytes/Second",
-  Megabits = "Megabits",
-  MegabitsSecond = "Megabits/Second",
-  Megabytes = "Megabytes",
-  MegabytesSecond = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  TerabitsSecond = "Terabits/Second",
-  Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second",
-}
+export const FleetMetricUnit = {
+  Bits: "Bits",
+  BitsSecond: "Bits/Second",
+  Bytes: "Bytes",
+  BytesSecond: "Bytes/Second",
+  Count: "Count",
+  CountSecond: "Count/Second",
+  Gigabits: "Gigabits",
+  GigabitsSecond: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  GigabytesSecond: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  KilobitsSecond: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  KilobytesSecond: "Kilobytes/Second",
+  Megabits: "Megabits",
+  MegabitsSecond: "Megabits/Second",
+  Megabytes: "Megabytes",
+  MegabytesSecond: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  TerabitsSecond: "Terabits/Second",
+  Terabytes: "Terabytes",
+  TerabytesSecond: "Terabytes/Second",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetMetricUnit = (typeof FleetMetricUnit)[keyof typeof FleetMetricUnit];
 
 /**
  * @public
@@ -3924,12 +4094,18 @@ export class InvalidAggregationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RetryableFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const RetryableFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type RetryableFailureType = (typeof RetryableFailureType)[keyof typeof RetryableFailureType];
 
 /**
  * @public
@@ -4042,12 +4218,18 @@ export interface PresignedUrlConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum JobEndBehavior {
-  CANCEL = "CANCEL",
-  FORCE_CANCEL = "FORCE_CANCEL",
-  STOP_ROLLOUT = "STOP_ROLLOUT",
-}
+export const JobEndBehavior = {
+  CANCEL: "CANCEL",
+  FORCE_CANCEL: "FORCE_CANCEL",
+  STOP_ROLLOUT: "STOP_ROLLOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type JobEndBehavior = (typeof JobEndBehavior)[keyof typeof JobEndBehavior];
 
 /**
  * @public
@@ -4105,11 +4287,17 @@ export interface SchedulingConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetSelection {
-  CONTINUOUS = "CONTINUOUS",
-  SNAPSHOT = "SNAPSHOT",
-}
+export const TargetSelection = {
+  CONTINUOUS: "CONTINUOUS",
+  SNAPSHOT: "SNAPSHOT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetSelection = (typeof TargetSelection)[keyof typeof TargetSelection];
 
 /**
  * @public
@@ -4438,14 +4626,20 @@ export interface CreateKeysAndCertificateResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum LogLevel {
-  DEBUG = "DEBUG",
-  DISABLED = "DISABLED",
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARN = "WARN",
-}
+export const LogLevel = {
+  DEBUG: "DEBUG",
+  DISABLED: "DISABLED",
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARN: "WARN",
+} as const;
+
+/**
+ * @public
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
 /**
  * @public
@@ -4476,10 +4670,16 @@ export interface PublishFindingToSnsParams {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyTemplateName {
-  BLANK_POLICY = "BLANK_POLICY",
-}
+export const PolicyTemplateName = {
+  BLANK_POLICY: "BLANK_POLICY",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyTemplateName = (typeof PolicyTemplateName)[keyof typeof PolicyTemplateName];
 
 /**
  * @public
@@ -4494,10 +4694,16 @@ export interface ReplaceDefaultPolicyVersionParams {
 
 /**
  * @public
+ * @enum
  */
-export enum CACertificateUpdateAction {
-  DEACTIVATE = "DEACTIVATE",
-}
+export const CACertificateUpdateAction = {
+  DEACTIVATE: "DEACTIVATE",
+} as const;
+
+/**
+ * @public
+ */
+export type CACertificateUpdateAction = (typeof CACertificateUpdateAction)[keyof typeof CACertificateUpdateAction];
 
 /**
  * @public
@@ -4512,10 +4718,17 @@ export interface UpdateCACertificateParams {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceCertificateUpdateAction {
-  DEACTIVATE = "DEACTIVATE",
-}
+export const DeviceCertificateUpdateAction = {
+  DEACTIVATE: "DEACTIVATE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceCertificateUpdateAction =
+  (typeof DeviceCertificateUpdateAction)[keyof typeof DeviceCertificateUpdateAction];
 
 /**
  * @public
@@ -4606,20 +4819,34 @@ export interface CreateMitigationActionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum AwsJobAbortCriteriaAbortAction {
-  CANCEL = "CANCEL",
-}
+export const AwsJobAbortCriteriaAbortAction = {
+  CANCEL: "CANCEL",
+} as const;
 
 /**
  * @public
  */
-export enum AwsJobAbortCriteriaFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export type AwsJobAbortCriteriaAbortAction =
+  (typeof AwsJobAbortCriteriaAbortAction)[keyof typeof AwsJobAbortCriteriaAbortAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const AwsJobAbortCriteriaFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type AwsJobAbortCriteriaFailureType =
+  (typeof AwsJobAbortCriteriaFailureType)[keyof typeof AwsJobAbortCriteriaFailureType];
 
 /**
  * @public
@@ -4986,11 +5213,17 @@ export interface OTAUpdateFile {
 
 /**
  * @public
+ * @enum
  */
-export enum Protocol {
-  HTTP = "HTTP",
-  MQTT = "MQTT",
-}
+export const Protocol = {
+  HTTP: "HTTP",
+  MQTT: "MQTT",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
@@ -5073,13 +5306,19 @@ export interface CreateOTAUpdateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OTAUpdateStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING",
-}
+export const OTAUpdateStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type OTAUpdateStatus = (typeof OTAUpdateStatus)[keyof typeof OTAUpdateStatus];
 
 /**
  * @public
@@ -5314,11 +5553,17 @@ export interface ProvisioningHook {
 
 /**
  * @public
+ * @enum
  */
-export enum TemplateType {
-  FLEET_PROVISIONING = "FLEET_PROVISIONING",
-  JITP = "JITP",
-}
+export const TemplateType = {
+  FLEET_PROVISIONING: "FLEET_PROVISIONING",
+  JITP: "JITP",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
 
 /**
  * @public
@@ -5496,16 +5741,22 @@ export interface CreateRoleAliasResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum DayOfWeek {
-  FRI = "FRI",
-  MON = "MON",
-  SAT = "SAT",
-  SUN = "SUN",
-  THU = "THU",
-  TUE = "TUE",
-  WED = "WED",
-}
+export const DayOfWeek = {
+  FRI: "FRI",
+  MON: "MON",
+  SAT: "SAT",
+  SUN: "SUN",
+  THU: "THU",
+  TUE: "TUE",
+  WED: "WED",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * @public
@@ -6026,14 +6277,20 @@ export interface HttpUrlDestinationProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum TopicRuleDestinationStatus {
-  DELETING = "DELETING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const TopicRuleDestinationStatus = {
+  DELETING: "DELETING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicRuleDestinationStatus = (typeof TopicRuleDestinationStatus)[keyof typeof TopicRuleDestinationStatus];
 
 /**
  * @public

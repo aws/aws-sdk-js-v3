@@ -73,17 +73,6 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  *          service.</p>
  *
  *
- * @example To deactivate a contact channel
- * ```javascript
- * // The following ``deactivate-contact-channel`` example deactivates a contact channel. Deactivating a contact channel means the contact channel will no longer be paged during an incident. You can also reactivate a contact channel at any time using the activate-contact-channel operation.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact-channel/akuam/fc7405c4-46b2-48b7-87b2-93e2f225b90d"
- * };
- * const command = new DeactivateContactChannelCommand(input);
- * await client.send(command);
- * // example id: to-deactivate-a-contact-channel-1630360853894
- * ```
- *
  */
 export class DeactivateContactChannelCommand extends $Command<
   DeactivateContactChannelCommandInput,

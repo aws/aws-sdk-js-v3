@@ -139,20 +139,26 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ScalarType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DATE = "DATE",
-  DOUBLE = "DOUBLE",
-  INTEGER = "INTEGER",
-  INTERVAL_DAY_TO_SECOND = "INTERVAL_DAY_TO_SECOND",
-  INTERVAL_YEAR_TO_MONTH = "INTERVAL_YEAR_TO_MONTH",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  UNKNOWN = "UNKNOWN",
-  VARCHAR = "VARCHAR",
-}
+export const ScalarType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DATE: "DATE",
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  INTERVAL_DAY_TO_SECOND: "INTERVAL_DAY_TO_SECOND",
+  INTERVAL_YEAR_TO_MONTH: "INTERVAL_YEAR_TO_MONTH",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  UNKNOWN: "UNKNOWN",
+  VARCHAR: "VARCHAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarType = (typeof ScalarType)[keyof typeof ScalarType];
 
 /**
  * @public
@@ -178,11 +184,17 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum S3EncryptionOption {
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const S3EncryptionOption = {
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+} as const;
+
+/**
+ * @public
+ */
+export type S3EncryptionOption = (typeof S3EncryptionOption)[keyof typeof S3EncryptionOption];
 
 /**
  * @public
@@ -274,10 +286,16 @@ export interface Tag {
 
 /**
  * @public
+ * @enum
  */
-export enum DimensionValueType {
-  VARCHAR = "VARCHAR",
-}
+export const DimensionValueType = {
+  VARCHAR: "VARCHAR",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionValueType = (typeof DimensionValueType)[keyof typeof DimensionValueType];
 
 /**
  * @public
@@ -298,25 +316,37 @@ export interface DimensionMapping {
 
 /**
  * @public
+ * @enum
  */
-export enum MeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  MULTI = "MULTI",
-  VARCHAR = "VARCHAR",
-}
+export const MeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  MULTI: "MULTI",
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
  * @public
  */
-export enum ScalarMeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  TIMESTAMP = "TIMESTAMP",
-  VARCHAR = "VARCHAR",
-}
+export type MeasureValueType = (typeof MeasureValueType)[keyof typeof MeasureValueType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarMeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarMeasureValueType = (typeof ScalarMeasureValueType)[keyof typeof ScalarMeasureValueType];
 
 /**
  * @public
@@ -708,13 +738,19 @@ export interface ExecutionStats {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduledQueryRunStatus {
-  AUTO_TRIGGER_FAILURE = "AUTO_TRIGGER_FAILURE",
-  AUTO_TRIGGER_SUCCESS = "AUTO_TRIGGER_SUCCESS",
-  MANUAL_TRIGGER_FAILURE = "MANUAL_TRIGGER_FAILURE",
-  MANUAL_TRIGGER_SUCCESS = "MANUAL_TRIGGER_SUCCESS",
-}
+export const ScheduledQueryRunStatus = {
+  AUTO_TRIGGER_FAILURE: "AUTO_TRIGGER_FAILURE",
+  AUTO_TRIGGER_SUCCESS: "AUTO_TRIGGER_SUCCESS",
+  MANUAL_TRIGGER_FAILURE: "MANUAL_TRIGGER_FAILURE",
+  MANUAL_TRIGGER_SUCCESS: "MANUAL_TRIGGER_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledQueryRunStatus = (typeof ScheduledQueryRunStatus)[keyof typeof ScheduledQueryRunStatus];
 
 /**
  * @public
@@ -756,11 +792,17 @@ export interface ScheduledQueryRunSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ScheduledQueryState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ScheduledQueryState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledQueryState = (typeof ScheduledQueryState)[keyof typeof ScheduledQueryState];
 
 /**
  * @public

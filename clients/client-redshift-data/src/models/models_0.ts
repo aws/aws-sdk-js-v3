@@ -376,28 +376,40 @@ export interface SqlParameter {
 
 /**
  * @public
+ * @enum
  */
-export enum StatusString {
-  ABORTED = "ABORTED",
-  ALL = "ALL",
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  PICKED = "PICKED",
-  STARTED = "STARTED",
-  SUBMITTED = "SUBMITTED",
-}
+export const StatusString = {
+  ABORTED: "ABORTED",
+  ALL: "ALL",
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  PICKED: "PICKED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+} as const;
 
 /**
  * @public
  */
-export enum StatementStatusString {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  PICKED = "PICKED",
-  STARTED = "STARTED",
-  SUBMITTED = "SUBMITTED",
-}
+export type StatusString = (typeof StatusString)[keyof typeof StatusString];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatementStatusString = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  PICKED: "PICKED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type StatementStatusString = (typeof StatementStatusString)[keyof typeof StatementStatusString];
 
 /**
  * @public

@@ -360,11 +360,17 @@ export interface MappingParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordFormatType {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const RecordFormatType = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordFormatType = (typeof RecordFormatType)[keyof typeof RecordFormatType];
 
 /**
  * @public
@@ -545,12 +551,18 @@ export interface InputProcessingConfigurationDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum InputStartingPosition {
-  LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
-  NOW = "NOW",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const InputStartingPosition = {
+  LAST_STOPPED_POINT: "LAST_STOPPED_POINT",
+  NOW: "NOW",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type InputStartingPosition = (typeof InputStartingPosition)[keyof typeof InputStartingPosition];
 
 /**
  * @public
@@ -1343,11 +1355,17 @@ export interface CodeContent {
 
 /**
  * @public
+ * @enum
  */
-export enum CodeContentType {
-  PLAINTEXT = "PLAINTEXT",
-  ZIPFILE = "ZIPFILE",
-}
+export const CodeContentType = {
+  PLAINTEXT: "PLAINTEXT",
+  ZIPFILE: "ZIPFILE",
+} as const;
+
+/**
+ * @public
+ */
+export type CodeContentType = (typeof CodeContentType)[keyof typeof CodeContentType];
 
 /**
  * @public
@@ -1527,11 +1545,17 @@ export interface EnvironmentProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationType {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
-}
+export const ConfigurationType = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
 /**
  * @public
@@ -1605,23 +1629,35 @@ export interface CheckpointConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum LogLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARN = "WARN",
-}
+export const LogLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARN: "WARN",
+} as const;
 
 /**
  * @public
  */
-export enum MetricsLevel {
-  APPLICATION = "APPLICATION",
-  OPERATOR = "OPERATOR",
-  PARALLELISM = "PARALLELISM",
-  TASK = "TASK",
-}
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricsLevel = {
+  APPLICATION: "APPLICATION",
+  OPERATOR: "OPERATOR",
+  PARALLELISM: "PARALLELISM",
+  TASK: "TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricsLevel = (typeof MetricsLevel)[keyof typeof MetricsLevel];
 
 /**
  * @public
@@ -1760,11 +1796,17 @@ export interface CatalogConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ArtifactType {
-  DEPENDENCY_JAR = "DEPENDENCY_JAR",
-  UDF = "UDF",
-}
+export const ArtifactType = {
+  DEPENDENCY_JAR: "DEPENDENCY_JAR",
+  UDF: "UDF",
+} as const;
+
+/**
+ * @public
+ */
+export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
 
 /**
  * @public
@@ -2094,12 +2136,18 @@ export interface FlinkApplicationConfigurationDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationRestoreType {
-  RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT",
-  RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT",
-  SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT",
-}
+export const ApplicationRestoreType = {
+  RESTORE_FROM_CUSTOM_SNAPSHOT: "RESTORE_FROM_CUSTOM_SNAPSHOT",
+  RESTORE_FROM_LATEST_SNAPSHOT: "RESTORE_FROM_LATEST_SNAPSHOT",
+  SKIP_RESTORE_FROM_SNAPSHOT: "SKIP_RESTORE_FROM_SNAPSHOT",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationRestoreType = (typeof ApplicationRestoreType)[keyof typeof ApplicationRestoreType];
 
 /**
  * @public
@@ -2970,42 +3018,60 @@ export interface ApplicationMaintenanceConfigurationDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationMode {
-  INTERACTIVE = "INTERACTIVE",
-  STREAMING = "STREAMING",
-}
+export const ApplicationMode = {
+  INTERACTIVE: "INTERACTIVE",
+  STREAMING: "STREAMING",
+} as const;
 
 /**
  * @public
  */
-export enum ApplicationStatus {
-  AUTOSCALING = "AUTOSCALING",
-  DELETING = "DELETING",
-  FORCE_STOPPING = "FORCE_STOPPING",
-  MAINTENANCE = "MAINTENANCE",
-  READY = "READY",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export type ApplicationMode = (typeof ApplicationMode)[keyof typeof ApplicationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationStatus = {
+  AUTOSCALING: "AUTOSCALING",
+  DELETING: "DELETING",
+  FORCE_STOPPING: "FORCE_STOPPING",
+  MAINTENANCE: "MAINTENANCE",
+  READY: "READY",
+  ROLLED_BACK: "ROLLED_BACK",
+  ROLLING_BACK: "ROLLING_BACK",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum RuntimeEnvironment {
-  FLINK_1_11 = "FLINK-1_11",
-  FLINK_1_13 = "FLINK-1_13",
-  FLINK_1_15 = "FLINK-1_15",
-  FLINK_1_6 = "FLINK-1_6",
-  FLINK_1_8 = "FLINK-1_8",
-  SQL_1_0 = "SQL-1_0",
-  ZEPPELIN_FLINK_1_0 = "ZEPPELIN-FLINK-1_0",
-  ZEPPELIN_FLINK_2_0 = "ZEPPELIN-FLINK-2_0",
-}
+export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuntimeEnvironment = {
+  FLINK_1_11: "FLINK-1_11",
+  FLINK_1_13: "FLINK-1_13",
+  FLINK_1_15: "FLINK-1_15",
+  FLINK_1_6: "FLINK-1_6",
+  FLINK_1_8: "FLINK-1_8",
+  SQL_1_0: "SQL-1_0",
+  ZEPPELIN_FLINK_1_0: "ZEPPELIN-FLINK-1_0",
+  ZEPPELIN_FLINK_2_0: "ZEPPELIN-FLINK-2_0",
+} as const;
+
+/**
+ * @public
+ */
+export type RuntimeEnvironment = (typeof RuntimeEnvironment)[keyof typeof RuntimeEnvironment];
 
 /**
  * @public
@@ -3336,11 +3402,17 @@ export class UnsupportedOperationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum UrlType {
-  FLINK_DASHBOARD_URL = "FLINK_DASHBOARD_URL",
-  ZEPPELIN_UI_URL = "ZEPPELIN_UI_URL",
-}
+export const UrlType = {
+  FLINK_DASHBOARD_URL: "FLINK_DASHBOARD_URL",
+  ZEPPELIN_UI_URL: "ZEPPELIN_UI_URL",
+} as const;
+
+/**
+ * @public
+ */
+export type UrlType = (typeof UrlType)[keyof typeof UrlType];
 
 /**
  * @public
@@ -3710,13 +3782,19 @@ export interface DescribeApplicationSnapshotRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SnapshotStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  READY = "READY",
-}
+export const SnapshotStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
 
 /**
  * @public

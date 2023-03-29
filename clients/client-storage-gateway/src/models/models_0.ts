@@ -2907,12 +2907,18 @@ export interface DescribeGatewayInformationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum GatewayCapacity {
-  Large = "Large",
-  Medium = "Medium",
-  Small = "Small",
-}
+export const GatewayCapacity = {
+  Large: "Large",
+  Medium: "Medium",
+  Small: "Small",
+} as const;
+
+/**
+ * @public
+ */
+export type GatewayCapacity = (typeof GatewayCapacity)[keyof typeof GatewayCapacity];
 
 /**
  * @public

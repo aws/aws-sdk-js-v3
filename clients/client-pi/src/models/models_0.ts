@@ -294,11 +294,17 @@ export interface DimensionGroup {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceType {
-  DOCDB = "DOCDB",
-  RDS = "RDS",
-}
+export const ServiceType = {
+  DOCDB: "DOCDB",
+  RDS: "RDS",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 /**
  * @public
@@ -593,12 +599,18 @@ export class NotAuthorizedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DetailStatus {
-  AVAILABLE = "AVAILABLE",
-  PROCESSING = "PROCESSING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const DetailStatus = {
+  AVAILABLE: "AVAILABLE",
+  PROCESSING: "PROCESSING",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type DetailStatus = (typeof DetailStatus)[keyof typeof DetailStatus];
 
 /**
  * @public
@@ -686,15 +698,21 @@ export interface DimensionKeyDetail {
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureStatus {
-  DISABLED = "DISABLED",
-  DISABLED_PENDING_REBOOT = "DISABLED_PENDING_REBOOT",
-  ENABLED = "ENABLED",
-  ENABLED_PENDING_REBOOT = "ENABLED_PENDING_REBOOT",
-  UNKNOWN = "UNKNOWN",
-  UNSUPPORTED = "UNSUPPORTED",
-}
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  DISABLED_PENDING_REBOOT: "DISABLED_PENDING_REBOOT",
+  ENABLED: "ENABLED",
+  ENABLED_PENDING_REBOOT: "ENABLED_PENDING_REBOOT",
+  UNKNOWN: "UNKNOWN",
+  UNSUPPORTED: "UNSUPPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * @public
@@ -907,11 +925,17 @@ export interface MetricQuery {
 
 /**
  * @public
+ * @enum
  */
-export enum PeriodAlignment {
-  END_TIME = "END_TIME",
-  START_TIME = "START_TIME",
-}
+export const PeriodAlignment = {
+  END_TIME: "END_TIME",
+  START_TIME: "START_TIME",
+} as const;
+
+/**
+ * @public
+ */
+export type PeriodAlignment = (typeof PeriodAlignment)[keyof typeof PeriodAlignment];
 
 /**
  * @public

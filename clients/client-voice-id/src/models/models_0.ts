@@ -84,19 +84,25 @@ export interface AssociateFraudsterResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ConflictType {
-  ANOTHER_ACTIVE_STREAM = "ANOTHER_ACTIVE_STREAM",
-  CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT = "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT",
-  CANNOT_DELETE_NON_EMPTY_WATCHLIST = "CANNOT_DELETE_NON_EMPTY_WATCHLIST",
-  CONCURRENT_CHANGES = "CONCURRENT_CHANGES",
-  DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES = "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES",
-  DOMAIN_NOT_ACTIVE = "DOMAIN_NOT_ACTIVE",
-  ENROLLMENT_ALREADY_EXISTS = "ENROLLMENT_ALREADY_EXISTS",
-  FRAUDSTER_MUST_BELONG_TO_AT_LEAST_ONE_WATCHLIST = "FRAUDSTER_MUST_BELONG_TO_AT_LEAST_ONE_WATCHLIST",
-  SPEAKER_NOT_SET = "SPEAKER_NOT_SET",
-  SPEAKER_OPTED_OUT = "SPEAKER_OPTED_OUT",
-}
+export const ConflictType = {
+  ANOTHER_ACTIVE_STREAM: "ANOTHER_ACTIVE_STREAM",
+  CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT: "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT",
+  CANNOT_DELETE_NON_EMPTY_WATCHLIST: "CANNOT_DELETE_NON_EMPTY_WATCHLIST",
+  CONCURRENT_CHANGES: "CONCURRENT_CHANGES",
+  DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES: "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES",
+  DOMAIN_NOT_ACTIVE: "DOMAIN_NOT_ACTIVE",
+  ENROLLMENT_ALREADY_EXISTS: "ENROLLMENT_ALREADY_EXISTS",
+  FRAUDSTER_MUST_BELONG_TO_AT_LEAST_ONE_WATCHLIST: "FRAUDSTER_MUST_BELONG_TO_AT_LEAST_ONE_WATCHLIST",
+  SPEAKER_NOT_SET: "SPEAKER_NOT_SET",
+  SPEAKER_OPTED_OUT: "SPEAKER_OPTED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictType = (typeof ConflictType)[keyof typeof ConflictType];
 
 /**
  * @public
@@ -182,16 +188,22 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  BATCH_JOB = "BATCH_JOB",
-  COMPLIANCE_CONSENT = "COMPLIANCE_CONSENT",
-  DOMAIN = "DOMAIN",
-  FRAUDSTER = "FRAUDSTER",
-  SESSION = "SESSION",
-  SPEAKER = "SPEAKER",
-  WATCHLIST = "WATCHLIST",
-}
+export const ResourceType = {
+  BATCH_JOB: "BATCH_JOB",
+  COMPLIANCE_CONSENT: "COMPLIANCE_CONSENT",
+  DOMAIN: "DOMAIN",
+  FRAUDSTER: "FRAUDSTER",
+  SESSION: "SESSION",
+  SPEAKER: "SPEAKER",
+  WATCHLIST: "WATCHLIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -306,16 +318,22 @@ export interface AuthenticationConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticationDecision {
-  ACCEPT = "ACCEPT",
-  NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
-  REJECT = "REJECT",
-  SPEAKER_EXPIRED = "SPEAKER_EXPIRED",
-  SPEAKER_ID_NOT_PROVIDED = "SPEAKER_ID_NOT_PROVIDED",
-  SPEAKER_NOT_ENROLLED = "SPEAKER_NOT_ENROLLED",
-  SPEAKER_OPTED_OUT = "SPEAKER_OPTED_OUT",
-}
+export const AuthenticationDecision = {
+  ACCEPT: "ACCEPT",
+  NOT_ENOUGH_SPEECH: "NOT_ENOUGH_SPEECH",
+  REJECT: "REJECT",
+  SPEAKER_EXPIRED: "SPEAKER_EXPIRED",
+  SPEAKER_ID_NOT_PROVIDED: "SPEAKER_ID_NOT_PROVIDED",
+  SPEAKER_NOT_ENROLLED: "SPEAKER_NOT_ENROLLED",
+  SPEAKER_OPTED_OUT: "SPEAKER_OPTED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationDecision = (typeof AuthenticationDecision)[keyof typeof AuthenticationDecision];
 
 /**
  * @public
@@ -445,21 +463,34 @@ export interface CreateDomainRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  SUSPENDED = "SUSPENDED",
-}
+export const DomainStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  SUSPENDED: "SUSPENDED",
+} as const;
 
 /**
  * @public
  */
-export enum ServerSideEncryptionUpdateStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServerSideEncryptionUpdateStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ServerSideEncryptionUpdateStatus =
+  (typeof ServerSideEncryptionUpdateStatus)[keyof typeof ServerSideEncryptionUpdateStatus];
 
 /**
  * @public
@@ -806,14 +837,21 @@ export interface JobProgress {
 
 /**
  * @public
+ * @enum
  */
-export enum FraudsterRegistrationJobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const FraudsterRegistrationJobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type FraudsterRegistrationJobStatus =
+  (typeof FraudsterRegistrationJobStatus)[keyof typeof FraudsterRegistrationJobStatus];
 
 /**
  * @public
@@ -839,11 +877,18 @@ export interface OutputDataConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum DuplicateRegistrationAction {
-  REGISTER_AS_NEW = "REGISTER_AS_NEW",
-  SKIP = "SKIP",
-}
+export const DuplicateRegistrationAction = {
+  REGISTER_AS_NEW: "REGISTER_AS_NEW",
+  SKIP: "SKIP",
+} as const;
+
+/**
+ * @public
+ */
+export type DuplicateRegistrationAction =
+  (typeof DuplicateRegistrationAction)[keyof typeof DuplicateRegistrationAction];
 
 /**
  * @public
@@ -975,13 +1020,19 @@ export interface DescribeSpeakerRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SpeakerStatus {
-  ENROLLED = "ENROLLED",
-  EXPIRED = "EXPIRED",
-  OPTED_OUT = "OPTED_OUT",
-  PENDING = "PENDING",
-}
+export const SpeakerStatus = {
+  ENROLLED: "ENROLLED",
+  EXPIRED: "EXPIRED",
+  OPTED_OUT: "OPTED_OUT",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SpeakerStatus = (typeof SpeakerStatus)[keyof typeof SpeakerStatus];
 
 /**
  * @public
@@ -1052,19 +1103,31 @@ export interface DescribeSpeakerEnrollmentJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ExistingEnrollmentAction {
-  OVERWRITE = "OVERWRITE",
-  SKIP = "SKIP",
-}
+export const ExistingEnrollmentAction = {
+  OVERWRITE: "OVERWRITE",
+  SKIP: "SKIP",
+} as const;
 
 /**
  * @public
  */
-export enum FraudDetectionAction {
-  FAIL = "FAIL",
-  IGNORE = "IGNORE",
-}
+export type ExistingEnrollmentAction = (typeof ExistingEnrollmentAction)[keyof typeof ExistingEnrollmentAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const FraudDetectionAction = {
+  FAIL: "FAIL",
+  IGNORE: "IGNORE",
+} as const;
+
+/**
+ * @public
+ */
+export type FraudDetectionAction = (typeof FraudDetectionAction)[keyof typeof FraudDetectionAction];
 
 /**
  * @public
@@ -1115,14 +1178,20 @@ export interface EnrollmentConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum SpeakerEnrollmentJobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const SpeakerEnrollmentJobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type SpeakerEnrollmentJobStatus = (typeof SpeakerEnrollmentJobStatus)[keyof typeof SpeakerEnrollmentJobStatus];
 
 /**
  * @public
@@ -1440,20 +1509,32 @@ export interface FraudDetectionConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum FraudDetectionDecision {
-  HIGH_RISK = "HIGH_RISK",
-  LOW_RISK = "LOW_RISK",
-  NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
-}
+export const FraudDetectionDecision = {
+  HIGH_RISK: "HIGH_RISK",
+  LOW_RISK: "LOW_RISK",
+  NOT_ENOUGH_SPEECH: "NOT_ENOUGH_SPEECH",
+} as const;
 
 /**
  * @public
  */
-export enum FraudDetectionReason {
-  KNOWN_FRAUDSTER = "KNOWN_FRAUDSTER",
-  VOICE_SPOOFING = "VOICE_SPOOFING",
-}
+export type FraudDetectionDecision = (typeof FraudDetectionDecision)[keyof typeof FraudDetectionDecision];
+
+/**
+ * @public
+ * @enum
+ */
+export const FraudDetectionReason = {
+  KNOWN_FRAUDSTER: "KNOWN_FRAUDSTER",
+  VOICE_SPOOFING: "VOICE_SPOOFING",
+} as const;
+
+/**
+ * @public
+ */
+export type FraudDetectionReason = (typeof FraudDetectionReason)[keyof typeof FraudDetectionReason];
 
 /**
  * @public
@@ -1557,12 +1638,18 @@ export interface FraudDetectionResult {
 
 /**
  * @public
+ * @enum
  */
-export enum StreamingStatus {
-  ENDED = "ENDED",
-  ONGOING = "ONGOING",
-  PENDING_CONFIGURATION = "PENDING_CONFIGURATION",
-}
+export const StreamingStatus = {
+  ENDED: "ENDED",
+  ONGOING: "ONGOING",
+  PENDING_CONFIGURATION: "PENDING_CONFIGURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingStatus = (typeof StreamingStatus)[keyof typeof StreamingStatus];
 
 /**
  * @public

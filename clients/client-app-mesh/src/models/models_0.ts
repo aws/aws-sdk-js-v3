@@ -348,11 +348,17 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum EgressFilterType {
-  ALLOW_ALL = "ALLOW_ALL",
-  DROP_ALL = "DROP_ALL",
-}
+export const EgressFilterType = {
+  ALLOW_ALL: "ALLOW_ALL",
+  DROP_ALL: "DROP_ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type EgressFilterType = (typeof EgressFilterType)[keyof typeof EgressFilterType];
 
 /**
  * @public
@@ -371,13 +377,19 @@ export interface EgressFilter {
 
 /**
  * @public
+ * @enum
  */
-export enum IpPreference {
-  IPv4_ONLY = "IPv4_ONLY",
-  IPv4_PREFERRED = "IPv4_PREFERRED",
-  IPv6_ONLY = "IPv6_ONLY",
-  IPv6_PREFERRED = "IPv6_PREFERRED",
-}
+export const IpPreference = {
+  IPv4_ONLY: "IPv4_ONLY",
+  IPv4_PREFERRED: "IPv4_PREFERRED",
+  IPv6_ONLY: "IPv6_ONLY",
+  IPv6_PREFERRED: "IPv6_PREFERRED",
+} as const;
+
+/**
+ * @public
+ */
+export type IpPreference = (typeof IpPreference)[keyof typeof IpPreference];
 
 /**
  * @public
@@ -481,12 +493,18 @@ export interface ResourceMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum MeshStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const MeshStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type MeshStatusCode = (typeof MeshStatusCode)[keyof typeof MeshStatusCode];
 
 /**
  * @public
@@ -1154,12 +1172,18 @@ export namespace VirtualGatewayConnectionPool {
 
 /**
  * @public
+ * @enum
  */
-export enum VirtualGatewayPortProtocol {
-  GRPC = "grpc",
-  HTTP = "http",
-  HTTP2 = "http2",
-}
+export const VirtualGatewayPortProtocol = {
+  GRPC: "grpc",
+  HTTP: "http",
+  HTTP2: "http2",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualGatewayPortProtocol = (typeof VirtualGatewayPortProtocol)[keyof typeof VirtualGatewayPortProtocol];
 
 /**
  * @public
@@ -1306,12 +1330,19 @@ export namespace VirtualGatewayListenerTlsCertificate {
 
 /**
  * @public
+ * @enum
  */
-export enum VirtualGatewayListenerTlsMode {
-  DISABLED = "DISABLED",
-  PERMISSIVE = "PERMISSIVE",
-  STRICT = "STRICT",
-}
+export const VirtualGatewayListenerTlsMode = {
+  DISABLED: "DISABLED",
+  PERMISSIVE: "PERMISSIVE",
+  STRICT: "STRICT",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualGatewayListenerTlsMode =
+  (typeof VirtualGatewayListenerTlsMode)[keyof typeof VirtualGatewayListenerTlsMode];
 
 /**
  * @public
@@ -1580,12 +1611,18 @@ export interface CreateVirtualGatewayInput {
 
 /**
  * @public
+ * @enum
  */
-export enum VirtualGatewayStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const VirtualGatewayStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualGatewayStatusCode = (typeof VirtualGatewayStatusCode)[keyof typeof VirtualGatewayStatusCode];
 
 /**
  * @public
@@ -1703,11 +1740,17 @@ export interface DescribeVirtualGatewayOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum DefaultGatewayRouteRewrite {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DefaultGatewayRouteRewrite = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultGatewayRouteRewrite = (typeof DefaultGatewayRouteRewrite)[keyof typeof DefaultGatewayRouteRewrite];
 
 /**
  * @public
@@ -2168,18 +2211,24 @@ export interface HttpGatewayRouteHeader {
 
 /**
  * @public
+ * @enum
  */
-export enum HttpMethod {
-  CONNECT = "CONNECT",
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-  TRACE = "TRACE",
-}
+export const HttpMethod = {
+  CONNECT: "CONNECT",
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+  TRACE: "TRACE",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpMethod = (typeof HttpMethod)[keyof typeof HttpMethod];
 
 /**
  * @public
@@ -2363,12 +2412,18 @@ export interface CreateGatewayRouteInput {
 
 /**
  * @public
+ * @enum
  */
-export enum GatewayRouteStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const GatewayRouteStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type GatewayRouteStatusCode = (typeof GatewayRouteStatusCode)[keyof typeof GatewayRouteStatusCode];
 
 /**
  * @public
@@ -3265,13 +3320,19 @@ export namespace VirtualNodeConnectionPool {
 
 /**
  * @public
+ * @enum
  */
-export enum PortProtocol {
-  GRPC = "grpc",
-  HTTP = "http",
-  HTTP2 = "http2",
-  TCP = "tcp",
-}
+export const PortProtocol = {
+  GRPC: "grpc",
+  HTTP: "http",
+  HTTP2: "http2",
+  TCP: "tcp",
+} as const;
+
+/**
+ * @public
+ */
+export type PortProtocol = (typeof PortProtocol)[keyof typeof PortProtocol];
 
 /**
  * @public
@@ -3323,11 +3384,17 @@ export interface HealthCheckPolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum DurationUnit {
-  MS = "ms",
-  S = "s",
-}
+export const DurationUnit = {
+  MS: "ms",
+  S: "s",
+} as const;
+
+/**
+ * @public
+ */
+export type DurationUnit = (typeof DurationUnit)[keyof typeof DurationUnit];
 
 /**
  * @public
@@ -3599,12 +3666,18 @@ export namespace ListenerTlsCertificate {
 
 /**
  * @public
+ * @enum
  */
-export enum ListenerTlsMode {
-  DISABLED = "DISABLED",
-  PERMISSIVE = "PERMISSIVE",
-  STRICT = "STRICT",
-}
+export const ListenerTlsMode = {
+  DISABLED: "DISABLED",
+  PERMISSIVE: "PERMISSIVE",
+  STRICT: "STRICT",
+} as const;
+
+/**
+ * @public
+ */
+export type ListenerTlsMode = (typeof ListenerTlsMode)[keyof typeof ListenerTlsMode];
 
 /**
  * @public
@@ -3818,11 +3891,17 @@ export interface AwsCloudMapServiceDiscovery {
 
 /**
  * @public
+ * @enum
  */
-export enum DnsResponseType {
-  ENDPOINTS = "ENDPOINTS",
-  LOADBALANCER = "LOADBALANCER",
-}
+export const DnsResponseType = {
+  ENDPOINTS: "ENDPOINTS",
+  LOADBALANCER: "LOADBALANCER",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsResponseType = (typeof DnsResponseType)[keyof typeof DnsResponseType];
 
 /**
  * @public
@@ -3976,12 +4055,18 @@ export interface CreateVirtualNodeInput {
 
 /**
  * @public
+ * @enum
  */
-export enum VirtualNodeStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const VirtualNodeStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualNodeStatusCode = (typeof VirtualNodeStatusCode)[keyof typeof VirtualNodeStatusCode];
 
 /**
  * @public
@@ -4317,12 +4402,18 @@ export interface CreateVirtualRouterInput {
 
 /**
  * @public
+ * @enum
  */
-export enum VirtualRouterStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const VirtualRouterStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualRouterStatusCode = (typeof VirtualRouterStatusCode)[keyof typeof VirtualRouterStatusCode];
 
 /**
  * @public
@@ -4736,21 +4827,33 @@ export interface GrpcRouteMatch {
 
 /**
  * @public
+ * @enum
  */
-export enum GrpcRetryPolicyEvent {
-  CANCELLED = "cancelled",
-  DEADLINE_EXCEEDED = "deadline-exceeded",
-  INTERNAL = "internal",
-  RESOURCE_EXHAUSTED = "resource-exhausted",
-  UNAVAILABLE = "unavailable",
-}
+export const GrpcRetryPolicyEvent = {
+  CANCELLED: "cancelled",
+  DEADLINE_EXCEEDED: "deadline-exceeded",
+  INTERNAL: "internal",
+  RESOURCE_EXHAUSTED: "resource-exhausted",
+  UNAVAILABLE: "unavailable",
+} as const;
 
 /**
  * @public
  */
-export enum TcpRetryPolicyEvent {
-  CONNECTION_ERROR = "connection-error",
-}
+export type GrpcRetryPolicyEvent = (typeof GrpcRetryPolicyEvent)[keyof typeof GrpcRetryPolicyEvent];
+
+/**
+ * @public
+ * @enum
+ */
+export const TcpRetryPolicyEvent = {
+  CONNECTION_ERROR: "connection-error",
+} as const;
+
+/**
+ * @public
+ */
+export type TcpRetryPolicyEvent = (typeof TcpRetryPolicyEvent)[keyof typeof TcpRetryPolicyEvent];
 
 /**
  * @public
@@ -4866,11 +4969,17 @@ export interface HttpRouteHeader {
 
 /**
  * @public
+ * @enum
  */
-export enum HttpScheme {
-  HTTP = "http",
-  HTTPS = "https",
-}
+export const HttpScheme = {
+  HTTP: "http",
+  HTTPS: "https",
+} as const;
+
+/**
+ * @public
+ */
+export type HttpScheme = (typeof HttpScheme)[keyof typeof HttpScheme];
 
 /**
  * @public
@@ -5120,12 +5229,18 @@ export interface CreateRouteInput {
 
 /**
  * @public
+ * @enum
  */
-export enum RouteStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const RouteStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteStatusCode = (typeof RouteStatusCode)[keyof typeof RouteStatusCode];
 
 /**
  * @public
@@ -5596,12 +5711,18 @@ export interface CreateVirtualServiceInput {
 
 /**
  * @public
+ * @enum
  */
-export enum VirtualServiceStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const VirtualServiceStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualServiceStatusCode = (typeof VirtualServiceStatusCode)[keyof typeof VirtualServiceStatusCode];
 
 /**
  * @public

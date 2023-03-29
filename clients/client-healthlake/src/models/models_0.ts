@@ -27,11 +27,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CmkType {
-  AO_CMK = "AWS_OWNED_KMS_KEY",
-  CM_CMK = "CUSTOMER_MANAGED_KMS_KEY",
-}
+export const CmkType = {
+  AO_CMK: "AWS_OWNED_KMS_KEY",
+  CM_CMK: "CUSTOMER_MANAGED_KMS_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type CmkType = (typeof CmkType)[keyof typeof CmkType];
 
 /**
  * @public
@@ -57,17 +63,29 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum FHIRVersion {
-  R4 = "R4",
-}
+export const FHIRVersion = {
+  R4: "R4",
+} as const;
 
 /**
  * @public
  */
-export enum PreloadDataType {
-  SYNTHEA = "SYNTHEA",
-}
+export type FHIRVersion = (typeof FHIRVersion)[keyof typeof FHIRVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreloadDataType = {
+  SYNTHEA: "SYNTHEA",
+} as const;
+
+/**
+ * @public
+ */
+export type PreloadDataType = (typeof PreloadDataType)[keyof typeof PreloadDataType];
 
 /**
  * @public
@@ -181,13 +199,19 @@ export interface CreateFHIRDatastoreRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DatastoreStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const DatastoreStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type DatastoreStatus = (typeof DatastoreStatus)[keyof typeof DatastoreStatus];
 
 /**
  * @public
@@ -462,14 +486,20 @@ export interface DescribeFHIRExportJobRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public

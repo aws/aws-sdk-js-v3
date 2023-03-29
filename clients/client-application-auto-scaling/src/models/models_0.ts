@@ -5,12 +5,18 @@ import { ApplicationAutoScalingServiceException as __BaseException } from "./App
 
 /**
  * @public
+ * @enum
  */
-export enum AdjustmentType {
-  ChangeInCapacity = "ChangeInCapacity",
-  ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity",
-}
+export const AdjustmentType = {
+  ChangeInCapacity: "ChangeInCapacity",
+  ExactCapacity: "ExactCapacity",
+  PercentChangeInCapacity: "PercentChangeInCapacity",
+} as const;
+
+/**
+ * @public
+ */
+export type AdjustmentType = (typeof AdjustmentType)[keyof typeof AdjustmentType];
 
 /**
  * @public
@@ -53,49 +59,61 @@ export class ConcurrentUpdateException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ScalableDimension {
-  AppstreamFleetDesiredCapacity = "appstream:fleet:DesiredCapacity",
-  CassandraTableReadCapacityUnits = "cassandra:table:ReadCapacityUnits",
-  CassandraTableWriteCapacityUnits = "cassandra:table:WriteCapacityUnits",
-  ComprehendDocClassifierEndpointInferenceUnits = "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-  ComprehendEntityRecognizerEndpointInferenceUnits = "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-  CustomResourceScalableDimension = "custom-resource:ResourceType:Property",
-  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
-  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
-  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
-  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
-  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
-  ECSServiceDesiredCount = "ecs:service:DesiredCount",
-  EMRInstanceGroupInstanceCount = "elasticmapreduce:instancegroup:InstanceCount",
-  ElastiCacheReplicationGroupNodeGroups = "elasticache:replication-group:NodeGroups",
-  ElastiCacheReplicationGroupReplicas = "elasticache:replication-group:Replicas",
-  KafkaBrokerStorageVolumeSize = "kafka:broker-storage:VolumeSize",
-  LambdaFunctionProvisionedConcurrency = "lambda:function:ProvisionedConcurrency",
-  NeptuneClusterReadReplicaCount = "neptune:cluster:ReadReplicaCount",
-  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
-  SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount",
-}
+export const ScalableDimension = {
+  AppstreamFleetDesiredCapacity: "appstream:fleet:DesiredCapacity",
+  CassandraTableReadCapacityUnits: "cassandra:table:ReadCapacityUnits",
+  CassandraTableWriteCapacityUnits: "cassandra:table:WriteCapacityUnits",
+  ComprehendDocClassifierEndpointInferenceUnits: "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+  ComprehendEntityRecognizerEndpointInferenceUnits: "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
+  CustomResourceScalableDimension: "custom-resource:ResourceType:Property",
+  DynamoDBIndexReadCapacityUnits: "dynamodb:index:ReadCapacityUnits",
+  DynamoDBIndexWriteCapacityUnits: "dynamodb:index:WriteCapacityUnits",
+  DynamoDBTableReadCapacityUnits: "dynamodb:table:ReadCapacityUnits",
+  DynamoDBTableWriteCapacityUnits: "dynamodb:table:WriteCapacityUnits",
+  EC2SpotFleetRequestTargetCapacity: "ec2:spot-fleet-request:TargetCapacity",
+  ECSServiceDesiredCount: "ecs:service:DesiredCount",
+  EMRInstanceGroupInstanceCount: "elasticmapreduce:instancegroup:InstanceCount",
+  ElastiCacheReplicationGroupNodeGroups: "elasticache:replication-group:NodeGroups",
+  ElastiCacheReplicationGroupReplicas: "elasticache:replication-group:Replicas",
+  KafkaBrokerStorageVolumeSize: "kafka:broker-storage:VolumeSize",
+  LambdaFunctionProvisionedConcurrency: "lambda:function:ProvisionedConcurrency",
+  NeptuneClusterReadReplicaCount: "neptune:cluster:ReadReplicaCount",
+  RDSClusterReadReplicaCount: "rds:cluster:ReadReplicaCount",
+  SageMakerVariantDesiredInstanceCount: "sagemaker:variant:DesiredInstanceCount",
+} as const;
 
 /**
  * @public
  */
-export enum ServiceNamespace {
-  APPSTREAM = "appstream",
-  CASSANDRA = "cassandra",
-  COMPREHEND = "comprehend",
-  CUSTOM_RESOURCE = "custom-resource",
-  DYNAMODB = "dynamodb",
-  EC2 = "ec2",
-  ECS = "ecs",
-  ELASTICACHE = "elasticache",
-  EMR = "elasticmapreduce",
-  KAFKA = "kafka",
-  LAMBDA = "lambda",
-  NEPTUNE = "neptune",
-  RDS = "rds",
-  SAGEMAKER = "sagemaker",
-}
+export type ScalableDimension = (typeof ScalableDimension)[keyof typeof ScalableDimension];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServiceNamespace = {
+  APPSTREAM: "appstream",
+  CASSANDRA: "cassandra",
+  COMPREHEND: "comprehend",
+  CUSTOM_RESOURCE: "custom-resource",
+  DYNAMODB: "dynamodb",
+  EC2: "ec2",
+  ECS: "ecs",
+  ELASTICACHE: "elasticache",
+  EMR: "elasticmapreduce",
+  KAFKA: "kafka",
+  LAMBDA: "lambda",
+  NEPTUNE: "neptune",
+  RDS: "rds",
+  SAGEMAKER: "sagemaker",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceNamespace = (typeof ServiceNamespace)[keyof typeof ServiceNamespace];
 
 /**
  * @public
@@ -1392,15 +1410,21 @@ export interface NotScaledReason {
 
 /**
  * @public
+ * @enum
  */
-export enum ScalingActivityStatusCode {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Overridden = "Overridden",
-  Pending = "Pending",
-  Successful = "Successful",
-  Unfulfilled = "Unfulfilled",
-}
+export const ScalingActivityStatusCode = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Overridden: "Overridden",
+  Pending: "Pending",
+  Successful: "Successful",
+  Unfulfilled: "Unfulfilled",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalingActivityStatusCode = (typeof ScalingActivityStatusCode)[keyof typeof ScalingActivityStatusCode];
 
 /**
  * @public
@@ -1825,20 +1849,32 @@ export interface DescribeScalingPoliciesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum PolicyType {
-  StepScaling = "StepScaling",
-  TargetTrackingScaling = "TargetTrackingScaling",
-}
+export const PolicyType = {
+  StepScaling: "StepScaling",
+  TargetTrackingScaling: "TargetTrackingScaling",
+} as const;
 
 /**
  * @public
  */
-export enum MetricAggregationType {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-}
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricAggregationType = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricAggregationType = (typeof MetricAggregationType)[keyof typeof MetricAggregationType];
 
 /**
  * @public
@@ -2164,14 +2200,20 @@ export interface TargetTrackingMetricDataQuery {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
 
 /**
  * @public
@@ -2238,30 +2280,36 @@ export interface CustomizedMetricSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  AppStreamAverageCapacityUtilization = "AppStreamAverageCapacityUtilization",
-  CassandraReadCapacityUtilization = "CassandraReadCapacityUtilization",
-  CassandraWriteCapacityUtilization = "CassandraWriteCapacityUtilization",
-  ComprehendInferenceUtilization = "ComprehendInferenceUtilization",
-  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
-  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
-  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
-  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
-  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
-  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
-  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
-  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage = "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
-  ElastiCachePrimaryEngineCPUUtilization = "ElastiCachePrimaryEngineCPUUtilization",
-  ElastiCacheReplicaEngineCPUUtilization = "ElastiCacheReplicaEngineCPUUtilization",
-  KafkaBrokerStorageUtilization = "KafkaBrokerStorageUtilization",
-  LambdaProvisionedConcurrencyUtilization = "LambdaProvisionedConcurrencyUtilization",
-  NeptuneReaderAverageCPUUtilization = "NeptuneReaderAverageCPUUtilization",
-  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
-  SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance",
-}
+export const MetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  AppStreamAverageCapacityUtilization: "AppStreamAverageCapacityUtilization",
+  CassandraReadCapacityUtilization: "CassandraReadCapacityUtilization",
+  CassandraWriteCapacityUtilization: "CassandraWriteCapacityUtilization",
+  ComprehendInferenceUtilization: "ComprehendInferenceUtilization",
+  DynamoDBReadCapacityUtilization: "DynamoDBReadCapacityUtilization",
+  DynamoDBWriteCapacityUtilization: "DynamoDBWriteCapacityUtilization",
+  EC2SpotFleetRequestAverageCPUUtilization: "EC2SpotFleetRequestAverageCPUUtilization",
+  EC2SpotFleetRequestAverageNetworkIn: "EC2SpotFleetRequestAverageNetworkIn",
+  EC2SpotFleetRequestAverageNetworkOut: "EC2SpotFleetRequestAverageNetworkOut",
+  ECSServiceAverageCPUUtilization: "ECSServiceAverageCPUUtilization",
+  ECSServiceAverageMemoryUtilization: "ECSServiceAverageMemoryUtilization",
+  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage: "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
+  ElastiCachePrimaryEngineCPUUtilization: "ElastiCachePrimaryEngineCPUUtilization",
+  ElastiCacheReplicaEngineCPUUtilization: "ElastiCacheReplicaEngineCPUUtilization",
+  KafkaBrokerStorageUtilization: "KafkaBrokerStorageUtilization",
+  LambdaProvisionedConcurrencyUtilization: "LambdaProvisionedConcurrencyUtilization",
+  NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
+  RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
+  RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
+  SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
  * @public

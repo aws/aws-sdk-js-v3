@@ -32,11 +32,17 @@ export interface AvailabilityZone {
 
 /**
  * @public
+ * @enum
  */
-export enum EngineType {
-  ACTIVEMQ = "ACTIVEMQ",
-  RABBITMQ = "RABBITMQ",
-}
+export const EngineType = {
+  ACTIVEMQ: "ACTIVEMQ",
+  RABBITMQ: "RABBITMQ",
+} as const;
+
+/**
+ * @public
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 /**
  * @public
@@ -88,20 +94,32 @@ export interface BrokerInstance {
 
 /**
  * @public
+ * @enum
  */
-export enum BrokerStorageType {
-  EBS = "EBS",
-  EFS = "EFS",
-}
+export const BrokerStorageType = {
+  EBS: "EBS",
+  EFS: "EFS",
+} as const;
 
 /**
  * @public
  */
-export enum DeploymentMode {
-  ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ",
-  CLUSTER_MULTI_AZ = "CLUSTER_MULTI_AZ",
-  SINGLE_INSTANCE = "SINGLE_INSTANCE",
-}
+export type BrokerStorageType = (typeof BrokerStorageType)[keyof typeof BrokerStorageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentMode = {
+  ACTIVE_STANDBY_MULTI_AZ: "ACTIVE_STANDBY_MULTI_AZ",
+  CLUSTER_MULTI_AZ: "CLUSTER_MULTI_AZ",
+  SINGLE_INSTANCE: "SINGLE_INSTANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
 /**
  * @public
@@ -141,15 +159,21 @@ export interface BrokerInstanceOption {
 
 /**
  * @public
+ * @enum
  */
-export enum BrokerState {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CRITICAL_ACTION_REQUIRED = "CRITICAL_ACTION_REQUIRED",
-  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
-  REBOOT_IN_PROGRESS = "REBOOT_IN_PROGRESS",
-  RUNNING = "RUNNING",
-}
+export const BrokerState = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CRITICAL_ACTION_REQUIRED: "CRITICAL_ACTION_REQUIRED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  REBOOT_IN_PROGRESS: "REBOOT_IN_PROGRESS",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type BrokerState = (typeof BrokerState)[keyof typeof BrokerState];
 
 /**
  * @public
@@ -199,11 +223,17 @@ export interface BrokerSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthenticationStrategy {
-  LDAP = "LDAP",
-  SIMPLE = "SIMPLE",
-}
+export const AuthenticationStrategy = {
+  LDAP: "LDAP",
+  SIMPLE: "SIMPLE",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationStrategy = (typeof AuthenticationStrategy)[keyof typeof AuthenticationStrategy];
 
 /**
  * @public
@@ -300,12 +330,18 @@ export interface ConfigurationId {
 
 /**
  * @public
+ * @enum
  */
-export enum SanitizationWarningReason {
-  DISALLOWED_ATTRIBUTE_REMOVED = "DISALLOWED_ATTRIBUTE_REMOVED",
-  DISALLOWED_ELEMENT_REMOVED = "DISALLOWED_ELEMENT_REMOVED",
-  INVALID_ATTRIBUTE_VALUE_REMOVED = "INVALID_ATTRIBUTE_VALUE_REMOVED",
-}
+export const SanitizationWarningReason = {
+  DISALLOWED_ATTRIBUTE_REMOVED: "DISALLOWED_ATTRIBUTE_REMOVED",
+  DISALLOWED_ELEMENT_REMOVED: "DISALLOWED_ELEMENT_REMOVED",
+  INVALID_ATTRIBUTE_VALUE_REMOVED: "INVALID_ATTRIBUTE_VALUE_REMOVED",
+} as const;
+
+/**
+ * @public
+ */
+export type SanitizationWarningReason = (typeof SanitizationWarningReason)[keyof typeof SanitizationWarningReason];
 
 /**
  * @public
@@ -356,12 +392,18 @@ export interface User {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const ChangeType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
 
 /**
  * @public
@@ -562,16 +604,22 @@ export interface Logs {
 
 /**
  * @public
+ * @enum
  */
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * @public

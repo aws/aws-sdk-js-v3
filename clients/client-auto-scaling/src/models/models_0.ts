@@ -22,26 +22,38 @@ export interface AcceleratorCountRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AcceleratorManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  NVIDIA = "nvidia",
-  XILINX = "xilinx",
-}
+export const AcceleratorManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  NVIDIA: "nvidia",
+  XILINX: "xilinx",
+} as const;
 
 /**
  * @public
  */
-export enum AcceleratorName {
-  A100 = "a100",
-  K80 = "k80",
-  M60 = "m60",
-  RADEON_PRO_V520 = "radeon-pro-v520",
-  T4 = "t4",
-  V100 = "v100",
-  VU9P = "vu9p",
-}
+export type AcceleratorManufacturer = (typeof AcceleratorManufacturer)[keyof typeof AcceleratorManufacturer];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcceleratorName = {
+  A100: "a100",
+  K80: "k80",
+  M60: "m60",
+  RADEON_PRO_V520: "radeon-pro-v520",
+  T4: "t4",
+  V100: "v100",
+  VU9P: "vu9p",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorName];
 
 /**
  * @public
@@ -62,12 +74,18 @@ export interface AcceleratorTotalMemoryMiBRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AcceleratorType {
-  FPGA = "fpga",
-  GPU = "gpu",
-  INFERENCE = "inference",
-}
+export const AcceleratorType = {
+  FPGA: "fpga",
+  GPU: "gpu",
+  INFERENCE: "inference",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorType];
 
 /**
  * @public
@@ -92,21 +110,27 @@ export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ScalingActivityStatusCode {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  MidLifecycleAction = "MidLifecycleAction",
-  PendingSpotBidPlacement = "PendingSpotBidPlacement",
-  PreInService = "PreInService",
-  Successful = "Successful",
-  WaitingForELBConnectionDraining = "WaitingForELBConnectionDraining",
-  WaitingForInstanceId = "WaitingForInstanceId",
-  WaitingForInstanceWarmup = "WaitingForInstanceWarmup",
-  WaitingForSpotInstanceId = "WaitingForSpotInstanceId",
-  WaitingForSpotInstanceRequestId = "WaitingForSpotInstanceRequestId",
-}
+export const ScalingActivityStatusCode = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  MidLifecycleAction: "MidLifecycleAction",
+  PendingSpotBidPlacement: "PendingSpotBidPlacement",
+  PreInService: "PreInService",
+  Successful: "Successful",
+  WaitingForELBConnectionDraining: "WaitingForELBConnectionDraining",
+  WaitingForInstanceId: "WaitingForInstanceId",
+  WaitingForInstanceWarmup: "WaitingForInstanceWarmup",
+  WaitingForSpotInstanceId: "WaitingForSpotInstanceId",
+  WaitingForSpotInstanceRequestId: "WaitingForSpotInstanceRequestId",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalingActivityStatusCode = (typeof ScalingActivityStatusCode)[keyof typeof ScalingActivityStatusCode];
 
 /**
  * @public
@@ -833,12 +857,18 @@ export interface InstancesDistribution {
 
 /**
  * @public
+ * @enum
  */
-export enum BareMetal {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export const BareMetal = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type BareMetal = (typeof BareMetal)[keyof typeof BareMetal];
 
 /**
  * @public
@@ -859,46 +889,76 @@ export interface BaselineEbsBandwidthMbpsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BurstablePerformance {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export const BurstablePerformance = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
 
 /**
  * @public
  */
-export enum CpuManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  INTEL = "intel",
-}
+export type BurstablePerformance = (typeof BurstablePerformance)[keyof typeof BurstablePerformance];
+
+/**
+ * @public
+ * @enum
+ */
+export const CpuManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  INTEL: "intel",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceGeneration {
-  CURRENT = "current",
-  PREVIOUS = "previous",
-}
+export type CpuManufacturer = (typeof CpuManufacturer)[keyof typeof CpuManufacturer];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceGeneration = {
+  CURRENT: "current",
+  PREVIOUS: "previous",
+} as const;
 
 /**
  * @public
  */
-export enum LocalStorage {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export type InstanceGeneration = (typeof InstanceGeneration)[keyof typeof InstanceGeneration];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalStorage = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
 
 /**
  * @public
  */
-export enum LocalStorageType {
-  HDD = "hdd",
-  SSD = "ssd",
-}
+export type LocalStorage = (typeof LocalStorage)[keyof typeof LocalStorage];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalStorageType = {
+  HDD: "hdd",
+  SSD: "ssd",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalStorageType = (typeof LocalStorageType)[keyof typeof LocalStorageType];
 
 /**
  * @public
@@ -1928,19 +1988,33 @@ export interface InstanceMonitoring {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceMetadataEndpointState {
-  Disabled = "disabled",
-  Enabled = "enabled",
-}
+export const InstanceMetadataEndpointState = {
+  Disabled: "disabled",
+  Enabled: "enabled",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceMetadataHttpTokensState {
-  Optional = "optional",
-  Required = "required",
-}
+export type InstanceMetadataEndpointState =
+  (typeof InstanceMetadataEndpointState)[keyof typeof InstanceMetadataEndpointState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMetadataHttpTokensState = {
+  Optional: "optional",
+  Required: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMetadataHttpTokensState =
+  (typeof InstanceMetadataHttpTokensState)[keyof typeof InstanceMetadataHttpTokensState];
 
 /**
  * @public
@@ -2615,32 +2689,38 @@ export interface EnabledMetric {
 
 /**
  * @public
+ * @enum
  */
-export enum LifecycleState {
-  DETACHED = "Detached",
-  DETACHING = "Detaching",
-  ENTERING_STANDBY = "EnteringStandby",
-  IN_SERVICE = "InService",
-  PENDING = "Pending",
-  PENDING_PROCEED = "Pending:Proceed",
-  PENDING_WAIT = "Pending:Wait",
-  QUARANTINED = "Quarantined",
-  STANDBY = "Standby",
-  TERMINATED = "Terminated",
-  TERMINATING = "Terminating",
-  TERMINATING_PROCEED = "Terminating:Proceed",
-  TERMINATING_WAIT = "Terminating:Wait",
-  WARMED_HIBERNATED = "Warmed:Hibernated",
-  WARMED_PENDING = "Warmed:Pending",
-  WARMED_PENDING_PROCEED = "Warmed:Pending:Proceed",
-  WARMED_PENDING_WAIT = "Warmed:Pending:Wait",
-  WARMED_RUNNING = "Warmed:Running",
-  WARMED_STOPPED = "Warmed:Stopped",
-  WARMED_TERMINATED = "Warmed:Terminated",
-  WARMED_TERMINATING = "Warmed:Terminating",
-  WARMED_TERMINATING_PROCEED = "Warmed:Terminating:Proceed",
-  WARMED_TERMINATING_WAIT = "Warmed:Terminating:Wait",
-}
+export const LifecycleState = {
+  DETACHED: "Detached",
+  DETACHING: "Detaching",
+  ENTERING_STANDBY: "EnteringStandby",
+  IN_SERVICE: "InService",
+  PENDING: "Pending",
+  PENDING_PROCEED: "Pending:Proceed",
+  PENDING_WAIT: "Pending:Wait",
+  QUARANTINED: "Quarantined",
+  STANDBY: "Standby",
+  TERMINATED: "Terminated",
+  TERMINATING: "Terminating",
+  TERMINATING_PROCEED: "Terminating:Proceed",
+  TERMINATING_WAIT: "Terminating:Wait",
+  WARMED_HIBERNATED: "Warmed:Hibernated",
+  WARMED_PENDING: "Warmed:Pending",
+  WARMED_PENDING_PROCEED: "Warmed:Pending:Proceed",
+  WARMED_PENDING_WAIT: "Warmed:Pending:Wait",
+  WARMED_RUNNING: "Warmed:Running",
+  WARMED_STOPPED: "Warmed:Stopped",
+  WARMED_TERMINATED: "Warmed:Terminated",
+  WARMED_TERMINATING: "Warmed:Terminating",
+  WARMED_TERMINATING_PROCEED: "Warmed:Terminating:Proceed",
+  WARMED_TERMINATING_WAIT: "Warmed:Terminating:Wait",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecycleState = (typeof LifecycleState)[keyof typeof LifecycleState];
 
 /**
  * @public
@@ -2766,19 +2846,31 @@ export interface InstanceReusePolicy {
 
 /**
  * @public
+ * @enum
  */
-export enum WarmPoolState {
-  Hibernated = "Hibernated",
-  Running = "Running",
-  Stopped = "Stopped",
-}
+export const WarmPoolState = {
+  Hibernated: "Hibernated",
+  Running: "Running",
+  Stopped: "Stopped",
+} as const;
 
 /**
  * @public
  */
-export enum WarmPoolStatus {
-  PendingDelete = "PendingDelete",
-}
+export type WarmPoolState = (typeof WarmPoolState)[keyof typeof WarmPoolState];
+
+/**
+ * @public
+ * @enum
+ */
+export const WarmPoolStatus = {
+  PendingDelete: "PendingDelete",
+} as const;
+
+/**
+ * @public
+ */
+export type WarmPoolStatus = (typeof WarmPoolStatus)[keyof typeof WarmPoolStatus];
 
 /**
  * @public
@@ -3194,21 +3286,33 @@ export interface DesiredConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ScaleInProtectedInstances {
-  Ignore = "Ignore",
-  Refresh = "Refresh",
-  Wait = "Wait",
-}
+export const ScaleInProtectedInstances = {
+  Ignore: "Ignore",
+  Refresh: "Refresh",
+  Wait: "Wait",
+} as const;
 
 /**
  * @public
  */
-export enum StandbyInstances {
-  Ignore = "Ignore",
-  Terminate = "Terminate",
-  Wait = "Wait",
-}
+export type ScaleInProtectedInstances = (typeof ScaleInProtectedInstances)[keyof typeof ScaleInProtectedInstances];
+
+/**
+ * @public
+ * @enum
+ */
+export const StandbyInstances = {
+  Ignore: "Ignore",
+  Terminate: "Terminate",
+  Wait: "Wait",
+} as const;
+
+/**
+ * @public
+ */
+export type StandbyInstances = (typeof StandbyInstances)[keyof typeof StandbyInstances];
 
 /**
  * @public
@@ -3435,18 +3539,24 @@ export interface RollbackDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceRefreshStatus {
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  RollbackFailed = "RollbackFailed",
-  RollbackInProgress = "RollbackInProgress",
-  RollbackSuccessful = "RollbackSuccessful",
-  Successful = "Successful",
-}
+export const InstanceRefreshStatus = {
+  Cancelled: "Cancelled",
+  Cancelling: "Cancelling",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  RollbackFailed: "RollbackFailed",
+  RollbackInProgress: "RollbackInProgress",
+  RollbackSuccessful: "RollbackSuccessful",
+  Successful: "Successful",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceRefreshStatus = (typeof InstanceRefreshStatus)[keyof typeof InstanceRefreshStatus];
 
 /**
  * @public
@@ -4343,11 +4453,18 @@ export interface DescribePoliciesType {
 
 /**
  * @public
+ * @enum
  */
-export enum PredictiveScalingMaxCapacityBreachBehavior {
-  HonorMaxCapacity = "HonorMaxCapacity",
-  IncreaseMaxCapacity = "IncreaseMaxCapacity",
-}
+export const PredictiveScalingMaxCapacityBreachBehavior = {
+  HonorMaxCapacity: "HonorMaxCapacity",
+  IncreaseMaxCapacity: "IncreaseMaxCapacity",
+} as const;
+
+/**
+ * @public
+ */
+export type PredictiveScalingMaxCapacityBreachBehavior =
+  (typeof PredictiveScalingMaxCapacityBreachBehavior)[keyof typeof PredictiveScalingMaxCapacityBreachBehavior];
 
 /**
  * @public
@@ -4520,13 +4637,19 @@ export interface PredictiveScalingCustomizedScalingMetric {
 
 /**
  * @public
+ * @enum
  */
-export enum PredefinedLoadMetricType {
-  ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
-  ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
-  ASGTotalNetworkIn = "ASGTotalNetworkIn",
-  ASGTotalNetworkOut = "ASGTotalNetworkOut",
-}
+export const PredefinedLoadMetricType = {
+  ALBTargetGroupRequestCount: "ALBTargetGroupRequestCount",
+  ASGTotalCPUUtilization: "ASGTotalCPUUtilization",
+  ASGTotalNetworkIn: "ASGTotalNetworkIn",
+  ASGTotalNetworkOut: "ASGTotalNetworkOut",
+} as const;
+
+/**
+ * @public
+ */
+export type PredefinedLoadMetricType = (typeof PredefinedLoadMetricType)[keyof typeof PredefinedLoadMetricType];
 
 /**
  * @public
@@ -4569,13 +4692,19 @@ export interface PredictiveScalingPredefinedLoadMetric {
 
 /**
  * @public
+ * @enum
  */
-export enum PredefinedMetricPairType {
-  ALBRequestCount = "ALBRequestCount",
-  ASGCPUUtilization = "ASGCPUUtilization",
-  ASGNetworkIn = "ASGNetworkIn",
-  ASGNetworkOut = "ASGNetworkOut",
-}
+export const PredefinedMetricPairType = {
+  ALBRequestCount: "ALBRequestCount",
+  ASGCPUUtilization: "ASGCPUUtilization",
+  ASGNetworkIn: "ASGNetworkIn",
+  ASGNetworkOut: "ASGNetworkOut",
+} as const;
+
+/**
+ * @public
+ */
+export type PredefinedMetricPairType = (typeof PredefinedMetricPairType)[keyof typeof PredefinedMetricPairType];
 
 /**
  * @public
@@ -4618,13 +4747,20 @@ export interface PredictiveScalingPredefinedMetricPair {
 
 /**
  * @public
+ * @enum
  */
-export enum PredefinedScalingMetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn = "ASGAverageNetworkIn",
-  ASGAverageNetworkOut = "ASGAverageNetworkOut",
-}
+export const PredefinedScalingMetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  ASGAverageCPUUtilization: "ASGAverageCPUUtilization",
+  ASGAverageNetworkIn: "ASGAverageNetworkIn",
+  ASGAverageNetworkOut: "ASGAverageNetworkOut",
+} as const;
+
+/**
+ * @public
+ */
+export type PredefinedScalingMetricType =
+  (typeof PredefinedScalingMetricType)[keyof typeof PredefinedScalingMetricType];
 
 /**
  * @public
@@ -4759,11 +4895,17 @@ export interface PredictiveScalingMetricSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum PredictiveScalingMode {
-  ForecastAndScale = "ForecastAndScale",
-  ForecastOnly = "ForecastOnly",
-}
+export const PredictiveScalingMode = {
+  ForecastAndScale: "ForecastAndScale",
+  ForecastOnly: "ForecastOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type PredictiveScalingMode = (typeof PredictiveScalingMode)[keyof typeof PredictiveScalingMode];
 
 /**
  * @public
@@ -4988,14 +5130,20 @@ export interface TargetTrackingMetricDataQuery {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
 
 /**
  * @public
@@ -5066,13 +5214,19 @@ export interface CustomizedMetricSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum MetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn = "ASGAverageNetworkIn",
-  ASGAverageNetworkOut = "ASGAverageNetworkOut",
-}
+export const MetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  ASGAverageCPUUtilization: "ASGAverageCPUUtilization",
+  ASGAverageNetworkIn: "ASGAverageNetworkIn",
+  ASGAverageNetworkOut: "ASGAverageNetworkOut",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
  * @public
@@ -6954,10 +7108,16 @@ export interface StartInstanceRefreshAnswer {
 
 /**
  * @public
+ * @enum
  */
-export enum RefreshStrategy {
-  Rolling = "Rolling",
-}
+export const RefreshStrategy = {
+  Rolling: "Rolling",
+} as const;
+
+/**
+ * @public
+ */
+export type RefreshStrategy = (typeof RefreshStrategy)[keyof typeof RefreshStrategy];
 
 /**
  * @public

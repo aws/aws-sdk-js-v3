@@ -5,21 +5,27 @@ import { LicenseManagerLinuxSubscriptionsServiceException as __BaseException } f
 
 /**
  * @public
+ * @enum
  */
-export enum Operator {
+export const Operator = {
   /**
    * Contains operator
    */
-  CONTAINS = "Contains",
+  CONTAINS: "Contains",
   /**
    * Equal operator
    */
-  EQUAL = "Equal",
+  EQUAL: "Equal",
   /**
    * Not equal operator
    */
-  NOT_EQUAL = "NotEqual",
-}
+  NOT_EQUAL: "NotEqual",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * @public
@@ -50,31 +56,44 @@ export interface GetServiceSettingsRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum LinuxSubscriptionsDiscovery {
+export const LinuxSubscriptionsDiscovery = {
   /**
    * Disabled LinuxSubscriptionsDiscovery
    */
-  Disabled = "Disabled",
+  Disabled: "Disabled",
   /**
    * Enabled LinuxSubscriptionsDiscovery
    */
-  Enabled = "Enabled",
-}
+  Enabled: "Enabled",
+} as const;
 
 /**
  * @public
  */
-export enum OrganizationIntegration {
+export type LinuxSubscriptionsDiscovery =
+  (typeof LinuxSubscriptionsDiscovery)[keyof typeof LinuxSubscriptionsDiscovery];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationIntegration = {
   /**
    * Disabled OrganizationIntegration
    */
-  Disabled = "Disabled",
+  Disabled: "Disabled",
   /**
    * Enabled OrganizationIntegration
    */
-  Enabled = "Enabled",
-}
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationIntegration = (typeof OrganizationIntegration)[keyof typeof OrganizationIntegration];
 
 /**
  * @public
@@ -94,25 +113,31 @@ export interface LinuxSubscriptionsDiscoverySettings {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
+export const Status = {
   /**
    * Completed status
    */
-  Completed = "Completed",
+  Completed: "Completed",
   /**
    * Failed status
    */
-  Failed = "Failed",
+  Failed: "Failed",
   /**
    * InProgress status
    */
-  InProgress = "InProgress",
+  InProgress: "InProgress",
   /**
    * Successful status
    */
-  Successful = "Successful",
-}
+  Successful: "Successful",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public

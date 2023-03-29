@@ -83,48 +83,6 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  *          service.</p>
  *
  *
- * @example Example 1: To page a contact's contact channels
- * ```javascript
- * // The following start-engagement pages contact's contact channels. Sender, subject, public-subject, and public-content are all free from fields. Incident Manager sends the subject and content to the provided VOICE or EMAIL contact channels. Incident Manager sends the public-subject and public-content to the provided SMS contact channels. Sender is used to track who started the engagement.
- * const input = {
- *   "ContactId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/akuam",
- *   "Content": "Testing engagements",
- *   "PublicContent": "Testing engagements",
- *   "PublicSubject": "test",
- *   "Sender": "tester",
- *   "Subject": "test"
- * };
- * const command = new StartEngagementCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "EngagementArn": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/akuam/607ced0e-e8fa-4ea7-8958-a237b8803f8f"
- * }
- * *\/
- * // example id: example-1-to-page-a-contacts-contact-channels-1630436634872
- * ```
- *
- * @example Example 2: To page a contact in the provided escalation plan.
- * ```javascript
- * // The following start-engagement engages contact's through an escalation plan. Each contact is paged according to their engagement plan.
- * const input = {
- *   "ContactId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/example_escalation",
- *   "Content": "Testing engagements",
- *   "PublicContent": "Testing engagements",
- *   "PublicSubject": "test",
- *   "Sender": "tester",
- *   "Subject": "test"
- * };
- * const command = new StartEngagementCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "EngagementArn": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/example_escalation/69e40ce1-8dbb-4d57-8962-5fbe7fc53356"
- * }
- * *\/
- * // example id: example-2-to-page-a-contact-in-the-provided-escalation-plan-1630436808480
- * ```
- *
  */
 export class StartEngagementCommand extends $Command<
   StartEngagementCommandInput,

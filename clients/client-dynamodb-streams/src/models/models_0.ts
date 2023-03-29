@@ -27,11 +27,17 @@ export interface DescribeStreamInput {
 
 /**
  * @public
+ * @enum
  */
-export enum KeyType {
-  HASH = "HASH",
-  RANGE = "RANGE",
-}
+export const KeyType = {
+  HASH: "HASH",
+  RANGE: "RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 /**
  * @public
@@ -118,23 +124,35 @@ export interface Shard {
 
 /**
  * @public
+ * @enum
  */
-export enum StreamStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-}
+export const StreamStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
 
 /**
  * @public
  */
-export enum StreamViewType {
-  KEYS_ONLY = "KEYS_ONLY",
-  NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE = "NEW_IMAGE",
-  OLD_IMAGE = "OLD_IMAGE",
-}
+export type StreamStatus = (typeof StreamStatus)[keyof typeof StreamStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamViewType = {
+  KEYS_ONLY: "KEYS_ONLY",
+  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE: "NEW_IMAGE",
+  OLD_IMAGE: "OLD_IMAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamViewType = (typeof StreamViewType)[keyof typeof StreamViewType];
 
 /**
  * @public
@@ -336,12 +354,18 @@ export interface GetRecordsInput {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationType {
-  INSERT = "INSERT",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE",
-}
+export const OperationType = {
+  INSERT: "INSERT",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 /**
  * @public
@@ -423,13 +447,19 @@ export class TrimmedDataAccessException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ShardIteratorType {
-  AFTER_SEQUENCE_NUMBER = "AFTER_SEQUENCE_NUMBER",
-  AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const ShardIteratorType = {
+  AFTER_SEQUENCE_NUMBER: "AFTER_SEQUENCE_NUMBER",
+  AT_SEQUENCE_NUMBER: "AT_SEQUENCE_NUMBER",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+} as const;
+
+/**
+ * @public
+ */
+export type ShardIteratorType = (typeof ShardIteratorType)[keyof typeof ShardIteratorType];
 
 /**
  * @public

@@ -189,26 +189,38 @@ export interface ListCrawlersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum FieldName {
-  CRAWL_ID = "CRAWL_ID",
-  DPU_HOUR = "DPU_HOUR",
-  END_TIME = "END_TIME",
-  START_TIME = "START_TIME",
-  STATE = "STATE",
-}
+export const FieldName = {
+  CRAWL_ID: "CRAWL_ID",
+  DPU_HOUR: "DPU_HOUR",
+  END_TIME: "END_TIME",
+  START_TIME: "START_TIME",
+  STATE: "STATE",
+} as const;
 
 /**
  * @public
  */
-export enum FilterOperator {
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-}
+export type FieldName = (typeof FieldName)[keyof typeof FieldName];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * @public
@@ -302,13 +314,19 @@ export interface ListCrawlsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CrawlerHistoryState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const CrawlerHistoryState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type CrawlerHistoryState = (typeof CrawlerHistoryState)[keyof typeof CrawlerHistoryState];
 
 /**
  * @public
@@ -1305,20 +1323,32 @@ export interface PutDataCatalogEncryptionSettingsResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum EnableHybridValues {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+export const EnableHybridValues = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
 
 /**
  * @public
  */
-export enum ExistCondition {
-  MUST_EXIST = "MUST_EXIST",
-  NONE = "NONE",
-  NOT_EXIST = "NOT_EXIST",
-}
+export type EnableHybridValues = (typeof EnableHybridValues)[keyof typeof EnableHybridValues];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExistCondition = {
+  MUST_EXIST: "MUST_EXIST",
+  NONE: "NONE",
+  NOT_EXIST: "NOT_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ExistCondition = (typeof ExistCondition)[keyof typeof ExistCondition];
 
 /**
  * @public
@@ -1836,14 +1866,20 @@ export interface RunStatementResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum Comparator {
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_EQUALS = "GREATER_THAN_EQUALS",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_EQUALS = "LESS_THAN_EQUALS",
-}
+export const Comparator = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_EQUALS: "GREATER_THAN_EQUALS",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_EQUALS: "LESS_THAN_EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type Comparator = (typeof Comparator)[keyof typeof Comparator];
 
 /**
  * @public
@@ -1868,11 +1904,17 @@ export interface PropertyPredicate {
 
 /**
  * @public
+ * @enum
  */
-export enum Sort {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC",
-}
+export const Sort = {
+  ASCENDING: "ASC",
+  DESCENDING: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type Sort = (typeof Sort)[keyof typeof Sort];
 
 /**
  * @public

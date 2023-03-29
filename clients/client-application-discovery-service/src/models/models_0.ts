@@ -47,15 +47,21 @@ export interface AgentNetworkInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum AgentStatus {
-  BLACKLISTED = "BLACKLISTED",
-  HEALTHY = "HEALTHY",
-  RUNNING = "RUNNING",
-  SHUTDOWN = "SHUTDOWN",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
+export const AgentStatus = {
+  BLACKLISTED: "BLACKLISTED",
+  HEALTHY: "HEALTHY",
+  RUNNING: "RUNNING",
+  SHUTDOWN: "SHUTDOWN",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
  * @public
@@ -251,12 +257,19 @@ export interface BatchDeleteImportDataRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchDeleteImportDataErrorCode {
-  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
-  NOT_FOUND = "NOT_FOUND",
-  OVER_LIMIT = "OVER_LIMIT",
-}
+export const BatchDeleteImportDataErrorCode = {
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  NOT_FOUND: "NOT_FOUND",
+  OVER_LIMIT: "OVER_LIMIT",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchDeleteImportDataErrorCode =
+  (typeof BatchDeleteImportDataErrorCode)[keyof typeof BatchDeleteImportDataErrorCode];
 
 /**
  * @public
@@ -551,23 +564,35 @@ export interface DescribeContinuousExportsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DataSource {
-  AGENT = "AGENT",
-}
+export const DataSource = {
+  AGENT: "AGENT",
+} as const;
 
 /**
  * @public
  */
-export enum ContinuousExportStatus {
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-  START_FAILED = "START_FAILED",
-  START_IN_PROGRESS = "START_IN_PROGRESS",
-  STOP_FAILED = "STOP_FAILED",
-  STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
-}
+export type DataSource = (typeof DataSource)[keyof typeof DataSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContinuousExportStatus = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+  START_FAILED: "START_FAILED",
+  START_IN_PROGRESS: "START_IN_PROGRESS",
+  STOP_FAILED: "STOP_FAILED",
+  STOP_IN_PROGRESS: "STOP_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContinuousExportStatus = (typeof ContinuousExportStatus)[keyof typeof ContinuousExportStatus];
 
 /**
  * @public
@@ -785,12 +810,18 @@ export interface DescribeExportConfigurationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ExportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
 
 /**
  * @public
@@ -949,12 +980,18 @@ export interface DescribeExportTasksResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportTaskFilterName {
-  IMPORT_TASK_ID = "IMPORT_TASK_ID",
-  NAME = "NAME",
-  STATUS = "STATUS",
-}
+export const ImportTaskFilterName = {
+  IMPORT_TASK_ID: "IMPORT_TASK_ID",
+  NAME: "NAME",
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportTaskFilterName = (typeof ImportTaskFilterName)[keyof typeof ImportTaskFilterName];
 
 /**
  * @public
@@ -1001,20 +1038,26 @@ export interface DescribeImportTasksRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportStatus {
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_FAILED_LIMIT_EXCEEDED = "DELETE_FAILED_LIMIT_EXCEEDED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_COMPLETE_WITH_ERRORS = "IMPORT_COMPLETE_WITH_ERRORS",
-  IMPORT_FAILED = "IMPORT_FAILED",
-  IMPORT_FAILED_RECORD_LIMIT_EXCEEDED = "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
-  IMPORT_FAILED_SERVER_LIMIT_EXCEEDED = "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+export const ImportStatus = {
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_FAILED_LIMIT_EXCEEDED: "DELETE_FAILED_LIMIT_EXCEEDED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_COMPLETE_WITH_ERRORS: "IMPORT_COMPLETE_WITH_ERRORS",
+  IMPORT_FAILED: "IMPORT_FAILED",
+  IMPORT_FAILED_RECORD_LIMIT_EXCEEDED: "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
+  IMPORT_FAILED_SERVER_LIMIT_EXCEEDED: "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
 
 /**
  * @public
@@ -1169,13 +1212,19 @@ export interface DescribeTagsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ConfigurationItemType {
-  APPLICATION = "APPLICATION",
-  CONNECTIONS = "CONNECTION",
-  PROCESS = "PROCESS",
-  SERVER = "SERVER",
-}
+export const ConfigurationItemType = {
+  APPLICATION: "APPLICATION",
+  CONNECTIONS: "CONNECTION",
+  PROCESS: "PROCESS",
+  SERVER: "SERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationItemType = (typeof ConfigurationItemType)[keyof typeof ConfigurationItemType];
 
 /**
  * @public
@@ -1462,11 +1511,17 @@ export interface GetDiscoverySummaryResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderString {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const OrderString = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderString = (typeof OrderString)[keyof typeof OrderString];
 
 /**
  * @public
@@ -1752,11 +1807,17 @@ export interface StartDataCollectionByAgentIdsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportDataFormat {
-  CSV = "CSV",
-  GRAPHML = "GRAPHML",
-}
+export const ExportDataFormat = {
+  CSV: "CSV",
+  GRAPHML: "GRAPHML",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportDataFormat = (typeof ExportDataFormat)[keyof typeof ExportDataFormat];
 
 /**
  * @public

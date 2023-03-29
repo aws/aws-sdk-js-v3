@@ -27,19 +27,31 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AccessorStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETED = "DELETED",
-  PENDING_DELETION = "PENDING_DELETION",
-}
+export const AccessorStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  PENDING_DELETION: "PENDING_DELETION",
+} as const;
 
 /**
  * @public
  */
-export enum AccessorType {
-  BILLING_TOKEN = "BILLING_TOKEN",
-}
+export type AccessorStatus = (typeof AccessorStatus)[keyof typeof AccessorStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessorType = {
+  BILLING_TOKEN: "BILLING_TOKEN",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessorType = (typeof AccessorType)[keyof typeof AccessorType];
 
 /**
  * @public
@@ -128,11 +140,17 @@ export interface AccessorSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ThresholdComparator {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-}
+export const ThresholdComparator = {
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+} as const;
+
+/**
+ * @public
+ */
+export type ThresholdComparator = (typeof ThresholdComparator)[keyof typeof ThresholdComparator];
 
 /**
  * @public
@@ -551,19 +569,31 @@ export class ResourceNotReadyException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum Framework {
-  ETHEREUM = "ETHEREUM",
-  HYPERLEDGER_FABRIC = "HYPERLEDGER_FABRIC",
-}
+export const Framework = {
+  ETHEREUM: "ETHEREUM",
+  HYPERLEDGER_FABRIC: "HYPERLEDGER_FABRIC",
+} as const;
 
 /**
  * @public
  */
-export enum Edition {
-  STANDARD = "STANDARD",
-  STARTER = "STARTER",
-}
+export type Framework = (typeof Framework)[keyof typeof Framework];
+
+/**
+ * @public
+ * @enum
+ */
+export const Edition = {
+  STANDARD: "STANDARD",
+  STARTER: "STARTER",
+} as const;
+
+/**
+ * @public
+ */
+export type Edition = (typeof Edition)[keyof typeof Edition];
 
 /**
  * @public
@@ -711,11 +741,17 @@ export interface NodeLogPublishingConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum StateDBType {
-  CouchDB = "CouchDB",
-  LevelDB = "LevelDB",
-}
+export const StateDBType = {
+  CouchDB: "CouchDB",
+  LevelDB: "LevelDB",
+} as const;
+
+/**
+ * @public
+ */
+export type StateDBType = (typeof StateDBType)[keyof typeof StateDBType];
 
 /**
  * @public
@@ -1060,16 +1096,22 @@ export interface MemberFrameworkAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum MemberStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_KEY = "INACCESSIBLE_ENCRYPTION_KEY",
-  UPDATING = "UPDATING",
-}
+export const MemberStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_KEY: "INACCESSIBLE_ENCRYPTION_KEY",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
 
 /**
  * @public
@@ -1251,14 +1293,20 @@ export interface NetworkFrameworkAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const NetworkStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkStatus = (typeof NetworkStatus)[keyof typeof NetworkStatus];
 
 /**
  * @public
@@ -1408,18 +1456,24 @@ export interface NodeFrameworkAttributes {
 
 /**
  * @public
+ * @enum
  */
-export enum NodeStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACCESSIBLE_ENCRYPTION_KEY = "INACCESSIBLE_ENCRYPTION_KEY",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
-}
+export const NodeStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACCESSIBLE_ENCRYPTION_KEY: "INACCESSIBLE_ENCRYPTION_KEY",
+  UNHEALTHY: "UNHEALTHY",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeStatus = (typeof NodeStatus)[keyof typeof NodeStatus];
 
 /**
  * @public
@@ -1563,14 +1617,20 @@ export interface GetProposalInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ProposalStatus {
-  ACTION_FAILED = "ACTION_FAILED",
-  APPROVED = "APPROVED",
-  EXPIRED = "EXPIRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  REJECTED = "REJECTED",
-}
+export const ProposalStatus = {
+  ACTION_FAILED: "ACTION_FAILED",
+  APPROVED: "APPROVED",
+  EXPIRED: "EXPIRED",
+  IN_PROGRESS: "IN_PROGRESS",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProposalStatus = (typeof ProposalStatus)[keyof typeof ProposalStatus];
 
 /**
  * @public
@@ -1762,14 +1822,20 @@ export interface NetworkSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum InvitationStatus {
-  ACCEPTED = "ACCEPTED",
-  ACCEPTING = "ACCEPTING",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const InvitationStatus = {
+  ACCEPTED: "ACCEPTED",
+  ACCEPTING: "ACCEPTING",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type InvitationStatus = (typeof InvitationStatus)[keyof typeof InvitationStatus];
 
 /**
  * @public
@@ -2303,11 +2369,17 @@ export interface ListProposalVotesInput {
 
 /**
  * @public
+ * @enum
  */
-export enum VoteValue {
-  NO = "NO",
-  YES = "YES",
-}
+export const VoteValue = {
+  NO: "NO",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type VoteValue = (typeof VoteValue)[keyof typeof VoteValue];
 
 /**
  * @public

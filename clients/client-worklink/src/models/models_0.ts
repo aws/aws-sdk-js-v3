@@ -167,10 +167,16 @@ export class UnauthorizedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum AuthorizationProviderType {
-  SAML = "SAML",
-}
+export const AuthorizationProviderType = {
+  SAML: "SAML",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorizationProviderType = (typeof AuthorizationProviderType)[keyof typeof AuthorizationProviderType];
 
 /**
  * @public
@@ -351,11 +357,17 @@ export interface DescribeDeviceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceStatus {
-  ACTIVE = "ACTIVE",
-  SIGNED_OUT = "SIGNED_OUT",
-}
+export const DeviceStatus = {
+  ACTIVE: "ACTIVE",
+  SIGNED_OUT: "SIGNED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceStatus = (typeof DeviceStatus)[keyof typeof DeviceStatus];
 
 /**
  * @public
@@ -444,17 +456,23 @@ export interface DescribeDomainRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  DISASSOCIATED = "DISASSOCIATED",
-  DISASSOCIATING = "DISASSOCIATING",
-  FAILED_TO_ASSOCIATE = "FAILED_TO_ASSOCIATE",
-  FAILED_TO_DISASSOCIATE = "FAILED_TO_DISASSOCIATE",
-  INACTIVE = "INACTIVE",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-}
+export const DomainStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  DISASSOCIATED: "DISASSOCIATED",
+  DISASSOCIATING: "DISASSOCIATING",
+  FAILED_TO_ASSOCIATE: "FAILED_TO_ASSOCIATE",
+  FAILED_TO_DISASSOCIATE: "FAILED_TO_DISASSOCIATE",
+  INACTIVE: "INACTIVE",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 /**
  * @public
@@ -498,15 +516,21 @@ export interface DescribeFleetMetadataRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED_TO_CREATE = "FAILED_TO_CREATE",
-  FAILED_TO_DELETE = "FAILED_TO_DELETE",
-}
+export const FleetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED_TO_CREATE: "FAILED_TO_CREATE",
+  FAILED_TO_DELETE: "FAILED_TO_DELETE",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];
 
 /**
  * @public
@@ -566,10 +590,16 @@ export interface DescribeIdentityProviderConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IdentityProviderType {
-  SAML = "SAML",
-}
+export const IdentityProviderType = {
+  SAML: "SAML",
+} as const;
+
+/**
+ * @public
+ */
+export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof IdentityProviderType];
 
 /**
  * @public

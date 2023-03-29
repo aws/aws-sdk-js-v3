@@ -226,29 +226,47 @@ export interface LineageGroupSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum LineageType {
-  ACTION = "Action",
-  ARTIFACT = "Artifact",
-  CONTEXT = "Context",
-  TRIAL_COMPONENT = "TrialComponent",
-}
+export const LineageType = {
+  ACTION: "Action",
+  ARTIFACT: "Artifact",
+  CONTEXT: "Context",
+  TRIAL_COMPONENT: "TrialComponent",
+} as const;
 
 /**
  * @public
  */
-export enum SortActionsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export type LineageType = (typeof LineageType)[keyof typeof LineageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortActionsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export type SortActionsBy = (typeof SortActionsBy)[keyof typeof SortActionsBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -546,10 +564,16 @@ export interface ListAppsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortArtifactsBy {
-  CREATION_TIME = "CreationTime",
-}
+export const SortArtifactsBy = {
+  CREATION_TIME: "CreationTime",
+} as const;
+
+/**
+ * @public
+ */
+export type SortArtifactsBy = (typeof SortArtifactsBy)[keyof typeof SortArtifactsBy];
 
 /**
  * @public
@@ -614,14 +638,20 @@ export interface ListArtifactsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortAssociationsBy {
-  CREATION_TIME = "CreationTime",
-  DESTINATION_ARN = "DestinationArn",
-  DESTINATION_TYPE = "DestinationType",
-  SOURCE_ARN = "SourceArn",
-  SOURCE_TYPE = "SourceType",
-}
+export const SortAssociationsBy = {
+  CREATION_TIME: "CreationTime",
+  DESTINATION_ARN: "DestinationArn",
+  DESTINATION_TYPE: "DestinationType",
+  SOURCE_ARN: "SourceArn",
+  SOURCE_TYPE: "SourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type SortAssociationsBy = (typeof SortAssociationsBy)[keyof typeof SortAssociationsBy];
 
 /**
  * @public
@@ -925,12 +955,18 @@ export interface ListCodeRepositoriesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ListCompilationJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const ListCompilationJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type ListCompilationJobsSortBy = (typeof ListCompilationJobsSortBy)[keyof typeof ListCompilationJobsSortBy];
 
 /**
  * @public
@@ -1013,11 +1049,17 @@ export interface ListCompilationJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortContextsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortContextsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortContextsBy = (typeof SortContextsBy)[keyof typeof SortContextsBy];
 
 /**
  * @public
@@ -1082,11 +1124,18 @@ export interface ListContextsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitoringJobDefinitionSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const MonitoringJobDefinitionSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringJobDefinitionSortKey =
+  (typeof MonitoringJobDefinitionSortKey)[keyof typeof MonitoringJobDefinitionSortKey];
 
 /**
  * @public
@@ -1185,12 +1234,18 @@ export interface ListDataQualityJobDefinitionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListDeviceFleetsSortBy {
-  CreationTime = "CREATION_TIME",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  Name = "NAME",
-}
+export const ListDeviceFleetsSortBy = {
+  CreationTime: "CREATION_TIME",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  Name: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ListDeviceFleetsSortBy = (typeof ListDeviceFleetsSortBy)[keyof typeof ListDeviceFleetsSortBy];
 
 /**
  * @public
@@ -1336,13 +1391,20 @@ export interface ListDomainsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListEdgeDeploymentPlansSortBy {
-  CreationTime = "CREATION_TIME",
-  DeviceFleetName = "DEVICE_FLEET_NAME",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  Name = "NAME",
-}
+export const ListEdgeDeploymentPlansSortBy = {
+  CreationTime: "CREATION_TIME",
+  DeviceFleetName: "DEVICE_FLEET_NAME",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  Name: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ListEdgeDeploymentPlansSortBy =
+  (typeof ListEdgeDeploymentPlansSortBy)[keyof typeof ListEdgeDeploymentPlansSortBy];
 
 /**
  * @public
@@ -1416,14 +1478,21 @@ export interface ListEdgeDeploymentPlansResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListEdgePackagingJobsSortBy {
-  CreationTime = "CREATION_TIME",
-  EdgePackagingJobStatus = "STATUS",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  ModelName = "MODEL_NAME",
-  Name = "NAME",
-}
+export const ListEdgePackagingJobsSortBy = {
+  CreationTime: "CREATION_TIME",
+  EdgePackagingJobStatus: "STATUS",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  ModelName: "MODEL_NAME",
+  Name: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ListEdgePackagingJobsSortBy =
+  (typeof ListEdgePackagingJobsSortBy)[keyof typeof ListEdgePackagingJobsSortBy];
 
 /**
  * @public
@@ -1502,11 +1571,17 @@ export interface ListEdgePackagingJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderKey {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
+export const OrderKey = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderKey = (typeof OrderKey)[keyof typeof OrderKey];
 
 /**
  * @public
@@ -1650,11 +1725,17 @@ export interface ListEndpointsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum SortExperimentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortExperimentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortExperimentsBy = (typeof SortExperimentsBy)[keyof typeof SortExperimentsBy];
 
 /**
  * @public
@@ -2294,12 +2375,18 @@ export interface ListImageVersionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortInferenceExperimentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const SortInferenceExperimentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type SortInferenceExperimentsBy = (typeof SortInferenceExperimentsBy)[keyof typeof SortInferenceExperimentsBy];
 
 /**
  * @public
@@ -2384,12 +2471,19 @@ export interface ListInferenceExperimentsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListInferenceRecommendationsJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const ListInferenceRecommendationsJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type ListInferenceRecommendationsJobsSortBy =
+  (typeof ListInferenceRecommendationsJobsSortBy)[keyof typeof ListInferenceRecommendationsJobsSortBy];
 
 /**
  * @public
@@ -2512,12 +2606,18 @@ export interface ListInferenceRecommendationsJobStepsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const SortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type SortBy = (typeof SortBy)[keyof typeof SortBy];
 
 /**
  * @public
@@ -2600,10 +2700,17 @@ export interface ListLabelingJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListLabelingJobsForWorkteamSortByOptions {
-  CREATION_TIME = "CreationTime",
-}
+export const ListLabelingJobsForWorkteamSortByOptions = {
+  CREATION_TIME: "CreationTime",
+} as const;
+
+/**
+ * @public
+ */
+export type ListLabelingJobsForWorkteamSortByOptions =
+  (typeof ListLabelingJobsForWorkteamSortByOptions)[keyof typeof ListLabelingJobsForWorkteamSortByOptions];
 
 /**
  * @public
@@ -2675,11 +2782,17 @@ export interface ListLabelingJobsForWorkteamResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortLineageGroupsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortLineageGroupsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortLineageGroupsBy = (typeof SortLineageGroupsBy)[keyof typeof SortLineageGroupsBy];
 
 /**
  * @public
@@ -2802,20 +2915,33 @@ export interface ListModelBiasJobDefinitionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelCardExportJobSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const ModelCardExportJobSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
 /**
  * @public
  */
-export enum ModelCardExportJobSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export type ModelCardExportJobSortBy = (typeof ModelCardExportJobSortBy)[keyof typeof ModelCardExportJobSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardExportJobSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardExportJobSortOrder =
+  (typeof ModelCardExportJobSortOrder)[keyof typeof ModelCardExportJobSortOrder];
 
 /**
  * @public
@@ -2933,19 +3059,31 @@ export interface ListModelCardExportJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelCardSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const ModelCardSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
 /**
  * @public
  */
-export enum ModelCardSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export type ModelCardSortBy = (typeof ModelCardSortBy)[keyof typeof ModelCardSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardSortOrder = (typeof ModelCardSortOrder)[keyof typeof ModelCardSortOrder];
 
 /**
  * @public
@@ -3062,10 +3200,16 @@ export interface ListModelCardsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelCardVersionSortBy {
-  VERSION = "Version",
-}
+export const ModelCardVersionSortBy = {
+  VERSION: "Version",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardVersionSortBy = (typeof ModelCardVersionSortBy)[keyof typeof ModelCardVersionSortBy];
 
 /**
  * @public
@@ -3253,13 +3397,19 @@ export interface ListModelExplainabilityJobDefinitionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelMetadataFilterType {
-  DOMAIN = "Domain",
-  FRAMEWORK = "Framework",
-  FRAMEWORKVERSION = "FrameworkVersion",
-  TASK = "Task",
-}
+export const ModelMetadataFilterType = {
+  DOMAIN: "Domain",
+  FRAMEWORK: "Framework",
+  FRAMEWORKVERSION: "FrameworkVersion",
+  TASK: "Task",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelMetadataFilterType = (typeof ModelMetadataFilterType)[keyof typeof ModelMetadataFilterType];
 
 /**
  * @public
@@ -3364,11 +3514,17 @@ export interface ListModelMetadataResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelPackageGroupSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const ModelPackageGroupSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelPackageGroupSortBy = (typeof ModelPackageGroupSortBy)[keyof typeof ModelPackageGroupSortBy];
 
 /**
  * @public
@@ -3462,20 +3618,32 @@ export interface ListModelPackageGroupsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelPackageType {
-  BOTH = "Both",
-  UNVERSIONED = "Unversioned",
-  VERSIONED = "Versioned",
-}
+export const ModelPackageType = {
+  BOTH: "Both",
+  UNVERSIONED: "Unversioned",
+  VERSIONED: "Versioned",
+} as const;
 
 /**
  * @public
  */
-export enum ModelPackageSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export type ModelPackageType = (typeof ModelPackageType)[keyof typeof ModelPackageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelPackageSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelPackageSortBy = (typeof ModelPackageSortBy)[keyof typeof ModelPackageSortBy];
 
 /**
  * @public
@@ -3704,11 +3872,17 @@ export interface ListModelQualityJobDefinitionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-}
+export const ModelSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelSortKey = (typeof ModelSortKey)[keyof typeof ModelSortKey];
 
 /**
  * @public
@@ -3795,19 +3969,32 @@ export interface ListModelsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitoringAlertHistorySortKey {
-  CreationTime = "CreationTime",
-  Status = "Status",
-}
+export const MonitoringAlertHistorySortKey = {
+  CreationTime: "CreationTime",
+  Status: "Status",
+} as const;
 
 /**
  * @public
  */
-export enum MonitoringAlertStatus {
-  IN_ALERT = "InAlert",
-  OK = "OK",
-}
+export type MonitoringAlertHistorySortKey =
+  (typeof MonitoringAlertHistorySortKey)[keyof typeof MonitoringAlertHistorySortKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringAlertStatus = {
+  IN_ALERT: "InAlert",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringAlertStatus = (typeof MonitoringAlertStatus)[keyof typeof MonitoringAlertStatus];
 
 /**
  * @public
@@ -4015,12 +4202,18 @@ export interface ListMonitoringAlertsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitoringExecutionSortKey {
-  CREATION_TIME = "CreationTime",
-  SCHEDULED_TIME = "ScheduledTime",
-  STATUS = "Status",
-}
+export const MonitoringExecutionSortKey = {
+  CREATION_TIME: "CreationTime",
+  SCHEDULED_TIME: "ScheduledTime",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringExecutionSortKey = (typeof MonitoringExecutionSortKey)[keyof typeof MonitoringExecutionSortKey];
 
 /**
  * @public
@@ -4125,12 +4318,18 @@ export interface ListMonitoringExecutionsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum MonitoringScheduleSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const MonitoringScheduleSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringScheduleSortKey = (typeof MonitoringScheduleSortKey)[keyof typeof MonitoringScheduleSortKey];
 
 /**
  * @public
@@ -4271,20 +4470,34 @@ export interface ListMonitoringSchedulesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NotebookInstanceLifecycleConfigSortKey {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name",
-}
+export const NotebookInstanceLifecycleConfigSortKey = {
+  CREATION_TIME: "CreationTime",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  NAME: "Name",
+} as const;
 
 /**
  * @public
  */
-export enum NotebookInstanceLifecycleConfigSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export type NotebookInstanceLifecycleConfigSortKey =
+  (typeof NotebookInstanceLifecycleConfigSortKey)[keyof typeof NotebookInstanceLifecycleConfigSortKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceLifecycleConfigSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookInstanceLifecycleConfigSortOrder =
+  (typeof NotebookInstanceLifecycleConfigSortOrder)[keyof typeof NotebookInstanceLifecycleConfigSortOrder];
 
 /**
  * @public
@@ -4388,20 +4601,32 @@ export interface ListNotebookInstanceLifecycleConfigsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum NotebookInstanceSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const NotebookInstanceSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
 
 /**
  * @public
  */
-export enum NotebookInstanceSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export type NotebookInstanceSortKey = (typeof NotebookInstanceSortKey)[keyof typeof NotebookInstanceSortKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookInstanceSortOrder = (typeof NotebookInstanceSortOrder)[keyof typeof NotebookInstanceSortOrder];
 
 /**
  * @public
@@ -4581,11 +4806,17 @@ export interface ListNotebookInstancesOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum SortPipelineExecutionsBy {
-  CREATION_TIME = "CreationTime",
-  PIPELINE_EXECUTION_ARN = "PipelineExecutionArn",
-}
+export const SortPipelineExecutionsBy = {
+  CREATION_TIME: "CreationTime",
+  PIPELINE_EXECUTION_ARN: "PipelineExecutionArn",
+} as const;
+
+/**
+ * @public
+ */
+export type SortPipelineExecutionsBy = (typeof SortPipelineExecutionsBy)[keyof typeof SortPipelineExecutionsBy];
 
 /**
  * @public
@@ -4974,15 +5205,21 @@ export interface PipelineExecutionStepMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum StepStatus {
-  EXECUTING = "Executing",
-  FAILED = "Failed",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  SUCCEEDED = "Succeeded",
-}
+export const StepStatus = {
+  EXECUTING: "Executing",
+  FAILED: "Failed",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUCCEEDED: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
 
 /**
  * @public
@@ -5116,11 +5353,17 @@ export interface ListPipelineParametersForExecutionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortPipelinesBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortPipelinesBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortPipelinesBy = (typeof SortPipelinesBy)[keyof typeof SortPipelinesBy];
 
 /**
  * @public
@@ -5355,19 +5598,31 @@ export interface ListProcessingJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ProjectSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const ProjectSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
 
 /**
  * @public
  */
-export enum ProjectSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export type ProjectSortBy = (typeof ProjectSortBy)[keyof typeof ProjectSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProjectSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectSortOrder = (typeof ProjectSortOrder)[keyof typeof ProjectSortOrder];
 
 /**
  * @public
@@ -5468,11 +5723,17 @@ export interface ListProjectsOutput {
 
 /**
  * @public
+ * @enum
  */
-export enum SpaceSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-}
+export const SpaceSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+} as const;
+
+/**
+ * @public
+ */
+export type SpaceSortKey = (typeof SpaceSortKey)[keyof typeof SpaceSortKey];
 
 /**
  * @public
@@ -5604,12 +5865,19 @@ export interface ListStageDevicesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum StudioLifecycleConfigSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-  Name = "Name",
-}
+export const StudioLifecycleConfigSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+  Name: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioLifecycleConfigSortKey =
+  (typeof StudioLifecycleConfigSortKey)[keyof typeof StudioLifecycleConfigSortKey];
 
 /**
  * @public
@@ -5919,13 +6187,19 @@ export interface ListTrainingJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum TrainingJobSortByOptions {
-  CreationTime = "CreationTime",
-  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Name = "Name",
-  Status = "Status",
-}
+export const TrainingJobSortByOptions = {
+  CreationTime: "CreationTime",
+  FinalObjectiveMetricValue: "FinalObjectiveMetricValue",
+  Name: "Name",
+  Status: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainingJobSortByOptions = (typeof TrainingJobSortByOptions)[keyof typeof TrainingJobSortByOptions];
 
 /**
  * @public
@@ -6116,11 +6390,17 @@ export interface ListTransformJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortTrialComponentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortTrialComponentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortTrialComponentsBy = (typeof SortTrialComponentsBy)[keyof typeof SortTrialComponentsBy];
 
 /**
  * @public
@@ -6272,11 +6552,17 @@ export interface ListTrialComponentsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SortTrialsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortTrialsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortTrialsBy = (typeof SortTrialsBy)[keyof typeof SortTrialsBy];
 
 /**
  * @public
@@ -6380,11 +6666,17 @@ export interface ListTrialsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum UserProfileSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-}
+export const UserProfileSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+} as const;
+
+/**
+ * @public
+ */
+export type UserProfileSortKey = (typeof UserProfileSortKey)[keyof typeof UserProfileSortKey];
 
 /**
  * @public
@@ -6471,11 +6763,18 @@ export interface ListUserProfilesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListWorkforcesSortByOptions {
-  CreateDate = "CreateDate",
-  Name = "Name",
-}
+export const ListWorkforcesSortByOptions = {
+  CreateDate: "CreateDate",
+  Name: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type ListWorkforcesSortByOptions =
+  (typeof ListWorkforcesSortByOptions)[keyof typeof ListWorkforcesSortByOptions];
 
 /**
  * @public
@@ -6524,11 +6823,17 @@ export interface ListWorkforcesResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ListWorkteamsSortByOptions {
-  CreateDate = "CreateDate",
-  Name = "Name",
-}
+export const ListWorkteamsSortByOptions = {
+  CreateDate: "CreateDate",
+  Name: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type ListWorkteamsSortByOptions = (typeof ListWorkteamsSortByOptions)[keyof typeof ListWorkteamsSortByOptions];
 
 /**
  * @public
@@ -7360,12 +7665,18 @@ export interface ModelPackageGroup {
 
 /**
  * @public
+ * @enum
  */
-export enum ModelVariantAction {
-  PROMOTE = "Promote",
-  REMOVE = "Remove",
-  RETAIN = "Retain",
-}
+export const ModelVariantAction = {
+  PROMOTE: "Promote",
+  REMOVE: "Remove",
+  RETAIN: "Retain",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelVariantAction];
 
 /**
  * @public
@@ -8134,11 +8445,17 @@ export interface RetryPipelineExecutionResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum SearchSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const SearchSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchSortOrder = (typeof SearchSortOrder)[keyof typeof SearchSortOrder];
 
 /**
  * @public

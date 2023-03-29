@@ -5,11 +5,17 @@ import { BatchServiceException as __BaseException } from "./BatchServiceExceptio
 
 /**
  * @public
+ * @enum
  */
-export enum ArrayJobDependency {
-  N_TO_N = "N_TO_N",
-  SEQUENTIAL = "SEQUENTIAL",
-}
+export const ArrayJobDependency = {
+  N_TO_N: "N_TO_N",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ArrayJobDependency = (typeof ArrayJobDependency)[keyof typeof ArrayJobDependency];
 
 /**
  * @public
@@ -64,11 +70,17 @@ export interface ArrayPropertiesSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
 
 /**
  * @public
@@ -229,12 +241,18 @@ export class ServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CRAllocationStrategy {
-  BEST_FIT = "BEST_FIT",
-  BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED",
-}
+export const CRAllocationStrategy = {
+  BEST_FIT: "BEST_FIT",
+  BEST_FIT_PROGRESSIVE: "BEST_FIT_PROGRESSIVE",
+  SPOT_CAPACITY_OPTIMIZED: "SPOT_CAPACITY_OPTIMIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type CRAllocationStrategy = (typeof CRAllocationStrategy)[keyof typeof CRAllocationStrategy];
 
 /**
  * @public
@@ -375,13 +393,19 @@ export interface LaunchTemplateSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum CRType {
-  EC2 = "EC2",
-  FARGATE = "FARGATE",
-  FARGATE_SPOT = "FARGATE_SPOT",
-  SPOT = "SPOT",
-}
+export const CRType = {
+  EC2: "EC2",
+  FARGATE: "FARGATE",
+  FARGATE_SPOT: "FARGATE_SPOT",
+  SPOT: "SPOT",
+} as const;
+
+/**
+ * @public
+ */
+export type CRType = (typeof CRType)[keyof typeof CRType];
 
 /**
  * @public
@@ -676,19 +700,31 @@ export interface EksConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum CEState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CEState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
  * @public
  */
-export enum CEType {
-  MANAGED = "MANAGED",
-  UNMANAGED = "UNMANAGED",
-}
+export type CEState = (typeof CEState)[keyof typeof CEState];
+
+/**
+ * @public
+ * @enum
+ */
+export const CEType = {
+  MANAGED: "MANAGED",
+  UNMANAGED: "UNMANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type CEType = (typeof CEType)[keyof typeof CEType];
 
 /**
  * @public
@@ -834,11 +870,17 @@ export interface ComputeEnvironmentOrder {
 
 /**
  * @public
+ * @enum
  */
-export enum JQState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const JQState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type JQState = (typeof JQState)[keyof typeof JQState];
 
 /**
  * @public
@@ -1128,23 +1170,35 @@ export interface DescribeComputeEnvironmentsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum OrchestrationType {
-  ECS = "ECS",
-  EKS = "EKS",
-}
+export const OrchestrationType = {
+  ECS: "ECS",
+  EKS: "EKS",
+} as const;
 
 /**
  * @public
  */
-export enum CEStatus {
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INVALID = "INVALID",
-  UPDATING = "UPDATING",
-  VALID = "VALID",
-}
+export type OrchestrationType = (typeof OrchestrationType)[keyof typeof OrchestrationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CEStatus = {
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INVALID: "INVALID",
+  UPDATING: "UPDATING",
+  VALID: "VALID",
+} as const;
+
+/**
+ * @public
+ */
+export type CEStatus = (typeof CEStatus)[keyof typeof CEStatus];
 
 /**
  * @public
@@ -1391,12 +1445,18 @@ export interface FargatePlatformConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceCgroupPermission {
-  MKNOD = "MKNOD",
-  READ = "READ",
-  WRITE = "WRITE",
-}
+export const DeviceCgroupPermission = {
+  MKNOD: "MKNOD",
+  READ: "READ",
+  WRITE: "WRITE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceCgroupPermission = (typeof DeviceCgroupPermission)[keyof typeof DeviceCgroupPermission];
 
 /**
  * @public
@@ -1572,16 +1632,22 @@ export interface LinuxParameters {
 
 /**
  * @public
+ * @enum
  */
-export enum LogDriver {
-  AWSLOGS = "awslogs",
-  FLUENTD = "fluentd",
-  GELF = "gelf",
-  JOURNALD = "journald",
-  JSON_FILE = "json-file",
-  SPLUNK = "splunk",
-  SYSLOG = "syslog",
-}
+export const LogDriver = {
+  AWSLOGS: "awslogs",
+  FLUENTD: "fluentd",
+  GELF: "gelf",
+  JOURNALD: "journald",
+  JSON_FILE: "json-file",
+  SPLUNK: "splunk",
+  SYSLOG: "syslog",
+} as const;
+
+/**
+ * @public
+ */
+export type LogDriver = (typeof LogDriver)[keyof typeof LogDriver];
 
 /**
  * @public
@@ -1748,12 +1814,18 @@ export interface NetworkConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceType {
-  GPU = "GPU",
-  MEMORY = "MEMORY",
-  VCPU = "VCPU",
-}
+export const ResourceType = {
+  GPU: "GPU",
+  MEMORY: "MEMORY",
+  VCPU: "VCPU",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -1958,11 +2030,17 @@ export interface Ulimit {
 
 /**
  * @public
+ * @enum
  */
-export enum EFSAuthorizationConfigIAM {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EFSAuthorizationConfigIAM = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type EFSAuthorizationConfigIAM = (typeof EFSAuthorizationConfigIAM)[keyof typeof EFSAuthorizationConfigIAM];
 
 /**
  * @public
@@ -1993,11 +2071,17 @@ export interface EFSAuthorizationConfig {
 
 /**
  * @public
+ * @enum
  */
-export enum EFSTransitEncryption {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EFSTransitEncryption = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type EFSTransitEncryption = (typeof EFSTransitEncryption)[keyof typeof EFSTransitEncryption];
 
 /**
  * @public
@@ -2831,19 +2915,31 @@ export interface NodeProperties {
 
 /**
  * @public
+ * @enum
  */
-export enum PlatformCapability {
-  EC2 = "EC2",
-  FARGATE = "FARGATE",
-}
+export const PlatformCapability = {
+  EC2: "EC2",
+  FARGATE: "FARGATE",
+} as const;
 
 /**
  * @public
  */
-export enum RetryAction {
-  EXIT = "EXIT",
-  RETRY = "RETRY",
-}
+export type PlatformCapability = (typeof PlatformCapability)[keyof typeof PlatformCapability];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetryAction = {
+  EXIT: "EXIT",
+  RETRY: "RETRY",
+} as const;
+
+/**
+ * @public
+ */
+export type RetryAction = (typeof RetryAction)[keyof typeof RetryAction];
 
 /**
  * @public
@@ -3091,15 +3187,21 @@ export interface DescribeJobQueuesRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum JQStatus {
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INVALID = "INVALID",
-  UPDATING = "UPDATING",
-  VALID = "VALID",
-}
+export const JQStatus = {
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INVALID: "INVALID",
+  UPDATING: "UPDATING",
+  VALID: "VALID",
+} as const;
+
+/**
+ * @public
+ */
+export type JQStatus = (typeof JQStatus)[keyof typeof JQStatus];
 
 /**
  * @public
@@ -3673,16 +3775,22 @@ export interface NodeDetails {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNABLE = "RUNNABLE",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  SUBMITTED = "SUBMITTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const JobStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNABLE: "RUNNABLE",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  SUBMITTED: "SUBMITTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -4248,11 +4356,17 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum JobDefinitionType {
-  Container = "container",
-  Multinode = "multinode",
-}
+export const JobDefinitionType = {
+  Container: "container",
+  Multinode: "multinode",
+} as const;
+
+/**
+ * @public
+ */
+export type JobDefinitionType = (typeof JobDefinitionType)[keyof typeof JobDefinitionType];
 
 /**
  * @public
@@ -4794,11 +4908,17 @@ export interface UntagResourceResponse {}
 
 /**
  * @public
+ * @enum
  */
-export enum CRUpdateAllocationStrategy {
-  BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED",
-}
+export const CRUpdateAllocationStrategy = {
+  BEST_FIT_PROGRESSIVE: "BEST_FIT_PROGRESSIVE",
+  SPOT_CAPACITY_OPTIMIZED: "SPOT_CAPACITY_OPTIMIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type CRUpdateAllocationStrategy = (typeof CRUpdateAllocationStrategy)[keyof typeof CRUpdateAllocationStrategy];
 
 /**
  * @public

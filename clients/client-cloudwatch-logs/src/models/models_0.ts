@@ -302,13 +302,19 @@ export class DataAlreadyAcceptedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DataProtectionStatus {
-  ACTIVATED = "ACTIVATED",
-  ARCHIVED = "ARCHIVED",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-}
+export const DataProtectionStatus = {
+  ACTIVATED: "ACTIVATED",
+  ARCHIVED: "ARCHIVED",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataProtectionStatus = (typeof DataProtectionStatus)[keyof typeof DataProtectionStatus];
 
 /**
  * @public
@@ -504,15 +510,21 @@ export interface DescribeDestinationsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportTaskStatusCode {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PENDING_CANCEL = "PENDING_CANCEL",
-  RUNNING = "RUNNING",
-}
+export const ExportTaskStatusCode = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PENDING_CANCEL: "PENDING_CANCEL",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportTaskStatusCode = (typeof ExportTaskStatusCode)[keyof typeof ExportTaskStatusCode];
 
 /**
  * @public
@@ -776,11 +788,17 @@ export interface DescribeLogGroupsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum OrderBy {
-  LastEventTime = "LastEventTime",
-  LogStreamName = "LogStreamName",
-}
+export const OrderBy = {
+  LastEventTime: "LastEventTime",
+  LogStreamName: "LogStreamName",
+} as const;
+
+/**
+ * @public
+ */
+export type OrderBy = (typeof OrderBy)[keyof typeof OrderBy];
 
 /**
  * @public
@@ -970,36 +988,42 @@ export interface DescribeMetricFiltersRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum StandardUnit {
-  Bits = "Bits",
-  BitsSecond = "Bits/Second",
-  Bytes = "Bytes",
-  BytesSecond = "Bytes/Second",
-  Count = "Count",
-  CountSecond = "Count/Second",
-  Gigabits = "Gigabits",
-  GigabitsSecond = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  GigabytesSecond = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  KilobitsSecond = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  KilobytesSecond = "Kilobytes/Second",
-  Megabits = "Megabits",
-  MegabitsSecond = "Megabits/Second",
-  Megabytes = "Megabytes",
-  MegabytesSecond = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  TerabitsSecond = "Terabits/Second",
-  Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second",
-}
+export const StandardUnit = {
+  Bits: "Bits",
+  BitsSecond: "Bits/Second",
+  Bytes: "Bytes",
+  BytesSecond: "Bytes/Second",
+  Count: "Count",
+  CountSecond: "Count/Second",
+  Gigabits: "Gigabits",
+  GigabitsSecond: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  GigabytesSecond: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  KilobitsSecond: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  KilobytesSecond: "Kilobytes/Second",
+  Megabits: "Megabits",
+  MegabitsSecond: "Megabits/Second",
+  Megabytes: "Megabytes",
+  MegabytesSecond: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  TerabitsSecond: "Terabits/Second",
+  Terabytes: "Terabytes",
+  TerabytesSecond: "Terabytes/Second",
+} as const;
+
+/**
+ * @public
+ */
+export type StandardUnit = (typeof StandardUnit)[keyof typeof StandardUnit];
 
 /**
  * @public
@@ -1109,16 +1133,22 @@ export interface DescribeMetricFiltersResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum QueryStatus {
-  Cancelled = "Cancelled",
-  Complete = "Complete",
-  Failed = "Failed",
-  Running = "Running",
-  Scheduled = "Scheduled",
-  Timeout = "Timeout",
-  Unknown = "Unknown",
-}
+export const QueryStatus = {
+  Cancelled: "Cancelled",
+  Complete: "Complete",
+  Failed: "Failed",
+  Running: "Running",
+  Scheduled: "Scheduled",
+  Timeout: "Timeout",
+  Unknown: "Unknown",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
 
 /**
  * @public
@@ -1339,11 +1369,17 @@ export interface DescribeSubscriptionFiltersRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Distribution {
-  ByLogStream = "ByLogStream",
-  Random = "Random",
-}
+export const Distribution = {
+  ByLogStream: "ByLogStream",
+  Random: "Random",
+} as const;
+
+/**
+ * @public
+ */
+export type Distribution = (typeof Distribution)[keyof typeof Distribution];
 
 /**
  * @public

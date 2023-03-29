@@ -6,11 +6,18 @@ import { EBSServiceException as __BaseException } from "./EBSServiceException";
 
 /**
  * @public
+ * @enum
  */
-export enum AccessDeniedExceptionReason {
-  DEPENDENCY_ACCESS_DENIED = "DEPENDENCY_ACCESS_DENIED",
-  UNAUTHORIZED_ACCOUNT = "UNAUTHORIZED_ACCOUNT",
-}
+export const AccessDeniedExceptionReason = {
+  DEPENDENCY_ACCESS_DENIED: "DEPENDENCY_ACCESS_DENIED",
+  UNAUTHORIZED_ACCOUNT: "UNAUTHORIZED_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessDeniedExceptionReason =
+  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
 
 /**
  * @public
@@ -82,17 +89,29 @@ export interface ChangedBlock {
 
 /**
  * @public
+ * @enum
  */
-export enum ChecksumAggregationMethod {
-  CHECKSUM_AGGREGATION_LINEAR = "LINEAR",
-}
+export const ChecksumAggregationMethod = {
+  CHECKSUM_AGGREGATION_LINEAR: "LINEAR",
+} as const;
 
 /**
  * @public
  */
-export enum ChecksumAlgorithm {
-  CHECKSUM_ALGORITHM_SHA256 = "SHA256",
-}
+export type ChecksumAggregationMethod = (typeof ChecksumAggregationMethod)[keyof typeof ChecksumAggregationMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChecksumAlgorithm = {
+  CHECKSUM_ALGORITHM_SHA256: "SHA256",
+} as const;
+
+/**
+ * @public
+ */
+export type ChecksumAlgorithm = (typeof ChecksumAlgorithm)[keyof typeof ChecksumAlgorithm];
 
 /**
  * @public
@@ -133,12 +152,18 @@ export interface CompleteSnapshotRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  COMPLETED = "completed",
-  ERROR = "error",
-  PENDING = "pending",
-}
+export const Status = {
+  COMPLETED: "completed",
+  ERROR: "error",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -174,12 +199,19 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum RequestThrottledExceptionReason {
-  ACCOUNT_THROTTLED = "ACCOUNT_THROTTLED",
-  DEPENDENCY_REQUEST_THROTTLED = "DEPENDENCY_REQUEST_THROTTLED",
-  RESOURCE_LEVEL_THROTTLE = "RESOURCE_LEVEL_THROTTLE",
-}
+export const RequestThrottledExceptionReason = {
+  ACCOUNT_THROTTLED: "ACCOUNT_THROTTLED",
+  DEPENDENCY_REQUEST_THROTTLED: "DEPENDENCY_REQUEST_THROTTLED",
+  RESOURCE_LEVEL_THROTTLE: "RESOURCE_LEVEL_THROTTLE",
+} as const;
+
+/**
+ * @public
+ */
+export type RequestThrottledExceptionReason =
+  (typeof RequestThrottledExceptionReason)[keyof typeof RequestThrottledExceptionReason];
 
 /**
  * @public
@@ -211,11 +243,18 @@ export class RequestThrottledException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ResourceNotFoundExceptionReason {
-  DEPENDENCY_RESOURCE_NOT_FOUND = "DEPENDENCY_RESOURCE_NOT_FOUND",
-  SNAPSHOT_NOT_FOUND = "SNAPSHOT_NOT_FOUND",
-}
+export const ResourceNotFoundExceptionReason = {
+  DEPENDENCY_RESOURCE_NOT_FOUND: "DEPENDENCY_RESOURCE_NOT_FOUND",
+  SNAPSHOT_NOT_FOUND: "SNAPSHOT_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceNotFoundExceptionReason =
+  (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
 
 /**
  * @public
@@ -246,10 +285,17 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ServiceQuotaExceededExceptionReason {
-  DEPENDENCY_SERVICE_QUOTA_EXCEEDED = "DEPENDENCY_SERVICE_QUOTA_EXCEEDED",
-}
+export const ServiceQuotaExceededExceptionReason = {
+  DEPENDENCY_SERVICE_QUOTA_EXCEEDED: "DEPENDENCY_SERVICE_QUOTA_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceQuotaExceededExceptionReason =
+  (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
 
 /**
  * @public
@@ -280,21 +326,27 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CONFLICTING_BLOCK_UPDATE = "CONFLICTING_BLOCK_UPDATE",
-  INVALID_BLOCK = "INVALID_BLOCK",
-  INVALID_BLOCK_TOKEN = "INVALID_BLOCK_TOKEN",
-  INVALID_CONTENT_ENCODING = "INVALID_CONTENT_ENCODING",
-  INVALID_CUSTOMER_KEY = "INVALID_CUSTOMER_KEY",
-  INVALID_DEPENDENCY_REQUEST = "INVALID_DEPENDENCY_REQUEST",
-  INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN",
-  INVALID_PARAMETER_VALUE = "INVALID_PARAMETER_VALUE",
-  INVALID_SNAPSHOT_ID = "INVALID_SNAPSHOT_ID",
-  INVALID_TAG = "INVALID_TAG",
-  INVALID_VOLUME_SIZE = "INVALID_VOLUME_SIZE",
-  UNRELATED_SNAPSHOTS = "UNRELATED_SNAPSHOTS",
-}
+export const ValidationExceptionReason = {
+  CONFLICTING_BLOCK_UPDATE: "CONFLICTING_BLOCK_UPDATE",
+  INVALID_BLOCK: "INVALID_BLOCK",
+  INVALID_BLOCK_TOKEN: "INVALID_BLOCK_TOKEN",
+  INVALID_CONTENT_ENCODING: "INVALID_CONTENT_ENCODING",
+  INVALID_CUSTOMER_KEY: "INVALID_CUSTOMER_KEY",
+  INVALID_DEPENDENCY_REQUEST: "INVALID_DEPENDENCY_REQUEST",
+  INVALID_PAGE_TOKEN: "INVALID_PAGE_TOKEN",
+  INVALID_PARAMETER_VALUE: "INVALID_PARAMETER_VALUE",
+  INVALID_SNAPSHOT_ID: "INVALID_SNAPSHOT_ID",
+  INVALID_TAG: "INVALID_TAG",
+  INVALID_VOLUME_SIZE: "INVALID_VOLUME_SIZE",
+  UNRELATED_SNAPSHOTS: "UNRELATED_SNAPSHOTS",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public

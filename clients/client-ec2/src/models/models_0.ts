@@ -43,28 +43,40 @@ export interface AcceleratorCountRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AcceleratorManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  NVIDIA = "nvidia",
-  XILINX = "xilinx",
-}
+export const AcceleratorManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  NVIDIA: "nvidia",
+  XILINX: "xilinx",
+} as const;
 
 /**
  * @public
  */
-export enum AcceleratorName {
-  A100 = "a100",
-  INFERENTIA = "inferentia",
-  K520 = "k520",
-  K80 = "k80",
-  M60 = "m60",
-  RADEON_PRO_V520 = "radeon-pro-v520",
-  T4 = "t4",
-  V100 = "v100",
-  VU9P = "vu9p",
-}
+export type AcceleratorManufacturer = (typeof AcceleratorManufacturer)[keyof typeof AcceleratorManufacturer];
+
+/**
+ * @public
+ * @enum
+ */
+export const AcceleratorName = {
+  A100: "a100",
+  INFERENTIA: "inferentia",
+  K520: "k520",
+  K80: "k80",
+  M60: "m60",
+  RADEON_PRO_V520: "radeon-pro-v520",
+  T4: "t4",
+  V100: "v100",
+  VU9P: "vu9p",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorName];
 
 /**
  * @public
@@ -104,103 +116,116 @@ export interface AcceleratorTotalMemoryMiBRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AcceleratorType {
-  FPGA = "fpga",
-  GPU = "gpu",
-  INFERENCE = "inference",
-}
+export const AcceleratorType = {
+  FPGA: "fpga",
+  GPU: "gpu",
+  INFERENCE: "inference",
+} as const;
 
 /**
  * @public
  */
-export enum ResourceType {
-  capacity_reservation = "capacity-reservation",
-  capacity_reservation_fleet = "capacity-reservation-fleet",
-  carrier_gateway = "carrier-gateway",
-  client_vpn_endpoint = "client-vpn-endpoint",
-  coip_pool = "coip-pool",
-  customer_gateway = "customer-gateway",
-  dedicated_host = "dedicated-host",
-  dhcp_options = "dhcp-options",
-  egress_only_internet_gateway = "egress-only-internet-gateway",
-  elastic_gpu = "elastic-gpu",
-  elastic_ip = "elastic-ip",
-  export_image_task = "export-image-task",
-  export_instance_task = "export-instance-task",
-  fleet = "fleet",
-  fpga_image = "fpga-image",
-  host_reservation = "host-reservation",
-  image = "image",
-  import_image_task = "import-image-task",
-  import_snapshot_task = "import-snapshot-task",
-  instance = "instance",
-  instance_event_window = "instance-event-window",
-  internet_gateway = "internet-gateway",
-  ipam = "ipam",
-  ipam_pool = "ipam-pool",
-  ipam_resource_discovery = "ipam-resource-discovery",
-  ipam_resource_discovery_association = "ipam-resource-discovery-association",
-  ipam_scope = "ipam-scope",
-  ipv4pool_ec2 = "ipv4pool-ec2",
-  ipv6pool_ec2 = "ipv6pool-ec2",
-  key_pair = "key-pair",
-  launch_template = "launch-template",
-  local_gateway = "local-gateway",
-  local_gateway_route_table = "local-gateway-route-table",
-  local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association",
-  local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association",
-  local_gateway_virtual_interface = "local-gateway-virtual-interface",
-  local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group",
-  natgateway = "natgateway",
-  network_acl = "network-acl",
-  network_insights_access_scope = "network-insights-access-scope",
-  network_insights_access_scope_analysis = "network-insights-access-scope-analysis",
-  network_insights_analysis = "network-insights-analysis",
-  network_insights_path = "network-insights-path",
-  network_interface = "network-interface",
-  placement_group = "placement-group",
-  prefix_list = "prefix-list",
-  replace_root_volume_task = "replace-root-volume-task",
-  reserved_instances = "reserved-instances",
-  route_table = "route-table",
-  security_group = "security-group",
-  security_group_rule = "security-group-rule",
-  snapshot = "snapshot",
-  spot_fleet_request = "spot-fleet-request",
-  spot_instances_request = "spot-instances-request",
-  subnet = "subnet",
-  subnet_cidr_reservation = "subnet-cidr-reservation",
-  traffic_mirror_filter = "traffic-mirror-filter",
-  traffic_mirror_filter_rule = "traffic-mirror-filter-rule",
-  traffic_mirror_session = "traffic-mirror-session",
-  traffic_mirror_target = "traffic-mirror-target",
-  transit_gateway = "transit-gateway",
-  transit_gateway_attachment = "transit-gateway-attachment",
-  transit_gateway_connect_peer = "transit-gateway-connect-peer",
-  transit_gateway_multicast_domain = "transit-gateway-multicast-domain",
-  transit_gateway_policy_table = "transit-gateway-policy-table",
-  transit_gateway_route_table = "transit-gateway-route-table",
-  transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
-  verified_access_endpoint = "verified-access-endpoint",
-  verified_access_group = "verified-access-group",
-  verified_access_instance = "verified-access-instance",
-  verified_access_policy = "verified-access-policy",
-  verified_access_trust_provider = "verified-access-trust-provider",
-  volume = "volume",
-  vpc = "vpc",
-  vpc_block_public_access_exclusion = "vpc-block-public-access-exclusion",
-  vpc_endpoint = "vpc-endpoint",
-  vpc_endpoint_connection = "vpc-endpoint-connection",
-  vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
-  vpc_endpoint_service = "vpc-endpoint-service",
-  vpc_endpoint_service_permission = "vpc-endpoint-service-permission",
-  vpc_flow_log = "vpc-flow-log",
-  vpc_peering_connection = "vpc-peering-connection",
-  vpn_connection = "vpn-connection",
-  vpn_connection_device_type = "vpn-connection-device-type",
-  vpn_gateway = "vpn-gateway",
-}
+export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  capacity_reservation: "capacity-reservation",
+  capacity_reservation_fleet: "capacity-reservation-fleet",
+  carrier_gateway: "carrier-gateway",
+  client_vpn_endpoint: "client-vpn-endpoint",
+  coip_pool: "coip-pool",
+  customer_gateway: "customer-gateway",
+  dedicated_host: "dedicated-host",
+  dhcp_options: "dhcp-options",
+  egress_only_internet_gateway: "egress-only-internet-gateway",
+  elastic_gpu: "elastic-gpu",
+  elastic_ip: "elastic-ip",
+  export_image_task: "export-image-task",
+  export_instance_task: "export-instance-task",
+  fleet: "fleet",
+  fpga_image: "fpga-image",
+  host_reservation: "host-reservation",
+  image: "image",
+  import_image_task: "import-image-task",
+  import_snapshot_task: "import-snapshot-task",
+  instance: "instance",
+  instance_event_window: "instance-event-window",
+  internet_gateway: "internet-gateway",
+  ipam: "ipam",
+  ipam_pool: "ipam-pool",
+  ipam_resource_discovery: "ipam-resource-discovery",
+  ipam_resource_discovery_association: "ipam-resource-discovery-association",
+  ipam_scope: "ipam-scope",
+  ipv4pool_ec2: "ipv4pool-ec2",
+  ipv6pool_ec2: "ipv6pool-ec2",
+  key_pair: "key-pair",
+  launch_template: "launch-template",
+  local_gateway: "local-gateway",
+  local_gateway_route_table: "local-gateway-route-table",
+  local_gateway_route_table_virtual_interface_group_association:
+    "local-gateway-route-table-virtual-interface-group-association",
+  local_gateway_route_table_vpc_association: "local-gateway-route-table-vpc-association",
+  local_gateway_virtual_interface: "local-gateway-virtual-interface",
+  local_gateway_virtual_interface_group: "local-gateway-virtual-interface-group",
+  natgateway: "natgateway",
+  network_acl: "network-acl",
+  network_insights_access_scope: "network-insights-access-scope",
+  network_insights_access_scope_analysis: "network-insights-access-scope-analysis",
+  network_insights_analysis: "network-insights-analysis",
+  network_insights_path: "network-insights-path",
+  network_interface: "network-interface",
+  placement_group: "placement-group",
+  prefix_list: "prefix-list",
+  replace_root_volume_task: "replace-root-volume-task",
+  reserved_instances: "reserved-instances",
+  route_table: "route-table",
+  security_group: "security-group",
+  security_group_rule: "security-group-rule",
+  snapshot: "snapshot",
+  spot_fleet_request: "spot-fleet-request",
+  spot_instances_request: "spot-instances-request",
+  subnet: "subnet",
+  subnet_cidr_reservation: "subnet-cidr-reservation",
+  traffic_mirror_filter: "traffic-mirror-filter",
+  traffic_mirror_filter_rule: "traffic-mirror-filter-rule",
+  traffic_mirror_session: "traffic-mirror-session",
+  traffic_mirror_target: "traffic-mirror-target",
+  transit_gateway: "transit-gateway",
+  transit_gateway_attachment: "transit-gateway-attachment",
+  transit_gateway_connect_peer: "transit-gateway-connect-peer",
+  transit_gateway_multicast_domain: "transit-gateway-multicast-domain",
+  transit_gateway_policy_table: "transit-gateway-policy-table",
+  transit_gateway_route_table: "transit-gateway-route-table",
+  transit_gateway_route_table_announcement: "transit-gateway-route-table-announcement",
+  verified_access_endpoint: "verified-access-endpoint",
+  verified_access_group: "verified-access-group",
+  verified_access_instance: "verified-access-instance",
+  verified_access_policy: "verified-access-policy",
+  verified_access_trust_provider: "verified-access-trust-provider",
+  volume: "volume",
+  vpc: "vpc",
+  vpc_block_public_access_exclusion: "vpc-block-public-access-exclusion",
+  vpc_endpoint: "vpc-endpoint",
+  vpc_endpoint_connection: "vpc-endpoint-connection",
+  vpc_endpoint_connection_device_type: "vpc-endpoint-connection-device-type",
+  vpc_endpoint_service: "vpc-endpoint-service",
+  vpc_endpoint_service_permission: "vpc-endpoint-service-permission",
+  vpc_flow_log: "vpc-flow-log",
+  vpc_peering_connection: "vpc-peering-connection",
+  vpn_connection: "vpn-connection",
+  vpn_connection_device_type: "vpn-connection-device-type",
+  vpn_gateway: "vpn-gateway",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -270,12 +295,18 @@ export interface AcceptAddressTransferRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AddressTransferStatus {
-  accepted = "accepted",
-  disabled = "disabled",
-  pending = "pending",
-}
+export const AddressTransferStatus = {
+  accepted: "accepted",
+  disabled: "disabled",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type AddressTransferStatus = (typeof AddressTransferStatus)[keyof typeof AddressTransferStatus];
 
 /**
  * @public
@@ -407,28 +438,42 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayAttachmentResourceType {
-  connect = "connect",
-  direct_connect_gateway = "direct-connect-gateway",
-  peering = "peering",
-  tgw_peering = "tgw-peering",
-  vpc = "vpc",
-  vpn = "vpn",
-}
+export const TransitGatewayAttachmentResourceType = {
+  connect: "connect",
+  direct_connect_gateway: "direct-connect-gateway",
+  peering: "peering",
+  tgw_peering: "tgw-peering",
+  vpc: "vpc",
+  vpn: "vpn",
+} as const;
 
 /**
  * @public
  */
-export enum TransitGatewayMulitcastDomainAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  pendingAcceptance = "pendingAcceptance",
-  rejected = "rejected",
-}
+export type TransitGatewayAttachmentResourceType =
+  (typeof TransitGatewayAttachmentResourceType)[keyof typeof TransitGatewayAttachmentResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayMulitcastDomainAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  pendingAcceptance: "pendingAcceptance",
+  rejected: "rejected",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayMulitcastDomainAssociationState =
+  (typeof TransitGatewayMulitcastDomainAssociationState)[keyof typeof TransitGatewayMulitcastDomainAssociationState];
 
 /**
  * @public
@@ -537,11 +582,17 @@ export interface PeeringTgwInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum DynamicRoutingValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const DynamicRoutingValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+
+/**
+ * @public
+ */
+export type DynamicRoutingValue = (typeof DynamicRoutingValue)[keyof typeof DynamicRoutingValue];
 
 /**
  * @public
@@ -556,22 +607,29 @@ export interface TransitGatewayPeeringAttachmentOptions {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayAttachmentState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  failed = "failed",
-  failing = "failing",
-  initiating = "initiating",
-  initiatingRequest = "initiatingRequest",
-  modifying = "modifying",
-  pending = "pending",
-  pendingAcceptance = "pendingAcceptance",
-  rejected = "rejected",
-  rejecting = "rejecting",
-  rollingBack = "rollingBack",
-}
+export const TransitGatewayAttachmentState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  failed: "failed",
+  failing: "failing",
+  initiating: "initiating",
+  initiatingRequest: "initiatingRequest",
+  modifying: "modifying",
+  pending: "pending",
+  pendingAcceptance: "pendingAcceptance",
+  rejected: "rejected",
+  rejecting: "rejecting",
+  rollingBack: "rollingBack",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayAttachmentState =
+  (typeof TransitGatewayAttachmentState)[keyof typeof TransitGatewayAttachmentState];
 
 /**
  * @public
@@ -669,27 +727,45 @@ export interface AcceptTransitGatewayVpcAttachmentRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ApplianceModeSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const ApplianceModeSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
  * @public
  */
-export enum DnsSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export type ApplianceModeSupportValue = (typeof ApplianceModeSupportValue)[keyof typeof ApplianceModeSupportValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const DnsSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
 
 /**
  * @public
  */
-export enum Ipv6SupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export type DnsSupportValue = (typeof DnsSupportValue)[keyof typeof DnsSupportValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ipv6SupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+
+/**
+ * @public
+ */
+export type Ipv6SupportValue = (typeof Ipv6SupportValue)[keyof typeof Ipv6SupportValue];
 
 /**
  * @public
@@ -945,18 +1021,25 @@ export interface VpcPeeringConnectionVpcInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum VpcPeeringConnectionStateReasonCode {
-  active = "active",
-  deleted = "deleted",
-  deleting = "deleting",
-  expired = "expired",
-  failed = "failed",
-  initiating_request = "initiating-request",
-  pending_acceptance = "pending-acceptance",
-  provisioning = "provisioning",
-  rejected = "rejected",
-}
+export const VpcPeeringConnectionStateReasonCode = {
+  active: "active",
+  deleted: "deleted",
+  deleting: "deleting",
+  expired: "expired",
+  failed: "failed",
+  initiating_request: "initiating-request",
+  pending_acceptance: "pending-acceptance",
+  provisioning: "provisioning",
+  rejected: "rejected",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcPeeringConnectionStateReasonCode =
+  (typeof VpcPeeringConnectionStateReasonCode)[keyof typeof VpcPeeringConnectionStateReasonCode];
 
 /**
  * @public
@@ -1956,11 +2039,17 @@ export interface AccessScopeAnalysisFinding {
 
 /**
  * @public
+ * @enum
  */
-export enum Protocol {
-  tcp = "tcp",
-  udp = "udp",
-}
+export const Protocol = {
+  tcp: "tcp",
+  udp: "udp",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
@@ -2201,19 +2290,31 @@ export interface AccountAttribute {
 
 /**
  * @public
+ * @enum
  */
-export enum AccountAttributeName {
-  default_vpc = "default-vpc",
-  supported_platforms = "supported-platforms",
-}
+export const AccountAttributeName = {
+  default_vpc: "default-vpc",
+  supported_platforms: "supported-platforms",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceHealthStatus {
-  HEALTHY_STATUS = "healthy",
-  UNHEALTHY_STATUS = "unhealthy",
-}
+export type AccountAttributeName = (typeof AccountAttributeName)[keyof typeof AccountAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceHealthStatus = {
+  HEALTHY_STATUS: "healthy",
+  UNHEALTHY_STATUS: "unhealthy",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceHealthStatus = (typeof InstanceHealthStatus)[keyof typeof InstanceHealthStatus];
 
 /**
  * @public
@@ -2245,25 +2346,37 @@ export interface ActiveInstance {
 
 /**
  * @public
+ * @enum
  */
-export enum ActivityStatus {
-  ERROR = "error",
-  FULFILLED = "fulfilled",
-  PENDING_FULFILLMENT = "pending_fulfillment",
-  PENDING_TERMINATION = "pending_termination",
-}
+export const ActivityStatus = {
+  ERROR: "error",
+  FULFILLED: "fulfilled",
+  PENDING_FULFILLMENT: "pending_fulfillment",
+  PENDING_TERMINATION: "pending_termination",
+} as const;
 
 /**
  * @public
  */
-export enum PrincipalType {
-  Account = "Account",
-  All = "All",
-  OrganizationUnit = "OrganizationUnit",
-  Role = "Role",
-  Service = "Service",
-  User = "User",
-}
+export type ActivityStatus = (typeof ActivityStatus)[keyof typeof ActivityStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  Account: "Account",
+  All: "All",
+  OrganizationUnit: "OrganizationUnit",
+  Role: "Role",
+  Service: "Service",
+  User: "User",
+} as const;
+
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * @public
@@ -2323,11 +2436,17 @@ export interface AddPrefixListEntry {
 
 /**
  * @public
+ * @enum
  */
-export enum DomainType {
-  standard = "standard",
-  vpc = "vpc",
-}
+export const DomainType = {
+  standard: "standard",
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainType = (typeof DomainType)[keyof typeof DomainType];
 
 /**
  * @public
@@ -2457,18 +2576,30 @@ export interface AddressAttribute {
 
 /**
  * @public
+ * @enum
  */
-export enum AddressAttributeName {
-  domain_name = "domain-name",
-}
+export const AddressAttributeName = {
+  domain_name: "domain-name",
+} as const;
 
 /**
  * @public
  */
-export enum AddressFamily {
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+export type AddressAttributeName = (typeof AddressAttributeName)[keyof typeof AddressAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AddressFamily = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type AddressFamily = (typeof AddressFamily)[keyof typeof AddressFamily];
 
 /**
  * @public
@@ -2490,17 +2621,23 @@ export interface AdvertiseByoipCidrRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ByoipCidrState {
-  advertised = "advertised",
-  deprovisioned = "deprovisioned",
-  failed_deprovision = "failed-deprovision",
-  failed_provision = "failed-provision",
-  pending_deprovision = "pending-deprovision",
-  pending_provision = "pending-provision",
-  provisioned = "provisioned",
-  provisioned_not_publicly_advertisable = "provisioned-not-publicly-advertisable",
-}
+export const ByoipCidrState = {
+  advertised: "advertised",
+  deprovisioned: "deprovisioned",
+  failed_deprovision: "failed-deprovision",
+  failed_provision: "failed-provision",
+  pending_deprovision: "pending-deprovision",
+  pending_provision: "pending-provision",
+  provisioned: "provisioned",
+  provisioned_not_publicly_advertisable: "provisioned-not-publicly-advertisable",
+} as const;
+
+/**
+ * @public
+ */
+export type ByoipCidrState = (typeof ByoipCidrState)[keyof typeof ByoipCidrState];
 
 /**
  * @public
@@ -2541,11 +2678,17 @@ export interface AdvertiseByoipCidrResult {
 
 /**
  * @public
+ * @enum
  */
-export enum Affinity {
-  default = "default",
-  host = "host",
-}
+export const Affinity = {
+  default: "default",
+  host: "host",
+} as const;
+
+/**
+ * @public
+ */
+export type Affinity = (typeof Affinity)[keyof typeof Affinity];
 
 /**
  * @public
@@ -2649,27 +2792,45 @@ export interface AllocateAddressResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AutoPlacement {
-  off = "off",
-  on = "on",
-}
+export const AutoPlacement = {
+  off: "off",
+  on: "on",
+} as const;
 
 /**
  * @public
  */
-export enum HostMaintenance {
-  off = "off",
-  on = "on",
-}
+export type AutoPlacement = (typeof AutoPlacement)[keyof typeof AutoPlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const HostMaintenance = {
+  off: "off",
+  on: "on",
+} as const;
 
 /**
  * @public
  */
-export enum HostRecovery {
-  off = "off",
-  on = "on",
-}
+export type HostMaintenance = (typeof HostMaintenance)[keyof typeof HostMaintenance];
+
+/**
+ * @public
+ * @enum
+ */
+export const HostRecovery = {
+  off: "off",
+  on: "on",
+} as const;
+
+/**
+ * @public
+ */
+export type HostRecovery = (typeof HostRecovery)[keyof typeof HostRecovery];
 
 /**
  * @public
@@ -2828,13 +2989,20 @@ export interface AllocateIpamPoolCidrRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IpamPoolAllocationResourceType {
-  custom = "custom",
-  ec2_public_ipv4_pool = "ec2-public-ipv4-pool",
-  ipam_pool = "ipam-pool",
-  vpc = "vpc",
-}
+export const IpamPoolAllocationResourceType = {
+  custom: "custom",
+  ec2_public_ipv4_pool: "ec2-public-ipv4-pool",
+  ipam_pool: "ipam-pool",
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamPoolAllocationResourceType =
+  (typeof IpamPoolAllocationResourceType)[keyof typeof IpamPoolAllocationResourceType];
 
 /**
  * @public
@@ -2890,33 +3058,51 @@ export interface AllocateIpamPoolCidrResult {
 
 /**
  * @public
+ * @enum
  */
-export enum AllocationState {
-  available = "available",
-  pending = "pending",
-  permanent_failure = "permanent-failure",
-  released = "released",
-  released_permanent_failure = "released-permanent-failure",
-  under_assessment = "under-assessment",
-}
+export const AllocationState = {
+  available: "available",
+  pending: "pending",
+  permanent_failure: "permanent-failure",
+  released: "released",
+  released_permanent_failure: "released-permanent-failure",
+  under_assessment: "under-assessment",
+} as const;
 
 /**
  * @public
  */
-export enum AllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacityOptimized",
-  CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized",
-  DIVERSIFIED = "diversified",
-  LOWEST_PRICE = "lowestPrice",
-  PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized",
-}
+export type AllocationState = (typeof AllocationState)[keyof typeof AllocationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AllocationStrategy = {
+  CAPACITY_OPTIMIZED: "capacityOptimized",
+  CAPACITY_OPTIMIZED_PRIORITIZED: "capacityOptimizedPrioritized",
+  DIVERSIFIED: "diversified",
+  LOWEST_PRICE: "lowestPrice",
+  PRICE_CAPACITY_OPTIMIZED: "priceCapacityOptimized",
+} as const;
 
 /**
  * @public
  */
-export enum AllocationType {
-  used = "used",
-}
+export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof AllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const AllocationType = {
+  used: "used",
+} as const;
+
+/**
+ * @public
+ */
+export type AllocationType = (typeof AllocationType)[keyof typeof AllocationType];
 
 /**
  * @public
@@ -2951,11 +3137,18 @@ export interface AllowedPrincipal {
 
 /**
  * @public
+ * @enum
  */
-export enum AllowsMultipleInstanceTypes {
-  off = "off",
-  on = "on",
-}
+export const AllowsMultipleInstanceTypes = {
+  off: "off",
+  on: "on",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowsMultipleInstanceTypes =
+  (typeof AllowsMultipleInstanceTypes)[keyof typeof AllowsMultipleInstanceTypes];
 
 /**
  * @public
@@ -3176,15 +3369,21 @@ export interface AssignPrivateNatGatewayAddressRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum NatGatewayAddressStatus {
-  ASSIGNING = "assigning",
-  ASSOCIATING = "associating",
-  DISASSOCIATING = "disassociating",
-  FAILED = "failed",
-  SUCCEEDED = "succeeded",
-  UNASSIGNING = "unassigning",
-}
+export const NatGatewayAddressStatus = {
+  ASSIGNING: "assigning",
+  ASSOCIATING: "associating",
+  DISASSOCIATING: "disassociating",
+  FAILED: "failed",
+  SUCCEEDED: "succeeded",
+  UNASSIGNING: "unassigning",
+} as const;
+
+/**
+ * @public
+ */
+export type NatGatewayAddressStatus = (typeof NatGatewayAddressStatus)[keyof typeof NatGatewayAddressStatus];
 
 /**
  * @public
@@ -3331,14 +3530,20 @@ export interface AssociateClientVpnTargetNetworkRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AssociationStatusCode {
-  associated = "associated",
-  associating = "associating",
-  association_failed = "association-failed",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-}
+export const AssociationStatusCode = {
+  associated: "associated",
+  associating: "associating",
+  association_failed: "association-failed",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationStatusCode = (typeof AssociationStatusCode)[keyof typeof AssociationStatusCode];
 
 /**
  * @public
@@ -3485,13 +3690,20 @@ export interface IamInstanceProfile {
 
 /**
  * @public
+ * @enum
  */
-export enum IamInstanceProfileAssociationState {
-  ASSOCIATED = "associated",
-  ASSOCIATING = "associating",
-  DISASSOCIATED = "disassociated",
-  DISASSOCIATING = "disassociating",
-}
+export const IamInstanceProfileAssociationState = {
+  ASSOCIATED: "associated",
+  ASSOCIATING: "associating",
+  DISASSOCIATED: "disassociated",
+  DISASSOCIATING: "disassociating",
+} as const;
+
+/**
+ * @public
+ */
+export type IamInstanceProfileAssociationState =
+  (typeof IamInstanceProfileAssociationState)[keyof typeof IamInstanceProfileAssociationState];
 
 /**
  * @public
@@ -3606,26 +3818,38 @@ export interface InstanceEventWindowAssociationTarget {
 
 /**
  * @public
+ * @enum
  */
-export enum InstanceEventWindowState {
-  active = "active",
-  creating = "creating",
-  deleted = "deleted",
-  deleting = "deleting",
-}
+export const InstanceEventWindowState = {
+  active: "active",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+} as const;
 
 /**
  * @public
  */
-export enum WeekDay {
-  friday = "friday",
-  monday = "monday",
-  saturday = "saturday",
-  sunday = "sunday",
-  thursday = "thursday",
-  tuesday = "tuesday",
-  wednesday = "wednesday",
-}
+export type InstanceEventWindowState = (typeof InstanceEventWindowState)[keyof typeof InstanceEventWindowState];
+
+/**
+ * @public
+ * @enum
+ */
+export const WeekDay = {
+  friday: "friday",
+  monday: "monday",
+  saturday: "saturday",
+  sunday: "sunday",
+  thursday: "thursday",
+  tuesday: "tuesday",
+  wednesday: "wednesday",
+} as const;
+
+/**
+ * @public
+ */
+export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];
 
 /**
  * @public
@@ -3738,26 +3962,40 @@ export interface AssociateIpamResourceDiscoveryRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum IpamAssociatedResourceDiscoveryStatus {
-  ACTIVE = "active",
-  NOT_FOUND = "not-found",
-}
+export const IpamAssociatedResourceDiscoveryStatus = {
+  ACTIVE: "active",
+  NOT_FOUND: "not-found",
+} as const;
 
 /**
  * @public
  */
-export enum IpamResourceDiscoveryAssociationState {
-  ASSOCIATE_COMPLETE = "associate-complete",
-  ASSOCIATE_FAILED = "associate-failed",
-  ASSOCIATE_IN_PROGRESS = "associate-in-progress",
-  DISASSOCIATE_COMPLETE = "disassociate-complete",
-  DISASSOCIATE_FAILED = "disassociate-failed",
-  DISASSOCIATE_IN_PROGRESS = "disassociate-in-progress",
-  ISOLATE_COMPLETE = "isolate-complete",
-  ISOLATE_IN_PROGRESS = "isolate-in-progress",
-  RESTORE_IN_PROGRESS = "restore-in-progress",
-}
+export type IpamAssociatedResourceDiscoveryStatus =
+  (typeof IpamAssociatedResourceDiscoveryStatus)[keyof typeof IpamAssociatedResourceDiscoveryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamResourceDiscoveryAssociationState = {
+  ASSOCIATE_COMPLETE: "associate-complete",
+  ASSOCIATE_FAILED: "associate-failed",
+  ASSOCIATE_IN_PROGRESS: "associate-in-progress",
+  DISASSOCIATE_COMPLETE: "disassociate-complete",
+  DISASSOCIATE_FAILED: "disassociate-failed",
+  DISASSOCIATE_IN_PROGRESS: "disassociate-in-progress",
+  ISOLATE_COMPLETE: "isolate-complete",
+  ISOLATE_IN_PROGRESS: "isolate-in-progress",
+  RESTORE_IN_PROGRESS: "restore-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamResourceDiscoveryAssociationState =
+  (typeof IpamResourceDiscoveryAssociationState)[keyof typeof IpamResourceDiscoveryAssociationState];
 
 /**
  * @public
@@ -3951,14 +4189,21 @@ export interface AssociateRouteTableRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum RouteTableAssociationStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-}
+export const RouteTableAssociationStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteTableAssociationStateCode =
+  (typeof RouteTableAssociationStateCode)[keyof typeof RouteTableAssociationStateCode];
 
 /**
  * @public
@@ -4010,15 +4255,21 @@ export interface AssociateSubnetCidrBlockRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum SubnetCidrBlockStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  failing = "failing",
-}
+export const SubnetCidrBlockStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  failing: "failing",
+} as const;
+
+/**
+ * @public
+ */
+export type SubnetCidrBlockStateCode = (typeof SubnetCidrBlockStateCode)[keyof typeof SubnetCidrBlockStateCode];
 
 /**
  * @public
@@ -4133,13 +4384,20 @@ export interface AssociateTransitGatewayPolicyTableRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TransitGatewayAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-}
+export const TransitGatewayAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayAssociationState =
+  (typeof TransitGatewayAssociationState)[keyof typeof TransitGatewayAssociationState];
 
 /**
  * @public
@@ -4286,11 +4544,17 @@ export interface AssociateTrunkInterfaceRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InterfaceProtocolType {
-  GRE = "GRE",
-  VLAN = "VLAN",
-}
+export const InterfaceProtocolType = {
+  GRE: "GRE",
+  VLAN: "VLAN",
+} as const;
+
+/**
+ * @public
+ */
+export type InterfaceProtocolType = (typeof InterfaceProtocolType)[keyof typeof InterfaceProtocolType];
 
 /**
  * @public
@@ -4416,15 +4680,21 @@ export interface AssociateVpcCidrBlockRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VpcCidrBlockStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  failing = "failing",
-}
+export const VpcCidrBlockStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  failing: "failing",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcCidrBlockStateCode = (typeof VpcCidrBlockStateCode)[keyof typeof VpcCidrBlockStateCode];
 
 /**
  * @public
@@ -4698,27 +4968,45 @@ export interface AttachVerifiedAccessTrustProviderRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DeviceTrustProviderType {
-  crowdstrike = "crowdstrike",
-  jamf = "jamf",
-}
+export const DeviceTrustProviderType = {
+  crowdstrike: "crowdstrike",
+  jamf: "jamf",
+} as const;
 
 /**
  * @public
  */
-export enum TrustProviderType {
-  device = "device",
-  user = "user",
-}
+export type DeviceTrustProviderType = (typeof DeviceTrustProviderType)[keyof typeof DeviceTrustProviderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustProviderType = {
+  device: "device",
+  user: "user",
+} as const;
 
 /**
  * @public
  */
-export enum UserTrustProviderType {
-  iam_identity_center = "iam-identity-center",
-  oidc = "oidc",
-}
+export type TrustProviderType = (typeof TrustProviderType)[keyof typeof TrustProviderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserTrustProviderType = {
+  iam_identity_center: "iam-identity-center",
+  oidc: "oidc",
+} as const;
+
+/**
+ * @public
+ */
+export type UserTrustProviderType = (typeof UserTrustProviderType)[keyof typeof UserTrustProviderType];
 
 /**
  * @public
@@ -4945,14 +5233,20 @@ export interface AttachVolumeRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VolumeAttachmentState {
-  attached = "attached",
-  attaching = "attaching",
-  busy = "busy",
-  detached = "detached",
-  detaching = "detaching",
-}
+export const VolumeAttachmentState = {
+  attached: "attached",
+  attaching: "attaching",
+  busy: "busy",
+  detached: "detached",
+  detaching: "detaching",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeAttachmentState = (typeof VolumeAttachmentState)[keyof typeof VolumeAttachmentState];
 
 /**
  * @public
@@ -5016,13 +5310,19 @@ export interface AttachVpnGatewayRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum AttachmentStatus {
-  attached = "attached",
-  attaching = "attaching",
-  detached = "detached",
-  detaching = "detaching",
-}
+export const AttachmentStatus = {
+  attached: "attached",
+  attaching: "attaching",
+  detached: "detached",
+  detaching: "detaching",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
 
 /**
  * @public
@@ -5095,13 +5395,20 @@ export interface AuthorizeClientVpnIngressRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ClientVpnAuthorizationRuleStatusCode {
-  active = "active",
-  authorizing = "authorizing",
-  failed = "failed",
-  revoking = "revoking",
-}
+export const ClientVpnAuthorizationRuleStatusCode = {
+  active: "active",
+  authorizing: "authorizing",
+  failed: "failed",
+  revoking: "revoking",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientVpnAuthorizationRuleStatusCode =
+  (typeof ClientVpnAuthorizationRuleStatusCode)[keyof typeof ClientVpnAuthorizationRuleStatusCode];
 
 /**
  * @public
@@ -5668,16 +5975,22 @@ export interface BundleTaskError {
 
 /**
  * @public
+ * @enum
  */
-export enum BundleTaskState {
-  bundling = "bundling",
-  cancelling = "cancelling",
-  complete = "complete",
-  failed = "failed",
-  pending = "pending",
-  storing = "storing",
-  waiting_for_shutdown = "waiting-for-shutdown",
-}
+export const BundleTaskState = {
+  bundling: "bundling",
+  cancelling: "cancelling",
+  complete: "complete",
+  failed: "failed",
+  pending: "pending",
+  storing: "storing",
+  waiting_for_shutdown: "waiting-for-shutdown",
+} as const;
+
+/**
+ * @public
+ */
+export type BundleTaskState = (typeof BundleTaskState)[keyof typeof BundleTaskState];
 
 /**
  * @public
@@ -5839,18 +6152,25 @@ export interface FailedCapacityReservationFleetCancellationResult {
 
 /**
  * @public
+ * @enum
  */
-export enum CapacityReservationFleetState {
-  ACTIVE = "active",
-  CANCELLED = "cancelled",
-  CANCELLING = "cancelling",
-  EXPIRED = "expired",
-  EXPIRING = "expiring",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  PARTIALLY_FULFILLED = "partially_fulfilled",
-  SUBMITTED = "submitted",
-}
+export const CapacityReservationFleetState = {
+  ACTIVE: "active",
+  CANCELLED: "cancelled",
+  CANCELLING: "cancelling",
+  EXPIRED: "expired",
+  EXPIRING: "expiring",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  PARTIALLY_FULFILLED: "partially_fulfilled",
+  SUBMITTED: "submitted",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationFleetState =
+  (typeof CapacityReservationFleetState)[keyof typeof CapacityReservationFleetState];
 
 /**
  * @public
@@ -6002,13 +6322,19 @@ export interface CancelReservedInstancesListingRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ListingState {
-  available = "available",
-  cancelled = "cancelled",
-  pending = "pending",
-  sold = "sold",
-}
+export const ListingState = {
+  available: "available",
+  cancelled: "cancelled",
+  pending: "pending",
+  sold: "sold",
+} as const;
+
+/**
+ * @public
+ */
+export type ListingState = (typeof ListingState)[keyof typeof ListingState];
 
 /**
  * @public
@@ -6028,10 +6354,16 @@ export interface InstanceCount {
 
 /**
  * @public
+ * @enum
  */
-export enum CurrencyCodeValues {
-  USD = "USD",
-}
+export const CurrencyCodeValues = {
+  USD: "USD",
+} as const;
+
+/**
+ * @public
+ */
+export type CurrencyCodeValues = (typeof CurrencyCodeValues)[keyof typeof CurrencyCodeValues];
 
 /**
  * @public
@@ -6063,13 +6395,19 @@ export interface PriceSchedule {
 
 /**
  * @public
+ * @enum
  */
-export enum ListingStatus {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  pending = "pending",
-}
+export const ListingStatus = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ListingStatus = (typeof ListingStatus)[keyof typeof ListingStatus];
 
 /**
  * @public
@@ -6167,16 +6505,22 @@ export interface CancelSpotFleetRequestsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BatchState {
-  ACTIVE = "active",
-  CANCELLED = "cancelled",
-  CANCELLED_RUNNING = "cancelled_running",
-  CANCELLED_TERMINATING_INSTANCES = "cancelled_terminating",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  SUBMITTED = "submitted",
-}
+export const BatchState = {
+  ACTIVE: "active",
+  CANCELLED: "cancelled",
+  CANCELLED_RUNNING: "cancelled_running",
+  CANCELLED_TERMINATING_INSTANCES: "cancelled_terminating",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  SUBMITTED: "submitted",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchState = (typeof BatchState)[keyof typeof BatchState];
 
 /**
  * @public
@@ -6201,13 +6545,19 @@ export interface CancelSpotFleetRequestsSuccessItem {
 
 /**
  * @public
+ * @enum
  */
-export enum CancelBatchErrorCode {
-  FLEET_REQUEST_ID_DOES_NOT_EXIST = "fleetRequestIdDoesNotExist",
-  FLEET_REQUEST_ID_MALFORMED = "fleetRequestIdMalformed",
-  FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE = "fleetRequestNotInCancellableState",
-  UNEXPECTED_ERROR = "unexpectedError",
-}
+export const CancelBatchErrorCode = {
+  FLEET_REQUEST_ID_DOES_NOT_EXIST: "fleetRequestIdDoesNotExist",
+  FLEET_REQUEST_ID_MALFORMED: "fleetRequestIdMalformed",
+  FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE: "fleetRequestNotInCancellableState",
+  UNEXPECTED_ERROR: "unexpectedError",
+} as const;
+
+/**
+ * @public
+ */
+export type CancelBatchErrorCode = (typeof CancelBatchErrorCode)[keyof typeof CancelBatchErrorCode];
 
 /**
  * @public
@@ -6278,14 +6628,21 @@ export interface CancelSpotInstanceRequestsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CancelSpotInstanceRequestState {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  completed = "completed",
-  open = "open",
-}
+export const CancelSpotInstanceRequestState = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  completed: "completed",
+  open: "open",
+} as const;
+
+/**
+ * @public
+ */
+export type CancelSpotInstanceRequestState =
+  (typeof CancelSpotInstanceRequestState)[keyof typeof CancelSpotInstanceRequestState];
 
 /**
  * @public
@@ -6636,50 +6993,75 @@ export interface CopySnapshotResult {
 
 /**
  * @public
+ * @enum
  */
-export enum EndDateType {
-  limited = "limited",
-  unlimited = "unlimited",
-}
+export const EndDateType = {
+  limited: "limited",
+  unlimited: "unlimited",
+} as const;
 
 /**
  * @public
  */
-export enum InstanceMatchCriteria {
-  open = "open",
-  targeted = "targeted",
-}
+export type EndDateType = (typeof EndDateType)[keyof typeof EndDateType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMatchCriteria = {
+  open: "open",
+  targeted: "targeted",
+} as const;
 
 /**
  * @public
  */
-export enum CapacityReservationInstancePlatform {
-  LINUX_UNIX = "Linux/UNIX",
-  LINUX_WITH_SQL_SERVER_ENTERPRISE = "Linux with SQL Server Enterprise",
-  LINUX_WITH_SQL_SERVER_STANDARD = "Linux with SQL Server Standard",
-  LINUX_WITH_SQL_SERVER_WEB = "Linux with SQL Server Web",
-  RED_HAT_ENTERPRISE_LINUX = "Red Hat Enterprise Linux",
-  RHEL_WITH_HA = "RHEL with HA",
-  RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE = "RHEL with HA and SQL Server Enterprise",
-  RHEL_WITH_HA_AND_SQL_SERVER_STANDARD = "RHEL with HA and SQL Server Standard",
-  RHEL_WITH_SQL_SERVER_ENTERPRISE = "RHEL with SQL Server Enterprise",
-  RHEL_WITH_SQL_SERVER_STANDARD = "RHEL with SQL Server Standard",
-  RHEL_WITH_SQL_SERVER_WEB = "RHEL with SQL Server Web",
-  SUSE_LINUX = "SUSE Linux",
-  WINDOWS = "Windows",
-  WINDOWS_WITH_SQL_SERVER = "Windows with SQL Server",
-  WINDOWS_WITH_SQL_SERVER_ENTERPRISE = "Windows with SQL Server Enterprise",
-  WINDOWS_WITH_SQL_SERVER_STANDARD = "Windows with SQL Server Standard",
-  WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web",
-}
+export type InstanceMatchCriteria = (typeof InstanceMatchCriteria)[keyof typeof InstanceMatchCriteria];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationInstancePlatform = {
+  LINUX_UNIX: "Linux/UNIX",
+  LINUX_WITH_SQL_SERVER_ENTERPRISE: "Linux with SQL Server Enterprise",
+  LINUX_WITH_SQL_SERVER_STANDARD: "Linux with SQL Server Standard",
+  LINUX_WITH_SQL_SERVER_WEB: "Linux with SQL Server Web",
+  RED_HAT_ENTERPRISE_LINUX: "Red Hat Enterprise Linux",
+  RHEL_WITH_HA: "RHEL with HA",
+  RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE: "RHEL with HA and SQL Server Enterprise",
+  RHEL_WITH_HA_AND_SQL_SERVER_STANDARD: "RHEL with HA and SQL Server Standard",
+  RHEL_WITH_SQL_SERVER_ENTERPRISE: "RHEL with SQL Server Enterprise",
+  RHEL_WITH_SQL_SERVER_STANDARD: "RHEL with SQL Server Standard",
+  RHEL_WITH_SQL_SERVER_WEB: "RHEL with SQL Server Web",
+  SUSE_LINUX: "SUSE Linux",
+  WINDOWS: "Windows",
+  WINDOWS_WITH_SQL_SERVER: "Windows with SQL Server",
+  WINDOWS_WITH_SQL_SERVER_ENTERPRISE: "Windows with SQL Server Enterprise",
+  WINDOWS_WITH_SQL_SERVER_STANDARD: "Windows with SQL Server Standard",
+  WINDOWS_WITH_SQL_SERVER_WEB: "Windows with SQL Server Web",
+} as const;
 
 /**
  * @public
  */
-export enum CapacityReservationTenancy {
-  dedicated = "dedicated",
-  default = "default",
-}
+export type CapacityReservationInstancePlatform =
+  (typeof CapacityReservationInstancePlatform)[keyof typeof CapacityReservationInstancePlatform];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationTenancy = {
+  dedicated: "dedicated",
+  default: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationTenancy = (typeof CapacityReservationTenancy)[keyof typeof CapacityReservationTenancy];
 
 /**
  * @public
@@ -6845,14 +7227,20 @@ export interface CapacityAllocation {
 
 /**
  * @public
+ * @enum
  */
-export enum CapacityReservationState {
-  active = "active",
-  cancelled = "cancelled",
-  expired = "expired",
-  failed = "failed",
-  pending = "pending",
-}
+export const CapacityReservationState = {
+  active: "active",
+  cancelled: "cancelled",
+  expired: "expired",
+  failed: "failed",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationState = (typeof CapacityReservationState)[keyof typeof CapacityReservationState];
 
 /**
  * @public
@@ -7063,654 +7451,666 @@ export interface CreateCapacityReservationResult {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetInstanceMatchCriteria {
-  open = "open",
-}
+export const FleetInstanceMatchCriteria = {
+  open: "open",
+} as const;
 
 /**
  * @public
  */
-export enum _InstanceType {
-  a1_2xlarge = "a1.2xlarge",
-  a1_4xlarge = "a1.4xlarge",
-  a1_large = "a1.large",
-  a1_medium = "a1.medium",
-  a1_metal = "a1.metal",
-  a1_xlarge = "a1.xlarge",
-  c1_medium = "c1.medium",
-  c1_xlarge = "c1.xlarge",
-  c3_2xlarge = "c3.2xlarge",
-  c3_4xlarge = "c3.4xlarge",
-  c3_8xlarge = "c3.8xlarge",
-  c3_large = "c3.large",
-  c3_xlarge = "c3.xlarge",
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_metal = "c5.metal",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c5ad_12xlarge = "c5ad.12xlarge",
-  c5ad_16xlarge = "c5ad.16xlarge",
-  c5ad_24xlarge = "c5ad.24xlarge",
-  c5ad_2xlarge = "c5ad.2xlarge",
-  c5ad_4xlarge = "c5ad.4xlarge",
-  c5ad_8xlarge = "c5ad.8xlarge",
-  c5ad_large = "c5ad.large",
-  c5ad_xlarge = "c5ad.xlarge",
-  c5d_12xlarge = "c5d.12xlarge",
-  c5d_18xlarge = "c5d.18xlarge",
-  c5d_24xlarge = "c5d.24xlarge",
-  c5d_2xlarge = "c5d.2xlarge",
-  c5d_4xlarge = "c5d.4xlarge",
-  c5d_9xlarge = "c5d.9xlarge",
-  c5d_large = "c5d.large",
-  c5d_metal = "c5d.metal",
-  c5d_xlarge = "c5d.xlarge",
-  c5n_18xlarge = "c5n.18xlarge",
-  c5n_2xlarge = "c5n.2xlarge",
-  c5n_4xlarge = "c5n.4xlarge",
-  c5n_9xlarge = "c5n.9xlarge",
-  c5n_large = "c5n.large",
-  c5n_metal = "c5n.metal",
-  c5n_xlarge = "c5n.xlarge",
-  c6a_12xlarge = "c6a.12xlarge",
-  c6a_16xlarge = "c6a.16xlarge",
-  c6a_24xlarge = "c6a.24xlarge",
-  c6a_2xlarge = "c6a.2xlarge",
-  c6a_32xlarge = "c6a.32xlarge",
-  c6a_48xlarge = "c6a.48xlarge",
-  c6a_4xlarge = "c6a.4xlarge",
-  c6a_8xlarge = "c6a.8xlarge",
-  c6a_large = "c6a.large",
-  c6a_metal = "c6a.metal",
-  c6a_xlarge = "c6a.xlarge",
-  c6g_12xlarge = "c6g.12xlarge",
-  c6g_16xlarge = "c6g.16xlarge",
-  c6g_2xlarge = "c6g.2xlarge",
-  c6g_4xlarge = "c6g.4xlarge",
-  c6g_8xlarge = "c6g.8xlarge",
-  c6g_large = "c6g.large",
-  c6g_medium = "c6g.medium",
-  c6g_metal = "c6g.metal",
-  c6g_xlarge = "c6g.xlarge",
-  c6gd_12xlarge = "c6gd.12xlarge",
-  c6gd_16xlarge = "c6gd.16xlarge",
-  c6gd_2xlarge = "c6gd.2xlarge",
-  c6gd_4xlarge = "c6gd.4xlarge",
-  c6gd_8xlarge = "c6gd.8xlarge",
-  c6gd_large = "c6gd.large",
-  c6gd_medium = "c6gd.medium",
-  c6gd_metal = "c6gd.metal",
-  c6gd_xlarge = "c6gd.xlarge",
-  c6gn_12xlarge = "c6gn.12xlarge",
-  c6gn_16xlarge = "c6gn.16xlarge",
-  c6gn_2xlarge = "c6gn.2xlarge",
-  c6gn_4xlarge = "c6gn.4xlarge",
-  c6gn_8xlarge = "c6gn.8xlarge",
-  c6gn_large = "c6gn.large",
-  c6gn_medium = "c6gn.medium",
-  c6gn_xlarge = "c6gn.xlarge",
-  c6i_12xlarge = "c6i.12xlarge",
-  c6i_16xlarge = "c6i.16xlarge",
-  c6i_24xlarge = "c6i.24xlarge",
-  c6i_2xlarge = "c6i.2xlarge",
-  c6i_32xlarge = "c6i.32xlarge",
-  c6i_4xlarge = "c6i.4xlarge",
-  c6i_8xlarge = "c6i.8xlarge",
-  c6i_large = "c6i.large",
-  c6i_metal = "c6i.metal",
-  c6i_xlarge = "c6i.xlarge",
-  c6id_12xlarge = "c6id.12xlarge",
-  c6id_16xlarge = "c6id.16xlarge",
-  c6id_24xlarge = "c6id.24xlarge",
-  c6id_2xlarge = "c6id.2xlarge",
-  c6id_32xlarge = "c6id.32xlarge",
-  c6id_4xlarge = "c6id.4xlarge",
-  c6id_8xlarge = "c6id.8xlarge",
-  c6id_large = "c6id.large",
-  c6id_metal = "c6id.metal",
-  c6id_xlarge = "c6id.xlarge",
-  c6in_12xlarge = "c6in.12xlarge",
-  c6in_16xlarge = "c6in.16xlarge",
-  c6in_24xlarge = "c6in.24xlarge",
-  c6in_2xlarge = "c6in.2xlarge",
-  c6in_32xlarge = "c6in.32xlarge",
-  c6in_4xlarge = "c6in.4xlarge",
-  c6in_8xlarge = "c6in.8xlarge",
-  c6in_large = "c6in.large",
-  c6in_xlarge = "c6in.xlarge",
-  c7g_12xlarge = "c7g.12xlarge",
-  c7g_16xlarge = "c7g.16xlarge",
-  c7g_2xlarge = "c7g.2xlarge",
-  c7g_4xlarge = "c7g.4xlarge",
-  c7g_8xlarge = "c7g.8xlarge",
-  c7g_large = "c7g.large",
-  c7g_medium = "c7g.medium",
-  c7g_metal = "c7g.metal",
-  c7g_xlarge = "c7g.xlarge",
-  cc1_4xlarge = "cc1.4xlarge",
-  cc2_8xlarge = "cc2.8xlarge",
-  cg1_4xlarge = "cg1.4xlarge",
-  cr1_8xlarge = "cr1.8xlarge",
-  d2_2xlarge = "d2.2xlarge",
-  d2_4xlarge = "d2.4xlarge",
-  d2_8xlarge = "d2.8xlarge",
-  d2_xlarge = "d2.xlarge",
-  d3_2xlarge = "d3.2xlarge",
-  d3_4xlarge = "d3.4xlarge",
-  d3_8xlarge = "d3.8xlarge",
-  d3_xlarge = "d3.xlarge",
-  d3en_12xlarge = "d3en.12xlarge",
-  d3en_2xlarge = "d3en.2xlarge",
-  d3en_4xlarge = "d3en.4xlarge",
-  d3en_6xlarge = "d3en.6xlarge",
-  d3en_8xlarge = "d3en.8xlarge",
-  d3en_xlarge = "d3en.xlarge",
-  dl1_24xlarge = "dl1.24xlarge",
-  f1_16xlarge = "f1.16xlarge",
-  f1_2xlarge = "f1.2xlarge",
-  f1_4xlarge = "f1.4xlarge",
-  g2_2xlarge = "g2.2xlarge",
-  g2_8xlarge = "g2.8xlarge",
-  g3_16xlarge = "g3.16xlarge",
-  g3_4xlarge = "g3.4xlarge",
-  g3_8xlarge = "g3.8xlarge",
-  g3s_xlarge = "g3s.xlarge",
-  g4ad_16xlarge = "g4ad.16xlarge",
-  g4ad_2xlarge = "g4ad.2xlarge",
-  g4ad_4xlarge = "g4ad.4xlarge",
-  g4ad_8xlarge = "g4ad.8xlarge",
-  g4ad_xlarge = "g4ad.xlarge",
-  g4dn_12xlarge = "g4dn.12xlarge",
-  g4dn_16xlarge = "g4dn.16xlarge",
-  g4dn_2xlarge = "g4dn.2xlarge",
-  g4dn_4xlarge = "g4dn.4xlarge",
-  g4dn_8xlarge = "g4dn.8xlarge",
-  g4dn_metal = "g4dn.metal",
-  g4dn_xlarge = "g4dn.xlarge",
-  g5_12xlarge = "g5.12xlarge",
-  g5_16xlarge = "g5.16xlarge",
-  g5_24xlarge = "g5.24xlarge",
-  g5_2xlarge = "g5.2xlarge",
-  g5_48xlarge = "g5.48xlarge",
-  g5_4xlarge = "g5.4xlarge",
-  g5_8xlarge = "g5.8xlarge",
-  g5_xlarge = "g5.xlarge",
-  g5g_16xlarge = "g5g.16xlarge",
-  g5g_2xlarge = "g5g.2xlarge",
-  g5g_4xlarge = "g5g.4xlarge",
-  g5g_8xlarge = "g5g.8xlarge",
-  g5g_metal = "g5g.metal",
-  g5g_xlarge = "g5g.xlarge",
-  h1_16xlarge = "h1.16xlarge",
-  h1_2xlarge = "h1.2xlarge",
-  h1_4xlarge = "h1.4xlarge",
-  h1_8xlarge = "h1.8xlarge",
-  hi1_4xlarge = "hi1.4xlarge",
-  hpc6a_48xlarge = "hpc6a.48xlarge",
-  hpc6id_32xlarge = "hpc6id.32xlarge",
-  hs1_8xlarge = "hs1.8xlarge",
-  i2_2xlarge = "i2.2xlarge",
-  i2_4xlarge = "i2.4xlarge",
-  i2_8xlarge = "i2.8xlarge",
-  i2_xlarge = "i2.xlarge",
-  i3_16xlarge = "i3.16xlarge",
-  i3_2xlarge = "i3.2xlarge",
-  i3_4xlarge = "i3.4xlarge",
-  i3_8xlarge = "i3.8xlarge",
-  i3_large = "i3.large",
-  i3_metal = "i3.metal",
-  i3_xlarge = "i3.xlarge",
-  i3en_12xlarge = "i3en.12xlarge",
-  i3en_24xlarge = "i3en.24xlarge",
-  i3en_2xlarge = "i3en.2xlarge",
-  i3en_3xlarge = "i3en.3xlarge",
-  i3en_6xlarge = "i3en.6xlarge",
-  i3en_large = "i3en.large",
-  i3en_metal = "i3en.metal",
-  i3en_xlarge = "i3en.xlarge",
-  i4i_16xlarge = "i4i.16xlarge",
-  i4i_2xlarge = "i4i.2xlarge",
-  i4i_32xlarge = "i4i.32xlarge",
-  i4i_4xlarge = "i4i.4xlarge",
-  i4i_8xlarge = "i4i.8xlarge",
-  i4i_large = "i4i.large",
-  i4i_metal = "i4i.metal",
-  i4i_xlarge = "i4i.xlarge",
-  im4gn_16xlarge = "im4gn.16xlarge",
-  im4gn_2xlarge = "im4gn.2xlarge",
-  im4gn_4xlarge = "im4gn.4xlarge",
-  im4gn_8xlarge = "im4gn.8xlarge",
-  im4gn_large = "im4gn.large",
-  im4gn_xlarge = "im4gn.xlarge",
-  inf1_24xlarge = "inf1.24xlarge",
-  inf1_2xlarge = "inf1.2xlarge",
-  inf1_6xlarge = "inf1.6xlarge",
-  inf1_xlarge = "inf1.xlarge",
-  is4gen_2xlarge = "is4gen.2xlarge",
-  is4gen_4xlarge = "is4gen.4xlarge",
-  is4gen_8xlarge = "is4gen.8xlarge",
-  is4gen_large = "is4gen.large",
-  is4gen_medium = "is4gen.medium",
-  is4gen_xlarge = "is4gen.xlarge",
-  m1_large = "m1.large",
-  m1_medium = "m1.medium",
-  m1_small = "m1.small",
-  m1_xlarge = "m1.xlarge",
-  m2_2xlarge = "m2.2xlarge",
-  m2_4xlarge = "m2.4xlarge",
-  m2_xlarge = "m2.xlarge",
-  m3_2xlarge = "m3.2xlarge",
-  m3_large = "m3.large",
-  m3_medium = "m3.medium",
-  m3_xlarge = "m3.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_16xlarge = "m4.16xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_metal = "m5.metal",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  m5ad_12xlarge = "m5ad.12xlarge",
-  m5ad_16xlarge = "m5ad.16xlarge",
-  m5ad_24xlarge = "m5ad.24xlarge",
-  m5ad_2xlarge = "m5ad.2xlarge",
-  m5ad_4xlarge = "m5ad.4xlarge",
-  m5ad_8xlarge = "m5ad.8xlarge",
-  m5ad_large = "m5ad.large",
-  m5ad_xlarge = "m5ad.xlarge",
-  m5d_12xlarge = "m5d.12xlarge",
-  m5d_16xlarge = "m5d.16xlarge",
-  m5d_24xlarge = "m5d.24xlarge",
-  m5d_2xlarge = "m5d.2xlarge",
-  m5d_4xlarge = "m5d.4xlarge",
-  m5d_8xlarge = "m5d.8xlarge",
-  m5d_large = "m5d.large",
-  m5d_metal = "m5d.metal",
-  m5d_xlarge = "m5d.xlarge",
-  m5dn_12xlarge = "m5dn.12xlarge",
-  m5dn_16xlarge = "m5dn.16xlarge",
-  m5dn_24xlarge = "m5dn.24xlarge",
-  m5dn_2xlarge = "m5dn.2xlarge",
-  m5dn_4xlarge = "m5dn.4xlarge",
-  m5dn_8xlarge = "m5dn.8xlarge",
-  m5dn_large = "m5dn.large",
-  m5dn_metal = "m5dn.metal",
-  m5dn_xlarge = "m5dn.xlarge",
-  m5n_12xlarge = "m5n.12xlarge",
-  m5n_16xlarge = "m5n.16xlarge",
-  m5n_24xlarge = "m5n.24xlarge",
-  m5n_2xlarge = "m5n.2xlarge",
-  m5n_4xlarge = "m5n.4xlarge",
-  m5n_8xlarge = "m5n.8xlarge",
-  m5n_large = "m5n.large",
-  m5n_metal = "m5n.metal",
-  m5n_xlarge = "m5n.xlarge",
-  m5zn_12xlarge = "m5zn.12xlarge",
-  m5zn_2xlarge = "m5zn.2xlarge",
-  m5zn_3xlarge = "m5zn.3xlarge",
-  m5zn_6xlarge = "m5zn.6xlarge",
-  m5zn_large = "m5zn.large",
-  m5zn_metal = "m5zn.metal",
-  m5zn_xlarge = "m5zn.xlarge",
-  m6a_12xlarge = "m6a.12xlarge",
-  m6a_16xlarge = "m6a.16xlarge",
-  m6a_24xlarge = "m6a.24xlarge",
-  m6a_2xlarge = "m6a.2xlarge",
-  m6a_32xlarge = "m6a.32xlarge",
-  m6a_48xlarge = "m6a.48xlarge",
-  m6a_4xlarge = "m6a.4xlarge",
-  m6a_8xlarge = "m6a.8xlarge",
-  m6a_large = "m6a.large",
-  m6a_metal = "m6a.metal",
-  m6a_xlarge = "m6a.xlarge",
-  m6g_12xlarge = "m6g.12xlarge",
-  m6g_16xlarge = "m6g.16xlarge",
-  m6g_2xlarge = "m6g.2xlarge",
-  m6g_4xlarge = "m6g.4xlarge",
-  m6g_8xlarge = "m6g.8xlarge",
-  m6g_large = "m6g.large",
-  m6g_medium = "m6g.medium",
-  m6g_metal = "m6g.metal",
-  m6g_xlarge = "m6g.xlarge",
-  m6gd_12xlarge = "m6gd.12xlarge",
-  m6gd_16xlarge = "m6gd.16xlarge",
-  m6gd_2xlarge = "m6gd.2xlarge",
-  m6gd_4xlarge = "m6gd.4xlarge",
-  m6gd_8xlarge = "m6gd.8xlarge",
-  m6gd_large = "m6gd.large",
-  m6gd_medium = "m6gd.medium",
-  m6gd_metal = "m6gd.metal",
-  m6gd_xlarge = "m6gd.xlarge",
-  m6i_12xlarge = "m6i.12xlarge",
-  m6i_16xlarge = "m6i.16xlarge",
-  m6i_24xlarge = "m6i.24xlarge",
-  m6i_2xlarge = "m6i.2xlarge",
-  m6i_32xlarge = "m6i.32xlarge",
-  m6i_4xlarge = "m6i.4xlarge",
-  m6i_8xlarge = "m6i.8xlarge",
-  m6i_large = "m6i.large",
-  m6i_metal = "m6i.metal",
-  m6i_xlarge = "m6i.xlarge",
-  m6id_12xlarge = "m6id.12xlarge",
-  m6id_16xlarge = "m6id.16xlarge",
-  m6id_24xlarge = "m6id.24xlarge",
-  m6id_2xlarge = "m6id.2xlarge",
-  m6id_32xlarge = "m6id.32xlarge",
-  m6id_4xlarge = "m6id.4xlarge",
-  m6id_8xlarge = "m6id.8xlarge",
-  m6id_large = "m6id.large",
-  m6id_metal = "m6id.metal",
-  m6id_xlarge = "m6id.xlarge",
-  m6idn_12xlarge = "m6idn.12xlarge",
-  m6idn_16xlarge = "m6idn.16xlarge",
-  m6idn_24xlarge = "m6idn.24xlarge",
-  m6idn_2xlarge = "m6idn.2xlarge",
-  m6idn_32xlarge = "m6idn.32xlarge",
-  m6idn_4xlarge = "m6idn.4xlarge",
-  m6idn_8xlarge = "m6idn.8xlarge",
-  m6idn_large = "m6idn.large",
-  m6idn_xlarge = "m6idn.xlarge",
-  m6in_12xlarge = "m6in.12xlarge",
-  m6in_16xlarge = "m6in.16xlarge",
-  m6in_24xlarge = "m6in.24xlarge",
-  m6in_2xlarge = "m6in.2xlarge",
-  m6in_32xlarge = "m6in.32xlarge",
-  m6in_4xlarge = "m6in.4xlarge",
-  m6in_8xlarge = "m6in.8xlarge",
-  m6in_large = "m6in.large",
-  m6in_xlarge = "m6in.xlarge",
-  m7g_12xlarge = "m7g.12xlarge",
-  m7g_16xlarge = "m7g.16xlarge",
-  m7g_2xlarge = "m7g.2xlarge",
-  m7g_4xlarge = "m7g.4xlarge",
-  m7g_8xlarge = "m7g.8xlarge",
-  m7g_large = "m7g.large",
-  m7g_medium = "m7g.medium",
-  m7g_metal = "m7g.metal",
-  m7g_xlarge = "m7g.xlarge",
-  mac1_metal = "mac1.metal",
-  mac2_metal = "mac2.metal",
-  p2_16xlarge = "p2.16xlarge",
-  p2_8xlarge = "p2.8xlarge",
-  p2_xlarge = "p2.xlarge",
-  p3_16xlarge = "p3.16xlarge",
-  p3_2xlarge = "p3.2xlarge",
-  p3_8xlarge = "p3.8xlarge",
-  p3dn_24xlarge = "p3dn.24xlarge",
-  p4d_24xlarge = "p4d.24xlarge",
-  p4de_24xlarge = "p4de.24xlarge",
-  r3_2xlarge = "r3.2xlarge",
-  r3_4xlarge = "r3.4xlarge",
-  r3_8xlarge = "r3.8xlarge",
-  r3_large = "r3.large",
-  r3_xlarge = "r3.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_metal = "r5.metal",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r5ad_12xlarge = "r5ad.12xlarge",
-  r5ad_16xlarge = "r5ad.16xlarge",
-  r5ad_24xlarge = "r5ad.24xlarge",
-  r5ad_2xlarge = "r5ad.2xlarge",
-  r5ad_4xlarge = "r5ad.4xlarge",
-  r5ad_8xlarge = "r5ad.8xlarge",
-  r5ad_large = "r5ad.large",
-  r5ad_xlarge = "r5ad.xlarge",
-  r5b_12xlarge = "r5b.12xlarge",
-  r5b_16xlarge = "r5b.16xlarge",
-  r5b_24xlarge = "r5b.24xlarge",
-  r5b_2xlarge = "r5b.2xlarge",
-  r5b_4xlarge = "r5b.4xlarge",
-  r5b_8xlarge = "r5b.8xlarge",
-  r5b_large = "r5b.large",
-  r5b_metal = "r5b.metal",
-  r5b_xlarge = "r5b.xlarge",
-  r5d_12xlarge = "r5d.12xlarge",
-  r5d_16xlarge = "r5d.16xlarge",
-  r5d_24xlarge = "r5d.24xlarge",
-  r5d_2xlarge = "r5d.2xlarge",
-  r5d_4xlarge = "r5d.4xlarge",
-  r5d_8xlarge = "r5d.8xlarge",
-  r5d_large = "r5d.large",
-  r5d_metal = "r5d.metal",
-  r5d_xlarge = "r5d.xlarge",
-  r5dn_12xlarge = "r5dn.12xlarge",
-  r5dn_16xlarge = "r5dn.16xlarge",
-  r5dn_24xlarge = "r5dn.24xlarge",
-  r5dn_2xlarge = "r5dn.2xlarge",
-  r5dn_4xlarge = "r5dn.4xlarge",
-  r5dn_8xlarge = "r5dn.8xlarge",
-  r5dn_large = "r5dn.large",
-  r5dn_metal = "r5dn.metal",
-  r5dn_xlarge = "r5dn.xlarge",
-  r5n_12xlarge = "r5n.12xlarge",
-  r5n_16xlarge = "r5n.16xlarge",
-  r5n_24xlarge = "r5n.24xlarge",
-  r5n_2xlarge = "r5n.2xlarge",
-  r5n_4xlarge = "r5n.4xlarge",
-  r5n_8xlarge = "r5n.8xlarge",
-  r5n_large = "r5n.large",
-  r5n_metal = "r5n.metal",
-  r5n_xlarge = "r5n.xlarge",
-  r6a_12xlarge = "r6a.12xlarge",
-  r6a_16xlarge = "r6a.16xlarge",
-  r6a_24xlarge = "r6a.24xlarge",
-  r6a_2xlarge = "r6a.2xlarge",
-  r6a_32xlarge = "r6a.32xlarge",
-  r6a_48xlarge = "r6a.48xlarge",
-  r6a_4xlarge = "r6a.4xlarge",
-  r6a_8xlarge = "r6a.8xlarge",
-  r6a_large = "r6a.large",
-  r6a_metal = "r6a.metal",
-  r6a_xlarge = "r6a.xlarge",
-  r6g_12xlarge = "r6g.12xlarge",
-  r6g_16xlarge = "r6g.16xlarge",
-  r6g_2xlarge = "r6g.2xlarge",
-  r6g_4xlarge = "r6g.4xlarge",
-  r6g_8xlarge = "r6g.8xlarge",
-  r6g_large = "r6g.large",
-  r6g_medium = "r6g.medium",
-  r6g_metal = "r6g.metal",
-  r6g_xlarge = "r6g.xlarge",
-  r6gd_12xlarge = "r6gd.12xlarge",
-  r6gd_16xlarge = "r6gd.16xlarge",
-  r6gd_2xlarge = "r6gd.2xlarge",
-  r6gd_4xlarge = "r6gd.4xlarge",
-  r6gd_8xlarge = "r6gd.8xlarge",
-  r6gd_large = "r6gd.large",
-  r6gd_medium = "r6gd.medium",
-  r6gd_metal = "r6gd.metal",
-  r6gd_xlarge = "r6gd.xlarge",
-  r6i_12xlarge = "r6i.12xlarge",
-  r6i_16xlarge = "r6i.16xlarge",
-  r6i_24xlarge = "r6i.24xlarge",
-  r6i_2xlarge = "r6i.2xlarge",
-  r6i_32xlarge = "r6i.32xlarge",
-  r6i_4xlarge = "r6i.4xlarge",
-  r6i_8xlarge = "r6i.8xlarge",
-  r6i_large = "r6i.large",
-  r6i_metal = "r6i.metal",
-  r6i_xlarge = "r6i.xlarge",
-  r6id_12xlarge = "r6id.12xlarge",
-  r6id_16xlarge = "r6id.16xlarge",
-  r6id_24xlarge = "r6id.24xlarge",
-  r6id_2xlarge = "r6id.2xlarge",
-  r6id_32xlarge = "r6id.32xlarge",
-  r6id_4xlarge = "r6id.4xlarge",
-  r6id_8xlarge = "r6id.8xlarge",
-  r6id_large = "r6id.large",
-  r6id_metal = "r6id.metal",
-  r6id_xlarge = "r6id.xlarge",
-  r6idn_12xlarge = "r6idn.12xlarge",
-  r6idn_16xlarge = "r6idn.16xlarge",
-  r6idn_24xlarge = "r6idn.24xlarge",
-  r6idn_2xlarge = "r6idn.2xlarge",
-  r6idn_32xlarge = "r6idn.32xlarge",
-  r6idn_4xlarge = "r6idn.4xlarge",
-  r6idn_8xlarge = "r6idn.8xlarge",
-  r6idn_large = "r6idn.large",
-  r6idn_xlarge = "r6idn.xlarge",
-  r6in_12xlarge = "r6in.12xlarge",
-  r6in_16xlarge = "r6in.16xlarge",
-  r6in_24xlarge = "r6in.24xlarge",
-  r6in_2xlarge = "r6in.2xlarge",
-  r6in_32xlarge = "r6in.32xlarge",
-  r6in_4xlarge = "r6in.4xlarge",
-  r6in_8xlarge = "r6in.8xlarge",
-  r6in_large = "r6in.large",
-  r6in_xlarge = "r6in.xlarge",
-  r7g_12xlarge = "r7g.12xlarge",
-  r7g_16xlarge = "r7g.16xlarge",
-  r7g_2xlarge = "r7g.2xlarge",
-  r7g_4xlarge = "r7g.4xlarge",
-  r7g_8xlarge = "r7g.8xlarge",
-  r7g_large = "r7g.large",
-  r7g_medium = "r7g.medium",
-  r7g_metal = "r7g.metal",
-  r7g_xlarge = "r7g.xlarge",
-  t1_micro = "t1.micro",
-  t2_2xlarge = "t2.2xlarge",
-  t2_large = "t2.large",
-  t2_medium = "t2.medium",
-  t2_micro = "t2.micro",
-  t2_nano = "t2.nano",
-  t2_small = "t2.small",
-  t2_xlarge = "t2.xlarge",
-  t3_2xlarge = "t3.2xlarge",
-  t3_large = "t3.large",
-  t3_medium = "t3.medium",
-  t3_micro = "t3.micro",
-  t3_nano = "t3.nano",
-  t3_small = "t3.small",
-  t3_xlarge = "t3.xlarge",
-  t3a_2xlarge = "t3a.2xlarge",
-  t3a_large = "t3a.large",
-  t3a_medium = "t3a.medium",
-  t3a_micro = "t3a.micro",
-  t3a_nano = "t3a.nano",
-  t3a_small = "t3a.small",
-  t3a_xlarge = "t3a.xlarge",
-  t4g_2xlarge = "t4g.2xlarge",
-  t4g_large = "t4g.large",
-  t4g_medium = "t4g.medium",
-  t4g_micro = "t4g.micro",
-  t4g_nano = "t4g.nano",
-  t4g_small = "t4g.small",
-  t4g_xlarge = "t4g.xlarge",
-  trn1_2xlarge = "trn1.2xlarge",
-  trn1_32xlarge = "trn1.32xlarge",
-  u_12tb1_112xlarge = "u-12tb1.112xlarge",
-  u_12tb1_metal = "u-12tb1.metal",
-  u_18tb1_112xlarge = "u-18tb1.112xlarge",
-  u_18tb1_metal = "u-18tb1.metal",
-  u_24tb1_112xlarge = "u-24tb1.112xlarge",
-  u_24tb1_metal = "u-24tb1.metal",
-  u_3tb1_56xlarge = "u-3tb1.56xlarge",
-  u_6tb1_112xlarge = "u-6tb1.112xlarge",
-  u_6tb1_56xlarge = "u-6tb1.56xlarge",
-  u_6tb1_metal = "u-6tb1.metal",
-  u_9tb1_112xlarge = "u-9tb1.112xlarge",
-  u_9tb1_metal = "u-9tb1.metal",
-  vt1_24xlarge = "vt1.24xlarge",
-  vt1_3xlarge = "vt1.3xlarge",
-  vt1_6xlarge = "vt1.6xlarge",
-  x1_16xlarge = "x1.16xlarge",
-  x1_32xlarge = "x1.32xlarge",
-  x1e_16xlarge = "x1e.16xlarge",
-  x1e_2xlarge = "x1e.2xlarge",
-  x1e_32xlarge = "x1e.32xlarge",
-  x1e_4xlarge = "x1e.4xlarge",
-  x1e_8xlarge = "x1e.8xlarge",
-  x1e_xlarge = "x1e.xlarge",
-  x2gd_12xlarge = "x2gd.12xlarge",
-  x2gd_16xlarge = "x2gd.16xlarge",
-  x2gd_2xlarge = "x2gd.2xlarge",
-  x2gd_4xlarge = "x2gd.4xlarge",
-  x2gd_8xlarge = "x2gd.8xlarge",
-  x2gd_large = "x2gd.large",
-  x2gd_medium = "x2gd.medium",
-  x2gd_metal = "x2gd.metal",
-  x2gd_xlarge = "x2gd.xlarge",
-  x2idn_16xlarge = "x2idn.16xlarge",
-  x2idn_24xlarge = "x2idn.24xlarge",
-  x2idn_32xlarge = "x2idn.32xlarge",
-  x2idn_metal = "x2idn.metal",
-  x2iedn_16xlarge = "x2iedn.16xlarge",
-  x2iedn_24xlarge = "x2iedn.24xlarge",
-  x2iedn_2xlarge = "x2iedn.2xlarge",
-  x2iedn_32xlarge = "x2iedn.32xlarge",
-  x2iedn_4xlarge = "x2iedn.4xlarge",
-  x2iedn_8xlarge = "x2iedn.8xlarge",
-  x2iedn_metal = "x2iedn.metal",
-  x2iedn_xlarge = "x2iedn.xlarge",
-  x2iezn_12xlarge = "x2iezn.12xlarge",
-  x2iezn_2xlarge = "x2iezn.2xlarge",
-  x2iezn_4xlarge = "x2iezn.4xlarge",
-  x2iezn_6xlarge = "x2iezn.6xlarge",
-  x2iezn_8xlarge = "x2iezn.8xlarge",
-  x2iezn_metal = "x2iezn.metal",
-  z1d_12xlarge = "z1d.12xlarge",
-  z1d_2xlarge = "z1d.2xlarge",
-  z1d_3xlarge = "z1d.3xlarge",
-  z1d_6xlarge = "z1d.6xlarge",
-  z1d_large = "z1d.large",
-  z1d_metal = "z1d.metal",
-  z1d_xlarge = "z1d.xlarge",
-}
+export type FleetInstanceMatchCriteria = (typeof FleetInstanceMatchCriteria)[keyof typeof FleetInstanceMatchCriteria];
+
+/**
+ * @public
+ * @enum
+ */
+export const _InstanceType = {
+  a1_2xlarge: "a1.2xlarge",
+  a1_4xlarge: "a1.4xlarge",
+  a1_large: "a1.large",
+  a1_medium: "a1.medium",
+  a1_metal: "a1.metal",
+  a1_xlarge: "a1.xlarge",
+  c1_medium: "c1.medium",
+  c1_xlarge: "c1.xlarge",
+  c3_2xlarge: "c3.2xlarge",
+  c3_4xlarge: "c3.4xlarge",
+  c3_8xlarge: "c3.8xlarge",
+  c3_large: "c3.large",
+  c3_xlarge: "c3.xlarge",
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_metal: "c5.metal",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c5ad_12xlarge: "c5ad.12xlarge",
+  c5ad_16xlarge: "c5ad.16xlarge",
+  c5ad_24xlarge: "c5ad.24xlarge",
+  c5ad_2xlarge: "c5ad.2xlarge",
+  c5ad_4xlarge: "c5ad.4xlarge",
+  c5ad_8xlarge: "c5ad.8xlarge",
+  c5ad_large: "c5ad.large",
+  c5ad_xlarge: "c5ad.xlarge",
+  c5d_12xlarge: "c5d.12xlarge",
+  c5d_18xlarge: "c5d.18xlarge",
+  c5d_24xlarge: "c5d.24xlarge",
+  c5d_2xlarge: "c5d.2xlarge",
+  c5d_4xlarge: "c5d.4xlarge",
+  c5d_9xlarge: "c5d.9xlarge",
+  c5d_large: "c5d.large",
+  c5d_metal: "c5d.metal",
+  c5d_xlarge: "c5d.xlarge",
+  c5n_18xlarge: "c5n.18xlarge",
+  c5n_2xlarge: "c5n.2xlarge",
+  c5n_4xlarge: "c5n.4xlarge",
+  c5n_9xlarge: "c5n.9xlarge",
+  c5n_large: "c5n.large",
+  c5n_metal: "c5n.metal",
+  c5n_xlarge: "c5n.xlarge",
+  c6a_12xlarge: "c6a.12xlarge",
+  c6a_16xlarge: "c6a.16xlarge",
+  c6a_24xlarge: "c6a.24xlarge",
+  c6a_2xlarge: "c6a.2xlarge",
+  c6a_32xlarge: "c6a.32xlarge",
+  c6a_48xlarge: "c6a.48xlarge",
+  c6a_4xlarge: "c6a.4xlarge",
+  c6a_8xlarge: "c6a.8xlarge",
+  c6a_large: "c6a.large",
+  c6a_metal: "c6a.metal",
+  c6a_xlarge: "c6a.xlarge",
+  c6g_12xlarge: "c6g.12xlarge",
+  c6g_16xlarge: "c6g.16xlarge",
+  c6g_2xlarge: "c6g.2xlarge",
+  c6g_4xlarge: "c6g.4xlarge",
+  c6g_8xlarge: "c6g.8xlarge",
+  c6g_large: "c6g.large",
+  c6g_medium: "c6g.medium",
+  c6g_metal: "c6g.metal",
+  c6g_xlarge: "c6g.xlarge",
+  c6gd_12xlarge: "c6gd.12xlarge",
+  c6gd_16xlarge: "c6gd.16xlarge",
+  c6gd_2xlarge: "c6gd.2xlarge",
+  c6gd_4xlarge: "c6gd.4xlarge",
+  c6gd_8xlarge: "c6gd.8xlarge",
+  c6gd_large: "c6gd.large",
+  c6gd_medium: "c6gd.medium",
+  c6gd_metal: "c6gd.metal",
+  c6gd_xlarge: "c6gd.xlarge",
+  c6gn_12xlarge: "c6gn.12xlarge",
+  c6gn_16xlarge: "c6gn.16xlarge",
+  c6gn_2xlarge: "c6gn.2xlarge",
+  c6gn_4xlarge: "c6gn.4xlarge",
+  c6gn_8xlarge: "c6gn.8xlarge",
+  c6gn_large: "c6gn.large",
+  c6gn_medium: "c6gn.medium",
+  c6gn_xlarge: "c6gn.xlarge",
+  c6i_12xlarge: "c6i.12xlarge",
+  c6i_16xlarge: "c6i.16xlarge",
+  c6i_24xlarge: "c6i.24xlarge",
+  c6i_2xlarge: "c6i.2xlarge",
+  c6i_32xlarge: "c6i.32xlarge",
+  c6i_4xlarge: "c6i.4xlarge",
+  c6i_8xlarge: "c6i.8xlarge",
+  c6i_large: "c6i.large",
+  c6i_metal: "c6i.metal",
+  c6i_xlarge: "c6i.xlarge",
+  c6id_12xlarge: "c6id.12xlarge",
+  c6id_16xlarge: "c6id.16xlarge",
+  c6id_24xlarge: "c6id.24xlarge",
+  c6id_2xlarge: "c6id.2xlarge",
+  c6id_32xlarge: "c6id.32xlarge",
+  c6id_4xlarge: "c6id.4xlarge",
+  c6id_8xlarge: "c6id.8xlarge",
+  c6id_large: "c6id.large",
+  c6id_metal: "c6id.metal",
+  c6id_xlarge: "c6id.xlarge",
+  c6in_12xlarge: "c6in.12xlarge",
+  c6in_16xlarge: "c6in.16xlarge",
+  c6in_24xlarge: "c6in.24xlarge",
+  c6in_2xlarge: "c6in.2xlarge",
+  c6in_32xlarge: "c6in.32xlarge",
+  c6in_4xlarge: "c6in.4xlarge",
+  c6in_8xlarge: "c6in.8xlarge",
+  c6in_large: "c6in.large",
+  c6in_xlarge: "c6in.xlarge",
+  c7g_12xlarge: "c7g.12xlarge",
+  c7g_16xlarge: "c7g.16xlarge",
+  c7g_2xlarge: "c7g.2xlarge",
+  c7g_4xlarge: "c7g.4xlarge",
+  c7g_8xlarge: "c7g.8xlarge",
+  c7g_large: "c7g.large",
+  c7g_medium: "c7g.medium",
+  c7g_metal: "c7g.metal",
+  c7g_xlarge: "c7g.xlarge",
+  cc1_4xlarge: "cc1.4xlarge",
+  cc2_8xlarge: "cc2.8xlarge",
+  cg1_4xlarge: "cg1.4xlarge",
+  cr1_8xlarge: "cr1.8xlarge",
+  d2_2xlarge: "d2.2xlarge",
+  d2_4xlarge: "d2.4xlarge",
+  d2_8xlarge: "d2.8xlarge",
+  d2_xlarge: "d2.xlarge",
+  d3_2xlarge: "d3.2xlarge",
+  d3_4xlarge: "d3.4xlarge",
+  d3_8xlarge: "d3.8xlarge",
+  d3_xlarge: "d3.xlarge",
+  d3en_12xlarge: "d3en.12xlarge",
+  d3en_2xlarge: "d3en.2xlarge",
+  d3en_4xlarge: "d3en.4xlarge",
+  d3en_6xlarge: "d3en.6xlarge",
+  d3en_8xlarge: "d3en.8xlarge",
+  d3en_xlarge: "d3en.xlarge",
+  dl1_24xlarge: "dl1.24xlarge",
+  f1_16xlarge: "f1.16xlarge",
+  f1_2xlarge: "f1.2xlarge",
+  f1_4xlarge: "f1.4xlarge",
+  g2_2xlarge: "g2.2xlarge",
+  g2_8xlarge: "g2.8xlarge",
+  g3_16xlarge: "g3.16xlarge",
+  g3_4xlarge: "g3.4xlarge",
+  g3_8xlarge: "g3.8xlarge",
+  g3s_xlarge: "g3s.xlarge",
+  g4ad_16xlarge: "g4ad.16xlarge",
+  g4ad_2xlarge: "g4ad.2xlarge",
+  g4ad_4xlarge: "g4ad.4xlarge",
+  g4ad_8xlarge: "g4ad.8xlarge",
+  g4ad_xlarge: "g4ad.xlarge",
+  g4dn_12xlarge: "g4dn.12xlarge",
+  g4dn_16xlarge: "g4dn.16xlarge",
+  g4dn_2xlarge: "g4dn.2xlarge",
+  g4dn_4xlarge: "g4dn.4xlarge",
+  g4dn_8xlarge: "g4dn.8xlarge",
+  g4dn_metal: "g4dn.metal",
+  g4dn_xlarge: "g4dn.xlarge",
+  g5_12xlarge: "g5.12xlarge",
+  g5_16xlarge: "g5.16xlarge",
+  g5_24xlarge: "g5.24xlarge",
+  g5_2xlarge: "g5.2xlarge",
+  g5_48xlarge: "g5.48xlarge",
+  g5_4xlarge: "g5.4xlarge",
+  g5_8xlarge: "g5.8xlarge",
+  g5_xlarge: "g5.xlarge",
+  g5g_16xlarge: "g5g.16xlarge",
+  g5g_2xlarge: "g5g.2xlarge",
+  g5g_4xlarge: "g5g.4xlarge",
+  g5g_8xlarge: "g5g.8xlarge",
+  g5g_metal: "g5g.metal",
+  g5g_xlarge: "g5g.xlarge",
+  h1_16xlarge: "h1.16xlarge",
+  h1_2xlarge: "h1.2xlarge",
+  h1_4xlarge: "h1.4xlarge",
+  h1_8xlarge: "h1.8xlarge",
+  hi1_4xlarge: "hi1.4xlarge",
+  hpc6a_48xlarge: "hpc6a.48xlarge",
+  hpc6id_32xlarge: "hpc6id.32xlarge",
+  hs1_8xlarge: "hs1.8xlarge",
+  i2_2xlarge: "i2.2xlarge",
+  i2_4xlarge: "i2.4xlarge",
+  i2_8xlarge: "i2.8xlarge",
+  i2_xlarge: "i2.xlarge",
+  i3_16xlarge: "i3.16xlarge",
+  i3_2xlarge: "i3.2xlarge",
+  i3_4xlarge: "i3.4xlarge",
+  i3_8xlarge: "i3.8xlarge",
+  i3_large: "i3.large",
+  i3_metal: "i3.metal",
+  i3_xlarge: "i3.xlarge",
+  i3en_12xlarge: "i3en.12xlarge",
+  i3en_24xlarge: "i3en.24xlarge",
+  i3en_2xlarge: "i3en.2xlarge",
+  i3en_3xlarge: "i3en.3xlarge",
+  i3en_6xlarge: "i3en.6xlarge",
+  i3en_large: "i3en.large",
+  i3en_metal: "i3en.metal",
+  i3en_xlarge: "i3en.xlarge",
+  i4i_16xlarge: "i4i.16xlarge",
+  i4i_2xlarge: "i4i.2xlarge",
+  i4i_32xlarge: "i4i.32xlarge",
+  i4i_4xlarge: "i4i.4xlarge",
+  i4i_8xlarge: "i4i.8xlarge",
+  i4i_large: "i4i.large",
+  i4i_metal: "i4i.metal",
+  i4i_xlarge: "i4i.xlarge",
+  im4gn_16xlarge: "im4gn.16xlarge",
+  im4gn_2xlarge: "im4gn.2xlarge",
+  im4gn_4xlarge: "im4gn.4xlarge",
+  im4gn_8xlarge: "im4gn.8xlarge",
+  im4gn_large: "im4gn.large",
+  im4gn_xlarge: "im4gn.xlarge",
+  inf1_24xlarge: "inf1.24xlarge",
+  inf1_2xlarge: "inf1.2xlarge",
+  inf1_6xlarge: "inf1.6xlarge",
+  inf1_xlarge: "inf1.xlarge",
+  is4gen_2xlarge: "is4gen.2xlarge",
+  is4gen_4xlarge: "is4gen.4xlarge",
+  is4gen_8xlarge: "is4gen.8xlarge",
+  is4gen_large: "is4gen.large",
+  is4gen_medium: "is4gen.medium",
+  is4gen_xlarge: "is4gen.xlarge",
+  m1_large: "m1.large",
+  m1_medium: "m1.medium",
+  m1_small: "m1.small",
+  m1_xlarge: "m1.xlarge",
+  m2_2xlarge: "m2.2xlarge",
+  m2_4xlarge: "m2.4xlarge",
+  m2_xlarge: "m2.xlarge",
+  m3_2xlarge: "m3.2xlarge",
+  m3_large: "m3.large",
+  m3_medium: "m3.medium",
+  m3_xlarge: "m3.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_16xlarge: "m4.16xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_metal: "m5.metal",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  m5ad_12xlarge: "m5ad.12xlarge",
+  m5ad_16xlarge: "m5ad.16xlarge",
+  m5ad_24xlarge: "m5ad.24xlarge",
+  m5ad_2xlarge: "m5ad.2xlarge",
+  m5ad_4xlarge: "m5ad.4xlarge",
+  m5ad_8xlarge: "m5ad.8xlarge",
+  m5ad_large: "m5ad.large",
+  m5ad_xlarge: "m5ad.xlarge",
+  m5d_12xlarge: "m5d.12xlarge",
+  m5d_16xlarge: "m5d.16xlarge",
+  m5d_24xlarge: "m5d.24xlarge",
+  m5d_2xlarge: "m5d.2xlarge",
+  m5d_4xlarge: "m5d.4xlarge",
+  m5d_8xlarge: "m5d.8xlarge",
+  m5d_large: "m5d.large",
+  m5d_metal: "m5d.metal",
+  m5d_xlarge: "m5d.xlarge",
+  m5dn_12xlarge: "m5dn.12xlarge",
+  m5dn_16xlarge: "m5dn.16xlarge",
+  m5dn_24xlarge: "m5dn.24xlarge",
+  m5dn_2xlarge: "m5dn.2xlarge",
+  m5dn_4xlarge: "m5dn.4xlarge",
+  m5dn_8xlarge: "m5dn.8xlarge",
+  m5dn_large: "m5dn.large",
+  m5dn_metal: "m5dn.metal",
+  m5dn_xlarge: "m5dn.xlarge",
+  m5n_12xlarge: "m5n.12xlarge",
+  m5n_16xlarge: "m5n.16xlarge",
+  m5n_24xlarge: "m5n.24xlarge",
+  m5n_2xlarge: "m5n.2xlarge",
+  m5n_4xlarge: "m5n.4xlarge",
+  m5n_8xlarge: "m5n.8xlarge",
+  m5n_large: "m5n.large",
+  m5n_metal: "m5n.metal",
+  m5n_xlarge: "m5n.xlarge",
+  m5zn_12xlarge: "m5zn.12xlarge",
+  m5zn_2xlarge: "m5zn.2xlarge",
+  m5zn_3xlarge: "m5zn.3xlarge",
+  m5zn_6xlarge: "m5zn.6xlarge",
+  m5zn_large: "m5zn.large",
+  m5zn_metal: "m5zn.metal",
+  m5zn_xlarge: "m5zn.xlarge",
+  m6a_12xlarge: "m6a.12xlarge",
+  m6a_16xlarge: "m6a.16xlarge",
+  m6a_24xlarge: "m6a.24xlarge",
+  m6a_2xlarge: "m6a.2xlarge",
+  m6a_32xlarge: "m6a.32xlarge",
+  m6a_48xlarge: "m6a.48xlarge",
+  m6a_4xlarge: "m6a.4xlarge",
+  m6a_8xlarge: "m6a.8xlarge",
+  m6a_large: "m6a.large",
+  m6a_metal: "m6a.metal",
+  m6a_xlarge: "m6a.xlarge",
+  m6g_12xlarge: "m6g.12xlarge",
+  m6g_16xlarge: "m6g.16xlarge",
+  m6g_2xlarge: "m6g.2xlarge",
+  m6g_4xlarge: "m6g.4xlarge",
+  m6g_8xlarge: "m6g.8xlarge",
+  m6g_large: "m6g.large",
+  m6g_medium: "m6g.medium",
+  m6g_metal: "m6g.metal",
+  m6g_xlarge: "m6g.xlarge",
+  m6gd_12xlarge: "m6gd.12xlarge",
+  m6gd_16xlarge: "m6gd.16xlarge",
+  m6gd_2xlarge: "m6gd.2xlarge",
+  m6gd_4xlarge: "m6gd.4xlarge",
+  m6gd_8xlarge: "m6gd.8xlarge",
+  m6gd_large: "m6gd.large",
+  m6gd_medium: "m6gd.medium",
+  m6gd_metal: "m6gd.metal",
+  m6gd_xlarge: "m6gd.xlarge",
+  m6i_12xlarge: "m6i.12xlarge",
+  m6i_16xlarge: "m6i.16xlarge",
+  m6i_24xlarge: "m6i.24xlarge",
+  m6i_2xlarge: "m6i.2xlarge",
+  m6i_32xlarge: "m6i.32xlarge",
+  m6i_4xlarge: "m6i.4xlarge",
+  m6i_8xlarge: "m6i.8xlarge",
+  m6i_large: "m6i.large",
+  m6i_metal: "m6i.metal",
+  m6i_xlarge: "m6i.xlarge",
+  m6id_12xlarge: "m6id.12xlarge",
+  m6id_16xlarge: "m6id.16xlarge",
+  m6id_24xlarge: "m6id.24xlarge",
+  m6id_2xlarge: "m6id.2xlarge",
+  m6id_32xlarge: "m6id.32xlarge",
+  m6id_4xlarge: "m6id.4xlarge",
+  m6id_8xlarge: "m6id.8xlarge",
+  m6id_large: "m6id.large",
+  m6id_metal: "m6id.metal",
+  m6id_xlarge: "m6id.xlarge",
+  m6idn_12xlarge: "m6idn.12xlarge",
+  m6idn_16xlarge: "m6idn.16xlarge",
+  m6idn_24xlarge: "m6idn.24xlarge",
+  m6idn_2xlarge: "m6idn.2xlarge",
+  m6idn_32xlarge: "m6idn.32xlarge",
+  m6idn_4xlarge: "m6idn.4xlarge",
+  m6idn_8xlarge: "m6idn.8xlarge",
+  m6idn_large: "m6idn.large",
+  m6idn_xlarge: "m6idn.xlarge",
+  m6in_12xlarge: "m6in.12xlarge",
+  m6in_16xlarge: "m6in.16xlarge",
+  m6in_24xlarge: "m6in.24xlarge",
+  m6in_2xlarge: "m6in.2xlarge",
+  m6in_32xlarge: "m6in.32xlarge",
+  m6in_4xlarge: "m6in.4xlarge",
+  m6in_8xlarge: "m6in.8xlarge",
+  m6in_large: "m6in.large",
+  m6in_xlarge: "m6in.xlarge",
+  m7g_12xlarge: "m7g.12xlarge",
+  m7g_16xlarge: "m7g.16xlarge",
+  m7g_2xlarge: "m7g.2xlarge",
+  m7g_4xlarge: "m7g.4xlarge",
+  m7g_8xlarge: "m7g.8xlarge",
+  m7g_large: "m7g.large",
+  m7g_medium: "m7g.medium",
+  m7g_metal: "m7g.metal",
+  m7g_xlarge: "m7g.xlarge",
+  mac1_metal: "mac1.metal",
+  mac2_metal: "mac2.metal",
+  p2_16xlarge: "p2.16xlarge",
+  p2_8xlarge: "p2.8xlarge",
+  p2_xlarge: "p2.xlarge",
+  p3_16xlarge: "p3.16xlarge",
+  p3_2xlarge: "p3.2xlarge",
+  p3_8xlarge: "p3.8xlarge",
+  p3dn_24xlarge: "p3dn.24xlarge",
+  p4d_24xlarge: "p4d.24xlarge",
+  p4de_24xlarge: "p4de.24xlarge",
+  r3_2xlarge: "r3.2xlarge",
+  r3_4xlarge: "r3.4xlarge",
+  r3_8xlarge: "r3.8xlarge",
+  r3_large: "r3.large",
+  r3_xlarge: "r3.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_metal: "r5.metal",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r5ad_12xlarge: "r5ad.12xlarge",
+  r5ad_16xlarge: "r5ad.16xlarge",
+  r5ad_24xlarge: "r5ad.24xlarge",
+  r5ad_2xlarge: "r5ad.2xlarge",
+  r5ad_4xlarge: "r5ad.4xlarge",
+  r5ad_8xlarge: "r5ad.8xlarge",
+  r5ad_large: "r5ad.large",
+  r5ad_xlarge: "r5ad.xlarge",
+  r5b_12xlarge: "r5b.12xlarge",
+  r5b_16xlarge: "r5b.16xlarge",
+  r5b_24xlarge: "r5b.24xlarge",
+  r5b_2xlarge: "r5b.2xlarge",
+  r5b_4xlarge: "r5b.4xlarge",
+  r5b_8xlarge: "r5b.8xlarge",
+  r5b_large: "r5b.large",
+  r5b_metal: "r5b.metal",
+  r5b_xlarge: "r5b.xlarge",
+  r5d_12xlarge: "r5d.12xlarge",
+  r5d_16xlarge: "r5d.16xlarge",
+  r5d_24xlarge: "r5d.24xlarge",
+  r5d_2xlarge: "r5d.2xlarge",
+  r5d_4xlarge: "r5d.4xlarge",
+  r5d_8xlarge: "r5d.8xlarge",
+  r5d_large: "r5d.large",
+  r5d_metal: "r5d.metal",
+  r5d_xlarge: "r5d.xlarge",
+  r5dn_12xlarge: "r5dn.12xlarge",
+  r5dn_16xlarge: "r5dn.16xlarge",
+  r5dn_24xlarge: "r5dn.24xlarge",
+  r5dn_2xlarge: "r5dn.2xlarge",
+  r5dn_4xlarge: "r5dn.4xlarge",
+  r5dn_8xlarge: "r5dn.8xlarge",
+  r5dn_large: "r5dn.large",
+  r5dn_metal: "r5dn.metal",
+  r5dn_xlarge: "r5dn.xlarge",
+  r5n_12xlarge: "r5n.12xlarge",
+  r5n_16xlarge: "r5n.16xlarge",
+  r5n_24xlarge: "r5n.24xlarge",
+  r5n_2xlarge: "r5n.2xlarge",
+  r5n_4xlarge: "r5n.4xlarge",
+  r5n_8xlarge: "r5n.8xlarge",
+  r5n_large: "r5n.large",
+  r5n_metal: "r5n.metal",
+  r5n_xlarge: "r5n.xlarge",
+  r6a_12xlarge: "r6a.12xlarge",
+  r6a_16xlarge: "r6a.16xlarge",
+  r6a_24xlarge: "r6a.24xlarge",
+  r6a_2xlarge: "r6a.2xlarge",
+  r6a_32xlarge: "r6a.32xlarge",
+  r6a_48xlarge: "r6a.48xlarge",
+  r6a_4xlarge: "r6a.4xlarge",
+  r6a_8xlarge: "r6a.8xlarge",
+  r6a_large: "r6a.large",
+  r6a_metal: "r6a.metal",
+  r6a_xlarge: "r6a.xlarge",
+  r6g_12xlarge: "r6g.12xlarge",
+  r6g_16xlarge: "r6g.16xlarge",
+  r6g_2xlarge: "r6g.2xlarge",
+  r6g_4xlarge: "r6g.4xlarge",
+  r6g_8xlarge: "r6g.8xlarge",
+  r6g_large: "r6g.large",
+  r6g_medium: "r6g.medium",
+  r6g_metal: "r6g.metal",
+  r6g_xlarge: "r6g.xlarge",
+  r6gd_12xlarge: "r6gd.12xlarge",
+  r6gd_16xlarge: "r6gd.16xlarge",
+  r6gd_2xlarge: "r6gd.2xlarge",
+  r6gd_4xlarge: "r6gd.4xlarge",
+  r6gd_8xlarge: "r6gd.8xlarge",
+  r6gd_large: "r6gd.large",
+  r6gd_medium: "r6gd.medium",
+  r6gd_metal: "r6gd.metal",
+  r6gd_xlarge: "r6gd.xlarge",
+  r6i_12xlarge: "r6i.12xlarge",
+  r6i_16xlarge: "r6i.16xlarge",
+  r6i_24xlarge: "r6i.24xlarge",
+  r6i_2xlarge: "r6i.2xlarge",
+  r6i_32xlarge: "r6i.32xlarge",
+  r6i_4xlarge: "r6i.4xlarge",
+  r6i_8xlarge: "r6i.8xlarge",
+  r6i_large: "r6i.large",
+  r6i_metal: "r6i.metal",
+  r6i_xlarge: "r6i.xlarge",
+  r6id_12xlarge: "r6id.12xlarge",
+  r6id_16xlarge: "r6id.16xlarge",
+  r6id_24xlarge: "r6id.24xlarge",
+  r6id_2xlarge: "r6id.2xlarge",
+  r6id_32xlarge: "r6id.32xlarge",
+  r6id_4xlarge: "r6id.4xlarge",
+  r6id_8xlarge: "r6id.8xlarge",
+  r6id_large: "r6id.large",
+  r6id_metal: "r6id.metal",
+  r6id_xlarge: "r6id.xlarge",
+  r6idn_12xlarge: "r6idn.12xlarge",
+  r6idn_16xlarge: "r6idn.16xlarge",
+  r6idn_24xlarge: "r6idn.24xlarge",
+  r6idn_2xlarge: "r6idn.2xlarge",
+  r6idn_32xlarge: "r6idn.32xlarge",
+  r6idn_4xlarge: "r6idn.4xlarge",
+  r6idn_8xlarge: "r6idn.8xlarge",
+  r6idn_large: "r6idn.large",
+  r6idn_xlarge: "r6idn.xlarge",
+  r6in_12xlarge: "r6in.12xlarge",
+  r6in_16xlarge: "r6in.16xlarge",
+  r6in_24xlarge: "r6in.24xlarge",
+  r6in_2xlarge: "r6in.2xlarge",
+  r6in_32xlarge: "r6in.32xlarge",
+  r6in_4xlarge: "r6in.4xlarge",
+  r6in_8xlarge: "r6in.8xlarge",
+  r6in_large: "r6in.large",
+  r6in_xlarge: "r6in.xlarge",
+  r7g_12xlarge: "r7g.12xlarge",
+  r7g_16xlarge: "r7g.16xlarge",
+  r7g_2xlarge: "r7g.2xlarge",
+  r7g_4xlarge: "r7g.4xlarge",
+  r7g_8xlarge: "r7g.8xlarge",
+  r7g_large: "r7g.large",
+  r7g_medium: "r7g.medium",
+  r7g_metal: "r7g.metal",
+  r7g_xlarge: "r7g.xlarge",
+  t1_micro: "t1.micro",
+  t2_2xlarge: "t2.2xlarge",
+  t2_large: "t2.large",
+  t2_medium: "t2.medium",
+  t2_micro: "t2.micro",
+  t2_nano: "t2.nano",
+  t2_small: "t2.small",
+  t2_xlarge: "t2.xlarge",
+  t3_2xlarge: "t3.2xlarge",
+  t3_large: "t3.large",
+  t3_medium: "t3.medium",
+  t3_micro: "t3.micro",
+  t3_nano: "t3.nano",
+  t3_small: "t3.small",
+  t3_xlarge: "t3.xlarge",
+  t3a_2xlarge: "t3a.2xlarge",
+  t3a_large: "t3a.large",
+  t3a_medium: "t3a.medium",
+  t3a_micro: "t3a.micro",
+  t3a_nano: "t3a.nano",
+  t3a_small: "t3a.small",
+  t3a_xlarge: "t3a.xlarge",
+  t4g_2xlarge: "t4g.2xlarge",
+  t4g_large: "t4g.large",
+  t4g_medium: "t4g.medium",
+  t4g_micro: "t4g.micro",
+  t4g_nano: "t4g.nano",
+  t4g_small: "t4g.small",
+  t4g_xlarge: "t4g.xlarge",
+  trn1_2xlarge: "trn1.2xlarge",
+  trn1_32xlarge: "trn1.32xlarge",
+  u_12tb1_112xlarge: "u-12tb1.112xlarge",
+  u_12tb1_metal: "u-12tb1.metal",
+  u_18tb1_112xlarge: "u-18tb1.112xlarge",
+  u_18tb1_metal: "u-18tb1.metal",
+  u_24tb1_112xlarge: "u-24tb1.112xlarge",
+  u_24tb1_metal: "u-24tb1.metal",
+  u_3tb1_56xlarge: "u-3tb1.56xlarge",
+  u_6tb1_112xlarge: "u-6tb1.112xlarge",
+  u_6tb1_56xlarge: "u-6tb1.56xlarge",
+  u_6tb1_metal: "u-6tb1.metal",
+  u_9tb1_112xlarge: "u-9tb1.112xlarge",
+  u_9tb1_metal: "u-9tb1.metal",
+  vt1_24xlarge: "vt1.24xlarge",
+  vt1_3xlarge: "vt1.3xlarge",
+  vt1_6xlarge: "vt1.6xlarge",
+  x1_16xlarge: "x1.16xlarge",
+  x1_32xlarge: "x1.32xlarge",
+  x1e_16xlarge: "x1e.16xlarge",
+  x1e_2xlarge: "x1e.2xlarge",
+  x1e_32xlarge: "x1e.32xlarge",
+  x1e_4xlarge: "x1e.4xlarge",
+  x1e_8xlarge: "x1e.8xlarge",
+  x1e_xlarge: "x1e.xlarge",
+  x2gd_12xlarge: "x2gd.12xlarge",
+  x2gd_16xlarge: "x2gd.16xlarge",
+  x2gd_2xlarge: "x2gd.2xlarge",
+  x2gd_4xlarge: "x2gd.4xlarge",
+  x2gd_8xlarge: "x2gd.8xlarge",
+  x2gd_large: "x2gd.large",
+  x2gd_medium: "x2gd.medium",
+  x2gd_metal: "x2gd.metal",
+  x2gd_xlarge: "x2gd.xlarge",
+  x2idn_16xlarge: "x2idn.16xlarge",
+  x2idn_24xlarge: "x2idn.24xlarge",
+  x2idn_32xlarge: "x2idn.32xlarge",
+  x2idn_metal: "x2idn.metal",
+  x2iedn_16xlarge: "x2iedn.16xlarge",
+  x2iedn_24xlarge: "x2iedn.24xlarge",
+  x2iedn_2xlarge: "x2iedn.2xlarge",
+  x2iedn_32xlarge: "x2iedn.32xlarge",
+  x2iedn_4xlarge: "x2iedn.4xlarge",
+  x2iedn_8xlarge: "x2iedn.8xlarge",
+  x2iedn_metal: "x2iedn.metal",
+  x2iedn_xlarge: "x2iedn.xlarge",
+  x2iezn_12xlarge: "x2iezn.12xlarge",
+  x2iezn_2xlarge: "x2iezn.2xlarge",
+  x2iezn_4xlarge: "x2iezn.4xlarge",
+  x2iezn_6xlarge: "x2iezn.6xlarge",
+  x2iezn_8xlarge: "x2iezn.8xlarge",
+  x2iezn_metal: "x2iezn.metal",
+  z1d_12xlarge: "z1d.12xlarge",
+  z1d_2xlarge: "z1d.2xlarge",
+  z1d_3xlarge: "z1d.3xlarge",
+  z1d_6xlarge: "z1d.6xlarge",
+  z1d_large: "z1d.large",
+  z1d_metal: "z1d.metal",
+  z1d_xlarge: "z1d.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
 
 /**
  * @public
@@ -7769,10 +8169,17 @@ export interface ReservationFleetInstanceSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum FleetCapacityReservationTenancy {
-  default = "default",
-}
+export const FleetCapacityReservationTenancy = {
+  default: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetCapacityReservationTenancy =
+  (typeof FleetCapacityReservationTenancy)[keyof typeof FleetCapacityReservationTenancy];
 
 /**
  * @public
@@ -8018,13 +8425,19 @@ export interface CreateCarrierGatewayRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CarrierGatewayState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const CarrierGatewayState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type CarrierGatewayState = (typeof CarrierGatewayState)[keyof typeof CarrierGatewayState];
 
 /**
  * @public

@@ -97,21 +97,33 @@ export interface Document {
 
 /**
  * @public
+ * @enum
  */
-export enum FeatureType {
-  FORMS = "FORMS",
-  QUERIES = "QUERIES",
-  SIGNATURES = "SIGNATURES",
-  TABLES = "TABLES",
-}
+export const FeatureType = {
+  FORMS: "FORMS",
+  QUERIES: "QUERIES",
+  SIGNATURES: "SIGNATURES",
+  TABLES: "TABLES",
+} as const;
 
 /**
  * @public
  */
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentClassifier];
 
 /**
  * @public
@@ -239,38 +251,50 @@ export interface AnalyzeDocumentRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum BlockType {
-  CELL = "CELL",
-  KEY_VALUE_SET = "KEY_VALUE_SET",
-  LINE = "LINE",
-  MERGED_CELL = "MERGED_CELL",
-  PAGE = "PAGE",
-  QUERY = "QUERY",
-  QUERY_RESULT = "QUERY_RESULT",
-  SELECTION_ELEMENT = "SELECTION_ELEMENT",
-  SIGNATURE = "SIGNATURE",
-  TABLE = "TABLE",
-  TABLE_FOOTER = "TABLE_FOOTER",
-  TABLE_TITLE = "TABLE_TITLE",
-  TITLE = "TITLE",
-  WORD = "WORD",
-}
+export const BlockType = {
+  CELL: "CELL",
+  KEY_VALUE_SET: "KEY_VALUE_SET",
+  LINE: "LINE",
+  MERGED_CELL: "MERGED_CELL",
+  PAGE: "PAGE",
+  QUERY: "QUERY",
+  QUERY_RESULT: "QUERY_RESULT",
+  SELECTION_ELEMENT: "SELECTION_ELEMENT",
+  SIGNATURE: "SIGNATURE",
+  TABLE: "TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_TITLE: "TABLE_TITLE",
+  TITLE: "TITLE",
+  WORD: "WORD",
+} as const;
 
 /**
  * @public
  */
-export enum EntityType {
-  COLUMN_HEADER = "COLUMN_HEADER",
-  KEY = "KEY",
-  SEMI_STRUCTURED_TABLE = "SEMI_STRUCTURED_TABLE",
-  STRUCTURED_TABLE = "STRUCTURED_TABLE",
-  TABLE_FOOTER = "TABLE_FOOTER",
-  TABLE_SECTION_TITLE = "TABLE_SECTION_TITLE",
-  TABLE_SUMMARY = "TABLE_SUMMARY",
-  TABLE_TITLE = "TABLE_TITLE",
-  VALUE = "VALUE",
-}
+export type BlockType = (typeof BlockType)[keyof typeof BlockType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EntityType = {
+  COLUMN_HEADER: "COLUMN_HEADER",
+  KEY: "KEY",
+  SEMI_STRUCTURED_TABLE: "SEMI_STRUCTURED_TABLE",
+  STRUCTURED_TABLE: "STRUCTURED_TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_SECTION_TITLE: "TABLE_SECTION_TITLE",
+  TABLE_SUMMARY: "TABLE_SUMMARY",
+  TABLE_TITLE: "TABLE_TITLE",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 /**
  * @public
@@ -356,18 +380,24 @@ export interface Geometry {
 
 /**
  * @public
+ * @enum
  */
-export enum RelationshipType {
-  ANSWER = "ANSWER",
-  CHILD = "CHILD",
-  COMPLEX_FEATURES = "COMPLEX_FEATURES",
-  MERGED_CELL = "MERGED_CELL",
-  TABLE = "TABLE",
-  TABLE_FOOTER = "TABLE_FOOTER",
-  TABLE_TITLE = "TABLE_TITLE",
-  TITLE = "TITLE",
-  VALUE = "VALUE",
-}
+export const RelationshipType = {
+  ANSWER: "ANSWER",
+  CHILD: "CHILD",
+  COMPLEX_FEATURES: "COMPLEX_FEATURES",
+  MERGED_CELL: "MERGED_CELL",
+  TABLE: "TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_TITLE: "TABLE_TITLE",
+  TITLE: "TITLE",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type RelationshipType = (typeof RelationshipType)[keyof typeof RelationshipType];
 
 /**
  * @public
@@ -432,19 +462,31 @@ export interface Relationship {
 
 /**
  * @public
+ * @enum
  */
-export enum SelectionStatus {
-  NOT_SELECTED = "NOT_SELECTED",
-  SELECTED = "SELECTED",
-}
+export const SelectionStatus = {
+  NOT_SELECTED: "NOT_SELECTED",
+  SELECTED: "SELECTED",
+} as const;
 
 /**
  * @public
  */
-export enum TextType {
-  HANDWRITING = "HANDWRITING",
-  PRINTED = "PRINTED",
-}
+export type SelectionStatus = (typeof SelectionStatus)[keyof typeof SelectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TextType = {
+  HANDWRITING: "HANDWRITING",
+  PRINTED: "PRINTED",
+} as const;
+
+/**
+ * @public
+ */
+export type TextType = (typeof TextType)[keyof typeof TextType];
 
 /**
  * @public
@@ -1265,10 +1307,16 @@ export interface AnalyzeIDRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ValueType {
-  DATE = "DATE",
-}
+export const ValueType = {
+  DATE: "DATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ValueType = (typeof ValueType)[keyof typeof ValueType];
 
 /**
  * @public
@@ -1614,13 +1662,19 @@ export interface GetDocumentAnalysisRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const JobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public

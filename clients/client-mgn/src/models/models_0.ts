@@ -27,37 +27,55 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ActionCategory {
-  BACKUP = "BACKUP",
-  CONFIGURATION = "CONFIGURATION",
-  DISASTER_RECOVERY = "DISASTER_RECOVERY",
-  LICENSE_AND_SUBSCRIPTION = "LICENSE_AND_SUBSCRIPTION",
-  NETWORKING = "NETWORKING",
-  OBSERVABILITY = "OBSERVABILITY",
-  OPERATING_SYSTEM = "OPERATING_SYSTEM",
-  OTHER = "OTHER",
-  SECURITY = "SECURITY",
-  VALIDATION = "VALIDATION",
-}
+export const ActionCategory = {
+  BACKUP: "BACKUP",
+  CONFIGURATION: "CONFIGURATION",
+  DISASTER_RECOVERY: "DISASTER_RECOVERY",
+  LICENSE_AND_SUBSCRIPTION: "LICENSE_AND_SUBSCRIPTION",
+  NETWORKING: "NETWORKING",
+  OBSERVABILITY: "OBSERVABILITY",
+  OPERATING_SYSTEM: "OPERATING_SYSTEM",
+  OTHER: "OTHER",
+  SECURITY: "SECURITY",
+  VALIDATION: "VALIDATION",
+} as const;
 
 /**
  * @public
  */
-export enum ApplicationHealthStatus {
-  ERROR = "ERROR",
-  HEALTHY = "HEALTHY",
-  LAGGING = "LAGGING",
-}
+export type ActionCategory = (typeof ActionCategory)[keyof typeof ActionCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationHealthStatus = {
+  ERROR: "ERROR",
+  HEALTHY: "HEALTHY",
+  LAGGING: "LAGGING",
+} as const;
 
 /**
  * @public
  */
-export enum ApplicationProgressStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export type ApplicationHealthStatus = (typeof ApplicationHealthStatus)[keyof typeof ApplicationHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationProgressStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationProgressStatus = (typeof ApplicationProgressStatus)[keyof typeof ApplicationProgressStatus];
 
 /**
  * @public
@@ -567,13 +585,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -643,13 +667,19 @@ export interface ListExportsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ExportStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ExportStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
 
 /**
  * @public
@@ -830,11 +860,17 @@ export interface ImportErrorData {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportErrorType {
-  PROCESSING_ERROR = "PROCESSING_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const ImportErrorType = {
+  PROCESSING_ERROR: "PROCESSING_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportErrorType = (typeof ImportErrorType)[keyof typeof ImportErrorType];
 
 /**
  * @public
@@ -928,13 +964,19 @@ export interface S3BucketSource {
 
 /**
  * @public
+ * @enum
  */
-export enum ImportStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ImportStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
 
 /**
  * @public
@@ -1136,25 +1178,31 @@ export interface DescribeJobLogItemsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum JobLogEvent {
-  CLEANUP_END = "CLEANUP_END",
-  CLEANUP_FAIL = "CLEANUP_FAIL",
-  CLEANUP_START = "CLEANUP_START",
-  CONVERSION_END = "CONVERSION_END",
-  CONVERSION_FAIL = "CONVERSION_FAIL",
-  CONVERSION_START = "CONVERSION_START",
-  JOB_CANCEL = "JOB_CANCEL",
-  JOB_END = "JOB_END",
-  JOB_START = "JOB_START",
-  LAUNCH_FAILED = "LAUNCH_FAILED",
-  LAUNCH_START = "LAUNCH_START",
-  SERVER_SKIPPED = "SERVER_SKIPPED",
-  SNAPSHOT_END = "SNAPSHOT_END",
-  SNAPSHOT_FAIL = "SNAPSHOT_FAIL",
-  SNAPSHOT_START = "SNAPSHOT_START",
-  USING_PREVIOUS_SNAPSHOT = "USING_PREVIOUS_SNAPSHOT",
-}
+export const JobLogEvent = {
+  CLEANUP_END: "CLEANUP_END",
+  CLEANUP_FAIL: "CLEANUP_FAIL",
+  CLEANUP_START: "CLEANUP_START",
+  CONVERSION_END: "CONVERSION_END",
+  CONVERSION_FAIL: "CONVERSION_FAIL",
+  CONVERSION_START: "CONVERSION_START",
+  JOB_CANCEL: "JOB_CANCEL",
+  JOB_END: "JOB_END",
+  JOB_START: "JOB_START",
+  LAUNCH_FAILED: "LAUNCH_FAILED",
+  LAUNCH_START: "LAUNCH_START",
+  SERVER_SKIPPED: "SERVER_SKIPPED",
+  SNAPSHOT_END: "SNAPSHOT_END",
+  SNAPSHOT_FAIL: "SNAPSHOT_FAIL",
+  SNAPSHOT_START: "SNAPSHOT_START",
+  USING_PREVIOUS_SNAPSHOT: "USING_PREVIOUS_SNAPSHOT",
+} as const;
+
+/**
+ * @public
+ */
+export type JobLogEvent = (typeof JobLogEvent)[keyof typeof JobLogEvent];
 
 /**
  * @public
@@ -1261,33 +1309,52 @@ export interface DescribeJobsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum InitiatedBy {
-  DIAGNOSTIC = "DIAGNOSTIC",
-  START_CUTOVER = "START_CUTOVER",
-  START_TEST = "START_TEST",
-  TERMINATE = "TERMINATE",
-}
+export const InitiatedBy = {
+  DIAGNOSTIC: "DIAGNOSTIC",
+  START_CUTOVER: "START_CUTOVER",
+  START_TEST: "START_TEST",
+  TERMINATE: "TERMINATE",
+} as const;
 
 /**
  * @public
  */
-export enum LaunchStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  LAUNCHED = "LAUNCHED",
-  PENDING = "PENDING",
-  TERMINATED = "TERMINATED",
-}
+export type InitiatedBy = (typeof InitiatedBy)[keyof typeof InitiatedBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  LAUNCHED: "LAUNCHED",
+  PENDING: "PENDING",
+  TERMINATED: "TERMINATED",
+} as const;
 
 /**
  * @public
  */
-export enum PostLaunchActionExecutionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export type LaunchStatus = (typeof LaunchStatus)[keyof typeof LaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PostLaunchActionExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type PostLaunchActionExecutionStatus =
+  (typeof PostLaunchActionExecutionStatus)[keyof typeof PostLaunchActionExecutionStatus];
 
 /**
  * @public
@@ -1325,10 +1392,17 @@ export namespace SsmExternalParameter {
 
 /**
  * @public
+ * @enum
  */
-export enum SsmParameterStoreParameterType {
-  STRING = "STRING",
-}
+export const SsmParameterStoreParameterType = {
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type SsmParameterStoreParameterType =
+  (typeof SsmParameterStoreParameterType)[keyof typeof SsmParameterStoreParameterType];
 
 /**
  * @public
@@ -1384,11 +1458,17 @@ export interface SsmDocument {
 
 /**
  * @public
+ * @enum
  */
-export enum SsmDocumentType {
-  AUTOMATION = "AUTOMATION",
-  COMMAND = "COMMAND",
-}
+export const SsmDocumentType = {
+  AUTOMATION: "AUTOMATION",
+  COMMAND: "COMMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type SsmDocumentType = (typeof SsmDocumentType)[keyof typeof SsmDocumentType];
 
 /**
  * @public
@@ -1465,20 +1545,32 @@ export interface ParticipatingServer {
 
 /**
  * @public
+ * @enum
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+} as const;
 
 /**
  * @public
  */
-export enum JobType {
-  LAUNCH = "LAUNCH",
-  TERMINATE = "TERMINATE",
-}
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobType = {
+  LAUNCH: "LAUNCH",
+  TERMINATE: "TERMINATE",
+} as const;
+
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
 
 /**
  * @public
@@ -1548,24 +1640,36 @@ export interface DescribeJobsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum BootMode {
-  LEGACY_BIOS = "LEGACY_BIOS",
-  UEFI = "UEFI",
-}
+export const BootMode = {
+  LEGACY_BIOS: "LEGACY_BIOS",
+  UEFI: "UEFI",
+} as const;
 
 /**
  * @public
  */
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  io2 = "io2",
-  sc1 = "sc1",
-  st1 = "st1",
-  standard = "standard",
-}
+export type BootMode = (typeof BootMode)[keyof typeof BootMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  io2: "io2",
+  sc1: "sc1",
+  st1: "st1",
+  standard: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
 
 /**
  * @public
@@ -1590,11 +1694,17 @@ export interface LaunchTemplateDiskConf {
 
 /**
  * @public
+ * @enum
  */
-export enum LaunchDisposition {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+export const LaunchDisposition = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchDisposition = (typeof LaunchDisposition)[keyof typeof LaunchDisposition];
 
 /**
  * @public
@@ -1609,12 +1719,19 @@ export interface Licensing {
 
 /**
  * @public
+ * @enum
  */
-export enum PostLaunchActionsDeploymentType {
-  CUTOVER_ONLY = "CUTOVER_ONLY",
-  TEST_AND_CUTOVER = "TEST_AND_CUTOVER",
-  TEST_ONLY = "TEST_ONLY",
-}
+export const PostLaunchActionsDeploymentType = {
+  CUTOVER_ONLY: "CUTOVER_ONLY",
+  TEST_AND_CUTOVER: "TEST_AND_CUTOVER",
+  TEST_ONLY: "TEST_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type PostLaunchActionsDeploymentType =
+  (typeof PostLaunchActionsDeploymentType)[keyof typeof PostLaunchActionsDeploymentType];
 
 /**
  * @public
@@ -1649,11 +1766,18 @@ export interface PostLaunchActions {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetInstanceTypeRightSizingMethod {
-  BASIC = "BASIC",
-  NONE = "NONE",
-}
+export const TargetInstanceTypeRightSizingMethod = {
+  BASIC: "BASIC",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetInstanceTypeRightSizingMethod =
+  (typeof TargetInstanceTypeRightSizingMethod)[keyof typeof TargetInstanceTypeRightSizingMethod];
 
 /**
  * @public
@@ -2247,28 +2371,49 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationConfigurationDataPlaneRouting {
-  PRIVATE_IP = "PRIVATE_IP",
-  PUBLIC_IP = "PUBLIC_IP",
-}
+export const ReplicationConfigurationDataPlaneRouting = {
+  PRIVATE_IP: "PRIVATE_IP",
+  PUBLIC_IP: "PUBLIC_IP",
+} as const;
 
 /**
  * @public
  */
-export enum ReplicationConfigurationDefaultLargeStagingDiskType {
-  GP2 = "GP2",
-  GP3 = "GP3",
-  ST1 = "ST1",
-}
+export type ReplicationConfigurationDataPlaneRouting =
+  (typeof ReplicationConfigurationDataPlaneRouting)[keyof typeof ReplicationConfigurationDataPlaneRouting];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationDefaultLargeStagingDiskType = {
+  GP2: "GP2",
+  GP3: "GP3",
+  ST1: "ST1",
+} as const;
 
 /**
  * @public
  */
-export enum ReplicationConfigurationEbsEncryption {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
-}
+export type ReplicationConfigurationDefaultLargeStagingDiskType =
+  (typeof ReplicationConfigurationDefaultLargeStagingDiskType)[keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationConfigurationEbsEncryption = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationConfigurationEbsEncryption =
+  (typeof ReplicationConfigurationEbsEncryption)[keyof typeof ReplicationConfigurationEbsEncryption];
 
 /**
  * @public
@@ -2547,12 +2692,19 @@ export interface UpdateReplicationConfigurationTemplateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ChangeServerLifeCycleStateSourceServerLifecycleState {
-  CUTOVER = "CUTOVER",
-  READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
-  READY_FOR_TEST = "READY_FOR_TEST",
-}
+export const ChangeServerLifeCycleStateSourceServerLifecycleState = {
+  CUTOVER: "CUTOVER",
+  READY_FOR_CUTOVER: "READY_FOR_CUTOVER",
+  READY_FOR_TEST: "READY_FOR_TEST",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeServerLifeCycleStateSourceServerLifecycleState =
+  (typeof ChangeServerLifeCycleStateSourceServerLifecycleState)[keyof typeof ChangeServerLifeCycleStateSourceServerLifecycleState];
 
 /**
  * @public
@@ -2582,25 +2734,31 @@ export interface ChangeServerLifeCycleStateRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum DataReplicationErrorString {
-  AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
-  FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
-  FAILED_TO_AUTHENTICATE_WITH_SERVICE = "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
-  FAILED_TO_BOOT_REPLICATION_SERVER = "FAILED_TO_BOOT_REPLICATION_SERVER",
-  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
-  FAILED_TO_CREATE_SECURITY_GROUP = "FAILED_TO_CREATE_SECURITY_GROUP",
-  FAILED_TO_CREATE_STAGING_DISKS = "FAILED_TO_CREATE_STAGING_DISKS",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
-  FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
-  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
-  FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
-  LAST_SNAPSHOT_JOB_FAILED = "LAST_SNAPSHOT_JOB_FAILED",
-  NOT_CONVERGING = "NOT_CONVERGING",
-  SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
-  UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
-  UNSUPPORTED_VM_CONFIGURATION = "UNSUPPORTED_VM_CONFIGURATION",
-}
+export const DataReplicationErrorString = {
+  AGENT_NOT_SEEN: "AGENT_NOT_SEEN",
+  FAILED_TO_ATTACH_STAGING_DISKS: "FAILED_TO_ATTACH_STAGING_DISKS",
+  FAILED_TO_AUTHENTICATE_WITH_SERVICE: "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
+  FAILED_TO_BOOT_REPLICATION_SERVER: "FAILED_TO_BOOT_REPLICATION_SERVER",
+  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_SECURITY_GROUP: "FAILED_TO_CREATE_SECURITY_GROUP",
+  FAILED_TO_CREATE_STAGING_DISKS: "FAILED_TO_CREATE_STAGING_DISKS",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
+  FAILED_TO_LAUNCH_REPLICATION_SERVER: "FAILED_TO_LAUNCH_REPLICATION_SERVER",
+  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_START_DATA_TRANSFER: "FAILED_TO_START_DATA_TRANSFER",
+  LAST_SNAPSHOT_JOB_FAILED: "LAST_SNAPSHOT_JOB_FAILED",
+  NOT_CONVERGING: "NOT_CONVERGING",
+  SNAPSHOTS_FAILURE: "SNAPSHOTS_FAILURE",
+  UNSTABLE_NETWORK: "UNSTABLE_NETWORK",
+  UNSUPPORTED_VM_CONFIGURATION: "UNSUPPORTED_VM_CONFIGURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type DataReplicationErrorString = (typeof DataReplicationErrorString)[keyof typeof DataReplicationErrorString];
 
 /**
  * @public
@@ -2620,31 +2778,45 @@ export interface DataReplicationError {
 
 /**
  * @public
+ * @enum
  */
-export enum DataReplicationInitiationStepName {
-  ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
-  AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
-  BOOT_REPLICATION_SERVER = "BOOT_REPLICATION_SERVER",
-  CONNECT_AGENT_TO_REPLICATION_SERVER = "CONNECT_AGENT_TO_REPLICATION_SERVER",
-  CREATE_SECURITY_GROUP = "CREATE_SECURITY_GROUP",
-  CREATE_STAGING_DISKS = "CREATE_STAGING_DISKS",
-  DOWNLOAD_REPLICATION_SOFTWARE = "DOWNLOAD_REPLICATION_SOFTWARE",
-  LAUNCH_REPLICATION_SERVER = "LAUNCH_REPLICATION_SERVER",
-  PAIR_REPLICATION_SERVER_WITH_AGENT = "PAIR_REPLICATION_SERVER_WITH_AGENT",
-  START_DATA_TRANSFER = "START_DATA_TRANSFER",
-  WAIT = "WAIT",
-}
+export const DataReplicationInitiationStepName = {
+  ATTACH_STAGING_DISKS: "ATTACH_STAGING_DISKS",
+  AUTHENTICATE_WITH_SERVICE: "AUTHENTICATE_WITH_SERVICE",
+  BOOT_REPLICATION_SERVER: "BOOT_REPLICATION_SERVER",
+  CONNECT_AGENT_TO_REPLICATION_SERVER: "CONNECT_AGENT_TO_REPLICATION_SERVER",
+  CREATE_SECURITY_GROUP: "CREATE_SECURITY_GROUP",
+  CREATE_STAGING_DISKS: "CREATE_STAGING_DISKS",
+  DOWNLOAD_REPLICATION_SOFTWARE: "DOWNLOAD_REPLICATION_SOFTWARE",
+  LAUNCH_REPLICATION_SERVER: "LAUNCH_REPLICATION_SERVER",
+  PAIR_REPLICATION_SERVER_WITH_AGENT: "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  START_DATA_TRANSFER: "START_DATA_TRANSFER",
+  WAIT: "WAIT",
+} as const;
 
 /**
  * @public
  */
-export enum DataReplicationInitiationStepStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type DataReplicationInitiationStepName =
+  (typeof DataReplicationInitiationStepName)[keyof typeof DataReplicationInitiationStepName];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataReplicationInitiationStepStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataReplicationInitiationStepStatus =
+  (typeof DataReplicationInitiationStepStatus)[keyof typeof DataReplicationInitiationStepStatus];
 
 /**
  * @public
@@ -2685,21 +2857,27 @@ export interface DataReplicationInitiation {
 
 /**
  * @public
+ * @enum
  */
-export enum DataReplicationState {
-  BACKLOG = "BACKLOG",
-  CONTINUOUS = "CONTINUOUS",
-  CREATING_SNAPSHOT = "CREATING_SNAPSHOT",
-  DISCONNECTED = "DISCONNECTED",
-  INITIAL_SYNC = "INITIAL_SYNC",
-  INITIATING = "INITIATING",
-  PAUSED = "PAUSED",
-  PENDING_SNAPSHOT_SHIPPING = "PENDING_SNAPSHOT_SHIPPING",
-  RESCAN = "RESCAN",
-  SHIPPING_SNAPSHOT = "SHIPPING_SNAPSHOT",
-  STALLED = "STALLED",
-  STOPPED = "STOPPED",
-}
+export const DataReplicationState = {
+  BACKLOG: "BACKLOG",
+  CONTINUOUS: "CONTINUOUS",
+  CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
+  DISCONNECTED: "DISCONNECTED",
+  INITIAL_SYNC: "INITIAL_SYNC",
+  INITIATING: "INITIATING",
+  PAUSED: "PAUSED",
+  PENDING_SNAPSHOT_SHIPPING: "PENDING_SNAPSHOT_SHIPPING",
+  RESCAN: "RESCAN",
+  SHIPPING_SNAPSHOT: "SHIPPING_SNAPSHOT",
+  STALLED: "STALLED",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataReplicationState = (typeof DataReplicationState)[keyof typeof DataReplicationState];
 
 /**
  * @public
@@ -2775,13 +2953,19 @@ export interface DataReplicationInfo {
 
 /**
  * @public
+ * @enum
  */
-export enum FirstBoot {
-  STOPPED = "STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-  UNKNOWN = "UNKNOWN",
-  WAITING = "WAITING",
-}
+export const FirstBoot = {
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  UNKNOWN: "UNKNOWN",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type FirstBoot = (typeof FirstBoot)[keyof typeof FirstBoot];
 
 /**
  * @public
@@ -2924,19 +3108,25 @@ export interface LifeCycleLastTest {
 
 /**
  * @public
+ * @enum
  */
-export enum LifeCycleState {
-  CUTOVER = "CUTOVER",
-  CUTTING_OVER = "CUTTING_OVER",
-  DISCONNECTED = "DISCONNECTED",
-  DISCOVERED = "DISCOVERED",
-  NOT_READY = "NOT_READY",
-  PENDING_INSTALLATION = "PENDING_INSTALLATION",
-  READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
-  READY_FOR_TEST = "READY_FOR_TEST",
-  STOPPED = "STOPPED",
-  TESTING = "TESTING",
-}
+export const LifeCycleState = {
+  CUTOVER: "CUTOVER",
+  CUTTING_OVER: "CUTTING_OVER",
+  DISCONNECTED: "DISCONNECTED",
+  DISCOVERED: "DISCOVERED",
+  NOT_READY: "NOT_READY",
+  PENDING_INSTALLATION: "PENDING_INSTALLATION",
+  READY_FOR_CUTOVER: "READY_FOR_CUTOVER",
+  READY_FOR_TEST: "READY_FOR_TEST",
+  STOPPED: "STOPPED",
+  TESTING: "TESTING",
+} as const;
+
+/**
+ * @public
+ */
+export type LifeCycleState = (typeof LifeCycleState)[keyof typeof LifeCycleState];
 
 /**
  * @public
@@ -2981,11 +3171,17 @@ export interface LifeCycle {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationType {
-  AGENT_BASED = "AGENT_BASED",
-  SNAPSHOT_SHIPPING = "SNAPSHOT_SHIPPING",
-}
+export const ReplicationType = {
+  AGENT_BASED: "AGENT_BASED",
+  SNAPSHOT_SHIPPING: "SNAPSHOT_SHIPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationType = (typeof ReplicationType)[keyof typeof ReplicationType];
 
 /**
  * @public
@@ -3386,17 +3582,24 @@ export interface GetReplicationConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
-  AUTO = "AUTO",
-  GP2 = "GP2",
-  GP3 = "GP3",
-  IO1 = "IO1",
-  IO2 = "IO2",
-  SC1 = "SC1",
-  ST1 = "ST1",
-  STANDARD = "STANDARD",
-}
+export const ReplicationConfigurationReplicatedDiskStagingDiskType = {
+  AUTO: "AUTO",
+  GP2: "GP2",
+  GP3: "GP3",
+  IO1: "IO1",
+  IO2: "IO2",
+  SC1: "SC1",
+  ST1: "ST1",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationConfigurationReplicatedDiskStagingDiskType =
+  (typeof ReplicationConfigurationReplicatedDiskStagingDiskType)[keyof typeof ReplicationConfigurationReplicatedDiskStagingDiskType];
 
 /**
  * @public
@@ -4103,21 +4306,33 @@ export interface ArchiveWaveRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum WaveHealthStatus {
-  ERROR = "ERROR",
-  HEALTHY = "HEALTHY",
-  LAGGING = "LAGGING",
-}
+export const WaveHealthStatus = {
+  ERROR: "ERROR",
+  HEALTHY: "HEALTHY",
+  LAGGING: "LAGGING",
+} as const;
 
 /**
  * @public
  */
-export enum WaveProgressStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export type WaveHealthStatus = (typeof WaveHealthStatus)[keyof typeof WaveHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WaveProgressStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type WaveProgressStatus = (typeof WaveProgressStatus)[keyof typeof WaveProgressStatus];
 
 /**
  * @public

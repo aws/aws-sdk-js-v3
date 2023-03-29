@@ -1039,11 +1039,18 @@ export interface VerifySoftwareTokenRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VerifySoftwareTokenResponseType {
-  ERROR = "ERROR",
-  SUCCESS = "SUCCESS",
-}
+export const VerifySoftwareTokenResponseType = {
+  ERROR: "ERROR",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifySoftwareTokenResponseType =
+  (typeof VerifySoftwareTokenResponseType)[keyof typeof VerifySoftwareTokenResponseType];
 
 /**
  * @public

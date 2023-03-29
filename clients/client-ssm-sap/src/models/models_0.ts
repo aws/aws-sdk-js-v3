@@ -5,24 +5,36 @@ import { SsmSapServiceException as __BaseException } from "./SsmSapServiceExcept
 
 /**
  * @public
+ * @enum
  */
-export enum ApplicationStatus {
-  ACTIVATED = "ACTIVATED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  REGISTERING = "REGISTERING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+export const ApplicationStatus = {
+  ACTIVATED: "ACTIVATED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  REGISTERING: "REGISTERING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
  * @public
  */
-export enum ApplicationType {
-  HANA = "HANA",
-}
+export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationType = {
+  HANA: "HANA",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
 
 /**
  * @public
@@ -72,10 +84,16 @@ export interface Application {
 
 /**
  * @public
+ * @enum
  */
-export enum CredentialType {
-  ADMIN = "ADMIN",
-}
+export const CredentialType = {
+  ADMIN: "ADMIN",
+} as const;
+
+/**
+ * @public
+ */
+export type CredentialType = (typeof CredentialType)[keyof typeof CredentialType];
 
 /**
  * @public
@@ -128,20 +146,32 @@ export interface ApplicationSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ComponentType {
-  HANA = "HANA",
-}
+export const ComponentType = {
+  HANA: "HANA",
+} as const;
 
 /**
  * @public
  */
-export enum HostRole {
-  LEADER = "LEADER",
-  STANDBY = "STANDBY",
-  UNKNOWN = "UNKNOWN",
-  WORKER = "WORKER",
-}
+export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HostRole = {
+  LEADER: "LEADER",
+  STANDBY: "STANDBY",
+  UNKNOWN: "UNKNOWN",
+  WORKER: "WORKER",
+} as const;
+
+/**
+ * @public
+ */
+export type HostRole = (typeof HostRole)[keyof typeof HostRole];
 
 /**
  * @public
@@ -171,10 +201,16 @@ export interface Host {
 
 /**
  * @public
+ * @enum
  */
-export enum ComponentStatus {
-  ACTIVATED = "ACTIVATED",
-}
+export const ComponentStatus = {
+  ACTIVATED: "ACTIVATED",
+} as const;
+
+/**
+ * @public
+ */
+export type ComponentStatus = (typeof ComponentStatus)[keyof typeof ComponentStatus];
 
 /**
  * @public
@@ -272,22 +308,34 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DatabaseType {
-  SYSTEM = "SYSTEM",
-  TENANT = "TENANT",
-}
+export const DatabaseType = {
+  SYSTEM: "SYSTEM",
+  TENANT: "TENANT",
+} as const;
 
 /**
  * @public
  */
-export enum DatabaseStatus {
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-  WARNING = "WARNING",
-}
+export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatabaseStatus = {
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type DatabaseStatus = (typeof DatabaseStatus)[keyof typeof DatabaseStatus];
 
 /**
  * @public
@@ -389,10 +437,16 @@ export interface DatabaseSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum PermissionActionType {
-  RESTORE = "RESTORE",
-}
+export const PermissionActionType = {
+  RESTORE: "RESTORE",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionActionType = (typeof PermissionActionType)[keyof typeof PermissionActionType];
 
 /**
  * @public
@@ -507,12 +561,18 @@ export interface DeregisterApplicationOutput {}
 
 /**
  * @public
+ * @enum
  */
-export enum FilterOperator {
-  EQUALS = "Equals",
-  GREATER_THAN_OR_EQUALS = "GreaterThanOrEquals",
-  LESS_THAN_OR_EQUALS = "LessThanOrEquals",
-}
+export const FilterOperator = {
+  EQUALS: "Equals",
+  GREATER_THAN_OR_EQUALS: "GreaterThanOrEquals",
+  LESS_THAN_OR_EQUALS: "LessThanOrEquals",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * @public
@@ -651,12 +711,18 @@ export interface GetOperationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationStatus {
-  ERROR = "ERROR",
-  INPROGRESS = "INPROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const OperationStatus = {
+  ERROR: "ERROR",
+  INPROGRESS: "INPROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
 
 /**
  * @public

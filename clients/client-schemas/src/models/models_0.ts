@@ -8,11 +8,17 @@ import { SchemasServiceException as __BaseException } from "./SchemasServiceExce
 
 /**
  * @public
+ * @enum
  */
-export enum DiscovererState {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+export const DiscovererState = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type DiscovererState = (typeof DiscovererState)[keyof typeof DiscovererState];
 
 /**
  * @public
@@ -102,11 +108,17 @@ export interface SchemaSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum Type {
-  JSONSchemaDraft4 = "JSONSchemaDraft4",
-  OpenApi3 = "OpenApi3",
-}
+export const Type = {
+  JSONSchemaDraft4: "JSONSchemaDraft4",
+  OpenApi3: "OpenApi3",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public
@@ -210,12 +222,18 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum CodeGenerationStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-}
+export const CodeGenerationStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type CodeGenerationStatus = (typeof CodeGenerationStatus)[keyof typeof CodeGenerationStatus];
 
 /**
  * @public

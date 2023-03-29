@@ -94,14 +94,20 @@ export interface CapacityDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum ConnectorState {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+export const ConnectorState = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorState = (typeof ConnectorState)[keyof typeof ConnectorState];
 
 /**
  * @public
@@ -149,11 +155,18 @@ export interface KafkaClusterDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum KafkaClusterClientAuthenticationType {
-  IAM = "IAM",
-  NONE = "NONE",
-}
+export const KafkaClusterClientAuthenticationType = {
+  IAM: "IAM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaClusterClientAuthenticationType =
+  (typeof KafkaClusterClientAuthenticationType)[keyof typeof KafkaClusterClientAuthenticationType];
 
 /**
  * @public
@@ -170,11 +183,18 @@ export interface KafkaClusterClientAuthenticationDescription {
 
 /**
  * @public
+ * @enum
  */
-export enum KafkaClusterEncryptionInTransitType {
-  PLAINTEXT = "PLAINTEXT",
-  TLS = "TLS",
-}
+export const KafkaClusterEncryptionInTransitType = {
+  PLAINTEXT: "PLAINTEXT",
+  TLS: "TLS",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaClusterEncryptionInTransitType =
+  (typeof KafkaClusterEncryptionInTransitType)[keyof typeof KafkaClusterEncryptionInTransitType];
 
 /**
  * @public
@@ -405,23 +425,35 @@ export interface ConnectorSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum CustomPluginState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const CustomPluginState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
  * @public
  */
-export enum CustomPluginContentType {
-  JAR = "JAR",
-  ZIP = "ZIP",
-}
+export type CustomPluginState = (typeof CustomPluginState)[keyof typeof CustomPluginState];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomPluginContentType = {
+  JAR: "JAR",
+  ZIP: "ZIP",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomPluginContentType = (typeof CustomPluginContentType)[keyof typeof CustomPluginContentType];
 
 /**
  * @public

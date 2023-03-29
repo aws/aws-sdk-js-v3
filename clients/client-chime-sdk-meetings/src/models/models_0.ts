@@ -5,13 +5,19 @@ import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKM
 
 /**
  * @public
+ * @enum
  */
-export enum MediaCapabilities {
-  NONE = "None",
-  RECEIVE = "Receive",
-  SEND = "Send",
-  SEND_RECEIVE = "SendReceive",
-}
+export const MediaCapabilities = {
+  NONE: "None",
+  RECEIVE: "Receive",
+  SEND: "Send",
+  SEND_RECEIVE: "SendReceive",
+} as const;
+
+/**
+ * @public
+ */
+export type MediaCapabilities = (typeof MediaCapabilities)[keyof typeof MediaCapabilities];
 
 /**
  * @public
@@ -128,11 +134,17 @@ export interface AttendeeIdItem {
 
 /**
  * @public
+ * @enum
  */
-export enum MeetingFeatureStatus {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const MeetingFeatureStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type MeetingFeatureStatus = (typeof MeetingFeatureStatus)[keyof typeof MeetingFeatureStatus];
 
 /**
  * @public
@@ -1134,50 +1146,82 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum TranscribeMedicalContentIdentificationType {
-  PHI = "PHI",
-}
+export const TranscribeMedicalContentIdentificationType = {
+  PHI: "PHI",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribeMedicalLanguageCode {
-  EN_US = "en-US",
-}
+export type TranscribeMedicalContentIdentificationType =
+  (typeof TranscribeMedicalContentIdentificationType)[keyof typeof TranscribeMedicalContentIdentificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalLanguageCode = {
+  EN_US: "en-US",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribeMedicalRegion {
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AUTO = "auto",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_WEST_1 = "eu-west-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_2 = "us-west-2",
-}
+export type TranscribeMedicalLanguageCode =
+  (typeof TranscribeMedicalLanguageCode)[keyof typeof TranscribeMedicalLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalRegion = {
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AUTO: "auto",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_WEST_1: "eu-west-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_2: "us-west-2",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribeMedicalSpecialty {
-  CARDIOLOGY = "CARDIOLOGY",
-  NEUROLOGY = "NEUROLOGY",
-  ONCOLOGY = "ONCOLOGY",
-  PRIMARYCARE = "PRIMARYCARE",
-  RADIOLOGY = "RADIOLOGY",
-  UROLOGY = "UROLOGY",
-}
+export type TranscribeMedicalRegion = (typeof TranscribeMedicalRegion)[keyof typeof TranscribeMedicalRegion];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalSpecialty = {
+  CARDIOLOGY: "CARDIOLOGY",
+  NEUROLOGY: "NEUROLOGY",
+  ONCOLOGY: "ONCOLOGY",
+  PRIMARYCARE: "PRIMARYCARE",
+  RADIOLOGY: "RADIOLOGY",
+  UROLOGY: "UROLOGY",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribeMedicalType {
-  CONVERSATION = "CONVERSATION",
-  DICTATION = "DICTATION",
-}
+export type TranscribeMedicalSpecialty = (typeof TranscribeMedicalSpecialty)[keyof typeof TranscribeMedicalSpecialty];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeMedicalType = {
+  CONVERSATION: "CONVERSATION",
+  DICTATION: "DICTATION",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeMedicalType = (typeof TranscribeMedicalType)[keyof typeof TranscribeMedicalType];
 
 /**
  * @public
@@ -1217,72 +1261,112 @@ export interface EngineTranscribeMedicalSettings {
 
 /**
  * @public
+ * @enum
  */
-export enum TranscribeContentIdentificationType {
-  PII = "PII",
-}
+export const TranscribeContentIdentificationType = {
+  PII: "PII",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribeContentRedactionType {
-  PII = "PII",
-}
+export type TranscribeContentIdentificationType =
+  (typeof TranscribeContentIdentificationType)[keyof typeof TranscribeContentIdentificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeContentRedactionType = {
+  PII: "PII",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribeLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  ZH_CN = "zh-CN",
-}
+export type TranscribeContentRedactionType =
+  (typeof TranscribeContentRedactionType)[keyof typeof TranscribeContentRedactionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  ZH_CN: "zh-CN",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribePartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
+export type TranscribeLanguageCode = (typeof TranscribeLanguageCode)[keyof typeof TranscribeLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribePartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribeRegion {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AUTO = "auto",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  SA_EAST_1 = "sa-east-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_GOV_WEST_1 = "us-gov-west-1",
-  US_WEST_2 = "us-west-2",
-}
+export type TranscribePartialResultsStability =
+  (typeof TranscribePartialResultsStability)[keyof typeof TranscribePartialResultsStability];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeRegion = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AUTO: "auto",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  SA_EAST_1: "sa-east-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_GOV_WEST_1: "us-gov-west-1",
+  US_WEST_2: "us-west-2",
+} as const;
 
 /**
  * @public
  */
-export enum TranscribeVocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+export type TranscribeRegion = (typeof TranscribeRegion)[keyof typeof TranscribeRegion];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscribeVocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscribeVocabularyFilterMethod =
+  (typeof TranscribeVocabularyFilterMethod)[keyof typeof TranscribeVocabularyFilterMethod];
 
 /**
  * @public

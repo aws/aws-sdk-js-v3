@@ -45,15 +45,21 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum TypeHint {
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  JSON = "JSON",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  UUID = "UUID",
-}
+export const TypeHint = {
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  JSON: "JSON",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  UUID: "UUID",
+} as const;
+
+/**
+ * @public
+ */
+export type TypeHint = (typeof TypeHint)[keyof typeof TypeHint];
 
 /**
  * @public
@@ -311,11 +317,17 @@ export class NotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum DecimalReturnType {
-  DOUBLE_OR_LONG = "DOUBLE_OR_LONG",
-  STRING = "STRING",
-}
+export const DecimalReturnType = {
+  DOUBLE_OR_LONG: "DOUBLE_OR_LONG",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type DecimalReturnType = (typeof DecimalReturnType)[keyof typeof DecimalReturnType];
 
 /**
  * @public
@@ -372,19 +384,31 @@ export interface ResultSetMetadata {
 
 /**
  * @public
+ * @enum
  */
-export enum RecordsFormatType {
-  JSON = "JSON",
-  NONE = "NONE",
-}
+export const RecordsFormatType = {
+  JSON: "JSON",
+  NONE: "NONE",
+} as const;
 
 /**
  * @public
  */
-export enum LongReturnType {
-  LONG = "LONG",
-  STRING = "STRING",
-}
+export type RecordsFormatType = (typeof RecordsFormatType)[keyof typeof RecordsFormatType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LongReturnType = {
+  LONG: "LONG",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type LongReturnType = (typeof LongReturnType)[keyof typeof LongReturnType];
 
 /**
  * @public

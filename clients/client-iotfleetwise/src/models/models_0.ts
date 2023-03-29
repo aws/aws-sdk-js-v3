@@ -25,36 +25,42 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum NodeDataType {
-  BOOLEAN = "BOOLEAN",
-  BOOLEAN_ARRAY = "BOOLEAN_ARRAY",
-  DOUBLE = "DOUBLE",
-  DOUBLE_ARRAY = "DOUBLE_ARRAY",
-  FLOAT = "FLOAT",
-  FLOAT_ARRAY = "FLOAT_ARRAY",
-  INT16 = "INT16",
-  INT16_ARRAY = "INT16_ARRAY",
-  INT32 = "INT32",
-  INT32_ARRAY = "INT32_ARRAY",
-  INT64 = "INT64",
-  INT64_ARRAY = "INT64_ARRAY",
-  INT8 = "INT8",
-  INT8_ARRAY = "INT8_ARRAY",
-  STRING = "STRING",
-  STRING_ARRAY = "STRING_ARRAY",
-  UINT16 = "UINT16",
-  UINT16_ARRAY = "UINT16_ARRAY",
-  UINT32 = "UINT32",
-  UINT32_ARRAY = "UINT32_ARRAY",
-  UINT64 = "UINT64",
-  UINT64_ARRAY = "UINT64_ARRAY",
-  UINT8 = "UINT8",
-  UINT8_ARRAY = "UINT8_ARRAY",
-  UNIX_TIMESTAMP = "UNIX_TIMESTAMP",
-  UNIX_TIMESTAMP_ARRAY = "UNIX_TIMESTAMP_ARRAY",
-  UNKNOWN = "UNKNOWN",
-}
+export const NodeDataType = {
+  BOOLEAN: "BOOLEAN",
+  BOOLEAN_ARRAY: "BOOLEAN_ARRAY",
+  DOUBLE: "DOUBLE",
+  DOUBLE_ARRAY: "DOUBLE_ARRAY",
+  FLOAT: "FLOAT",
+  FLOAT_ARRAY: "FLOAT_ARRAY",
+  INT16: "INT16",
+  INT16_ARRAY: "INT16_ARRAY",
+  INT32: "INT32",
+  INT32_ARRAY: "INT32_ARRAY",
+  INT64: "INT64",
+  INT64_ARRAY: "INT64_ARRAY",
+  INT8: "INT8",
+  INT8_ARRAY: "INT8_ARRAY",
+  STRING: "STRING",
+  STRING_ARRAY: "STRING_ARRAY",
+  UINT16: "UINT16",
+  UINT16_ARRAY: "UINT16_ARRAY",
+  UINT32: "UINT32",
+  UINT32_ARRAY: "UINT32_ARRAY",
+  UINT64: "UINT64",
+  UINT64_ARRAY: "UINT64_ARRAY",
+  UINT8: "UINT8",
+  UINT8_ARRAY: "UINT8_ARRAY",
+  UNIX_TIMESTAMP: "UNIX_TIMESTAMP",
+  UNIX_TIMESTAMP_ARRAY: "UNIX_TIMESTAMP_ARRAY",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeDataType = (typeof NodeDataType)[keyof typeof NodeDataType];
 
 /**
  * @public
@@ -245,13 +251,19 @@ export interface ValidationExceptionField {
 
 /**
  * @public
+ * @enum
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public
@@ -342,11 +354,17 @@ export interface Attribute {
 
 /**
  * @public
+ * @enum
  */
-export enum VehicleAssociationBehavior {
-  CREATE_IOT_THING = "CreateIotThing",
-  VALIDATE_IOT_THING_EXISTS = "ValidateIotThingExists",
-}
+export const VehicleAssociationBehavior = {
+  CREATE_IOT_THING: "CreateIotThing",
+  VALIDATE_IOT_THING_EXISTS: "ValidateIotThingExists",
+} as const;
+
+/**
+ * @public
+ */
+export type VehicleAssociationBehavior = (typeof VehicleAssociationBehavior)[keyof typeof VehicleAssociationBehavior];
 
 /**
  * @public
@@ -508,11 +526,17 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateMode {
-  MERGE = "Merge",
-  OVERWRITE = "Overwrite",
-}
+export const UpdateMode = {
+  MERGE: "Merge",
+  OVERWRITE: "Overwrite",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateMode = (typeof UpdateMode)[keyof typeof UpdateMode];
 
 /**
  * @public
@@ -670,11 +694,17 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum TriggerMode {
-  ALWAYS = "ALWAYS",
-  RISING_EDGE = "RISING_EDGE",
-}
+export const TriggerMode = {
+  ALWAYS: "ALWAYS",
+  RISING_EDGE: "RISING_EDGE",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerMode = (typeof TriggerMode)[keyof typeof TriggerMode];
 
 /**
  * @public
@@ -782,19 +812,31 @@ export namespace CollectionScheme {
 
 /**
  * @public
+ * @enum
  */
-export enum Compression {
-  OFF = "OFF",
-  SNAPPY = "SNAPPY",
-}
+export const Compression = {
+  OFF: "OFF",
+  SNAPPY: "SNAPPY",
+} as const;
 
 /**
  * @public
  */
-export enum DiagnosticsMode {
-  OFF = "OFF",
-  SEND_ACTIVE_DTCS = "SEND_ACTIVE_DTCS",
-}
+export type Compression = (typeof Compression)[keyof typeof Compression];
+
+/**
+ * @public
+ * @enum
+ */
+export const DiagnosticsMode = {
+  OFF: "OFF",
+  SEND_ACTIVE_DTCS: "SEND_ACTIVE_DTCS",
+} as const;
+
+/**
+ * @public
+ */
+export type DiagnosticsMode = (typeof DiagnosticsMode)[keyof typeof DiagnosticsMode];
 
 /**
  * @public
@@ -823,11 +865,17 @@ export interface SignalInformation {
 
 /**
  * @public
+ * @enum
  */
-export enum SpoolingMode {
-  OFF = "OFF",
-  TO_DISK = "TO_DISK",
-}
+export const SpoolingMode = {
+  OFF: "OFF",
+  TO_DISK: "TO_DISK",
+} as const;
+
+/**
+ * @public
+ */
+export type SpoolingMode = (typeof SpoolingMode)[keyof typeof SpoolingMode];
 
 /**
  * @public
@@ -993,13 +1041,19 @@ export interface GetCampaignRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum CampaignStatus {
-  CREATING = "CREATING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  WAITING_FOR_APPROVAL = "WAITING_FOR_APPROVAL",
-}
+export const CampaignStatus = {
+  CREATING: "CREATING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  WAITING_FOR_APPROVAL: "WAITING_FOR_APPROVAL",
+} as const;
+
+/**
+ * @public
+ */
+export type CampaignStatus = (typeof CampaignStatus)[keyof typeof CampaignStatus];
 
 /**
  * @public
@@ -1219,13 +1273,19 @@ export interface ListCampaignsResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum UpdateCampaignAction {
-  APPROVE = "APPROVE",
-  RESUME = "RESUME",
-  SUSPEND = "SUSPEND",
-  UPDATE = "UPDATE",
-}
+export const UpdateCampaignAction = {
+  APPROVE: "APPROVE",
+  RESUME: "RESUME",
+  SUSPEND: "SUSPEND",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateCampaignAction = (typeof UpdateCampaignAction)[keyof typeof UpdateCampaignAction];
 
 /**
  * @public
@@ -1407,11 +1467,17 @@ export interface CanSignal {
 
 /**
  * @public
+ * @enum
  */
-export enum LogType {
-  ERROR = "ERROR",
-  OFF = "OFF",
-}
+export const LogType = {
+  ERROR: "ERROR",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * @public
@@ -1472,11 +1538,17 @@ export interface ObdInterface {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkInterfaceType {
-  CAN_INTERFACE = "CAN_INTERFACE",
-  OBD_INTERFACE = "OBD_INTERFACE",
-}
+export const NetworkInterfaceType = {
+  CAN_INTERFACE: "CAN_INTERFACE",
+  OBD_INTERFACE: "OBD_INTERFACE",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
 
 /**
  * @public
@@ -1567,11 +1639,17 @@ export interface ObdSignal {
 
 /**
  * @public
+ * @enum
  */
-export enum SignalDecoderType {
-  CAN_SIGNAL = "CAN_SIGNAL",
-  OBD_SIGNAL = "OBD_SIGNAL",
-}
+export const SignalDecoderType = {
+  CAN_SIGNAL: "CAN_SIGNAL",
+  OBD_SIGNAL: "OBD_SIGNAL",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalDecoderType = (typeof SignalDecoderType)[keyof typeof SignalDecoderType];
 
 /**
  * @public
@@ -1659,15 +1737,22 @@ export interface CreateDecoderManifestResponse {
 
 /**
  * @public
+ * @enum
  */
-export enum NetworkInterfaceFailureReason {
-  CAN_NETWORK_INTERFACE_INFO_IS_NULL = "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
-  CONFLICTING_NETWORK_INTERFACE = "CONFLICTING_NETWORK_INTERFACE",
-  DUPLICATE_INTERFACE = "DUPLICATE_NETWORK_INTERFACE",
-  NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS = "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
-  NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS = "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
-  OBD_NETWORK_INTERFACE_INFO_IS_NULL = "OBD_NETWORK_INTERFACE_INFO_IS_NULL",
-}
+export const NetworkInterfaceFailureReason = {
+  CAN_NETWORK_INTERFACE_INFO_IS_NULL: "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
+  CONFLICTING_NETWORK_INTERFACE: "CONFLICTING_NETWORK_INTERFACE",
+  DUPLICATE_INTERFACE: "DUPLICATE_NETWORK_INTERFACE",
+  NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS: "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
+  NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS: "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
+  OBD_NETWORK_INTERFACE_INFO_IS_NULL: "OBD_NETWORK_INTERFACE_INFO_IS_NULL",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceFailureReason =
+  (typeof NetworkInterfaceFailureReason)[keyof typeof NetworkInterfaceFailureReason];
 
 /**
  * @public
@@ -1687,18 +1772,25 @@ export interface InvalidNetworkInterface {
 
 /**
  * @public
+ * @enum
  */
-export enum SignalDecoderFailureReason {
-  CAN_SIGNAL_INFO_IS_NULL = "CAN_SIGNAL_INFO_IS_NULL",
-  CONFLICTING_SIGNAL = "CONFLICTING_SIGNAL",
-  DUPLICATE_SIGNAL = "DUPLICATE_SIGNAL",
-  NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE = "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE",
-  NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL = "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL",
-  OBD_SIGNAL_INFO_IS_NULL = "OBD_SIGNAL_INFO_IS_NULL",
-  SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE = "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE",
-  SIGNAL_NOT_IN_MODEL = "SIGNAL_NOT_IN_MODEL",
-  SIGNAL_TO_ADD_ALREADY_EXISTS = "SIGNAL_TO_ADD_ALREADY_EXISTS",
-}
+export const SignalDecoderFailureReason = {
+  CAN_SIGNAL_INFO_IS_NULL: "CAN_SIGNAL_INFO_IS_NULL",
+  CONFLICTING_SIGNAL: "CONFLICTING_SIGNAL",
+  DUPLICATE_SIGNAL: "DUPLICATE_SIGNAL",
+  NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE:
+    "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE",
+  NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL: "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL",
+  OBD_SIGNAL_INFO_IS_NULL: "OBD_SIGNAL_INFO_IS_NULL",
+  SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE: "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE",
+  SIGNAL_NOT_IN_MODEL: "SIGNAL_NOT_IN_MODEL",
+  SIGNAL_TO_ADD_ALREADY_EXISTS: "SIGNAL_TO_ADD_ALREADY_EXISTS",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalDecoderFailureReason = (typeof SignalDecoderFailureReason)[keyof typeof SignalDecoderFailureReason];
 
 /**
  * @public
@@ -2190,11 +2282,17 @@ export interface GetDecoderManifestRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum ManifestStatus {
-  ACTIVE = "ACTIVE",
-  DRAFT = "DRAFT",
-}
+export const ManifestStatus = {
+  ACTIVE: "ACTIVE",
+  DRAFT: "DRAFT",
+} as const;
+
+/**
+ * @public
+ */
+export type ManifestStatus = (typeof ManifestStatus)[keyof typeof ManifestStatus];
 
 /**
  * @public
@@ -2983,12 +3081,18 @@ export interface GetRegisterAccountStatusRequest {}
 
 /**
  * @public
+ * @enum
  */
-export enum RegistrationStatus {
-  REGISTRATION_FAILURE = "REGISTRATION_FAILURE",
-  REGISTRATION_PENDING = "REGISTRATION_PENDING",
-  REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS",
-}
+export const RegistrationStatus = {
+  REGISTRATION_FAILURE: "REGISTRATION_FAILURE",
+  REGISTRATION_PENDING: "REGISTRATION_PENDING",
+  REGISTRATION_SUCCESS: "REGISTRATION_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
 
 /**
  * @public
@@ -3259,14 +3363,20 @@ export interface GetVehicleStatusRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum VehicleState {
-  CREATED = "CREATED",
-  DELETING = "DELETING",
-  HEALTHY = "HEALTHY",
-  READY = "READY",
-  SUSPENDED = "SUSPENDED",
-}
+export const VehicleState = {
+  CREATED: "CREATED",
+  DELETING: "DELETING",
+  HEALTHY: "HEALTHY",
+  READY: "READY",
+  SUSPENDED: "SUSPENDED",
+} as const;
+
+/**
+ * @public
+ */
+export type VehicleState = (typeof VehicleState)[keyof typeof VehicleState];
 
 /**
  * @public

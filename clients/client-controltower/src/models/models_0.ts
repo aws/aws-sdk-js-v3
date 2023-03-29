@@ -233,20 +233,32 @@ export interface GetControlOperationInput {
 
 /**
  * @public
+ * @enum
  */
-export enum ControlOperationType {
-  DISABLE_CONTROL = "DISABLE_CONTROL",
-  ENABLE_CONTROL = "ENABLE_CONTROL",
-}
+export const ControlOperationType = {
+  DISABLE_CONTROL: "DISABLE_CONTROL",
+  ENABLE_CONTROL: "ENABLE_CONTROL",
+} as const;
 
 /**
  * @public
  */
-export enum ControlOperationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export type ControlOperationType = (typeof ControlOperationType)[keyof typeof ControlOperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlOperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlOperationStatus = (typeof ControlOperationStatus)[keyof typeof ControlOperationStatus];
 
 /**
  * @public

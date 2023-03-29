@@ -25,11 +25,17 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum ThroughputMode {
-  PAY_PER_REQUEST = "PAY_PER_REQUEST",
-  PROVISIONED = "PROVISIONED",
-}
+export const ThroughputMode = {
+  PAY_PER_REQUEST: "PAY_PER_REQUEST",
+  PROVISIONED: "PROVISIONED",
+} as const;
+
+/**
+ * @public
+ */
+export type ThroughputMode = (typeof ThroughputMode)[keyof typeof ThroughputMode];
 
 /**
  * @public
@@ -136,10 +142,16 @@ export interface CapacitySpecificationSummary {
 
 /**
  * @public
+ * @enum
  */
-export enum ClientSideTimestampsStatus {
-  ENABLED = "ENABLED",
-}
+export const ClientSideTimestampsStatus = {
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientSideTimestampsStatus = (typeof ClientSideTimestampsStatus)[keyof typeof ClientSideTimestampsStatus];
 
 /**
  * @public
@@ -156,11 +168,17 @@ export interface ClientSideTimestamps {
 
 /**
  * @public
+ * @enum
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -340,11 +358,17 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export enum EncryptionType {
-  AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY",
-  CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY",
-}
+export const EncryptionType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * @public
@@ -392,11 +416,17 @@ export interface EncryptionSpecification {
 
 /**
  * @public
+ * @enum
  */
-export enum PointInTimeRecoveryStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const PointInTimeRecoveryStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PointInTimeRecoveryStatus = (typeof PointInTimeRecoveryStatus)[keyof typeof PointInTimeRecoveryStatus];
 
 /**
  * @public
@@ -475,10 +505,16 @@ export interface SchemaDefinition {
 
 /**
  * @public
+ * @enum
  */
-export enum TimeToLiveStatus {
-  ENABLED = "ENABLED",
-}
+export const TimeToLiveStatus = {
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeToLiveStatus = (typeof TimeToLiveStatus)[keyof typeof TimeToLiveStatus];
 
 /**
  * @public
@@ -821,16 +857,22 @@ export interface PointInTimeRecoverySummary {
 
 /**
  * @public
+ * @enum
  */
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  RESTORING = "RESTORING",
-  UPDATING = "UPDATING",
-}
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  RESTORING: "RESTORING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
  * @public

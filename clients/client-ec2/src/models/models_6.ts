@@ -386,11 +386,18 @@ export interface ModifyAddressAttributeResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ModifyAvailabilityZoneOptInStatus {
-  not_opted_in = "not-opted-in",
-  opted_in = "opted-in",
-}
+export const ModifyAvailabilityZoneOptInStatus = {
+  not_opted_in: "not-opted-in",
+  opted_in: "opted-in",
+} as const;
+
+/**
+ * @public
+ */
+export type ModifyAvailabilityZoneOptInStatus =
+  (typeof ModifyAvailabilityZoneOptInStatus)[keyof typeof ModifyAvailabilityZoneOptInStatus];
 
 /**
  * @public
@@ -852,11 +859,17 @@ export interface LoadPermissionModifications {
 
 /**
  * @public
+ * @enum
  */
-export enum OperationType {
-  add = "add",
-  remove = "remove",
-}
+export const OperationType = {
+  add: "add",
+  remove: "remove",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 /**
  * @public
@@ -1467,13 +1480,20 @@ export interface SuccessfulInstanceCreditSpecificationItem {
 
 /**
  * @public
+ * @enum
  */
-export enum UnsuccessfulInstanceCreditSpecificationErrorCode {
-  INCORRECT_INSTANCE_STATE = "IncorrectInstanceState",
-  INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED = "InstanceCreditSpecification.NotSupported",
-  INSTANCE_NOT_FOUND = "InvalidInstanceID.NotFound",
-  INVALID_INSTANCE_ID = "InvalidInstanceID.Malformed",
-}
+export const UnsuccessfulInstanceCreditSpecificationErrorCode = {
+  INCORRECT_INSTANCE_STATE: "IncorrectInstanceState",
+  INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED: "InstanceCreditSpecification.NotSupported",
+  INSTANCE_NOT_FOUND: "InvalidInstanceID.NotFound",
+  INVALID_INSTANCE_ID: "InvalidInstanceID.Malformed",
+} as const;
+
+/**
+ * @public
+ */
+export type UnsuccessfulInstanceCreditSpecificationErrorCode =
+  (typeof UnsuccessfulInstanceCreditSpecificationErrorCode)[keyof typeof UnsuccessfulInstanceCreditSpecificationErrorCode];
 
 /**
  * @public
@@ -1766,11 +1786,17 @@ export interface ModifyInstanceMetadataOptionsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum HostTenancy {
-  dedicated = "dedicated",
-  host = "host",
-}
+export const HostTenancy = {
+  dedicated: "dedicated",
+  host: "host",
+} as const;
+
+/**
+ * @public
+ */
+export type HostTenancy = (typeof HostTenancy)[keyof typeof HostTenancy];
 
 /**
  * @public
@@ -2595,10 +2621,16 @@ export interface ModifySnapshotAttributeRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum TargetStorageTier {
-  archive = "archive",
-}
+export const TargetStorageTier = {
+  archive: "archive",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetStorageTier = (typeof TargetStorageTier)[keyof typeof TargetStorageTier];
 
 /**
  * @public
@@ -2810,13 +2842,20 @@ export interface ModifyTrafficMirrorFilterNetworkServicesResult {
 
 /**
  * @public
+ * @enum
  */
-export enum TrafficMirrorFilterRuleField {
-  description = "description",
-  destination_port_range = "destination-port-range",
-  protocol = "protocol",
-  source_port_range = "source-port-range",
-}
+export const TrafficMirrorFilterRuleField = {
+  description: "description",
+  destination_port_range: "destination-port-range",
+  protocol: "protocol",
+  source_port_range: "source-port-range",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficMirrorFilterRuleField =
+  (typeof TrafficMirrorFilterRuleField)[keyof typeof TrafficMirrorFilterRuleField];
 
 /**
  * @public
@@ -2899,12 +2938,18 @@ export interface ModifyTrafficMirrorFilterRuleResult {
 
 /**
  * @public
+ * @enum
  */
-export enum TrafficMirrorSessionField {
-  description = "description",
-  packet_length = "packet-length",
-  virtual_network_id = "virtual-network-id",
-}
+export const TrafficMirrorSessionField = {
+  description: "description",
+  packet_length: "packet-length",
+  virtual_network_id: "virtual-network-id",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficMirrorSessionField = (typeof TrafficMirrorSessionField)[keyof typeof TrafficMirrorSessionField];
 
 /**
  * @public
@@ -4140,10 +4185,16 @@ export interface ModifyVpcPeeringConnectionOptionsResult {
 
 /**
  * @public
+ * @enum
  */
-export enum VpcTenancy {
-  default = "default",
-}
+export const VpcTenancy = {
+  default: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcTenancy = (typeof VpcTenancy)[keyof typeof VpcTenancy];
 
 /**
  * @public
@@ -4619,12 +4670,18 @@ export interface MoveAddressToVpcRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum Status {
-  inClassic = "InClassic",
-  inVpc = "InVpc",
-  moveInProgress = "MoveInProgress",
-}
+export const Status = {
+  inClassic: "InClassic",
+  inVpc: "InVpc",
+  moveInProgress: "MoveInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -5910,26 +5967,38 @@ export interface ReplaceTransitGatewayRouteResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ReportInstanceReasonCodes {
-  instance_stuck_in_state = "instance-stuck-in-state",
-  not_accepting_credentials = "not-accepting-credentials",
-  other = "other",
-  password_not_available = "password-not-available",
-  performance_ebs_volume = "performance-ebs-volume",
-  performance_instance_store = "performance-instance-store",
-  performance_network = "performance-network",
-  performance_other = "performance-other",
-  unresponsive = "unresponsive",
-}
+export const ReportInstanceReasonCodes = {
+  instance_stuck_in_state: "instance-stuck-in-state",
+  not_accepting_credentials: "not-accepting-credentials",
+  other: "other",
+  password_not_available: "password-not-available",
+  performance_ebs_volume: "performance-ebs-volume",
+  performance_instance_store: "performance-instance-store",
+  performance_network: "performance-network",
+  performance_other: "performance-other",
+  unresponsive: "unresponsive",
+} as const;
 
 /**
  * @public
  */
-export enum ReportStatusType {
-  impaired = "impaired",
-  ok = "ok",
-}
+export type ReportInstanceReasonCodes = (typeof ReportInstanceReasonCodes)[keyof typeof ReportInstanceReasonCodes];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportStatusType = {
+  impaired: "impaired",
+  ok: "ok",
+} as const;
+
+/**
+ * @public
+ */
+export type ReportStatusType = (typeof ReportStatusType)[keyof typeof ReportStatusType];
 
 /**
  * @public
@@ -6327,10 +6396,17 @@ export interface ResetEbsDefaultKmsKeyIdResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ResetFpgaImageAttributeName {
-  loadPermission = "loadPermission",
-}
+export const ResetFpgaImageAttributeName = {
+  loadPermission: "loadPermission",
+} as const;
+
+/**
+ * @public
+ */
+export type ResetFpgaImageAttributeName =
+  (typeof ResetFpgaImageAttributeName)[keyof typeof ResetFpgaImageAttributeName];
 
 /**
  * @public
@@ -6366,10 +6442,16 @@ export interface ResetFpgaImageAttributeResult {
 
 /**
  * @public
+ * @enum
  */
-export enum ResetImageAttributeName {
-  launchPermission = "launchPermission",
-}
+export const ResetImageAttributeName = {
+  launchPermission: "launchPermission",
+} as const;
+
+/**
+ * @public
+ */
+export type ResetImageAttributeName = (typeof ResetImageAttributeName)[keyof typeof ResetImageAttributeName];
 
 /**
  * @public
@@ -8036,11 +8118,17 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
 
 /**
  * @public
+ * @enum
  */
-export enum MembershipType {
-  igmp = "igmp",
-  static = "static",
-}
+export const MembershipType = {
+  igmp: "igmp",
+  static: "static",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipType = (typeof MembershipType)[keyof typeof MembershipType];
 
 /**
  * @public
