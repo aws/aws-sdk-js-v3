@@ -20,7 +20,7 @@ function createMockHash(): {
 describe("HashCalculator", () => {
   const writePromise = (calculator: HashCalculator, chunk: Buffer, encoding?: string): Promise<void> => {
     return new Promise((resolve, reject) => {
-      calculator.write(chunk, encoding, (err) => {
+      calculator.write(chunk, encoding as string, (err) => {
         if (err) {
           reject(err);
         } else {

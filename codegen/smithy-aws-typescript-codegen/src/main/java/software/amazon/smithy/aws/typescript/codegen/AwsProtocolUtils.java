@@ -129,7 +129,7 @@ final class AwsProtocolUtils {
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
                         writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
-                                + "ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val, tagName) "
+                                + "ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val: any, tagname: any) "
                                 + "=> decodeEscapedXML(val) });");
                         writer.write("const textNodeName = '#text';");
                         writer.write("const key = Object.keys(parsedObj)[0];");

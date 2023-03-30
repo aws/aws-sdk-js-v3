@@ -71,7 +71,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { parse as xmlParse } from "fast-xml-parser";
+import { parse as xmlParse } from "../xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
@@ -2000,7 +2000,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         attributeNamePrefix: "",
         ignoreAttributes: false,
         parseNodeValue: false,
-        tagValueProcessor: (val, tagName) => decodeEscapedXML(val),
+        tagValueProcessor: (val: any, tagname: any) => decodeEscapedXML(val),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];

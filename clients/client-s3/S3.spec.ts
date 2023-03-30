@@ -1,4 +1,3 @@
-/// <reference types="mocha" />
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { BuildMiddleware, SerializeMiddleware } from "@aws-sdk/types";
 import chai from "chai";

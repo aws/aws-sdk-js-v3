@@ -394,7 +394,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
-import { parse as xmlParse } from "fast-xml-parser";
+import { parse as xmlParse } from "../xml-parser";
 
 export const serializeAws_restXmlAbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
@@ -14317,7 +14317,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         attributeNamePrefix: "",
         ignoreAttributes: false,
         parseNodeValue: false,
-        tagValueProcessor: (val, tagName) => decodeEscapedXML(val),
+        tagValueProcessor: (val: any, tagName: any) => decodeEscapedXML(val),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];

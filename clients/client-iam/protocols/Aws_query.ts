@@ -646,7 +646,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { parse as xmlParse } from "fast-xml-parser";
+import { parse as xmlParse } from "../xml-parser";
 
 export const serializeAws_queryAddClientIDToOpenIDConnectProviderCommand = async (
   input: AddClientIDToOpenIDConnectProviderCommandInput,
@@ -19108,7 +19108,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         attributeNamePrefix: "",
         ignoreAttributes: false,
         parseNodeValue: false,
-        tagValueProcessor: (val, tagName) => decodeEscapedXML(val),
+        tagValueProcessor: (val: any, tagname: any) => decodeEscapedXML(val),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];

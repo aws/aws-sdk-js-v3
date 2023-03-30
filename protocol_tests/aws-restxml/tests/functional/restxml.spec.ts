@@ -44,7 +44,7 @@ import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
 import { XmlUnionsCommand } from "../../commands/XmlUnionsCommand";
 import { ComplexError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { parse as xmlParse } from "fast-xml-parser";
+import { parse as xmlParse } from "../xml-parser";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";

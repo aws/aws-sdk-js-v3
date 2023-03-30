@@ -31,6 +31,7 @@ dist
 *.iws
 
 codegen/**/build
+codegen/smithy-aws-typescript-codegen/bin/
 codegen/sdk-codegen/smithy-build.json
 .gradle
 */out/
@@ -43,3 +44,5 @@ types
 
 /verdaccio/*
 !/verdaccio/config.yaml
+
+workspace

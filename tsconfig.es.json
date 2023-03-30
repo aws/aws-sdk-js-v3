@@ -8,6 +8,7 @@
     "sourceMap": false,
     "declaration": true,
     "importHelpers": true,
+    "skipLibCheck": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,
     "inlineSources": true,
