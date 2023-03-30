@@ -7326,6 +7326,9 @@ const serializeAws_queryTrafficSourceIdentifier = (input: TrafficSourceIdentifie
   if (input.Identifier != null) {
     entries["Identifier"] = input.Identifier;
   }
+  if (input.Type != null) {
+    entries["Type"] = input.Type;
+  }
   return entries;
 };
 
@@ -10185,6 +10188,9 @@ const deserializeAws_queryTrafficSourceIdentifier = (output: any, context: __Ser
   if (output["Identifier"] !== undefined) {
     contents.Identifier = __expectString(output["Identifier"]);
   }
+  if (output["Type"] !== undefined) {
+    contents.Type = __expectString(output["Type"]);
+  }
   return contents;
 };
 
@@ -10203,6 +10209,12 @@ const deserializeAws_queryTrafficSourceState = (output: any, context: __SerdeCon
   }
   if (output["State"] !== undefined) {
     contents.State = __expectString(output["State"]);
+  }
+  if (output["Identifier"] !== undefined) {
+    contents.Identifier = __expectString(output["Identifier"]);
+  }
+  if (output["Type"] !== undefined) {
+    contents.Type = __expectString(output["Type"]);
   }
   return contents;
 };

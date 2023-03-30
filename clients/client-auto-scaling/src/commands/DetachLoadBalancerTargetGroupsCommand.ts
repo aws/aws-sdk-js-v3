@@ -37,7 +37,16 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
 
 /**
  * @public
- * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
+ * <note>
+ *             <p>This API call has been replaced with a new "traffic sources" API call
+ *                     (<code>DetachTrafficSources</code>) that can detach multiple traffic sources
+ *                 types. While we continue to support <code>DetachLoadBalancerTargetGroups</code>, and
+ *                 you can use both the original <code>DetachLoadBalancerTargetGroups</code> API call
+ *                 and the new <code>DetachTrafficSources</code> API call on the same Auto Scaling group, we
+ *                 recommend using the new "traffic sources" API call to simplify how you manage
+ *                 traffic sources.</p>
+ *          </note>
+ *          <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
  *          <p>When you detach a target group, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
  *             can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain

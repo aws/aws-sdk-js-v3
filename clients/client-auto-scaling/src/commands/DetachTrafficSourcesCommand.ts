@@ -35,11 +35,10 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
 
 /**
  * @public
- * <p>
- *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
- *             Do not use this API for production workloads. This API is also subject to change.</b>
- *          </p>
- *          <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+ * <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+ *          <p>When you detach a taffic, it enters the <code>Removing</code> state while
+ *             deregistering the instances in the group. When all instances are deregistered, then you
+ *             can no longer describe the traffic source using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +49,8 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   TrafficSources: [ // TrafficSources // required
  *     { // TrafficSourceIdentifier
- *       Identifier: "STRING_VALUE",
+ *       Identifier: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE",
  *     },
  *   ],
  * };

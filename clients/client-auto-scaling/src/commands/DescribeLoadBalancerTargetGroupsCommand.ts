@@ -37,7 +37,16 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
 
 /**
  * @public
- * <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
+ * <note>
+ *             <p>This API call has been replaced with a new "traffic sources" API call
+ *                     (<code>DescribeTrafficSources</code>) that can describe multiple traffic sources
+ *                 types. While we continue to support <code>DescribeLoadBalancerTargetGroups</code>,
+ *                 and you can use both the original <code>DescribeLoadBalancerTargetGroups</code> API
+ *                 call and the new <code>DescribeTrafficSources</code> API call on the same Auto Scaling
+ *                 group, we recommend using the new "traffic sources" API call to simplify how you
+ *                 manage traffic sources.</p>
+ *          </note>
+ *          <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
  *          <p>To determine the attachment status of the target group, use the <code>State</code>
  *             element in the response. When you attach a target group to an Auto Scaling group, the initial
  *                 <code>State</code> value is <code>Adding</code>. The state transitions to

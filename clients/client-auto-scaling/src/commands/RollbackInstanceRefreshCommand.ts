@@ -48,8 +48,8 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  *                <p>There is no desired configuration specified for the instance refresh.</p>
  *             </li>
  *             <li>
- *                <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager
- *                     parameter instead of an AMI ID for the <code>ImageId</code> property.</p>
+ *                <p>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems Manager parameter instead
+ *                     of an AMI ID for the <code>ImageId</code> property.</p>
  *             </li>
  *             <li>
  *                <p>The Auto Scaling group uses the launch template's <code>$Latest</code> or

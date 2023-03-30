@@ -35,8 +35,17 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
 
 /**
  * @public
- * <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
- *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
+ * <note>
+ *             <p>This API call has been replaced with a new "traffic sources" API call
+ *                     (<code>DescribeTrafficSources</code>) that can describe multiple traffic sources
+ *                 types. While we continue to support <code>DescribeLoadBalancers</code>, and you can
+ *                 use both the original <code>DescribeLoadBalancers</code> API call and the new
+ *                     <code>DescribeTrafficSources</code> API call on the same Auto Scaling group, we
+ *                 recommend using the new "traffic sources" API call to simplify how you manage
+ *                 traffic sources.</p>
+ *          </note>
+ *          <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
+ *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
  *                 <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
  *          <p>To determine the attachment status of the load balancer, use the <code>State</code>
  *             element in the response. When you attach a load balancer to an Auto Scaling group, the initial

@@ -35,11 +35,11 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
 
 /**
  * @public
- * <p>
- *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
- *             Do not use this API for production workloads. This API is also subject to change.</b>
- *          </p>
- *          <p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
+ * <p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
+ *          <p>You can optionally provide a traffic source type. If you provide a traffic source
+ *             type, then the results only include that traffic source type.</p>
+ *          <p>If you do not provide a traffic source type, then the results include all the traffic
+ *             sources for the specified Auto Scaling group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,7 +48,7 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  * const client = new AutoScalingClient(config);
  * const input = { // DescribeTrafficSourcesRequest
  *   AutoScalingGroupName: "STRING_VALUE", // required
- *   TrafficSourceType: "STRING_VALUE", // required
+ *   TrafficSourceType: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxRecords: Number("int"),
  * };

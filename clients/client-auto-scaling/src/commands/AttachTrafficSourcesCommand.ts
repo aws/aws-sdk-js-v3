@@ -35,15 +35,30 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
 
 /**
  * @public
- * <p>
- *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
- *             Do not use this API for production workloads. This API is also subject to change.</b>
- *          </p>
- *          <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p>
- *          <p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling
- *             group, call the <a>DetachTrafficSources</a> API.</p>
+ * <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p>
+ *          <p>You can use any of the following as traffic sources for an Auto Scaling group:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Application Load Balancer</p>
+ *             </li>
+ *             <li>
+ *                <p>Classic Load Balancer</p>
+ *             </li>
+ *             <li>
+ *                <p>Network Load Balancer</p>
+ *             </li>
+ *             <li>
+ *                <p>Gateway Load Balancer</p>
+ *             </li>
+ *             <li>
+ *                <p>VPC Lattice</p>
+ *             </li>
+ *          </ul>
  *          <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling
- *             group.</p>
+ *             group. </p>
+ *          <p>After the operation completes, use the <a>DescribeTrafficSources</a> API to
+ *             return details about the state of the attachments between traffic sources and your Auto Scaling
+ *             group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,7 +69,8 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  *   AutoScalingGroupName: "STRING_VALUE", // required
  *   TrafficSources: [ // TrafficSources // required
  *     { // TrafficSourceIdentifier
- *       Identifier: "STRING_VALUE",
+ *       Identifier: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE",
  *     },
  *   ],
  * };

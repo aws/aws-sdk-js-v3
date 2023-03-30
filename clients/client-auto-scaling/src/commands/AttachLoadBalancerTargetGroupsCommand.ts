@@ -37,7 +37,16 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
 
 /**
  * @public
- * <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
+ * <note>
+ *             <p>This API call has been replaced with a new "traffic sources" API call
+ *                     (<code>AttachTrafficSources</code>) that can attach multiple traffic sources
+ *                 types. While we continue to support <code>AttachLoadBalancerTargetGroups</code>, and
+ *                 you can use both the original <code>AttachLoadBalancerTargetGroups</code> API call
+ *                 and the new <code>AttachTrafficSources</code> API call on the same Auto Scaling group, we
+ *                 recommend using the new "traffic sources" API call to simplify how you manage
+ *                 traffic sources.</p>
+ *          </note>
+ *          <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
  *          <p>This operation is used with the following load balancer types: </p>
  *          <ul>
  *             <li>

@@ -209,7 +209,8 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *   DefaultInstanceWarmup: Number("int"),
  *   TrafficSources: [ // TrafficSources
  *     { // TrafficSourceIdentifier
- *       Identifier: "STRING_VALUE",
+ *       Identifier: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE",
  *     },
  *   ],
  * };
