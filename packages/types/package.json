@@ -13,7 +13,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "exit 0"
+    "test": "tsc -p tsconfig.test.json"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
