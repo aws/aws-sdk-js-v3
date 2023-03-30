@@ -3208,11 +3208,6 @@ export interface UpdateDataQualityRulesetRequest {
   Name: string | undefined;
 
   /**
-   * <p>The new name of the ruleset, if you are renaming it.</p>
-   */
-  UpdatedName?: string;
-
-  /**
    * <p>A description of the ruleset.</p>
    */
   Description?: string;

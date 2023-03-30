@@ -44,7 +44,6 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * const client = new GlueClient(config);
  * const input = { // UpdateDataQualityRulesetRequest
  *   Name: "STRING_VALUE", // required
- *   UpdatedName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Ruleset: "STRING_VALUE",
  * };

@@ -19670,7 +19670,6 @@ const serializeAws_json1_1UpdateDataQualityRulesetRequest = (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Ruleset != null && { Ruleset: input.Ruleset }),
-    ...(input.UpdatedName != null && { UpdatedName: input.UpdatedName }),
   };
 };
 
