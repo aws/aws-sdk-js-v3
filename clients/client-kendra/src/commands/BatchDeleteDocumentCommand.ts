@@ -35,11 +35,11 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
 
 /**
  * @public
- * <p>Removes one or more documents from an index. The documents must have
- *       been added with the <code>BatchPutDocument</code> API.</p>
- *          <p>The documents are deleted asynchronously. You can see the progress of
- *       the deletion by using Amazon Web Services CloudWatch. Any error messages related to the
- *       processing of the batch are sent to you CloudWatch log.</p>
+ * <p>Removes one or more documents from an index. The documents must have been added with
+ *             the <code>BatchPutDocument</code> API.</p>
+ *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
+ *             using Amazon Web Services CloudWatch. Any error messages related to the processing of the
+ *             batch are sent to you CloudWatch log.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,7 +76,7 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct

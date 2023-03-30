@@ -42,8 +42,6 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *          <p>
  *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
  *       data source was successfully created. Otherwise, an exception is raised.</p>
- *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are the only
- *       supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
  *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
  *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
  *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java
@@ -643,7 +641,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceAlreadyExistException} (client fault)
  *  <p>The resource you want to use already exists. Please check you have provided the
@@ -655,7 +653,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)

@@ -14,46 +14,52 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_0";
+import { BatchDeleteFeaturedResultsSetRequest, BatchDeleteFeaturedResultsSetResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDataSourceCommand,
-  serializeAws_json1_1DescribeDataSourceCommand,
+  deserializeAws_json1_1BatchDeleteFeaturedResultsSetCommand,
+  serializeAws_json1_1BatchDeleteFeaturedResultsSetCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  *
- * The input for {@link DescribeDataSourceCommand}.
+ * The input for {@link BatchDeleteFeaturedResultsSetCommand}.
  */
-export interface DescribeDataSourceCommandInput extends DescribeDataSourceRequest {}
+export interface BatchDeleteFeaturedResultsSetCommandInput extends BatchDeleteFeaturedResultsSetRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeDataSourceCommand}.
+ * The output of {@link BatchDeleteFeaturedResultsSetCommand}.
  */
-export interface DescribeDataSourceCommandOutput extends DescribeDataSourceResponse, __MetadataBearer {}
+export interface BatchDeleteFeaturedResultsSetCommandOutput
+  extends BatchDeleteFeaturedResultsSetResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets information about an Amazon Kendra data source connector.</p>
+ * <p>Removes one or more sets of featured results. Features results are placed
+ *             above all other results for certain queries. If there's an exact match of a
+ *             query, then one or more specific documents are featured in the search results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, BatchDeleteFeaturedResultsSetCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, BatchDeleteFeaturedResultsSetCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = { // DescribeDataSourceRequest
- *   Id: "STRING_VALUE", // required
+ * const input = { // BatchDeleteFeaturedResultsSetRequest
  *   IndexId: "STRING_VALUE", // required
+ *   FeaturedResultsSetIds: [ // FeaturedResultsSetIdList // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new DescribeDataSourceCommand(input);
+ * const command = new BatchDeleteFeaturedResultsSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param DescribeDataSourceCommandInput - {@link DescribeDataSourceCommandInput}
- * @returns {@link DescribeDataSourceCommandOutput}
- * @see {@link DescribeDataSourceCommandInput} for command's `input` shape.
- * @see {@link DescribeDataSourceCommandOutput} for command's `response` shape.
+ * @param BatchDeleteFeaturedResultsSetCommandInput - {@link BatchDeleteFeaturedResultsSetCommandInput}
+ * @returns {@link BatchDeleteFeaturedResultsSetCommandOutput}
+ * @see {@link BatchDeleteFeaturedResultsSetCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteFeaturedResultsSetCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -78,9 +84,9 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  *
  *
  */
-export class DescribeDataSourceCommand extends $Command<
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput,
+export class BatchDeleteFeaturedResultsSetCommand extends $Command<
+  BatchDeleteFeaturedResultsSetCommandInput,
+  BatchDeleteFeaturedResultsSetCommandOutput,
   KendraClientResolvedConfig
 > {
   // Start section: command_properties
@@ -98,7 +104,7 @@ export class DescribeDataSourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeDataSourceCommandInput) {
+  constructor(readonly input: BatchDeleteFeaturedResultsSetCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -111,17 +117,17 @@ export class DescribeDataSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput> {
+  ): Handler<BatchDeleteFeaturedResultsSetCommandInput, BatchDeleteFeaturedResultsSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDataSourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, BatchDeleteFeaturedResultsSetCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KendraClient";
-    const commandName = "DescribeDataSourceCommand";
+    const commandName = "BatchDeleteFeaturedResultsSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -140,15 +146,18 @@ export class DescribeDataSourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataSourceCommand(input, context);
+  private serialize(input: BatchDeleteFeaturedResultsSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1BatchDeleteFeaturedResultsSetCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourceCommandOutput> {
-    return deserializeAws_json1_1DescribeDataSourceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<BatchDeleteFeaturedResultsSetCommandOutput> {
+    return deserializeAws_json1_1BatchDeleteFeaturedResultsSetCommand(output, context);
   }
 
   // Start section: command_body_extra

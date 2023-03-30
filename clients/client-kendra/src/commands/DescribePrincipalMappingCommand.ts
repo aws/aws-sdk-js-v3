@@ -35,15 +35,14 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
 
 /**
  * @public
- * <p>Describes the processing of <code>PUT</code> and <code>DELETE</code> actions
- *             for mapping users to their groups. This includes information on the status of
- *             actions currently processing or yet to be processed, when actions were last updated,
- *             when actions were received by Amazon Kendra, the latest action that should process
- *             and apply after other actions, and useful error messages if an action could
- *             not be processed.</p>
+ * <p>Describes the processing of <code>PUT</code> and <code>DELETE</code> actions for
+ *             mapping users to their groups. This includes information on the status of actions
+ *             currently processing or yet to be processed, when actions were last updated, when
+ *             actions were received by Amazon Kendra, the latest action that should process and
+ *             apply after other actions, and useful error messages if an action could not be
+ *             processed.</p>
  *          <p>
- *             <code>DescribePrincipalMapping</code> is currently not supported in the
- *             Amazon Web Services GovCloud (US-West) region.</p>
+ *             <code>DescribePrincipalMapping</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,7 +70,7 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct

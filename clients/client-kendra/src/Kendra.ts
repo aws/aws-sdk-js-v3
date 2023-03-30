@@ -17,6 +17,11 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import {
+  BatchDeleteFeaturedResultsSetCommand,
+  BatchDeleteFeaturedResultsSetCommandInput,
+  BatchDeleteFeaturedResultsSetCommandOutput,
+} from "./commands/BatchDeleteFeaturedResultsSetCommand";
+import {
   BatchGetDocumentStatusCommand,
   BatchGetDocumentStatusCommandInput,
   BatchGetDocumentStatusCommandOutput,
@@ -47,6 +52,11 @@ import {
   CreateExperienceCommandOutput,
 } from "./commands/CreateExperienceCommand";
 import { CreateFaqCommand, CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
+import {
+  CreateFeaturedResultsSetCommand,
+  CreateFeaturedResultsSetCommandInput,
+  CreateFeaturedResultsSetCommandOutput,
+} from "./commands/CreateFeaturedResultsSetCommand";
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateQuerySuggestionsBlockListCommand,
@@ -106,6 +116,11 @@ import {
   DescribeExperienceCommandOutput,
 } from "./commands/DescribeExperienceCommand";
 import { DescribeFaqCommand, DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
+import {
+  DescribeFeaturedResultsSetCommand,
+  DescribeFeaturedResultsSetCommandInput,
+  DescribeFeaturedResultsSetCommandOutput,
+} from "./commands/DescribeFeaturedResultsSetCommand";
 import {
   DescribeIndexCommand,
   DescribeIndexCommandInput,
@@ -183,6 +198,11 @@ import {
 } from "./commands/ListExperiencesCommand";
 import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import {
+  ListFeaturedResultsSetsCommand,
+  ListFeaturedResultsSetsCommandInput,
+  ListFeaturedResultsSetsCommandOutput,
+} from "./commands/ListFeaturedResultsSetsCommand";
+import {
   ListGroupsOlderThanOrderingIdCommand,
   ListGroupsOlderThanOrderingIdCommandInput,
   ListGroupsOlderThanOrderingIdCommandOutput,
@@ -245,6 +265,11 @@ import {
   UpdateExperienceCommandInput,
   UpdateExperienceCommandOutput,
 } from "./commands/UpdateExperienceCommand";
+import {
+  UpdateFeaturedResultsSetCommand,
+  UpdateFeaturedResultsSetCommandInput,
+  UpdateFeaturedResultsSetCommandOutput,
+} from "./commands/UpdateFeaturedResultsSetCommand";
 import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdateQuerySuggestionsBlockListCommand,
@@ -344,11 +369,11 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Removes one or more documents from an index. The documents must have
-   *       been added with the <code>BatchPutDocument</code> API.</p>
-   *          <p>The documents are deleted asynchronously. You can see the progress of
-   *       the deletion by using Amazon Web Services CloudWatch. Any error messages related to the
-   *       processing of the batch are sent to you CloudWatch log.</p>
+   * <p>Removes one or more documents from an index. The documents must have been added with
+   *             the <code>BatchPutDocument</code> API.</p>
+   *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
+   *             using Amazon Web Services CloudWatch. Any error messages related to the processing of the
+   *             batch are sent to you CloudWatch log.</p>
    */
   public batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
@@ -381,19 +406,50 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Returns the indexing status for one or more documents submitted
-   *             with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
+   * <p>Removes one or more sets of featured results. Features results are placed
+   *             above all other results for certain queries. If there's an exact match of a
+   *             query, then one or more specific documents are featured in the search results.</p>
+   */
+  public batchDeleteFeaturedResultsSet(
+    args: BatchDeleteFeaturedResultsSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteFeaturedResultsSetCommandOutput>;
+  public batchDeleteFeaturedResultsSet(
+    args: BatchDeleteFeaturedResultsSetCommandInput,
+    cb: (err: any, data?: BatchDeleteFeaturedResultsSetCommandOutput) => void
+  ): void;
+  public batchDeleteFeaturedResultsSet(
+    args: BatchDeleteFeaturedResultsSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteFeaturedResultsSetCommandOutput) => void
+  ): void;
+  public batchDeleteFeaturedResultsSet(
+    args: BatchDeleteFeaturedResultsSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteFeaturedResultsSetCommandOutput) => void),
+    cb?: (err: any, data?: BatchDeleteFeaturedResultsSetCommandOutput) => void
+  ): Promise<BatchDeleteFeaturedResultsSetCommandOutput> | void {
+    const command = new BatchDeleteFeaturedResultsSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Returns the indexing status for one or more documents submitted with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
    *                 BatchPutDocument</a> API.</p>
-   *          <p>When you use the <code>BatchPutDocument</code> API,
-   *             documents are indexed asynchronously. You can use the
-   *                 <code>BatchGetDocumentStatus</code> API to get the current
-   *             status of a list of documents so that you can determine if they have
-   *             been successfully indexed.</p>
-   *          <p>You can also use the <code>BatchGetDocumentStatus</code> API
-   *             to check the status of the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
-   *                 BatchDeleteDocument</a> API. When a document is
-   *             deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the
-   *             status.</p>
+   *          <p>When you use the <code>BatchPutDocument</code> API, documents are indexed
+   *             asynchronously. You can use the <code>BatchGetDocumentStatus</code> API to get the
+   *             current status of a list of documents so that you can determine if they have been
+   *             successfully indexed.</p>
+   *          <p>You can also use the <code>BatchGetDocumentStatus</code> API to check the status of
+   *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
+   *                 BatchDeleteDocument</a> API. When a document is deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the status.</p>
    */
   public batchGetDocumentStatus(
     args: BatchGetDocumentStatusCommandInput,
@@ -427,17 +483,17 @@ export class Kendra extends KendraClient {
   /**
    * @public
    * <p>Adds one or more documents to an index.</p>
-   *          <p>The <code>BatchPutDocument</code> API enables you to ingest
-   *       inline documents or a set of documents stored in an Amazon S3 bucket. Use
-   *       this API to ingest your text and unstructured text into an index,
-   *       add custom attributes to the documents, and to attach an access control
-   *       list to the documents added to the index.</p>
-   *          <p>The documents are indexed asynchronously. You can see the progress of
-   *       the batch using Amazon Web Services CloudWatch. Any error messages related to processing
-   *       the batch are sent to your Amazon Web Services CloudWatch log.</p>
-   *          <p>For an example of ingesting inline documents using Python and Java SDKs,
-   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html">Adding
-   *         files directly to an index</a>.</p>
+   *          <p>The <code>BatchPutDocument</code> API enables you to ingest inline documents or a set
+   *             of documents stored in an Amazon S3 bucket. Use this API to ingest your text and
+   *             unstructured text into an index, add custom attributes to the documents, and to attach
+   *             an access control list to the documents added to the index.</p>
+   *          <p>The documents are indexed asynchronously. You can see the progress of the batch using
+   *                 Amazon Web Services
+   *             CloudWatch. Any error messages related to processing the batch are sent to your
+   *                 Amazon Web Services
+   *             CloudWatch log.</p>
+   *          <p>For an example of ingesting inline documents using Python and Java SDKs, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html">Adding files
+   *                 directly to an index</a>.</p>
    */
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
@@ -512,29 +568,25 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Creates an access configuration for your documents. This includes
-   *             user and group access information for your documents. This is useful
-   *             for user context filtering, where search results are filtered based
-   *             on the user or their group access to documents.</p>
+   * <p>Creates an access configuration for your documents. This includes user and group
+   *             access information for your documents. This is useful for user context filtering, where
+   *             search results are filtered based on the user or their group access to documents.</p>
    *          <p>You can use this to re-configure your existing document level access control without
    *             indexing all of your documents again. For example, your index contains top-secret
    *             company documents that only certain employees or users should access. One of these users
    *             leaves the company or switches to a team that should be blocked from accessing
    *             top-secret documents. The user still has access to top-secret documents because the user
-   *             had access when your documents were previously indexed. You
-   *             can create a specific access control configuration for the user with deny
-   *             access. You can later update the access control configuration to allow access if the
-   *             user returns to the company and re-joins the 'top-secret' team. You can re-configure
-   *             access control for your documents as circumstances change.</p>
-   *          <p>To apply your access control configuration to certain documents, you call
-   *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
-   *             API with the <code>AccessControlConfigurationId</code> included in the
-   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
-   *             object. If you use an S3 bucket as a data source, you update the
-   *             <code>.metadata.json</code> with the <code>AccessControlConfigurationId</code>
-   *             and synchronize your data source. Amazon Kendra currently only supports
-   *             access control configuration for S3 data sources and documents indexed using the
-   *             <code>BatchPutDocument</code> API.</p>
+   *             had access when your documents were previously indexed. You can create a specific access
+   *             control configuration for the user with deny access. You can later update the access
+   *             control configuration to allow access if the user returns to the company and re-joins
+   *             the 'top-secret' team. You can re-configure access control for your documents as
+   *             circumstances change.</p>
+   *          <p>To apply your access control configuration to certain documents, you call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API with the <code>AccessControlConfigurationId</code>
+   *             included in the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a> object. If you use an S3 bucket as a data source, you update the
+   *                 <code>.metadata.json</code> with the <code>AccessControlConfigurationId</code> and
+   *             synchronize your data source. Amazon Kendra currently only supports access control
+   *             configuration for S3 data sources and documents indexed using the
+   *                 <code>BatchPutDocument</code> API.</p>
    */
   public createAccessControlConfiguration(
     args: CreateAccessControlConfigurationCommandInput,
@@ -574,8 +626,6 @@ export class Kendra extends KendraClient {
    *          <p>
    *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
    *       data source was successfully created. Otherwise, an exception is raised.</p>
-   *          <p>Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a> data sources are the only
-   *       supported data sources in the Amazon Web Services GovCloud (US-West) region.</p>
    *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
    *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
    *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java
@@ -648,11 +698,10 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
+   * <p>Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored
+   *             in an Amazon S3 bucket.</p>
    *          <p>Adding FAQs to an index is an asynchronous operation.</p>
-   *          <p>For an example of adding an FAQ to an index using Python and Java SDKs,
-   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your
-   *                 FAQ file</a>.</p>
+   *          <p>For an example of adding an FAQ to an index using Python and Java SDKs, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your FAQ file</a>.</p>
    */
   public createFaq(args: CreateFaqCommandInput, options?: __HttpHandlerOptions): Promise<CreateFaqCommandOutput>;
   public createFaq(args: CreateFaqCommandInput, cb: (err: any, data?: CreateFaqCommandOutput) => void): void;
@@ -667,6 +716,45 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: CreateFaqCommandOutput) => void
   ): Promise<CreateFaqCommandOutput> | void {
     const command = new CreateFaqCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Creates a set of featured results to display at the top of the search results page.
+   *             Featured results are placed above all other results for certain queries. You map
+   *             specific queries to specific documents for featuring in the results. If a query
+   *             contains an exact match, then one or more specific documents are featured in the
+   *             search results.</p>
+   *          <p>You can create up to 50 sets of featured results per index. You can request to
+   *             increase this limit by contacting <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   */
+  public createFeaturedResultsSet(
+    args: CreateFeaturedResultsSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFeaturedResultsSetCommandOutput>;
+  public createFeaturedResultsSet(
+    args: CreateFeaturedResultsSetCommandInput,
+    cb: (err: any, data?: CreateFeaturedResultsSetCommandOutput) => void
+  ): void;
+  public createFeaturedResultsSet(
+    args: CreateFeaturedResultsSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFeaturedResultsSetCommandOutput) => void
+  ): void;
+  public createFeaturedResultsSet(
+    args: CreateFeaturedResultsSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFeaturedResultsSetCommandOutput) => void),
+    cb?: (err: any, data?: CreateFeaturedResultsSetCommandOutput) => void
+  ): Promise<CreateFeaturedResultsSetCommandOutput> | void {
+    const command = new CreateFeaturedResultsSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -799,10 +887,10 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Deletes an access control configuration that you created for your
-   *             documents in an index. This includes user and group access information
-   *             for your documents. This is useful for user context filtering, where search
-   *             results are filtered based on the user or their group access to documents.</p>
+   * <p>Deletes an access control configuration that you created for your documents in an
+   *             index. This includes user and group access information for your documents. This is
+   *             useful for user context filtering, where search results are filtered based on the user
+   *             or their group access to documents.</p>
    */
   public deleteAccessControlConfiguration(
     args: DeleteAccessControlConfigurationCommandInput,
@@ -963,21 +1051,19 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Deletes a group so that all users and sub groups that belong to the group can
-   *             no longer access documents only available to that group.</p>
-   *          <p>For example, after deleting the group "Summer Interns", all interns who
-   *             belonged to that group no longer see intern-only documents in their search
-   *             results.</p>
-   *          <p>If you want to delete or replace users or sub groups of a group, you need to
-   *             use the <code>PutPrincipalMapping</code> operation. For example, if a user in
-   *             the group "Engineering" leaves the engineering team and another user takes
-   *             their place, you provide an updated list of users or sub groups that belong
-   *             to the "Engineering" group when calling <code>PutPrincipalMapping</code>. You
-   *             can update your internal list of users or sub groups and input this list
-   *             when calling <code>PutPrincipalMapping</code>.</p>
+   * <p>Deletes a group so that all users and sub groups that belong to the group can no
+   *             longer access documents only available to that group.</p>
+   *          <p>For example, after deleting the group "Summer Interns", all interns who belonged to
+   *             that group no longer see intern-only documents in their search results.</p>
+   *          <p>If you want to delete or replace users or sub groups of a group, you need to use the
+   *                 <code>PutPrincipalMapping</code> operation. For example, if a user in the group
+   *             "Engineering" leaves the engineering team and another user takes their place, you
+   *             provide an updated list of users or sub groups that belong to the "Engineering" group
+   *             when calling <code>PutPrincipalMapping</code>. You can update your internal list of
+   *             users or sub groups and input this list when calling
+   *             <code>PutPrincipalMapping</code>.</p>
    *          <p>
-   *             <code>DeletePrincipalMapping</code> is currently not supported in the
-   *             Amazon Web Services GovCloud (US-West) region.</p>
+   *             <code>DeletePrincipalMapping</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
    */
   public deletePrincipalMapping(
     args: DeletePrincipalMappingCommandInput,
@@ -1085,8 +1171,8 @@ export class Kendra extends KendraClient {
    * @public
    * <p>Gets information about an access control configuration that you created for your
    *             documents in an index. This includes user and group access information for your
-   *             documents. This is useful for user context filtering, where search results are
-   *             filtered based on the user or their group access to documents.</p>
+   *             documents. This is useful for user context filtering, where search results are filtered
+   *             based on the user or their group access to documents.</p>
    */
   public describeAccessControlConfiguration(
     args: DescribeAccessControlConfigurationCommandInput,
@@ -1215,6 +1301,41 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
+   * <p>Gets information about a set of featured results. Features results are placed
+   *             above all other results for certain queries. If there's an exact match of a query,
+   *             then one or more specific documents are featured in the search results.</p>
+   */
+  public describeFeaturedResultsSet(
+    args: DescribeFeaturedResultsSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFeaturedResultsSetCommandOutput>;
+  public describeFeaturedResultsSet(
+    args: DescribeFeaturedResultsSetCommandInput,
+    cb: (err: any, data?: DescribeFeaturedResultsSetCommandOutput) => void
+  ): void;
+  public describeFeaturedResultsSet(
+    args: DescribeFeaturedResultsSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFeaturedResultsSetCommandOutput) => void
+  ): void;
+  public describeFeaturedResultsSet(
+    args: DescribeFeaturedResultsSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFeaturedResultsSetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFeaturedResultsSetCommandOutput) => void
+  ): Promise<DescribeFeaturedResultsSetCommandOutput> | void {
+    const command = new DescribeFeaturedResultsSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Gets information about an existing Amazon Kendra index.</p>
    */
   public describeIndex(
@@ -1248,15 +1369,14 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Describes the processing of <code>PUT</code> and <code>DELETE</code> actions
-   *             for mapping users to their groups. This includes information on the status of
-   *             actions currently processing or yet to be processed, when actions were last updated,
-   *             when actions were received by Amazon Kendra, the latest action that should process
-   *             and apply after other actions, and useful error messages if an action could
-   *             not be processed.</p>
+   * <p>Describes the processing of <code>PUT</code> and <code>DELETE</code> actions for
+   *             mapping users to their groups. This includes information on the status of actions
+   *             currently processing or yet to be processed, when actions were last updated, when
+   *             actions were received by Amazon Kendra, the latest action that should process and
+   *             apply after other actions, and useful error messages if an action could not be
+   *             processed.</p>
    *          <p>
-   *             <code>DescribePrincipalMapping</code> is currently not supported in the
-   *             Amazon Web Services GovCloud (US-West) region.</p>
+   *             <code>DescribePrincipalMapping</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
    */
   public describePrincipalMapping(
     args: DescribePrincipalMappingCommandInput,
@@ -1509,9 +1629,8 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Retrieves search metrics data. The data provides a snapshot of how
-   *             your users interact with your search application and how effective
-   *             the application is.</p>
+   * <p>Retrieves search metrics data. The data provides a snapshot of how your users interact
+   *             with your search application and how effective the application is.</p>
    */
   public getSnapshots(
     args: GetSnapshotsCommandInput,
@@ -1541,10 +1660,10 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Lists one or more access control configurations for an index. This
-   *             includes user and group access information for your documents. This
-   *             is useful for user context filtering, where search results are filtered
-   *             based on the user or their group access to documents.</p>
+   * <p>Lists one or more access control configurations for an index. This includes user and
+   *             group access information for your documents. This is useful for user context filtering,
+   *             where search results are filtered based on the user or their group access to
+   *             documents.</p>
    */
   public listAccessControlConfigurations(
     args: ListAccessControlConfigurationsCommandInput,
@@ -1777,11 +1896,45 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Provides a list of groups that are mapped to users before a
-   *             given ordering or timestamp identifier.</p>
+   * <p>Lists all your sets of featured results for a given index. Features results
+   *             are placed above all other results for certain queries. If there's an exact match
+   *             of a query, then one or more specific documents are featured in the search results.</p>
+   */
+  public listFeaturedResultsSets(
+    args: ListFeaturedResultsSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFeaturedResultsSetsCommandOutput>;
+  public listFeaturedResultsSets(
+    args: ListFeaturedResultsSetsCommandInput,
+    cb: (err: any, data?: ListFeaturedResultsSetsCommandOutput) => void
+  ): void;
+  public listFeaturedResultsSets(
+    args: ListFeaturedResultsSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFeaturedResultsSetsCommandOutput) => void
+  ): void;
+  public listFeaturedResultsSets(
+    args: ListFeaturedResultsSetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFeaturedResultsSetsCommandOutput) => void),
+    cb?: (err: any, data?: ListFeaturedResultsSetsCommandOutput) => void
+  ): Promise<ListFeaturedResultsSetsCommandOutput> | void {
+    const command = new ListFeaturedResultsSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Provides a list of groups that are mapped to users before a given ordering or
+   *             timestamp identifier.</p>
    *          <p>
-   *             <code>ListGroupsOlderThanOrderingId</code> is currently not supported in the
-   *             Amazon Web Services GovCloud (US-West) region.</p>
+   *             <code>ListGroupsOlderThanOrderingId</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
    */
   public listGroupsOlderThanOrderingId(
     args: ListGroupsOlderThanOrderingIdCommandInput,
@@ -1880,8 +2033,8 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Gets a list of tags associated with a specified resource. Indexes,
-   *       FAQs, and data sources can have tags associated with them.</p>
+   * <p>Gets a list of tags associated with a specified resource. Indexes, FAQs, and data sources
+   *       can have tags associated with them.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1944,25 +2097,18 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Maps users to their groups so that you only need to provide
-   *             the user ID when you issue the query.</p>
-   *          <p>You can also map sub groups to groups.
-   *             For example, the group "Company Intellectual Property Teams" includes
-   *             sub groups "Research" and "Engineering". These sub groups include their
-   *             own list of users or people who work in these teams. Only users who work
-   *             in research and engineering, and therefore belong in the intellectual
-   *             property group, can see top-secret company documents in their search
-   *             results.</p>
-   *          <p>This is useful for user context filtering, where search results are
-   *             filtered based on the user or their group access to documents. For more
-   *             information, see
-   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering
-   *                 on user context</a>.</p>
-   *          <p>If more than five <code>PUT</code> actions for a group are currently
-   *             processing, a validation exception is thrown.</p>
-   *          <p>
-   *             <code>PutPrincipalMapping</code> is currently not supported in the
-   *             Amazon Web Services GovCloud (US-West) region.</p>
+   * <p>Maps users to their groups so that you only need to provide the user ID when you issue
+   *             the query.</p>
+   *          <p>You can also map sub groups to groups. For example, the group "Company Intellectual
+   *             Property Teams" includes sub groups "Research" and "Engineering". These sub groups
+   *             include their own list of users or people who work in these teams. Only users who work
+   *             in research and engineering, and therefore belong in the intellectual property group,
+   *             can see top-secret company documents in their search results.</p>
+   *          <p>This is useful for user context filtering, where search results are filtered based on
+   *             the user or their group access to documents. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering on
+   *                 user context</a>.</p>
+   *          <p>If more than five <code>PUT</code> actions for a group are currently processing, a
+   *             validation exception is thrown.</p>
    */
   public putPrincipalMapping(
     args: PutPrincipalMappingCommandInput,
@@ -2148,9 +2294,8 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Adds the specified tag to the specified index, FAQ, or data source
-   *       resource. If the tag already exists, the existing value is replaced with
-   *       the new value.</p>
+   * <p>Adds the specified tag to the specified index, FAQ, or data source resource. If the tag
+   *       already exists, the existing value is replaced with the new value.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -2210,26 +2355,25 @@ export class Kendra extends KendraClient {
 
   /**
    * @public
-   * <p>Updates an access control configuration for your documents in an index. This
-   *             includes user and group access information for your documents. This is useful
-   *             for user context filtering, where search results are filtered based on the user
-   *             or their group access to documents.</p>
-   *          <p>You can update an access control configuration you created without indexing all
-   *             of your documents again. For example, your index contains top-secret company
-   *             documents that only certain employees or users should access. You created an 'allow'
-   *             access control configuration for one user who recently joined the 'top-secret' team,
-   *             switching from a team with 'deny' access to top-secret documents. However, the user
-   *             suddenly returns to their previous team and should no longer have access to top secret
-   *             documents. You can update the access control configuration to re-configure access
-   *             control for your documents as circumstances change.</p>
+   * <p>Updates an access control configuration for your documents in an index. This includes
+   *             user and group access information for your documents. This is useful for user context
+   *             filtering, where search results are filtered based on the user or their group access to
+   *             documents.</p>
+   *          <p>You can update an access control configuration you created without indexing all of
+   *             your documents again. For example, your index contains top-secret company documents that
+   *             only certain employees or users should access. You created an 'allow' access control
+   *             configuration for one user who recently joined the 'top-secret' team, switching from a
+   *             team with 'deny' access to top-secret documents. However, the user suddenly returns to
+   *             their previous team and should no longer have access to top secret documents. You can
+   *             update the access control configuration to re-configure access control for your
+   *             documents as circumstances change.</p>
    *          <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API to
    *             apply the updated access control configuration, with the
-   *                 <code>AccessControlConfigurationId</code> included in the
-   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
+   *                 <code>AccessControlConfigurationId</code> included in the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
    *             object. If you use an S3 bucket as a data source, you synchronize your data source to
-   *             apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file.
-   *             Amazon Kendra currently only supports access control configuration for S3 data
-   *             sources and documents indexed using the <code>BatchPutDocument</code> API.</p>
+   *             apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code>
+   *             file. Amazon Kendra currently only supports access control configuration for S3
+   *             data sources and documents indexed using the <code>BatchPutDocument</code> API.</p>
    */
   public updateAccessControlConfiguration(
     args: UpdateAccessControlConfigurationCommandInput,
@@ -2318,6 +2462,43 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: UpdateExperienceCommandOutput) => void
   ): Promise<UpdateExperienceCommandOutput> | void {
     const command = new UpdateExperienceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Updates a set of featured results. Features results are placed
+   *             above
+   *             all other results for certain queries. You map specific queries to specific documents
+   *             for featuring in the results. If a query contains an exact match of a query, then one
+   *             or more specific documents are featured in the search results.</p>
+   */
+  public updateFeaturedResultsSet(
+    args: UpdateFeaturedResultsSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFeaturedResultsSetCommandOutput>;
+  public updateFeaturedResultsSet(
+    args: UpdateFeaturedResultsSetCommandInput,
+    cb: (err: any, data?: UpdateFeaturedResultsSetCommandOutput) => void
+  ): void;
+  public updateFeaturedResultsSet(
+    args: UpdateFeaturedResultsSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFeaturedResultsSetCommandOutput) => void
+  ): void;
+  public updateFeaturedResultsSet(
+    args: UpdateFeaturedResultsSetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFeaturedResultsSetCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFeaturedResultsSetCommandOutput) => void
+  ): Promise<UpdateFeaturedResultsSetCommandOutput> | void {
+    const command = new UpdateFeaturedResultsSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

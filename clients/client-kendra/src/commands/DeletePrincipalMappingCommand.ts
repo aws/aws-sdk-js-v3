@@ -35,21 +35,19 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a group so that all users and sub groups that belong to the group can
- *             no longer access documents only available to that group.</p>
- *          <p>For example, after deleting the group "Summer Interns", all interns who
- *             belonged to that group no longer see intern-only documents in their search
- *             results.</p>
- *          <p>If you want to delete or replace users or sub groups of a group, you need to
- *             use the <code>PutPrincipalMapping</code> operation. For example, if a user in
- *             the group "Engineering" leaves the engineering team and another user takes
- *             their place, you provide an updated list of users or sub groups that belong
- *             to the "Engineering" group when calling <code>PutPrincipalMapping</code>. You
- *             can update your internal list of users or sub groups and input this list
- *             when calling <code>PutPrincipalMapping</code>.</p>
+ * <p>Deletes a group so that all users and sub groups that belong to the group can no
+ *             longer access documents only available to that group.</p>
+ *          <p>For example, after deleting the group "Summer Interns", all interns who belonged to
+ *             that group no longer see intern-only documents in their search results.</p>
+ *          <p>If you want to delete or replace users or sub groups of a group, you need to use the
+ *                 <code>PutPrincipalMapping</code> operation. For example, if a user in the group
+ *             "Engineering" leaves the engineering team and another user takes their place, you
+ *             provide an updated list of users or sub groups that belong to the "Engineering" group
+ *             when calling <code>PutPrincipalMapping</code>. You can update your internal list of
+ *             users or sub groups and input this list when calling
+ *             <code>PutPrincipalMapping</code>.</p>
  *          <p>
- *             <code>DeletePrincipalMapping</code> is currently not supported in the
- *             Amazon Web Services GovCloud (US-West) region.</p>
+ *             <code>DeletePrincipalMapping</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +80,7 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct

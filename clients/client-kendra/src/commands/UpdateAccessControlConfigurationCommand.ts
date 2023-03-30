@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { UpdateAccessControlConfigurationRequest, UpdateAccessControlConfigurationResponse } from "../models/models_0";
+import { UpdateAccessControlConfigurationRequest, UpdateAccessControlConfigurationResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateAccessControlConfigurationCommand,
   serializeAws_json1_1UpdateAccessControlConfigurationCommand,
@@ -37,26 +37,25 @@ export interface UpdateAccessControlConfigurationCommandOutput
 
 /**
  * @public
- * <p>Updates an access control configuration for your documents in an index. This
- *             includes user and group access information for your documents. This is useful
- *             for user context filtering, where search results are filtered based on the user
- *             or their group access to documents.</p>
- *          <p>You can update an access control configuration you created without indexing all
- *             of your documents again. For example, your index contains top-secret company
- *             documents that only certain employees or users should access. You created an 'allow'
- *             access control configuration for one user who recently joined the 'top-secret' team,
- *             switching from a team with 'deny' access to top-secret documents. However, the user
- *             suddenly returns to their previous team and should no longer have access to top secret
- *             documents. You can update the access control configuration to re-configure access
- *             control for your documents as circumstances change.</p>
+ * <p>Updates an access control configuration for your documents in an index. This includes
+ *             user and group access information for your documents. This is useful for user context
+ *             filtering, where search results are filtered based on the user or their group access to
+ *             documents.</p>
+ *          <p>You can update an access control configuration you created without indexing all of
+ *             your documents again. For example, your index contains top-secret company documents that
+ *             only certain employees or users should access. You created an 'allow' access control
+ *             configuration for one user who recently joined the 'top-secret' team, switching from a
+ *             team with 'deny' access to top-secret documents. However, the user suddenly returns to
+ *             their previous team and should no longer have access to top secret documents. You can
+ *             update the access control configuration to re-configure access control for your
+ *             documents as circumstances change.</p>
  *          <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API to
  *             apply the updated access control configuration, with the
- *                 <code>AccessControlConfigurationId</code> included in the
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
+ *                 <code>AccessControlConfigurationId</code> included in the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
  *             object. If you use an S3 bucket as a data source, you synchronize your data source to
- *             apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file.
- *             Amazon Kendra currently only supports access control configuration for S3 data
- *             sources and documents indexed using the <code>BatchPutDocument</code> API.</p>
+ *             apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code>
+ *             file. Amazon Kendra currently only supports access control configuration for S3
+ *             data sources and documents indexed using the <code>BatchPutDocument</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,7 +108,7 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -117,7 +116,8 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)

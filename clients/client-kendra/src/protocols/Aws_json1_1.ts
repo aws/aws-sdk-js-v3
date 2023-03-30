@@ -35,6 +35,10 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "../commands/BatchDeleteDocumentCommand";
 import {
+  BatchDeleteFeaturedResultsSetCommandInput,
+  BatchDeleteFeaturedResultsSetCommandOutput,
+} from "../commands/BatchDeleteFeaturedResultsSetCommand";
+import {
   BatchGetDocumentStatusCommandInput,
   BatchGetDocumentStatusCommandOutput,
 } from "../commands/BatchGetDocumentStatusCommand";
@@ -50,6 +54,10 @@ import {
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateExperienceCommandInput, CreateExperienceCommandOutput } from "../commands/CreateExperienceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "../commands/CreateFaqCommand";
+import {
+  CreateFeaturedResultsSetCommandInput,
+  CreateFeaturedResultsSetCommandOutput,
+} from "../commands/CreateFeaturedResultsSetCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "../commands/CreateIndexCommand";
 import {
   CreateQuerySuggestionsBlockListCommandInput,
@@ -80,6 +88,10 @@ import {
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "../commands/DescribeDataSourceCommand";
 import { DescribeExperienceCommandInput, DescribeExperienceCommandOutput } from "../commands/DescribeExperienceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "../commands/DescribeFaqCommand";
+import {
+  DescribeFeaturedResultsSetCommandInput,
+  DescribeFeaturedResultsSetCommandOutput,
+} from "../commands/DescribeFeaturedResultsSetCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "../commands/DescribeIndexCommand";
 import {
   DescribePrincipalMappingCommandInput,
@@ -124,6 +136,10 @@ import {
 import { ListExperiencesCommandInput, ListExperiencesCommandOutput } from "../commands/ListExperiencesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "../commands/ListFaqsCommand";
 import {
+  ListFeaturedResultsSetsCommandInput,
+  ListFeaturedResultsSetsCommandOutput,
+} from "../commands/ListFeaturedResultsSetsCommand";
+import {
   ListGroupsOlderThanOrderingIdCommandInput,
   ListGroupsOlderThanOrderingIdCommandOutput,
 } from "../commands/ListGroupsOlderThanOrderingIdCommand";
@@ -159,6 +175,10 @@ import {
 } from "../commands/UpdateAccessControlConfigurationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateExperienceCommandInput, UpdateExperienceCommandOutput } from "../commands/UpdateExperienceCommand";
+import {
+  UpdateFeaturedResultsSetCommandInput,
+  UpdateFeaturedResultsSetCommandOutput,
+} from "../commands/UpdateFeaturedResultsSetCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "../commands/UpdateIndexCommand";
 import {
   UpdateQuerySuggestionsBlockListCommandInput,
@@ -188,6 +208,9 @@ import {
   BatchDeleteDocumentRequest,
   BatchDeleteDocumentResponse,
   BatchDeleteDocumentResponseFailedDocument,
+  BatchDeleteFeaturedResultsSetError,
+  BatchDeleteFeaturedResultsSetRequest,
+  BatchDeleteFeaturedResultsSetResponse,
   BatchGetDocumentStatusRequest,
   BatchGetDocumentStatusResponse,
   BatchGetDocumentStatusResponseError,
@@ -197,9 +220,9 @@ import {
   BoxConfiguration,
   CapacityUnitsConfiguration,
   ClearQuerySuggestionsRequest,
-  ClickFeedback,
   ColumnConfiguration,
   ConflictException,
+  ConflictingItem,
   ConfluenceAttachmentConfiguration,
   ConfluenceAttachmentToIndexFieldMapping,
   ConfluenceBlogConfiguration,
@@ -220,6 +243,8 @@ import {
   CreateExperienceResponse,
   CreateFaqRequest,
   CreateFaqResponse,
+  CreateFeaturedResultsSetRequest,
+  CreateFeaturedResultsSetResponse,
   CreateIndexRequest,
   CreateIndexResponse,
   CreateQuerySuggestionsBlockListRequest,
@@ -254,6 +279,8 @@ import {
   DescribeExperienceResponse,
   DescribeFaqRequest,
   DescribeFaqResponse,
+  DescribeFeaturedResultsSetRequest,
+  DescribeFeaturedResultsSetResponse,
   DescribeIndexRequest,
   DescribeIndexResponse,
   DescribePrincipalMappingRequest,
@@ -287,6 +314,13 @@ import {
   FailedEntity,
   FaqStatistics,
   FaqSummary,
+  FeaturedDocument,
+  FeaturedDocumentMissing,
+  FeaturedDocumentWithMetadata,
+  FeaturedResultsConflictException,
+  FeaturedResultsItem,
+  FeaturedResultsSet,
+  FeaturedResultsSetSummary,
   FsxConfiguration,
   GetQuerySuggestionsRequest,
   GetQuerySuggestionsResponse,
@@ -324,6 +358,8 @@ import {
   ListExperiencesResponse,
   ListFaqsRequest,
   ListFaqsResponse,
+  ListFeaturedResultsSetsRequest,
+  ListFeaturedResultsSetsResponse,
   ListGroupsOlderThanOrderingIdRequest,
   ListGroupsOlderThanOrderingIdResponse,
   ListIndicesRequest,
@@ -347,9 +383,7 @@ import {
   QuerySuggestionsBlockListSummary,
   QuipConfiguration,
   Relevance,
-  RelevanceFeedback,
   ResourceAlreadyExistException,
-  ResourceInUseException,
   ResourceNotFoundException,
   ResourceUnavailableException,
   S3DataSourceConfiguration,
@@ -380,11 +414,7 @@ import {
   SpellCorrectedQuery,
   SpellCorrectionConfiguration,
   SqlConfiguration,
-  StartDataSourceSyncJobRequest,
-  StartDataSourceSyncJobResponse,
   Status,
-  StopDataSourceSyncJobRequest,
-  SubmitFeedbackRequest,
   Suggestion,
   SuggestionHighlight,
   SuggestionTextWithHighlights,
@@ -393,22 +423,12 @@ import {
   TableExcerpt,
   TableRow,
   Tag,
-  TagResourceRequest,
-  TagResourceResponse,
   TemplateConfiguration,
   TextDocumentStatistics,
   TextWithHighlights,
   ThesaurusSummary,
   ThrottlingException,
   TimeRange,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateAccessControlConfigurationRequest,
-  UpdateAccessControlConfigurationResponse,
-  UpdateDataSourceRequest,
-  UpdateExperienceRequest,
-  UpdateIndexRequest,
-  UpdateQuerySuggestionsBlockListRequest,
   Urls,
   UserContext,
   UserGroupResolutionConfiguration,
@@ -421,11 +441,30 @@ import {
 } from "../models/models_0";
 import {
   AttributeFilter,
+  ClickFeedback,
   DocumentAttributeValueCountPair,
   Facet,
   FacetResult,
   QueryRequest,
   QueryResult,
+  RelevanceFeedback,
+  ResourceInUseException,
+  StartDataSourceSyncJobRequest,
+  StartDataSourceSyncJobResponse,
+  StopDataSourceSyncJobRequest,
+  SubmitFeedbackRequest,
+  TagResourceRequest,
+  TagResourceResponse,
+  UntagResourceRequest,
+  UntagResourceResponse,
+  UpdateAccessControlConfigurationRequest,
+  UpdateAccessControlConfigurationResponse,
+  UpdateDataSourceRequest,
+  UpdateExperienceRequest,
+  UpdateFeaturedResultsSetRequest,
+  UpdateFeaturedResultsSetResponse,
+  UpdateIndexRequest,
+  UpdateQuerySuggestionsBlockListRequest,
   UpdateQuerySuggestionsConfigRequest,
   UpdateThesaurusRequest,
 } from "../models/models_1";
@@ -466,6 +505,19 @@ export const serializeAws_json1_1BatchDeleteDocumentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteDocumentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchDeleteFeaturedResultsSetCommand = async (
+  input: BatchDeleteFeaturedResultsSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.BatchDeleteFeaturedResultsSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchDeleteFeaturedResultsSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -557,6 +609,19 @@ export const serializeAws_json1_1CreateFaqCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFaqRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateFeaturedResultsSetCommand = async (
+  input: CreateFeaturedResultsSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.CreateFeaturedResultsSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateFeaturedResultsSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -752,6 +817,19 @@ export const serializeAws_json1_1DescribeFaqCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFaqRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFeaturedResultsSetCommand = async (
+  input: DescribeFeaturedResultsSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.DescribeFeaturedResultsSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFeaturedResultsSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -963,6 +1041,19 @@ export const serializeAws_json1_1ListFaqsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListFeaturedResultsSetsCommand = async (
+  input: ListFeaturedResultsSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.ListFeaturedResultsSets",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListFeaturedResultsSetsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListGroupsOlderThanOrderingIdCommand = async (
   input: ListGroupsOlderThanOrderingIdCommandInput,
   context: __SerdeContext
@@ -1155,6 +1246,19 @@ export const serializeAws_json1_1UpdateExperienceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateExperienceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateFeaturedResultsSetCommand = async (
+  input: UpdateFeaturedResultsSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.UpdateFeaturedResultsSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateFeaturedResultsSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1355,6 +1459,59 @@ const deserializeAws_json1_1BatchDeleteDocumentCommandError = async (
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
       throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1BatchDeleteFeaturedResultsSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteFeaturedResultsSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchDeleteFeaturedResultsSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchDeleteFeaturedResultsSetResponse(data, context);
+  const response: BatchDeleteFeaturedResultsSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchDeleteFeaturedResultsSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteFeaturedResultsSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
       throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
@@ -1768,6 +1925,65 @@ const deserializeAws_json1_1CreateFaqCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.kendra#ServiceQuotaExceededException":
       throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateFeaturedResultsSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFeaturedResultsSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateFeaturedResultsSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateFeaturedResultsSetResponse(data, context);
+  const response: CreateFeaturedResultsSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateFeaturedResultsSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFeaturedResultsSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "FeaturedResultsConflictException":
+    case "com.amazonaws.kendra#FeaturedResultsConflictException":
+      throw await deserializeAws_json1_1FeaturedResultsConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
       throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
@@ -2572,6 +2788,59 @@ const deserializeAws_json1_1DescribeFaqCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFaqCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeFeaturedResultsSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFeaturedResultsSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFeaturedResultsSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFeaturedResultsSetResponse(data, context);
+  const response: DescribeFeaturedResultsSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFeaturedResultsSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFeaturedResultsSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3458,6 +3727,59 @@ const deserializeAws_json1_1ListFaqsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListFeaturedResultsSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFeaturedResultsSetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListFeaturedResultsSetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListFeaturedResultsSetsResponse(data, context);
+  const response: ListFeaturedResultsSetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListFeaturedResultsSetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFeaturedResultsSetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListGroupsOlderThanOrderingIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4271,6 +4593,62 @@ const deserializeAws_json1_1UpdateExperienceCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateFeaturedResultsSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFeaturedResultsSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateFeaturedResultsSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateFeaturedResultsSetResponse(data, context);
+  const response: UpdateFeaturedResultsSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateFeaturedResultsSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFeaturedResultsSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "FeaturedResultsConflictException":
+    case "com.amazonaws.kendra#FeaturedResultsConflictException":
+      throw await deserializeAws_json1_1FeaturedResultsConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4506,6 +4884,19 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
   const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1FeaturedResultsConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<FeaturedResultsConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1FeaturedResultsConflictException(body, context);
+  const exception = new FeaturedResultsConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4794,6 +5185,18 @@ const serializeAws_json1_1BatchDeleteDocumentRequest = (
     }),
     ...(input.DocumentIdList != null && {
       DocumentIdList: serializeAws_json1_1DocumentIdList(input.DocumentIdList, context),
+    }),
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+  };
+};
+
+const serializeAws_json1_1BatchDeleteFeaturedResultsSetRequest = (
+  input: BatchDeleteFeaturedResultsSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FeaturedResultsSetIds != null && {
+      FeaturedResultsSetIds: serializeAws_json1_1FeaturedResultsSetIdList(input.FeaturedResultsSetIds, context),
     }),
     ...(input.IndexId != null && { IndexId: input.IndexId }),
   };
@@ -5198,6 +5601,24 @@ const serializeAws_json1_1CreateFaqRequest = (input: CreateFaqRequest, context: 
   };
 };
 
+const serializeAws_json1_1CreateFeaturedResultsSetRequest = (
+  input: CreateFeaturedResultsSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.FeaturedDocuments != null && {
+      FeaturedDocuments: serializeAws_json1_1FeaturedDocumentList(input.FeaturedDocuments, context),
+    }),
+    ...(input.FeaturedResultsSetName != null && { FeaturedResultsSetName: input.FeaturedResultsSetName }),
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+    ...(input.QueryTexts != null && { QueryTexts: serializeAws_json1_1QueryTextList(input.QueryTexts, context) }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateIndexRequest = (input: CreateIndexRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -5533,6 +5954,16 @@ const serializeAws_json1_1DescribeExperienceRequest = (
 const serializeAws_json1_1DescribeFaqRequest = (input: DescribeFaqRequest, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+  };
+};
+
+const serializeAws_json1_1DescribeFeaturedResultsSetRequest = (
+  input: DescribeFeaturedResultsSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FeaturedResultsSetId != null && { FeaturedResultsSetId: input.FeaturedResultsSetId }),
     ...(input.IndexId != null && { IndexId: input.IndexId }),
   };
 };
@@ -5900,6 +6331,28 @@ const serializeAws_json1_1FacetList = (input: Facet[], context: __SerdeContext):
 };
 
 const serializeAws_json1_1FaqIdsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1FeaturedDocument = (input: FeaturedDocument, context: __SerdeContext): any => {
+  return {
+    ...(input.Id != null && { Id: input.Id }),
+  };
+};
+
+const serializeAws_json1_1FeaturedDocumentList = (input: FeaturedDocument[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1FeaturedDocument(entry, context);
+    });
+};
+
+const serializeAws_json1_1FeaturedResultsSetIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6330,6 +6783,17 @@ const serializeAws_json1_1ListFaqsRequest = (input: ListFaqsRequest, context: __
   };
 };
 
+const serializeAws_json1_1ListFeaturedResultsSetsRequest = (
+  input: ListFeaturedResultsSetsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListGroupsOlderThanOrderingIdRequest = (
   input: ListGroupsOlderThanOrderingIdRequest,
   context: __SerdeContext
@@ -6554,6 +7018,14 @@ const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeC
     ...(input.UserContext != null && { UserContext: serializeAws_json1_1UserContext(input.UserContext, context) }),
     ...(input.VisitorId != null && { VisitorId: input.VisitorId }),
   };
+};
+
+const serializeAws_json1_1QueryTextList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1QuipConfiguration = (input: QuipConfiguration, context: __SerdeContext): any => {
@@ -7248,6 +7720,23 @@ const serializeAws_json1_1UpdateExperienceRequest = (input: UpdateExperienceRequ
   };
 };
 
+const serializeAws_json1_1UpdateFeaturedResultsSetRequest = (
+  input: UpdateFeaturedResultsSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.FeaturedDocuments != null && {
+      FeaturedDocuments: serializeAws_json1_1FeaturedDocumentList(input.FeaturedDocuments, context),
+    }),
+    ...(input.FeaturedResultsSetId != null && { FeaturedResultsSetId: input.FeaturedResultsSetId }),
+    ...(input.FeaturedResultsSetName != null && { FeaturedResultsSetName: input.FeaturedResultsSetName }),
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+    ...(input.QueryTexts != null && { QueryTexts: serializeAws_json1_1QueryTextList(input.QueryTexts, context) }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_json1_1UpdateIndexRequest = (input: UpdateIndexRequest, context: __SerdeContext): any => {
   return {
     ...(input.CapacityUnits != null && {
@@ -7688,6 +8177,44 @@ const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocuments = (
   return retVal;
 };
 
+const deserializeAws_json1_1BatchDeleteFeaturedResultsSetError = (
+  output: any,
+  context: __SerdeContext
+): BatchDeleteFeaturedResultsSetError => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    Id: __expectString(output.Id),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchDeleteFeaturedResultsSetErrors = (
+  output: any,
+  context: __SerdeContext
+): BatchDeleteFeaturedResultsSetError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchDeleteFeaturedResultsSetError(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1BatchDeleteFeaturedResultsSetResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchDeleteFeaturedResultsSetResponse => {
+  return {
+    Errors:
+      output.Errors != null
+        ? deserializeAws_json1_1BatchDeleteFeaturedResultsSetErrors(output.Errors, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1BatchGetDocumentStatusResponse = (
   output: any,
   context: __SerdeContext
@@ -7849,6 +8376,26 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1ConflictingItem = (output: any, context: __SerdeContext): ConflictingItem => {
+  return {
+    QueryText: __expectString(output.QueryText),
+    SetId: __expectString(output.SetId),
+    SetName: __expectString(output.SetName),
+  } as any;
+};
+
+const deserializeAws_json1_1ConflictingItems = (output: any, context: __SerdeContext): ConflictingItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConflictingItem(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConfluenceAttachmentConfiguration = (
@@ -8146,6 +8693,18 @@ const deserializeAws_json1_1CreateExperienceResponse = (
 const deserializeAws_json1_1CreateFaqResponse = (output: any, context: __SerdeContext): CreateFaqResponse => {
   return {
     Id: __expectString(output.Id),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateFeaturedResultsSetResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateFeaturedResultsSetResponse => {
+  return {
+    FeaturedResultsSet:
+      output.FeaturedResultsSet != null
+        ? deserializeAws_json1_1FeaturedResultsSet(output.FeaturedResultsSet, context)
+        : undefined,
   } as any;
 };
 
@@ -8547,6 +9106,29 @@ const deserializeAws_json1_1DescribeFaqResponse = (output: any, context: __Serde
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFeaturedResultsSetResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFeaturedResultsSetResponse => {
+  return {
+    CreationTimestamp: __expectLong(output.CreationTimestamp),
+    Description: __expectString(output.Description),
+    FeaturedDocumentsMissing:
+      output.FeaturedDocumentsMissing != null
+        ? deserializeAws_json1_1FeaturedDocumentMissingList(output.FeaturedDocumentsMissing, context)
+        : undefined,
+    FeaturedDocumentsWithMetadata:
+      output.FeaturedDocumentsWithMetadata != null
+        ? deserializeAws_json1_1FeaturedDocumentWithMetadataList(output.FeaturedDocumentsWithMetadata, context)
+        : undefined,
+    FeaturedResultsSetId: __expectString(output.FeaturedResultsSetId),
+    FeaturedResultsSetName: __expectString(output.FeaturedResultsSetName),
+    LastUpdatedTimestamp: __expectLong(output.LastUpdatedTimestamp),
+    QueryTexts: output.QueryTexts != null ? deserializeAws_json1_1QueryTextList(output.QueryTexts, context) : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -9074,6 +9656,169 @@ const deserializeAws_json1_1FaqSummaryItems = (output: any, context: __SerdeCont
         return null as any;
       }
       return deserializeAws_json1_1FaqSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FeaturedDocument = (output: any, context: __SerdeContext): FeaturedDocument => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
+};
+
+const deserializeAws_json1_1FeaturedDocumentList = (output: any, context: __SerdeContext): FeaturedDocument[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FeaturedDocument(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FeaturedDocumentMissing = (
+  output: any,
+  context: __SerdeContext
+): FeaturedDocumentMissing => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
+};
+
+const deserializeAws_json1_1FeaturedDocumentMissingList = (
+  output: any,
+  context: __SerdeContext
+): FeaturedDocumentMissing[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FeaturedDocumentMissing(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FeaturedDocumentWithMetadata = (
+  output: any,
+  context: __SerdeContext
+): FeaturedDocumentWithMetadata => {
+  return {
+    Id: __expectString(output.Id),
+    Title: __expectString(output.Title),
+    URI: __expectString(output.URI),
+  } as any;
+};
+
+const deserializeAws_json1_1FeaturedDocumentWithMetadataList = (
+  output: any,
+  context: __SerdeContext
+): FeaturedDocumentWithMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FeaturedDocumentWithMetadata(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FeaturedResultsConflictException = (
+  output: any,
+  context: __SerdeContext
+): FeaturedResultsConflictException => {
+  return {
+    ConflictingItems:
+      output.ConflictingItems != null
+        ? deserializeAws_json1_1ConflictingItems(output.ConflictingItems, context)
+        : undefined,
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1FeaturedResultsItem = (output: any, context: __SerdeContext): FeaturedResultsItem => {
+  return {
+    AdditionalAttributes:
+      output.AdditionalAttributes != null
+        ? deserializeAws_json1_1AdditionalResultAttributeList(output.AdditionalAttributes, context)
+        : undefined,
+    DocumentAttributes:
+      output.DocumentAttributes != null
+        ? deserializeAws_json1_1DocumentAttributeList(output.DocumentAttributes, context)
+        : undefined,
+    DocumentExcerpt:
+      output.DocumentExcerpt != null
+        ? deserializeAws_json1_1TextWithHighlights(output.DocumentExcerpt, context)
+        : undefined,
+    DocumentId: __expectString(output.DocumentId),
+    DocumentTitle:
+      output.DocumentTitle != null
+        ? deserializeAws_json1_1TextWithHighlights(output.DocumentTitle, context)
+        : undefined,
+    DocumentURI: __expectString(output.DocumentURI),
+    FeedbackToken: __expectString(output.FeedbackToken),
+    Id: __expectString(output.Id),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1FeaturedResultsItemList = (output: any, context: __SerdeContext): FeaturedResultsItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FeaturedResultsItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FeaturedResultsSet = (output: any, context: __SerdeContext): FeaturedResultsSet => {
+  return {
+    CreationTimestamp: __expectLong(output.CreationTimestamp),
+    Description: __expectString(output.Description),
+    FeaturedDocuments:
+      output.FeaturedDocuments != null
+        ? deserializeAws_json1_1FeaturedDocumentList(output.FeaturedDocuments, context)
+        : undefined,
+    FeaturedResultsSetId: __expectString(output.FeaturedResultsSetId),
+    FeaturedResultsSetName: __expectString(output.FeaturedResultsSetName),
+    LastUpdatedTimestamp: __expectLong(output.LastUpdatedTimestamp),
+    QueryTexts: output.QueryTexts != null ? deserializeAws_json1_1QueryTextList(output.QueryTexts, context) : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1FeaturedResultsSetSummary = (
+  output: any,
+  context: __SerdeContext
+): FeaturedResultsSetSummary => {
+  return {
+    CreationTimestamp: __expectLong(output.CreationTimestamp),
+    FeaturedResultsSetId: __expectString(output.FeaturedResultsSetId),
+    FeaturedResultsSetName: __expectString(output.FeaturedResultsSetName),
+    LastUpdatedTimestamp: __expectLong(output.LastUpdatedTimestamp),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1FeaturedResultsSetSummaryItems = (
+  output: any,
+  context: __SerdeContext
+): FeaturedResultsSetSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FeaturedResultsSetSummary(entry, context);
     });
   return retVal;
 };
@@ -9673,6 +10418,19 @@ const deserializeAws_json1_1ListFaqsResponse = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1ListFeaturedResultsSetsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListFeaturedResultsSetsResponse => {
+  return {
+    FeaturedResultsSetSummaryItems:
+      output.FeaturedResultsSetSummaryItems != null
+        ? deserializeAws_json1_1FeaturedResultsSetSummaryItems(output.FeaturedResultsSetSummaryItems, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListGroupsOlderThanOrderingIdResponse = (
   output: any,
   context: __SerdeContext
@@ -9888,6 +10646,10 @@ const deserializeAws_json1_1QueryResult = (output: any, context: __SerdeContext)
   return {
     FacetResults:
       output.FacetResults != null ? deserializeAws_json1_1FacetResultList(output.FacetResults, context) : undefined,
+    FeaturedResultsItems:
+      output.FeaturedResultsItems != null
+        ? deserializeAws_json1_1FeaturedResultsItemList(output.FeaturedResultsItems, context)
+        : undefined,
     QueryId: __expectString(output.QueryId),
     ResultItems:
       output.ResultItems != null ? deserializeAws_json1_1QueryResultItemList(output.ResultItems, context) : undefined,
@@ -9972,6 +10734,18 @@ const deserializeAws_json1_1QuerySuggestionsBlockListSummaryItems = (
         return null as any;
       }
       return deserializeAws_json1_1QuerySuggestionsBlockListSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1QueryTextList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -10864,6 +11638,18 @@ const deserializeAws_json1_1UpdateAccessControlConfigurationResponse = (
   context: __SerdeContext
 ): UpdateAccessControlConfigurationResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateFeaturedResultsSetResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateFeaturedResultsSetResponse => {
+  return {
+    FeaturedResultsSet:
+      output.FeaturedResultsSet != null
+        ? deserializeAws_json1_1FeaturedResultsSet(output.FeaturedResultsSet, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Urls = (output: any, context: __SerdeContext): Urls => {

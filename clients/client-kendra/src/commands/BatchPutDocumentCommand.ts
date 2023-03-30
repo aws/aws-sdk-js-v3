@@ -36,17 +36,17 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
 /**
  * @public
  * <p>Adds one or more documents to an index.</p>
- *          <p>The <code>BatchPutDocument</code> API enables you to ingest
- *       inline documents or a set of documents stored in an Amazon S3 bucket. Use
- *       this API to ingest your text and unstructured text into an index,
- *       add custom attributes to the documents, and to attach an access control
- *       list to the documents added to the index.</p>
- *          <p>The documents are indexed asynchronously. You can see the progress of
- *       the batch using Amazon Web Services CloudWatch. Any error messages related to processing
- *       the batch are sent to your Amazon Web Services CloudWatch log.</p>
- *          <p>For an example of ingesting inline documents using Python and Java SDKs,
- *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html">Adding
- *         files directly to an index</a>.</p>
+ *          <p>The <code>BatchPutDocument</code> API enables you to ingest inline documents or a set
+ *             of documents stored in an Amazon S3 bucket. Use this API to ingest your text and
+ *             unstructured text into an index, add custom attributes to the documents, and to attach
+ *             an access control list to the documents added to the index.</p>
+ *          <p>The documents are indexed asynchronously. You can see the progress of the batch using
+ *                 Amazon Web Services
+ *             CloudWatch. Any error messages related to processing the batch are sent to your
+ *                 Amazon Web Services
+ *             CloudWatch log.</p>
+ *          <p>For an example of ingesting inline documents using Python and Java SDKs, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-binary-doc.html">Adding files
+ *                 directly to an index</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -187,7 +187,7 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -195,7 +195,8 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)

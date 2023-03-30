@@ -32,11 +32,10 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
 
 /**
  * @public
- * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
+ * <p>Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored
+ *             in an Amazon S3 bucket.</p>
  *          <p>Adding FAQs to an index is an asynchronous operation.</p>
- *          <p>For an example of adding an FAQ to an index using Python and Java SDKs,
- *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your
- *                 FAQ file</a>.</p>
+ *          <p>For an example of adding an FAQ to an index using Python and Java SDKs, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your FAQ file</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +81,7 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -90,7 +89,8 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)

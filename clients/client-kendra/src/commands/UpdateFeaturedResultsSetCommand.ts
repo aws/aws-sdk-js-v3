@@ -14,51 +14,72 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_0";
+import { UpdateFeaturedResultsSetRequest, UpdateFeaturedResultsSetResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1DescribeDataSourceCommand,
-  serializeAws_json1_1DescribeDataSourceCommand,
+  deserializeAws_json1_1UpdateFeaturedResultsSetCommand,
+  serializeAws_json1_1UpdateFeaturedResultsSetCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  *
- * The input for {@link DescribeDataSourceCommand}.
+ * The input for {@link UpdateFeaturedResultsSetCommand}.
  */
-export interface DescribeDataSourceCommandInput extends DescribeDataSourceRequest {}
+export interface UpdateFeaturedResultsSetCommandInput extends UpdateFeaturedResultsSetRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeDataSourceCommand}.
+ * The output of {@link UpdateFeaturedResultsSetCommand}.
  */
-export interface DescribeDataSourceCommandOutput extends DescribeDataSourceResponse, __MetadataBearer {}
+export interface UpdateFeaturedResultsSetCommandOutput extends UpdateFeaturedResultsSetResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets information about an Amazon Kendra data source connector.</p>
+ * <p>Updates a set of featured results. Features results are placed
+ *             above
+ *             all other results for certain queries. You map specific queries to specific documents
+ *             for featuring in the results. If a query contains an exact match of a query, then one
+ *             or more specific documents are featured in the search results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, UpdateFeaturedResultsSetCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, UpdateFeaturedResultsSetCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const input = { // DescribeDataSourceRequest
- *   Id: "STRING_VALUE", // required
+ * const input = { // UpdateFeaturedResultsSetRequest
  *   IndexId: "STRING_VALUE", // required
+ *   FeaturedResultsSetId: "STRING_VALUE", // required
+ *   FeaturedResultsSetName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   QueryTexts: [ // QueryTextList
+ *     "STRING_VALUE",
+ *   ],
+ *   FeaturedDocuments: [ // FeaturedDocumentList
+ *     { // FeaturedDocument
+ *       Id: "STRING_VALUE",
+ *     },
+ *   ],
  * };
- * const command = new DescribeDataSourceCommand(input);
+ * const command = new UpdateFeaturedResultsSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param DescribeDataSourceCommandInput - {@link DescribeDataSourceCommandInput}
- * @returns {@link DescribeDataSourceCommandOutput}
- * @see {@link DescribeDataSourceCommandInput} for command's `input` shape.
- * @see {@link DescribeDataSourceCommandOutput} for command's `response` shape.
+ * @param UpdateFeaturedResultsSetCommandInput - {@link UpdateFeaturedResultsSetCommandInput}
+ * @returns {@link UpdateFeaturedResultsSetCommandOutput}
+ * @see {@link UpdateFeaturedResultsSetCommandInput} for command's `input` shape.
+ * @see {@link UpdateFeaturedResultsSetCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have sufficient access to perform this action. Please ensure you have the
  *             required permission policies and user accounts and try again.</p>
+ *
+ * @throws {@link FeaturedResultsConflictException} (client fault)
+ *  <p>An error message with a list of conflicting queries used across different sets
+ *             of featured results. This occurred with the request for a new featured results set.
+ *             Check that the queries you specified for featured results are unique per featured
+ *             results set for each index.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
@@ -78,9 +99,9 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  *
  *
  */
-export class DescribeDataSourceCommand extends $Command<
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput,
+export class UpdateFeaturedResultsSetCommand extends $Command<
+  UpdateFeaturedResultsSetCommandInput,
+  UpdateFeaturedResultsSetCommandOutput,
   KendraClientResolvedConfig
 > {
   // Start section: command_properties
@@ -98,7 +119,7 @@ export class DescribeDataSourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeDataSourceCommandInput) {
+  constructor(readonly input: UpdateFeaturedResultsSetCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -111,17 +132,17 @@ export class DescribeDataSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput> {
+  ): Handler<UpdateFeaturedResultsSetCommandInput, UpdateFeaturedResultsSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDataSourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateFeaturedResultsSetCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KendraClient";
-    const commandName = "DescribeDataSourceCommand";
+    const commandName = "UpdateFeaturedResultsSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -140,15 +161,15 @@ export class DescribeDataSourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataSourceCommand(input, context);
+  private serialize(input: UpdateFeaturedResultsSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1UpdateFeaturedResultsSetCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourceCommandOutput> {
-    return deserializeAws_json1_1DescribeDataSourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFeaturedResultsSetCommandOutput> {
+    return deserializeAws_json1_1UpdateFeaturedResultsSetCommand(output, context);
   }
 
   // Start section: command_body_extra

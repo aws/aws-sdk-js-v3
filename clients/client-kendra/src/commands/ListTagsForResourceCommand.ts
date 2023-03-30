@@ -35,8 +35,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * @public
- * <p>Gets a list of tags associated with a specified resource. Indexes,
- *       FAQs, and data sources can have tags associated with them.</p>
+ * <p>Gets a list of tags associated with a specified resource. Indexes, FAQs, and data sources
+ *       can have tags associated with them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +62,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The resource you want to use isn't available. Please check you have provided the

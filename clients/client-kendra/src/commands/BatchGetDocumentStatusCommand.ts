@@ -35,19 +35,15 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
 
 /**
  * @public
- * <p>Returns the indexing status for one or more documents submitted
- *             with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
+ * <p>Returns the indexing status for one or more documents submitted with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
  *                 BatchPutDocument</a> API.</p>
- *          <p>When you use the <code>BatchPutDocument</code> API,
- *             documents are indexed asynchronously. You can use the
- *                 <code>BatchGetDocumentStatus</code> API to get the current
- *             status of a list of documents so that you can determine if they have
- *             been successfully indexed.</p>
- *          <p>You can also use the <code>BatchGetDocumentStatus</code> API
- *             to check the status of the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
- *                 BatchDeleteDocument</a> API. When a document is
- *             deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the
- *             status.</p>
+ *          <p>When you use the <code>BatchPutDocument</code> API, documents are indexed
+ *             asynchronously. You can use the <code>BatchGetDocumentStatus</code> API to get the
+ *             current status of a list of documents so that you can determine if they have been
+ *             successfully indexed.</p>
+ *          <p>You can also use the <code>BatchGetDocumentStatus</code> API to check the status of
+ *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
+ *                 BatchDeleteDocument</a> API. When a document is deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,7 +91,7 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct

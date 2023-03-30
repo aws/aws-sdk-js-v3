@@ -35,9 +35,8 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
 
 /**
  * @public
- * <p>Retrieves search metrics data. The data provides a snapshot of how
- *             your users interact with your search application and how effective
- *             the application is.</p>
+ * <p>Retrieves search metrics data. The data provides a snapshot of how your users interact
+ *             with your search application and how effective the application is.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +66,7 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The input to the request is not valid. Please provide the correct input and try

@@ -37,10 +37,10 @@ export interface DeleteAccessControlConfigurationCommandOutput
 
 /**
  * @public
- * <p>Deletes an access control configuration that you created for your
- *             documents in an index. This includes user and group access information
- *             for your documents. This is useful for user context filtering, where search
- *             results are filtered based on the user or their group access to documents.</p>
+ * <p>Deletes an access control configuration that you created for your documents in an
+ *             index. This includes user and group access information for your documents. This is
+ *             useful for user context filtering, where search results are filtered based on the user
+ *             or their group access to documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,7 +71,7 @@ export interface DeleteAccessControlConfigurationCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,
@@ -35,9 +35,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * @public
- * <p>Adds the specified tag to the specified index, FAQ, or data source
- *       resource. If the tag already exists, the existing value is replaced with
- *       the new value.</p>
+ * <p>Adds the specified tag to the specified index, FAQ, or data source resource. If the tag
+ *       already exists, the existing value is replaced with the new value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +68,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The resource you want to use isn't available. Please check you have provided the

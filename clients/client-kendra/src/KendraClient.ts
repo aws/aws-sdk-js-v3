@@ -62,6 +62,10 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import {
+  BatchDeleteFeaturedResultsSetCommandInput,
+  BatchDeleteFeaturedResultsSetCommandOutput,
+} from "./commands/BatchDeleteFeaturedResultsSetCommand";
+import {
   BatchGetDocumentStatusCommandInput,
   BatchGetDocumentStatusCommandOutput,
 } from "./commands/BatchGetDocumentStatusCommand";
@@ -77,6 +81,10 @@ import {
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateExperienceCommandInput, CreateExperienceCommandOutput } from "./commands/CreateExperienceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
+import {
+  CreateFeaturedResultsSetCommandInput,
+  CreateFeaturedResultsSetCommandOutput,
+} from "./commands/CreateFeaturedResultsSetCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateQuerySuggestionsBlockListCommandInput,
@@ -107,6 +115,10 @@ import {
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import { DescribeExperienceCommandInput, DescribeExperienceCommandOutput } from "./commands/DescribeExperienceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
+import {
+  DescribeFeaturedResultsSetCommandInput,
+  DescribeFeaturedResultsSetCommandOutput,
+} from "./commands/DescribeFeaturedResultsSetCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
 import {
   DescribePrincipalMappingCommandInput,
@@ -151,6 +163,10 @@ import {
 import { ListExperiencesCommandInput, ListExperiencesCommandOutput } from "./commands/ListExperiencesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import {
+  ListFeaturedResultsSetsCommandInput,
+  ListFeaturedResultsSetsCommandOutput,
+} from "./commands/ListFeaturedResultsSetsCommand";
+import {
   ListGroupsOlderThanOrderingIdCommandInput,
   ListGroupsOlderThanOrderingIdCommandOutput,
 } from "./commands/ListGroupsOlderThanOrderingIdCommand";
@@ -186,6 +202,10 @@ import {
 } from "./commands/UpdateAccessControlConfigurationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateExperienceCommandInput, UpdateExperienceCommandOutput } from "./commands/UpdateExperienceCommand";
+import {
+  UpdateFeaturedResultsSetCommandInput,
+  UpdateFeaturedResultsSetCommandOutput,
+} from "./commands/UpdateFeaturedResultsSetCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdateQuerySuggestionsBlockListCommandInput,
@@ -211,6 +231,7 @@ export type ServiceInputTypes =
   | AssociateEntitiesToExperienceCommandInput
   | AssociatePersonasToEntitiesCommandInput
   | BatchDeleteDocumentCommandInput
+  | BatchDeleteFeaturedResultsSetCommandInput
   | BatchGetDocumentStatusCommandInput
   | BatchPutDocumentCommandInput
   | ClearQuerySuggestionsCommandInput
@@ -218,6 +239,7 @@ export type ServiceInputTypes =
   | CreateDataSourceCommandInput
   | CreateExperienceCommandInput
   | CreateFaqCommandInput
+  | CreateFeaturedResultsSetCommandInput
   | CreateIndexCommandInput
   | CreateQuerySuggestionsBlockListCommandInput
   | CreateThesaurusCommandInput
@@ -233,6 +255,7 @@ export type ServiceInputTypes =
   | DescribeDataSourceCommandInput
   | DescribeExperienceCommandInput
   | DescribeFaqCommandInput
+  | DescribeFeaturedResultsSetCommandInput
   | DescribeIndexCommandInput
   | DescribePrincipalMappingCommandInput
   | DescribeQuerySuggestionsBlockListCommandInput
@@ -249,6 +272,7 @@ export type ServiceInputTypes =
   | ListExperienceEntitiesCommandInput
   | ListExperiencesCommandInput
   | ListFaqsCommandInput
+  | ListFeaturedResultsSetsCommandInput
   | ListGroupsOlderThanOrderingIdCommandInput
   | ListIndicesCommandInput
   | ListQuerySuggestionsBlockListsCommandInput
@@ -264,6 +288,7 @@ export type ServiceInputTypes =
   | UpdateAccessControlConfigurationCommandInput
   | UpdateDataSourceCommandInput
   | UpdateExperienceCommandInput
+  | UpdateFeaturedResultsSetCommandInput
   | UpdateIndexCommandInput
   | UpdateQuerySuggestionsBlockListCommandInput
   | UpdateQuerySuggestionsConfigCommandInput
@@ -276,6 +301,7 @@ export type ServiceOutputTypes =
   | AssociateEntitiesToExperienceCommandOutput
   | AssociatePersonasToEntitiesCommandOutput
   | BatchDeleteDocumentCommandOutput
+  | BatchDeleteFeaturedResultsSetCommandOutput
   | BatchGetDocumentStatusCommandOutput
   | BatchPutDocumentCommandOutput
   | ClearQuerySuggestionsCommandOutput
@@ -283,6 +309,7 @@ export type ServiceOutputTypes =
   | CreateDataSourceCommandOutput
   | CreateExperienceCommandOutput
   | CreateFaqCommandOutput
+  | CreateFeaturedResultsSetCommandOutput
   | CreateIndexCommandOutput
   | CreateQuerySuggestionsBlockListCommandOutput
   | CreateThesaurusCommandOutput
@@ -298,6 +325,7 @@ export type ServiceOutputTypes =
   | DescribeDataSourceCommandOutput
   | DescribeExperienceCommandOutput
   | DescribeFaqCommandOutput
+  | DescribeFeaturedResultsSetCommandOutput
   | DescribeIndexCommandOutput
   | DescribePrincipalMappingCommandOutput
   | DescribeQuerySuggestionsBlockListCommandOutput
@@ -314,6 +342,7 @@ export type ServiceOutputTypes =
   | ListExperienceEntitiesCommandOutput
   | ListExperiencesCommandOutput
   | ListFaqsCommandOutput
+  | ListFeaturedResultsSetsCommandOutput
   | ListGroupsOlderThanOrderingIdCommandOutput
   | ListIndicesCommandOutput
   | ListQuerySuggestionsBlockListsCommandOutput
@@ -329,6 +358,7 @@ export type ServiceOutputTypes =
   | UpdateAccessControlConfigurationCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateExperienceCommandOutput
+  | UpdateFeaturedResultsSetCommandOutput
   | UpdateIndexCommandOutput
   | UpdateQuerySuggestionsBlockListCommandOutput
   | UpdateQuerySuggestionsConfigCommandOutput
