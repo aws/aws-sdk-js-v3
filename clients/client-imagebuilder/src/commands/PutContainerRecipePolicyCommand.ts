@@ -35,7 +35,14 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
 
 /**
  * @public
- * <p>Applies a policy to a container image. We recommend that you call the RAM API CreateResourceShare (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also call the RAM API PromoteResourceShareCreatedFromPolicy (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html) in order for the resource to be visible to all principals with whom the resource is shared.</p>
+ * <p>Applies a policy to a container image. We recommend that you call the RAM API
+ * 			CreateResourceShare
+ * 			(https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share
+ * 			resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also
+ * 			call the RAM API PromoteResourceShareCreatedFromPolicy
+ * 			(https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+ * 			in order for the resource to be visible to all principals with whom the resource is
+ * 			shared.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,9 +67,9 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -71,13 +78,14 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  *  <p>The value that you provided for the specified parameter is invalid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>

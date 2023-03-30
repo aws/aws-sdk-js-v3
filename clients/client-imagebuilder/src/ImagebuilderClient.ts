@@ -114,6 +114,14 @@ import {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput,
 } from "./commands/GetInfrastructureConfigurationCommand";
+import {
+  GetWorkflowExecutionCommandInput,
+  GetWorkflowExecutionCommandOutput,
+} from "./commands/GetWorkflowExecutionCommand";
+import {
+  GetWorkflowStepExecutionCommandInput,
+  GetWorkflowStepExecutionCommandOutput,
+} from "./commands/GetWorkflowStepExecutionCommand";
 import { ImportComponentCommandInput, ImportComponentCommandOutput } from "./commands/ImportComponentCommand";
 import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "./commands/ImportVmImageCommand";
 import {
@@ -140,6 +148,14 @@ import {
 } from "./commands/ListImagePipelineImagesCommand";
 import { ListImagePipelinesCommandInput, ListImagePipelinesCommandOutput } from "./commands/ListImagePipelinesCommand";
 import { ListImageRecipesCommandInput, ListImageRecipesCommandOutput } from "./commands/ListImageRecipesCommand";
+import {
+  ListImageScanFindingAggregationsCommandInput,
+  ListImageScanFindingAggregationsCommandOutput,
+} from "./commands/ListImageScanFindingAggregationsCommand";
+import {
+  ListImageScanFindingsCommandInput,
+  ListImageScanFindingsCommandOutput,
+} from "./commands/ListImageScanFindingsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListInfrastructureConfigurationsCommandInput,
@@ -149,6 +165,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorkflowExecutionsCommandInput,
+  ListWorkflowExecutionsCommandOutput,
+} from "./commands/ListWorkflowExecutionsCommand";
+import {
+  ListWorkflowStepExecutionsCommandInput,
+  ListWorkflowStepExecutionsCommandOutput,
+} from "./commands/ListWorkflowStepExecutionsCommand";
 import { PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput } from "./commands/PutComponentPolicyCommand";
 import {
   PutContainerRecipePolicyCommandInput,
@@ -215,6 +239,8 @@ export type ServiceInputTypes =
   | GetImageRecipeCommandInput
   | GetImageRecipePolicyCommandInput
   | GetInfrastructureConfigurationCommandInput
+  | GetWorkflowExecutionCommandInput
+  | GetWorkflowStepExecutionCommandInput
   | ImportComponentCommandInput
   | ImportVmImageCommandInput
   | ListComponentBuildVersionsCommandInput
@@ -226,9 +252,13 @@ export type ServiceInputTypes =
   | ListImagePipelineImagesCommandInput
   | ListImagePipelinesCommandInput
   | ListImageRecipesCommandInput
+  | ListImageScanFindingAggregationsCommandInput
+  | ListImageScanFindingsCommandInput
   | ListImagesCommandInput
   | ListInfrastructureConfigurationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListWorkflowExecutionsCommandInput
+  | ListWorkflowStepExecutionsCommandInput
   | PutComponentPolicyCommandInput
   | PutContainerRecipePolicyCommandInput
   | PutImagePolicyCommandInput
@@ -270,6 +300,8 @@ export type ServiceOutputTypes =
   | GetImageRecipeCommandOutput
   | GetImageRecipePolicyCommandOutput
   | GetInfrastructureConfigurationCommandOutput
+  | GetWorkflowExecutionCommandOutput
+  | GetWorkflowStepExecutionCommandOutput
   | ImportComponentCommandOutput
   | ImportVmImageCommandOutput
   | ListComponentBuildVersionsCommandOutput
@@ -281,9 +313,13 @@ export type ServiceOutputTypes =
   | ListImagePipelineImagesCommandOutput
   | ListImagePipelinesCommandOutput
   | ListImageRecipesCommandOutput
+  | ListImageScanFindingAggregationsCommandOutput
+  | ListImageScanFindingsCommandOutput
   | ListImagesCommandOutput
   | ListInfrastructureConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWorkflowExecutionsCommandOutput
+  | ListWorkflowStepExecutionsCommandOutput
   | PutComponentPolicyCommandOutput
   | PutContainerRecipePolicyCommandOutput
   | PutImagePolicyCommandOutput
@@ -460,9 +496,9 @@ export interface ImagebuilderClientResolvedConfig extends ImagebuilderClientReso
 /**
  * @public
  * <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the
- *       creation, management, and deployment of customized, secure, and up-to-date "golden" server
- *       images that are pre-installed and pre-configured with software and settings to meet specific
- *       IT standards.</p>
+ * 			creation, management, and deployment of customized, secure, and up-to-date
+ * 			"golden" server images that are pre-installed and pre-configured with software
+ * 			and settings to meet specific IT standards.</p>
  */
 export class ImagebuilderClient extends __Client<
   __HttpHandlerOptions,

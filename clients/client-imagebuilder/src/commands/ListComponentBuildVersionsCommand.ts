@@ -35,7 +35,8 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
 
 /**
  * @public
- * <p> Returns the list of component build versions for the specified semantic version.</p>
+ * <p>Returns the list of component build versions for the specified semantic
+ * 			version.</p>
  *          <note>
  *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
  * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -70,9 +71,9 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -81,10 +82,11 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>

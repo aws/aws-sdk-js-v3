@@ -14,48 +14,80 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { PutImagePolicyRequest, PutImagePolicyResponse } from "../models/models_0";
+import { ListImageScanFindingAggregationsRequest, ListImageScanFindingAggregationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutImagePolicyCommand,
-  serializeAws_restJson1PutImagePolicyCommand,
+  deserializeAws_restJson1ListImageScanFindingAggregationsCommand,
+  serializeAws_restJson1ListImageScanFindingAggregationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link PutImagePolicyCommand}.
+ * The input for {@link ListImageScanFindingAggregationsCommand}.
  */
-export interface PutImagePolicyCommandInput extends PutImagePolicyRequest {}
+export interface ListImageScanFindingAggregationsCommandInput extends ListImageScanFindingAggregationsRequest {}
 /**
  * @public
  *
- * The output of {@link PutImagePolicyCommand}.
+ * The output of {@link ListImageScanFindingAggregationsCommand}.
  */
-export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __MetadataBearer {}
+export interface ListImageScanFindingAggregationsCommandOutput
+  extends ListImageScanFindingAggregationsResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
- * 				<code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be
- * 			visible to all principals with whom the resource is shared.</p>
+ * <p>Returns a list of image scan aggregations for your account. You can filter by the type
+ * 			of key that Image Builder uses to group results. For example, if you want to get a list of
+ * 			findings by severity level for one of your pipelines, you might specify your pipeline
+ * 			with the <code>imagePipelineArn</code> filter. If you don't specify a filter, Image Builder
+ * 			returns an aggregation for your account.</p>
+ *          <p>To streamline results, you can use the following filters in your request:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>accountId</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>imageBuildVersionArn</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>imagePipelineArn</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>vulnerabilityId</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, PutImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, PutImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListImageScanFindingAggregationsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, ListImageScanFindingAggregationsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = { // PutImagePolicyRequest
- *   imageArn: "STRING_VALUE", // required
- *   policy: "STRING_VALUE", // required
+ * const input = { // ListImageScanFindingAggregationsRequest
+ *   filter: { // Filter
+ *     name: "STRING_VALUE",
+ *     values: [ // FilterValues
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new PutImagePolicyCommand(input);
+ * const command = new ListImageScanFindingAggregationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param PutImagePolicyCommandInput - {@link PutImagePolicyCommandInput}
- * @returns {@link PutImagePolicyCommandOutput}
- * @see {@link PutImagePolicyCommandInput} for command's `input` shape.
- * @see {@link PutImagePolicyCommandOutput} for command's `response` shape.
+ * @param ListImageScanFindingAggregationsCommandInput - {@link ListImageScanFindingAggregationsCommandInput}
+ * @returns {@link ListImageScanFindingAggregationsCommandOutput}
+ * @see {@link ListImageScanFindingAggregationsCommandInput} for command's `input` shape.
+ * @see {@link ListImageScanFindingAggregationsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
@@ -69,14 +101,11 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
- * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value that you provided for the specified parameter is invalid.</p>
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>You have requested an action that that the service doesn't support.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>This exception is thrown when the service encounters an unrecoverable
@@ -87,9 +116,9 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  *
  *
  */
-export class PutImagePolicyCommand extends $Command<
-  PutImagePolicyCommandInput,
-  PutImagePolicyCommandOutput,
+export class ListImageScanFindingAggregationsCommand extends $Command<
+  ListImageScanFindingAggregationsCommandInput,
+  ListImageScanFindingAggregationsCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
@@ -107,7 +136,7 @@ export class PutImagePolicyCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: PutImagePolicyCommandInput) {
+  constructor(readonly input: ListImageScanFindingAggregationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -120,17 +149,17 @@ export class PutImagePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutImagePolicyCommandInput, PutImagePolicyCommandOutput> {
+  ): Handler<ListImageScanFindingAggregationsCommandInput, ListImageScanFindingAggregationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutImagePolicyCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListImageScanFindingAggregationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ImagebuilderClient";
-    const commandName = "PutImagePolicyCommand";
+    const commandName = "ListImageScanFindingAggregationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -149,15 +178,21 @@ export class PutImagePolicyCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: PutImagePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutImagePolicyCommand(input, context);
+  private serialize(
+    input: ListImageScanFindingAggregationsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListImageScanFindingAggregationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImagePolicyCommandOutput> {
-    return deserializeAws_restJson1PutImagePolicyCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListImageScanFindingAggregationsCommandOutput> {
+    return deserializeAws_restJson1ListImageScanFindingAggregationsCommand(output, context);
   }
 
   // Start section: command_body_extra

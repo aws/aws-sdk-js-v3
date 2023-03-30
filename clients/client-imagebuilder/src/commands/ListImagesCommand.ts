@@ -35,8 +35,8 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
 
 /**
  * @public
- * <p>Returns the list of images that you have access to. Newly created images
- * 			can take up to two minutes to appear in the ListImages API Results.</p>
+ * <p>Returns the list of images that you have access to. Newly created images can take up
+ * 			to two minutes to appear in the ListImages API Results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,9 +72,9 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -83,10 +83,11 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>

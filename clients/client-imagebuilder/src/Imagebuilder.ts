@@ -120,6 +120,16 @@ import {
   GetInfrastructureConfigurationCommandOutput,
 } from "./commands/GetInfrastructureConfigurationCommand";
 import {
+  GetWorkflowExecutionCommand,
+  GetWorkflowExecutionCommandInput,
+  GetWorkflowExecutionCommandOutput,
+} from "./commands/GetWorkflowExecutionCommand";
+import {
+  GetWorkflowStepExecutionCommand,
+  GetWorkflowStepExecutionCommandInput,
+  GetWorkflowStepExecutionCommandOutput,
+} from "./commands/GetWorkflowStepExecutionCommand";
+import {
   ImportComponentCommand,
   ImportComponentCommandInput,
   ImportComponentCommandOutput,
@@ -174,6 +184,16 @@ import {
   ListImageRecipesCommandInput,
   ListImageRecipesCommandOutput,
 } from "./commands/ListImageRecipesCommand";
+import {
+  ListImageScanFindingAggregationsCommand,
+  ListImageScanFindingAggregationsCommandInput,
+  ListImageScanFindingAggregationsCommandOutput,
+} from "./commands/ListImageScanFindingAggregationsCommand";
+import {
+  ListImageScanFindingsCommand,
+  ListImageScanFindingsCommandInput,
+  ListImageScanFindingsCommandOutput,
+} from "./commands/ListImageScanFindingsCommand";
 import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListInfrastructureConfigurationsCommand,
@@ -185,6 +205,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorkflowExecutionsCommand,
+  ListWorkflowExecutionsCommandInput,
+  ListWorkflowExecutionsCommandOutput,
+} from "./commands/ListWorkflowExecutionsCommand";
+import {
+  ListWorkflowStepExecutionsCommand,
+  ListWorkflowStepExecutionsCommandInput,
+  ListWorkflowStepExecutionsCommandOutput,
+} from "./commands/ListWorkflowStepExecutionsCommand";
 import {
   PutComponentPolicyCommand,
   PutComponentPolicyCommandInput,
@@ -236,9 +266,9 @@ import { ImagebuilderClient } from "./ImagebuilderClient";
 /**
  * @public
  * <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the
- *       creation, management, and deployment of customized, secure, and up-to-date "golden" server
- *       images that are pre-installed and pre-configured with software and settings to meet specific
- *       IT standards.</p>
+ * 			creation, management, and deployment of customized, secure, and up-to-date
+ * 			"golden" server images that are pre-installed and pre-configured with software
+ * 			and settings to meet specific IT standards.</p>
  */
 export class Imagebuilder extends ImagebuilderClient {
   /**
@@ -278,15 +308,15 @@ export class Imagebuilder extends ImagebuilderClient {
   /**
    * @public
    * <p>Creates a new component that can be used to build, validate, test, and assess your
-   * 			image. The component is based on a YAML document that you specify using exactly one
-   * 			of the following methods:</p>
+   * 			image. The component is based on a YAML document that you specify using exactly one of
+   * 			the following methods:</p>
    *          <ul>
    *             <li>
    *                <p>Inline, using the <code>data</code> property in the request body.</p>
    *             </li>
    *             <li>
    *                <p>A URL that points to a YAML document file stored in Amazon S3, using the
-   * 					<code>uri</code> property in the request body.</p>
+   * 						<code>uri</code> property in the request body.</p>
    *             </li>
    *          </ul>
    */
@@ -321,7 +351,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p>Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.</p>
+   * <p>Creates a new container recipe. Container recipes define how images are configured,
+   * 			tested, and assessed.</p>
    */
   public createContainerRecipe(
     args: CreateContainerRecipeCommandInput,
@@ -354,8 +385,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p>Creates a new distribution configuration. Distribution configurations define and configure
-   * 			the outputs of your pipeline.</p>
+   * <p>Creates a new distribution configuration. Distribution configurations define and
+   * 			configure the outputs of your pipeline.</p>
    */
   public createDistributionConfiguration(
     args: CreateDistributionConfigurationCommandInput,
@@ -388,9 +419,10 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Creates a new image. This request will create a new image along with all of the
+   * <p>Creates a new image. This request will create a new image along with all of the
    * 			configured output resources defined in the distribution configuration. You must specify
-   * 			exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
+   * 			exactly one recipe for your image, using either a ContainerRecipeArn or an
+   * 			ImageRecipeArn.</p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
   public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
@@ -417,7 +449,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
+   * <p>Creates a new image pipeline. Image pipelines enable you to automate the creation and
    * 			distribution of images.</p>
    */
   public createImagePipeline(
@@ -451,8 +483,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
-   * 			assessed.</p>
+   * <p>Creates a new image recipe. Image recipes define how images are configured, tested,
+   * 			and assessed.</p>
    */
   public createImageRecipe(
     args: CreateImageRecipeCommandInput,
@@ -485,8 +517,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
-   * 			environment in which your image will be built and tested.</p>
+   * <p>Creates a new infrastructure configuration. An infrastructure configuration defines
+   * 			the environment in which your image will be built and tested.</p>
    */
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
@@ -519,7 +551,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Deletes a component build version.</p>
+   * <p>Deletes a component build version.</p>
    */
   public deleteComponent(
     args: DeleteComponentCommandInput,
@@ -585,7 +617,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Deletes a distribution configuration.</p>
+   * <p>Deletes a distribution configuration.</p>
    */
   public deleteDistributionConfiguration(
     args: DeleteDistributionConfigurationCommandInput,
@@ -618,19 +650,20 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images
-   * 			that are created during the image build process. You must clean those up separately,
-   * 			using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p>
+   * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container
+   * 			images that are created during the image build process. You must clean those up
+   * 			separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI
+   * 			commands.</p>
    *          <ul>
    *             <li>
-   *                <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister
-   * 						your Linux AMI</a> in the <i>
+   *                <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister your
+   * 						Linux AMI</a> in the <i>
    *                      <i>Amazon EC2 User Guide</i>
    *                   </i>.</p>
    *             </li>
    *             <li>
-   *                <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister
-   * 						your Windows AMI</a> in the <i>
+   *                <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister your
+   * 						Windows AMI</a> in the <i>
    *                      <i>Amazon EC2 Windows Guide</i>
    *                   </i>.</p>
    *             </li>
@@ -665,7 +698,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Deletes an image pipeline.</p>
+   * <p>Deletes an image pipeline.</p>
    */
   public deleteImagePipeline(
     args: DeleteImagePipelineCommandInput,
@@ -698,7 +731,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Deletes an image recipe.</p>
+   * <p>Deletes an image recipe.</p>
    */
   public deleteImageRecipe(
     args: DeleteImageRecipeCommandInput,
@@ -731,7 +764,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Deletes an infrastructure configuration.</p>
+   * <p>Deletes an infrastructure configuration.</p>
    */
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
@@ -764,7 +797,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets a component object.</p>
+   * <p>Gets a component object.</p>
    */
   public getComponent(
     args: GetComponentCommandInput,
@@ -794,7 +827,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets a component policy.</p>
+   * <p>Gets a component policy.</p>
    */
   public getComponentPolicy(
     args: GetComponentPolicyCommandInput,
@@ -893,7 +926,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets a distribution configuration.</p>
+   * <p>Gets a distribution configuration.</p>
    */
   public getDistributionConfiguration(
     args: GetDistributionConfigurationCommandInput,
@@ -926,7 +959,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets an image.</p>
+   * <p>Gets an image.</p>
    */
   public getImage(args: GetImageCommandInput, options?: __HttpHandlerOptions): Promise<GetImageCommandOutput>;
   public getImage(args: GetImageCommandInput, cb: (err: any, data?: GetImageCommandOutput) => void): void;
@@ -953,7 +986,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets an image pipeline.</p>
+   * <p>Gets an image pipeline.</p>
    */
   public getImagePipeline(
     args: GetImagePipelineCommandInput,
@@ -986,7 +1019,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets an image policy.</p>
+   * <p>Gets an image policy.</p>
    */
   public getImagePolicy(
     args: GetImagePolicyCommandInput,
@@ -1019,7 +1052,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets an image recipe.</p>
+   * <p>Gets an image recipe.</p>
    */
   public getImageRecipe(
     args: GetImageRecipeCommandInput,
@@ -1052,7 +1085,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets an image recipe policy.</p>
+   * <p>Gets an image recipe policy.</p>
    */
   public getImageRecipePolicy(
     args: GetImageRecipePolicyCommandInput,
@@ -1085,7 +1118,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Gets an infrastructure configuration.</p>
+   * <p>Gets an infrastructure configuration.</p>
    */
   public getInfrastructureConfiguration(
     args: GetInfrastructureConfigurationCommandInput,
@@ -1106,6 +1139,74 @@ export class Imagebuilder extends ImagebuilderClient {
     cb?: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
   ): Promise<GetInfrastructureConfigurationCommandOutput> | void {
     const command = new GetInfrastructureConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Get the runtime information that was logged for a specific runtime instance
+   * 			of the workflow.</p>
+   */
+  public getWorkflowExecution(
+    args: GetWorkflowExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowExecutionCommandOutput>;
+  public getWorkflowExecution(
+    args: GetWorkflowExecutionCommandInput,
+    cb: (err: any, data?: GetWorkflowExecutionCommandOutput) => void
+  ): void;
+  public getWorkflowExecution(
+    args: GetWorkflowExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowExecutionCommandOutput) => void
+  ): void;
+  public getWorkflowExecution(
+    args: GetWorkflowExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowExecutionCommandOutput) => void),
+    cb?: (err: any, data?: GetWorkflowExecutionCommandOutput) => void
+  ): Promise<GetWorkflowExecutionCommandOutput> | void {
+    const command = new GetWorkflowExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Get the runtime information that was logged for a specific runtime instance of
+   * 			the workflow step.</p>
+   */
+  public getWorkflowStepExecution(
+    args: GetWorkflowStepExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowStepExecutionCommandOutput>;
+  public getWorkflowStepExecution(
+    args: GetWorkflowStepExecutionCommandInput,
+    cb: (err: any, data?: GetWorkflowStepExecutionCommandOutput) => void
+  ): void;
+  public getWorkflowStepExecution(
+    args: GetWorkflowStepExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowStepExecutionCommandOutput) => void
+  ): void;
+  public getWorkflowStepExecution(
+    args: GetWorkflowStepExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowStepExecutionCommandOutput) => void),
+    cb?: (err: any, data?: GetWorkflowStepExecutionCommandOutput) => void
+  ): Promise<GetWorkflowStepExecutionCommandOutput> | void {
+    const command = new GetWorkflowStepExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1151,15 +1252,14 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p>When you export your virtual machine (VM) from its virtualization environment,
-   * 			that process creates a set of one or more disk container files that act as
-   * 			snapshots of your VM’s environment, settings, and data. The Amazon EC2 API
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
-   * 			action uses those files to import your VM and create an AMI. To import using the
-   * 			CLI command, see <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
+   * <p>When you export your virtual machine (VM) from its virtualization environment, that
+   * 			process creates a set of one or more disk container files that act as snapshots of your
+   * 			VM’s environment, settings, and data. The Amazon EC2 API <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
+   * 			action uses those files to import your VM and create an AMI. To import using the CLI
+   * 			command, see <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
    *          </p>
-   *          <p>You can reference the task ID from the VM import to pull in the AMI that
-   * 			the import created as the base image for your Image Builder recipe.</p>
+   *          <p>You can reference the task ID from the VM import to pull in the AMI that the import
+   * 			created as the base image for your Image Builder recipe.</p>
    */
   public importVmImage(
     args: ImportVmImageCommandInput,
@@ -1192,7 +1292,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Returns the list of component build versions for the specified semantic version.</p>
+   * <p>Returns the list of component build versions for the specified semantic
+   * 			version.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -1234,9 +1335,9 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p>Returns the list of components that can be filtered by name, or by using
-   * 			the listed <code>filters</code> to streamline results. Newly created components
-   * 			can take up to two minutes to appear in the ListComponents API Results.</p>
+   * <p>Returns the list of components that can be filtered by name, or by using the listed
+   * 				<code>filters</code> to streamline results. Newly created components can take up to
+   * 			two minutes to appear in the ListComponents API Results.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -1344,7 +1445,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Returns a list of image build versions.</p>
+   * <p>Returns a list of image build versions.</p>
    */
   public listImageBuildVersions(
     args: ListImageBuildVersionsCommandInput,
@@ -1377,7 +1478,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p>List the Packages that are associated with an Image Build Version, as determined by Amazon Web Services Systems Manager Inventory at build time.</p>
+   * <p>List the Packages that are associated with an Image Build Version, as determined by
+   * 			Amazon Web Services Systems Manager Inventory at build time.</p>
    */
   public listImagePackages(
     args: ListImagePackagesCommandInput,
@@ -1476,7 +1578,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Returns a list of image recipes.</p>
+   * <p>Returns a list of image recipes.</p>
    */
   public listImageRecipes(
     args: ListImageRecipesCommandInput,
@@ -1509,8 +1611,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p>Returns the list of images that you have access to. Newly created images
-   * 			can take up to two minutes to appear in the ListImages API Results.</p>
+   * <p>Returns the list of images that you have access to. Newly created images can take up
+   * 			to two minutes to appear in the ListImages API Results.</p>
    */
   public listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
   public listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
@@ -1537,7 +1639,100 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Returns a list of infrastructure configurations.</p>
+   * <p>Returns a list of image scan aggregations for your account. You can filter by the type
+   * 			of key that Image Builder uses to group results. For example, if you want to get a list of
+   * 			findings by severity level for one of your pipelines, you might specify your pipeline
+   * 			with the <code>imagePipelineArn</code> filter. If you don't specify a filter, Image Builder
+   * 			returns an aggregation for your account.</p>
+   *          <p>To streamline results, you can use the following filters in your request:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>accountId</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>imageBuildVersionArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>imagePipelineArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vulnerabilityId</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public listImageScanFindingAggregations(
+    args: ListImageScanFindingAggregationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImageScanFindingAggregationsCommandOutput>;
+  public listImageScanFindingAggregations(
+    args: ListImageScanFindingAggregationsCommandInput,
+    cb: (err: any, data?: ListImageScanFindingAggregationsCommandOutput) => void
+  ): void;
+  public listImageScanFindingAggregations(
+    args: ListImageScanFindingAggregationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImageScanFindingAggregationsCommandOutput) => void
+  ): void;
+  public listImageScanFindingAggregations(
+    args: ListImageScanFindingAggregationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImageScanFindingAggregationsCommandOutput) => void),
+    cb?: (err: any, data?: ListImageScanFindingAggregationsCommandOutput) => void
+  ): Promise<ListImageScanFindingAggregationsCommandOutput> | void {
+    const command = new ListImageScanFindingAggregationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Returns a list of image scan findings for your account.</p>
+   */
+  public listImageScanFindings(
+    args: ListImageScanFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImageScanFindingsCommandOutput>;
+  public listImageScanFindings(
+    args: ListImageScanFindingsCommandInput,
+    cb: (err: any, data?: ListImageScanFindingsCommandOutput) => void
+  ): void;
+  public listImageScanFindings(
+    args: ListImageScanFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImageScanFindingsCommandOutput) => void
+  ): void;
+  public listImageScanFindings(
+    args: ListImageScanFindingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImageScanFindingsCommandOutput) => void),
+    cb?: (err: any, data?: ListImageScanFindingsCommandOutput) => void
+  ): Promise<ListImageScanFindingsCommandOutput> | void {
+    const command = new ListImageScanFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Returns a list of infrastructure configurations.</p>
    */
   public listInfrastructureConfigurations(
     args: ListInfrastructureConfigurationsCommandInput,
@@ -1570,7 +1765,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Returns the list of tags for the specified resource.</p>
+   * <p>Returns the list of tags for the specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1603,9 +1798,77 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
-   * 			<code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
-   * 			all principals with whom the resource is shared.</p>
+   * <p>Returns a list of workflow runtime instance metadata objects for a specific image build
+   * 			version.</p>
+   */
+  public listWorkflowExecutions(
+    args: ListWorkflowExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowExecutionsCommandOutput>;
+  public listWorkflowExecutions(
+    args: ListWorkflowExecutionsCommandInput,
+    cb: (err: any, data?: ListWorkflowExecutionsCommandOutput) => void
+  ): void;
+  public listWorkflowExecutions(
+    args: ListWorkflowExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowExecutionsCommandOutput) => void
+  ): void;
+  public listWorkflowExecutions(
+    args: ListWorkflowExecutionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkflowExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListWorkflowExecutionsCommandOutput) => void
+  ): Promise<ListWorkflowExecutionsCommandOutput> | void {
+    const command = new ListWorkflowExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Shows runtime data for each step in a runtime instance of the workflow
+   * 			that you specify in the request.</p>
+   */
+  public listWorkflowStepExecutions(
+    args: ListWorkflowStepExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowStepExecutionsCommandOutput>;
+  public listWorkflowStepExecutions(
+    args: ListWorkflowStepExecutionsCommandInput,
+    cb: (err: any, data?: ListWorkflowStepExecutionsCommandOutput) => void
+  ): void;
+  public listWorkflowStepExecutions(
+    args: ListWorkflowStepExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowStepExecutionsCommandOutput) => void
+  ): void;
+  public listWorkflowStepExecutions(
+    args: ListWorkflowStepExecutionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkflowStepExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListWorkflowStepExecutionsCommandOutput) => void
+  ): Promise<ListWorkflowStepExecutionsCommandOutput> | void {
+    const command = new ListWorkflowStepExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+   * 				<code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be
+   * 			visible to all principals with whom the resource is shared.</p>
    */
   public putComponentPolicy(
     args: PutComponentPolicyCommandInput,
@@ -1638,7 +1901,14 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p>Applies a policy to a container image. We recommend that you call the RAM API CreateResourceShare (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also call the RAM API PromoteResourceShareCreatedFromPolicy (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html) in order for the resource to be visible to all principals with whom the resource is shared.</p>
+   * <p>Applies a policy to a container image. We recommend that you call the RAM API
+   * 			CreateResourceShare
+   * 			(https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share
+   * 			resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also
+   * 			call the RAM API PromoteResourceShareCreatedFromPolicy
+   * 			(https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+   * 			in order for the resource to be visible to all principals with whom the resource is
+   * 			shared.</p>
    */
   public putContainerRecipePolicy(
     args: PutContainerRecipePolicyCommandInput,
@@ -1672,8 +1942,8 @@ export class Imagebuilder extends ImagebuilderClient {
   /**
    * @public
    * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
-   * 			<code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
-   * 			all principals with whom the resource is shared.</p>
+   * 				<code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be
+   * 			visible to all principals with whom the resource is shared.</p>
    */
   public putImagePolicy(
     args: PutImagePolicyCommandInput,
@@ -1706,9 +1976,9 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
-   * 			<code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
-   * 			all principals with whom the resource is shared.</p>
+   * <p>Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+   * 				<code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be
+   * 			visible to all principals with whom the resource is shared.</p>
    */
   public putImageRecipePolicy(
     args: PutImageRecipePolicyCommandInput,
@@ -1741,7 +2011,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Manually triggers a pipeline to create an image.</p>
+   * <p>Manually triggers a pipeline to create an image.</p>
    */
   public startImagePipelineExecution(
     args: StartImagePipelineExecutionCommandInput,
@@ -1774,7 +2044,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Adds a tag to a resource.</p>
+   * <p>Adds a tag to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1801,7 +2071,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Removes a tag from a resource.</p>
+   * <p>Removes a tag from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1834,7 +2104,7 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Updates a new distribution configuration. Distribution configurations define and
+   * <p>Updates a new distribution configuration. Distribution configurations define and
    * 			configure the outputs of your pipeline.</p>
    */
   public updateDistributionConfiguration(
@@ -1868,12 +2138,12 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Updates an image pipeline. Image pipelines enable you to automate the creation and
+   * <p>Updates an image pipeline. Image pipelines enable you to automate the creation and
    * 			distribution of images.</p>
    *          <note>
-   *             <p>UpdateImagePipeline does not support selective updates for the pipeline.
-   * 			You must specify all of the required properties in the update request, not just
-   * 			the properties that have changed.</p>
+   *             <p>UpdateImagePipeline does not support selective updates for the pipeline. You must
+   * 				specify all of the required properties in the update request, not just the
+   * 				properties that have changed.</p>
    *          </note>
    */
   public updateImagePipeline(
@@ -1907,8 +2177,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * @public
-   * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
-   * 			environment in which your image will be built and tested.</p>
+   * <p>Updates a new infrastructure configuration. An infrastructure configuration defines
+   * 			the environment in which your image will be built and tested.</p>
    */
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,

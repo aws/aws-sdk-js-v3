@@ -35,7 +35,7 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
 
 /**
  * @public
- * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
+ * <p>Creates a new image pipeline. Image pipelines enable you to automate the creation and
  * 			distribution of images.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +65,15 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE", // required
+ *   imageScanningConfiguration: { // ImageScanningConfiguration
+ *     imageScanningEnabled: true || false,
+ *     ecrConfiguration: { // EcrConfiguration
+ *       repositoryName: "STRING_VALUE",
+ *       containerTags: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new CreateImagePipelineCommand(input);
  * const response = await client.send(command);
@@ -80,19 +89,19 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>You have specified a client token for an operation using parameter values that differ from
- * 			a previous request that used the same client token.</p>
+ *  <p>You have specified a client token for an operation using parameter values that differ
+ * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource that you are trying to create already exists.</p>
@@ -102,10 +111,13 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  * 			details and retry later.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and quotas</a>.</p>
+ *  <p>You have exceeded the number of permitted resources or operations for this service.
+ * 			For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and
+ * 				quotas</a>.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>

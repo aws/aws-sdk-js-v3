@@ -5,28 +5,75 @@ import { ImagebuilderServiceException as __BaseException } from "./ImagebuilderS
 
 /**
  * @public
+ * <p>Includes counts by severity level for medium severity and higher level findings, plus a total
+ * 			for all of the findings for the specified filter.</p>
+ */
+export interface SeverityCounts {
+  /**
+   * <p>The total number of findings across all severity levels for the specified filter.</p>
+   */
+  all?: number;
+
+  /**
+   * <p>The number of critical severity findings for the specified filter.</p>
+   */
+  critical?: number;
+
+  /**
+   * <p>The number of high severity findings for the specified filter.</p>
+   */
+  high?: number;
+
+  /**
+   * <p>The number of medium severity findings for the specified filter.</p>
+   */
+  medium?: number;
+}
+
+/**
+ * @public
+ * <p>Contains counts of vulnerability findings from image scans that run when you create
+ * 			new Image Builder images, or build new versions of existing images. The vulnerability counts are
+ * 			grouped by severity level. The counts are aggregated across resources to create the
+ * 			final tally for the account that owns them.</p>
+ */
+export interface AccountAggregation {
+  /**
+   * <p>Identifies the account that owns the aggregated resource findings.</p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>Counts by severity level for medium severity and higher level findings, plus a total
+   * 			for all of the findings.</p>
+   */
+  severityCounts?: SeverityCounts;
+}
+
+/**
+ * @public
  * <p>Contains settings for the Systems Manager agent on your build instance.</p>
  */
 export interface SystemsManagerAgent {
   /**
-   * <p>Controls whether the Systems Manager agent is removed from your final build image, prior to creating
-   * 			the new AMI. If this is set to true, then the agent is removed from the final image. If it's
-   * 			set to false, then the agent is left in, so that it is included in the new AMI. The default
-   * 			value is false.</p>
+   * <p>Controls whether the Systems Manager agent is removed from your final build image, prior to
+   * 			creating the new AMI. If this is set to true, then the agent is removed from the final
+   * 			image. If it's set to false, then the agent is left in, so that it is included in the
+   * 			new AMI. The default value is false.</p>
    */
   uninstallAfterBuild?: boolean;
 }
 
 /**
  * @public
- * <p>In addition to your infrastructure configuration, these settings provide an extra layer of
- * 			control over your build instances. You can also specify commands to run on launch for all of
- * 			your build instances.</p>
- *          <p>Image Builder does not automatically install the Systems Manager agent on Windows instances. If your
- * 			base image includes the Systems Manager agent, then the AMI that you create will also include the
- * 			agent. For Linux instances, if the base image does not already include the Systems Manager agent, Image Builder
- * 			installs it. For Linux instances where Image Builder installs the Systems Manager agent, you can choose
- * 			whether to keep it for the AMI that you create.</p>
+ * <p>In addition to your infrastructure configuration, these settings provide an extra
+ * 			layer of control over your build instances. You can also specify commands to run on
+ * 			launch for all of your build instances.</p>
+ *          <p>Image Builder does not automatically install the Systems Manager agent on Windows instances. If your base
+ * 			image includes the Systems Manager agent, then the AMI that you create will also include the
+ * 			agent. For Linux instances, if the base image does not already include the Systems Manager agent,
+ * 			Image Builder installs it. For Linux instances where Image Builder installs the Systems Manager agent, you can
+ * 			choose whether to keep it for the AMI that you create.</p>
  */
 export interface AdditionalInstanceConfiguration {
   /**
@@ -35,15 +82,16 @@ export interface AdditionalInstanceConfiguration {
   systemsManagerAgent?: SystemsManagerAgent;
 
   /**
-   * <p>Use this property to provide commands or a command script to run when you launch
-   * 			your build instance.</p>
-   *          <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure
-   * 			that Systems Manager is installed on your Linux build instance. If you override the user data,
-   * 			make sure that you add commands to install Systems Manager, if it is not pre-installed on your
-   * 			base image.</p>
+   * <p>Use this property to provide commands or a command script to run when you launch your
+   * 			build instance.</p>
+   *          <p>The userDataOverride property replaces any commands that Image Builder might have added to
+   * 			ensure that Systems Manager is installed on your Linux build instance. If you override the user
+   * 			data, make sure that you add commands to install Systems Manager, if it is not pre-installed on
+   * 			your base image.</p>
    *          <note>
-   *             <p>The user data is always base 64 encoded. For example, the
-   * 				following commands are encoded as <code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</code>:</p>
+   *             <p>The user data is always base 64 encoded. For example, the following commands are
+   * 				encoded as
+   * 				<code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</code>:</p>
    *             <p>
    *                <i>#!/bin/bash</i>
    *             </p>
@@ -79,7 +127,7 @@ export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];
 
 /**
  * @public
- * <p> Image state shows the image status and the reason for that status.</p>
+ * <p>Image status and the reason for that status.</p>
  */
 export interface ImageState {
   /**
@@ -88,14 +136,14 @@ export interface ImageState {
   status?: ImageStatus | string;
 
   /**
-   * <p>The reason for the image's status.</p>
+   * <p>The reason for the status of the image.</p>
    */
   reason?: string;
 }
 
 /**
  * @public
- * <p> Details of an Amazon EC2 AMI.</p>
+ * <p>Details of an Amazon EC2 AMI.</p>
  */
 export interface Ami {
   /**
@@ -119,7 +167,7 @@ export interface Ami {
   description?: string;
 
   /**
-   * <p> Image state shows the image status and the reason for that status.</p>
+   * <p>Image status and the reason for that status.</p>
    */
   state?: ImageState;
 
@@ -131,11 +179,13 @@ export interface Ami {
 
 /**
  * @public
- * <p>Describes the configuration for a launch permission. The launch permission modification
- * 			request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>
- * 			API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public,
- * 			set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI
- * 			public at <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.</p>
+ * <p>Describes the configuration for a launch permission. The launch permission
+ * 			modification request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2
+ * 				ModifyImageAttribute</a> API on behalf of the user for each Region they have
+ * 			selected to distribute the AMI. To make an AMI public, set the launch permission
+ * 			authorized accounts to <code>all</code>. See the examples for making an AMI public at
+ * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2
+ * 				ModifyImageAttribute</a>.</p>
  */
 export interface LaunchPermissionConfiguration {
   /**
@@ -149,21 +199,23 @@ export interface LaunchPermissionConfiguration {
   userGroups?: string[];
 
   /**
-   * <p>The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What is Organizations?</a>.</p>
+   * <p>The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What is
+   * 				Organizations?</a>.</p>
    */
   organizationArns?: string[];
 
   /**
-   * <p>The ARN for an Organizations organizational unit (OU) that you want to share your AMI with. For more
-   * 			information about key concepts for Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">Organizations terminology and concepts</a>.</p>
+   * <p>The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
+   * 			For more information about key concepts for Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">Organizations
+   * 				terminology and concepts</a>.</p>
    */
   organizationalUnitArns?: string[];
 }
 
 /**
  * @public
- * <p> Define and configure the output AMIs of the pipeline.</p>
+ * <p>Define and configure the output AMIs of the pipeline.</p>
  */
 export interface AmiDistributionConfiguration {
   /**
@@ -172,7 +224,8 @@ export interface AmiDistributionConfiguration {
   name?: string;
 
   /**
-   * <p>The description of the AMI distribution configuration. Minimum and maximum length are in characters.</p>
+   * <p>The description of the AMI distribution configuration. Minimum and maximum length are
+   * 			in characters.</p>
    */
   description?: string;
 
@@ -192,8 +245,8 @@ export interface AmiDistributionConfiguration {
   kmsKeyId?: string;
 
   /**
-   * <p> Launch permissions can be used to configure which Amazon Web Services accounts can use the AMI to launch
-   * 			instances.</p>
+   * <p>Launch permissions can be used to configure which Amazon Web Services accounts can use the AMI to
+   * 			launch instances.</p>
    */
   launchPermission?: LaunchPermissionConfiguration;
 }
@@ -238,7 +291,8 @@ export class CallRateLimitExceededException extends __BaseException {
  */
 export interface CancelImageCreationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</p>
+   * <p>The Amazon Resource Name (ARN) of the image that you want to cancel creation
+   * 			for.</p>
    */
   imageBuildVersionArn: string | undefined;
 
@@ -265,16 +319,16 @@ export interface CancelImageCreationResponse {
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image whose creation has been cancelled.</p>
+   * <p>The ARN of the image whose creation this request canceled.</p>
    */
   imageBuildVersionArn?: string;
 }
 
 /**
  * @public
- * <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ * <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  */
 export class ClientException extends __BaseException {
   readonly name: "ClientException" = "ClientException";
@@ -314,8 +368,8 @@ export class ForbiddenException extends __BaseException {
 
 /**
  * @public
- * <p>You have specified a client token for an operation using parameter values that differ from
- * 			a previous request that used the same client token.</p>
+ * <p>You have specified a client token for an operation using parameter values that differ
+ * 			from a previous request that used the same client token.</p>
  */
 export class IdempotentParameterMismatchException extends __BaseException {
   readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
@@ -335,7 +389,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 
 /**
  * @public
- * <p>You have made a request for an action that is not supported by the service.</p>
+ * <p>You have requested an action that that the service doesn't support.</p>
  */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
@@ -376,7 +430,8 @@ export class ResourceInUseException extends __BaseException {
 
 /**
  * @public
- * <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ * <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  */
 export class ServiceException extends __BaseException {
   readonly name: "ServiceException" = "ServiceException";
@@ -416,7 +471,8 @@ export class ServiceUnavailableException extends __BaseException {
 
 /**
  * @public
- * <p>Defines a parameter that is used to provide configuration details for the component.</p>
+ * <p>Defines a parameter that is used to provide configuration details for the
+ * 			component.</p>
  */
 export interface ComponentParameterDetail {
   /**
@@ -425,7 +481,8 @@ export interface ComponentParameterDetail {
   name: string | undefined;
 
   /**
-   * <p>The type of input this parameter provides. The currently supported value is "string".</p>
+   * <p>The type of input this parameter provides. The currently supported value is
+   * 			"string".</p>
    */
   type: string | undefined;
 
@@ -469,8 +526,8 @@ export type ComponentStatus = (typeof ComponentStatus)[keyof typeof ComponentSta
 
 /**
  * @public
- * <p>A group of fields that describe the current status of components
- * 			that are no longer active.</p>
+ * <p>A group of fields that describe the current status of components that are no longer
+ * 			active.</p>
  */
 export interface ComponentState {
   /**
@@ -529,8 +586,8 @@ export interface Component {
   changeDescription?: string;
 
   /**
-   * <p>The component type specifies whether Image Builder uses the component to build the image or only
-   * 			to test it.</p>
+   * <p>The component type specifies whether Image Builder uses the component to build the image or
+   * 			only to test it.</p>
    */
   type?: ComponentType | string;
 
@@ -541,14 +598,14 @@ export interface Component {
 
   /**
    * <p>The operating system (OS) version supported by the component. If the OS information is
-   * 			available, Image Builder performs a prefix match against the base image OS version during image recipe
-   * 			creation.</p>
+   * 			available, Image Builder performs a prefix match against the base image OS version during image
+   * 			recipe creation.</p>
    */
   supportedOsVersions?: string[];
 
   /**
-   * <p>Describes the current status of the component. This is used for
-   * 			components that are no longer active.</p>
+   * <p>Describes the current status of the component. This is used for components that are no
+   * 			longer active.</p>
    */
   state?: ComponentState;
 
@@ -589,14 +646,14 @@ export interface Component {
   tags?: Record<string, string>;
 
   /**
-   * <p>Contains the name of the publisher if this is a third-party component. Otherwise,
-   * 			this property is empty.</p>
+   * <p>Contains the name of the publisher if this is a third-party component. Otherwise, this
+   * 			property is empty.</p>
    */
   publisher?: string;
 
   /**
-   * <p>Indicates whether component source is hidden from view in the console,
-   * 			and from component detail results for API, CLI, or SDK operations.</p>
+   * <p>Indicates whether component source is hidden from view in the console, and from
+   * 			component detail results for API, CLI, or SDK operations.</p>
    */
   obfuscate?: boolean;
 }
@@ -619,7 +676,7 @@ export interface ComponentParameter {
 
 /**
  * @public
- * <p> Configuration details of the component.</p>
+ * <p>Configuration details of the component.</p>
  */
 export interface ComponentConfiguration {
   /**
@@ -628,7 +685,8 @@ export interface ComponentConfiguration {
   componentArn: string | undefined;
 
   /**
-   * <p>A group of parameter settings that Image Builder uses to configure the component for a specific recipe.</p>
+   * <p>A group of parameter settings that Image Builder uses to configure the component for a specific
+   * 			recipe.</p>
    */
   parameters?: ComponentParameter[];
 }
@@ -672,9 +730,9 @@ export interface ComponentSummary {
   platform?: Platform | string;
 
   /**
-   * <p>The operating system (OS) version that the component supports. If the OS information is
-   * 			available, Image Builder performs a prefix match against the base image OS version during image recipe
-   * 			creation.</p>
+   * <p>The operating system (OS) version that the component supports. If the OS information
+   * 			is available, Image Builder performs a prefix match against the base image OS version during
+   * 			image recipe creation.</p>
    */
   supportedOsVersions?: string[];
 
@@ -684,8 +742,8 @@ export interface ComponentSummary {
   state?: ComponentState;
 
   /**
-   * <p>The component type specifies whether Image Builder uses the component to build the image or only
-   * 			to test it.</p>
+   * <p>The component type specifies whether Image Builder uses the component to build the image or
+   * 			only to test it.</p>
    */
   type?: ComponentType | string;
 
@@ -715,14 +773,14 @@ export interface ComponentSummary {
   tags?: Record<string, string>;
 
   /**
-   * <p>Contains the name of the publisher if this is a third-party component. Otherwise,
-   * 			this property is empty.</p>
+   * <p>Contains the name of the publisher if this is a third-party component. Otherwise, this
+   * 			property is empty.</p>
    */
   publisher?: string;
 
   /**
-   * <p>Indicates whether component source is hidden from view in the console,
-   * 			and from component detail results for API, CLI, or SDK operations.</p>
+   * <p>Indicates whether component source is hidden from view in the console, and from
+   * 			component detail results for API, CLI, or SDK operations.</p>
    */
   obfuscate?: boolean;
 }
@@ -792,14 +850,14 @@ export interface ComponentVersion {
 
   /**
    * <p>he operating system (OS) version supported by the component. If the OS information is
-   * 			available, a prefix match is performed against the base image OS version during image recipe
-   * 			creation.</p>
+   * 			available, a prefix match is performed against the base image OS version during image
+   * 			recipe creation.</p>
    */
   supportedOsVersions?: string[];
 
   /**
-   * <p>The type of the component denotes whether the component is used to build the image or only
-   * 			to test it.</p>
+   * <p>The type of the component denotes whether the component is used to build the image or
+   * 			only to test it.</p>
    */
   type?: ComponentType | string;
 
@@ -820,7 +878,8 @@ export interface ComponentVersion {
  */
 export interface Container {
   /**
-   * <p>Containers and container images are Region-specific. This is the Region context for the container.</p>
+   * <p>Containers and container images are Region-specific. This is the Region context for
+   * 			the container.</p>
    */
   region?: string;
 
@@ -854,14 +913,16 @@ export interface TargetContainerRepository {
   service: ContainerRepositoryService | string | undefined;
 
   /**
-   * <p>The name of the container repository where the output container image is stored. This name is prefixed by the repository location.</p>
+   * <p>The name of the container repository where the output container image is stored. This
+   * 			name is prefixed by the repository location.</p>
    */
   repositoryName: string | undefined;
 }
 
 /**
  * @public
- * <p>Container distribution settings for encryption, licensing, and sharing in a specific Region.</p>
+ * <p>Container distribution settings for encryption, licensing, and sharing in a specific
+ * 			Region.</p>
  */
 export interface ContainerDistributionConfiguration {
   /**
@@ -954,8 +1015,8 @@ export interface EbsInstanceBlockDeviceSpecification {
 
   /**
    * <p>
-   *             <b>For GP3 volumes only</b> –
-   * 			The throughput in MiB/s that the volume supports. </p>
+   *             <b>For GP3 volumes only</b> – The throughput in MiB/s
+   * 			that the volume supports.</p>
    */
   throughput?: number;
 }
@@ -988,18 +1049,19 @@ export interface InstanceBlockDeviceMapping {
 
 /**
  * @public
- * <p>Defines a custom base AMI and block device mapping configurations of an instance
- * 			used for building and testing container images.</p>
+ * <p>Defines a custom base AMI and block device mapping configurations of an instance used
+ * 			for building and testing container images.</p>
  */
 export interface InstanceConfiguration {
   /**
-   * <p>The AMI ID to use as the base image for a container build and test instance. If not specified,
-   * 			Image Builder will use the appropriate ECS-optimized AMI as a base image.</p>
+   * <p>The AMI ID to use as the base image for a container build and test instance. If not
+   * 			specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.</p>
    */
   image?: string;
 
   /**
-   * <p>Defines the block devices to attach for building an instance from this Image Builder AMI.</p>
+   * <p>Defines the block devices to attach for building an instance from this Image Builder
+   * 			AMI.</p>
    */
   blockDeviceMappings?: InstanceBlockDeviceMapping[];
 }
@@ -1078,23 +1140,29 @@ export interface ContainerRecipe {
   version?: string;
 
   /**
-   * <p>Build and test components that are included in the container recipe. Recipes require a minimum of one build component, and can
+   * <p>Build and test components that are included in the container recipe.
+   * 			Recipes require a minimum of one build component, and can
    * 			have a maximum of 20 build and test components in any combination.</p>
    */
   components?: ComponentConfiguration[];
 
   /**
-   * <p>A group of options that can be used to configure an instance for building and testing container images.</p>
+   * <p>A group of options that can be used to configure an instance for building and testing
+   * 			container images.</p>
    */
   instanceConfiguration?: InstanceConfiguration;
 
   /**
-   * <p>Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.</p>
+   * <p>Dockerfiles are text documents that are used to build Docker containers, and ensure
+   * 			that they contain all of the elements required by the application running inside. The
+   * 			template data consists of contextual variables where Image Builder places build information or
+   * 			scripts, based on your container image recipe.</p>
    */
   dockerfileTemplateData?: string;
 
   /**
-   * <p>Identifies which KMS key is used to encrypt the container image for distribution to the target Region.</p>
+   * <p>Identifies which KMS key is used to encrypt the container image for distribution to
+   * 			the target Region.</p>
    */
   kmsKeyId?: string;
 
@@ -1185,7 +1253,8 @@ export interface CreateComponentRequest {
   name: string | undefined;
 
   /**
-   * <p>The semantic version of the component. This version follows the semantic version syntax.</p>
+   * <p>The semantic version of the component. This version follows the semantic version
+   * 			syntax.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -1208,7 +1277,8 @@ export interface CreateComponentRequest {
 
   /**
    * <p>The change description of the component. Describes what change has been made in this
-   * 			version, or what makes this version different from other versions of this component.</p>
+   * 			version, or what makes this version different from other versions of this
+   * 			component.</p>
    */
   changeDescription?: string;
 
@@ -1218,9 +1288,9 @@ export interface CreateComponentRequest {
   platform: Platform | string | undefined;
 
   /**
-   * <p> The operating system (OS) version supported by the component. If the OS information is
-   * 			available, a prefix match is performed against the base image OS version during image recipe
-   * 			creation.</p>
+   * <p>The operating system (OS) version supported by the component. If the OS information is
+   * 			available, a prefix match is performed against the base image OS version during image
+   * 			recipe creation.</p>
    */
   supportedOsVersions?: string[];
 
@@ -1233,11 +1303,11 @@ export interface CreateComponentRequest {
 
   /**
    * <p>The <code>uri</code> of a YAML component document file. This must be an S3 URL
-   * 			(<code>s3://bucket/key</code>), and the requester must have permission to access
-   * 			the S3 bucket it points to. If you use Amazon S3, you can specify component content
-   * 			up to your service quota.</p>
+   * 				(<code>s3://bucket/key</code>), and the requester must have permission to access the
+   * 			S3 bucket it points to. If you use Amazon S3, you can specify component content up to your
+   * 			service quota.</p>
    *          <p>Alternatively, you can specify the YAML document inline, using the component
-   * 			<code>data</code> property. You cannot specify both properties.</p>
+   * 				<code>data</code> property. You cannot specify both properties.</p>
    */
   uri?: string;
 
@@ -1272,15 +1342,15 @@ export interface CreateComponentResponse {
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the component that was created by this request.</p>
+   * <p>The Amazon Resource Name (ARN) of the component that this request created.</p>
    */
   componentBuildVersionArn?: string;
 }
 
 /**
  * @public
- * <p>You have specified two or more mutually exclusive parameters. Review the error message for
- * 			details.</p>
+ * <p>You have specified two or more mutually exclusive parameters. Review the error message
+ * 			for details.</p>
  */
 export class InvalidParameterCombinationException extends __BaseException {
   readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
@@ -1320,7 +1390,9 @@ export class InvalidVersionNumberException extends __BaseException {
 
 /**
  * @public
- * <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and quotas</a>.</p>
+ * <p>You have exceeded the number of permitted resources or operations for this service.
+ * 			For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and
+ * 				quotas</a>.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -1358,7 +1430,8 @@ export interface CreateContainerRecipeRequest {
   description?: string;
 
   /**
-   * <p>The semantic version of the container recipe. This version follows the semantic version syntax.</p>
+   * <p>The semantic version of the container recipe. This version follows the semantic
+   * 			version syntax.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -1375,13 +1448,15 @@ export interface CreateContainerRecipeRequest {
   semanticVersion: string | undefined;
 
   /**
-   * <p>Components for build and test that are included in the container recipe. Recipes require a minimum of one build component, and can
+   * <p>Components for build and test that are included in the container recipe.
+   * 			Recipes require a minimum of one build component, and can
    * 			have a maximum of 20 build and test components in any combination.</p>
    */
   components: ComponentConfiguration[] | undefined;
 
   /**
-   * <p>A group of options that can be used to configure an instance for building and testing container images.</p>
+   * <p>A group of options that can be used to configure an instance for building and testing
+   * 			container images.</p>
    */
   instanceConfiguration?: InstanceConfiguration;
 
@@ -1391,7 +1466,8 @@ export interface CreateContainerRecipeRequest {
   dockerfileTemplateData?: string;
 
   /**
-   * <p>The Amazon S3 URI for the Dockerfile that will be used to build your container image.</p>
+   * <p>The Amazon S3 URI for the Dockerfile that will be used to build your container
+   * 			image.</p>
    */
   dockerfileTemplateUri?: string;
 
@@ -1451,7 +1527,8 @@ export interface CreateContainerRecipeResponse {
   clientToken?: string;
 
   /**
-   * <p>Returns the Amazon Resource Name (ARN) of the container recipe that the request created.</p>
+   * <p>Returns the Amazon Resource Name (ARN) of the container recipe that the request
+   * 			created.</p>
    */
   containerRecipeArn?: string;
 }
@@ -1478,11 +1555,11 @@ export class ResourceAlreadyExistsException extends __BaseException {
 
 /**
  * @public
- * <p>Identifies the launch template that the associated Windows AMI uses for
- * 			launching an instance when faster launching is enabled.</p>
+ * <p>Identifies the launch template that the associated Windows AMI uses for launching an
+ * 			instance when faster launching is enabled.</p>
  *          <note>
  *             <p>You can specify either the <code>launchTemplateName</code> or the
- * 				<code>launchTemplateId</code>, but not both.</p>
+ * 					<code>launchTemplateId</code>, but not both.</p>
  *          </note>
  */
 export interface FastLaunchLaunchTemplateSpecification {
@@ -1497,15 +1574,16 @@ export interface FastLaunchLaunchTemplateSpecification {
   launchTemplateName?: string;
 
   /**
-   * <p>The version of the launch template to use for faster launching for a Windows AMI.</p>
+   * <p>The version of the launch template to use for faster launching for a Windows
+   * 			AMI.</p>
    */
   launchTemplateVersion?: string;
 }
 
 /**
  * @public
- * <p>Configuration settings for creating and managing pre-provisioned snapshots
- * 			for a fast-launch enabled Windows AMI.</p>
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a
+ * 			fast-launch enabled Windows AMI.</p>
  */
 export interface FastLaunchSnapshotConfiguration {
   /**
@@ -1521,16 +1599,15 @@ export interface FastLaunchSnapshotConfiguration {
  */
 export interface FastLaunchConfiguration {
   /**
-   * <p>A Boolean that represents the current state of faster launching for the
-   * 			Windows AMI. Set to <code>true</code> to start using Windows faster launching, or
-   * 			<code>false</code> to stop using it.</p>
+   * <p>A Boolean that represents the current state of faster launching for the Windows AMI.
+   * 			Set to <code>true</code> to start using Windows faster launching, or <code>false</code>
+   * 			to stop using it.</p>
    */
   enabled: boolean | undefined;
 
   /**
-   * <p>Configuration settings for managing the number of snapshots that are
-   * 			created from pre-provisioned instances for the Windows AMI when faster
-   * 			launching is enabled.</p>
+   * <p>Configuration settings for managing the number of snapshots that are created from
+   * 			pre-provisioned instances for the Windows AMI when faster launching is enabled.</p>
    */
   snapshotConfiguration?: FastLaunchSnapshotConfiguration;
 
@@ -1541,8 +1618,8 @@ export interface FastLaunchConfiguration {
   maxParallelLaunches?: number;
 
   /**
-   * <p>The launch template that the fast-launch enabled Windows AMI uses when it
-   * 			launches Windows instances to create pre-provisioned snapshots.</p>
+   * <p>The launch template that the fast-launch enabled Windows AMI uses when it launches
+   * 			Windows instances to create pre-provisioned snapshots.</p>
    */
   launchTemplate?: FastLaunchLaunchTemplateSpecification;
 
@@ -1568,7 +1645,8 @@ export interface LaunchTemplateConfiguration {
   accountId?: string;
 
   /**
-   * <p>Set the specified Amazon EC2 launch template as the default launch template for the specified account.</p>
+   * <p>Set the specified Amazon EC2 launch template as the default launch template for the
+   * 			specified account.</p>
    */
   setDefaultVersion?: boolean;
 }
@@ -1590,30 +1668,29 @@ export type DiskImageFormat = (typeof DiskImageFormat)[keyof typeof DiskImageFor
 
 /**
  * @public
- * <p>Properties that configure export from your build instance
- * 			to a compatible file format for your VM.</p>
+ * <p>Properties that configure export from your build instance to a compatible file format
+ * 			for your VM.</p>
  */
 export interface S3ExportConfiguration {
   /**
-   * <p>The name of the role that grants VM Import/Export permission to
-   * 			export images to your S3 bucket.</p>
+   * <p>The name of the role that grants VM Import/Export permission to export images to your
+   * 			S3 bucket.</p>
    */
   roleName: string | undefined;
 
   /**
-   * <p>Export the updated image to one of the following supported disk
-   * 			image formats:</p>
+   * <p>Export the updated image to one of the following supported disk image formats:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Virtual Hard Disk (VHD)</b> –
-   * 					Compatible with Citrix Xen and Microsoft Hyper-V virtualization products.</p>
+   *                   <b>Virtual Hard Disk (VHD)</b> – Compatible
+   * 					with Citrix Xen and Microsoft Hyper-V virtualization products.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>Stream-optimized ESX Virtual Machine Disk
-   * 					(VMDK)</b> – Compatible with VMware ESX and
-   * 					VMware vSphere versions 4, 5, and 6.</p>
+   * 						(VMDK)</b> – Compatible with VMware ESX and VMware vSphere
+   * 					versions 4, 5, and 6.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1629,14 +1706,15 @@ export interface S3ExportConfiguration {
   s3Bucket: string | undefined;
 
   /**
-   * <p>The Amazon S3 path for the bucket where the output disk images for your VM are stored.</p>
+   * <p>The Amazon S3 path for the bucket where the output disk images for your VM are
+   * 			stored.</p>
    */
   s3Prefix?: string;
 }
 
 /**
  * @public
- * <p> Defines the settings for a specific Region.</p>
+ * <p>Defines the settings for a specific Region.</p>
  */
 export interface Distribution {
   /**
@@ -1650,8 +1728,8 @@ export interface Distribution {
   amiDistributionConfiguration?: AmiDistributionConfiguration;
 
   /**
-   * <p>Container distribution settings for encryption, licensing, and sharing
-   * 			in a specific Region.</p>
+   * <p>Container distribution settings for encryption, licensing, and sharing in a specific
+   * 			Region.</p>
    */
   containerDistributionConfiguration?: ContainerDistributionConfiguration;
 
@@ -1662,14 +1740,14 @@ export interface Distribution {
   licenseConfigurationArns?: string[];
 
   /**
-   * <p>A group of launchTemplateConfiguration settings that apply to image distribution
-   * 			for specified accounts.</p>
+   * <p>A group of launchTemplateConfiguration settings that apply to image distribution for
+   * 			specified accounts.</p>
    */
   launchTemplateConfigurations?: LaunchTemplateConfiguration[];
 
   /**
-   * <p>Configure export settings to deliver disk images created from your image build,
-   * 			using a file format that is compatible with your VMs in that Region.</p>
+   * <p>Configure export settings to deliver disk images created from your image build, using
+   * 			a file format that is compatible with your VMs in that Region.</p>
    */
   s3ExportConfiguration?: S3ExportConfiguration;
 
@@ -1684,27 +1762,27 @@ export interface Distribution {
  */
 export interface CreateDistributionConfigurationRequest {
   /**
-   * <p> The name of the distribution configuration.</p>
+   * <p>The name of the distribution configuration.</p>
    */
   name: string | undefined;
 
   /**
-   * <p> The description of the distribution configuration.</p>
+   * <p>The description of the distribution configuration.</p>
    */
   description?: string;
 
   /**
-   * <p> The distributions of the distribution configuration.</p>
+   * <p>The distributions of the distribution configuration.</p>
    */
   distributions: Distribution[] | undefined;
 
   /**
-   * <p> The tags of the distribution configuration.</p>
+   * <p>The tags of the distribution configuration.</p>
    */
   tags?: Record<string, string>;
 
   /**
-   * <p> The idempotency token of the distribution configuration.</p>
+   * <p>The idempotency token of the distribution configuration.</p>
    */
   clientToken?: string;
 }
@@ -1714,39 +1792,78 @@ export interface CreateDistributionConfigurationRequest {
  */
 export interface CreateDistributionConfigurationResponse {
   /**
-   * <p> The request ID that uniquely identifies this request.</p>
+   * <p>The request ID that uniquely identifies this request.</p>
    */
   requestId?: string;
 
   /**
-   * <p> The idempotency token used to make this request idempotent.</p>
+   * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the distribution configuration that was created by this
-   * 			request.</p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that was created by
+   * 			this request.</p>
    */
   distributionConfigurationArn?: string;
 }
 
 /**
  * @public
- * <p>Configure image tests for your pipeline build. Tests run after building
- * 			the image, to verify that the AMI or container image is valid before
- * 			distributing it.</p>
+ * <p>Settings that Image Builder uses to configure the ECR repository and the output container
+ * 			images that Amazon Inspector scans.</p>
+ */
+export interface EcrConfiguration {
+  /**
+   * <p>The name of the container repository that Amazon Inspector scans to identify findings for your
+   * 			container images. The name includes the path for the repository location. If you don’t
+   * 			provide this information, Image Builder creates a repository in your account named
+   * 				<code>image-builder-image-scanning-repository</code> for vulnerability scans of your
+   * 			output container images.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>Tags for Image Builder to apply to the output container image that &INS; scans. Tags can
+   * 			help you identify and manage your scanned images.</p>
+   */
+  containerTags?: string[];
+}
+
+/**
+ * @public
+ * <p>Contains settings for Image Builder image resource and container image scans.</p>
+ */
+export interface ImageScanningConfiguration {
+  /**
+   * <p>A setting that indicates whether Image Builder keeps a snapshot of the vulnerability scans that
+   * 			Amazon Inspector runs against the build instance when you create a new image.</p>
+   */
+  imageScanningEnabled?: boolean;
+
+  /**
+   * <p>Contains Amazon ECR settings for vulnerability scans.</p>
+   */
+  ecrConfiguration?: EcrConfiguration;
+}
+
+/**
+ * @public
+ * <p>Configure image tests for your pipeline build. Tests run after building the image, to
+ * 			verify that the AMI or container image is valid before distributing it.</p>
  */
 export interface ImageTestsConfiguration {
   /**
-   * <p>Determines if tests should run after building the image. Image Builder defaults
-   * 			to enable tests to run following the image build, before image distribution.</p>
+   * <p>Determines if tests should run after building the image. Image Builder defaults to enable tests
+   * 			to run following the image build, before image distribution.</p>
    */
   imageTestsEnabled?: boolean;
 
   /**
    * <p>The maximum time in minutes that tests are permitted to run.</p>
    *          <note>
-   *             <p>The timeoutMinutes attribute is not currently active. This value is ignored.</p>
+   *             <p>The timeoutMinutes attribute is not currently active. This value is
+   * 				ignored.</p>
    *          </note>
    */
   timeoutMinutes?: number;
@@ -1757,49 +1874,55 @@ export interface ImageTestsConfiguration {
  */
 export interface CreateImageRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the image recipe that defines how images are
+   * <p>The Amazon Resource Name (ARN) of the image recipe that defines how images are
    * 			configured, tested, and assessed.</p>
    */
   imageRecipeArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.</p>
+   * <p>The Amazon Resource Name (ARN) of the container recipe that defines how images are
+   * 			configured and tested.</p>
    */
   containerRecipeArn?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the distribution configuration that defines and
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that defines and
    * 			configures the outputs of your pipeline.</p>
    */
   distributionConfigurationArn?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that defines the
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that defines the
    * 			environment in which your image will be built and tested.</p>
    */
   infrastructureConfigurationArn: string | undefined;
 
   /**
-   * <p> The image tests configuration of the image.</p>
+   * <p>The image tests configuration of the image.</p>
    */
   imageTestsConfiguration?: ImageTestsConfiguration;
 
   /**
-   * <p> Collects additional information about the image being created, including the operating
+   * <p>Collects additional information about the image being created, including the operating
    * 			system (OS) version and package list. This information is used to enhance the overall
    * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
   enhancedImageMetadataEnabled?: boolean;
 
   /**
-   * <p> The tags of the image.</p>
+   * <p>The tags of the image.</p>
    */
   tags?: Record<string, string>;
 
   /**
-   * <p> The idempotency token used to make this request idempotent.</p>
+   * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>Contains settings for vulnerability scans.</p>
+   */
+  imageScanningConfiguration?: ImageScanningConfiguration;
 }
 
 /**
@@ -1807,17 +1930,17 @@ export interface CreateImageRequest {
  */
 export interface CreateImageResponse {
   /**
-   * <p> The request ID that uniquely identifies this request.</p>
+   * <p>The request ID that uniquely identifies this request.</p>
    */
   requestId?: string;
 
   /**
-   * <p> The idempotency token used to make this request idempotent.</p>
+   * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the image that was created by this request.</p>
+   * <p>The Amazon Resource Name (ARN) of the image that this request created.</p>
    */
   imageBuildVersionArn?: string;
 }
@@ -1839,34 +1962,33 @@ export type PipelineExecutionStartCondition =
 
 /**
  * @public
- * <p>A schedule configures how often and when a pipeline will automatically create a new image.</p>
+ * <p>A schedule configures how often and when a pipeline will automatically create a new
+ * 			image.</p>
  */
 export interface Schedule {
   /**
    * <p>The cron expression determines how often EC2 Image Builder evaluates your
-   * 			<code>pipelineExecutionStartCondition</code>.</p>
-   *          <p>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use cron
-   * 			expressions in EC2 Image Builder</a>.</p>
+   * 				<code>pipelineExecutionStartCondition</code>.</p>
+   *          <p>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use
+   * 				cron expressions in EC2 Image Builder</a>.</p>
    */
   scheduleExpression?: string;
 
   /**
    * <p>The timezone that applies to the scheduling expression. For example, "Etc/UTC",
-   * 			"America/Los_Angeles" in the <a href="https://www.joda.org/joda-time/timezones.html">IANA
-   * 				timezone format</a>. If not specified this defaults to UTC.</p>
+   * 			"America/Los_Angeles" in the <a href="https://www.joda.org/joda-time/timezones.html">IANA timezone format</a>. If not specified this defaults to UTC.</p>
    */
   timezone?: string;
 
   /**
    * <p>The condition configures when the pipeline should trigger a new image build. When the
-   * 			<code>pipelineExecutionStartCondition</code> is set to
-   * 			<code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic version
-   * 			filters on the base image or components in your image recipe, EC2 Image Builder will build a
-   * 			new image only when there are new versions of the image or components in your recipe that
-   * 			match the semantic version filter. When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it
-   * 			will build a new image every time the CRON expression matches the current time. For semantic
-   * 			version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API
-   * 					Reference</i>.</p>
+   * 				<code>pipelineExecutionStartCondition</code> is set to
+   * 				<code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic
+   * 			version filters on the base image or components in your image recipe, EC2 Image Builder will
+   * 			build a new image only when there are new versions of the image or components in your
+   * 			recipe that match the semantic version filter. When it is set to
+   * 				<code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every time the CRON
+   * 			expression matches the current time. For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API Reference</i>.</p>
    */
   pipelineExecutionStartCondition?: PipelineExecutionStartCondition | string;
 }
@@ -1890,69 +2012,75 @@ export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus
  */
 export interface CreateImagePipelineRequest {
   /**
-   * <p> The name of the image pipeline.</p>
+   * <p>The name of the image pipeline.</p>
    */
   name: string | undefined;
 
   /**
-   * <p> The description of the image pipeline.</p>
+   * <p>The description of the image pipeline.</p>
    */
   description?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the image recipe that will be used to configure images
-   * 			created by this image pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure
+   * 			images created by this image pipeline.</p>
    */
   imageRecipeArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the container recipe that is used to configure images created by this container pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the container recipe that is used to configure
+   * 			images created by this container pipeline.</p>
    */
   containerRecipeArn?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to
-   * 			build images created by this image pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used
+   * 			to build images created by this image pipeline.</p>
    */
   infrastructureConfigurationArn: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the distribution configuration that will be used to
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that will be used to
    * 			configure and distribute images created by this image pipeline.</p>
    */
   distributionConfigurationArn?: string;
 
   /**
-   * <p> The image test configuration of the image pipeline.</p>
+   * <p>The image test configuration of the image pipeline.</p>
    */
   imageTestsConfiguration?: ImageTestsConfiguration;
 
   /**
-   * <p> Collects additional information about the image being created, including the operating
+   * <p>Collects additional information about the image being created, including the operating
    * 			system (OS) version and package list. This information is used to enhance the overall
    * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
   enhancedImageMetadataEnabled?: boolean;
 
   /**
-   * <p> The schedule of the image pipeline.</p>
+   * <p>The schedule of the image pipeline.</p>
    */
   schedule?: Schedule;
 
   /**
-   * <p> The status of the image pipeline.</p>
+   * <p>The status of the image pipeline.</p>
    */
   status?: PipelineStatus | string;
 
   /**
-   * <p> The tags of the image pipeline.</p>
+   * <p>The tags of the image pipeline.</p>
    */
   tags?: Record<string, string>;
 
   /**
-   * <p> The idempotency token used to make this request idempotent.</p>
+   * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>Contains settings for vulnerability scans.</p>
+   */
+  imageScanningConfiguration?: ImageScanningConfiguration;
 }
 
 /**
@@ -1960,17 +2088,18 @@ export interface CreateImagePipelineRequest {
  */
 export interface CreateImagePipelineResponse {
   /**
-   * <p> The request ID that uniquely identifies this request.</p>
+   * <p>The request ID that uniquely identifies this request.</p>
    */
   requestId?: string;
 
   /**
-   * <p> The idempotency token used to make this request idempotent.</p>
+   * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the image pipeline that was created by this request.</p>
+   * <p>The Amazon Resource Name (ARN) of the image pipeline that was created by this
+   * 			request.</p>
    */
   imagePipelineArn?: string;
 }
@@ -1980,17 +2109,18 @@ export interface CreateImagePipelineResponse {
  */
 export interface CreateImageRecipeRequest {
   /**
-   * <p> The name of the image recipe.</p>
+   * <p>The name of the image recipe.</p>
    */
   name: string | undefined;
 
   /**
-   * <p> The description of the image recipe.</p>
+   * <p>The description of the image recipe.</p>
    */
   description?: string;
 
   /**
-   * <p>The semantic version of the image recipe. This version follows the semantic version syntax.</p>
+   * <p>The semantic version of the image recipe. This version follows the semantic version
+   * 			syntax.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -2014,10 +2144,10 @@ export interface CreateImageRecipeRequest {
   /**
    * <p>The base image of the image recipe. The value of the string can be the ARN of the base
    * 			image or an AMI ID. The format for the ARN follows this example:
-   * 			<code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
+   * 				<code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
    * 			You can provide the specific version that you want to use, or you can use a wildcard in
-   * 			all of the fields. If you enter an AMI ID for the string value, you must have access to the AMI,
-   * 			and the AMI must be in the same Region in which you are using Image Builder.</p>
+   * 			all of the fields. If you enter an AMI ID for the string value, you must have access to
+   * 			the AMI, and the AMI must be in the same Region in which you are using Image Builder.</p>
    */
   parentImage: string | undefined;
 
@@ -2027,7 +2157,7 @@ export interface CreateImageRecipeRequest {
   blockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
-   * <p> The tags of the image recipe.</p>
+   * <p>The tags of the image recipe.</p>
    */
   tags?: Record<string, string>;
 
@@ -2062,41 +2192,40 @@ export interface CreateImageRecipeResponse {
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe that was created by this request.</p>
+   * <p>The Amazon Resource Name (ARN) of the image recipe that was created by this
+   * 			request.</p>
    */
   imageRecipeArn?: string;
 }
 
 /**
  * @public
- * <p>The instance metadata options that apply to the HTTP requests that
- * 			pipeline builds use to launch EC2 build and test instances. For more
- * 			information about instance metadata options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
- * 				the instance metadata options</a> in the <i>
+ * <p>The instance metadata options that apply to the HTTP requests that pipeline builds use
+ * 			to launch EC2 build and test instances. For more information about instance metadata
+ * 			options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+ * 				<i>
  *                <i>Amazon EC2 User Guide</i>
- *             </i>
- * 			for Linux instances, or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure
- * 				the instance metadata options</a> in the <i>
+ *             </i> for Linux instances, or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+ * 				<i>
  *                <i>Amazon EC2 Windows Guide</i>
- *             </i>
- * 			for Windows instances.</p>
+ *             </i> for Windows instances.</p>
  */
 export interface InstanceMetadataOptions {
   /**
-   * <p>Indicates whether a signed token header is required for instance metadata retrieval requests.
-   * 			The values affect the response as follows:</p>
+   * <p>Indicates whether a signed token header is required for instance metadata retrieval
+   * 			requests. The values affect the response as follows:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>required</b> – When you retrieve the
-   * 					IAM role credentials, version 2.0 credentials are returned in all cases.</p>
+   *                   <b>required</b> – When you retrieve the IAM
+   * 					role credentials, version 2.0 credentials are returned in all cases.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>optional</b> – You can include a signed token header
-   * 					in your request to retrieve instance metadata, or you can leave it out. If you
-   * 					include it, version 2.0 credentials are returned for the IAM role. Otherwise,
-   * 					version 1.0 credentials are returned.</p>
+   *                   <b>optional</b> – You can include a signed
+   * 					token header in your request to retrieve instance metadata, or you can leave it
+   * 					out. If you include it, version 2.0 credentials are returned for the IAM role.
+   * 					Otherwise, version 1.0 credentials are returned.</p>
    *             </li>
    *          </ul>
    *          <p>The default setting is <b>optional</b>.</p>
@@ -2154,18 +2283,20 @@ export interface CreateInfrastructureConfigurationRequest {
 
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
-   * 			instance types to use for this build. The service will pick one of these instance types based
-   * 			on availability.</p>
+   * 			instance types to use for this build. The service will pick one of these instance types
+   * 			based on availability.</p>
    */
   instanceTypes?: string[];
 
   /**
-   * <p>The instance profile to associate with the instance used to customize your Amazon EC2 AMI.</p>
+   * <p>The instance profile to associate with the instance used to customize your Amazon EC2
+   * 			AMI.</p>
    */
   instanceProfileName: string | undefined;
 
   /**
-   * <p>The security group IDs to associate with the instance used to customize your Amazon EC2 AMI.</p>
+   * <p>The security group IDs to associate with the instance used to customize your Amazon EC2
+   * 			AMI.</p>
    */
   securityGroupIds?: string[];
 
@@ -2180,20 +2311,21 @@ export interface CreateInfrastructureConfigurationRequest {
   logging?: Logging;
 
   /**
-   * <p>The key pair of the infrastructure configuration. You can use this to log on to and debug
-   * 			the instance used to create your image.</p>
+   * <p>The key pair of the infrastructure configuration. You can use this to log on to and
+   * 			debug the instance used to create your image.</p>
    */
   keyPair?: string;
 
   /**
    * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
-   * 			false if you want Image Builder to retain the instance used to configure your AMI if the build
-   * 			or test phase of your workflow fails.</p>
+   * 			false if you want Image Builder to retain the instance used to configure your AMI if the build or
+   * 			test phase of your workflow fails.</p>
    */
   terminateInstanceOnFailure?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p>
+   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
+   * 			notifications.</p>
    *          <note>
    *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
    * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
@@ -2208,8 +2340,8 @@ export interface CreateInfrastructureConfigurationRequest {
   resourceTags?: Record<string, string>;
 
   /**
-   * <p>The instance metadata options that you can set for the HTTP requests that
-   * 			pipeline builds use to launch EC2 build and test instances.</p>
+   * <p>The instance metadata options that you can set for the HTTP requests that pipeline
+   * 			builds use to launch EC2 build and test instances.</p>
    */
   instanceMetadataOptions?: InstanceMetadataOptions;
 
@@ -2247,6 +2379,91 @@ export interface CreateInfrastructureConfigurationResponse {
 
 /**
  * @public
+ * <p>Amazon Inspector generates a risk score for each finding. This score helps you to prioritize
+ * 			findings, to focus on the most critical findings and the most vulnerable resources. The
+ * 			score uses the Common Vulnerability Scoring System (CVSS) format. This format is a
+ * 			modification of the base CVSS score that the National Vulnerability Database (NVD)
+ * 			provides. For more information about severity levels, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for Amazon Inspector findings</a> in the <i>Amazon Inspector User
+ * 				Guide</i>.</p>
+ */
+export interface CvssScore {
+  /**
+   * <p>The CVSS base score.</p>
+   */
+  baseScore?: number;
+
+  /**
+   * <p>The vector string of the CVSS score.</p>
+   */
+  scoringVector?: string;
+
+  /**
+   * <p>The CVSS version that generated the score.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The source of the CVSS score.</p>
+   */
+  source?: string;
+}
+
+/**
+ * @public
+ * <p>Details about an adjustment that Amazon Inspector made to the CVSS score for a finding.</p>
+ */
+export interface CvssScoreAdjustment {
+  /**
+   * <p>The metric that Amazon Inspector used to adjust the CVSS score.</p>
+   */
+  metric?: string;
+
+  /**
+   * <p>The reason for the CVSS score adjustment.</p>
+   */
+  reason?: string;
+}
+
+/**
+ * @public
+ * <p>Details about the source of the score, and the factors that determined the adjustments
+ * 			to create the final score.</p>
+ */
+export interface CvssScoreDetails {
+  /**
+   * <p>The source for the CVSS score.</p>
+   */
+  scoreSource?: string;
+
+  /**
+   * <p>The source of the finding.</p>
+   */
+  cvssSource?: string;
+
+  /**
+   * <p>The CVSS version that generated the score.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The CVSS score.</p>
+   */
+  score?: number;
+
+  /**
+   * <p>A vector that measures the severity of the vulnerability.</p>
+   */
+  scoringVector?: string;
+
+  /**
+   * <p>An object that contains details about an adjustment that Amazon Inspector made to the CVSS score
+   * 			for the finding.</p>
+   */
+  adjustments?: CvssScoreAdjustment[];
+}
+
+/**
+ * @public
  */
 export interface DeleteComponentRequest {
   /**
@@ -2265,15 +2482,15 @@ export interface DeleteComponentResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the component build version that was deleted.</p>
+   * <p>The ARN of the component build version that this request deleted.</p>
    */
   componentBuildVersionArn?: string;
 }
 
 /**
  * @public
- * <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- * 			action. See the error message for more details.</p>
+ * <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
  */
 export class ResourceDependencyException extends __BaseException {
   readonly name: "ResourceDependencyException" = "ResourceDependencyException";
@@ -2336,7 +2553,8 @@ export interface DeleteDistributionConfigurationResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration that was deleted.</p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that was
+   * 			deleted.</p>
    */
   distributionConfigurationArn?: string;
 }
@@ -2361,7 +2579,7 @@ export interface DeleteImageResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Image Builder image resource that was deleted.</p>
+   * <p>The ARN of the Image Builder image resource that this request deleted.</p>
    */
   imageBuildVersionArn?: string;
 }
@@ -2436,7 +2654,8 @@ export interface DeleteInfrastructureConfigurationResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was deleted.</p>
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was
+   * 			deleted.</p>
    */
   infrastructureConfigurationArn?: string;
 }
@@ -2462,8 +2681,8 @@ export interface DistributionConfiguration {
   description?: string;
 
   /**
-   * <p>The distribution objects that apply Region-specific
-   * 			settings for the deployment of the image to targeted Regions.</p>
+   * <p>The distribution objects that apply Region-specific settings for the deployment of the
+   * 			image to targeted Regions.</p>
    */
   distributions?: Distribution[];
 
@@ -2531,9 +2750,9 @@ export interface DistributionConfigurationSummary {
 
 /**
  * @public
- * <p>A filter name and value pair that is used to return a more specific list of results from a
- * 			list operation. Filters can be used to match a set of resources by specific criteria, such as
- * 			tags, attributes, or IDs.</p>
+ * <p>A filter name and value pair that is used to return a more specific list of results
+ * 			from a list operation. Filters can be used to match a set of resources by specific
+ * 			criteria, such as tags, attributes, or IDs.</p>
  */
 export interface Filter {
   /**
@@ -2552,8 +2771,8 @@ export interface Filter {
  */
 export interface GetComponentRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the component that you want to retrieve. Regex requires
-   * 			"/\d+$" suffix.</p>
+   * <p>The Amazon Resource Name (ARN) of the component that you want to get. Regex requires
+   * 			the suffix <code>/\d+$</code>.</p>
    */
   componentBuildVersionArn: string | undefined;
 }
@@ -2578,7 +2797,8 @@ export interface GetComponentResponse {
  */
 export interface GetComponentPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the component whose policy you want to retrieve.</p>
+   * <p>The Amazon Resource Name (ARN) of the component whose policy you want to
+   * 			retrieve.</p>
    */
   componentArn: string | undefined;
 }
@@ -2648,7 +2868,8 @@ export interface GetContainerRecipeResponse {
  */
 export interface GetContainerRecipePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the container recipe for the policy being requested.</p>
+   * <p>The Amazon Resource Name (ARN) of the container recipe for the policy being
+   * 			requested.</p>
    */
   containerRecipeArn: string | undefined;
 }
@@ -2699,7 +2920,7 @@ export interface GetDistributionConfigurationResponse {
  */
 export interface GetImageRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image that you want to retrieve.</p>
+   * <p>The Amazon Resource Name (ARN) of the image that you want to get.</p>
    */
   imageBuildVersionArn: string | undefined;
 }
@@ -2729,8 +2950,8 @@ export interface ImageRecipe {
   arn?: string;
 
   /**
-   * <p>Specifies which type of image is created by the recipe - an AMI or a
-   * 			container image.</p>
+   * <p>Specifies which type of image is created by the recipe - an AMI or a container
+   * 			image.</p>
    */
   type?: ImageType | string;
 
@@ -2791,10 +3012,10 @@ export interface ImageRecipe {
   workingDirectory?: string;
 
   /**
-   * <p>Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to
-   * 			build and test your image configuration. Instance configuration adds a layer
-   * 			of control over those instances. You can define settings and add scripts to
-   * 			run when an instance is launched from your AMI.</p>
+   * <p>Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test
+   * 			your image configuration. Instance configuration adds a layer of control over those
+   * 			instances. You can define settings and add scripts to run when an instance is launched
+   * 			from your AMI.</p>
    */
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration;
 }
@@ -2872,7 +3093,8 @@ export interface InfrastructureConfiguration {
   terminateInstanceOnFailure?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p>
+   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
+   * 			notifications.</p>
    *          <note>
    *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
    * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
@@ -2918,16 +3140,53 @@ export interface OutputResources {
   amis?: Ami[];
 
   /**
-   * <p>Container images that the pipeline has generated and stored in the output repository.</p>
+   * <p>Container images that the pipeline has generated and stored in the output
+   * 			repository.</p>
    */
   containers?: Container[];
 }
 
 /**
  * @public
- * <p>An Image Builder image. You must specify exactly one recipe for the image – either
- * 			a container recipe (<code>containerRecipe</code>), which creates a container
- * 			image, or an image recipe (<code>imageRecipe</code>), which creates an AMI.</p>
+ * @enum
+ */
+export const ImageScanStatus = {
+  ABANDONED: "ABANDONED",
+  COLLECTING: "COLLECTING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SCANNING: "SCANNING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageScanStatus = (typeof ImageScanStatus)[keyof typeof ImageScanStatus];
+
+/**
+ * @public
+ * <p>Shows the vulnerability scan status for a specific image, and the reason for that
+ * 			status.</p>
+ */
+export interface ImageScanState {
+  /**
+   * <p>The current state of vulnerability scans for the image.</p>
+   */
+  status?: ImageScanStatus | string;
+
+  /**
+   * <p>The reason for the scan status for the image.</p>
+   */
+  reason?: string;
+}
+
+/**
+ * @public
+ * <p>An Image Builder image. You must specify exactly one recipe for the image – either a
+ * 			container recipe (<code>containerRecipe</code>), which creates a container image, or an
+ * 			image recipe (<code>imageRecipe</code>), which creates an AMI.</p>
  */
 export interface Image {
   /**
@@ -3006,14 +3265,14 @@ export interface Image {
   state?: ImageState;
 
   /**
-   * <p>For images that distribute an AMI, this is the image recipe that Image Builder used to
-   * 			create the image. For container images, this is empty.</p>
+   * <p>For images that distribute an AMI, this is the image recipe that Image Builder used to create
+   * 			the image. For container images, this is empty.</p>
    */
   imageRecipe?: ImageRecipe;
 
   /**
-   * <p>For container images, this is the container recipe that Image Builder used to create the
-   * 			image. For images that distribute an AMI, this is empty.</p>
+   * <p>For container images, this is the container recipe that Image Builder used to create the image.
+   * 			For images that distribute an AMI, this is empty.</p>
    */
   containerRecipe?: ContainerRecipe;
 
@@ -3058,8 +3317,8 @@ export interface Image {
   tags?: Record<string, string>;
 
   /**
-   * <p>Indicates the type of build that created this image. The build can be initiated
-   * 			in the following ways:</p>
+   * <p>Indicates the type of build that created this image. The build can be initiated in the
+   * 			following ways:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3084,6 +3343,16 @@ export interface Image {
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
   imageSource?: ImageSource | string;
+
+  /**
+   * <p>Contains information about the current state of scans for this image.</p>
+   */
+  scanState?: ImageScanState;
+
+  /**
+   * <p>Contains settings for vulnerability scans.</p>
+   */
+  imageScanningConfiguration?: ImageScanningConfiguration;
 }
 
 /**
@@ -3137,7 +3406,7 @@ export interface ImagePipeline {
   platform?: Platform | string;
 
   /**
-   * <p> Collects additional information about the image being created, including the operating
+   * <p>Collects additional information about the image being created, including the operating
    * 			system (OS) version and package list. This information is used to enhance the overall
    * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
@@ -3150,13 +3419,14 @@ export interface ImagePipeline {
   imageRecipeArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the container recipe that is used for this
+   * 			pipeline.</p>
    */
   containerRecipeArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration associated with this
-   * 			image pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration associated with
+   * 			this image pipeline.</p>
    */
   infrastructureConfigurationArn?: string;
 
@@ -3205,6 +3475,11 @@ export interface ImagePipeline {
    * <p>The tags of this image pipeline.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Contains settings for vulnerability scans.</p>
+   */
+  imageScanningConfiguration?: ImageScanningConfiguration;
 }
 
 /**
@@ -3277,7 +3552,8 @@ export interface GetImageRecipeResponse {
  */
 export interface GetImageRecipePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe whose policy you want to retrieve.</p>
+   * <p>The Amazon Resource Name (ARN) of the image recipe whose policy you want to
+   * 			retrieve.</p>
    */
   imageRecipeArn: string | undefined;
 }
@@ -3299,7 +3575,7 @@ export interface GetImageRecipePolicyResponse {
 
 /**
  * @public
- * <p> GetInfrastructureConfiguration request object.</p>
+ * <p>GetInfrastructureConfiguration request object.</p>
  */
 export interface GetInfrastructureConfigurationRequest {
   /**
@@ -3328,14 +3604,297 @@ export interface GetInfrastructureConfigurationResponse {
 /**
  * @public
  */
+export interface GetWorkflowExecutionRequest {
+  /**
+   * <p>Use the unique identifier for a runtime instance of the workflow to get
+   * 			runtime details.</p>
+   */
+  workflowExecutionId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowExecutionStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  ROLLBACK_COMPLETED: "ROLLBACK_COMPLETED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  RUNNING: "RUNNING",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowExecutionStatus = (typeof WorkflowExecutionStatus)[keyof typeof WorkflowExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowType = {
+  BUILD: "BUILD",
+  DISTRIBUTION: "DISTRIBUTION",
+  TEST: "TEST",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
+
+/**
+ * @public
+ */
+export interface GetWorkflowExecutionResponse {
+  /**
+   * <p>The request ID that uniquely identifies this request.</p>
+   */
+  requestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource
+   * 			that defines the specified runtime instance of the workflow.</p>
+   */
+  workflowBuildVersionArn?: string;
+
+  /**
+   * <p>The unique identifier that Image Builder assigned to keep track of runtime details
+   * 			when it ran the workflow.</p>
+   */
+  workflowExecutionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image resource build version that the specified
+   * 			runtime instance of the workflow created.</p>
+   */
+  imageBuildVersionArn?: string;
+
+  /**
+   * <p>The type of workflow that Image Builder ran for the specified runtime instance of the workflow.</p>
+   */
+  type?: WorkflowType | string;
+
+  /**
+   * <p>The current runtime status for the specified runtime instance of the workflow.</p>
+   */
+  status?: WorkflowExecutionStatus | string;
+
+  /**
+   * <p>The output message from the specified runtime instance of the workflow, if applicable.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The total number of steps in the specified runtime instance of the workflow that ran.
+   * 			This number should equal the sum of the step counts for steps that succeeded, were skipped,
+   * 			and failed.</p>
+   */
+  totalStepCount?: number;
+
+  /**
+   * <p>A runtime count for the number of steps that ran successfully in the specified runtime
+   * 			instance of the workflow.</p>
+   */
+  totalStepsSucceeded?: number;
+
+  /**
+   * <p>A runtime count for the number of steps that failed in the specified runtime instance
+   * 			of the workflow.</p>
+   */
+  totalStepsFailed?: number;
+
+  /**
+   * <p>A runtime count for the number of steps that were skipped in the specified runtime
+   * 			instance of the workflow.</p>
+   */
+  totalStepsSkipped?: number;
+
+  /**
+   * <p>The timestamp when the specified runtime instance of the workflow started.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>The timestamp when the specified runtime instance of the workflow finished.</p>
+   */
+  endTime?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowStepExecutionRequest {
+  /**
+   * <p>Use the unique identifier for a specific runtime instance of the workflow step to
+   * 			get runtime details for that step.</p>
+   */
+  stepExecutionId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowStepExecutionRollbackStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowStepExecutionRollbackStatus =
+  (typeof WorkflowStepExecutionRollbackStatus)[keyof typeof WorkflowStepExecutionRollbackStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowStepExecutionStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowStepExecutionStatus =
+  (typeof WorkflowStepExecutionStatus)[keyof typeof WorkflowStepExecutionStatus];
+
+/**
+ * @public
+ */
+export interface GetWorkflowStepExecutionResponse {
+  /**
+   * <p>The request ID that uniquely identifies this request.</p>
+   */
+  requestId?: string;
+
+  /**
+   * <p>The unique identifier for the runtime version of the workflow step that you specified
+   * 			in the request.</p>
+   */
+  stepExecutionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource
+   * 			that defines this workflow step.</p>
+   */
+  workflowBuildVersionArn?: string;
+
+  /**
+   * <p>The unique identifier that Image Builder assigned to keep track of runtime details
+   * 			when it ran the workflow.</p>
+   */
+  workflowExecutionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image resource build version that the specified
+   * 			runtime instance of the workflow step creates.</p>
+   */
+  imageBuildVersionArn?: string;
+
+  /**
+   * <p>The name of the specified runtime instance of the workflow step.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Describes the specified workflow step.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the action that the specified step performs.</p>
+   */
+  action?: string;
+
+  /**
+   * <p>The current status for the specified runtime version of the workflow step.</p>
+   */
+  status?: WorkflowStepExecutionStatus | string;
+
+  /**
+   * <p>Reports on the rollback status of the specified runtime version of the workflow step,
+   * 			if applicable.</p>
+   */
+  rollbackStatus?: WorkflowStepExecutionRollbackStatus | string;
+
+  /**
+   * <p>The output message from the specified runtime instance of the workflow step, if applicable.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Input parameters that Image Builder provided for the specified runtime instance of
+   * 			the workflow step.</p>
+   */
+  inputs?: string;
+
+  /**
+   * <p>The file names that the specified runtime version of the workflow step created as output.</p>
+   */
+  outputs?: string;
+
+  /**
+   * <p>The timestamp when the specified runtime version of the workflow step started.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>The timestamp when the specified runtime instance of the workflow step finished.</p>
+   */
+  endTime?: string;
+
+  /**
+   * <p>The action to perform if the workflow step fails.</p>
+   */
+  onFailure?: string;
+
+  /**
+   * <p>The maximum duration in seconds for this step to complete its action.</p>
+   */
+  timeoutSeconds?: number;
+}
+
+/**
+ * @public
+ * <p>Contains vulnerability counts for a specific image.</p>
+ */
+export interface ImageAggregation {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the image for this aggregation.</p>
+   */
+  imageBuildVersionArn?: string;
+
+  /**
+   * <p>Counts by severity level for medium severity and higher level findings, plus a total
+   * 			for all of the findings for the specified image.</p>
+   */
+  severityCounts?: SeverityCounts;
+}
+
+/**
+ * @public
+ */
 export interface ImportComponentRequest {
   /**
-   * <p> The name of the component.</p>
+   * <p>The name of the component.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The semantic version of the component. This version follows the semantic version syntax.</p>
+   * <p>The semantic version of the component. This version follows the semantic version
+   * 			syntax.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -3354,14 +3913,15 @@ export interface ImportComponentRequest {
   description?: string;
 
   /**
-   * <p>The change description of the component. Describes what change has been made in this
-   * 			version, or what makes this version different from other versions of this component.</p>
+   * <p>The change description of the component. This description indicates the change that
+   * 			has been made in this version, or what makes this version different from other versions
+   * 			of this component.</p>
    */
   changeDescription?: string;
 
   /**
-   * <p>The type of the component denotes whether the component is used to build the image, or only
-   * 			to test it.</p>
+   * <p>The type of the component denotes whether the component is used to build the image, or
+   * 			only to test it.</p>
    */
   type: ComponentType | string | undefined;
 
@@ -3376,16 +3936,16 @@ export interface ImportComponentRequest {
   platform: Platform | string | undefined;
 
   /**
-   * <p>The data of the component. Used to specify the data inline. Either <code>data</code> or
-   * 			<code>uri</code> can be used to specify the data within the component.</p>
+   * <p>The data of the component. Used to specify the data inline. Either <code>data</code>
+   * 			or <code>uri</code> can be used to specify the data within the component.</p>
    */
   data?: string;
 
   /**
-   * <p>The uri of the component. Must be an Amazon S3 URL and the requester must have permission to
-   * 			access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service
-   * 			quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the
-   * 			component.</p>
+   * <p>The uri of the component. Must be an Amazon S3 URL and the requester must have permission
+   * 			to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your
+   * 			service quota. Either <code>data</code> or <code>uri</code> can be used to specify the
+   * 			data within the component.</p>
    */
   uri?: string;
 
@@ -3435,8 +3995,8 @@ export interface ImportVmImageRequest {
   name: string | undefined;
 
   /**
-   * <p>The semantic version to attach to the base image that was created during the
-   * 			import process. This version follows the semantic version syntax.</p>
+   * <p>The semantic version to attach to the base image that was created during the import
+   * 			process. This version follows the semantic version syntax.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -3469,8 +4029,8 @@ export interface ImportVmImageRequest {
 
   /**
    * <p>The <code>importTaskId</code> (API) or <code>ImportTaskId</code> (CLI) from the
-   * 			Amazon EC2 VM import process. Image Builder retrieves information from the import process to pull
-   * 			in the AMI that is created from the VM source as the base image for your recipe.</p>
+   * 			Amazon EC2 VM import process. Image Builder retrieves information from the import process to pull in
+   * 			the AMI that is created from the VM source as the base image for your recipe.</p>
    */
   vmImportTaskId: string | undefined;
 
@@ -3497,9 +4057,8 @@ export interface ImportVmImageResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AMI that was created during the VM
-   * 			import process. This AMI is used as the base image for the recipe that
-   * 			imported the VM.</p>
+   * <p>The Amazon Resource Name (ARN) of the AMI that was created during the VM import
+   * 			process. This AMI is used as the base image for the recipe that imported the VM.</p>
    */
   imageArn?: string;
 
@@ -3534,7 +4093,8 @@ export class InvalidPaginationTokenException extends __BaseException {
  */
 export interface ListComponentBuildVersionsRequest {
   /**
-   * <p>The component version Amazon Resource Name (ARN) whose versions you want to list.</p>
+   * <p>The component version Amazon Resource Name (ARN) whose versions you want to
+   * 			list.</p>
    */
   componentVersionArn: string | undefined;
 
@@ -3544,8 +4104,8 @@ export interface ListComponentBuildVersionsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3565,9 +4125,9 @@ export interface ListComponentBuildVersionsResponse {
   componentSummaryList?: ComponentSummary[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3594,9 +4154,9 @@ export type Ownership = (typeof Ownership)[keyof typeof Ownership];
 export interface ListComponentsRequest {
   /**
    * <p>Filters results based on the type of owner for the component. By default, this request
-   * 			returns a list of components that your account owns. To see results for other types of owners,
-   * 			you can specify components that Amazon manages, third party components, or components that
-   * 			other accounts have shared with you.</p>
+   * 			returns a list of components that your account owns. To see results for other types of
+   * 			owners, you can specify components that Amazon manages, third party components, or
+   * 			components that other accounts have shared with you.</p>
    */
   owner?: Ownership | string;
 
@@ -3648,8 +4208,8 @@ export interface ListComponentsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3673,9 +4233,9 @@ export interface ListComponentsResponse {
   componentVersionList?: ComponentVersion[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3685,7 +4245,9 @@ export interface ListComponentsResponse {
  */
 export interface ListContainerRecipesRequest {
   /**
-   * <p>Returns container recipes belonging to the specified owner, that have been shared with you. You can omit this field to return container recipes belonging to your account.</p>
+   * <p>Returns container recipes belonging to the specified owner, that have been shared with
+   * 			you. You can omit this field to return container recipes belonging to your
+   * 			account.</p>
    */
   owner?: Ownership | string;
 
@@ -3717,12 +4279,13 @@ export interface ListContainerRecipesRequest {
   filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return in the list.</p>
+   * <p>The maximum items to return in a request.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>Provides a token for pagination, which determines where to begin the next set of results when the current set reaches the maximum for one request.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3742,7 +4305,9 @@ export interface ListContainerRecipesResponse {
   containerRecipeSummaryList?: ContainerRecipeSummary[];
 
   /**
-   * <p>The next token field is used for paginated responses. When this is not empty, there are additional container recipes that the service has not included in this response. Use this token with the next request to retrieve additional list items.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3762,8 +4327,8 @@ export interface ListDistributionConfigurationsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3783,9 +4348,9 @@ export interface ListDistributionConfigurationsResponse {
   distributionConfigurationSummaryList?: DistributionConfigurationSummary[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3795,7 +4360,8 @@ export interface ListDistributionConfigurationsResponse {
  */
 export interface ListImageBuildVersionsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve.</p>
+   * <p>The Amazon Resource Name (ARN) of the image whose build versions you want to
+   * 			retrieve.</p>
    */
   imageVersionArn: string | undefined;
 
@@ -3837,8 +4403,8 @@ export interface ListImageBuildVersionsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -3905,8 +4471,8 @@ export interface ImageSummary {
   tags?: Record<string, string>;
 
   /**
-   * <p>Indicates the type of build that created this image. The build can be initiated
-   * 			in the following ways:</p>
+   * <p>Indicates the type of build that created this image. The build can be initiated in the
+   * 			following ways:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3948,9 +4514,9 @@ export interface ListImageBuildVersionsResponse {
   imageSummaryList?: ImageSummary[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -3965,12 +4531,13 @@ export interface ListImagePackagesRequest {
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>The maxiumum number of results to return from the ListImagePackages request.</p>
+   * <p>The maximum items to return in a request.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -4006,7 +4573,9 @@ export interface ListImagePackagesResponse {
   imagePackageList?: ImagePackage[];
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously truncated response.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4016,7 +4585,8 @@ export interface ListImagePackagesResponse {
  */
 export interface ListImagePipelineImagesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view.</p>
+   * <p>The Amazon Resource Name (ARN) of the image pipeline whose images you want to
+   * 			view.</p>
    */
   imagePipelineArn: string | undefined;
 
@@ -4043,8 +4613,8 @@ export interface ListImagePipelineImagesRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -4064,9 +4634,9 @@ export interface ListImagePipelineImagesResponse {
   imageSummaryList?: ImageSummary[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4118,8 +4688,8 @@ export interface ListImagePipelinesRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -4139,9 +4709,9 @@ export interface ListImagePipelinesResponse {
   imagePipelineList?: ImagePipeline[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4151,10 +4721,10 @@ export interface ListImagePipelinesResponse {
  */
 export interface ListImageRecipesRequest {
   /**
-   * <p>The owner defines which image recipes you want to list. By default, this request will only
-   * 			show image recipes owned by your account. You can use this field to specify if you want to
-   * 			view image recipes owned by yourself, by Amazon, or those image recipes that have been shared
-   * 			with you by other customers.</p>
+   * <p>The owner defines which image recipes you want to list. By default, this request will
+   * 			only show image recipes owned by your account. You can use this field to specify if you
+   * 			want to view image recipes owned by yourself, by Amazon, or those image recipes that
+   * 			have been shared with you by other customers.</p>
    */
   owner?: Ownership | string;
 
@@ -4186,8 +4756,8 @@ export interface ListImageRecipesRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -4248,9 +4818,9 @@ export interface ListImageRecipesResponse {
   imageRecipeSummaryList?: ImageRecipeSummary[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4260,10 +4830,10 @@ export interface ListImageRecipesResponse {
  */
 export interface ListImagesRequest {
   /**
-   * <p>The owner defines which images you want to list. By default, this request will only show
-   * 			images owned by your account. You can use this field to specify if you want to view images
-   * 			owned by yourself, by Amazon, or those images that have been shared with you by other
-   * 			customers.</p>
+   * <p>The owner defines which images you want to list. By default, this request will only
+   * 			show images owned by your account. You can use this field to specify if you want to view
+   * 			images owned by yourself, by Amazon, or those images that have been shared with you by
+   * 			other customers.</p>
    */
   owner?: Ownership | string;
 
@@ -4310,8 +4880,8 @@ export interface ListImagesRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 
@@ -4358,7 +4928,8 @@ export interface ImageVersion {
   type?: ImageType | string;
 
   /**
-   * <p>Details for a specific version of an Image Builder image. This version follows the semantic version syntax.</p>
+   * <p>Details for a specific version of an Image Builder image. This version follows the semantic
+   * 			version syntax.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -4380,13 +4951,14 @@ export interface ImageVersion {
   version?: string;
 
   /**
-   * <p>The operating system platform of the image version, for example "Windows" or "Linux".</p>
+   * <p>The operating system platform of the image version, for example "Windows" or
+   * 			"Linux".</p>
    */
   platform?: Platform | string;
 
   /**
-   * <p>The operating system version of the Amazon EC2 build instance. For example, Amazon Linux 2, Ubuntu 18, or
-   * 			Microsoft Windows Server 2019.</p>
+   * <p>The operating system version of the Amazon EC2 build instance. For example, Amazon Linux 2,
+   * 			Ubuntu 18, or Microsoft Windows Server 2019.</p>
    */
   osVersion?: string;
 
@@ -4401,8 +4973,8 @@ export interface ImageVersion {
   dateCreated?: string;
 
   /**
-   * <p>Indicates the type of build that created this image. The build can be initiated
-   * 			in the following ways:</p>
+   * <p>Indicates the type of build that created this image. The build can be initiated in the
+   * 			following ways:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4453,9 +5025,462 @@ export interface ListImagesResponse {
   imageVersionList?: ImageVersion[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListImageScanFindingAggregationsRequest {
+  /**
+   * <p>A filter name and value pair that is used to return a more specific list of results
+   * 			from a list operation. Filters can be used to match a set of resources by specific
+   * 			criteria, such as tags, attributes, or IDs.</p>
+   */
+  filter?: Filter;
+
+  /**
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Contains vulnerability counts for a specific image pipeline.</p>
+ */
+export interface ImagePipelineAggregation {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the image pipeline for this
+   * 			aggregation.</p>
+   */
+  imagePipelineArn?: string;
+
+  /**
+   * <p>Counts by severity level for medium severity and higher level findings, plus a total
+   * 			for all of the findings for the specified image pipeline.</p>
+   */
+  severityCounts?: SeverityCounts;
+}
+
+/**
+ * @public
+ * <p>Includes counts of image and pipeline resource findings by vulnerability.</p>
+ */
+export interface VulnerabilityIdAggregation {
+  /**
+   * <p>The vulnerability Id for this set of counts.</p>
+   */
+  vulnerabilityId?: string;
+
+  /**
+   * <p>Counts by severity level for medium severity and higher level findings, plus a total
+   * 			for all of the findings for the specified vulnerability.</p>
+   */
+  severityCounts?: SeverityCounts;
+}
+
+/**
+ * @public
+ * <p>This returns exactly one type of aggregation, based on the filter that Image Builder applies in
+ * 			its API action.</p>
+ */
+export interface ImageScanFindingAggregation {
+  /**
+   * <p>Returns an object that contains severity counts based on an account ID.</p>
+   */
+  accountAggregation?: AccountAggregation;
+
+  /**
+   * <p>Returns an object that contains severity counts based on the Amazon Resource Name
+   * 			(ARN) for a specific image.</p>
+   */
+  imageAggregation?: ImageAggregation;
+
+  /**
+   * <p>Returns an object that contains severity counts based on an image pipeline ARN.</p>
+   */
+  imagePipelineAggregation?: ImagePipelineAggregation;
+
+  /**
+   * <p>Returns an object that contains severity counts based on vulnerability ID.</p>
+   */
+  vulnerabilityIdAggregation?: VulnerabilityIdAggregation;
+}
+
+/**
+ * @public
+ */
+export interface ListImageScanFindingAggregationsResponse {
+  /**
+   * <p>The request ID that uniquely identifies this request.</p>
+   */
+  requestId?: string;
+
+  /**
+   * <p>The aggregation type specifies what type of key is used to group the image scan
+   * 			findings. Image Builder returns results based on the request filter. If you didn't specify a
+   * 			filter in the request, the type defaults to <code>accountId</code>.</p>
+   *          <p class="title">
+   *             <b>Aggregation types</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>accountId</p>
+   *             </li>
+   *             <li>
+   *                <p>imageBuildVersionArn</p>
+   *             </li>
+   *             <li>
+   *                <p>imagePipelineArn</p>
+   *             </li>
+   *             <li>
+   *                <p>vulnerabilityId</p>
+   *             </li>
+   *          </ul>
+   *          <p>Each aggregation includes counts by severity level for medium severity and higher
+   * 			level findings, plus a total for all of the findings for each key value.</p>
+   */
+  aggregationType?: string;
+
+  /**
+   * <p>An array of image scan finding aggregations that match the filter criteria.</p>
+   */
+  responses?: ImageScanFindingAggregation[];
+
+  /**
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A name value pair that Image Builder applies to streamline results from the
+ * 			vulnerability scan findings list action.</p>
+ */
+export interface ImageScanFindingsFilter {
+  /**
+   * <p>The name of the image scan finding filter. Filter names are case-sensitive.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The filter values. Filter values are case-sensitive.</p>
+   */
+  values?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListImageScanFindingsRequest {
+  /**
+   * <p>An array of name value pairs that you can use to filter your results. You can use the
+   * 			following filters to streamline results:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>imageBuildVersionArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>imagePipelineArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vulnerabilityId</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>severity</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't request a filter, then all findings in your account are listed.</p>
+   */
+  filters?: ImageScanFindingsFilter[];
+
+  /**
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the factors that influenced the score that Amazon Inspector assigned for a
+ * 			finding.</p>
+ */
+export interface InspectorScoreDetails {
+  /**
+   * <p>An object that contains details about an adjustment that Amazon Inspector made to the CVSS score
+   * 			for the finding.</p>
+   */
+  adjustedCvss?: CvssScoreDetails;
+}
+
+/**
+ * @public
+ * <p>Information about a vulnerable package that Amazon Inspector identifies in a finding.</p>
+ */
+export interface VulnerablePackage {
+  /**
+   * <p>The name of the vulnerable package.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The version of the vulnerable package.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The source layer hash of the vulnerable package.</p>
+   */
+  sourceLayerHash?: string;
+
+  /**
+   * <p>The epoch of the vulnerable package.</p>
+   */
+  epoch?: number;
+
+  /**
+   * <p>The release of the vulnerable package.</p>
+   */
+  release?: string;
+
+  /**
+   * <p>The architecture of the vulnerable package.</p>
+   */
+  arch?: string;
+
+  /**
+   * <p>The package manager of the vulnerable package.</p>
+   */
+  packageManager?: string;
+
+  /**
+   * <p>The file path of the vulnerable package.</p>
+   */
+  filePath?: string;
+
+  /**
+   * <p>The version of the package that contains the vulnerability fix.</p>
+   */
+  fixedInVersion?: string;
+
+  /**
+   * <p>The code to run in your environment to update packages with a fix available.</p>
+   */
+  remediation?: string;
+}
+
+/**
+ * @public
+ * <p>Information about package vulnerability findings.</p>
+ */
+export interface PackageVulnerabilityDetails {
+  /**
+   * <p>A unique identifier for this vulnerability.</p>
+   */
+  vulnerabilityId: string | undefined;
+
+  /**
+   * <p>The packages that this vulnerability impacts.</p>
+   */
+  vulnerablePackages?: VulnerablePackage[];
+
+  /**
+   * <p>The source of the vulnerability information.</p>
+   */
+  source?: string;
+
+  /**
+   * <p>CVSS scores for one or more vulnerabilities that Amazon Inspector identified for a
+   * 			package.</p>
+   */
+  cvss?: CvssScore[];
+
+  /**
+   * <p>Vulnerabilities that are often related to the findings for the package.</p>
+   */
+  relatedVulnerabilities?: string[];
+
+  /**
+   * <p>A link to the source of the vulnerability information.</p>
+   */
+  sourceUrl?: string;
+
+  /**
+   * <p>The severity that the vendor assigned to this vulnerability type.</p>
+   */
+  vendorSeverity?: string;
+
+  /**
+   * <p>The date and time when this vulnerability was first added to the vendor's
+   * 			database.</p>
+   */
+  vendorCreatedAt?: Date;
+
+  /**
+   * <p>The date and time when the vendor last updated this vulnerability in their
+   * 			database.</p>
+   */
+  vendorUpdatedAt?: Date;
+
+  /**
+   * <p>Links to web pages that contain details about the vulnerabilities that Amazon Inspector
+   * 			identified for the package.</p>
+   */
+  referenceUrls?: string[];
+}
+
+/**
+ * @public
+ * <p>Details about the recommended course of action to remediate the finding.</p>
+ */
+export interface RemediationRecommendation {
+  /**
+   * <p>The recommended course of action to remediate the finding.</p>
+   */
+  text?: string;
+
+  /**
+   * <p>A link to more information about the recommended remediation for this
+   * 			vulnerability.</p>
+   */
+  url?: string;
+}
+
+/**
+ * @public
+ * <p>Information about how to remediate a finding.</p>
+ */
+export interface Remediation {
+  /**
+   * <p>An object that contains information about the recommended course of action to
+   * 			remediate the finding.</p>
+   */
+  recommendation?: RemediationRecommendation;
+}
+
+/**
+ * @public
+ * <p>Contains details about a vulnerability scan finding.</p>
+ */
+export interface ImageScanFinding {
+  /**
+   * <p>The Amazon Web Services account ID that's associated with the finding.</p>
+   */
+  awsAccountId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image build version that's associated with the
+   * 			finding.</p>
+   */
+  imageBuildVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image pipeline that's associated with the
+   * 			finding.</p>
+   */
+  imagePipelineArn?: string;
+
+  /**
+   * <p>The type of the finding. Image Builder looks for findings of the type
+   * 				<code>PACKAGE_VULNERABILITY</code> that apply to output images, and excludes other
+   * 			types.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>The description of the finding.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The title of the finding.</p>
+   */
+  title?: string;
+
+  /**
+   * <p>An object that contains the details about how to remediate the finding.</p>
+   */
+  remediation?: Remediation;
+
+  /**
+   * <p>The severity of the finding.</p>
+   */
+  severity?: string;
+
+  /**
+   * <p>The date and time when the finding was first observed.</p>
+   */
+  firstObservedAt?: Date;
+
+  /**
+   * <p>The timestamp when the finding was last updated.</p>
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The score that Amazon Inspector assigned for the finding.</p>
+   */
+  inspectorScore?: number;
+
+  /**
+   * <p>An object that contains details of the Amazon Inspector score.</p>
+   */
+  inspectorScoreDetails?: InspectorScoreDetails;
+
+  /**
+   * <p>An object that contains the details of a package vulnerability finding.</p>
+   */
+  packageVulnerabilityDetails?: PackageVulnerabilityDetails;
+
+  /**
+   * <p>Details about whether a fix is available for any of the packages that are identified
+   * 			in the finding through a version update.</p>
+   */
+  fixAvailable?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListImageScanFindingsResponse {
+  /**
+   * <p>The request ID that uniquely identifies this request.</p>
+   */
+  requestId?: string;
+
+  /**
+   * <p>The image scan findings for your account that meet your request filter
+   * 			criteria.</p>
+   */
+  findings?: ImageScanFinding[];
+
+  /**
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4475,8 +5500,8 @@ export interface ListInfrastructureConfigurationsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   * 			truncated response.</p>
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
    */
   nextToken?: string;
 }
@@ -4547,9 +5572,9 @@ export interface ListInfrastructureConfigurationsResponse {
   infrastructureConfigurationSummaryList?: InfrastructureConfigurationSummary[];
 
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   * 			elements that the service has not included in this request. Use this token with the next
-   * 			request to retrieve additional objects.</p>
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
 }
@@ -4597,6 +5622,254 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
+ */
+export interface ListWorkflowExecutionsRequest {
+  /**
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>List all workflow runtime instances for the specified image build version
+   * 			resource ARN.</p>
+   */
+  imageBuildVersionArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Metadata that includes details and status from this runtime instance of the workflow.</p>
+ */
+export interface WorkflowExecutionMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the workflow resource build version that ran.</p>
+   */
+  workflowBuildVersionArn?: string;
+
+  /**
+   * <p>Unique identifier that Image Builder assigns to keep track of runtime resources each time it runs a
+   * 			workflow.</p>
+   */
+  workflowExecutionId?: string;
+
+  /**
+   * <p>Indicates what type of workflow that Image Builder ran for this runtime instance of the workflow.</p>
+   */
+  type?: WorkflowType | string;
+
+  /**
+   * <p>The current runtime status for this workflow.</p>
+   */
+  status?: WorkflowExecutionStatus | string;
+
+  /**
+   * <p>The runtime output message from the workflow, if applicable.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The total number of steps in the workflow. This should equal the sum of the step
+   * 			counts for steps that succeeded, were skipped, and failed.</p>
+   */
+  totalStepCount?: number;
+
+  /**
+   * <p>A runtime count for the number of steps in the workflow that ran successfully.</p>
+   */
+  totalStepsSucceeded?: number;
+
+  /**
+   * <p>A runtime count for the number of steps in the workflow that failed.</p>
+   */
+  totalStepsFailed?: number;
+
+  /**
+   * <p>A runtime count for the number of steps in the workflow that were skipped.</p>
+   */
+  totalStepsSkipped?: number;
+
+  /**
+   * <p>The timestamp when the runtime instance of this workflow started.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>The timestamp when this runtime instance of the workflow finished.</p>
+   */
+  endTime?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowExecutionsResponse {
+  /**
+   * <p>The request ID that uniquely identifies this request.</p>
+   */
+  requestId?: string;
+
+  /**
+   * <p>Contains an array of runtime details that represents each time a workflow ran for
+   * 			the requested image build version.</p>
+   */
+  workflowExecutions?: WorkflowExecutionMetadata[];
+
+  /**
+   * <p>The resource ARN of the image build version for which you requested a list of
+   * 			workflow runtime details.</p>
+   */
+  imageBuildVersionArn?: string;
+
+  /**
+   * <p>The output message from the list action, if applicable.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowStepExecutionsRequest {
+  /**
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token to specify where to start paginating. This is the NextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The unique identifier that Image Builder assigned to keep track of runtime details
+   * 			when it ran the workflow.</p>
+   */
+  workflowExecutionId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Runtime details and status for the workflow step.</p>
+ */
+export interface WorkflowStepMetadata {
+  /**
+   * <p>A unique identifier for the workflow step, assigned at runtime.</p>
+   */
+  stepExecutionId?: string;
+
+  /**
+   * <p>The name of the workflow step.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Description of the workflow step.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The step action name.</p>
+   */
+  action?: string;
+
+  /**
+   * <p>Runtime status for the workflow step.</p>
+   */
+  status?: WorkflowStepExecutionStatus | string;
+
+  /**
+   * <p>Reports on the rollback status of the step, if applicable.</p>
+   */
+  rollbackStatus?: WorkflowStepExecutionRollbackStatus | string;
+
+  /**
+   * <p>Detailed output message that the workflow step provides at runtime.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Input parameters that Image Builder provides for the workflow step.</p>
+   */
+  inputs?: string;
+
+  /**
+   * <p>The file names that the workflow step created as output for this runtime instance of the workflow.</p>
+   */
+  outputs?: string;
+
+  /**
+   * <p>The timestamp when the workflow step started.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>The timestamp when the workflow step finished.</p>
+   */
+  endTime?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowStepExecutionsResponse {
+  /**
+   * <p>The request ID that uniquely identifies this request.</p>
+   */
+  requestId?: string;
+
+  /**
+   * <p>Contains an array of runtime details that represents each step in this runtime
+   * 			instance of the workflow.</p>
+   */
+  steps?: WorkflowStepMetadata[];
+
+  /**
+   * <p>The build version ARN for the Image Builder workflow resource that defines the steps for
+   * 			this runtime instance of the workflow.</p>
+   */
+  workflowBuildVersionArn?: string;
+
+  /**
+   * <p>The unique identifier that Image Builder assigned to keep track of runtime details
+   * 			when it ran the workflow.</p>
+   */
+  workflowExecutionId?: string;
+
+  /**
+   * <p>The image build version resource ARN that's associated with the specified runtime
+   * 			instance of the workflow.</p>
+   */
+  imageBuildVersionArn?: string;
+
+  /**
+   * <p>The output message from the list action, if applicable.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>The value that you provided for the specified parameter is invalid.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -4620,7 +5893,8 @@ export class InvalidParameterValueException extends __BaseException {
  */
 export interface PutComponentPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the component that this policy should be applied to.</p>
+   * <p>The Amazon Resource Name (ARN) of the component that this policy should be applied
+   * 			to.</p>
    */
   componentArn: string | undefined;
 
@@ -4640,7 +5914,8 @@ export interface PutComponentPolicyResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the component that this policy was applied to.</p>
+   * <p>The Amazon Resource Name (ARN) of the component that this policy was applied
+   * 			to.</p>
    */
   componentArn?: string;
 }
@@ -4650,7 +5925,8 @@ export interface PutComponentPolicyResponse {
  */
 export interface PutContainerRecipePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the container recipe that this policy should be applied to.</p>
+   * <p>The Amazon Resource Name (ARN) of the container recipe that this policy should be
+   * 			applied to.</p>
    */
   containerRecipeArn: string | undefined;
 
@@ -4670,7 +5946,8 @@ export interface PutContainerRecipePolicyResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the container recipe that this policy was applied to.</p>
+   * <p>The Amazon Resource Name (ARN) of the container recipe that this policy was applied
+   * 			to.</p>
    */
   containerRecipeArn?: string;
 }
@@ -4680,7 +5957,8 @@ export interface PutContainerRecipePolicyResponse {
  */
 export interface PutImagePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image that this policy should be applied to.</p>
+   * <p>The Amazon Resource Name (ARN) of the image that this policy should be applied
+   * 			to.</p>
    */
   imageArn: string | undefined;
 
@@ -4710,7 +5988,8 @@ export interface PutImagePolicyResponse {
  */
 export interface PutImageRecipePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe that this policy should be applied to.</p>
+   * <p>The Amazon Resource Name (ARN) of the image recipe that this policy should be applied
+   * 			to.</p>
    */
   imageRecipeArn: string | undefined;
 
@@ -4730,7 +6009,8 @@ export interface PutImageRecipePolicyResponse {
   requestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe that this policy was applied to.</p>
+   * <p>The Amazon Resource Name (ARN) of the image recipe that this policy was applied
+   * 			to.</p>
    */
   imageRecipeArn?: string;
 }
@@ -4740,7 +6020,8 @@ export interface PutImageRecipePolicyResponse {
  */
 export interface StartImagePipelineExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke.</p>
+   * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually
+   * 			invoke.</p>
    */
   imagePipelineArn: string | undefined;
 
@@ -4815,7 +6096,8 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDistributionConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to
+   * 			update.</p>
    */
   distributionConfigurationArn: string | undefined;
 
@@ -4850,8 +6132,8 @@ export interface UpdateDistributionConfigurationResponse {
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration that was updated by this
-   * 			request.</p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that was updated by
+   * 			this request.</p>
    */
   distributionConfigurationArn?: string;
 }
@@ -4871,8 +6153,8 @@ export interface UpdateImagePipelineRequest {
   description?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure images
-   * 			updated by this image pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure
+   * 			images updated by this image pipeline.</p>
    */
   imageRecipeArn?: string;
 
@@ -4882,14 +6164,14 @@ export interface UpdateImagePipelineRequest {
   containerRecipeArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to
-   * 			build images updated by this image pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that Image Builder uses to
+   * 			build images that this image pipeline has updated.</p>
    */
   infrastructureConfigurationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration that will be used to
-   * 			configure and distribute images updated by this image pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that Image Builder uses to
+   * 			configure and distribute images that this image pipeline has updated.</p>
    */
   distributionConfigurationArn?: string;
 
@@ -4899,7 +6181,7 @@ export interface UpdateImagePipelineRequest {
   imageTestsConfiguration?: ImageTestsConfiguration;
 
   /**
-   * <p> Collects additional information about the image being created, including the operating
+   * <p>Collects additional information about the image being created, including the operating
    * 			system (OS) version and package list. This information is used to enhance the overall
    * 			experience of using EC2 Image Builder. Enabled by default.</p>
    */
@@ -4919,6 +6201,11 @@ export interface UpdateImagePipelineRequest {
    * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>Contains settings for vulnerability scans.</p>
+   */
+  imageScanningConfiguration?: ImageScanningConfiguration;
 }
 
 /**
@@ -4936,7 +6223,8 @@ export interface UpdateImagePipelineResponse {
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image pipeline that was updated by this request.</p>
+   * <p>The Amazon Resource Name (ARN) of the image pipeline that was updated by this
+   * 			request.</p>
    */
   imagePipelineArn?: string;
 }
@@ -4958,18 +6246,20 @@ export interface UpdateInfrastructureConfigurationRequest {
 
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
-   * 			instance types to use for this build. The service will pick one of these instance types based
-   * 			on availability.</p>
+   * 			instance types to use for this build. The service will pick one of these instance types
+   * 			based on availability.</p>
    */
   instanceTypes?: string[];
 
   /**
-   * <p>The instance profile to associate with the instance used to customize your Amazon EC2 AMI.</p>
+   * <p>The instance profile to associate with the instance used to customize your Amazon EC2
+   * 			AMI.</p>
    */
   instanceProfileName: string | undefined;
 
   /**
-   * <p>The security group IDs to associate with the instance used to customize your Amazon EC2 AMI.</p>
+   * <p>The security group IDs to associate with the instance used to customize your Amazon EC2
+   * 			AMI.</p>
    */
   securityGroupIds?: string[];
 
@@ -4984,20 +6274,21 @@ export interface UpdateInfrastructureConfigurationRequest {
   logging?: Logging;
 
   /**
-   * <p>The key pair of the infrastructure configuration. You can use this to log on to and debug
-   * 			the instance used to create your image.</p>
+   * <p>The key pair of the infrastructure configuration. You can use this to log on to and
+   * 			debug the instance used to create your image.</p>
    */
   keyPair?: string;
 
   /**
    * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
-   * 			false if you want Image Builder to retain the instance used to configure your AMI if the build
-   * 			or test phase of your workflow fails.</p>
+   * 			false if you want Image Builder to retain the instance used to configure your AMI if the build or
+   * 			test phase of your workflow fails.</p>
    */
   terminateInstanceOnFailure?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p>
+   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
+   * 			notifications.</p>
    *          <note>
    *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
    * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
@@ -5017,25 +6308,23 @@ export interface UpdateInfrastructureConfigurationRequest {
   resourceTags?: Record<string, string>;
 
   /**
-   * <p>The instance metadata options that you can set for the HTTP requests that pipeline builds
-   * 			use to launch EC2 build and test instances. For more information about instance metadata
-   * 			options, see one of the following links:</p>
+   * <p>The instance metadata options that you can set for the HTTP requests that pipeline
+   * 			builds use to launch EC2 build and test instances. For more information about instance
+   * 			metadata options, see one of the following links:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
-   * 					the instance metadata options</a> in the <i>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+   * 						<i>
    *                      <i>Amazon EC2 User Guide</i>
-   *                   </i>
-   * 					for Linux instances.</p>
+   *                   </i> for Linux instances.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure
-   * 					the instance metadata options</a> in the <i>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+   * 						<i>
    *                      <i>Amazon EC2 Windows Guide</i>
-   *                   </i>
-   * 					for Windows instances.</p>
+   *                   </i> for Windows instances.</p>
    *             </li>
    *          </ul>
    */

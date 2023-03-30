@@ -37,7 +37,7 @@ export interface StartImagePipelineExecutionCommandOutput
 
 /**
  * @public
- * <p> Manually triggers a pipeline to create an image.</p>
+ * <p>Manually triggers a pipeline to create an image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,19 +62,19 @@ export interface StartImagePipelineExecutionCommandOutput
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>You have specified a client token for an operation using parameter values that differ from
- * 			a previous request that used the same client token.</p>
+ *  <p>You have specified a client token for an operation using parameter values that differ
+ * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource that you are trying to operate on is currently in use. Review the message
@@ -84,7 +84,8 @@ export interface StartImagePipelineExecutionCommandOutput
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>

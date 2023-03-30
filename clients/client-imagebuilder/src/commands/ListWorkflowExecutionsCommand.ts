@@ -14,67 +14,66 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { ImportVmImageRequest, ImportVmImageResponse } from "../models/models_0";
+import { ListWorkflowExecutionsRequest, ListWorkflowExecutionsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ImportVmImageCommand,
-  serializeAws_restJson1ImportVmImageCommand,
+  deserializeAws_restJson1ListWorkflowExecutionsCommand,
+  serializeAws_restJson1ListWorkflowExecutionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link ImportVmImageCommand}.
+ * The input for {@link ListWorkflowExecutionsCommand}.
  */
-export interface ImportVmImageCommandInput extends ImportVmImageRequest {}
+export interface ListWorkflowExecutionsCommandInput extends ListWorkflowExecutionsRequest {}
 /**
  * @public
  *
- * The output of {@link ImportVmImageCommand}.
+ * The output of {@link ListWorkflowExecutionsCommand}.
  */
-export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __MetadataBearer {}
+export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecutionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>When you export your virtual machine (VM) from its virtualization environment, that
- * 			process creates a set of one or more disk container files that act as snapshots of your
- * 			VM’s environment, settings, and data. The Amazon EC2 API <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
- * 			action uses those files to import your VM and create an AMI. To import using the CLI
- * 			command, see <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
- *          </p>
- *          <p>You can reference the task ID from the VM import to pull in the AMI that the import
- * 			created as the base image for your Image Builder recipe.</p>
+ * <p>Returns a list of workflow runtime instance metadata objects for a specific image build
+ * 			version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ImportVmImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ImportVmImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, ListWorkflowExecutionsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, ListWorkflowExecutionsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = { // ImportVmImageRequest
- *   name: "STRING_VALUE", // required
- *   semanticVersion: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   platform: "Windows" || "Linux", // required
- *   osVersion: "STRING_VALUE",
- *   vmImportTaskId: "STRING_VALUE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   clientToken: "STRING_VALUE", // required
+ * const input = { // ListWorkflowExecutionsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   imageBuildVersionArn: "STRING_VALUE", // required
  * };
- * const command = new ImportVmImageCommand(input);
+ * const command = new ListWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ImportVmImageCommandInput - {@link ImportVmImageCommandInput}
- * @returns {@link ImportVmImageCommandOutput}
- * @see {@link ImportVmImageCommandInput} for command's `input` shape.
- * @see {@link ImportVmImageCommandOutput} for command's `response` shape.
+ * @param ListWorkflowExecutionsCommandInput - {@link ListWorkflowExecutionsCommandInput}
+ * @returns {@link ListWorkflowExecutionsCommandOutput}
+ * @see {@link ListWorkflowExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action, such as using an action or
  * 			resource on behalf of a user that doesn't have permissions to use the action or
  * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>You have provided an invalid pagination token in your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>This exception is thrown when the service encounters an unrecoverable
@@ -85,9 +84,9 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  *
  *
  */
-export class ImportVmImageCommand extends $Command<
-  ImportVmImageCommandInput,
-  ImportVmImageCommandOutput,
+export class ListWorkflowExecutionsCommand extends $Command<
+  ListWorkflowExecutionsCommandInput,
+  ListWorkflowExecutionsCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
@@ -105,7 +104,7 @@ export class ImportVmImageCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ImportVmImageCommandInput) {
+  constructor(readonly input: ListWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -118,15 +117,17 @@ export class ImportVmImageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ImportVmImageCommandInput, ImportVmImageCommandOutput> {
+  ): Handler<ListWorkflowExecutionsCommandInput, ListWorkflowExecutionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ImportVmImageCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListWorkflowExecutionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ImagebuilderClient";
-    const commandName = "ImportVmImageCommand";
+    const commandName = "ListWorkflowExecutionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -145,15 +146,15 @@ export class ImportVmImageCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ImportVmImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportVmImageCommand(input, context);
+  private serialize(input: ListWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListWorkflowExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportVmImageCommandOutput> {
-    return deserializeAws_restJson1ImportVmImageCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowExecutionsCommandOutput> {
+    return deserializeAws_restJson1ListWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

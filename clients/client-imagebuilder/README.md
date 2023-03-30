@@ -10,9 +10,9 @@
 AWS SDK for JavaScript Imagebuilder Client for Node.js, Browser and React Native.
 
 <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the
-creation, management, and deployment of customized, secure, and up-to-date "golden" server
-images that are pre-installed and pre-configured with software and settings to meet specific
-IT standards.</p>
+creation, management, and deployment of customized, secure, and up-to-date
+"golden" server images that are pre-installed and pre-configured with software
+and settings to meet specific IT standards.</p>
 
 ## Installing
 
@@ -419,6 +419,22 @@ GetInfrastructureConfiguration
 </details>
 <details>
 <summary>
+GetWorkflowExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getworkflowexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getworkflowexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getworkflowexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetWorkflowStepExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/getworkflowstepexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getworkflowstepexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/getworkflowstepexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 ImportComponent
 </summary>
 
@@ -515,6 +531,22 @@ ListImages
 </details>
 <details>
 <summary>
+ListImageScanFindingAggregations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagescanfindingaggregationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescanfindingaggregationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescanfindingaggregationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListImageScanFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listimagescanfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescanfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listimagescanfindingscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListInfrastructureConfigurations
 </summary>
 
@@ -527,6 +559,22 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListWorkflowExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listworkflowexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listworkflowexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listworkflowexecutionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListWorkflowStepExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/classes/listworkflowstepexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listworkflowstepexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-imagebuilder/interfaces/listworkflowstepexecutionscommandoutput.html)
 
 </details>
 <details>

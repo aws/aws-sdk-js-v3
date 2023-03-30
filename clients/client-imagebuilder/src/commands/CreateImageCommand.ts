@@ -35,9 +35,10 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
 
 /**
  * @public
- * <p> Creates a new image. This request will create a new image along with all of the
+ * <p>Creates a new image. This request will create a new image along with all of the
  * 			configured output resources defined in the distribution configuration. You must specify
- * 			exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
+ * 			exactly one recipe for your image, using either a ContainerRecipeArn or an
+ * 			ImageRecipeArn.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,15 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE", // required
+ *   imageScanningConfiguration: { // ImageScanningConfiguration
+ *     imageScanningEnabled: true || false,
+ *     ecrConfiguration: { // EcrConfiguration
+ *       repositoryName: "STRING_VALUE",
+ *       containerTags: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);
@@ -73,29 +83,32 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>You have specified a client token for an operation using parameter values that differ from
- * 			a previous request that used the same client token.</p>
+ *  <p>You have specified a client token for an operation using parameter values that differ
+ * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource that you are trying to operate on is currently in use. Review the message
  * 			details and retry later.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and quotas</a>.</p>
+ *  <p>You have exceeded the number of permitted resources or operations for this service.
+ * 			For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and
+ * 				quotas</a>.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>

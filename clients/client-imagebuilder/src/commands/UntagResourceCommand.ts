@@ -35,7 +35,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * @public
- * <p> Removes a tag from a resource.</p>
+ * <p>Removes a tag from a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +66,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  *
  */

@@ -4,11 +4,15 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
   map as __map,
+  parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -84,6 +88,14 @@ import {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput,
 } from "../commands/GetInfrastructureConfigurationCommand";
+import {
+  GetWorkflowExecutionCommandInput,
+  GetWorkflowExecutionCommandOutput,
+} from "../commands/GetWorkflowExecutionCommand";
+import {
+  GetWorkflowStepExecutionCommandInput,
+  GetWorkflowStepExecutionCommandOutput,
+} from "../commands/GetWorkflowStepExecutionCommand";
 import { ImportComponentCommandInput, ImportComponentCommandOutput } from "../commands/ImportComponentCommand";
 import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "../commands/ImportVmImageCommand";
 import {
@@ -110,6 +122,14 @@ import {
 } from "../commands/ListImagePipelineImagesCommand";
 import { ListImagePipelinesCommandInput, ListImagePipelinesCommandOutput } from "../commands/ListImagePipelinesCommand";
 import { ListImageRecipesCommandInput, ListImageRecipesCommandOutput } from "../commands/ListImageRecipesCommand";
+import {
+  ListImageScanFindingAggregationsCommandInput,
+  ListImageScanFindingAggregationsCommandOutput,
+} from "../commands/ListImageScanFindingAggregationsCommand";
+import {
+  ListImageScanFindingsCommandInput,
+  ListImageScanFindingsCommandOutput,
+} from "../commands/ListImageScanFindingsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
 import {
   ListInfrastructureConfigurationsCommandInput,
@@ -119,6 +139,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListWorkflowExecutionsCommandInput,
+  ListWorkflowExecutionsCommandOutput,
+} from "../commands/ListWorkflowExecutionsCommand";
+import {
+  ListWorkflowStepExecutionsCommandInput,
+  ListWorkflowStepExecutionsCommandOutput,
+} from "../commands/ListWorkflowStepExecutionsCommand";
 import { PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput } from "../commands/PutComponentPolicyCommand";
 import {
   PutContainerRecipePolicyCommandInput,
@@ -149,6 +177,7 @@ import {
 } from "../commands/UpdateInfrastructureConfigurationCommand";
 import { ImagebuilderServiceException as __BaseException } from "../models/ImagebuilderServiceException";
 import {
+  AccountAggregation,
   AdditionalInstanceConfiguration,
   Ami,
   AmiDistributionConfiguration,
@@ -165,10 +194,14 @@ import {
   ContainerDistributionConfiguration,
   ContainerRecipe,
   ContainerRecipeSummary,
+  CvssScore,
+  CvssScoreAdjustment,
+  CvssScoreDetails,
   Distribution,
   DistributionConfiguration,
   DistributionConfigurationSummary,
   EbsInstanceBlockDeviceSpecification,
+  EcrConfiguration,
   FastLaunchConfiguration,
   FastLaunchLaunchTemplateSpecification,
   FastLaunchSnapshotConfiguration,
@@ -176,16 +209,24 @@ import {
   ForbiddenException,
   IdempotentParameterMismatchException,
   Image,
+  ImageAggregation,
   ImagePackage,
   ImagePipeline,
+  ImagePipelineAggregation,
   ImageRecipe,
   ImageRecipeSummary,
+  ImageScanFinding,
+  ImageScanFindingAggregation,
+  ImageScanFindingsFilter,
+  ImageScanningConfiguration,
+  ImageScanState,
   ImageState,
   ImageSummary,
   ImageTestsConfiguration,
   ImageVersion,
   InfrastructureConfiguration,
   InfrastructureConfigurationSummary,
+  InspectorScoreDetails,
   InstanceBlockDeviceMapping,
   InstanceConfiguration,
   InstanceMetadataOptions,
@@ -199,6 +240,9 @@ import {
   LaunchTemplateConfiguration,
   Logging,
   OutputResources,
+  PackageVulnerabilityDetails,
+  Remediation,
+  RemediationRecommendation,
   ResourceAlreadyExistsException,
   ResourceDependencyException,
   ResourceInUseException,
@@ -209,8 +253,13 @@ import {
   ServiceException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
+  SeverityCounts,
   SystemsManagerAgent,
   TargetContainerRepository,
+  VulnerabilityIdAggregation,
+  VulnerablePackage,
+  WorkflowExecutionMetadata,
+  WorkflowStepMetadata,
 } from "../models/models_0";
 
 export const serializeAws_restJson1CancelImageCreationCommand = async (
@@ -370,6 +419,12 @@ export const serializeAws_restJson1CreateImageCommand = async (
       enhancedImageMetadataEnabled: input.enhancedImageMetadataEnabled,
     }),
     ...(input.imageRecipeArn != null && { imageRecipeArn: input.imageRecipeArn }),
+    ...(input.imageScanningConfiguration != null && {
+      imageScanningConfiguration: serializeAws_restJson1ImageScanningConfiguration(
+        input.imageScanningConfiguration,
+        context
+      ),
+    }),
     ...(input.imageTestsConfiguration != null && {
       imageTestsConfiguration: serializeAws_restJson1ImageTestsConfiguration(input.imageTestsConfiguration, context),
     }),
@@ -410,6 +465,12 @@ export const serializeAws_restJson1CreateImagePipelineCommand = async (
       enhancedImageMetadataEnabled: input.enhancedImageMetadataEnabled,
     }),
     ...(input.imageRecipeArn != null && { imageRecipeArn: input.imageRecipeArn }),
+    ...(input.imageScanningConfiguration != null && {
+      imageScanningConfiguration: serializeAws_restJson1ImageScanningConfiguration(
+        input.imageScanningConfiguration,
+        context
+      ),
+    }),
     ...(input.imageTestsConfiguration != null && {
       imageTestsConfiguration: serializeAws_restJson1ImageTestsConfiguration(input.imageTestsConfiguration, context),
     }),
@@ -951,6 +1012,53 @@ export const serializeAws_restJson1GetInfrastructureConfigurationCommand = async
   });
 };
 
+export const serializeAws_restJson1GetWorkflowExecutionCommand = async (
+  input: GetWorkflowExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkflowExecution";
+  const query: any = map({
+    workflowExecutionId: [, __expectNonNull(input.workflowExecutionId!, `workflowExecutionId`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetWorkflowStepExecutionCommand = async (
+  input: GetWorkflowStepExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkflowStepExecution";
+  const query: any = map({
+    stepExecutionId: [, __expectNonNull(input.stepExecutionId!, `stepExecutionId`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ImportComponentCommand = async (
   input: ImportComponentCommandInput,
   context: __SerdeContext
@@ -1290,6 +1398,60 @@ export const serializeAws_restJson1ListImagesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListImageScanFindingAggregationsCommand = async (
+  input: ListImageScanFindingAggregationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImageScanFindingAggregations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filter != null && { filter: serializeAws_restJson1Filter(input.filter, context) }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListImageScanFindingsCommand = async (
+  input: ListImageScanFindingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImageScanFindings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters != null && {
+      filters: serializeAws_restJson1ImageScanFindingsFilterList(input.filters, context),
+    }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListInfrastructureConfigurationsCommand = async (
   input: ListInfrastructureConfigurationsCommandInput,
   context: __SerdeContext
@@ -1331,6 +1493,60 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWorkflowExecutionsCommand = async (
+  input: ListWorkflowExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListWorkflowExecutions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.imageBuildVersionArn != null && { imageBuildVersionArn: input.imageBuildVersionArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWorkflowStepExecutionsCommand = async (
+  input: ListWorkflowStepExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListWorkflowStepExecutions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.workflowExecutionId != null && { workflowExecutionId: input.workflowExecutionId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1570,6 +1786,12 @@ export const serializeAws_restJson1UpdateImagePipelineCommand = async (
     }),
     ...(input.imagePipelineArn != null && { imagePipelineArn: input.imagePipelineArn }),
     ...(input.imageRecipeArn != null && { imageRecipeArn: input.imageRecipeArn }),
+    ...(input.imageScanningConfiguration != null && {
+      imageScanningConfiguration: serializeAws_restJson1ImageScanningConfiguration(
+        input.imageScanningConfiguration,
+        context
+      ),
+    }),
     ...(input.imageTestsConfiguration != null && {
       imageTestsConfiguration: serializeAws_restJson1ImageTestsConfiguration(input.imageTestsConfiguration, context),
     }),
@@ -3321,6 +3543,202 @@ const deserializeAws_restJson1GetInfrastructureConfigurationCommandError = async
   }
 };
 
+export const deserializeAws_restJson1GetWorkflowExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetWorkflowExecutionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.endTime != null) {
+    contents.endTime = __expectString(data.endTime);
+  }
+  if (data.imageBuildVersionArn != null) {
+    contents.imageBuildVersionArn = __expectString(data.imageBuildVersionArn);
+  }
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.requestId != null) {
+    contents.requestId = __expectString(data.requestId);
+  }
+  if (data.startTime != null) {
+    contents.startTime = __expectString(data.startTime);
+  }
+  if (data.status != null) {
+    contents.status = __expectString(data.status);
+  }
+  if (data.totalStepCount != null) {
+    contents.totalStepCount = __expectInt32(data.totalStepCount);
+  }
+  if (data.totalStepsFailed != null) {
+    contents.totalStepsFailed = __expectInt32(data.totalStepsFailed);
+  }
+  if (data.totalStepsSkipped != null) {
+    contents.totalStepsSkipped = __expectInt32(data.totalStepsSkipped);
+  }
+  if (data.totalStepsSucceeded != null) {
+    contents.totalStepsSucceeded = __expectInt32(data.totalStepsSucceeded);
+  }
+  if (data.type != null) {
+    contents.type = __expectString(data.type);
+  }
+  if (data.workflowBuildVersionArn != null) {
+    contents.workflowBuildVersionArn = __expectString(data.workflowBuildVersionArn);
+  }
+  if (data.workflowExecutionId != null) {
+    contents.workflowExecutionId = __expectString(data.workflowExecutionId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetWorkflowExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetWorkflowStepExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowStepExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetWorkflowStepExecutionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.action != null) {
+    contents.action = __expectString(data.action);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.endTime != null) {
+    contents.endTime = __expectString(data.endTime);
+  }
+  if (data.imageBuildVersionArn != null) {
+    contents.imageBuildVersionArn = __expectString(data.imageBuildVersionArn);
+  }
+  if (data.inputs != null) {
+    contents.inputs = __expectString(data.inputs);
+  }
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.onFailure != null) {
+    contents.onFailure = __expectString(data.onFailure);
+  }
+  if (data.outputs != null) {
+    contents.outputs = __expectString(data.outputs);
+  }
+  if (data.requestId != null) {
+    contents.requestId = __expectString(data.requestId);
+  }
+  if (data.rollbackStatus != null) {
+    contents.rollbackStatus = __expectString(data.rollbackStatus);
+  }
+  if (data.startTime != null) {
+    contents.startTime = __expectString(data.startTime);
+  }
+  if (data.status != null) {
+    contents.status = __expectString(data.status);
+  }
+  if (data.stepExecutionId != null) {
+    contents.stepExecutionId = __expectString(data.stepExecutionId);
+  }
+  if (data.timeoutSeconds != null) {
+    contents.timeoutSeconds = __expectInt32(data.timeoutSeconds);
+  }
+  if (data.workflowBuildVersionArn != null) {
+    contents.workflowBuildVersionArn = __expectString(data.workflowBuildVersionArn);
+  }
+  if (data.workflowExecutionId != null) {
+    contents.workflowExecutionId = __expectString(data.workflowExecutionId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetWorkflowStepExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowStepExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ImportComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4113,6 +4531,139 @@ const deserializeAws_restJson1ListImagesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListImageScanFindingAggregationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImageScanFindingAggregationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListImageScanFindingAggregationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.aggregationType != null) {
+    contents.aggregationType = __expectString(data.aggregationType);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.requestId != null) {
+    contents.requestId = __expectString(data.requestId);
+  }
+  if (data.responses != null) {
+    contents.responses = deserializeAws_restJson1ImageScanFindingAggregationsList(data.responses, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListImageScanFindingAggregationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImageScanFindingAggregationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListImageScanFindingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImageScanFindingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListImageScanFindingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.findings != null) {
+    contents.findings = deserializeAws_restJson1ImageScanFindingsList(data.findings, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.requestId != null) {
+    contents.requestId = __expectString(data.requestId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListImageScanFindingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImageScanFindingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListInfrastructureConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4217,6 +4768,154 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "ServiceException":
     case "com.amazonaws.imagebuilder#ServiceException":
       throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListWorkflowExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWorkflowExecutionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.imageBuildVersionArn != null) {
+    contents.imageBuildVersionArn = __expectString(data.imageBuildVersionArn);
+  }
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.requestId != null) {
+    contents.requestId = __expectString(data.requestId);
+  }
+  if (data.workflowExecutions != null) {
+    contents.workflowExecutions = deserializeAws_restJson1WorkflowExecutionsList(data.workflowExecutions, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListWorkflowExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListWorkflowStepExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowStepExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWorkflowStepExecutionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.imageBuildVersionArn != null) {
+    contents.imageBuildVersionArn = __expectString(data.imageBuildVersionArn);
+  }
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.requestId != null) {
+    contents.requestId = __expectString(data.requestId);
+  }
+  if (data.steps != null) {
+    contents.steps = deserializeAws_restJson1WorkflowStepExecutionsList(data.steps, context);
+  }
+  if (data.workflowBuildVersionArn != null) {
+    contents.workflowBuildVersionArn = __expectString(data.workflowBuildVersionArn);
+  }
+  if (data.workflowExecutionId != null) {
+    contents.workflowExecutionId = __expectString(data.workflowExecutionId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListWorkflowStepExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowStepExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5286,6 +5985,15 @@ const serializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
   };
 };
 
+const serializeAws_restJson1EcrConfiguration = (input: EcrConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.containerTags != null && {
+      containerTags: serializeAws_restJson1StringList(input.containerTags, context),
+    }),
+    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
+  };
+};
+
 const serializeAws_restJson1FastLaunchConfiguration = (
   input: FastLaunchConfiguration,
   context: __SerdeContext
@@ -5358,6 +6066,47 @@ const serializeAws_restJson1FilterValues = (input: string[], context: __SerdeCon
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1ImageScanFindingsFilter = (
+  input: ImageScanFindingsFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.values != null && { values: serializeAws_restJson1ImageScanFindingsFilterValues(input.values, context) }),
+  };
+};
+
+const serializeAws_restJson1ImageScanFindingsFilterList = (
+  input: ImageScanFindingsFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ImageScanFindingsFilter(entry, context);
+    });
+};
+
+const serializeAws_restJson1ImageScanFindingsFilterValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ImageScanningConfiguration = (
+  input: ImageScanningConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ecrConfiguration != null && {
+      ecrConfiguration: serializeAws_restJson1EcrConfiguration(input.ecrConfiguration, context),
+    }),
+    ...(input.imageScanningEnabled != null && { imageScanningEnabled: input.imageScanningEnabled }),
+  };
 };
 
 const serializeAws_restJson1ImageTestsConfiguration = (
@@ -5572,6 +6321,16 @@ const serializeAws_restJson1TargetContainerRepository = (
     ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
     ...(input.service != null && { service: input.service }),
   };
+};
+
+const deserializeAws_restJson1AccountAggregation = (output: any, context: __SerdeContext): AccountAggregation => {
+  return {
+    accountId: __expectString(output.accountId),
+    severityCounts:
+      output.severityCounts != null
+        ? deserializeAws_restJson1SeverityCounts(output.severityCounts, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContext): string[] => {
@@ -5927,6 +6686,63 @@ const deserializeAws_restJson1ContainerRecipeSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1CvssScore = (output: any, context: __SerdeContext): CvssScore => {
+  return {
+    baseScore: __limitedParseDouble(output.baseScore),
+    scoringVector: __expectString(output.scoringVector),
+    source: __expectString(output.source),
+    version: __expectString(output.version),
+  } as any;
+};
+
+const deserializeAws_restJson1CvssScoreAdjustment = (output: any, context: __SerdeContext): CvssScoreAdjustment => {
+  return {
+    metric: __expectString(output.metric),
+    reason: __expectString(output.reason),
+  } as any;
+};
+
+const deserializeAws_restJson1CvssScoreAdjustmentList = (
+  output: any,
+  context: __SerdeContext
+): CvssScoreAdjustment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CvssScoreAdjustment(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1CvssScoreDetails = (output: any, context: __SerdeContext): CvssScoreDetails => {
+  return {
+    adjustments:
+      output.adjustments != null
+        ? deserializeAws_restJson1CvssScoreAdjustmentList(output.adjustments, context)
+        : undefined,
+    cvssSource: __expectString(output.cvssSource),
+    score: __limitedParseDouble(output.score),
+    scoreSource: __expectString(output.scoreSource),
+    scoringVector: __expectString(output.scoringVector),
+    version: __expectString(output.version),
+  } as any;
+};
+
+const deserializeAws_restJson1CvssScoreList = (output: any, context: __SerdeContext): CvssScore[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CvssScore(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1Distribution = (output: any, context: __SerdeContext): Distribution => {
   return {
     amiDistributionConfiguration:
@@ -6034,6 +6850,14 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
   } as any;
 };
 
+const deserializeAws_restJson1EcrConfiguration = (output: any, context: __SerdeContext): EcrConfiguration => {
+  return {
+    containerTags:
+      output.containerTags != null ? deserializeAws_restJson1StringList(output.containerTags, context) : undefined,
+    repositoryName: __expectString(output.repositoryName),
+  } as any;
+};
+
 const deserializeAws_restJson1FastLaunchConfiguration = (
   output: any,
   context: __SerdeContext
@@ -6104,6 +6928,10 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
     enhancedImageMetadataEnabled: __expectBoolean(output.enhancedImageMetadataEnabled),
     imageRecipe:
       output.imageRecipe != null ? deserializeAws_restJson1ImageRecipe(output.imageRecipe, context) : undefined,
+    imageScanningConfiguration:
+      output.imageScanningConfiguration != null
+        ? deserializeAws_restJson1ImageScanningConfiguration(output.imageScanningConfiguration, context)
+        : undefined,
     imageSource: __expectString(output.imageSource),
     imageTestsConfiguration:
       output.imageTestsConfiguration != null
@@ -6120,12 +6948,23 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
         ? deserializeAws_restJson1OutputResources(output.outputResources, context)
         : undefined,
     platform: __expectString(output.platform),
+    scanState: output.scanState != null ? deserializeAws_restJson1ImageScanState(output.scanState, context) : undefined,
     sourcePipelineArn: __expectString(output.sourcePipelineArn),
     sourcePipelineName: __expectString(output.sourcePipelineName),
     state: output.state != null ? deserializeAws_restJson1ImageState(output.state, context) : undefined,
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     type: __expectString(output.type),
     version: __expectString(output.version),
+  } as any;
+};
+
+const deserializeAws_restJson1ImageAggregation = (output: any, context: __SerdeContext): ImageAggregation => {
+  return {
+    imageBuildVersionArn: __expectString(output.imageBuildVersionArn),
+    severityCounts:
+      output.severityCounts != null
+        ? deserializeAws_restJson1SeverityCounts(output.severityCounts, context)
+        : undefined,
   } as any;
 };
 
@@ -6160,6 +6999,10 @@ const deserializeAws_restJson1ImagePipeline = (output: any, context: __SerdeCont
     distributionConfigurationArn: __expectString(output.distributionConfigurationArn),
     enhancedImageMetadataEnabled: __expectBoolean(output.enhancedImageMetadataEnabled),
     imageRecipeArn: __expectString(output.imageRecipeArn),
+    imageScanningConfiguration:
+      output.imageScanningConfiguration != null
+        ? deserializeAws_restJson1ImageScanningConfiguration(output.imageScanningConfiguration, context)
+        : undefined,
     imageTestsConfiguration:
       output.imageTestsConfiguration != null
         ? deserializeAws_restJson1ImageTestsConfiguration(output.imageTestsConfiguration, context)
@@ -6170,6 +7013,19 @@ const deserializeAws_restJson1ImagePipeline = (output: any, context: __SerdeCont
     schedule: output.schedule != null ? deserializeAws_restJson1Schedule(output.schedule, context) : undefined,
     status: __expectString(output.status),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImagePipelineAggregation = (
+  output: any,
+  context: __SerdeContext
+): ImagePipelineAggregation => {
+  return {
+    imagePipelineArn: __expectString(output.imagePipelineArn),
+    severityCounts:
+      output.severityCounts != null
+        ? deserializeAws_restJson1SeverityCounts(output.severityCounts, context)
+        : undefined,
   } as any;
 };
 
@@ -6235,6 +7091,107 @@ const deserializeAws_restJson1ImageRecipeSummaryList = (output: any, context: __
       return deserializeAws_restJson1ImageRecipeSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ImageScanFinding = (output: any, context: __SerdeContext): ImageScanFinding => {
+  return {
+    awsAccountId: __expectString(output.awsAccountId),
+    description: __expectString(output.description),
+    firstObservedAt:
+      output.firstObservedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstObservedAt)))
+        : undefined,
+    fixAvailable: __expectString(output.fixAvailable),
+    imageBuildVersionArn: __expectString(output.imageBuildVersionArn),
+    imagePipelineArn: __expectString(output.imagePipelineArn),
+    inspectorScore: __limitedParseDouble(output.inspectorScore),
+    inspectorScoreDetails:
+      output.inspectorScoreDetails != null
+        ? deserializeAws_restJson1InspectorScoreDetails(output.inspectorScoreDetails, context)
+        : undefined,
+    packageVulnerabilityDetails:
+      output.packageVulnerabilityDetails != null
+        ? deserializeAws_restJson1PackageVulnerabilityDetails(output.packageVulnerabilityDetails, context)
+        : undefined,
+    remediation:
+      output.remediation != null ? deserializeAws_restJson1Remediation(output.remediation, context) : undefined,
+    severity: __expectString(output.severity),
+    title: __expectString(output.title),
+    type: __expectString(output.type),
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImageScanFindingAggregation = (
+  output: any,
+  context: __SerdeContext
+): ImageScanFindingAggregation => {
+  return {
+    accountAggregation:
+      output.accountAggregation != null
+        ? deserializeAws_restJson1AccountAggregation(output.accountAggregation, context)
+        : undefined,
+    imageAggregation:
+      output.imageAggregation != null
+        ? deserializeAws_restJson1ImageAggregation(output.imageAggregation, context)
+        : undefined,
+    imagePipelineAggregation:
+      output.imagePipelineAggregation != null
+        ? deserializeAws_restJson1ImagePipelineAggregation(output.imagePipelineAggregation, context)
+        : undefined,
+    vulnerabilityIdAggregation:
+      output.vulnerabilityIdAggregation != null
+        ? deserializeAws_restJson1VulnerabilityIdAggregation(output.vulnerabilityIdAggregation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImageScanFindingAggregationsList = (
+  output: any,
+  context: __SerdeContext
+): ImageScanFindingAggregation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ImageScanFindingAggregation(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ImageScanFindingsList = (output: any, context: __SerdeContext): ImageScanFinding[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ImageScanFinding(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ImageScanningConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ImageScanningConfiguration => {
+  return {
+    ecrConfiguration:
+      output.ecrConfiguration != null
+        ? deserializeAws_restJson1EcrConfiguration(output.ecrConfiguration, context)
+        : undefined,
+    imageScanningEnabled: __expectBoolean(output.imageScanningEnabled),
+  } as any;
+};
+
+const deserializeAws_restJson1ImageScanState = (output: any, context: __SerdeContext): ImageScanState => {
+  return {
+    reason: __expectString(output.reason),
+    status: __expectString(output.status),
+  } as any;
 };
 
 const deserializeAws_restJson1ImageState = (output: any, context: __SerdeContext): ImageState => {
@@ -6384,6 +7341,13 @@ const deserializeAws_restJson1InfrastructureConfigurationSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1InspectorScoreDetails = (output: any, context: __SerdeContext): InspectorScoreDetails => {
+  return {
+    adjustedCvss:
+      output.adjustedCvss != null ? deserializeAws_restJson1CvssScoreDetails(output.adjustedCvss, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1InstanceBlockDeviceMapping = (
   output: any,
   context: __SerdeContext
@@ -6506,6 +7470,18 @@ const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): 
   } as any;
 };
 
+const deserializeAws_restJson1NonEmptyStringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1OrganizationalUnitArnList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6550,6 +7526,39 @@ const deserializeAws_restJson1OutputResources = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1PackageVulnerabilityDetails = (
+  output: any,
+  context: __SerdeContext
+): PackageVulnerabilityDetails => {
+  return {
+    cvss: output.cvss != null ? deserializeAws_restJson1CvssScoreList(output.cvss, context) : undefined,
+    referenceUrls:
+      output.referenceUrls != null
+        ? deserializeAws_restJson1NonEmptyStringList(output.referenceUrls, context)
+        : undefined,
+    relatedVulnerabilities:
+      output.relatedVulnerabilities != null
+        ? deserializeAws_restJson1VulnerabilityIdList(output.relatedVulnerabilities, context)
+        : undefined,
+    source: __expectString(output.source),
+    sourceUrl: __expectString(output.sourceUrl),
+    vendorCreatedAt:
+      output.vendorCreatedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vendorCreatedAt)))
+        : undefined,
+    vendorSeverity: __expectString(output.vendorSeverity),
+    vendorUpdatedAt:
+      output.vendorUpdatedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vendorUpdatedAt)))
+        : undefined,
+    vulnerabilityId: __expectString(output.vulnerabilityId),
+    vulnerablePackages:
+      output.vulnerablePackages != null
+        ? deserializeAws_restJson1VulnerablePackageList(output.vulnerablePackages, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1RegionList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6560,6 +7569,25 @@ const deserializeAws_restJson1RegionList = (output: any, context: __SerdeContext
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1Remediation = (output: any, context: __SerdeContext): Remediation => {
+  return {
+    recommendation:
+      output.recommendation != null
+        ? deserializeAws_restJson1RemediationRecommendation(output.recommendation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RemediationRecommendation = (
+  output: any,
+  context: __SerdeContext
+): RemediationRecommendation => {
+  return {
+    text: __expectString(output.text),
+    url: __expectString(output.url),
+  } as any;
 };
 
 const deserializeAws_restJson1ResourceTagMap = (output: any, context: __SerdeContext): Record<string, string> => {
@@ -6608,6 +7636,15 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_restJson1SeverityCounts = (output: any, context: __SerdeContext): SeverityCounts => {
+  return {
+    all: __expectLong(output.all),
+    critical: __expectLong(output.critical),
+    high: __expectLong(output.high),
+    medium: __expectLong(output.medium),
+  } as any;
+};
+
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6643,6 +7680,123 @@ const deserializeAws_restJson1TargetContainerRepository = (
   return {
     repositoryName: __expectString(output.repositoryName),
     service: __expectString(output.service),
+  } as any;
+};
+
+const deserializeAws_restJson1VulnerabilityIdAggregation = (
+  output: any,
+  context: __SerdeContext
+): VulnerabilityIdAggregation => {
+  return {
+    severityCounts:
+      output.severityCounts != null
+        ? deserializeAws_restJson1SeverityCounts(output.severityCounts, context)
+        : undefined,
+    vulnerabilityId: __expectString(output.vulnerabilityId),
+  } as any;
+};
+
+const deserializeAws_restJson1VulnerabilityIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1VulnerablePackage = (output: any, context: __SerdeContext): VulnerablePackage => {
+  return {
+    arch: __expectString(output.arch),
+    epoch: __expectInt32(output.epoch),
+    filePath: __expectString(output.filePath),
+    fixedInVersion: __expectString(output.fixedInVersion),
+    name: __expectString(output.name),
+    packageManager: __expectString(output.packageManager),
+    release: __expectString(output.release),
+    remediation: __expectString(output.remediation),
+    sourceLayerHash: __expectString(output.sourceLayerHash),
+    version: __expectString(output.version),
+  } as any;
+};
+
+const deserializeAws_restJson1VulnerablePackageList = (output: any, context: __SerdeContext): VulnerablePackage[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VulnerablePackage(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1WorkflowExecutionMetadata = (
+  output: any,
+  context: __SerdeContext
+): WorkflowExecutionMetadata => {
+  return {
+    endTime: __expectString(output.endTime),
+    message: __expectString(output.message),
+    startTime: __expectString(output.startTime),
+    status: __expectString(output.status),
+    totalStepCount: __expectInt32(output.totalStepCount),
+    totalStepsFailed: __expectInt32(output.totalStepsFailed),
+    totalStepsSkipped: __expectInt32(output.totalStepsSkipped),
+    totalStepsSucceeded: __expectInt32(output.totalStepsSucceeded),
+    type: __expectString(output.type),
+    workflowBuildVersionArn: __expectString(output.workflowBuildVersionArn),
+    workflowExecutionId: __expectString(output.workflowExecutionId),
+  } as any;
+};
+
+const deserializeAws_restJson1WorkflowExecutionsList = (
+  output: any,
+  context: __SerdeContext
+): WorkflowExecutionMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1WorkflowExecutionMetadata(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1WorkflowStepExecutionsList = (
+  output: any,
+  context: __SerdeContext
+): WorkflowStepMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1WorkflowStepMetadata(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1WorkflowStepMetadata = (output: any, context: __SerdeContext): WorkflowStepMetadata => {
+  return {
+    action: __expectString(output.action),
+    description: __expectString(output.description),
+    endTime: __expectString(output.endTime),
+    inputs: __expectString(output.inputs),
+    message: __expectString(output.message),
+    name: __expectString(output.name),
+    outputs: __expectString(output.outputs),
+    rollbackStatus: __expectString(output.rollbackStatus),
+    startTime: __expectString(output.startTime),
+    status: __expectString(output.status),
+    stepExecutionId: __expectString(output.stepExecutionId),
   } as any;
 };
 

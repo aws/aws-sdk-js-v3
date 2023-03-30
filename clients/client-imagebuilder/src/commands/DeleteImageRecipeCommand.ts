@@ -35,7 +35,7 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
 
 /**
  * @public
- * <p> Deletes an image recipe.</p>
+ * <p>Deletes an image recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,22 +59,23 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- * 			action. See the error message for more details.</p>
+ *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>

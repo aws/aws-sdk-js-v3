@@ -35,7 +35,7 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
 
 /**
  * @public
- * <p> Gets a component policy.</p>
+ * <p>Gets a component policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,13 +62,14 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>

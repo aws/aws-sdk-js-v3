@@ -35,19 +35,20 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
 
 /**
  * @public
- * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images
- * 			that are created during the image build process. You must clean those up separately,
- * 			using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p>
+ * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container
+ * 			images that are created during the image build process. You must clean those up
+ * 			separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI
+ * 			commands.</p>
  *          <ul>
  *             <li>
- *                <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister
- * 						your Linux AMI</a> in the <i>
+ *                <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister your
+ * 						Linux AMI</a> in the <i>
  *                      <i>Amazon EC2 User Guide</i>
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister
- * 						your Windows AMI</a> in the <i>
+ *                <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister your
+ * 						Windows AMI</a> in the <i>
  *                      <i>Amazon EC2 Windows Guide</i>
  *                   </i>.</p>
  *             </li>
@@ -79,22 +80,23 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- * 			action. See the error message for more details.</p>
+ *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
