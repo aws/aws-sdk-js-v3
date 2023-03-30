@@ -144,6 +144,11 @@ export interface Channel {
    *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   */
+  insecureIngest?: boolean;
 }
 
 /**
@@ -296,6 +301,11 @@ export interface CreateChannelRequest {
    *       there.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   */
+  insecureIngest?: boolean;
 }
 
 /**
@@ -1231,6 +1241,11 @@ export interface ChannelSummary {
    *       service-specific constraints beyond what is documented there.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   */
+  insecureIngest?: boolean;
 }
 
 /**
@@ -1794,6 +1809,11 @@ export interface UpdateChannelRequest {
    *       value other than an empty string indicates that recording is enabled</p>
    */
   recordingConfigurationArn?: string;
+
+  /**
+   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   */
+  insecureIngest?: boolean;
 }
 
 /**

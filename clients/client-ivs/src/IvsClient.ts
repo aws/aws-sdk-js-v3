@@ -386,12 +386,14 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *         Amazon IVS</a>):</p>
  *          <ul>
  *             <li>
- *                <p>Channel — Stores configuration data related to your live stream. You first create a
+ *                <p>
+ *                   <b>Channel</b> — Stores configuration data related to your live stream. You first create a
  *           channel and then use the channel’s stream key to start your live stream. See the Channel
  *           endpoints for more information. </p>
  *             </li>
  *             <li>
- *                <p>Stream key — An identifier assigned by Amazon IVS when you create a channel, which is
+ *                <p>
+ *                   <b>Stream key</b> — An identifier assigned by Amazon IVS when you create a channel, which is
  *           then used to authorize streaming. See the StreamKey endpoints for more information.
  *               <i>
  *                      <b>Treat the stream key like a secret, since it allows
@@ -400,13 +402,15 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *                </p>
  *             </li>
  *             <li>
- *                <p>Playback key pair — Video playback may be restricted using playback-authorization
+ *                <p>
+ *                   <b>Playback key pair</b> — Video playback may be restricted using playback-authorization
  *           tokens, which use public-key encryption. A playback key pair is the public-private pair of
  *           keys used to sign and validate the playback-authorization token. See the PlaybackKeyPair
  *           endpoints for more information.</p>
  *             </li>
  *             <li>
- *                <p>Recording configuration — Stores configuration related to recording a live stream and
+ *                <p>
+ *                   <b>Recording configuration</b> — Stores configuration related to recording a live stream and
  *           where to store the recorded content. Multiple channels can reference the same recording
  *           configuration. See the Recording Configuration endpoints for more information.</p>
  *             </li>

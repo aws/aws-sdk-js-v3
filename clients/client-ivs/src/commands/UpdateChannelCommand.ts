@@ -50,6 +50,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   type: "BASIC" || "STANDARD",
  *   authorized: true || false,
  *   recordingConfigurationArn: "STRING_VALUE",
+ *   insecureIngest: true || false,
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);

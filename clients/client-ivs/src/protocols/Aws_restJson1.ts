@@ -167,6 +167,7 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.authorized != null && { authorized: input.authorized }),
+    ...(input.insecureIngest != null && { insecureIngest: input.insecureIngest }),
     ...(input.latencyMode != null && { latencyMode: input.latencyMode }),
     ...(input.name != null && { name: input.name }),
     ...(input.recordingConfigurationArn != null && { recordingConfigurationArn: input.recordingConfigurationArn }),
@@ -805,6 +806,7 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   body = JSON.stringify({
     ...(input.arn != null && { arn: input.arn }),
     ...(input.authorized != null && { authorized: input.authorized }),
+    ...(input.insecureIngest != null && { insecureIngest: input.insecureIngest }),
     ...(input.latencyMode != null && { latencyMode: input.latencyMode }),
     ...(input.name != null && { name: input.name }),
     ...(input.recordingConfigurationArn != null && { recordingConfigurationArn: input.recordingConfigurationArn }),
@@ -2440,6 +2442,7 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
     arn: __expectString(output.arn),
     authorized: __expectBoolean(output.authorized),
     ingestEndpoint: __expectString(output.ingestEndpoint),
+    insecureIngest: __expectBoolean(output.insecureIngest),
     latencyMode: __expectString(output.latencyMode),
     name: __expectString(output.name),
     playbackUrl: __expectString(output.playbackUrl),
@@ -2477,6 +2480,7 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     authorized: __expectBoolean(output.authorized),
+    insecureIngest: __expectBoolean(output.insecureIngest),
     latencyMode: __expectString(output.latencyMode),
     name: __expectString(output.name),
     recordingConfigurationArn: __expectString(output.recordingConfigurationArn),

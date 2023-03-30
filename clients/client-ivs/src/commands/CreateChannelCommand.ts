@@ -55,6 +55,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   insecureIngest: true || false,
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
