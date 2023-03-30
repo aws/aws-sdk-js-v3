@@ -3,6 +3,8 @@ import { Checksum, ChecksumConstructor, Decoder, HashConstructor, SourceData } f
 const MiB = 1048576;
 
 /**
+ * @internal
+ * 
  * A Hash that will calculate a Sha256 tree hash.
  */
 export class TreeHash implements Checksum {

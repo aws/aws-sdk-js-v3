@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export const calculateBodyLength = (body: any): number | undefined => {
   if (typeof body === "string") {
     let len = body.length;

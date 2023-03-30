@@ -4,13 +4,22 @@ import { Readable } from "stream";
 
 import { readabletoIterable } from "./utils";
 
+/**
+ * @internal
+ */
 export interface EventStreamMarshaller extends IEventStreamMarshaller {}
 
+/**
+ * @internal
+ */
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
 }
 
+/**
+ * @internal
+ */
 export class EventStreamMarshaller {
   private readonly universalMarshaller: UniversalEventStreamMarshaller;
   constructor({ utf8Encoder, utf8Decoder }: EventStreamMarshallerOptions) {

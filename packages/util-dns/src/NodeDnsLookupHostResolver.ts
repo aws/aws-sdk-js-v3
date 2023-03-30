@@ -54,6 +54,8 @@ export interface NodeDnsLookupHostResolverConfig {
 }
 
 /**
+ * @internal
+ * 
  * {@link HostResolver} implementation that uses the Node.js dns.lookup() API.
  */
 export class NodeDnsLookupHostResolver implements IHostResolver {

@@ -5,7 +5,13 @@ import { env, versions } from "process";
 
 import { isCrtAvailable } from "./is-crt-available";
 
+/**
+ * @internal
+ */
 export const UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
+/**
+ * @internal
+ */
 export const UA_APP_ID_INI_NAME = "sdk-ua-app-id";
 
 interface DefaultUserAgentOptions {
@@ -14,6 +20,8 @@ interface DefaultUserAgentOptions {
 }
 
 /**
+ * @internal
+ * 
  * Collect metrics from runtime to put into user agent.
  */
 export const defaultUserAgent = ({ serviceId, clientVersion }: DefaultUserAgentOptions): Provider<UserAgent> => {

@@ -40,6 +40,9 @@ interface MemoizeOverload {
   ): MemoizedProvider<T>;
 }
 
+/**
+ * @internal
+ */
 export const memoize: MemoizeOverload = <T>(
   provider: Provider<T>,
   isExpired?: (resolved: T) => boolean,

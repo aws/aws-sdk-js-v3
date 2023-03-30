@@ -1,9 +1,15 @@
+/**
+ * @internal
+ */
 export interface GetResolvedSigningRegionOptions {
   regionRegex: string;
   signingRegion?: string;
   useFipsEndpoint: boolean;
 }
 
+/**
+ * @internal
+ */
 export const getResolvedSigningRegion = (
   hostname: string,
   { signingRegion, regionRegex, useFipsEndpoint }: GetResolvedSigningRegionOptions

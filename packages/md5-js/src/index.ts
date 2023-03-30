@@ -3,6 +3,9 @@ import { fromUtf8 } from "@aws-sdk/util-utf8";
 
 import { BLOCK_SIZE, DIGEST_LENGTH, INIT } from "./constants";
 
+/**
+ * @internal
+ */
 export class Md5 implements Checksum {
   private state!: Uint32Array;
   private buffer!: DataView;

@@ -6,6 +6,9 @@ import { toHex } from "@aws-sdk/util-hex-encoding";
 import { toUint8Array } from "@aws-sdk/util-utf8";
 import { createReadStream } from "fs";
 
+/**
+ * @internal
+ */
 export async function bodyChecksumGenerator(
   request: HttpRequest,
   options: {

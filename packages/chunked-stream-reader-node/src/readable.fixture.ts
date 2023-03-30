@@ -1,10 +1,16 @@
 import { Readable, ReadableOptions } from "stream";
 
+/**
+ * @internal
+ */
 export interface ReadFromBuffersOptions extends ReadableOptions {
   buffers: Buffer[];
   errorAfter?: number;
 }
 
+/**
+ * @internal
+ */
 export class ReadFromBuffers extends Readable {
   private buffersToRead: Buffer[];
   private numBuffersRead = 0;

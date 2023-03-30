@@ -15,7 +15,7 @@ import { EndpointResolvedConfig } from "./resolveEndpointConfig";
 import { EndpointParameterInstructions } from "./types";
 
 /**
- * @private
+ * @internal
  */
 export const endpointMiddleware = <T extends EndpointParameters>({
   config,

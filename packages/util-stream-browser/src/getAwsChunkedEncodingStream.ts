@@ -1,5 +1,8 @@
 import { GetAwsChunkedEncodingStream, GetAwsChunkedEncodingStreamOptions } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export const getAwsChunkedEncodingStream: GetAwsChunkedEncodingStream<ReadableStream> = (
   readableStream: ReadableStream,
   options: GetAwsChunkedEncodingStreamOptions

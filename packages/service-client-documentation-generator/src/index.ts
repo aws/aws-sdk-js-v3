@@ -2,6 +2,9 @@ import { Application, ParameterType } from "typedoc";
 
 import { SdkClientTocPlugin } from "./sdk-client-toc-plugin";
 
+/**
+ * @internal
+ */
 export function load(app: Application) {
   app.options.addDeclaration({
     name: "defaultGroup",

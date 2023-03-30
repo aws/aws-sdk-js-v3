@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export type ProcessCredentials = {
   Version: number;
   AccessKeyId: string;

@@ -5,6 +5,9 @@ import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/t
 import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
 
+/**
+ * @internal
+ */
 export interface FromIniInit extends SourceProfileInit {
   /**
    * A function that returns a promise fulfilled with an MFA token code for
@@ -36,6 +39,8 @@ export interface FromIniInit extends SourceProfileInit {
 }
 
 /**
+ * @internal
+ * 
  * Creates a credential provider that will read from ini files and supports
  * role assumption and multi-factor authentication.
  */

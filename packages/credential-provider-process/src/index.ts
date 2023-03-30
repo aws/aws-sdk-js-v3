@@ -1,1 +1,4 @@
+/**
+ * @internal
+ */
 export * from "./fromProcess";

@@ -1,8 +1,14 @@
+/**
+ * @internal
+ */
 export interface GetResolvedHostnameOptions {
   regionHostname?: string;
   partitionHostname?: string;
 }
 
+/**
+ * @internal
+ */
 export const getResolvedHostname = (
   resolvedRegion: string,
   { regionHostname, partitionHostname }: GetResolvedHostnameOptions

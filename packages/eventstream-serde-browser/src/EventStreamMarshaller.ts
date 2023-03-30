@@ -3,14 +3,22 @@ import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Mess
 
 import { iterableToReadableStream, readableStreamtoIterable } from "./utils";
 
+/**
+ * @internal
+ */
 export interface EventStreamMarshaller extends IEventStreamMarshaller {}
 
+/**
+ * @internal
+ */
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
 }
 
 /**
+ * @internal
+ * 
  * Utility class used to serialize and deserialize event streams in
  * browsers and ReactNative.
  *

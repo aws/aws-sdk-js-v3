@@ -1,6 +1,9 @@
 import { Endpoint, EndpointV2 } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
+/**
+ * @internal
+ */
 export const toEndpointV1 = (endpoint: string | Endpoint | EndpointV2): Endpoint => {
   if (typeof endpoint === "object") {
     if ("url" in endpoint) {
