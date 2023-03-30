@@ -36,11 +36,11 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Disassociate a lens from a workload.</p>
- *         <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
- *         <note>
+ *          <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
+ *          <note>
  *             <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be
  *                 removed from a workload.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +67,7 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

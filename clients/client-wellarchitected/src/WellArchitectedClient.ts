@@ -68,6 +68,10 @@ import {
 import { DisassociateLensesCommandInput, DisassociateLensesCommandOutput } from "./commands/DisassociateLensesCommand";
 import { ExportLensCommandInput, ExportLensCommandOutput } from "./commands/ExportLensCommand";
 import { GetAnswerCommandInput, GetAnswerCommandOutput } from "./commands/GetAnswerCommand";
+import {
+  GetConsolidatedReportCommandInput,
+  GetConsolidatedReportCommandOutput,
+} from "./commands/GetConsolidatedReportCommand";
 import { GetLensCommandInput, GetLensCommandOutput } from "./commands/GetLensCommand";
 import { GetLensReviewCommandInput, GetLensReviewCommandOutput } from "./commands/GetLensReviewCommand";
 import {
@@ -146,6 +150,7 @@ export type ServiceInputTypes =
   | DisassociateLensesCommandInput
   | ExportLensCommandInput
   | GetAnswerCommandInput
+  | GetConsolidatedReportCommandInput
   | GetLensCommandInput
   | GetLensReviewCommandInput
   | GetLensReviewReportCommandInput
@@ -193,6 +198,7 @@ export type ServiceOutputTypes =
   | DisassociateLensesCommandOutput
   | ExportLensCommandOutput
   | GetAnswerCommandOutput
+  | GetConsolidatedReportCommandOutput
   | GetLensCommandOutput
   | GetLensReviewCommandOutput
   | GetLensReviewReportCommandOutput
@@ -388,7 +394,6 @@ export interface WellArchitectedClientResolvedConfig extends WellArchitectedClie
 /**
  * @public
  * <fullname>Well-Architected Tool</fullname>
- *
  *          <p>This is the <i>Well-Architected Tool API Reference</i>. The WA Tool API provides programmatic access to the
  *             <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> in the
  *            <a href="https://console.aws.amazon.com/wellarchitected">Amazon Web Services Management Console</a>. For information

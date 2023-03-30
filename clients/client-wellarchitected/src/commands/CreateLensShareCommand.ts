@@ -36,10 +36,16 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
 /**
  * @public
  * <p>Create a lens share.</p>
- *         <p>The owner of a lens can share it with other Amazon Web Services accounts, IAM users, an organization,
+ *          <p>The owner of a lens can share it with other Amazon Web Services accounts, users, an organization,
  *             and organizational units (OUs) in the same Amazon Web Services Region.
+ *             Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be shared.</p>
+ *          <p>
  *             Shared access to a lens is not removed until the lens invitation is deleted.</p>
- *         <note>
+ *          <p>If you share a lens with an organization or OU, all accounts in the organization or OU
+ *         are granted access to the lens.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html">Sharing a custom lens</a> in the
+ *             <i>Well-Architected Tool User Guide</i>.</p>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -75,7 +81,7 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

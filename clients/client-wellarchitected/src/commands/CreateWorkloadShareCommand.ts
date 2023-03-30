@@ -36,10 +36,12 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
 /**
  * @public
  * <p>Create a workload share.</p>
- *         <p>The owner of a workload can share it with other Amazon Web Services accounts and IAM users in the same
+ *          <p>The owner of a workload can share it with other Amazon Web Services accounts and users in the same
  *             Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
  *             deleted.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html">Sharing a Workload</a> in the
+ *          <p>If you share a workload with an organization or OU, all accounts in the organization or OU
+ *             are granted access to the workload.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html">Sharing a workload</a> in the
  *                 <i>Well-Architected Tool User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,7 +69,7 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

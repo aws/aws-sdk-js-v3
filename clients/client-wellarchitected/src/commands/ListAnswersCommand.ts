@@ -35,7 +35,7 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
 
 /**
  * @public
- * <p>List of answers.</p>
+ * <p>List of answers for a particular workload and lens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

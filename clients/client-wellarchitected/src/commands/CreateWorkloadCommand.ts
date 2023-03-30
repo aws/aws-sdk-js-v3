@@ -36,11 +36,18 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
 /**
  * @public
  * <p>Create a new workload.</p>
- *         <p>The owner of a workload can share the workload with other Amazon Web Services accounts, IAM users,
+ *          <p>The owner of a workload can share the workload with other Amazon Web Services accounts, users,
  *             an organization, and organizational units (OUs)
  *             in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
  *                 <i>Well-Architected Tool User Guide</i>.</p>
+ *          <important>
+ *             <p>Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified when
+ *                 creating a workload.</p>
+ *             <p>You also must specify <code>ReviewOwner</code>, even though the
+ *                 parameter is listed as not being required in the following section.
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,10 +103,13 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource was not found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The user has reached their resource quota.</p>

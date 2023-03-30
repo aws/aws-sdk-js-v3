@@ -36,12 +36,11 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 /**
  * @public
  * <p>Deletes specified tags from a resource.</p>
- *         <note>
+ *          <note>
  *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
  *          </note>
- *
- *         <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
- *         <p>
+ *          <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
+ *          <p>
  *             <code>DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2</code>
  *          </p>
  * @example

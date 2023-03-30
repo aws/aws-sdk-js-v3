@@ -36,7 +36,7 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
 /**
  * @public
  * <p>Update a workload or custom lens share invitation.</p>
- *         <note>
+ *          <note>
  *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
  *          </note>
  * @example
@@ -63,7 +63,7 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

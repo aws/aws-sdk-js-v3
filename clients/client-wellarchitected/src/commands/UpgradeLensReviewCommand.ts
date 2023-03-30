@@ -35,7 +35,7 @@ export interface UpgradeLensReviewCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Upgrade lens review.</p>
+ * <p>Upgrade lens review for a particular workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +62,7 @@ export interface UpgradeLensReviewCommandOutput extends __MetadataBearer {}
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

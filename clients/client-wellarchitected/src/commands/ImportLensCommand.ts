@@ -35,15 +35,16 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
 
 /**
  * @public
- * <p>Import a new lens.</p>
- *         <p>The lens cannot be applied to workloads or shared with other Amazon Web Services accounts
- *             until it's published with <a>CreateLensVersion</a>
- *          </p>
- *         <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
+ * <p>Import a new custom lens or update an existing custom lens.</p>
+ *          <p>To update an existing custom lens, specify its ARN as the  <code>LensAlias</code>. If
+ *             no ARN is specified, a new custom lens is created.</p>
+ *          <p>The new or updated lens will have a status of <code>DRAFT</code>. The lens cannot be
+ *             applied to workloads or shared with other Amazon Web Services accounts until it's
+ *             published with <a>CreateLensVersion</a>.</p>
+ *          <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
  *             in the <i>Well-Architected Tool User Guide</i>.</p>
- *         <p>A custom lens cannot exceed 500 KB in size.</p>
- *
- *         <note>
+ *          <p>A custom lens cannot exceed 500 KB in size.</p>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -82,7 +83,7 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

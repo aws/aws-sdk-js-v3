@@ -35,7 +35,7 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
 
 /**
  * @public
- * <p>List lens reviews.</p>
+ * <p>List lens reviews for a particular workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

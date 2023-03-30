@@ -1,3 +1,4 @@
+export * from "./GetConsolidatedReportPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAnswersPaginator";

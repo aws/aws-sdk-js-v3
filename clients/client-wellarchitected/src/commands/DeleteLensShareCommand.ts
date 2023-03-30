@@ -36,10 +36,10 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Delete a lens share.</p>
- *         <p>After the lens share is deleted,  Amazon Web Services accounts, IAM users, organizations,
+ *          <p>After the lens share is deleted,  Amazon Web Services accounts, users, organizations,
  *             and organizational units (OUs)
  *             that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p>
- *         <note>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -75,7 +75,7 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

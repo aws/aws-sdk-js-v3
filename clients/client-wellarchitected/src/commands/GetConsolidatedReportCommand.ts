@@ -13,52 +13,57 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListWorkloadsInput, ListWorkloadsOutput } from "../models/models_0";
+import { GetConsolidatedReportInput, GetConsolidatedReportOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListWorkloadsCommand,
-  serializeAws_restJson1ListWorkloadsCommand,
+  deserializeAws_restJson1GetConsolidatedReportCommand,
+  serializeAws_restJson1GetConsolidatedReportCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
  * @public
  *
- * The input for {@link ListWorkloadsCommand}.
+ * The input for {@link GetConsolidatedReportCommand}.
  */
-export interface ListWorkloadsCommandInput extends ListWorkloadsInput {}
+export interface GetConsolidatedReportCommandInput extends GetConsolidatedReportInput {}
 /**
  * @public
  *
- * The output of {@link ListWorkloadsCommand}.
+ * The output of {@link GetConsolidatedReportCommand}.
  */
-export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __MetadataBearer {}
+export interface GetConsolidatedReportCommandOutput extends GetConsolidatedReportOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Paginated list of workloads.</p>
+ * <p>Get a consolidated report of your workloads.</p>
+ *          <p>You can optionally choose to include workloads that have been shared with you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, ListWorkloadsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, ListWorkloadsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, GetConsolidatedReportCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, GetConsolidatedReportCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // ListWorkloadsInput
- *   WorkloadNamePrefix: "STRING_VALUE",
+ * const input = { // GetConsolidatedReportInput
+ *   Format: "PDF" || "JSON", // required
+ *   IncludeSharedResources: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
- * const command = new ListWorkloadsCommand(input);
+ * const command = new GetConsolidatedReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListWorkloadsCommandInput - {@link ListWorkloadsCommandInput}
- * @returns {@link ListWorkloadsCommandOutput}
- * @see {@link ListWorkloadsCommandInput} for command's `input` shape.
- * @see {@link ListWorkloadsCommandOutput} for command's `response` shape.
+ * @param GetConsolidatedReportCommandInput - {@link GetConsolidatedReportCommandInput}
+ * @returns {@link GetConsolidatedReportCommandOutput}
+ * @see {@link GetConsolidatedReportCommandInput} for command's `input` shape.
+ * @see {@link GetConsolidatedReportCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -71,9 +76,9 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  *
  *
  */
-export class ListWorkloadsCommand extends $Command<
-  ListWorkloadsCommandInput,
-  ListWorkloadsCommandOutput,
+export class GetConsolidatedReportCommand extends $Command<
+  GetConsolidatedReportCommandInput,
+  GetConsolidatedReportCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -91,7 +96,7 @@ export class ListWorkloadsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListWorkloadsCommandInput) {
+  constructor(readonly input: GetConsolidatedReportCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -104,15 +109,17 @@ export class ListWorkloadsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListWorkloadsCommandInput, ListWorkloadsCommandOutput> {
+  ): Handler<GetConsolidatedReportCommandInput, GetConsolidatedReportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListWorkloadsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetConsolidatedReportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "ListWorkloadsCommand";
+    const commandName = "GetConsolidatedReportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -131,15 +138,15 @@ export class ListWorkloadsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListWorkloadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkloadsCommand(input, context);
+  private serialize(input: GetConsolidatedReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetConsolidatedReportCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkloadsCommandOutput> {
-    return deserializeAws_restJson1ListWorkloadsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConsolidatedReportCommandOutput> {
+    return deserializeAws_restJson1GetConsolidatedReportCommand(output, context);
   }
 
   // Start section: command_body_extra

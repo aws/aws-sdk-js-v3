@@ -36,7 +36,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
 /**
  * @public
  * <p>Adds one or more tags to the specified resource.</p>
- *         <note>
+ *          <note>
  *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
  *          </note>
  * @example

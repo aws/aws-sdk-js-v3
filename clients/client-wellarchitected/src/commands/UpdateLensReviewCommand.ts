@@ -35,7 +35,7 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
 
 /**
  * @public
- * <p>Update lens review.</p>
+ * <p>Update lens review for a particular workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,7 +64,7 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

@@ -36,9 +36,9 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Associate a lens to a workload.</p>
- *         <p>Up to 10 lenses can be associated with a workload in a single API operation. A
+ *          <p>Up to 10 lenses can be associated with a workload in a single API operation. A
  *         maximum of 20 lenses can be associated with a workload.</p>
- *         <note>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -72,7 +72,7 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

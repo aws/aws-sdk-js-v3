@@ -36,9 +36,11 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
 /**
  * @public
  * <p>Create a new lens version.</p>
- *         <p>A lens can have up to 100 versions.</p>
- *         <p>After a lens has been imported, create a new lens version to publish it.  The owner of a lens can share the lens with other
- *             Amazon Web Services accounts and IAM users in the same Amazon Web Services Region. Only the owner of a lens can delete it.
+ *          <p>A lens can have up to 100 versions.</p>
+ *          <p>Use this operation to publish a new lens version after you have imported a lens. The <code>LensAlias</code>
+ *             is used to identify the lens to be published.
+ *             The owner of a lens can share the lens with other
+ *             Amazon Web Services accounts and users in the same Amazon Web Services Region. Only the owner of a lens can delete it.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,7 +68,7 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>

@@ -12,6 +12,7 @@ export * from "./DeleteWorkloadShareCommand";
 export * from "./DisassociateLensesCommand";
 export * from "./ExportLensCommand";
 export * from "./GetAnswerCommand";
+export * from "./GetConsolidatedReportCommand";
 export * from "./GetLensCommand";
 export * from "./GetLensReviewCommand";
 export * from "./GetLensReviewReportCommand";

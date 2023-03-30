@@ -36,7 +36,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 /**
  * @public
  * <p>List the tags for a resource.</p>
- *         <note>
+ *          <note>
  *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
  *          </note>
  * @example
