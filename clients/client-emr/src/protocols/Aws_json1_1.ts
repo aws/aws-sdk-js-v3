@@ -226,6 +226,7 @@ import {
   EbsConfiguration,
   EbsVolume,
   Ec2InstanceAttributes,
+  ErrorDetail,
   ExecutionEngineConfig,
   FailureDetails,
   GetAutoTerminationPolicyInput,
@@ -4952,6 +4953,8 @@ const deserializeAws_json1_1ClusterStateChangeReason = (
 
 const deserializeAws_json1_1ClusterStatus = (output: any, context: __SerdeContext): ClusterStatus => {
   return {
+    ErrorDetails:
+      output.ErrorDetails != null ? deserializeAws_json1_1ErrorDetailList(output.ErrorDetails, context) : undefined,
     State: __expectString(output.State),
     StateChangeReason:
       output.StateChangeReason != null
@@ -5235,6 +5238,38 @@ const deserializeAws_json1_1EC2InstanceIdsList = (output: any, context: __SerdeC
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ErrorData = (output: any, context: __SerdeContext): Record<string, string>[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1StringMap(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorData: output.ErrorData != null ? deserializeAws_json1_1ErrorData(output.ErrorData, context) : undefined,
+    ErrorMessage: __expectString(output.ErrorMessage),
+  } as any;
+};
+
+const deserializeAws_json1_1ErrorDetailList = (output: any, context: __SerdeContext): ErrorDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ErrorDetail(entry, context);
     });
   return retVal;
 };

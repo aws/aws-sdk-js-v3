@@ -1563,6 +1563,27 @@ export type ScaleDownBehavior = (typeof ScaleDownBehavior)[keyof typeof ScaleDow
 
 /**
  * @public
+ * <p>A tuple that provides information about an error that caused a cluster to terminate.</p>
+ */
+export interface ErrorDetail {
+  /**
+   * <p>The name or code that's associated with the error.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>A list of key value pairs that provide contextual information to explain why the error may have occured.</p>
+   */
+  ErrorData?: Record<string, string>[];
+
+  /**
+   * <p>A message describing the error that occured.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ClusterState = {
@@ -1658,6 +1679,11 @@ export interface ClusterStatus {
    *          cluster.</p>
    */
   Timeline?: ClusterTimeline;
+
+  /**
+   * <p>A list of tuples that provide information about the errors that caused a cluster termination. This structure may have up to 10 different <code>ErrorDetail</code> tuples.</p>
+   */
+  ErrorDetails?: ErrorDetail[];
 }
 
 /**
