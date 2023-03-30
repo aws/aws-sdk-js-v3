@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+
+### Features
+
+* **client-network-firewall:** AWS Network Firewall added TLS inspection configurations to allow TLS traffic inspection. ([801cd21](https://github.com/aws/aws-sdk-js-v3/commit/801cd211aa3a12d3a385418420e2e1c5d3df08bf))
+
+
+
+
+
 # [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+
+### Features
+
+* **client-athena:** Make DefaultExecutorDpuSize and CoordinatorDpuSize  fields optional  in StartSession ([1a4cd21](https://github.com/aws/aws-sdk-js-v3/commit/1a4cd2146c5ccd066b778b1ee71181519bfa34d0))
+* **client-auto-scaling:** Amazon EC2 Auto Scaling now supports Elastic Load Balancing traffic sources with the AttachTrafficSources, DetachTrafficSources, and DescribeTrafficSources APIs. This release also introduces a new activity status, "WaitingForConnectionDraining", for VPC Lattice to the DescribeScalingActivities API. ([3f4037e](https://github.com/aws/aws-sdk-js-v3/commit/3f4037e648e0113e6fc09e0a5123f8bb85347a52))
+* **client-batch:** This feature allows Batch on EKS to support configuration of Pod Labels through Metadata for Batch on EKS Jobs. ([d26bec4](https://github.com/aws/aws-sdk-js-v3/commit/d26bec4c0f1f01188789ce137222b94a2dfc4381))
+* **client-compute-optimizer:** This release adds support for HDD EBS volume types and io2 Block Express. We are also adding support for 61 new instance types and instances that have non consecutive runtime. ([defd0ca](https://github.com/aws/aws-sdk-js-v3/commit/defd0ca41aefd5e5bb381d1febf1597e675b104d))
+* **client-drs:** Adding a field to the replication configuration APIs to support the auto replicate new disks feature. We also deprecated RetryDataReplication. ([6848391](https://github.com/aws/aws-sdk-js-v3/commit/68483918f8447246f17beddf73dd107cf03f9845))
+* **client-ec2:** This release adds support for Tunnel Endpoint Lifecycle control, a new feature that provides Site-to-Site VPN customers with better visibility and control of their VPN tunnel maintenance updates. ([daa7956](https://github.com/aws/aws-sdk-js-v3/commit/daa79569c2e9e636a2ed9cd7a5425bdbc5d491e4))
+* **client-emr:** Updated DescribeCluster and ListClusters API responses to include ErrorDetail that specifies error code, programmatically accessible error data,and an error message. ErrorDetail provides the underlying reason for cluster failure and recommends actions to simplify troubleshooting of EMR clusters. ([aa47baa](https://github.com/aws/aws-sdk-js-v3/commit/aa47baac352ef66262e6dd828b7177b47e22cc96))
+* **client-glue:** This release adds support for AWS Glue Data Quality, which helps you evaluate and monitor the quality of your data and includes the API for creating, deleting, or updating data quality rulesets, runs and evaluations. ([811c814](https://github.com/aws/aws-sdk-js-v3/commit/811c8140442bd71419d67808c1a0e2f0bba86fd9))
+* **client-guardduty:** Added EKS Runtime Monitoring feature support to existing detector, finding APIs and introducing new Coverage APIs ([0f16674](https://github.com/aws/aws-sdk-js-v3/commit/0f16674b6eeb6fa2a0b5e499722af15a05a02458))
+* **client-imagebuilder:** Adds support for new image workflow details and image vulnerability detection. ([a2d8908](https://github.com/aws/aws-sdk-js-v3/commit/a2d89082981b99c62b01b930b51ccb943fd69343))
+* **client-ivs:** Amazon Interactive Video Service (IVS) now offers customers the ability to configure IVS channels to allow insecure RTMP ingest. ([0001a10](https://github.com/aws/aws-sdk-js-v3/commit/0001a102c744e3461112b89a25dac15802a0aab5))
+* **client-kendra:** AWS Kendra now supports featured results for a query. ([2271816](https://github.com/aws/aws-sdk-js-v3/commit/227181614551be9d9b27c6a8ddd15a27e908add7))
+* **client-network-firewall:** AWS Network Firewall added TLS inspection configurations to allow TLS traffic inspection. ([801cd21](https://github.com/aws/aws-sdk-js-v3/commit/801cd211aa3a12d3a385418420e2e1c5d3df08bf))
+* **client-sagemaker-geospatial:** Amazon SageMaker geospatial capabilities now supports server-side encryption with customer managed KMS key and SageMaker notebooks with a SageMaker geospatial image in a Amazon SageMaker Domain with VPC only mode. ([04b37bf](https://github.com/aws/aws-sdk-js-v3/commit/04b37bfb8ac45f8e4a9a4941f761398c03388c88))
+* **client-vpc-lattice:** General Availability (GA) release of Amazon VPC Lattice ([fc57f8f](https://github.com/aws/aws-sdk-js-v3/commit/fc57f8f047ee72b4eb68ed21f78593e31501a789))
+* **client-wellarchitected:** AWS Well-Architected SDK now supports getting consolidated report metrics and generating a consolidated report PDF. ([f0d07c4](https://github.com/aws/aws-sdk-js-v3/commit/f0d07c4495501c318dc8e13d6e1804aaba3a6b78))
+* **clients:** update client endpoints as of 2023-03-30 ([4682bc1](https://github.com/aws/aws-sdk-js-v3/commit/4682bc1487b80122328e2d9c39c9e5bcf785f47a))
+
+
+
+
+
 # [3.302.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.301.0...v3.302.0) (2023-03-29)
 
 

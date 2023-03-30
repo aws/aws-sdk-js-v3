@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+
+### Features
+
+* **client-wellarchitected:** AWS Well-Architected SDK now supports getting consolidated report metrics and generating a consolidated report PDF. ([f0d07c4](https://github.com/aws/aws-sdk-js-v3/commit/f0d07c4495501c318dc8e13d6e1804aaba3a6b78))
+
+
+
+
+
 # [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-wellarchitected

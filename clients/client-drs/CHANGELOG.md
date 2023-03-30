@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+
+### Features
+
+* **client-drs:** Adding a field to the replication configuration APIs to support the auto replicate new disks feature. We also deprecated RetryDataReplication. ([6848391](https://github.com/aws/aws-sdk-js-v3/commit/68483918f8447246f17beddf73dd107cf03f9845))
+
+
+
+
+
 # [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-drs

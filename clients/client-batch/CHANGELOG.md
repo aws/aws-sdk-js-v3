@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+
+### Features
+
+* **client-batch:** This feature allows Batch on EKS to support configuration of Pod Labels through Metadata for Batch on EKS Jobs. ([d26bec4](https://github.com/aws/aws-sdk-js-v3/commit/d26bec4c0f1f01188789ce137222b94a2dfc4381))
+
+
+
+
+
 # [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-batch
