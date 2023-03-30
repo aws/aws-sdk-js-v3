@@ -3426,6 +3426,7 @@ const deserializeAws_restJson1EksPodPropertiesDetail = (
       output.containers != null ? deserializeAws_restJson1EksContainerDetails(output.containers, context) : undefined,
     dnsPolicy: __expectString(output.dnsPolicy),
     hostNetwork: __expectBoolean(output.hostNetwork),
+    metadata: output.metadata != null ? deserializeAws_restJson1EksMetadata(output.metadata, context) : undefined,
     nodeName: __expectString(output.nodeName),
     podName: __expectString(output.podName),
     serviceAccountName: __expectString(output.serviceAccountName),

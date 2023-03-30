@@ -2697,8 +2697,18 @@ export interface EksContainer {
 
 /**
  * @public
+ * <p>Describes and uniquely identifies Kubernetes resources. For example, the compute environment
+ *    that a pod runs in or the <code>jobID</code> for a job running in the pod. For more information,
+ *    see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">Understanding Kubernetes Objects</a> in the <i>Kubernetes
+ *    documentation</i>.</p>
  */
 export interface EksMetadata {
+  /**
+   * <p>Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63
+   *    uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be
+   *    added or modified at any time. Each resource can have multiple labels, but each key must be
+   *    unique for a given object.</p>
+   */
   labels?: Record<string, string>;
 }
 
@@ -2850,6 +2860,13 @@ export interface EksPodProperties {
    */
   volumes?: EksVolume[];
 
+  /**
+   * <p>Metadata about the
+   *    Kubernetes
+   *    pod. For
+   *    more information, see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">Understanding Kubernetes Objects</a> in the <i>Kubernetes
+   *    documentation</i>.</p>
+   */
   metadata?: EksMetadata;
 }
 
@@ -3513,8 +3530,8 @@ export interface ContainerDetail {
   fargatePlatformConfiguration?: FargatePlatformConfiguration;
 
   /**
-   * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand
-   *    the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on
+   * <p>The amount of ephemeral storage allocated for the task. This parameter is used to expand the
+   *    total amount of ephemeral storage available, beyond the default amount, for tasks hosted on
    *    Fargate.</p>
    */
   ephemeralStorage?: EphemeralStorage;
@@ -3743,6 +3760,14 @@ export interface EksPodPropertiesDetail {
    * <p>The name of the node for this job.</p>
    */
   nodeName?: string;
+
+  /**
+   * <p>Describes and uniquely identifies Kubernetes resources. For example, the compute environment
+   *    that a pod runs in or the <code>jobID</code> for a job running in the pod. For more information,
+   *    see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">Understanding Kubernetes Objects</a> in the <i>Kubernetes
+   *    documentation</i>.</p>
+   */
+  metadata?: EksMetadata;
 }
 
 /**
@@ -4624,6 +4649,10 @@ export interface EksPodPropertiesOverride {
    */
   containers?: EksContainerOverride[];
 
+  /**
+   * <p>Metadata about the
+   *    overrides for the container that's used on the Amazon EKS pod.</p>
+   */
   metadata?: EksMetadata;
 }
 
