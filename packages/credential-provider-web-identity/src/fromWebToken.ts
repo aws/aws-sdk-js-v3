@@ -111,8 +111,41 @@ export interface AssumeRoleWithWebIdentityParams {
   DurationSeconds?: number;
 }
 
-type LowerCaseKey<T> = { [K in keyof T as `${Uncapitalize<string & K>}`]: T[K] };
-export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIdentityParams>, "roleSessionName"> {
+/**
+ * Changed to a not dynamic way of grabbing an object with all keys in lowercase
+ * to add support for Typescript version 3 that doesn't support the new
+ * template literal syntax and mapped types with template literal
+ * used on the type LowerCaseKey
+ *
+ * Previous way of dealing with this (Only Typescript 4.1 and above):
+ * type LowerCaseKey<T> = { [K in keyof T as `${Uncapitalize<string & K>}`]: T[K] };
+ * LowerCaseKey<AssumeRoleWithIdentityParams>
+ *
+ * Docs:
+ * - Playground talking about template string minimum Typescript version and how to use it:
+ *   https://www.typescriptlang.org/pt/play#example/intro-to-template-literals
+ * - Playground talking about mapped types with template string:
+ *   https://www.typescriptlang.org/pt/play#example/mapped-types-with-template-literals
+ *
+ * Issues Related to it:
+ * - https://github.com/aws/aws-sdk-js-v3/issues/2881
+ * - https://github.com/aws/aws-sdk-js-v3/issues/2948
+ *
+ * TODO:
+ * In the future, if the AWS SDK minimum version of typescript is bumped to 4.1
+ * we can remove this and use the new template literal syntax
+ */
+type LowerCaseAssumeRoleWithWebIdentityParams = {
+  roleArn: string;
+  roleSessionName: string;
+  webIdentityToken: string;
+  providerId?: string;
+  policyArns?: { arn?: string }[];
+  policy?: string;
+  durationSeconds?: number;
+}
+
+export interface FromWebTokenInit extends Omit<LowerCaseAssumeRoleWithWebIdentityParams, "roleSessionName"> {
   /**
    * The IAM session name used to distinguish sessions.
    */
